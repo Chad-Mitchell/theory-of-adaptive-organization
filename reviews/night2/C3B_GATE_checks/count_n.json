@@ -1,0 +1,1 @@
+{"stage2_rows_by_arm": {"P": 3224, "Q": 1389, "W": 1863}, "armP_rules1to4_dedup": 2294, "by_shock": {"numpy": 1063, "pandas": 532, "pydantic": 362, "sqlalchemy": 166, "urllib3": 171}, "unique_repos": 2116, "valiev_subset": 86}
