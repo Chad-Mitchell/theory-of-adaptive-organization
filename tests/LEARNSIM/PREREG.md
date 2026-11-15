@@ -1,6 +1,6 @@
 # LEARNSIM preregistration: a non-circular learning-agent test of GTAO's surviving in-model results
 
-Private. Written Sunday 15 Nov 2026, finished 08:17 ET (lock time is the commit time, not this line), by a Grok Bot executor for Chad (via Ace). Nothing public. Locked by sha256 (below) and a commit to a branch of the private repo before Stage A or any onset run.
+Private. Written Sunday 15 Nov 2026, finished 08:16 ET (lock time is the commit time, not this line), by a Grok Bot executor for Chad (via Ace). Nothing public. Locked by sha256 (below) and a commit to a branch of the private repo before Stage A or any onset run.
 
 ## 0. Why this test exists
 The physics/stats review (night1/REVIEW/physstat/REPORT.md, issue #2) found every earlier simulation pass circular: learners minimised the simulator's own expected-cost formula, so the onset slope was fixed before any learner existed, and "measured" sensing exponents read back the trackers' own cost rule. This test removes those specific circularities:
