@@ -342,7 +342,11 @@
   "v": 0.6,
   "L": 2,
   "c": 3,
-  "note": "From SPF-NOISE-PROXY S-1 (post hoc): with the validated nowcast-noise proxy L0w, consensus CG coefficients exceed the optimal noisy-filter beta^G 2.5-6x (UNEMP, HOUSING, TBILL, RSLGOV). Lock 'beta-hat > beta^G(K_L0w)' (and its size) on unseen data: ECB SPF, Livingston, other SPF variables/horizons not yet analysed, or post-2019 with the COVID rule fixed in advance. Bears on N13 (are forecasters near the measured-input optimum?). Dry-run power first. | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK; state the Gaussian premise of the noisy-information filter in the prereg."
+  "note": "From SPF-NOISE-PROXY S-1 (post hoc): with the validated nowcast-noise proxy L0w, consensus CG coefficients exceed the optimal noisy-filter beta^G 2.5-6x (UNEMP, HOUSING, TBILL, RSLGOV). Lock 'beta-hat > beta^G(K_L0w)' (and its size) on unseen data: ECB SPF, Livingston, other SPF variables/horizons not yet analysed, or post-2019 with the COVID rule fixed in advance. Bears on N13 (are forecasters near the measured-input optimum?). Dry-run power first. | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK; state the Gaussian premise of the noisy-information filter in the prereg. | DONE 15 Nov ~5:15 PM ET (pick 20, UNIFORM slot: top of entry 97's perm, seed 20261212; rule rank 32/43, I = 0.4; Ace's unaided rank 19/43; ledger 96-98 + outcome): MV10 GATE NOT MET, no prereg locked, no outcome computed. Unseen set = 9 SPF variables never CG-regressed here (NGDP, PGDP, CPROF, RGDP, RCONSUM, RNRESIN, RRESINV, RFEDGOV, CPI); pooled multiple c of beta^G, H_R c = 2.5 vs H_0 c = 1: best P(PASS|2.5) 0.62 / P(FAIL|1) 0.60 (PGDP-dominated, tau 0), 0.71/0.72 with optimistic sd x0.8; growth/inflation series give tiny beta^G vs planned sd. Post-2019 and other horizons not reachable/independent. tests/SPF_RIGIDITY_OOS/RESULTS.md",
+  "status": "DONE",
+  "paths": [
+   "tests/SPF_RIGIDITY_OOS/"
+  ]
  },
  {
   "id": "NOISE-PROXY-REFEREE",
@@ -806,5 +810,14 @@
   "L": 1,
   "c": 0.5,
   "note": "From REGIME-C-GAUSSIAN-PREMISE review Q5: §2.2 requires a Regime C prereg to state its case (premise met / not derived) before the data. Proposal only: a default for a prereg that states none (e.g. scored as if the premise holds, mirroring v1.4.4's linear default) and whether N6 should say it. Kill-condition text: separate author + independent reviewer (t1916)."
+ },
+ {
+  "id": "SPF-RIGIDITY-LIVINGSTON",
+  "w": 2,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 3,
+  "note": "From SPF-RIGIDITY-OOS (gate not met, 15 Nov ~5:15 PM ET): the SPF's unused quarterly growth/inflation variables cannot power the post hoc rigidity test (c = consensus CG / optimal-filter beta at measured nowcast noise). Route: Livingston Survey (Philadelphia Fed, public, semiannual since 1946; level series such as unemployment, T-bill, bond yields) and/or ECB SPF (public microdata since 1999). Needs first: a nowcast/short-horizon noise instrument for their horizon design validated on synthetic truth (SPF-NOISE-PROXY method), then the MV10 power simulation of tests/SPF_RIGIDITY_OOS/power.py on planned data; lock only if both rules reach 0.8. State the Gaussian noisy-filter premise."
  }
 ]

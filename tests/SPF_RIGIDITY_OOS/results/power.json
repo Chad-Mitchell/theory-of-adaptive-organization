@@ -1,0 +1,178 @@
+[
+ {
+  "vars": [
+   "NGDP",
+   "PGDP",
+   "CPROF",
+   "RGDP",
+   "RCONSUM",
+   "RNRESIN",
+   "RRESINV",
+   "CPI"
+  ],
+  "tau": 0.0,
+  "se_c_sampling_only": 0.32479992501872623,
+  "info_share": {
+   "NGDP": 0.00805723127767316,
+   "PGDP": 0.854570937623073,
+   "CPROF": 0.0004125905941999692,
+   "RGDP": 0.006383050747200069,
+   "RCONSUM": 0.01049393539474403,
+   "RNRESIN": 0.062245091037771386,
+   "RRESINV": 0.014258003865221596,
+   "CPI": 0.04357915946011671
+  },
+  "sim": {
+   "R": {
+    "P_pass": 0.617,
+    "P_fail": 0.054,
+    "c_sd": 2.0990561098577505,
+    "c_median": 2.58840066547012
+   },
+   "0": {
+    "P_pass": 0.0665,
+    "P_fail": 0.5995,
+    "c_sd": 0.8898808131320565,
+    "c_median": 1.0026981219110112
+   }
+  },
+  "gate_met": false,
+  "power_gate_tool_best_case": {
+   "P_pass_true": 0.9960727793340914,
+   "P_fail_null": 0.9960727793340914,
+   "gate_met": true,
+   "sigma_max_needed": 0.5354083380925185
+  },
+  "set": "A all K-ok"
+ },
+ {
+  "vars": [
+   "NGDP",
+   "PGDP",
+   "CPROF",
+   "RGDP",
+   "RCONSUM",
+   "RNRESIN",
+   "RRESINV",
+   "CPI"
+  ],
+  "tau": 0.4,
+  "se_c_sampling_only": 0.32479992501872623,
+  "info_share": {
+   "NGDP": 0.00805723127767316,
+   "PGDP": 0.854570937623073,
+   "CPROF": 0.0004125905941999692,
+   "RGDP": 0.006383050747200069,
+   "RCONSUM": 0.01049393539474403,
+   "RNRESIN": 0.062245091037771386,
+   "RRESINV": 0.014258003865221596,
+   "CPI": 0.04357915946011671
+  },
+  "sim": {
+   "R": {
+    "P_pass": 0.5575,
+    "P_fail": 0.0555,
+    "c_sd": 2.661054921880896,
+    "c_median": 2.644948253099849
+   },
+   "0": {
+    "P_pass": 0.091,
+    "P_fail": 0.5495,
+    "c_sd": 1.1732940620363612,
+    "c_median": 1.0625362917368109
+   }
+  },
+  "gate_met": false,
+  "power_gate_tool_best_case": {
+   "P_pass_true": 0.9960727793340914,
+   "P_fail_null": 0.9960727793340914,
+   "gate_met": true,
+   "sigma_max_needed": 0.5354083380925185
+  },
+  "set": "A all K-ok"
+ },
+ {
+  "vars": [
+   "NGDP",
+   "CPROF",
+   "RGDP",
+   "RCONSUM",
+   "RNRESIN",
+   "RRESINV"
+  ],
+  "tau": 0.0,
+  "se_c_sampling_only": 1.0177371100788972,
+  "info_share": {
+   "NGDP": 0.07910887538355546,
+   "CPROF": 0.00405096698557453,
+   "RGDP": 0.06267115200309684,
+   "RCONSUM": 0.10303333723661329,
+   "RNRESIN": 0.6111453153628672,
+   "RRESINV": 0.13999035302829266
+  },
+  "sim": {
+   "R": {
+    "P_pass": 0.3925,
+    "P_fail": 0.0725,
+    "c_sd": 1.1558437151262873,
+    "c_median": 2.5889302532618244
+   },
+   "0": {
+    "P_pass": 0.078,
+    "P_fail": 0.3745,
+    "c_sd": 1.0007740772950149,
+    "c_median": 1.0396386130591306
+   }
+  },
+  "gate_met": false,
+  "power_gate_tool_best_case": {
+   "P_pass_true": 0.31344601844191844,
+   "P_fail_null": 0.31344601844191844,
+   "gate_met": false,
+   "sigma_max_needed": 0.5354083380925185
+  },
+  "set": "B K-ok and beta^G CI within x10"
+ },
+ {
+  "vars": [
+   "NGDP",
+   "CPROF",
+   "RGDP",
+   "RCONSUM",
+   "RNRESIN",
+   "RRESINV"
+  ],
+  "tau": 0.4,
+  "se_c_sampling_only": 1.0177371100788972,
+  "info_share": {
+   "NGDP": 0.07910887538355546,
+   "CPROF": 0.00405096698557453,
+   "RGDP": 0.06267115200309684,
+   "RCONSUM": 0.10303333723661329,
+   "RNRESIN": 0.6111453153628672,
+   "RRESINV": 0.13999035302829266
+  },
+  "sim": {
+   "R": {
+    "P_pass": 0.397,
+    "P_fail": 0.0625,
+    "c_sd": 1.374978833697636,
+    "c_median": 2.7353810181631757
+   },
+   "0": {
+    "P_pass": 0.0925,
+    "P_fail": 0.332,
+    "c_sd": 1.065780577484855,
+    "c_median": 1.1736230854995786
+   }
+  },
+  "gate_met": false,
+  "power_gate_tool_best_case": {
+   "P_pass_true": 0.31344601844191844,
+   "P_fail_null": 0.31344601844191844,
+   "gate_met": false,
+   "sigma_max_needed": 0.5354083380925185
+  },
+  "set": "B K-ok and beta^G CI within x10"
+ }
+]

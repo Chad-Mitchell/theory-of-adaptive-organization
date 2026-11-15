@@ -1,0 +1,4 @@
+UNEMP    n=195 planned sd 0.133 (mean 0.303, pop beta^G 0.325) | real NW SE 0.230
+HOUSING  n=195 planned sd 0.167 (mean 0.333, pop beta^G 0.352) | real NW SE 0.286
+TBILL    n=149 planned sd 0.150 (mean 0.073, pop beta^G 0.095) | real NW SE 0.179
+RSLGOV   n=149 planned sd 0.561 (mean 0.041, pop beta^G 0.151) | real NW SE 0.473

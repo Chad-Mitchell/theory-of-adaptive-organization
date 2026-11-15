@@ -40,6 +40,8 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 **v2.20 note (15 Nov 2026, about 4:50 PM ET; QUEUE CAUSAL-POWER-GATE, pick 19, ledger 92–95; v2.18 is taken by the unmerged q-pick18 branch).** No row changes status. N22 pointer: its "a ~7× stakes change needed" is the coin-flip point; as locked, its PASS region was empty (band top 0.352 < 1.96·se_tot 0.671) and its FAIL rule (absolute ε 0.05) unreachable at any stakes change; both rules at 0.8 would need ×17.8 in one year or ≥ 49 contrasts of the observed size (`reviews/night2/CAUSAL_POWER_GATE.md`). New lock gate FRAMEWORK MV10. THEORY.md not edited.
 
+**v2.21 note (15 Nov 2026, about 5:15 PM ET; QUEUE SPF-RIGIDITY-OOS, pick 20, uniform slot, ledger 96–98 + outcome).** No row changes status; **N13 stays OPEN**. The out-of-sample test of the post hoc SPF rigidity pattern (consensus CG ≈ 2.5–6 × the optimal noisy-filter β at measured nowcast noise, SPF-NOISE-PROXY S-1) failed the FRAMEWORK MV10 power gate on the only unseen SPF variables (best P(PASS | ×2.5) 0.62, P(FAIL | optimum) 0.60), so nothing was locked and no outcome exists (`tests/SPF_RIGIDITY_OOS/RESULTS.md`). The pattern remains post hoc evidence only. THEORY.md not edited.
+
 **Why v2 exists.** Chad (t1908): no field test so far measured GTAO's quantities validly, so field "kills" and "hits" were results about **proxies**. v2 says so in every row. It does **not** soften the mathematics. Statements refuted by proof stay refuted (as MATH-CORRECTED, with their replacement), and failed locked simulations stay failed (SIM-FAIL).
 
 ## Statuses (exactly one per row)
