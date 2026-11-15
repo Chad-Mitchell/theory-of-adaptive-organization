@@ -255,7 +255,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **CAUSAL-POWER-GATE** — DONE (pick 19, unaided slot: Ace's unaided top in entry 92, open and not active, nothing skipped; rule rank 4 in entry 93; ledger 92 unaided order, 93 rule_rank, 94 pick, 95 outcome): `reviews/night2/CAUSAL_POWER_GATE.md`, tool `tools/power_gate.py` (+ tests), FRAMEWORK **MV10**, QUEUE rule 2. Gate: |b|·S ≥ (z₁₋α/₂ + z_π)·σ/min(1, κ) (2.80σ at α 0.05, π 0.8); an absolute FAIL margin ε needs σ ≤ ε/2.80 whatever the input change. Pick 15 re-checked: PASS region empty (band top 0.352 < 1.96·0.342), P(FAIL | no response) 0.035; both rules at 0.8 need ×17.8 stakes in one year (×7.5 = coin-flip PASS, the item's "~7×"), or K ≥ 49 contrasts of |Δlog w| 0.41. Process only; THEORY not edited.
 - **KG-FEASIBILITY-GATE** — DONE, merged into CAUSAL-POWER-GATE (same rule; best-case form `power_gate.py zero-events` reproduces WIKIDATA-BAND's 0.031/yr and n ≥ 63). Open-prereg audit: C3b fails MV10 on its own power output (locked before the gate; unchanged).
 - **CAUSAL-POWER-GATE-N6** (w 1, c 0.5). Optional N6/§9 pointer to MV10; kill-condition text, separate author + independent reviewer.
-- **C3B-GATE-ADDENDUM** (w 1, c 0.5). Dated addendum before C3b stage 4 recording its MV10 status at the real n.
+- ~~**C3B-GATE-ADDENDUM**~~ (w 1, c 0.5) — DONE 15 Nov ~6:40 PM ET (pick 31, UNAIDED slot; ledger 142–144 + outcome 152): `tests/C3b/PREREG_ADDENDUM_A3.md`, `reviews/night2/C3B_GATE_ADDENDUM.md`. Real pre-shock Arm P n ≤ 2,294; MV10 **not met** (P(HIT | theory) 0.86, P(MISS | null) 0.65 on PREREG §5's data; 0.75/0.93 without its confounder); any stage-4 verdict labelled exploratory.
 - STAKES-SHIFT-MULTIYEAR note gains the gate numbers (K ≥ 49 at the observed change; κ-relative FAIL margin). **v1.4.7 (CAUSAL-KILL-MAGNITUDE-REVIEW):** at N6's κ_F ≤ ½ the gate needs **K ≥ 193** contrasts of |Δlog w| = 0.41 at κ_F = ½ (×317 for one contrast), before s·λ scaling; K ≥ 49 was at κ = 1, now outside N6's range.
 - Surprise read: **weak** — pick 15's PASS rule was empty by construction and its FAIL rule unreachable at any stakes change; no theory row moves.
 
@@ -361,3 +361,9 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 **Pick 30 done (ledger 148).** 
 
 **Pick 29 done (ledger 138). Next pick (30) is the rule slot (cycle position 2): rule's top among open non-active items (log a fresh unaided order first).**
+
+### NEW (15 Nov ~6:40 PM ET, from C3B-GATE-ADDENDUM; surprises read per rule 4)
+- Surprise read: **weak** — real n (≤ 2,294) is ~5× the audit's 300–500, so H1/K1 alone would meet the gate; the binding constraints are the conjunctive HIT (S9's latency control nearly collinear with tau) and the assumed confounder's +0.045 bias against K1's absolute 0.15 margin.
+- **C3B-STAGE4-DECIDE** (w 2, c 2). Before any C3b stage 3–6 run: run as exploratory (A3 labels it) or redesign before outcomes (sixth exogenous shock / wider frame to n ≈ 4,000; κ-relative K1 margin; S9 control not collinear with tau) in a dated addendum with its own MV10 output.
+
+**Pick 31 done (unaided slot; ledger 142–144 + outcome 152; pick 30's entries were renumbered to 145–148 and merged; pick 32 (uniform slot) holds 149–151 on q-pick32). Next pick (33) is the rule slot (cycle position 1). Recheck all pushed branches before any ledger write.**
