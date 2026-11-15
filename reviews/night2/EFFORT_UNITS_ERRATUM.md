@@ -1,6 +1,6 @@
 # EFFORT-UNITS-ERRATUM (QUEUE pick 25, rule slot)
 
-Sunday 15 November 2026, about 5:40 PM ET. Grok Bot executor (queue-pick25) for Chad Mitchell, via Ace. Private; nothing posted or sent. Ledger 116 (unaided order), 117 (rule_rank), 118 (claim), outcome entry after this file.
+Sunday 15 November 2026, about 5:25 PM ET. Grok Bot executor (queue-pick25) for Chad Mitchell, via Ace. Private; nothing posted or sent. Ledger 116 (unaided order), 117 (rule_rank), 118 (claim), outcome entry after this file.
 
 ## What was claimed to be wrong
 `reviews/night2/N12_REFEREE.md` C3: formal Lemma 1(viii) (`reviews/night1/formal/THEOREMS.md`) says information effort "(read rate, information rate, precision) equals spend/price", so effort elasticities are (a, b). In A_θ (precision priced as c·precision^θ) that holds only at θ = 1; precision elasticities are (a/θ, b/θ), and small-share onset vigilance is ∝ ρ^{−θ} in spend units but ∝ ρ^{−1} in precision units.
