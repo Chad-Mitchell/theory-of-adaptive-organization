@@ -890,7 +890,8 @@
   "v": 0.9,
   "L": 2,
   "c": 0.5,
-  "note": "From SPECTRUM-MAP-FIXES (pick 26): separate reviewer (authored none of pick 26) re-derives the one-store excess constant c in excess ~ c(alpha-2)^2 with own code (c3 model with polished K=1 rate; scale-free one-EWMA model) and passes or fails the q-pick26-theory PR #51 (THEORY N4 and §2.2 store row: 0.14 -> c ~ 0.03-0.2, model- and span-dependent). Core-table numeric: Chad t1916."
+  "note": "From SPECTRUM-MAP-FIXES (pick 26): separate reviewer (authored none of pick 26) re-derives the one-store excess constant c in excess ~ c(alpha-2)^2 with own code (c3 model with polished K=1 rate; scale-free one-EWMA model) and passes or fails the q-pick26-theory PR #51 (THEORY N4 and §2.2 store row: 0.14 -> c ~ 0.03-0.2, model- and span-dependent). Core-table numeric: Chad t1916. | DONE 15 Nov ~5:50 PM ET (pick 27, unaided; ledger 125-126, 128 + outcome): PASS-WITH-FIXES, PR #51 merged as THEORY v1.4.8; c span/model-dependent (0.005 at span 10 to pi^2/32-1/8 = 0.183 no free memory); thresholds by model/span; reviews/night2/STORE_COEF_REVIEW.md.",
+  "status": "DONE"
  },
  {
   "id": "LOCK-SENSITIVITY-REPORT",
