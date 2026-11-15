@@ -1,0 +1,40 @@
+{
+ "dW_dalpha": -0.5972933384254131,
+ "dW_dlogq": -0.03290458718282929,
+ "dW_dlogs2_partial": 0.038519625062455876,
+ "dW_dlogs2_total_profile": 0.0012441987884800332,
+ "sigma_pred_diag_alpha_only": 0.025606550885934876,
+ "sigma_pred_joint": 0.0229396017567995,
+ "locked_constants": {
+  "pred": 0.277,
+  "sigma_pred": 0.0264,
+  "D": -0.01740499991620892,
+  "sigma_D": 0.04861565582211434,
+  "verdict": "PASS",
+  "decisive_resolution": false
+ },
+ "reviewer_joint": {
+  "pred": 0.27732958499193994,
+  "sigma_pred": 0.0229396017567995,
+  "D": -0.01773458490814883,
+  "sigma_D": 0.046826779942409434,
+  "verdict": "PASS",
+  "decisive_resolution": false
+ },
+ "free_noise_consistent": {
+  "pred": 0.2764189393289564,
+  "sigma_pred": 0.0229396017567995,
+  "D": -0.016823939245165287,
+  "sigma_D": 0.046826779942409434,
+  "verdict": "PASS",
+  "decisive_resolution": false
+ },
+ "fullband_inputs": {
+  "pred": 0.2557276894324318,
+  "sigma_pred": 0.0229396017567995,
+  "D": 0.0038673106513593125,
+  "sigma_D": 0.046826779942409434,
+  "verdict": "PASS",
+  "decisive_resolution": false
+ }
+}
