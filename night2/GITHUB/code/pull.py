@@ -13,7 +13,7 @@ WINDOW=('2025-11-16','2026-11-14')   # 52 weeks, Sunday..Saturday
 REFS_OK={'main','master','develop','dev','trunk','head','nightly','devel','development'}
 lock=threading.Lock()
 
-def gh(path, raw_headers=False, tries=4):
+def gh(path, raw_headers=False, tries=40):
     for t in range(tries):
         cmd=['gh','api',path]+(['-i'] if raw_headers else [])
         r=subprocess.run(cmd,capture_output=True,text=True)
@@ -22,7 +22,12 @@ def gh(path, raw_headers=False, tries=4):
             return json.loads(r.stdout) if r.stdout.strip() else None
         err=r.stderr
         if 'rate limit' in err.lower() or 'secondary' in err.lower() or '403' in err and 'limit' in err.lower():
-            time.sleep(60*(t+1)); continue
+            # POST-LOCK I/O FIX (declared): wait for the core reset instead of giving up; never mark a unit bad because of rate limiting
+            try:
+                rl=json.loads(subprocess.run(['gh','api','rate_limit'],capture_output=True,text=True).stdout)['resources']['core']
+                wait=max(30,rl['reset']-time.time()+5) if rl['remaining']<50 else 30
+            except Exception: wait=120
+            print('rate-limited; sleeping',int(wait),flush=True); time.sleep(wait); continue
         if '404' in err or '410' in err or '409' in err or '451' in err: return {'_missing':err[:120]}
         time.sleep(5*(t+1))
     return {'_err':err[:200]}
