@@ -1,0 +1,19 @@
+== validation at H=1/2 vs exact discrete Kalman (avg error = P+ + 1/2, P- = (1+sqrt(1+4z))/2) ==
+ z=0.0    conditioning 0.5000000000  Kalman 0.5000000000
+ z=0.001  conditioning 0.5009990020  Kalman 0.5009990020
+ z=0.1    conditioning 0.5916079783  Kalman 0.5916079783
+ z=1.0    conditioning 1.1180339887  Kalman 1.1180339887
+ z=10.0   conditioning 3.2015621187  Kalman 3.2015621187
+ M-convergence at H=0.75, z=1: M=200 -> 1.137333
+
+== read noise s2 = 0.0 (member units: q_u = w = c = 1) ==
+ H (alpha) | local slopes d ln N*/d ln rho between rho = 1, 10^-0.5, ..., 10^-4
+ 0.25 (1.5) | -0.794 -0.918 -0.972 -0.991 -0.997 -0.999 -1.000 -1.000 | N* at rho=1e-4: 3.38e+04
+ 0.5 (2.0) | -0.796 -0.918 -0.972 -0.991 -0.997 -0.999 -1.000 -1.000 | N* at rho=1e-4: 4e+04
+ 0.75 (2.5) | -0.798 -0.919 -0.972 -0.991 -0.997 -0.999 -1.000 -1.000 | N* at rho=1e-4: 4.61e+04
+
+== read noise s2 = 0.001 (member units: q_u = w = c = 1) ==
+ H (alpha) | local slopes d ln N*/d ln rho between rho = 1, 10^-0.5, ..., 10^-4
+ 0.25 (1.5) | -0.798 -0.929 -1.006 -1.093 -1.276 -1.596 -1.877 -1.985 | N* at rho=1e-4: 9.42e+05
+ 0.5 (2.0) | -0.802 -0.935 -1.023 -1.144 -1.401 -1.767 -1.960 -1.996 | N* at rho=1e-4: 1.91e+06
+ 0.75 (2.5) | -0.807 -0.947 -1.059 -1.240 -1.583 -1.901 -1.991 -2.011 | N* at rho=1e-4: 3.97e+06
