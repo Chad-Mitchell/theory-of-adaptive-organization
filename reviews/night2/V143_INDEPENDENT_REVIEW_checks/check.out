@@ -1,0 +1,20 @@
+MSE k=0.1: density-quad, Bessel, Bessel/2k[ln(2/k)-g] => (0.3952587019380761, 0.3952587019380761, 0.8171511010592256)
+MSE k=0.01: density-quad, Bessel, Bessel/2k[ln(2/k)-g] => (0.09019033323017865, 0.09019033323017865, 0.9551831217565637)
+MSE k=0.001: density-quad, Bessel, Bessel/2k[ln(2/k)-g] => (0.013949453456773056, 0.013949453456773056, 0.9930292924947364)
+MSE k=0.0001: density-quad, Bessel, Bessel/2k[ln(2/k)-g] => (0.0018635165080801985, 0.0018635165080801985, 0.9990682935970242)
+MSE elasticity in kappa (=lam,=N) k=0.001 => 0.851650480402656
+MSE elasticity in kappa (=lam,=N) k=0.00025 => 0.8792456198481065
+MSE elasticity in kappa (=lam,=N) k=0.0001 => 0.8919442662765713
+t_A k=0.05: quad, leading (1/2)[ln(2/k)-g-1], implied const (g+1=1.5772) => (np.float64(1.0235396151485503), np.float64(1.0558318946062017), np.float64(1.6418002238168357))
+t_A k=0.01: quad, leading (1/2)[ln(2/k)-g-1], implied const (g+1=1.5772) => (np.float64(1.8191298906519853), np.float64(1.8605508508232518), np.float64(1.6600575852440658))
+t_A k=0.001: quad, leading (1/2)[ln(2/k)-g-1], implied const (g+1=1.5772) => (np.float64(2.9991335705289583), np.float64(3.0118433973202747), np.float64(1.6026353184841655))
+t_A k=0.0001: quad, leading (1/2)[ln(2/k)-g-1], implied const (g+1=1.5772) => (np.float64(4.160618207737586), np.float64(4.163135943817297), np.float64(1.5822511370609558))
+t_A k=1e-05: quad, leading (1/2)[ln(2/k)-g-1], implied const (g+1=1.5772) => (np.float64(5.314012839693893), np.float64(5.31442849031432), np.float64(1.578046966142388))
+t_A k=1e-06: quad, leading (1/2)[ln(2/k)-g-1], implied const (g+1=1.5772) => (np.float64(6.465659125157296), np.float64(6.465721036811343), np.float64(1.5773394882096277))
+t_A elasticities numeric (switching time 1/lam, N, mu) at k=1e-3 => (np.float64(0.16601130134696324), np.float64(0.8339886986082531), np.float64(-1.66797748026123))
+formula 1/l, 1-1/l, -2+2/l => (np.float64(0.16601128745434263), np.float64(0.8339887125456573), np.float64(-1.6679774250913146))
+l at k=1e-3 => 6.0236867946405495
+exact-quad switching-time elasticity at k=1e-3 => 0.1695783957783833
+Bayes: scale N and mu^2 by 3 -> MSE ratio => 3.0000000000000004
+Bayes: scale N and lam by 3 -> MSE ratio => 5.9700432813062205
+linear 2mu sqrt(lam N): (N,mu^2)x3, (N,lam)x3 => (np.float64(3.0), np.float64(3.0000000000000004))
