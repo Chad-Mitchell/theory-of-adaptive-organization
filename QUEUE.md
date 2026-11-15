@@ -170,7 +170,14 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 8 done (ledger 48). Next pick (9) is the rule slot: log a fresh unaided order, run the rule, take the rule's top among open non-active items. Next free ledger entry: 49.**
 
+### NEW (15 Nov ~12:45 PM ET, from TLP-EDITS-REVIEW; surprises read per rule 4)
+- **TLP-EDITS-REVIEW** — DONE (pick 9, rule slot = unaided top, I = 3.6; ledger 49–52): `reviews/night2/TLP_EDITS_REVIEW.md` (own checks in `TLP_EDITS_REVIEW_checks/`). THEORY **v1.4.3**: E2′, E4, E5, E6 applied as the referee corrected them (premise "Gaussian world, or the best linear tracker"; jump-world t_A with γ + 1, Bessel closed-form error, elasticities 1/ℓ, 1 − 1/ℓ, −2 + 2/ℓ; kernel sentence "regressed on its own observations"; N12 homogeneity caveat; §10 credits labelled read / not read), five reviewer changes C1–C5, §2.4 D3 pointer to N17. Pass 1 (review + apply) and pass 2 (fresh hostile re-read of the full diff, same executor; nine fixes H1–H9) both recorded and passed. §0, §1, §2.1 untouched. CLAIM_MAP v2.11 (no status change).
+- **HEADLINE-PREMISE-SCOPE** (w 2, c 0.5). §0, the status block, §2.1 and §1 N6 / CLAIM_MAP N13 state the noisy-sensing exponents and their inputs (α, q, N, stakes) without the premise "Gaussian world, or the best linear tracker". Minimal premise clause; touches the headline, so an independent reviewer applies it (Chad t1916).
+
+**Pick 9 done (ledger 52). Next pick (10) is the unaided slot: log a fresh unaided order, run the rule, take Ace's unaided top (rule's if the same). Next free ledger entry: 53.**
+
 ## Done (frozen)
+- TLP-EDITS-REVIEW: `reviews/night2/TLP_EDITS_REVIEW.md` (THEORY v1.4.3; two passes recorded).
 - D3-TWO-EXPONENT-OOS: `tests/D3_OOS/` (locked out-of-sample test; not refereed; N17).
 - TELEGRAPH-REFEREE: `reviews/night2/TELEGRAPH_REFEREE/` (referee of TELEGRAPH-LINEAR-PREMISE; N16 MATH-CORRECTED v2.9).
 - TELEGRAPH-LINEAR-PREMISE: `reviews/night2/TELEGRAPH_LINEAR_PREMISE/` (refereed by TELEGRAPH-REFEREE: corrected; TLP-EDITS-REVIEW queued).

@@ -1,0 +1,10 @@
+MSE closed form vs 2k[ln(2/k)-g], elasticity in kappa (=in lambda and in N):
+  k=0.001 mse=0.0139495 asym=0.0140474 ratio=0.9930 eta=0.8517 ; 2k ln(2/k) ratio=0.918
+  k=0.00025 mse=0.00419617 asym=0.00420499 ratio=0.9979 eta=0.8792 ; 2k ln(2/k) ratio=0.934
+  k=0.0001 mse=0.00186352 asym=0.00186525 ratio=0.9991 eta=0.8919 ; 2k ln(2/k) ratio=0.941
+  k=0.0167 mse=0.131231 asym=0.140343 ratio=0.9351 eta=0.7137 ; 2k ln(2/k) ratio=0.822
+scale N and mu^2 by c: 2.9999999999999996 (c=3 => degree-1 homogeneous)
+scale N and lambda by c: 5.970043281306219 (not 3)
+ell 6.0236867946405495 1/ell 0.16601128745434263 1-1/ell 0.8339887125456573 -2+2/ell -1.6679774250913146
+k=0.001: E T=3.0157; 0.5[ln(2/k)-g-1]=3.0118; implied const=1.5694 (g+1=1.5772)
+k=1e-05: E T=5.3145; 0.5[ln(2/k)-g-1]=5.3144; implied const=1.5771 (g+1=1.5772)

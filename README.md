@@ -8,7 +8,7 @@ This repository holds the theory (`THEORY.md`), the theorem notes with their cod
 
 ## Start here
 
-**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.2 draft, 15 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands, with commits; [`QUEUE.md`](QUEUE.md) is the live work queue. This README is a summary.
+**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.3 draft, 15 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands, with commits; [`QUEUE.md`](QUEUE.md) is the live work queue. This README is a summary.
 
 ## In plain words
 
@@ -34,7 +34,7 @@ Optimality is claimed only where selection is strong. Below Lynch's drift barrie
 - The formal layer is proved in-model, with corrections ("V ≥ 2" is wrong as stated), and mostly builds on published team theory and inventory pooling. Its constants are functions of the world's drift spectrum (`THEORY.md` §2.5).
 - The spectrum-to-design map is now derived and refereed (`reviews/night2/SPECTRUM_MAP_REFEREE.md`): it is classical, so it is no longer the headline. What remains open is whether real systems sit near it once its inputs are measured (`QUEUE.md`).
 
-See `THEORY.md` (status block, §2.5, §8b–8c) and `measurement/CLAIM_MAP_v2.md` (v2.5).
+See `THEORY.md` (status block, §2.5, §8b–8c) and `measurement/CLAIM_MAP_v2.md` (v2.11).
 
 - **There is no new theorem of large scope.** Most individual rules are known results, placed side by side. The math notes label what is known, what is a calculation, and what fails. The one new proof worth keeping (a quantitative internal-model bound) is modest, and its novelty is unconfirmed.
 - **This is a working hypothesis under test**, not a finding. Nothing here has been peer reviewed. An independent review of the DECISIVE and F1 tests is in `reviews/DECISIVE_F1_REVIEW.md` (14 November 2026, America/New_York); the scoreboard below follows its verdict. That review was not fully blind (the reviewer had the results and write-ups). Most other tests have not had an independent review.
@@ -51,7 +51,7 @@ See `THEORY.md` (status block, §2.5, §8b–8c) and `measurement/CLAIM_MAP_v2.m
 
 ### What still looks new (each with a kill condition in `THEORY.md` §1)
 
-*This is the v1.0 list, kept as history. The current list of what looks like the theory's own is `THEORY.md` §8b; statuses are in `measurement/CLAIM_MAP_v2.md` (v2.5).*
+*This is the v1.0 list, kept as history. The current list of what looks like the theory's own is `THEORY.md` §8b; statuses are in `measurement/CLAIM_MAP_v2.md` (v2.11).*
 
 Pending targeted searches, and none yet confirmed by a locked, reviewed test:
 
@@ -87,7 +87,7 @@ The preregistration commits for these tests lived only in local, unpushed git re
 ## Repository layout
 
 ```
-THEORY.md         The theory, v1.4.2 draft (start here)
+THEORY.md         The theory, v1.4.3 draft (start here)
 theory/           Theorem notes, the math attack, and their code checks
 tests/            Preregistered tests: predictions, code, results (raw data excluded)
 litmap/           Literature map, prior-art table, threats, and DOI verification
