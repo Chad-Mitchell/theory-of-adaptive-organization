@@ -1,0 +1,9 @@
+GITHUB-UPSTREAM lock: hashes computed before any real-outcome statistic. Lock time = git commit time of this file (no hand-written time). SEED=20261115, B=999 cluster bootstrap (percentile CIs) per PREREG §4.
+7226d4302202dbe592b8f29de14c654aa9181b847e61a08049988b2da81e635e  PREREG.md
+243d2af3be18970df0f5f0425657c732da87fd9458e9ada858167097aef83ec7  code/analyze.py
+a6c218e0b5e4a3f91eed8186e9901c8bd3bfd2b86fb922ed948dd8a57c2a1fcc  code/pull.py
+8b5bfb98d010ed18c468533535835e6d67f8ba3cc9debb2a0bbd9ed78da3755e  code/pilot.py
+a07c7404df32b38baa050223c2f55a4ad55a63c10a90e0381eb6d933d649d055  code/pilot2.py
+184d940c284d158f735a0445f6c69a81cf059dc7426136692276dc92cfde121a  code/pilot3.py
+4e06181375b73ab9b7ad71bb44cc0089f2802704990fbb18d8250a2d960693c3  dryrun_synthetic.json
+f479ff89102aaeccd4b2f372578d4ae6d53b206b8d438ba0fe71c3368a40c9a0  data/search_hits.json

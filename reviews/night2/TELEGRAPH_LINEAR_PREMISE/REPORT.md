@@ -1,4 +1,4 @@
-# TELEGRAPH-LINEAR-PREMISE — report (queue pick 6, rule slot; ledger 36–39)
+# TELEGRAPH-LINEAR-PREMISE — report (queue pick 6, rule slot; ledger 37–40)
 
 Executor queue-pick6 (for Ace; Chad t1914), Sunday 15 Nov 2026, 11:14 AM–about 11:30 AM ET. Prereg, code, seeds and decision
 rules locked in commit 4d55366 (11:20 AM ET) before any run; amendment 1 (P5) committed before P5 was written or run. **In-model only.
@@ -67,7 +67,7 @@ white Gaussian sensing noise, high signal-to-noise κ = λN/μ² ≪ 1. Flag fro
 ## Audit of pending tests (locked rule, PREREG §6)
 | Item | World / design quantity | Optimum compared | Class | Note |
 |---|---|---|---|---|
-| GITHUB-UPSTREAM (active; locked) | binary weekly CI state (jump world); cron read rate; reset reads (class R) | read-rate row, a = b = 1/(1+2Ĥ) | **OK** on linear-vs-Bayes (exact reset reads) | **Separate measurement flag:** the addendum's Ĥ is an Allan-factor exponent of the *change-count* process; the read-rate row needs the *variogram* exponent of the target, P(state differs at lag s), near the read interval. These coincide for fBm-type continuous targets, not in general for a binary target (a finite switching rate makes P(differ) ∝ s at short lags whatever the clustering). Locked files not touched; noted in items.json; GITHUB-VARIOGRAM-CHECK queued as a post-lock descriptive check |
+| GITHUB-UPSTREAM (locked; finished 11:21 ET while this item ran, ledger 36, Tier 3 proxy fail) | binary weekly CI state (jump world); cron read rate; reset reads (class R) | read-rate row, a = b = 1/(1+2Ĥ) | **OK** on linear-vs-Bayes (exact reset reads) | **Separate measurement flag:** the addendum's Ĥ is an Allan-factor exponent of the *change-count* process; the read-rate row needs the *variogram* exponent of the target, P(state differs at lag s), near the read interval. These coincide for fBm-type continuous targets, not in general for a binary target (a finite switching rate makes P(differ) ∝ s at short lags whatever the clustering). Locked files not touched; noted in items.json; GITHUB-VARIOGRAM-CHECK queued as a post-lock descriptive check |
 | WIKIDATA-BAND (active; locked) | value replacements (jump world); freeze/hold/lookup modes; reset reads | signs/orderings in T8's power class | **OK** | Its error-growth object for non-quantity types, −ln(1 − P(any change within τ)), is a variogram-type quantity; signs hold for every H (its §2b) |
 | D3-DISCRIMINATE, D3-TWO-EXPONENT-OOS | event series; hazards vs spectra | none (renewal vs Cox discrimination) | **OK** (no optimum) | — |
 | AQN-ESTIMATORS | estimators of α, q, N, incl. event worlds | feeds §2.2 rows | **NEEDS-PREMISE** | For event/jump worlds also estimate jump rate λ and amplitude μ separately (q = 4λμ² is not sufficient for the Bayes optimum), and state which optimum the estimate feeds |
@@ -78,7 +78,7 @@ white Gaussian sensing noise, high signal-to-noise κ = λN/μ² ≪ 1. Flag fro
 | SPF-RIGIDITY-OOS | macro forecasts; noisy-information CG coefficient | Gaussian noisy-information filter | **OK** (premise implicit: Gaussian) | State the Gaussian premise in its prereg |
 
 ## CLAIM_MAP (my item's row only)
-New row **N14** (v2.7), status **PROVED (in-model)** with qualifier "leading order + numerics; self-checked; not refereed": items 1–3
+New row **N16** (v2.8), status **PROVED (in-model)** with qualifier "leading order + numerics; self-checked; not refereed": items 1–3
 above. No existing row's status changes. N11's evidence text gets a pointer (premise wording unchanged).
 
 ## Proposed THEORY.md edits (NOT applied; independent review first, Chad t1916; queue TLP-EDITS-REVIEW)
@@ -86,7 +86,7 @@ above. No existing row's status changes. N11's evidence text gets a pointer (pre
   — for a Gaussian world, or for the best linear tracker in any world (only second moments enter). For a world that switches between
   two levels ±μ at rate λ, sensed in white noise of density N with λN/μ² ≪ 1, the Bayes-optimal tracker adapts after a switch in
   ≈ (N/2μ²) ln(2μ²/λN) and its error is ≈ 2λN ln(2μ²/λN): exponents ≈ 0, 1, −2 in switching time, noise and amplitude instead of
-  ½, ½, −1, and q alone does not set them (`reviews/night2/TELEGRAPH_LINEAR_PREMISE/`, in-model, CLAIM_MAP N14). Logarithmic
+  ½, ½, −1, and q alone does not set them (`reviews/night2/TELEGRAPH_LINEAR_PREMISE/`, in-model, CLAIM_MAP N16). Logarithmic
   adaptation: Conti & Mora 2022 (who give ln²; the exact filter gives one log, this repo)."
 - **E4:** Regime B table, "Premises" column of the error, precision-effort, memory-time and kernel rows: add "Gaussian world, or the
   best linear tracker". Read-rate row: add "exact reads: hold-last-value depends only on the variogram, so the row holds in any world
@@ -99,8 +99,16 @@ above. No existing row's status changes. N11's evidence text gets a pointer (pre
 - **E6:** §10 credit: Conti & Mora 2022 (PRE 106:054404) for logarithmic Bayes adaptation to switching, with the ln² caveat above.
 
 ## New queue items (rationale in items.json)
-TELEGRAPH-REFEREE (w 3), TLP-EDITS-REVIEW (w 2), JUMP-WORLD-ONSET (w 2), JUMP-STORES (w 2), GITHUB-VARIOGRAM-CHECK (w 2),
+TELEGRAPH-REFEREE (w 3), TLP-EDITS-REVIEW (w 2), JUMP-WORLD-ONSET (w 2), JUMP-STORES (w 2), GITHUB-VARIOGRAM-CHECK (w 1),
 CM-PUBLISHED-CHECK (w 1). Notes added to AQN-ESTIMATORS, SAME-SYSTEM-AQN, KERNEL-MEASURE, GITHUB-UPSTREAM, SPF-RIGIDITY-OOS.
+
+## Ledger renumbering (declared)
+This item's entries were written as 36–39 on branch `queue-pick6` (commits e4affc4, 1425f99 and the outcome commit). While it ran, main
+received entry 36 (GITHUB-UPSTREAM outcome, 11:21 ET, PR #23) and CLAIM_MAP rows N14–N15 (v2.7). At merge the four entries were shifted
+to 37–40, the items file renamed `items_rank37.json` → `items_rank38.json` (sha256 unchanged), and this item's row became N16 (v2.8).
+The stored uniform permutation of the rule_rank (seed 20261152, drawn as entry 37) was kept as drawn, not redrawn. PREREG.md (locked)
+still says "ledger 36–38" in its title. GITHUB-UPSTREAM's own interpretation note (binary CI state is a switching world; for exact reset
+reads the √ optimum still applies at small qT) is consistent with P4 here.
 
 ## Unresolved
 - Not refereed. Leading-order formulas are asymptotic arguments checked numerically, not proofs; the O(1) constant (−0.7 in t_A) is

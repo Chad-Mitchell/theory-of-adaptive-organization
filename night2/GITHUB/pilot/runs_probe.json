@@ -1,0 +1,170 @@
+[
+ {
+  "repo": "scikit-learn/scikit-learn-release",
+  "wf": "nightly.yml",
+  "state": "active",
+  "crons": [
+   "1 1 * * *"
+  ],
+  "sched_total": 10,
+  "all_total": 11,
+  "newest": "2026-11-15T01:10:24Z",
+  "oldest_in_page": "2026-11-06T01:10:40Z",
+  "fail": 0,
+  "n": 10
+ },
+ {
+  "repo": "scikit-image/scikit-image",
+  "wf": "nightly-wheel-build.yaml",
+  "state": "active",
+  "crons": [
+   "27 11 * * SUN"
+  ],
+  "sched_total": 52,
+  "all_total": 72,
+  "newest": "2026-11-15T11:28:55Z",
+  "oldest_in_page": "2025-11-23T11:29:08Z",
+  "fail": 30,
+  "n": 52
+ },
+ {
+  "repo": "fcbg-platforms/pycartool",
+  "wf": "pytest.yml",
+  "state": "active",
+  "crons": [
+   "0 8 * * 1"
+  ],
+  "sched_total": 16,
+  "all_total": 74,
+  "newest": "2026-11-09T08:12:41Z",
+  "oldest_in_page": "2026-07-06T09:26:58Z",
+  "fail": 0,
+  "n": 16
+ },
+ {
+  "repo": "dipy/dipy",
+  "wf": "nightly.yml",
+  "state": "active",
+  "crons": [
+   "0 0 * * 0,3"
+  ],
+  "sched_total": 99,
+  "all_total": 1109,
+  "newest": "2026-11-15T05:19:10Z",
+  "oldest_in_page": "2025-11-23T00:28:54Z",
+  "fail": 21,
+  "n": 99
+ },
+ {
+  "repo": "TC999/zed-loc",
+  "wf": "windows.yml",
+  "state": "active",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "sched_total": 0,
+  "all_total": 0,
+  "newest": null,
+  "oldest_in_page": null,
+  "fail": 0,
+  "n": 0
+ },
+ {
+  "repo": "mne-tools/mne-icalabel",
+  "wf": "pytest.yaml",
+  "state": "active",
+  "crons": [
+   "0 8 * * 1"
+  ],
+  "sched_total": 51,
+  "all_total": 153,
+  "newest": "2026-11-09T18:37:28Z",
+  "oldest_in_page": "2025-11-24T08:36:47Z",
+  "fail": 16,
+  "n": 51
+ },
+ {
+  "repo": "moka-rs/moka",
+  "wf": "Audit.yml",
+  "state": "active",
+  "crons": [
+   "5 20 * * 5"
+  ],
+  "sched_total": 52,
+  "all_total": 86,
+  "newest": "2026-11-14T00:44:30Z",
+  "oldest_in_page": "2025-11-21T20:24:26Z",
+  "fail": 0,
+  "n": 52
+ },
+ {
+  "repo": "eval-exec/neomacs",
+  "wf": "regex-fuzz.yml",
+  "state": "active",
+  "crons": [
+   "17 5 * * 0"
+  ],
+  "sched_total": 9,
+  "all_total": 9,
+  "newest": "2026-11-15T05:17:45Z",
+  "oldest_in_page": "2026-09-20T05:23:56Z",
+  "fail": 8,
+  "n": 9
+ },
+ {
+  "repo": "python-pillow/Pillow",
+  "wf": "wheels.yml",
+  "state": "active",
+  "crons": [
+   "42 1 * * 0,3"
+  ],
+  "sched_total": 103,
+  "all_total": 707,
+  "newest": "2026-11-15T01:45:03Z",
+  "oldest_in_page": "2025-12-03T02:21:15Z",
+  "fail": 4,
+  "n": 100
+ },
+ {
+  "repo": "php-flasher/php-flasher",
+  "wf": "tests.yaml",
+  "state": "active",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "sched_total": 359,
+  "all_total": 406,
+  "newest": "2026-11-15T03:57:33Z",
+  "oldest_in_page": "2026-08-08T00:57:41Z",
+  "fail": 100,
+  "n": 100
+ },
+ {
+  "repo": "deepset-ai/haystack-core-integrations",
+  "wf": "vespa.yml",
+  "state": "active",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "sched_total": 180,
+  "all_total": 255,
+  "newest": "2026-11-15T00:14:41Z",
+  "oldest_in_page": "2026-08-08T00:15:26Z",
+  "fail": 7,
+  "n": 100
+ },
+ {
+  "repo": "optuna/optuna-examples",
+  "wf": "skimage.yml",
+  "state": "active",
+  "crons": [
+   "0 15 * * 1"
+  ],
+  "sched_total": 201,
+  "all_total": 207,
+  "newest": "2026-11-09T23:39:54Z",
+  "oldest_in_page": "2026-03-02T15:12:03Z",
+  "fail": 0,
+  "n": 100
+ }
+]

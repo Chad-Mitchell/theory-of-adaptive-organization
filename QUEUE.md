@@ -65,12 +65,13 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **Locked prediction:** from Q2, before any run.
 - **Kill:** learned read exponent does not move with H (slope CI includes 0), or learned store count is not larger in 1/f worlds than in OU worlds. In-model only.
 
-### Q6. GITHUB-UPSTREAM (rule rank 6, I = 0.30; data pull running)
+### Q6. GITHUB-UPSTREAM (rule rank 6, I = 0.30) — DONE 15 Nov ~11:21 AM ET (started pre-protocol, out of cycle, unscored; ledger 36; `night2/GITHUB/RESULTS.md`)
 - **Tests:** FRAMEWORK §6.7 (drift matching), §6.3 (vigilance), §6.9.
 - **Regime:** gate added before outcomes: `reviews/night2/GITHUB_ADDENDUM_REGIME.md` (Allan-factor Ĥ of the weekly change series).
 - **Data:** public GitHub Actions scheduled runs (read-only `gh`).
 - **Locked:** PREREG (branch `prereg/github-upstream`) + addendum. Tier-2 ceiling.
 - **Kill / pass, on proxy "event-frequency drift; cron read rate":** as PREREG, with the band 1/(1+2Ĥ) ± 0.15 if regime is not A, and no status change if the regime is unestablished.
+- **Result (as locked):** P1 b̂ = −0.06 [−0.24, 0.17] and P2 â = −0.10 [−0.17, −0.04]: KILL-CONDITION under the original band, the addendum's P1-R band ("Regime B" by ΔAIC 115; weak, mixture confound) and main's Allan band (Ĥ 0.61 [0.57, 0.66] → [0.30, 0.60]; implemented post-outcome). **Failed on proxy "weekly CI-state change rate vs nominal cron reads/week"**, Tier 3 logged only (MV5, MV7(i), MV8(ii) failed: q does not track upstream drift; pinned ≈ unpinned). P3 consistent but non-discriminating; P5/P6 not analysed (5 levels, 0 with comparators): vigilance OPEN. CLAIM_MAP N14–N15. Interpretation: binary CI state = switching world; for exact reset reads the √ rule still applies at qT ≪ 1 (DERIVED HERE, unreviewed; Conti & Mora's ln τ concerns noisy-sensing memory time), so the failure is the drift instrument's. Predictions were locked under THEORY v1.1/v1.2.
 
 ### Q7. SENSE-CELL (rule rank 7, I = 0.18)
 - **Tests:** THEORY §2.3 (Chad's physics position), FRAMEWORK §3.4, §3.11.
@@ -141,18 +142,19 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 **Pick 5 done (ledger 35). Next pick (6) is the rule slot again (cycle rule, rule, unaided, uniform restarts at pick 5): rule's top among open non-active items (log a fresh unaided order first).**
 
 ### NEW (15 Nov ~11:30 AM ET, from TELEGRAPH-LINEAR-PREMISE; surprises read per rule 4)
-- **TELEGRAPH-LINEAR-PREMISE** — DONE (pick 6, rule slot; ledger 36–39): `reviews/night2/TELEGRAPH_LINEAR_PREMISE/REPORT.md`, lock `4d55366`. All locked rules met (in-model, regime A, two-state jump world). Bayes-optimal adaptation after a switch ≈ (N/2μ²) ln(2μ²/λN) (single log; 0.508θ per e-fold), error ≈ 2λN ln(2μ²/λN) (elasticity 0.85–0.92 in λ and N vs linear ½); q alone does not set them. Unaffected: exact reset reads, projection kernels. **Surprise (strong):** Conti & Mora 2022's ln² (eq. 36) is reproduced only by their eq. (20) read as Itô, which omits a drift term; the exact filter gives one log. CLAIM_MAP N14 (v2.7). THEORY edits E2′, E4–E6 proposed, not applied. Audit: AQN-ESTIMATORS and SAME-SYSTEM-AQN NEEDS-PREMISE; GITHUB-UPSTREAM measurement flag (count-process Ĥ vs target variogram).
+- **TELEGRAPH-LINEAR-PREMISE** — DONE (pick 6, rule slot; ledger 37–40): `reviews/night2/TELEGRAPH_LINEAR_PREMISE/REPORT.md`, lock `4d55366`. All locked rules met (in-model, regime A, two-state jump world). Bayes-optimal adaptation after a switch ≈ (N/2μ²) ln(2μ²/λN) (single log; 0.508θ per e-fold), error ≈ 2λN ln(2μ²/λN) (elasticity 0.85–0.92 in λ and N vs linear ½); q alone does not set them. Unaffected: exact reset reads (agrees with GITHUB-UPSTREAM's interpretation note), projection kernels. **Surprise (strong):** Conti & Mora 2022's ln² (eq. 36) is reproduced only by their eq. (20) read as Itô, which omits a drift term; the exact filter gives one log. CLAIM_MAP N16 (v2.8). THEORY edits E2′, E4–E6 proposed, not applied. Audit: AQN-ESTIMATORS and SAME-SYSTEM-AQN NEEDS-PREMISE; GITHUB-UPSTREAM measurement note (count-process Ĥ vs target variogram).
 - **TELEGRAPH-REFEREE** (w 3, c 1). Hostile referee of the above incl. the C&M diagnosis and a Wonham-asymptotics literature search.
 - **TLP-EDITS-REVIEW** (w 2, c 0.5). Independent review, then apply E2′, E4–E6 (supersedes E2).
 - **JUMP-WORLD-ONSET** (w 2, c 2). N12 pooling onset for Bayes trackers of additive jump drifts (sketch: −1 if ρ is a rate ratio).
 - **JUMP-STORES** (w 2, c 3). Bayes "store count" = sufficient-statistic dimension; multi-state and 1/f-superposition jump worlds.
-- **GITHUB-VARIOGRAM-CHECK** (w 2, c 1). Post-lock descriptive: variogram exponent of the binary target vs the addendum's Allan-factor Ĥ.
+- **GITHUB-VARIOGRAM-CHECK** (w 1, c 1). Post-lock descriptive: variogram exponent of the binary target vs the addendum's Allan-factor Ĥ (interpretive only; GITHUB-UPSTREAM is Tier 3).
 - **CM-PUBLISHED-CHECK** (w 1, c 0.5). Read the published PRE text of Conti & Mora for corrections (no paywall sign-in, no author contact).
 
-**Pick 6 done (ledger 39). Next pick (7) is the unaided slot: Ace's unaided top (rule's if the same), after a fresh unaided order and rule run.**
+**Pick 6 done (ledger 40). Next pick (7) is the unaided slot: Ace's unaided top (rule's if the same), after a fresh unaided order and rule run. Next free ledger entry: 41.**
 
 ## Done (frozen)
 - TELEGRAPH-LINEAR-PREMISE: `reviews/night2/TELEGRAPH_LINEAR_PREMISE/` (not refereed; TELEGRAPH-REFEREE and TLP-EDITS-REVIEW queued).
+- GITHUB-UPSTREAM: `night2/GITHUB/` (locked v1.1-era test; not refereed; interpretation note feeds TELEGRAPH-LINEAR-PREMISE).
 - PRIORART-LFK-ALPHA: `reviews/night2/PRIORART_LFK_ALPHA/` (not refereed; credit edits queued).
 - SPF-NOISE-PROXY: `tests/SPF_NOISE_PROXY/` (not refereed; NOISE-PROXY-REFEREE queued).
 - MEASURE-SELF: `reviews/night2/SELF/` (refereed; re-read under THEORY §2.5 in §8c).

@@ -35,6 +35,8 @@
   "v": 0.3,
   "L": 2,
   "c": 3,
+  "status": "DONE",
+  "done": "night2/GITHUB/RESULTS.md (started pre-protocol, out of cycle, unscored; ledger 36)",
   "note": "TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK on linear-vs-Bayes (exact reset reads). Measurement flag (locked files untouched): the addendum H-hat is an Allan-factor exponent of the change-count process; the read-rate row needs the variogram exponent of the binary target, P(state differs at lag s), near the read interval; they need not coincide for a binary target. See GITHUB-VARIOGRAM-CHECK."
  },
  {
@@ -206,7 +208,7 @@
   "v": 0.6,
   "L": 4,
   "c": 4,
-  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the \u00a72.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N14, P5)."
+  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the \u00a72.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N16, P5)."
  },
  {
   "id": "ONSET-SPECTRUM-FREE-REFEREE",
@@ -341,7 +343,7 @@
   "v": 0.8,
   "L": 4,
   "c": 1.5,
-  "note": "From PRIORART-LFK-ALPHA surprise 4: Conti & Mora 2022 (PRE 106:054404, read) find Bayes-optimal adaptation time ~ ln(tau) for a switching (telegraph) world vs sqrt(tau) for OU, same Lorentzian spectrum; in-model check reproduces it (checks/telegraph_check.py). THEORY \u00a72.2 Regime A lists 'switching at one rate' with tau ~ (N/q)^{1/2}, true only for linear trackers. Derive design exponents (read rate, memory time, stores) for jump/event worlds under the Bayes optimum; state the premise 'Gaussian world or linear tracker'; audit pending tests that use event worlds (GITHUB-UPSTREAM, WIKIDATA-BAND, D3-*, AQN-ESTIMATORS event versions, SAME-SYSTEM-AQN) for which optimum they compare against. Theory edit E2 only after independent review. | DONE 15 Nov ~11:30 ET (pick 6, ledger 36-39): all locked rules met; single-log Bayes adaptation (slope 0.508 theta/e-fold), error elasticity 0.85-0.92 vs linear 0.5, reset reads and projection kernels unaffected; C&M ln^2 traced to their eq. (20) read as Ito. CLAIM_MAP N14 (v2.7). Not refereed.",
+  "note": "From PRIORART-LFK-ALPHA surprise 4: Conti & Mora 2022 (PRE 106:054404, read) find Bayes-optimal adaptation time ~ ln(tau) for a switching (telegraph) world vs sqrt(tau) for OU, same Lorentzian spectrum; in-model check reproduces it (checks/telegraph_check.py). THEORY \u00a72.2 Regime A lists 'switching at one rate' with tau ~ (N/q)^{1/2}, true only for linear trackers. Derive design exponents (read rate, memory time, stores) for jump/event worlds under the Bayes optimum; state the premise 'Gaussian world or linear tracker'; audit pending tests that use event worlds (GITHUB-UPSTREAM, WIKIDATA-BAND, D3-*, AQN-ESTIMATORS event versions, SAME-SYSTEM-AQN) for which optimum they compare against. Theory edit E2 only after independent review. | DONE 15 Nov ~11:30 ET (pick 6, ledger 37-40): all locked rules met; single-log Bayes adaptation (slope 0.508 theta/e-fold), error elasticity 0.85-0.92 vs linear 0.5, reset reads and projection kernels unaffected; C&M ln^2 traced to their eq. (20) read as Ito. CLAIM_MAP N16 (v2.8). Not refereed.",
   "status": "DONE",
   "paths": [
    "reviews/night2/TELEGRAPH_LINEAR_PREMISE/"
@@ -403,12 +405,12 @@
  },
  {
   "id": "GITHUB-VARIOGRAM-CHECK",
-  "w": 2,
+  "w": 1,
   "untested": true,
   "v": 0.6,
   "L": 1,
   "c": 1,
-  "note": "POST-LOCK descriptive check for GITHUB-UPSTREAM (label EXPLORATORY; locked verdicts stand): compute the variogram P(binary weekly state differs at lag s) per flat unit at lags 1-13 weeks and compare its log-log slope (2H_var) with the addendum's Allan-factor H-hat. If they differ, the regime gate measured the change-count process, not the target's variogram (TELEGRAPH-LINEAR-PREMISE audit)."
+  "note": "POST-LOCK descriptive check for GITHUB-UPSTREAM (label EXPLORATORY; locked verdicts stand): compute the variogram P(binary weekly state differs at lag s) per flat unit at lags 1-13 weeks and compare its log-log slope (2H_var) with the addendum's Allan-factor H-hat. If they differ, the regime gate measured the change-count process, not the target's variogram (TELEGRAPH-LINEAR-PREMISE audit). | GITHUB-UPSTREAM finished (ledger 36; Allan H-hat 0.61 [0.57, 0.66]; Tier 3, drift instrument failed MV5/MV7(i)/MV8(ii)), so this is interpretive only: w lowered 2 -> 1 at merge."
  },
  {
   "id": "CM-PUBLISHED-CHECK",
@@ -417,6 +419,6 @@
   "v": 0.7,
   "L": 1,
   "c": 0.5,
-  "note": "Read the published PRE 106:054404 text of Conti & Mora (no paywall sign-in; open version or library route only) to see whether eq. (20)/(36) were corrected after arXiv v2; update N14 and the credit wording. No contact with authors without Chad's go."
+  "note": "Read the published PRE 106:054404 text of Conti & Mora (no paywall sign-in; open version or library route only) to see whether eq. (20)/(36) were corrected after arXiv v2; update N16 and the credit wording. No contact with authors without Chad's go."
  }
 ]
