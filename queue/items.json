@@ -155,7 +155,7 @@
   "v": 0.5,
   "L": 2,
   "c": 3,
-  "note": "TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK (regression kernel = Wiener kernel even for a Bayes market; cannot discriminate Bayes vs linear). | TELEGRAPH-REFEREE (15 Nov): 'OK, cannot discriminate' holds only if realized variance is the market's own observation set; it is neither that nor the latent variance, so state which projection is measured. | AQN-ESTIMATORS demo (15 Nov, on proxy): daily log VIX (implied) has a multi-year corner (LR 32, omega0 ~0.008/business day) and band-dependent slope (1.59 vs 1.94); measure alpha on realized variance with the corner check, not on VIX."
+  "note": "TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK (regression kernel = Wiener kernel even for a Bayes market; cannot discriminate Bayes vs linear). | TELEGRAPH-REFEREE (15 Nov): 'OK, cannot discriminate' holds only if realized variance is the market's own observation set; it is neither that nor the latent variance, so state which projection is measured. | AQN-ESTIMATORS demo (15 Nov, on proxy): daily log VIX (implied) has a multi-year corner (LR 32, omega0 ~0.008/business day) and band-dependent slope (1.59 vs 1.94); measure alpha on realized variance with the corner check, not on VIX. | KERNEL-MEASURE (pick 28): the VIX kernel on S&P 500 Parkinson variance is measured there (survival at 21 d, exploratory PASS on proxy). The tail exponent itself is not resolvable at daily resolution over 36 years: a kernel-family fit cannot separate a flat 1/5/22-day kernel (s ~0.52) from the theory (0.58), and the bin tail slope is undefined in 83% of bootstrap draws. Remaining: intraday realized variance or a decisive design (KERNEL-DECISIVE-RV)."
  },
  {
   "id": "D3-TWO-EXPONENT-OOS",
@@ -268,7 +268,11 @@
   "v": 0.5,
   "L": 2,
   "c": 3,
-  "note": "new (THEORY v1.4 §2.2): every earlier memory test measured a need hazard, never a tracking kernel. Measure a response kernel on one system with alpha measured on its driver; predict survival exponent alpha/2 and sign flip at alpha=2. Overlaps VIX-KERNEL | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK if the kernel is a projection/regression kernel (equals the Wiener/Kalman kernel even for a Bayes system; cannot discriminate); NEEDS-PREMISE if it is a step/impulse response to discrete events. | TELEGRAPH-REFEREE (15 Nov): the 'projection kernel cannot discriminate' audit holds only for regressions on the system's own observations; a kernel on the true driver (sensing noise unobserved) differs between Bayes and linear trackers (rel L2 0.61 at kappa=1/60). See KERNEL-INPUT-DISCRIMINATE."
+  "note": "new (THEORY v1.4 §2.2): every earlier memory test measured a need hazard, never a tracking kernel. Measure a response kernel on one system with alpha measured on its driver; predict survival exponent alpha/2 and sign flip at alpha=2. Overlaps VIX-KERNEL | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK if the kernel is a projection/regression kernel (equals the Wiener/Kalman kernel even for a Bayes system; cannot discriminate); NEEDS-PREMISE if it is a step/impulse response to discrete events. | TELEGRAPH-REFEREE (15 Nov): the 'projection kernel cannot discriminate' audit holds only for regressions on the system's own observations; a kernel on the true driver (sensing noise unobserved) differs between Bayes and linear trackers (rel L2 0.61 at kappa=1/60). See KERNEL-INPUT-DISCRIMINATE. | DONE 15 Nov ~6:10 PM ET (pick 28, uniform slot; ledger 130-132 + outcome): PASSED on proxy 'Parkinson range variance as driver, 2 ln VIX as tracker, survival at 21 business days of the 504-day binned projection kernel', EXPLORATORY (realized sigma_D 0.049 > locked 0.040; INCONCLUSIVE with free-noise alpha 1.19). W21 0.260 +/- 0.041 vs linear optimum 0.277 +/- 0.026 from driver alpha 1.26 +/- 0.04 (Regime B, periods >= 21 d); rivals (alpha=2 EWMA 0.000, flat 1/5/22 0.012, matching 0.725) excluded. Tail exponent alpha/2 not resolvable (design 1 failed MV10). THEORY v1.4.10 evidence edit PR #58 (DO NOT MERGE without separate reviewer PASS). tests/KERNEL_MEASURE/RESULTS.md",
+  "status": "DONE",
+  "paths": [
+   "tests/KERNEL_MEASURE/"
+  ]
  },
  {
   "id": "FROZEN-DOC-POINTERS",
@@ -929,5 +933,41 @@
   "L": 1,
   "c": 1,
   "note": "From DISCRETE-TA (15 Nov): prove the mean-time version of the overshoot correction C1 = -zeta(1/2)/sqrt(2 pi) (BGK prove the probability version) and derive the O(Delta) coefficient c2 (fitted 0.21-0.26; kappa-dependent residual at kappa = 1e-2, rho = 0.0025 unresolved, 4.5%). | Updated by DISCRETE-TA-N16-REVIEW (ledger 133): the 4.5% residual was a lattice-extrapolation artifact (g = 0.5803 at kappa 1e-2, rho 0.0025), but the rho->0 coefficient is kappa-dependent: c = 0.5822/0.5673/0.5466 at kappa 1e-4/1e-2/3e-2; barrier-shift heuristic C1*int_0^inf exp(-z-kappa(cosh z-1))dz explains ~80%; derive c(kappa) and c2."
+ },
+ {
+  "id": "KERNEL-MEASURE-REFEREE",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 1,
+  "note": "From KERNEL-MEASURE (pick 28): independent hostile referee of tests/KERNEL_MEASURE (own code): ok_kernel derivation, like-with-like prediction (sim planned-n 0.277 vs direct 0.301), band choice after AQN R1 'not established', fixed- vs free-noise alpha (decides PASS vs INCONCLUSIVE), block bootstrap, VIX proxies (risk-neutral, log of expectation, overnight omitted); and pass/fail THEORY v1.4.10 PR #58 (DO NOT MERGE without separate reviewer PASS)."
+ },
+ {
+  "id": "KERNEL-DECISIVE-RV",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 3,
+  "note": "From KERNEL-MEASURE: a decisive kernel test needs realized sigma_D <= 0.04: lower driver noise (intraday realized variance or a second independent proxy for N, MV5) and a tighter alpha (SE ~0.02); or a second system (other implied-vol indices: VSTOXX, VXN; or non-market trackers). Lock before data, MV10 at the measured tracker-noise ratio (VIX r ~0.4-0.5)."
+ },
+ {
+  "id": "AQN-R1-NOISE-BAND",
+  "w": 1,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 0.5,
+  "note": "From KERNEL-MEASURE: AQN R1's fixed 20-step band split labels a series 'not established' when the noise crossover lies inside the band (S&P 500 log range variance: high band alpha 2.83 +/- 0.51 noise-dominated vs 1.18 +/- 0.10, z -3.2). Propose a crossover-relative split (both bands below omega_c) validated on synthetic fBm+noise; recheck earlier R1 labels."
+ },
+ {
+  "id": "KERNEL-LONG-LAG",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 1,
+  "note": "From KERNEL-MEASURE (post hoc): VIX kernel weight beyond ~8 months falls to zero (last bin -0.024) where the linear optimum keeps 0.034-0.036; and summed slope 0.75 < 1. Test a corner/mean-reversion or risk-premium explanation on the driver (corner fit beyond 126 d) before reading it as a deviation."
  }
 ]
