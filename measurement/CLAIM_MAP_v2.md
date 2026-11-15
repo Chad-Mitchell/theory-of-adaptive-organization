@@ -12,7 +12,7 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 **v2.6 note (15 Nov 2026, about 11:20 AM ET; QUEUE PRIORART-LFK-ALPHA, ledger 34–35).** N11 qualifier PRIOR ART (in substance) → **PRIOR ART (stated in mapped form)**, per `reviews/night2/PRIORART_LFK_ALPHA/REPORT.md` (locked decision rule D1). Status word unchanged, so the tally is unchanged. THEORY.md not edited; proposed credit and premise edits E1–E3 are queued (PRIORART-CREDIT-EDITS, TELEGRAPH-LINEAR-PREMISE) for independent review.
 
-**v2.7 note (15 Nov 2026, about 11:35 AM ET; GITHUB-UPSTREAM, ledger 36).** Adds N14–N15 from `night2/GITHUB/RESULTS.md` (locked under THEORY v1.1/v1.2; read here under v1.4.2 §2.2). No existing row changes status; THEORY.md not edited.
+**v2.7 note (15 Nov 2026, about 11:21 AM ET; GITHUB-UPSTREAM, ledger 36).** Adds N14–N15 from `night2/GITHUB/RESULTS.md` (locked under THEORY v1.1/v1.2; read here under v1.4.2 §2.2). No existing row changes status; THEORY.md not edited.
 
 **Why v2 exists.** Chad (t1908): no field test so far measured GTAO's quantities validly, so field "kills" and "hits" were results about **proxies**. v2 says so in every row. It does **not** soften the mathematics. Statements refuted by proof stay refuted (as MATH-CORRECTED, with their replacement), and failed locked simulations stay failed (SIM-FAIL).
 

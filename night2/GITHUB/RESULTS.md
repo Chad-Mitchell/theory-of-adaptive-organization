@@ -1,6 +1,6 @@
 # GITHUB-UPSTREAM — results (as locked, then interpretation)
 
-Sunday 15 November 2026, about 11:30 AM ET (America/New_York). Grok Bot executor for Chad Mitchell (via Ace). Private repo; nothing posted, sent or made public. Read-only public GitHub data.
+Sunday 15 November 2026, about 11:19 AM ET (commit e6518c4) (America/New_York). Grok Bot executor for Chad Mitchell (via Ace). Private repo; nothing posted, sent or made public. Read-only public GitHub data.
 
 ## 0. Provenance and what was run
 - Locks: PREREG + analysis code + seed + bootstrap `71281cf` (08:37 ET); declared post-lock I/O fix to `pull.py` (rate-limit wait only) `69e1ef9` (08:50 ET); ADDENDUM (theory provenance + Regime A/B conditional rule P1-R, `code/addendum.py`) `46f7ad9` (09:27 ET). A second pre-outcome regime gate exists on main: `reviews/night2/GITHUB_ADDENDUM_REGIME.md` (Allan-factor Ĥ, commit `bb7b571`, 09:02 ET), text only, no code. Both are reported (§2). The lock commits were rebased onto main with committer dates preserved (`--committer-date-is-author-date`); the original hashes above remain on `origin/prereg/github-upstream`, which was not rewritten.
