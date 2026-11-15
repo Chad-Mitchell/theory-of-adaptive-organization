@@ -259,7 +259,12 @@
   "v": 0.6,
   "L": 2,
   "c": 3,
-  "note": "new (N12): LEARNSIM-style non-circular learners in fGn worlds at two alpha values, same technology; locked prediction: onset exponent unchanged (-1 reset; -2 linear precision price) | N12 referee (15 Nov): lock the narrowed form: same alpha for shared and private drift, exact reads (or report read noise; noisy reads go to -2 at small rho), stated rho window (fits over [0.01,1] give -0.93 / -1.86)."
+  "note": "new (N12): LEARNSIM-style non-circular learners in fGn worlds at two alpha values, same technology; locked prediction: onset exponent unchanged (-1 reset; -2 linear precision price) | N12 referee (15 Nov): lock the narrowed form: same alpha for shared and private drift, exact reads (or report read noise; noisy reads go to -2 at small rho), stated rho window (fits over [0.01,1] give -0.93 / -1.86). | DONE 15 Nov ~7:15 PM ET (pick 32, UNIFORM slot; ledger 149 unaided, 150 rule_rank, 151 claim, 156 outcome): PASSED in-model on proxy 'learned reset-read pooling onset in simulated fBm worlds' (lock 2921bb2; MV10 met): e(1.5) -0.950, e(2.5) -0.937, Delta +0.013 [-0.072, +0.118] vs margin 0.267. Reset reads only. THEORY v1.4.12 / CLAIM_MAP v2.30 author-only PR #64 (DO NOT MERGE without separate reviewer PASS).",
+  "status": "DONE",
+  "paths": [
+   "tests/ONSET_ACROSS_ALPHA/RESULTS.md",
+   "tests/ONSET_ACROSS_ALPHA/"
+  ]
  },
  {
   "id": "KERNEL-MEASURE",
@@ -1024,5 +1029,23 @@
   "L": 1,
   "c": 2,
   "note": "From C3B-GATE-ADDENDUM (pick 31): C3b's real n (<= 2,294) cannot meet MV10 under PREREG sec. 5's assumptions (needs ~3,500-4,000). Before any stage 3-6 run, decide: run as exploratory (A3 already labels it), or redesign before outcomes (a sixth exogenous shock or wider frame to reach n ~4,000; a kappa-relative K1 margin; S9 without near-collinear latency, e.g. pre-shock cadence) in a new dated addendum with its own MV10 output. Outcome data must stay unread until then."
+ },
+ {
+  "id": "ONSET-ACROSS-ALPHA-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 1,
+  "c": 0.5,
+  "note": "From ONSET-ACROSS-ALPHA-SIM (pick 32): separate reviewer of PR #64 (THEORY v1.4.12 N12 in-model evidence sentence; CLAIM_MAP v2.30). Re-run with own code (different fBm generator; an ES learner as in LEARNSIM); judge population selection as the primary learner, the 0.267 margin (alpha-dependence of vigilance growth / mixed e_u over alpha 1.5-2.5), the alpha=2 pre-lock pilot as noise source, the per-alpha read-cost unit choice; check the post hoc level gap 0.34 vs 0.31."
+ },
+ {
+  "id": "ONSET-ACROSS-ALPHA-PRICED",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2,
+  "note": "From ONSET-ACROSS-ALPHA-SIM (pick 32): the precision-priced arm (predicted -(1+theta), -2 at linear price, at every alpha) across alpha 1.5 vs 2.5 with learners not given the cost function; the self-tuned EWMA is not the best linear tracker at alpha != 2 (still degree-1 homogeneous, so the prediction stands for it); MV10 gate on an out-of-contrast pilot first; small-rho onset gaps are smaller than for reset reads."
  }
 ]
