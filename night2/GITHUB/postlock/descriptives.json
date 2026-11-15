@@ -1,0 +1,17 @@
+{
+ "n_flat": 376,
+ "share_E_1_or_7": 0.8085106382978723,
+ "spearman_E_q": -0.06929557843172571,
+ "median_q_per_week": 0.05,
+ "share_units_zero_changes": 0.4787234042553192,
+ "median_changes_per_unit": 1.0,
+ "median_failure_share": 0.13548951048951047,
+ "spell_quantiles_weeks": {
+  "50": 2.0,
+  "75": 5.0,
+  "90": 9.0,
+  "99": 30.200000000000045
+ },
+ "n_spells": 641,
+ "share_spells_len1": 0.43213728549141966
+}
