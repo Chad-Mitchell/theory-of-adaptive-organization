@@ -109,7 +109,10 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **PRIORART-SCHOLAR** (w 1). Google Scholar gap of Q1 (only via a sanctioned route; no sign-in).
 
 ### NEW (15 Nov ~10:00 AM ET, from THEORY v1.4; surprises read per rule 4)
-- **ONSET-SPECTRUM-FREE-REFEREE** (w 3, c 1). Hostile math + prior-art referee of THEORY §2.5 / CLAIM_MAP N12: the formal onset exponent is −1 for reset reads and −(1+θ) for precision-priced sensing at every α (self-check `reviews/night2/THEORY14_checks/onset_classes.out`). *Why:* a surprise in the rewrite (the spectrum drops out of the formal exponents); it changes what an N2 test measures (technology, not world).
+- **ONSET-SPECTRUM-FREE-REFEREE** — DONE 15 Nov ~10:30 AM ET (pick 3, unaided slot = rule top; ledger 22–25): `reviews/night2/N12_REFEREE.md`. **CORRECTED (narrowed).** Onset exponent −1 (exact reset reads; also entropy pricing) and −(1+θ) (priced precision) confirmed at every α > 1 (wider than 1 < α < 3); the reason is degree-1 homogeneity of linear MMSE. Corrections: C1 noisy reads → −2 at small ρ with α-dependent crossover; C2 same-α premise (priced precision needs α_g − α_u < 1); C3 vigilance ρ^{−θ} only in spend units (ρ^{−1} in precision); C4 vigilance growth N^a, mixed e_u and constants depend on α (confirms V14_REVIEW). Novelty low (elementary corollary; not found stated). THEORY §2.5 / CLAIM_MAP N12 edits in a separate PR, **not merged** (v1.4.1 worker owns THEORY).
+- **ONSET-NOISY-READS** (w 2, c 1; from N12 C1). Closed-form crossover ρ_c(α, σ²) and proof that noisy reads put the level in the θ = 1 class as ρ → 0; how an N2 test classifies the level's technology.
+- **MIXED-ALPHA-ONSET** (w 2, c 1; from N12 C2). Prove the α_g − α_u < 1 condition and the Δ > 1 exponent −(1/Δ − b_g)/(1 − a_g).
+- **EFFORT-UNITS-ERRATUM** (w 1, c 0.5; from N12 C3). Lemma 1(viii) holds only at θ = 1; dated erratum and vigilance-row units.
 - **AQN-ESTIMATORS** (w 2, c 1.5). Estimators with CIs for α over a stated band, q and N from a noisy series, plus event-world versions; validated on synthetic fBm+noise, Cox and renewal truth before any lock. *Why:* the open bet (N13) needs all four inputs measured on one system; no estimator is validated (§11 process item "dry-runs on synthetic truth").
 - **SAME-SYSTEM-AQN** (w 3, c 4; after AQN-ESTIMATORS). First test of N13: on one real system measure α, q, N, stakes and one design quantity (read rate, memory time or store count); lock the §2.2 prediction against fixed-budget-share and universal-½ rivals. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). Regime measured first.
 - **ONSET-ACROSS-ALPHA-SIM** (w 2, c 3). Non-circular learners (LEARNSIM harness) in fGn worlds at two α values with one technology. Locked prediction from N12: onset exponent unchanged (−1 reset; −2 linear precision price). In-model only.
@@ -118,7 +121,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - Note on **SENSE-CELL**: by §2.5 the physics matters through θ, the price exponent of precision; measure θ and the binding ratio together.
 - Note on **SPECTRUM-MAP-FIXES**: item 1 ("whatever linear predictor") applied in the v1.4 PR; items 2–8 remain.
 
-**Next pick (3) is the unaided slot:** log a fresh unaided order covering the items to be ranked, run the rule, then take the unaided top (rule's if the same).
+**Pick 3 taken (ledger 24). Next pick (4) is the uniform slot: top of entry 23's stored uniform permutation (SAME-SYSTEM-AQN), or log a fresh ranking first.** Old note: log a fresh unaided order covering the items to be ranked, run the rule, then take the unaided top (rule's if the same).
 
 ## Done (frozen)
 - MEASURE-SELF: `reviews/night2/SELF/` (refereed; re-read under THEORY §2.5 in §8c).

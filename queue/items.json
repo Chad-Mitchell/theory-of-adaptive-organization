@@ -64,7 +64,7 @@
   "v": 0.3,
   "L": 2,
   "c": 5,
-  "note": "v1.4 \u00a72.5: onset exponent is -(1+theta) at every alpha, so the physics matters through the precision-price exponent theta; measure theta and the binding ratio"
+  "note": "v1.4 \u00a72.5: onset exponent is -(1+theta) at every alpha, so the physics matters through the precision-price exponent theta; measure theta and the binding ratio | N12 referee C1: receptor reads are noisy, so at small rho the level is in the priced-precision class; measure theta."
  },
  {
   "id": "IMMUNE",
@@ -210,7 +210,12 @@
   "v": 0.8,
   "L": 3,
   "c": 1,
-  "note": "new (THEORY v1.4 \u00a72.5, CLAIM_MAP N12): hostile math + prior-art referee of 'formal onset exponent is alpha-independent: -1 reset reads, -(1+theta) priced precision'"
+  "note": "new (THEORY v1.4 \u00a72.5, CLAIM_MAP N12): hostile math + prior-art referee of 'formal onset exponent is alpha-independent: -1 reset reads, -(1+theta) priced precision'",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/N12_REFEREE.md",
+   "reviews/night2/N12_REFEREE_checks/"
+  ]
  },
  {
   "id": "ONSET-ACROSS-ALPHA-SIM",
@@ -219,7 +224,7 @@
   "v": 0.6,
   "L": 2,
   "c": 3,
-  "note": "new (N12): LEARNSIM-style non-circular learners in fGn worlds at two alpha values, same technology; locked prediction: onset exponent unchanged (-1 reset; -2 linear precision price)"
+  "note": "new (N12): LEARNSIM-style non-circular learners in fGn worlds at two alpha values, same technology; locked prediction: onset exponent unchanged (-1 reset; -2 linear precision price) | N12 referee (15 Nov): lock the narrowed form: same alpha for shared and private drift, exact reads (or report read noise; noisy reads go to -2 at small rho), stated rho window (fits over [0.01,1] give -0.93 / -1.86)."
  },
  {
   "id": "KERNEL-MEASURE",
@@ -267,5 +272,32 @@
   "L": 2,
   "c": 2,
   "note": "Afrouzi et al. 2023 QJE replication data (doi 10.7910/dvn/3q6bhc): AR(1) with set persistence rho in {0,...,1}; known DGP; test the fixed-variance tau_E slope (N11 at alpha=2) and memory vs optimum; note their forecasters overreact."
+ },
+ {
+  "id": "ONSET-NOISY-READS",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 1,
+  "note": "new from N12 referee C1: any read noise sends the small-rho onset exponent from -1 to -2 (theta=1 class) at every alpha, with an alpha-dependent crossover. Derive rho_c(alpha, sigma2) in closed form, prove the limit, and state how an N2 test classifies the level's technology."
+ },
+ {
+  "id": "MIXED-ALPHA-ONSET",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 1,
+  "note": "new from N12 referee C2: priced precision keeps -(1+theta) in q_g iff alpha_g - alpha_u < 1; for Delta > 1 the exponent is -(1/Delta - b_g)/(1-a_g) (asymptotic argument, numerics within 3%). Prove; check reset reads; say what a field test must measure."
+ },
+ {
+  "id": "EFFORT-UNITS-ERRATUM",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 2,
+  "c": 0.5,
+  "note": "new from N12 referee C3: formal Lemma 1(viii) 'effort = spend/price' holds only at theta=1; precision elasticities are (a/theta, b/theta); small-share vigilance is rho^-theta in spend but rho^-1 in precision. Dated erratum in THEOREMS/FIXES and the CLAIM_MAP vigilance rows."
  }
 ]
