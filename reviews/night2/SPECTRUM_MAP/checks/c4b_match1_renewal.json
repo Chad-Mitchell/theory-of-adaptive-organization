@@ -1,0 +1,220 @@
+{
+ "repos": [
+  {
+   "repo": "BurntSushi_ripgrep",
+   "a_need": 0.623,
+   "beta_measured": 0.349,
+   "beta_renewal": 0.229,
+   "n_sim_files": 25,
+   "tried": 40000
+  },
+  {
+   "repo": "Alamofire_Alamofire",
+   "a_need": 0.463,
+   "beta_measured": 0.21,
+   "beta_renewal": 0.147,
+   "n_sim_files": 30,
+   "tried": 14891
+  },
+  {
+   "repo": "expressjs_express",
+   "a_need": 0.714,
+   "beta_measured": 0.312,
+   "beta_renewal": 0.256,
+   "n_sim_files": 30,
+   "tried": 4972
+  },
+  {
+   "repo": "gohugoio_hugo",
+   "a_need": 0.605,
+   "beta_measured": 0.203,
+   "beta_renewal": null,
+   "n_sim_files": 0,
+   "tried": 40000
+  },
+  {
+   "repo": "facebook_react",
+   "a_need": 0.752,
+   "beta_measured": 0.316,
+   "beta_renewal": 0.214,
+   "n_sim_files": 5,
+   "tried": 40000
+  },
+  {
+   "repo": "google_guava",
+   "a_need": 0.51,
+   "beta_measured": 0.115,
+   "beta_renewal": null,
+   "n_sim_files": 0,
+   "tried": 40000
+  },
+  {
+   "repo": "jekyll_jekyll",
+   "a_need": 0.729,
+   "beta_measured": 0.245,
+   "beta_renewal": 0.239,
+   "n_sim_files": 30,
+   "tried": 20356
+  },
+  {
+   "repo": "curl_curl",
+   "a_need": 0.711,
+   "beta_measured": 0.197,
+   "beta_renewal": 0.235,
+   "n_sim_files": 30,
+   "tried": 17229
+  },
+  {
+   "repo": "django",
+   "a_need": 0.591,
+   "beta_measured": 0.178,
+   "beta_renewal": 0.197,
+   "n_sim_files": 17,
+   "tried": 40000
+  },
+  {
+   "repo": "jgm_pandoc",
+   "a_need": 0.735,
+   "beta_measured": 0.258,
+   "beta_renewal": 0.255,
+   "n_sim_files": 30,
+   "tried": 24695
+  },
+  {
+   "repo": "pallets_flask",
+   "a_need": 0.572,
+   "beta_measured": 0.26,
+   "beta_renewal": 0.189,
+   "n_sim_files": 25,
+   "tried": 40000
+  },
+  {
+   "repo": "laravel_framework",
+   "a_need": 0.613,
+   "beta_measured": 0.187,
+   "beta_renewal": 0.216,
+   "n_sim_files": 30,
+   "tried": 4582
+  },
+  {
+   "repo": "numpy",
+   "a_need": 0.645,
+   "beta_measured": 0.24,
+   "beta_renewal": 0.225,
+   "n_sim_files": 30,
+   "tried": 6538
+  },
+  {
+   "repo": "phoenixframework_phoenix",
+   "a_need": 0.581,
+   "beta_measured": 0.236,
+   "beta_renewal": 0.176,
+   "n_sim_files": 30,
+   "tried": 951
+  },
+  {
+   "repo": "psf_requests",
+   "a_need": 0.577,
+   "beta_measured": 0.212,
+   "beta_renewal": 0.248,
+   "n_sim_files": 30,
+   "tried": 799
+  },
+  {
+   "repo": "pandas-dev_pandas",
+   "a_need": 0.663,
+   "beta_measured": 0.337,
+   "beta_renewal": 0.278,
+   "n_sim_files": 30,
+   "tried": 84
+  },
+  {
+   "repo": "redis_redis",
+   "a_need": 0.702,
+   "beta_measured": 0.245,
+   "beta_renewal": 0.249,
+   "n_sim_files": 30,
+   "tried": 4051
+  },
+  {
+   "repo": "git_git",
+   "a_need": 0.572,
+   "beta_measured": 0.13,
+   "beta_renewal": 0.179,
+   "n_sim_files": 30,
+   "tried": 31176
+  },
+  {
+   "repo": "golang_go",
+   "a_need": 0.685,
+   "beta_measured": 0.278,
+   "beta_renewal": 0.236,
+   "n_sim_files": 7,
+   "tried": 40000
+  },
+  {
+   "repo": "scikit-learn_scikit-learn",
+   "a_need": 0.586,
+   "beta_measured": 0.227,
+   "beta_renewal": 0.209,
+   "n_sim_files": 30,
+   "tried": 923
+  },
+  {
+   "repo": "tokio-rs_tokio",
+   "a_need": 0.534,
+   "beta_measured": 0.195,
+   "beta_renewal": 0.191,
+   "n_sim_files": 30,
+   "tried": 5092
+  },
+  {
+   "repo": "vuejs_core",
+   "a_need": 0.724,
+   "beta_measured": 0.355,
+   "beta_renewal": 0.278,
+   "n_sim_files": 30,
+   "tried": 235
+  },
+  {
+   "repo": "rails",
+   "a_need": 0.646,
+   "beta_measured": 0.192,
+   "beta_renewal": 0.237,
+   "n_sim_files": 30,
+   "tried": 3436
+  },
+  {
+   "repo": "spring-projects_spring-framework",
+   "a_need": 0.65,
+   "beta_measured": 0.154,
+   "beta_renewal": null,
+   "n_sim_files": 0,
+   "tried": 40000
+  },
+  {
+   "repo": "symfony_symfony",
+   "a_need": 0.602,
+   "beta_measured": 0.202,
+   "beta_renewal": null,
+   "n_sim_files": 1,
+   "tried": 40000
+  },
+  {
+   "repo": "microsoft_TypeScript",
+   "a_need": 0.92,
+   "beta_measured": 0.331,
+   "beta_renewal": null,
+   "n_sim_files": 0,
+   "tried": 40000
+  }
+ ],
+ "summary": {
+  "n": 21,
+  "spearman_measured_vs_renewal": 0.5315139701104614,
+  "p_measured_vs_renewal": 0.013151071062310811,
+  "spearman_renewal_beta_vs_a": 0.7186484730344379,
+  "spearman_measured_beta_vs_a": 0.5510071474983756,
+  "median_measured_minus_renewal": 0.014999999999999986
+ }
+}

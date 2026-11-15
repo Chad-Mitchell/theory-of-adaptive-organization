@@ -28,14 +28,16 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **Kill / pass, on proxy "claim-status change":** after ≥ 15 completed items, kill if rule AUC ≤ 0.5 or more than 0.1 below Ace's; pass if rule AUC > 0.5 with bootstrap CI excluding 0.5 and ≥ Ace's. Otherwise inconclusive.
 - **Also owed:** a hostile referee of Proposition SG (math + prior art), as part of Q1.
 
-### Q1. PRIORART-SWEEP (rule rank 1, I = 3.15) — CLAIMED 15 Nov 09:08 ET (executor, branch spectrum-map; ledger 2)
+### Q1. PRIORART-SWEEP (rule rank 1, I = 3.15) — DONE 15 Nov 09:45 ET (gap-fill only; `reviews/night2/SPECTRUM_MAP/priorart/NOTES.md`)
+- **Outcome:** night 1 had already swept the main seeds (`/workspace/gtao/night1/REVIEW/priorart/SWEEP.md`). Added: forward citations of Bimpikis & Markakis 2016 (72) and Abolhassani 2024 (16): no statement of O1 or O5. SG's regime-conditional clock is anticipated in substance by Ferragut, Rodríguez & Paganini 2018 (Queueing Systems 88:207–241): relabel SG's novelty "application". Google Scholar not swept (PRIORART-SCHOLAR). No CLAIM_MAP status applied (referee first).
 - **Tests:** THEORY §1 and §8b novelty statements; Proposition SG's prior art.
 - **Regime:** n/a.
 - **Data:** OpenAlex / Semantic Scholar / Crossref APIs (Google Scholar was blocked): forward citations of Marschak & Radner 1972 ch. 7 §5, Van Zandt & Radner 2001, Veldkamp & Wolfers 2007, Bimpikis & Markakis 2016, Abolhassani 2024; queries for decreasing-hazard / renewal-process monitoring and Whittle-index scheduling with bursty sources.
 - **Prediction sketch:** none of the six §8b items is stated in an earlier source; SG's regime-conditional clock is likely found.
 - **Kill / pass:** any source stating an item → relabel PRIOR ART in CLAIM_MAP (with the passage read). Not a proxy test.
 
-### Q2. SPECTRUM-MAP-DERIVE (rule rank 2, I = 3.00) — the headline — CLAIMED 15 Nov 09:09 ET (executor, branch spectrum-map; ledger 5)
+### Q2. SPECTRUM-MAP-DERIVE (rule rank 2, I = 3.00) — the headline — DONE 15 Nov 09:45 ET, NOT refereed (`reviews/night2/SPECTRUM_MAP/README.md`)
+- **Outcome:** passes the letter (predictions the named rivals lack: τ_m ∝ τ_E^{1−1/α} vs LFK's ½; kernel sign flip at α = 2; effort elasticities α/(2α−1), 1/(2α−1) under noisy sensing) but is mostly KNOWN filtering + approximation theory plus a price. Demotion of the headline recommended; minimal THEORY v1.3 pointer applied, §2.2 rewrite queued. D3 explained; locked D3S gap-shuffle PASSED on proxy.
 - **Tests:** THEORY §2.2, §2.4 (largest gap), §2.5 "what is missing"; FRAMEWORK §6.10.
 - **Regime:** A, B and C, jointly.
 - **Data:** none (math), with sympy / numerical checks in `theory/` and a hostile math referee afterwards.
@@ -91,9 +93,20 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 ### Q10. ONA-MORE (rule rank 10, I = 0.04)
 - Tier 3 by construction; cannot change vigilance's status. Take only if a dataset with tenure, real reporting units and a shared-environment vs own-task question appears (referee fixes, `reviews/night2/REFEREE/REPORT.md` §6).
 
+### NEW (15 Nov 09:45 ET, from SPECTRUM_MAP; surprises read per rule 4)
+- **SPECTRUM-MAP-REFEREE** (w 3, untested). Hostile math + prior-art referee of `reviews/night2/SPECTRUM_MAP/` (Thm 1 proof, Prop. 3 tail sketch, Prop. 4 rate conjecture, Prop. 5, D3S). Must happen before any CLAIM_MAP status change from Q2 (K12, K13, H19, N7).
+- **THEORY-2.2-REWRITE** (w 3, after the referee). Decide and apply: regime A = "α = 2 / Markov" not "one pace"; drop "(log-span)^{2/3}"; separate tracking kernels from re-occurrence hazards; two exponents for event worlds; demote "central new bet". Chad-visible wording change of the headline.
+- **LFK-ALPHA-SPF** (w 3, untested). Locked public-data test of P-LFKα: SPF forecaster gains (Coibion–Gorodnichenko measure) across CPI, unemployment, T-bill, GDP growth vs each variable's τ_E and α (FRED). Regime measured first. Kill: slope CI excludes 1−1/α and includes ½.
+- **VIX-KERNEL** (w 2, untested). Kernel of implied log-variance on past realized log-variance: tail ≈ τ^{−(1+α/2)} with α measured from realized variance (≈ 1.2 if H ≈ 0.1), positive weights. Public CBOE/FRED VIX and index returns.
+- **D3-TWO-EXPONENT-OOS** (w 2, untested). Locked out-of-sample version of D3S on ≥ 20 new repos and Wikipedia: renewal-implied β tracks measured β (Spearman > 0.3), gap-shuffle Δβ median ≤ 0.05.
+- **SPECTRUM-BRIDGE-SIM lock** (Q5 now unblocked): lock predictions from SPECTRUM_MAP (read elasticity 1/α for both estimators; K\* = 1 in OU, rising with log-span otherwise; kernel sign flip at α = 2).
+- **PRIORART-LFK-ALPHA** (w 2). Forward citations of LFK 2024 and Afterman et al. 2022 for any statement of τ_m ∝ τ_E^{1−1/α}.
+- **PRIORART-SCHOLAR** (w 1). Google Scholar gap of Q1 (only via a sanctioned route; no sign-in).
+
 ## Done (frozen)
 - MEASURE-SELF: `reviews/night2/SELF/` (refereed; re-read under THEORY §2.5 in §8c).
 - VIGIL_ONA: `prereg/vigil-ona/` (refereed).
 - Night-2 referee: `reviews/night2/REFEREE/`.
 - Divergence audit: `reviews/night2/AUDIT_DIVERGENCE.md`.
+- PRIORART-SWEEP (gap-fill) and SPECTRUM-MAP-DERIVE: `reviews/night2/SPECTRUM_MAP/` (not yet refereed).
 - LEARNSIM: `tests/LEARNSIM/`, referee `reviews/night2/LEARNSIM_REFEREE.md` (T1.8 NOT PASSED; no CLAIM_MAP status change).

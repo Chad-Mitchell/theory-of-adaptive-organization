@@ -1,6 +1,6 @@
 # PREREG D3S — gap-shuffle test of the renewal explanation of MATCH1 D3 (locked before any shuffle was computed)
 
-Locked: 15 Nov 2026, about 09:25 ET, by the executor on branch `spectrum-map`. This commit's timestamp is the lock. No shuffled
+Locked: 15 Nov 2026, 09:19 ET (commit 6636f02), by the executor on branch `spectrum-map`. This commit's timestamp is the lock. No shuffled
 spectrum had been computed for any real repo when this file was written. Already seen (post hoc, `checks/c4b_match1_renewal.out`):
 the pooled-hazard renewal simulation tracks measured beta (Spearman 0.53, n = 21). The shuffle statistic below has never been computed.
 

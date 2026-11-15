@@ -1,0 +1,85 @@
+{
+ "0.25": {
+  "predicted": 0.6667,
+  "ebar_slope_hold": 0.5022,
+  "ebar_slope_opt": 0.5022,
+  "predicted_slope": 0.5,
+  "ratio_opt_over_hold_T64_T4096": [
+   0.8867,
+   0.8866
+  ],
+  "brute_force": {
+   "hold": {
+    "elasticity": 0.6698,
+    "n": 16
+   },
+   "opt": {
+    "elasticity": 0.6695,
+    "n": 16
+   }
+  }
+ },
+ "0.5": {
+  "predicted": 0.5,
+  "ebar_slope_hold": 1.0029,
+  "ebar_slope_opt": 1.0029,
+  "predicted_slope": 1.0,
+  "ratio_opt_over_hold_T64_T4096": [
+   1.0,
+   1.0
+  ],
+  "brute_force": {
+   "hold": {
+    "elasticity": 0.4992,
+    "n": 20
+   },
+   "opt": {
+    "elasticity": 0.4992,
+    "n": 20
+   }
+  }
+ },
+ "0.75": {
+  "predicted": 0.4,
+  "ebar_slope_hold": 1.5036,
+  "ebar_slope_opt": 1.5035,
+  "predicted_slope": 1.5,
+  "ratio_opt_over_hold_T64_T4096": [
+   0.8087,
+   0.8085
+  ],
+  "brute_force": {
+   "hold": {
+    "elasticity": 0.3983,
+    "n": 17
+   },
+   "opt": {
+    "elasticity": 0.3984,
+    "n": 17
+   }
+  }
+ },
+ "monte_carlo_davies_harte": {
+  "0.25": {
+   "T": 32,
+   "analytic_opt": 3.2605,
+   "mc_opt": 3.2152,
+   "analytic_hold": 3.6766,
+   "mc_hold": 3.6726
+  },
+  "0.5": {
+   "T": 32,
+   "analytic_opt": 15.5,
+   "mc_opt": 15.0894,
+   "analytic_hold": 15.5,
+   "mc_hold": 15.0894
+  },
+  "0.75": {
+   "T": 32,
+   "analytic_opt": 56.3025,
+   "mc_opt": 55.2351,
+   "analytic_hold": 69.6006,
+   "mc_hold": 69.7075
+  }
+ }
+}

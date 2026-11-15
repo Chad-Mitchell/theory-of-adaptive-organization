@@ -1,0 +1,622 @@
+{
+ "W1897832025": [
+  {
+   "id": "https://openalex.org/W3121466407",
+   "title": "Channel Integration, Sales Dispersion, and Inventory Management",
+   "year": 2016,
+   "doi": "https://doi.org/10.1287/mnsc.2016.2479",
+   "abstract": "We study the effects of the introduction of cross-channel functionalities on the overall sales dispersion of retailers and the implications of these effects for inventory management. To do that, we analyze data from a leading U.S. retailer who introduced a \u201cship-to-store\u201d (STS) functionality that allows customers to ship products to their local store free of charge when those products are not available in their local store. Based on the fact that stores prioritize carrying products for which local demand is high, we test the hypothesis that introducing the STS functionality increased the retailer\u2019s overall sales dispersion. We find that, on average, the contribution of the 90% lowest-selling products to total sales increased by 0.75 percentage points, increasing sales dispersion. Calibrating conventional inventory-ordering models, we show that to respond optimally to the observed increase in dispersion, the retailer would need to increase its cycle and safety inventories by approximately 2.7%. Our paper points out the effect of an increasingly important retail phenomenon (channel integration) on a key factor for inventory management (sales dispersion). This paper was accepted by Vishal Gaur, operations management."
+  },
+  {
+   "id": "https://openalex.org/W4390266851",
+   "title": "Operational Research: methods and applications",
+   "year": 2023,
+   "doi": "https://doi.org/10.1080/01605682.2023.2253852",
+   "abstract": "Throughout its history, Operational Research has evolved to include a variety of methods, models and algorithms that have been applied to a diverse and wide range of contexts. This encyclopedic article consists of two main sections: methods and applications. The first aims to summarise the up-to-date knowledge and provide an overview of the state-of-the-art methods and key developments in the various subdomains of the field. The second offers a wide-ranging list of areas where Operational Research has been applied. The article is meant to be read in a nonlinear fashion. It should be used as a point of reference or first-port-of-call for a diverse pool of readers: academics, researchers, students, and practitioners. The entries within the methods and applications sections are presented in alphabetical order. The authors dedicate this paper to the 2023 Turkey/Syria earthquake victims. We sincerely hope that advances in OR will play a role towards minimising the pain and suffering caused by this and future catastrophes."
+  },
+  {
+   "id": "https://openalex.org/W2725504669",
+   "title": "Asymmetry and Ambiguity in Newsvendor Models",
+   "year": 2017,
+   "doi": "https://doi.org/10.1287/mnsc.2017.2773",
+   "abstract": "A basic assumption of the classical newsvendor model is that the probability distribution of the random demand is known. But in most realistic settings, only partial distribution information is available or reliably estimated. The distributionally robust newsvendor model is often used in this case where the worst-case expected profit is maximized over the set of distributions satisfying the known information, which is usually the mean and covariance of demands. However, covariance does not capture information on asymmetry of the demand distribution. In this paper, we introduce a measure of distribution asymmetry using second-order partitioned statistics. Semivariance is a special case with a single partition of the univariate demand. With mean, variance, and semivariance information, we show that a three-point distribution achieves the worst-case expected profit and derive a closed-form expression for the distributionally robust order quantity. For multivariate demand, the distributionally robust problem with partitioned statistics is hard to solve, but we develop a computationally tractable lower bound through the solution of a semidefinite program. We demonstrate in numerical experiments that asymmetry information significantly reduces expected profit loss particularly when the true distribution is heavy tailed. In computational experiments on automotive spare parts demand data, we provide evidence that the distributionally robust model that includes partitioned statistics outperforms the model that uses only covariance information. The electronic companion is available at https://doi.org/10.1287/mnsc.2017.2773 . This paper was accepted by Yinyu Ye, optimization."
+  },
+  {
+   "id": "https://openalex.org/W2910083007",
+   "title": "Distribution-Free Inventory Risk Pooling in a Multilocation Newsvendor",
+   "year": 2020,
+   "doi": "https://doi.org/10.1287/mnsc.2020.3719",
+   "abstract": "We study a multilocation newsvendor network when the only information available on the joint distribution of demands are the values of its mean vector and covariance matrix. We adopt a distributionally robust model to find inventory levels that minimize the worst-case expected cost among the distributions consistent with this information. This problem is NP-hard. We find a closed-form tight bound on the expected cost when there are only two locations. This bound is tight under a family of joint demand distributions with six support points. For the general case, we develop a computationally tractable upper bound on the worst-case expected cost if the costs of fulfilling demands have a nested structure. This upper bound is the optimal value of a semidefinite program whose dimensions are polynomial in the number of locations. We propose an algorithm that can approximate general fulfillment cost structures by nested structures, yielding a computationally tractable heuristic for distributionally robust inventory optimization on general newsvendor networks. We conduct experiments on networks resembling U.S. e-commerce distribution networks to show the value of a distributionally robust approach over a stochastic approach that assumes an incorrect demand distribution. This paper was accepted by Chung Piaw Teo, optimization."
+  },
+  {
+   "id": "https://openalex.org/W2625340171",
+   "title": "Is Tom Cruise Threatened? An Empirical Study of the Impact of Product Variety on Demand Concentration",
+   "year": 2017,
+   "doi": "https://doi.org/10.1287/isre.2017.0712",
+   "abstract": "We empirically examine the impact of expanded product variety on demand concentration using large data sets from the movie rental industry as our test bed. We find that product variety is likely to increase demand concentration, which goes against the \u201clong tail effect\u201d theory predicting that demand will become less concentrated on \u201chit\u201d products because of expanded product variety. We further provide evidence that this finding is not due to introducing many low-selling niche products, as the intuition might suggest. Instead, we discover that increasing product variety diversifies the demand away from each movie title, but less significantly for hits than for niche products. In particular, we find that increasing product variety by 1,000 titles may increase the Gini coefficient of DVD rentals by 0.0029, which translates to increasing the market share of the top 1% of DVDs by 1.96% and the market share of the top 10% of DVDs by 0.58%. At the same time, the market share of the bottom 1% of DVDs is reduced by 21.29%, while the market share of the bottom 10% of DVDs is reduced by 5.28%. We rule out alternative explanations using a variety of long tail metrics, capturing movie format/distribution channel interaction and customer heterogeneity, while making use of instrumental variables."
+  },
+  {
+   "id": "https://openalex.org/W2189504064",
+   "title": "Robust newsvendor problem with autoregressive demand",
+   "year": 2015,
+   "doi": "https://doi.org/10.1016/j.cor.2015.11.002",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W2808398908",
+   "title": "On the Heavy-Tail Behavior of the Distributionally Robust Newsvendor",
+   "year": 2021,
+   "doi": "https://doi.org/10.1287/opre.2020.2091",
+   "abstract": "Distributionally robust optimization is increasingly becoming a popular methodology to deal with uncertainty in optimization problems. Although the methodology optimizes for the worst-case distribution, a better understanding of the prescriptions from the models important from a practical perspective. In the paper \u201cOn the heavy-tail behavior of the distributionally robust newsvendor,\u201d B. Das, A. Dhara, and K. Natarajan provide a novel analysis for the problem in the newsvendor setting with moment information. They show that the distributionally robust newsvendor by planning for the worst possible demand distribution with moment information will remains optimal if the true demand distribution is heavy-tailed. The prescribed optimal solution has a heavy-tail optimality\u2019 property for free."
+  },
+  {
+   "id": "https://openalex.org/W3014661657",
+   "title": "Omnichannel operations with ship-from-store",
+   "year": 2020,
+   "doi": "https://doi.org/10.1016/j.orl.2020.03.009",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4220921599",
+   "title": "M-Commerce, Sales Concentration, and Inventory Management",
+   "year": 2021,
+   "doi": "https://doi.org/10.1287/msom.2021.1071",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W3107213187",
+   "title": "The shape of luck and competition in winner\u2010take\u2010all tournaments",
+   "year": 2020,
+   "doi": "https://doi.org/10.3982/te3824",
+   "abstract": "In winner\u2010take\u2010all tournaments, agents' performance is determined jointly by effort and luck, and the top performer is rewarded. We study the impact of the \u201cshape of luck\u201d\u2014the details of the distribution of performance shocks\u2014on incentives in such settings. We are concerned with the effects of increasing the number of competitors, which can be deterministic or stochastic, on individual and aggregate effort. We show that these effects are determined by the shape of the density and failure (hazard) rate of the distribution of shocks. When shocks have heavy tails, aggregate effort can decrease in the number of competitors."
+  },
+  {
+   "id": "https://openalex.org/W3154807870",
+   "title": "Transshipment Between Overconfident Newsvendors",
+   "year": 2021,
+   "doi": "https://doi.org/10.1111/poms.13424",
+   "abstract": "This study investigates the impacts of transshipment between overconfident newsvendors who perceive the expected outcome of a random event as more certain than it actually is. The conventional wisdom is that transshipment is a risk\u2010pooling strategy for improving newsvendors\u2019 performance. However, we find that overconfident newsvendors can be worse off with transshipment as compared to without transshipment. This result remains when overconfident newsvendors possess other behaviors such as fairness, demand\u2010 and supply\u2010side thinking, loss aversion, and demand anchoring. We also utilize data from controlled experiments to demonstrate that overconfidence is a robust behavior with transshipment."
+  },
+  {
+   "id": "https://openalex.org/W3200981357",
+   "title": "The strategic drivers of drop-shipping and retail store sales for seasonal products",
+   "year": 2021,
+   "doi": "https://doi.org/10.1016/j.jretai.2021.09.001",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W3136569186",
+   "title": "Inventory Integration with Rational Consumers",
+   "year": 2021,
+   "doi": "https://doi.org/10.1287/opre.2020.2084",
+   "abstract": "Retailers have increasingly pursued initiatives to combine inventory located throughout their enterprise into a single stock from which customers anywhere in their distribution network may purchase. Also known as inventory pooling, this practice is well known to generate operational value by reducing inventory requirements and stock-outs. In \u201cInventory Integration with Rational Consumers,\u201d Aflaki and Swinney examine a different consequence of pooling: how it influences customer purchasing behavior. They show that integration can lead to behavioral consequences resulting from changing customer purchasing incentives, especially for seasonal goods that are sold in end-of-season clearance sales. These behavioral effects can be negative, and can even outweigh the operational benefits of pooling, if pooling leads to an increase in clearance sale inventory availability that encourages more customers to wait for discounts before buying. Specific conditions that lead to negative (or positive) behavioral value of integration are discussed. Overall, the results illustrate that the ways customers react to inventory pooling can be just as important as its operational consequences."
+  },
+  {
+   "id": "https://openalex.org/W4388188087",
+   "title": "On-demand last-mile distribution network design with omnichannel inventory",
+   "year": 2023,
+   "doi": "https://doi.org/10.1016/j.tre.2023.103324",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4311298588",
+   "title": "Target-based Inventory Pooling Problem",
+   "year": 2021,
+   "doi": "https://doi.org/10.1111/poms.13920",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4307393946",
+   "title": "Network inventory deployment for responsive fulfillment",
+   "year": 2022,
+   "doi": "https://doi.org/10.1016/j.ijpe.2022.108664",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4399557678",
+   "title": "The value of timing, frequency, and quantity: The effects of transshipments on inventory turnover and order fulfillment",
+   "year": 2024,
+   "doi": "https://doi.org/10.1016/j.ijpe.2024.109296",
+   "abstract": "Although the theoretical inventory literature has studied the impact of transshipments on inventory, the common assumptions of a small number of products and fixed fill rates in these analytical studies may limit our understanding of transshipments\u2019 value. To complement these studies, we empirically evaluate the extent to which transshipments contribute to inventory turnover and order fulfillment. We develop empirical models and estimate them using proprietary data from the distribution centers of a distribution company. To alleviate the potential selection bias, we apply Coarsened Exact Matching (CEM) to match distribution centers with transshipments with those with no transshipments. Our analyses jointly evaluate multiple performance outcomes and provide empirical evidence for the theoretical value of transshipments. We find that on average, transshipments raise inventory turnover by 12.8% and improve fill rate by 0.8%. The counterintuitive findings imply that unlike transshipments between retail locations, transshipments between distribution centers may gain inventory and order fulfillment benefits. Furthermore, we analyze these contributions differently across three transshipment decisions: timing (proactive vs. reactive), frequency, and quantity. To explore the mechanism behind these changes, we investigate the variations in the inventory level and find that, on average, the inventory level remains unchanged with transshipments. However, the inventory level at distribution centers during the time periods when reactive transshipments occurred is lower than that in the time periods when proactive transshipments happened. Moreover, a higher transshipment frequency reduces the inventory level, but a larger transshipment quantity raises it."
+  },
+  {
+   "id": "https://openalex.org/W4405905179",
+   "title": "Data-driven multi-location inventory placement in digital commerce",
+   "year": 2024,
+   "doi": "https://doi.org/10.1016/j.cie.2024.110842",
+   "abstract": "Digital commerce has become an indispensable part of global retail. Digital commerce retailers usually build large logistics networks with multiple distribution centers (DCs) to serve widespread consumers. In this paper, we study multi-location inventory placement for online retailers to fulfill customer demands. Specifically, we consider three decision-making problems: (i) in which DCs to place inventory, (ii) how to set base-stock levels for inventory-holding DCs, and (iii) from which DCs to fulfill customer demand. The main challenge is to achieve the optimal trade-off between inventory cost savings from inventory pooling and the increased demand fulfillment cost associated with placing inventory far from consumers. To investigate the trade-off, we propose a data-driven stochastic program under two different demand fulfillment policies, namely fixed and virtual pooling. We evaluate the effectiveness of the proposed method through a case study based on a real-world data set by a logistics company. The proposed method achieves an average cost reduction of 19.2% compared to the company\u2019s current inventory placement policy. Further, we conduct ABC-XYZ analysis for more than 7,700 stock keeping units (SKUs) in the data set. The comparison of inventory placement decisions between different SKU categories suggests that digital commerce retailers should place more inventory in local DCs for SKUs with steadily high demand rates and pool more inventory at central DCs for SKUs with low demand rates and high variance. Additionally, we perform a systematic sensitivity analysis with controllable problem parameter configurations to investigate the impact of different parameters on inventory placement decisions. \u2022 We study inventory placement in a multi-location supply chain with risk pooling. \u2022 We propose data-driven optimization models with fixed and virtual pooling strategies. \u2022 The model achieves significant cost savings compared to the company\u2019s current policy. \u2022 We gain managerial insights on inventory placement across different SKU categories."
+  },
+  {
+   "id": "https://openalex.org/W2896318548",
+   "title": "Tournament rewards and heavy tails",
+   "year": 2020,
+   "doi": "https://doi.org/10.1016/j.jet.2020.105116",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W2614061927",
+   "title": "Inventory pooling with environmental constraints using copulas",
+   "year": 2017,
+   "doi": "https://doi.org/10.1016/j.ejor.2017.04.060",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W3121794348",
+   "title": "Assessing Uncertainty from Point Forecasts",
+   "year": 2017,
+   "doi": "https://doi.org/10.1287/mnsc.2017.2936",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W1893875425",
+   "title": "Multiperiod Stock Allocation via Robust Optimization",
+   "year": 2018,
+   "doi": "https://doi.org/10.1287/mnsc.2017.2969",
+   "abstract": "We consider a one-warehouse, N-retailer, multiperiod, stock allocation problem in which holding costs are identical at each location and no stock is received from outside suppliers for the duration of the planning horizon. No shipments are allowed between retailers. The only motive for holding inventory at the central warehouse for allocation in future periods is the so-called risk pooling motive. We apply robust optimization to this problem extending the inventory policy to allow for an adaptive, nonanticipatory shipment policy. We consider two alternatives for the uncertainty set, one in which risk pooling is implicit and another for which risk pooling is explicit. The explicit risk pooling uncertainty set grows by no more than the square of the number of retailers. The general problem can be solved using Benders\u2019 decomposition. A special case gives rise to closed-form solutions for both uncertainty set alternatives. The explicit risk pooling uncertainty set leads to a square root law in which the optimal stock to reserve at the central warehouse grows with the square root of the number of retailers. The experimental results confirm the value of the robust optimization approach and provide managerial insights into the operation of such systems. This paper was accepted by Yinyu Ye, optimization."
+  },
+  {
+   "id": "https://openalex.org/W3128312936",
+   "title": "On the Learning Benefits of Resource Flexibility",
+   "year": 2018,
+   "doi": "https://doi.org/10.1287/mnsc.2020.3795",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W2964960141",
+   "title": "The superhit effect and long tail phenomenon in the context of electronic word of mouth",
+   "year": 2019,
+   "doi": "https://doi.org/10.1016/j.dss.2019.113120",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W3205279806",
+   "title": "A Two\u2010Product Newsvendor Problem with Partial Demand Substitution",
+   "year": 2021,
+   "doi": "https://doi.org/10.1111/poms.13599",
+   "abstract": "We show that a two\u2010product newsvendor problem with partial demand substitution is equivalent to the classical newsvendor problem with the same economic parameters but an adjusted demand\u2014the effective demand. By comparing the adjusted demand and the primary demand stochastically, we examine the impacts of demand substitution on the expected profit and optimal order quantities. We demonstrate that demand substitution reduces the newsvendor's demand variability in the sense of convex order. Furthermore, as the degree of substitution increases or the two products\u2019 demands become less dependent in the sense of supermodular order, the newsvendor's effective demand becomes less uncertain, which implies a higher expected profit. Under rather general assumptions, we show that the distribution function for the newsvendor's effective demand satisfies the single\u2010crossing property as the degree of substitution changes. This allows us to rank the optimal order quantities for two different degrees of substitution. To further develop insights, we analyze the case where the demand dependence structure is modeled using copula. We show that the optimal profit is decreasing and convex in demand dependence. Furthermore, by exploring the interaction effect of demand dependence and the degree of substitution, we show that a firm can achieve positive synergy by simultaneously increasing the substitution degree and decreasing demand dependence."
+  },
+  {
+   "id": "https://openalex.org/W4295009068",
+   "title": "Trading Safety Stock for Service Response Time in Inventory Positioning",
+   "year": 2022,
+   "doi": "https://doi.org/10.1111/poms.13869",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4221089664",
+   "title": "Warranty Reserve Management: Demand Learning and Funds Pooling",
+   "year": 2022,
+   "doi": "https://doi.org/10.1287/msom.2022.1086",
+   "abstract": "Problem definition: Warranty reserves are funds used to fulfill future warranty obligations for a product. In this paper, we investigate the warranty reserve planning problem faced by a manufacturing firm who manages warranties for multiple products. Academic/practical relevance: It is nontrivial to determine a proper amount of reserves to hold, because warranty expenditures are random in nature and reserving either excess or insufficient cash would incur losses. How can warranty reserve levels be optimized and promptly adjusted is a focal issue, especially for firms selling multiple products. Methodology: Inspired by the general pattern of empirical warranty claims data, we first develop an aggregate warranty cost (AWC) forecasting model for a single product by coupling stochastic product sales and failure processes, which can be used to plan for warranty reserves periodically. The reserve levels are then optimized via a distributionally robust approach, because the exact distribution of AWC is generally unknown. To reduce the losses generated from managing the funds, we further investigate two potential loss-reduction approaches: demand learning and funds pooling. Results: For the demand learning algorithm, we prove that, as the sales period grows, the optimal learning parameter asymptotically converges to a constant in a fairly fast rate; our simulation experiments show that the performance of demand learning is promising and robust under general warranty claim patterns. Moreover, we find that the benefits of funds pooling change over different stages of the warranty life cycle; in particular, the relative pooling benefit in terms of reserve losses is nonincreasing over time. Managerial implications: This study offers guidelines on how manufacturers should adaptively forecast and dynamically plan warranty reserves over the warranty life cycle."
+  },
+  {
+   "id": "https://openalex.org/W2910643722",
+   "title": "Inventory model of type $(s,S)$ under heavy tailed demand with infinite variance",
+   "year": 2019,
+   "doi": "https://doi.org/10.1214/17-bjps376",
+   "abstract": "In this study, a stochastic process $X(t)$, which describes an inventory model of type $(s,S)$ is considered in the presence of heavy tailed demands with infinite variance. The aim of this study is observing the impact of regularly varying demand distributions with infinite variance on the stochastic process $X(t)$. The main motivation of this work is, the publication by Geluk [Proceedings of the American Mathematical Society 125 (1997) 3407\u20133413] where he provided a special asymptotic expansion for renewal function generated by regularly varying random variables. Two term asymptotic expansion for the ergodic distribution function of the process $X(t)$ is obtained based on the main results proposed by Geluk [Proceedings of the American Mathematical Society 125 (1997) 3407\u20133413]. Finally, weak convergence theorem for the ergodic distribution of this process is proved by using Karamata theory."
+  },
+  {
+   "id": "https://openalex.org/W2800889484",
+   "title": "Learning and Hierarchies in Service Systems",
+   "year": 2018,
+   "doi": "https://doi.org/10.1287/mnsc.2017.2976",
+   "abstract": "Motivated by diverse application areas such as healthcare, call centers, and crowdsourcing, we consider the design and operation of service systems that process tasks with types that are ex ante unknown, and employ servers with different skill sets. Our benchmark model involves two types of tasks, Easy and Hard, and servers that are either Junior or Senior in their abilities. The service provider determines a resource allocation policy, i.e., how to assign tasks to servers over time, with the goal of maximizing the system\u2019s long-term throughput. Information about a task\u2019s type can only be obtained while serving it. In particular, the more time a Junior server spends on a task without service completion, the higher her belief that the task is Hard and thus needs to be rerouted to a Senior server. This interplay between service time and task-type uncertainty implies that the system\u2019s resource allocation policy and staffing levels implicitly determine how the provider prioritizes between learning and actually serving. We show that the performance loss due to the uncertainty in task types can be significant and, interestingly, that the system\u2019s stability region is largely dependent on the rate at which information about tasks\u2019 types is generated. Furthermore, we consider endogenizing the servers\u2019 capabilities: assuming that training is costly, we explore the problem of jointly optimizing over the training levels of the system\u2019s server pools, the staffing levels, and the resource allocation policy. We find that among optimal designs there always exists one with a \u201chierarchical\u201d structure, where all tasks are initially routed to the least skilled servers and then progressively move to more skilled ones, if necessary. Comparative statics indicate that uncertainty in task types leads to significantly higher staffing cost and less specialized server pools. This paper was accepted by Serguei Netessine, operations management."
+  },
+  {
+   "id": "https://openalex.org/W3024603557",
+   "title": "Newsvendor Decisions with Two-Sided Learning",
+   "year": 2018,
+   "doi": "https://doi.org/10.1287/mnsc.2019.3470",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4401278387",
+   "title": "Financing Inventory under Bank Capital Regulation and Seller Orchestration",
+   "year": 2019,
+   "doi": "https://doi.org/10.1177/10591478241270121",
+   "abstract": "To help small firms secure bank financing, large sellers often orchestrate joint finance programs, linking their small dealers with major banks that lend to all participating dealers based on the information the seller provides. We examine supply chain decisions (pricing and inventory) and lending terms under such seller-orchestrated financing programs. In loan pricing, we highlight a form of financial friction that is of particular importance under such schemes\u2014bank capital regulation. Banks are globally mandated to maintain regulatory capital to mitigate unforeseen loan losses, using either the standardized approach (where regulatory capital is a fixed percentage of the loan amount) or the internal rating-based (IRB) approach (where it depends on the loan\u2019s value-at-risk). We consider a game-theoretic model consisting of a large seller and multiple capital-constrained newsvendor-type dealers, who obtain financing from banks that are subject to capital regulation. The seller decides the wholesale price and whether to orchestrate a joint finance program for its dealers by collaborating with a bank, and the dealers choose their inventory level and the financing channel. We find that a seller should only orchestrate the joint financing program when the bank adopts the IRB approach and the dealers are of low risk. Such a program is more profitable to the seller when the demand correlation among dealers is low, and there is a large number of dealers. Although always benefiting the seller, these programs may hurt dealers with intermediate risk. Facing dealers with varying financial situations, the terms under the joint finance program should be designed as if the financially strong dealers subsidize the weak ones. Finally, allowing the seller to share part of the loan loss could further enhance the performance of joint financing, but only when the seller\u2019s opportunity cost of capital is low. Our findings provide guidance to large sellers on how to orchestrate joint finance schemes, and to small dealers on making their corresponding operational decisions."
+  },
+  {
+   "id": "https://openalex.org/W3215369541",
+   "title": "Stochastic Knapsack Revisited: The Service Level Perspective",
+   "year": 2021,
+   "doi": "https://doi.org/10.1287/opre.2021.2173",
+   "abstract": "A key challenge in the resource allocation problem is to find near-optimal policies to serve different customers with random demands/revenues, using a fixed pool of capacity (properly configured). Three classes of allocation policies, responsive (with perfect hindsight), adaptive (with information updates), and anticipative (with forecast information) policies, are widely used in practice. We analyze and compare the performances of these policies for both capacity minimization and revenue maximization models. In both models, the performance gaps between optimal anticipative policies and adaptive policies are shown to be bounded when the demand and revenue of each item are independently generated. In contrast, the gaps between the optimal adaptive policies and responsive policies can be arbitrarily large. More importantly, we show that the techniques developed, and the persistency values obtained from the optimal responsive policies can be used to design good adaptive and anticipative policies for the other two variants of resource allocation problems."
+  },
+  {
+   "id": "https://openalex.org/W4296777655",
+   "title": "Inventory pooling and pricing decisions in multiple markets with strategic customers",
+   "year": 2022,
+   "doi": "https://doi.org/10.1051/ro/2022163",
+   "abstract": "This study considers the pricing and inventory decisions for the retailer selling in multiple markets with strategic customers. The impact of strategic customer behavior on inventory pooling is examined. The equilibrium decisions, in which strategic customers tend to purchase early, are subsequently characterized in the pooled/non-pooled systems. Our results highlight the role of the strategic customer in each market. Compared with myopic customers, the retailer is prone to reduce its inventory for strategic customers. The retailer\u2019s optimal inventory for high-profit products is lower in the pooled system than in the non-pooled system. However, the result is reversed for low-profit products. The analytical and numerical results simultaneously demonstrate that, in the high-profit condition, the retailers\u2019 inventory in the pooled system increases with the correlation coefficient of different markets, while the retailers\u2019 profit decreases with the correlation coefficient. There is an opposite relationship in the low-profit condition. When the markets are less correlated, the retailer owns low inventory but high profit. Moreover, the retailers\u2019 profit is always higher in the pooled system than in the non-pooled system."
+  },
+  {
+   "id": "https://openalex.org/W4415220468",
+   "title": "Optimising inventory management and collaborative supply chains: A robust data envelopment analysis-based approach",
+   "year": 2025,
+   "doi": "https://doi.org/10.1016/j.ejor.2025.10.016",
+   "abstract": "In supply chain management (SCM), a pivotal challenge is minimising inventory costs alongside enhancing efficiency among supply chain members. This paper proposes a two-phase supply chain planning model that leverages a centralised strategy and collaborative mechanisms. Phase I develops an inventory model based on the traditional EOQ framework, incorporating additional factors, including traffic congestion, sustainability, price, and shortage costs. The optimal solutions from Phase I are utilised in the inverse data envelopment analysis (InDEA) in Phase II to analyse the merging processes within a supply chain. The InDEA framework is further extended through a scenario-based robust model within the framework of multi-choice goal programming approach, incorporating decision-maker preferences and handling uncertainties. Our study demonstrates the effectiveness and applicability of our approach through a numerical experiment and an in-depth case study, revealing a significant reduction in costs and an enhanced overall customer experience, thus validating the proposed methodology's impact on supply chain efficiency."
+  },
+  {
+   "id": "https://openalex.org/W3080937806",
+   "title": "A Toolkit for Robust Risk Assessment UsingF-Divergences",
+   "year": 2021,
+   "doi": "https://doi.org/10.1287/mnsc.2020.3822",
+   "abstract": "This paper assembles a toolkit for the assessment of model risk when model uncertainty sets are defined in terms of an F-divergence ball around a reference model. We propose a new family of F-divergences that are easy to implement and flexible enough to imply convincing uncertainty sets for broad classes of reference models. We use our theoretical results to construct concrete examples of divergences that allow for significant amounts of uncertainty about lognormal or heavy-tailed Weibull reference models without implying that the worst case is necessarily infinitely bad. We implement our tools in an open-source software package and apply them to three risk management problems from operations management, insurance, and finance. This paper was accepted by Baris Ata, stochastic models and simulation."
+  },
+  {
+   "id": "https://openalex.org/W4280528149",
+   "title": "Variability scaling and capacity planning in Covid-19 pandemic",
+   "year": 2022,
+   "doi": "https://doi.org/10.1016/j.fmre.2022.04.019",
+   "abstract": "Capacity planning is a very important global challenge in the face of Covid-19 pandemic. In order to hedge against the fluctuations in the random demand and to take advantage of risk pooling effect, one needs to have a good understanding of the variabilities in the demand of resources. However, Covid-19 predictive models that are widely used in capacity planning typically often predict the mean values of the demands (often through the predictions of the mean values of the confirmed cases and deaths) in both the temporal and spatial dimensions. They seldom provide trustworthy prediction or estimation of demand variabilities, and therefore, are insufficient for proper capacity planning. Motivated by the literature on variability scaling in the areas of physics and biology, we discovered that in the Covid-19 pandemic, both the confirmed cases and deaths exhibit a common variability scaling law between the average of the demand \u03bc and its standard deviation \u03c3, that is, \u03c3\u221d\u03bc\u03b2, where the scaling parameter \u03b2 is typically in the range of 0.65 to 1, and the scaling law exists in both the temporal and spatial dimensions. Based on the mechanism of contagious diseases, we further build a stylized network model to explain the variability scaling phenomena. We finally provide simple models that may be used for capacity planning in both temporal and spatial dimensions, with only the predicted mean demand values from typical Covid-19 predictive models and the standard deviations of the demands derived from the variability scaling law."
+  },
+  {
+   "id": "https://openalex.org/W4309337511",
+   "title": "Multi-location newsvendor problem with random yield: Centralization versus decentralization",
+   "year": 2022,
+   "doi": "https://doi.org/10.1016/j.omega.2022.102795",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4391530943",
+   "title": "Gaining From Losing a Competition in Product Variety",
+   "year": 2024,
+   "doi": "https://doi.org/10.1177/10591478241231853",
+   "abstract": "This article studies the impact of a competing firm's substantial expansion in product variety, achieved through modularity and delayed differentiation, on the sales and inventory of the focal firm in the market. Intuitively, the firm's sales are expected to decrease when a competitor increases its product variety, as existing consumers are drawn to the greater range of competing products, resulting in a substitution effect. However, we also emphasize a simultaneous spillover effect, where the dramatic increase in a competitor's product variety can expand the overall market for all firms (including the focal firm) by attracting new consumers to the market. The net impact thus depends on the tradeoff between the substitution effect and spillover effect, forming an empirical question. To explore this tradeoff and quantify the net impact of a competitor's substantial increase in product variety on the focal firm's sales and inventory, we exploit the launch of Coca-Cola's Freestyle dispenser that offers over 120 beverage products via modularity and delayed differentiation. Our analysis focuses on the treatment effects of the launch of Freestyle on changes in the focal firm's sales quantity, sales dispersion, and inventory levels. Contrary to common intuition, we find that the focal firm's total sales remain unchanged following the launch of Freestyle dispensers, but its sales dispersion increases by 2.2%, which in turn leads to a 1.0% increase in inventory levels at distribution centers. The unchanged total sales and increased sales dispersion imply a redistribution of sales among the focal firm's stock keeping units (SKUs). By analyzing data at the SKU level and the business customer level, we uncover the mechanism behind this sales re-allocation: a 1.9% increase in the sales of the focal firm's long-tail products at the expense of its star product sales. Meanwhile, we identify a 0.9% increase in sales to retailers and entertainment locations, while sales to restaurants decline. These empirical results help disentangle the substitution and spillover effects on the focal firm's sales resulting from its competitor's substantially increased product variety. Managerial implications derived from these findings are discussed."
+  },
+  {
+   "id": "https://openalex.org/W3037812438",
+   "title": "Value of Inventory Pooling with Limited Demand Information and Risk Aversion*",
+   "year": 2020,
+   "doi": "https://doi.org/10.1111/deci.12469",
+   "abstract": "ABSTRACT In this article, we study the value of inventory pooling for a risk\u2010averse firm who manages locations, when the demand information is limited in the sense that only the mean and the variance of the demand distribution are known. We employ the distributionally robust optimization framework and derive the optimal worst\u2010case inventory policies when the firm's utility is measured by Conditional Value\u2010at\u2010Risk (CVaR). We analyze the value of inventory pooling in terms of CVaR, total inventory, and utility loss due to demand uncertainty and safety stock, and study the effect of system parameters, i.e., risk\u2010averse level, correlation coefficient, and location number, on the value of inventory pooling. We first study the case when the selling prices are given. We show that inventory pooling always benefits the firm in terms of CVaR but such benefits are bounded above. However, inventory pooling does not always reduce total inventory, especially when the firm's risk\u2010averse level is high. In terms of utility loss due to demand uncertainty and safety stock, we show that when demands are independent, the relative benefits of inventory pooling are of order . Then, we analyze the case when the selling prices are endogenously determined. We find that similar results can be obtained, except that inventory pooling will always reduce total inventory in this case. Our results enrich the existing literature on the benefits from inventory pooling by incorporating risk\u2010averse attitude, limited demand information, and pricing decisions."
+  },
+  {
+   "id": "https://openalex.org/W2942750196",
+   "title": "On the Profitability of Bundling Sale Strategy for Online Service Markets With Network Effects",
+   "year": 2019,
+   "doi": "https://doi.org/10.1145/3277667",
+   "abstract": "In recent years, we have witnessed a growing trend for online service companies to offer \u201cbundling sales\u201d to increase revenue. Bundling sale means that a company groups a set of products/services and charges this bundle at a fixed price, which is usually less than the total price of individual items in the bundle. In this work, our aim is to understand the underlying dynamics of bundling, particularly what is the optimal bundling sale strategy and under what situations it will be more attractive than the separate sales. We focus on online service markets that exhibit network effects . We formulate mathematical models to capture the interactions between buyers and sellers, analyze the market equilibrium and its stability, and provide an optimization framework to determine the optimal sale strategy for a service provider. We analyze the impact of various factors on the profitability of bundling, including the network effects, operating costs, and variance and correlation of customers\u2019 valuations toward these services. We show that bundling is more profitable when the variance of customers\u2019 valuations and the operational cost of the services are small. In addition, a positive network effect and a negative correlation among customers\u2019 valuation on services increase the profitability of bundling, whereas the heterogeneity of services and the asymmetry of operating costs reduce its advantage."
+  },
+  {
+   "id": "https://openalex.org/W3133383760",
+   "title": "Sensitivity Analysis of the Optimal Inventory-Pooling Strategies According to Multivariate Demand Dependence",
+   "year": 2021,
+   "doi": "https://doi.org/10.3390/sym13020328",
+   "abstract": "Inventory-pooling (IP) is an effective tool to mitigate demand uncertainty and variability, to reduce operational costs, and consequently to increase the profit. The major assumptions of the previous works in literature on IP include the following: (1) Independents demand, which satisfy the typical normal independent and identically distributed (iid) random variables; (2) dependents (correlated) symmetric demands, which follows to a multivariate normal distribution. The effect of the dependent asymmetric demand is not yet studied. The aim of this paper is to consider this more realistic case. Indeed, the contribution of this paper is twofold. Firstly, it analyzes both the sensitivity of dependence structure and the levels of skewness of distributions on IP policies in terms of optimal total cost and demand satisfaction constraint. Secondly, both symmetric and asymmetric demand distributions are modeled using various beta distribution and the dependance between demands are modeled using various copulas. A newsvendor problem inspired by the literature, with two decentralized locations and two centralized locations, is considered the empirical study. For each dependance situation, three IP models are considered: inventory centralization, regular transshipments, and independent systems. The results suggest divergences in the decisions in about 9% of cases. Bad choice of marginal distributions given that the copula is appropriate can lead to divergences that vary between 2.2% and 4%, depending on whether the demand distributions are symmetric or asymmetric."
+  },
+  {
+   "id": "https://openalex.org/W4281641801",
+   "title": "An asymptotic perspective on risk pooling: Limitations and relationship to transshipments",
+   "year": 2022,
+   "doi": "https://doi.org/10.1080/24725854.2022.2086719",
+   "abstract": "In this article we provide a novel perspective on risk pooling approaches by characterizing and comparing their asymptotic performance, highlighting the conditions under which one approach dominates the other. More specifically, we determine the inventory policy and the expected total costs of systems under physical and information pooling as the number of locations grows. We show that physical pooling dominates information pooling in settings with no additional per-location costs for operating the centralized system. In the presence of such costs, however, information pooling becomes a viable alternative to physical pooling. Through asymptotic analysis, we also address the grouping problem, the division of a given set of non-identical locations into an ordered collection of mutually exclusive and collectively exhaustive subsets of predetermined sizes and demonstrate that homogeneous groups, comprising locations with similar demand volatility, achieve a lower expected total cost. Finally, the convergence of the expected total costs and the base stock levels under the two pooling approaches is demonstrated through a simple numerical illustration. Our analysis supports the assertion that it is important to consider not only the individual characteristics of each location in isolation, but also the interactions among them, when designing pooling systems."
+  },
+  {
+   "id": "https://openalex.org/W4285092268",
+   "title": "Efficient Capacity Provisioning for Firms with Multiple Locations: The Case of the Public Cloud",
+   "year": 2022,
+   "doi": "https://doi.org/10.1145/3490486.3538281",
+   "abstract": "We analyze a model in which a firm with multiple locations chooses capacity and prices to maximize efficiency. We find that the firm provisions capacity in such a way that the expected fraction of demand that will be unfilled is lower in locations with greater expected demand. The firm also sets lower prices in larger locations. Finally, if a customer is indifferent between multiple locations, then it is more efficient to place this customer in a location with greater expected demand. These theoretical results are consistent with empirical evidence that we present from a major public cloud provider."
+  },
+  {
+   "id": "https://openalex.org/W4409183535",
+   "title": "Optimal baggage allowance design for passenger airlines with pooling effect for baggage demand",
+   "year": 2025,
+   "doi": "https://doi.org/10.1057/s41272-025-00524-x",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4413765507",
+   "title": "Effects of demand substitution on a multi-product and multi-stage ramp-up production system",
+   "year": 2025,
+   "doi": "https://doi.org/10.1016/j.apm.2025.116412",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W3140417778",
+   "title": "Inventory Management with Disruption Risk",
+   "year": 2020,
+   "doi": "https://doi.org/10.1109/wsc48552.2020.9383979",
+   "abstract": "Initiatives like lean manufacturing, pooling, and postponement have been effective in mitigating the cost-service trade-off by maintaining high levels of service while reducing system inventories. However, such initiatives exacerbate supply chain disruptions during a catastrophic event, thereby creating a new trade-off between robustness during disruptions and efficiency during normal operations. We evaluate stocking decisions in the presence of operational disruptions, which represent different risks from those associated with demand uncertainties as they stop production flow and typically persist longer. Operational disruptions can therefore be much more devastating though their likelihood of occurrence may be low. Using stochastic simulation, we combine the newsvendor and order-up-to models capturing demand uncertainty costs with catastrophe models capturing not only the cost of supply disruption, but also the cost of recovery, to obtain insights for managing inventory under disruption risk."
+  },
+  {
+   "id": "https://openalex.org/W2972213348",
+   "title": "Caracterizaci\u00f3n del fen\u00f3meno de \u00abcola larga\u00bb en los portales de boca a boca electr\u00f3nico",
+   "year": 2019,
+   "doi": "https://doi.org/10.51302/tce.2019.335",
+   "abstract": "El comercio online y los sistemas de recomendaci\u00f3n tienen un efecto sobre la demanda de distintos tipos de productos. El objetivo del art\u00edculo es probar si internet promueve los productos m\u00e1s populares o super-hit, los productos menos populares o nicho, o ambos, as\u00ed como analizar cuantitativamente la coexistencia de los efectos super-hit y de \u00abcola larga\u00bb. Analizando la curva de distribuci\u00f3n de las acciones realizadas por los consumidores en internet sobre 28 categor\u00edas de producto, se proponen dos m\u00e9todos: el m\u00e9todo de ajuste de la ley de potencia de la distribuci\u00f3n del n\u00famero de productos (factor de la oferta) por n\u00famero de comentarios online (factor de la demanda) y el m\u00e9todo del codo demarcado por el ajuste de la ley de potencia para probar matem\u00e1ticamente la presencia de ambos fen\u00f3menos. Los datos se extrajeron con un crawler programado con Python y con la librer\u00eda de c\u00f3digo abierto Scrapy. Los hallazgos revelan que el boca a boca electr\u00f3nico promueve estos fen\u00f3menos seg\u00fan las diferentes categor\u00edas de productos, as\u00ed como su coexistencia. Entre las implicaciones gerenciales destacan las nuevas perspectivas sobre los mercados potenciales que pueden abrirse por la expansi\u00f3n de la cola."
+  },
+  {
+   "id": "https://openalex.org/W4382119245",
+   "title": "Optimal Single-Period Product Allocation Under Uncertain Demand in a Prioritized Multisegment Market for a Monopolistic Retailer",
+   "year": 2023,
+   "doi": "https://doi.org/10.1109/tem.2023.3280918",
+   "abstract": "In this article, we consider in the newsvendor context a problem facing a monopolistic retailer who strives to allocate a product optimally under uncertain demand to a prioritized multisegment market. The demand of each market segment is stochastic and depends upon the amount of the product available for allocation to that segment and beyond. The formulated problem is solved using dynamic programming (DP) producing the optimal allocation scheme and monotonically increasing prices charged to different market segments. A numerical experiment is designed and then conducted to examine the effects of simultaneous variations in key model parameters upon the retailer's optimal expected total profit and optimal order quantity available for allocation during the selling season. The importance rankings of the parameters' effects on the above two measures are also investigated. The study finds, among other novel results, that the optimal DP allocation scheme is more profitable, provides broader market coverage, and results in charging lower prices compared with a counterpart utilizing a similar order quantity. The modeling effort is extended to deal with a stochastic model of stock- and price-dependent demand."
+  },
+  {
+   "id": "https://openalex.org/W2290871864",
+   "title": "Inventory Fulfillment Strategies for an Omni-Channel Retailer",
+   "year": 2015,
+   "doi": "https://doi.org/10.2139/ssrn.2659671",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W2955957446",
+   "title": "Financial Pooling in a Supply Chain",
+   "year": 2018,
+   "doi": "https://doi.org/10.2139/ssrn.2783833",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4285219939",
+   "title": "Crisis Resilient Supply Chain Design - Post Pandemic, Post Ukraine Conflict Challenges And Opportunities",
+   "year": 2022,
+   "doi": "https://doi.org/10.2139/ssrn.4099642",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4312374173",
+   "title": "Distributionally Robust Multilocation Newsvendor at Scale: A Scenario-Based Linear Programming Approach",
+   "year": 2022,
+   "doi": "https://doi.org/10.2139/ssrn.4207042",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4248250021",
+   "title": "How long does it take to sell a product?",
+   "year": 2021,
+   "doi": "https://doi.org/10.2139/ssrn.3943319",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4409909670",
+   "title": "Dynamic Pricing in the Large Market Regime",
+   "year": 2025,
+   "doi": "https://doi.org/10.2139/ssrn.5223633",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W2991895559",
+   "title": "Mobile Money Agent Competition, Inventory Management, and Pooling",
+   "year": 2018,
+   "doi": null,
+   "abstract": "The use of electronic money transfer through cellular networks (\u201cmobile money\u201d) is rapidly increasing in the developing world. The resulting electronic currency ecosystem could improve the lives of the estimated two billion people who live outside the formal financial infrastructure by facilitating more efficient, accessible, and reliable ways to store and transfer money than are currently available. Sustaining this ecosystem requires a healthy network of agents to conduct cash-for-electronic value transactions and vice versa. This thesis consists of three chapters formatted as stand-alone papers that explore how these agents compete, how they should manage their inventories, and how they might benefit from inventory pooling. Chapter I, Service Quality and Competition: Empirical Analysis of Mobile Money Agents in Africa, explores how service quality, competition, and poverty are related to demand and inventory. Chapter II, Inventory Management for Mobile Money Agents in the Developing World, describes various approaches to modeling the agent\u2019s inventory problem, including a simple analytical heuristic that performs well relative to actual agent decisions. Finally, Chapter III, Inventory Pooling for Mobile Money Agents in the Developing World, proposes an inventory pooling framework that has the potential to increase channel profitability by simultaneously reducing inventory requirements and increasing service levels system-wide."
+  },
+  {
+   "id": "https://openalex.org/W3008189578",
+   "title": "Essays on E-Commerce and Omnichannel Retail Operations",
+   "year": 2019,
+   "doi": null,
+   "abstract": "The advent of e-commerce has impacted the retail industry, as retail firms have innovated in response to customers increasingly preferring to purchase products online. This dissertation studies operational problems that accompany such retail innovations, and provides tractable heuristic solutions developed using stochastic and robust optimization methods. In particular, the first two chapters focus on the value of fulfillment flexibility - online orders can be fulfilled from any node in the firm's fulfillment network. The first chapter is devoted to omnichannel retailing, where e-commerce demand is integrated with the physical network of stores through ship-from-store fulfillment. For a retailer with a network of physical stores and fulfillment centers facing two demands (online and in-store), we consider the following interlinked decisions - how much inventory to keep at each location and where to fulfill each online order from. We show that the value of considering fulfillment flexibility in inventory planning is highest when there is a moderate mix of online and in-store demands, and develop computationally fast heuristics with promising asymptotic performance for large scale networks, which are shown to improve upon traditional strategies. The second chapter considers a pure play e-commerce fulfillment network, and studies the inventory placement decision. As e-commerce demands are volatile due to a variety of factors (price-matching, recommendation engines, etc.), we consider a distributionally robust setting, where the objective is to minimize the worst-case expected cost under given mean and covariance matrices of the underlying demand distribution. For this NP-hard problem, we develop computationally tractable heuristic in the form of a semi-definite program, with dimension quadratic in the size of the network. In the face of distribution uncertainty, we show that the robust heuristic outperforms inventory solutions that assume incorrect distributions. The final chapter offers a new take on a classic problem in retail - customer returns, which has grown to be an important issue in recent times with firms competing to provide lenient and convenient return policies to boost their e-commerce sales. However, several customers take advantage of such policies, which can lead to loss in revenue and increase in inventory costs. We study different return policies that a firm can employ depending on the information about customers' return behavior that is available to the firm. We derive the structure of the optimal return policies and show that personalizing return policies based on customers' historical data can significantly improve the firm's profits, but allows the firm to extract all customer surplus."
+  },
+  {
+   "id": "https://openalex.org/W3105784823",
+   "title": "Strategic last-mile distribution network design under demand uncertainty",
+   "year": 2020,
+   "doi": null,
+   "abstract": "Thesis: Ph. D. in Transportation, Massachusetts Institute of Technology, Department of Civil and Environmental Engineering, May, 2020"
+  },
+  {
+   "id": "https://openalex.org/W3132977018",
+   "title": "Quantile Judgments of Lognormal Losses: An Experimental Investigation",
+   "year": 2021,
+   "doi": "https://doi.org/10.1287/deca.2020.0423",
+   "abstract": "The present study aims to investigate the quality of quantile judgments on a quantity of interest that follows the lognormal distribution, which is skewed and bounded from below with a long right tail. We conduct controlled experiments in which subjects predict the losses from a future typhoon based on losses from past typhoons. Our experiments find underconfidence of the 50% prediction intervals, which is primarily driven by overestimation of the 75th percentiles. We further perform exploratory analyses to disentangle sampling errors and judgmental biases in the overall miscalibration. Finally, we show that the correlations of log-transformed judgments between subjects are smaller than is justified by the information overlapping structure. It leads to overconfident aggregate predictions using the Bayes rule if we treat the low correlations as an indicator for independent information."
+  },
+  {
+   "id": "https://openalex.org/W3167840084",
+   "title": "Managing Supply Disruption by Horizontal Cooperation",
+   "year": 2021,
+   "doi": "https://doi.org/10.1109/access.2021.3084927",
+   "abstract": "In this paper, we study how and when competing firms cooperate horizontally to manage supply disruption risks. Specifically, we consider a system consisting of two competing retailers that sell the same product in a market where the price depends on the total quantity of products on hand. Each retailer has its own supply disruption probability. In terms of complete information, we show that they should cooperate to manage supply disruption risk and design a cooperation mechanism using cooperative bargaining. Furthermore we study the cooperation problem in the case of private information. We model the problem as a dynamic bargaining model in which the informed retailer's supply disruptions are either high or low. In the dynamic negotiation process, the informed retailer can signal information through their offers. With the uninformed retailer's acceptance criteria, we characterize the perfect Bayesian equilibrium of the bargaining game. We show that the uninformed retailer may reach an agreement with either the high type or the low type first, or with both simultaneously. We find that retailer's surplus with private information may be higher than that with complete information."
+  },
+  {
+   "id": "https://openalex.org/W4242374416",
+   "title": "Sharing Newsboys",
+   "year": 2020,
+   "doi": "https://doi.org/10.2139/ssrn.3549011",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4391974808",
+   "title": "Managing Newsvendors via Demand Shifting",
+   "year": 2026,
+   "doi": "https://doi.org/10.1287/opre.2024.1396",
+   "abstract": "How Demand Allocation Shapes Inventory Decisions Online platforms that fulfill orders for independent sellers often bear inventory costs without choosing how much sellers stock. In the paper \u201cManaging Newsvendors via Demand Shifting,\u201d Yilun Chen and Jiaqi Lu study how reallocating customer demand among substitutable products can influence sellers\u2019 inventory decisions. The platform commits to a demand-shifting rule that effectively alters the demand distribution perceived by the sellers. Its optimal rule reduces demand fluctuations around a target inventory level, making that level attractive to sellers and pooling demand risk across them. The authors characterize this rule in closed form. When shifting demand is inexpensive, the platform can achieve the profit available under centralized inventory control, whereas sellers and customers also benefit. However, when shifting is costly and inventory is expensive for the platform, its optimal intervention can reduce customer service levels. The findings show why platforms should assess how demand allocation changes stocking incentives and customer outcomes."
+  },
+  {
+   "id": "https://openalex.org/W4394809158",
+   "title": "More is Different: Intrinsic and Financial Hedging in Multilocation Newsvendor Systems",
+   "year": 2024,
+   "doi": "https://doi.org/10.2139/ssrn.4779512",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4410491036",
+   "title": "Price-Sensitive Supply: The Role of Uncertainty on Acquisition Pricing and Diversification",
+   "year": 2025,
+   "doi": "https://doi.org/10.2139/ssrn.5260122",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4412736498",
+   "title": "Exact solving approach to moment problems with nonnegative Chebyshev ambiguity sets",
+   "year": 2025,
+   "doi": "https://doi.org/10.1016/j.orl.2025.107349",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4413020129",
+   "title": "Income Pools for Superstar Markets",
+   "year": 2025,
+   "doi": "https://doi.org/10.1287/mnsc.2024.07480",
+   "abstract": "\u201cSuperstar\u201d markets, where a small portion of individuals earn disproportionately high incomes, are common in fields like entrepreneurship, sports, and entertainment. Participants in these markets face significant income uncertainty, which can deter entry or prompt early exit. To address this difficulty, we propose income pools: contracts where individuals agree to share a portion of future earnings with pool members if a specific salary milestone is achieved. To date, hundreds of income pool contracts have been signed in practice. This paper develops the first mathematical model to analyze such contracts, focusing on stability (i.e., pools where no agents leave or join). When constrained to creating a single pool, we show that a stable pool always exists with specific structural properties. Generally, stronger agents tend to be more \u201ccollaborative\u201d and favor larger pools, whereas weaker agents are more \u201cselfish\u201d and prefer smaller pools. Next, we analyze pools that adhere to a maximum size (mirroring current practice) and show that stability persists. These pools typically require more weaker agents than strong ones and we find an interesting \u201cPareto dominance\u201d result, whereby all agents in a stable pool prefer a particular unique stable pool. Finally, we study general partition structures, prove that a stable partition always exists under certain conditions, and provide an algorithm to construct such a partition. We conclude with a case study on data from 2,000 professional baseball players to demonstrate a 20%\u201330% increase in social welfare if players join income pools, under varying contract parameters. This paper was accepted by Victor Martinez de Albeniz, operations management. Funding: T. C. Y. Chan received funding support from the Natural Sciences and Engineering Research Council of Canada. N. Chen has no funding sources to report. C. Fernandes received funding support from the Natural Sciences and Engineering Research Council of Canada and the TD Management Data and Analytics Lab. Supplemental Material: The online appendix and data files are available at https://doi.org/10.1287/mnsc.2024.07480 ."
+  },
+  {
+   "id": "https://openalex.org/W7125695445",
+   "title": "Gacha: A Simple Mechanism to Screen a Budget-Constrained Buyer",
+   "year": 2026,
+   "doi": "https://doi.org/10.2139/ssrn.6040274",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W7151985991",
+   "title": "Innovative multichannel models for pricing and inventory decisions considering service level",
+   "year": 2024,
+   "doi": "https://doi.org/10.70675/c0623122z1a8az4df7zb172zc82362847d1b",
+   "abstract": "Mod\u00e8les multicanaux innovants pour les d\u00e9cisions de tarification et de stocks en consid\u00e9rant le niveau de service La th\u00e8se \u00e9tudie les d\u00e9fis contemporains de la gestion du commerce de d\u00e9tail dans le contexte de la r\u00e9volution num\u00e9rique, en mettant l'accent sur la vente au d\u00e9tail multicanal, la tarification double canal et la gestion des stocks bas\u00e9e sur les donn\u00e9es. La th\u00e8se d\u00e9bute par un aper\u00e7u de l'\u00e9volution de la dynamique du commerce de d\u00e9tail, impuls\u00e9e par les avanc\u00e9es technologiques et les changements dans les demandes des consommateurs, soulignant la n\u00e9cessit\u00e9 de solutions inventives pour faire face \u00e0 ces complexit\u00e9s. Deuxi\u00e8mement, en plongeant plus profond\u00e9ment dans la vente au d\u00e9tail multicanal, l'\u00e9tude examine l'allocation des stocks et l'optimisation des prix \u00e0 travers les canaux physiques et en ligne. Elle aborde un probl\u00e8me de tarification multicanal, propose une m\u00e9thodologie pour garantir des solutions optimales et souligne l'importance de la coordination des canaux et des niveaux de service sur la part de march\u00e9 et la rentabilit\u00e9. Troisi\u00e8mement, en approfondissant davantage la tarification double canal, la th\u00e8se pr\u00e9sente un nouveau mod\u00e8le de tarification capturant les interactions complexes entre les canaux, les d\u00e9taillants et les clients. Elle souligne l\u2019importance de d\u00e9terminer la capacit\u00e9 optimale du magasin physique et de g\u00e9rer les conversions des ruptures de stock en ventes en ligne avec promotions. En quatri\u00e8me lieu, en introduisant des m\u00e9thodologies de gestion des stocks bas\u00e9es sur les donn\u00e9es, l'\u00e9tude exploite l'estimation de la densit\u00e9 par noyau (KDE) dans des cadres d'optimisation limit\u00e9s par le hasard. En d\u00e9montrant des performances sup\u00e9rieures dans l'atteinte des niveaux de service cibles par rapport aux m\u00e9thodes traditionnelles, la th\u00e8se souligne l'importance de g\u00e9rer les stocks dans des conditions d'incertitude tout en maintenant la qualit\u00e9 du service. Enfin et surtout, la th\u00e8se se termine en promouvant une compr\u00e9hension plus approfondie de la gestion du commerce de d\u00e9tail \u00e0 l'\u00e8re num\u00e9rique, offrant des informations et des m\u00e9thodologies pr\u00e9cieuses pour naviguer dans les complexit\u00e9s modernes du commerce de d\u00e9tail. En adoptant l'innovation, les approches bas\u00e9es sur les donn\u00e9es et les strat\u00e9gies centr\u00e9es sur le client, les d\u00e9taillants peuvent se positionner pour r\u00e9ussir dans un environnement de plus en plus dynamique et concurrentiel. Les futures orientations de recherche incluent l\u2019exploration de techniques avanc\u00e9es d\u2019apprentissage automatique et l\u2019extension du mod\u00e8le pour prendre en compte la durabilit\u00e9 et la r\u00e9silience de la cha\u00eene d\u2019approvisionnement."
+  },
+  {
+   "id": "https://openalex.org/W7156178765",
+   "title": "Integrated Planning of Supply and Inventory Under Seasonal Demand Uncertainty",
+   "year": 2026,
+   "doi": "https://doi.org/10.1287/trsc.2025.0026",
+   "abstract": "This study investigates several classes of integrated supply and inventory (SI) planning problems, addressing supplier selection with limited or unlimited capacities, distribution, and centralized or decentralized inventory planning for various products with uncertain demand. Our focus is on retailers specializing in fashion products characterized by seasonal demand, extended lead times, and the inability to restock during midselling seasons, requiring salvage of unsold items at diminished returns. We formulate the capacitated problems as convex mixed-integer programs and show they are strongly NP-hard. To address these complex problems, we propose employing Lagrangian relaxation methods for analytically deriving lower bounds, establishing optimal multiplier ranges, and deriving worst-case error bounds. Additionally, we introduce heuristics to generate feasible solutions. Computational studies demonstrate that our relaxation-based heuristics produce solutions closely approaching optimality. Furthermore, we demonstrate that uncapacitated SI problems can be solved analytically, providing closed-form optimal solutions. This research contributes significant managerial insights for practitioners involved in supplier selection, distribution strategies, and inventory management within centralized and decentralized supply chains. Particularly noteworthy are our analytical findings on the benefits of centralization, especially under correlated Gaussian and heavy-tailed stable demand distributions. Our computational experiments further explore the influence of critical factors such as economies of scale, demand correlation, demand distribution characteristics, and upstream and downstream costs. Specifically, we assess how these factors impact the efficacy of centralization versus decentralized inventory management in minimizing expected inventory and overall system costs. Supplemental Material: The online supplement is available at https://doi.org/10.1287/trsc.2025.0026 ."
+  },
+  {
+   "id": "https://openalex.org/W7208822960",
+   "title": "Operating distribution center networks at scale: Efficient formulations and policies",
+   "year": 2026,
+   "doi": "https://doi.org/10.1177/10591478261483367",
+   "abstract": "How should retailers and sellers distribute inventory across a large network of (potentially hundreds of) distribution centers? Motivated by the emerging challenges of inventory allocation facing volatile demand, we develop distributionally robust network inventory management policies with cross-fulfillment using a scenario-based approach that is adaptable to feature information and demand correlation. We analytically demonstrate the value of scenario modeling for a two-location newsvendor problem. The key technical development is a computationally efficient linear programming formulation for large networks, which we further incorporate into a dynamic inventory policy combined with look-ahead approximation. We validate the superior performance of the proposed policies using real-world transaction data from a leading logistics service provider and a major retailer in China. The developed policy outperforms existing data-driven approaches and can save up to 19% of operating costs over the current policy employed by the company."
+  },
+  {
+   "id": "https://openalex.org/W7211976385",
+   "title": "Competitive Equilibrium in Perishable-Capacity Markets: Waste-Financing Margins, Pass-Through, and De-Pooling",
+   "year": 2026,
+   "doi": "https://doi.org/10.2139/ssrn.7407859",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W7225238284",
+   "title": "The Best Allocation Resource Size (BARS) problem: a bi-objective integer programming model to balance cost and complexity in resource selection",
+   "year": 2026,
+   "doi": "https://doi.org/10.1016/j.ijpe.2026.110276",
+   "abstract": "This paper introduces a variant of the assortment problem, i.e., the Best Allocation Resource Size (BARS) problem, conceived as a multi-objective nonlinear optimization model that jointly minimizes total production-related costs and input complexity by selecting the optimal subset of resource sizes, explicitly balancing cost-efficiency with scrap minimization. Unlike traditional assortment problems, the BARS adopts a manufacturer-led perspective, handling multiple characteristics of the inputs, i.e., it is n-dimensional, and it integrates multiple cost dimensions - including setup, scrap, safety stock, and non-linear purchase costs - under realistic manufacturing constraints, thus offering a flexible, producer-oriented decision-support tool adaptable to diverse industrial contexts. The problem formulation does not incorporate an ex-ante budget constraint, allowing the solution space to be retrospectively filtered by applying cost thresholds - either on aggregate expenditure or individual cost components - thus enabling targeted post-hoc analyses of feasible item sets in line with strategic objectives, including scenarios that allow for controlled increases in spending. The model proposed is solved using an adapted \u03b5-constraint method that, unlike a generic scalarization, is provably exact for bi-objective nonlinear integer programs: a second-order cone reformulation of the safety-stock term allows to determine properly calibrated \u03b5 values, ensuring recovery of the complete Pareto front. The efficacy of the proposed model is demonstrated through validation in three real-world case studies spanning different industrial sectors. The developed model serves as a strategic decision tool for management, facilitating an understanding of the costs consequences associated with different sets of selected raw materials."
+  },
+  {
+   "id": "https://openalex.org/W7225694839",
+   "title": "Financial Connectedness: Heavy Tails andResponse Attribution",
+   "year": 2026,
+   "doi": "https://doi.org/10.48550/arxiv.2611.11350",
+   "abstract": "A financial market can appear mainly dependent on its own shocks under a variance account and mainly dependent on external shocks under a cumulative-response account. We establish how these opposite diagnoses arise from the same propagation system. For a given cumulative magnitude, squaring gives greater weight to responses concentrated across sources and time. Source priorities can therefore reverse even in stable Gaussian systems with known parameters. Heavy tails raise a separate question: whether the reported shares have a fixed population basis. One innovation with an infinite second moment removes the full network's finite covariance input. We characterize when normalized shares nevertheless stabilize and construct rank-amplitude connectedness, a cumulative-deviation target without finite first or second moments. It can be consistently estimated under local dependence and identification conditions. With fitted dynamics and rank scatter fixed, changing attribution replaces 3.14 names in the daily Top 10 of forty stocks, selecting recipients with greater external persistence relative to their own adjustment. In five futures contracts, mean external share rises from 28.0% to 55.9%, and 70.9% of recipient-dates switch from own to external dominance."
+  }
+ ],
+ "W4392251645": [
+  {
+   "id": "https://openalex.org/W4403759319",
+   "title": "Fresh Caching of Dynamic Contents using Restless Multi-armed Bandits",
+   "year": 2024,
+   "doi": "https://doi.org/10.1109/mass62177.2024.00040",
+   "abstract": "We consider a dynamic content caching problem wherein the contents get updated at a central server, and local copies of a subset of contents are cached at a local cache associated with a Base station (BS). When a content request arrives, based on whether the content is in the local cache, the BS can decide whether to fetch the content from the central server or serve the cached version from the local cache. Fetching a content incurs a fixed fetching cost, and serving the cached version incurs an ageing cost proportional to the age-of-version (AoV) of the content. The BS has only partial information regarding AoVs of the contents. We formulate an optimal content fetching and caching problem to minimize the average cost subject to cache capacity constraints. The problem suffers from the curse of dimensionality and is provably hard to solve. We formulate this problem as a continuous time restless multi-armed bandit process (RMAB), where a single content problem of the corresponding RMAB is a partially observable Markov decision process. We reformulate the single content problem as a semi-Markov decision process, prove indexability, and provide a Whittle index based solution to this problem. Finally, we compare the performance with recent work and show that our proposed policy is optimal via simulations."
+  },
+  {
+   "id": "https://openalex.org/W4415180283",
+   "title": "Fresh Caching of Dynamic Contents Using Restless Multi-Armed Bandits Over Wireless Access",
+   "year": 2025,
+   "doi": "https://doi.org/10.1109/ton.2025.3616225",
+   "abstract": "We consider a dynamic content fetching, caching and delivery problem wherein the contents get updated at a central server, and local copies of a subset of the contents are cached at an edge cache associated with a base station (BS). Upon being requested, the BS can fetch the requested content from the central server and serve or can serve the locally cached version or can deny service. Fetching a content incurs a fixed fetching cost, serving a cached version incurs an ageing cost proportional to the age-of-version (AoV) of the content, and denying service incurs a fixed missing cost. Furthermore, due to unreliability of the channel between the BS and the users, a content delivery can fail, again resulting in a missing cost. We formulate an optimal content fetching, caching and delivery problem to minimize the average cost subject to the cache capacity constraint. This problem belongs to the class of continuous time restless multi-armed bandit (RMAB) problems with state dependent feasible action sets. We show that the single content problem is indexable, derive its Whittle indices and provide a Whittle index based policy for the original multi-content problem. Finally, we numerically evaluate the performance of the proposed policy and compare it to the existing works. We demonstrate that the proposed policy substantially outperforms the existing ones and, performance-wise, is very close to the optimal policy."
+  },
+  {
+   "id": "https://openalex.org/W4408764994",
+   "title": "Investment-driven budget allocation and dynamic pricing strategies in edge cache network",
+   "year": 2025,
+   "doi": "https://doi.org/10.1016/j.pmcj.2025.102040",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4409325991",
+   "title": "Optimal Multibitrate Video Caching and Processing in Edge Computing: A Stackelberg Game Approach",
+   "year": 2025,
+   "doi": "https://doi.org/10.1109/jiot.2025.3559683",
+   "abstract": ""
+  },
+  {
+   "id": "https://openalex.org/W4413120414",
+   "title": "Recommendation-Enabled Caching Strategy With Age of Information in Edge\u2013Cloud Networks",
+   "year": 2025,
+   "doi": "https://doi.org/10.1109/tnse.2025.3597136",
+   "abstract": "The recommendation of local content in edge servers is a crucial strategy to alleviate cloud pressure and enhance resource utilization in edge-cloud networks. However, the dynamic complexities of user request behavior and the diminishing value of cached content have not been adequately accounted for in time-varying recommendation-enabled caching systems. In this study, an edge caching problem integrating content recommendation and Age of Information (AoI) based on user requests and content value is proposed to maximize system revenue in time-varying scenarios. Firstly, a personalized user request model is proposed to capture dynamic influences from content recommendation and user historical requests. Then, the optimization problem is decomposed into two subproblems: the content recommendation problem and the cache replacement problem. Moreover, the content recommendation problem is proved to exhibit monotone submodularity, and a greedy algorithm with$(1 - \\frac{1}{e})$-approximate solution is proposed to determine the recommendation set for each user. Furthermore, the cache replacement problem is formulated as a Markov decision process, and an iterative optimization algorithm combining Recommendation and AoI based on Double Deep Q-Network (RA-DDQN) is proposed to maximize the long-term system revenue. Finally, extensive experiments conducted on a real dataset validate the superiority of the proposed algorithm compared to other algorithms."
+  },
+  {
+   "id": "https://openalex.org/W4414392663",
+   "title": "Cache\u2010Assisted Offloading Optimization for Edge Computing Tasks",
+   "year": 2025,
+   "doi": "https://doi.org/10.1049/cmu2.70089",
+   "abstract": "ABSTRACT Mobile edge computing (MEC) serves as a feasible architecture that brings computation closer to the edge, enabling rapid response to user demands. However, most research on task offloading (TO) overlooks the scenario of repetitive requests for the same computing tasks during long time slots, and the spatiotemporal disparities in user demands. To address this gap, in this paper, we first introduce edge caching into TO and then divide base stations (BSs) into different communities based on the regional characteristics of user demands and activity areas, enabling collaborative caching among BSs within the same community. Subsequently, we design a dual timescale to update task popularity within both short and long\u2010term time slots. To maximize cache benefits, we construct a model that transforms the caching issue into a 0\u20131 knapsack problem, and employ dynamic programming to obtain offloading strategies. Simulation results confirm the efficiency of the proposed task caching policy algorithm, and it effectively reduces the offloading cost and improves cache resource utilization compared to the other three baseline algorithms.In this paper, we first introduce edge caching into TO and then divide BSs into different communities based on the regional characteristics of user demands and activity areas, enabling collaborative caching among BSs within the same community. Subsequently, we design a dual timescale to update task popularity within both short and long\u2010term time slots. To maximize cache benefits, we construct a model that transforms the caching issue into a 0\u20131 knapsack problem and employ dynamic programming to obtain offloading strategies."
+  },
+  {
+   "id": "https://openalex.org/W7117992251",
+   "title": "Version Age Optimal Content Update and Transmission in an Edge Caching System",
+   "year": 2026,
+   "doi": "https://doi.org/10.1007/978-3-032-06818-7_17",
+   "abstract": "We study content fetching and delivery in an edge caching system consisting of a sensor, a set of users, and an aggregator. The users occasionally request the aggregator for the dynamically varying sensor measurements also called the content. The aggregator may fetch the fresh content from the sensor and serve, may serve the locally cached versions, or may not serve at all. Content fetching and delivery incur fetching and transmission costs, respectively, and serving stale content also incurs age cost. We study optimal content fetching and delivery problem, aiming to minimize the time-averaged content fetching, transmission, and age costs. The problem lends itself to Markov decision problem framework albeit with a high dimensional state space. We first consider a single-user problem and derive the optimal policy. We then propose a heuristic for the multi-user problem, which is obtained by combining solutions to certain fictitious versions of the single-user problems. We numerically illustrate the derived content fetching and delivery policies and their properties."
+  },
+  {
+   "id": "https://openalex.org/W7128450121",
+   "title": "Data Flipping Attack and Defense in Web Edge Caching Systems",
+   "year": 2026,
+   "doi": "https://doi.org/10.1109/tifs.2026.3663056",
+   "abstract": "Caching web data on edge servers has become a common practice in latency-sensitive services to minimize data retrieval delays for web users. However, the geographic distribution of edge servers and frequent data transmissions make these systems vulnerable to security threats, particularly cache pollution attacks (CPAs). In such attacks, malicious users send excessive requests for unpopular data at abnormal frequencies, causing irrelevant content to be cached and degrading the system\u2019s performance. Traditional CPAs, though impactful in conventional caching systems, are less effective in edge environments where user requests are more diverse and edge servers collaborate in caching strategies. In this paper, we identify a novel attack named data flipping attack (DFA) that targets the data transmission process among edge servers. This attack manipulates request distribution by swapping the frequencies of popular and unpopular data requests, all while maintaining other characteristics like request timing and user identity. This tactic disrupts caching strategies without raising suspicion. Experimental results indicate DFA is independent of user request patterns and demonstrates substantial effectiveness and robustness, successfully forcing edge web users to retrieve data from the cloud across various scales and configurations of edge networks. Furthermore, it evades detection by state-of-the-art methods that rely on specific distribution patterns, such as the Zipf distribution. To counter this attack, we propose an effective defense method that alters the request distribution by frequency distillation, mitigating its impact."
+  },
+  {
+   "id": "https://openalex.org/W7167466797",
+   "title": "Cooperative Edge Caching for Profit Maximization Based on Multi-Agent Deep Reinforcement Learning",
+   "year": 2026,
+   "doi": "https://doi.org/10.1109/tmc.2026.3710512",
+   "abstract": "The rapid growth of multimedia services and latency-sensitive applications such as online gaming has imposed stringent requirements on content delivery, rendering traditional cloud-centric architectures increasingly inadequate. Edge caching offers a promising solution, yet its efficiency is fundamentally constrained by limited storage, dynamic demand, and strategic interactions among distributed Edge nodes (ENs). This paper studies cooperative edge caching through the lens of joint optimization of caching, pricing, and request scheduling (JOCPRS) and develops an EC-MADRL framework, where multi-agent deep reinforcement learning is leveraged to support scalable and adaptive decision-making in dynamic environments. We formulate the JOCPRS problem as a hierarchical cooperative game, in which autonomous ENs jointly consider pricing, caching configurations, and request scheduling to maximize network-wide profit while minimizing user access costs. The JOCPRS problem is shown to be NP-hard. To address the challenges of dynamic strategy adaptation, inter-agent coupling, and conflict resolution, we design a centralized-training\u2013distributed-execution MADRL architecture that learns stable cooperative pricing policies under given caching configurations and drives the system toward stable hierarchical outcomes. The proposed framework effectively balances cooperation and competition among ENs, enabling efficient resource utilization under time-varying demand and network conditions. Edge testbed experiments indicate that EC-MADRL consistently outperforms state-of-the-art baselines, including pipeline-optimized LRU (P4LRU), single-agent DDQN-based caching (DDQN-ECMP), and conventional MADRL approaches. Specifically, EC-MADRL achieves an average of 25.58% higher network profit, 43.32% lower user latency, and 17.30% reduction in user access cost, validating its effectiveness and robustness for large-scale cooperative systems."
+  },
+  {
+   "id": "https://openalex.org/W4405102678",
+   "title": "Model-Based and Model-Free Learning-Based Caching for Dynamic Content",
+   "year": 2024,
+   "doi": "https://doi.org/10.1109/milcom61039.2024.10773884",
+   "abstract": "We propose a \"fresh\" learning-based caching framework for content distribution networks (CDNs) with distributed front-end local caches and a dynamic back-end database. Users prefer the latest versions of dynamically updated content, while local caches lack knowledge of item popularity and refresh rates. We first explore scenarios with Poisson arrivals at the local cache and characterize the optimal policy\u2019s structure. Building on this, we introduce a model-based learning algorithm for caching dynamic content, demonstrating near-optimal costs and strong performance with limited cache sizes in simulations. For more general environments, we present a model-free Reinforcement Learning (RL) caching policy without prior statistical assumptions. Although model-free RL caching outperforms the model-based approach in high-variance arrival scenarios, it requires significantly longer training times due to its exploration phase. Model-based learning\u2019s quick adaptability to environmental changes and fast convergence rate make it a desirable approach for dynamic network environments, offering efficient fresh caching solutions for CDNs."
+  },
+  {
+   "id": "https://openalex.org/W4405937756",
+   "title": "CRDT Web Caching: Enabling Distributed Writes and Fast Cache Consistency for REST APIs",
+   "year": 2024,
+   "doi": "https://doi.org/10.23919/cnsm62983.2024.10814315",
+   "abstract": "Web Application developers have two main options to improve the performance of their REST APIs using Content Delivery Network (CDN) caches: define a Time to Live (TTL) or actively invalidate content. However, TTL-based caching is unsuited for the dynamic data exchanged via REST APIs, and neither can speed up write requests. Performance is important, as client latency directly impacts revenue, and a system\u2019s scalability is determined by its achievable throughput. A new type of Web proxy that acts as an information broker for the underlying data rather than working on the level of HTTP requests presents new possibilities for enhancing REST APIs. Existing Conflict-free Replicated Data Type (CRDT) semantics and standards like JSON:API can serve as a basis for such a broker. We propose CRDT Web Caching (CWC) as a novel method for distributing application data in a network of Web proxies, enabling origins to automatically update outdated cached content and proxies to respond directly to write requests. We compared simple forwarding, TTL-based caching, invalidation-based caching, and CWC in a simulated CDN deployment. Our results show that TTL-based caching can achieve the best performance, but the long inconsistency window makes it unsuitable for dynamic REST APIs. CWC outperforms invalidation-based caching in terms of throughput and latency due to a higher cache-hit ratio, and it is the only option that can accelerate write requests. However, under high system load, increased performance may lead to higher latency for non-acceleratable requests due to the additional synchronization. CWC allows developers to significantly increase REST API performance above the current state-of-the-art."
+  },
+  {
+   "id": "https://openalex.org/W4414878594",
+   "title": "Closed-Form and Boundary Expressions for Task-Success Probability in Status-Driven Systems",
+   "year": 2026,
+   "doi": "https://doi.org/10.1145/3849477",
+   "abstract": "Status-driven task offloading appears in many systems such as vehicular coordination, UAV control, and compute-first networking, where an user-side node (or access point, AP) forwards user tasks based on periodically received server status. Whether a task ultimately succeeds depends not only on the freshness of this information, but also on server-side blocking and the random status-link and task-link delays that separate the forwarding decision from the task\u2019s actual arrival at the server. Despite its practical relevance, the effect of these factors on the task-success probability has not been rigorously analyzed. This paper develops a unified analytical framework for quantifying the task-success probability in a multi-threaded status-driven system. By characterizing the state-dependent AP forwarding rule through its stationary long-run forwarding probability and representing all delays via their Laplace transforms, we obtain a closed-form expression for the success probability along with analytical upper and lower bounds. These expressions jointly capture resource blocking, information staleness, and bidirectional link delays in a tractable way. Experiments show that the theory and bounds closely match empirical success rates, with errors within 1.0% (upper bound) and 1.6% (lower bound)."
+  },
+  {
+   "id": "https://openalex.org/W7129070520",
+   "title": "Efficient Information Updates in Compute-First Networking via Reinforcement Learning With Joint AoI and VoI",
+   "year": 2026,
+   "doi": "https://doi.org/10.1109/jiot.2026.3665019",
+   "abstract": "Timely and efficient dissemination of service information is critical in compute-first networking systems, where user requests arrive dynamically and computing resources are constrained. In such systems, the access point (AP) plays a key role in forwarding user requests to a server based on its latest received service information. This paper considers a single-source, single-destination system and introduces a PPO\u2013based reinforcement learning framework for efficient information updating, guided by a newly designed reward metric called Age-and-Value-Aware (AVA). Unlike traditional freshness-based metrics, AVA explicitly incorporates variations in server-side service capacity and AP\u2019s forwarding decisions, allowing more context-aware update evaluation. Under this reward structure, the PPO agent autonomously learns when to trigger service information updates, achieving a dynamic balance between communication cost and decision accuracy. Extensive simulations under diverse user request patterns and varying service capacities demonstrate that AVA reduces the update frequency by over 90% on average compared to baselines, with reductions reaching 98% in certain configurations. This reduction is achieved without compromising the quality of decision making."
+  },
+  {
+   "id": "https://openalex.org/W7134885302",
+   "title": "Maintaining Content Strong Consistency From an Edge Caching Perspective: An Offline Reinforcement Learning Approach",
+   "year": 2026,
+   "doi": "https://doi.org/10.1109/tmc.2026.3672502",
+   "abstract": "In mobile edge computing (MEC), edge caching (EC), i.e., deploying data closer to end users at the network edge layer, has become one of the most active research areas for mitigating the high latency caused by massive data in centralized storage systems. However, when caching data that are sensitive to freshness, distributed EC systems often face severe strong content consistency challenges, as such data undergo frequent updates and modifications over long usage cycles. To address the strong consistency issue faced by freshness-sensitive data in resource-constrained MEC scenarios, we innovatively reformulate this challenge as a content replacement problem. The objective is to minimize long-term content transmission costs while maintaining strong content consistency. More specifically, we propose the Content Strong Consistency Decision Transformer (CSC-DT) algorithm to maintain strong consistency. The cache replacement problem is modeled as a Markov Decision Process (MDP), with decisions constructed as trajectories. These trajectories are processed using the Transformer architecture to capture the long-term dependencies between the temporal dynamics of content requests and updates, optimizing cache replacement decisions. Validated with railway engineering data, which undergo frequent updates during the design phase, our method effectively maintains strong content consistency and reduces content transmission costs."
+  },
+  {
+   "id": "https://openalex.org/W7166582812",
+   "title": "Optimal Caching for Dynamic Content Through Strategic Information Sharing",
+   "year": 2026,
+   "doi": "https://doi.org/10.1109/infocom59046.2026.11571389",
+   "abstract": "We study how to update cache content to efficiently serve demands for dynamic data items that are frequently refreshed at backend servers. A significant challenge for optimizing this new type of cache systems with dynamic content is the following \"information barrier\". Because the precise data refresh events happening at the backend are not known to the cache, it is difficult for the cache to decide how to update cache content effectively. To overcome this information barrier, we introduce a new model that allows caches to observe data-item freshness at backend servers occasionally by paying an observation cost. A caching optimization problem is then formulated, aiming at strategically utilizing the observation option to balance the trade-off between providing fresh content and reducing data traffic to the backend. Although this optimization problem can be cast as a multi-action Restless Multi-Armed Bandit (RMAB) problem, it unfortunately does not satisfy the standard notion of multi-action indexability, preventing the use of standard Whittle index policies. We address this difficulty by introducing two new concepts of super-action indexability and sub-action indexability. These new notions of indexability significantly generalize the classical notion of multi-action indexability, and they enable us to develop low-complexity and asymptotically-optimal index-like policies for this otherwise intractable problem. Extensive numerical simulations verify that the proposed new policies benefit from more informed decision-making through strategic observation and significantly outperform existing benchmarks that do not exploit observation opportunities."
+  },
+  {
+   "id": "https://openalex.org/W7212374932",
+   "title": "Edge-Cloud Collaborative RAG with Multi-State Semantic Caching",
+   "year": 2026,
+   "doi": "https://doi.org/10.1145/3832810.3832878",
+   "abstract": "Enterprise applications are increasingly adopting collaborative Retrieval Augmented Generation (RAG) frameworks that synergize Small Language Models (SLMs) at the network edge with Large Language Models (LLMs) in the cloud for joint reasoning. However, this paradigm is bottlenecked by the capacity asymmetry between massive cloud-based knowledge repositories and resource-constrained edge servers. Existing edge-cloud collaborative frameworks rely on monolithic storage strategies that fail to exploit the structural asymmetry between the vector index of knowledge chunks and raw documents. This limitation induces a severe conflict between service latency and cache reconfiguration traffic. This paper proposes a Multi-State Semantic Cache (MSSC) framework that dynamically maps knowledge chunks into three mutually exclusive states: zero cache, index cache, and full cache. By leveraging semantic graph diffusion, our framework captures conceptual dependencies to predict query trajectories, enabling predictive state transitions among three states. Furthermore, we formulate the cache scheduling process as a Model Predictive Control (MPC) problem to optimize the trade-off between service latency and reconfiguration traffic. Experimental evaluations on real-world datasets demonstrate that, while strictly preserving generation quality, our framework reduces average service latency by over 40% in dynamic scenarios and suppresses backhaul reconfiguration traffic by up to 38% compared to conventional binary caching baselines."
+  }
+ ]
+}
