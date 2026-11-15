@@ -1,0 +1,5 @@
+ADDENDUM lock (before outcomes; lock time = commit time).
+354905393f4970025e595e5780433691dde8a1ff7b4351fbfbcd9ccfcb39a731  ADDENDUM.md
+2dbe1d3d38b4ba9bd696027ba8c3ffb83b9f4cd6ff2b117c3212e700e49f73b7  code/addendum.py
+243d2af3be18970df0f5f0425657c732da87fd9458e9ada858167097aef83ec7  code/analyze.py
+9a54ee69780965739932412651ad4997e30948ba08a23e1d4fae2b1f8eff58a9  code/pull.py
