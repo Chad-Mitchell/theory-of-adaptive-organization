@@ -1,0 +1,60 @@
+B ci=0 mix n=2048 band=(0.002, 3.141592653589793) reps=100 pseudo-true (logq, alpha, logs2) = [-3.841, 1.48, -2.818]
+  alpha      truth    1.480 bias -0.013 (median -0.014) RMSE 0.083 cov95 0.99 (n=100) meanSE 0.098
+  log q      truth   -3.841 bias +0.001 (median -0.002) RMSE 0.178 cov95 1.00 (n=100) meanSE 0.227
+  log s2     truth   -2.818 bias -0.034 (median -0.015) RMSE 0.130 cov95 0.98 (n=100) meanSE 0.161
+  corner check: share LR > 2.71: 0.05; > 6.63: 0.01; median w0 0.0015; median corner-model alpha 1.498
+B ci=1 ou n=2048 band=None reps=100 pseudo-true (logq, alpha, logs2) = [-3.741, 1.884, -2.544]
+  alpha      truth    1.884 bias +0.002 (median +0.007) RMSE 0.090 cov95 0.90 (n=100) meanSE 0.089
+  log q      truth   -3.741 bias +0.000 (median +0.008) RMSE 0.200 cov95 0.92 (n=100) meanSE 0.192
+  log s2     truth   -2.544 bias -0.008 (median -0.003) RMSE 0.063 cov95 0.97 (n=100) meanSE 0.065
+  corner check: share LR > 2.71: 0.66; > 6.63: 0.17; median w0 0.0099; median corner-model alpha 2.007
+B ci=2 fbm2 n=2048 band=None reps=100 pseudo-true (logq, alpha, logs2) = [0.0, 2.0, 1.386]
+  alpha      truth    2.000 bias +0.013 (median +0.022) RMSE 0.089 cov95 0.96 (n=100) meanSE 0.091
+  log q      truth    0.000 bias -0.030 (median -0.031) RMSE 0.206 cov95 0.95 (n=100) meanSE 0.198
+  log s2     truth    1.386 bias +0.010 (median +0.015) RMSE 0.056 cov95 0.92 (n=100) meanSE 0.054
+  corner check: share LR > 2.71: 0.07; > 6.63: 0.00; median w0 0.0021; median corner-model alpha 2.039
+B ci=3 fbm14 n=2048 band=None reps=100 pseudo-true (logq, alpha, logs2) = [0.0, 1.4, 0.97]
+  alpha      truth    1.400 bias +0.033 (median +0.037) RMSE 0.104 cov95 0.95 (n=100) meanSE 0.101
+  log q      truth    0.000 bias -0.068 (median -0.088) RMSE 0.249 cov95 0.94 (n=100) meanSE 0.239
+  log s2     truth    0.970 bias -0.036 (median +0.057) RMSE 0.303 cov95 0.91 (n=100) meanSE 0.260
+  corner check: share LR > 2.71: 0.06; > 6.63: 0.01; median w0 0.0010; median corner-model alpha 1.467
+B ci=4 mix n=8192 band=(0.002, 3.141592653589793) reps=100 pseudo-true (logq, alpha, logs2) = [-3.842, 1.481, -2.818]
+  alpha      truth    1.481 bias -0.001 (median -0.007) RMSE 0.045 cov95 0.96 (n=100) meanSE 0.049
+  log q      truth   -3.842 bias -0.003 (median +0.015) RMSE 0.102 cov95 0.96 (n=100) meanSE 0.113
+  log s2     truth   -2.818 bias -0.007 (median -0.004) RMSE 0.064 cov95 0.96 (n=100) meanSE 0.069
+  corner check: share LR > 2.71: 0.09; > 6.63: 0.01; median w0 0.0009; median corner-model alpha 1.484
+B ci=5 ou n=8192 band=None reps=100 pseudo-true (logq, alpha, logs2) = [-3.711, 1.866, -2.552]
+  alpha      truth    1.866 bias -0.000 (median -0.003) RMSE 0.047 cov95 0.95 (n=100) meanSE 0.043
+  log q      truth   -3.711 bias +0.000 (median +0.015) RMSE 0.096 cov95 0.95 (n=100) meanSE 0.093
+  log s2     truth   -2.552 bias -0.003 (median -0.001) RMSE 0.033 cov95 0.92 (n=100) meanSE 0.032
+  corner check: share LR > 2.71: 1.00; > 6.63: 0.94; median w0 0.0088; median corner-model alpha 1.985
+B ci=6 fbm2 n=8192 band=None reps=100 pseudo-true (logq, alpha, logs2) = [0.0, 2.0, 1.386]
+  alpha      truth    2.000 bias -0.001 (median -0.005) RMSE 0.045 cov95 0.95 (n=100) meanSE 0.043
+  log q      truth    0.000 bias -0.002 (median +0.002) RMSE 0.105 cov95 0.94 (n=100) meanSE 0.096
+  log s2     truth    1.386 bias -0.001 (median +0.004) RMSE 0.028 cov95 0.96 (n=100) meanSE 0.027
+  corner check: share LR > 2.71: 0.11; > 6.63: 0.02; median w0 0.0005; median corner-model alpha 2.004
+B ci=7 fbm14 n=8192 band=None reps=100 pseudo-true (logq, alpha, logs2) = [0.0, 1.4, 0.97]
+  alpha      truth    1.400 bias +0.009 (median +0.011) RMSE 0.050 cov95 0.95 (n=100) meanSE 0.048
+  log q      truth    0.000 bias -0.026 (median -0.038) RMSE 0.118 cov95 0.96 (n=100) meanSE 0.115
+  log s2     truth    0.970 bias +0.003 (median +0.018) RMSE 0.086 cov95 0.95 (n=100) meanSE 0.086
+  corner check: share LR > 2.71: 0.05; > 6.63: 0.02; median w0 0.0000; median corner-model alpha 1.416
+B ci=8 mix n=32768 band=(0.002, 3.141592653589793) reps=100 pseudo-true (logq, alpha, logs2) = [-3.842, 1.481, -2.817]
+  alpha      truth    1.481 bias +0.002 (median +0.002) RMSE 0.023 cov95 0.97 (n=100) meanSE 0.025
+  log q      truth   -3.842 bias -0.006 (median -0.008) RMSE 0.053 cov95 0.97 (n=100) meanSE 0.057
+  log s2     truth   -2.817 bias +0.000 (median +0.001) RMSE 0.030 cov95 0.97 (n=100) meanSE 0.033
+  corner check: share LR > 2.71: 0.06; > 6.63: 0.02; median w0 0.0014; median corner-model alpha 1.489
+B ci=9 ou n=32768 band=None reps=100 pseudo-true (logq, alpha, logs2) = [-3.702, 1.861, -2.555]
+  alpha      truth    1.861 bias -0.000 (median +0.001) RMSE 0.023 cov95 0.94 (n=100) meanSE 0.021
+  log q      truth   -3.702 bias +0.003 (median +0.001) RMSE 0.046 cov95 0.94 (n=100) meanSE 0.046
+  log s2     truth   -2.555 bias -0.002 (median -0.001) RMSE 0.016 cov95 0.98 (n=100) meanSE 0.016
+  corner check: share LR > 2.71: 1.00; > 6.63: 1.00; median w0 0.0089; median corner-model alpha 1.979
+B ci=10 fbm2 n=32768 band=None reps=100 pseudo-true (logq, alpha, logs2) = [0.0, 2.0, 1.386]
+  alpha      truth    2.000 bias -0.003 (median -0.003) RMSE 0.021 cov95 0.94 (n=100) meanSE 0.021
+  log q      truth    0.000 bias +0.002 (median -0.002) RMSE 0.050 cov95 0.93 (n=100) meanSE 0.047
+  log s2     truth    1.386 bias -0.001 (median -0.000) RMSE 0.014 cov95 0.95 (n=100) meanSE 0.013
+  corner check: share LR > 2.71: 0.07; > 6.63: 0.01; median w0 0.0001; median corner-model alpha 1.999
+B ci=11 fbm14 n=32768 band=None reps=100 pseudo-true (logq, alpha, logs2) = [0.0, 1.4, 0.97]
+  alpha      truth    1.400 bias +0.005 (median +0.001) RMSE 0.025 cov95 0.94 (n=100) meanSE 0.023
+  log q      truth    0.000 bias -0.009 (median -0.004) RMSE 0.057 cov95 0.96 (n=100) meanSE 0.057
+  log s2     truth    0.970 bias +0.005 (median +0.007) RMSE 0.042 cov95 0.93 (n=100) meanSE 0.042
+  corner check: share LR > 2.71: 0.09; > 6.63: 0.02; median w0 0.0001; median corner-model alpha 1.406

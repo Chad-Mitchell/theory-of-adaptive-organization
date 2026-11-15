@@ -1,0 +1,216 @@
+A ci=0 alpha=1.4 w_c=0.05 n=512 reps=200 at_bound=39
+  alpha      truth    1.400 bias +0.371 (median +0.279) RMSE 0.714 cov95 0.99 (n=200) meanSE 9084948.507
+  log q      truth    0.000 bias -1.058 (median -0.073) RMSE 3.447 cov95 0.96 (n=200) meanSE 31717331.169
+  log s2     truth    4.194 bias -0.621 (median -0.019) RMSE 2.240 cov95 0.99 (n=200) meanSE 34642.156
+A ci=1 alpha=1.4 w_c=0.05 n=2048 reps=200 at_bound=2
+  alpha      truth    1.400 bias +0.171 (median +0.183) RMSE 0.314 cov95 0.92 (n=200) meanSE 0.251
+  log q      truth    0.000 bias -0.227 (median -0.141) RMSE 0.982 cov95 0.96 (n=200) meanSE 0.954
+  log s2     truth    4.194 bias -0.129 (median +0.003) RMSE 0.875 cov95 0.98 (n=200) meanSE 235.393
+  DFA alpha  truth    1.400 bias -0.319 (median -0.320) RMSE 0.319
+  VG alpha   truth    1.400 bias +0.086 (median +0.020) RMSE 0.458
+  VG log q   truth    0.000 bias -0.573 (median -0.035) RMSE 2.217
+  VG log s2  truth    4.194 bias -0.383 (median -0.011) RMSE 1.125
+A ci=2 alpha=1.4 w_c=0.05 n=8192 reps=200 at_bound=0
+  alpha      truth    1.400 bias +0.097 (median +0.079) RMSE 0.176 cov95 0.80 (n=200) meanSE 0.115
+  log q      truth    0.000 bias -0.211 (median -0.189) RMSE 0.533 cov95 0.94 (n=200) meanSE 0.459
+  log s2     truth    4.194 bias -0.001 (median +0.002) RMSE 0.034 cov95 0.95 (n=200) meanSE 0.025
+  DFA alpha  truth    1.400 bias -0.338 (median -0.338) RMSE 0.338
+  VG alpha   truth    1.400 bias -0.003 (median -0.005) RMSE 0.134
+  VG log q   truth    0.000 bias -0.005 (median -0.012) RMSE 0.532
+  VG log s2  truth    4.194 bias -0.022 (median -0.004) RMSE 0.105
+A ci=3 alpha=1.4 w_c=0.05 n=32768 reps=100 at_bound=0
+  alpha      truth    1.400 bias +0.039 (median +0.039) RMSE 0.073 cov95 0.86 (n=100) meanSE 0.055
+  log q      truth    0.000 bias -0.092 (median -0.082) RMSE 0.247 cov95 0.91 (n=100) meanSE 0.221
+  log s2     truth    4.194 bias +0.002 (median +0.002) RMSE 0.011 cov95 0.93 (n=100) meanSE 0.011
+A ci=4 alpha=1.4 w_c=0.5 n=512 reps=200 at_bound=0
+  alpha      truth    1.400 bias +0.050 (median +0.053) RMSE 0.214 cov95 0.97 (n=200) meanSE 0.227
+  log q      truth    0.000 bias -0.089 (median -0.000) RMSE 0.472 cov95 0.98 (n=200) meanSE 0.518
+  log s2     truth    0.970 bias -2.137 (median +0.026) RMSE 5.613 cov95 0.87 (n=200) meanSE 10333516.097
+A ci=5 alpha=1.4 w_c=0.5 n=2048 reps=200 at_bound=0
+  alpha      truth    1.400 bias +0.026 (median +0.023) RMSE 0.104 cov95 0.94 (n=200) meanSE 0.100
+  log q      truth    0.000 bias -0.049 (median -0.029) RMSE 0.245 cov95 0.94 (n=200) meanSE 0.238
+  log s2     truth    0.970 bias -0.120 (median +0.024) RMSE 1.023 cov95 0.89 (n=200) meanSE 1832.762
+  DFA alpha  truth    1.400 bias -0.170 (median -0.169) RMSE 0.171
+  VG alpha   truth    1.400 bias +0.024 (median +0.017) RMSE 0.124
+  VG log q   truth    0.000 bias -0.062 (median -0.025) RMSE 0.317
+  VG log s2  truth    0.970 bias -0.532 (median +0.025) RMSE 2.845
+A ci=6 alpha=1.4 w_c=0.5 n=8192 reps=200 at_bound=0
+  alpha      truth    1.400 bias -0.001 (median -0.003) RMSE 0.048 cov95 0.96 (n=200) meanSE 0.048
+  log q      truth    0.000 bias +0.008 (median +0.013) RMSE 0.113 cov95 0.96 (n=200) meanSE 0.114
+  log s2     truth    0.970 bias -0.020 (median -0.003) RMSE 0.096 cov95 0.94 (n=200) meanSE 0.093
+  DFA alpha  truth    1.400 bias -0.167 (median -0.168) RMSE 0.167
+  VG alpha   truth    1.400 bias -0.010 (median -0.006) RMSE 0.087
+  VG log q   truth    0.000 bias +0.017 (median +0.027) RMSE 0.261
+  VG log s2  truth    0.970 bias -0.148 (median -0.018) RMSE 0.512
+A ci=7 alpha=1.4 w_c=0.5 n=32768 reps=100 at_bound=0
+  alpha      truth    1.400 bias +0.002 (median +0.000) RMSE 0.027 cov95 0.88 (n=100) meanSE 0.023
+  log q      truth    0.000 bias -0.003 (median +0.001) RMSE 0.066 cov95 0.90 (n=100) meanSE 0.057
+  log s2     truth    0.970 bias -0.002 (median +0.000) RMSE 0.050 cov95 0.89 (n=100) meanSE 0.042
+A ci=8 alpha=1.4 w_c=3.0 n=512 reps=200 at_bound=0
+  alpha      truth    1.400 bias +0.038 (median +0.018) RMSE 0.118 cov95 0.98 (n=200) meanSE 0.166
+  log q      truth    0.000 bias -0.067 (median -0.016) RMSE 0.210 cov95 0.99 (n=200) meanSE 0.301
+  log s2     truth   -1.538 bias -5.181 (median -0.068) RMSE 9.198 cov95 0.85 (n=200) meanSE 104063457.517
+A ci=9 alpha=1.4 w_c=3.0 n=2048 reps=200 at_bound=0
+  alpha      truth    1.400 bias +0.014 (median +0.002) RMSE 0.062 cov95 0.98 (n=200) meanSE 0.076
+  log q      truth    0.000 bias -0.029 (median -0.011) RMSE 0.113 cov95 0.98 (n=200) meanSE 0.143
+  log s2     truth   -1.538 bias -3.178 (median +0.049) RMSE 6.910 cov95 0.87 (n=200) meanSE 25370423.681
+  DFA alpha  truth    1.400 bias -0.002 (median -0.004) RMSE 0.027
+  VG alpha   truth    1.400 bias +0.011 (median -0.004) RMSE 0.076
+  VG log q   truth    0.000 bias -0.057 (median -0.003) RMSE 0.170
+  VG log s2  truth   -1.538 bias -5.429 (median -0.418) RMSE 9.384
+A ci=10 alpha=1.4 w_c=3.0 n=8192 reps=200 at_bound=0
+  alpha      truth    1.400 bias -0.003 (median -0.006) RMSE 0.037 cov95 0.96 (n=200) meanSE 0.037
+  log q      truth    0.000 bias +0.004 (median +0.013) RMSE 0.072 cov95 0.95 (n=200) meanSE 0.070
+  log s2     truth   -1.538 bias -1.914 (median -0.155) RMSE 4.911 cov95 0.90 (n=200) meanSE 1156812.600
+  DFA alpha  truth    1.400 bias -0.015 (median -0.017) RMSE 0.025
+  VG alpha   truth    1.400 bias -0.002 (median -0.000) RMSE 0.054
+  VG log q   truth    0.000 bias -0.028 (median -0.013) RMSE 0.128
+  VG log s2  truth   -1.538 bias -4.808 (median +0.033) RMSE 8.787
+A ci=11 alpha=1.4 w_c=3.0 n=32768 reps=100 at_bound=0
+  alpha      truth    1.400 bias +0.003 (median +0.002) RMSE 0.019 cov95 0.94 (n=100) meanSE 0.018
+  log q      truth    0.000 bias -0.003 (median -0.004) RMSE 0.034 cov95 0.95 (n=100) meanSE 0.035
+  log s2     truth   -1.538 bias -0.047 (median +0.023) RMSE 0.438 cov95 0.92 (n=100) meanSE 0.417
+A ci=12 alpha=2.0 w_c=0.05 n=512 reps=200 at_bound=26
+  alpha      truth    2.000 bias -0.027 (median -0.080) RMSE 0.556 cov95 0.95 (n=200) meanSE 0.780
+  log q      truth    0.000 bias +0.603 (median +1.071) RMSE 2.252 cov95 0.83 (n=200) meanSE 2.811
+  log s2     truth    5.991 bias -0.241 (median -0.021) RMSE 1.340 cov95 0.96 (n=200) meanSE 16814.044
+A ci=13 alpha=2.0 w_c=0.05 n=2048 reps=200 at_bound=1
+  alpha      truth    2.000 bias +0.046 (median +0.036) RMSE 0.293 cov95 0.95 (n=200) meanSE 0.288
+  log q      truth    0.000 bias +0.030 (median +0.219) RMSE 1.225 cov95 0.92 (n=200) meanSE 1.137
+  log s2     truth    5.991 bias -0.004 (median -0.002) RMSE 0.036 cov95 0.95 (n=200) meanSE 0.034
+  DFA alpha  truth    2.000 bias -0.920 (median -0.919) RMSE 0.920
+  VG alpha   truth    2.000 bias +0.080 (median +0.027) RMSE 0.475
+  VG log q   truth    0.000 bias -0.764 (median -0.262) RMSE 2.689
+  VG log s2  truth    5.991 bias -0.028 (median -0.003) RMSE 0.169
+A ci=14 alpha=2.0 w_c=0.05 n=8192 reps=200 at_bound=0
+  alpha      truth    2.000 bias -0.002 (median -0.012) RMSE 0.124 cov95 0.95 (n=200) meanSE 0.127
+  log q      truth    0.000 bias +0.062 (median +0.137) RMSE 0.546 cov95 0.93 (n=200) meanSE 0.521
+  log s2     truth    5.991 bias +0.000 (median -0.001) RMSE 0.016 cov95 0.97 (n=200) meanSE 0.016
+  DFA alpha  truth    2.000 bias -0.927 (median -0.927) RMSE 0.927
+  VG alpha   truth    2.000 bias -0.007 (median -0.013) RMSE 0.164
+  VG log q   truth    0.000 bias -0.011 (median +0.099) RMSE 0.765
+  VG log s2  truth    5.991 bias +0.001 (median +0.000) RMSE 0.016
+A ci=15 alpha=2.0 w_c=0.05 n=32768 reps=100 at_bound=0
+  alpha      truth    2.000 bias -0.002 (median -0.009) RMSE 0.064 cov95 0.93 (n=100) meanSE 0.060
+  log q      truth    0.000 bias +0.037 (median +0.046) RMSE 0.277 cov95 0.95 (n=100) meanSE 0.250
+  log s2     truth    5.991 bias -0.001 (median +0.001) RMSE 0.008 cov95 0.94 (n=100) meanSE 0.008
+A ci=16 alpha=2.0 w_c=0.5 n=512 reps=200 at_bound=0
+  alpha      truth    2.000 bias -0.012 (median -0.024) RMSE 0.182 cov95 0.98 (n=200) meanSE 0.200
+  log q      truth    0.000 bias -0.005 (median +0.025) RMSE 0.402 cov95 0.96 (n=200) meanSE 0.419
+  log s2     truth    1.386 bias -0.031 (median -0.010) RMSE 0.124 cov95 0.98 (n=200) meanSE 0.127
+A ci=17 alpha=2.0 w_c=0.5 n=2048 reps=200 at_bound=0
+  alpha      truth    2.000 bias +0.000 (median +0.001) RMSE 0.108 cov95 0.89 (n=200) meanSE 0.090
+  log q      truth    0.000 bias -0.006 (median +0.020) RMSE 0.220 cov95 0.92 (n=200) meanSE 0.197
+  log s2     truth    1.386 bias -0.003 (median -0.003) RMSE 0.058 cov95 0.95 (n=200) meanSE 0.056
+  DFA alpha  truth    2.000 bias -0.500 (median -0.501) RMSE 0.503
+  VG alpha   truth    2.000 bias +0.002 (median -0.013) RMSE 0.134
+  VG log q   truth    0.000 bias -0.009 (median +0.025) RMSE 0.351
+  VG log s2  truth    1.386 bias -0.015 (median +0.004) RMSE 0.105
+A ci=18 alpha=2.0 w_c=0.5 n=8192 reps=200 at_bound=0
+  alpha      truth    2.000 bias -0.004 (median -0.006) RMSE 0.047 cov95 0.94 (n=200) meanSE 0.043
+  log q      truth    0.000 bias +0.004 (median +0.000) RMSE 0.098 cov95 0.93 (n=200) meanSE 0.096
+  log s2     truth    1.386 bias -0.001 (median +0.002) RMSE 0.029 cov95 0.93 (n=200) meanSE 0.027
+  DFA alpha  truth    2.000 bias -0.393 (median -0.393) RMSE 0.395
+  VG alpha   truth    2.000 bias -0.005 (median +0.004) RMSE 0.091
+  VG log q   truth    0.000 bias -0.008 (median -0.026) RMSE 0.275
+  VG log s2  truth    1.386 bias -0.010 (median -0.000) RMSE 0.087
+A ci=19 alpha=2.0 w_c=0.5 n=32768 reps=100 at_bound=0
+  alpha      truth    2.000 bias +0.002 (median +0.001) RMSE 0.022 cov95 0.92 (n=100) meanSE 0.021
+  log q      truth    0.000 bias -0.007 (median -0.008) RMSE 0.053 cov95 0.93 (n=100) meanSE 0.047
+  log s2     truth    1.386 bias +0.000 (median +0.000) RMSE 0.015 cov95 0.92 (n=100) meanSE 0.013
+A ci=20 alpha=2.0 w_c=3.0 n=512 reps=200 at_bound=0
+  alpha      truth    2.000 bias +0.009 (median -0.005) RMSE 0.114 cov95 0.96 (n=199) meanSE 0.125
+  log q      truth    0.000 bias -0.023 (median +0.003) RMSE 0.169 cov95 0.97 (n=199) meanSE 0.174
+  log s2     truth   -2.197 bias -3.024 (median -0.120) RMSE 6.870 cov95 0.89 (n=199) meanSE 3501545.375
+A ci=21 alpha=2.0 w_c=3.0 n=2048 reps=200 at_bound=0
+  alpha      truth    2.000 bias -0.002 (median -0.005) RMSE 0.059 cov95 0.94 (n=200) meanSE 0.058
+  log q      truth    0.000 bias -0.005 (median +0.001) RMSE 0.091 cov95 0.93 (n=200) meanSE 0.085
+  log s2     truth   -2.197 bias -0.593 (median -0.041) RMSE 2.728 cov95 0.89 (n=200) meanSE 710334.329
+  DFA alpha  truth    2.000 bias -0.029 (median -0.030) RMSE 0.067
+  VG alpha   truth    2.000 bias -0.004 (median -0.005) RMSE 0.084
+  VG log q   truth    0.000 bias -0.007 (median +0.014) RMSE 0.163
+  VG log s2  truth   -2.197 bias -3.648 (median -0.271) RMSE 7.599
+A ci=22 alpha=2.0 w_c=3.0 n=8192 reps=200 at_bound=0
+  alpha      truth    2.000 bias +0.003 (median +0.002) RMSE 0.030 cov95 0.94 (n=200) meanSE 0.029
+  log q      truth    0.000 bias -0.006 (median -0.006) RMSE 0.043 cov95 0.94 (n=200) meanSE 0.042
+  log s2     truth   -2.197 bias -0.007 (median +0.028) RMSE 0.259 cov95 0.91 (n=200) meanSE 0.239
+  DFA alpha  truth    2.000 bias -0.020 (median -0.017) RMSE 0.044
+  VG alpha   truth    2.000 bias -0.006 (median -0.011) RMSE 0.057
+  VG log q   truth    0.000 bias +0.015 (median +0.042) RMSE 0.135
+  VG log s2  truth   -2.197 bias -3.438 (median -0.254) RMSE 7.261
+A ci=23 alpha=2.0 w_c=3.0 n=32768 reps=100 at_bound=0
+  alpha      truth    2.000 bias -0.001 (median -0.001) RMSE 0.014 cov95 0.95 (n=100) meanSE 0.014
+  log q      truth    0.000 bias +0.001 (median +0.001) RMSE 0.021 cov95 0.95 (n=100) meanSE 0.021
+  log s2     truth   -2.197 bias -0.025 (median -0.013) RMSE 0.117 cov95 0.98 (n=100) meanSE 0.116
+A ci=24 alpha=2.6 w_c=0.05 n=512 reps=200 at_bound=43
+  alpha      truth    2.600 bias -0.350 (median -0.362) RMSE 0.668 cov95 0.85 (n=200) meanSE 0.895
+  log q      truth    0.000 bias +1.590 (median +1.752) RMSE 2.731 cov95 0.74 (n=200) meanSE 3.318
+  log s2     truth    7.789 bias -0.121 (median -0.003) RMSE 1.004 cov95 0.98 (n=200) meanSE 5511.813
+A ci=25 alpha=2.6 w_c=0.05 n=2048 reps=200 at_bound=13
+  alpha      truth    2.600 bias -0.125 (median -0.139) RMSE 0.315 cov95 0.90 (n=200) meanSE 0.296
+  log q      truth    0.000 bias +0.660 (median +0.715) RMSE 1.364 cov95 0.84 (n=200) meanSE 1.167
+  log s2     truth    7.789 bias -0.001 (median +0.001) RMSE 0.031 cov95 0.96 (n=200) meanSE 0.032
+  DFA alpha  truth    2.600 bias -1.518 (median -1.519) RMSE 1.518
+  VG alpha   truth    2.600 bias -0.040 (median +0.023) RMSE 0.273
+  VG log q   truth    0.000 bias -0.019 (median -0.029) RMSE 1.448
+  VG log s2  truth    7.789 bias -0.002 (median -0.002) RMSE 0.030
+A ci=26 alpha=2.6 w_c=0.05 n=8192 reps=200 at_bound=0
+  alpha      truth    2.600 bias -0.005 (median -0.005) RMSE 0.138 cov95 0.94 (n=200) meanSE 0.136
+  log q      truth    0.000 bias +0.058 (median +0.053) RMSE 0.592 cov95 0.93 (n=200) meanSE 0.564
+  log s2     truth    7.789 bias +0.003 (median +0.002) RMSE 0.017 cov95 0.94 (n=200) meanSE 0.016
+  DFA alpha  truth    2.600 bias -1.496 (median -1.498) RMSE 1.496
+  VG alpha   truth    2.600 bias -0.039 (median -0.040) RMSE 0.135
+  VG log q   truth    0.000 bias +0.156 (median +0.155) RMSE 0.604
+  VG log s2  truth    7.789 bias -0.001 (median -0.002) RMSE 0.018
+A ci=27 alpha=2.6 w_c=0.05 n=32768 reps=100 at_bound=0
+  alpha      truth    2.600 bias -0.009 (median -0.017) RMSE 0.067 cov95 0.95 (n=100) meanSE 0.064
+  log q      truth    0.000 bias +0.038 (median +0.030) RMSE 0.284 cov95 0.94 (n=100) meanSE 0.270
+  log s2     truth    7.789 bias -0.001 (median -0.001) RMSE 0.008 cov95 0.95 (n=100) meanSE 0.008
+A ci=28 alpha=2.6 w_c=0.5 n=512 reps=200 at_bound=4
+  alpha      truth    2.600 bias -0.018 (median +0.002) RMSE 0.204 cov95 0.94 (n=200) meanSE 0.195
+  log q      truth    0.000 bias +0.007 (median +0.031) RMSE 0.426 cov95 0.93 (n=200) meanSE 0.397
+  log s2     truth    1.802 bias -0.009 (median -0.007) RMSE 0.094 cov95 0.94 (n=200) meanSE 0.087
+A ci=29 alpha=2.6 w_c=0.5 n=2048 reps=200 at_bound=0
+  alpha      truth    2.600 bias -0.008 (median -0.001) RMSE 0.079 cov95 0.95 (n=200) meanSE 0.088
+  log q      truth    0.000 bias +0.026 (median +0.024) RMSE 0.173 cov95 0.95 (n=200) meanSE 0.185
+  log s2     truth    1.802 bias -0.002 (median -0.002) RMSE 0.042 cov95 0.94 (n=200) meanSE 0.042
+  DFA alpha  truth    2.600 bias -0.660 (median -0.665) RMSE 0.663
+  VG alpha   truth    2.600 bias -0.042 (median -0.035) RMSE 0.115
+  VG log q   truth    0.000 bias +0.109 (median +0.109) RMSE 0.308
+  VG log s2  truth    1.802 bias -0.027 (median -0.023) RMSE 0.073
+A ci=30 alpha=2.6 w_c=0.5 n=8192 reps=200 at_bound=0
+  alpha      truth    2.600 bias +0.004 (median +0.004) RMSE 0.040 cov95 0.96 (n=200) meanSE 0.042
+  log q      truth    0.000 bias -0.005 (median -0.000) RMSE 0.091 cov95 0.94 (n=200) meanSE 0.091
+  log s2     truth    1.802 bias +0.002 (median +0.001) RMSE 0.022 cov95 0.93 (n=200) meanSE 0.021
+  DFA alpha  truth    2.600 bias -0.449 (median -0.445) RMSE 0.451
+  VG alpha   truth    2.600 bias -0.008 (median -0.012) RMSE 0.092
+  VG log q   truth    0.000 bias +0.028 (median +0.059) RMSE 0.290
+  VG log s2  truth    1.802 bias -0.011 (median +0.002) RMSE 0.057
+A ci=31 alpha=2.6 w_c=0.5 n=32768 reps=100 at_bound=0
+  alpha      truth    2.600 bias +0.004 (median +0.005) RMSE 0.026 cov95 0.90 (n=100) meanSE 0.021
+  log q      truth    0.000 bias -0.009 (median -0.011) RMSE 0.050 cov95 0.93 (n=100) meanSE 0.045
+  log s2     truth    1.802 bias -0.001 (median -0.001) RMSE 0.012 cov95 0.89 (n=100) meanSE 0.010
+A ci=32 alpha=2.6 w_c=3.0 n=512 reps=200 at_bound=0
+  alpha      truth    2.600 bias +0.003 (median +0.002) RMSE 0.105 cov95 0.97 (n=200) meanSE 0.108
+  log q      truth    0.000 bias -0.003 (median +0.014) RMSE 0.134 cov95 0.96 (n=200) meanSE 0.132
+  log s2     truth   -2.856 bias -1.915 (median +0.003) RMSE 5.371 cov95 0.90 (n=200) meanSE 15460394.061
+A ci=33 alpha=2.6 w_c=3.0 n=2048 reps=200 at_bound=0
+  alpha      truth    2.600 bias +0.001 (median -0.000) RMSE 0.052 cov95 0.94 (n=200) meanSE 0.051
+  log q      truth    0.000 bias +0.000 (median +0.005) RMSE 0.071 cov95 0.92 (n=200) meanSE 0.065
+  log s2     truth   -2.856 bias -0.145 (median -0.028) RMSE 0.982 cov95 0.94 (n=200) meanSE 778.209
+  DFA alpha  truth    2.600 bias -0.027 (median -0.026) RMSE 0.077
+  VG alpha   truth    2.600 bias -0.007 (median -0.020) RMSE 0.092
+  VG log q   truth    0.000 bias -0.002 (median +0.003) RMSE 0.184
+  VG log s2  truth   -2.856 bias -3.719 (median +0.011) RMSE 7.375
+A ci=34 alpha=2.6 w_c=3.0 n=8192 reps=200 at_bound=0
+  alpha      truth    2.600 bias +0.001 (median +0.001) RMSE 0.026 cov95 0.93 (n=200) meanSE 0.025
+  log q      truth    0.000 bias -0.003 (median -0.004) RMSE 0.033 cov95 0.95 (n=200) meanSE 0.032
+  log s2     truth   -2.856 bias -0.011 (median +0.012) RMSE 0.166 cov95 0.96 (n=200) meanSE 0.170
+  DFA alpha  truth    2.600 bias -0.011 (median -0.015) RMSE 0.052
+  VG alpha   truth    2.600 bias -0.016 (median -0.014) RMSE 0.072
+  VG log q   truth    0.000 bias +0.030 (median +0.049) RMSE 0.180
+  VG log s2  truth   -2.856 bias -4.968 (median -0.444) RMSE 8.725
+A ci=35 alpha=2.6 w_c=3.0 n=32768 reps=100 at_bound=0
+  alpha      truth    2.600 bias -0.000 (median +0.001) RMSE 0.012 cov95 0.97 (n=100) meanSE 0.012
+  log q      truth    0.000 bias +0.000 (median -0.002) RMSE 0.015 cov95 0.98 (n=100) meanSE 0.016
+  log s2     truth   -2.856 bias -0.006 (median +0.003) RMSE 0.081 cov95 0.97 (n=100) meanSE 0.083

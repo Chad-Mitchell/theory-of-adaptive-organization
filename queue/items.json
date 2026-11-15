@@ -145,7 +145,7 @@
   "v": 0.5,
   "L": 2,
   "c": 3,
-  "note": "TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK (regression kernel = Wiener kernel even for a Bayes market; cannot discriminate Bayes vs linear). | TELEGRAPH-REFEREE (15 Nov): 'OK, cannot discriminate' holds only if realized variance is the market's own observation set; it is neither that nor the latent variance, so state which projection is measured."
+  "note": "TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK (regression kernel = Wiener kernel even for a Bayes market; cannot discriminate Bayes vs linear). | TELEGRAPH-REFEREE (15 Nov): 'OK, cannot discriminate' holds only if realized variance is the market's own observation set; it is neither that nor the latent variance, so state which projection is measured. | AQN-ESTIMATORS demo (15 Nov, on proxy): daily log VIX (implied) has a multi-year corner (LR 32, omega0 ~0.008/business day) and band-dependent slope (1.59 vs 1.94); measure alpha on realized variance with the corner check, not on VIX."
  },
  {
   "id": "D3-TWO-EXPONENT-OOS",
@@ -208,7 +208,15 @@
   "v": 0.8,
   "L": 3,
   "c": 1.5,
-  "note": "new (THEORY v1.4): estimators with CIs for alpha (band), q, N from a noisy series and for event worlds; validated on synthetic fBm+noise, Cox and renewal truth before any lock. N13 cannot be tested without them | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. For event/jump worlds estimate jump rate lambda and amplitude mu separately (q = 4 lambda mu^2 is sufficient for the linear tracker only) and state which optimum (linear or Bayes) each estimate feeds. | HEADLINE-PREMISE-SCOPE (15 Nov): at fixed (q, N) the two-state Bayes error spans 364x across splits of q into (lambda, mu) while the linear error moves 2% (reviews/night2/HEADLINE_PREMISE_SCOPE_checks/check.out): for a Bayes optimum q alone is useless; estimate lambda, mu separately and say which optimum each feeds. Weak evidence, no LR change (untested)."
+  "note": "new (THEORY v1.4): estimators with CIs for alpha (band), q, N from a noisy series and for event worlds; validated on synthetic fBm+noise, Cox and renewal truth before any lock. N13 cannot be tested without them | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. For event/jump worlds estimate jump rate lambda and amplitude mu separately (q = 4 lambda mu^2 is sufficient for the linear tracker only) and state which optimum (linear or Bayes) each estimate feeds. | HEADLINE-PREMISE-SCOPE (15 Nov): at fixed (q, N) the two-state Bayes error spans 364x across splits of q into (lambda, mu) while the linear error moves 2% (reviews/night2/HEADLINE_PREMISE_SCOPE_checks/check.out): for a Bayes optimum q alone is useless; estimate lambda, mu separately and say which optimum each feeds. Weak evidence, no LR change (untested). | DONE 15 Nov ~1:45 PM ET (pick 11, UNAIDED slot; ledger 57-59, outcome 61): measurement/estimators/ (lock 3595c48, RESULTS.md). Validated on synthetic truth: Whittle alpha, q, N (SE(alpha) ~ 1/sqrt(M), M = Fourier freqs below the noise crossover; +/-0.1 needs M ~ 400; N only an upper bound if the floor is invisible); corner check (LR>6.63, size <=0.02); HMM lambda, mu, N, t_A (SE(log lambda) ~ 1/sqrt(#switches), valid at >=16 switches); premise LR HMM vs Gaussian Markov (size 0-0.05, power 0.93-1.00); Cox counts (Poisson floor = N), MMPP, renewal flags (floor 0.33-0.39 of Poisson; gap order null); stakes only from exogenous error (IV fixes measurement noise, not self-selection: 3x low). DFA biased low under noise (0.17-1.5). Demo on proxy: DGS10 alpha 2.00+/-0.03 no corner (random walk; R1 label gap declared), log VIX regime not established (corner ~3 yr, band z -2.97). No CLAIM_MAP status change (N18 DECIDED, method). Not refereed (AQN-REFEREE).",
+  "status": "DONE",
+  "paths": [
+   "measurement/estimators/RESULTS.md",
+   "measurement/estimators/PREREG.md",
+   "measurement/estimators/aqn.py",
+   "measurement/estimators/validate.py",
+   "measurement/estimators/results/"
+  ]
  },
  {
   "id": "SAME-SYSTEM-AQN",
@@ -217,7 +225,7 @@
   "v": 0.6,
   "L": 4,
   "c": 4,
-  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the §2.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N16, P5). | TELEGRAPH-REFEREE (15 Nov): that kernel statement holds only for a regression on the system's own observations; a kernel on the true driver can discriminate (N16 v2.9). Bayes adaptation constant: (N/2mu^2)[ln(2mu^2/lambda N) - gamma - 1]."
+  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the §2.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N16, P5). | TELEGRAPH-REFEREE (15 Nov): that kernel statement holds only for a regression on the system's own observations; a kernel on the true driver can discriminate (N16 v2.9). Bayes adaptation constant: (N/2mu^2)[ln(2mu^2/lambda N) - gamma - 1]. | AQN-ESTIMATORS (15 Nov): estimators now exist (measurement/estimators/). Binding input is STAKES: identified only from exogenous error variation (self-selected error biases the slope ~3x low; IV does not fix it). Choose a system with designed/natural-experiment error variation (STAKES-EXOGENOUS). Record length: +/-0.1 on alpha needs M ~ 400 frequencies below the noise crossover; >=16 switches for lambda in a jump world."
  },
  {
   "id": "ONSET-SPECTRUM-FREE-REFEREE",
@@ -268,7 +276,7 @@
   "v": 0.5,
   "L": 3,
   "c": 4,
-  "note": "POST HOC S-a: UNEMP/HOUSING/TBILL consensus CG within 0-25% of optimal-filter prediction, alpha=2 rival 2-10x high. Powered version: monthly series for alpha, more surveys/variables (ECB SPF, Livingston), individual panels; dry-run power first (MV8). | 15 Nov SPF-NOISE-PROXY: the S-a rationale is WITHDRAWN (artifact of an invalid N proxy; with measured nowcast noise the filter under-predicts CG 2.5-6x, post hoc). Any powered version must use the L0w noise proxy and the horizon check; see SPF-RIGIDITY-OOS."
+  "note": "POST HOC S-a: UNEMP/HOUSING/TBILL consensus CG within 0-25% of optimal-filter prediction, alpha=2 rival 2-10x high. Powered version: monthly series for alpha, more surveys/variables (ECB SPF, Livingston), individual panels; dry-run power first (MV8). | 15 Nov SPF-NOISE-PROXY: the S-a rationale is WITHDRAWN (artifact of an invalid N proxy; with measured nowcast noise the filter under-predicts CG 2.5-6x, post hoc). Any powered version must use the L0w noise proxy and the horizon check; see SPF-RIGIDITY-OOS. | AQN-ESTIMATORS (15 Nov): SE(alpha) ~ 1/sqrt(M); quarterly SPF (n ~ 240) cannot reach +/-0.1 on alpha; any powered version needs monthly/longer series or pooling across variables."
  },
  {
   "id": "SPF-NOISE-PROXY",
@@ -510,7 +518,7 @@
   "v": 0.8,
   "L": 2,
   "c": 0.5,
-  "note": "Independent reviewer (not the author of reviews/night2/HEADLINE_PREMISE_SCOPE.md) reviews and, if sound, applies P1-P8 to THEORY.md (status block, §0, §1 N6, §2.1, §2.4 Net, §2.5 rule, §9) and CLAIM_MAP N13 text, re-reading THEORY at use; second hostile pass of the full diff before merge (Chad t1916). Premise clause only; no headline or core rewrite; must keep the lock guard (optimum compared fixed in prereg)."
+  "note": "Independent reviewer (not the author of reviews/night2/HEADLINE_PREMISE_SCOPE.md) reviews and, if sound, applies P1-P8 to THEORY.md (status block, §0, §1 N6, §2.1, §2.4 Net, §2.5 rule, §9) and CLAIM_MAP N13 text, re-reading THEORY at use; second hostile pass of the full diff before merge (Chad t1916). Premise clause only; no headline or core rewrite; must keep the lock guard (optimum compared fixed in prereg). | V143 independent review (ledger 60; reviews/night2/V143_INDEPENDENT_REVIEW.md): the status-block 'What changed' item 2 and the §10 Lee-Flack-Krakauer entry need the same learner-class qualifier as fix F2 (the sqrt form on a telegraph world belongs to LFK's learner class, not to the Bayes optimum); apply with P1-P8."
  },
  {
   "id": "REGIME-C-GAUSSIAN-PREMISE",
@@ -520,5 +528,41 @@
   "L": 2,
   "c": 0.5,
   "note": "From HEADLINE-PREMISE-SCOPE P9: THEORY §2.2 Regime C model size ∝ Q^{1/β} uses reverse water-filling, exact for Gaussian modes; for non-Gaussian sources the Gaussian R(D) is an upper bound (standard fact, not re-read). Read the rate-distortion source, decide whether Q^{1/β} is Gaussian-only (or an upper bound), and propose scope text for §0/§2.2 Regime C; headline-touching, so an independent applier."
+ },
+ {
+  "id": "AQN-REFEREE",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 3,
+  "c": 1,
+  "note": "From AQN-ESTIMATORS (15 Nov): independent hostile referee of measurement/estimators/ (estimators, aliasing, Wald SEs, validation design, acceptance rules, the R1 label gap at alpha~2 without a corner on DGS10, the E-truth 2pi fix, the demo reading) and of proposed edits E-A1..E-A5 (FRAMEWORK 3.1/3.3, THEORY 2.4 Net, 11). Before SAME-SYSTEM-AQN relies on the estimators."
+ },
+ {
+  "id": "STAKES-EXOGENOUS",
+  "w": 3,
+  "untested": true,
+  "v": 0.6,
+  "L": 3,
+  "c": 2,
+  "note": "From AQN-ESTIMATORS S-block (15 Nov): stakes w are identified only from error variation exogenous to w (cross-sections of self-optimizing units give ~3x low; replicate-measurement IV fixes measurement noise only). Find >=1 system with designed or natural-experiment error variation and a measurable cost (LEARNSIM-style designed AI task; E. coli growth vs mismatch; firm decisions on stale driver values) and estimate w with CI; gate for SAME-SYSTEM-AQN."
+ },
+ {
+  "id": "ALPHA-ESTIMATE-AUDIT",
+  "w": 1,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 1,
+  "note": "From AQN-ESTIMATORS (15 Nov): DFA and nugget-free variograms are biased low in alpha under sensing noise (0.17-1.5). Audit every alpha/H estimate in the repo (GITHUB addendum Allan-factor H, DRIFT1, MATCH1 redness, LFK-ALPHA-SPF Whittle) with aqn.whittle_fit + corner check; descriptive, no status change unless a locked result depended on it."
+ },
+ {
+  "id": "PREMISE-TEST-WIDEN",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 1.5,
+  "note": "From AQN-ESTIMATORS (15 Nov): the validated premise test compares only symmetric two-state switching vs Gaussian Markov. Extend: multi-state / asymmetric HMM, power-law jump (compound Poisson with heavy tails), fBm-Gaussian null via exact Gaussian likelihood or Whittle-calibrated bootstrap; size/power on synthetic truth. Pairs with JUMP-STORES."
  }
 ]
