@@ -8,7 +8,7 @@ This repository holds the theory (`THEORY.md`), the theorem notes with their cod
 
 ## Start here
 
-**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.3 draft, 15 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands, with commits; [`QUEUE.md`](QUEUE.md) is the live work queue. This README is a summary.
+**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.3a draft, 15 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands, with commits; [`QUEUE.md`](QUEUE.md) is the live work queue. This README is a summary.
 
 ## In plain words
 
@@ -87,7 +87,7 @@ The preregistration commits for these tests lived only in local, unpushed git re
 ## Repository layout
 
 ```
-THEORY.md         The theory, v1.4.3 draft (start here)
+THEORY.md         The theory, v1.4.3a draft (start here)
 theory/           Theorem notes, the math attack, and their code checks
 tests/            Preregistered tests: predictions, code, results (raw data excluded)
 litmap/           Literature map, prior-art table, threats, and DOI verification
