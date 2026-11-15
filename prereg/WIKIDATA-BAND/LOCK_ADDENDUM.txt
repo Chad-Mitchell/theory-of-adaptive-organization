@@ -1,0 +1,6 @@
+WIKIDATA-BAND post-lock addendum (declared). Time of record = git commit time of this file. Locked files unchanged (analyze.py, regime.py hashes match LOCK.txt).
+3badd52483b4f5703ee7b32ec32f2d839aecef784a077cc7efbbda7a96e3528f  ADDENDUM_STABILITY.md
+30cad0df385447b70871c120d4dde93914beaf14ce12c666229b0cb0964d4b43  addendum_stability.py
+ef025709d74c35de98d7dc7ec379cfbbf3973fd8f8df6e6d14c1fe7c225c0c3b  analyze.py
+f3c920d4fd396265910918e97145c67281a72bb8deb264095baa9cbe61f7a426  regime.py
+Time fix (declared, before outcomes): in-file writing time corrected from "11:45" to the commit time 11:23 ET; rule text unchanged.

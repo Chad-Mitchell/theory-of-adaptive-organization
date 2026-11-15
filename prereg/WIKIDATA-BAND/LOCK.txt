@@ -1,0 +1,11 @@
+WIKIDATA-BAND lock manifest. Timestamp of record = git commit time of this file (branch prereg/wikidata-band).
+seed_sampling=20261115 n_per_prop=40 exclude=pilot/exclude_qids.json bootstrap: property-cluster pairs, B_COEF=1000, B_AUC=2000, rng=numpy default_rng(20261115); regime bootstrap B=500 over items
+main commands: python collect.py sample main 20261115 40 pilot/exclude_qids.json; python collect.py old main; python collect.py pages main -1; python analyze.py main
+068528225b72d5adfd1996b3a39dc1ff1f00fd86e09490564db02191b4adae92  PREREG.md
+88877695c327e4ffb2498b536b0d92d8cd691e1b485235a00d91347706ec279f  props.py
+11699e76e24722df04d905e1fc8ca2bc6557fa9577a1bfcdce500e2cdc5accfd  wm.py
+fcf8f830a9fb21983a99c0086f6cfc477d3222ae7435bfc8b66ff5ef38ae85a7  collect.py
+4ee0612f83b0da631896148cb06cf17e46c1212583aab82328fcd0e73b687d3a  classify.py
+ef025709d74c35de98d7dc7ec379cfbbf3973fd8f8df6e6d14c1fe7c225c0c3b  analyze.py
+f3c920d4fd396265910918e97145c67281a72bb8deb264095baa9cbe61f7a426  regime.py
+9fe73efdd37926f9df2a7fc44a7dd6ebfd7b294e2a242a0f49e358cb651e3637  pilot/exclude_qids.json
