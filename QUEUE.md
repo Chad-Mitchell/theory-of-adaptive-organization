@@ -141,7 +141,19 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 5 done (ledger 35). Next pick (6) is the rule slot again (cycle rule, rule, unaided, uniform restarts at pick 5): rule's top among open non-active items (log a fresh unaided order first).**
 
+### NEW (15 Nov ~11:30 AM ET, from TELEGRAPH-LINEAR-PREMISE; surprises read per rule 4)
+- **TELEGRAPH-LINEAR-PREMISE** — DONE (pick 6, rule slot; ledger 37–40): `reviews/night2/TELEGRAPH_LINEAR_PREMISE/REPORT.md`, lock `4d55366`. All locked rules met (in-model, regime A, two-state jump world). Bayes-optimal adaptation after a switch ≈ (N/2μ²) ln(2μ²/λN) (single log; 0.508θ per e-fold), error ≈ 2λN ln(2μ²/λN) (elasticity 0.85–0.92 in λ and N vs linear ½); q alone does not set them. Unaffected: exact reset reads (agrees with GITHUB-UPSTREAM's interpretation note), projection kernels. **Surprise (strong):** Conti & Mora 2022's ln² (eq. 36) is reproduced only by their eq. (20) read as Itô, which omits a drift term; the exact filter gives one log. CLAIM_MAP N16 (v2.8). THEORY edits E2′, E4–E6 proposed, not applied. Audit: AQN-ESTIMATORS and SAME-SYSTEM-AQN NEEDS-PREMISE; GITHUB-UPSTREAM measurement note (count-process Ĥ vs target variogram).
+- **TELEGRAPH-REFEREE** (w 3, c 1). Hostile referee of the above incl. the C&M diagnosis and a Wonham-asymptotics literature search.
+- **TLP-EDITS-REVIEW** (w 2, c 0.5). Independent review, then apply E2′, E4–E6 (supersedes E2).
+- **JUMP-WORLD-ONSET** (w 2, c 2). N12 pooling onset for Bayes trackers of additive jump drifts (sketch: −1 if ρ is a rate ratio).
+- **JUMP-STORES** (w 2, c 3). Bayes "store count" = sufficient-statistic dimension; multi-state and 1/f-superposition jump worlds.
+- **GITHUB-VARIOGRAM-CHECK** (w 1, c 1). Post-lock descriptive: variogram exponent of the binary target vs the addendum's Allan-factor Ĥ (interpretive only; GITHUB-UPSTREAM is Tier 3).
+- **CM-PUBLISHED-CHECK** (w 1, c 0.5). Read the published PRE text of Conti & Mora for corrections (no paywall sign-in, no author contact).
+
+**Pick 6 done (ledger 40). Next pick (7) is the unaided slot: Ace's unaided top (rule's if the same), after a fresh unaided order and rule run. Next free ledger entry: 41.**
+
 ## Done (frozen)
+- TELEGRAPH-LINEAR-PREMISE: `reviews/night2/TELEGRAPH_LINEAR_PREMISE/` (not refereed; TELEGRAPH-REFEREE and TLP-EDITS-REVIEW queued).
 - GITHUB-UPSTREAM: `night2/GITHUB/` (locked v1.1-era test; not refereed; interpretation note feeds TELEGRAPH-LINEAR-PREMISE).
 - PRIORART-LFK-ALPHA: `reviews/night2/PRIORART_LFK_ALPHA/` (not refereed; credit edits queued).
 - SPF-NOISE-PROXY: `tests/SPF_NOISE_PROXY/` (not refereed; NOISE-PROXY-REFEREE queued).

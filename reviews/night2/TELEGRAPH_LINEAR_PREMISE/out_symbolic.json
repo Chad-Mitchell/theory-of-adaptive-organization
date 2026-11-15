@@ -1,0 +1,33 @@
+{
+ "S1_ds_coef_is_(1-x^2)/theta": true,
+ "S1_dt_coef_is_-x/tau-x(1-x^2)/theta": true,
+ "S2_first_order_coef": "-(xp - 1)*(xp + 1)",
+ "S2_second_order_coef": "xp*(xp - 1)*(xp + 1)",
+ "S2_second_order_is_-x(1-x^2)": true,
+ "S3_kalman_P": "(-theta + sqrt(theta*(2*tau + theta)))/tau",
+ "S3_kalman_P_in_kappa": "2*sqrt(kappa)*sqrt(kappa + 1)*Abs(tau)/tau - 2*kappa",
+ "S3_small_kappa_leading": "2*Abs(tau)/tau",
+ "S4_effort_elasticities": {
+  "w": "1/(eta + thetap)",
+  "lambda": "eta/(eta + thetap)",
+  "mu": "2*(1 - eta)/(eta + thetap)"
+ },
+ "S4_total_cost_elasticities": {
+  "a(w)": "thetap/(eta + thetap)",
+  "b(rate)": "eta*thetap/(eta + thetap)",
+  "b(mu^2)": "thetap*(1 - eta)/(eta + thetap)"
+ },
+ "S4_onset_if_rho_in_rate": "thetap - 1 - thetap/eta",
+ "S4_onset_if_rho_in_amplitude^2": "-thetap - 1",
+ "S4_check_linear_eta_half": {
+  "onset_rate": "-thetap - 1",
+  "onset_amp": "-thetap - 1"
+ },
+ "S4_check_bayes_eta_1": {
+  "onset_rate": "-1",
+  "onset_amp": "-thetap - 1"
+ },
+ "S5_cond_mean_given_+1": "exp(-t/tau)",
+ "S5_equals_exp(-t/tau)": true,
+ "S5_cond_mse": "1 - exp(-2*t/tau)"
+}
