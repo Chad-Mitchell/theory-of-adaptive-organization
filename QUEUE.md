@@ -126,7 +126,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 ### NEW (15 Nov ~11:05 AM ET, from SPF-NOISE-PROXY; surprises read per rule 4)
 - **SPF-NOISE-PROXY** — DONE (pick 4, uniform slot; ledger 26–28, outcome 31): `tests/SPF_NOISE_PROXY/RESULTS.md`, lock `2f96b41`. Validated N proxy L0w (within-forecaster nowcast dispersion over the environment-implied variance; passed on synthetic truth). LFK's h = 3 dispersion-as-N **failed on proxy "horizon overidentification"** for 6 of 7 variables; contamination broad (T2 inconclusive); L0w passed known-groups marginally (T3). Post hoc: LFK S-a was an artifact; with measured noise the optimal filter under-predicts consensus CG 2.5–6×. No CLAIM_MAP change.
-- **SPF-RIGIDITY-OOS** (w 2, c 3). Lock "consensus CG > optimal-filter β at measured nowcast noise" on unseen surveys/variables (ECB SPF, Livingston, other SPF variables); power first.
+- ~~**SPF-RIGIDITY-OOS**~~ — DONE 15 Nov ~5:15 PM ET (pick 20): **MV10 gate not met**; no prereg locked, no outcome (`tests/SPF_RIGIDITY_OOS/RESULTS.md`). Follow-on: SPF-RIGIDITY-LIVINGSTON.
 - **NOISE-PROXY-REFEREE** (w 2, c 1). Hostile referee of the finite-sample bias, the L0w selection and the G test; audit other dispersion-based N.
 - **SPF-NOTE-EDITS** (w 1, c 0.5). Proposed THEORY §2.4/§8c and FRAMEWORK §3 notes from SPF-NOISE-PROXY; independent review before merge.
 - Note on **SPF-AQN-POWERED**: its S-a rationale is withdrawn (surprise → none); any powered version uses L0w and the horizon check.
@@ -271,7 +271,15 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 18 done (review outcome ledger 99; 96–98 held by unmerged q-pick20). Next free ledger entry: 100 or above (recheck all pushed branches).**
 
+### NEW (15 Nov ~5:15 PM ET, from SPF-RIGIDITY-OOS; surprises read per rule 4)
+- **SPF-RIGIDITY-OOS** — DONE (pick 20, UNIFORM slot: top of entry 97's stored perm, seed 20261212; rule rank 32 of 43, I = 0.4; Ace's unaided rank 19 of 43). Unseen set = the 9 SPF variables never CG-regressed here (NGDP, PGDP, CPROF, RGDP, RCONSUM, RNRESIN, RRESINV, RFEDGOV, CPI); K_L0w, β^G and planned-n sampling sd computed before any outcome; planned pooled multiple c (H_R 2.5 vs H_0 1): best P(PASS|2.5) 0.62 and P(FAIL|1) 0.60 (PGDP carries 85% of the information and its β^G CI spans ×100); 0.71/0.72 even with sd × 0.8. **Gate not met**; nothing locked; N13 OPEN; no status change.
+- **SPF-RIGIDITY-LIVINGSTON** (w 2, c 3). Livingston Survey and/or ECB SPF: validate a noise instrument for their horizon design on synthetic truth, then run the MV10 power simulation (`tests/SPF_RIGIDITY_OOS/power.py`) on planned data; lock only if both rules reach 0.8.
+- Surprise read: **weak** — quarterly growth/inflation series are near-white at the 3-quarter horizon, so the optimal filter's CG coefficient (0.13–0.35) is buried in planned sd 0.3–0.7; only the SPF level series carry usable CG precision.
+
+**Pick 20 done (ledger 96–98 + outcome). Next pick (21) is the rule slot. Recheck all pushed branches before any ledger write.**
+
 ## Done (frozen)
+- SPF-RIGIDITY-OOS: `tests/SPF_RIGIDITY_OOS/` (MV10 gate not met; no prereg locked; no outcome computed).
 - REGIME-C-GAUSSIAN-PREMISE: `reviews/night2/REGIME_C_PREMISE.md`, `reviews/night2/REGIME_C_PREMISE_REVIEW.md` (independent review PASS-WITH-FIXES; THEORY v1.4.6; PR #42 merged).
 - CAUSAL-POWER-GATE (+ KG-FEASIBILITY-GATE merged): `reviews/night2/CAUSAL_POWER_GATE.md`, `tools/power_gate.py` (FRAMEWORK MV10; process; no status change).
 - STAKES-SHIFT-CAISO: `tests/STAKES_SHIFT_CAISO/` (lock 874576f; not refereed; N22 INCONCLUSIVE on proxy; CAISO-PROXY-DEFS settled inside it).
