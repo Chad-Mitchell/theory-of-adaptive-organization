@@ -203,7 +203,16 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 11 done (ledger 61); WIKIDATA-BAND outcome logged out of cycle (ledger 65; entries 62–64 are q-pick12's, in flight). Next pick (12) is the uniform slot, as before.**
 
+
+### NEW (15 Nov ~2:58 PM ET, from HEADLINE-PREMISE-APPLY; surprises read per rule 4)
+- **HEADLINE-PREMISE-APPLY** — DONE as a PR, **not merged** (pick 13, rule slot, I = 3.2, tied with REGIME-C-GAUSSIAN-PREMISE and taken by id order; ledger 66–68 + outcome): `reviews/night2/HEADLINE_PREMISE_APPLY.md` (check in `HEADLINE_PREMISE_APPLY_checks/`). THEORY v1.4.4 / CLAIM_MAP v2.14 on branch q-pick13: P1–P8, the V143 F2 learner-class qualifier ("What changed" item 2, §10 LFK) and the line-6 CLAIM_MAP pointer. Applier tightenings T1–T5: keep hold-last-value in the reset-read premise; name only the derived jump-world exponents (adaptation time, error), with reset reads and the regression kernel unaffected; extra inputs only where the locked optimum is Bayes for a non-Gaussian world; a prereg naming no optimum is scored against the best linear one, in the causal form too. No status change. Own second hostile pass recorded; it does not satisfy Chad t1916.
+- **HEADLINE-PREMISE-REVIEW** (w 2, c 0.5). A separate independent reviewer reviews the PR (sources, T1–T5, hostile pass) and merges or requests changes.
+- Surprise read: none beyond the proposal's; the one design gap found (the lock would have excused tests locked before v1.4.4) is fixed in the text (T4), not a new item.
+
+**Pick 13 done (outcome logged after the PR opened). Next pick (14) is the rule slot: log a fresh unaided order, run the rule, take the rule's top among open non-active items.**
+
 ## Done (frozen)
+- HEADLINE-PREMISE-APPLY: `reviews/night2/HEADLINE_PREMISE_APPLY.md` (THEORY v1.4.4 PR, not merged; HEADLINE-PREMISE-REVIEW queued).
 - WIKIDATA-BAND: `prereg/WIKIDATA-BAND/` (locked v1.2-era test; not refereed; N19, N20).
 - AQN-ESTIMATORS: `measurement/estimators/` (lock 3595c48; not refereed; AQN-REFEREE queued).
 - HEADLINE-PREMISE-SCOPE: `reviews/night2/HEADLINE_PREMISE_SCOPE.md` (proposal P1–P8; not applied; HEADLINE-PREMISE-APPLY queued).

@@ -522,7 +522,12 @@
   "v": 0.8,
   "L": 2,
   "c": 0.5,
-  "note": "Independent reviewer (not the author of reviews/night2/HEADLINE_PREMISE_SCOPE.md) reviews and, if sound, applies P1-P8 to THEORY.md (status block, §0, §1 N6, §2.1, §2.4 Net, §2.5 rule, §9) and CLAIM_MAP N13 text, re-reading THEORY at use; second hostile pass of the full diff before merge (Chad t1916). Premise clause only; no headline or core rewrite; must keep the lock guard (optimum compared fixed in prereg). | V143 independent review (ledger 60; reviews/night2/V143_INDEPENDENT_REVIEW.md): the status-block 'What changed' item 2 and the §10 Lee-Flack-Krakauer entry need the same learner-class qualifier as fix F2 (the sqrt form on a telegraph world belongs to LFK's learner class, not to the Bayes optimum); apply with P1-P8."
+  "note": "Independent reviewer (not the author of reviews/night2/HEADLINE_PREMISE_SCOPE.md) reviews and, if sound, applies P1-P8 to THEORY.md (status block, §0, §1 N6, §2.1, §2.4 Net, §2.5 rule, §9) and CLAIM_MAP N13 text, re-reading THEORY at use; second hostile pass of the full diff before merge (Chad t1916). Premise clause only; no headline or core rewrite; must keep the lock guard (optimum compared fixed in prereg). | V143 independent review (ledger 60; reviews/night2/V143_INDEPENDENT_REVIEW.md): the status-block 'What changed' item 2 and the §10 Lee-Flack-Krakauer entry need the same learner-class qualifier as fix F2 (the sqrt form on a telegraph world belongs to LFK's learner class, not to the Bayes optimum); apply with P1-P8. | DONE 15 Nov ~2:58 PM ET (pick 13, RULE slot, I = 3.2; ledger 66-68 + outcome): P1-P8 + V143 F2 qualifier + line-6 pointer applied in PR (THEORY v1.4.4, CLAIM_MAP v2.14), NOT merged (Chad t1916); applier tightenings T1-T5 (hold-last-value kept; only derived jump-world exponents named; extra inputs conditioned on a Bayes-locked optimum; prereg naming none scored against best linear); own source check + second hostile pass recorded; independent numerical check reproduces 2% / 364x. Merge waits for HEADLINE-PREMISE-REVIEW.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/HEADLINE_PREMISE_APPLY.md",
+   "reviews/night2/HEADLINE_PREMISE_APPLY_checks/"
+  ]
  },
  {
   "id": "REGIME-C-GAUSSIAN-PREMISE",
@@ -586,5 +591,14 @@
   "L": 2,
   "c": 2.5,
   "note": "From WIKIDATA-BAND (15 Nov; Tier 3, KG failed, P1 dAUC 0.024 [-0.005, 0.058]): rerun with (a) a correction-filtered drift measure (the 3 P569 'changes' were store corrections: duplicate removed, year corrected, conflicting year added), (b) n >= 63 per slow property so KG(a) is attainable, (c) more properties (> 26 clusters) for the dAUC CI, (d) wiki template policy (Wikidata-default infoboxes, e.g. frwiki/cawiki) coded as a rival. Fresh lock; reset-read signs remain premise-invariant (N16)."
+ },
+ {
+  "id": "HEADLINE-PREMISE-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 0.5,
+  "note": "From HEADLINE-PREMISE-APPLY (15 Nov): a SEPARATE independent reviewer (authored neither HEADLINE_PREMISE_SCOPE.md nor HEADLINE_PREMISE_APPLY.md) reviews the open THEORY v1.4.4 / CLAIM_MAP v2.14 PR (branch q-pick13): re-derive or re-check every changed sentence against its sources, judge tightenings T1-T5 (esp. T4 default: prereg naming none scored against best linear), run a second hostile pass, then merge or request changes (Chad t1916). Resolve CLAIM_MAP v2.14 numbering if q-pick12 also bumps it."
  }
 ]
