@@ -145,7 +145,7 @@
   "v": 0.5,
   "L": 2,
   "c": 3,
-  "note": "TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK (regression kernel = Wiener kernel even for a Bayes market; cannot discriminate Bayes vs linear)."
+  "note": "TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK (regression kernel = Wiener kernel even for a Bayes market; cannot discriminate Bayes vs linear). | TELEGRAPH-REFEREE (15 Nov): 'OK, cannot discriminate' holds only if realized variance is the market's own observation set; it is neither that nor the latent variance, so state which projection is measured."
  },
  {
   "id": "D3-TWO-EXPONENT-OOS",
@@ -208,7 +208,7 @@
   "v": 0.6,
   "L": 4,
   "c": 4,
-  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the \u00a72.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N16, P5)."
+  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the \u00a72.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N16, P5). | TELEGRAPH-REFEREE (15 Nov): that kernel statement holds only for a regression on the system's own observations; a kernel on the true driver can discriminate (N16 v2.9). Bayes adaptation constant: (N/2mu^2)[ln(2mu^2/lambda N) - gamma - 1]."
  },
  {
   "id": "ONSET-SPECTRUM-FREE-REFEREE",
@@ -240,7 +240,7 @@
   "v": 0.5,
   "L": 2,
   "c": 3,
-  "note": "new (THEORY v1.4 \u00a72.2): every earlier memory test measured a need hazard, never a tracking kernel. Measure a response kernel on one system with alpha measured on its driver; predict survival exponent alpha/2 and sign flip at alpha=2. Overlaps VIX-KERNEL | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK if the kernel is a projection/regression kernel (equals the Wiener/Kalman kernel even for a Bayes system; cannot discriminate); NEEDS-PREMISE if it is a step/impulse response to discrete events."
+  "note": "new (THEORY v1.4 \u00a72.2): every earlier memory test measured a need hazard, never a tracking kernel. Measure a response kernel on one system with alpha measured on its driver; predict survival exponent alpha/2 and sign flip at alpha=2. Overlaps VIX-KERNEL | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK if the kernel is a projection/regression kernel (equals the Wiener/Kalman kernel even for a Bayes system; cannot discriminate); NEEDS-PREMISE if it is a step/impulse response to discrete events. | TELEGRAPH-REFEREE (15 Nov): the 'projection kernel cannot discriminate' audit holds only for regressions on the system's own observations; a kernel on the true driver (sensing noise unobserved) differs between Bayes and linear trackers (rel L2 0.61 at kappa=1/60). See KERNEL-INPUT-DISCRIMINATE."
  },
  {
   "id": "FROZEN-DOC-POINTERS",
@@ -374,7 +374,11 @@
   "v": 0.8,
   "L": 3,
   "c": 1,
-  "note": "Hostile referee of TELEGRAPH-LINEAR-PREMISE (reviews/night2/TELEGRAPH_LINEAR_PREMISE): re-derive the single-log adaptation time and 2 lambda N ln(2mu^2/lambda N) error with independent code; check the claim that Conti & Mora 2022 eq. (20) omits the Ito drift -x(1-x^2)/theta (and whether their published PRE text differs); simulate their argmax-cross-correlation t_A; search the filtering literature (Wonham high-SNR asymptotics) for prior statements and cite only what is read."
+  "note": "Hostile referee of TELEGRAPH-LINEAR-PREMISE (reviews/night2/TELEGRAPH_LINEAR_PREMISE): re-derive the single-log adaptation time and 2 lambda N ln(2mu^2/lambda N) error with independent code; check the claim that Conti & Mora 2022 eq. (20) omits the Ito drift -x(1-x^2)/theta (and whether their published PRE text differs); simulate their argmax-cross-correlation t_A; search the filtering literature (Wonham high-SNR asymptotics) for prior statements and cite only what is read. | DONE 15 Nov ~11:55 ET (pick 7, unaided slot, ledger 41-44): reviews/night2/TELEGRAPH_REFEREE/REPORT.md. Core + C&M diagnosis confirmed with independent code (quadrature, own MC, C&M's argmax-xcorr t_A also single-log); constant -0.7 corrected to -(gamma+1); projection-kernel invariance narrowed to regressions on the tracker's own observations (kernel on true driver discriminates, rel L2 0.61); precision vs effort label; exact MSE 2K0/(K0+K1); C&M eqs (41)/(42) also artifacts; leading-order error PRIOR ART (Khasminskii & Zeitouni 1996; Golubev 2000), single log PRIOR ART in form (quickest detection). N16 -> MATH-CORRECTED (v2.9).",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/TELEGRAPH_REFEREE/"
+  ]
  },
  {
   "id": "TLP-EDITS-REVIEW",
@@ -383,7 +387,7 @@
   "v": 0.9,
   "L": 2,
   "c": 0.5,
-  "note": "Independent review, then apply, THEORY edits E2', E4, E5, E6 proposed in reviews/night2/TELEGRAPH_LINEAR_PREMISE/REPORT.md (premise 'Gaussian world or best linear tracker' on the noisy-sensing rows; jump-world Bayes exponents; reset-read and projection-kernel invariance; C&M credit with ln^2 caveat). Supersedes E2 of PRIORART_LFK_ALPHA. After TELEGRAPH-REFEREE (Chad t1916)."
+  "note": "Independent review, then apply, THEORY edits E2', E4, E5, E6 proposed in reviews/night2/TELEGRAPH_LINEAR_PREMISE/REPORT.md (premise 'Gaussian world or best linear tracker' on the noisy-sensing rows; jump-world Bayes exponents; reset-read and projection-kernel invariance; C&M credit with ln^2 caveat). Supersedes E2 of PRIORART_LFK_ALPHA. After TELEGRAPH-REFEREE (Chad t1916). | Referee verdicts on E2'/E4/E5/E6 in reviews/night2/TELEGRAPH_REFEREE/REPORT.md \u00a74: E2' accept with changes (gamma+1 constant, closed-form error, elasticities 1/l,1-1/l,-2+2/l, prior-art credits); E4 accept; E5 correct the kernel sentence (own observations only); E6 add eqs (41)/(42) and credits. Unblocked."
  },
  {
   "id": "JUMP-WORLD-ONSET",
@@ -419,6 +423,37 @@
   "v": 0.7,
   "L": 1,
   "c": 0.5,
-  "note": "Read the published PRE 106:054404 text of Conti & Mora (no paywall sign-in; open version or library route only) to see whether eq. (20)/(36) were corrected after arXiv v2; update N16 and the credit wording. No contact with authors without Chad's go."
+  "note": "Read the published PRE 106:054404 text of Conti & Mora (no paywall sign-in; open version or library route only) to see whether eq. (20)/(36) were corrected after arXiv v2; update N16 and the credit wording. No contact with authors without Chad's go. | DONE 15 Nov ~11:50 ET by TELEGRAPH-REFEREE (ledger 44): author-hosted published PDF (header 'PHYSICAL REVIEW E 106, 054404 (2022)') prints the same eq. (20) 'with Ito convention', (36), (41); no erratum found (Crossref relation search, web search). Not separately picked; closed as covered.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/TELEGRAPH_REFEREE/REPORT.md"
+  ]
+ },
+ {
+  "id": "KERNEL-INPUT-DISCRIMINATE",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 1.5,
+  "note": "New from TELEGRAPH-REFEREE V11 (15 Nov): regression kernel of the tracker output on the TRUE driver differs between Bayes and Kalman trackers in a jump world (peaked vs exponential; rel L2 0.61 at kappa=1/60, one example). Derive the Bayes kernel-on-driver shape and its kappa-scaling; design a discriminating kernel test for KERNEL-MEASURE/VIX-KERNEL/SENSE-CELL (stimulus-response with internal noise). In-model first."
+ },
+ {
+  "id": "WONHAM-PRIORART-FULLTEXT",
+  "w": 1,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 0.5,
+  "note": "New from TELEGRAPH-REFEREE \u00a76: read in full (open copy or library route; no paywall sign-in) Khasminskii & Zeitouni 1996, Golubev 2000, Wonham 1964, Liptser-Shiryaev ch. 9, Shiryaev 1963 to confirm the continuous-time constants and whether the closed form 2K0/(K0+K1) or the gamma+1 adaptation constant are stated; update N16 credits."
+ },
+ {
+  "id": "POISSON-SENSING-JUMP",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2,
+  "note": "New from TELEGRAPH-REFEREE \u00a76 / TLP unresolved: Bayes adaptation time, error and read/effort elasticities for a switching world observed through Poisson events (event sensing; relevant to GitHub/Wikidata-style event data); prior art to check first: Peskir & Shiryaev 2002 Poisson disorder problem, point-process filtering (Snyder). In-model."
  }
 ]

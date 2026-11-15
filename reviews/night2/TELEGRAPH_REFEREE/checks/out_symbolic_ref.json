@@ -1,0 +1,17 @@
+{
+ "R1_wonham_x": "dx = [-2*lambda*x] dt + [-mu*(x - 1)*(x + 1)/N] (ds - mu*x dt)",
+ "R1_cm_units": "dx = [-x/tau] dt + [-(x - 1)*(x + 1)/theta] (ds - x dt)",
+ "R2_L_drift_minus_target(2y/theta - sinh(L)/tau)": "0",
+ "R2_L_noise_coeff": "2/sqrt(theta)",
+ "R3_eq11_Ito_drift": "(tau*x**3 - tau*x**2*y - tau*x + tau*y - theta*x)/(tau*theta)",
+ "R3_eq11_noise_coeff_per_sqrtdt": "-eta*(x - 1)*(x + 1)/sqrt(theta)",
+ "R3_matches_wonham": true,
+ "R4_printed_minus_wonham_drift": "-x*(x - 1)*(x + 1)/theta",
+ "R4_strat_to_ito_correction": "x*(x - 1)*(x + 1)/theta",
+ "R4_printed_as_Stratonovich_equals_wonham": true,
+ "R5_printed_L_drift": "(4*tau*y*exp(2*L) + 4*tau*y*exp(L) + 4*tau*exp(2*L) - 4*tau*exp(L) - theta*exp(3*L) - theta*exp(2*L) + theta*exp(L) + theta)*exp(-L)/(2*tau*theta*(exp(L) + 1))",
+ "R5_printed_L_drift_y=-1_large_L_limit": "0",
+ "R5_printed_L_drift_y=+1_large_L_limit(+sinh/tau)": "4/theta",
+ "R6_log_stationary_density_L": "L - kappa*cosh(L) - 2*log(tanh(L/2) + 1)",
+ "R6_note": "p(L) \u221d exp(Phi) = cosh^2(L/2) exp(-kappa cosh L) (up to const); MSE/mu^2 = E[sech^2(L/2)] = 2K0/(K0+K1)"
+}

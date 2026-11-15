@@ -1,0 +1,54 @@
+[
+ {
+  "tau": 10,
+  "tA_xcorr_exact_mean": 1.19625,
+  "se_exact": 0.009990229601966105,
+  "tA_xcorr_printed_mean": 2.12875,
+  "se_printed": 0.041019717057776,
+  "fpt_quadrature_exact_(for_comparison)": null
+ },
+ {
+  "tau": 30,
+  "tA_xcorr_exact_mean": 1.7087500000000002,
+  "se_exact": 0.020189531631516353,
+  "tA_xcorr_printed_mean": 3.3975,
+  "se_printed": 0.05572673281289689,
+  "fpt_quadrature_exact_(for_comparison)": null
+ },
+ {
+  "tau": 100,
+  "tA_xcorr_exact_mean": 2.2875000000000005,
+  "se_exact": 0.03467482876670051,
+  "tA_xcorr_printed_mean": 5.38125,
+  "se_printed": 0.16731741447769263,
+  "fpt_quadrature_exact_(for_comparison)": null
+ },
+ {
+  "tau": 300,
+  "tA_xcorr_exact_mean": 2.7837500000000004,
+  "se_exact": 0.02549126688691638,
+  "tA_xcorr_printed_mean": 7.24,
+  "se_printed": 0.1108208012965075,
+  "fpt_quadrature_exact_(for_comparison)": null
+ },
+ {
+  "tau": 1000,
+  "tA_xcorr_exact_mean": 3.4337500000000003,
+  "se_exact": 0.05445575899296603,
+  "tA_xcorr_printed_mean": 10.05,
+  "se_printed": 0.16313338101075445,
+  "fpt_quadrature_exact_(for_comparison)": null
+ },
+ {
+  "fit_exact_quadratic_in_lntau": [
+   0.007801278008089385,
+   0.41045973906056876,
+   0.21579060364981067
+  ],
+  "fit_printed_quadratic_in_lntau": [
+   0.15000602671187374,
+   0.3319123534334541,
+   0.5680030405579918
+  ]
+ }
+]
