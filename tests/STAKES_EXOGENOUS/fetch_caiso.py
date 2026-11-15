@@ -13,7 +13,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 def get(url, tries=5):
     for k in range(tries):
         try:
-            b = urllib.request.urlopen(url, timeout=120).read()
+            # post-lock amendment A1: curl with a hard 180 s limit (urllib hung on one chunked response)
+            import subprocess
+            b = subprocess.run(["curl", "-s", "-m", "180", url], capture_output=True, timeout=200).stdout
             z = zipfile.ZipFile(io.BytesIO(b))
             name = z.namelist()[0]
             if name.endswith(".csv"):

@@ -47,9 +47,10 @@ def run(year, seed):
     r["winsor_0.5"] = block_boot(e, winsor(s), g, wk, B, seed + 100)
     r["exog_incr_r2"], r["exog_n"] = exog_r2(e, g, d.e_lag2.values, d.e_lag2_day.values)
     terc = pd.qcut(d.load_act, 3, labels=False).values
-    r["by_load_tercile"] = {int(t): block_boot(e[terc == t], s[terc == t], g[terc == t], wk[terc == t], 500, seed + 200 + t)["w_quad"] for t in range(3)}
+    # post-lock amendment A2: subgroup rows report k_lin (the primary w) as PREREG states; locked code reported w_quad here
+    r["by_load_tercile"] = {int(t): block_boot(e[terc == t], s[terc == t], g[terc == t], wk[terc == t], 500, seed + 200 + t)["k_lin"] for t in range(3)}
     q = (d.month.values - 1) // 3
-    r["by_quarter"] = {int(t): block_boot(e[q == t], s[q == t], g[q == t], wk[q == t], 500, seed + 300 + t)["w_quad"] for t in range(4)}
+    r["by_quarter"] = {int(t): block_boot(e[q == t], s[q == t], g[q == t], wk[q == t], 500, seed + 300 + t)["k_lin"] for t in range(4)}
     # report only (exploratory, no verdict): stratum error variance vs stratum k
     st = []
     for gg in np.unique(g):
