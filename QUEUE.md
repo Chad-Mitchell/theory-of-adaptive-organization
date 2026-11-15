@@ -28,7 +28,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **Kill / pass, on proxy "claim-status change":** after ≥ 15 completed items, kill if rule AUC ≤ 0.5 or more than 0.1 below Ace's; pass if rule AUC > 0.5 with bootstrap CI excluding 0.5 and ≥ Ace's. Otherwise inconclusive.
 - **Also owed:** a hostile referee of Proposition SG (math + prior art), as part of Q1.
 
-### Q1. PRIORART-SWEEP (rule rank 1, I = 3.15) — DONE 15 Nov 09:45 ET (gap-fill only; `reviews/night2/SPECTRUM_MAP/priorart/NOTES.md`)
+### Q1. PRIORART-SWEEP (rule rank 1, I = 3.15) — DONE 15 Nov 09:26 ET (gap-fill only; `reviews/night2/SPECTRUM_MAP/priorart/NOTES.md`)
 - **Outcome:** night 1 had already swept the main seeds (`/workspace/gtao/night1/REVIEW/priorart/SWEEP.md`). Added: forward citations of Bimpikis & Markakis 2016 (72) and Abolhassani 2024 (16): no statement of O1 or O5. SG's regime-conditional clock is anticipated in substance by Ferragut, Rodríguez & Paganini 2018 (Queueing Systems 88:207–241): relabel SG's novelty "application". Google Scholar not swept (PRIORART-SCHOLAR). No CLAIM_MAP status applied (referee first).
 - **Tests:** THEORY §1 and §8b novelty statements; Proposition SG's prior art.
 - **Regime:** n/a.
@@ -36,7 +36,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **Prediction sketch:** none of the six §8b items is stated in an earlier source; SG's regime-conditional clock is likely found.
 - **Kill / pass:** any source stating an item → relabel PRIOR ART in CLAIM_MAP (with the passage read). Not a proxy test.
 
-### Q2. SPECTRUM-MAP-DERIVE (rule rank 2, I = 3.00) — the headline — DONE 15 Nov 09:45 ET, NOT refereed (`reviews/night2/SPECTRUM_MAP/README.md`)
+### Q2. SPECTRUM-MAP-DERIVE (rule rank 2, I = 3.00) — the headline — DONE 15 Nov 09:26 ET, NOT refereed (`reviews/night2/SPECTRUM_MAP/README.md`)
 - **Outcome:** passes the letter (predictions the named rivals lack: τ_m ∝ τ_E^{1−1/α} vs LFK's ½; kernel sign flip at α = 2; effort elasticities α/(2α−1), 1/(2α−1) under noisy sensing) but is mostly KNOWN filtering + approximation theory plus a price. Demotion of the headline recommended; minimal THEORY v1.3 pointer applied, §2.2 rewrite queued. D3 explained; locked D3S gap-shuffle PASSED on proxy.
 - **Tests:** THEORY §2.2, §2.4 (largest gap), §2.5 "what is missing"; FRAMEWORK §6.10.
 - **Regime:** A, B and C, jointly.
@@ -93,7 +93,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 ### Q10. ONA-MORE (rule rank 10, I = 0.04)
 - Tier 3 by construction; cannot change vigilance's status. Take only if a dataset with tenure, real reporting units and a shared-environment vs own-task question appears (referee fixes, `reviews/night2/REFEREE/REPORT.md` §6).
 
-### NEW (15 Nov 09:45 ET, from SPECTRUM_MAP; surprises read per rule 4)
+### NEW (15 Nov 09:26 ET, from SPECTRUM_MAP; surprises read per rule 4)
 - **SPECTRUM-MAP-REFEREE** (w 3, untested). Hostile math + prior-art referee of `reviews/night2/SPECTRUM_MAP/` (Thm 1 proof, Prop. 3 tail sketch, Prop. 4 rate conjecture, Prop. 5, D3S). Must happen before any CLAIM_MAP status change from Q2 (K12, K13, H19, N7).
 - **THEORY-2.2-REWRITE** (w 3, after the referee). Decide and apply: regime A = "α = 2 / Markov" not "one pace"; drop "(log-span)^{2/3}"; separate tracking kernels from re-occurrence hazards; two exponents for event worlds; demote "central new bet". Chad-visible wording change of the headline.
 - **LFK-ALPHA-SPF** (w 3, untested). Locked public-data test of P-LFKα: SPF forecaster gains (Coibion–Gorodnichenko measure) across CPI, unemployment, T-bill, GDP growth vs each variable's τ_E and α (FRED). Regime measured first. Kill: slope CI excludes 1−1/α and includes ½.

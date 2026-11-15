@@ -1,6 +1,6 @@
 # SPECTRUM_MAP: from a measured drift spectrum to read rate, memory stores and forgetting (QUEUE Q2; Q1 gap-fill)
 
-Executor, 15 Nov 2026, 09:05–09:45 AM ET, branch `spectrum-map`. Status: **derived and numerically checked; NOT yet refereed.**
+Executor, 15 Nov 2026, 09:05–09:26 AM ET, branch `spectrum-map`. Status: **derived and numerically checked; NOT yet refereed.**
 A hostile math referee is queued (QUEUE, SPECTRUM-MAP-REFEREE). Labels: KNOWN = in the literature (cited, verified this
 session); ELEMENTARY = a short corollary of known results that we state here; NEW? = not found in the sources searched;
 POST HOC = fitted after seeing the data; LOCKED = predicted in a committed file before the computation.
