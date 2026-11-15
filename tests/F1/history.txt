@@ -1,0 +1,137 @@
+# Local git history receipt for tests/F1
+#
+# Source: unpushed local repo at /workspace/gtao/tests/F1
+# Written: 2026-11-14, America/New_York.
+#
+# These commits were not pushed anywhere before they were added to this
+# private GitHub repository. Recording them here gives them an external
+# timestamp only from the commit that adds this file, not from the
+# author dates below. Author dates are self-attested (in these repos,
+# author date equals committer date).
+#
+# Bundle: Full history is in history.bundle. The SEC bulk zips were never committed (hashes only), so the original commit SHAs can be shipped without the excluded raw files.
+#
+# This receipt lists commit SHAs, dates, messages, and file paths with
+# blob SHAs and sizes. It does not include file contents.
+# Hashed preregistration / prediction files in this folder were not modified.
+
+# Clone: git clone history.bundle F1-history
+
+commit d656d6a425da62b7fd9da395abb3eababb4b3474
+Author: Grok Bot (F1 executor) <research@example.invalid>
+AuthorDate: 2026-11-14T22:36:14-05:00
+Commit: Grok Bot (F1 executor) <research@example.invalid>
+CommitDate: 2026-11-14T22:36:14-05:00
+
+    F1 preregistration + code + predictors + power (before outcome data)
+
+tree 7ebdf5de12887306e47569bae09cb0a071934c84
+files:
+    100644 blob 2afe9a44aa1b50510fa01abde274167b93f6dd88 53 .gitignore
+    100644 blob ffc00af40c9de1d464c147e400b6ba03abeab361 11108 PREREG.md
+    100644 blob 6b287fce24e24ed3156d990131fab214bfcbc2dc 823 PREREG.sha256
+    100644 blob 2fb0f362a94fbb5e7c49c1639fbbbfb351d5279a 7695 code/analyze.py
+    100644 blob e3ba9e6afd0ab00ea3b72dddac0213b2f4cba60f 1324 code/analyze_E.py
+    100644 blob d873e477376a6889de537422f44792aeeabad480 2378 code/build_dataset.py
+    100644 blob 05dc71dfeb77a41dbac2b2083425caac93c50018 2385 code/covid.py
+    100644 blob 7ce6c397ebef09c2b105e11b2ac46dca3da5c33c 4291 code/extract.py
+    100644 blob 31f4056fb117b0d21cedd3b0eade67a1fc6456ef 5314 code/measures.py
+    100644 blob f761b15eb0f304163a9ef5d50b6a08ba44758781 2020 code/outcome.py
+    100644 blob b7a27b827e82f7622c6e406ad75c3b773aeb5881 1920 code/power.py
+    100644 blob 48fc57a8d69c6ba9af76edc7e6d18b7d46b3d18e 855 code/sim_dataset.py
+    100644 blob 883dc0495e55c1b71bac81b6a8f5edc8cded7102 58 data/extract.log
+    100644 blob 883dc0495e55c1b71bac81b6a8f5edc8cded7102 58 data/extract_C1.log
+    100644 blob 0fe2efa7a47e7167e9cb6efc61386f8e4af46978 886607 data/measures_C1.csv
+    100644 blob 62a0f5ad995f8bd0ab151df4f85f53f994c45311 1264945 data/measures_C2.csv
+    100644 blob ca2bfd41c83ffca0908103cfc95d719653e20fda 1378 power/p2_typeI.py
+    100644 blob 96fb97113db0d0f4a0550e6ccdbd1596f6f197a5 782 power/power.json
+    100644 blob de12392a2662985dc3d536dfb6cae1d82cf7e745 648 power/power.log
+    100644 blob 86db0a72ee5da26eb5098a739e3dc070d472b66d 4797 power/sim_results.json
+    100644 blob bad0e282abf0d9afbb28dc6a1143b0bfa9146d77 87 raw/companyfacts.sha256
+    100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0 raw/dl.log
+
+commit eb220562c086ada4137af4ffff268f29dd3ca9ef
+Author: Grok Bot (F1 executor) <research@example.invalid>
+AuthorDate: 2026-11-14T22:47:06-05:00
+Commit: Grok Bot (F1 executor) <research@example.invalid>
+CommitDate: 2026-11-14T22:47:06-05:00
+
+    outcome pull (submissions.zip) + dataset; outcome.py perf fix (zip opened once per worker, no logic change)
+
+tree 548a21a29e5acd65906407cb9b17303cb09b0082
+parent d656d6a425da62b7fd9da395abb3eababb4b3474
+files:
+    100644 blob 2afe9a44aa1b50510fa01abde274167b93f6dd88 53 .gitignore
+    100644 blob ffc00af40c9de1d464c147e400b6ba03abeab361 11108 PREREG.md
+    100644 blob 6b287fce24e24ed3156d990131fab214bfcbc2dc 823 PREREG.sha256
+    100644 blob 2fb0f362a94fbb5e7c49c1639fbbbfb351d5279a 7695 code/analyze.py
+    100644 blob e3ba9e6afd0ab00ea3b72dddac0213b2f4cba60f 1324 code/analyze_E.py
+    100644 blob d873e477376a6889de537422f44792aeeabad480 2378 code/build_dataset.py
+    100644 blob 05dc71dfeb77a41dbac2b2083425caac93c50018 2385 code/covid.py
+    100644 blob 7ce6c397ebef09c2b105e11b2ac46dca3da5c33c 4291 code/extract.py
+    100644 blob 31f4056fb117b0d21cedd3b0eade67a1fc6456ef 5314 code/measures.py
+    100644 blob 7f4876febc629e1e00ace500432018560cb74dbd 2080 code/outcome.py
+    100644 blob b7a27b827e82f7622c6e406ad75c3b773aeb5881 1920 code/power.py
+    100644 blob 48fc57a8d69c6ba9af76edc7e6d18b7d46b3d18e 855 code/sim_dataset.py
+    100644 blob f981fa11dc546d870ed4fac7358d71f483fb8e13 1491261 data/analysis_dataset.csv
+    100644 blob cbf551a9424e3eb12f54aea887d3eed11539914e 49735 data/candidate_ciks.txt
+    100644 blob 883dc0495e55c1b71bac81b6a8f5edc8cded7102 58 data/extract.log
+    100644 blob 883dc0495e55c1b71bac81b6a8f5edc8cded7102 58 data/extract_C1.log
+    100644 blob 0fe2efa7a47e7167e9cb6efc61386f8e4af46978 886607 data/measures_C1.csv
+    100644 blob 62a0f5ad995f8bd0ab151df4f85f53f994c45311 1264945 data/measures_C2.csv
+    100644 blob 1f688cc0bd484d36faae688cf2e0fce69991326a 572688 data/outcomes_raw.csv
+    100644 blob 2a01cd5c2b51ac9f81fffdfff57086d18fc3c1fc 1184 data/sample_flow.txt
+    100644 blob ca2bfd41c83ffca0908103cfc95d719653e20fda 1378 power/p2_typeI.py
+    100644 blob 96fb97113db0d0f4a0550e6ccdbd1596f6f197a5 782 power/power.json
+    100644 blob de12392a2662985dc3d536dfb6cae1d82cf7e745 648 power/power.log
+    100644 blob 86db0a72ee5da26eb5098a739e3dc070d472b66d 4797 power/sim_results.json
+    100644 blob bad0e282abf0d9afbb28dc6a1143b0bfa9146d77 87 raw/companyfacts.sha256
+    100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0 raw/dl.log
+    100644 blob f96d674a3fe00107d1a0f0246a99cef619932c95 86 raw/submissions.sha256
+
+commit d79f49e052600bde60a2d579a9c7724218c3954f
+Author: Grok Bot (F1 executor) <research@example.invalid>
+AuthorDate: 2026-11-14T22:53:30-05:00
+Commit: Grok Bot (F1 executor) <research@example.invalid>
+CommitDate: 2026-11-14T22:53:30-05:00
+
+    F1 results, sensitivities, COVID arm, exploratory
+
+tree 3674bb28cc793c703b8db5ef33b02a2f67a198dd
+parent eb220562c086ada4137af4ffff268f29dd3ca9ef
+files:
+    100644 blob 2afe9a44aa1b50510fa01abde274167b93f6dd88 53 .gitignore
+    100644 blob ffc00af40c9de1d464c147e400b6ba03abeab361 11108 PREREG.md
+    100644 blob 6b287fce24e24ed3156d990131fab214bfcbc2dc 823 PREREG.sha256
+    100644 blob eb31d4d76c9e985828b57fe5cde5d88e2c494cc7 6861 RESULTS.md
+    100644 blob 4bca8cbc8c4cec0e9248aca04720ea1d39eb3696 320 RESULTS.sha256
+    100644 blob eb5aeb8d86a9984153adf9201cfd7800a1ae7bf4 894 analysis_output.txt
+    100644 blob 2fb0f362a94fbb5e7c49c1639fbbbfb351d5279a 7695 code/analyze.py
+    100644 blob e3ba9e6afd0ab00ea3b72dddac0213b2f4cba60f 1324 code/analyze_E.py
+    100644 blob d873e477376a6889de537422f44792aeeabad480 2378 code/build_dataset.py
+    100644 blob 05dc71dfeb77a41dbac2b2083425caac93c50018 2385 code/covid.py
+    100644 blob 98c23d62aaf3647c19896f3b881bbc973707302e 2935 code/exploratory.py
+    100644 blob 7ce6c397ebef09c2b105e11b2ac46dca3da5c33c 4291 code/extract.py
+    100644 blob 31f4056fb117b0d21cedd3b0eade67a1fc6456ef 5314 code/measures.py
+    100644 blob 7f4876febc629e1e00ace500432018560cb74dbd 2080 code/outcome.py
+    100644 blob b7a27b827e82f7622c6e406ad75c3b773aeb5881 1920 code/power.py
+    100644 blob 48fc57a8d69c6ba9af76edc7e6d18b7d46b3d18e 855 code/sim_dataset.py
+    100644 blob f981fa11dc546d870ed4fac7358d71f483fb8e13 1491261 data/analysis_dataset.csv
+    100644 blob 4383960806623c04d91c9668e26b4f22984e47a3 825321 data/analysis_dataset_E.csv
+    100644 blob cbf551a9424e3eb12f54aea887d3eed11539914e 49735 data/candidate_ciks.txt
+    100644 blob 883dc0495e55c1b71bac81b6a8f5edc8cded7102 58 data/extract.log
+    100644 blob 883dc0495e55c1b71bac81b6a8f5edc8cded7102 58 data/extract_C1.log
+    100644 blob 0fe2efa7a47e7167e9cb6efc61386f8e4af46978 886607 data/measures_C1.csv
+    100644 blob 62a0f5ad995f8bd0ab151df4f85f53f994c45311 1264945 data/measures_C2.csv
+    100644 blob 1f688cc0bd484d36faae688cf2e0fce69991326a 572688 data/outcomes_raw.csv
+    100644 blob 2a01cd5c2b51ac9f81fffdfff57086d18fc3c1fc 1184 data/sample_flow.txt
+    100644 blob e42505491e6a49bd003eba7c817b5301bf650c91 1198 exploratory.json
+    100644 blob ca2bfd41c83ffca0908103cfc95d719653e20fda 1378 power/p2_typeI.py
+    100644 blob 96fb97113db0d0f4a0550e6ccdbd1596f6f197a5 782 power/power.json
+    100644 blob de12392a2662985dc3d536dfb6cae1d82cf7e745 648 power/power.log
+    100644 blob 86db0a72ee5da26eb5098a739e3dc070d472b66d 4797 power/sim_results.json
+    100644 blob bad0e282abf0d9afbb28dc6a1143b0bfa9146d77 87 raw/companyfacts.sha256
+    100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0 raw/dl.log
+    100644 blob f96d674a3fe00107d1a0f0246a99cef619932c95 86 raw/submissions.sha256
+    100644 blob cf096aa57a67e60aabb52747bb3f44d8ff94cb35 4798 results.json
+    100644 blob bb0bef88de8d19339b3f5db3fdd47a25f61b19be 730 results_E.json

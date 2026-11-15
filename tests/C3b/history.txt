@@ -1,0 +1,100 @@
+# Local git history receipt for tests/C3b
+#
+# Source: unpushed local repo at /workspace/gtao/tests/C3b
+# Written: 2026-11-14, America/New_York.
+#
+# These commits were not pushed anywhere before they were added to this
+# private GitHub repository. Recording them here gives them an external
+# timestamp only from the commit that adds this file, not from the
+# author dates below. Author dates are self-attested (in these repos,
+# author date equals committer date).
+#
+# Bundle: Full history is in history.bundle. The bundle includes data/package_urls.csv (about 3.3 MB), which was omitted from the working tree as a large input; it is public package-URL metadata, not a screening dump of private data.
+#
+# This receipt lists commit SHAs, dates, messages, and file paths with
+# blob SHAs and sizes. It does not include file contents.
+# Hashed preregistration / prediction files in this folder were not modified.
+
+# Clone: git clone history.bundle C3b-history
+
+commit f1ba56448d61acd493a83a7f46bf7be740548c7b
+Author: Grok Bot <bot@local>
+AuthorDate: 2026-11-14T22:23:56-05:00
+Commit: Grok Bot <bot@local>
+CommitDate: 2026-11-14T22:23:56-05:00
+
+    C3b prereg + code (before any dependent data)
+
+tree b2d60af1e83beace7a73d27d58e62f90e4903ebf
+files:
+    100644 blob 0a13fc35eb937b42f3bccda347ad68afc479575f 10885 PREREG.md
+    100644 blob a770fb2b1a6c54774963ceedf319c86866e63c84 76 PREREG.sha256
+    100644 blob 50075c870480e483e5c0c5492d3b9558b2042562 7462 code/__pycache__/common.cpython-313.pyc
+    100644 blob fd9148c0a4d087a0dc18dc833ad49477792760d0 8424 code/analyze.py
+    100644 blob dc3847713e04167a4e9a794feebca2b10141b830 3117 code/build_dataset.py
+    100644 blob 7275eb868d6f5eca8c0e4c015655c050ac096ba6 7218 code/common.py
+    100644 blob 0227d998d3d78b7b610deb9ead52e1baa7d34ba9 3012 code/exposure.py
+    100644 blob 2510d63f8bd0059438688aa522915d3d095d502f 3173 code/measure_tau.py
+    100644 blob 05ed45e4c7258c2cf23567bbb94643997a5a3889 3999 code/outcome.py
+    100644 blob 793348d78253f0b6c3d2252e7612623f7a4fff89 3102 code/power.py
+    100644 blob 3bcec6dbbb228210bf5618728166a263e797fab6 4344 code/screen_github.py
+    100644 blob 8e4c32fefefd3339b5e1e32db55f2458b19e3bad 4024 code/screen_pypi.py
+    100644 blob 1c6550ee1a4618bbcf9792c7f5891cce885ed814 3282866 data/package_urls.csv
+    100644 blob e3c6af024bf6cb7044e6092e83bd1344a5c55dcd 1191 power_output.txt
+
+commit 274a3a909ca6659358e9f087d51082dcde09f25d
+Author: Grok Bot <bot@local>
+AuthorDate: 2026-11-14T22:29:06-05:00
+Commit: Grok Bot <bot@local>
+CommitDate: 2026-11-14T22:29:06-05:00
+
+    Addendum A1: frame expansion (pre-shock data only)
+
+tree 59066338dffffed9acc59552346eb3eeaba11fbf
+parent f1ba56448d61acd493a83a7f46bf7be740548c7b
+files:
+    100644 blob 0a13fc35eb937b42f3bccda347ad68afc479575f 10885 PREREG.md
+    100644 blob aa60cc5a78cf7e2213a228b802faa39bcc400489 164 PREREG.sha256
+    100644 blob 271f3d76e36d09f4c0e25f31d6eec8ffe3456015 2060 PREREG_ADDENDUM_A1.md
+    100644 blob 482e7d89b82885804e5c3e3c0d66f87d69406386 11611 code/__pycache__/common.cpython-313.pyc
+    100644 blob 2a4e3b5e7d2585f7369f1096817525e26c4400e1 8623 code/analyze.py
+    100644 blob 77602e0021d1677a36b85a6a1a2336d36340bc46 3127 code/build_dataset.py
+    100644 blob 963b766bca80da9e169f5ff8b6d920c2250ec6d6 1739 code/build_frame_snapshot.py
+    100644 blob 7275eb868d6f5eca8c0e4c015655c050ac096ba6 7218 code/common.py
+    100644 blob 0227d998d3d78b7b610deb9ead52e1baa7d34ba9 3012 code/exposure.py
+    100644 blob 2510d63f8bd0059438688aa522915d3d095d502f 3173 code/measure_tau.py
+    100644 blob 05ed45e4c7258c2cf23567bbb94643997a5a3889 3999 code/outcome.py
+    100644 blob 793348d78253f0b6c3d2252e7612623f7a4fff89 3102 code/power.py
+    100644 blob b50b5f147d3f339e1fbc1cbfee4b3563a1a82b14 4690 code/screen_github.py
+    100644 blob d923be01c85a9be48997dbcbe2e1ab157d23d20b 4516 code/screen_pypi.py
+    100644 blob 1c6550ee1a4618bbcf9792c7f5891cce885ed814 3282866 data/package_urls.csv
+    100644 blob e3c6af024bf6cb7044e6092e83bd1344a5c55dcd 1191 power_output.txt
+
+commit 396841765cbbf32deb605e384a08f1347430be3a
+Author: Grok Bot <bot@local>
+AuthorDate: 2026-11-14T22:52:16-05:00
+Commit: Grok Bot <bot@local>
+CommitDate: 2026-11-14T22:52:16-05:00
+
+    Addendum A2: math-review secondaries (pre-outcome)
+
+tree a149f853df07db11a3827466e4007129788c801f
+parent 274a3a909ca6659358e9f087d51082dcde09f25d
+files:
+    100644 blob 0a13fc35eb937b42f3bccda347ad68afc479575f 10885 PREREG.md
+    100644 blob 3985e6a73435e5b403bf653f943e58f7f14ae4c1 252 PREREG.sha256
+    100644 blob 271f3d76e36d09f4c0e25f31d6eec8ffe3456015 2060 PREREG_ADDENDUM_A1.md
+    100644 blob 41503b20dfbd478ada7ee0392e6ad17996057ce4 3396 PREREG_ADDENDUM_A2.md
+    100644 blob 482e7d89b82885804e5c3e3c0d66f87d69406386 11611 code/__pycache__/common.cpython-313.pyc
+    100644 blob e536dc2fca74960988f8b0afd355e81d06b9bedd 10264 code/analyze.py
+    100644 blob 77602e0021d1677a36b85a6a1a2336d36340bc46 3127 code/build_dataset.py
+    100644 blob 963b766bca80da9e169f5ff8b6d920c2250ec6d6 1739 code/build_frame_snapshot.py
+    100644 blob 7275eb868d6f5eca8c0e4c015655c050ac096ba6 7218 code/common.py
+    100644 blob 0227d998d3d78b7b610deb9ead52e1baa7d34ba9 3012 code/exposure.py
+    100644 blob 2510d63f8bd0059438688aa522915d3d095d502f 3173 code/measure_tau.py
+    100644 blob 05ed45e4c7258c2cf23567bbb94643997a5a3889 3999 code/outcome.py
+    100644 blob 793348d78253f0b6c3d2252e7612623f7a4fff89 3102 code/power.py
+    100644 blob b50b5f147d3f339e1fbc1cbfee4b3563a1a82b14 4690 code/screen_github.py
+    100644 blob d923be01c85a9be48997dbcbe2e1ab157d23d20b 4516 code/screen_pypi.py
+    100644 blob 1c6550ee1a4618bbcf9792c7f5891cce885ed814 3282866 data/package_urls.csv
+    100644 blob e3c6af024bf6cb7044e6092e83bd1344a5c55dcd 1191 power_output.txt

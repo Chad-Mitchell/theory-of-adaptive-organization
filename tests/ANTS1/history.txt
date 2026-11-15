@@ -1,0 +1,129 @@
+# Local git history receipt for tests/ANTS1
+#
+# Source: unpushed local repo at /workspace/gtao/tests/ANTS1
+# Written: 2026-11-14, America/New_York.
+#
+# These commits were not pushed anywhere before they were added to this
+# private GitHub repository. Recording them here gives them an external
+# timestamp only from the commit that adds this file, not from the
+# author dates below. Author dates are self-attested (in these repos,
+# author date equals committer date).
+#
+# Bundle: Full history is in history.bundle. The original repo also committed __pycache__ bytecode, which is in the bundle but was not copied into the working tree.
+#
+# This receipt lists commit SHAs, dates, messages, and file paths with
+# blob SHAs and sizes. It does not include file contents.
+# Hashed preregistration / prediction files in this folder were not modified.
+
+# Clone: git clone history.bundle ANTS1-history
+
+commit 912c6d392a2e2a210b7185f82e36f8611e6ac5ef
+Author: box <box@localhost>
+AuthorDate: 2026-11-14T22:19:53-05:00
+Commit: box <box@localhost>
+CommitDate: 2026-11-14T22:19:53-05:00
+
+    ANTS1: world generator and scorer, written before any ant code
+
+tree 2ba6c72be3e9eb133153e2d2f34a3f1286908135
+files:
+    100644 blob e6b3d8ed6dc6e153f613e86a365503633663c850 1253 score.py
+    100644 blob fe435ee1d226259a4958c18981654ea34dbb98c6 2556 world.py
+
+commit d38ff121abd5385c2446f6c235203cd08e007f73
+Author: box <box@localhost>
+AuthorDate: 2026-11-14T22:21:16-05:00
+Commit: box <box@localhost>
+CommitDate: 2026-11-14T22:21:16-05:00
+
+    ANTS1 preregistration (before ant code)
+
+tree 9af130d6e5c8909b13e4e554c532414a731b5050
+parent 912c6d392a2e2a210b7185f82e36f8611e6ac5ef
+files:
+    100644 blob 4ccb2ced76e191527b00ac4e25fa264f403f8ace 6159 PREREG.md
+    100644 blob f94a6a009a14f87d6acf2d18e64ec8a136f49c56 391 PREREG.sha256
+    100644 blob b8ec463cf2d885e00e12118433e20f5b5e5cc0ce 3731 __pycache__/world.cpython-313.pyc
+    100644 blob f863c77b75e6195604e11da08dbbd6ff4ac02a62 2612 meanfield.py
+    100644 blob 87e37a11817ca2bd1db12e30d9a1a6867473eaab 25426 meanfield_pred.json
+    100644 blob e6b3d8ed6dc6e153f613e86a365503633663c850 1253 score.py
+    100644 blob fe435ee1d226259a4958c18981654ea34dbb98c6 2556 world.py
+
+commit 6ed05000f23069f7dccff5c2a51346befb6217ca
+Author: box <box@localhost>
+AuthorDate: 2026-11-14T22:24:06-05:00
+Commit: box <box@localhost>
+CommitDate: 2026-11-14T22:24:06-05:00
+
+    ANTS1 ant code + runner; deviation log
+
+tree 7931e470870c7b62c6aa676aae0c65f9968f4d4f
+parent d38ff121abd5385c2446f6c235203cd08e007f73
+files:
+    100644 blob 78214b6282d6a1bb4de8ffcf58fb330fef273e55 642 DEVIATIONS.md
+    100644 blob 4ccb2ced76e191527b00ac4e25fa264f403f8ace 6159 PREREG.md
+    100644 blob f94a6a009a14f87d6acf2d18e64ec8a136f49c56 391 PREREG.sha256
+    100644 blob fc5a9561be1d99560329127335c7b717dcb29225 14771 __pycache__/ants._fw_add-16.py313.1.nbc
+    100644 blob 33efb4b32fe4ed6c11d45636784b1af320a02709 1601 __pycache__/ants._fw_add-16.py313.nbi
+    100644 blob 0d20804a03ee71d801cc647ad6b1b90dfb730cb0 20790 __pycache__/ants._fw_build-25.py313.1.nbc
+    100644 blob bb19e82b486a70612e794e93689a910eb496af48 1544 __pycache__/ants._fw_build-25.py313.nbi
+    100644 blob a98fa7578680ae27d2419f65d46e913e628b5cab 19292 __pycache__/ants._fw_find-34.py313.1.nbc
+    100644 blob c8f39d2f714c9394bb395473a5ee0b1bf658e768 1543 __pycache__/ants._fw_find-34.py313.nbi
+    100644 blob 88b6541f89ab18103123013228bcae4b7e0a3875 29151 __pycache__/ants._mode-52.py313.1.nbc
+    100644 blob b4a184d9a03024350b7769dc1fbc4b2e6341ee37 1717 __pycache__/ants._mode-52.py313.nbi
+    100644 blob ee5e2cce38b5c08ad21e586907516c05e6c57f17 7812 __pycache__/ants.cpython-313.pyc
+    100644 blob d2b0b414632c71addc729b13685b6802d29cb4f9 118499 __pycache__/ants.run_private-129.py313.1.nbc
+    100644 blob 7d12a6fab078beba19ce7f8af3a9436ba224cb68 1615 __pycache__/ants.run_private-129.py313.nbi
+    100644 blob 3f6404bb92b21008d419ec8e2a6cd5384de756f3 118467 __pycache__/ants.run_private-133.py313.1.nbc
+    100644 blob ace982e1a9721528248427044a3ff4ba9febc303 1615 __pycache__/ants.run_private-133.py313.nbi
+    100644 blob 939bd292adb1df3ef16b022bcfd947029bae9e4c 126683 __pycache__/ants.run_shared-68.py313.1.nbc
+    100644 blob 57226b157fc8c54445142d8f77de87e46064c2fe 1615 __pycache__/ants.run_shared-68.py313.nbi
+    100644 blob 37f66eabfe81af9a148034da6d28b1fac7bba891 4487 __pycache__/run.cpython-313.pyc
+    100644 blob a756caa4fa96e1d51df6d42b2e22276ca3fa16c4 2233 __pycache__/score.cpython-313.pyc
+    100644 blob b8ec463cf2d885e00e12118433e20f5b5e5cc0ce 3731 __pycache__/world.cpython-313.pyc
+    100644 blob 940881074cbc7f3d6d01fe2749ecfdc1193463fa 4806 ants.py
+    100644 blob f863c77b75e6195604e11da08dbbd6ff4ac02a62 2612 meanfield.py
+    100644 blob 87e37a11817ca2bd1db12e30d9a1a6867473eaab 25426 meanfield_pred.json
+    100644 blob eba6267f62a06df8297af303efb95c9c909ff058 2065 run.py
+    100644 blob e6b3d8ed6dc6e153f613e86a365503633663c850 1253 score.py
+    100644 blob fe435ee1d226259a4958c18981654ea34dbb98c6 2556 world.py
+
+commit 1e73a152d6625680c28f86b7473af0469a7c9930
+Author: box <box@localhost>
+AuthorDate: 2026-11-14T22:33:38-05:00
+Commit: box <box@localhost>
+CommitDate: 2026-11-14T22:33:38-05:00
+
+    ANTS1 analysis script (prereg estimators)
+
+tree 8a7087e28a5161544cd1789d37db065aab6ed602
+parent 6ed05000f23069f7dccff5c2a51346befb6217ca
+files:
+    100644 blob e7a1714a72d72ed626a149f031d05498a58e2e31 876 DEVIATIONS.md
+    100644 blob 4ccb2ced76e191527b00ac4e25fa264f403f8ace 6159 PREREG.md
+    100644 blob f94a6a009a14f87d6acf2d18e64ec8a136f49c56 391 PREREG.sha256
+    100644 blob fc5a9561be1d99560329127335c7b717dcb29225 14771 __pycache__/ants._fw_add-16.py313.1.nbc
+    100644 blob 33efb4b32fe4ed6c11d45636784b1af320a02709 1601 __pycache__/ants._fw_add-16.py313.nbi
+    100644 blob 0d20804a03ee71d801cc647ad6b1b90dfb730cb0 20790 __pycache__/ants._fw_build-25.py313.1.nbc
+    100644 blob bb19e82b486a70612e794e93689a910eb496af48 1544 __pycache__/ants._fw_build-25.py313.nbi
+    100644 blob a98fa7578680ae27d2419f65d46e913e628b5cab 19292 __pycache__/ants._fw_find-34.py313.1.nbc
+    100644 blob c8f39d2f714c9394bb395473a5ee0b1bf658e768 1543 __pycache__/ants._fw_find-34.py313.nbi
+    100644 blob 88b6541f89ab18103123013228bcae4b7e0a3875 29151 __pycache__/ants._mode-52.py313.1.nbc
+    100644 blob b4a184d9a03024350b7769dc1fbc4b2e6341ee37 1717 __pycache__/ants._mode-52.py313.nbi
+    100644 blob ee5e2cce38b5c08ad21e586907516c05e6c57f17 7812 __pycache__/ants.cpython-313.pyc
+    100644 blob d2b0b414632c71addc729b13685b6802d29cb4f9 118499 __pycache__/ants.run_private-129.py313.1.nbc
+    100644 blob 7d12a6fab078beba19ce7f8af3a9436ba224cb68 1615 __pycache__/ants.run_private-129.py313.nbi
+    100644 blob 3f6404bb92b21008d419ec8e2a6cd5384de756f3 118467 __pycache__/ants.run_private-133.py313.1.nbc
+    100644 blob ace982e1a9721528248427044a3ff4ba9febc303 1615 __pycache__/ants.run_private-133.py313.nbi
+    100644 blob 939bd292adb1df3ef16b022bcfd947029bae9e4c 126683 __pycache__/ants.run_shared-68.py313.1.nbc
+    100644 blob 57226b157fc8c54445142d8f77de87e46064c2fe 1615 __pycache__/ants.run_shared-68.py313.nbi
+    100644 blob 37f66eabfe81af9a148034da6d28b1fac7bba891 4487 __pycache__/run.cpython-313.pyc
+    100644 blob a756caa4fa96e1d51df6d42b2e22276ca3fa16c4 2233 __pycache__/score.cpython-313.pyc
+    100644 blob b8ec463cf2d885e00e12118433e20f5b5e5cc0ce 3731 __pycache__/world.cpython-313.pyc
+    100644 blob 592bcb3d72551d553ea2a8c33fdec2aad2d57966 9820 analyze.py
+    100644 blob 940881074cbc7f3d6d01fe2749ecfdc1193463fa 4806 ants.py
+    100644 blob f863c77b75e6195604e11da08dbbd6ff4ac02a62 2612 meanfield.py
+    100644 blob 87e37a11817ca2bd1db12e30d9a1a6867473eaab 25426 meanfield_pred.json
+    100644 blob eba6267f62a06df8297af303efb95c9c909ff058 2065 run.py
+    100644 blob e6b3d8ed6dc6e153f613e86a365503633663c850 1253 score.py
+    100644 blob fe435ee1d226259a4958c18981654ea34dbb98c6 2556 world.py

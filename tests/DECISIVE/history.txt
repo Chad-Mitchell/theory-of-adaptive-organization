@@ -1,0 +1,188 @@
+# Local git history receipt for tests/DECISIVE
+#
+# Source: unpushed local repo at /workspace/gtao/tests/DECISIVE
+# Written: 2026-11-14, America/New_York.
+#
+# These commits were not pushed anywhere before they were added to this
+# private GitHub repository. Recording them here gives them an external
+# timestamp only from the commit that adds this file, not from the
+# author dates below. Author dates are self-attested (in these repos,
+# author date equals committer date).
+#
+# Bundle: No bundle. Both original commits contain clinical glucose data (glucose/data/outcome_block.parquet, about 77 MB) plus omitted bank financials and GPDD/KNB dumps. A git bundle cannot keep the original commit SHAs without shipping those blobs.
+#
+# This receipt lists commit SHAs, dates, messages, and file paths with
+# blob SHAs and sizes. It does not include file contents.
+# Hashed preregistration / prediction files in this folder were not modified.
+
+commit 2b127865fca6093a9093a360a7b0d397dfcedcf5
+Author: Grok Bot executor <executor@local>
+AuthorDate: 2026-11-14T22:53:42-05:00
+Commit: Grok Bot executor <executor@local>
+CommitDate: 2026-11-14T22:53:42-05:00
+
+    DECISIVE: preregistrations, predictor code, power, outcome-analysis code (before outcomes)
+
+tree 6bdc1991b3d3861e50f404f8cc774bc0fab704e3
+files:
+    100644 blob 043ae458147f472190df4bbc907825fdc60d02e3 84 .gitignore
+    100644 blob fb296e37d3398be78a40365cc4bfb7dd3928ed37 5440 banks/PREREG.md
+    100644 blob 13a6c4ba34ce61dd1c3e8aca53bc8ad7c8a9133e 504 banks/PREREG.sha256
+    100644 blob 3a1c8635a0de184c84ce3ddf8a6769331bf3b426 12563 banks/code/__pycache__/analyze.cpython-313.pyc
+    100644 blob 250a8c5a7f46895ed4db5bc7df7e6f799daed845 2881 banks/code/__pycache__/power.cpython-313.pyc
+    100644 blob 6656632b8b57600ba4e3fbdf1c680084f4e1a154 6482 banks/code/__pycache__/predictors.cpython-313.pyc
+    100644 blob 3f9a985a52592f163f03f0f51ff1448b53225166 1174 banks/code/__pycache__/pull_predictors.cpython-313.pyc
+    100644 blob 6c3af35d1f143002c2fba4f75810428dcfe3c433 623 banks/code/__pycache__/sklearn_free_auc.cpython-313.pyc
+    100644 blob 2d0bf9c36edc4cae197500a149413dd455099612 5367 banks/code/analyze.py
+    100644 blob 4cf97d53c9e28152ef23c3fbb5f7c1aa85fafc66 1166 banks/code/power.py
+    100644 blob ec271850c3ebfc24314a6f7c7e6f84d7c07d11d0 2476 banks/code/predictors.py
+    100644 blob 66037b7a46329e58922b7e27c287c17cf693ff85 753 banks/code/pull_predictors.py
+    100644 blob c2cc88854aa11486aeb05ffb45e6f0aa64f2354d 174 banks/code/sklearn_free_auc.py
+    100644 blob d797dee8409be5e7e9fe38c904f704681c430598 22445097 banks/data/financials_2001_2007.csv
+    100644 blob fd64a3050c1f3edc8ce64056e36c274e1ac84fb4 2202513 banks/data/predictors.csv
+    100644 blob ac40a6044777524e838a65bba7a903eba5a49454 452 banks/power_output.txt
+    100644 blob 5219689ec537840431654258ec6634cb684b43fd 5823 glucose/PREREG.md
+    100644 blob df4baa20503e92c5b76e0538e61d39ec78d68eff 482 glucose/PREREG.sha256
+    100644 blob 923b8bde7a35d0141024618931d2ced91dad907e 12051 glucose/code/__pycache__/analyze.cpython-313.pyc
+    100644 blob a249486d8303c2381405793a204a51bed6709859 7656 glucose/code/__pycache__/features.cpython-313.pyc
+    100644 blob 02203f2583023f69475752d17b16d4552cb0b4b6 5584 glucose/code/__pycache__/load.cpython-313.pyc
+    100644 blob 0763fb7c06aa4bef34e643235f6e2fc69ce51f2a 5607 glucose/code/__pycache__/power.cpython-313.pyc
+    100644 blob ea60e6c6999475835b6bf484c9d5525252340fcc 1722 glucose/code/__pycache__/simproc.cpython-313.pyc
+    100644 blob e5df819e180a3d05fed326c32e77321e5181b1b1 6075 glucose/code/analyze.py
+    100644 blob 29e61b1b5ad9a6159c99ff0a48d924570ea90d1a 2806 glucose/code/features.py
+    100644 blob e13a0cdb2768fb5c7d901fc46f41f7f14e391fc3 2336 glucose/code/load.py
+    100644 blob 2cf6ad0a69e2ca29a23db1374b6ff07bb6da84dd 2364 glucose/code/power.py
+    100644 blob fc33e7a8ffe69f1ae9cca988d88d32e4298f804b 1004 glucose/code/simproc.py
+    100644 blob 80dc52ea5ef3ec6ca93c5a8ea30e4445a73c949e 1760 glucose/data/G_table.npy
+    100644 blob b81dc5e98a272078c472216b66fc9a3dd3fdc48f 77281668 glucose/data/outcome_block.parquet
+    100644 blob 04b9872213d09c0a6cb896566b3f0debb8e3950b 127514 glucose/data/predictors.csv
+    100644 blob 46981cdb1da2e7502443e02dac25d08016ba8670 403 glucose/power_output.txt
+    100644 blob af9d6aebeb6efe134ae616ae73a3258329c393f1 5238 populations/PREREG.md
+    100644 blob 6e547a2fd78a3be81d7ee3e4d9ef997d8a6cc004 321 populations/PREREG.sha256
+    100644 blob 8f19c5904a3221513e45381da3b54a3d6b9e861c 10873 populations/code/__pycache__/analyze.cpython-313.pyc
+    100644 blob 3548503a4d0cdeab119f47c6f10babe0bfb0bcb6 9074 populations/code/__pycache__/features.cpython-313.pyc
+    100644 blob 3752905d1b21bb89acd0d23b070bb9da087827e7 6103 populations/code/__pycache__/power.cpython-313.pyc
+    100644 blob 048ef2502c4b8fc4106b0a0958f547dc3c796b8f 4602 populations/code/analyze.py
+    100644 blob 01dabb28c9d514995b80777ca6f2381a4fd9bd48 3680 populations/code/features.py
+    100644 blob 8436d2cab6023a9bae00d4a6f599ba4df13edc3f 2250 populations/code/power.py
+    100644 blob bd43506df5abd7a4a32722fec9e01b570cbefca0 3288 populations/data/gpdd_biotope.rda
+    100644 blob 2ab522e72c0220b1fdd90377b4f9006e854b61ee 337700 populations/data/gpdd_data.rda
+    100644 blob b115a99f2c2aad99be148cc6bc123e020f8af483 29048 populations/data/gpdd_datasource.rda
+    100644 blob b7beada690b9d4c2ba43f326d9efe85558c390e7 43304 populations/data/gpdd_location.rda
+    100644 blob 05a57507aca40abf17f44caf89d241549b76b884 60412 populations/data/gpdd_main.rda
+    100644 blob 488eedc9c2df2af2642b93857e2f54edbeac92dc 57668 populations/data/gpdd_taxon.rda
+    100644 blob 91353806bc4cb4ead4f6bee1bab240c0b6049e3f 3876 populations/data/gpdd_timeperiod.rda
+    100644 blob a1c899480036122fc648003cb6508674c047dc43 8741081 populations/data/knb/df35b.233.1
+    100644 blob d44baefe8edecbbe7c59bfb3a6f82f00c67ee2ec 812691 populations/data/knb/df35b.234.1
+    100644 blob fa35c2a736885dc390a46dec3c424e013f823707 17515 populations/data/knb/df35b.235.1
+    100644 blob 6995a5a13cdacf21ab8db15e6f1425038a732e2d 276038 populations/data/knb/df35b.236.1
+    100644 blob 6f13c10b1eae80ab59819d82f0cebe6a4e7ccc49 89609 populations/data/knb/df35b.237.1
+    100644 blob 92fe97e8df15b2908bc16d2adb62a44d14b75ccf 8302 populations/data/knb/df35b.238.1
+    100644 blob 93a27931c467287972e3226bad7a926b5b32ddb4 183498 populations/data/knb/df35b.239.1
+    100644 blob d86dcce16e9e4baa15cda8e3db3559b0c9d9be32 2042491 populations/data/knb/df35b.241.1
+    100644 blob 248f90b6ef100e76152da2f27dff1d10d81e7713 409 populations/data/knb/h233.txt
+    100644 blob 66c7073df0026d8027bc9c858aeaa43bda0a4a5f 409 populations/data/knb/h234.txt
+    100644 blob 890e7f8d02dcd1f92b7a5fb6e0f3d93a5a540d7f 409 populations/data/knb/h235.txt
+    100644 blob c567a666a39db39a41568e2f732e6ecea15932af 409 populations/data/knb/h236.txt
+    100644 blob 7de92367ff0446b7d9334a51880cc74e6c88a9f9 409 populations/data/knb/h237.txt
+    100644 blob 3e579cea1a9f40b912ee41ae18139422857f9714 409 populations/data/knb/h238.txt
+    100644 blob e1422c0bfb9b5c3edc591a2955c9633dbb2f7aef 409 populations/data/knb/h239.txt
+    100644 blob 05792606e6a5159ab0a31369fe81ab6e518f2656 426 populations/data/knb/h241.txt
+    100644 blob 91c5fda082e04077d17592596fb3a01bb919d9c8 452493 populations/data/outcome_block.csv
+    100644 blob c6df6269142232cb9f40cb6479b2e3076be15eeb 84618 populations/data/predictors.csv
+    100644 blob d7a90003e8e4573b21f2e16cfdc35e82be041d06 30792 populations/power_output.txt
+
+commit f2befcfe35c10ce9c7d23adbcca578148c813b5b
+Author: Grok Bot executor <executor@local>
+AuthorDate: 2026-11-14T23:01:13-05:00
+Commit: Grok Bot executor <executor@local>
+CommitDate: 2026-11-14T23:01:13-05:00
+
+    DECISIVE: outcome results, deviations, exploratory checks
+
+tree 269106a4ba29c8926060b9a8f82cb515c5dd88e6
+parent 2b127865fca6093a9093a360a7b0d397dfcedcf5
+files:
+    100644 blob 043ae458147f472190df4bbc907825fdc60d02e3 84 .gitignore
+    100644 blob afe6ae657b5d5d55dc61dc219b34a7522eacd906 829 SUMMARY.md
+    100644 blob fb296e37d3398be78a40365cc4bfb7dd3928ed37 5440 banks/PREREG.md
+    100644 blob 13a6c4ba34ce61dd1c3e8aca53bc8ad7c8a9133e 504 banks/PREREG.sha256
+    100644 blob 4fe49c433afd9e6e1f11e449c69d4ce65906cc01 3653 banks/RESULTS.md
+    100644 blob 3a1c8635a0de184c84ce3ddf8a6769331bf3b426 12563 banks/code/__pycache__/analyze.cpython-313.pyc
+    100644 blob 250a8c5a7f46895ed4db5bc7df7e6f799daed845 2881 banks/code/__pycache__/power.cpython-313.pyc
+    100644 blob 6656632b8b57600ba4e3fbdf1c680084f4e1a154 6482 banks/code/__pycache__/predictors.cpython-313.pyc
+    100644 blob 3f9a985a52592f163f03f0f51ff1448b53225166 1174 banks/code/__pycache__/pull_predictors.cpython-313.pyc
+    100644 blob 6c3af35d1f143002c2fba4f75810428dcfe3c433 623 banks/code/__pycache__/sklearn_free_auc.cpython-313.pyc
+    100644 blob 2d0bf9c36edc4cae197500a149413dd455099612 5367 banks/code/analyze.py
+    100644 blob 8cb9d16b709679462f1c999e4f561f799b7e4eb8 1890 banks/code/exploratory.py
+    100644 blob 4cf97d53c9e28152ef23c3fbb5f7c1aa85fafc66 1166 banks/code/power.py
+    100644 blob ec271850c3ebfc24314a6f7c7e6f84d7c07d11d0 2476 banks/code/predictors.py
+    100644 blob 66037b7a46329e58922b7e27c287c17cf693ff85 753 banks/code/pull_predictors.py
+    100644 blob c2cc88854aa11486aeb05ffb45e6f0aa64f2354d 174 banks/code/sklearn_free_auc.py
+    100644 blob 72b9ce606241dea473986d767e01af8a3f55adc6 187703 banks/data/failed_fin.csv
+    100644 blob 6547f66dae2004a59928adc48af62aff6f9bbf58 268550 banks/data/failures.csv
+    100644 blob d797dee8409be5e7e9fe38c904f704681c430598 22445097 banks/data/financials_2001_2007.csv
+    100644 blob fd64a3050c1f3edc8ce64056e36c274e1ac84fb4 2202513 banks/data/predictors.csv
+    100644 blob f343f04f7283fbe9f858a88319ab683bf784e572 350 banks/exploratory.json
+    100644 blob ac40a6044777524e838a65bba7a903eba5a49454 452 banks/power_output.txt
+    100644 blob 17cf31022235fd766cc407c339603c1727586e43 1491 banks/results.json
+    100644 blob 5219689ec537840431654258ec6634cb684b43fd 5823 glucose/PREREG.md
+    100644 blob df4baa20503e92c5b76e0538e61d39ec78d68eff 482 glucose/PREREG.sha256
+    100644 blob b8b8bef7eca51e393a913b778444fb45870295b7 3717 glucose/RESULTS.md
+    100644 blob 19296de1508a5415dd5f8dd91c5139c96b6d3b49 37194 glucose/analysis_output.txt
+    100644 blob 923b8bde7a35d0141024618931d2ced91dad907e 12051 glucose/code/__pycache__/analyze.cpython-313.pyc
+    100644 blob a249486d8303c2381405793a204a51bed6709859 7656 glucose/code/__pycache__/features.cpython-313.pyc
+    100644 blob 02203f2583023f69475752d17b16d4552cb0b4b6 5584 glucose/code/__pycache__/load.cpython-313.pyc
+    100644 blob 0763fb7c06aa4bef34e643235f6e2fc69ce51f2a 5607 glucose/code/__pycache__/power.cpython-313.pyc
+    100644 blob ea60e6c6999475835b6bf484c9d5525252340fcc 1722 glucose/code/__pycache__/simproc.cpython-313.pyc
+    100644 blob 1c9a5051eeb9e058da452ed3a5b86fb0ca4f5e4b 6541 glucose/code/analyze.py
+    100644 blob 29e61b1b5ad9a6159c99ff0a48d924570ea90d1a 2806 glucose/code/features.py
+    100644 blob e13a0cdb2768fb5c7d901fc46f41f7f14e391fc3 2336 glucose/code/load.py
+    100644 blob 2cf6ad0a69e2ca29a23db1374b6ff07bb6da84dd 2364 glucose/code/power.py
+    100644 blob fc33e7a8ffe69f1ae9cca988d88d32e4298f804b 1004 glucose/code/simproc.py
+    100644 blob 80dc52ea5ef3ec6ca93c5a8ea30e4445a73c949e 1760 glucose/data/G_table.npy
+    100644 blob 45992a3f27fa72fca190249b0c0d83781a5c6e10 185595 glucose/data/analysis_table.csv
+    100644 blob b81dc5e98a272078c472216b66fc9a3dd3fdc48f 77281668 glucose/data/outcome_block.parquet
+    100644 blob 04b9872213d09c0a6cb896566b3f0debb8e3950b 127514 glucose/data/predictors.csv
+    100644 blob 46981cdb1da2e7502443e02dac25d08016ba8670 403 glucose/power_output.txt
+    100644 blob 9512a72bd76191da56f01a72b58806cfe2710a2a 3877 glucose/results.json
+    100644 blob af9d6aebeb6efe134ae616ae73a3258329c393f1 5238 populations/PREREG.md
+    100644 blob 6e547a2fd78a3be81d7ee3e4d9ef997d8a6cc004 321 populations/PREREG.sha256
+    100644 blob 273505384c6ded24ef3923175664eca7e8cb7893 3021 populations/RESULTS.md
+    100644 blob 4b80f3be26dbef306f7795526d2f3f1f7b67ef62 561638 populations/analysis_output.txt
+    100644 blob 8f19c5904a3221513e45381da3b54a3d6b9e861c 10873 populations/code/__pycache__/analyze.cpython-313.pyc
+    100644 blob 3548503a4d0cdeab119f47c6f10babe0bfb0bcb6 9074 populations/code/__pycache__/features.cpython-313.pyc
+    100644 blob 3752905d1b21bb89acd0d23b070bb9da087827e7 6103 populations/code/__pycache__/power.cpython-313.pyc
+    100644 blob 048ef2502c4b8fc4106b0a0958f547dc3c796b8f 4602 populations/code/analyze.py
+    100644 blob d85a0cb6c558c339c3202a566ded67687431d5e3 1188 populations/code/exploratory.py
+    100644 blob 01dabb28c9d514995b80777ca6f2381a4fd9bd48 3680 populations/code/features.py
+    100644 blob 8436d2cab6023a9bae00d4a6f599ba4df13edc3f 2250 populations/code/power.py
+    100644 blob b2df83caa8c99c857f181dc111953eb9a9f6f130 117947 populations/data/analysis_table.csv
+    100644 blob bd43506df5abd7a4a32722fec9e01b570cbefca0 3288 populations/data/gpdd_biotope.rda
+    100644 blob 2ab522e72c0220b1fdd90377b4f9006e854b61ee 337700 populations/data/gpdd_data.rda
+    100644 blob b115a99f2c2aad99be148cc6bc123e020f8af483 29048 populations/data/gpdd_datasource.rda
+    100644 blob b7beada690b9d4c2ba43f326d9efe85558c390e7 43304 populations/data/gpdd_location.rda
+    100644 blob 05a57507aca40abf17f44caf89d241549b76b884 60412 populations/data/gpdd_main.rda
+    100644 blob 488eedc9c2df2af2642b93857e2f54edbeac92dc 57668 populations/data/gpdd_taxon.rda
+    100644 blob 91353806bc4cb4ead4f6bee1bab240c0b6049e3f 3876 populations/data/gpdd_timeperiod.rda
+    100644 blob a1c899480036122fc648003cb6508674c047dc43 8741081 populations/data/knb/df35b.233.1
+    100644 blob d44baefe8edecbbe7c59bfb3a6f82f00c67ee2ec 812691 populations/data/knb/df35b.234.1
+    100644 blob fa35c2a736885dc390a46dec3c424e013f823707 17515 populations/data/knb/df35b.235.1
+    100644 blob 6995a5a13cdacf21ab8db15e6f1425038a732e2d 276038 populations/data/knb/df35b.236.1
+    100644 blob 6f13c10b1eae80ab59819d82f0cebe6a4e7ccc49 89609 populations/data/knb/df35b.237.1
+    100644 blob 92fe97e8df15b2908bc16d2adb62a44d14b75ccf 8302 populations/data/knb/df35b.238.1
+    100644 blob 93a27931c467287972e3226bad7a926b5b32ddb4 183498 populations/data/knb/df35b.239.1
+    100644 blob d86dcce16e9e4baa15cda8e3db3559b0c9d9be32 2042491 populations/data/knb/df35b.241.1
+    100644 blob 248f90b6ef100e76152da2f27dff1d10d81e7713 409 populations/data/knb/h233.txt
+    100644 blob 66c7073df0026d8027bc9c858aeaa43bda0a4a5f 409 populations/data/knb/h234.txt
+    100644 blob 890e7f8d02dcd1f92b7a5fb6e0f3d93a5a540d7f 409 populations/data/knb/h235.txt
+    100644 blob c567a666a39db39a41568e2f732e6ecea15932af 409 populations/data/knb/h236.txt
+    100644 blob 7de92367ff0446b7d9334a51880cc74e6c88a9f9 409 populations/data/knb/h237.txt
+    100644 blob 3e579cea1a9f40b912ee41ae18139422857f9714 409 populations/data/knb/h238.txt
+    100644 blob e1422c0bfb9b5c3edc591a2955c9633dbb2f7aef 409 populations/data/knb/h239.txt
+    100644 blob 05792606e6a5159ab0a31369fe81ab6e518f2656 426 populations/data/knb/h241.txt
+    100644 blob 91c5fda082e04077d17592596fb3a01bb919d9c8 452493 populations/data/outcome_block.csv
+    100644 blob c6df6269142232cb9f40cb6479b2e3076be15eeb 84618 populations/data/predictors.csv
+    100644 blob a693db1bc34d1f794a9e5fec2b013651b3b17c5e 468 populations/exploratory.json
+    100644 blob d7a90003e8e4573b21f2e16cfdc35e82be041d06 30792 populations/power_output.txt
+    100644 blob 2b16c0b96d3adc4ce5a3b254acbc0ac306ed7ef7 1405 populations/results.json

@@ -1,0 +1,85 @@
+# Local git history receipt for tests/DRIFT1
+#
+# Source: unpushed local repo at /workspace/gtao/tests/DRIFT1
+# Written: 2026-11-14, America/New_York.
+#
+# These commits were not pushed anywhere before they were added to this
+# private GitHub repository. Recording them here gives them an external
+# timestamp only from the commit that adds this file, not from the
+# author dates below. Author dates are self-attested (in these repos,
+# author date equals committer date).
+#
+# Bundle: Prefix only in history.bundle: through 2a1fef81 (preregistration and its hash, before new data). The results commit contains raw pulls omitted from this tree, and withheld person-scale statistics (see REDACTION.md), so it is not bundled.
+#
+# This receipt lists commit SHAs, dates, messages, and file paths with
+# blob SHAs and sizes. It does not include file contents.
+# Hashed preregistration / prediction files in this folder were not modified.
+
+# Clone the prefix: git clone history.bundle DRIFT1-history
+# The bundled branch is named master (original commit SHAs unchanged). Tip SHA: 2a1fef815efc7f9bba348047af69051c5e4e3fa3
+
+commit ecac6666f3ad98fbf29e93d745e277ae98943bd3
+Author: box <box@localhost>
+AuthorDate: 2026-11-14T22:26:47-05:00
+Commit: box <box@localhost>
+CommitDate: 2026-11-14T22:26:47-05:00
+
+    DRIFT1 analysis functions + preregistration (before new data)
+
+tree a57647d20a580145502a8bae33224802ac7cadea
+files:
+    100644 blob 43276f0fb242ac5a4cfe3410ede04f63ad415207 4869 PREREG.md
+    100644 blob 1ba775544e4c1695f249d6b56290c31d2e76528c 12851 __pycache__/drift_stats.cpython-313.pyc
+    100644 blob 9515460b4dd73b7eb3f914244c0f98ed342d00f5 6626 drift_stats.py
+
+commit 2a1fef815efc7f9bba348047af69051c5e4e3fa3
+Author: box <box@localhost>
+AuthorDate: 2026-11-14T22:26:47-05:00
+Commit: box <box@localhost>
+CommitDate: 2026-11-14T22:26:47-05:00
+
+    DRIFT1 prereg hash
+
+tree ea5303d49c0bebccffea840cd193ee1fdf72bbfa
+parent ecac6666f3ad98fbf29e93d745e277ae98943bd3
+files:
+    100644 blob 43276f0fb242ac5a4cfe3410ede04f63ad415207 4869 PREREG.md
+    100644 blob ebd14789ad73fd994ee218974ff592693dcbf4b4 157 PREREG.sha256
+    100644 blob 1ba775544e4c1695f249d6b56290c31d2e76528c 12851 __pycache__/drift_stats.cpython-313.pyc
+    100644 blob 9515460b4dd73b7eb3f914244c0f98ed342d00f5 6626 drift_stats.py
+
+commit 80cc81d288c672ac9b1773c52f2a530e12a098f5
+Author: box <box@localhost>
+AuthorDate: 2026-11-14T22:50:39-05:00
+Commit: box <box@localhost>
+CommitDate: 2026-11-14T22:50:39-05:00
+
+    DRIFT1 data, analysis, supplementary (post hoc), results
+
+tree 6523b7eef3e98d2e1af9e2e293c0de9562a85944
+parent 2a1fef815efc7f9bba348047af69051c5e4e3fa3
+files:
+    100644 blob 0ddbd8056ff15f6989244bcdbb2c74450f34702f 1318 DEVIATIONS.md
+    100644 blob 43276f0fb242ac5a4cfe3410ede04f63ad415207 4869 PREREG.md
+    100644 blob ebd14789ad73fd994ee218974ff592693dcbf4b4 157 PREREG.sha256
+    100644 blob e217698536f39a82a342362489515e2e00b4131c 6113 RESULTS.md
+    100644 blob 3d9f8c40813927ae4250d8fdb0de4edd8666bcb9 12901 __pycache__/drift_stats.cpython-313.pyc
+    100644 blob e10fbb5844f67020f191bb00bad8f0c74a996333 2228 analysis_output.txt
+    100644 blob 55ce61426fa1c0bfb832c3adbdd156b4ca0be2bf 6251 analyze.py
+    100644 blob a63b3d9604779b9cc8e9d634ba3efa40435fce5c 1253 data/311.log
+    100644 blob 1dc0067029a5e310d2e596f54f664fb17666126b 389 data/311h.log
+    100644 blob 8510b39c22250dd185be7ed67caf2099fc31845c 48 data/edgar.log
+    100644 blob 0f5851ad2a30d90d2006fbe437aa72504eb10c40 20809289 data/edgar_filings.jsonl
+    100644 blob 70c841280d01bc70c12b39f3449b0adc854e02ad 3024788 data/nyc311_hourly_2020_2025.json
+    100644 blob 592527e62d301436801ef1266ccbed0eae465f41 823006 data/nyc311_items_2025.json
+    100644 blob fde2d87abc085004f64effd168ba7813b3e3bf8a 59 data/wiki.log
+    100644 blob 214e633874c05bd007592bfb21eba8790d88bcc4 8728056 data/wiki_revs.jsonl
+    100644 blob 9515460b4dd73b7eb3f914244c0f98ed342d00f5 6626 drift_stats.py
+    100644 blob a0b2a882e7728161fd94b9ea8136b1deef3338fc 1305 fetch_311.py
+    100644 blob 5b34f2664523baaf1a7048d4d594ee7cba949416 1097 fetch_311_hourly.py
+    100644 blob 7e17e017fa70dc964b3fa9e1fb7ca7165430251c 1153 fetch_edgar.py
+    100644 blob f3404e669f55c60c31f28d1837b1d0a915621316 1651 fetch_wiki.py
+    100644 blob d21669d489841785a3ef20ad9171eb39154e969b 22724 results.json
+    100644 blob 5ddf8c4709b97c53bd8862b80e5288c94a36d5ac 4328 supp.py
+    100644 blob 9c2b4ab143c3715fef4cd911932c50c2eae2c617 7362 supp_output.txt
+    100644 blob 0be4e985dcc43c9b0375695f0d7f51fdc61fff37 8385 supp_results.json

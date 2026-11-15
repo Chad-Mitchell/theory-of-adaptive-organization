@@ -1,0 +1,150 @@
+# Local git history receipt for tests/COLLAPSE1
+#
+# Source: unpushed local repo at /workspace/gtao/tests/COLLAPSE1
+# Written: 2026-11-14, America/New_York.
+#
+# These commits were not pushed anywhere before they were added to this
+# private GitHub repository. Recording them here gives them an external
+# timestamp only from the commit that adds this file, not from the
+# author dates below. Author dates are self-attested (in these repos,
+# author date equals committer date).
+#
+# Bundle: Prefix only in history.bundle: through ef12ae2 (predictions and both amendments, before computing results). The results commit contains publisher PDFs and SEC raw JSON omitted from this tree.
+#
+# This receipt lists commit SHAs, dates, messages, and file paths with
+# blob SHAs and sizes. It does not include file contents.
+# Hashed preregistration / prediction files in this folder were not modified.
+
+# Clone the prefix: git clone history.bundle COLLAPSE1-history
+# The bundled branch is named master (original commit SHAs unchanged). Tip SHA: ef12ae2db6fa20a84ef751ec9b263b18b2a9d650
+
+commit 947aa593d10a50b901ce89d87c64518ed9eabe8b
+Author: Ace <ace@local>
+AuthorDate: 2026-11-14T22:38:05-05:00
+Commit: Ace <ace@local>
+CommitDate: 2026-11-14T22:38:05-05:00
+
+    COLLAPSE1 predictions, before extraction
+
+tree 8e57a5134d52b3a473f0434819638ed78b5328e1
+files:
+    100644 blob e249d4cdbe6bcd707f283d653ae094b7e655c546 8319 PREDICTIONS.md
+    100644 blob adf481edb1cd4d80456547efa3202cc77612e94d 81 PREDICTIONS.sha256
+
+commit 0805cec08aee01871d059b6a9684487076e0016f
+Author: Ace <ace@local>
+AuthorDate: 2026-11-14T22:39:04-05:00
+Commit: Ace <ace@local>
+CommitDate: 2026-11-14T22:39:04-05:00
+
+    amendment 1: exponent-space collapse, before reading exponents
+
+tree ff7d3100c05459a8d2bf03b444ebdc93eb60cce3
+parent 947aa593d10a50b901ce89d87c64518ed9eabe8b
+files:
+    100644 blob e249d4cdbe6bcd707f283d653ae094b7e655c546 8319 PREDICTIONS.md
+    100644 blob 8a1c2ac068b15327035b3c4ce7a1f1b40e4984c8 173 PREDICTIONS.sha256
+    100644 blob e3960d6e26eae2c3ec01ea4bcf2c478558c342b8 2699 PREDICTIONS_AMENDMENT1.md
+
+commit ef12ae2db6fa20a84ef751ec9b263b18b2a9d650
+Author: Ace <ace@local>
+AuthorDate: 2026-11-14T22:43:15-05:00
+Commit: Ace <ace@local>
+CommitDate: 2026-11-14T22:43:15-05:00
+
+    amendment 2: code need-odds test, before computing
+
+tree 47d4a9f4d9ad4232301d70ab749812e1ed6deff0
+parent 0805cec08aee01871d059b6a9684487076e0016f
+files:
+    100644 blob e249d4cdbe6bcd707f283d653ae094b7e655c546 8319 PREDICTIONS.md
+    100644 blob 4a5304fa8e9c489f8ea98344581a04ca40a64f25 265 PREDICTIONS.sha256
+    100644 blob e3960d6e26eae2c3ec01ea4bcf2c478558c342b8 2699 PREDICTIONS_AMENDMENT1.md
+    100644 blob c6cf6da5067235aa62c5375ef0d84edf58fe180c 1617 PREDICTIONS_AMENDMENT2.md
+
+commit bf1ed71b38614b36c637bf02d7cc60d1db800a8e
+Author: Ace <ace@local>
+AuthorDate: 2026-11-14T22:50:25-05:00
+Commit: Ace <ace@local>
+CommitDate: 2026-11-14T22:50:25-05:00
+
+    COLLAPSE1 results
+
+tree 70763a83284e7982a24ec6c3046651c075f0e648
+parent ef12ae2db6fa20a84ef751ec9b263b18b2a9d650
+files:
+    100644 blob e249d4cdbe6bcd707f283d653ae094b7e655c546 8319 PREDICTIONS.md
+    100644 blob 4a5304fa8e9c489f8ea98344581a04ca40a64f25 265 PREDICTIONS.sha256
+    100644 blob e3960d6e26eae2c3ec01ea4bcf2c478558c342b8 2699 PREDICTIONS_AMENDMENT1.md
+    100644 blob c6cf6da5067235aa62c5375ef0d84edf58fe180c 1617 PREDICTIONS_AMENDMENT2.md
+    100644 blob 57eacf4e12b4402b63a197165a18abbf1e14706d 9594 RESULTS.md
+    100644 blob 2dfefaa822478d2666a5e1266146af3e2bb0f02f 4890 code_need/django_needodds.csv
+    100644 blob 4f0ba679ea5f9168aef088e4a922b0067ccc0ef8 4822 code_need/django_needodds_maxf.csv
+    100644 blob 5f09f6b2021779ff2d558df45fc780178566a3d0 1730 code_need/need.py
+    100644 blob 6768ded8225f780ed20c2782946d047cce13af23 1972 code_need/need_sens.py
+    100644 blob ae289827b60d7e21baf2c091e5e79655a1a5b7ec 4651 code_need/numpy_needodds.csv
+    100644 blob 98de0e8ea272e219e40a5f67e7d3bffe21a6de9a 4610 code_need/numpy_needodds_maxf.csv
+    100644 blob ddaa0d9a2d723427ea50f66f9da9dcdf8f895050 880 code_need/primary_results.jsonl
+    100644 blob b09fcba24b0e0703fbee4e1970f51370ed7e6291 4902 code_need/rails_needodds.csv
+    100644 blob d5c9785ab99e4df74d02f32592a2e0cb479e58bb 4883 code_need/rails_needodds_maxf.csv
+    100644 blob 3cef9aefe71fd194244e6888dbfa368aaa49055d 220 code_need/repo_heads.txt
+    100644 blob b73ef7842e4cca8d3469cab35f3dcf2091f8266b 287 code_need/results.json
+    100644 blob 3318a706e528f7df55a77abc752972f1bc074404 883 code_need/sensitivity_maxfiles100.jsonl
+    100644 blob af37b3579729324ea1f2dd7ecafe8af636017c3e 345967 collapse.png
+    100644 blob 13859c3bba3eb7ed0dddc55c3c3c03035962d1f2 3157 collapse_data.csv
+    100644 blob 6d50f2de5175ea09f34dbfc2ebef7bb91d595d25 2348 firm/analyze.py
+    100644 blob c84b374e1697249e3781500e6bea882193262d69 172 firm/fetch.log
+    100644 blob 57de16328644506a10f9053e7c633ec7917043e0 1383 firm/fetch.py
+    100644 blob ca16dafe1cd45f825d1dfc0caa75658d3ef29cf5 202587 firm/firm_panel.csv
+    100644 blob d3c5a77c571722f46f21e82b6fce1e1a250b91ab 783 firm/industry_slopes.csv
+    100644 blob f5e7b396cbf55a48d27c7263f1a9419cdb7c26aa 357996 firm/raw/CostOfGoodsAndServicesSold_CY2019.json
+    100644 blob 632304ac132f27cedd81860958eeca629d304be8 347805 firm/raw/CostOfGoodsAndServicesSold_CY2020.json
+    100644 blob 6624b291c223e296d2c05ac94297b194fbb3ac80 337528 firm/raw/CostOfGoodsAndServicesSold_CY2021.json
+    100644 blob 12e9fca6232c83f4fe48ad61c19702ccb52c5f85 335348 firm/raw/CostOfGoodsAndServicesSold_CY2022.json
+    100644 blob 71f0ce1107d75a5361aa97deaf19ce48c0148f22 315899 firm/raw/CostOfGoodsAndServicesSold_CY2023.json
+    100644 blob cc679dadc17bcc4c6744b122eb53b00404ebae0b 572 firm/raw/CostOfGoodsSold_CY2019.json
+    100644 blob 58f36c0dbf5051bb352bc46d50c296b21f9babd8 416 firm/raw/CostOfGoodsSold_CY2020.json
+    100644 blob 056d33e6750e32c872b06a15d4dfb986df0245de 239323 firm/raw/CostOfRevenue_CY2019.json
+    100644 blob abd6e11cfaf490aa204ce5caea930d4e639f80f1 249551 firm/raw/CostOfRevenue_CY2020.json
+    100644 blob c5b8270f5728c5a942d99fa3929a3b19516fc41b 266255 firm/raw/CostOfRevenue_CY2021.json
+    100644 blob 1a5d26ec9cdc91aa23382155d9b55699e2a39df4 280409 firm/raw/CostOfRevenue_CY2022.json
+    100644 blob 34f139c6da08c6a97c6bd91fc3ac442ac352b743 277586 firm/raw/CostOfRevenue_CY2023.json
+    100644 blob 129e752aea303edec9964514a7cf9e1c5d233352 382085 firm/raw/InventoryNet_CY2019Q4I.json
+    100644 blob 81c21bedd43ac9937eee5a0ca06be6937ecf1284 402644 firm/raw/InventoryNet_CY2020Q4I.json
+    100644 blob 9d2da16746fcdc9bfdd624cf5e4362cf095a52ec 408517 firm/raw/InventoryNet_CY2021Q4I.json
+    100644 blob 9863adf4bf39c698d793c571c6e0558d2e2e116b 401748 firm/raw/InventoryNet_CY2022Q4I.json
+    100644 blob 85459f1df96886a0c065d62bb8a93fe07decca99 387189 firm/raw/InventoryNet_CY2023Q4I.json
+    100644 blob 556530ea8f2819901509ab8a003d95d8ca12618f 50282 firm/sic.json
+    100644 blob 57ad7b13a3c1a6bcca40435a5a2d48cc99030f94 94 firm/sic.log
+    100644 blob 113cd17b1803817667d2ab4c702725fdf1408664 1095 firm/sic.py
+    100644 blob 6f36ed4b1b000e6cf0f143e52f319cd8f5ea91fb 254 firm/summary.json
+    100644 blob 4ca53fb7f0b5ecf9d93ad34ee79424564e9b4011 3442 plot.py
+    100644 blob 645794cce362839162e4c44669825e504e76e10c 3180 sources/INDEX.md
+    100644 blob 9d84414f2f9957de38c967463b2d6f6fc59f1fc4 367389 sources/acar2008.pdf
+    100644 blob 8a5813af32cd6153b5b0c5b331d19b1610102de8 31949 sources/acar2008.txt
+    100644 blob be1f30fb32e49fe702e4717a675c7bd52f38812e 5844335 sources/anderson_schooler1991.pdf
+    100644 blob e3b7835f20d852dffca791222bea9e23e211b7ac 53781 sources/anderson_schooler1991.txt
+    100644 blob 1803e79c48c138d55ad873d7b58f4b2045102875 204693 sources/benna_fusi.txt
+    100644 blob d793136d11782b72fca65aa241dee5c7c99ac5b1 8135979 sources/benna_fusi_arxiv1507.07580.pdf
+    100644 blob 6c40242970ee1d19f2f98b1c87a9c8307b46ce05 3115339 sources/candia2019.pdf
+    100644 blob d9043e8efab245f2394f1efe877ccfaa7da719d0 65294 sources/candia2019.txt
+    100644 blob a8b479999af279e3e184eb10dc5820c9f7f7d170 194502 sources/flu_vaccine_persistence.html
+    100644 blob bf9299fe4ab9842ed502a18195ae70a12c48bf67 47870 sources/flu_vaccine_persistence.txt
+    100644 blob fe552af9a7ea0964736dfa7619209c5d2b73ee62 223012 sources/henderson2006.pdf
+    100644 blob 7c5832b6c891636e2a137b04fac88cf8899e7780 18831 sources/henderson2006.txt
+    100644 blob 87243a84e82821a92b6115bcdb84ed6ca5c28b69 90536 sources/pertussis_jmm2010.html
+    100644 blob a647736d6f375b6c82b5f2b1d42aa837540d0c0c 41121 sources/pertussis_jmm2010.txt
+    100644 blob 7ea5dde1446024f4042c474d63f271b6d8ddef64 215863 sources/powerlaw_waning_PMC12132162.html
+    100644 blob 6acaf0d2ac864a889ace9680d0fccc1add0a969f 46999 sources/powerlaw_waning_PMC12132162.txt
+    100644 blob af24d68765a0993b0d17e9d7aac29e51989eb7a1 2489250 sources/rubin_wenzel1996.pdf
+    100644 blob 097a7997826c0a9048c8e6455d45370236925d98 156803 sources/rubin_wenzel1996.txt
+    100644 blob bd35d1b07f995d819494150558b49b565e786856 279374 sources/sarscov2_review.html
+    100644 blob 5cbd9ae045acfc46524b8f22770fe8c61801014c 77495 sources/sarscov2_review.txt
+    100644 blob d6f6fee173cfac66a46fe71cc22760b470557bf8 316012 sources/slifka_amanna2019.html
+    100644 blob c6e5cfc4376916a235beb8fe651f9102bc8699a3 105691 sources/slifka_amanna2019.txt
+    100644 blob 9151424e03de957a5edfbdfbb9e24f1536cd534e 220075 sources/wark2009.html
+    100644 blob 9290cb6d6f510a28bd7d062fbf05641ba0674ec8 70966 sources/wark2009.txt
+    100644 blob cedbf3f7afce06ee4192dac56a90661c2740f09d 31279 sources/wark2009_fig1.jpg
+    100644 blob 0b1fb8f273075978a8653d5f15217a6127ef7b78 64767 sources/wark2009_fig2.jpg
+    100644 blob 76931348dbfb8c6845684355ceb638b1fc2088f4 166849 sources/yf_travellers.html
+    100644 blob d464f32e71688f60a17aea82e082581982b56a72 35695 sources/yf_travellers.txt

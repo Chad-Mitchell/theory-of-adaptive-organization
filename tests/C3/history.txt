@@ -1,0 +1,72 @@
+# Local git history receipt for tests/C3
+#
+# Source: unpushed local repo at /workspace/gtao/tests/C3
+# Written: 2026-11-14, America/New_York.
+#
+# These commits were not pushed anywhere before they were added to this
+# private GitHub repository. Recording them here gives them an external
+# timestamp only from the commit that adds this file, not from the
+# author dates below. Author dates are self-attested (in these repos,
+# author date equals committer date).
+#
+# Bundle: Prefix only in history.bundle: commit 1a9ad7ee (preregistration, before outcome data). The later commit contains large GitHub pulls (issues.jsonl, screen.jsonl) omitted from this tree.
+#
+# This receipt lists commit SHAs, dates, messages, and file paths with
+# blob SHAs and sizes. It does not include file contents.
+# Hashed preregistration / prediction files in this folder were not modified.
+
+# Clone the prefix: git clone history.bundle C3-history
+# The bundled branch is named master (original commit SHAs unchanged). Tip SHA: 1a9ad7eecc5ff8c61c3a5b426f8a022712c06079
+
+commit 1a9ad7eecc5ff8c61c3a5b426f8a022712c06079
+Author: Grok Bot <bot@local>
+AuthorDate: 2026-11-13T14:34:27-05:00
+Commit: Grok Bot <bot@local>
+CommitDate: 2026-11-13T14:34:27-05:00
+
+    C3 preregistration (before outcome data)
+
+tree e0b70fdf0202e118a9d02083691b0edd9bec102d
+files:
+    100644 blob 156de81efa64e8c29c33a731bf7a56f9985f15db 7415 PREREG.md
+
+commit 3108f6be0ce9d489fc45b2984c9d1ae3a843d008
+Author: Grok Bot <bot@local>
+AuthorDate: 2026-11-13T16:15:23-05:00
+Commit: Grok Bot <bot@local>
+CommitDate: 2026-11-13T16:15:23-05:00
+
+    C3 data, code, results, review
+
+tree c9cd6beabd45185f27158c1c93bda9ba0a3d937d
+parent 1a9ad7eecc5ff8c61c3a5b426f8a022712c06079
+files:
+    100644 blob 1390bc378e02e9196b98b63bc16bcb67563bb46c 2300 DATA_NOTES.md
+    100644 blob 156de81efa64e8c29c33a731bf7a56f9985f15db 7415 PREREG.md
+    100644 blob d30f19d66d1dd0263b79b47e587c76a141b7b599 102 PREREG.sha256
+    100644 blob 8eee25ee78832ae1c53f4031da84ddd11f48cb56 8296 RESULTS.md
+    100644 blob d4c81343d9d7d2b45b747b20d21b563d2f5dae4d 4087 REVIEW.md
+    100644 blob d75ce1161a1604e04795103918e77d44ed1b5d38 5478 analysis_output.txt
+    100644 blob 1322f063c476d67b391700a7af923ea9c104f4ed 8832 code/analyze.py
+    100644 blob 6a5897c76ad6d7ce2f80d494c6cda1e20d36614c 2382 code/deviation.py
+    100644 blob 91e4bcf25f33e8a3c27fbf0ac9db00351fb0306f 2537 code/issues.py
+    100644 blob d06814ca2b263d1dddaf13f2be250a4beff0ae8d 966 code/literal_boot.py
+    100644 blob 690a76aadf998c2d64cec7abc25a046cd2238ea0 2857 code/measures.py
+    100644 blob d1782e7b819ec05bf899b49be16e75b682b8b883 1095 code/outcome.py
+    100644 blob fd6e96dd929d81c525a436a8a196c3c8e9027931 2058 code/screen.py
+    100644 blob 1d4bc8a902e8ef5cc52e0a6f28b2a59d6781f3f1 1458 code/select_sample.py
+    100644 blob 114cba2a4e0ae3ece1a217c35a19c0b9f79f2b92 379828 data/analysis_dataset.csv
+    100644 blob 3ada7f390eee5d45d7a16d813749387c1b07d2f3 18294 data/eligible_repos.txt
+    100644 blob f78bebdf5fe2f0f283c081d034c18d04fbe770fd 45685230 data/issues.jsonl
+    100644 blob 56ced03e8c11b9b01afc5e014d530ccf2f1a2a59 930 data/issues.log
+    100644 blob 895e9770c2a901954decb7dc100803521bc0efc0 268380 data/measures.csv
+    100644 blob 1482c0bb094e50aaa0be05a5cd03a089a0215219 233250 data/outcome.jsonl
+    100644 blob 1c6550ee1a4618bbcf9792c7f5891cce885ed814 3282866 data/package_urls.csv
+    100644 blob 9d606150f7224b715a71116505596d363239cb43 53785 data/sample_repos.txt
+    100644 blob 3c4d94bacfa17c2bce6d322ed9d391f59cc49d22 259366 data/sample_screen.csv
+    100644 blob 4c4c877283062e1113f1e72835aee7ed64f69614 18361491 data/screen.jsonl
+    100644 blob 28c93ae53640648542b1380d4848a25f701e3bbd 579 data/screen.log
+    100644 blob 260a347a94628eda1d11ca8d2425e29ab4e49e7b 491074 data/screen_passed.csv
+    100644 blob 130c4c2ef0aa5993c5d84d97b521fdbb791b1727 1042 deviation_results.json
+    100644 blob d5942381060a197df1aaba30823862ec9f4e8e2d 107 literal_boot.json
+    100644 blob 234f0d8e9850b827df84a7a65939259865e8c40e 5477 results.json

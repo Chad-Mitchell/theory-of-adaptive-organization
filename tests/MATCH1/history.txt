@@ -1,0 +1,227 @@
+# Local git history receipt for tests/MATCH1
+#
+# Source: unpushed local repo at /workspace/gtao/tests/MATCH1
+# Written: 2026-11-14, America/New_York.
+#
+# These commits were not pushed anywhere before they were added to this
+# private GitHub repository. Recording them here gives them an external
+# timestamp only from the commit that adds this file, not from the
+# author dates below. Author dates are self-attested (in these repos,
+# author date equals committer date).
+#
+# Bundle: No bundle. The predictions commit already includes source files omitted from this tree (Meeter data, Antia supplementary files). The results commit also adds raw news headlines and a Wikipedia revision dump.
+#
+# This receipt lists commit SHAs, dates, messages, and file paths with
+# blob SHAs and sizes. It does not include file contents.
+# Hashed preregistration / prediction files in this folder were not modified.
+
+commit 71d83064434a83ee84d196a199ca672887be563f
+Author: Ace <ace@local>
+AuthorDate: 2026-11-14T22:55:17-05:00
+Commit: Ace <ace@local>
+CommitDate: 2026-11-14T22:55:17-05:00
+
+    MATCH1 predictions, before computing outcomes
+
+tree 799a8ded2f6ee76c2724bc410ed1500cdefc142f
+files:
+    100644 blob 3a9bd63d3fab23c5f7b29144156bf2a1b99d1e33 6614 PREDICTIONS.md
+    100644 blob 44130a8b9c48cabe10aad14fdaa32972cecd6125 81 PREDICTIONS.sha256
+    100644 blob 4a8719e196b117e6dcbe06dbe6972e4ffb57aae5 203044 sources/antia2018.html
+    100644 blob 9389cf20b74fcc78ab7663ba1578e7207e195bb3 358790 sources/antia2018_S1Data.xlsx
+    100644 blob 7abd9c48fc82e010eec4d1492f10f9352b116a65 1331784 sources/antia_s001
+    100644 blob 46698733ff510b3d61a7ff3e99900b9113af5ff4 1165084 sources/antia_s002
+    100644 blob 565221f02a68b7b6ccb29ec7252bc9d2db20b51b 397132 sources/antia_s003
+    100644 blob d0fea33212431ff369df7ece730e6f22143f7b35 105942 sources/antia_s004
+    100644 blob 62eeaa3507e145936d0d98fe74a49cbed79fd8b1 78886 sources/antia_s005
+    100644 blob 468edd72e6668064e3920814bc32c050c442b03d 2785501 sources/meeter2005_data.zip
+    100644 blob 61a29679ca5427e750171f727ad993108072ec3f 10223 sources/neuromod_index.html
+
+commit f532a8329c900e5f93228e7e981027b2f2cda1f3
+Author: Ace <ace@local>
+AuthorDate: 2026-11-14T23:03:17-05:00
+Commit: Ace <ace@local>
+CommitDate: 2026-11-14T23:03:17-05:00
+
+    MATCH1 results
+
+tree f11b4ec0edead3884ddf382e9d6221a1c095ab49
+parent 71d83064434a83ee84d196a199ca672887be563f
+files:
+    100644 blob 3a9bd63d3fab23c5f7b29144156bf2a1b99d1e33 6614 PREDICTIONS.md
+    100644 blob 44130a8b9c48cabe10aad14fdaa32972cecd6125 81 PREDICTIONS.sha256
+    100644 blob eccb2474977a14db7b6aadf476aba7bbbdb3fa08 8369 RESULTS.md
+    100644 blob 1c86ec114df3f8dc2c83290edb7c33c1041b5fb6 4742 __pycache__/aslib.cpython-313.pyc
+    100644 blob 5a1d48e47b2c5083c0260e3ffca73ae574061c6a 2075 aslib.py
+    100644 blob eab16f6803cc6a395b490e1ee84bc244796418d2 3770 code/Alamofire_Alamofire_filtered.csv
+    100644 blob 623c516adb645cbabdb2176dc0c9927b1a2ff8a7 37625 code/Alamofire_Alamofire_filtered_L3650.csv
+    100644 blob 2cc7f68b799644c1e896f61356b5a8f59020f021 3981 code/Alamofire_Alamofire_unfiltered.csv
+    100644 blob 77d6876f39e4177bec3fc2e5182746de00c83620 38213 code/Alamofire_Alamofire_unfiltered_L3650.csv
+    100644 blob 8ebe8c204e49c4356677ce3b2b19ba0e2191c145 3739 code/BurntSushi_ripgrep_filtered.csv
+    100644 blob 5ffd5b93fc8a52e92b47b2c3b532e9ef2727d460 38047 code/BurntSushi_ripgrep_filtered_L3650.csv
+    100644 blob 417da66e02857cbdbc2a7c6792eea6934c4f08be 3747 code/BurntSushi_ripgrep_unfiltered.csv
+    100644 blob 2145d14af37ff11ceeb0b4b10f0ddc3b3bcad3cb 36916 code/BurntSushi_ripgrep_unfiltered_L3650.csv
+    100644 blob 0369fd0cb2057224e4d3939f220863b3c37b0194 4793 code/curl_curl_filtered.csv
+    100644 blob 278a3214c0fb38b317fe43470862934bfb79ba82 43992 code/curl_curl_filtered_L3650.csv
+    100644 blob a544729f0cb082a6d3154a95c86cc11493e2cd2b 4870 code/curl_curl_unfiltered.csv
+    100644 blob 67b8621bddbe02dec0de6fe22a1116603527fbc2 42573 code/curl_curl_unfiltered_L3650.csv
+    100644 blob 8de89adadf2d6de8b1b2b244628254a044c95d4b 4817 code/django_filtered.csv
+    100644 blob e2eafaf586b75554c58c6318559e303436445204 44096 code/django_filtered_L3650.csv
+    100644 blob f116c22576834f15af9b06529c58f30b1078aea5 4885 code/django_unfiltered.csv
+    100644 blob 8ad1fb23f897c2f133862ce30f9cfccf009971c7 44472 code/django_unfiltered_L3650.csv
+    100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0 code/errors.log
+    100644 blob a6d671f7c726ff79e353cbe10e190420e69243ba 3932 code/expressjs_express_filtered.csv
+    100644 blob fcd344c457128910e3fa4044746aedf5dd465012 38364 code/expressjs_express_filtered_L3650.csv
+    100644 blob a6d671f7c726ff79e353cbe10e190420e69243ba 3932 code/expressjs_express_unfiltered.csv
+    100644 blob fcd344c457128910e3fa4044746aedf5dd465012 38364 code/expressjs_express_unfiltered_L3650.csv
+    100644 blob a495fd8ece4f7355fafc4026c15693033059cf43 4743 code/facebook_react_filtered.csv
+    100644 blob d85c61f24e269eb46993f4d93af5371652791f94 43825 code/facebook_react_filtered_L3650.csv
+    100644 blob bf6c3afd86b95244423614d6043967b80a5cec5b 4780 code/facebook_react_unfiltered.csv
+    100644 blob 51aca56a42f84cb050d0fe9e7f4ed4a3a7b9ddab 41084 code/facebook_react_unfiltered_L3650.csv
+    100644 blob 4ae11a71ef4840e05a01aecdf7f35716002a8883 4805 code/git_git_filtered.csv
+    100644 blob 07bb70b95f94121488f397c3dafc54afe7ea6ee7 44007 code/git_git_filtered_L3650.csv
+    100644 blob 042df8789dad6ba6b4362112dfa931701b6c1527 4815 code/git_git_unfiltered.csv
+    100644 blob b73424dcf27ea5678285167e419c4ff97a12307e 44079 code/git_git_unfiltered_L3650.csv
+    100644 blob 0775153454bdfc064bcbd8574cfd9460607d853c 4370 code/gohugoio_hugo_filtered.csv
+    100644 blob 8e9654118b13f26c0ff5c8c075ff94fd60867fd4 42518 code/gohugoio_hugo_filtered_L3650.csv
+    100644 blob 6a231e5e8d8ca58c54f5bd7be45791aa411ff2b0 4610 code/gohugoio_hugo_unfiltered.csv
+    100644 blob a0043c81e84c8c023a50dbb158cbbd346f3a4fb1 40536 code/gohugoio_hugo_unfiltered_L3650.csv
+    100644 blob e21ace2fc6ea36b9ca3b26eea4c5a592fec467db 4942 code/golang_go_filtered.csv
+    100644 blob 7b71b08b7695577bd1a9ebc6daa2376f2bdfaf96 45817 code/golang_go_filtered_L3650.csv
+    100644 blob 067cab57e16200e4b37425e50b5f94b2a0593421 4979 code/golang_go_unfiltered.csv
+    100644 blob 02f389023c33b5cc3c4f0c68c9b4cc9777066369 45323 code/golang_go_unfiltered_L3650.csv
+    100644 blob 173e67c8299eebf31f5a3c664c0f15365e1a83a2 4665 code/google_guava_filtered.csv
+    100644 blob a4c6791f622264ed707aa711c2dfe592e9cc7944 43227 code/google_guava_filtered_L3650.csv
+    100644 blob 48c9d01b1120759db7130d285a679795db47f29c 4776 code/google_guava_unfiltered.csv
+    100644 blob 0cef658e0292cf1819ff9c31d13a98b3cd51e289 41554 code/google_guava_unfiltered_L3650.csv
+    100644 blob 3d946ff17331b30c0581fc026d02937c1eac85f6 4100 code/jekyll_jekyll_filtered.csv
+    100644 blob 24f74157dde81173732233adff9d81babdb7af45 40319 code/jekyll_jekyll_filtered_L3650.csv
+    100644 blob d86670741493286baac1ef3149c291ecc1493eeb 4107 code/jekyll_jekyll_unfiltered.csv
+    100644 blob 744cbdba63984e39fc5e1fd225ee85fea5418a45 40090 code/jekyll_jekyll_unfiltered_L3650.csv
+    100644 blob a4cd210d49ea16f4a96881ca80fb9428a397a07f 4315 code/jgm_pandoc_filtered.csv
+    100644 blob a5268945f1d991b8d1377a15dcec6c24576afb20 41582 code/jgm_pandoc_filtered_L3650.csv
+    100644 blob ea0826c430d0923b813d3070da2f871e22c70ddc 4369 code/jgm_pandoc_unfiltered.csv
+    100644 blob 057a2e9610cc8a8a607890c5f033fd2656f1da1e 41370 code/jgm_pandoc_unfiltered_L3650.csv
+    100644 blob f5899416e53239b0ab36e2847c52ef098c6260b8 4575 code/laravel_framework_filtered.csv
+    100644 blob de49d8ae73d5400b503eaa118aeaaa98335d54a9 41187 code/laravel_framework_filtered_L3650.csv
+    100644 blob 5a198e00ead11af9a03eb25f068fcf46defd871f 4595 code/laravel_framework_unfiltered.csv
+    100644 blob 41061fb305044c3cc2a923f8aec53c45de599d28 40977 code/laravel_framework_unfiltered_L3650.csv
+    100644 blob 71f6094bf01fce273751b2cbd9102c540feee8af 4828 code/microsoft_TypeScript_filtered.csv
+    100644 blob 001739a2870ac114c499aecb44d9c6910d52b3b7 47327 code/microsoft_TypeScript_filtered_L3650.csv
+    100644 blob bec9057d3dba4f962457d7e5403d23570e90d7b3 5463 code/microsoft_TypeScript_unfiltered.csv
+    100644 blob 313eb5df9185e3eeca62c3336c3a067cca2e6d5b 49425 code/microsoft_TypeScript_unfiltered_L3650.csv
+    100644 blob 4dfe5e43a0f949aaf8e6348983aa28d65bf7c0fc 4605 code/numpy_filtered.csv
+    100644 blob 7a53611ad34a99f50408ada939af610641fad524 42770 code/numpy_filtered_L3650.csv
+    100644 blob 8d04988989ef1e7a457a5a6d94452ac97fd71119 4646 code/numpy_unfiltered.csv
+    100644 blob 0500768c80e06a0e2d197ecc9b92dc0dd9681524 41729 code/numpy_unfiltered_L3650.csv
+    100644 blob df264b15ecafdd77bb3a93ebbecd01885c927302 4040 code/pallets_flask_filtered.csv
+    100644 blob 4839bee805aaf71e3e96f966af3069bac2b0433d 39303 code/pallets_flask_filtered_L3650.csv
+    100644 blob 3fe160805451f5b6b7c704064aa60eed67156b23 4046 code/pallets_flask_unfiltered.csv
+    100644 blob 17613f1ae6a51a416879842df6b1150a69c5ccf9 38354 code/pallets_flask_unfiltered_L3650.csv
+    100644 blob 7aa118fde93b8f4fdf898749e202e0e8eeeeb26e 4582 code/pandas-dev_pandas_filtered.csv
+    100644 blob 1b1186144a5846f1edab85e7bea838000ea7edeb 41901 code/pandas-dev_pandas_filtered_L3650.csv
+    100644 blob a75f3fec7600d753682830a7872092fb37cb1df6 4595 code/pandas-dev_pandas_unfiltered.csv
+    100644 blob acd7011e1c91b576680f38bff57a56aecf5e07c1 41087 code/pandas-dev_pandas_unfiltered_L3650.csv
+    100644 blob 7fbbe5ef76b54b3f6e9b42e2f80fcde9217266a4 4167 code/phoenixframework_phoenix_filtered.csv
+    100644 blob c55e9a80d7f367a5d5d22bcead81cf8f6322e1a7 39767 code/phoenixframework_phoenix_filtered_L3650.csv
+    100644 blob 7e7ff653dce0013f36f638aa164b12c1b6f971ed 4170 code/phoenixframework_phoenix_unfiltered.csv
+    100644 blob ce2dd614fe5b2f1976818405dc369fbcd11360ef 39722 code/phoenixframework_phoenix_unfiltered_L3650.csv
+    100644 blob 52eafcac21495a4f493550f1147e93944411b3ec 3800 code/psf_requests_filtered.csv
+    100644 blob ce5816c51fc4d84e3b4b22a51730b39a46c7c81e 36866 code/psf_requests_filtered_L3650.csv
+    100644 blob 52eafcac21495a4f493550f1147e93944411b3ec 3800 code/psf_requests_unfiltered.csv
+    100644 blob ce5816c51fc4d84e3b4b22a51730b39a46c7c81e 36866 code/psf_requests_unfiltered_L3650.csv
+    100644 blob 60d97cb833566a78abaea90a3e1b37a673a3337e 4878 code/rails_filtered.csv
+    100644 blob b6880d22918cc7995b48899e9df24a457c633876 44312 code/rails_filtered_L3650.csv
+    100644 blob 895c38248df44d91ea0de7780a05384a5ecb1ba3 4897 code/rails_unfiltered.csv
+    100644 blob 8bd7040db6d55f643dc1df164be1e84f328883c3 44050 code/rails_unfiltered_L3650.csv
+    100644 blob c999a22cff1bd7553523089563bfa9b10692df13 4174 code/redis_redis_filtered.csv
+    100644 blob 895b53a0cab5ce50accbc1f3e9b64273792f6319 40618 code/redis_redis_filtered_L3650.csv
+    100644 blob db54974bc36359c556fd6a44519b2733e74fcf17 4218 code/redis_redis_unfiltered.csv
+    100644 blob 52b2b3440feca03f237f1d78f91711481e4145e0 40681 code/redis_redis_unfiltered_L3650.csv
+    100644 blob dd91c49dd621fe5d1294749a62dd04675c7bbc12 9937 code/results.jsonl
+    100644 blob deb3bc85f44c4f71dbf4d2f3096d24d9f406a49d 2088 code/run.py
+    100644 blob 1a44f13c0c62ab4efb2e6fd1c1750c1959bb1afd 4542 code/scikit-learn_scikit-learn_filtered.csv
+    100644 blob f0ff540fe2e40ce00bdbea95e9cc0229535c47d5 41658 code/scikit-learn_scikit-learn_filtered_L3650.csv
+    100644 blob b27f3f042838585e02f39c2714d3e83b22fb3095 4567 code/scikit-learn_scikit-learn_unfiltered.csv
+    100644 blob 287f300ae7dc582fc5705fcdd79c46523010a63b 40742 code/scikit-learn_scikit-learn_unfiltered_L3650.csv
+    100644 blob ffd941cfc8080c11943e81e98ec29c36df4104b4 4833 code/spring-projects_spring-framework_filtered.csv
+    100644 blob c0e79a272236dafac188aeb7ca2bb359cd28738f 46045 code/spring-projects_spring-framework_filtered_L3650.csv
+    100644 blob ec1ae215eca6376f1ef36ca6da54b1aa72125eb1 5032 code/spring-projects_spring-framework_unfiltered.csv
+    100644 blob c822f7c4e668f0ad44d7aeb5c3fec29fcaf9fe1b 44484 code/spring-projects_spring-framework_unfiltered_L3650.csv
+    100644 blob 03a6662b100b5a33830337c1c365d1a5669f60b8 4922 code/symfony_symfony_filtered.csv
+    100644 blob 7ffea449d10473132f28b0a9373b1e34d762523b 45311 code/symfony_symfony_filtered_L3650.csv
+    100644 blob 2b5ca84ad61fa302491ec984cc6943996a348569 5076 code/symfony_symfony_unfiltered.csv
+    100644 blob 3398330db50b30d202876d98644b8e9d682e5b5c 45242 code/symfony_symfony_unfiltered_L3650.csv
+    100644 blob 46bbfcf49f5770d9447fe16bc97c4a21da145064 4203 code/tokio-rs_tokio_filtered.csv
+    100644 blob 72dae8790fb2ea53efd73c17cd946078dc9fc724 38414 code/tokio-rs_tokio_filtered_L3650.csv
+    100644 blob 06d949fe4b2db3578a1c283e456ada239b66f179 4214 code/tokio-rs_tokio_unfiltered.csv
+    100644 blob 7475f90bbe26cb887a5bc750887db5934c6eadc7 36537 code/tokio-rs_tokio_unfiltered_L3650.csv
+    100644 blob d13959db6cf2e6958c66f4acf55dee0398f91a74 4134 code/vuejs_core_filtered.csv
+    100644 blob 8c2a3eeab2a078972774cb06b744d59921ddae33 37565 code/vuejs_core_filtered_L3650.csv
+    100644 blob 9ded72d861e39336a8d1a12bb1fd058f5776b696 4154 code/vuejs_core_unfiltered.csv
+    100644 blob 1e8d3521c37940475cb94e6e9aac3b45a6585f23 36195 code/vuejs_core_unfiltered_L3650.csv
+    100644 blob c13e5ee6c9d616b737fd8bf5c88920cd100dc287 4314 layers/__pycache__/layerlib.cpython-313.pyc
+    100644 blob 3ba26f8256c1110cabd40dd5dae1547da09e08c1 236 layers/curve_antibody_viral_vs_age.csv
+    100644 blob ab9450ac5d26f4093759bb847ffddfe610ba8610 1236 layers/curve_code_need_pooled.csv
+    100644 blob 63933c864cc1759e956ee91a6b68ad591ff1e2a9 792 layers/curve_news_memory_recall.csv
+    100644 blob 50366571371a6c01c868a69a517efa207fc75194 938 layers/curve_news_need.csv
+    100644 blob 00d6f1bcee3cec27a9dfba879c7424a7bdcb9afa 433 layers/curve_science_reference_age.csv
+    100644 blob ed13df2506555bc713677366fcf654cc9d4864cc 1184 layers/curve_wiki_need.csv
+    100644 blob 59fede85a38cb19fdcaa9b355d05b2c8d342f94a 625 layers/diag.py
+    100644 blob 470064c7cb0b2d9984611fbc8b9e96291c81f9b3 815 layers/diag_tolerances.txt
+    100644 blob ab4e861a004949f6d28708ab5a0df41233c81ac7 1523 layers/layerlib.py
+    100644 blob 873d5f41dc0bd46bfcb7053c149eb5180b470a53 2345 layers/results.json
+    100644 blob 9de9cde7021f311744a7a9142c7b161be62d70f4 3019 layers/run.py
+    100644 blob 28fac935fe6160c2193fc4ada5a669669f7ec5b1 259670 match.png
+    100644 blob fda889659b5724479ff39099b648585c5b586667 4357 measles/needodds.csv
+    100644 blob 44b82c040afe9f22e184b9a3369622e36490c54b 300 measles/results.json
+    100644 blob cb447cf927e127cfb9eca4770dd2ed137a18992d 1523 measles/run.py
+    100644 blob 1188a11718353c2f9ca958d7d096bc89e04d56e5 1002 memory/curve_e12_mc4afc_all.csv
+    100644 blob bf15af45ee83207a2590b2fb2c8fea4215e030c8 987 memory/curve_e12_mc4afc_dutch.csv
+    100644 blob 2ce2b65950c584ee5a64cb5bcd7e4182d95f1030 981 memory/curve_e12_mc4afc_english.csv
+    100644 blob 35db9b7b5e73af0a425ffc00801a86128ee4f241 985 memory/curve_e12_open_all.csv
+    100644 blob d642c276df0549bf6485fc4bef7c8cc318adb0eb 963 memory/curve_e12_open_dutch.csv
+    100644 blob 369d91578cf6d2d60f6fe8b4efb955d028dbedb3 928 memory/curve_e12_open_english.csv
+    100644 blob fc2951b484e9a3854de99abdd89c1e48205f4971 988 memory/curve_e1_mc4afc.csv
+    100644 blob eeef9618a8aff911fdde73a9f1c570c1ed048e1d 979 memory/curve_e1_open.csv
+    100644 blob b45afb03d1d5c98beaedafd04172d9e8c213b48c 982 memory/curve_e2_mc4afc.csv
+    100644 blob 4def808257cfbdb176e4a42d82f44bc61ed48481 952 memory/curve_e2_open.csv
+    100644 blob ecd84e4f539f2a8db5d4f35ceba93b448789cbef 1077 memory/curve_e3_mc4afc.csv
+    100644 blob 12f58da44f00be0c153cfea71771d3f8867f3400 1053 memory/curve_e3_open.csv
+    100644 blob 93c88997148596f0dc9ae42f49bde927057bcd7f 2560 memory/meeter.py
+    100644 blob 0f0804e124b4e543d85bfd07449e3b175d222490 4028 memory/meeter_results.json
+    100644 blob 21b4a4888df00b61642d649ebbbdb5882b0aa5c5 63807429 news/abcnews-date-text.csv
+    100644 blob bace1deecf3272ecef0ddf5a40590fcc11164e2a 2145 news/need.py
+    100644 blob 526b2aa7d5b25302395a62335eab3c67c88fa68e 902 news/need_results.json
+    100644 blob ce59b12ee889e5663783ca3ae0c01576d3871c72 7916 news/needodds_2003_2006.csv
+    100644 blob 9384564c3c1a687794f92fdbbedb72f98b79a06b 10401 news/needodds_full.csv
+    100644 blob 6adf24326a234de9b7076908454ee8e224cacf15 191 openalex/fetch.log
+    100644 blob 8452193beb1abf93f691d5863d6479851df78992 1351 openalex/fetch.py
+    100644 blob cdf95f5fcd2958124021eb1fdecf3fc1fe26a37e 1800 openalex/ref_years.json
+    100644 blob a46a311b60662d779bdd04a4dfd1859762d83af7 12360 openalex/volume_by_year.json
+    100644 blob 552cb6639032fb549eeef0ace74df60603fccff1 3195 plot.py
+    100644 blob 4a8719e196b117e6dcbe06dbe6972e4ffb57aae5 203044 sources/antia2018.html
+    100644 blob 9389cf20b74fcc78ab7663ba1578e7207e195bb3 358790 sources/antia2018_S1Data.xlsx
+    100644 blob 7abd9c48fc82e010eec4d1492f10f9352b116a65 1331784 sources/antia_s001
+    100644 blob 46698733ff510b3d61a7ff3e99900b9113af5ff4 1165084 sources/antia_s002
+    100644 blob 565221f02a68b7b6ccb29ec7252bc9d2db20b51b 397132 sources/antia_s003
+    100644 blob d0fea33212431ff369df7ece730e6f22143f7b35 105942 sources/antia_s004
+    100644 blob 62eeaa3507e145936d0d98fe74a49cbed79fd8b1 78886 sources/antia_s005
+    100644 blob 92c387196f8c9fd9540e53b74052c5aa56fd3e3c 23151 sources/challet_lombardoni_2008_folia.html
+    100644 blob cdb9f57cbe33a4dc35779ede1f9a54a34f4abc28 5728 sources/lee_flack_krakauer2024.html
+    100644 blob 468edd72e6668064e3920814bc32c050c442b03d 2785501 sources/meeter2005_data.zip
+    100644 blob 61a29679ca5427e750171f727ad993108072ec3f 10223 sources/neuromod_index.html
+    100644 blob d9a99338f78eae8a8874396426b73dbc7013bddc 43164 sources/power_laws_code_repos_skeptical.html
+    100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0 sources/schooler_anderson1997.pdf
+    100644 blob eb7c6649a9d7dc717e6fd6145c3a039e66f6ddcb 192388 sources/tsiR.tar.gz
+    100644 blob ab2e09b44a5d96fb54488b5d5145216a9875a762 158039 sources/tsiR/data/twentymeas.RData
+    100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0 sources/wu2006_thesis_waterloo.html
+    100644 blob e82caa3e3e245a140273966719d524678b739055 344 wiki/fetch.log
+    100644 blob f47a7dbcdfce515a31bc5bd3abbd5c16c7bb6bce 1347 wiki/fetch.py
+    100644 blob 8036c73c0eeb2f04a625795bcf81c2501a156064 4338 wiki/needodds_all.csv
+    100644 blob 938157f7c12b8170e5adc94c7fef62ed539aa07b 35196 wiki/needodds_all_L3650.csv
+    100644 blob 4a3eb89e33c9fb2e86509a6e39a89b6d69cb65fb 4309 wiki/needodds_nobots.csv
+    100644 blob 48b03ebbe334a146cdc054de4d9ac0e590bb39bb 35681 wiki/needodds_nobots_L3650.csv
+    100644 blob 1e4c44cb701abb3e27551b3cb32de636d1391769 342 wiki/results.json
+    100644 blob fcb61f0cb0f8598ff5a7f352c7c1ce2f21da3c93 3110065 wiki/revisions.jsonl
+    100644 blob 4526c7c836354ae2d8197c906bc66d76b2d7e24d 1137 wiki/run.py

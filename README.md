@@ -30,7 +30,7 @@ Optimality is claimed only where selection is strong. Below Lynch's drift barrie
 ## Honest status
 
 - **There is no new theorem of large scope.** Most individual rules are known results, placed side by side. The math notes label what is known, what is a calculation, and what fails. The one new proof worth keeping (a quantitative internal-model bound) is modest, and its novelty is unconfirmed.
-- **This is a working hypothesis under test**, not a finding. Nothing here has been peer reviewed. Most tests have not had an independent blind review.
+- **This is a working hypothesis under test**, not a finding. Nothing here has been peer reviewed. An independent review of the DECISIVE and F1 tests is in `reviews/DECISIVE_F1_REVIEW.md` (14 November 2026, America/New_York); the scoreboard below follows its verdict. That review was not fully blind (the reviewer had the results and write-ups). Most other tests have not had an independent review.
 - The literature sweep (`litmap/`, 14 November 2026; not independently reviewed) is the basis for "already published" versus "looks new". It cannot rule out an obscure precursor.
 
 ### Already published (credited in `THEORY.md` §10)
@@ -47,7 +47,7 @@ Pending targeted searches, and none yet confirmed by a locked, reviewed test:
 
 1. **√N fade of shared memory**, with a sign flip against Lieberman et al. 2007: pooled independent deposits make faster turnover optimal for drifting targets, while use preserves forms for stable ones. Untested.
 2. **The T3a threshold** for when a new shared level pays: N > (√(1+ρ)+1)²/ρ. Untested.
-3. **The fixed-spread sign:** at fixed observed spread, slower correctors cross boundaries *less* often (ε_τ = −1). The sign held at two scales; the size did not.
+3. **The fixed-spread sign:** at fixed observed spread, slower correctors cross boundaries *less* often (ε_τ = −1). The sign held; the size did not, and the literal joint kill fired. The independent review finds the sign itself follows from dimensional analysis, so it is not theory-specific.
 4. **Geometric layers if and only if drift is scale-free (T7b)**, with level count ∝ (log-span)^(2/3). The locked test was inconclusive.
 5. **Watching effort rises, then collapses** once any bounded fallback exists. Untested across domains.
 6. **The spectrum-to-exponent law** (the core hypothesis). Mixed evidence.
@@ -55,14 +55,16 @@ Pending targeted searches, and none yet confirmed by a locked, reviewed test:
 
 ## Test scoreboard
 
-Dates are America/New_York, 13–14 November 2026. Verdicts follow each test's locked rules. **No test listed here has had an independent blind review** unless noted. An independent review of DECISIVE and F1 was in progress when v1.0 was written; its verdict is not reflected here.
+Dates are America/New_York, 13–14 November 2026. For DECISIVE and F1, the verdicts below follow the independent review in `reviews/DECISIVE_F1_REVIEW.md`, not the tests' own more generous labels. Other tests follow their locked rules and have not had an independent review unless noted.
 
-| Test | What it asked | Locked verdict | Plain reading |
+The preregistration commits for these tests lived only in local, unpushed git repos. Adding their histories to this private repository (as `tests/<name>/history.bundle` where a bundle could be shipped without excluded data, and as `tests/<name>/history.txt` receipts for every test) gives them an **external timestamp only from today**. The author dates inside those histories are self-attested.
+
+| Test | What it asked | Verdict (after review, where one exists) | Plain reading |
 |---|---|---|---|
-| **DECISIVE / banks** | Does slower correction raise failure risk at fixed shock and buffer? (7,837 banks, 2008–14) | **HIT** on sign | β = +0.20 [0.11, 0.29], ≈ 15% higher hazard per doubling; adds to the Z-score. The exact identity, ε_B = −ε_σ and the horizon test failed; the result depends on how τ is defined. |
-| **DECISIVE / glucose** | Fixed-spread sign (224 adults with type 1 diabetes) | **Sign right, size off; literal −1 kill rule fired** | Slope −0.46 vs implied −0.82 and literal −1. Collapse across cohorts failed. |
-| **DECISIVE / populations** | Fixed-spread sign (274 GPDD series) | **HIT vs corrected target; literal −1 kill rule fired** | Slope −0.21 vs −0.34. Null in the cold regime, where it should be strongest; heavy reliance on one harvest source. |
-| **F1** | Same index on ≈ 4,100 US public firms | **Inconclusive** | All four directions held; the main link is published and mostly fixed costs and thin margins; the novel interaction p = 0.055; data prefer a τ weight near 1 over ½. |
+| **DECISIVE / banks** | Does slower correction raise failure risk at fixed shock and buffer? (7,837 banks, 2008–14) | **Sign-only, not a HIT** | β = +0.20 [0.11, 0.29], ≈ 15% higher hazard per doubling; adds to the Z-score. The sign holds only for detrended τ; the specified own-mean τ is null. The exact identity, ε_B = −ε_σ and the horizon test all failed. |
+| **DECISIVE / glucose** | Fixed-spread sign (224 adults with type 1 diabetes) | **Sign right, size off; MATH_ATTACK literal joint kill fires on the full sample** | Slope −0.46 vs implied −0.82 and literal −1. Collapse across cohorts failed. The test's own prereg, scored against a lowered sampling-corrected target, does not kill; those targets rewrote the kill rule after MATH_ATTACK wrote it. The cold regime is not evaluable (n = 2). |
+| **DECISIVE / populations** | Fixed-spread sign (274 GPDD series) | **MATH_ATTACK literal joint kill fires on any reading** | Slope −0.21 vs −0.34. Cold-regime slope has the wrong sign, where the theory says the effect should be strongest. The test's own prereg against the sampling-corrected target does not kill, but those targets rewrote the rule. The result is fragile (half the series are fur-harvest records; source fixed effects, taxon clustering, or dropping clipped series remove significance) and should not be cited as support. |
+| **F1** | Same index on ≈ 4,100 US public firms | **Inconclusive; not a theory-specific hit** | All four directions held; the main link is published. τ mostly measures fixed-cost share (operating leverage), not correction speed, so construct validity fails. The novel interaction p = 0.055. Data prefer a τ weight near 1 over ½ (suggestive only). The prereg kill rules did not fire. |
 | **C3** | Same index on 896 open-source projects | **Inconclusive / miss** | τ added nothing; the design could not have seen it. It rejects the reset-clock mechanism at that scale (predicted ≈ 11× per doubling, measured ≈ 1.0). |
 | **BIO1** | Drift matching at biological scales (literature) | Kill not triggered; one contradiction | Holds, but almost entirely as prior art. The neural slope ≈ 1 fits the scale-free branch better than ½. |
 | **COLLAPSE1** | Memory time vs world time across substrates | Mixed (two kills, weak passes) | The immune "contradiction" was largely a measurement-age artifact under power-law waning. Code re-edit need decays as a power law (≈ 0.6). |
@@ -70,7 +72,7 @@ Dates are America/New_York, 13–14 November 2026. Verdicts follow each test's l
 | **DRIFT1** | Is drift scale-free? | Kill not triggered | City 311 looks scale-free; Wikipedia and filings have cadences. Supports T7 only as a conditional claim. A person-scale arm is withheld (`tests/DRIFT1/REDACTION.md`). |
 | **ANTS1, C3b** | √N trail fade (simulation); exogenous shocks in open source | Not finished | — |
 
-**Overall:** the timing term holds in **sign** at banks, glucose, populations and firms. The theory's specific numbers mostly do not: the literal −1 failed at two scales, the identity and ratio tests failed, and C3 rejected a fixed-clock version. The timing idea survives as a direction, not as an exact law. Reading that as "½ is the single-timescale special case of the spectrum law" is post hoc and must be tested in its own right.
+**Overall (following the DECISIVE/F1 review):** the numbers reproduce and every sign is right. That is not enough. The τ (time-to-fix) term as a theory-specific claim is **falsified** by MATH_ATTACK's literal joint kill rule: it fires for populations on any reading and for glucose on the full sample; banks are sign-only, not a hit. "Fewer crossings at fixed spread with slower correction" follows from dimensional analysis and standard first-passage results (Siegert 1951; Black–Cox 1976). The theory-specific structure — the −1 exponent, the √τ weighting, the identities, the τ-buffer interaction, and one collapse curve — failed. F1's τ mostly measures fixed-cost share. The lowered sampling-corrected targets rewrote the kill rule after it was written; this scoreboard leads with the literal verdict. C3 rejected a fixed-clock version. Reading the missed exponents as "½ is the single-timescale special case of the spectrum law" is post hoc and must be tested in its own right.
 
 ## Repository layout
 
@@ -79,7 +81,7 @@ THEORY.md         The theory, v1.0 draft (start here)
 theory/           Theorem notes, the math attack, and their code checks
 tests/            Preregistered tests: predictions, code, results (raw data excluded)
 litmap/           Literature map, prior-art table, threats, and DOI verification
-reviews/          Hostile and independent reviews of the math and of the AI-memory toy
+reviews/          Hostile and independent reviews, including the DECISIVE/F1 review
 applications/     How this theory is applied (AI memory; Looper; ants) — no personal data
 LICENSE.md        Placeholder: no license chosen yet (TODO for the author)
 ```

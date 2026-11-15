@@ -1,0 +1,100 @@
+# Local git history receipt for tests/BIO1
+#
+# Source: unpushed local repo at /workspace/gtao/tests/BIO1
+# Written: 2026-11-14, America/New_York.
+#
+# These commits were not pushed anywhere before they were added to this
+# private GitHub repository. Recording them here gives them an external
+# timestamp only from the commit that adds this file, not from the
+# author dates below. Author dates are self-attested (in these repos,
+# author date equals committer date).
+#
+# Bundle: Prefix only in history.bundle: commit 9b6b6c45 (predictions, before extraction). Later commits contain publisher PDFs, which this repository excludes. A full bundle cannot keep those later SHAs without the PDFs.
+#
+# This receipt lists commit SHAs, dates, messages, and file paths with
+# blob SHAs and sizes. It does not include file contents.
+# Hashed preregistration / prediction files in this folder were not modified.
+
+# Clone the prefix: git clone history.bundle BIO1-history
+# The bundled branch is named master (original commit SHAs unchanged). Tip SHA: 9b6b6c450c5ffce755475ac846aa6e35f470198f
+
+commit 9b6b6c450c5ffce755475ac846aa6e35f470198f
+Author: Ace <ace@local>
+AuthorDate: 2026-11-14T22:24:06-05:00
+Commit: Ace <ace@local>
+CommitDate: 2026-11-14T22:24:06-05:00
+
+    BIO1 predictions, before extraction
+
+tree 891b36dd5e750ef5ab26a47ac61bc06387e42caf
+files:
+    100644 blob bd928d2d1d3a36a2605a51ac3fd75a51bc5a4dff 6072 PREDICTIONS.md
+    100644 blob 92ea7cffcaf9afd587194017536835f070aa090f 81 PREDICTIONS.sha256
+
+commit ab020cd71c41592a13f4a55c1b69d35f151782cd
+Author: Ace <ace@local>
+AuthorDate: 2026-11-14T22:29:42-05:00
+Commit: Ace <ace@local>
+CommitDate: 2026-11-14T22:29:42-05:00
+
+    BIO1 results
+
+tree 0ed72b5fde303f802c1f9a555aaa0f5e67e711cc
+parent 9b6b6c450c5ffce755475ac846aa6e35f470198f
+files:
+    100644 blob bd928d2d1d3a36a2605a51ac3fd75a51bc5a4dff 6072 PREDICTIONS.md
+    100644 blob 92ea7cffcaf9afd587194017536835f070aa090f 81 PREDICTIONS.sha256
+    100644 blob 47f09396e22a42ecb07cdeac1a07f11f2c19b09a 15674 RESULTS.md
+    100644 blob c612a86c199d03f896d1dda1ad31090eb6a3805b 578 sources/INDEX.md
+    100644 blob c83be7990225e60ac91ad8aab475bedbee5d90a6 8920 sources/abstracts_europepmc.txt
+    100644 blob 5bbb45c4a9b6f2986f57828c2e0dfef2f0a3e5e0 282067 sources/bedford.xml
+    100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0 sources/bedford2014.html
+    100644 blob 3b9100a5c1a2f86a53ffe202ca90526f91acf093 140419 sources/bedford2014.txt
+    100644 blob 7b95360abf8c7da55b4e312859de85e09f022be8 4326353 sources/czaczkes2015.pdf
+    100644 blob dcf4d2621f9083af6c96a1219fe96f455feb5fcc 176872 sources/czaczkes2015.txt
+    100644 blob a7af077991d1333a1936537c6cdc1d6460e5d5f0 344004 sources/fairhall2001.pdf
+    100644 blob 52ab46b9b9430bbb4322fa0ec25d4805492445cf 41569 sources/fairhall2001.txt
+    100644 blob 7cffca84e8078dbd24cea2c458539260999290c9 3156281 sources/frankel2014.pdf
+    100644 blob bcf0b6f93fa3b0d93aa0bd806cb63a98d227e86f 133746 sources/frankel2014.txt
+    100644 blob fed290ac3a62e1b187af947a81de6dbf9418c4f6 2853810 sources/mattingly2021.pdf
+    100644 blob 900c2ac6750fc179d58c95a35932506ea06ad854 220176 sources/mattingly2021.txt
+    100644 blob a3af54c234ed902cb468e6974081b4762ada73c6 1308313 sources/mayer2019.pdf
+    100644 blob f8b3728b8635f0a951b2430de303e3e8e428f002 128930 sources/mayer2019.txt
+    100644 blob 07a3cd09f57ea4365cd4d2a9e6b33ebd7edb1d62 379848 sources/robinson2008.pdf
+    100644 blob 898ab2f29955fe95c24147354b6c6a01eb91872f 40039 sources/robinson2008.txt
+    100644 blob efc469b119c9ea483d68ec45fa85a69256e133c5 2778816 sources/schnaack.pdf
+    100644 blob d16477eb8b983c0076506417fec467b2c9eda31b 87408 sources/schnaack.txt
+
+commit fc02888ea316e343badb95b5603473d3111cbb68
+Author: Ace <ace@local>
+AuthorDate: 2026-11-14T22:29:48-05:00
+Commit: Ace <ace@local>
+CommitDate: 2026-11-14T22:29:48-05:00
+
+    fix attribution: Nicaragua cohort paper authors not named
+
+tree 5db4a2679f5664907a47433308ba1d9aa9bfa79d
+parent ab020cd71c41592a13f4a55c1b69d35f151782cd
+files:
+    100644 blob bd928d2d1d3a36a2605a51ac3fd75a51bc5a4dff 6072 PREDICTIONS.md
+    100644 blob 92ea7cffcaf9afd587194017536835f070aa090f 81 PREDICTIONS.sha256
+    100644 blob 82c174587a1f323624f46e6353af6020db941e9c 15687 RESULTS.md
+    100644 blob c612a86c199d03f896d1dda1ad31090eb6a3805b 578 sources/INDEX.md
+    100644 blob c83be7990225e60ac91ad8aab475bedbee5d90a6 8920 sources/abstracts_europepmc.txt
+    100644 blob 5bbb45c4a9b6f2986f57828c2e0dfef2f0a3e5e0 282067 sources/bedford.xml
+    100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0 sources/bedford2014.html
+    100644 blob 3b9100a5c1a2f86a53ffe202ca90526f91acf093 140419 sources/bedford2014.txt
+    100644 blob 7b95360abf8c7da55b4e312859de85e09f022be8 4326353 sources/czaczkes2015.pdf
+    100644 blob dcf4d2621f9083af6c96a1219fe96f455feb5fcc 176872 sources/czaczkes2015.txt
+    100644 blob a7af077991d1333a1936537c6cdc1d6460e5d5f0 344004 sources/fairhall2001.pdf
+    100644 blob 52ab46b9b9430bbb4322fa0ec25d4805492445cf 41569 sources/fairhall2001.txt
+    100644 blob 7cffca84e8078dbd24cea2c458539260999290c9 3156281 sources/frankel2014.pdf
+    100644 blob bcf0b6f93fa3b0d93aa0bd806cb63a98d227e86f 133746 sources/frankel2014.txt
+    100644 blob fed290ac3a62e1b187af947a81de6dbf9418c4f6 2853810 sources/mattingly2021.pdf
+    100644 blob 900c2ac6750fc179d58c95a35932506ea06ad854 220176 sources/mattingly2021.txt
+    100644 blob a3af54c234ed902cb468e6974081b4762ada73c6 1308313 sources/mayer2019.pdf
+    100644 blob f8b3728b8635f0a951b2430de303e3e8e428f002 128930 sources/mayer2019.txt
+    100644 blob 07a3cd09f57ea4365cd4d2a9e6b33ebd7edb1d62 379848 sources/robinson2008.pdf
+    100644 blob 898ab2f29955fe95c24147354b6c6a01eb91872f 40039 sources/robinson2008.txt
+    100644 blob efc469b119c9ea483d68ec45fa85a69256e133c5 2778816 sources/schnaack.pdf
+    100644 blob d16477eb8b983c0076506417fec467b2c9eda31b 87408 sources/schnaack.txt
