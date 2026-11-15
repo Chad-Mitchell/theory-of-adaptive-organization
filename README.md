@@ -29,6 +29,14 @@ Optimality is claimed only where selection is strong. Below Lynch's drift barrie
 
 ## Honest status
 
+**Update, 15 Nov 2026 (night 1):** GTAO is a falsifiable causal theory, not a law.
+- No GTAO-specific prediction has yet passed on real data.
+- P1 (news recall) and the Enron vigilance test were killed.
+- The formal layer is proved in-model with corrections: "V ≥ 2" is wrong as stated.
+- Most of it builds on published team theory and inventory pooling.
+
+See `THEORY.md` §8b and `reviews/night1/CLAIM_MAP_FINAL.md`.
+
 - **There is no new theorem of large scope.** Most individual rules are known results, placed side by side. The math notes label what is known, what is a calculation, and what fails. The one new proof worth keeping (a quantitative internal-model bound) is modest, and its novelty is unconfirmed.
 - **This is a working hypothesis under test**, not a finding. Nothing here has been peer reviewed. An independent review of the DECISIVE and F1 tests is in `reviews/DECISIVE_F1_REVIEW.md` (14 November 2026, America/New_York); the scoreboard below follows its verdict. That review was not fully blind (the reviewer had the results and write-ups). Most other tests have not had an independent review.
 - The literature sweep (`litmap/`, 14 November 2026; not independently reviewed) is the basis for "already published" versus "looks new". It cannot rule out an obscure precursor.
@@ -50,7 +58,7 @@ Pending targeted searches, and none yet confirmed by a locked, reviewed test:
 3. **The fixed-spread sign:** at fixed observed spread, slower correctors cross boundaries *less* often (ε_τ = −1). The sign held; the size did not, and the literal joint kill fired. The independent review finds the sign itself follows from dimensional analysis, so it is not theory-specific.
 4. **Geometric layers if and only if drift is scale-free (T7b)**, with level count ∝ (log-span)^(2/3). The locked test was inconclusive.
 5. **Watching effort rises, then collapses** once any bounded fallback exists. Untested across domains.
-6. **The spectrum-to-exponent law** (the core hypothesis). Mixed evidence.
+6. **The spectrum-to-exponent relation** (the core hypothesis). Evidence is leaning against: the item-level news test P1 was killed on 15 Nov 2026.
 7. **A quantitative internal-model bound** (solvent agents carry a near-copy of the world's causal states). Proved and self-checked; novelty unconfirmed, probably folklore.
 
 ## Test scoreboard
@@ -72,7 +80,7 @@ The preregistration commits for these tests lived only in local, unpushed git re
 | **DRIFT1** | Is drift scale-free? | Kill not triggered | City 311 looks scale-free; Wikipedia and filings have cadences. Supports T7 only as a conditional claim. A person-scale arm is withheld (`tests/DRIFT1/REDACTION.md`). |
 | **ANTS1, C3b** | √N trail fade (simulation); exogenous shocks in open source | Not finished | — |
 
-**Overall (following the DECISIVE/F1 review):** the numbers reproduce and every sign is right. That is not enough. The τ (time-to-fix) term as a theory-specific claim is **falsified** by MATH_ATTACK's literal joint kill rule: it fires for populations on any reading and for glucose on the full sample; banks are sign-only, not a hit. "Fewer crossings at fixed spread with slower correction" follows from dimensional analysis and standard first-passage results (Siegert 1951; Black–Cox 1976). The theory-specific structure — the −1 exponent, the √τ weighting, the identities, the τ-buffer interaction, and one collapse curve — failed. F1's τ mostly measures fixed-cost share. The lowered sampling-corrected targets rewrote the kill rule after it was written; this scoreboard leads with the literal verdict. C3 rejected a fixed-clock version. Reading the missed exponents as "½ is the single-timescale special case of the spectrum law" is post hoc and must be tested in its own right.
+**Overall (following the DECISIVE/F1 review):** the numbers reproduce and every sign is right. That is not enough. The τ (time-to-fix) term as a theory-specific claim is **falsified** by MATH_ATTACK's literal joint kill rule: it fires for populations on any reading and for glucose on the full sample; banks are sign-only, not a hit. "Fewer crossings at fixed spread with slower correction" follows from dimensional analysis and standard first-passage results (Siegert 1951; Black–Cox 1976). The theory-specific structure — the −1 exponent, the √τ weighting, the identities, the τ-buffer interaction, and one collapse curve — failed. F1's τ mostly measures fixed-cost share. The lowered sampling-corrected targets rewrote the kill rule after it was written; this scoreboard leads with the literal verdict. C3 rejected a fixed-clock version. Reading the missed exponents as "½ is the single-timescale special case of the spectrum relation" is post hoc and must be tested in its own right.
 
 ## Repository layout
 
