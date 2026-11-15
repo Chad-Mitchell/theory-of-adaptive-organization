@@ -1,0 +1,4 @@
+kurtosis screen threshold (95% under W, n=2048): 0.172
+world W: premise test reject (p<=0.05) 0.00; median LR -8499; kurtosis flag 0.00; median excess kurtosis -0.01  (n=2048, 24 series)
+world G: premise test reject (p<=0.05) 0.00; median LR -8556; kurtosis flag 1.00; median excess kurtosis 0.46  (n=2048, 24 series)
+world J: premise test reject (p<=0.05) 0.00; median LR -8129; kurtosis flag 1.00; median excess kurtosis 51.74  (n=2048, 24 series)

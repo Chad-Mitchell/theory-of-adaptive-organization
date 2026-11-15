@@ -1,0 +1,6 @@
+sigma 0.5 lam 0.002: plug-in t_A   0.84 steps; discrete filter crossing time   1.35 +- 0.01; ratio 1.61
+sigma 0.5 lam 0.01: plug-in t_A   0.64 steps; discrete filter crossing time   1.21 +- 0.01; ratio 1.89
+sigma 1.5 lam 0.002: plug-in t_A   5.08 steps; discrete filter crossing time   6.31 +- 0.08; ratio 1.24
+sigma 1.5 lam 0.01: plug-in t_A   3.27 steps; discrete filter crossing time   4.43 +- 0.06; ratio 1.35
+sigma 3.0 lam 0.002: plug-in t_A  14.10 steps; discrete filter crossing time  16.14 +- 0.25; ratio 1.14
+sigma 3.0 lam 0.01: plug-in t_A   6.86 steps; discrete filter crossing time   9.90 +- 0.19; ratio 1.44
