@@ -1,0 +1,62 @@
+== C2a: one-sided P(max_{t<=tau} sigma W_t >= B) = erfc(B/(sigma sqrt(2 tau))) = 2 Phibar(1/z), z = sigma sqrt(tau)/B ==
+  sigma=1 tau=1 B=1  z=1.000  exact=0.3173  MC=0.3187
+  sigma=2 tau=0.25 B=1  z=1.000  exact=0.3173  MC=0.3181
+  sigma=0.5 tau=4 B=1  z=1.000  exact=0.3173  MC=0.3165
+  sigma=1 tau=1 B=2  z=0.500  exact=0.0455  MC=0.0453
+  sigma=3 tau=1 B=2  z=1.500  exact=0.5050  MC=0.5015
+  collapse: same z=0.5 from different (sigma,tau,B): [np.float64(0.0452), np.float64(0.0455), np.float64(0.0467)] exact 0.0455
+== C2b: two-sided exit series (Feller) vs MC ==
+  z=0.3: series=0.0017  MC=0.0018
+  z=0.6: series=0.1912  MC=0.1899
+  z=1.0: series=0.6292  MC=0.6272
+  z=2.0: series=0.9908  MC=0.9907
+== C2c: drift mu in the error (systematic bias): Bachelier-Levy  P = Phibar((B-mu t)/(s sqrt t)) + e^{2 mu B/s^2} Phibar((B+mu t)/(s sqrt t)) ==
+  mu=-1.0: exact=0.0216 MC=0.0217   (second group Pe = mu B/s^2 = -1.5)
+  mu=0.5: exact=0.2606 MC=0.2613   (second group Pe = mu B/s^2 = 0.75)
+  mu=1.0: exact=0.4333 MC=0.4338   (second group Pe = mu B/s^2 = 1.5)
+  same z, different Pe => different ruin: 0.1336 vs 0.4333  -> z alone is NOT sufficient once errors are biased
+== C2d: hazard per unit time with resets every tau, in diffusion units B^2/sigma^2:  h B^2/sigma^2 = G(z) = -ln(1-P(z))/z^2 ==
+  z      : [ 0.2  0.3  0.5  0.7  1.   1.5  2.   3.   5.  10.  30. ]
+  G2(z)  : [0.     0.0191 0.3816 0.7461 0.9922 1.1263 1.1733 1.2069 1.224  1.2313
+ 1.2334]  (two-sided; limit pi^2/8 = 1.2337 )
+  G1(z)  : [0.     0.0095 0.1863 0.3392 0.3817 0.3125 0.24   0.1492 0.0737 0.0253
+ 0.004 ]  (one-sided; ->0 as z->inf, non-monotone)
+  => two-sided: for z >~ 1.5 hazard is within ~10% of pi^2 sigma^2/(8B^2): the fix interval stops mattering in the hot regime.
+== C2e: where does slow fixing hurt most? (one fix window) ==
+  argmax_z dP/dz        : 0.707106781186548  (exact 1/sqrt2 = 0.707107 )
+  argmax_z dP/dln(tau)  : 1.00000000000000  (exact 1)
+  dP/dln(tau) at z=0.25,0.5,1,2,4,8: [0.0005, 0.108, 0.242, 0.176, 0.0967, 0.0495]
+  two-sided calendar-hazard elasticity d ln h/d ln tau at z=0.2: 11.965
+  two-sided calendar-hazard elasticity d ln h/d ln tau at z=0.3: 4.996
+  two-sided calendar-hazard elasticity d ln h/d ln tau at z=0.5: 1.490
+  two-sided calendar-hazard elasticity d ln h/d ln tau at z=1: 0.243
+  two-sided calendar-hazard elasticity d ln h/d ln tau at z=2: 0.051
+  two-sided calendar-hazard elasticity d ln h/d ln tau at z=4: 0.012
+== C2f: continuous correction (OU, rate 1/tau) instead of resets. Large-barrier MFPT T ~ tau sqrt(pi) z e^{1/z^2} ==
+  sigma=1 tau=1 B=2.0 z=0.500: MFPT/tau=56.594  asymptote sqrt(pi) z e^(1/z^2)=48.386
+  sigma=2 tau=0.25 B=2.0 z=0.500: MFPT/tau=56.594  asymptote sqrt(pi) z e^(1/z^2)=48.386
+  sigma=1 tau=1 B=3.0 z=0.333: MFPT/tau=5118.673  asymptote sqrt(pi) z e^(1/z^2)=4787.447
+  sigma=0.5 tau=4 B=1.5 z=0.667: MFPT/tau=12.928  asymptote sqrt(pi) z e^(1/z^2)=11.211
+  (rows 1,2 share z and give identical MFPT/tau: the group sigma sqrt(tau)/B is forced by dimensional analysis)
+== C2g: heavy-tailed jumps (compound Poisson, Pareto alpha=1.5 sizes, rate lam) + small diffusion: tau barely matters ==
+  tau=0.25: per-window P=0.0060  calendar hazard=0.0241   single-big-jump rate lam*P(|J|>B)=0.0224
+  tau=0.5: per-window P=0.0120  calendar hazard=0.0242   single-big-jump rate lam*P(|J|>B)=0.0224
+  tau=1: per-window P=0.0257  calendar hazard=0.0260   single-big-jump rate lam*P(|J|>B)=0.0224
+  tau=2: per-window P=0.0571  calendar hazard=0.0294   single-big-jump rate lam*P(|J|>B)=0.0224
+  tau=4: per-window P=0.1320  calendar hazard=0.0354   single-big-jump rate lam*P(|J|>B)=0.0224
+  => calendar-hazard elasticity wrt tau ~0.14 here (vs 1.5-12 for diffusive errors at z<=0.5): failure is set by the jump tail, not by sqrt(tau).
+== C2h: long-memory shocks (fractional BM, H=0.75): the group is sigma tau^H / B, not sigma sqrt(tau)/B ==
+  (sigma,tau)=(1,1): 0.0766;  (4^-H,4) same sigma tau^H: 0.0768;  (0.5,4) same sigma sqrt(tau): 0.1704
+== C2i: fixes that don't fully reset (error multiplied by (1-k) at each fix): stationary pre-fix variance sigma^2 tau/(k(2-k)) ==
+  k=1.0: calendar hazard=0.00008   z_eff=0.250; full-reset hazard at sigma=z_eff: 0.00010
+  k=0.5: calendar hazard=0.00076   z_eff=0.289; full-reset hazard at sigma=z_eff: 0.00075
+  k=0.2: calendar hazard=0.01324   z_eff=0.417; full-reset hazard at sigma=z_eff: 0.02629
+  => with partial fixes the index needs roughly tau/(k(2-k)) (approximation good to ~2x at k=0.2): measured 'time to close' is not the variable the index needs.
+== C2j: units-free consistency test against C3 (896 projects). In the reset model the per-window ruin is h*tau = -ln S(z), so h and tau alone pin z ==
+  C3 coding A: hazard h = 0.0712/yr (137 events / 896, 2.33-yr window; literal coding 105 events gives 0.0535)
+  tau=   7 d: implied z=0.294; predicted hazard elasticity d ln h/d ln tau = 5.21 -> HR per doubling of tau = 37.01; observed upper CI 1.087 caps the diffusive share of hazard at 0.2%
+  tau=  44 d: implied z=0.350; predicted hazard elasticity d ln h/d ln tau = 3.52 -> HR per doubling of tau = 11.48; observed upper CI 1.087 caps the diffusive share of hazard at 0.8%
+  tau= 180 d: implied z=0.420; predicted hazard elasticity d ln h/d ln tau = 2.29 -> HR per doubling of tau = 4.89; observed upper CI 1.087 caps the diffusive share of hazard at 2.2%
+  tau= 546 d: implied z=0.511; predicted hazard elasticity d ln h/d ln tau = 1.41 -> HR per doubling of tau = 2.65; observed upper CI 1.087 caps the diffusive share of hazard at 5.2%
+  => if dormancy were diffusive first passage reset every 'time to close', slow fixers would die several-fold faster. C3 rules that out:
+     at most a few percent of dormancy hazard can come from that mechanism (conditional on tau measuring the fix interval).

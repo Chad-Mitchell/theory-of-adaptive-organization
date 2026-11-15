@@ -1,0 +1,19 @@
+== 1. thermo floor vs EOQ ==
+  thermo: D* = sqrt(2)*sqrt(kT)*sigma/(2*sqrt(w))   J* = sqrt(2)*sqrt(kT)*sigma*sqrt(w)
+  EOQ:    T* = sqrt(2)*sqrt(c)/(sigma*sqrt(w))   J* = sqrt(2)*sqrt(c)*sigma*sqrt(w)   mean error var = sqrt(2)*sqrt(c)*sigma/(2*sqrt(w))
+  J* equal under c -> kT: True ; mean error equal: True
+  Berger-floor J* = 2*sqrt(2)*sqrt(kT)*sigma*sqrt(w)/pi  ratio to learning-rate floor = 2/pi
+  Kalman-Bucy: Duncan I-rate P/(2r) = sigma/(2*sqrt(r)) ; drift info-loss sigma^2/(2P) = sigma/(2*sqrt(r))
+
+== 2. rule 5: E[err^2] of a copy n hops from source (sigma=1, refresh T=1) ==
+  hops=1: MC 0.501  theory sigma^2*n*T/2 = 0.500;  sigma=2: 2.008 (theory 2.000)
+  hops=2: MC 0.999  theory sigma^2*n*T/2 = 1.000;  sigma=2: 3.997 (theory 4.000)
+  hops=4: MC 2.004  theory sigma^2*n*T/2 = 2.000;  sigma=2: 7.955 (theory 8.000)
+  hops=8: MC 3.995  theory sigma^2*n*T/2 = 4.000;  sigma=2: 15.973 (theory 16.000)
+
+== 3. rule 7: marginal value of faster fixing, as shock grows (B, tau fixed) ==
+  G(z) = -(dh/dln tau)*tau = F(z)*eps_tau(z)  [expected failures avoided per unit time, x tau]
+  V(z) = G/(rho*tau + F)^2 * ... : value of survival with discount rho (here rho*tau = 0.05)
+  A: G at z=0.15: -0.0000, max G 0.1939 at z=1.30, G at z=5: 1.37e-05;  V max at z=2.44 (h*tau there=0.030; interior: True)
+  B: G at z=0.15: 0.1659, max G 0.1659 at z=0.15, G at z=5: 4.32e-03;  V max at z=3.19 (h*tau there=0.022; interior: True)
+  C: G at z=0.15: 0.3323, max G 0.3323 at z=0.15, G at z=5: 1.80e-09;  V max at z=2.03 (h*tau there=0.032; interior: True)

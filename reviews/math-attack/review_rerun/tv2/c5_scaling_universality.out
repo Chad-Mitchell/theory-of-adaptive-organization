@@ -1,0 +1,28 @@
+== C5a: generalized check interval for loss w|e|^p and self-similar drift e ~ sigma t^H Z ==
+  T* = (c*(H*p + 1)/(H*m_p*p*sigma**p*w))**(1/(H*p + 1))
+  d ln T*/d ln sigma = -p/(H*p + 1)   d ln T*/d ln(c/w) = 1/(H*p + 1)
+   p=2, H=1/2: exponent on sigma = -1, on c/w = 1/2
+   p=1, H=1/2: exponent on sigma = -2/3, on c/w = 2/3
+   p=2, H=3/4: exponent on sigma = -4/5, on c/w = 2/5
+   p=2, H=1/3: exponent on sigma = -6/5, on c/w = 3/5
+  MC check p=1, H=1/2 (|error| loss, Brownian drift): optimum of simulated cost vs formula
+  formula T*=0.3282; simulated cost on grid T/T*=[.5,.7,.85,1,1.2,1.5,2]: [0.5181 0.4738 0.4634 0.461  0.4672 0.4774 0.5021] -> min at T/T*=1.00
+== C5b: invariances ==
+  currency: T*(k c, k w) / T*(c,w) = 1  (invariant)
+  only one cost rescaled: T*(k c, w)/T* = k**(1/(H*p + 1))  (NOT invariant: the exchange rate between cost types matters)
+  time unit t -> t/k (sigma -> sigma k^H, cost rates -> k x): T* ratio at k=3: 0.33333333333333326 (= 1/k: covariant)
+== C5c: two cost components with different size scaling break the power law (crossover) ==
+  local slope d ln T*/d ln n across n=1..1e6: [-0.999 -0.997 -0.991 -0.972 -0.922 -0.818 -0.682 -0.578 -0.528 -0.509
+ -0.503 -0.501]  (pure power law would be constant)
+== C5d: multiplicative persistence (Kelly growth) is exactly currency-invariant and prices information in nats ==
+  random env/cue 0: growth gain = 0.030443 nats, I(X;Y) = 0.030443 nats
+  random env/cue 1: growth gain = 0.271421 nats, I(X;Y) = 0.271421 nats
+  random env/cue 2: growth gain = 0.143081 nats, I(X;Y) = 0.143081 nats
+  random env/cue 3: growth gain = 0.144142 nats, I(X;Y) = 0.144142 nats
+  wealth-unit change W -> kW adds ln k to log-wealth: growth rate and optimal fractions unchanged. Constant-relative-risk
+  (log and power) objectives give currency-invariant policies; additive objectives with a fixed threshold in one unit do not (C5e).
+== C5e: additive ruin with a fixed absolute threshold is NOT currency-invariant when part of the cost is fixed in another unit ==
+  scale=   1: T* = 0.31623
+  scale=  10: T* = 0.28636
+  scale= 100: T* = 0.28320
+  => T* drifts with scale only through the fixed-unit component; once it is negligible, the form is scale-free.

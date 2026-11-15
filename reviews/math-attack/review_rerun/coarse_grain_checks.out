@@ -1,0 +1,41 @@
+== 1. Representative-agent (Gorman-type) closure of the tracking cost ==
+  20000 random draws: ratio >= 1 always; max ratio seen (heterogeneous c) = 51.18 ; common-c case: ratio <= sqrt(K) held, max ratio/sqrt(K) = 0.991
+  adversarial 2 parts (cost in one, drift in other): ratio = 500.0
+  equal c_i/q_i example ratio = 0.9999999999999999
+
+== 2. Temperature flow under pooling (fungible buffers, equal parts, pairwise shock corr rho) ==
+  rho=0.0: z_N/z for N=1,4,16,64,1024: [ 1.  2.  4.  8. 32.]  limit 1/sqrt(rho) = inf
+  rho=0.1: z_N/z for N=1,4,16,64,1024: [1.   1.75 2.53 2.96 3.15]  limit 1/sqrt(rho) = 3.16
+  rho=0.5: z_N/z for N=1,4,16,64,1024: [1.   1.26 1.37 1.4  1.41]  limit 1/sqrt(rho) = 1.41
+  rho=1.0: z_N/z for N=1,4,16,64,1024: [1. 1. 1. 1. 1.]  limit 1/sqrt(rho) = 1.0
+  MC: SD of sum, N=16 rho=0.3: 9.364  theory sqrt(N(1+(N-1)rho)) = 9.381
+
+== 3. Weakest link (non-fungible buffers): aggregate hazard N*h(z). Same tail form, opposite flow ==
+  B (exp tail) z=3.0 N=4: exact z' = 2.076; asymptotic rule z'=z-lnN/sqrt2 = 2.020
+  B (exp tail) z=3.0 N=16: exact z' = 1.274; asymptotic rule z'=z-lnN/sqrt2 = 1.039
+  B (exp tail) z=4.0 N=4: exact z' = 3.034; asymptotic rule z'=z-lnN/sqrt2 = 3.020
+  B (exp tail) z=4.0 N=16: exact z' = 2.108; asymptotic rule z'=z-lnN/sqrt2 = 2.039
+  C (Gauss tail) z=3.0 N=4: exact z' = 2.740; asymptotic rule z'=sqrt(z^2-lnN) = 2.759
+  C (Gauss tail) z=3.0 N=16: exact z' = 2.447; asymptotic rule z'=sqrt(z^2-lnN) = 2.495
+  C (Gauss tail) z=4.0 N=4: exact z' = 3.816; asymptotic rule z'=sqrt(z^2-lnN) = 3.823
+  C (Gauss tail) z=4.0 N=16: exact z' = 3.622; asymptotic rule z'=sqrt(z^2-lnN) = 3.637
+  Pooling instead: z' = sqrt(N) z (cooling).  Max size before weakest-link heats a unit to z'~1 (Gauss tail): N_max ~ e^(z^2-1)
+
+== 4. Heterogeneous fix speeds: aggregation of OU/AR(1) parts gives long memory (Granger 1980) ==
+  identical phi=0.9 parts: GPH d = 0.093 (short memory, expect ~0: aggregate is AR(1) again)
+  phi^2 ~ Beta(1,1.2) parts: GPH d = 0.440 (long memory if clearly > 0)
+
+== 5. Does a single fitted (sigma, tau) predict the aggregate's failure rate? ==
+  tau1=1.0, tau2=1.0: fitted tau=1.00, z_fit=1.56; OU-predicted MFPT=6.7; MC MFPT=6.8 (ratio MC/pred=1.01; unabsorbed 0)
+      fitted tau if sampled every 0.05: 1.00
+      fitted tau if sampled every 1.0: 1.00
+      fitted tau if sampled every 10.0: 1.00
+  tau1=1.0, tau2=10.0: fitted tau=1.82, z_fit=1.56; OU-predicted MFPT=12.2; MC MFPT=16.6 (ratio MC/pred=1.36; unabsorbed 0)
+      fitted tau if sampled every 0.05: 1.84
+      fitted tau if sampled every 1.0: 2.21
+      fitted tau if sampled every 10.0: 5.91
+  tau1=1.0, tau2=100.0: fitted tau=1.99, z_fit=1.56; OU-predicted MFPT=13.3; MC MFPT=31.9 (ratio MC/pred=2.39; unabsorbed 0)
+      fitted tau if sampled every 0.05: 2.00
+      fitted tau if sampled every 1.0: 2.58
+      fitted tau if sampled every 10.0: 12.61
+  (identical-tau row is the calibration; a fitted OU's tau depends on the sampling interval when taus differ)

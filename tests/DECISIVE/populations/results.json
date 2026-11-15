@@ -1,0 +1,96 @@
+{
+ "n": 274,
+ "events": 238,
+ "series_with_any_crossing": 107,
+ "n_sources": 31,
+ "P1_fixed_spread_slope": [
+  -0.211,
+  -0.368,
+  -0.053
+ ],
+ "P2_fixed_sigma": {
+  "b_tau": [
+   0.201,
+   -0.041,
+   0.442
+  ],
+  "b_sigma": [
+   0.797,
+   0.489,
+   1.105
+  ],
+  "implied_b_tau": 0.7,
+  "implied_b_sigma": 1.97
+ },
+ "P3_interaction": [
+  0.201,
+  -0.053,
+  0.456
+ ],
+ "n_cold": 140,
+ "events_cold": 82,
+ "cold_fixed_spread_slope": [
+  0.099,
+  -0.291,
+  0.488
+ ],
+ "cold_b_tau_given_sigma": [
+  0.673,
+  0.116,
+  1.231
+ ],
+ "P4_collapse_class_offsets": {
+  "C(tclass, Treatment('Mammalia'))[T.Aves]": [
+   0.244,
+   -0.606,
+   1.094
+  ],
+  "C(tclass, Treatment('Mammalia'))[T.Insecta]": [
+   0.583,
+   0.003,
+   1.164
+  ],
+  "C(tclass, Treatment('Mammalia'))[T.Osteichthyes]": [
+   -1.701,
+   -2.179,
+   -1.222
+  ]
+ },
+ "static_spread_vs_plus_tau": {
+  "dAIC": 15.27
+ },
+ "P5_dennis_baseline": {
+  "b_tau_given_dennis": [
+   0.084,
+   -0.135,
+   0.304
+  ],
+  "LR_p": 0.5016143506450607,
+  "dAIC": -2.62
+ },
+ "S1_state_space_tau": [
+  -0.307,
+  -0.517,
+  -0.097
+ ],
+ "S2_reliability_ge2": "n<40",
+ "S3_negbin": [
+  -0.155,
+  -0.297,
+  -0.012
+ ],
+ "S4_plus_first_block_trend": [
+  -0.26,
+  -0.393,
+  -0.127
+ ],
+ "S5_drop_clipped_tau": [
+  -0.091,
+  -0.356,
+  0.174
+ ],
+ "permutation_p_one_sided_negative": 0.0055,
+ "verdict_primary": "HIT",
+ "verdict_literal_minus1": "KILL",
+ "cold_kill_rule_fires": false
+}

@@ -1,0 +1,16 @@
+# COLLAPSE1 sources (all fetched 2026-11-14 ET; local copies in this folder)
+- Saha, ..., Teunis, Antia 2025, "Quantifying the waning of humoral immunity", medRxiv doi:10.1101/2025.05.13.25327542, https://pmc.ncbi.nlm.nih.gov/articles/PMC12132162/ -> powerlaw_waning_PMC12132162.{html,txt}. Power-law m: tetanus 0.43, diphtheria 0.36, VZV 0.42 (entire series); AIC table; "k(t)=m/t"; year-8 vs year-45 measurement ages.
+- Slifka & Amanna 2019, Front Immunol 10:956, https://pmc.ncbi.nlm.nih.gov/articles/PMC6504826/ -> slifka_amanna2019.*. HPV plateau after 3-4 y; HBV late 7-9 y; HAV 17/42/105 y (~55); JEV 4.3 y (window includes year 1; authors flag underestimate); tetanus 11-14 y, diphtheria 19-27 y.
+- Pertussis: J Med Microbiol 59:1029 (2010), https://www.sgmjournals.org/jmm/content/59/9/1029 -> pertussis_jmm2010.*. Late-phase half-life: infection 221 d, aP vaccine 508 d (windows <= ~14 months).
+- SARS-CoV-2 review, https://pmc.ncbi.nlm.nih.gov/articles/PMC11490408/ -> sarscov2_review.*. Infection spike IgG 140-364 d; mRNA neutralizing ~60 d (secondhand: review citing primary papers).
+- Influenza vaccine persistence, https://pmc.ncbi.nlm.nih.gov/articles/PMC4655854/ -> flu_vaccine_persistence.*. IIV 2-fold decline 410 d (H3) / 424 d (B); LAIV 1111 / 820 d (18-month window).
+- Yellow fever travellers, https://pmc.ncbi.nlm.nih.gov/articles/PMC7135922/ -> yf_travellers.*. No half-life given (excluded).
+- Anderson & Schooler 1991, Psychol Sci 2:396, https://users.cs.northwestern.edu/~paritosh/papers/KIP/AndersonSchooler1991ReflectionsOfEnvironmentOnMemory.pdf -> anderson_schooler1991.*. Need-odds exponents 0.73 (NYT), 0.77 (CHILDES), 0.83 (email); Ebbinghaus savings exponent 0.126.
+- Rubin & Wenzel 1996, Psychol Rev 103:734, https://cenl.ucsd.edu/Jclub/Rubin_Wenzel_1996.pdf -> rubin_wenzel1996.*. Power function among best fits for most retention data.
+- Benna & Fusi 2016 (arXiv:1507.07580), https://arxiv.org/abs/1507.07580 -> benna_fusi.*. Chain of coupled compartments -> memory decays ~1/sqrt(t).
+- Candia et al. 2019, Nat Hum Behav 3:82, https://barabasi.com/media/pub_imports/files/995.pdf -> candia2019.*. Collective attention decays biexponentially (communicative -> cultural memory); power law not compared.
+- Wark, Fairhall & Rieke 2009, Neuron 61:750, https://pmc.ncbi.nlm.nih.gov/articles/PMC2677143/ -> wark2009.*, wark2009_fig1.jpg, wark2009_fig2.jpg. Time constants READ OFF FIGURES 1E, 2E (approximate).
+- Henderson, Hurly, Bateson & Healy 2006, Curr Biol 16:512, https://www.staff.ncl.ac.uk/melissa.bateson/Henderson_etal_2006.pdf -> henderson2006.*. Median and modal revisit pauses for 10/20-min flowers.
+- Acar, Mettetal & van Oudenaarden 2008, Nat Genet 40:471, https://www.hubrecht.eu/app/uploads/2017/11/2008-Acar-M-Nature-Genetics.pdf -> acar2008.*. Switching rates and environment periods (main text).
+- BIO1 sources (in-sample): Amanna 2007 half-lives; Ranjeva 2019; Bedford 2014 (see ../../BIO1/sources).
+- Computed data: SEC XBRL frames API (https://data.sec.gov/api/xbrl/frames/...) and submissions API, raw JSON in ../firm/raw and ../firm/sic.json; git histories of numpy, django, rails (heads in ../code_need/repo_heads.txt).

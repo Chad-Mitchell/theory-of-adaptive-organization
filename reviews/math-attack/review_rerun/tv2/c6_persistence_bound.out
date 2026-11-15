@@ -1,0 +1,28 @@
+== C6a: binary symmetric Markov world (flip prob q), agent acts on X_{t+1} using a reading delayed by d steps ==
+  delay d= 0: error=0.0500  I_pred=0.7136 bits  D(I_pred)=0.0500  (bound tight: agent sits on D(R))
+  delay d= 2: error=0.1355  I_pred=0.4277 bits  D(I_pred)=0.1355  (bound tight: agent sits on D(R))
+  delay d= 5: error=0.2343  I_pred=0.2146 bits  D(I_pred)=0.2343  (bound tight: agent sits on D(R))
+  delay d=10: error=0.3431  I_pred=0.0723 bits  D(I_pred)=0.3431  (bound tight: agent sits on D(R))
+  delay d=20: error=0.4453  I_pred=0.0087 bits  D(I_pred)=0.4453  (bound tight: agent sits on D(R))
+  noisy 1-bit memory (stored bit flips w.p. eps each step it is held), d=3:
+   eps=0.0: error=0.171950  >= D(I_pred)=0.171950
+   eps=0.02: error=0.209762  >= D(I_pred)=0.209762
+   eps=0.1: error=0.332038  >= D(I_pred)=0.332038
+  ruin: reserve += y - 1[wrong] each step, start B=20, 20k steps, 4k agents
+   d=2 (error 0.135), income y=0.115: ruin fraction=1.000  (theorem: certain iff y < D(I_pred)=0.135)
+   d=2 (error 0.135), income y=0.155: ruin fraction=0.002  (theorem: certain iff y < D(I_pred)=0.135)
+   d=10 (error 0.343), income y=0.323: ruin fraction=1.000  (theorem: certain iff y < D(I_pred)=0.343)
+   d=10 (error 0.343), income y=0.363: ruin fraction=0.029  (theorem: certain iff y < D(I_pred)=0.343)
+  maximum viable lead time at income y=0.3: d_max=7 steps (I(X_t;X_(t+d+1)) must exceed R(y)=0.1187 bits)
+== C6b: Gaussian AR(1) world, quadratic loss. D(R) = Var * 2^(-2R); linear-Gaussian agents achieve it exactly ==
+  d=0 noise=0.0: MSE=1.0000  D(I_pred)=Var*2^(-2I)=1.0000
+  d=0 noise=1.0: MSE=1.8223  D(I_pred)=Var*2^(-2I)=1.8223
+  d=3 noise=0.5: MSE=3.6140  D(I_pred)=Var*2^(-2I)=3.6140
+  1-bit sign memory: I_pred=0.6765 bits, MSE=4.3636 > D(I_pred)=4.0150  (bound holds, strictly: not on the frontier)
+== C6c: the thermodynamic layer (Still et al. 2012), for the binary world with perfect memory of X_t ==
+  I_mem=1.0 bit, I_pred=0.7136 bit -> nonpredictive memory 0.2864 bit/step -> floor kT ln2 * 0.2864 per step (if Still's conditions hold)
+  Persistence fixes a floor on I_pred (C6a); dissipation penalizes I_mem - I_pred; together: min I_mem s.t. I_pred >= R(y-c) = an information-bottleneck point.
+== C6d: when does carrying a model pay? Gaussian AR(1): loss(I) = D(F(I)) = Var[(1-a^2) + a^2 2^(-2I)], cost kappa per bit ==
+  I* = log(log(4**(V*a**2/kappa)))/(2*log(2))  ; carry a model (I*>0) iff kappa < 2*V*a**2*log(2)
+  brute force over memory noise: min cost=3.17852 at I_mem=2.0014 bits; formula I*=2.0018
+  => optimal model size grows only logarithmically in (stakes x predictable variance / cost per bit); zero below the threshold.

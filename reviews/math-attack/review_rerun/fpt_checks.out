@@ -1,0 +1,57 @@
+== 1. Elasticities of hazard (finite differences on h(sigma,B,tau)) ==
+model  z     eps_sigma  eps_B    eps_tau   eps_sigma/2-1  h*tau
+  A  0.10     2.000    -2.000     0.000     0.000   100
+  A  0.25     2.000    -2.000     0.000     0.000   16
+  A  0.50     2.017    -2.017     0.009     0.009   3.993
+  A  0.75     2.155    -2.155     0.078     0.078   1.724
+  A  1.00     2.394    -2.394     0.197     0.197   0.8996
+  A  1.50     3.294    -3.294     0.647     0.647   0.2941
+  A  2.00     4.885    -4.885     1.443     1.443   0.09315
+  A  2.50     7.097    -7.097     2.549     2.549   0.02496
+  A  3.00     9.858    -9.858     3.929     3.929   0.005404
+  A  4.00    16.903   -16.903     7.451     7.451   0.0001267
+  B  0.10     2.003    -2.003     0.002     0.002   99.83
+  B  0.25     2.021    -2.021     0.010     0.010   15.83
+  B  0.50     2.083    -2.083     0.041     0.041   3.837
+  B  0.75     2.184    -2.184     0.092     0.092   1.62
+  B  1.00     2.323    -2.323     0.161     0.161   0.8488
+  B  1.50     2.699    -2.699     0.350     0.350   0.3095
+  B  2.00     3.184    -3.184     0.592     0.592   0.1335
+  B  2.50     3.748    -3.748     0.874     0.874   0.06184
+  B  3.00     4.366    -4.366     1.183     1.183   0.02958
+  B  4.00     5.697    -5.697     1.848     1.848   0.007036
+  C  0.10     2.007    -2.007     0.003     0.003   99.67
+  C  0.25     2.042    -2.042     0.021     0.021   15.67
+  C  0.50     2.175    -2.175     0.088     0.088   3.672
+  C  0.75     2.419    -2.419     0.209     0.209   1.458
+  C  1.00     2.809    -2.809     0.405     0.405   0.6919
+  C  1.50     4.256    -4.256     1.128     1.128   0.1746
+  C  2.00     7.022    -7.022     2.511     2.511   0.03645
+  C  2.50    11.309   -11.309     4.654     4.654   0.004929
+  C  3.00    16.842   -16.842     7.421     7.421   0.0003909
+  C  4.00    30.924   -30.924    14.462    14.462   4.909e-07
+max |eps_tau-(eps_sigma/2-1)|, |eps_B+eps_sigma| over grid = 7.96e-08
+min eps_sigma over grid (claim: >= 2 in all three models) = 2.0000
+
+== 2. Closed forms / asymptotes ==
+  OU (C) z=2.0: exact h*tau=3.6453e-02; Kramers asymptote 2z e^-z^2/sqrt(pi) (two-sided = 2x one-sided z e^-z^2/sqrt(pi)) = 4.1334e-02
+  OU (C) z=3.0: exact h*tau=3.9089e-04; Kramers asymptote 2z e^-z^2/sqrt(pi) (two-sided = 2x one-sided z e^-z^2/sqrt(pi)) = 4.1776e-04
+  OU (C) z=4.0: exact h*tau=4.9086e-07; Kramers asymptote 2z e^-z^2/sqrt(pi) (two-sided = 2x one-sided z e^-z^2/sqrt(pi)) = 5.0793e-07
+  reset (B) z=2.0: h*tau=1.3353e-01; asymptote 2 e^(-sqrt2 z) = 1.1821e-01
+  reset (B) z=3.0: h*tau=2.9583e-02; asymptote 2 e^(-sqrt2 z) = 2.8739e-02
+  reset (B) z=4.0: h*tau=7.0361e-03; asymptote 2 e^(-sqrt2 z) = 6.9870e-03
+  delay (A) z=2.0: h*tau=9.3150e-02; per-window P=9.1001e-02; 4*Phi(-z)(=2*erfc(z/sqrt2))=9.1001e-02
+  delay (A) z=3.0: h*tau=5.4040e-03; per-window P=5.3996e-03; 4*Phi(-z)(=2*erfc(z/sqrt2))=5.3996e-03
+  delay (A) z=4.0: h*tau=1.2669e-04; per-window P=1.2668e-04; 4*Phi(-z)(=2*erfc(z/sqrt2))=1.2668e-04
+  one-sided fixed window (reflection principle): P(max_[0,tau] W >= B) = 2 Phi(-z) = erfc(z/sqrt2)
+
+== 3. Monte Carlo validation (Brownian-bridge crossing correction) ==
+  A z=0.5: MC MFPT/tau = 0.253 +- 0.003 (unabsorbed 0);  theory 1/F = 0.250
+  A z=1.0: MC MFPT/tau = 1.084 +- 0.015 (unabsorbed 0);  theory 1/F = 1.112
+  A z=1.5: MC MFPT/tau = 3.389 +- 0.050 (unabsorbed 0);  theory 1/F = 3.400
+  B z=0.5: MC MFPT/tau = 0.256 +- 0.003 (unabsorbed 0);  theory 1/F = 0.261
+  B z=1.0: MC MFPT/tau = 1.156 +- 0.015 (unabsorbed 0);  theory 1/F = 1.178
+  B z=1.5: MC MFPT/tau = 3.240 +- 0.045 (unabsorbed 0);  theory 1/F = 3.231
+  C z=0.5: MC MFPT/tau = 0.278 +- 0.004 (unabsorbed 0);  theory 1/F = 0.272
+  C z=1.0: MC MFPT/tau = 1.439 +- 0.020 (unabsorbed 0);  theory 1/F = 1.445
+  C z=1.5: MC MFPT/tau = 5.704 +- 0.083 (unabsorbed 0);  theory 1/F = 5.726

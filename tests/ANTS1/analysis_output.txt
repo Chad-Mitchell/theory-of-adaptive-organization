@@ -1,0 +1,8 @@
+C0 (code check) IND/RW/MEAN e* within x1.3 of K*: 5/5
+P1: 0/0 in [0.3,0.7] (need >=10/12)   P3: 0/0 MSE slopes in [-0.6,-0.4]
+P4(a) FOL/IND e* ratio in [0.7,1.5]: 0/0 (need >=80%)   P4(b) FOL MSE >= 2x IND: 0/0 (need >=90%)
+P5(a) 0/0 (need >=4/6)  P5(b) 0/0 (need >=5/6)
+P5(c) jump worlds N>=32 LOCK MSE > 2x IND: 0/0 (need >=80%)
+P6 interior optimum (IND, N<=16): 0/0 (need >=90%)
+P7 e* increases with drift (IND): 3/3 (need >=90%)
+P8 jump worlds e* non-decreasing in N: 0/0 (need >=80%)

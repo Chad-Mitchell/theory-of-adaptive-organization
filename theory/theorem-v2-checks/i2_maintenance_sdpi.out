@@ -1,0 +1,13 @@
+binary: 400 random agents, min[I_obs-(1-eta)I(M;S)] = 6.140e-03 bits  OK
+ q      1-eta    => min obs bits/step to hold 1 bit of world-model 
+ 0.001  0.0040  0.0040  (≈4q)
+ 0.01   0.0396  0.0396  (≈4q)
+ 0.05   0.1900  0.1900  (≈4q)
+ 0.1    0.3600  0.3600  (≈4q)
+Gaussian AR(1): s'=a s + w (var Qw), y=s+v (var R); agent = Kalman posterior mean
+ a=0.99 I(M;S)=1.5098b inflow=0.0954b/step decay=0.0954b/step (small-I approx (1-a^2)I=0.0300) ratio=1.000 OK
+ a=0.9 I(M;S)=1.1503b inflow=0.4021b/step decay=0.4021b/step (small-I approx (1-a^2)I=0.2186) ratio=1.000 OK
+ a=0.5 I(M;S)=0.4203b inflow=0.3359b/step decay=0.3359b/step (small-I approx (1-a^2)I=0.3152) ratio=1.000 OK
+ a=0.999 I(M;S)=3.1277b inflow=0.1013b/step decay=0.1013b/step (small-I approx (1-a^2)I=0.0063) ratio=1.000 OK
+Landauer floor: holding I bits against drift costs >= kT ln2 * (1-eta) * I per step (Sagawa-Ueda measurement+erasure W>=kT*I per acquired bit).
+ALL OK

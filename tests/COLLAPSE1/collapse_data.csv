@@ -1,0 +1,29 @@
+system,class,series,world_timescale,memory_timescale,unit,source,how_obtained
+retina_contrast,S,Wark2009_Fig1E,4,0.10,s,https://pmc.ncbi.nlm.nih.gov/articles/PMC2677143/ (sources/wark2009_fig1.jpg),read off figure (approx +-0.05 s)
+retina_contrast,S,Wark2009_Fig1E,8,0.35,s,https://pmc.ncbi.nlm.nih.gov/articles/PMC2677143/,read off figure
+retina_contrast,S,Wark2009_Fig1E,16,1.75,s,https://pmc.ncbi.nlm.nih.gov/articles/PMC2677143/,read off figure
+retina_contrast,S,Wark2009_Fig1E,32,4.4,s,https://pmc.ncbi.nlm.nih.gov/articles/PMC2677143/,read off figure
+retina_luminance_wholecell,S,Wark2009_Fig2E,1.6,0.17,s,https://pmc.ncbi.nlm.nih.gov/articles/PMC2677143/ (sources/wark2009_fig2.jpg),read off figure (approx +-0.02 s)
+retina_luminance_wholecell,S,Wark2009_Fig2E,3.2,0.22,s,https://pmc.ncbi.nlm.nih.gov/articles/PMC2677143/,read off figure
+retina_luminance_wholecell,S,Wark2009_Fig2E,6.4,0.31,s,https://pmc.ncbi.nlm.nih.gov/articles/PMC2677143/,read off figure
+retina_luminance_wholecell,S,Wark2009_Fig2E,12.8,0.52,s,https://pmc.ncbi.nlm.nih.gov/articles/PMC2677143/,read off figure
+retina_luminance_oncell,S,Wark2009_Fig2E,1.6,0.17,s,https://pmc.ncbi.nlm.nih.gov/articles/PMC2677143/,read off figure
+retina_luminance_oncell,S,Wark2009_Fig2E,3.2,0.23,s,https://pmc.ncbi.nlm.nih.gov/articles/PMC2677143/,read off figure
+retina_luminance_oncell,S,Wark2009_Fig2E,6.4,0.40,s,https://pmc.ncbi.nlm.nih.gov/articles/PMC2677143/,read off figure
+retina_luminance_oncell,S,Wark2009_Fig2E,12.8,0.81,s,https://pmc.ncbi.nlm.nih.gov/articles/PMC2677143/,read off figure
+hummingbird_bird1_median,D,Henderson2006,10,14,min,https://www.staff.ncl.ac.uk/melissa.bateson/Henderson_etal_2006.pdf,text (median postreinforcement pause)
+hummingbird_bird1_median,D,Henderson2006,20,20,min,same,text
+hummingbird_bird2_median,D,Henderson2006,10,13,min,same,text
+hummingbird_bird2_median,D,Henderson2006,20,21,min,same,text
+hummingbird_bird3_median,D,Henderson2006,10,12,min,same,text
+hummingbird_bird3_median,D,Henderson2006,20,20,min,same,text
+hummingbird_bird1_mode,D,Henderson2006,10,11,min,same,text (modal pause)
+hummingbird_bird1_mode,D,Henderson2006,20,21,min,same,text
+hummingbird_bird2_mode,D,Henderson2006,10,10,min,same,text
+hummingbird_bird2_mode,D,Henderson2006,20,20,min,same,text
+hummingbird_bird3_mode,D,Henderson2006,10,10,min,same,text
+hummingbird_bird3_mode,D,Henderson2006,20,20,min,same,text
+yeast_switching_winner,S,Acar2008,28.5,24.4,h,https://www.hubrecht.eu/app/uploads/2017/11/2008-Acar-M-Nature-Genetics.pdf,"winning (fast) strain in fast env: env = mean of T1=20h,T2=37h; memory = 1/mean(rON~0.047,rOFF~0.035 /h, main text)"
+yeast_switching_winner,S,Acar2008,96,182,h,same,"winning (slow) strain in slow env: env T1=T2=96h; memory = 1/mean(rON~0.004,rOFF~0.007 /h) (main text: rON ~0.004); engineered strains, not tuned"
+influenza_protection,S,Ranjeva2019+Bedford2014,0.99,4.1,y,BIO1 sources (in-sample),"H3N2: world = 1/(1.01 AU/y); memory = protection half-life 4.1 y"
+influenza_protection,S,Ranjeva2019+Bedford2014,1.61,6.4,y,BIO1 sources (in-sample),"H1N1: world = 1/(0.62 AU/y, seasonal pre-2009); memory = 6.4 y (H1N1pdm09) -- lineage mismatch"

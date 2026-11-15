@@ -1,0 +1,21 @@
+--- cohort C1
+companyfacts entities with >=12 revenue quarters: 4896
+R1 filed XBRL 10-Q/10-K facts in the half-year before cutoff: 4419
+R2 tau estimable (>=16 consecutive-quarter pairs, 2009Q1..cutoff-year Q3): 2723
+R3 sigma (>=10 four-quarter changes in the last 12 quarters, >0): 2717
+R4 B>0 and assets>0 at latest balance date <= cutoff-year Sep 30: 2695
+R5 mean quarterly revenue over last 4 quarters >= $2.5M: 2381
+R6 found in submissions: 2381
+R7 SIC known, not financial 6000-6799, not utility 4900-4999: 2080
+R8 no 8-K Item 1.03 filed in the 2 years before risk start: 2065
+--- cohort C2
+companyfacts entities with >=12 revenue quarters: 6575
+R1 filed XBRL 10-Q/10-K facts in the half-year before cutoff: 4070
+R2 tau estimable (>=16 consecutive-quarter pairs, 2009Q1..cutoff-year Q3): 3047
+R3 sigma (>=10 four-quarter changes in the last 12 quarters, >0): 2911
+R4 B>0 and assets>0 at latest balance date <= cutoff-year Sep 30: 2897
+R5 mean quarterly revenue over last 4 quarters >= $2.5M: 2420
+R6 found in submissions: 2420
+R7 SIC known, not financial 6000-6799, not utility 4900-4999: 2061
+R8 no 8-K Item 1.03 filed in the 2 years before risk start: 2047
+events D=183 D2=857

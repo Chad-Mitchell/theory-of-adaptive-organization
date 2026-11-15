@@ -1,0 +1,5 @@
+.venv/
+*.zip
+glucose/data/series.parquet
+glucose/data/shanghai/
+glucose/data/colas/

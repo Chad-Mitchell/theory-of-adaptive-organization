@@ -1,0 +1,41 @@
+== R1. Toy reversal: crossing sigma/B of dh (tau 4->16), one-sided, under three hazard definitions ==
+  naive P/tau                           : sign changes at sigma/B = [0.308]
+  renewal P/E[min(T,tau)] (=1/MFPT)     : sign changes at sigma/B = [0.353]
+  survival -ln(1-P)/tau                 : sign changes at sigma/B = [0.343]
+
+== R2. C3 regime pinning (h=0.0712/yr) under different fix mechanisms; HR per doubling of tau at fixed sigma,B ==
+  A deterministic reset         : pinned zG=0.350 (zM=2.86); eps_tau=3.52; HR/doubling=11.50; max diffusive share at HR<=1.087: 0.8%
+  B Poisson-rate reset          : pinned zG=0.259 (zM=3.86); eps_tau=1.75; HR/doubling=3.37; max diffusive share at HR<=1.087: 3.7%
+  C OU restoring                : pinned zG=0.421 (zM=2.37); eps_tau=4.05; HR/doubling=16.56; max diffusive share at HR<=1.087: 0.6%
+  lognormal intervals sd(ln)=2  : pinned zG=0.139 (zM=7.19); eps_tau=0.11; HR/doubling=1.08; max diffusive share at HR<=1.087: 100.0%
+  Pareto intervals kappa=1.2    : pinned zG=0.185 (zM=5.40); eps_tau=0.27; HR/doubling=1.21; max diffusive share at HR<=1.087: 41.9%
+  Pareto intervals kappa=1.05   : pinned zG=0.181 (zM=5.52); eps_tau=0.12; HR/doubling=1.09; max diffusive share at HR<=1.087: 98.1%
+
+== R3. MATH_ATTACK equal-attenuation prediction for beta_tau, using sigma vs B as the anchor ==
+  anchor beta_sigma (L) 0.28        -> predicted beta_tau: eps_s=2: 0.000; eps_s=4.4: 0.076; eps_s=9.9: 0.112; eps_s=16.8: 0.123
+  anchor beta_sigma upper CI 0.66   -> predicted beta_tau: eps_s=2: 0.000; eps_s=4.4: 0.180; eps_s=9.9: 0.263; eps_s=16.8: 0.291
+  anchor |beta_B| (L) 0.47          -> predicted beta_tau: eps_s=2: 0.000; eps_s=4.4: 0.128; eps_s=9.9: 0.188; eps_s=16.8: 0.207
+  anchor |beta_B| (A) 0.57          -> predicted beta_tau: eps_s=2: 0.000; eps_s=4.4: 0.155; eps_s=9.9: 0.227; eps_s=16.8: 0.251
+  (C3 literal CI for beta_tau: [-0.09, 0.10]; coding A: [-0.05, 0.12]; eps_s = 4.4/9.9/16.8 are models B/A/C at the pinned cold regime zM~3)
+
+== R4. Weakest-link rule depends on tail class ==
+  model A (fixed delay) z=3.0 N=4: exact z'=2.549; sqrt(z^2-lnN)=2.759; sqrt(z^2-2lnN)=2.495
+  model A (fixed delay) z=3.0 N=16: exact z'=2.022; sqrt(z^2-lnN)=2.495; sqrt(z^2-2lnN)=1.859
+  model A (fixed delay) z=4.0 N=4: exact z'=3.659; sqrt(z^2-lnN)=3.823; sqrt(z^2-2lnN)=3.637
+  model A (fixed delay) z=4.0 N=16: exact z'=3.287; sqrt(z^2-lnN)=3.637; sqrt(z^2-2lnN)=3.233
+
+== R5. O1: EOQ check rate equals 'nats per unit time' only formally ==
+  EOQ: checks/time = 1/T*, mean error D_avg = sigma^2 T/2  =>  1/T = sigma^2/(2 D_avg). Thermo floor: nats/time = sigma^2/(2 D).
+  So c/T == c * sigma^2/(2 D_avg): identifying one check with one nat makes the forms identical by construction.
+  A perfect check acquires unbounded information (error -> 0), and info lost over a sawtooth cycle int_0^T dt/(2t) diverges:
+    nats lost per cycle from error var eps*sigma^2*T to sigma^2*T: 2.30
+    nats lost per cycle from error var eps*sigma^2*T to sigma^2*T: 4.61
+    nats lost per cycle from error var eps*sigma^2*T to sigma^2*T: 6.91
+
+== R2b. Random fix intervals, exact renewal: h = E[P(L)] / E[int_0^L S dt] (two-sided BM, reset to 0 at the end of each interval) ==
+  deterministic (check)       : pinned sigma*sqrt(median tau)/B=0.350; eps_tau=3.51; HR/doubling=11.38; max diffusive share (HR<=1.087): 1%
+  exponential (Poisson-like)  : pinned sigma*sqrt(median tau)/B=0.231; eps_tau=1.58; HR/doubling=2.99; max diffusive share (HR<=1.087): 4%
+  lognormal sd(ln)=1          : pinned sigma*sqrt(median tau)/B=0.212; eps_tau=1.10; HR/doubling=2.14; max diffusive share (HR<=1.087): 8%
+  lognormal sd(ln)=2          : pinned sigma*sqrt(median tau)/B=0.130; eps_tau=0.27; HR/doubling=1.20; max diffusive share (HR<=1.087): 43%
+  Pareto kappa=1.5            : pinned sigma*sqrt(median tau)/B=0.208; eps_tau=0.58; HR/doubling=1.49; max diffusive share (HR<=1.087): 18%
+  Pareto kappa=1.2            : pinned sigma*sqrt(median tau)/B=0.177; eps_tau=0.33; HR/doubling=1.26; max diffusive share (HR<=1.087): 34%

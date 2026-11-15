@@ -1,0 +1,9 @@
+beta_tau=0.0 failures~300: power(one-sided 5%)=0.05
+beta_tau=0.0 failures~500: power(one-sided 5%)=0.04
+beta_tau=0.1 failures~300: power(one-sided 5%)=0.61
+beta_tau=0.1 failures~500: power(one-sided 5%)=0.76
+beta_tau=0.2 failures~300: power(one-sided 5%)=0.99
+beta_tau=0.2 failures~500: power(one-sided 5%)=1.00
+beta_tau=0.3 failures~300: power(one-sided 5%)=1.00
+beta_tau=0.3 failures~500: power(one-sided 5%)=1.00
+n banks: 7837 SD ln tau(detr): 1.08

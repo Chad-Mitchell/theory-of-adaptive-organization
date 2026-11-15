@@ -1,0 +1,29 @@
+{
+ "source12": [
+  [
+   "Novak, M., Obbard, M., Jones, J., Newman, R., Booth, A., Satterthwaite, A. & Linscombe, G.",
+   "1987",
+   "Furbearer harvests in North America, 1600-1984."
+  ]
+ ],
+ "n_source12": 138,
+ "without_source12": [
+  -0.264,
+  -0.515,
+  -0.012
+ ],
+ "source12_only_(no_cluster)": [
+  -0.196,
+  -0.344,
+  -0.048
+ ],
+ "one_series_per_taxon_(median-length)": null,
+ "one_series_per_taxon": {
+  "n": 77,
+  "slope": [
+   -0.29,
+   -0.633,
+   0.053
+  ]
+ }
+}

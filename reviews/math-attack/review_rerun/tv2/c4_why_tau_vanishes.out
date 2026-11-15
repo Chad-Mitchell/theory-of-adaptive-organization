@@ -1,0 +1,9 @@
+image vs Fourier survival at z=0.3,0.6,1,2: [0.998284 0.80884  0.370777 0.009157] [0.998284 0.80884  0.370777 0.009157]
+logit(event) ~ ln tau + ln(sigma/B); true model: two-sided diffusive ruin reset every tau, plus optional tau-independent jump hazard
+  A. pure diffusive mechanism                                n=20000 events=0.179 diffusive share=1.00  beta_lntau=+2.656±0.104  beta_ln(s/B)=+8.439
+  B. + jump hazard 0.06/yr (maintainer exits etc.)           n=20000 events=0.282 diffusive share=0.75  beta_lntau=+0.847±0.039  beta_ln(s/B)=+2.638
+  C. B + tau measured with noise (sd 1.0 in ln tau)          n=20000 events=0.290 diffusive share=0.75  beta_lntau=+0.404±0.025  beta_ln(s/B)=+2.598
+  D. C + unmeasured shock frailty (sd 0.4) + survivor selection n=13887 events=0.199 diffusive share=0.45  beta_lntau=+0.177±0.031  beta_ln(s/B)=+0.856
+  E. sigma/B lower by e^-0.3 and jump hazard 0.07/yr dominates n=20000 events=0.211 diffusive share=0.43  beta_lntau=+0.431±0.036  beta_ln(s/B)=+1.304
+Reading: beta_lntau is large when failure is diffusive first passage (A). It shrinks toward 0 as tau-independent
+failure modes take over (B,E) and as tau is mismeasured (C). Selection on prior survival with unmeasured shocks attenuates further (D).

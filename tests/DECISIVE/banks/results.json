@@ -1,0 +1,107 @@
+{
+ "n": 7837,
+ "failures": 419,
+ "failures_in_list_2008_2014": 507,
+ "unmatched_failures": 88,
+ "P1": {
+  "b_tau": [
+   0.202,
+   0.111,
+   0.293
+  ],
+  "b_sigma": [
+   0.619,
+   0.517,
+   0.72
+  ],
+  "b_B": [
+   -1.177,
+   -1.414,
+   -0.94
+  ],
+  "p_one_sided": 6.541498746570618e-06
+ },
+ "P1_wald": {
+  "eps_B_eq_minus_eps_sigma": 1.0628359103557687e-05,
+  "identity_continuous": 1.2763366529888895e-64,
+  "identity_incident": 0.04142395078536238
+ },
+ "cold_tercile": {
+  "n": 2613,
+  "failures": 41,
+  "b_tau": [
+   0.308,
+   -0.186,
+   0.801
+  ],
+  "b_sigma": [
+   0.562,
+   -0.377,
+   1.502
+  ],
+  "r_tau": 0.547,
+  "r_tau_boot95": [
+   -1.618,
+   4.202
+  ]
+ },
+ "cold_z_ge_1.5": {
+  "n": 7815,
+  "failures": 415,
+  "b_tau": [
+   0.22,
+   0.127,
+   0.312
+  ]
+ },
+ "P3_interaction_lt_x_lnz": [
+  0.049,
+  -0.028,
+  0.127
+ ],
+ "P4_dAIC_bank_horizon_minus_fixed": 7.11,
+ "baseline_Z": {
+  "b_tau_given_Z": [
+   0.191,
+   0.101,
+   0.281
+  ],
+  "LR_p": 2.9961783182153034e-05,
+  "dAIC": 15.42,
+  "AUC_Z": 0.7088,
+  "AUC_Z_tau": 0.7182,
+  "AUC_theory": 0.7315
+ },
+ "S1_plus_size": [
+  0.169,
+  0.077,
+  0.26
+ ],
+ "S2_tau_own_mean": [
+  0.06,
+  -0.031,
+  0.151
+ ],
+ "S3_tau_roa": [
+  0.29,
+  0.217,
+  0.363
+ ],
+ "S4_logit": [
+  0.217,
+  0.122,
+  0.313
+ ],
+ "S5_sigma_capital_innovation": [
+  0.227,
+  0.135,
+  0.318
+ ],
+ "jump_share": {
+  "n_failed_with_fin": 417,
+  "share_one_quarter_loss_gt_B": 0.098,
+  "share_gt_half_B": 0.472,
+  "median_maxloss_over_sigma": 20.8
+ },
+ "verdict": "HIT"
+}

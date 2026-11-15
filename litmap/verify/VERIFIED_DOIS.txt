@@ -1,0 +1,174 @@
+OK  10.1002/(SICI)1097-0266(199708)18:7<509::AID-SMJ882>3.0.CO;2-Z | 1997 | Teece,Pisano,Shuen | Dynamic capabilities and strategic management | Strategic Management Journal | v18 p509-533
+OK  10.1002/fee.1311 | 2016 | Johnstone,Allen,Franklin | Changing disturbance regimes, ecological memory, and forest resilience | Frontiers in Ecology and the Environment | v14 p369-378
+OK  10.1006/jtbi.1996.0109 | 1996 | Lachmann,Jablonka | The Inheritance of Phenotypes: an Adaptation to Fluctuating Environments | Journal of Theoretical Biology | v181 p1-9
+OK  10.1007/BF00623322 | 1971 | Eigen | Selforganization of matter and the evolution of biological macromolecules | Die Naturwissenschaften | v58 p465-523
+OK  10.1007/BF02223790 | 1959 | Ellis | Some factors influencing phase characters in the nymphs of the locust,Locusta migratoria m | Insectes Sociaux | v6 p21-39
+OK  10.1007/s002360050048 | 1996 | O’Neil,Cheng,Gawlick | The log-structured merge-tree (LSM-tree) | Acta Informatica | v33 p351-385
+OK  10.1007/s10021-001-0101-5 | 2001 | Holling | Understanding the Complexity of Economic, Ecological, and Social Systems | Ecosystems | v4 p390-405
+OK  10.1007/s10955-011-0166-2 | 2011 | Rivoire,Leibler | The Value of Information for Populations in Varying Environments | Journal of Statistical Physics | v142 p1124-1166
+OK  10.1007/s10955-017-1776-0 | 2017 | Boyd,Mandal,Crutchfield | Leveraging Environmental Correlations: The Thermodynamics of Requisite Variety | Journal of Statistical Physics | v167 p1555-1585
+OK  10.1007/s11097-005-9002-y | 2005 | Di Paolo | Autopoiesis, Adaptivity, Teleology, Agency | Phenomenology and the Cognitive Sciences | v4 p429-452
+OK  10.1007/s12064-020-00313-7 | 2020 | Krakauer,Bertschinger,Olbrich | The information theory of individuality | Theory in Biosciences | v139 p209-223
+OK  10.1016/0005-1098(76)90006-6 | 1976 | Francis,Wonham | The internal model principle of control theory | Automatica | v12 p457-465
+OK  10.1016/0022-5193(66)90188-3 | 1966 | Cohen | Optimizing reproduction in a randomly varying environment | Journal of Theoretical Biology | v12 p119-129
+OK  10.1016/0022-5193(79)90275-3 | 1979 | Perelson,Oster | Theoretical studies of clonal selection: Minimal antibody repertoire size and reliability  | Journal of Theoretical Biology | v81 p645-670
+OK  10.1016/0047-2484(92)90081-J | 1992 | Dunbar | Neocortex size as a constraint on group size in primates | Journal of Human Evolution | v22 p469-493
+OK  10.1016/S0004-3702(99)00052-1 | 1999 | Sutton,Precup,Singh | Between MDPs and semi-MDPs: A framework for temporal abstraction in reinforcement learning | Artificial Intelligence | v112 p181-211
+OK  10.1016/S0022-5193(86)80047-9 | 1986 | Kauffman | Autocatalytic sets of proteins | Journal of Theoretical Biology | v119 p1-24
+OK  10.1016/S0022-5193(87)80209-6 | 1987 | McNamara,Houston | Memory and the efficient use of information | Journal of Theoretical Biology | v125 p385-395
+OK  10.1016/S0304-3932(03)00029-1 | 2003 | Sims | Implications of rational inattention | Journal of Monetary Economics | v50 p665-690
+OK  10.1016/j.jtbi.2006.07.015 | 2007 | Tero,Kobayashi,Nakagaki | A mathematical model for adaptive transport network in path finding by true slime mold | Journal of Theoretical Biology | v244 p553-564
+OK  10.1016/j.neuron.2005.01.027 | 2005 | Cisek,Kalaska | Neural Correlates of Reaching Decisions in Dorsal Premotor Cortex: Specification of Multip | Neuron | v45 p801-814
+OK  10.1016/j.neuron.2005.02.001 | 2005 | Fusi,Drew,Abbott | Cascade Models of Synaptically Stored Memories | Neuron | v45 p599-611
+OK  10.1016/j.neuron.2013.12.025 | 2014 | Tononi,Cirelli | Sleep and the Price of Plasticity: From Synaptic and Cellular Homeostasis to Memory Consol | Neuron | v81 p12-34
+OK  10.1016/j.neuron.2017.04.037 | 2017 | Richards,Frankland | The Persistence and Transience of Memory | Neuron | v94 p1071-1084
+OK  10.1016/j.physbeh.2011.06.004 | 2012 | Sterling | Allostasis: A model of predictive regulation | Physiology &amp; Behavior | v106 p5-15
+OK  10.1016/j.plrev.2006.07.001 | 2006 | DETRAIN,DENEUBOURG | Self-organized structures in a superorganism: do ants “behave” like molecules? | Physics of Life Reviews | v3 p162-187
+OK  10.1016/j.plrev.2017.12.001 | 2018 | Pedersen | Biological mechanisms beyond network analysis via mathematical modeling | Physics of Life Reviews | v24 p156-158
+OK  10.1016/j.plrev.2021.11.001 | 2022 | Aguilera,Millidge,Tschantz | How particular is the physics of the free energy principle? | Physics of Life Reviews | v40 p24-50
+OK  10.1016/j.tics.2008.10.002 | 2009 | Couzin | Collective cognition in animal groups | Trends in Cognitive Sciences | v13 p36-43
+OK  10.1016/j.tig.2010.05.003 | 2010 | Lynch | Evolution of the mutation rate | Trends in Genetics | v26 p345-352
+OK  10.1016/j.tree.2018.05.006 | 2018 | Lenton,Daines,Dyke | Selection for Gaia across Multiple Scales | Trends in Ecology &amp; Evolution | v33 p633-645
+OK  10.1016/j.tree.2018.07.004 | 2018 | Godet,Devictor | What Conservation Does | Trends in Ecology &amp; Evolution | v33 p720-730
+OK  10.1017/S0140525X21002351 | 2021 | Bruineberg,Dołęga,Dewhurst | The Emperor's New Markov Blankets | Behavioral and Brain Sciences | v45 p
+OK  10.1037/0033-295X.102.3.419 | 1995 | McClelland,McNaughton,O'Reilly | Why there are complementary learning systems in the hippocampus and neocortex: Insights fr | Psychological Review | v102 p419-457
+OK  10.1038/35037572 | 2000 | Cooper,Lenski | The population genetics of ecological specialization in evolving Escherichia coli populati | Nature | v407 p736-739
+OK  10.1038/385533a0 | 1997 | Frey,Morris | Synaptic tagging and long-term potentiation | Nature | v385 p533-536
+OK  10.1038/415429a | 2002 | Ernst,Banks | Humans integrate visual and haptic information in a statistically optimal fashion | Nature | v415 p429-433
+OK  10.1038/4580 | 1999 | Rao,Ballard | Predictive coding in the visual cortex: a functional interpretation of some extra-classica | Nature Neuroscience | v2 p79-87
+OK  10.1038/nature04745 | 2006 | Huybers,Curry | Links between annual, Milankovitch and continuum temperature variability | Nature | v441 p329-332
+OK  10.1038/nature06137 | 2007 | Lieberman,Michel,Jackson | Quantifying the evolutionary dynamics of language | Nature | v449 p713-716
+OK  10.1038/nature06176 | 2007 | Pagel,Atkinson,Meade | Frequency of word-use predicts rates of lexical evolution throughout Indo-European history | Nature | v449 p717-720
+OK  10.1038/nature08112 | 2009 | Mitchell,Romano,Groisman | Adaptive prediction of environmental changes by microorganisms | Nature | v460 p220-224
+OK  10.1038/nature08227 | 2009 | Scheffer,Bascompte,Brock | Early-warning signals for critical transitions | Nature | v461 p53-59
+OK  10.1038/ncomms8498 | 2015 | Ito,Sagawa | Maxwell’s demon in biochemical signal transduction with feedback loop | Nature Communications | v6 p
+OK  10.1038/ng.110 | 2008 | Acar,Mettetal,van Oudenaarden | Stochastic switching as a survival strategy in fluctuating environments | Nature Genetics | v40 p471-475
+OK  10.1038/nn.3862 | 2014 | Murray,Bernacchia,Freedman | A hierarchy of intrinsic timescales across primate cortex | Nature Neuroscience | v17 p1661-1663
+OK  10.1038/nn.4401 | 2016 | Benna,Fusi | Computational principles of synaptic memory consolidation | Nature Neuroscience | v19 p1697-1706
+OK  10.1038/nn1954 | 2007 | Behrens,Woolrich,Walton | Learning the value of information in an uncertain world | Nature Neuroscience | v10 p1214-1221
+OK  10.1038/nphys2276 | 2012 | Lan,Sartori,Neumann | The energy–speed–accuracy trade-off in sensory adaptation | Nature Physics | v8 p422-428
+OK  10.1038/nrg.2016.104 | 2016 | Lynch,Ackerman,Gout | Genetic drift, selection and the evolution of the mutation rate | Nature Reviews Genetics | v17 p704-714
+OK  10.1038/nrn2787 | 2010 | Friston | The free-energy principle: a unified brain theory? | Nature Reviews Neuroscience | v11 p127-138
+OK  10.1038/s41562-018-0474-5 | 2018 | Candia,Jara-Figueroa,Rodriguez-Sickert | The universal decay of collective memory and attention | Nature Human Behaviour | v3 p82-91
+OK  10.1038/s41586-023-06600-9 | 2023 | Sharma,Czégel,Lachmann | Assembly theory explains and quantifies selection and evolution | Nature | v622 p321-328
+OK  10.1038/s41586-024-07711-7 | 2024 | Dohare,Hernandez-Garcia,Lan | Loss of plasticity in deep continual learning | Nature | v632 p768-774
+OK  10.1038/s41586-025-08929-9 | 2025 | Masset,Tano,Kim | Multi-timescale reinforcement learning in the brain | Nature | v642 p682-690
+OK  10.1073/pnas.0610172104 | 2007 | Bettencourt,Lobo,Helbing | Growth, innovation, scaling, and the pace of life in cities | Proceedings of the National Academy of S | v104 p7301-7306
+OK  10.1073/pnas.0907953107 | 2010 | Mustonen,Lässig | Fitness flux and ubiquity of adaptive evolution | Proceedings of the National Academy of S | v107 p4248-4253
+OK  10.1073/pnas.1204263109 | 2012 | Mandal,Jarzynski | Work and information processing in a solvable model of Maxwell’s demon | Proceedings of the National Academy of S | v109 p11641-11645
+OK  10.1073/pnas.1314922110 | 2013 | Hoel,Albantakis,Tononi | Quantifying causal emergence shows that macro can beat micro | Proceedings of the National Academy of S | v110 p19790-19795
+OK  10.1073/pnas.1419704112 | 2015 | Bromham,Hua,Fitzpatrick | Rate of language evolution is affected by population size | Proceedings of the National Academy of S | v112 p2097-2102
+OK  10.1073/pnas.1421827112 | 2015 | Mayer,Balasubramanian,Mora | How a well-adapted immune system is organized | Proceedings of the National Academy of S | v112 p5950-5955
+OK  10.1073/pnas.1506855112 | 2015 | Palmer,Marre,Berry | Predictive information in a sensory population | Proceedings of the National Academy of S | v112 p6908-6913
+OK  10.1073/pnas.1611835114 | 2017 | Kirkpatrick,Pascanu,Rabinowitz | Overcoming catastrophic forgetting in neural networks | Proceedings of the National Academy of S | v114 p3521-3526
+OK  10.1073/pnas.161285298 | 2001 | Beekman,Sumpter,Ratnieks | Phase transition between disordered and ordered foraging in Pharaoh's ants | Proceedings of the National Academy of S | v98 p9703-9706
+OK  10.1073/pnas.2007815118 | 2021 | Kramar,Alim | Encoding memory in tube diameter hierarchy of living flow network | Proceedings of the National Academy of S | v118 p
+OK  10.1073/pnas.2303078120 | 2023 | Tjalma,Galstyan,Goedhart | Trade-offs between cost and information in cellular prediction | Proceedings of the National Academy of S | v120 p
+OK  10.1073/pnas.71.10.4135 | 1974 | Hopfield | Kinetic Proofreading: A New Mechanism for Reducing Errors in Biosynthetic Processes Requir | Proceedings of the National Academy of S | v71 p4135-4139
+OK  10.1073/pnas.95.15.8420 | 1998 | Kirschner,Gerhart | Evolvability | Proceedings of the National Academy of S | v95 p8420-8427
+OK  10.1073/pnas.95.15.8660 | 1998 | Ouyang,Andersson,Kondo | Resonating circadian clocks enhance fitness in cyanobacteria | Proceedings of the National Academy of S | v95 p8660-8664
+OK  10.1080/00049182.2015.1077539 | 2015 | Nunn,Reid | Aboriginal Memories of Inundation of the Australian Coast Dating from More than 7000 Years | Australian Geographer | v47 p11-47
+OK  10.1080/00207727008920220 | 1970 | CONANT,ROSS ASHBY | Every good regulator of a system must be a model of that system † | International Journal of Systems Science | v1 p89-97
+OK  10.1080/14697688.2013.800219 | 2013 | Taleb,Douady | Mathematical definition, mapping, and detection of (anti)fragility | Quantitative Finance | v13 p1677-1689
+OK  10.1086/226424 | 1977 | Hannan,Freeman | The Population Ecology of Organizations | American Journal of Sociology | v82 p929-964
+OK  10.1086/282697 | 1970 | Pianka | On r- and K-Selection | The American Naturalist | v104 p592-597
+OK  10.1086/285324 | 1992 |  | Erratum: "Habitat Selection in Plants" | The American Naturalist | v139 p227-227
+OK  10.1086/317671 | 2000 | Garicano | Hierarchies and the Organization of Knowledge in Production | Journal of Political Economy | v108 p874-904
+OK  10.1086/466868 | 1976 | Landes,Posner | Legal Precedent: A Theoretical and Empirical Analysis | The Journal of Law and Economics | v19 p249-307
+OK  10.1088/1367-2630/16/10/103024 | 2014 | Barato,Hartich,Seifert | Efficiency of cellular information processing | New Journal of Physics | v16 p103024
+OK  10.1088/1478-3975/abde8d | 2021 | Murugan,Husain,Rust | Roadmap on biology in time varying environments | Physical Biology | v18 p041502
+OK  10.1088/1751-8121/ab0850 | 2019 | Wolpert | The stochastic thermodynamics of computation | Journal of Physics A: Mathematical and T | v52 p193001
+OK  10.1093/beheco/2.1.77 | 1991 | Stephens | Change, regularity, and value in the evolution of animal learning | Behavioral Ecology | v2 p77-89
+OK  10.1093/qje/qjr043 | 2011 | Alvarez,Lippi,Paciello | Optimal Price Setting With Observation and Menu Costs | The Quarterly Journal of Economics | v126 p1909-1960
+OK  10.1093/qje/qjv037 | 2015 | Malmendier,Nagel | Learning from Inflation Experiences * | The Quarterly Journal of Economics | v131 p53-87
+OK  10.1098/rsfs.2018.0041 | 2018 | Kolchinsky,Wolpert | Semantic information, autonomous agency and non-equilibrium statistical physics | Interface Focus | v8 p20180041
+OK  10.1098/rsif.2012.0869 | 2013 | Walker,Davies | The algorithmic origins of life | Journal of The Royal Society Interface | v10 p20120869
+OK  10.1098/rsif.2013.0475 | 2013 | Friston | Life as we know it | Journal of The Royal Society Interface | v10 p20130475
+OK  10.1098/rsif.2017.0792 | 2018 | Kirchhoff,Parr,Palacios | The Markov blankets of life: autonomy, active inference and the free energy principle | Journal of The Royal Society Interface | v15 p20170792
+OK  10.1098/rspb.2004.2970 | 2005 | Zhou,Sornette,Hill | Discrete hierarchical organization of social group sizes | Proceedings of the Royal Society B: Biol | v272 p439-444
+OK  10.1098/rspb.2007.0564 | 2007 | Hamilton,Milne,Walker | The complex structure of hunter–gatherer social networks | Proceedings of the Royal Society B: Biol | v274 p2195-2203
+OK  10.1098/rspb.2009.0602 | 2009 | Dunlap,Stephens | Components of change in the evolution of learning and unlearned preference | Proceedings of the Royal Society B: Biol | v276 p3201-3208
+OK  10.1098/rspb.2010.0452 | 2010 | Kline,Boyd | Population size predicts technological complexity in Oceania | Proceedings of the Royal Society B: Biol | v277 p2559-2564
+OK  10.1098/rspb.2016.0446 | 2016 | Boisseau,Vogel,Dussutour | Habituation in non-neural organisms: evidence from slime moulds | Proceedings of the Royal Society B: Biol | v283 p20160446
+OK  10.1098/rspb.2024.1606 | 2024 | Lee,Flack,Krakauer | Constructing stability: optimal learning in noisy ecological niches | Proceedings of the Royal Society B: Biol | v291 p
+OK  10.1098/rsta.2016.0338 | 2017 | Flack | Coarse-graining as a downward causation mechanism | Philosophical Transactions of the Royal  | v375 p20160338
+OK  10.1098/rsta.2016.0343 | 2017 | Kempes,Wolpert,Cohen | The thermodynamic efficiency of computations made in cells across the range of life | Philosophical Transactions of the Royal  | v375 p20160343
+OK  10.1098/rstb.2011.0214 | 2012 | Flack | Multiple time-scales and the developmental dynamics of social systems | Philosophical Transactions of the Royal  | v367 p1802-1810
+OK  10.1101/2022.09.01.506204 | 2022 | Lee,Flack,Krakauer | Outsourcing Memory Through Niche Construction |  | v p
+OK  10.1103/PhysRevE.79.041925 | 2009 | Creutzig,Globerson,Tishby | Past-future information bottleneck in dynamical systems | Physical Review E | v79 p
+OK  10.1103/PhysRevLett.104.090602 | 2010 | Sagawa,Ueda | Generalized Jarzynski Equality under Nonequilibrium Feedback Control | Physical Review Letters | v104 p
+OK  10.1103/PhysRevLett.109.120604 | 2012 | Still,Sivak,Bell | Thermodynamics of Prediction | Physical Review Letters | v109 p
+OK  10.1103/PhysRevLett.109.180602 | 2012 | Sagawa,Ueda | Fluctuation Theorem with Information Exchange: Role of Correlations in Stochastic Thermody | Physical Review Letters | v109 p
+OK  10.1103/PhysRevLett.114.158101 | 2015 | Barato,Seifert | Thermodynamic Uncertainty Relation for Biomolecular Processes | Physical Review Letters | v114 p
+OK  10.1103/PhysRevLett.115.258103 | 2015 | Becker,Mugler,ten Wolde | Optimal Prediction by Cellular Signaling Networks | Physical Review Letters | v115 p
+OK  10.1103/PhysRevX.4.031015 | 2014 | Horowitz,Esposito | Thermodynamics with Continuous Information Flow | Physical Review X | v4 p
+OK  10.1103/PhysRevX.6.021036 | 2016 | Perunov,Marsland,England | Statistical Physics of Adaptation | Physical Review X | v6 p
+OK  10.1111/j.1467-9280.1991.tb00174.x | 1991 | Anderson,Schooler | Reflections of the Environment in Memory | Psychological Science | v2 p396-408
+OK  10.1111/j.1467-937X.2006.00396.x | 2006 | Reis | Inattentive Producers | The Review of Economic Studies | v73 p793-821
+OK  10.1111/j.1540-6261.1974.tb03058.x | 1974 | Merton | ON THE PRICING OF CORPORATE DEBT: THE RISK STRUCTURE OF INTEREST RATES* | The Journal of Finance | v29 p449-470
+OK  10.1111/j.1558-5646.1953.tb00070.x | 1953 | Waddington | GENETIC ASSIMILATION OF AN ACQUIRED CHARACTER | Evolution | v7 p118-126
+OK  10.1111/j.1600-0706.2009.17781.x | 2010 | Donaldson‐Matasci,Bergstrom,Lachmann | The fitness value of information | Oikos | v119 p219-230
+OK  10.1111/jels.12012 | 2013 | Black,Spriggs | The Citation and Depreciation of <scp>U</scp>.<scp>S</scp>. Supreme Court Precedent | Journal of Empirical Legal Studies | v10 p325-358
+OK  10.1111/roiw.12380 | 2018 | Li,Hall | Depreciation of Business R&amp;D Capital | Review of Income and Wealth | v66 p161-180
+OK  10.1126/science.1114383 | 2005 | Kussell,Leibler | Phenotypic Diversity, Population Growth, and Information in Fluctuating Environments | Science | v309 p2075-2078
+OK  10.1126/science.1154456 | 2008 | Tagkopoulos,Liu,Tavazoie | Predictive Behavior Within Microbial Genetic Networks | Science | v320 p1313-1317
+OK  10.1126/science.1177894 | 2010 | Tero,Takagi,Saigusa | Rules for Biologically Inspired Adaptive Network Design | Science | v327 p439-442
+OK  10.1126/science.1210361 | 2012 | Seeley,Visscher,Schlegel | Stop Signals Provide Cross Inhibition in Collective Decision-Making by Honeybee Swarms | Science | v335 p108-111
+OK  10.1126/science.1235823 | 2013 | Bettencourt | The Origins of Scaling in Cities | Science | v340 p1438-1441
+OK  10.1126/science.247.4945.920 | 1990 | Argote,Epple | Learning Curves in Manufacturing | Science | v247 p920-924
+OK  10.1126/science.276.5309.122 | 1997 | West,Brown,Enquist | A General Model for the Origin of Allometric Scaling Laws in Biology | Science | v276 p122-126
+OK  10.1126/science.293.5530.655 | 2001 | Inchausti,Halley | Investigating Long-Term Ecological Variability Using the Global Population Dynamics Databa | Science | v293 p655-657
+OK  10.1145/3035918.3064054 | 2017 | Dayan,Athanassoulis,Idreos | Monkey | Proceedings of the 2017 ACM Internationa | v p79-94
+OK  10.1145/3586183.3606763 | 2023 | Park,O'Brien,Cai | Generative Agents: Interactive Simulacra of Human Behavior | Proceedings of the 36th Annual ACM Sympo | v p1-22
+OK  10.1145/363095.363141 | 1968 | Denning | The working set model for program behavior | Communications of the ACM | v11 p323-333
+OK  10.1145/41840.41841 | 1987 | Demers,Greene,Hauser | Epidemic algorithms for replicated database maintenance | Proceedings of the sixth annual ACM Symp | v p1-12
+OK  10.1146/annurev-conmatphys-031214-014803 | 2016 | Tkačik,Bialek | Information Processing in Living Systems | Annual Review of Condensed Matter Physic | v7 p89-117
+OK  10.1146/annurev.ecolsys.29.1.1 | 1998 | Klein,Sato,Nagl | MOLECULAR TRANS-SPECIES POLYMORPHISM | Annual Review of Ecology and Systematics | v29 p1-21
+OK  10.1146/annurev.es.04.110173.000245 | 1973 | Holling | Resilience and Stability of Ecological Systems | Annual Review of Ecology and Systematics | v4 p1-23
+OK  10.1147/sj.52.0078 | 1966 | Belady | A study of replacement algorithms for a virtual-storage computer | IBM Systems Journal | v5 p78-101
+OK  10.1152/jn.00134.2006 | 2006 | Drew,Abbott | Models and Properties of Power-Law Adaptation in Neural Systems | Journal of Neurophysiology | v96 p826-833
+OK  10.1162/089976601753195969 | 2001 | Bialek,Nemenman,Tishby | Predictability, Complexity, and Learning | Neural Computation | v13 p2409-2463
+OK  10.1162/106454699568700 | 1999 | Theraulaz,Bonabeau | A Brief History of Stigmergy | Artificial Life | v5 p97-116
+OK  10.1162/neco.1992.4.2.234 | 1992 | Schmidhuber | Learning Complex, Extended Sequences Using the Principle of History Compression | Neural Computation | v4 p234-242
+OK  10.1257/aer.100.3.641 | 2010 | Ostrom | Beyond Markets and States: Polycentric Governance of Complex Economic Systems | American Economic Review | v100 p641-672
+OK  10.1257/aer.99.3.769 | 2009 | Maćkowiak,Wiederholt | Optimal Sticky Prices under Rational Inattention | American Economic Review | v99 p769-803
+OK  10.1287/inte.4.3.28 | 1974 | Galbraith | Organization Design: An Information Processing View | Interfaces | v4 p28-36
+OK  10.1287/mnsc.1110.1420 | 2012 | Posen,Levinthal | Chasing a Moving Target: Exploitation and Exploration in Dynamic Environments | Management Science | v58 p587-601
+OK  10.1287/mnsc.41.11.1750 | 1995 | Darr,Argote,Epple | The Acquisition, Transfer, and Depreciation of Knowledge in Service Organizations: Product | Management Science | v41 p1750-1762
+OK  10.1287/mnsc.43.7.934 | 1997 | Levinthal | Adaptation on Rugged Landscapes | Management Science | v43 p934-950
+OK  10.1287/msom.1070.0166 | 2007 | Rumyantsev,Netessine | What Can Be Learned from Classical Inventory Models? A Cross-Industry Exploratory Investig | Manufacturing &amp; Service Operations M | v9 p409-429
+OK  10.1287/orsc.1050.0116 | 2005 | Siggelkow,Rivkin | Speed and Search: Designing Organizations for Turbulence and Complexity | Organization Science | v16 p101-122
+OK  10.1287/orsc.12.5.523.10092 | 2001 | Denrell,March | Adaptation as Information Restriction: The Hot Stove Effect | Organization Science | v12 p523-538
+OK  10.1287/orsc.2.1.71 | 1991 | March | Exploration and Exploitation in Organizational Learning | Organization Science | v2 p71-87
+OK  10.1371/journal.pbio.1000357 | 2010 | Chevin,Lande,Mace | Adaptation, Plasticity, and Extinction in a Changing Environment: Towards a Predictive The | PLoS Biology | v8 pe1000357
+OK  10.1371/journal.pbio.1001805 | 2014 | Gordon | The Ecology of Collective Behavior | PLoS Biology | v12 pe1001805
+OK  10.1371/journal.pcbi.1000209 | 2008 | Kiebel,Daunizeau,Friston | A Hierarchy of Time-Scales and the Brain | PLoS Computational Biology | v4 pe1000209
+OK  10.1371/journal.pcbi.1008289 | 2020 | Rosas,Mediano,Jensen | Reconciling emergences: An information-theoretic approach to identify causal emergence in  | PLOS Computational Biology | v16 pe1008289
+OK  10.1371/journal.pcbi.1008743 | 2021 | Sachdeva,Mora,Walczak | Optimal prediction with resource constraints using the information bottleneck | PLOS Computational Biology | v17 pe1008743
+OK  10.1371/journal.pone.0011664 | 2010 | Planqué,van den Berg,Franks | Recruitment Strategies and Colony Size in Ants | PLoS ONE | v5 pe11664
+OK  10.14778/2212351.2212359 | 2012 | Bailis,Venkataraman,Franklin | Probabilistically bounded staleness for practical partial quorums | Proceedings of the VLDB Endowment | v5 p776-787
+OK  10.1525/aa.1988.90.4.02a00030 | 1988 | Rogers | Does Biology Constrain Culture? | American Anthropologist | v90 p819-831
+OK  10.1890/02-3122 | 2004 | Vasseur,Yodzis | THE COLOR OF ENVIRONMENTAL NOISE | Ecology | v85 p1146-1152
+OK  10.2189/asqu.52.4.667 | 2007 | Lazer,Friedman | The Network Structure of Exploration and Exploitation | Administrative Science Quarterly | v52 p667-694
+OK  10.2307/1880728 | 1966 | Miller,Orr | A Model of the Demand for Money by Firms | The Quarterly Journal of Economics | v80 p413
+OK  10.2307/2095567 | 1984 | Hannan,Freeman | Structural Inertia and Organizational Change | American Sociological Review | v49 p149
+OK  10.2307/2234208 | 1989 | Arthur | Competing Technologies, Increasing Returns, and Lock-In by Historical Events | The Economic Journal | v99 p116
+OK  10.2307/2391875 | 1976 | Weick | Educational Organizations as Loosely Coupled Systems | Administrative Science Quarterly | v21 p1
+OK  10.2307/2392467 | 1981 | Feldman,March | Information in Organizations as Signal and Symbol | Administrative Science Quarterly | v26 p171
+OK  10.2307/2393553 | 1990 | Cohen,Levinthal | Absorptive Capacity: A New Perspective on Learning and Innovation | Administrative Science Quarterly | v35 p128
+OK  10.2307/2393807 | 1997 | Brown,Eisenhardt | The Art of Continuous Change: Linking Complexity Theory and Time-Paced Evolution in Relent | Administrative Science Quarterly | v42 p1
+OK  10.2307/2407104 | 1963 | Bateson | The Role of Somatic Change in Evolution | Evolution | v17 p529
+OK  10.2307/2410126 | 1993 | Fox | A Quantitative Genetic Analysis of Oviposition Preference and Larval Performance on Two Ho | Evolution | v47 p166
+OK  10.2307/2666980 | 2000 | Sørensen,Stuart | Aging, Obsolescence, and Organizational Innovation | Administrative Science Quarterly | v45 p81-112
+OK  10.2307/2937313 | 1992 | Holling | Cross‐Scale Morphology, Geometry, and Dynamics of Ecosystems | Ecological Monographs | v62 p447-502
+OK  10.2307/4128416 | 2004 | Henrich | Demography and Cultural Evolution: How Adaptive Cultural Processes Can Produce Maladaptive | American Antiquity | v69 p197-214
+OK  10.2976/1.3171566 | 2009 | Polani | Information: Currency of life? | HFSP Journal | v3 p307-316
+OK  10.3389/fimmu.2019.00956 | 2019 | Slifka,Amanna | Role of Multivalency and Antigenic Threshold in Generating Protective Antibody Responses | Frontiers in Immunology | v10 p
+OK  10.3389/fnsys.2022.768201 | 2022 | Levin | Technological Approach to Mind Everywhere: An Experimentally-Grounded Framework for Unders | Frontiers in Systems Neuroscience | v16 p
+OK  10.3389/fpsyg.2019.02688 | 2019 | Levin | The Computational Boundary of a “Self”: Developmental Bioelectricity Drives Multicellulari | Frontiers in Psychology | v10 p
+OK  10.3390/e24060819 | 2022 | Fields,Levin | Competency in Navigating Arbitrary Spaces as an Invariant for Analyzing Cognition in Diver | Entropy | v24 p819
+OK  10.3402/tellusa.v26i1-2.9731 | 1974 | Lovelock,Margulis | Atmospheric homeostasis by and for the biosphere: the gaia
+OK  10.3402/tellusb.v35i4.14616 | 1983 | Watson,Lovelock | Biological homeostasis of the global environment: the parable of
+OK  10.5465/amr.1990.4308154 | 1990 | Orton,Weick | Loosely Coupled Systems: A Reconceptualization | The Academy of Management Review | v15 p203
+OK  10.5465/amr.1991.4278992 | 1991 | Walsh,Ungson | Organizational Memory | The Academy of Management Review | v16 p57
+OK  10.7326/0003-4819-147-4-200708210-00179 | 2007 | Shojania,Sampson,Ansari | How Quickly Do Systematic Reviews Go Out of Date? A Survival Analysis | Annals of Internal Medicine | v147 p224-233

@@ -1,0 +1,20 @@
+n = 896
+Fano factor sigma^2/mean(monthly noncore inflow): quartiles [1.25 1.85 3.1 ]  share with Fano<2 (near pure Poisson counting noise): 0.55
+slope d ln sigma / d ln mean inflow = 0.676  (0.5 = pure Poisson; 1 = shocks proportional to size)
+corr(ln sigma, ln B) = 0.785
+naive z = B/(sigma sqrt(tau[months])) if B were a stock (it is a flow, items/month): quartiles [0.23 0.54 1.75 4.43 8.47]
+tau (months) quartiles [ 0.09  0.32  1.46  7.71 17.94]
+NOTE: units do not match the first-passage model: B is closures/month (flow), sigma is SD of monthly inflow counts (items/month), tau days. sigma*sqrt(tau)/B has units sqrt(month); z is undefined.
+
+== Identity-based prediction for C3's Cox coefficients ==
+Dimensional identity (any F): eps_tau = eps_sigma/2 - 1, eps_B = -eps_sigma, with eps_sigma >= 2 in models A,B,C.
+(a) no attenuation: beta_sigma=0.28 < 2 is impossible in A,B,C; identity would give beta_tau = -0.86 (observed ~0.00)
+(b) equal attenuation a = beta_sigma/eps_sigma_true (eps_true >= 2):  beta_tau = beta_sigma/2 - a, in [0, beta_sigma/2)
+    eps_sigma_true=     2: attenuation a=0.140, predicted beta_tau=0.000, predicted r_tau=0.000
+    eps_sigma_true=   2.5: attenuation a=0.112, predicted beta_tau=0.028, predicted r_tau=0.100
+    eps_sigma_true=     3: attenuation a=0.093, predicted beta_tau=0.047, predicted r_tau=0.167
+    eps_sigma_true=     5: attenuation a=0.056, predicted beta_tau=0.084, predicted r_tau=0.300
+    eps_sigma_true=    10: attenuation a=0.028, predicted beta_tau=0.112, predicted r_tau=0.400
+    eps_sigma_true=1000000000.0: attenuation a=0.000, predicted beta_tau=0.140, predicted r_tau=0.500
+    C3 literal beta_tau 95% CI [-0.09, 0.10]: covers predictions for eps_sigma_true up to ~ 7.0 (solve 0.28/2 - 0.28/eps = 0.10)
+(c) prereg band r_tau in [0.25,1] requires eps_sigma_true >= 4 (r_tau = 1/2 - 1/eps < 1/2 always): the band's upper half was unreachable.

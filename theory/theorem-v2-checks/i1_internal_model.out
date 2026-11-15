@@ -1,0 +1,37 @@
+== Even process (causal states A,B; C_mu = H(2/3,1/3)) ==
+Even       k= 0 L=4 delta= 0.688722b ex= 0.688722b Pe= 0.3333 bound= 1.3028 I(M;S)=0.0000b H(S)=0.9183b Fano>= 0.0000 hom_viol=0.6667 gamma=0.750 OK
+Even       k= 1 L=4 delta= 0.500000b ex= 0.500000b Pe= 0.3333 bound= 1.1101 I(M;S)=0.2516b H(S)=0.9183b Fano>= 0.0000 hom_viol=0.6667 gamma=0.750 OK
+Even       k= 2 L=4 delta= 0.344361b ex= 0.344361b Pe= 0.1667 bound= 0.9212 I(M;S)=0.4591b H(S)=0.9183b Fano>= 0.2683 hom_viol=0.3333 gamma=0.750 OK
+Even       k= 3 L=4 delta= 0.250000b ex= 0.250000b Pe= 0.1667 bound= 0.7849 I(M;S)=0.5850b H(S)=0.9183b Fano>= 0.2683 hom_viol=0.3333 gamma=0.750 OK
+Even       k= 4 L=4 delta= 0.172180b ex= 0.172180b Pe= 0.0833 bound= 0.6514 I(M;S)=0.6887b H(S)=0.9183b Fano>= 0.5045 hom_viol=0.1667 gamma=0.750 OK
+Even       k= 6 L=4 delta= 0.086090b ex= 0.086090b Pe= 0.0417 bound= 0.4606 I(M;S)=0.8035b H(S)=0.9183b Fano>= 0.6684 hom_viol=0.0833 gamma=0.750 OK
+Even       k= 8 L=4 delta= 0.043045b ex= 0.043045b Pe= 0.0208 bound= 0.3257 I(M;S)=0.8609b H(S)=0.9183b Fano>= 0.7722 hom_viol=0.0417 gamma=0.750 OK
+Even       k=10 L=4 delta= 0.021523b ex= 0.021523b Pe= 0.0104 bound= 0.2303 I(M;S)=0.8896b H(S)=0.9183b Fano>= 0.8348 hom_viol=0.0208 gamma=0.750 OK
+== Golden mean (order-1 Markov) : I2 exact homomorphism at k>=1 ==
+Golden     k= 0 L=4 delta= 0.251629b ex= 0.251629b Pe= 0.3333 bound= 1.1812 I(M;S)=0.0000b H(S)=0.9183b Fano>= 0.0000 hom_viol=0.3333 gamma=0.500 OK
+Golden     k= 1 L=4 delta= 0.000000b ex= 0.000000b Pe= 0.0000 bound= 0.0000 I(M;S)=0.9183b H(S)=0.9183b Fano>= 0.9183 hom_viol=0 gamma=0.500 OK
+Golden     k= 2 L=4 delta= 0.000000b ex= 0.000000b Pe= 0.0000 bound= 0.0000 I(M;S)=0.9183b H(S)=0.9183b Fano>= 0.9183 hom_viol=0 gamma=0.500 OK
+== random 4-state unifilar machine ==
+rand3      k= 0 L=3 delta= 0.175721b ex= 0.175721b Pe= 0.7109 bound= 2.3591 I(M;S)=0.0000b H(S)=1.9739b Fano>=-0.0204 hom_viol=1.0 gamma=0.209 OK
+rand3      k= 2 L=3 delta= 0.120392b ex= 0.120392b Pe= 0.2699 bound= 1.9527 I(M;S)=1.0714b H(S)=1.9739b Fano>= 0.7047 hom_viol=0.3551 gamma=0.209 OK
+rand3      k= 4 L=3 delta= 0.054973b ex= 0.054973b Pe= 0.1155 bound= 1.3195 I(M;S)=1.5668b H(S)=1.9739b Fano>= 1.2748 hom_viol=0.1076 gamma=0.209 OK
+rand3      k= 6 L=3 delta= 0.023828b ex= 0.023828b Pe= 0.0521 bound= 0.8687 I(M;S)=1.8040b H(S)=1.9739b Fano>= 1.5959 hom_viol=0.0392 gamma=0.209 OK
+rand3      k= 8 L=3 delta= 0.009170b ex= 0.009170b Pe= 0.0213 bound= 0.5389 I(M;S)=1.9067b H(S)=1.9739b Fano>= 1.7918 hom_viol=0.017 gamma=0.209 OK
+rand9      k= 0 L=3 delta= 0.265987b ex= 0.265987b Pe= 0.5900 bound= 2.9040 I(M;S)=0.0000b H(S)=1.8111b Fano>=-0.1005 hom_viol=0.3032 gamma=0.209 OK
+rand9      k= 2 L=3 delta= 0.198288b ex= 0.198288b Pe= 0.4475 bound= 2.5074 I(M;S)=0.4739b H(S)=1.8111b Fano>= 0.1099 hom_viol=0.2155 gamma=0.209 OK
+rand9      k= 4 L=3 delta= 0.158842b ex= 0.158842b Pe= 0.3512 bound= 2.2441 I(M;S)=0.7788b H(S)=1.8111b Fano>= 0.3194 hom_viol=0.1885 gamma=0.209 OK
+rand9      k= 6 L=3 delta= 0.127362b ex= 0.127362b Pe= 0.2637 bound= 2.0095 I(M;S)=1.0125b H(S)=1.8111b Fano>= 0.5607 hom_viol=0.1478 gamma=0.209 OK
+rand9      k= 8 L=3 delta= 0.100205b ex= 0.100205b Pe= 0.1958 bound= 1.7824 I(M;S)=1.1977b H(S)=1.8111b Fano>= 0.7873 hom_viol=0.103 gamma=0.209 OK
+== FAILS-direction counterexample: Hamming loss on Even process ==
+P(next=1|A)=0.50, P(next=1|B)=1.00: 'always predict 1' is Bayes-optimal in every causal state; memoryless agent has zero excess Hamming risk and I(M;S)=0.  -> model of S NOT forced by this loss
+== Simple nonunifilar source: delta_k = I(past;future_L | last k) estimated with past=K=16 ==
+  k= 0 delta_k ~ 0.146435 bits
+  k= 1 delta_k ~ 0.013579 bits
+  k= 2 delta_k ~ 0.002887 bits
+  k= 4 delta_k ~ 0.000232 bits
+  k= 6 delta_k ~ 0.000026 bits
+  k= 8 delta_k ~ 0.000004 bits
+  k=10 delta_k ~ 0.000001 bits
+  k=12 delta_k ~ 0.000000 bits
+finite-k agents never exact (delta_k>0, decreasing) -> exact homomorphism impossible for finite memory; I3 holds only with approximate states
+ALL OK

@@ -1,0 +1,5 @@
+fail CostOfGoodsSold 2021 HTTP Error 404: Not Found
+fail CostOfGoodsSold 2022 HTTP Error 404: Not Found
+fail CostOfGoodsSold 2023 HTTP Error 404: Not Found
+0 2705
+200 2705

@@ -1,0 +1,20 @@
+== C7a: Gaussian: posterior mean moves by weight K = prec_signal/(prec_prior+prec_signal) (KNOWN); ex-ante spread rises with precision ==
+  signal noise var 4.0: weight K=0.200; Var(E[X|S]) = K = 0.200
+  signal noise var 1.0: weight K=0.500; Var(E[X|S]) = K = 0.500
+  signal noise var 0.25: weight K=0.800; Var(E[X|S]) = K = 0.800
+== C7b: heavy-tailed (Cauchy) signal noise: the posterior mean is NOT monotone in the surprise (outlier rejection) ==
+  signal s:         [0.5, 1, 2, 3, 5, 10, 30]
+  E[X|s] (prior N(0,1)): [0.336, 0.647, 1.064, 0.985, 0.463, 0.206, 0.067]
+  => a very surprising report moves the belief LESS. Rule 3 'move further the more reliable the signal' holds in the Gaussian
+     case and ex ante (Blackwell: more informative experiments give a mean-preserving spread of posteriors), not realization-wise.
+== C7c: vacuity. Any deterministic policy pi is the unique optimum of loss l(a,x) = 1[a != pi(x)] ==
+  recovered argmin per state == pi: True
+  => 'observed behaviour is optimal for some cost' has no content unless loss and costs are fixed independently of the behaviour.
+== C7d: persistence with ZERO predictive information (bet-hedging in an i.i.d. world) ==
+  growth rate with allocation f=p and no cue: 0.4055 nats/gen > 0; I_pred of any memory = 0 (i.i.d.)
+  simulated lineages, fraction with log-size > 0 after 2000 gens: 1.000
+  => a self-maintaining lineage persists with no model of the state; it carries a constant (the distribution), which needs no upkeep.
+== C7e: rule 1's myopic interrupt/acquire rule can fail: X = S1 xor S2 (each signal alone worthless, both together perfect) ==
+  best accuracy: no signal 0.501; S1 only 0.501; S2 only 0.500; both 1.000
+  => one-step VOI of each signal is 0, so a myopic 'stake x chance > cost' rule never acquires either; the optimal plan acquires both.
+     The rule is exact only if 'what the outcome would teach' is the full continuation value (then it is the Bellman equation).

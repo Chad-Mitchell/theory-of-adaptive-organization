@@ -1,0 +1,12 @@
+ok c1_staleness_holdfade
+ok c2_ruin_temperature
+ok c3_lundberg_persistence
+ok c4_why_tau_vanishes
+ok c5_scaling_universality
+ok c6_persistence_bound
+ok c7_rules_counterexamples
+ok c8_merton_and_index_ratio
+
+real	2m50.524s
+user	2m46.633s
+sys	0m8.098s

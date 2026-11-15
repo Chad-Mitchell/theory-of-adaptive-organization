@@ -1,0 +1,254 @@
+{
+ "REPLACEBG_T1D": {
+  "n_hypo": 224,
+  "events_hypo": 27366,
+  "P1_fixed_spread_slope_hypo": [
+   -0.463,
+   -0.702,
+   -0.225
+  ],
+  "P2_fixed_sigma": {
+   "b_tau": [
+    1.487,
+    1.167,
+    1.806
+   ],
+   "b_sigma": [
+    4.16,
+    3.705,
+    4.615
+   ],
+   "b_B": [
+    -3.806,
+    -4.185,
+    -3.427
+   ]
+  },
+  "P2_wald_p": {
+   "eps_B_eq_minus_eps_sigma": 0.019446025121786704,
+   "identity_continuous": 0.002336635237235568,
+   "identity_incident": 9.206002766154283e-06
+  },
+  "P3_interaction_lt_x_z": [
+   -0.161,
+   -0.452,
+   0.131
+  ],
+  "P5_LBGI_baseline": {
+   "b_tau_given_LBGI": [
+    -0.255,
+    -0.492,
+    -0.018
+   ],
+   "dAIC": 2.38,
+   "LR_p": 0.03642136800976481
+  },
+  "G1_tau_upper_half_slope": [
+   -0.399,
+   -0.601,
+   -0.198
+  ],
+  "G2_in_block_circular_slope": [
+   -0.489,
+   -0.632,
+   -0.346
+  ],
+  "G3_slope_given_first_block_rate": [
+   -0.142,
+   -0.553,
+   0.269
+  ],
+  "n_cold": 2,
+  "n_hyper": 224,
+  "events_hyper": 30923,
+  "S_hyper_fixed_spread_slope": [
+   -0.21,
+   -0.425,
+   0.005
+  ],
+  "S_tau_ar1_slope": [
+   -0.088,
+   -0.19,
+   0.014
+  ]
+ },
+ "SHANGHAI": {
+  "n_hypo": 125,
+  "events_hypo": 223,
+  "P1_fixed_spread_slope_hypo": [
+   -0.307,
+   -1.091,
+   0.476
+  ],
+  "P2_fixed_sigma": {
+   "b_tau": [
+    0.614,
+    -0.383,
+    1.611
+   ],
+   "b_sigma": [
+    2.473,
+    1.069,
+    3.877
+   ],
+   "b_B": [
+    -2.012,
+    -2.975,
+    -1.05
+   ]
+  },
+  "P2_wald_p": {
+   "eps_B_eq_minus_eps_sigma": 0.32327511153096755,
+   "identity_continuous": 0.432489052554619,
+   "identity_incident": 0.19588715876732285
+  },
+  "P3_interaction_lt_x_z": [
+   0.144,
+   -1.07,
+   1.359
+  ],
+  "P5_LBGI_baseline": {
+   "b_tau_given_LBGI": [
+    -0.166,
+    -0.938,
+    0.607
+   ],
+   "dAIC": -1.82,
+   "LR_p": 0.6734701709173467
+  },
+  "G1_tau_upper_half_slope": [
+   -0.231,
+   -1.188,
+   0.725
+  ],
+  "G2_in_block_circular_slope": [
+   -0.353,
+   -0.986,
+   0.281
+  ],
+  "G3_slope_given_first_block_rate": [
+   -0.29,
+   -8.218,
+   7.638
+  ],
+  "n_cold": 34,
+  "cold_b_tau_given_sigma_B": [
+   16.472,
+   3.154,
+   29.79
+  ],
+  "n_hyper": 125,
+  "events_hyper": 266,
+  "S_hyper_fixed_spread_slope": [
+   -0.566,
+   -1.379,
+   0.246
+  ],
+  "S_tau_ar1_slope": [
+   0.032,
+   -0.452,
+   0.516
+  ]
+ },
+ "ALL4": {
+  "n_hypo": 539,
+  "events_hypo": 27659,
+  "P1_fixed_spread_slope_hypo": [
+   -0.386,
+   -0.633,
+   -0.14
+  ],
+  "P2_fixed_sigma": {
+   "b_tau": [
+    0.876,
+    0.576,
+    1.175
+   ],
+   "b_sigma": [
+    2.83,
+    2.387,
+    3.274
+   ],
+   "b_B": [
+    -2.638,
+    -2.999,
+    -2.278
+   ]
+  },
+  "P2_wald_p": {
+   "eps_B_eq_minus_eps_sigma": 0.13314411193369843,
+   "identity_continuous": 0.000470699169121666,
+   "identity_incident": 4.174805408077929e-05
+  },
+  "P3_interaction_lt_x_z": [
+   0.887,
+   0.252,
+   1.522
+  ],
+  "P5_LBGI_baseline": {
+   "b_tau_given_LBGI": [
+    0.073,
+    -0.384,
+    0.529
+   ],
+   "dAIC": -1.99,
+   "LR_p": 0.9378507450740715
+  },
+  "G1_tau_upper_half_slope": [
+   -0.282,
+   -0.548,
+   -0.016
+  ],
+  "G2_in_block_circular_slope": [
+   -0.442,
+   -0.589,
+   -0.296
+  ],
+  "G3_slope_given_first_block_rate": [
+   -0.119,
+   -0.378,
+   0.14
+  ],
+  "n_cold": 124,
+  "cold_b_tau_given_sigma_B": [
+   4.99,
+   1.576,
+   8.404
+  ],
+  "n_hyper": 540,
+  "events_hyper": 31189,
+  "S_hyper_fixed_spread_slope": [
+   -0.32,
+   -0.665,
+   0.024
+  ],
+  "S_tau_ar1_slope": [
+   -0.122,
+   -0.215,
+   -0.03
+  ]
+ },
+ "P4_collapse_offsets_vs_REPLACEBG": {
+  "C(cohort, Treatment('REPLACEBG_T1D'))[T.COLAS]": [
+   -1.204,
+   -1.645,
+   -0.764
+  ],
+  "C(cohort, Treatment('REPLACEBG_T1D'))[T.SH_T1DM]": [
+   -0.216,
+   -0.643,
+   0.212
+  ],
+  "C(cohort, Treatment('REPLACEBG_T1D'))[T.SH_T2DM]": [
+   -1.4,
+   -1.794,
+   -1.006
+  ]
+ },
+ "verdict_REPLACEBG_T1D": "SIGN-RIGHT, SIZE-OFF",
+ "verdict_SHANGHAI": "INCONCLUSIVE",
+ "literal_minus1_check": {
+  "REPLACEBG_T1D": "KILL",
+  "SHANGHAI": "INCONCLUSIVE"
+ }
+}

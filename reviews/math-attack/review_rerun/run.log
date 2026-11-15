@@ -1,0 +1,10 @@
+ok fpt_checks
+ok jumps_checks
+ok objective_checks
+ok coarse_grain_checks
+ok c3_diagnostics
+ok toy_reversal_check
+
+real	0m32.747s
+user	0m31.244s
+sys	0m0.362s

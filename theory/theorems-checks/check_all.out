@@ -1,0 +1,119 @@
+
+== T1a EOQ check interval: cost rate c/T + w*sig^2*T/2 ==
+T* = sqrt(2)*sqrt(c)/(sigma*sqrt(w)) | J* = sqrt(2)*sqrt(c)*sigma*sqrt(w)
+J(x T*)/J* = (x**2 + 1)/(2*x)   (= cosh(ln x))
+penalty at x=2: 1.25  x=sqrt2: 1.0606601717798212  x=10: 5.05
+
+== T1b Monte Carlo: random walk, perfect periodic checks ==
+sigma=0.5: MC cost 0.704 vs sigma*sqrt(2cw) 0.707
+sigma=1: MC cost 1.396 vs sigma*sqrt(2cw) 1.414
+sigma=2: MC cost 2.914 vs sigma*sqrt(2cw) 2.828
+
+== T1c Kalman steady-state gain for random walk + noise: K^2/(1-K) = q/r ==
+K(z) = sqrt(z)*sqrt(z + 4)/2 - z/2 | series: z**(3/2)/8 + sqrt(z) - z/2
+
+== T1d misspecified gain penalty, EWMA MSE(a) = [(1-a)^2 q + a^2 r]/[a(2-a)] ==
+rate misjudged x2: exact MSE ratio 1.0617; small-gain formula (m^-1/2+m^1/2)/2 = 1.0607
+rate misjudged x10: exact MSE ratio 1.7584; small-gain formula (m^-1/2+m^1/2)/2 = 1.7393
+rate misjudged x0.1: exact MSE ratio 1.7480; small-gain formula (m^-1/2+m^1/2)/2 = 1.7393
+
+== T2 watcher condition (EOQ algebra) and the escalation refinement ==
+main-only cost: sqrt(2)*sqrt(c_main)*sigma*sqrt(w) | watcher cost: sqrt(2)*sqrt(c_w)*sigma*sqrt(w) + h_w
+watcher pays iff   sqrt(2)*sqrt(c_main)*sigma*sqrt(w) - sqrt(2)*sqrt(c_w)*sigma*sqrt(w) - h_w > 0  i.e. sqrt(2w)*sigma*(sqrt(c_main)-sqrt(c_w)) > h_w  [verified symbolic]
+with escalation fraction eps (each escalated check also wakes main):  pays iff sqrt(2)*sqrt(c_main)*sigma*sqrt(w) - h_w - sqrt(2)*sigma*sqrt(w)*sqrt(c_main*epsilon + c_w) > 0
+  necessary: eps < 1 - c_w/c_main
+eps=0.0: simulated cost 0.4472 vs formula sigma*sqrt(2w(c_w+eps c_main)) 0.4472; main-only 1.4142
+eps=0.2: simulated cost 0.7756 vs formula sigma*sqrt(2w(c_w+eps c_main)) 0.7746; main-only 1.4142
+eps=0.5: simulated cost 1.0945 vs formula sigma*sqrt(2w(c_w+eps c_main)) 1.0954; main-only 1.4142
+
+== T3a compression threshold: N facts share a driver (rate q_g) plus own residual (q_u) ==
+flat cost: sqrt(2)*N*sqrt(c)*sqrt(w)*sqrt(q_g + q_u)
+nested cost (upper bound): sqrt(2)*sqrt(N)*sqrt(c_g)*sqrt(q_g)*sqrt(w) + sqrt(2)*N*sqrt(c)*sqrt(q_u)*sqrt(w) + h
+N* (c_g=c, h=0): [rho/(rho - 2*sqrt(rho + 1) + 2)]
+equals (sqrt(1+rho)+1)^2/rho ? [True]
+  rho=0.1: N* = 41.98   (small-rho approx 4/rho = 40.0)
+  rho=0.5: N* = 9.90   (small-rho approx 4/rho = 8.0)
+  rho=1: N* = 5.83   (small-rho approx 4/rho = 4.0)
+  rho=4: N* = 2.62   (small-rho approx 4/rho = 1.0)
+  rho=10: N* = 1.86   (small-rho approx 4/rho = 0.4)
+
+== T3b flat single clock vs per-level clocks (Cauchy-Schwarz identity); two levels with separation ratio R = sqrt(q_fast/q_slow) ==
+  R=1: fraction saved by per-level clocks = 0.0000
+  R=2: fraction saved by per-level clocks = 0.0513
+  R=4: fraction saved by per-level clocks = 0.1425
+  R=10: fraction saved by per-level clocks = 0.2260
+  R=100: fraction saved by per-level clocks = 0.2859
+  limit R->oo: 1 - sqrt(2)/2 = 0.2928932188134525
+
+== T3c timescale separation: x = s + f, s random walk (q_s), f AR(1) (time constant tau, variance v), obs noise r ==
+  tau=    2: optimal joint KF 0.01822 | best single-timescale EWMA 0.02094 (1.15x) | nested decoupled 0.01820 (1.00x)
+  tau=   10: optimal joint KF 0.01232 | best single-timescale EWMA 0.01318 (1.07x) | nested decoupled 0.01256 (1.02x)
+  tau=   50: optimal joint KF 0.00697 | best single-timescale EWMA 0.00713 (1.02x) | nested decoupled 0.00737 (1.06x)
+  tau=  250: optimal joint KF 0.00382 | best single-timescale EWMA 0.00383 (1.00x) | nested decoupled 0.00425 (1.11x)
+  tau= 1000: optimal joint KF 0.00259 | best single-timescale EWMA 0.00260 (1.01x) | nested decoupled 0.00295 (1.14x)
+
+== T4 shared trace with N independent depositors: K^2/(1-K) = N q / r ==
+  N=    1: gain 0.0311  sqrt(Nq/r)=0.0316
+  N=    4: gain 0.0613  sqrt(Nq/r)=0.0632
+  N=   16: gain 0.1187  sqrt(Nq/r)=0.1265
+  N=   64: gain 0.2230  sqrt(Nq/r)=0.2530
+  N=  256: gain 0.3939  sqrt(Nq/r)=0.5060
+  N= 1024: gain 0.6221  sqrt(Nq/r)=1.0119
+  local exponents dlnK/dlnN: [0.489 0.477 0.455 0.41  0.33 ]
+  MC best gain N=1,4,16: [np.float64(0.0343), np.float64(0.0579), np.float64(0.1167)]  theory [0.0316, 0.0632, 0.1265]
+
+== T5 rise-then-fall: bounded staleness loss (Cho & Garcia-Molina form) ==
+marginal freshness at f->0+: 1/lambda  => refreshing pays iff mu*W/lambda > c, i.e. lambda < mu W / c
+F concave in f? d2F/df2 = -lambda*exp(-lambda/f)/f**3
+  d2F/df2 < 0 on grid f in [0.01,100] (lambda=1): True  (F depends on f/lambda only, so this covers all lambda)
+  f*(lambda), mu=1 W=10 c=1: [(0.001, np.float64(0.07)), (0.1, np.float64(0.673)), (1, np.float64(1.88)), (3, np.float64(2.734)), (5, np.float64(2.979)), (7, np.float64(2.87)), (9, np.float64(2.314)), (9.9, np.float64(1.491)), (10.1, 0.0), (20, 0.0)]
+
+== T5b quadratic loss with a bounded read-at-use fallback (cost u per use, use rate mu): cliff ==
+  sigma=0.5: hold 0.707 vs fallback 2.000 -> hold, f*=0.354
+  sigma=1: hold 1.414 vs fallback 2.000 -> hold, f*=0.707
+  sigma=1.4: hold 1.980 vs fallback 2.000 -> hold, f*=0.990
+  sigma=1.42: hold 2.008 vs fallback 2.000 -> fallback, f*=0
+  sigma=2: hold 2.828 vs fallback 2.000 -> fallback, f*=0
+  sigma=4: hold 5.657 vs fallback 2.000 -> fallback, f*=0
+
+== T6 Still et al. 2012: per-step beta<W_diss> = I_mem - I_pred, exact enumeration on a 2-state toy ==
+  step 0: beta<W_diss> = 0.082780   I_mem - I_pred = 0.082780
+  step 1: beta<W_diss> = 0.061964   I_mem - I_pred = 0.061964
+  step 5: beta<W_diss> = 0.046928   I_mem - I_pred = 0.046928
+  step 39: beta<W_diss> = 0.046163   I_mem - I_pred = 0.046163
+  summed: nostalgia 1.91259; relaxation free-energy change -1.04469 (<= 0): total beta<W_diss> = nostalgia - relax = 2.95728 >= nostalgia
+
+== T7a scale-free banding: mean penalty for log-uniform items in a band of log-width D (geometric band, centered) ==
+mean penalty = -(D - 2*sinh(D/2))/D
+at D=ln2: 1 + penalty = sqrt(2)/(2*log(2)) = 1.0201394465967895  (Roundy 1985 power-of-two bound 1/(sqrt2 ln2) = 1.0201)
+worst-case at band edge D=ln2: 0.06066017177982129  (Roundy fixed-base bound ~6%)
+
+== T7b optimal number of levels K for a log-span L of natural intervals, base cost C, per-level upkeep h ==
+small-band approx: K* = 18**(1/3)*C**(1/3)*L**(2/3)/(6*h**(1/3))
+  L=ln(1000) C=100 h=0.5: K* exact 9, approx 9.26; level ratio e^(L/K*) = 2.15
+  L=ln(100000) C=100 h=0.5: K* exact 13, approx 13.02; level ratio e^(L/K*) = 2.42
+
+== T7c coarse-graining: unit of size n, check cost ~ n^gamma, stakes ~ n^delta, aggregate drift variance ~ n^(2H) ==
+T*(n) = sqrt(2)*sqrt(c0)*n**(-H - delta/2 + gamma/2)/(s0*sqrt(w0))  => log-log slope -H - delta/2 + gamma/2
+  var of sum of 8 RWs at t=50 / (8*50): 0.989
+
+== T8a Adler/Kuramoto two oscillators: dphi/dt = dw - K sin(phi); locked iff |dw| <= K ==
+  dw=0.5 K=1.0: mean slip rate 0.0003 (theory sqrt(dw^2-K^2) = 0.0000) -> locked
+  dw=0.99 K=1.0: mean slip rate 0.0007 (theory sqrt(dw^2-K^2) = 0.0000) -> locked
+  dw=1.01 K=1.0: mean slip rate 0.1420 (theory sqrt(dw^2-K^2) = 0.1418) -> drifting (quasi-periodic on T^2)
+  dw=1.5 K=1.0: mean slip rate 1.1177 (theory sqrt(dw^2-K^2) = 1.1180) -> drifting (quasi-periodic on T^2)
+
+== T8b Kuramoto N=2000, Lorentzian width g=0.5 -> K_c = 2g = 1; r_inf = sqrt(1 - K_c/K) ==
+  K=0.5: r = 0.028  theory 0.000
+  K=0.9: r = 0.033  theory 0.000
+  K=1.2: r = 0.404  theory 0.408
+  K=1.6: r = 0.610  theory 0.612
+  K=2.5: r = 0.773  theory 0.775
+
+== T8c identical frequencies: Kuramoto is gradient descent of V = -(K/2N) sum cos(th_i - th_j) on the torus T^N ==
+  V monotone non-increasing: True | V start -0.017 -> end -25.0 (min = -K N/2 = -25.0 : full sync, the torus flow collapses to a point/cycle)
+
+== T7a-extra convexity of the band penalty phi(D) = (2/D) sinh(D/2) - 1 (needed for the Jensen step) ==
+series of phi: D**2/24 + D**4/1920 + O(D**6)
+phi''(D) > 0 on grid D in [0.01, 30]: True
+(all Taylor coefficients of phi are positive: phi = sum_k D^{2k}/(4^k (2k+1)!), so phi is convex on D > 0)

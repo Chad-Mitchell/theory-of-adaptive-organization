@@ -1,0 +1,38 @@
+{
+ "rate0.025_bt0.0": {
+  "n": 3841,
+  "events_mean": 96.025,
+  "power_tau": 0.05333333333333334,
+  "power_P2_inter": 0.12
+ },
+ "rate0.025_bt0.25": {
+  "n": 3841,
+  "events_mean": 96.025,
+  "power_tau": 0.6266666666666667,
+  "power_P2_inter": 0.62
+ },
+ "rate0.025_bt0.5": {
+  "n": 3841,
+  "events_mean": 96.025,
+  "power_tau": 1.0,
+  "power_P2_inter": 0.9666666666666667
+ },
+ "rate0.04_bt0.0": {
+  "n": 3841,
+  "events_mean": 153.64000000000001,
+  "power_tau": 0.013333333333333334,
+  "power_P2_inter": 0.15333333333333332
+ },
+ "rate0.04_bt0.25": {
+  "n": 3841,
+  "events_mean": 153.64000000000001,
+  "power_tau": 0.76,
+  "power_P2_inter": 0.7533333333333333
+ },
+ "rate0.04_bt0.5": {
+  "n": 3841,
+  "events_mean": 153.64000000000001,
+  "power_tau": 1.0,
+  "power_P2_inter": 1.0
+ }
+}

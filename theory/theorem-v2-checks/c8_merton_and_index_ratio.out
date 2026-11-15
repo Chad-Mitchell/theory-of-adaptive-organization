@@ -1,0 +1,10 @@
+== C8a: Merton PD = Phi(-DD), DD = [ln(V/D) + (mu - s^2/2)T]/(s sqrt T). Black-Cox first passage, zero log-drift = 2 Phi(-DD) = erfc(DD/sqrt2) ==
+  mu=0.045: DD=1.189  Merton PD=0.1172  Black-Cox=0.2345  MC first passage=0.2326  2Phi(-DD)=0.2345
+  mu=0.100: DD=1.372  Merton PD=0.0850  Black-Cox=0.1867  MC first passage=0.1876  2Phi(-DD)=0.1700
+  => with zero log-drift, our one-sided 'temperature' ruin erfc(1/(z sqrt2)) IS Black-Cox with buffer ln(V/D) and z = 1/DD, horizon = fix interval.
+== C8b: calendar hazard h = (s^2/B^2) G(z). Exponent ratio r_tau = (dlnh/dln tau)/(dlnh/dln(s/B)) = g/(2(2+g)), g = dlnG/dlnz ==
+  z=0.3: g=9.992  r_tau=0.417   (per-window risk, not calendar hazard, gives exactly 1/2)
+  z=0.35: g=7.041  r_tau=0.389   (per-window risk, not calendar hazard, gives exactly 1/2)
+  z=0.5: g=2.980  r_tau=0.299   (per-window risk, not calendar hazard, gives exactly 1/2)
+  z=1.0: g=0.487  r_tau=0.098   (per-window risk, not calendar hazard, gives exactly 1/2)
+  z=2.0: g=0.103  r_tau=0.024   (per-window risk, not calendar hazard, gives exactly 1/2)

@@ -1,0 +1,10 @@
+case | MFPT(tau=1) | MFPT(tau=2) | eps_tau(doubling) | share of failures by single jump (tau=1)
+diffusion only                                   |    10.79 |     5.66 |   0.93 | 0.00  (unabsorbed 0,0)
+many small symmetric jumps (lam=50, |J|~exp mean .05) |     2.98 |     2.29 |   0.38 | 0.15  (unabsorbed 0,0)
+Pareto a=1.5, xm=0.05, lam=0.5 (P(J>B)=0.011)    |     8.94 |     5.14 |   0.80 | 0.08  (unabsorbed 0,0)
+Pareto a=1.5, xm=0.2, lam=0.5 (P(J>B)=0.089)     |     4.76 |     3.37 |   0.50 | 0.34  (unabsorbed 0,0)
+Pareto a=1.1, xm=0.3, lam=0.5 (P(J>B)=0.266)     |     3.23 |     2.50 |   0.37 | 0.53  (unabsorbed 0,0)
+Pareto a=1.5, xm=0.2, lam=0.5, sigma=0.3 (diffusion z=3.3) |    10.74 |     7.09 |   0.60 | 0.69  (unabsorbed 0,0)
+Pareto a=1.5, xm=0.2, lam=0.5, sigma=0.2 (diffusion z=5) |    13.13 |     9.57 |   0.46 | 0.82  (unabsorbed 0,0)
+single-jump floor: 1/(lam P(J>B)) = 1/(0.5*0.0894) = 22.360679774997894
+Reference: pure diffusion model A doubling elasticity from F_A: ln(F_A(2)/F_A(1.414)*... ) computed in fpt_checks

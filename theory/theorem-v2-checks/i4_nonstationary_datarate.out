@@ -1,0 +1,25 @@
+(a) quantized tracking of x'=a x + w
+  a=1.0 R=1b: MC error var=      inf  lower bound q/(4^R-a^2)=   0.3333  OK
+  a=1.0 R=2b: MC error var=   0.5010  lower bound q/(4^R-a^2)=   0.0667  OK
+  a=1.0 R=3b: MC error var=   0.0912  lower bound q/(4^R-a^2)=   0.0159  OK
+  a=1.5 R=1b: MC error var=      inf  lower bound q/(4^R-a^2)=   0.5714  OK
+  a=1.5 R=2b: MC error var=   1.2557  lower bound q/(4^R-a^2)=   0.0727  OK
+  a=1.5 R=3b: MC error var=   0.1026  lower bound q/(4^R-a^2)=   0.0162  OK
+  a=3.0 R=2b: MC error var=      inf  lower bound q/(4^R-a^2)=   0.1429  OK
+  a=3.0 R=3b: MC error var=   0.3340  lower bound q/(4^R-a^2)=   0.0182  OK
+  noise-free a=3.0, R=1: absolute error after 120 steps 9.23e+22; data-rate theorem says unstable OK
+  noise-free a=3.0, R=2: absolute error after 120 steps 1.01e-13; data-rate theorem says stable OK
+  noise-free a=1.5, R=1: absolute error after 120 steps 2.63e-13; data-rate theorem says stable OK
+(b) random-walk modes q_i=i^-beta: optimal P_i solves P^2+qP-q*theta=0, theta=kappa/(2 ln2 w)
+  beta=0.8: local exponent dlogR/dlog(w/kappa): early 0.500, late 0.494; theory min(1/2,1/beta)=0.500 (beta<=2: tail-dominated, needs cutoff N) OK
+  beta=1.0: local exponent dlogR/dlog(w/kappa): early 0.500, late 0.489; theory min(1/2,1/beta)=0.500 (beta<=2: tail-dominated, needs cutoff N) OK
+  beta=1.5: local exponent dlogR/dlog(w/kappa): early 0.496, late 0.462; theory min(1/2,1/beta)=0.500 (beta<=2: tail-dominated, needs cutoff N) OK
+  beta=2.5: local exponent dlogR/dlog(w/kappa): early 0.407, late 0.390; theory min(1/2,1/beta)=0.400 (beta<=2: tail-dominated, needs cutoff N) OK
+  beta=3.0: local exponent dlogR/dlog(w/kappa): early 0.355, late 0.334; theory min(1/2,1/beta)=0.333 (beta<=2: tail-dominated, needs cutoff N) OK
+  beta<=2: sum_i sqrt(q_i) diverges -> with unbounded per-mode loss an infinite random-walk world is NOT viable; exponent 1/2 = EOQ/sqrt law
+(c) unstable floor + share curve: share(Q) = kappa*(F + c*(Q/kappa)^(1/beta))/Q, F = sum log2 a_i
+  beta=0.7: share minimum interior=True at Q=7.28 (theory Q*=7.17) OK
+  beta=1.0: share minimum interior=False at Q=1e+08 (theory Q*=inf) OK
+  beta=1.5: share minimum interior=False at Q=1e+08 (theory Q*=inf) OK
+  viability with margin mu per unit Q: Q_min = kappa*F/mu (stakes-independent survival tax, Nair-Evans floor)
+ALL OK

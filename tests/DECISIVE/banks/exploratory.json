@@ -1,0 +1,32 @@
+{
+ "E1_plus_growth_size_muROA": [
+  0.189,
+  0.096,
+  0.282
+ ],
+ "E2_drop_clipped_phi": [
+  0.23,
+  0.109,
+  0.35
+ ],
+ "E3_fail_rate_by_tau_quintile_%": [
+  3.32,
+  5.42,
+  5.68,
+  6.25,
+  6.06
+ ],
+ "E4_both_taus": {
+  "lt": [
+   0.327,
+   0.191,
+   0.463
+  ],
+  "lt_own": [
+   -0.174,
+   -0.312,
+   -0.037
+  ]
+ },
+ "corr_ln_tau_detr_vs_own": 0.658
+}

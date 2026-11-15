@@ -1,0 +1,50 @@
+== C1a: staleness risk r(u) for Markov envs is nondecreasing; MA(2) counterexample ==
+two-state chain: r nondecreasing: True
+OU quadratic: r nondecreasing: True
+random 5-state CTMCs x random losses: violations of monotonicity: 0 / 300
+MA(2) prediction MSE by lag k=1,2,3: [2.0, 1.5, 2.0] -> lag-2 reading beats lag-1: NOT monotone (non-Markov in observed coordinate)
+  MC lag 1: MSE=1.9980
+  MC lag 2: MSE=1.4966
+copy-chain MSE by hops 0..4: [0.0, 0.2308, 0.375, 0.4737, 0.5455]
+
+== C1b: hold-or-fade threshold lam_c = Phi/c, Phi = int_0^inf (r_inf - r(u)) du ==
+two-state chain: Phi=0.25, predicted lam_c=5.0
+  lam= 0.01: f*=0.3095  hold=yes
+  lam=  0.1: f*=0.9315  hold=yes
+  lam=  0.5: f*=1.8804  hold=yes
+  lam=    1: f*=2.4260  hold=yes
+  lam=    2: f*=2.9061  hold=yes
+  lam=    3: f*=2.9669  hold=yes
+  lam=    4: f*=2.6717  hold=yes
+  lam=  4.5: f*=2.3138  hold=yes
+  lam=  4.9: f*=1.6798  hold=yes
+  lam=  5.1: f*=0.0000  hold=no
+  lam=    6: f*=0.0000  hold=no
+  lam=   10: f*=0.0000  hold=no
+  small lam=0.0001: f*=0.03156 vs sqrt(lam*r'(0)/2c)=0.03162
+  small lam=0.001: f*=0.09933 vs sqrt(lam*r'(0)/2c)=0.10000
+OU quadratic loss, fixed stationary var s2=1, mean-reversion speed theta = drift speed:
+  predicted theta_c = Phi/c = 10.0
+  theta=0.5: f*=2.8140
+  theta=5: f*=5.9582
+  theta=9.5: f*=4.0052
+  theta=10.5: f*=0.0000
+bounded fallback F < r_inf (read the source at use) gives a CLIFF (f* jumps to 0 from >0):
+  last lam with hold: 1.1  f* there: 2.5016  next: [0.0, 0.0]
+
+== C1c: effort rises with stakes w (Topkis) ==
+  lam=0.5: f*(w=0.5..8) = [np.float64(1.213), np.float64(1.88), np.float64(2.814), np.float64(4.129), np.float64(5.984)]  monotone: True
+  lam=2.0: f*(w=0.5..8) = [np.float64(1.336), np.float64(2.906), np.float64(4.852), np.float64(7.521), np.float64(11.256)]  monotone: True
+
+== C1d: Monte Carlo of periodic checking on two-state chain (lam=1, T=0.3) ==
+  MC J=0.2916  analytic J=0.2907
+
+== C1e: approach to lam_c (blind fallback): f* -> 0 only logarithmically (near-cliff when r_inf is approached exponentially) ==
+  lam=4.9: f*=1.6798
+  lam=4.99: f*=1.1794
+  lam=4.999: f*=0.9087
+  lam=4.9999: f*=0.7411
+fallback F=0.3: predicted lam_c = Phi_F/c with Phi_F = int_0^{s_F}(F-r):
+  s_F=0.4581 Phi_F=0.05837 lam_c=1.1674
+  lam=1.1557: f*=2.5403  (predicted jump value lam_c/s_F=2.5481)
+  lam=1.1791: f*=0.0000  (predicted jump value lam_c/s_F=2.5481)
