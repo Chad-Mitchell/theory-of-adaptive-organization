@@ -1,0 +1,45 @@
+{
+ "inputs": {
+  "effect": 0.267,
+  "sigma": 0.075,
+  "alpha": 0.05,
+  "power": 0.8,
+  "fail_eps": null,
+  "fail_kappa": null,
+  "band_top": null,
+  "noise_df": null,
+  "form": "optimality"
+ },
+ "SNR": 3.5600000000000005,
+ "analytic": {
+  "z": 1.9599639845400536,
+  "fail_threshold": 0.267,
+  "P_pass_true": 0.9452047030502204,
+  "P_fail_null": 0.9452047030502204,
+  "P_fail_true": 0.025000000000000022,
+  "P_pass_null": 0.025000000000000022,
+  "pass_region_empty": false,
+  "best_case_pass_fires": true,
+  "best_case_fail_fires": true
+ },
+ "simulated": {
+  "P_pass_true": 0.94585,
+  "P_fail_true": 0.02385,
+  "P_pass_null": 0.0244,
+  "P_fail_null": 0.94705,
+  "sims": 20000,
+  "seed": 1,
+  "noise_df": null,
+  "noise": "normal"
+ },
+ "needed": {
+  "effect_for_pass": 0.2101188913584726,
+  "sigma_max_for_fail": null,
+  "effect_for_fail": 0.2101188913584726
+ },
+ "pass_reachable": true,
+ "fail_reachable": true,
+ "gate_met": true,
+ "kappa_used": 1.0,
+ "kappa_in_N6_range": null
+}
