@@ -1,0 +1,306 @@
+[
+ {
+  "id": "SPECTRUM-BRIDGE-SIM",
+  "w": 3,
+  "untested": true,
+  "v": 0.6,
+  "L": 4,
+  "c": 4
+ },
+ {
+  "id": "SELF-2",
+  "w": 2,
+  "surprise": "strong",
+  "age_days": 0.1,
+  "v": 0.5,
+  "L": 2,
+  "c": 2
+ },
+ {
+  "id": "WIKIDATA-BAND",
+  "w": 3,
+  "untested": true,
+  "v": 0.4,
+  "L": 1,
+  "c": 4,
+  "note": "TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK (reset reads; signs hold for every H)."
+ },
+ {
+  "id": "SENSE-CELL",
+  "w": 3,
+  "untested": true,
+  "v": 0.3,
+  "L": 2,
+  "c": 5,
+  "note": "v1.4 \u00a72.5: onset exponent is -(1+theta) at every alpha, so the physics matters through the precision-price exponent theta; measure theta and the binding ratio | N12 referee C1: receptor reads are noisy, so at small rho the level is in the priced-precision class; measure theta."
+ },
+ {
+  "id": "IMMUNE",
+  "w": 2,
+  "untested": true,
+  "v": 0.3,
+  "L": 1,
+  "c": 4
+ },
+ {
+  "id": "ONA-MORE",
+  "w": 3,
+  "surprise": "weak",
+  "age_days": 0.1,
+  "v": 0.05,
+  "L": 1,
+  "c": 2
+ },
+ {
+  "id": "VIX-KERNEL",
+  "w": 2,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 3,
+  "note": "TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK (regression kernel = Wiener kernel even for a Bayes market; cannot discriminate Bayes vs linear). | TELEGRAPH-REFEREE (15 Nov): 'OK, cannot discriminate' holds only if realized variance is the market's own observation set; it is neither that nor the latent variance, so state which projection is measured."
+ },
+ {
+  "id": "PRIORART-SCHOLAR",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 1
+ },
+ {
+  "id": "SPECTRUM-MAP-FIXES",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 2,
+  "c": 0.5,
+  "note": "apply SPECTRUM_MAP_REFEREE \u00a78 as an erratum; item 1 applied in THEORY v1.4 PR (15 Nov); items 2-8 remain"
+ },
+ {
+  "id": "AQN-ESTIMATORS",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 3,
+  "c": 1.5,
+  "note": "new (THEORY v1.4): estimators with CIs for alpha (band), q, N from a noisy series and for event worlds; validated on synthetic fBm+noise, Cox and renewal truth before any lock. N13 cannot be tested without them | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. For event/jump worlds estimate jump rate lambda and amplitude mu separately (q = 4 lambda mu^2 is sufficient for the linear tracker only) and state which optimum (linear or Bayes) each estimate feeds. | HEADLINE-PREMISE-SCOPE (15 Nov): at fixed (q, N) the two-state Bayes error spans 364x across splits of q into (lambda, mu) while the linear error moves 2% (reviews/night2/HEADLINE_PREMISE_SCOPE_checks/check.out): for a Bayes optimum q alone is useless; estimate lambda, mu separately and say which optimum each feeds. Weak evidence, no LR change (untested)."
+ },
+ {
+  "id": "SAME-SYSTEM-AQN",
+  "w": 3,
+  "untested": true,
+  "v": 0.6,
+  "L": 4,
+  "c": 4,
+  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the \u00a72.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N16, P5). | TELEGRAPH-REFEREE (15 Nov): that kernel statement holds only for a regression on the system's own observations; a kernel on the true driver can discriminate (N16 v2.9). Bayes adaptation constant: (N/2mu^2)[ln(2mu^2/lambda N) - gamma - 1]."
+ },
+ {
+  "id": "ONSET-ACROSS-ALPHA-SIM",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 3,
+  "note": "new (N12): LEARNSIM-style non-circular learners in fGn worlds at two alpha values, same technology; locked prediction: onset exponent unchanged (-1 reset; -2 linear precision price) | N12 referee (15 Nov): lock the narrowed form: same alpha for shared and private drift, exact reads (or report read noise; noisy reads go to -2 at small rho), stated rho window (fits over [0.01,1] give -0.93 / -1.86)."
+ },
+ {
+  "id": "KERNEL-MEASURE",
+  "w": 2,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 3,
+  "note": "new (THEORY v1.4 \u00a72.2): every earlier memory test measured a need hazard, never a tracking kernel. Measure a response kernel on one system with alpha measured on its driver; predict survival exponent alpha/2 and sign flip at alpha=2. Overlaps VIX-KERNEL | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK if the kernel is a projection/regression kernel (equals the Wiener/Kalman kernel even for a Bayes system; cannot discriminate); NEEDS-PREMISE if it is a step/impulse response to discrete events. | TELEGRAPH-REFEREE (15 Nov): the 'projection kernel cannot discriminate' audit holds only for regressions on the system's own observations; a kernel on the true driver (sensing noise unobserved) differs between Bayes and linear trackers (rel L2 0.61 at kappa=1/60). See KERNEL-INPUT-DISCRIMINATE."
+ },
+ {
+  "id": "FROZEN-DOC-POINTERS",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 1,
+  "c": 0.5,
+  "note": "new: litmap/LEFT_ON_THE_TABLE.md, theory/THEOREMS.md, AUDIT files still state slope 1 / (log-span)^(2/3); add one-line 'superseded by THEORY v1.4 \u00a72.2' pointers (no content edits to frozen files)"
+ },
+ {
+  "id": "SPF-AQN-POWERED",
+  "w": 3,
+  "surprise": "none",
+  "age_days": 0.1,
+  "v": 0.5,
+  "L": 3,
+  "c": 4,
+  "note": "POST HOC S-a: UNEMP/HOUSING/TBILL consensus CG within 0-25% of optimal-filter prediction, alpha=2 rival 2-10x high. Powered version: monthly series for alpha, more surveys/variables (ECB SPF, Livingston), individual panels; dry-run power first (MV8). | 15 Nov SPF-NOISE-PROXY: the S-a rationale is WITHDRAWN (artifact of an invalid N proxy; with measured nowcast noise the filter under-predicts CG 2.5-6x, post hoc). Any powered version must use the L0w noise proxy and the horizon check; see SPF-RIGIDITY-OOS."
+ },
+ {
+  "id": "LAB-AKLMT-TAU",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2,
+  "note": "Afrouzi et al. 2023 QJE replication data (doi 10.7910/dvn/3q6bhc): AR(1) with set persistence rho in {0,...,1}; known DGP; test the fixed-variance tau_E slope (N11 at alpha=2) and memory vs optimum; note their forecasters overreact."
+ },
+ {
+  "id": "ONSET-NOISY-READS",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 1,
+  "note": "new from N12 referee C1: any read noise sends the small-rho onset exponent from -1 to -2 (theta=1 class) at every alpha, with an alpha-dependent crossover. Derive rho_c(alpha, sigma2) in closed form, prove the limit, and state how an N2 test classifies the level's technology."
+ },
+ {
+  "id": "MIXED-ALPHA-ONSET",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 1,
+  "note": "new from N12 referee C2: priced precision keeps -(1+theta) in q_g iff alpha_g - alpha_u < 1; for Delta > 1 the exponent is -(1/Delta - b_g)/(1-a_g) (asymptotic argument, numerics within 3%). Prove; check reset reads; say what a field test must measure."
+ },
+ {
+  "id": "EFFORT-UNITS-ERRATUM",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 2,
+  "c": 0.5,
+  "note": "new from N12 referee C3: formal Lemma 1(viii) 'effort = spend/price' holds only at theta=1; precision elasticities are (a/theta, b/theta); small-share vigilance is rho^-theta in spend but rho^-1 in precision. Dated erratum in THEOREMS/FIXES and the CLAIM_MAP vigilance rows."
+ },
+ {
+  "id": "SPF-RIGIDITY-OOS",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 3,
+  "note": "From SPF-NOISE-PROXY S-1 (post hoc): with the validated nowcast-noise proxy L0w, consensus CG coefficients exceed the optimal noisy-filter beta^G 2.5-6x (UNEMP, HOUSING, TBILL, RSLGOV). Lock 'beta-hat > beta^G(K_L0w)' (and its size) on unseen data: ECB SPF, Livingston, other SPF variables/horizons not yet analysed, or post-2019 with the COVID rule fixed in advance. Bears on N13 (are forecasters near the measured-input optimum?). Dry-run power first. | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK; state the Gaussian premise of the noisy-information filter in the prereg."
+ },
+ {
+  "id": "NOISE-PROXY-REFEREE",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 3,
+  "c": 1,
+  "note": "Hostile referee of SPF-NOISE-PROXY: finite-sample variance bias of D/vf (common.moments_T), level-normalised lower-branch inversion, L0w selection rule, parametric-bootstrap G test (conservative size; Holm floor 0.035 at NSIM 200), env-variance uncertainty for slow yields. Also audit other dispersion-based N in the repo."
+ },
+ {
+  "id": "SPF-NOTE-EDITS",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 1,
+  "c": 0.5,
+  "note": "Proposed (unapplied) edits from SPF-NOISE-PROXY RESULTS: THEORY \u00a72.4/\u00a78c LFK line (S-a artifact) and FRAMEWORK \u00a73 N-measurement rule. Needs independent review before merge (Chad t1916 rule for theory text)."
+ },
+ {
+  "id": "PRIORART-CREDIT-EDITS",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 1,
+  "c": 0.5,
+  "note": "Apply proposed THEORY edits E1 and E3 from reviews/night2/PRIORART_LFK_ALPHA/REPORT.md (bandwidth credit to Bialek, Callan & Strong 1996; Afterman/Kleptsyna as error-rate credit; alpha=2 geometric mean in BCS 1996 before Mora & Nemenman 2019) after an independent reviewer re-reads the BCS passages and the mapping alpha = 2 alpha_B."
+ },
+ {
+  "id": "PRIORART-ENGINEERING-READ",
+  "w": 1,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 1,
+  "note": "Read before crediting: Banerjee, PLL Performance, Simulation and Design (TI free download; 5th ed. pp. 305-306, ideal bandwidth at noise crossover); a primary clock-steering source for the Allan-deviation crossover time-constant rule; Tsybakov 2009 / Ibragimov & Has'minskii 1981 minimax bandwidth for H\u00f6lder signals; published PRL text of BCS 1996; unread citers (Playing it safe; hierarchical timescale hypothesis; Malaguti & ten Wolde 2021 full text)."
+ },
+ {
+  "id": "JUMP-WORLD-ONSET",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2,
+  "note": "From TELEGRAPH-LINEAR-PREMISE item 5 (sketch, S4): if a Bayes-tracking level stays in the power class with local error elasticity eta, onset = -(thetap+eta-eta*thetap)/eta when rho is a ratio of switching rates (-1 at eta=1 for any thetap) and -(1+thetap) when rho is a ratio of squared amplitudes. Derive or simulate for additive shared + private jump drifts (not two-state), LEARNSIM-style; N12 currently rests on linear-MMSE homogeneity."
+ },
+ {
+  "id": "JUMP-STORES",
+  "w": 2,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 3,
+  "note": "From TELEGRAPH-LINEAR-PREMISE: under Bayes tracking the number of 'stores' is the sufficient-statistic dimension, not set by the spectrum. Derive for multi-state chains and for superpositions of switches with log-spaced rates (1/f over a band): Bayes filter dimension and error vs the linear K* ~ ln(span) ln(stakes/upkeep) of THEORY 2.2."
+ },
+ {
+  "id": "GITHUB-VARIOGRAM-CHECK",
+  "w": 1,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 1,
+  "note": "POST-LOCK descriptive check for GITHUB-UPSTREAM (label EXPLORATORY; locked verdicts stand): compute the variogram P(binary weekly state differs at lag s) per flat unit at lags 1-13 weeks and compare its log-log slope (2H_var) with the addendum's Allan-factor H-hat. If they differ, the regime gate measured the change-count process, not the target's variogram (TELEGRAPH-LINEAR-PREMISE audit). | GITHUB-UPSTREAM finished (ledger 36; Allan H-hat 0.61 [0.57, 0.66]; Tier 3, drift instrument failed MV5/MV7(i)/MV8(ii)), so this is interpretive only: w lowered 2 -> 1 at merge."
+ },
+ {
+  "id": "KERNEL-INPUT-DISCRIMINATE",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 1.5,
+  "note": "New from TELEGRAPH-REFEREE V11 (15 Nov): regression kernel of the tracker output on the TRUE driver differs between Bayes and Kalman trackers in a jump world (peaked vs exponential; rel L2 0.61 at kappa=1/60, one example). Derive the Bayes kernel-on-driver shape and its kappa-scaling; design a discriminating kernel test for KERNEL-MEASURE/VIX-KERNEL/SENSE-CELL (stimulus-response with internal noise). In-model first."
+ },
+ {
+  "id": "WONHAM-PRIORART-FULLTEXT",
+  "w": 1,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 0.5,
+  "note": "New from TELEGRAPH-REFEREE \u00a76: read in full (open copy or library route; no paywall sign-in) Khasminskii & Zeitouni 1996, Golubev 2000, Wonham 1964, Liptser-Shiryaev ch. 9, Shiryaev 1963 to confirm the continuous-time constants and whether the closed form 2K0/(K0+K1) or the gamma+1 adaptation constant are stated; update N16 credits."
+ },
+ {
+  "id": "POISSON-SENSING-JUMP",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2,
+  "note": "New from TELEGRAPH-REFEREE \u00a76 / TLP unresolved: Bayes adaptation time, error and read/effort elasticities for a switching world observed through Poisson events (event sensing; relevant to GitHub/Wikidata-style event data); prior art to check first: Peskir & Shiryaev 2002 Poisson disorder problem, point-process filtering (Snyder). In-model."
+ },
+ {
+  "id": "EDIT-MODULATION-SOURCE",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2,
+  "note": "from D3-TWO-EXPONENT-OOS: edit gaps are not renewal (27/27); separate rate modulation (Cox; shared within a repo -> cross-file co-modulation, THEORY section 6 'a shared driver calls for a level') from per-file self-excitation (Hawkes) and life-cycle trend; design + synthetic power before any real run"
+ },
+ {
+  "id": "NEG-DELTA-BETA",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 1,
+  "note": "weak surprise from D3-TWO-EXPONENT-OOS: lodash and Wikipedia dog breeds have delta-beta ~ -0.11 with high M_w; no power-check world produced negative delta; find the mechanism (dormancy after busy phase?)"
+ },
+ {
+  "id": "HEADLINE-PREMISE-APPLY",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 0.5,
+  "note": "Independent reviewer (not the author of reviews/night2/HEADLINE_PREMISE_SCOPE.md) reviews and, if sound, applies P1-P8 to THEORY.md (status block, \u00a70, \u00a71 N6, \u00a72.1, \u00a72.4 Net, \u00a72.5 rule, \u00a79) and CLAIM_MAP N13 text, re-reading THEORY at use; second hostile pass of the full diff before merge (Chad t1916). Premise clause only; no headline or core rewrite; must keep the lock guard (optimum compared fixed in prereg)."
+ },
+ {
+  "id": "REGIME-C-GAUSSIAN-PREMISE",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 0.5,
+  "note": "From HEADLINE-PREMISE-SCOPE P9: THEORY \u00a72.2 Regime C model size \u221d Q^{1/\u03b2} uses reverse water-filling, exact for Gaussian modes; for non-Gaussian sources the Gaussian R(D) is an upper bound (standard fact, not re-read). Read the rate-distortion source, decide whether Q^{1/\u03b2} is Gaussian-only (or an upper bound), and propose scope text for \u00a70/\u00a72.2 Regime C; headline-touching, so an independent applier."
+ }
+]
