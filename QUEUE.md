@@ -65,7 +65,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **Locked prediction:** from Q2, before any run.
 - **Kill:** learned read exponent does not move with H (slope CI includes 0), or learned store count is not larger in 1/f worlds than in OU worlds. In-model only.
 
-### Q6. GITHUB-UPSTREAM (rule rank 6, I = 0.30) — DONE 15 Nov ~11:35 AM ET (started pre-protocol, out of cycle, unscored; ledger 36; `night2/GITHUB/RESULTS.md`)
+### Q6. GITHUB-UPSTREAM (rule rank 6, I = 0.30) — DONE 15 Nov ~11:21 AM ET (started pre-protocol, out of cycle, unscored; ledger 36; `night2/GITHUB/RESULTS.md`)
 - **Tests:** FRAMEWORK §6.7 (drift matching), §6.3 (vigilance), §6.9.
 - **Regime:** gate added before outcomes: `reviews/night2/GITHUB_ADDENDUM_REGIME.md` (Allan-factor Ĥ of the weekly change series).
 - **Data:** public GitHub Actions scheduled runs (read-only `gh`).
