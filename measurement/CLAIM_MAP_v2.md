@@ -1,6 +1,6 @@
 # CLAIM_MAP_v2: A Theory of Adaptive Organization (GTAO), with proxy-aware statuses
 
-Sunday 15 November 2026, about 09:30–10:00 AM ET (America/New_York). Grok Bot executor for Chad Mitchell, via Ace. Private. Nothing was posted, sent or made public. This map **supersedes the status column** of `reviews/night1/CLAIM_MAP_FINAL.md`. That file still holds the full evidence, scope and credit for each row, and row IDs are unchanged. The reason for every change is the measurement re-audit in `FRAMEWORK.md` (same folder). Gates MV1–MV9 are defined in FRAMEWORK §2.2.
+Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot executor for Chad Mitchell, via Ace. Private. Nothing was posted, sent or made public. This map **supersedes the status column** of `reviews/night1/CLAIM_MAP_FINAL.md`. That file still holds the full evidence, scope and credit for each row, and row IDs are unchanged. The reason for every change is the measurement re-audit in `FRAMEWORK.md` (same folder). Gates MV1–MV9 are defined in FRAMEWORK §2.2.
 
 **Why v2 exists.** Chad (t1908): no field test so far measured GTAO's quantities validly, so field "kills" and "hits" were results about **proxies**. v2 says so in every row. It does **not** soften the mathematics. Statements refuted by proof stay refuted (as MATH-CORRECTED, with their replacement), and failed locked simulations stay failed (SIM-FAIL).
 
