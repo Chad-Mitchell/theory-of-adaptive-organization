@@ -353,6 +353,11 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - Note added to **VIX-KERNEL**: tail exponent not resolvable at daily resolution; survival at one horizon measured in KERNEL-MEASURE.
 
 ### NEW (15 Nov ~6:20 PM ET, from ONSET-NOISY-READS; surprises read per rule 4)
-- **ONSET-NOISY-READS-REVIEW** (w 2, c 1). Separate reviewer of PR #60 (THEORY v1.4.11 N12 premise (ii); CLAIM_MAP v2.29): re-derive the collapse, g_α, C_α and ρ_c with own code; check the uniform-convergence step, the α = 1.25 numerics and the curvature-classification claim; settle v1.4.10/v2.28 numbering against PR #58.
+- ~~**ONSET-NOISY-READS-REVIEW**~~ (w 2, c 1) — DONE 15 Nov ~6:27 PM ET (pick 30, RULE slot: top of entry 146, I = 1.8; Ace's unaided rank 7 of 49; ledger 145 unaided order, 146 rule_rank, 147 claim, 148 outcome; first numbered 139–141 on q-pick30, renumbered after a collision with main's 139 and q-pick31's 142–144). **PASS-WITH-FIXES**, PR #60 merged as THEORY v1.4.11 / CLAIM_MAP v2.29 (`reviews/night2/ONSET_NOISY_READS_REVIEW.md`). Every THEORY number reproduces with own code; the author's assumed dense-sampling asymptote is derived from the Kolmogorov–Szegő formula (Szegő ratio 1.00001 at α = 1.25, z = 10⁶); fixes: constants scoped to negligible member read noise, −2 limit in the ratio sense, curvature test only on ρ windows straddling ρ_c. No status change. Original item: Separate reviewer of PR #60 (THEORY v1.4.11 N12 premise (ii); CLAIM_MAP v2.29): re-derive the collapse, g_α, C_α and ρ_c with own code; check the uniform-convergence step, the α = 1.25 numerics and the curvature-classification claim; settle v1.4.10/v2.28 numbering against PR #58.
+
+- **ONSET-SLOPE-POINTWISE** (w 1, c 0.5; from pick 30). Derive z f′(z)/f(z) → 1 − 1/α from the Szegő form so the pointwise local slope −2 is derived, not numerical.
+- **N2-CURVATURE-POWER** (w 2, c 1; from pick 30). Power of onset curvature for classifying the level's technology at realistic noise and ρ windows, before any N2 prereg relies on it.
+
+**Pick 30 done (ledger 148).** 
 
 **Pick 29 done (ledger 138). Next pick (30) is the rule slot (cycle position 2): rule's top among open non-active items (log a fresh unaided order first).**
