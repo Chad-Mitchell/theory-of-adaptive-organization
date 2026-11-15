@@ -1,0 +1,8 @@
+renewal (0.5, 20) {'beta_orig': 0.269, 'beta_shuf': 0.269, 'median_delta': -0.002}
+renewal (0.35, 10) {'beta_orig': 0.425, 'beta_shuf': 0.42, 'median_delta': 0.004}
+renewal (0.25, 5) {'beta_orig': 0.534, 'beta_shuf': 0.523, 'median_delta': 0.001}
+cox (1.0, 1.0, 0.03) {'beta_orig': 0.202, 'beta_shuf': 0.155, 'median_delta': 0.045}
+cox (1.0, 1.5, 0.02) {'beta_orig': 0.376, 'beta_shuf': 0.278, 'median_delta': 0.096}
+cox (0.6, 1.5, 0.02) {'beta_orig': 0.171, 'beta_shuf': 0.123, 'median_delta': 0.049}
+cox (0.4, 1.0, 0.03) {'beta_orig': 0.043, 'beta_shuf': 0.031, 'median_delta': 0.015}
+cox (1.0, 0.6, 0.04) {'beta_orig': 0.078, 'beta_shuf': 0.069, 'median_delta': 0.012}
