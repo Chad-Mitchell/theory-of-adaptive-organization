@@ -32,6 +32,8 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 **v2.16 note (15 Nov 2026, about 3:30 PM ET; QUEUE HEADLINE-PREMISE-REVIEW, pick 14, rule slot, ledger 71–75).** Independent review of the v2.15 / THEORY v1.4.4 change by an executor that authored none of it: **PASS with three narrow THEORY fixes** (a fourth, to the causal kill in N6/§9, proposed only: CAUSAL-KILL-INPUTS) (`reviews/night2/HEADLINE_PREMISE_REVIEW.md`). N13 row text unchanged; **no status change** (N13 stays OPEN). N16's precision elasticities checked numerically by the reviewer (local constant-η formula 1/(θ+η) = 0.542 vs exact optimum 0.552 at κ = 10⁻³, θ = 1: the formula is first-order in the slowly varying η; the difference from the linear 2/3 stands).
 
+**v2.17 note (15 Nov 2026, about 4:00 PM ET; QUEUE ONA-MORE, pick 16, uniform slot, ledger 79–82).** Gate check only (`reviews/night2/ONA_MORE_GATE.md`): no public ONA dataset meets referee REPORT §6.3 (tenure, real reporting units, shared-environment vs own-task generators). No data analysed; **no row or status change** (H8 vigilance stays OPEN). If q-pick15 (STAKES-SHIFT-CAISO) also writes a v2.17 note, it takes v2.18 at merge.
+
 **Why v2 exists.** Chad (t1908): no field test so far measured GTAO's quantities validly, so field "kills" and "hits" were results about **proxies**. v2 says so in every row. It does **not** soften the mathematics. Statements refuted by proof stay refuted (as MATH-CORRECTED, with their replacement), and failed locked simulations stay failed (SIM-FAIL).
 
 ## Statuses (exactly one per row)

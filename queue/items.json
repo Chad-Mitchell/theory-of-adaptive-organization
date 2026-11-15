@@ -89,7 +89,12 @@
   "age_days": 0.1,
   "v": 0.05,
   "L": 1,
-  "c": 2
+  "c": 2,
+  "note": "Gated item (QUEUE Q10; referee REPORT 6.3). DONE 15 Nov ~4:00 PM ET (pick 16, UNIFORM slot, top of entry 80's perm seed 20261195; rule rank 41/41, I = 0.035; ledger 79-81, outcome 82): GATE NOT MET. Criteria G1-G4 fixed before searching (public; real reporting units; tenure; shared-environment vs own-task name generators; not already used). Searched Netzschleuder full catalog (811 nets), networkdata index (990), 3 web searches: no qualifying dataset (Krackhardt has tenure + reports-to but no env item, n = 21, already used; accounting firm, Australian bank branch, company email, others fail; SynthONA is synthetic; Burt/NIST/aerospace/hybrid-work surveys have no public data). No data downloaded or analysed; no prereg needed. H8 vigilance stays OPEN; no status change. -> ONA-INSTRUMENT-DRAFT.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/ONA_MORE_GATE.md"
+  ]
  },
  {
   "id": "PRIORART-SWEEP",
@@ -654,5 +659,14 @@
   "L": 2,
   "c": 0.5,
   "note": "From HEADLINE-PREMISE-REVIEW R2 (15 Nov; reviews/night2/HEADLINE_PREMISE_REVIEW.md §2, §4): THEORY §1 N6 causal form and §9 causal bullet name only alpha, q, N, stakes. For a Bayes-locked jump-world test, lambda and mu can change at fixed q (design staying put would not count: a hole) and a q change split between them can leave the Bayes optimum fixed (§9 'stays put' mis-fires); §9 'stays put' is weaker than N6 'does not move in the predicted direction'; N6's 'after its adjustment lag' is not locked in THEORY (V141 review: a number fixed in each prereg). Exact proposed text in the review §4 R2. A separate applier (not the pick-14 reviewer) applies or rejects it, with an independent second reviewer before merge (kill conditions; Chad t1916). Not urgent: no Bayes-locked or causal-form test is locked yet; until then such preregs must list their inputs and fix the lag as a number."
+ },
+ {
+  "id": "ONA-INSTRUMENT-DRAFT",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 0.5,
+  "note": "From ONA-MORE (gate not met, 15 Nov ~4:00 PM ET; reviews/night2/ONA_MORE_GATE.md): the only realistic route to an ONA test meeting referee REPORT 6.3 is primary collection. Draft and lock, on synthetic data only, a short instrument (shared-environment name generator: who do you go to about changes in customers/markets/regulation/other units; own-task name generator: help with your own work; tenure and reporting line from records; ties inside the lead's own pool excluded from 'outside'), the analysis code (dyadic logit with ego/alter FE, ego tenure x outside, alter-more-senior; QAP node permutation primary; random-effects pool with HKSJ) and a power curve vs organisation size. Process only: no contact with any organisation or person; any collection needs Chad's go."
  }
 ]
