@@ -396,7 +396,13 @@
   "v": 0.9,
   "L": 2,
   "c": 0.5,
-  "note": "Independent review, then apply, THEORY edits E2', E4, E5, E6 proposed in reviews/night2/TELEGRAPH_LINEAR_PREMISE/REPORT.md (premise 'Gaussian world or best linear tracker' on the noisy-sensing rows; jump-world Bayes exponents; reset-read and projection-kernel invariance; C&M credit with ln^2 caveat). Supersedes E2 of PRIORART_LFK_ALPHA. After TELEGRAPH-REFEREE (Chad t1916). | Referee verdicts on E2'/E4/E5/E6 in reviews/night2/TELEGRAPH_REFEREE/REPORT.md §4: E2' accept with changes (gamma+1 constant, closed-form error, elasticities 1/l,1-1/l,-2+2/l, prior-art credits); E4 accept; E5 correct the kernel sentence (own observations only); E6 add eqs (41)/(42) and credits. Unblocked."
+  "note": "Independent review, then apply, THEORY edits E2', E4, E5, E6 proposed in reviews/night2/TELEGRAPH_LINEAR_PREMISE/REPORT.md (premise 'Gaussian world or best linear tracker' on the noisy-sensing rows; jump-world Bayes exponents; reset-read and projection-kernel invariance; C&M credit with ln^2 caveat). Supersedes E2 of PRIORART_LFK_ALPHA. After TELEGRAPH-REFEREE (Chad t1916). | Referee verdicts on E2'/E4/E5/E6 in reviews/night2/TELEGRAPH_REFEREE/REPORT.md §4: E2' accept with changes (gamma+1 constant, closed-form error, elasticities 1/l,1-1/l,-2+2/l, prior-art credits); E4 accept; E5 correct the kernel sentence (own observations only); E6 add eqs (41)/(42) and credits. Unblocked. | DONE 15 Nov ~12:45 PM ET (pick 9, rule slot; ledger 49-52): applied with referee corrections + C1-C5; two passes recorded; THEORY v1.4.3, CLAIM_MAP v2.11 (no status change).",
+  "status": "DONE",
+  "paths": [
+   "THEORY.md (v1.4.3)",
+   "reviews/night2/TLP_EDITS_REVIEW.md",
+   "reviews/night2/TLP_EDITS_REVIEW_checks/"
+  ]
  },
  {
   "id": "JUMP-WORLD-ONSET",
@@ -482,5 +488,14 @@
   "L": 1,
   "c": 1,
   "note": "weak surprise from D3-TWO-EXPONENT-OOS: lodash and Wikipedia dog breeds have delta-beta ~ -0.11 with high M_w; no power-check world produced negative delta; find the mechanism (dormancy after busy phase?)"
+ },
+ {
+  "id": "HEADLINE-PREMISE-SCOPE",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 0.5,
+  "note": "From TLP-EDITS-REVIEW (unresolved): THEORY §0, the status block, §2.1 ('three quantities set the tracking optimum') and §1 N6 / CLAIM_MAP N13 state the noisy-sensing exponents and the inputs (alpha, q, N, stakes) without the premise 'Gaussian world, or the best linear tracker'; for a Bayes tracker of a jump world jump rate and amplitude enter separately. Propose a minimal premise clause; touches the headline, so an independent reviewer applies it (Chad t1916)."
  }
 ]
