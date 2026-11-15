@@ -955,7 +955,8 @@
   "v": 0.8,
   "L": 2,
   "c": 0.5,
-  "note": "From KERNEL-MEASURE (pick 28): independent hostile referee of tests/KERNEL_MEASURE (own code): ok_kernel derivation, like-with-like prediction (sim planned-n 0.277 vs direct 0.301), band choice after AQN R1 'not established', fixed- vs free-noise alpha (decides PASS vs INCONCLUSIVE), block bootstrap, VIX proxies (risk-neutral, log of expectation, overnight omitted); and pass/fail THEORY v1.4.10 PR #58 (DO NOT MERGE without separate reviewer PASS). | PR #58 part DONE 15 Nov ~6:20 PM ET (out-of-cycle, unscored; ledger 139): PASS-WITH-FIXES, merged as THEORY v1.4.10 / CLAIM_MAP v2.28 (reviews/night2/KERNEL_MEASURE_REVIEW.md). Numbers reproduce with own code; like-with-like, band and noise questions ruled; free-noise INCONCLUSIVE was an alpha-only artifact (consistent refits 0.276-0.278). Remaining scope: proxy validity only (variance risk premium, log of expectation, overnight variance, jumps / Gaussian driver premise)."
+  "note": "From KERNEL-MEASURE (pick 28): independent hostile referee of tests/KERNEL_MEASURE (own code): ok_kernel derivation, like-with-like prediction (sim planned-n 0.277 vs direct 0.301), band choice after AQN R1 'not established', fixed- vs free-noise alpha (decides PASS vs INCONCLUSIVE), block bootstrap, VIX proxies (risk-neutral, log of expectation, overnight omitted); and pass/fail THEORY v1.4.10 PR #58 (DO NOT MERGE without separate reviewer PASS). | PR #58 part DONE 15 Nov ~6:20 PM ET (out-of-cycle, unscored; ledger 139): PASS-WITH-FIXES, merged as THEORY v1.4.10 / CLAIM_MAP v2.28 (reviews/night2/KERNEL_MEASURE_REVIEW.md). Numbers reproduce with own code; like-with-like, band and noise questions ruled; free-noise INCONCLUSIVE was an alpha-only artifact (consistent refits 0.276-0.278). Remaining scope: proxy validity only (variance risk premium, log of expectation, overnight variance, jumps / Gaussian driver premise). | Proxy-validity part DONE 15 Nov ~6:50 PM ET (pick 33, rule slot; ledger 153-155 + outcome; reviews/night2/KERNEL_PROXY_REVIEW.md): VIX-free realized-target kernel W21 0.259 +/- 0.058 vs like-with-like 0.258 (P1 PASS on proxy, exploratory); VIX minus realized-target survival 0.0005 +/- 0.055 (post hoc), locked P2 vs realized level UNRESOLVED (MV10 not met); Jensen in-model +0.003; scale distorted (sum of weights VIX 0.75 vs realized 0.88, post hoc); overnight open (KERNEL-OVERNIGHT-REFIT).",
+  "status": "DONE"
  },
  {
   "id": "KERNEL-DECISIVE-RV",
@@ -964,7 +965,7 @@
   "v": 0.6,
   "L": 2,
   "c": 3,
-  "note": "From KERNEL-MEASURE: a decisive kernel test needs realized sigma_D <= 0.04: lower driver noise (intraday realized variance or a second independent proxy for N, MV5) and a tighter alpha (SE ~0.02); or a second system (other implied-vol indices: VSTOXX, VXN; or non-market trackers). Lock before data, MV10 at the measured tracker-noise ratio (VIX r ~0.4-0.5). | KERNEL-MEASURE review (ledger 139): alpha precision is not the binding constraint (W21_pred is pinned by the in-band spectrum; joint-cov sigma_pred 0.023); the bootstrap SE of W21 alone (0.041) exceeds 0.040, so a decisive design must cut tracker/driver noise or add data/systems."
+  "note": "From KERNEL-MEASURE: a decisive kernel test needs realized sigma_D <= 0.04: lower driver noise (intraday realized variance or a second independent proxy for N, MV5) and a tighter alpha (SE ~0.02); or a second system (other implied-vol indices: VSTOXX, VXN; or non-market trackers). Lock before data, MV10 at the measured tracker-noise ratio (VIX r ~0.4-0.5). | KERNEL-MEASURE review (ledger 139): alpha precision is not the binding constraint (W21_pred is pinned by the in-band spectrum; joint-cov sigma_pred 0.023); the bootstrap SE of W21 alone (0.041) exceeds 0.040, so a decisive design must cut tracker/driver noise or add data/systems. | KERNEL-MEASURE-REFEREE proxy part (pick 33): the VIX-free realized-target kernel is noisier (boot sd 0.058) than VIX's own (0.042) at daily resolution, so realized-target checks cannot be decisive either; intraday RV or more systems still needed."
  },
  {
   "id": "AQN-R1-NOISE-BAND",
@@ -1024,5 +1025,31 @@
   "L": 1,
   "c": 2,
   "note": "From C3B-GATE-ADDENDUM (pick 31): C3b's real n (<= 2,294) cannot meet MV10 under PREREG sec. 5's assumptions (needs ~3,500-4,000). Before any stage 3-6 run, decide: run as exploratory (A3 already labels it), or redesign before outcomes (a sixth exogenous shock or wider frame to reach n ~4,000; a kappa-relative K1 margin; S9 without near-collinear latency, e.g. pre-shock cadence) in a new dated addendum with its own MV10 output. Outcome data must stay unread until then."
+ },
+ {
+  "id": "KERNEL-OVERNIGHT-REFIT",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 1,
+  "status": null,
+  "paths": [
+   "reviews/night2/KERNEL_PROXY_REVIEW.md"
+  ],
+  "note": "From KERNEL-MEASURE-REFEREE proxy part (pick 33, descriptive): on 2008-2026 VIX's W21 is 0.268 +/- 0.067 on the intraday Parkinson driver but 0.358 +/- 0.056 on a close-to-close driver ln(Parkinson + overnight return^2) (overnight = 14.6% of variance). Refit alpha, q, N on the close-to-close driver (regime first) and compute the like-with-like prediction before reading the shift; lock + MV10 first."
+ },
+ {
+  "id": "VIX-GAIN-SCALE",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 1,
+  "status": null,
+  "paths": [
+   "reviews/night2/KERNEL_PROXY_REVIEW.md"
+  ],
+  "note": "From KERNEL-MEASURE-REFEREE proxy part (pick 33, POST HOC): VIX's total kernel loading on past log range variance is 0.754 +/- 0.028 vs 0.878 +/- 0.042 for the realized 21-day mean log (paired -0.124 +/- 0.050; simulated best linear tracker 0.976). Shape (W21) unaffected. Test a premium-elasticity explanation (premium shrinking in relative terms as variance rises) before any test reads a tracker's gain from VIX."
  }
 ]

@@ -367,3 +367,11 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **C3B-STAGE4-DECIDE** (w 2, c 2). Before any C3b stage 3–6 run: run as exploratory (A3 labels it) or redesign before outcomes (sixth exogenous shock / wider frame to n ≈ 4,000; κ-relative K1 margin; S9 control not collinear with tau) in a dated addendum with its own MV10 output.
 
 **Pick 31 done (unaided slot; ledger 142–144 + outcome 152; pick 30's entries were renumbered to 145–148 and merged; pick 32 (uniform slot) holds 149–151 on q-pick32). Next pick (33) is the rule slot (cycle position 1). Recheck all pushed branches before any ledger write.**
+
+### NEW (15 Nov ~6:50 PM ET, from KERNEL-MEASURE-REFEREE proxy part; surprises read per rule 4)
+- ~~**KERNEL-MEASURE-REFEREE**~~ — proxy-validity part DONE (pick 33, RULE slot; ledger 153 unaided, 154 rule_rank, 155 claim + outcome): `reviews/night2/KERNEL_PROXY_REVIEW.md`, prereg `reviews/night2/KERNEL_PROXY_PREREG.md` (lock `c1e13b2`, MV10: P1 rival rule met, band and P2 not met → exploratory). VIX-free realized-target kernel W21 0.259 ± 0.058 vs like-with-like 0.258: **passed on proxy, exploratory**. VIX vs realized target 0.0005 ± 0.055 (post hoc); locked P2 vs realized level UNRESOLVED. Jensen +0.003 in-model. Scale distorted (Σβ VIX 0.75 vs 0.88, post hoc), shape not. Item DONE.
+- Surprise read: **weak** — the proxy distortions cancel in the shape statistic but show up as a ~0.12 gain deficit; no row moves.
+- **KERNEL-OVERNIGHT-REFIT** (w 2, c 1). Close-to-close driver (2008–2026) moves VIX's W21 0.268 → 0.358; refit α, q, N on that driver, like-with-like prediction, lock + MV10 before reading.
+- **VIX-GAIN-SCALE** (w 1, c 1). Post hoc VIX gain deficit (Σβ 0.754 ± 0.028 vs realized 0.878 ± 0.042); test a premium-elasticity explanation before any test reads a tracker's gain from VIX.
+
+**Pick 33 done (rule slot; ledger 153–155 + outcome). Pick 32 (uniform) active on q-pick32. Next pick (34) is the rule slot (cycle position 2). Recheck all pushed branches before any ledger write.**
