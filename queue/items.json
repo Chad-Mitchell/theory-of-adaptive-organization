@@ -947,8 +947,8 @@
   "untested": true,
   "v": 0.8,
   "L": 2,
-  "c": 1,
-  "note": "From KERNEL-MEASURE (pick 28): independent hostile referee of tests/KERNEL_MEASURE (own code): ok_kernel derivation, like-with-like prediction (sim planned-n 0.277 vs direct 0.301), band choice after AQN R1 'not established', fixed- vs free-noise alpha (decides PASS vs INCONCLUSIVE), block bootstrap, VIX proxies (risk-neutral, log of expectation, overnight omitted); and pass/fail THEORY v1.4.10 PR #58 (DO NOT MERGE without separate reviewer PASS)."
+  "c": 0.5,
+  "note": "From KERNEL-MEASURE (pick 28): independent hostile referee of tests/KERNEL_MEASURE (own code): ok_kernel derivation, like-with-like prediction (sim planned-n 0.277 vs direct 0.301), band choice after AQN R1 'not established', fixed- vs free-noise alpha (decides PASS vs INCONCLUSIVE), block bootstrap, VIX proxies (risk-neutral, log of expectation, overnight omitted); and pass/fail THEORY v1.4.10 PR #58 (DO NOT MERGE without separate reviewer PASS). | PR #58 part DONE 15 Nov ~6:20 PM ET (out-of-cycle, unscored; ledger 139): PASS-WITH-FIXES, merged as THEORY v1.4.10 / CLAIM_MAP v2.28 (reviews/night2/KERNEL_MEASURE_REVIEW.md). Numbers reproduce with own code; like-with-like, band and noise questions ruled; free-noise INCONCLUSIVE was an alpha-only artifact (consistent refits 0.276-0.278). Remaining scope: proxy validity only (variance risk premium, log of expectation, overnight variance, jumps / Gaussian driver premise)."
  },
  {
   "id": "KERNEL-DECISIVE-RV",
@@ -957,7 +957,7 @@
   "v": 0.6,
   "L": 2,
   "c": 3,
-  "note": "From KERNEL-MEASURE: a decisive kernel test needs realized sigma_D <= 0.04: lower driver noise (intraday realized variance or a second independent proxy for N, MV5) and a tighter alpha (SE ~0.02); or a second system (other implied-vol indices: VSTOXX, VXN; or non-market trackers). Lock before data, MV10 at the measured tracker-noise ratio (VIX r ~0.4-0.5)."
+  "note": "From KERNEL-MEASURE: a decisive kernel test needs realized sigma_D <= 0.04: lower driver noise (intraday realized variance or a second independent proxy for N, MV5) and a tighter alpha (SE ~0.02); or a second system (other implied-vol indices: VSTOXX, VXN; or non-market trackers). Lock before data, MV10 at the measured tracker-noise ratio (VIX r ~0.4-0.5). | KERNEL-MEASURE review (ledger 139): alpha precision is not the binding constraint (W21_pred is pinned by the in-band spectrum; joint-cov sigma_pred 0.023); the bootstrap SE of W21 alone (0.041) exceeds 0.040, so a decisive design must cut tracker/driver noise or add data/systems."
  },
  {
   "id": "AQN-R1-NOISE-BAND",

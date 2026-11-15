@@ -7,7 +7,7 @@ GTAO models every adaptive organization with one budget: holding memory, predict
 
 ## Canonical files (read these; everything else is a derivation or history)
 - `THEORY.md` — the theory (v1.4.7).
-- `measurement/FRAMEWORK.md`, `measurement/CLAIM_MAP_v2.md` (v2.27; sections G, K, N) — how quantities are measured; one status per claim.
+- `measurement/FRAMEWORK.md`, `measurement/CLAIM_MAP_v2.md` (v2.28; sections G, K, N) — how quantities are measured; one status per claim.
 - `QUEUE.md` + `queue/` — live work, ordered by Proposition SG, with a ledger.
 - `reviews/night2/SPECTRUM_MAP_REFEREE.md` — why the tracking layer was demoted.
 
@@ -47,6 +47,7 @@ GTAO models every adaptive organization with one budget: holding memory, predict
 - DISCRETE-TA-N16-REVIEW DONE (out-of-cycle, unscored; ledger 133; `reviews/night2/DISCRETE_TA_N16_REVIEW.md`, about 6:02 PM ET): independent reviewer **passed with fixes** PR #53, merged as THEORY v1.4.9 (§2.2 Regime A premise bullet: t_A definition and sampled-grid scope; CLAIM_MAP v2.26). Grid coefficient −ζ(½)/√(2π) ≈ 0.58 holds only as κ → 0 (0.567 at κ = 10⁻²); thresholds labelled by law and clock origin. No status change; no locked prereg moves.
 - ONSET-NOISY-READS DONE (pick 29, rule slot; ledger 134–136 + outcome 138; `reviews/night2/ONSET_NOISY_READS/REPORT.md`, about 6:20 PM ET): in-model, own code. Noisy-read pooling onset collapses to N\*ρ = X_α(σ²/ρ); noise-limited level = θ = 1 class (−2 at every α); closed crossover ρ_c = σ² C_α α^{−α/(α−1)} (≈ 2.7/4.8/8.4 σ² at α = 1.5/2/2.5). THEORY v1.4.11 edit in author-only PR #60, **not merged** (awaits separate reviewer, QUEUE ONSET-NOISY-READS-REVIEW). No status change.
 - KERNEL-MEASURE DONE (pick 28, uniform slot; ledger 130–132 + outcome; `tests/KERNEL_MEASURE/RESULTS.md`, about 6:10 PM ET): first measured tracking kernel (VIX on S&P 500 range variance). **Passed on proxy, exploratory** (resolution 0.049 > locked 0.040; inconclusive with free-noise α̂). THEORY v1.4.10 evidence edit in PR #58, DO NOT MERGE without separate reviewer PASS. No CLAIM_MAP status change.
+- KERNEL-MEASURE-REFEREE, PR #58 part DONE (out-of-cycle, unscored; ledger 139; `reviews/night2/KERNEL_MEASURE_REVIEW.md`, about 6:20 PM ET): independent reviewer **passed with fixes** PR #58, merged as THEORY v1.4.10 (§2.2, §2.4 row and Net: first measured tracking kernel, **passed on proxy (VIX vs range variance), exploratory**) and CLAIM_MAP v2.28. Key numbers reproduce with own code. Correction: the free-noise "INCONCLUSIVE" sensitivity moved α alone; consistent refits give 0.276–0.278, so neither the noise treatment nor the band choice decides the verdict. Still exploratory (bootstrap SE 0.041 > 0.040). No status change; no locked goalpost moved; vigilance OPEN. Referee item stays open for proxy validity.
 - New items from v1.4: ONSET-SPECTRUM-FREE-REFEREE, AQN-ESTIMATORS, SAME-SYSTEM-AQN, ONSET-ACROSS-ALPHA-SIM, KERNEL-MEASURE, FROZEN-DOC-POINTERS.
 
 ## Results since v1.1 (details in THEORY §8c, CLAIM_MAP_v2 §G, §N)
