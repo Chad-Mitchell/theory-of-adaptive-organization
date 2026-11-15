@@ -1,0 +1,3 @@
+continuous-rate band slope (OLS log S on log w over [0.002, pi]): 0.999
+binned   : median alpha-hat 1.033, sd 0.051 (40 reps, n=8192, Poisson floor fixed)
+piecewise: median alpha-hat 0.776, sd 0.053 (40 reps, n=8192, Poisson floor fixed)

@@ -1,0 +1,3 @@
+additive sd 0.7        OLS 0.898  IV 1.984  (true 2; multiplicative analytic IV 2.000)
+multiplicative c=0.5   OLS 0.765  IV 1.569  (true 2; multiplicative analytic IV 1.600)
+multiplicative c=1.0   OLS 0.310  IV 0.992  (true 2; multiplicative analytic IV 1.000)

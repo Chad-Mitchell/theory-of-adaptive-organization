@@ -1,0 +1,8 @@
+n 9214
+full band: alpha 2.004 Wald SE 0.026  logq -5.70  m 4606
+excess kurtosis of increments 2.44
+var(I/f) 1.05 (Exp(1): 1)
+acf of squared increments lags 1-5: [np.float64(0.107), np.float64(0.096), np.float64(0.086), np.float64(0.1), np.float64(0.109)]
+K=4 blocks of 2303: block alphas sd 0.053 vs median Wald SE 0.052; ratio 1.01; implied full-sample SE 0.027; block alphas [2.08, 1.99, 1.96, 1.98]
+K=8 blocks of 1151: block alphas sd 0.055 vs median Wald SE 0.076; ratio 0.73; implied full-sample SE 0.020; block alphas [2.08, 2.09, 2.02, 1.94, 1.97, 1.97, 1.99, 1.97]
+K=16 blocks of 575: block alphas sd 0.075 vs median Wald SE 0.111; ratio 0.68; implied full-sample SE 0.019; block alphas [2.16, 2.04, 2.06, 2.15, 1.99, 2.04, 2.0, 1.91, 1.97, 1.99, 2.0, 1.98, 2.17, 1.97, 1.97, 2.0]

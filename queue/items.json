@@ -234,7 +234,7 @@
   "v": 0.6,
   "L": 4,
   "c": 4,
-  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the §2.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N16, P5). | TELEGRAPH-REFEREE (15 Nov): that kernel statement holds only for a regression on the system's own observations; a kernel on the true driver can discriminate (N16 v2.9). Bayes adaptation constant: (N/2mu^2)[ln(2mu^2/lambda N) - gamma - 1]. | AQN-ESTIMATORS (15 Nov): estimators now exist (measurement/estimators/). Binding input is STAKES: identified only from exogenous error variation (self-selected error biases the slope ~3x low; IV does not fix it). Choose a system with designed/natural-experiment error variation (STAKES-EXOGENOUS). Record length: +/-0.1 on alpha needs M ~ 400 frequencies below the noise crossover; >=16 switches for lambda in a jump world. | STAKES-EXOGENOUS (15 Nov): CAISO stakes positive and identified in sign but only to +/-70% from one year (N21); stakes moved ~4x 2024->2025. CAISO is a candidate system (design quantity: forecast update cadence / horizon); needs STAKES-PRECISION first."
+  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the §2.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N16, P5). | TELEGRAPH-REFEREE (15 Nov): that kernel statement holds only for a regression on the system's own observations; a kernel on the true driver can discriminate (N16 v2.9). Bayes adaptation constant: (N/2mu^2)[ln(2mu^2/lambda N) - gamma - 1]. | AQN-ESTIMATORS (15 Nov): estimators now exist (measurement/estimators/). Binding input is STAKES: identified only from exogenous error variation (self-selected error biases the slope ~3x low; IV does not fix it). Choose a system with designed/natural-experiment error variation (STAKES-EXOGENOUS). Record length: +/-0.1 on alpha needs M ~ 400 frequencies below the noise crossover; >=16 switches for lambda in a jump world. | STAKES-EXOGENOUS (15 Nov): CAISO stakes positive and identified in sign but only to +/-70% from one year (N21); stakes moved ~4x 2024->2025. CAISO is a candidate system (design quantity: forecast update cadence / horizon); needs STAKES-PRECISION first. AQN-REFEREE V3: 'SE(alpha) ~ 1/sqrt(M); +-0.1 needs M ~ 400' holds only when the noise floor is visible in band (omega_c <~ 0.5); with the floor above Nyquist SE is 1.5-2.3/sqrt(M) (M ~ 1200-2100). Use the information-matrix SE at the planned design (MV10)."
  },
  {
   "id": "ONSET-SPECTRUM-FREE-REFEREE",
@@ -285,7 +285,7 @@
   "v": 0.5,
   "L": 3,
   "c": 4,
-  "note": "POST HOC S-a: UNEMP/HOUSING/TBILL consensus CG within 0-25% of optimal-filter prediction, alpha=2 rival 2-10x high. Powered version: monthly series for alpha, more surveys/variables (ECB SPF, Livingston), individual panels; dry-run power first (MV8). | 15 Nov SPF-NOISE-PROXY: the S-a rationale is WITHDRAWN (artifact of an invalid N proxy; with measured nowcast noise the filter under-predicts CG 2.5-6x, post hoc). Any powered version must use the L0w noise proxy and the horizon check; see SPF-RIGIDITY-OOS. | AQN-ESTIMATORS (15 Nov): SE(alpha) ~ 1/sqrt(M); quarterly SPF (n ~ 240) cannot reach +/-0.1 on alpha; any powered version needs monthly/longer series or pooling across variables."
+  "note": "POST HOC S-a: UNEMP/HOUSING/TBILL consensus CG within 0-25% of optimal-filter prediction, alpha=2 rival 2-10x high. Powered version: monthly series for alpha, more surveys/variables (ECB SPF, Livingston), individual panels; dry-run power first (MV8). | 15 Nov SPF-NOISE-PROXY: the S-a rationale is WITHDRAWN (artifact of an invalid N proxy; with measured nowcast noise the filter under-predicts CG 2.5-6x, post hoc). Any powered version must use the L0w noise proxy and the horizon check; see SPF-RIGIDITY-OOS. | AQN-ESTIMATORS (15 Nov): SE(alpha) ~ 1/sqrt(M); quarterly SPF (n ~ 240) cannot reach +/-0.1 on alpha; any powered version needs monthly/longer series or pooling across variables. AQN-REFEREE V3: record-length rule optimistic up to 2.3x in SE when the floor is above Nyquist; compute SE from the expected information."
  },
  {
   "id": "SPF-NOISE-PROXY",
@@ -567,7 +567,12 @@
   "v": 0.8,
   "L": 3,
   "c": 1,
-  "note": "From AQN-ESTIMATORS (15 Nov): independent hostile referee of measurement/estimators/ (estimators, aliasing, Wald SEs, validation design, acceptance rules, the R1 label gap at alpha~2 without a corner on DGS10, the E-truth 2pi fix, the demo reading) and of proposed edits E-A1..E-A5 (FRAMEWORK 3.1/3.3, THEORY 2.4 Net, 11). Before SAME-SYSTEM-AQN relies on the estimators."
+  "note": "From AQN-ESTIMATORS (15 Nov): independent hostile referee of measurement/estimators/ (estimators, aliasing, Wald SEs, validation design, acceptance rules, the R1 label gap at alpha~2 without a corner on DGS10, the E-truth 2pi fix, the demo reading) and of proposed edits E-A1..E-A5 (FRAMEWORK 3.1/3.3, THEORY 2.4 Net, 11). Before SAME-SYSTEM-AQN relies on the estimators. DONE 15 Nov (pick 21, rule slot; ledger 100-102 + outcome): PASS-WITH-FIXES; E-A2 FAILS (premise test power 0/24 vs jump-diffusion); SE rule 1/sqrt(M) understates SE 1.5-2.3x when the floor is above Nyquist; R1 mislabels a random walk as B (R1' proposed); plug-in t_A off 1.1-1.9x on sampled grids at t_A < ~20 steps; replicate IV needs additive error.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/AQN_REFEREE.md",
+   "reviews/night2/AQN_REFEREE_checks/"
+  ]
  },
  {
   "id": "STAKES-EXOGENOUS",
@@ -596,9 +601,9 @@
   "w": 2,
   "untested": true,
   "v": 0.7,
-  "L": 2,
+  "L": 3,
   "c": 1.5,
-  "note": "From AQN-ESTIMATORS (15 Nov): the validated premise test compares only symmetric two-state switching vs Gaussian Markov. Extend: multi-state / asymmetric HMM, power-law jump (compound Poisson with heavy tails), fBm-Gaussian null via exact Gaussian likelihood or Whittle-calibrated bootstrap; size/power on synthetic truth. Pairs with JUMP-STORES."
+  "note": "From AQN-ESTIMATORS (15 Nov): the validated premise test compares only symmetric two-state switching vs Gaussian Markov. Extend: multi-state / asymmetric HMM, power-law jump (compound Poisson with heavy tails), fBm-Gaussian null via exact Gaussian likelihood or Whittle-calibrated bootstrap; size/power on synthetic truth. Pairs with JUMP-STORES. AQN-REFEREE V7 (referee flag, 15 Nov): the locked premise test rejected 0/24 jump-diffusion random walks (jumps half the variance, excess kurtosis 52) while kurtosis flagged 24/24; must include compound-Poisson jump-diffusion alternatives and a GARCH (vol-clustering, no jumps) null. Exposure L 2 -> 3 (SAME-SYSTEM-AQN, DGS10 reading, E-A2' depend on it)."
  },
  {
   "id": "KG-FEASIBILITY-GATE",
@@ -824,5 +829,23 @@
   "L": 2,
   "c": 3,
   "note": "From SPF-RIGIDITY-OOS (gate not met, 15 Nov ~5:15 PM ET): the SPF's unused quarterly growth/inflation variables cannot power the post hoc rigidity test (c = consensus CG / optimal-filter beta at measured nowcast noise). Route: Livingston Survey (Philadelphia Fed, public, semiannual since 1946; level series such as unemployment, T-bill, bond yields) and/or ECB SPF (public microdata since 1999). Needs first: a nowcast/short-horizon noise instrument for their horizon design validated on synthetic truth (SPF-NOISE-PROXY method), then the MV10 power simulation of tests/SPF_RIGIDITY_OOS/power.py on planned data; lock only if both rules reach 0.8. State the Gaussian noisy-filter premise. | NOISE-PROXY-REFEREE (15 Nov): the instrument step must include a branch check (consensus nowcast variance vs both roots of the level curve) and a validated K range covering the estimates."
+ },
+ {
+  "id": "DISCRETE-TA",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 1,
+  "note": "From AQN-REFEREE V8 (15 Nov): the continuous-time Bayes t_A plug-in (N16) differs from an exact discrete-time two-state filter's crossing time by 1.14-1.89x at t_A 0.6-14 steps (1.07-1.11x at 56-151 steps). Derive or tabulate the sampled-grid Bayes adaptation time vs per-sample SNR and lambda, fix the definition against N16's, independent numerical check; before any N16 field test on sampled data."
+ },
+ {
+  "id": "AQN-EDITS-APPLY",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 1,
+  "c": 0.5,
+  "note": "From AQN-REFEREE (15 Nov): apply E-A1 (with fixes a-c), E-A2' (replacing failed E-A2) and E-A3 (additive-error assumption) to FRAMEWORK 3.1/3.3; add R1' as a dated addendum in measurement/estimators/ (locked files untouched); corner model alias tail fix noted. THEORY 2.4 Net / 11 pointer edits E-A4, E-A5 with the wording fix ('refereed, with scope limits') by a separate applier."
  }
 ]
