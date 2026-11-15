@@ -5,7 +5,7 @@ Canonical copy. Ace's working folder holds only a pointer to this file. Updated 
 ## How the queue runs (binding)
 
 1. **Read at use.** Before taking an item, read `THEORY.md` (status block, §2.2, §2.5 and the section the item tests) and `STATUS.md`. Do not work from a summary.
-2. **Regime first.** Every prereg names the regime (A single-pace / B scale-free with measured H or α / C many modes with β / not established), measured on the same system, then derives the prediction from `THEORY.md`, quoting the section and the premise checks (THEORY §2.5). Field results are labelled "passed / failed on proxy X". Never "law".
+2. **Regime first.** Every prereg names the regime (A α = 2 Markov / B scale-free with measured α over a stated band / C many modes with β / not established), measured on the same system, then derives the prediction from `THEORY.md`, quoting the section and the premise checks (THEORY §2.5). Field results are labelled "passed / failed on proxy X". Never "law".
 3. **Order by SURPRISE-GUIDED-SEARCH (protocol v2, from ledger entry 6; entries 0–5 are pre-protocol and not scored).** The full protocol is the docstring of `queue/sg_rank.py`. Before each pick:
    a. Commit an `unaided_order` entry covering exactly the items to be ranked, **before** running the rule (same commit, earlier timestamp).
    b. Update `queue/items.json` and run `python3 queue/sg_rank.py log queue/items.json <entry> <unaided_entry>`. It stores the numeric index and P per item, the unaided ranks, the items-file hash, a full uniform permutation (`random.Random(20261115 + entry).shuffle(sorted(ids))`) and γ-sensitivity orders (0.2, 0.8).
@@ -95,7 +95,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 ### NEW (15 Nov 09:26 ET, from SPECTRUM_MAP; surprises read per rule 4)
 - **SPECTRUM-MAP-REFEREE** — DONE 15 Nov 09:40 AM ET (pick 1, ledger 13/14): `reviews/night2/SPECTRUM_MAP_REFEREE.md`. Items 1–2 confirmed; 3 confirmed/KNOWN but its inference withdrawn; 4 prior art plus a price, α = 2 a knife-edge; 5 correct in-model but valid only at fixed variance and prior art in substance (τ ∝ (N/q)^{1/α}; α = 2 in Mora & Nemenman 2019); 6 lock verified, pass reproduced, explanation wrong (estimator mismatch), D3S non-discriminating vs Cox. CLAIM_MAP v2.2: K12, K13, H19 → MATH-CORRECTED; N10, N11 added. Headline demotion endorsed and strengthened (§7).
-- **THEORY-2.2-REWRITE** (w 3; now unblocked by the referee; use its §7 headline and §8 list). Decide and apply: regime A = "α = 2 / Markov" not "one pace"; drop "(log-span)^{2/3}"; separate tracking kernels from re-occurrence hazards; two exponents for event worlds; demote "central new bet". Chad-visible wording change of the headline.
+- **THEORY-2.2-REWRITE** — DONE 15 Nov ~10:00 AM ET (pick 2, rule slot; ledger 15–18). THEORY.md v1.4: §0 headline demoted per referee §7 (tracking layer = classical filtering + approximation theory + a price, credited; open bet = measured-input optimality at every scale, CLAIM_MAP N13/J6); §2.2 rewritten by regime with premises; K12, K13, H19, N7, N10, N11, G23–G29 applied; new elementary §2.5 result N12 (formal onset exponent α-independent: −1 reset reads, −(1+θ) priced precision; self-checked, not refereed). CLAIM_MAP v2.3. Chad-visible wording.
 - **LFK-ALPHA-SPF** (w 3, untested). Locked public-data test of P-LFKα: SPF forecaster gains (Coibion–Gorodnichenko measure) across CPI, unemployment, T-bill, GDP growth vs each variable's τ_E and α (FRED). Regime measured first. Kill: slope CI excludes 1−1/α and includes ½. **Referee (15 Nov): the τ_E form holds only at fixed variance; at fixed q the slope is 0. Lock the normalisation-free form τ_m ∝ (N/q)^{1/α} with q (high-frequency level) and N (forecast-noise proxy) measured per variable, or the test is of a normalisation.**
 - **VIX-KERNEL** (w 2, untested). Kernel of implied log-variance on past realized log-variance: tail ≈ τ^{−(1+α/2)} with α measured from realized variance (≈ 1.2 if H ≈ 0.1), positive weights. Public CBOE/FRED VIX and index returns.
 - **D3-TWO-EXPONENT-OOS** (w 2, untested). Locked out-of-sample version of D3S on ≥ 20 new repos and Wikipedia: renewal-implied β tracks measured β (Spearman > 0.3), gap-shuffle Δβ median ≤ 0.05. **Referee (15 Nov): as written this cannot discriminate (a pure Cox world gives Δβ ≈ 0.045 at β ≈ 0.2; Cox also gives positive Spearman(β, a)). Replace with D3-DISCRIMINATE.**
@@ -105,6 +105,18 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **SPECTRUM-MAP-FIXES** (w 1). Apply SPECTRUM_MAP_REFEREE §8 items 1–8 to `reviews/night2/SPECTRUM_MAP/README.md` (as a dated erratum block; locked files untouched).
 - **PRIORART-SCHOLAR** (w 1). Google Scholar gap of Q1 (only via a sanctioned route; no sign-in).
 
+### NEW (15 Nov ~10:00 AM ET, from THEORY v1.4; surprises read per rule 4)
+- **ONSET-SPECTRUM-FREE-REFEREE** (w 3, c 1). Hostile math + prior-art referee of THEORY §2.5 / CLAIM_MAP N12: the formal onset exponent is −1 for reset reads and −(1+θ) for precision-priced sensing at every α (self-check `reviews/night2/THEORY14_checks/onset_classes.out`). *Why:* a surprise in the rewrite (the spectrum drops out of the formal exponents); it changes what an N2 test measures (technology, not world).
+- **AQN-ESTIMATORS** (w 2, c 1.5). Estimators with CIs for α over a stated band, q and N from a noisy series, plus event-world versions; validated on synthetic fBm+noise, Cox and renewal truth before any lock. *Why:* the open bet (N13) needs all four inputs measured on one system; no estimator is validated (§11 process item "dry-runs on synthetic truth").
+- **SAME-SYSTEM-AQN** (w 3, c 4; after AQN-ESTIMATORS). First test of N13: on one real system measure α, q, N, stakes and one design quantity (read rate, memory time or store count); lock the §2.2 prediction against fixed-budget-share and universal-½ rivals. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). Regime measured first.
+- **ONSET-ACROSS-ALPHA-SIM** (w 2, c 3). Non-circular learners (LEARNSIM harness) in fGn worlds at two α values with one technology. Locked prediction from N12: onset exponent unchanged (−1 reset; −2 linear precision price). In-model only.
+- **KERNEL-MEASURE** (w 2, c 3). Every earlier memory test measured a need hazard, never a tracking kernel (§2.2). Measure a response kernel on one system with α measured on its driver; predict survival exponent α/2 and the sign flip at α = 2. Overlaps VIX-KERNEL.
+- **FROZEN-DOC-POINTERS** (w 1, c 0.5). One-line "superseded by THEORY v1.4 §2.2" pointers in frozen files that still state slope 1 or (log-span)^{2/3} (`litmap/LEFT_ON_THE_TABLE.md`, `theory/THEOREMS.md`); no content edits.
+- Note on **SENSE-CELL**: by §2.5 the physics matters through θ, the price exponent of precision; measure θ and the binding ratio together.
+- Note on **SPECTRUM-MAP-FIXES**: item 1 ("whatever linear predictor") applied in the v1.4 PR; items 2–8 remain.
+
+**Next pick (3) is the unaided slot:** log a fresh unaided order covering the items to be ranked, run the rule, then take the unaided top (rule's if the same).
+
 ## Done (frozen)
 - MEASURE-SELF: `reviews/night2/SELF/` (refereed; re-read under THEORY §2.5 in §8c).
 - VIGIL_ONA: `prereg/vigil-ona/` (refereed).
@@ -112,4 +124,5 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - Divergence audit: `reviews/night2/AUDIT_DIVERGENCE.md`.
 - PRIORART-SWEEP (gap-fill) and SPECTRUM-MAP-DERIVE: `reviews/night2/SPECTRUM_MAP/` (refereed: `reviews/night2/SPECTRUM_MAP_REFEREE.md`).
 - SPECTRUM-MAP-REFEREE: `reviews/night2/SPECTRUM_MAP_REFEREE.md` + `reviews/night2/SPECTRUM_MAP_REFEREE_checks/`.
-- LEARNSIM: `tests/LEARNSIM/`, referee `reviews/night2/LEARNSIM_REFEREE.md` (T1.8 NOT PASSED; no CLAIM_MAP status change).
+- LEARNSIM: `tests/LEARNSIM/`, referee `reviews/night2/LEARNSIM_REFEREE.md` (T1.8 NOT PASSED; no existing CLAIM_MAP status change; rows G23–G29 added in v2.3).
+- THEORY-2.2-REWRITE: `THEORY.md` v1.4, `measurement/CLAIM_MAP_v2.md` v2.3, `reviews/night2/THEORY14_checks/`.
