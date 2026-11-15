@@ -1,0 +1,1733 @@
+{
+ "R": 20000,
+ "z1.645": {
+  "theory true, clean": {
+   "sign": 0.0,
+   "band": 0.06,
+   "k0.25": 0.0,
+   "k0.25_adj": 0.0,
+   "k0.5": 0.0,
+   "k0.5_adj": 0.0,
+   "k1.0": 0.056,
+   "k1.0_adj": 0.056
+  },
+  "true, s=0.63 (L=tau)": {
+   "sign": 0.0,
+   "band": 0.892,
+   "k0.25": 0.0,
+   "k0.25_adj": 0.0,
+   "k0.5": 0.003,
+   "k0.5_adj": 0.0,
+   "k1.0": 0.937,
+   "k1.0_adj": 0.055
+  },
+  "true, s=0.39 (L=tau/2)": {
+   "sign": 0.0,
+   "band": 0.998,
+   "k0.25": 0.002,
+   "k0.25_adj": 0.0,
+   "k0.5": 0.255,
+   "k0.5_adj": 0.001,
+   "k1.0": 0.999,
+   "k1.0_adj": 0.055
+  },
+  "true, lam=0.5": {
+   "sign": 0.0,
+   "band": 0.972,
+   "k0.25": 0.0,
+   "k0.25_adj": 0.0,
+   "k0.5": 0.056,
+   "k0.5_adj": 0.0,
+   "k1.0": 0.986,
+   "k1.0_adj": 0.056
+  },
+  "true, s=0.63 and lam=0.5": {
+   "sign": 0.0,
+   "band": 1.0,
+   "k0.25": 0.011,
+   "k0.25_adj": 0.0,
+   "k0.5": 0.599,
+   "k0.5_adj": 0.001,
+   "k1.0": 1.0,
+   "k1.0_adj": 0.059
+  },
+  "true, alpha se 0.3": {
+   "sign": 0.0,
+   "band": 0.26,
+   "k0.25": 0.0,
+   "k0.25_adj": 0.0,
+   "k0.5": 0.0,
+   "k0.5_adj": 0.0,
+   "k1.0": 0.199,
+   "k1.0_adj": 0.199
+  },
+  "Bayes switching (kN16=1e-3, b=1/l) vs linear lock": {
+   "sign": 0.0,
+   "band": 0.999,
+   "k0.25": 0.01,
+   "k0.25_adj": 0.01,
+   "k0.5": 0.458,
+   "k0.5_adj": 0.458,
+   "k1.0": 1.0,
+   "k1.0_adj": 1.0
+  },
+  "false: b=0": {
+   "sign": 0.057,
+   "band": 1.0,
+   "k0.25": 0.73,
+   "k0.25_adj": 0.73,
+   "k0.5": 0.993,
+   "k0.5_adj": 0.993,
+   "k1.0": 1.0,
+   "k1.0_adj": 1.0
+  },
+  "false: b=b*/4": {
+   "sign": 0.0,
+   "band": 1.0,
+   "k0.25": 0.057,
+   "k0.25_adj": 0.057,
+   "k0.5": 0.726,
+   "k0.5_adj": 0.726,
+   "k1.0": 1.0,
+   "k1.0_adj": 1.0
+  },
+  "false: b=-b*/2": {
+   "sign": 0.993,
+   "band": 1.0,
+   "k0.25": 1.0,
+   "k0.25_adj": 1.0,
+   "k0.5": 1.0,
+   "k0.5_adj": 1.0,
+   "k1.0": 1.0,
+   "k1.0_adj": 1.0
+  },
+  "false: b=0 with s=0.63, lam=0.5": {
+   "sign": 0.054,
+   "band": 1.0,
+   "k0.25": 0.923,
+   "k0.25_adj": 0.269,
+   "k0.5": 1.0,
+   "k0.5_adj": 0.648,
+   "k1.0": 1.0,
+   "k1.0_adj": 0.981
+  }
+ },
+ "z1.96": {
+  "theory true, clean": {
+   "sign": 0.0,
+   "band": 0.063,
+   "k0.25": 0.0,
+   "k0.25_adj": 0.0,
+   "k0.5": 0.0,
+   "k0.5_adj": 0.0,
+   "k1.0": 0.032,
+   "k1.0_adj": 0.032
+  },
+  "true, s=0.63 (L=tau)": {
+   "sign": 0.0,
+   "band": 0.894,
+   "k0.25": 0.0,
+   "k0.25_adj": 0.0,
+   "k0.5": 0.001,
+   "k0.5_adj": 0.0,
+   "k1.0": 0.894,
+   "k1.0_adj": 0.03
+  },
+  "true, s=0.39 (L=tau/2)": {
+   "sign": 0.0,
+   "band": 0.998,
+   "k0.25": 0.001,
+   "k0.25_adj": 0.0,
+   "k0.5": 0.176,
+   "k0.5_adj": 0.0,
+   "k1.0": 0.998,
+   "k1.0_adj": 0.03
+  },
+  "true, lam=0.5": {
+   "sign": 0.0,
+   "band": 0.972,
+   "k0.25": 0.0,
+   "k0.25_adj": 0.0,
+   "k0.5": 0.03,
+   "k0.5_adj": 0.0,
+   "k1.0": 0.972,
+   "k1.0_adj": 0.03
+  },
+  "true, s=0.63 and lam=0.5": {
+   "sign": 0.0,
+   "band": 1.0,
+   "k0.25": 0.006,
+   "k0.25_adj": 0.0,
+   "k0.5": 0.482,
+   "k0.5_adj": 0.0,
+   "k1.0": 1.0,
+   "k1.0_adj": 0.031
+  },
+  "true, alpha se 0.3": {
+   "sign": 0.0,
+   "band": 0.257,
+   "k0.25": 0.0,
+   "k0.25_adj": 0.0,
+   "k0.5": 0.0,
+   "k0.5_adj": 0.0,
+   "k1.0": 0.16,
+   "k1.0_adj": 0.16
+  },
+  "Bayes switching (kN16=1e-3, b=1/l) vs linear lock": {
+   "sign": 0.0,
+   "band": 0.999,
+   "k0.25": 0.005,
+   "k0.25_adj": 0.005,
+   "k0.5": 0.347,
+   "k0.5_adj": 0.347,
+   "k1.0": 0.999,
+   "k1.0_adj": 0.999
+  },
+  "false: b=0": {
+   "sign": 0.029,
+   "band": 1.0,
+   "k0.25": 0.615,
+   "k0.25_adj": 0.615,
+   "k0.5": 0.987,
+   "k0.5_adj": 0.987,
+   "k1.0": 1.0,
+   "k1.0_adj": 1.0
+  },
+  "false: b=b*/4": {
+   "sign": 0.0,
+   "band": 1.0,
+   "k0.25": 0.029,
+   "k0.25_adj": 0.029,
+   "k0.5": 0.621,
+   "k0.5_adj": 0.621,
+   "k1.0": 1.0,
+   "k1.0_adj": 1.0
+  },
+  "false: b=-b*/2": {
+   "sign": 0.986,
+   "band": 1.0,
+   "k0.25": 1.0,
+   "k0.25_adj": 1.0,
+   "k0.5": 1.0,
+   "k0.5_adj": 1.0,
+   "k1.0": 1.0,
+   "k1.0_adj": 1.0
+  },
+  "false: b=0 with s=0.63, lam=0.5": {
+   "sign": 0.03,
+   "band": 1.0,
+   "k0.25": 0.872,
+   "k0.25_adj": 0.183,
+   "k0.5": 1.0,
+   "k0.5_adj": 0.525,
+   "k1.0": 1.0,
+   "k1.0_adj": 0.967
+  }
+ },
+ "q2_z1.645": {
+  "true L/tau=1.0 lam=1 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.063,
+   "prop": 0.051,
+   "known": 0.054
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.106,
+   "prop": 0.051,
+   "known": 0.054
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.185,
+   "prop": 0.069,
+   "known": 0.054
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=20 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=20 k=0.5": {
+   "plug": 0.001,
+   "prop": 0.001,
+   "known": 0.001
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=20 k=1.0": {
+   "plug": 0.15,
+   "prop": 0.071,
+   "known": 0.057
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.001,
+   "prop": 0.001,
+   "known": 0.001
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.121,
+   "prop": 0.059,
+   "known": 0.057
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=200 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=200 k=0.5": {
+   "plug": 0.001,
+   "prop": 0.001,
+   "known": 0.001
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=200 k=1.0": {
+   "plug": 0.102,
+   "prop": 0.049,
+   "known": 0.057
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=20 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=20 k=0.5": {
+   "plug": 0.003,
+   "prop": 0.001,
+   "known": 0.001
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=20 k=1.0": {
+   "plug": 0.16,
+   "prop": 0.059,
+   "known": 0.057
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.002,
+   "prop": 0.001,
+   "known": 0.001
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.132,
+   "prop": 0.049,
+   "known": 0.057
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=200 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=200 k=0.5": {
+   "plug": 0.002,
+   "prop": 0.001,
+   "known": 0.001
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=200 k=1.0": {
+   "plug": 0.119,
+   "prop": 0.044,
+   "known": 0.057
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=20 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=20 k=0.5": {
+   "plug": 0.005,
+   "prop": 0.002,
+   "known": 0.001
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=20 k=1.0": {
+   "plug": 0.183,
+   "prop": 0.046,
+   "known": 0.057
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.003,
+   "prop": 0.001,
+   "known": 0.001
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.16,
+   "prop": 0.039,
+   "known": 0.057
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=200 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=200 k=0.5": {
+   "plug": 0.003,
+   "prop": 0.001,
+   "known": 0.001
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=200 k=1.0": {
+   "plug": 0.14,
+   "prop": 0.037,
+   "known": 0.057
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.001,
+   "prop": 0.001,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.064,
+   "prop": 0.057,
+   "known": 0.057
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.001,
+   "prop": 0.001,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.099,
+   "prop": 0.055,
+   "known": 0.057
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.005,
+   "prop": 0.001,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.184,
+   "prop": 0.047,
+   "known": 0.057
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=20 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=20 k=0.5": {
+   "plug": 0.006,
+   "prop": 0.004,
+   "known": 0.004
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=20 k=1.0": {
+   "plug": 0.109,
+   "prop": 0.06,
+   "known": 0.056
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.004,
+   "prop": 0.003,
+   "known": 0.004
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.089,
+   "prop": 0.052,
+   "known": 0.056
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=200 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=200 k=0.5": {
+   "plug": 0.004,
+   "prop": 0.003,
+   "known": 0.004
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=200 k=1.0": {
+   "plug": 0.082,
+   "prop": 0.047,
+   "known": 0.056
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=20 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=20 k=0.5": {
+   "plug": 0.006,
+   "prop": 0.004,
+   "known": 0.004
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=20 k=1.0": {
+   "plug": 0.128,
+   "prop": 0.051,
+   "known": 0.056
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.005,
+   "prop": 0.003,
+   "known": 0.004
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.109,
+   "prop": 0.045,
+   "known": 0.056
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=200 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=200 k=0.5": {
+   "plug": 0.004,
+   "prop": 0.002,
+   "known": 0.004
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=200 k=1.0": {
+   "plug": 0.097,
+   "prop": 0.041,
+   "known": 0.056
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=20 k=0.25": {
+   "plug": 0.001,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=20 k=0.5": {
+   "plug": 0.014,
+   "prop": 0.004,
+   "known": 0.004
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=20 k=1.0": {
+   "plug": 0.165,
+   "prop": 0.034,
+   "known": 0.056
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.011,
+   "prop": 0.003,
+   "known": 0.004
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.151,
+   "prop": 0.031,
+   "known": 0.056
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=200 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=200 k=0.5": {
+   "plug": 0.009,
+   "prop": 0.003,
+   "known": 0.004
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=200 k=1.0": {
+   "plug": 0.141,
+   "prop": 0.031,
+   "known": 0.056
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.424,
+   "prop": 0.422,
+   "known": 0.423
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.866,
+   "prop": 0.862,
+   "known": 0.87
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.999,
+   "prop": 0.999,
+   "known": 1.0
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.425,
+   "prop": 0.412,
+   "known": 0.423
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.855,
+   "prop": 0.831,
+   "known": 0.87
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.998,
+   "prop": 0.996,
+   "known": 1.0
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.431,
+   "prop": 0.387,
+   "known": 0.423
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.819,
+   "prop": 0.722,
+   "known": 0.87
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.986,
+   "prop": 0.939,
+   "known": 1.0
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=20 k=0.25": {
+   "plug": 0.291,
+   "prop": 0.249,
+   "known": 0.276
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=20 k=0.5": {
+   "plug": 0.601,
+   "prop": 0.464,
+   "known": 0.646
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=20 k=1.0": {
+   "plug": 0.844,
+   "prop": 0.614,
+   "known": 0.982
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.284,
+   "prop": 0.255,
+   "known": 0.276
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.602,
+   "prop": 0.496,
+   "known": 0.646
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.865,
+   "prop": 0.691,
+   "known": 0.982
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=200 k=0.25": {
+   "plug": 0.279,
+   "prop": 0.258,
+   "known": 0.276
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=200 k=0.5": {
+   "plug": 0.601,
+   "prop": 0.517,
+   "known": 0.646
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=200 k=1.0": {
+   "plug": 0.875,
+   "prop": 0.745,
+   "known": 0.982
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=20 k=0.25": {
+   "plug": 0.29,
+   "prop": 0.246,
+   "known": 0.276
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=20 k=0.5": {
+   "plug": 0.599,
+   "prop": 0.447,
+   "known": 0.646
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=20 k=1.0": {
+   "plug": 0.842,
+   "prop": 0.602,
+   "known": 0.982
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.285,
+   "prop": 0.251,
+   "known": 0.276
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.597,
+   "prop": 0.48,
+   "known": 0.646
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.861,
+   "prop": 0.675,
+   "known": 0.982
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=200 k=0.25": {
+   "plug": 0.28,
+   "prop": 0.254,
+   "known": 0.276
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=200 k=0.5": {
+   "plug": 0.594,
+   "prop": 0.499,
+   "known": 0.646
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=200 k=1.0": {
+   "plug": 0.875,
+   "prop": 0.727,
+   "known": 0.982
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=20 k=0.25": {
+   "plug": 0.29,
+   "prop": 0.229,
+   "known": 0.276
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=20 k=0.5": {
+   "plug": 0.582,
+   "prop": 0.39,
+   "known": 0.646
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=20 k=1.0": {
+   "plug": 0.824,
+   "prop": 0.53,
+   "known": 0.982
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.287,
+   "prop": 0.236,
+   "known": 0.276
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.583,
+   "prop": 0.421,
+   "known": 0.646
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.839,
+   "prop": 0.599,
+   "known": 0.982
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=200 k=0.25": {
+   "plug": 0.28,
+   "prop": 0.24,
+   "known": 0.276
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=200 k=0.5": {
+   "plug": 0.584,
+   "prop": 0.44,
+   "known": 0.646
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=200 k=1.0": {
+   "plug": 0.852,
+   "prop": 0.647,
+   "known": 0.982
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.239,
+   "prop": 0.238,
+   "known": 0.238
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.557,
+   "prop": 0.551,
+   "known": 0.555
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.952,
+   "prop": 0.947,
+   "known": 0.957
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.244,
+   "prop": 0.236,
+   "known": 0.238
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.559,
+   "prop": 0.525,
+   "known": 0.555
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.938,
+   "prop": 0.904,
+   "known": 0.957
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.26,
+   "prop": 0.229,
+   "known": 0.238
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.563,
+   "prop": 0.452,
+   "known": 0.555
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.893,
+   "prop": 0.745,
+   "known": 0.957
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=20 k=0.25": {
+   "plug": 0.172,
+   "prop": 0.158,
+   "known": 0.165
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=20 k=0.5": {
+   "plug": 0.376,
+   "prop": 0.313,
+   "known": 0.358
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=20 k=1.0": {
+   "plug": 0.704,
+   "prop": 0.529,
+   "known": 0.795
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.17,
+   "prop": 0.161,
+   "known": 0.165
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.363,
+   "prop": 0.318,
+   "known": 0.358
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.707,
+   "prop": 0.573,
+   "known": 0.795
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=200 k=0.25": {
+   "plug": 0.168,
+   "prop": 0.161,
+   "known": 0.165
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=200 k=0.5": {
+   "plug": 0.362,
+   "prop": 0.329,
+   "known": 0.358
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=200 k=1.0": {
+   "plug": 0.713,
+   "prop": 0.606,
+   "known": 0.795
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=20 k=0.25": {
+   "plug": 0.174,
+   "prop": 0.157,
+   "known": 0.165
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=20 k=0.5": {
+   "plug": 0.375,
+   "prop": 0.297,
+   "known": 0.358
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=20 k=1.0": {
+   "plug": 0.692,
+   "prop": 0.498,
+   "known": 0.795
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.172,
+   "prop": 0.159,
+   "known": 0.165
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.367,
+   "prop": 0.306,
+   "known": 0.358
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.699,
+   "prop": 0.538,
+   "known": 0.795
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=200 k=0.25": {
+   "plug": 0.172,
+   "prop": 0.16,
+   "known": 0.165
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=200 k=0.5": {
+   "plug": 0.365,
+   "prop": 0.316,
+   "known": 0.358
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=200 k=1.0": {
+   "plug": 0.704,
+   "prop": 0.573,
+   "known": 0.795
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=20 k=0.25": {
+   "plug": 0.184,
+   "prop": 0.152,
+   "known": 0.165
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=20 k=0.5": {
+   "plug": 0.382,
+   "prop": 0.254,
+   "known": 0.358
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=20 k=1.0": {
+   "plug": 0.665,
+   "prop": 0.389,
+   "known": 0.795
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.179,
+   "prop": 0.153,
+   "known": 0.165
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.376,
+   "prop": 0.266,
+   "known": 0.358
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.673,
+   "prop": 0.433,
+   "known": 0.795
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=200 k=0.25": {
+   "plug": 0.181,
+   "prop": 0.157,
+   "known": 0.165
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=200 k=0.5": {
+   "plug": 0.378,
+   "prop": 0.281,
+   "known": 0.358
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=200 k=1.0": {
+   "plug": 0.681,
+   "prop": 0.465,
+   "known": 0.795
+  }
+ },
+ "q2_z1.96": {
+  "true L/tau=1.0 lam=1 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.035,
+   "prop": 0.028,
+   "known": 0.029
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.068,
+   "prop": 0.028,
+   "known": 0.029
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=1 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.148,
+   "prop": 0.048,
+   "known": 0.029
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=20 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=20 k=0.5": {
+   "plug": 0.001,
+   "prop": 0.001,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=20 k=1.0": {
+   "plug": 0.111,
+   "prop": 0.044,
+   "known": 0.031
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.001,
+   "prop": 0.001,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.086,
+   "prop": 0.032,
+   "known": 0.031
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=200 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=200 k=0.5": {
+   "plug": 0.001,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.1 m=200 k=1.0": {
+   "plug": 0.071,
+   "prop": 0.026,
+   "known": 0.031
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=20 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=20 k=0.5": {
+   "plug": 0.001,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=20 k=1.0": {
+   "plug": 0.124,
+   "prop": 0.034,
+   "known": 0.031
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.001,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.098,
+   "prop": 0.024,
+   "known": 0.031
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=200 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=200 k=0.5": {
+   "plug": 0.001,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.25 m=200 k=1.0": {
+   "plug": 0.082,
+   "prop": 0.021,
+   "known": 0.031
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=20 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=20 k=0.5": {
+   "plug": 0.003,
+   "prop": 0.001,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=20 k=1.0": {
+   "plug": 0.145,
+   "prop": 0.025,
+   "known": 0.031
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.001,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.122,
+   "prop": 0.02,
+   "known": 0.031
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=200 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=200 k=0.5": {
+   "plug": 0.001,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=1.0 lam=0.5 sd_logtau=0.5 m=200 k=1.0": {
+   "plug": 0.111,
+   "prop": 0.018,
+   "known": 0.031
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.035,
+   "prop": 0.029,
+   "known": 0.031
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.001,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.065,
+   "prop": 0.027,
+   "known": 0.031
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.002,
+   "prop": 0.001,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=1 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.147,
+   "prop": 0.025,
+   "known": 0.031
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=20 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=20 k=0.5": {
+   "plug": 0.003,
+   "prop": 0.002,
+   "known": 0.001
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=20 k=1.0": {
+   "plug": 0.072,
+   "prop": 0.035,
+   "known": 0.031
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.002,
+   "prop": 0.001,
+   "known": 0.001
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.059,
+   "prop": 0.029,
+   "known": 0.031
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=200 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=200 k=0.5": {
+   "plug": 0.002,
+   "prop": 0.001,
+   "known": 0.001
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.1 m=200 k=1.0": {
+   "plug": 0.05,
+   "prop": 0.026,
+   "known": 0.031
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=20 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=20 k=0.5": {
+   "plug": 0.003,
+   "prop": 0.002,
+   "known": 0.001
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=20 k=1.0": {
+   "plug": 0.09,
+   "prop": 0.028,
+   "known": 0.031
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.002,
+   "prop": 0.001,
+   "known": 0.001
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.075,
+   "prop": 0.022,
+   "known": 0.031
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=200 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=200 k=0.5": {
+   "plug": 0.002,
+   "prop": 0.001,
+   "known": 0.001
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.25 m=200 k=1.0": {
+   "plug": 0.066,
+   "prop": 0.021,
+   "known": 0.031
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=20 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=20 k=0.5": {
+   "plug": 0.007,
+   "prop": 0.001,
+   "known": 0.001
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=20 k=1.0": {
+   "plug": 0.13,
+   "prop": 0.015,
+   "known": 0.031
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.006,
+   "prop": 0.001,
+   "known": 0.001
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.115,
+   "prop": 0.014,
+   "known": 0.031
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=200 k=0.25": {
+   "plug": 0.0,
+   "prop": 0.0,
+   "known": 0.0
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=200 k=0.5": {
+   "plug": 0.005,
+   "prop": 0.001,
+   "known": 0.001
+  },
+  "true L/tau=0.5 lam=0.5 sd_logtau=0.5 m=200 k=1.0": {
+   "plug": 0.108,
+   "prop": 0.014,
+   "known": 0.031
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.315,
+   "prop": 0.312,
+   "known": 0.315
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.797,
+   "prop": 0.791,
+   "known": 0.8
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.998,
+   "prop": 0.998,
+   "known": 0.999
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.316,
+   "prop": 0.303,
+   "known": 0.315
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.785,
+   "prop": 0.748,
+   "known": 0.8
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.996,
+   "prop": 0.99,
+   "known": 0.999
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.328,
+   "prop": 0.282,
+   "known": 0.315
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.754,
+   "prop": 0.618,
+   "known": 0.8
+  },
+  "b=0 L/tau=1.0 lam=1 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.978,
+   "prop": 0.884,
+   "known": 0.999
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=20 k=0.25": {
+   "plug": 0.201,
+   "prop": 0.165,
+   "known": 0.184
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=20 k=0.5": {
+   "plug": 0.515,
+   "prop": 0.367,
+   "known": 0.529
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=20 k=1.0": {
+   "plug": 0.812,
+   "prop": 0.534,
+   "known": 0.965
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.195,
+   "prop": 0.169,
+   "known": 0.184
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.508,
+   "prop": 0.388,
+   "known": 0.529
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.83,
+   "prop": 0.608,
+   "known": 0.965
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=200 k=0.25": {
+   "plug": 0.192,
+   "prop": 0.172,
+   "known": 0.184
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=200 k=0.5": {
+   "plug": 0.505,
+   "prop": 0.41,
+   "known": 0.529
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.1 m=200 k=1.0": {
+   "plug": 0.846,
+   "prop": 0.666,
+   "known": 0.965
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=20 k=0.25": {
+   "plug": 0.204,
+   "prop": 0.162,
+   "known": 0.184
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=20 k=0.5": {
+   "plug": 0.512,
+   "prop": 0.345,
+   "known": 0.529
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=20 k=1.0": {
+   "plug": 0.803,
+   "prop": 0.507,
+   "known": 0.965
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.197,
+   "prop": 0.166,
+   "known": 0.184
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.502,
+   "prop": 0.366,
+   "known": 0.529
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.819,
+   "prop": 0.58,
+   "known": 0.965
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=200 k=0.25": {
+   "plug": 0.193,
+   "prop": 0.167,
+   "known": 0.184
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=200 k=0.5": {
+   "plug": 0.5,
+   "prop": 0.387,
+   "known": 0.529
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.25 m=200 k=1.0": {
+   "plug": 0.835,
+   "prop": 0.636,
+   "known": 0.965
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=20 k=0.25": {
+   "plug": 0.204,
+   "prop": 0.145,
+   "known": 0.184
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=20 k=0.5": {
+   "plug": 0.498,
+   "prop": 0.284,
+   "known": 0.529
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=20 k=1.0": {
+   "plug": 0.78,
+   "prop": 0.414,
+   "known": 0.965
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.203,
+   "prop": 0.154,
+   "known": 0.184
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.493,
+   "prop": 0.308,
+   "known": 0.529
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.794,
+   "prop": 0.473,
+   "known": 0.965
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=200 k=0.25": {
+   "plug": 0.197,
+   "prop": 0.156,
+   "known": 0.184
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=200 k=0.5": {
+   "plug": 0.489,
+   "prop": 0.328,
+   "known": 0.529
+  },
+  "b=0 L/tau=1.0 lam=0.5 sd_logtau=0.5 m=200 k=1.0": {
+   "plug": 0.807,
+   "prop": 0.515,
+   "known": 0.965
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.161,
+   "prop": 0.159,
+   "known": 0.159
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.443,
+   "prop": 0.436,
+   "known": 0.442
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.918,
+   "prop": 0.91,
+   "known": 0.923
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.167,
+   "prop": 0.159,
+   "known": 0.159
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.45,
+   "prop": 0.408,
+   "known": 0.442
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.894,
+   "prop": 0.835,
+   "known": 0.923
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.18,
+   "prop": 0.152,
+   "known": 0.159
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.466,
+   "prop": 0.333,
+   "known": 0.442
+  },
+  "b=0 L/tau=0.5 lam=1 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.845,
+   "prop": 0.606,
+   "known": 0.923
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=20 k=0.25": {
+   "plug": 0.104,
+   "prop": 0.092,
+   "known": 0.097
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=20 k=0.5": {
+   "plug": 0.275,
+   "prop": 0.214,
+   "known": 0.255
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=20 k=1.0": {
+   "plug": 0.63,
+   "prop": 0.427,
+   "known": 0.699
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=50 k=0.25": {
+   "plug": 0.102,
+   "prop": 0.094,
+   "known": 0.097
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=50 k=0.5": {
+   "plug": 0.268,
+   "prop": 0.219,
+   "known": 0.255
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=50 k=1.0": {
+   "plug": 0.629,
+   "prop": 0.467,
+   "known": 0.699
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=200 k=0.25": {
+   "plug": 0.1,
+   "prop": 0.094,
+   "known": 0.097
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=200 k=0.5": {
+   "plug": 0.262,
+   "prop": 0.226,
+   "known": 0.255
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.1 m=200 k=1.0": {
+   "plug": 0.63,
+   "prop": 0.497,
+   "known": 0.699
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=20 k=0.25": {
+   "plug": 0.108,
+   "prop": 0.091,
+   "known": 0.097
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=20 k=0.5": {
+   "plug": 0.281,
+   "prop": 0.2,
+   "known": 0.255
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=20 k=1.0": {
+   "plug": 0.622,
+   "prop": 0.389,
+   "known": 0.699
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=50 k=0.25": {
+   "plug": 0.107,
+   "prop": 0.095,
+   "known": 0.097
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=50 k=0.5": {
+   "plug": 0.272,
+   "prop": 0.208,
+   "known": 0.255
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=50 k=1.0": {
+   "plug": 0.623,
+   "prop": 0.421,
+   "known": 0.699
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=200 k=0.25": {
+   "plug": 0.104,
+   "prop": 0.095,
+   "known": 0.097
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=200 k=0.5": {
+   "plug": 0.269,
+   "prop": 0.215,
+   "known": 0.255
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.25 m=200 k=1.0": {
+   "plug": 0.625,
+   "prop": 0.45,
+   "known": 0.699
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=20 k=0.25": {
+   "plug": 0.115,
+   "prop": 0.087,
+   "known": 0.097
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=20 k=0.5": {
+   "plug": 0.296,
+   "prop": 0.162,
+   "known": 0.255
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=20 k=1.0": {
+   "plug": 0.602,
+   "prop": 0.262,
+   "known": 0.699
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=50 k=0.25": {
+   "plug": 0.118,
+   "prop": 0.092,
+   "known": 0.097
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=50 k=0.5": {
+   "plug": 0.29,
+   "prop": 0.171,
+   "known": 0.255
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=50 k=1.0": {
+   "plug": 0.607,
+   "prop": 0.292,
+   "known": 0.699
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=200 k=0.25": {
+   "plug": 0.113,
+   "prop": 0.09,
+   "known": 0.097
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=200 k=0.5": {
+   "plug": 0.285,
+   "prop": 0.177,
+   "known": 0.255
+  },
+  "b=0 L/tau=0.5 lam=0.5 sd_logtau=0.5 m=200 k=1.0": {
+   "plug": 0.605,
+   "prop": 0.318,
+   "known": 0.699
+  }
+ },
+ "q1_analytic_z1.645": {
+  "K=30 kN16=0.01 ratio 2/l=0.537": {
+   "k0.125": 0.0,
+   "k0.25": 0.0,
+   "k0.5": 0.023
+  },
+  "K=30 kN16=0.001 ratio 2/l=0.332": {
+   "k0.125": 0.0,
+   "k0.25": 0.008,
+   "k0.5": 0.456
+  },
+  "K=30 kN16=0.0001 ratio 2/l=0.240": {
+   "k0.125": 0.004,
+   "k0.25": 0.06,
+   "k0.5": 0.766
+  },
+  "K=30 kN16=1e-05 ratio 2/l=0.188": {
+   "k0.125": 0.013,
+   "k0.25": 0.14,
+   "k0.5": 0.885
+  },
+  "K=30 kN16=1e-06 ratio 2/l=0.155": {
+   "k0.125": 0.028,
+   "k0.25": 0.219,
+   "k0.5": 0.934
+  },
+  "K=30 power vs b=0": {
+   "k0.125": 0.307,
+   "k0.25": 0.738,
+   "k0.5": 0.998
+  },
+  "K=120 kN16=0.01 ratio 2/l=0.537": {
+   "k0.125": 0.0,
+   "k0.25": 0.0,
+   "k0.5": 0.01
+  },
+  "K=120 kN16=0.001 ratio 2/l=0.332": {
+   "k0.125": 0.0,
+   "k0.25": 0.001,
+   "k0.5": 0.922
+  },
+  "K=120 kN16=0.0001 ratio 2/l=0.240": {
+   "k0.125": 0.0,
+   "k0.25": 0.071,
+   "k0.5": 0.999
+  },
+  "K=120 kN16=1e-05 ratio 2/l=0.188": {
+   "k0.125": 0.003,
+   "k0.25": 0.303,
+   "k0.5": 1.0
+  },
+  "K=120 kN16=1e-06 ratio 2/l=0.155": {
+   "k0.125": 0.014,
+   "k0.25": 0.538,
+   "k0.5": 1.0
+  },
+  "K=120 power vs b=0": {
+   "k0.125": 0.738,
+   "k0.25": 0.998,
+   "k0.5": 1.0
+  }
+ }
+}

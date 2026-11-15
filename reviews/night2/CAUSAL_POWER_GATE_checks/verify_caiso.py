@@ -41,4 +41,5 @@ print(f"   effect {hi:.3f} (sigma known: {2.8016*se_tot:.3f}); |dlog w| {hi/b:.3
 
 print("\n4) STAKES-SHIFT-MULTIYEAR planning: K independent contrasts of the observed size, slope through origin")
 for d in (abs(dlw), 0.25, 0.7):
-    print(f"   |dlog w| per contrast {d:.2f}: K >= {pg.required_contrasts(b, se_tot, d)}  (s_yr-only sigma: K >= {pg.required_contrasts(b, s_yr, d)})")
+    # kappa=1.0 explicit since v1.4.7 (tool default became 1/2) so this reproduces verify_caiso.out
+    print(f"   |dlog w| per contrast {d:.2f}: K >= {pg.required_contrasts(b, se_tot, d, kappa=1.0)}  (s_yr-only sigma: K >= {pg.required_contrasts(b, s_yr, d, kappa=1.0)})")
