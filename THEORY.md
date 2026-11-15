@@ -1,7 +1,22 @@
-# A Theory of Adaptive Organization — v1.0 draft
+# A Theory of Adaptive Organization — v1.1 draft
 
-**Author:** Chad Mitchell. **Draft date:** Saturday 14 November 2026 (America/New_York).
+**Author:** Chad Mitchell. **Draft date:** Saturday 14 November 2026; scoreboard updated Sunday 15 November 2026 (America/New_York).
 **Status:** private working draft. **Not peer reviewed. Not independently reviewed as a whole.** An independent review of the DECISIVE and F1 tests (`reviews/DECISIVE_F1_REVIEW.md`, 14 November 2026, America/New_York) is now in; the §8 scoreboard follows its verdict. Locked prediction files in `tests/` are untouched; this document only interprets them.
+**Night 1 (15 November 2026):** three independent hostile reviews (mathematics, physics and statistics, prior art) of the new formal layer and of every night-1 test are in `reviews/night1/`. The claim-by-claim verdicts are in `reviews/night1/CLAIM_MAP_FINAL.md`, which this document now follows (§8b).
+
+**What kind of claim this is.** GTAO is a **falsifiable causal theory**. It is not a law, and nothing here should be read as one. A law could emerge only if one relation held, in the same form, in at least two very different substrates whose sensing classes were measured independently. That has not happened.
+
+**Open decision (title).** The title collides with Dessein & Santos 2006, "Adaptive Organizations", *JPE* 114(5):956–985 [read in full by the prior-art referee]. Whether to keep the title (and cite them prominently) or to differentiate it is Chad's decision. The repository has not been renamed.
+
+### Status at a glance (15 November 2026)
+- **Confirmed on real data, specific to GTAO: nothing.** The one real-data pass of night 1 (supervisors report reading outside material about 14–19% more often than comparable non-supervisors, in 9 OECD countries) is Mintzberg's "monitor" role, which was already published. The earlier measles freeze-or-hold pass (MATCH1) is a caveated postdiction that has not been reviewed.
+- **Killed on real data:**
+  - the item-level news-recall slope (P1: 0.32, 95% CI 0.29–0.35, against a predicted 0.5–1.2);
+  - vigilance rising with rank in Enron email (0.93 per rank level; a weak measure, but adequately powered);
+  - earlier: the strong memory-equals-need exponent match, the τ ("temperature") structure of failure rates, and √N in languages.
+- **Proved inside the model:** a set of correct but elementary theorems (onset exponent set by the sensing class, opposite effects of shared and private drift, loss-shape irrelevance under bundled decisions, an exact vigilance formula with price invariance, an ordering threshold for hierarchies, a closed-form freeze/hold/lookup band). Most of this rests on published foundations: Marschak & Radner 1972, Veldkamp & Wolfers 2007, Van Zandt & Radner 2001, EOQ and inventory pooling, and Topkis. **The earlier claim that "a new level watches at least twice as hard as its members, whatever the costs" is wrong as stated.** At finite shared share the exact onset value lies between 1 and 2 when upkeep is free.
+- **Simulations:** the passes are circular (the learners minimize the same cost whose boundary is the theorem). Four locked in-model predictions failed: SENSING2's risky world, and three ANTS1 predictions.
+- **Open:** everything distinctive about GTAO in real systems.
 
 **Labels used throughout**
 - **KNOWN**: already in the literature (credited in §10).
@@ -30,16 +45,16 @@ It is **not** a theory of everything. It says nothing about what an organization
 
 ## 1. What looks new: each tied to an exponent, a sign or a threshold, with a kill condition
 
-These are the parts that, after the sweep, do not appear in the prior art found. Each could still exist somewhere obscure, and each needs a targeted search before any public novelty claim. **None has yet passed a locked, independently reviewed test.**
+These are the parts that, after the sweep, do not appear in the prior art found. Each could still exist somewhere obscure, and each needs a targeted search before any public novelty claim. **None has yet passed a locked, independently reviewed test.** Night-1 results and the full current map are in §8b and `reviews/night1/CLAIM_MAP_FINAL.md`.
 
 | # | Claim | The number | How it dies | Status |
 |---|---|---|---|---|
-| N1 | **√N fade of shared memory, with a sign flip.** When N independent contributors pool readings of a *drifting* target into one shared trace (a trail, a wiki line, a word), the optimal fade rate rises as √N. When the target is *stable*, more use makes a trace last longer (Lieberman et al. 2007: irregular-verb half-life ∝ √frequency). Same averaging law, opposite sign, set by drift. | K\*_shared ≈ √N · K\*_private (small-gain regime, Nq/r ≪ 1; `theory/THEOREMS.md` T4) | (a) Across Austronesian languages, log(word-gain rate) vs log(speaker population) has a CI excluding 0.5 and including 0 (neutral substitution) or 1 (per-capita innovation). (b) Frequency effects on replacement do *not* differ in sign between drifting and stable referents. | PROOF of the math (Kalman averaging, KNOWN); application HYPOTHESIS, **untested**. ANTS1 (simulation) unfinished; BIO1 found no field data. |
-| N2 | **Threshold for a new shared level (T3a).** Modeling a shared driver is guaranteed to pay once group size exceeds a threshold set by the ratio ρ of shared to private drift. | N > N\* = (√(1+ρ)+1)²/ρ (≈ 4/ρ for small ρ). A *sufficient* condition, not a cutoff. | Across groups (repos sharing an upstream dependency; ant species by food patchiness), the size at which a shared layer appears does not move with ρ. | PROOF (elementary; may exist in inventory pooling or MDL texts). Beekman et al. 2001 show trail foraging appears above about 600 Pharaoh's ants; that shows *a* threshold exists, not this one. **Untested.** |
+| N1 | **√N fade of shared memory, with a sign flip.** When N independent contributors pool readings of a *drifting* target into one shared trace (a trail, a wiki line, a word), the optimal fade rate rises as √N. When the target is *stable*, more use makes a trace last longer (Lieberman et al. 2007: irregular-verb half-life ∝ √frequency). Same averaging law, opposite sign, set by drift. | K\*_shared ≈ √N · K\*_private (small-gain regime, Nq/r ≪ 1; `theory/THEOREMS.md` T4) | (a) Across Austronesian languages, log(word-gain rate) vs log(speaker population) has a CI excluding 0.5 and including 0 (neutral substitution) or 1 (per-capita innovation). (b) Frequency effects on replacement do *not* differ in sign between drifting and stable referents. | PROOF of the math (Kalman averaging, KNOWN); application HYPOTHESIS, **untested** in the field (LANG1 on languages was killed: 0.13 vs 0.5). ANTS1 (simulation) finished on 15 Nov. The fade exponent passes, but by construction (a linear trail readout is a Kalman/EWMA filter). With an ant-like nonlinear readout, error pooling **failed** (slopes −0.26 to −0.40 vs −0.5), and 2 other locked predictions failed. The fade rate alone does not diagnose pooling (`reviews/night1/ANTS1_WRITEUP.md`). |
+| N2 | **Threshold for a new shared level (T3a).** Modeling a shared driver is guaranteed to pay once group size exceeds a threshold set by the ratio ρ of shared to private drift. | N > N\* = (√(1+ρ)+1)²/ρ (≈ 4/ρ for small ρ). A *sufficient* condition, not a cutoff. | Across groups (repos sharing an upstream dependency; ant species by food patchiness), the size at which a shared layer appears does not move with ρ. | PROOF, now an exact iff within the one-source model and generalized to N\* = [ρ^b/((1+ρ)^b−1)]^{1/(1−a)}, with exponent −(1−b)/(1−a) set by the level's sensing class (night 1). The −1 case is **prior art** in substance (Veldkamp & Wolfers 2007; Van Zandt & Radner 2001). The simulations (POOLSIM) are **circular**. Beekman et al. 2001 show *a* trail threshold exists, not this one. **Untested in the field**, and a simulation shows the small-ρ onset is invisible under ≥ 1% decision noise. |
 | N3 | **The fixed-spread sign.** Critical-slowing-down work says slower recovery means danger, because at fixed shock size the spread widens. At a *fixed observed spread*, the theory says slower correctors cross a boundary *less* often, because they make fewer excursions. | ε_τ = −1 at fixed spread (`theory/MATH_ATTACK.md` §2) | Fixed-spread slope ≥ 0, or closer to 0 than to −1, at two or more scales. | **Sign held; size failed; the literal joint kill fired** (§8). Glucose −0.46 (fires on the full sample); populations −0.21 (fires on any reading). The independent review confirms that the sign itself follows from dimensional analysis and standard first-passage results, so it is not theory-specific. The −1 exponent, the collapse, and the z-interaction all failed. |
-| N4 | **Geometric layers if and only if drift is scale-free (T7b),** with a level count. | Equal log-spacing of levels; K\* ≈ (C·L²/(12h))^{1/3}, i.e. levels ∝ (log-span)^{2/3} | Geometric layering where the world has a characteristic time (breaks "only if"), or a layer count that stays flat as the span grows in scale-free curves. | PROOF of the "if" direction (Roundy-type math, known in substance; Shankar & Howard 2013 hold the closest single-agent result). Locked layer-count test (MATCH1 C1): **inconclusive**. Only a post-hoc fit supports it. |
+| N4 | **Geometric layers if and only if drift is scale-free (T7b),** with a level count. | Equal log-spacing of levels; K\* ≈ (C·L²/(12h))^{1/3}, i.e. levels ∝ (log-span)^{2/3} | Geometric layering where the world has a characteristic time (breaks "only if"), or a layer count that stays flat as the span grows in scale-free curves. | PROOF of the "if" direction (Roundy-type math, known in substance; Shankar & Howard 2013 hold the closest single-agent result). Locked layer-count test (MATCH1 C1): **inconclusive**. Only a post-hoc fit supports it. LAYERS1 (model-internal, night 1): linear-in-span fits as well as or better than (log-span)^{2/3}, span invariance of spacing **failed** (6/12), and the rest is "approximation theory plus a price". |
 | N5 | **Watching effort rises, then collapses.** With any bounded fallback (re-read the source, rewrite, fade), refresh effort grows with drift up to a point and then drops to zero: a cliff, not a plateau. | f\* > 0 iff λ < μW/c; under quadratic loss the cliff is at σ_c = μu/√(2cw) (T5, T5b) | In a domain with a bounded fallback (e.g. Cochrane reviews vs topic RCT rate), update effort keeps rising through the top drift decile. | PROOF; core case KNOWN for web crawlers (Cho & Garcia-Molina 2003). The cross-domain claim is **untested**. |
-| N6 | **Spectrum → exponent law** (the core hypothesis of §2). | ½ for single-timescale worlds; slope 1 and power-law forgetting for scale-free worlds; model size ∝ Q^{1/β} (stationary) or Q^{min(½, 1/β)} (drifting), with β measured from the environment | The design exponent does not move when the environment's measured spectrum moves (e.g. a constant ≈ 1 regardless of β, which favours a fixed-budget-share null). | HYPOTHESIS. The pieces are PROOF or KNOWN; the assembly was not found. Evidence so far is mixed (§2.4). |
+| N6 | **Spectrum → exponent relation** (the core hypothesis of §2). | ½ for single-timescale worlds; slope 1 and power-law forgetting for scale-free worlds; model size ∝ Q^{1/β} (stationary) or Q^{min(½, 1/β)} (drifting), with β measured from the environment | The design exponent does not move when the environment's measured spectrum moves (e.g. a constant ≈ 1 regardless of β, which favours a fixed-budget-share null). | HYPOTHESIS, **leaning against**. The pieces are PROOF or KNOWN; the assembly was not found. Every exact exponent tested has missed or been inconclusive (§2.4). The item-level news test P1 was **killed** on 15 Nov (a_c = 0.31 locked; independent re-fit 0.321, CI 0.289–0.352, against a predicted 0.5–1.2; the named rival's 0.24 is also excluded). |
 | N7 | **A quantitative internal-model bound.** An agent that stays solvent on a strictly proper score must carry a near-copy of the world's causal-state machine, and its update rule must nearly mirror the world's. | P(model ≠ causal state) ≤ √(2δ)/γ_L with δ ≤ (margin − bit cost)/stakes (I3, `theory/INTERNAL_MODEL.md`) | A counterexample to the proof, or a prior statement of the same bound. | PROOF (Pinsker plus a triangle inequality; self-checked, not independently reviewed). **Novelty unconfirmed and probably folklore.** At zero miss it reduces to Shalizi & Crutchfield 2001. The bound is loose by about 10× in numerics. |
 
 Also probably this project's own: the temperature *identity* ε_τ = ε_σ/2 − 1 and the universality classes set by how fixing works (§4); the cost condition for acting ahead (pay for a model only if lateness loss exceeds its upkeep); and a cross-scale, preregistered falsification program.
@@ -87,6 +102,7 @@ What matters about the world is not one drift rate but its **spectrum**: how muc
 - **Literal:** floors. The minimum heat cost of tracking a random walk to error D is kT·σ²/(2D). Adding quadratic loss gives σ√(2kT·w), the EOQ form with c = kT per nat (`theory/MATH_ATTACK.md` O1). Holding I bits against a drifting world needs an inflow of at least (1 − η)·I bits per step, met with equality by the Kalman filter, consistent with Mitter & Newton 2005 and Horowitz & Sandberg 2014 (KNOWN).
 - **Not literal above the cell.** kT ln 2 per bit does not bind for neurons, people or firms; synapses pay roughly 10⁵ times that (Laughlin et al. 1998). Above the cell the exponents come from information theory plus network transport costs, not from the second law. This draft says so plainly. The objection "decision theory in a lab coat" mostly survives above the cell.
 - **What is the same at every scale** is one known inequality: growth ≤ disequilibrium + information − house take. It covers Szilard engines, Kelly bettors and selection (KNOWN; `theory/INTERNAL_MODEL.md` §8). In markets no-arbitrage plays the role of the second law: in an efficient environment blind persistence is impossible, so persistence requires information (PROOF, assembly; novelty unconfirmed). The constraint there is competition, not heat.
+- **Night-1 physics review (15 Nov):** in the formal layer, the energy / second-law framing is **decorative**. No conserved quantity, entropy production or Landauer-type bound enters any proof, and "one currency" is only an exchange rate inside one organization. The one place physics could earn its keep is cells, where assigning entropy-priced sensing as "the thermodynamic floor" decides the predicted exponent (−1 vs −2) and is asserted, not derived. Either derive one bound in physical units for one sensing system, or keep this language out of public claims.
 - **Scale invariance holds only if one currency dominates** (`theory/GENERAL_THEOREM.md`, Theorem S).
 
 ### 2.4 Evidence so far on the spectrum hypothesis (honest)
@@ -172,6 +188,14 @@ Every earlier rule treated drift σ as given. Real adaptive organizations spend 
 
 Prediction (HYPOTHESIS, untested): the staleness of shared memory rises with users per maintainer (e.g. package dependents per active maintainer vs documentation lag after an API change), and enforcement structures appear where that ratio is high.
 
+**Fractal vigilance (night 1).** The idea that every level has a tracker that watches what its own members share (shared and private are relative to the level) is **prior art qualitatively**: Beer's Viable System Model puts System 4 ("outside and then") at every level of recursion, and Mintzberg makes every manager the unit's "monitor". The quantitative version is the theory's own and is **untested on fair data**:
+- the exact onset vigilance V(N\*) = ½(1 + (1+ρ)^{−1/2})(1 + √(1 + 4h′(√(1+ρ)−1)/(rρ))) for reset-type sensing (the level's effort over a *flat* member's effort);
+- its floor 1 + (1+ρ)^{−1/2} for any upkeep and price;
+- its price invariance at zero upkeep;
+- its growth as N^a.
+
+The PIAAC and Enron tests measured a different quantity (supervisors versus the people they supervise, self-report, received mail). A fair-kill specification is in `reviews/night1/CLAIM_MAP_FINAL.md` §3.2.
+
 **The √N sign flip** (N1) lives here: pooled independent deposits make faster turnover optimal for drifting targets, while repeated use preserves forms for stable targets. Its required condition is *independent* deposits; trail-followers who deposit where the trail already is have a smaller effective N.
 
 ---
@@ -203,19 +227,64 @@ The preregistration commits lived only in local, unpushed git repos. Adding thei
 | **COLLAPSE1** | Many substrates | The immune "contradiction" was largely a measurement artifact: under power-law waning (Saha et al. 2025), a measured half-life grows with the age at which it is measured, and 5 of 8 antigens fall on one line once that is accounted for (a consistency check, not independent). Code re-edit need decays as a power law (exponent ≈ 0.6). The immune cue model and inventory buffering were killed; the timescale-collapse plot proved non-diagnostic | Mixed: A1 and C2 killed; E1/E5 pass (weak) |
 | **MATCH1** | News, code, Wikipedia, measles | Exact need-vs-memory exponent match **failed** (0.24 vs 0.71). Freeze-or-hold **passed** on measles: towns' measles-return odds fall with exponent 2.15 while antibodies decay at 0.11 (caveats: town-level presence ≠ individual exposure; age − 5 as time since infection; 39 informative lags). Need exponents 0.6–0.8 replicate across code, Wikipedia and news. Layer count inconclusive; redness sign opposite | See §2.4. Not reviewed |
 | **DRIFT1** | Wikipedia, firms, city services | City 311 looks scale-free across categories; Wikipedia and filings have characteristic cadences | Kill not triggered; supports T7 as conditional |
-| **ANTS1, C3b** | Simulated ants; open-source exogenous shocks | Preregistered; not finished | — |
+| **ANTS1** | Simulated ants | Finished 15 Nov; see §8b | 3 locked in-model failures; passes mostly by construction |
+| **C3b** | Open-source exogenous shocks | Preregistered; not finished | — |
 
-**Overall reading (following the independent review).** The numbers in all four DECISIVE/F1 arms reproduce exactly, and every directional sign is right. That does not support the τ term as a claim of this theory. MATH_ATTACK's literal joint kill rule **fires**: for populations on any reading, and for glucose on the full sample (the cold cell there is empty, n = 2). Banks are **sign-only, not a hit**. "Fewer crossings at fixed spread with slower correction" follows from dimensional analysis (a crossing rate has units of 1/time, so rate = τ⁻¹·f(B/s)) and standard first-passage results (Siegert 1951; Black–Cox 1976; Lande & Orzack 1988). A generic mean-reverting process with a barrier predicts the same signs. The theory-specific structure failed wherever it was tested: the −1 exponent, the √τ weighting, the identities, the τ-buffer (z) interaction, and one collapse curve. In F1, τ mostly measures fixed-cost share, so that arm does not test the construct. The lowered sampling-corrected targets (β\* = −0.82/−0.65 in glucose, −0.34 in populations) are mathematically right for a finitely sampled OU process, but they rewrote the kill rule after MATH_ATTACK wrote it; this draft leads with the literal verdict. C3 rejected the version where a fixed clock dominates risk. Reading the missed exponents as "the single-timescale (½) form is a special case of the spectrum law in §2" is itself POST HOC and must be tested in its own right.
+**Overall reading (following the independent review).** The numbers in all four DECISIVE/F1 arms reproduce exactly, and every directional sign is right. That does not support the τ term as a claim of this theory. MATH_ATTACK's literal joint kill rule **fires**: for populations on any reading, and for glucose on the full sample (the cold cell there is empty, n = 2). Banks are **sign-only, not a hit**. "Fewer crossings at fixed spread with slower correction" follows from dimensional analysis (a crossing rate has units of 1/time, so rate = τ⁻¹·f(B/s)) and standard first-passage results (Siegert 1951; Black–Cox 1976; Lande & Orzack 1988). A generic mean-reverting process with a barrier predicts the same signs. The theory-specific structure failed wherever it was tested: the −1 exponent, the √τ weighting, the identities, the τ-buffer (z) interaction, and one collapse curve. In F1, τ mostly measures fixed-cost share, so that arm does not test the construct. The lowered sampling-corrected targets (β\* = −0.82/−0.65 in glucose, −0.34 in populations) are mathematically right for a finitely sampled OU process, but they rewrote the kill rule after MATH_ATTACK wrote it; this draft leads with the literal verdict. C3 rejected the version where a fixed clock dominates risk. Reading the missed exponents as "the single-timescale (½) form is a special case of the spectrum relation in §2" is itself POST HOC and must be tested in its own right.
+
+## 8b. Night 1 scoreboard (15 November 2026, America/New_York)
+
+Source: `reviews/night1/CLAIM_MAP_FINAL.md` (150 claim rows; every row has exactly one status). The three hostile reviews were independent of the authors, and each wrote its verdicts before reading the project's own claim map.
+
+Locks, applying to everything in this table:
+- Every night-1 lock is **self-attested**: local commits, no third-party timestamp (Chad waived timestamping for night 1).
+- The referee re-verified the hashes and found no sign that any outcome was seen before a lock.
+- But several stated times inside files contradict the lock records.
+- The Enron analysis code was edited 6 seconds after its first lock (amended lock; the pre-edit file was not kept).
+- The LAYERS1 code was not hashed.
+- The PIAAC raw data were deleted after the run.
+
+| Test | Kind | Result in plain words | Verdict |
+|---|---|---|---|
+| **FORMAL** (axioms, theorems T1–T8, extensions) | Mathematics, in-model | The algebraic core re-derived independently and correct. **Wrong as stated:** "V ≥ 2 at onset for every upkeep and price" (replaced by an exact formula; at zero upkeep the value is 1 + (1+ρ)^{−1/2}, between 1 and 2); "shared change always lowers the onset size" under mixed technologies (true only at small ρ or with a common technology); several "iff" claims (T5.2, T7(c), Cor 4.1); T7(b)'s example holds only at zero upkeep. T4's proof is a sketch (the conclusion was confirmed by exact optimization). Novelty labels downgraded: the core is inventory pooling, EOQ, team theory and Topkis | **PROVED in-model, with corrections.** Says nothing about real systems |
+| **P1** (theory-v3) | Real data: news recall, item level | Slope 0.31 locked (independent re-fit 0.321, 95% CI 0.289–0.352) vs predicted 0.5–1.2. The rival's 0.24 is also excluded | **KILLED** |
+| **VIGIL** (OECD PIAAC, 9 countries) | Real data: survey | Supervisors read external material 1.14× (CI 1.05–1.23) as often as comparable members; replication 1.19. Not specific to shared external drivers once correctly specified (1.06, CI 0.98–1.16). Span gradient 0.02–0.04 vs 0.5. Size 1.15, which is no longer in conflict with a floor of 2 (there is none at finite ρ) but was never a fair test of the size | **Direction PASSED, but it is Mintzberg's prior art.** Specificity null, growth not seen; OPEN |
+| **VIGIL-2** (Enron email, 98 mailboxes) | Real data: behavioural | The external share of received mail does not rise with rank (0.93 per level); external volume is flat. Adequately powered. Weak construct (received mail, assistants, no span) | **KILLED** on this instrument |
+| **POOLSIM** | Simulation | Learners find the −1, −½ and 0 slopes, but the simulator's own expected-cost crossing gives the same slopes with no learners | **CIRCULAR.** One valid finding: the small-ρ onset is invisible when decision noise is ≥ 1% of cost |
+| **W5 check** | Simulation, independent reimplementation | Under true bundled absolute loss the exponent is −1. The earlier −2 came from splitting the loss | In-model only; it led to theorem T4 |
+| **SENSING** round 1 | Simulation | Classes A and A2 hit −2 and −1.5, but the "measured" (a, b) read back the code's own cost rule. Class R missed the locked criterion (−0.92) | A, A2 **CIRCULAR**; class R **KILLED** (locked criterion); the rival not killed |
+| **SENSING2** | Simulation, evolved sensing | The one risky world (exponent −2.1) gave −0.49: a **locked kill**. Caveats documented post-lock: a 1.5% flat-cost bias in a world whose onset gap is a few thousandths, and a locked flat-arm bug (51–66%) that made the other worlds inconclusive. The contrast that separates "members set the exponent" from "the level's technology sets it" was not cleanly run | **KILLED** (locked), with documented caveats |
+| **ANTS1** | Simulation | Fade-exponent passes are by construction. An ant-like readout does not pool error as N^{−½}; the lock-in mimic is not distinguishable in jump worlds; no interior forgetting optimum in fast jump worlds | **3 locked failures**; passes circular or self-consistency checks |
+| **LAYERS1** | Mathematics, in-model | Span invariance of layer spacing failed (6/12); the other passes are uninformative or by construction | **KILLED** (P2); the rest is approximation theory plus a price |
+
+**What is genuinely the theory's own (elementary; apparently new after a ~45-source search; none tested on real data):**
+1. The sensing class (a, b) of the **level** sets the onset exponent, −(1−b)/(1−a), with the upkeep dichotomy and the exact closed form.
+2. Under bundled decisions, the sensing technology, not the loss function, sets the exponent.
+3. The exact vigilance formula, its floor, its price invariance, and the criterion "V > 1 for all costs iff a ≥ b".
+4. The ordering threshold κ\* = 1/|e_g| for top-down versus bottom-up hierarchies.
+5. The closed-form freeze/hold/lookup band, its N² widening for shared stores, and the dissolution order under cheap lookup.
+6. The programme: measure the level's sensing technology independently, then predict the group's exponents.
+
+**Before any public novelty claim:** forward-citation sweeps of Marschak & Radner 1972 ch. 7 §5 and of Van Zandt & Radner 2001 must be run. They are the likeliest places for an earlier statement of item 1.
+
+**Corrections to earlier project documents:**
+- "Team theory is static" (CORE_AUDIT) is false: Marschak & Radner ch. 7, Aoki 1986, Van Zandt & Radner 2001 and Radner 1993 are dynamic.
+- The Alonso, Dessein & Matouschek 2008 citation for "centralize common, decentralize local" is a miscitation. Use Acemoglu et al. 2007, Van Zandt & Radner 2001 and Hayek 1945.
+- "Nobody has stated these across substrates" should read "not quantitatively": Beer's Viable System Model is a qualitative cross-substrate, recursive claim.
+- The immune freeze/hold/lookup application must credit Mayer et al. 2016, and the cell-sensing class must credit Mora & Nemenman 2019.
+- "Volatility promotes levels" assumes zero processing delay. The delay literature (Aoki 1986; Radner 1993; Meagher, Orbay & Van Zandt 2001) and Aghion et al. 2021 point the other way.
 
 ---
 
 ## 9. What would sink the theory
 
-- **The spectrum law fails twice:** the design exponent stays constant as the environment's measured spectrum changes, at two scales with locked tests.
+- **The spectrum relation fails twice:** the design exponent stays constant as the environment's measured spectrum changes, at two scales with locked tests.
 - **The fixed-spread sign reverses** (positive slope) at two scales in the cold regime.
 - **√N fails on languages and wikis** as specified in N1, and the drift-dependent sign flip is absent.
 - **New levels ignore ρ** (N2) where the threshold can be measured.
 - **Strong selection, still no fit:** in strongly selected systems, designs show no relation to drift, buffers or spectra at all. Misses in weakly selected systems do not count toward this (§7), but only if the system was classified before the test.
+- **Vigilance under a fair instrument:** on a pre-declared, same-driver, all-channel sampling measure against a flat comparator, in units measured to be reset-type (class R), the level's effort stays clearly below the floor 1 + (1+ρ)^{−1/2} that holds for every upkeep and price (spec: `reviews/night1/CLAIM_MAP_FINAL.md` §3.2).
+- **The onset relation in agents not given the cost function:** with ρ manipulated over ≥ 1.5 decades in a regime where the prize exceeds decision noise, and the level's sensing class measured separately, the onset exponent excludes −(1−b_L)/(1−a_L).
 - **Structural:** every claim must stay tied to an exponent, a sign or a threshold with a named competitor. A theory of "any adaptive organization" that drifts into unfalsifiable language should be treated as failed, as the free-energy principle has been criticized for (Aguilera et al. 2022; Bruineberg et al. 2022).
 
 ---
@@ -274,12 +343,86 @@ Verification key: **[DOI]** resolved against Crossref in the sweep (`litmap/veri
 - Lynch, Ackerman, Gout et al. 2016, *Nat Rev Genet* 17:704, doi 10.1038/nrg.2016.104 [DOI]; Lynch 2010, *Trends Genet* 26:345 [DOI].
 - Hannan & Freeman 1984 [unverified in the sweep; Hannan & Freeman 1977 is DOI-verified].
 
+**Credited after the night-1 prior-art review (15 Nov 2026).** The markers are the referee's: [FULL] text read; [OCR] scan read by OCR; [ABS] abstract only; [SEC] secondary source; [BIB] bibliography only; [UNVERIFIED] memory only. Details are in `reviews/night1/REVIEW_PRIORART.md`.
+
+**Team theory and information economics**
+- Marschak & Radner 1972, *Economic Theory of Teams*, ch. 7 §5, eq. 5.13 (√ recovery frequency) and ch. 7 §6 (dynamic team size) [OCR].
+- Van Zandt & Radner 2001, *Economic Theory* 17:545 [FULL].
+- Veldkamp & Wolfers 2007, *JME* [FULL].
+- Wilson 1975 [ABS].
+- Aoki 1986, *AER* 76:971 [FULL].
+- Radner 1993, *Econometrica* 61:1109 [FULL].
+- Meagher, Orbay & Van Zandt 2001, CEPR DP 2839 [ABS].
+- Acemoglu, Aghion, Lelarge, Van Reenen & Zilibotti 2007, *QJE* 122:1759 [ABS].
+- Hayek 1945, *AER* 35:519 [BIB].
+- Geanakoplos & Milgrom 1991 [FULL, discussion-paper text].
+- Dessein, Galeotti & Santos 2016 [FULL].
+- **Dessein & Santos 2006, "Adaptive Organizations", *JPE* 114:956** [FULL] (title collision).
+- Alonso, Dessein & Matouschek 2008 [FULL]: cite only for coordination versus adaptation.
+- Vayanos 2003 [FULL].
+- Crémer 1980 [ABS].
+- Garicano 2000 [ABS].
+- Bolton & Dewatripont 1994 [ABS].
+- Bloom, Garicano, Sadun & Van Reenen 2014, *Mgmt Sci* 60:2859 [FULL].
+- Aghion, Bloom, Lucking, Sadun & Van Reenen 2021, *AEJ: Applied* [FULL].
+
+**Inattention and inspection sampling**
+- Reis 2006 [FULL].
+- Keller 1974 [ABS].
+- Sheridan 1970 [ABS].
+- Åström & Bernhardsson 2002 [SEC] (event-triggered sampling beats periodic when only transmission is costly).
+
+**Pooling, lattices, caches**
+- Eppen 1979 [ABS].
+- Roundy 1985 [ABS].
+- Maister 1976 (square-root law of inventory centralization) [named by the math referee; not verified].
+- Topkis 1978 [ABS; DOI verified].
+- Milgrom & Roberts 1990 [ABS].
+- Gray & Putzolu 1987, the "five-minute rule" [BIB/SEC].
+- Cho & Garcia-Molina 2003 [ABS/SEC].
+- Wolman et al. 1999 [FULL].
+
+**Biology and cognition**
+- Mayer, Mora, Rivoire & Walczak 2016, *PNAS* 113:8630 [ABS].
+- Mora & Nemenman 2019, *PRL* 123:198101 [ABS].
+- Berg & Purcell 1977 [ABS].
+- Rogers 1988 [FULL].
+- Beckers et al. 1989 [FULL].
+- Dornhaus et al. 2006 [FULL] (counter-evidence on colony size).
+- Sparrow et al. 2011 [ABS].
+- Sung et al. 2012 (drift barrier) [ABS].
+
+**Cross-substrate and recursive organization**
+- Beer, *What is cybernetics?* (2002 text) [FULL]; Beer 1984, *JORS* 35:7 [UNVERIFIED details].
+- Galbraith 1974 [ABS].
+- Simon 1962 [BIB].
+- Kashtan & Alon 2005 [ABS].
+- Mintzberg's monitor role [read in VIGIL's prior-art file].
+
 **Unfalsifiability critiques**
 - Aguilera et al. 2022, *Phys Life Rev* 40:24 [DOI]; Bruineberg et al. 2022, *Behav Brain Sci* 45 [DOI].
 
 ---
 
 ## 11. Next tests, in order
+
+**Updated 15 Nov 2026 after night 1.** Full specifications are in `reviews/night1/CLAIM_MAP_FINAL.md` §3.
+1. **Prior-art sweeps before any public novelty claim:** forward citations of Marschak & Radner 1972 ch. 7 §5 and of Van Zandt & Radner 2001; Veldkamp 2011 ch. 8; the 2023 *JEL* rational-inattention survey; the inventory-pooling line.
+2. **Process:**
+   - external timestamp for every lock (needs Chad's go, because it is an outside or public act);
+   - estimator dry-runs on synthetic truth before locking;
+   - retained pre-amendment files;
+   - hashed code;
+   - kept raw data;
+   - one master table of all locked predictions;
+   - a blind analyst.
+3. **Non-circular onset test:** agents not given the cost function, ρ manipulated over ≥ 1.5 decades, the level's sensing class measured separately, and a mixed-technology arm (level class ≠ member class).
+4. **Fair vigilance test** (§3.2 of the claim map): same driver, all channels, flat comparator, class gate, kill at the floor 1 + (1+ρ)^{−1/2}.
+5. **Opposite-signs factorial** (shared vs private volatility varied independently).
+6. **Bundled-loss contrast** rerun with the level re-optimized and the SENSING2 flat-arm bug fixed.
+7. Physics: derive one physical-unit bound for one sensing system, or drop the energy language.
+
+**Earlier list (14 Nov), still open:**
 
 1. **Spectrum → exponent, locked:** derive the mapping from a measured spectrum to the predicted forgetting exponent *first* (MATCH1's opposite-sign result makes this urgent), then test it on GDELT news drivers vs Wikipedia pageview response kernels, with a universal-kernel competitor.
 2. **√N on Austronesian vocabulary** (ABVD): slope 0.5 vs 0 (neutral) vs 1.
