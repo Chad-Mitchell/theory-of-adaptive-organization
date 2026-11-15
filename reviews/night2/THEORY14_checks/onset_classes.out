@@ -1,0 +1,19 @@
+reset reads onset exponent: -1
+precision-priced onset exponent: -2
+V>1-for-all criterion a>=b (precision): (alpha - 1)/(2*alpha - 1) (>0 for alpha>1)
+A_theta at theta=1: 2/3 1/3 | Cor2' at alpha=2: 2/3 1/3
+A_theta onset exponent: -theta - 1
+alpha=1.25: numeric a=0.8333 (theory 0.8333), b=0.6667 (theory 0.6667), onset=-2.0000
+alpha=1.5: numeric a=0.7500 (theory 0.7500), b=0.5000 (theory 0.5000), onset=-2.0000
+alpha=2.0: numeric a=0.6667 (theory 0.6667), b=0.3333 (theory 0.3333), onset=-2.0000
+alpha=2.5: numeric a=0.6250 (theory 0.6250), b=0.2500 (theory 0.2500), onset=-2.0000
+alpha=2.9: numeric a=0.6042 (theory 0.6042), b=0.2083 (theory 0.2083), onset=-2.0000
+
+General theta (symbolic):
+ a = alpha*theta/(alpha*(theta + 1) - 1)  b = theta/(alpha*(theta + 1) - 1)
+ onset exponent -(1-b)/(1-a) = -theta - 1
+ small-share vigilance exponent (b-a)/(1-a) = -theta
+ alpha=1.5 theta=0.5: a=0.6000 b=0.4000 onset=-1.5000 (theory -1.5000)
+ alpha=1.5 theta=2.0: a=0.8571 b=0.5714 onset=-3.0000 (theory -3.0000)
+ alpha=2.5 theta=0.5: a=0.4545 b=0.1818 onset=-1.5000 (theory -1.5000)
+ alpha=2.5 theta=2.0: a=0.7692 b=0.3077 onset=-3.0000 (theory -3.0000)

@@ -1,6 +1,6 @@
 # SPECTRUM_MAP: from a measured drift spectrum to read rate, memory stores and forgetting (QUEUE Q2; Q1 gap-fill)
 
-Executor, 15 Nov 2026, 09:05–09:26 AM ET, branch `spectrum-map`. Status: **derived and numerically checked; NOT yet refereed.**
+Executor, 15 Nov 2026, 09:05–09:26 AM ET, branch `spectrum-map`. Status: **derived and numerically checked; refereed in `../SPECTRUM_MAP_REFEREE.md` (read it first: several conclusions below are corrected there; THEORY.md v1.4 §2.2 governs).**
 A hostile math referee is queued (QUEUE, SPECTRUM-MAP-REFEREE). Labels: KNOWN = in the literature (cited, verified this
 session); ELEMENTARY = a short corollary of known results that we state here; NEW? = not found in the sources searched;
 POST HOC = fitted after seeing the data; LOCKED = predicted in a committed file before the computation.
@@ -8,8 +8,10 @@ POST HOC = fitted after seeing the data; LOCKED = predicted in a committed file 
 ## 0. Plain-words result
 
 1. **The read-rate exponent 1/(1+2H) holds, and not only for hold-last-value.** A tracker that reads a fractional-Brownian
-   world every T and predicts in between makes average error ∝ T^{2H}, *whatever linear predictor it uses*, because fBm is
-   self-similar. So the optimal read rate scales as (stakes × drift / read price)^{1/(1+2H)} = (…)^{1/α} with α = 1+2H the
+   world every T and predicts in between makes average error ∝ T^{2H} *for hold-last-value and for the optimal linear predictor* (any predictor class closed under time
+   rescaling; not a predictor with a fixed time constant), because fBm is self-similar. *[Erratum 15 Nov 2026, THEORY v1.4: was
+   "whatever linear predictor it uses"; corrected per `../SPECTRUM_MAP_REFEREE.md` §1 and §8 item 1. Items 2–8 of that list: QUEUE
+   SPECTRUM-MAP-FIXES.]* So the optimal read rate scales as (stakes × drift / read price)^{1/(1+2H)} = (…)^{1/α} with α = 1+2H the
    spectral slope. The best predictor only lowers the constant (by 11% at H = 0.25 and 19% at H = 0.75). Checked by exact
    Gaussian conditioning and Davies–Harte simulation (`checks/c1`). This closes the item that AUDIT_REFEREE listed as owed.
 2. **With noisy continuous sensing the exponents change** (the error is q^{1/α}N^{1−1/α}/sin(π/α), a KNOWN result of

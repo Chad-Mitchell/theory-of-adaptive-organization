@@ -2,7 +2,9 @@
 
 Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot executor for Chad Mitchell, via Ace. Private. Nothing was posted, sent or made public. This map **supersedes the status column** of `reviews/night1/CLAIM_MAP_FINAL.md`. That file still holds the full evidence, scope and credit for each row, and row IDs are unchanged. The reason for every change is the measurement re-audit in `FRAMEWORK.md` (same folder). Gates MV1–MV9 are defined in FRAMEWORK §2.2.
 
-**v2.1 note (15 Nov 2026, 09:02 AM ET).** Section N adds night-2 results and the audit corrections (`reviews/night2/AUDIT_DIVERGENCE.md`). Rows are interpreted under THEORY.md v1.2 §2.5: a constant quoted for class R (a = b = ½) is the H = ½ instance; for reset reads with Hurst H, a = b = 1/(1+2H). The headline hypothesis is rows K12–K13 and N7; it is untested, not peripheral.
+**v2.1 note (15 Nov 2026, 09:02 AM ET).** Section N adds night-2 results and the audit corrections (`reviews/night2/AUDIT_DIVERGENCE.md`). Rows are interpreted under THEORY.md v1.2 §2.5: a constant quoted for class R (a = b = ½) is the H = ½ instance; for reset reads with Hurst H, a = b = 1/(1+2H). The headline hypothesis was rows K12–K13 and N7; it is untested, not peripheral. *(v2.3: superseded; see the v2.3 note.)*
+
+**v2.3 note (15 Nov 2026, about 10:00 AM ET; THEORY.md v1.4).** THEORY v1.4 demotes the tracking layer (K12, K13, N11) to classical filtering and approximation theory plus a price; the headline is now the empirical bet N13 (measured-input optimality, OPEN) and its cross-scale form J6 (OPEN). Added: LEARNSIM rows G23–G29 (from `reviews/night2/LEARNSIM_REFEREE.md` §8, applied here with two in-model statuses defined below), N12 (formal exponents are α-independent for the two sensing technologies; self-checked, not refereed) and N13. N7's scope is updated. No existing row changes status.
 
 **Why v2 exists.** Chad (t1908): no field test so far measured GTAO's quantities validly, so field "kills" and "hits" were results about **proxies**. v2 says so in every row. It does **not** soften the mathematics. Statements refuted by proof stay refuted (as MATH-CORRECTED, with their replacement), and failed locked simulations stay failed (SIM-FAIL).
 
@@ -16,6 +18,8 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 | **OPEN** | Not tested on a valid instrument (including proxy nulls where no locked rule fired) |
 | **PRIOR ART** | Published by others |
 | **SIM-FAIL** | A locked prediction about the authors' own simulator failed. Not a measurement issue |
+| **SIM-PASS** | (v2.3) A locked prediction about the authors' own non-circular simulator passed. In-model only; never support about nature |
+| **SIM-INCONCLUSIVE** | (v2.3) A locked in-model test whose rule gave neither pass nor fail (including "NOT PASSED" composite tests with an inconclusive arm) |
 | **NOT EVIDENCE** | Circular or by construction, or descriptive data that cannot discriminate |
 | **WITHDRAWN** | A miscitation, or a framing claim withdrawn |
 | **DECIDED** | A naming or method decision, not a claim about the world |
@@ -145,6 +149,13 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 | G20 | LAYERS1 P2 span invariance | KILLED (in-model) | **SIM-FAIL** | Locked in-model fail (6/12) |
 | G21 | LAYERS1 P3 | CIRCULAR | **NOT EVIDENCE** | By construction |
 | G22 | AI1 shared memory adoption 'supported by POOLSIM' | CIRCULAR | **NOT EVIDENCE** | Needs agents not given the cost; FRAMEWORK §7 test 1 |
+| G23 | LEARNSIM ES onset exponents under the PREREG decade rule | new (v2.3) | **SIM-INCONCLUSIVE** | Locked; only 0.9 findable decade. `reviews/night2/LEARNSIM_REFEREE.md` §0, §8 |
+| G24 | LEARNSIM C1, technology-independent exponent (rival) | new (v2.3) | **SIM-PASS** (downgraded) | Locked rule fires; not robust to dropping ρ = 0.04; RR N\* non-monotone. In-model, regime A |
+| G25 | LEARNSIM PREREG_2 T1.8 overall | new (v2.3) | **SIM-INCONCLUSIVE** (T1.8 NOT PASSED) | RA PASS, AR INCONCLUSIVE (MV8 gate); RR known-groups INCONCLUSIVE. B9 stays PROVED (in-model) |
+| G26 | LEARNSIM PREREG_2 RA: level class predicts ê; members'-class rival fails | new (v2.3) | **SIM-PASS** (in-model, regime A, RA only) | −0.736 [−1.03, −0.52] vs −0.759; rival −1.650. Robust under the referee's §4 checks. Not a T1.8 pass, not a field result |
+| G27 | LEARNSIM V at onset, class R | new (v2.3) | **SIM-PASS** (locked rule) | RR and RRh geo-mean within ×/÷1.15; wide per-ρ CIs; in-model, regime A |
+| G28 | LEARNSIM T3 factorial signs | new (v2.3) | **SIM-INCONCLUSIVE** | Two shared-side PASSes after an honest post-lock fix; no private-side confirmation |
+| G29 | LEARNSIM pop-learner RR/RRh (secondary) | new (v2.3) | **NOT EVIDENCE** (robustness only) | Recovers T1 when learning noise is small; closer to an exhaustive optimiser |
 
 ## H. Real-data tests (relabeled by the measurement re-audit; gates from FRAMEWORK §2.2)
 
@@ -263,15 +274,17 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 | N4 | SELF P1: item change is scale-free (regime B) | new | **OPEN (regime not established)** | Passed a Poisson null on statement times, but the observer-schedule null (0.60–0.92) contains 0.82; burstiness alone does not identify a scale-free spectrum |
 | N5 | SELF P2/P3b: checks ∝ √(drift × stakes) | new | **PROXY-FAIL (scope)** | Regime-A instance; premise (stable per-item drift) unmet, P3a ρ = −0.06; stakes elasticity 2.0 excludes 0.5. Not a test of the spectrum core |
 | N6 | SELF P4a: closed items freeze | new | **NOT EVIDENCE** | 0/21, every rival predicts it |
-| N7 | Bridge: R1 elasticities a = b = 1/(1+2H), so the formal constants are functions of the spectrum | in Lemma 1(i) | **PROVED (in-model)** | Restating Lemma 1(i) as the link between the formal layer and THEORY §2; hold-last-value is a restricted estimator for H ≠ ½ |
+| N7 | Bridge: R1 elasticities a = b = 1/(1+2H), so the formal constants are functions of the spectrum | in Lemma 1(i) | **PROVED (in-model)** | Restating Lemma 1(i) as the link between the formal layer and THEORY §2. v2.3: holds for hold-last-value and the optimal linear predictor (any rescaling-closed predictor class), not for a fixed-time-constant predictor (`SPECTRUM_MAP_REFEREE.md` §1, R1). THEORY v1.4 §2.5 |
 | N8 | Proposition SG: surprise threshold for follow-up rises as ln(dormancy) with slope 1 **in the large-age limit** under a Lomax (decreasing-hazard) model of regime B (all-ages fit 0.947; exact 0.70 at a = 3Δ); flat in regime A | new | **PROVED (in-model); PRIOR ART close** | Elementary Bayes + renewal hazard; Monte Carlo check `reviews/night2/AUDIT_checks/sg_check.out`; restless bandits, crawler revisit, Bayesian surprise are close. Not independently reviewed |
 | N10 | D3S (locked gap-shuffle): median Δβ in [−0.03, 0.05] | new | **PROXY-PASS (non-discriminating)** | Passed (0.024; reruns 0.021–0.023) on proxy "binary daily edit series"; a pure Cox world gives Δβ ≈ 0.045–0.05 at β ≈ 0.2, also inside the band (referee R6), so it does not support renewal over Cox |
 | N11 | LFK generalisation τ_m ∝ τ_E^{1−1/α} (single store min(1−1/α, 2/3)) | new | **PRIOR ART** (in substance) | Correct in-model (referee R5), but it is the published bandwidth law τ ∝ (N/q)^{1/α} (Afterman et al. 2022; Kleptsyna et al. 2020) re-expressed at fixed variance; at fixed q the τ_E slope is 0. α = 2 case: Mora & Nemenman 2019 |
 | N9 | SG ranking beats uniform and unaided judgment at picking follow-ups that change a claim status | new | **OPEN** | Locked in `queue/sg_rank.py`; scored from `queue/LEDGER.jsonl` after ≥ 15 completed items |
+| N12 | Formal onset exponent −(1−b)/(1−a) is α-independent: −1 for reset reads (a = b = 1/α); −(1+θ) for continuous sensing with precision price ∝ precision^θ (a = αθ/(α(θ+1)−1), b = θ/(α(θ+1)−1)); small-share vigilance ∝ ρ^{−θ} | new (v2.3) | **PROVED (in-model)**; self-checked, **not refereed** | Elementary algebra in the power class (h = 0, equal prices, small ρ; 1 < α < 3 for continuous sensing). Symbolic + numeric check `reviews/night2/THEORY14_checks/onset_classes.out`. At α = 2 it is formal Lemma 1(iii). THEORY v1.4 §2.5. Implies the onset exponent measures the level's technology, not the world's spectrum |
+| N13 | Measured-input optimality: with α, q, N and stakes measured on one strongly selected system, its read rate, memory time and store count lie near the THEORY §2.2 optima, at ≥ 2 scales | new (v2.3) | **OPEN** | THEORY v1.4 §0, §1 N6. The open empirical bet; no system has had all four inputs measured. Rivals: fixed budget share; universal ½ |
 
-## Counts (167 rows in v2; section N adds 9 in v2.1 and 2 in v2.2, total 178)
+## Counts (167 rows in v2; section N adds 9 in v2.1, 2 in v2.2 and 2 in v2.3; section G adds 7 in v2.3; total 187)
 
-The table counts the 167 v2 rows only (section N is not in it). v2.2 (referee, 15 Nov 09:40 AM ET) moved K12 and K13 OPEN → MATH-CORRECTED and H19 PROXY-FAIL → MATH-CORRECTED; the table below reflects that.
+The table counts the 167 v2 rows only (section N and rows G23–G29 are not in it). v2.2 (referee, 15 Nov 09:40 AM ET) moved K12 and K13 OPEN → MATH-CORRECTED and H19 PROXY-FAIL → MATH-CORRECTED; the table below reflects that.
 
 | v2 status | Rows |
 |---|---|
