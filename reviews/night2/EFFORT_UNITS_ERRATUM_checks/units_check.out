@@ -1,0 +1,22 @@
+r* = (4*c**2*theta**2/(W**2*q))**(1/(2*theta + 1))
+spend share = 1/(2*theta + 1)
+phi elasticities (W, q): 2*theta/(2*theta + 1) theta/(2*theta + 1)
+spend/price elasticities: 2*theta/(2*theta + 1) theta/(2*theta + 1)
+precision elasticities: 2/(2*theta + 1) 1/(2*theta + 1)
+precision el == (a/theta, b/theta): True True
+small-share V exponent (b-a)/(1-a) spend units: -theta ; precision units: -1
+
+Numeric elasticities (finite differences on scalar optimum), 6 random points:
+ theta=2.725  spend el=(0.8450,0.4225) vs (a,b)=(0.8450,0.4225)  prec el=(0.3101,0.1550) vs (a/t,b/t)=(0.3101,0.1550)
+ theta=1.641  spend el=(0.7665,0.3832) vs (a,b)=(0.7665,0.3832)  prec el=(0.4670,0.2335) vs (a/t,b/t)=(0.4670,0.2335)
+ theta=2.594  spend el=(0.8381,0.4192) vs (a,b)=(0.8384,0.4192)  prec el=(0.3231,0.1616) vs (a/t,b/t)=(0.3232,0.1616)
+ theta=2.504  spend el=(0.8337,0.4172) vs (a,b)=(0.8336,0.4168)  prec el=(0.3329,0.1666) vs (a/t,b/t)=(0.3329,0.1664)
+ theta=1.582  spend el=(0.7601,0.3801) vs (a,b)=(0.7599,0.3799)  prec el=(0.4804,0.2403) vs (a/t,b/t)=(0.4803,0.2401)
+ theta=2.364  spend el=(0.8254,0.4127) vs (a,b)=(0.8254,0.4127)  prec el=(0.3491,0.1746) vs (a/t,b/t)=(0.3491,0.1746)
+
+Onset vigilance from first principles (architecture: N members, drift = shared rho*q + private q; flat member tracks total drift (1+rho)q with stakes W; level tracks rho*q with pooled stakes N*W; members then track q; h = 0, equal prices, onset N*: N phi(W,(1+rho)q) = phi(NW, rho q) + N phi(W, q)):
+ theta=0.5: slope dlnV/dln rho over two small rho a decade apart: spend units -0.5000 (pred -0.5), precision units -0.9999 (pred -1); V_prec == V_spend^(1/theta): True; V_spend=126.5, V_prec=1.6e+04 at rho=0.001
+ theta=1.0: slope dlnV/dln rho over two small rho a decade apart: spend units -0.9999 (pred -1.0), precision units -0.9999 (pred -1); V_prec == V_spend^(1/theta): True; V_spend=9003, V_prec=9003 at rho=0.001
+ theta=2.0: slope dlnV/dln rho over two small rho a decade apart: spend units -1.9969 (pred -2.0), precision units -0.9984 (pred -1); V_prec == V_spend^(1/theta): True; V_spend=3.938e+05, V_prec=627.5 at rho=0.01
+
+Sign / threshold invariance: V_prec > 1 iff V_spend > 1 because V_prec = V_spend^(1/theta), theta > 0; elasticity signs equal since a/theta and a share a sign.
