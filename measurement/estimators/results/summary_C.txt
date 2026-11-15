@@ -1,0 +1,162 @@
+C ci=0 sigma=0.5 lam=0.002 n=2048 kappa=0.0005 per-sample SNR mu^2/s2=4.00 expected switches 4 reps=100
+  loglam     truth   -6.215 bias -0.017 (median -0.018) RMSE 0.897 cov95 0.97 (n=100) meanSE 0.551
+  logmu      truth    0.000 bias -0.184 (median +0.001) RMSE 1.608 cov95 0.94 (n=100) meanSE 0.018
+  logs2      truth   -1.386 bias +0.004 (median +0.003) RMSE 0.033 cov95 0.94 (n=100) meanSE 0.031
+  logtA      truth   -0.175 bias +0.013 (median -0.005) RMSE 0.097 cov95 0.94 (n=98) meanSE 0.099
+  logq       truth   -4.828 bias -0.384 (median -0.014) RMSE 2.667 cov95 0.96 (n=100) meanSE 0.560
+  OU log q   truth   -4.828 bias -0.087 (median +0.032) RMSE 0.602
+  OU loglam  truth   -6.215 bias +0.239 (median +0.287) RMSE 0.767
+  LR(HMM vs OU) median 301.3
+C ci=1 sigma=0.5 lam=0.002 n=8192 kappa=0.0005 per-sample SNR mu^2/s2=4.00 expected switches 16 reps=100
+  loglam     truth   -6.215 bias +0.008 (median +0.041) RMSE 0.218 cov95 0.95 (n=100) meanSE 0.249
+  logmu      truth    0.000 bias -0.000 (median -0.000) RMSE 0.005 cov95 0.99 (n=100) meanSE 0.006
+  logs2      truth   -1.386 bias -0.003 (median -0.004) RMSE 0.016 cov95 0.95 (n=100) meanSE 0.016
+  logtA      truth   -0.175 bias -0.004 (median -0.005) RMSE 0.035 cov95 0.98 (n=100) meanSE 0.041
+  logq       truth   -4.828 bias +0.008 (median +0.032) RMSE 0.218 cov95 0.95 (n=100) meanSE 0.249
+  OU log q   truth   -4.828 bias +0.012 (median +0.024) RMSE 0.229
+  OU loglam  truth   -6.215 bias +0.075 (median +0.076) RMSE 0.248
+  LR(HMM vs OU) median 1200.1
+C ci=2 sigma=0.5 lam=0.002 n=32768 kappa=0.0005 per-sample SNR mu^2/s2=4.00 expected switches 66 reps=50
+  loglam     truth   -6.215 bias -0.005 (median +0.005) RMSE 0.105 cov95 1.00 (n=50) meanSE 0.125
+  logmu      truth    0.000 bias +0.000 (median +0.001) RMSE 0.002 cov95 0.98 (n=50) meanSE 0.003
+  logs2      truth   -1.386 bias -0.000 (median +0.001) RMSE 0.006 cov95 1.00 (n=50) meanSE 0.008
+  logtA      truth   -0.175 bias -0.000 (median +0.000) RMSE 0.016 cov95 1.00 (n=50) meanSE 0.020
+  logq       truth   -4.828 bias -0.004 (median +0.007) RMSE 0.104 cov95 1.00 (n=50) meanSE 0.125
+  OU log q   truth   -4.828 bias -0.003 (median +0.003) RMSE 0.101
+  OU loglam  truth   -6.215 bias +0.010 (median +0.018) RMSE 0.098
+  LR(HMM vs OU) median 4784.7
+C ci=3 sigma=0.5 lam=0.01 n=2048 kappa=0.0025 per-sample SNR mu^2/s2=4.00 expected switches 20 reps=100
+  loglam     truth   -4.605 bias -0.033 (median -0.006) RMSE 0.234 cov95 0.96 (n=100) meanSE 0.232
+  logmu      truth    0.000 bias +0.002 (median +0.002) RMSE 0.011 cov95 0.96 (n=100) meanSE 0.011
+  logs2      truth   -1.386 bias +0.001 (median +0.001) RMSE 0.030 cov95 0.97 (n=100) meanSE 0.031
+  logtA      truth   -0.449 bias +0.004 (median +0.006) RMSE 0.059 cov95 0.94 (n=100) meanSE 0.055
+  logq       truth   -3.219 bias -0.030 (median -0.012) RMSE 0.238 cov95 0.97 (n=100) meanSE 0.233
+  OU log q   truth   -3.219 bias -0.021 (median -0.015) RMSE 0.250
+  OU loglam  truth   -4.605 bias +0.026 (median +0.027) RMSE 0.254
+  LR(HMM vs OU) median 540.1
+C ci=4 sigma=0.5 lam=0.01 n=8192 kappa=0.0025 per-sample SNR mu^2/s2=4.00 expected switches 82 reps=100
+  loglam     truth   -4.605 bias +0.005 (median +0.010) RMSE 0.108 cov95 0.97 (n=100) meanSE 0.113
+  logmu      truth    0.000 bias -0.000 (median -0.000) RMSE 0.005 cov95 0.98 (n=100) meanSE 0.006
+  logs2      truth   -1.386 bias +0.001 (median +0.001) RMSE 0.015 cov95 0.96 (n=100) meanSE 0.016
+  logtA      truth   -0.449 bias +0.000 (median +0.001) RMSE 0.026 cov95 0.98 (n=100) meanSE 0.027
+  logq       truth   -3.219 bias +0.004 (median +0.004) RMSE 0.108 cov95 0.96 (n=100) meanSE 0.114
+  OU log q   truth   -3.219 bias +0.010 (median +0.007) RMSE 0.116
+  OU loglam  truth   -4.605 bias +0.025 (median +0.023) RMSE 0.117
+  LR(HMM vs OU) median 2224.7
+C ci=5 sigma=0.5 lam=0.01 n=32768 kappa=0.0025 per-sample SNR mu^2/s2=4.00 expected switches 328 reps=50
+  loglam     truth   -4.605 bias +0.002 (median +0.009) RMSE 0.058 cov95 0.96 (n=50) meanSE 0.057
+  logmu      truth    0.000 bias -0.000 (median +0.000) RMSE 0.002 cov95 0.98 (n=50) meanSE 0.003
+  logs2      truth   -1.386 bias +0.000 (median -0.000) RMSE 0.008 cov95 1.00 (n=50) meanSE 0.008
+  logtA      truth   -0.449 bias -0.000 (median -0.001) RMSE 0.012 cov95 0.98 (n=50) meanSE 0.014
+  logq       truth   -3.219 bias +0.001 (median +0.008) RMSE 0.057 cov95 0.96 (n=50) meanSE 0.057
+  OU log q   truth   -3.219 bias +0.003 (median +0.005) RMSE 0.066
+  OU loglam  truth   -4.605 bias +0.006 (median +0.005) RMSE 0.066
+  LR(HMM vs OU) median 8845.3
+C ci=6 sigma=1.5 lam=0.002 n=2048 kappa=0.0045 per-sample SNR mu^2/s2=0.44 expected switches 4 reps=100
+  loglam     truth   -6.215 bias -0.000 (median +0.011) RMSE 0.589 cov95 0.98 (n=100) meanSE 0.550
+  logmu      truth    0.000 bias -0.023 (median -0.010) RMSE 0.135 cov95 0.91 (n=100) meanSE 0.043
+  logs2      truth    0.811 bias -0.006 (median -0.007) RMSE 0.031 cov95 0.95 (n=100) meanSE 0.031
+  logtA      truth    1.626 bias +0.015 (median +0.021) RMSE 0.124 cov95 0.97 (n=99) meanSE 0.145
+  logq       truth   -4.828 bias -0.047 (median -0.005) RMSE 0.488 cov95 0.99 (n=100) meanSE 0.563
+  OU log q   truth   -4.828 bias +0.061 (median +0.119) RMSE 0.518
+  OU loglam  truth   -6.215 bias +0.367 (median +0.320) RMSE 0.781
+  LR(HMM vs OU) median 70.9
+C ci=7 sigma=1.5 lam=0.002 n=8192 kappa=0.0045 per-sample SNR mu^2/s2=0.44 expected switches 16 reps=100
+  loglam     truth   -6.215 bias -0.032 (median +0.007) RMSE 0.266 cov95 0.96 (n=100) meanSE 0.265
+  logmu      truth    0.000 bias +0.003 (median +0.005) RMSE 0.016 cov95 0.95 (n=100) meanSE 0.017
+  logs2      truth    0.811 bias -0.002 (median -0.001) RMSE 0.017 cov95 0.92 (n=100) meanSE 0.016
+  logtA      truth    1.626 bias +0.000 (median -0.002) RMSE 0.067 cov95 0.98 (n=100) meanSE 0.065
+  logq       truth   -4.828 bias -0.027 (median +0.004) RMSE 0.271 cov95 0.97 (n=100) meanSE 0.267
+  OU log q   truth   -4.828 bias -0.023 (median -0.020) RMSE 0.297
+  OU loglam  truth   -6.215 bias +0.024 (median +0.023) RMSE 0.280
+  LR(HMM vs OU) median 283.8
+C ci=8 sigma=1.5 lam=0.002 n=32768 kappa=0.0045 per-sample SNR mu^2/s2=0.44 expected switches 66 reps=50
+  loglam     truth   -6.215 bias -0.008 (median -0.009) RMSE 0.133 cov95 0.90 (n=50) meanSE 0.130
+  logmu      truth    0.000 bias -0.001 (median -0.002) RMSE 0.008 cov95 0.96 (n=50) meanSE 0.008
+  logs2      truth    0.811 bias +0.001 (median +0.000) RMSE 0.009 cov95 0.88 (n=50) meanSE 0.008
+  logtA      truth    1.626 bias +0.004 (median +0.004) RMSE 0.035 cov95 0.92 (n=50) meanSE 0.032
+  logq       truth   -4.828 bias -0.011 (median -0.010) RMSE 0.137 cov95 0.90 (n=50) meanSE 0.131
+  OU log q   truth   -4.828 bias -0.002 (median +0.014) RMSE 0.143
+  OU loglam  truth   -6.215 bias +0.015 (median +0.009) RMSE 0.134
+  LR(HMM vs OU) median 1117.7
+C ci=9 sigma=1.5 lam=0.01 n=2048 kappa=0.0225 per-sample SNR mu^2/s2=0.44 expected switches 20 reps=100
+  loglam     truth   -4.605 bias -0.055 (median -0.066) RMSE 0.247 cov95 0.98 (n=100) meanSE 0.268
+  logmu      truth    0.000 bias -0.001 (median -0.000) RMSE 0.036 cov95 0.92 (n=100) meanSE 0.035
+  logs2      truth    0.811 bias +0.004 (median +0.005) RMSE 0.033 cov95 0.95 (n=100) meanSE 0.032
+  logtA      truth    1.186 bias +0.020 (median +0.025) RMSE 0.106 cov95 0.97 (n=100) meanSE 0.107
+  logq       truth   -3.219 bias -0.058 (median -0.045) RMSE 0.266 cov95 0.97 (n=100) meanSE 0.281
+  OU log q   truth   -3.219 bias -0.037 (median -0.018) RMSE 0.303
+  OU loglam  truth   -4.605 bias +0.008 (median +0.031) RMSE 0.273
+  LR(HMM vs OU) median 86.2
+C ci=10 sigma=1.5 lam=0.01 n=8192 kappa=0.0225 per-sample SNR mu^2/s2=0.44 expected switches 82 reps=100
+  loglam     truth   -4.605 bias +0.016 (median -0.001) RMSE 0.127 cov95 0.95 (n=100) meanSE 0.129
+  logmu      truth    0.000 bias -0.002 (median -0.001) RMSE 0.018 cov95 0.93 (n=100) meanSE 0.017
+  logs2      truth    0.811 bias -0.004 (median -0.003) RMSE 0.017 cov95 0.95 (n=100) meanSE 0.016
+  logtA      truth    1.186 bias -0.006 (median -0.003) RMSE 0.053 cov95 0.96 (n=100) meanSE 0.053
+  logq       truth   -3.219 bias +0.011 (median -0.003) RMSE 0.136 cov95 0.94 (n=100) meanSE 0.136
+  OU log q   truth   -3.219 bias +0.014 (median +0.006) RMSE 0.158
+  OU loglam  truth   -4.605 bias +0.032 (median +0.021) RMSE 0.148
+  LR(HMM vs OU) median 355.9
+C ci=11 sigma=1.5 lam=0.01 n=32768 kappa=0.0225 per-sample SNR mu^2/s2=0.44 expected switches 328 reps=50
+  loglam     truth   -4.605 bias -0.019 (median -0.029) RMSE 0.061 cov95 1.00 (n=50) meanSE 0.066
+  logmu      truth    0.000 bias -0.002 (median -0.001) RMSE 0.010 cov95 0.88 (n=50) meanSE 0.009
+  logs2      truth    0.811 bias -0.000 (median -0.001) RMSE 0.007 cov95 0.96 (n=50) meanSE 0.008
+  logtA      truth    1.186 bias +0.009 (median +0.012) RMSE 0.026 cov95 0.98 (n=50) meanSE 0.027
+  logq       truth   -3.219 bias -0.023 (median -0.030) RMSE 0.066 cov95 1.00 (n=50) meanSE 0.069
+  OU log q   truth   -3.219 bias -0.017 (median -0.024) RMSE 0.080
+  OU loglam  truth   -4.605 bias -0.010 (median -0.015) RMSE 0.071
+  LR(HMM vs OU) median 1406.2
+C ci=12 sigma=3.0 lam=0.002 n=2048 kappa=0.0180 per-sample SNR mu^2/s2=0.11 expected switches 4 reps=100
+  loglam     truth   -6.215 bias +0.075 (median +0.042) RMSE 1.315 cov95 0.92 (n=100) meanSE 0.649
+  logmu      truth    0.000 bias -0.016 (median -0.009) RMSE 0.158 cov95 0.91 (n=100) meanSE 0.093
+  logs2      truth    2.197 bias -0.007 (median -0.003) RMSE 0.044 cov95 0.97 (n=100) meanSE 0.035
+  logtA      truth    2.646 bias +0.039 (median +0.028) RMSE 0.239 cov95 0.95 (n=96) meanSE 0.270
+  logq       truth   -4.828 bias +0.043 (median -0.038) RMSE 1.374 cov95 0.93 (n=100) meanSE 0.701
+  OU log q   truth   -4.828 bias +0.206 (median +0.067) RMSE 1.567
+  OU loglam  truth   -6.215 bias +0.381 (median +0.264) RMSE 1.357
+  LR(HMM vs OU) median 20.8
+C ci=13 sigma=3.0 lam=0.002 n=8192 kappa=0.0180 per-sample SNR mu^2/s2=0.11 expected switches 16 reps=100
+  loglam     truth   -6.215 bias +0.012 (median +0.038) RMSE 0.280 cov95 0.98 (n=100) meanSE 0.287
+  logmu      truth    0.000 bias -0.002 (median -0.004) RMSE 0.038 cov95 0.92 (n=100) meanSE 0.035
+  logs2      truth    2.197 bias +0.004 (median +0.004) RMSE 0.016 cov95 0.96 (n=100) meanSE 0.016
+  logtA      truth    2.646 bias -0.002 (median -0.004) RMSE 0.103 cov95 0.95 (n=100) meanSE 0.107
+  logq       truth   -4.828 bias +0.008 (median +0.039) RMSE 0.288 cov95 0.97 (n=100) meanSE 0.299
+  OU log q   truth   -4.828 bias +0.065 (median +0.088) RMSE 0.340
+  OU loglam  truth   -6.215 bias +0.135 (median +0.169) RMSE 0.349
+  LR(HMM vs OU) median 88.8
+C ci=14 sigma=3.0 lam=0.002 n=32768 kappa=0.0180 per-sample SNR mu^2/s2=0.11 expected switches 66 reps=50
+  loglam     truth   -6.215 bias +0.003 (median +0.003) RMSE 0.149 cov95 0.94 (n=50) meanSE 0.141
+  logmu      truth    0.000 bias +0.000 (median +0.001) RMSE 0.016 cov95 1.00 (n=50) meanSE 0.017
+  logs2      truth    2.197 bias +0.000 (median +0.000) RMSE 0.008 cov95 0.90 (n=50) meanSE 0.008
+  logtA      truth    2.646 bias -0.002 (median -0.010) RMSE 0.052 cov95 0.94 (n=50) meanSE 0.052
+  logq       truth   -4.828 bias +0.003 (median +0.022) RMSE 0.152 cov95 0.96 (n=50) meanSE 0.147
+  OU log q   truth   -4.828 bias +0.010 (median +0.028) RMSE 0.180
+  OU loglam  truth   -6.215 bias +0.019 (median +0.047) RMSE 0.175
+  LR(HMM vs OU) median 342.3
+C ci=15 sigma=3.0 lam=0.01 n=2048 kappa=0.0900 per-sample SNR mu^2/s2=0.11 expected switches 20 reps=100
+  loglam     truth   -4.605 bias -0.017 (median -0.037) RMSE 0.329 cov95 0.98 (n=100) meanSE 0.353
+  logmu      truth    0.000 bias -0.006 (median +0.007) RMSE 0.075 cov95 0.98 (n=100) meanSE 0.077
+  logs2      truth    2.197 bias -0.004 (median -0.006) RMSE 0.031 cov95 0.95 (n=100) meanSE 0.032
+  logtA      truth    1.925 bias -0.018 (median +0.009) RMSE 0.246 cov95 0.96 (n=100) meanSE 0.261
+  logq       truth   -3.219 bias -0.029 (median -0.032) RMSE 0.370 cov95 0.96 (n=100) meanSE 0.410
+  OU log q   truth   -3.219 bias -0.007 (median +0.031) RMSE 0.467
+  OU loglam  truth   -4.605 bias +0.054 (median +0.034) RMSE 0.400
+  LR(HMM vs OU) median 16.8
+C ci=16 sigma=3.0 lam=0.01 n=8192 kappa=0.0900 per-sample SNR mu^2/s2=0.11 expected switches 82 reps=100
+  loglam     truth   -4.605 bias -0.010 (median +0.002) RMSE 0.175 cov95 0.96 (n=100) meanSE 0.174
+  logmu      truth    0.000 bias -0.005 (median -0.006) RMSE 0.036 cov95 0.93 (n=100) meanSE 0.037
+  logs2      truth    2.197 bias +0.000 (median -0.000) RMSE 0.016 cov95 0.96 (n=100) meanSE 0.016
+  logtA      truth    1.925 bias +0.004 (median -0.002) RMSE 0.126 cov95 0.97 (n=100) meanSE 0.123
+  logq       truth   -3.219 bias -0.019 (median +0.003) RMSE 0.203 cov95 0.96 (n=100) meanSE 0.202
+  OU log q   truth   -3.219 bias +0.012 (median +0.034) RMSE 0.223
+  OU loglam  truth   -4.605 bias +0.031 (median +0.025) RMSE 0.186
+  LR(HMM vs OU) median 64.5
+C ci=17 sigma=3.0 lam=0.01 n=32768 kappa=0.0900 per-sample SNR mu^2/s2=0.11 expected switches 328 reps=50
+  loglam     truth   -4.605 bias -0.016 (median +0.001) RMSE 0.093 cov95 0.92 (n=50) meanSE 0.086
+  logmu      truth    0.000 bias -0.007 (median -0.001) RMSE 0.018 cov95 0.98 (n=50) meanSE 0.019
+  logs2      truth    2.197 bias +0.001 (median +0.000) RMSE 0.007 cov95 1.00 (n=50) meanSE 0.008
+  logtA      truth    1.925 bias +0.013 (median +0.001) RMSE 0.064 cov95 0.96 (n=50) meanSE 0.061
+  logq       truth   -3.219 bias -0.029 (median -0.002) RMSE 0.105 cov95 0.96 (n=50) meanSE 0.101
+  OU log q   truth   -3.219 bias -0.023 (median -0.021) RMSE 0.129
+  OU loglam  truth   -4.605 bias -0.007 (median -0.013) RMSE 0.111
+  LR(HMM vs OU) median 256.4

@@ -1,0 +1,8 @@
+S ci=0 n=100 meas-noise ratio=0.0 self-selected error=False: OLS median 1.999 (true mean w 2.00) cov95 0.94
+S ci=1 n=100 meas-noise ratio=0.5 self-selected error=False: OLS median 1.294 (true mean w 2.00) cov95 0.07; IV median 2.015 cov95 0.90
+S ci=2 n=100 meas-noise ratio=1.0 self-selected error=False: OLS median 0.503 (true mean w 2.00) cov95 0.00; IV median 2.013 cov95 0.98
+S ci=3 n=1000 meas-noise ratio=0.0 self-selected error=False: OLS median 2.000 (true mean w 2.00) cov95 0.94
+S ci=4 n=1000 meas-noise ratio=0.5 self-selected error=False: OLS median 1.288 (true mean w 2.00) cov95 0.00; IV median 2.014 cov95 0.95
+S ci=5 n=1000 meas-noise ratio=1.0 self-selected error=False: OLS median 0.497 (true mean w 2.00) cov95 0.00; IV median 2.029 cov95 0.93
+S ci=6 n=1000 meas-noise ratio=0.0 self-selected error=True: OLS median 0.663 (true mean w 2.00) cov95 0.00
+S ci=7 n=1000 meas-noise ratio=0.5 self-selected error=True: OLS median 0.508 (true mean w 2.00) cov95 0.00; IV median 0.662 cov95 0.00

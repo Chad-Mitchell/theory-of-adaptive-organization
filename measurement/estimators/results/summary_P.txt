@@ -1,0 +1,8 @@
+P ci=0 ('tel', 1.5, 0.002, 8192) reps=40 reject(p<=0.05) 1.00 reject(p<=0.10) 1.00 median LR 282.1
+P ci=1 ('tel', 3.0, 0.002, 8192) reps=40 reject(p<=0.05) 1.00 reject(p<=0.10) 1.00 median LR 85.1
+P ci=2 ('tel', 3.0, 0.01, 8192) reps=40 reject(p<=0.05) 1.00 reject(p<=0.10) 1.00 median LR 61.0
+P ci=3 ('tel', 3.0, 0.002, 2048) reps=40 reject(p<=0.05) 0.93 reject(p<=0.10) 0.93 median LR 21.2
+P ci=4 ('ou', 1.5, 0.002, 8192) reps=40 reject(p<=0.05) 0.00 reject(p<=0.10) 0.00 median LR -666.9
+P ci=5 ('ou', 3.0, 0.002, 8192) reps=40 reject(p<=0.05) 0.00 reject(p<=0.10) 0.00 median LR -111.2
+P ci=6 ('ou', 3.0, 0.01, 8192) reps=40 reject(p<=0.05) 0.00 reject(p<=0.10) 0.00 median LR -56.2
+P ci=7 ('ou', 3.0, 0.002, 2048) reps=40 reject(p<=0.05) 0.05 reject(p<=0.10) 0.07 median LR -20.6
