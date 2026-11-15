@@ -1,0 +1,16 @@
+[
+ {"id": "SPECTRUM-BRIDGE-SIM", "w": 3, "untested": true, "v": 0.6, "L": 4, "c": 4},
+ {"id": "SELF-2", "w": 2, "surprise": "strong", "age_days": 0.1, "v": 0.5, "L": 2, "c": 2},
+ {"id": "GITHUB-UPSTREAM", "w": 3, "untested": true, "v": 0.3, "L": 2, "c": 3},
+ {"id": "WIKIDATA-BAND", "w": 3, "untested": true, "v": 0.4, "L": 1, "c": 4},
+ {"id": "SENSE-CELL", "w": 3, "untested": true, "v": 0.3, "L": 2, "c": 5},
+ {"id": "IMMUNE", "w": 2, "untested": true, "v": 0.3, "L": 1, "c": 4},
+ {"id": "ONA-MORE", "w": 3, "surprise": "weak", "age_days": 0.1, "v": 0.05, "L": 1, "c": 2},
+ {"id": "THEORY-2.2-REWRITE", "w": 3, "untested": true, "v": 0.7, "L": 4, "c": 1},
+ {"id": "LFK-ALPHA-SPF", "w": 3, "untested": true, "v": 0.5, "L": 3, "c": 3},
+ {"id": "VIX-KERNEL", "w": 2, "untested": true, "v": 0.5, "L": 2, "c": 3},
+ {"id": "D3-TWO-EXPONENT-OOS", "w": 2, "untested": true, "v": 0.6, "L": 2, "c": 2},
+ {"id": "PRIORART-SCHOLAR", "w": 1, "untested": true, "v": 0.5, "L": 1, "c": 1},
+ {"id": "D3-DISCRIMINATE", "w": 2, "untested": true, "v": 0.7, "L": 2, "c": 1, "note": "new from SPECTRUM-MAP-REFEREE R6/R7: D3S has no power vs Cox at beta~0.2"},
+ {"id": "SPECTRUM-MAP-FIXES", "w": 1, "untested": true, "v": 0.9, "L": 2, "c": 0.5, "note": "apply SPECTRUM_MAP_REFEREE §8 as an erratum"}
+]
