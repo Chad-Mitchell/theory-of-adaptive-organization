@@ -321,7 +321,14 @@
   "v": 0.8,
   "L": 2,
   "c": 1,
-  "note": "new from N12 referee C1: any read noise sends the small-rho onset exponent from -1 to -2 (theta=1 class) at every alpha, with an alpha-dependent crossover. Derive rho_c(alpha, sigma2) in closed form, prove the limit, and state how an N2 test classifies the level's technology."
+  "note": "new from N12 referee C1: any read noise sends the small-rho onset exponent from -1 to -2 (theta=1 class) at every alpha, with an alpha-dependent crossover. Derive rho_c(alpha, sigma2) in closed form, prove the limit, and state how an N2 test classifies the level's technology.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/ONSET_NOISY_READS/REPORT.md",
+   "reviews/night2/ONSET_NOISY_READS_checks/",
+   "PR #60 (THEORY v1.4.11 author-only, DO NOT MERGE without separate reviewer PASS)"
+  ],
+  "outcome": "pick 29, 15 Nov ~6:20 PM ET, in-model: collapse N*rho = X_alpha(s2/rho); noise-limited level is theta=1 (exponent -2 every alpha); rho_c = s2*C_alpha*alpha^(-alpha/(alpha-1)) (2.7/4.8/8.4 s2 at alpha 1.5/2/2.5; 27sqrt2/8 at alpha 2); referee c3 slopes reproduced; derived with one assumed asymptote; no status change"
  },
  {
   "id": "MIXED-ALPHA-ONSET",
@@ -969,5 +976,14 @@
   "L": 1,
   "c": 1,
   "note": "From KERNEL-MEASURE (post hoc): VIX kernel weight beyond ~8 months falls to zero (last bin -0.024) where the linear optimum keeps 0.034-0.036; and summed slope 0.75 < 1. Test a corner/mean-reversion or risk-premium explanation on the driver (corner fit beyond 126 d) before reading it as a deviation."
+ },
+ {
+  "id": "ONSET-NOISY-READS-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.9,
+  "L": 2,
+  "c": 1,
+  "note": "From ONSET-NOISY-READS (pick 29, 15 Nov): separate reviewer of PR #60 (THEORY v1.4.11 N12 premise (ii) clause + CLAIM_MAP v2.29; DO NOT MERGE without separate reviewer PASS). Re-derive with own code: collapse N*rho = X(s2/rho); g_alpha = (Gamma(alpha) sin(pi(alpha-1)/2))^(1/alpha)/sin(pi/alpha) dense-sampling asymptote for sampled fBm (author checked 1.5-2.75, M-limited at 1.25); C_alpha and rho_c; uniform-convergence step; whether curvature separates noisy reset reads from priced precision over finite windows; v1.4.10/v2.28 numbering vs PR #58."
  }
 ]
