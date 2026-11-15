@@ -1,0 +1,64 @@
+== lattice vs independent MC (Bayes, world held after the switch)
+switch lam=0.002   N=0.25  Delta=1     MC 1.3566 +- 0.0012  lattice 1.3568  rel -0.0001  z -0.16
+switch lam=0.01    N=0.25  Delta=1     MC 1.2048 +- 0.0010  lattice 1.2060  rel -0.0009  z -1.12
+switch lam=0.002   N=2.25  Delta=1     MC 6.1144 +- 0.0073  lattice 6.1308  rel -0.0027  z -2.25
+switch lam=0.01    N=2.25  Delta=1     MC 4.2465 +- 0.0060  lattice 4.2458  rel +0.0001  z +0.10
+switch lam=0.002   N=9     Delta=1     MC 15.5748 +- 0.0228  lattice 15.5694  rel +0.0004  z +0.24
+switch lam=0.01    N=9     Delta=1     MC 8.6077 +- 0.0160  lattice 8.5917  rel +0.0019  z +1.00
+switch lam=0.0005  N=36    Delta=1     MC 58.2767 +- 0.0877  lattice 58.2101  rel +0.0011  z +0.76
+switch lam=0.01    N=1     Delta=0.05  MC 1.9583 +- 0.0027  lattice 1.9564  rel +0.0010  z +0.70
+switch lam=0.01    N=1     Delta=0.2   MC 2.1214 +- 0.0028  lattice 2.1211  rel +0.0001  z +0.10
+switch lam=0.01    N=1     Delta=0.5   MC 2.3464 +- 0.0030  lattice 2.3456  rel +0.0004  z +0.28
+quiet  lam=0.002   N=2.25  Delta=1     MC 6.2268 +- 0.0072  lattice 6.2253  rel +0.0003  z +0.22
+quiet  lam=0.01    N=2.25  Delta=1     MC 4.4634 +- 0.0058  lattice 4.4553  rel +0.0018  z +1.40
+quiet  lam=0.002   N=9     Delta=1     MC 16.2968 +- 0.0222  lattice 16.3152  rel -0.0011  z -0.83
+quiet  lam=0.01    N=9     Delta=1     MC 9.6966 +- 0.0155  lattice 9.7016  rel -0.0005  z -0.32
+quiet  lam=0.0005  N=36    Delta=1     MC 61.0467 +- 0.0851  lattice 61.1013  rel -0.0009  z -0.64
+quiet  lam=0.001   N=1     Delta=0.01  MC 3.0745 +- 0.0035  lattice 3.0746  rel -0.0000  z -0.04
+quiet  lam=0.001   N=1     Delta=0.05  MC 3.1589 +- 0.0035  lattice 3.1567  rel +0.0007  z +0.61
+quiet  lam=0.001   N=1     Delta=0.2   MC 3.3265 +- 0.0036  lattice 3.3255  rel +0.0003  z +0.27
+quiet  lam=0.0001  N=1     Delta=0.02  MC 4.2528 +- 0.0042  lattice 4.2507  rel +0.0005  z +0.51
+quiet  lam=0.0001  N=1     Delta=0.5   MC 4.6990 +- 0.0044  lattice 4.7021  rel -0.0006  z -0.69
+n=20  max|z|=2.25  chi2=12.9 (df 20)
+== definition sensitivity (MC): world NOT held after the switch
+lam=0.002 N=9 Delta=1: free 24.026 +- 0.163 vs held 15.569
+lam=0.01 N=1 Delta=0.5: free 3.854 +- 0.033 vs held 2.346
+== linear: closed form cosh(beta D) = cosh(aD) + rho sinh(aD) vs Riccati iteration (MC script)
+lam=0.01 N=1 D=0.5: closed 4.9772369422 iter 4.9772369422  pole closed 0.9044236914 iter 0.9044236914  P_post 0.17297 emp MSE 0.17301
+lam=0.05 N=1 D=2.0: closed 2.2475751107 iter 2.2475751107  pole closed 0.4107182168 iter 0.4107182168  P_post 0.24917 emp MSE 0.24868
+lam=0.002 N=9 D=1: closed 33.2443749178 iter 33.2443749178  pole closed 0.9703676324 iter 0.9703676324  P_post 0.23169 emp MSE 0.22957
+== linear ratio vs 1 + (1 - a^2 tau^2)^2/(24 r^2)
+lam=0.001 D=3.0 r=5.268 exact 1.00149 series 1.00150
+lam=0.001 D=1.0 r=15.803 exact 1.00017 series 1.00017
+lam=0.01 D=0.5 r=9.950 exact 1.00041 series 1.00041
+lam=0.1 D=1.0 r=1.508 exact 1.01467 series 1.01515
+lam=0.2 D=2.0 r=0.510 exact 1.08740 series 1.11111
+== small-Delta asymptote: (T_grid - T_cont)/sqrt(Delta) -> C1 = 0.5826 (theta = 1)
+kappa=0.01 D=0.04: g(h=sd/8) 0.6066  g(h=sd/16) 0.6077  Richardson 0.6080  C1 + 0.314 sqrt(D) = 0.6454
+kappa=0.01 D=0.01: g(h=sd/8) 0.5769  g(h=sd/16) 0.5800  Richardson 0.5811  C1 + 0.314 sqrt(D) = 0.6140
+kappa=0.01 D=0.0025: g(h=sd/8) 0.5581  g(h=sd/16) 0.5654  Richardson 0.5678  C1 + 0.314 sqrt(D) = 0.5983
+kappa=0.0001 D=0.04: g(h=sd/8) 0.6315  g(h=sd/16) 0.6329  Richardson 0.6333  C1 + 0.314 sqrt(D) = 0.6454
+kappa=0.0001 D=0.01: g(h=sd/8) 0.6025  g(h=sd/16) 0.6062  Richardson 0.6074  C1 + 0.314 sqrt(D) = 0.6140
+kappa=0.0001 D=0.0025: g(h=sd/8) 0.5833  g(h=sd/16) 0.5918  Richardson 0.5946  C1 + 0.314 sqrt(D) = 0.5983
+== universality: g = (T_grid - T_cont)/sqrt(Delta theta) as a function of rho = mu^2 Delta/N, across kappa
+kappa=0.03: rho=2.62:g=1.114  rho=1.31:g=0.852  rho=0.656:g=0.763  rho=0.437:g=0.726  rho=0.262:g=0.686  rho=0.131:g=0.645  rho=0.0656:g=0.616  rho=0.0437:g=0.603  rho=0.0262:g=0.589  rho=0.0131:g=0.576  rho=0.00656:g=0.566  rho=0.00262:g=0.556
+kappa=0.01: rho=3.72:g=1.234  rho=1.86:g=0.901  rho=0.93:g=0.811  rho=0.62:g=0.772  rho=0.372:g=0.728  rho=0.186:g=0.681  rho=0.093:g=0.648  rho=0.062:g=0.633  rho=0.0372:g=0.617  rho=0.0186:g=0.602  rho=0.0093:g=0.590  rho=0.00372:g=0.580
+kappa=0.001: rho=6.02:g=1.423  rho=3.01:g=0.965  rho=1.51:g=0.878  rho=1:g=0.830  rho=0.602:g=0.777  rho=0.301:g=0.722  rho=0.151:g=0.681  rho=0.1:g=0.662  rho=0.0602:g=0.643  rho=0.0301:g=0.624  rho=0.0151:g=0.610  rho=0.00602:g=0.597
+kappa=0.0001: rho=8.33:g=1.584  rho=4.16:g=1.021  rho=2.08:g=0.935  rho=1.39:g=0.871  rho=0.833:g=0.810  rho=0.416:g=0.747  rho=0.208:g=0.700  rho=0.139:g=0.678  rho=0.0833:g=0.656  rho=0.0416:g=0.634  rho=0.0208:g=0.618  rho=0.00833:g=0.603
+kappa=1e-06: rho=12.9:g=1.874  rho=6.47:g=1.139  rho=3.23:g=1.035  rho=2.16:g=0.938  rho=1.29:g=0.861  rho=0.647:g=0.785  rho=0.323:g=0.728  rho=0.216:g=0.702  rho=0.129:g=0.675  rho=0.0647:g=0.647  rho=0.0323:g=0.628  rho=0.0129:g=0.610
+== thresholds (from table.json, log-linear interpolation in r): smallest r_plugin beyond which the factor stays within
+quiet_over_plugin  kappa=0.03: 5%: >500, 10%: r >= 65
+quiet_over_plugin  kappa=0.01: 5%: r >= 122, 10%: r >= 27
+quiet_over_plugin  kappa=0.001: 5%: r >= 57, 10%: r >= 17
+quiet_over_plugin  kappa=0.0001: 5%: r >= 43, 10%: r >= 13
+quiet_over_plugin  kappa=1e-06: 5%: r >= 30, 10%: r >= 10
+switch_over_plugin kappa=0.03: 5%: r >= 36, 10%: r >= 16
+switch_over_plugin kappa=0.01: 5%: r >= 39, 10%: r >= 16
+switch_over_plugin kappa=0.001: 5%: r >= 47, 10%: r >= 15
+switch_over_plugin kappa=0.0001: 5%: r >= 42, 10%: r >= 13
+switch_over_plugin kappa=1e-06: 5%: r >= 30, 10%: r >= 10
+quiet_over_cont    kappa=0.03: 5%: r >= 96, 10%: r >= 26
+quiet_over_cont    kappa=0.01: 5%: r >= 80, 10%: r >= 22
+quiet_over_cont    kappa=0.001: 5%: r >= 55, 10%: r >= 16
+quiet_over_cont    kappa=0.0001: 5%: r >= 43, 10%: r >= 13
+quiet_over_cont    kappa=1e-06: 5%: r >= 30, 10%: r >= 10
