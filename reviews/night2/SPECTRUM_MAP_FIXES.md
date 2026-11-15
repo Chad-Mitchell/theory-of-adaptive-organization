@@ -37,7 +37,7 @@ The referee measured one-store excess ≈ 0.14(α−2)² with `c3_layers.py` unc
 
 **THEORY.md consequence.** THEORY v1.4.6 N4 (§1) and the §2.2 store row say "one store iff ψ·0.14(α−2)² ≲ 1". Proposed replacement:
 "one store iff ψ·c(α−2)² ≲ 1, c ≈ 0.03–0.2 depending on span and store model (in-model)". This is a core-table numeric, so it is
-author-only: separate PR `q-pick26-theory`, **DO NOT MERGE without separate reviewer PASS** (Chad t1916). New item STORE-COEF-REVIEW.
+author-only: separate PR `q-pick26-theory` (PR #51), **DO NOT MERGE without separate reviewer PASS** (Chad t1916). New item STORE-COEF-REVIEW.
 CLAIM_MAP K12 gets a dated v2.24 note (no status change). SPECTRUM-BRIDGE-SIM's lock note now says not to lock 0.14.
 
 ## Labels and limits

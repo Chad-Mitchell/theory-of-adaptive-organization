@@ -209,7 +209,7 @@
   "v": 0.9,
   "L": 2,
   "c": 0.5,
-  "note": "apply SPECTRUM_MAP_REFEREE §8 as an erratum; item 1 applied in THEORY v1.4 PR (15 Nov); items 2-8 remain | DONE 15 Nov ~5:45 PM ET (pick 26, RULE slot; ledger 120-122 + outcome 123): items 2-8 applied as dated errata in SPECTRUM_MAP/README.md; own checks A-D; referee's one-store constant 0.14 corrected (unpolished c3 K=1 fit; c ~ 0.03-0.11 in-model); d3s_shuffle_repro.py bit-reproducible, S1 PASS reproduces. THEORY N4/§2.2 store-row numeric edit: separate PR, DO NOT MERGE (STORE-COEF-REVIEW).",
+  "note": "apply SPECTRUM_MAP_REFEREE §8 as an erratum; item 1 applied in THEORY v1.4 PR (15 Nov); items 2-8 remain | DONE 15 Nov ~5:45 PM ET (pick 26, RULE slot; ledger 120-122 + outcome 123): items 2-8 applied as dated errata in SPECTRUM_MAP/README.md; own checks A-D; referee's one-store constant 0.14 corrected (unpolished c3 K=1 fit; c ~ 0.03-0.11 in-model); d3s_shuffle_repro.py bit-reproducible, S1 PASS reproduces. THEORY N4/§2.2 store-row numeric edit: separate PR #51, DO NOT MERGE (STORE-COEF-REVIEW).",
   "status": "DONE"
  },
  {
@@ -876,6 +876,6 @@
   "v": 0.9,
   "L": 2,
   "c": 0.5,
-  "note": "From SPECTRUM-MAP-FIXES (pick 26): separate reviewer (authored none of pick 26) re-derives the one-store excess constant c in excess ~ c(alpha-2)^2 with own code (c3 model with polished K=1 rate; scale-free one-EWMA model) and passes or fails the q-pick26-theory PR (THEORY N4 and §2.2 store row: 0.14 -> c ~ 0.03-0.2, model- and span-dependent). Core-table numeric: Chad t1916."
+  "note": "From SPECTRUM-MAP-FIXES (pick 26): separate reviewer (authored none of pick 26) re-derives the one-store excess constant c in excess ~ c(alpha-2)^2 with own code (c3 model with polished K=1 rate; scale-free one-EWMA model) and passes or fails the q-pick26-theory PR #51 (THEORY N4 and §2.2 store row: 0.14 -> c ~ 0.03-0.2, model- and span-dependent). Core-table numeric: Chad t1916."
  }
 ]
