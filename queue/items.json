@@ -541,7 +541,15 @@
   "v": 0.8,
   "L": 2,
   "c": 0.5,
-  "note": "From HEADLINE-PREMISE-SCOPE P9: THEORY §2.2 Regime C model size ∝ Q^{1/β} uses reverse water-filling, exact for Gaussian modes; for non-Gaussian sources the Gaussian R(D) is an upper bound (standard fact, not re-read). Read the rate-distortion source, decide whether Q^{1/β} is Gaussian-only (or an upper bound), and propose scope text for §0/§2.2 Regime C; headline-touching, so an independent applier."
+  "note": "From HEADLINE-PREMISE-SCOPE P9: THEORY §2.2 Regime C model size ∝ Q^{1/β} uses reverse water-filling, exact for Gaussian modes; for non-Gaussian sources the Gaussian R(D) is an upper bound (standard fact, not re-read). Read the rate-distortion source, decide whether Q^{1/β} is Gaussian-only (or an upper bound), and propose scope text for §0/§2.2 Regime C; headline-touching, so an independent applier.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/REGIME_C_PREMISE.md",
+   "reviews/night2/REGIME_C_PREMISE_checks/",
+   "reviews/night2/REGIME_C_PREMISE_REVIEW.md",
+   "reviews/night2/REGIME_C_PREMISE_REVIEW_checks/",
+   "THEORY.md v1.4.6 §0, §2.2 Regime C"
+  ]
  },
  {
   "id": "AQN-REFEREE",
@@ -753,5 +761,50 @@
   "L": 1,
   "c": 0.5,
   "note": "From CAUSAL-POWER-GATE audit (pick 19): C3b (locked 14 Nov, not run) fails MV10 on its own power_output.txt: P(H1 CI>0) 0.31-0.65 at projected n 300-500 for the theory-sized effect, P(K1 fires | beta_tau=0) 0.13-0.23. Before stage 4, write a dated addendum recording the gate status at the real n from the pre-shock screen (no change to locked rules) so an INCONCLUSIVE is read as 'gate not met at lock'."
+ },
+ {
+  "id": "REGIME-C-DEPENDENT-MODES",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2,
+  "note": "From REGIME-C-GAUSSIAN-PREMISE (pick 18, reviews/night2/REGIME_C_PREMISE.md §4.1): Q^{1/β} is derived for independent modes of one shape; non-Gaussian principal components are uncorrelated, not independent, and an R(D) upper bound does not bound optimal bits. Derive or bound the bits exponent for dependent modes (e.g. a Gaussian scale mixture across modes); natural images (§2.2 β ≈ 0.905) need this case."
+ },
+ {
+  "id": "REGIME-C-HEAVY-TAIL-LOWBETA",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 1.5,
+  "note": "From REGIME-C-GAUSSIAN-PREMISE §4.2: for β ≤ 1 and heavier-than-Gaussian tails every mode gets bits and the exponent needs G(u) = o(u^{1/β}) as u → 0 (only G ≤ u is proved). Derive small-u asymptotics of the MSE rate at slope u for Laplace and Student-t (ν > 2); decides whether the interior minimum (β < 1) holds off sub-Gaussian shapes. Scope edit if it changes: separate reviewer (t1916). Review heuristic (REGIME_C_PREMISE_REVIEW.md §3, not a proof): exponential tails give G(u) ≈ e^{−Θ(1/u)} (exponent survives at every β); Student-t ν gives G(u) ≈ u^{ν/2} up to logs, so Q^{1/β} would fail (bits grow with the number of modes) at β ≤ 1 when ν ≤ 2/β (natural-image β ≈ 0.905 needs ν > 2.21). Needs an upper bound on the optimal rate at small u."
+ },
+ {
+  "id": "REGIME-C-DRIFT-NONGAUSS",
+  "w": 2,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 1.5,
+  "note": "From REGIME-C-GAUSSIAN-PREMISE §4.3: the drifting-world rate Q^{min(½,1/β)} (THEORY §2.2 Regime C; INTERNAL_MODEL §4) uses the scalar Gaussian bound R ≥ log₂|a| + ½log₂(1 + q/(a²P)). Check off Gaussian innovations (sub-Gaussian vs heavy-tailed), with independent numerics."
+ },
+ {
+  "id": "REGIME-C-PRIORART-USTAR",
+  "w": 1,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 0.5,
+  "note": "From REGIME-C-GAUSSIAN-PREMISE D3: the MSE rate-distortion slope at D_max equals 1/(2v*), v* the optimal sub-Gaussian variance proxy (zero for heavier-than-Gaussian tails), derived here from first principles. Find and read prior statements (rate-distortion texts, Csiszár-type optimality conditions); credit or mark new. Only sources actually read. Review: the two directions are the Kuhn–Tucker / Gibbs-channel optimality conditions of the R(D) Lagrangian at a one-point output law; likely classical (Gallager 1968; Csiszár 1974), NOT read, so not credited."
+ },
+ {
+  "id": "REGIME-C-PREREG-CASE-N6",
+  "w": 1,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 0.5,
+  "note": "From REGIME-C-GAUSSIAN-PREMISE review Q5: §2.2 requires a Regime C prereg to state its case (premise met / not derived) before the data. Proposal only: a default for a prereg that states none (e.g. scored as if the premise holds, mirroring v1.4.4's linear default) and whether N6 should say it. Kill-condition text: separate author + independent reviewer (t1916)."
  }
 ]

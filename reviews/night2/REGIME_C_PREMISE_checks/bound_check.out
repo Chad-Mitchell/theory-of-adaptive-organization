@@ -1,0 +1,4 @@
+gauss max R_up/u 0.3678 max gap 2.41517368240185e-05
+uniform max R_up/u 0.3922 max gap 2.3360151134577123e-05
+laplace max R_up/u 0.328 max gap 0.021511209465143927
+bern02 max R_up/u 0.6163 max gap 1.5536458171649947e-05
