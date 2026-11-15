@@ -1,0 +1,12 @@
+H0_0.25 {'PASS': 0.91, 'FAIL': 0.0, 'INCONCLUSIVE': 0.09, 'low_resolution': 0.06}
+H0_0.35 {'PASS': 0.76, 'FAIL': 0.0, 'INCONCLUSIVE': 0.24, 'low_resolution': 0.64}
+H0_0.5 {'PASS': 0.33, 'FAIL': 0.0, 'INCONCLUSIVE': 0.67, 'low_resolution': 1.0}
+H0_0 {'PASS': 1.0, 'FAIL': 0.0, 'INCONCLUSIVE': 0.0, 'low_resolution': 0.0}
+H0_1.0 {'PASS': 0.0, 'FAIL': 0.01, 'INCONCLUSIVE': 0.99, 'low_resolution': 1.0}
+R1_0.25 {'PASS': 0.0, 'FAIL': 0.96, 'INCONCLUSIVE': 0.04, 'low_resolution': 0.43}
+R1_0.5 {'PASS': 0.0, 'FAIL': 0.64, 'INCONCLUSIVE': 0.36, 'low_resolution': 1.0}
+R2_0.25 {'PASS': 0.0, 'FAIL': 0.88, 'INCONCLUSIVE': 0.12, 'low_resolution': 0.42}
+R2_0.5 {'PASS': 0.0, 'FAIL': 0.53, 'INCONCLUSIVE': 0.47, 'low_resolution': 1.0}
+R3_0.25 {'PASS': 0.0, 'FAIL': 1.0, 'INCONCLUSIVE': 0.0, 'low_resolution': 0.02}
+R3_0.5 {'PASS': 0.0, 'FAIL': 1.0, 'INCONCLUSIVE': 0.0, 'low_resolution': 0.68}
+R3_0 {'PASS': 0.0, 'FAIL': 1.0, 'INCONCLUSIVE': 0.0, 'low_resolution': 0.0}
