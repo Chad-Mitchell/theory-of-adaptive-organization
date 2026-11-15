@@ -209,7 +209,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **HEADLINE-PREMISE-REVIEW** (w 2, c 0.5). A separate independent reviewer reviews the PR (sources, T1–T5, hostile pass) and merges or requests changes.
 - Surprise read: none beyond the proposal's; the one design gap found (the lock would have excused tests locked before v1.4.4) is fixed in the text (T4), not a new item.
 
-**Pick 13 done (outcome logged after the PR opened). Next pick (14) is the rule slot: log a fresh unaided order, run the rule, take the rule's top among open non-active items.**
+**Pick 13 done (PR #37 open, not merged; outcome ledger 69). Next pick (14) is the rule slot: log a fresh unaided order, run the rule, take the rule's top among open non-active items.**
 
 ## Done (frozen)
 - HEADLINE-PREMISE-APPLY: `reviews/night2/HEADLINE_PREMISE_APPLY.md` (THEORY v1.4.4 PR, not merged; HEADLINE-PREMISE-REVIEW queued).
