@@ -42,12 +42,12 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **Derive:** (i) optimal read-rate exponent under fBm(H) with the optimal linear predictor (not hold-last-value); (ii) the joint optimum of number and spacing of memory stores and read rate for S(f) ∝ f^−α with per-store upkeep and per-read price; (iii) the map α → forgetting exponent, and whether it explains MATCH1 D3's opposite sign.
 - **Kill / pass:** pass if it yields a prediction that a named rival (fixed budget share; approximation theory without a price; universal kernel) does not, with a stated discriminating test. If it reduces to "power law follows power law" or approximation theory plus a price, demote the headline in THEORY.md and tell Chad plainly.
 
-### Q3. LEARNSIM (rule rank 3, I = 2.40; running)
+### Q3. LEARNSIM (rule rank 3, I = 2.40) — DONE 15 Nov 09:17 ET (referee report merged)
 - **Tests:** formal T1.8 (level's class sets the onset exponent), FRAMEWORK §6.1.
 - **Regime:** A by design (Brownian), declared.
-- **Data:** designed simulation, `tests/LEARNSIM/` (branch `learnsim-prereg`), output `results_es.jsonl` in Ace's folder.
+- **Data:** `tests/LEARNSIM/`; referee `reviews/night2/LEARNSIM_REFEREE.md`.
 - **Locked:** PREREG_2 rules (AR/RA arms vs members'-class rival; MV7 known groups; MV8 power).
-- **Status label:** in-model only (SIM-PASS / SIM-FAIL), never field.
+- **Outcome (in-model only, never field):** T1.8 **NOT PASSED** (RA mixed-arm PASS confirmed and robust; AR INCONCLUSIVE on MV8). C1 locked-rule kill **DOWNGRADED** as fragile. V at onset (class R) locked PASS confirmed. No existing CLAIM_MAP_v2 row changed status.
 
 ### Q4. SELF-2 (rule rank 4, I = 0.75)
 - **Tests:** THEORY §2.5 (regime first; Proposition SG) and §6 (a shared driver calls for a level).
@@ -96,3 +96,4 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - VIGIL_ONA: `prereg/vigil-ona/` (refereed).
 - Night-2 referee: `reviews/night2/REFEREE/`.
 - Divergence audit: `reviews/night2/AUDIT_DIVERGENCE.md`.
+- LEARNSIM: `tests/LEARNSIM/`, referee `reviews/night2/LEARNSIM_REFEREE.md` (T1.8 NOT PASSED; no CLAIM_MAP status change).

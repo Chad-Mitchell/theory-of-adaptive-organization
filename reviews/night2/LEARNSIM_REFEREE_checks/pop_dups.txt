@@ -1,0 +1,10 @@
+torn line 97 text: b'D_rel": 0.09174214681279887, "D_rel_ind": 0.08933197913715646}, {"N": 295.6947513888921, "spend": 200.0, "loss_g": 0.4806121872787224, "cross": 0.00031404631089523567, "level_pm": 40.866603366954756, '
+DUP ('RRh', 'rho=0.32', 2, 'pop') lines [91, 98] same_sha True flat_pms [45.38222259631958, 45.38222259631958]
+DUP ('RRh', 'rho=0.32', 3, 'pop') lines [92, 99] same_sha True flat_pms [45.3257717026316, 45.3257717026316]
+DUP ('RRh', 'rho=0.32', 4, 'pop') lines [93, 100] same_sha True flat_pms [45.40585140233569, 45.40585140233569]
+DUP ('RRh', 'rho=0.32', 5, 'pop') lines [94, 101] same_sha True flat_pms [45.40014444117851, 45.40014444117851]
+DUP ('RRh', 'rho=0.32', 6, 'pop') lines [95, 102] same_sha True flat_pms [45.275164536328255, 45.275164536328255]
+DUP ('RRh', 'rho=0.32', 7, 'pop') lines [96, 103] same_sha True flat_pms [45.40646860968473, 45.40646860968473]
+non-identical dup groups 0 unique 96
+torn D_rel token b'0.09174214681279887'
+exact D_rel matches [(90, 'RRh', 'rho=0.32', 1, 209.08776386835586)] n 1
