@@ -30,6 +30,8 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 **v2.15 note (15 Nov 2026, about 2:55 PM ET; QUEUE HEADLINE-PREMISE-APPLY, pick 13, rule slot, ledger 66–68; PR not merged until a separate independent reviewer passes it, Chad t1916).** N13 row text only: the claim adds the further inputs (jump rate and jump size separately) only where the optimum compared is the Bayes optimum of a non-Gaussian world, and the notes add the lock (exactly one optimum fixed in the prereg and scored; best linear when a prereg names none). **No status change** (N13 stays OPEN). THEORY.md v1.4.4 applies the same premise clause to the status block, §0, §1 N6, §2.1, §2.4, §2.5 and §9 (`reviews/night2/HEADLINE_PREMISE_APPLY.md`).
 
+**v2.16 note (15 Nov 2026, about 3:30 PM ET; QUEUE HEADLINE-PREMISE-REVIEW, pick 14, rule slot, ledger 71–75).** Independent review of the v2.15 / THEORY v1.4.4 change by an executor that authored none of it: **PASS with four narrow THEORY fixes** (`reviews/night2/HEADLINE_PREMISE_REVIEW.md`). N13 row text unchanged; **no status change** (N13 stays OPEN). N16's precision elasticities checked numerically by the reviewer (local constant-η formula 1/(θ+η) = 0.542 vs exact optimum 0.552 at κ = 10⁻³, θ = 1: the formula is first-order in the slowly varying η; the difference from the linear 2/3 stands).
+
 **Why v2 exists.** Chad (t1908): no field test so far measured GTAO's quantities validly, so field "kills" and "hits" were results about **proxies**. v2 says so in every row. It does **not** soften the mathematics. Statements refuted by proof stay refuted (as MATH-CORRECTED, with their replacement), and failed locked simulations stay failed (SIM-FAIL).
 
 ## Statuses (exactly one per row)
