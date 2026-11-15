@@ -1,0 +1,15 @@
+UNEMP    n=195 beta=0.818 (NW se 0.230) D/vf=0.045 pred GTAO=0.670 alpha2=8.085 K=0.0267
+INDPROD  excluded by E4 (se 0.509)
+HOUSING  n=195 beta=1.470 (NW se 0.286) D/vf=0.116 pred GTAO=1.219 alpha2=2.708 K=0.206
+TBILL    n=149 beta=0.623 (NW se 0.179) D/vf=0.031 pred GTAO=0.618 alpha2=2.917 K=0.0448
+BOND     n=136 beta=-0.017 (NW se 0.225) D/vf=0.046 pred GTAO=2.821 alpha2=6.647 K=0.272
+TBOND    n=108 beta=-0.066 (NW se 0.150) D/vf=0.059 pred GTAO=2.825 alpha2=8.313 K=0.346
+RSLGOV   n=149 beta=0.599 (NW se 0.473) D/vf=1.622 pred GTAO=7.625 alpha2=8.124 K=11.3
+Traceback (most recent call last):
+  File "/workspace/theory-of-adaptive-organization/tests/LFK_SPF/analysis.py", line 223, in <module>
+    elif st == "outcome": stage_outcome()
+                          ~~~~~~~~~~~~~^^
+  File "/workspace/theory-of-adaptive-organization/tests/LFK_SPF/analysis.py", line 206, in stage_outcome
+    if np.ptp(lt[i]) == 0 or np.ptp(lq[i]) == 0: continue
+              ^^
+NameError: name 'lt' is not defined. Did you mean: 'lb'?

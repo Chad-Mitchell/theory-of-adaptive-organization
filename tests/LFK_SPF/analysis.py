@@ -198,7 +198,7 @@ def stage_outcome(env_path=None, tag="", end=END_Q, dmode="rvar", envkey="fit"):
     a = res["dGM"]
     res["verdict_alpha"] = ("alpha-dependence helps" if a[1] < 0 else "alpha-dependence hurts" if a[0] > 0 else "inconclusive")
     # secondary S1: as-scoped tauE-only slope (tests the fixed-variance assumption A1, per SPECTRUM_MAP_REFEREE)
-    lb = lg(np.array([per[v]["beta"] for v in vs]))  # floored at FLOOR; lt = np.log([table[v]["tauE"] for v in vs])
+    lb = lg(np.array([per[v]["beta"] for v in vs])); lt = np.log([table[v]["tauE"] for v in vs])  # (post-lock fix: a comment inserted pre-lock had commented out the rest of this line)
     al = np.array([table[v]["alpha"] for v in vs]); lK = np.log([table[v]["K"] for v in vs]); lq = np.log([table[v]["q_hf"] for v in vs])
     boot = []
     for _ in range(B):
