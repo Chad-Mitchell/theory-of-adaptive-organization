@@ -1,0 +1,123 @@
+{
+ "renewal_het(0.4, 10)": {
+  "exceed_frac": 0.05,
+  "median_delta": 0.01,
+  "wilcoxon_p": 0.174,
+  "median_beta": 0.479,
+  "median_M_w": -0.013,
+  "median_M_raw": 0.065,
+  "spearman_orig_shuf": 0.776,
+  "P3": "RENEWAL RETAINED",
+  "P4": "not detected"
+ },
+ "renewal(0.5, 20)": {
+  "exceed_frac": 0.05,
+  "median_delta": 0.0039,
+  "wilcoxon_p": 0.478,
+  "median_beta": 0.279,
+  "median_M_w": -0.017,
+  "median_M_raw": -0.007,
+  "spearman_orig_shuf": 0.305,
+  "P3": "RENEWAL RETAINED",
+  "P4": "not detected"
+ },
+ "renewal(0.35, 10)": {
+  "exceed_frac": 0.1,
+  "median_delta": 0.0014,
+  "wilcoxon_p": 0.215,
+  "median_beta": 0.418,
+  "median_M_w": -0.01,
+  "median_M_raw": 0.001,
+  "spearman_orig_shuf": 0.391,
+  "P3": "RENEWAL RETAINED",
+  "P4": "not detected"
+ },
+ "renewal(0.25, 5)": {
+  "exceed_frac": 0.0,
+  "median_delta": 0.0017,
+  "wilcoxon_p": 0.237,
+  "median_beta": 0.538,
+  "median_M_w": -0.014,
+  "median_M_raw": -0.001,
+  "spearman_orig_shuf": 0.684,
+  "P3": "RENEWAL RETAINED",
+  "P4": "not detected"
+ },
+ "cox(1.0, 1.0, 0.03)": {
+  "exceed_frac": 1.0,
+  "median_delta": 0.0501,
+  "wilcoxon_p": 9.54e-07,
+  "median_beta": 0.208,
+  "median_M_w": 0.241,
+  "median_M_raw": 0.244,
+  "spearman_orig_shuf": 0.542,
+  "P3": "RENEWAL REJECTED",
+  "P4": "DELTA>0 DETECTED"
+ },
+ "cox(1.0, 0.6, 0.04)": {
+  "exceed_frac": 1.0,
+  "median_delta": 0.0128,
+  "wilcoxon_p": 0.000445,
+  "median_beta": 0.084,
+  "median_M_w": 0.11,
+  "median_M_raw": 0.113,
+  "spearman_orig_shuf": -0.183,
+  "P3": "RENEWAL REJECTED",
+  "P4": "DELTA>0 DETECTED"
+ },
+ "cox(0.6, 1.5, 0.02)": {
+  "exceed_frac": 1.0,
+  "median_delta": 0.0491,
+  "wilcoxon_p": 9.54e-07,
+  "median_beta": 0.183,
+  "median_M_w": 0.153,
+  "median_M_raw": 0.155,
+  "spearman_orig_shuf": 0.385,
+  "P3": "RENEWAL REJECTED",
+  "P4": "DELTA>0 DETECTED"
+ },
+ "cox(0.4, 1.0, 0.03)": {
+  "exceed_frac": 0.75,
+  "median_delta": 0.0109,
+  "wilcoxon_p": 0.000258,
+  "median_beta": 0.047,
+  "median_M_w": 0.034,
+  "median_M_raw": 0.037,
+  "spearman_orig_shuf": 0.442,
+  "P3": "RENEWAL REJECTED",
+  "P4": "DELTA>0 DETECTED"
+ },
+ "cox(1.0, 0.3, 0.04)": {
+  "exceed_frac": 0.3,
+  "median_delta": 0.0005,
+  "wilcoxon_p": 0.565,
+  "median_beta": 0.018,
+  "median_M_w": 0.018,
+  "median_M_raw": 0.022,
+  "spearman_orig_shuf": 0.17,
+  "P3": "PARTIAL",
+  "P4": "not detected"
+ },
+ "lifecycle(0.3, 200)": {
+  "exceed_frac": 1.0,
+  "median_delta": 0.0148,
+  "wilcoxon_p": 0.000293,
+  "median_beta": 0.202,
+  "median_M_w": 0.36,
+  "median_M_raw": 0.367,
+  "spearman_orig_shuf": 0.233,
+  "P3": "RENEWAL REJECTED",
+  "P4": "DELTA>0 DETECTED"
+ },
+ "hawkes(0.01, 0.5, 5)": {
+  "exceed_frac": 1.0,
+  "median_delta": 0.0487,
+  "wilcoxon_p": 9.54e-07,
+  "median_beta": 0.292,
+  "median_M_w": 0.164,
+  "median_M_raw": 0.184,
+  "spearman_orig_shuf": 0.509,
+  "P3": "RENEWAL REJECTED",
+  "P4": "DELTA>0 DETECTED"
+ }
+}
