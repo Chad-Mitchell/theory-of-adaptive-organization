@@ -220,8 +220,17 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 13 done (PR #37 open, not merged; outcome ledger 69). Next pick (14) is the rule slot: log a fresh unaided order, run the rule, take the rule's top among open non-active items.**
 
+### NEW (15 Nov ~3:40 PM ET, from HEADLINE-PREMISE-REVIEW; surprises read per rule 4)
+- **HEADLINE-PREMISE-REVIEW** — DONE (pick 14, rule slot, I = 3.2, tied with REGIME-C-GAUSSIAN-PREMISE and taken by id order; ledger 71 unaided order (Ace's verbatim; HEADLINE-PREMISE-APPLY dropped as DONE, HEADLINE-PREMISE-REVIEW appended), 72 rule_rank, 73 pick, 74 rule_change, 75 outcome): `reviews/night2/HEADLINE_PREMISE_REVIEW.md` (checks in `HEADLINE_PREMISE_REVIEW_checks/`). Independent review **PASS** with three narrow fixes (R1 precision-effort exponent listed among those that differ; R3 heading time; R4 LFK pointer). **PR #37 merged** (92fc632): THEORY v1.4.4 and CLAIM_MAP v2.15/v2.16 are on main. No status change.
+- **CAUSAL-KILL-INPUTS** (w 2, c 0.5). Review finding R2, proposed only: §1 N6 / §9 causal kill should cover the further inputs of a Bayes-locked test, §9 should match N6 ("does not move in the predicted direction"), and the adjustment lag should be a number fixed in the prereg. Separate applier + independent reviewer (kill conditions; Chad t1916).
+- **Scorer bug (declared, fixed):** `queue/sg_rank.py score` sorted bootstrap AUCs before dropping NaN, garbling the CI (rule 0.679 "CI 0.727–0.943"). Declared at ledger 74 (rule_change, no parameter change), then fixed. Corrected at 19 outcomes: rule 0.679 [0.375, 0.943], unaided 0.635 [0.375, 0.875], uniform 0.276 [0.071, 0.536] → Q0 reads **INCONCLUSIVE** (the bug would have shown PASS). N9 stays OPEN.
+- Surprise read: the T2 rationale in HEADLINE_PREMISE_APPLY.md wrongly said the jump-world precision-effort exponent was not derived (N16 has it); fixed in text by R1 (weak; no LR change). Monte Carlo t_A at κ = 10⁻³ sits 0.05 (≈ 4 SE) above the leading-order formula: o(1)/step-size, no new item.
+
+**Pick 14 done (PR #37 merged; outcome ledger 75). Next pick (15) is the unaided slot: log a fresh unaided order, run the rule, take Ace's unaided top (rule's if the same) among open non-active items. Next free ledger entry: 76 (recheck all pushed branches).**
+
 ## Done (frozen)
-- HEADLINE-PREMISE-APPLY: `reviews/night2/HEADLINE_PREMISE_APPLY.md` (THEORY v1.4.4 PR, not merged; HEADLINE-PREMISE-REVIEW queued).
+- HEADLINE-PREMISE-REVIEW: `reviews/night2/HEADLINE_PREMISE_REVIEW.md` (independent review PASS with R1, R3, R4; PR #37 merged; R2 → CAUSAL-KILL-INPUTS).
+- HEADLINE-PREMISE-APPLY: `reviews/night2/HEADLINE_PREMISE_APPLY.md` (THEORY v1.4.4; merged after independent review, PR #37).
 - STAKES-EXOGENOUS: `tests/STAKES_EXOGENOUS/` (lock 27bbe72; not refereed; N21 INCONCLUSIVE on proxy; STAKES-REFEREE queued).
 - WIKIDATA-BAND: `prereg/WIKIDATA-BAND/` (locked v1.2-era test; not refereed; N19, N20).
 - AQN-ESTIMATORS: `measurement/estimators/` (lock 3595c48; not refereed; AQN-REFEREE queued).
