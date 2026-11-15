@@ -68,7 +68,7 @@ Every GTAO quantity is defined **relative to** three things:
 
 A test that leaves any of the three implicit fails gate MV1 below.
 
-### 2.2 Validity gates (MV1–MV9)
+### 2.2 Validity gates (MV1–MV10)
 A field test is **decisive (Tier 1)** only if it passes every gate. It is **Tier 2** if it passes MV1–MV4 and MV8 but not all the rest. It is **Tier 3** otherwise. The tiers extend those in `night2/VIGIL_ONA/FAIR_MEASURE.md` from vigilance to every prediction.
 
 | Gate | Requirement | What it rules out |
@@ -82,6 +82,7 @@ A field test is **decisive (Tier 1)** only if it passes every gate. It is **Tier
 | **MV7 Known-groups check** | The instrument reproduces a value known in advance in at least one calibration case (§3, per quantity) | Instruments that cannot see the effect even where it is known to exist |
 | **MV8 Power / resolution** | (i) Statistical: the SE of the key estimate is ≤ \|Δ\|/2.8, where Δ is the gap between GTAO's value and the nearest named rival (80% power, two-sided α = 0.05). (ii) **Selection** (Prop 10): the prize at the observed operating point exceeds the measured design resolution ε̂ (§3.10). Settings outside the selection gate are not analysed | Underpowered nulls; the small-ρ regime that POOLSIM showed is invisible under ≥ 1% decision noise |
 | **MV9 Process** | Externally timestamped lock (needs Chad's go), code hashed, estimator dry-run on synthetic truth with floors and ceilings, raw data kept, analyst blind to outcome where possible | Everything in night-1 §4 lock integrity |
+| **MV10 Feasibility / power gate (at lock)** | Before lock, every causal-form or optimality-form prereg, and every known-groups, moot or equivalence bound, states π (default 0.8) and shows on its own planned data (planned n, span and input changes; σ = sd of the same contrast over comparable no-change periods, measured before lock, with its df), by `tools/power_gate.py` or a simulation of the locked decision code: P(PASS \| locked prediction true) ≥ π; P(FAIL \| the null its FAIL rule targets) ≥ π; each rule fires at its own best-case data; any PASS band is wider than its CI half-width. Minimal form: \|b\|·S ≥ (z₁₋α/₂ + z_π)·σ / min(1, κ), S = √(Σ Δlog x_k²) over independent contrasts, κ = share of the predicted move the FAIL rule must exclude; an absolute FAIL margin ε needs σ ≤ ε/(z₁₋α/₂ + z_π) whatever S; optimality form: gap to the nearest rival Δ ≥ 2.80σ. Output pasted in the prereg; a prereg that fails is redesigned or locked as exploratory, not decisive (`reviews/night2/CAUSAL_POWER_GATE.md`; merges KG-FEASIBILITY-GATE) | Locks that can only end INCONCLUSIVE: STAKES-SHIFT-CAISO (PASS region empty; FAIL unreachable at any stakes change), WIKIDATA-BAND KG(a) (bound unattainable at n = 40 even with zero changes) |
 
 **Admissibility rule (the anti-rescue clause).** If a test passes MV1–MV8, its result counts fully. A later claim that "the instrument missed how X really works" is inadmissible unless it names a gate the test actually failed. Two independent Tier-2 failures in different systems count as one Tier-1 failure (as in FAIR_MEASURE §5).
 
