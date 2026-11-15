@@ -1,0 +1,9 @@
+kappa=0: fitted elasticity 0.5000  predicted 0.5000
+kappa=0.5: fitted elasticity 0.2500  predicted 0.2500
+kappa=1.0: fitted elasticity -0.0000  predicted 0.0000
+kappa=1.5: fitted elasticity -0.2500  predicted -0.2500
+3 var of scope driver increment: 0.32751  1/N: 0.33333
+9 var of scope driver increment: 0.10974  1/N: 0.11111
+27 var of scope driver increment: 0.03725  1/N: 0.03704
+81 var of scope driver increment: 0.01232  1/N: 0.01235
+243 var of scope driver increment: 0.00411  1/N: 0.00412

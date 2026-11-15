@@ -1,0 +1,6 @@
+VIGIL_ONA lock — hashes computed before any real-outcome statistic.
+8423b5d38e262d269ed8ab4a9e84d4c9edda0b192d16ff2a36e54949cd63ea0b  FAIR_MEASURE.md
+7f75b382ba942994def24a39a58ab1782269443b028a3e1752cac41306662a1f  PREREG.md
+3328161ccbe0b7e7a77d3ad3206f549a44248dfe66086a62620009150fe02fdc  ona_analyze.py
+raw data manifest: 29daed9b4006219462ccecde0de63c2a099997533cb2d338ac9ec64040860fd3  data/SHA256SUMS_raw.txt
+locked_at: 2026-11-15 08:12:56 EST

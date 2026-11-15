@@ -1,0 +1,60 @@
+{
+ "lazega_advice_ctrl_seniority": {
+  "beta": 0.8124488088399089,
+  "se": 0.5219089675442982,
+  "se_ego": 0.5254343142951857,
+  "n_dyads": 4831,
+  "n_egos": 70
+ },
+ "lazega_advice_ctrl_sen_age": {
+  "beta": 0.7079131974727452,
+  "se": 0.5066844011225387,
+  "se_ego": 0.4995586732038995,
+  "n_dyads": 4831,
+  "n_egos": 70
+ },
+ "lazega_cowork_ctrl_seniority": {
+  "beta": 0.4436330975589531,
+  "se": 0.5138578533719333,
+  "se_ego": 0.4629586253704914,
+  "n_dyads": 4830,
+  "n_egos": 70
+ },
+ "lazega_cowork_ctrl_sen_age": {
+  "beta": 0.3693684908820417,
+  "se": 0.478226753013412,
+  "se_ego": 0.41643772967844145,
+  "n_dyads": 4830,
+  "n_egos": 70
+ },
+ "H3_without_krackhardt": {
+  "elasticity": 0.5137701021458344,
+  "se": 0.120858164444722,
+  "n_nodes": 123
+ },
+ "H3_without_consulting": {
+  "elasticity": 0.37947502309687625,
+  "se": 0.16812212976743773,
+  "n_nodes": 97
+ },
+ "H3_without_manufacturing": {
+  "elasticity": 0.14711821706208378,
+  "se": 0.1806682511153802,
+  "n_nodes": 66
+ },
+ "H3_manuf_without_top_node": {
+  "elasticity": 0.21439228079545414,
+  "se": 0.1564655211709179,
+  "n_nodes": 142
+ },
+ "H3_manuf_without_levels_1_2": {
+  "elasticity": 0.06165603492896714,
+  "se": 0.15505068659031007,
+  "n_nodes": 139
+ },
+ "H3_inside_unit_same_model": {
+  "elasticity": 0.13507697704922447,
+  "se": 0.06159797624429794,
+  "n_nodes": 142
+ }
+}
