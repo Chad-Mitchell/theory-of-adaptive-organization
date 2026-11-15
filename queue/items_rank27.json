@@ -1,0 +1,200 @@
+[
+ {
+  "id": "AQN-ESTIMATORS",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 3,
+  "c": 1.5,
+  "note": "new (THEORY v1.4): estimators with CIs for alpha (band), q, N from a noisy series and for event worlds; validated on synthetic fBm+noise, Cox and renewal truth before any lock. N13 cannot be tested without them"
+ },
+ {
+  "id": "SPECTRUM-MAP-FIXES",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 2,
+  "c": 0.5,
+  "note": "apply SPECTRUM_MAP_REFEREE \u00a78 as an erratum; item 1 applied in THEORY v1.4 PR (15 Nov); items 2-8 remain"
+ },
+ {
+  "id": "D3-DISCRIMINATE",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 1,
+  "note": "new from SPECTRUM-MAP-REFEREE R6/R7: D3S has no power vs Cox at beta~0.2"
+ },
+ {
+  "id": "SAME-SYSTEM-AQN",
+  "w": 3,
+  "untested": true,
+  "v": 0.6,
+  "L": 4,
+  "c": 4,
+  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the \u00a72.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS"
+ },
+ {
+  "id": "LAB-AKLMT-TAU",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2,
+  "note": "Afrouzi et al. 2023 QJE replication data (doi 10.7910/dvn/3q6bhc): AR(1) with set persistence rho in {0,...,1}; known DGP; test the fixed-variance tau_E slope (N11 at alpha=2) and memory vs optimum; note their forecasters overreact."
+ },
+ {
+  "id": "ONSET-ACROSS-ALPHA-SIM",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 3,
+  "note": "new (N12): LEARNSIM-style non-circular learners in fGn worlds at two alpha values, same technology; locked prediction: onset exponent unchanged (-1 reset; -2 linear precision price) | N12 referee (15 Nov): lock the narrowed form: same alpha for shared and private drift, exact reads (or report read noise; noisy reads go to -2 at small rho), stated rho window (fits over [0.01,1] give -0.93 / -1.86)."
+ },
+ {
+  "id": "KERNEL-MEASURE",
+  "w": 2,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 3,
+  "note": "new (THEORY v1.4 \u00a72.2): every earlier memory test measured a need hazard, never a tracking kernel. Measure a response kernel on one system with alpha measured on its driver; predict survival exponent alpha/2 and sign flip at alpha=2. Overlaps VIX-KERNEL"
+ },
+ {
+  "id": "SPF-NOISE-PROXY",
+  "w": 2,
+  "surprise": "weak",
+  "age_days": 0.1,
+  "v": 0.5,
+  "L": 2,
+  "c": 2,
+  "note": "S-b: long yields beta~0 vs predicted 2.8; dispersion is not signal noise for priced variables. Find an independent N proxy (e.g. data-release noise, information-acquisition measures) before any N13 test on SPF."
+ },
+ {
+  "id": "SPF-AQN-POWERED",
+  "w": 3,
+  "surprise": "weak",
+  "age_days": 0.1,
+  "v": 0.5,
+  "L": 3,
+  "c": 4,
+  "note": "POST HOC S-a: UNEMP/HOUSING/TBILL consensus CG within 0-25% of optimal-filter prediction, alpha=2 rival 2-10x high. Powered version: monthly series for alpha, more surveys/variables (ECB SPF, Livingston), individual panels; dry-run power first (MV8)."
+ },
+ {
+  "id": "SPECTRUM-BRIDGE-SIM",
+  "w": 3,
+  "untested": true,
+  "v": 0.6,
+  "L": 4,
+  "c": 4
+ },
+ {
+  "id": "SELF-2",
+  "w": 2,
+  "surprise": "strong",
+  "age_days": 0.1,
+  "v": 0.5,
+  "L": 2,
+  "c": 2
+ },
+ {
+  "id": "FROZEN-DOC-POINTERS",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 1,
+  "c": 0.5,
+  "note": "new: litmap/LEFT_ON_THE_TABLE.md, theory/THEOREMS.md, AUDIT files still state slope 1 / (log-span)^(2/3); add one-line 'superseded by THEORY v1.4 \u00a72.2' pointers (no content edits to frozen files)"
+ },
+ {
+  "id": "VIX-KERNEL",
+  "w": 2,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 3
+ },
+ {
+  "id": "D3-TWO-EXPONENT-OOS",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2
+ },
+ {
+  "id": "PRIORART-SCHOLAR",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 1
+ },
+ {
+  "id": "SENSE-CELL",
+  "w": 3,
+  "untested": true,
+  "v": 0.3,
+  "L": 2,
+  "c": 5,
+  "note": "v1.4 \u00a72.5: onset exponent is -(1+theta) at every alpha, so the physics matters through the precision-price exponent theta; measure theta and the binding ratio | N12 referee C1: receptor reads are noisy, so at small rho the level is in the priced-precision class; measure theta."
+ },
+ {
+  "id": "IMMUNE",
+  "w": 2,
+  "untested": true,
+  "v": 0.3,
+  "L": 1,
+  "c": 4
+ },
+ {
+  "id": "ONA-MORE",
+  "w": 3,
+  "surprise": "weak",
+  "age_days": 0.1,
+  "v": 0.05,
+  "L": 1,
+  "c": 2
+ },
+ {
+  "id": "PRIORART-LFK-ALPHA",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 0.5,
+  "note": "largely covered by SPECTRUM-MAP-REFEREE \u00a75 (15 Nov); remaining: citer full texts, PLL literature, Scholar"
+ },
+ {
+  "id": "ONSET-SPECTRUM-FREE-REFEREE",
+  "w": 3,
+  "untested": true,
+  "v": 0.8,
+  "L": 3,
+  "c": 1,
+  "note": "new (THEORY v1.4 \u00a72.5, CLAIM_MAP N12): hostile math + prior-art referee of 'formal onset exponent is alpha-independent: -1 reset reads, -(1+theta) priced precision'",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/N12_REFEREE.md",
+   "reviews/night2/N12_REFEREE_checks/"
+  ]
+ },
+ {
+  "id": "WIKIDATA-BAND",
+  "w": 3,
+  "untested": true,
+  "v": 0.4,
+  "L": 1,
+  "c": 4
+ },
+ {
+  "id": "GITHUB-UPSTREAM",
+  "w": 3,
+  "untested": true,
+  "v": 0.3,
+  "L": 2,
+  "c": 3
+ }
+]
