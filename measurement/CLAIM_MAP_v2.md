@@ -44,6 +44,8 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 **v2.22 note (15 Nov 2026, about 5:20 PM ET; QUEUE NOISE-PROXY-REFEREE, pick 22, rule slot, ledger 104–106 + outcome 111).** No row changes status; **N13 stays OPEN**. Independent referee of SPF-NOISE-PROXY: PASS-WITH-FIXES on proxy "SPF within-forecaster nowcast dispersion" (`reviews/night2/NOISE_PROXY_REFEREE.md`). The post hoc rigidity pattern S-1 narrows to UNEMP, HOUSING, TBILL (RSLGOV's noise is not identified). THEORY.md not edited.
 
+**v2.23 note (15 Nov 2026, about 5:25 PM ET; QUEUE EFFORT-UNITS-ERRATUM, pick 25, rule slot, ledger 116–118 + outcome).** Dated erratum to formal Lemma 1(viii) and the T5 Definition (`reviews/night1/formal/THEOREMS.md`, `FIXES.md` G1; checks `reviews/night2/EFFORT_UNITS_ERRATUM_checks/`), from `reviews/night2/N12_REFEREE.md` C3: "effort = spend/price" is precision only at θ = 1; A_θ precision elasticities are (a/θ, b/θ); small-share onset vigilance is ∝ ρ^{−θ} in spend/price units and ρ^{−1} in precision units. Unit qualifiers added to A5, E9 and E10. **No row changes status** (A5's and E10's night-1 scope already used spend/price units; N12 already named both units). No locked prereg is affected: SELF (R1 reset reads) and STAKES-SHIFT-CAISO (θ = 1) use technologies where the two units coincide; STAKES-EXOGENOUS gives no verdict from precision. H8 vigilance stays OPEN. If PR #48 also adds a note, it takes the next number.
+
 **Why v2 exists.** Chad (t1908): no field test so far measured GTAO's quantities validly, so field "kills" and "hits" were results about **proxies**. v2 says so in every row. It does **not** soften the mathematics. Statements refuted by proof stay refuted (as MATH-CORRECTED, with their replacement), and failed locked simulations stay failed (SIM-FAIL).
 
 ## Statuses (exactly one per row)
@@ -74,7 +76,7 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 | A2 | A_θ, |e|^p and α-stable rows of Lemma 1 | PROVED | **PROVED (in-model)** | Unchanged |
 | A3 | (a, b) chart classifies technologies | PROVED | **PROVED (in-model)** | Unchanged. **Measurement now specified**: FRAMEWORK §3.4 class gate |
 | A4 | Periodic reading optimal in R1 (no observation between reads) | PROVED | **PROVED (in-model)** | Unchanged; event-triggered sampling dominates with continuous observation |
-| A5 | Effort elasticities = (a, b), so the class is measurable on a lone unit | PROVED | **PROVED (in-model)** | Unchanged. Now the basis of the class gate (FRAMEWORK §3.4). Members' and level's classes must be measured on different units |
+| A5 | Effort elasticities = (a, b), so the class is measurable on a lone unit | PROVED | **PROVED (in-model)** | Unchanged. Now the basis of the class gate (FRAMEWORK §3.4). Members' and level's classes must be measured on different units. **Unit (v2.23 erratum):** "effort" = spend/price (read rate in R1, information rate in R2, r^{−θ} in A_θ); A_θ precision elasticities are (a/θ, b/θ), equal to (a, b) only at θ = 1 (formal Lemma 1(viii) erratum). Status unchanged: the row's night-1 scope already fixed this convention |
 
 ## B. Pooling onset (T1, T2)
 
@@ -125,8 +127,8 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 | E6 | Exact V(N*) formula with upkeep and price | PROVED | **PROVED (in-model)** | Unchanged |
 | E7 | Floor V(N*) ≥ 1 + (1+ρ)^{−1/2} | PROVED | **PROVED (in-model)** | Unchanged; not independently re-checked |
 | E8 | T5.4 price invariance at h = 0 | PROVED | **PROVED (in-model)** | Unchanged; never tested. Spec: FRAMEWORK §6.3 |
-| E9 | T5.5 V grows as N^a | PRIOR ART | **PRIOR ART** | Unchanged |
-| E10 | V ∝ ρ^{−θ} in A_θ | PROVED | **PROVED (in-model)** | Unchanged |
+| E9 | T5.5 V grows as N^a | PRIOR ART | **PRIOR ART** | Unchanged. Spend/price units; in precision units N^{a/θ} for A_θ (v2.23 erratum) |
+| E10 | V ∝ ρ^{−θ} in A_θ | PROVED | **PROVED (in-model)** | Unchanged as stated in spend/price units (T5's definition of V). In precision units V ∝ ρ^{−1} for every θ (v2.23 erratum; as already in N12). A vigilance test must name its unit |
 | E11 | F15: VIGIL's 1.15 cannot come from upkeep/prices in class R | KILLED | **MATH-CORRECTED** | Holds only as ρ → 0 |
 | E12 | '≈ 2× at every rank'; 'V > 1 always'; 'V ∝ √(c/c_g) at onset' | KILLED | **MATH-CORRECTED** | Replaced by T5.2–T5.5 |
 
