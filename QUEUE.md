@@ -374,3 +374,11 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **ONSET-ACROSS-ALPHA-PRICED** (w 2, c 2). Precision-priced arm (−(1+θ), −2 at linear price) across α = 1.5 vs 2.5, learners not given the cost; MV10 gate on an out-of-contrast pilot first.
 
 **Pick 32 done (uniform slot; ledger 149–151 + outcome 156; 152 = pick 31 outcome, 153–155 = pick 33 on q-pick33). Recheck all pushed branches before any ledger write.**
+
+### NEW (15 Nov ~6:50 PM ET, from KERNEL-MEASURE-REFEREE proxy part; surprises read per rule 4)
+- ~~**KERNEL-MEASURE-REFEREE**~~ — proxy-validity part DONE (pick 33, RULE slot; ledger 153 unaided, 154 rule_rank, 155 claim, 157 outcome): `reviews/night2/KERNEL_PROXY_REVIEW.md`, prereg `reviews/night2/KERNEL_PROXY_PREREG.md` (lock `c1e13b2`, MV10: P1 rival rule met, band and P2 not met → exploratory). VIX-free realized-target kernel W21 0.259 ± 0.058 vs like-with-like 0.258: **passed on proxy, exploratory**. VIX vs realized target 0.0005 ± 0.055 (post hoc); locked P2 vs realized level UNRESOLVED. Jensen +0.003 in-model. Scale distorted (Σβ VIX 0.75 vs 0.88, post hoc), shape not. Item DONE.
+- Surprise read: **weak** — the proxy distortions cancel in the shape statistic but show up as a ~0.12 gain deficit; no row moves.
+- **KERNEL-OVERNIGHT-REFIT** (w 2, c 1). Close-to-close driver (2008–2026) moves VIX's W21 0.268 → 0.358; refit α, q, N on that driver, like-with-like prediction, lock + MV10 before reading.
+- **VIX-GAIN-SCALE** (w 1, c 1). Post hoc VIX gain deficit (Σβ 0.754 ± 0.028 vs realized 0.878 ± 0.042); test a premium-elasticity explanation before any test reads a tracker's gain from VIX.
+
+**Pick 33 done (rule slot; ledger 153–155 + outcome 157). Pick 32 (uniform) done on main (outcome 156); ONSET-ACROSS-ALPHA-REVIEW active. Next pick (34) is the rule slot (cycle position 2). Recheck all pushed branches before any ledger write.**
