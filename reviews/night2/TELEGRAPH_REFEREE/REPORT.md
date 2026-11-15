@@ -1,6 +1,6 @@
 # TELEGRAPH-REFEREE — hostile referee of TELEGRAPH-LINEAR-PREMISE (PR #25, CLAIM_MAP N16)
 
-Executor telegraph-referee (for Ace; Chad t1914), Sunday 15 Nov 2026, 11:30 AM–about 11:55 AM ET. Queue pick 7 (unaided slot;
+Executor telegraph-referee (for Ace; Chad t1914), Sunday 15 Nov 2026, 11:30–11:48 AM ET (merged as PR #26 at 11:48). Queue pick 7 (unaided slot;
 ledger 41–44). **I did not author TELEGRAPH-LINEAR-PREMISE.** All code in `checks/` is mine, written without running or copying the
 PR #25 code (I read its REPORT, PREREG and output JSON to know the claims). In-model mathematics only; no field data. THEORY.md not
 edited. Compute at `nice -n 19`.
