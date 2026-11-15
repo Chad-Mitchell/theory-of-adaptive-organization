@@ -91,7 +91,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **Step 1:** measure H / regime of antigenic drift per lineage from Bedford et al. 2014 HI data (Dryad doi 10.5061/dryad.rc515).
 - **Prediction / kill:** locked only after step 1.
 
-### Q10. ONA-MORE (rule rank 10, I = 0.04)
+### Q10. ONA-MORE (rule rank 10, I = 0.04) — DONE 15 Nov ~4:00 PM ET (pick 16, uniform slot; ledger 79–82): **gate not met** (`reviews/night2/ONA_MORE_GATE.md`)
 - Tier 3 by construction; cannot change vigilance's status. Take only if a dataset with tenure, real reporting units and a shared-environment vs own-task question appears (referee fixes, `reviews/night2/REFEREE/REPORT.md` §6).
 
 ### NEW (15 Nov 09:26 ET, from SPECTRUM_MAP; surprises read per rule 4)
@@ -228,7 +228,12 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 14 done (PR #37 merged; outcome ledger 75). Next pick (15) is the unaided slot: log a fresh unaided order, run the rule, take Ace's unaided top (rule's if the same) among open non-active items. Next free ledger entry: 76 (recheck all pushed branches).**
 
+### NEW (15 Nov ~4:00 PM ET, from ONA-MORE; surprises read per rule 4)
+- **ONA-MORE** — DONE (pick 16, UNIFORM slot: top of entry 80's stored perm, seed 20261195; rule rank 41 of 41, I = 0.035; Ace's unaided rank 40 of 41). Gate check with criteria fixed before searching: no public dataset has tenure, real reporting units and a shared-environment vs own-task question (Netzschleuder 811 nets, networkdata 990, 3 web searches; table in the report). No data analysed; H8 vigilance OPEN; no status change. Surprise: none (expected by the item's own note).
+- **ONA-INSTRUMENT-DRAFT** (w 1, c 0.5, untested). Draft and lock the two-generator ONA instrument, analysis code (QAP primary, HKSJ pool, tenure covariates) and a power curve on synthetic data only, so primary collection could run if Chad chooses. No contact with anyone.
+
 ## Done (frozen)
+- ONA-MORE: `reviews/night2/ONA_MORE_GATE.md` (gate not met; no data analysed).
 - HEADLINE-PREMISE-REVIEW: `reviews/night2/HEADLINE_PREMISE_REVIEW.md` (independent review PASS with R1, R3, R4; PR #37 merged; R2 → CAUSAL-KILL-INPUTS).
 - HEADLINE-PREMISE-APPLY: `reviews/night2/HEADLINE_PREMISE_APPLY.md` (THEORY v1.4.4; merged after independent review, PR #37).
 - STAKES-EXOGENOUS: `tests/STAKES_EXOGENOUS/` (lock 27bbe72; not refereed; N21 INCONCLUSIVE on proxy; STAKES-REFEREE queued).
