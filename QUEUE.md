@@ -28,14 +28,14 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **Kill / pass, on proxy "claim-status change":** after ≥ 15 completed items, kill if rule AUC ≤ 0.5 or more than 0.1 below Ace's; pass if rule AUC > 0.5 with bootstrap CI excluding 0.5 and ≥ Ace's. Otherwise inconclusive.
 - **Also owed:** a hostile referee of Proposition SG (math + prior art), as part of Q1.
 
-### Q1. PRIORART-SWEEP (rule rank 1, I = 3.15)
+### Q1. PRIORART-SWEEP (rule rank 1, I = 3.15) — CLAIMED 15 Nov 09:08 ET (executor, branch spectrum-map; ledger 2)
 - **Tests:** THEORY §1 and §8b novelty statements; Proposition SG's prior art.
 - **Regime:** n/a.
 - **Data:** OpenAlex / Semantic Scholar / Crossref APIs (Google Scholar was blocked): forward citations of Marschak & Radner 1972 ch. 7 §5, Van Zandt & Radner 2001, Veldkamp & Wolfers 2007, Bimpikis & Markakis 2016, Abolhassani 2024; queries for decreasing-hazard / renewal-process monitoring and Whittle-index scheduling with bursty sources.
 - **Prediction sketch:** none of the six §8b items is stated in an earlier source; SG's regime-conditional clock is likely found.
 - **Kill / pass:** any source stating an item → relabel PRIOR ART in CLAIM_MAP (with the passage read). Not a proxy test.
 
-### Q2. SPECTRUM-MAP-DERIVE (rule rank 2, I = 3.00) — the headline
+### Q2. SPECTRUM-MAP-DERIVE (rule rank 2, I = 3.00) — the headline — CLAIMED 15 Nov 09:09 ET (executor, branch spectrum-map; ledger 5)
 - **Tests:** THEORY §2.2, §2.4 (largest gap), §2.5 "what is missing"; FRAMEWORK §6.10.
 - **Regime:** A, B and C, jointly.
 - **Data:** none (math), with sympy / numerical checks in `theory/` and a hostile math referee afterwards.
