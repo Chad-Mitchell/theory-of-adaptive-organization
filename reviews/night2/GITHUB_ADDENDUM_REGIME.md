@@ -1,6 +1,6 @@
 # GITHUB-UPSTREAM addendum: regime gate (pre-outcome)
 
-Written Sunday 15 November 2026, about 09:05 AM ET, by a Grok Bot executor for Chad (via Ace), as part of `AUDIT_DIVERGENCE.md` §5. **Before any outcome:** at writing, `night2/GITHUB/data/` held only `search_hits.json`, `files.json` and `repos.json`; scheduled-run histories (the outcome inputs) had not been pulled. The commit time of this file in the private repo is its lock time. The original PREREG.md, code, seed and rules are unchanged and remain primary; this addendum only adds a gate and an interpretation rule.
+Written Sunday 15 November 2026, about 09:00 AM ET, by a Grok Bot executor for Chad (via Ace), as part of `AUDIT_DIVERGENCE.md` §5. **Before any outcome:** at writing, `night2/GITHUB/data/` held only `search_hits.json`, `files.json` and `repos.json`; scheduled-run histories (the outcome inputs) had not been pulled. The commit time of this file in the private repo is its lock time. The original PREREG.md, code, seed and rules are unchanged and remain primary; this addendum only adds a gate and an interpretation rule.
 
 **Why.** PREREG §4 sets the drift-matching band b ∈ [0.35, 0.65] from class R with a = b = ½. Under THEORY.md v1.2 §2.5 that is the regime-A (H = ½) instance. For reset-type reads with Hurst exponent H, formal Lemma 1(i) gives a = b = 1/(1+2H). Drift here is measured as an event frequency (a declared proxy; FRAMEWORK §3.1 lists it as a failure mode), so the regime must be checked on the same series before the band is read.
 

@@ -9,7 +9,7 @@
 
 **Title (decided, Chad, t1908):** the title stays. It collides with Dessein & Santos 2006, "Adaptive Organizations", *JPE* 114(5):956–985, which is cited prominently (§10).
 
-### Status at a glance (15 November 2026, 09:30 AM ET)
+### Status at a glance (15 November 2026, 09:02 AM ET)
 - **Measurement first (Chad, t1908).** No field test so far measured GTAO's quantities validly, so no field result is a kill or a confirmation of the theory. Field results are reported as "passed / failed on proxy X" (`measurement/FRAMEWORK.md`, `measurement/CLAIM_MAP_v2.md`). Proof-level corrections and simulation failures stand as they are.
 - **On real data, specific to GTAO: nothing confirmed, nothing validly refuted.** Proxy fails include the item-level news-recall slope (P1: 0.32, CI 0.29–0.35, vs a predicted 0.5–1.2; the need proxy is not drift) and rank vs external mail in Enron. The one proxy pass of night 1 (PIAAC supervisors' external reading) is Mintzberg's prior art. Night-2 nomination-network results (VIGIL_ONA) were downgraded by a blind referee; vigilance is **OPEN**.
 - **Proved inside the model** (`reviews/night1/formal/`): onset exponent set by the level's sensing class; opposite effects of shared and private drift; loss-shape irrelevance under bundled decisions; an exact vigilance formula with price invariance (at zero upkeep the onset value is 1 + (1+ρ)^{−1/2}, between 1 and 2; the earlier "≥ 2" is wrong as stated); an ordering threshold; a freeze/hold/lookup band. Mostly built on published foundations (Marschak & Radner 1972; Veldkamp & Wolfers 2007; Van Zandt & Radner 2001; EOQ and inventory pooling; Topkis). How these relate to the drift-spectrum core: §2.5.
@@ -456,7 +456,7 @@ Verification key: **[DOI]** resolved against Crossref in the sweep (`litmap/veri
 - Reviews: `reviews/`, including the DECISIVE/F1 independent review (`reviews/DECISIVE_F1_REVIEW.md`) and its checks.
 
 ## 13. Changelog
-- **v1.2 (15 Nov 2026, ~09:30 AM ET).** Rewrote the header and status block (it contradicted itself: "killed on real data" under a note that no field test measured validly; title "open" after Chad decided it). Added this file's canonical role. Added §2.5 (formal layer inside the spectrum core; "regime first" rule; Proposition SG). Added Chad's physics position to §2.3 as an open disagreement with its test. Added §8c (night 2). Pointed §11 to `QUEUE.md`. No locked prediction, result or proof was changed. Reason: `reviews/night2/AUDIT_DIVERGENCE.md`.
+- **v1.2 (15 Nov 2026, 09:02 AM ET).** Rewrote the header and status block (it contradicted itself: "killed on real data" under a note that no field test measured validly; title "open" after Chad decided it). Added this file's canonical role. Added §2.5 (formal layer inside the spectrum core; "regime first" rule; Proposition SG). Added Chad's physics position to §2.3 as an open disagreement with its test. Added §8c (night 2). Pointed §11 to `QUEUE.md`. No locked prediction, result or proof was changed. Reason: `reviews/night2/AUDIT_DIVERGENCE.md`.
 - v1.1 (15 Nov, 03:04 ET; measurement note 08:20 ET). Night-1 scoreboard (§8b); measurement-layer note.
 - v1.0 (14 Nov, 23:09 ET, `cbe60a5`). Drift-spectrum core; prior-art credits; drift-reduction lever; narrowed "no one in charge".
 
