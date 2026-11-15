@@ -1,0 +1,4 @@
+H0_0.25 coverage of W21 95% CI: 0.94; MC sd 0.024 vs mean boot sd 0.023; bias 0.0002
+H0_0.35 coverage of W21 95% CI: 0.93; MC sd 0.035 vs mean boot sd 0.033; bias 0.0009
+H0_0.5 coverage of W21 95% CI: 0.95; MC sd 0.050 vs mean boot sd 0.047; bias 0.0065
+H0_1.0 coverage of W21 95% CI: 0.93; MC sd 0.100 vs mean boot sd 0.092; bias 0.0010
