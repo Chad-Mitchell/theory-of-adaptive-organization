@@ -6,14 +6,14 @@ Canonical copy. Ace's working folder holds only a pointer to this file. Updated 
 
 1. **Read at use.** Before taking an item, read `THEORY.md` (status block, §2.2, §2.5 and the section the item tests) and `STATUS.md`. Do not work from a summary.
 2. **Regime first.** Every prereg names the regime (A single-pace / B scale-free with measured H or α / C many modes with β / not established), measured on the same system, then derives the prediction from `THEORY.md`, quoting the section and the premise checks (THEORY §2.5). Field results are labelled "passed / failed on proxy X". Never "law".
-3. **Order by SURPRISE-GUIDED-SEARCH.** Before each pick:
-   a. Write Ace's unaided order of the open items into `queue/LEDGER.jsonl` (kind `unaided_order`) **before** running the rule.
-   b. Update `queue/items.json` (w, untested or surprise + age_days, v, L, c; definitions in `queue/sg_rank.py`), run `python3 queue/sg_rank.py queue/items.json`, and log the order (kind `rule_rank`) with a seeded uniform pick (seed 20261115 + entry number).
-   c. Take the rule's top item, except that every third pick takes Ace's unaided top item if it differs (so both rankings get outcomes). Log the pick (kind `pick`, with `by`: rule or ace).
-   d. When an item finishes, log kind `outcome`: did any `measurement/CLAIM_MAP_v2.md` row change status (yes/no, which rows), usage spent.
+3. **Order by SURPRISE-GUIDED-SEARCH (protocol v2, from ledger entry 6; entries 0–5 are pre-protocol and not scored).** The full protocol is the docstring of `queue/sg_rank.py`. Before each pick:
+   a. Commit an `unaided_order` entry covering exactly the items to be ranked, **before** running the rule (same commit, earlier timestamp).
+   b. Update `queue/items.json` and run `python3 queue/sg_rank.py log queue/items.json <entry> <unaided_entry>`. It stores the numeric index and P per item, the unaided ranks, the items-file hash, a full uniform permutation (`random.Random(20261115 + entry).shuffle(sorted(ids))`) and γ-sensitivity orders (0.2, 0.8).
+   c. Pick cycle: picks 1–2 rule's top; pick 3 unaided top (rule's if the same); pick 4 top of the stored uniform permutation; repeat. Log kind `pick` with `by`.
+   d. When an item finishes, log kind `outcome` with `item`, `status_changed` (true/false), `rows` and usage spent.
 4. **Iterate.** Every result is read for surprises: a number off its prediction by > 1 SE, a referee flag, a broken premise, a dormant topic reawakening. Each surprise becomes a new item (or raises the LR of an existing one) in `items.json` before the next pick. Items are never deleted; finished ones are marked DONE with paths.
 5. **Budget.** Heavy compute at `nice -n 19`, few heavy jobs at once. Continue autonomously up to 90% of weekly usage (Chad, t1914); no check-ins needed, but log everything.
-6. **Score SG** after ≥ 15 completed items (item Q0).
+6. **Score SG** with `python3 queue/sg_rank.py score` after ≥ 15 post-protocol outcomes (item Q0). The predictor is each item's first-seen post-protocol score; a pass tests the operational rule (including the judgment factors w, v, L, c), not the bare SG clock, which is scored only on items with non-flat P (n ≥ 8).
 7. **Privacy and outside acts.** Repo stays private. No posts, emails or messages. Looper README wording needs Chad's approval; reversible Looper code changes do not.
 
 ## Items, in the current rule order (ledger entry 1, 15 Nov 2026 ~08:58 AM ET)
@@ -22,9 +22,9 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 ### Q0. SURPRISE-GUIDED-SEARCH (always on)
 - **Tests:** THEORY §2.5, Proposition SG (derivation and check: `reviews/night2/AUDIT_DIVERGENCE.md` §6, `reviews/night2/AUDIT_checks/sg_check.py`).
-- **Regime:** B assumed for this research environment (γ = 0.4 from SELF P1b, the only in-environment estimate; regime not established, flagged).
+- **Regime:** B assumed for this research environment, modelled as a Lomax hazard (a modelling choice). γ = 0.4 rounds SELF P1b's −0.39, which was INCONCLUSIVE on a statement-time proxy; sensitivity orders at γ = 0.2 and 0.8 are logged with every ranking. Regime not established.
 - **Data:** `queue/LEDGER.jsonl`.
-- **Locked prediction:** the rule's index ranks completed items by "changed a CLAIM_MAP status" with AUC > 0.5 and ≥ the AUC of Ace's unaided rank.
+- **Locked prediction (protocol v2, scoring starts after ledger entry 6):** the rule's index ranks completed items by "changed a CLAIM_MAP status" with AUC > 0.5 and ≥ the AUC of Ace's unaided rank.
 - **Kill / pass, on proxy "claim-status change":** after ≥ 15 completed items, kill if rule AUC ≤ 0.5 or more than 0.1 below Ace's; pass if rule AUC > 0.5 with bootstrap CI excluding 0.5 and ≥ Ace's. Otherwise inconclusive.
 - **Also owed:** a hostile referee of Proposition SG (math + prior art), as part of Q1.
 
