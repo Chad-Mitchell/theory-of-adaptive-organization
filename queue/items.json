@@ -737,7 +737,7 @@
   "v": 0.4,
   "L": 2,
   "c": 0.5,
-  "note": "From CAUSAL-KILL-INPUTS review Q4: the causal kill is sign-only; a right-sign move far too small passes it (optimality form and prereg size bands may catch it). Proposal only: whether a locked elasticity band should be a causal kill. Widens kills: separate applier + reviewer. | DONE 15 Nov ~5:40 PM ET (pick 24, UNIFORM slot; ledger 112-114 + outcome 115): proposal-only finding. Symmetric elasticity band rejected (85-100% false kills under partial adjustment or input noise, own MC). Sign-only reading has only its size (5-6%) as power against the named rival b = 0, so MV10 FAIL rules already carry an unconstrained per-prereg kappa. Proposed N6/§9 wording: kill iff measured move excludes share kappa (0 < kappa <= 1/2, fixed in prereg) of the locked optimum's predicted move scaled by measured adjustment share and input reliability; author-only PR #48, DO NOT MERGE without separate reviewer PASS (CAUSAL-KILL-MAGNITUDE-REVIEW). No status change.",
+  "note": "From CAUSAL-KILL-INPUTS review Q4: the causal kill is sign-only; a right-sign move far too small passes it (optimality form and prereg size bands may catch it). Proposal only: whether a locked elasticity band should be a causal kill. Widens kills: separate applier + reviewer. | DONE 15 Nov ~5:20 PM ET (pick 24, UNIFORM slot; ledger 112-114 + outcome 115): proposal-only finding. Symmetric elasticity band rejected (85-100% false kills under partial adjustment or input noise, own MC). Sign-only reading has only its size (5-6%) as power against the named rival b = 0, so MV10 FAIL rules already carry an unconstrained per-prereg kappa. Proposed N6/§9 wording: kill iff measured move excludes share kappa (0 < kappa <= 1/2, fixed in prereg) of the locked optimum's predicted move scaled by measured adjustment share and input reliability; author-only PR #48, DO NOT MERGE without separate reviewer PASS (CAUSAL-KILL-MAGNITUDE-REVIEW). No status change.",
   "status": "DONE",
   "paths": [
    "reviews/night2/CAUSAL_KILL_MAGNITUDE.md",
@@ -867,7 +867,14 @@
   "v": 0.8,
   "L": 2,
   "c": 1,
-  "note": "From CAUSAL-KILL-MAGNITUDE (pick 24): separate reviewer (authored none of the pick-24 note, checks or PR #48) re-derives the false-kill/power table with own code and passes or fails PR #48 (THEORY v1.4.7 PROPOSED: explicit share kappa in the N6/§9 causal kill, 0 < kappa <= 1/2, prediction scaled by measured adjustment share s and input reliability lambda). Open questions: cap kappa <= 1/4 for linear-locked tests until a jump-sensitive premise test exists (Bayes switching design vs default linear lock killed 45% at kappa 1/2, 1% at 1/4); effect of estimation error in s and lambda (not modelled); FRAMEWORK MV10 pointer to N6's kappa after merge. Kill-condition edit: Chad t1916."
+  "note": "From CAUSAL-KILL-MAGNITUDE (pick 24): separate reviewer (authored none of the pick-24 note, checks or PR #48) re-derives the false-kill/power table with own code and passes or fails PR #48 (THEORY v1.4.7 PROPOSED: explicit share kappa in the N6/§9 causal kill, 0 < kappa <= 1/2, prediction scaled by measured adjustment share s and input reliability lambda). Open questions: cap kappa <= 1/4 for linear-locked tests until a jump-sensitive premise test exists (Bayes switching design vs default linear lock killed 45% at kappa 1/2, 1% at 1/4); effect of estimation error in s and lambda (not modelled); FRAMEWORK MV10 pointer to N6's kappa after merge. Kill-condition edit: Chad t1916. | DONE 15 Nov ~5:50 PM ET (out-of-cycle, unscored: continuation of pick 24 author PR per t1916 independent-review rule; ledger 124): PASS-WITH-FIXES, PR #48 merged, THEORY v1.4.7. Table reproduced (own code). No kappa <= 1/4 cap (Bayes-switching under linear lock killed whenever kappa_F > 2/l with enough data; legitimate under lock rule); s, lambda estimation adds <= ~1 pt false kills at kappa_F <= 1/2 (<= 7 in stress; propagation removes); fixes: kappa_F symbol, one-sided 'falls short beyond measurement error', s/lambda not from response to inputs under test, zero prediction unscored, power_gate default kappa 1/2 + range check + form (optimality keeps kappa 1), MV10 pointer.",
+  "status": "DONE",
+  "paths": [
+   "THEORY.md (v1.4.7)",
+   "reviews/night2/CAUSAL_KILL_MAGNITUDE_REVIEW.md",
+   "reviews/night2/CAUSAL_KILL_MAGNITUDE_REVIEW_checks/",
+   "tools/power_gate.py"
+  ]
  },
  {
   "id": "STORE-COEF-REVIEW",
@@ -877,5 +884,14 @@
   "L": 2,
   "c": 0.5,
   "note": "From SPECTRUM-MAP-FIXES (pick 26): separate reviewer (authored none of pick 26) re-derives the one-store excess constant c in excess ~ c(alpha-2)^2 with own code (c3 model with polished K=1 rate; scale-free one-EWMA model) and passes or fails the q-pick26-theory PR #51 (THEORY N4 and §2.2 store row: 0.14 -> c ~ 0.03-0.2, model- and span-dependent). Core-table numeric: Chad t1916."
+ },
+ {
+  "id": "LOCK-SENSITIVITY-REPORT",
+  "w": 1,
+  "untested": true,
+  "v": 0.4,
+  "L": 2,
+  "c": 0.5,
+  "note": "From CAUSAL-KILL-MAGNITUDE-REVIEW Q1 (reviews/night2/CAUSAL_KILL_MAGNITUDE_REVIEW.md section 4): no lower kappa cap for linear-locked tests; instead MV10 reporting line + tools/power_gate.py option: each linear-locked causal prereg reports, at its kappa_F on its planned data, the kill probability under the Bayes-switching alternative at its measured (or a stated range of) jump inputs (kill whenever kappa_F > 2/l with enough data). Process/docs; joins PREMISE-TEST-WIDEN."
  }
 ]

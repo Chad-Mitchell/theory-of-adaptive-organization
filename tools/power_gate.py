@@ -9,12 +9,17 @@ rule are reachable with a stated probability pi (default 0.8):
 and that each rule can fire at its own best-case data (the deterministic check that WIKIDATA-BAND's KG(a) failed).
 
 Model (first principles). A causal-form test reads a contrast D whose expected value is the locked elasticity b times
-the measured input change: E[D] = b * dlog x (x = stakes, q, N, alpha ...), and whose noise sigma is the year-to-year
+the measured input change: E[D] = b * dlog x (x = stakes, q, N, alpha ...) -- for a causal-form test, b is the locked
+elasticity scaled by the design's adjustment share s at the locked lag and by the input measurement's reliability lam
+(THEORY v1.4.7 Sec. 1 N6; pass --scale s*lam, or an already scaled --effect / --b) -- and whose noise sigma is the year-to-year
 (or unit-to-unit) sd of D when the inputs did not change (s_yr, which already contains sampling noise; add any extra
 sampling se in quadrature). With K independent contrasts k with input changes d_k and common elasticity b, the least
 squares slope through the origin has se = sigma / S, S = sqrt(sum d_k^2), so the signal-to-noise ratio is
     SNR = |b| * S / sigma            (S = |dlog x| for one contrast).
-With PASS iff D - z*sigma > 0 (z = z_{1-a/2}) and FAIL iff D + z*sigma < kappa * b*S (data exclude kappa of the predicted move):
+With PASS iff D - z*sigma > 0 (z = z_{1-a/2}) and FAIL iff D + z*sigma < kappa * b*S (data exclude kappa of the predicted move;
+THEORY v1.4.7 Sec. 1 N6 requires 0 < kappa <= 1/2 for a causal kill, so the default is kappa = 1/2; kappa = 1 is a test of
+size, kills an exactly optimal design at rate ~z-size even when s, lam are known and far more often when they or alpha are
+estimated; it is kept only to reproduce numbers computed before v1.4.7, and the gate reports kappa_in_N6_range = false):
     P(PASS | true)  = Phi(SNR - z),      P(FAIL | null b = 0) = Phi(kappa*SNR - z).
 Both >= pi  <=>  the minimal gate
     |b| * S  >=  (z_{1-a/2} + z_pi) * sigma / min(1, kappa)        [= 2.80 sigma / min(1, kappa) at a = 0.05, pi = 0.8]
@@ -25,10 +30,15 @@ it. An optimality-form test is the same with b*S replaced by the gap Delta betwe
 named rival (this is MV8(i), SE <= Delta/2.8, applied to both rules).
 
 Commands (all print JSON; exit code 0 = gate met, 1 = not met):
-  power_gate.py contrast --sigma S (--effect M | --b B --dlogx DX [DX ...]) [--fail-eps E | --fail-kappa K]
+  power_gate.py contrast --sigma S (--effect M | --b B --dlogx DX [DX ...]) [--scale SL] [--fail-eps E | --fail-kappa K]
+                         [--form causal|optimality]
                          [--band-top T] [--alpha 0.05] [--power 0.8] [--noise-df DF] [--sims N] [--seed 1]
-  power_gate.py required --sigma S --b B [--fail-kappa K] [--alpha 0.05] [--power 0.8] [--per-contrast DX]
+  power_gate.py required --sigma S --b B [--scale SL] [--fail-kappa K (default 0.5)] [--alpha 0.05] [--power 0.8] [--per-contrast DX]
   power_gate.py zero-events --n N --years Y --bound L [--method wilson|poisson] [--z 1.96]
+Defaults (v1.4.7 review, CAUSAL-KILL-MAGNITUDE-REVIEW): form = "causal" (THEORY Sec. 1 N6 causal kill): kappa = 1/2
+wherever a FAIL threshold is relative and none is given, and a gate with fail_kappa outside (0, 1/2] is not met (reason
+'kappa_outside_N6_range'). form = "optimality" (effect = gap Delta to the nearest named rival; MV10 "Delta >= 2.80 sigma",
+i.e. kappa = 1): default kappa = 1 and no N6 range check, as before v1.4.7.
 """
 import argparse, json, math, sys
 from statistics import NormalDist
@@ -47,21 +57,34 @@ def snr(b, dlogx, sigma):
     return abs(b) * math.sqrt(sum(x * x for x in d)) / sigma
 
 
-def required_change(b, sigma, alpha=0.05, power=0.8, kappa=1.0):
+DEFAULT_KAPPA = 0.5   # THEORY v1.4.7 Sec. 1 N6: 0 < kappa <= 1/2
+
+
+def kappa_in_n6_range(kappa):
+    return kappa is not None and 0.0 < kappa <= DEFAULT_KAPPA
+
+
+def required_change(b, sigma, alpha=0.05, power=0.8, kappa=DEFAULT_KAPPA):
     """Minimal S = sqrt(sum dlog x_k^2) (log units) so that PASS|true and FAIL|null both have probability >= power."""
     return (z_two_sided(alpha) + zq(power)) * sigma / (abs(b) * min(1.0, kappa))
 
 
-def required_contrasts(b, sigma, per_contrast, alpha=0.05, power=0.8, kappa=1.0):
+def required_contrasts(b, sigma, per_contrast, alpha=0.05, power=0.8, kappa=DEFAULT_KAPPA):
     """Independent contrasts of size |per_contrast| needed: K = ceil((S_req / |d|)^2)."""
     return math.ceil((required_change(b, sigma, alpha, power, kappa) / abs(per_contrast)) ** 2)
 
 
-def analytic(effect, sigma, alpha=0.05, fail_eps=None, fail_kappa=None, band_top=None):
+def default_kappa(form):
+    if form not in ("causal", "optimality"):
+        raise ValueError("form must be 'causal' or 'optimality'")
+    return DEFAULT_KAPPA if form == "causal" else 1.0
+
+
+def analytic(effect, sigma, alpha=0.05, fail_eps=None, fail_kappa=None, band_top=None, form="causal"):
     """Exact probabilities for D ~ N(mu, sigma^2) with sigma known, rules oriented so the predicted move is positive.
     PASS iff D - z sigma > 0 and (D <= band_top if given); FAIL iff D + z sigma < thr; thr = fail_eps or fail_kappa*effect."""
     z = z_two_sided(alpha)
-    thr = fail_eps if fail_eps is not None else (fail_kappa if fail_kappa is not None else 1.0) * effect
+    thr = fail_eps if fail_eps is not None else (fail_kappa if fail_kappa is not None else default_kappa(form)) * effect
     def p_pass(mu):
         hi = 1.0 if band_top is None else Phi((band_top - mu) / sigma)
         return max(0.0, hi - Phi(z - mu / sigma))
@@ -76,14 +99,14 @@ def analytic(effect, sigma, alpha=0.05, fail_eps=None, fail_kappa=None, band_top
 
 
 def simulate(effect, sigma, alpha=0.05, fail_eps=None, fail_kappa=None, band_top=None, noise_df=None, sims=200_000,
-             seed=1, noise_draws=None):
+             seed=1, noise_draws=None, form="causal"):
     """Monte Carlo of the locked decision on planned data. noise_df: the decision uses sigma_hat with
     sigma_hat^2 ~ sigma^2 chi2_df/df (sigma estimated from df+1 year pairs before lock). noise_draws: optional list of
     observed noise residuals (e.g. the year-pair D's minus their mean) resampled instead of Normal noise."""
     import numpy as np
     rng = np.random.default_rng(seed)
     z = z_two_sided(alpha)
-    thr = fail_eps if fail_eps is not None else (fail_kappa if fail_kappa is not None else 1.0) * effect
+    thr = fail_eps if fail_eps is not None else (fail_kappa if fail_kappa is not None else default_kappa(form)) * effect
     out = {}
     for name, mu in (("true", effect), ("null", 0.0)):
         if noise_draws is not None:
@@ -101,22 +124,31 @@ def simulate(effect, sigma, alpha=0.05, fail_eps=None, fail_kappa=None, band_top
 
 
 def gate(effect, sigma, alpha=0.05, power=0.8, fail_eps=None, fail_kappa=None, band_top=None, noise_df=None,
-         sims=0, seed=1):
-    a = analytic(effect, sigma, alpha, fail_eps, fail_kappa, band_top)
+         sims=0, seed=1, form="causal"):
+    a = analytic(effect, sigma, alpha, fail_eps, fail_kappa, band_top, form)
     res = {"inputs": {"effect": effect, "sigma": sigma, "alpha": alpha, "power": power, "fail_eps": fail_eps,
-                      "fail_kappa": fail_kappa, "band_top": band_top, "noise_df": noise_df},
+                      "fail_kappa": fail_kappa, "band_top": band_top, "noise_df": noise_df, "form": form},
            "SNR": effect / sigma, "analytic": a}
     probs = a
     if sims:
-        res["simulated"] = simulate(effect, sigma, alpha, fail_eps, fail_kappa, band_top, noise_df, sims, seed)
+        res["simulated"] = simulate(effect, sigma, alpha, fail_eps, fail_kappa, band_top, noise_df, sims, seed, form=form)
         probs = res["simulated"]
     zp = z_two_sided(alpha) + zq(power)
     res["needed"] = {"effect_for_pass": zp * sigma,
                      "sigma_max_for_fail": (fail_eps / zp) if fail_eps is not None else None,
-                     "effect_for_fail": (zp * sigma / (fail_kappa if fail_kappa is not None else 1.0)) if fail_eps is None else None}
+                     "effect_for_fail": (zp * sigma / k_) if (fail_eps is None and (k_ := (fail_kappa if fail_kappa is not None else default_kappa(form))) > 0) else None}
     res["pass_reachable"] = probs["P_pass_true"] >= power and a["best_case_pass_fires"]
     res["fail_reachable"] = probs["P_fail_null"] >= power and a["best_case_fail_fires"]
     res["gate_met"] = res["pass_reachable"] and res["fail_reachable"]
+    if fail_eps is None:
+        k = fail_kappa if fail_kappa is not None else default_kappa(form)
+        res["kappa_used"] = k
+        res["kappa_in_N6_range"] = kappa_in_n6_range(k) if form == "causal" else None
+        if form == "causal" and not res["kappa_in_N6_range"]:
+            res["gate_met"] = False
+            res["reason"] = "kappa_outside_N6_range (THEORY v1.4.7 Sec. 1 N6: 0 < kappa <= 1/2)"
+    else:
+        res["kappa_in_N6_range"] = None   # absolute margin: not N6's causal form (MV10 corollary 1)
     return res
 
 
@@ -142,14 +174,17 @@ def main(argv=None):
     c = sp.add_parser("contrast")
     c.add_argument("--sigma", type=float, required=True)
     c.add_argument("--effect", type=float)
+    c.add_argument("--scale", type=float, default=1.0, help="s*lam: adjustment share x input reliability (N6)")
     c.add_argument("--b", type=float); c.add_argument("--dlogx", type=float, nargs="+")
     g = c.add_mutually_exclusive_group(); g.add_argument("--fail-eps", type=float); g.add_argument("--fail-kappa", type=float)
     c.add_argument("--band-top", type=float); c.add_argument("--alpha", type=float, default=0.05)
+    c.add_argument("--form", default="causal", choices=["causal", "optimality"])
     c.add_argument("--power", type=float, default=0.8); c.add_argument("--noise-df", type=int)
     c.add_argument("--sims", type=int, default=200_000); c.add_argument("--seed", type=int, default=1)
     r = sp.add_parser("required")
     r.add_argument("--sigma", type=float, required=True); r.add_argument("--b", type=float, required=True)
-    r.add_argument("--fail-kappa", type=float, default=1.0); r.add_argument("--alpha", type=float, default=0.05)
+    r.add_argument("--scale", type=float, default=1.0, help="s*lam: adjustment share x input reliability (N6)")
+    r.add_argument("--fail-kappa", type=float, default=DEFAULT_KAPPA); r.add_argument("--alpha", type=float, default=0.05)
     r.add_argument("--power", type=float, default=0.8); r.add_argument("--per-contrast", type=float)
     k = sp.add_parser("zero-events")
     k.add_argument("--n", type=int, required=True); k.add_argument("--years", type=float, required=True)
@@ -157,14 +192,16 @@ def main(argv=None):
     k.add_argument("--z", type=float, default=1.96)
     a = ap.parse_args(argv)
     if a.cmd == "contrast":
-        eff = a.effect if a.effect is not None else abs(a.b) * math.sqrt(sum(x * x for x in a.dlogx))
-        res = gate(eff, a.sigma, a.alpha, a.power, a.fail_eps, a.fail_kappa, a.band_top, a.noise_df, a.sims, a.seed)
+        eff = a.scale * (a.effect if a.effect is not None else abs(a.b) * math.sqrt(sum(x * x for x in a.dlogx)))
+        res = gate(eff, a.sigma, a.alpha, a.power, a.fail_eps, a.fail_kappa, a.band_top, a.noise_df, a.sims, a.seed, a.form)
         ok = res["gate_met"]
     elif a.cmd == "required":
-        s = required_change(a.b, a.sigma, a.alpha, a.power, a.fail_kappa)
-        res = {"S_req_log": s, "factor": math.exp(s), "factor_at_50pct_pass": math.exp(z_two_sided(a.alpha) * a.sigma / abs(a.b))}
+        bs = a.b * a.scale
+        s = required_change(bs, a.sigma, a.alpha, a.power, a.fail_kappa)
+        res = {"S_req_log": s, "factor": math.exp(s), "factor_at_50pct_pass": math.exp(z_two_sided(a.alpha) * a.sigma / abs(bs)),
+               "kappa_used": a.fail_kappa, "kappa_in_N6_range": kappa_in_n6_range(a.fail_kappa)}
         if a.per_contrast:
-            res["K_contrasts"] = required_contrasts(a.b, a.sigma, a.per_contrast, a.alpha, a.power, a.fail_kappa)
+            res["K_contrasts"] = required_contrasts(bs, a.sigma, a.per_contrast, a.alpha, a.power, a.fail_kappa)
         ok = True
     else:
         ub = zero_events_bound(a.n, a.years, a.method, a.z)

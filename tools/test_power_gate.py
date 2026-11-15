@@ -12,7 +12,7 @@ CAISO = json.load(open(os.path.join(ROOT, "tests", "STAKES_SHIFT_CAISO", "result
 
 def test_minimal_formula_hits_power_exactly():
     b, sigma = 1 / 3, 0.3
-    S = pg.required_change(b, sigma)
+    S = pg.required_change(b, sigma, kappa=1.0)   # both rules bind exactly only at kappa = 1 (formula check)
     a = pg.analytic(b * S, sigma, fail_kappa=1.0)
     assert a["P_pass_true"] == pytest.approx(0.8, abs=1e-9)
     assert a["P_fail_null"] == pytest.approx(0.8, abs=1e-9)
@@ -20,7 +20,7 @@ def test_minimal_formula_hits_power_exactly():
 
 
 def test_kappa_half_doubles_requirement():
-    assert pg.required_change(0.5, 0.2, kappa=0.5) == pytest.approx(2 * pg.required_change(0.5, 0.2))
+    assert pg.required_change(0.5, 0.2, kappa=0.5) == pytest.approx(2 * pg.required_change(0.5, 0.2, kappa=1.0))
 
 
 @pytest.mark.parametrize("eff,sig,kw", [(0.5, 0.2, {"fail_kappa": 1.0}), (0.14, 0.34, {"fail_eps": 0.05}),
@@ -37,7 +37,7 @@ def test_panel_slope_power_matches_formula():
     rng = np.random.default_rng(3)
     b, sigma = 1 / 3, 0.32
     d = rng.uniform(-0.6, 0.6, 30)
-    d *= pg.required_change(b, sigma) / math.sqrt((d ** 2).sum())
+    d *= pg.required_change(b, sigma, kappa=1.0) / math.sqrt((d ** 2).sum())   # FAIL rule below is kappa = 1
     S = math.sqrt((d ** 2).sum()); se = sigma / S; z = pg.z_two_sided(0.05)
     sims = 40_000
     for btrue, rule, want in ((b, "pass", 0.8), (0.0, "fail", 0.8)):
@@ -61,9 +61,9 @@ def test_caiso_pick15_numbers():
     assert not a["best_case_fail_fires"]
     # the item's "~7x": the stakes change at which PASS fires half the time (no band)
     assert math.exp(1.96 * se_tot * 3) == pytest.approx(7.5, abs=0.05)
-    assert math.exp(pg.required_change(1 / 3, se_tot)) == pytest.approx(17.8, abs=0.05)
+    assert math.exp(pg.required_change(1 / 3, se_tot, kappa=1.0)) == pytest.approx(17.8, abs=0.05)   # pre-v1.4.7 kappa = 1
     assert 0.05 / (pg.z_two_sided(0.05) + pg.zq(0.8)) == pytest.approx(0.01785, abs=1e-5)
-    assert pg.required_contrasts(1 / 3, se_tot, 0.4145515799784859) == 49
+    assert pg.required_contrasts(1 / 3, se_tot, 0.4145515799784859, kappa=1.0) == 49
 
 
 def test_wikidata_kg_zero_events():
@@ -77,9 +77,82 @@ def test_cli_exit_codes():
     bad = subprocess.run([sys.executable, tool, "contrast", "--sigma", "0.342", "--effect", "0.138", "--fail-eps", "0.05",
                           "--sims", "0"], capture_output=True, text=True)
     assert bad.returncode == 1 and json.loads(bad.stdout)["gate_met"] is False
-    good = subprocess.run([sys.executable, tool, "contrast", "--sigma", "0.1", "--b", "0.3333", "--dlogx", "0.6", "0.6",
-                           "--fail-kappa", "1", "--sims", "0"], capture_output=True, text=True)
+    good = subprocess.run([sys.executable, tool, "contrast", "--sigma", "0.1", "--b", "0.3333", "--dlogx", "1.3", "1.3",
+                           "--fail-kappa", "0.5", "--sims", "0"], capture_output=True, text=True)
     assert good.returncode == 0 and json.loads(good.stdout)["gate_met"] is True
+    k1 = subprocess.run([sys.executable, tool, "contrast", "--sigma", "0.1", "--b", "0.3333", "--dlogx", "1.3", "1.3",
+                         "--fail-kappa", "1", "--sims", "0"], capture_output=True, text=True)
+    assert k1.returncode == 1 and json.loads(k1.stdout)["kappa_in_N6_range"] is False   # v1.4.7: kappa <= 1/2
     kg = subprocess.run([sys.executable, tool, "zero-events", "--n", "40", "--years", "3", "--bound", "0.02"],
                         capture_output=True, text=True)
     assert kg.returncode == 1 and json.loads(kg.stdout)["n_min"] == 63
+
+
+# ---- v1.4.7 (CAUSAL-KILL-MAGNITUDE-REVIEW): default kappa = 1/2, N6 range, s*lam scaling ----
+def test_default_kappa_is_half():
+    assert pg.DEFAULT_KAPPA == 0.5
+    assert pg.required_change(0.5, 0.2) == pytest.approx(pg.required_change(0.5, 0.2, kappa=0.5))
+    a = pg.analytic(1.0, 0.2)
+    assert a["fail_threshold"] == pytest.approx(0.5)
+    r = pg.gate(1.0, 0.1)
+    assert r["kappa_used"] == 0.5 and r["kappa_in_N6_range"] is True
+
+
+@pytest.mark.parametrize("k,ok", [(0.0, False), (0.25, True), (0.5, True), (0.51, False), (1.0, False)])
+def test_kappa_range(k, ok):
+    assert pg.kappa_in_n6_range(k) is ok
+    r = pg.gate(5.0, 0.1, fail_kappa=k)          # huge SNR: only the range can fail it (k = 0 makes FAIL|null ~ size)
+    if k > 0:
+        assert r["gate_met"] is ok
+
+
+def test_absolute_margin_not_flagged_as_n6():
+    r = pg.gate(0.138, 0.342, fail_eps=0.05)
+    assert r["kappa_in_N6_range"] is None and r["gate_met"] is False
+
+
+def test_kappa_one_kills_true_design_under_partial_adjustment_half_does_not():
+    # first principles: true move b*s, unscaled threshold kappa*b; lag tau/2 => s = 0.39
+    s = 1 - math.exp(-0.5); b, sig = 1.0, 0.1
+    a1 = pg.analytic(b * s, sig, fail_eps=1.0 * b)        # kappa = 1, prediction not scaled by s
+    ah = pg.analytic(b * s, sig, fail_eps=0.5 * b * s)    # kappa = 1/2, prediction scaled by s
+    assert a1["P_fail_null"] > 0.99 and pg.Phi((1.0 * b - z_(0.05) * sig - b * s) / sig) > 0.99
+    assert pg.Phi((0.5 * b * s - z_(0.05) * sig - b * s) / sig) < 0.01 and ah["P_fail_true"] < 0.01
+
+
+def z_(alpha):
+    return pg.z_two_sided(alpha)
+
+
+def test_cli_scale_and_required_default():
+    tool = os.path.join(ROOT, "tools", "power_gate.py")
+    r = subprocess.run([sys.executable, tool, "required", "--sigma", "0.3", "--b", "0.5", "--scale", "0.5"],
+                       capture_output=True, text=True)
+    out = json.loads(r.stdout)
+    assert out["kappa_used"] == 0.5 and out["kappa_in_N6_range"] is True
+    assert out["S_req_log"] == pytest.approx(pg.required_change(0.25, 0.3, kappa=0.5))
+
+
+def test_optimality_form_keeps_kappa_one_and_spf_rigidity_record():
+    # optimality form (MV10 "Delta >= 2.80 sigma") keeps kappa = 1 and no N6 range check
+    r = pg.gate(1.0, 0.3, form="optimality")
+    assert r["kappa_used"] == 1.0 and r["kappa_in_N6_range"] is None
+    assert r["analytic"]["fail_threshold"] == pytest.approx(1.0)
+    with pytest.raises(ValueError):
+        pg.gate(1.0, 0.3, form="other")
+    # SPF-RIGIDITY-OOS power.py (optimality form) reproduces its recorded best-case gate numbers
+    rec = json.load(open(os.path.join(ROOT, "tests", "SPF_RIGIDITY_OOS", "results", "power.json")))
+    found = []
+    def walk(o):
+        if isinstance(o, dict):
+            if "power_gate_tool_best_case" in o and "se_c_sampling_only" in o:
+                found.append(o)
+            for v in o.values(): walk(v)
+        elif isinstance(o, list):
+            for v in o: walk(v)
+    walk(rec)
+    assert found
+    for o in found:
+        g = pg.gate(1.5, o["se_c_sampling_only"], form="optimality")["analytic"]
+        assert g["P_fail_null"] == pytest.approx(o["power_gate_tool_best_case"]["P_fail_null"], abs=1e-9)
+        assert g["P_pass_true"] == pytest.approx(o["power_gate_tool_best_case"]["P_pass_true"], abs=1e-9)
