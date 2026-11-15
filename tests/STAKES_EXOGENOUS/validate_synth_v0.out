@@ -1,0 +1,3 @@
+A {"w_quad": {"mean_ratio": 1.0034946671987668, "coverage": 0.915, "median_rel_halfwidth": 0.05731640247022638}, "k_lin": {"mean_ratio": 1.0031374092168388, "coverage": 0.915, "median_rel_halfwidth": 0.03620301084745836}}
+B {"w_quad": {"mean_ratio": 0.7901086561639203, "coverage": 0.0, "median_rel_halfwidth": 0.07650679498257086}, "k_lin": {"mean_ratio": 1.0026033612325835, "coverage": 0.975, "median_rel_halfwidth": 0.048888907924590164}}
+C {"w_quad": {"mean_ratio": 0.9982346195293178, "coverage": 0.935, "median_rel_halfwidth": 0.08001763738339061}, "k_lin": {"mean_ratio": 0.9980385684335983, "coverage": 0.95, "median_rel_halfwidth": 0.060909104023465235}}

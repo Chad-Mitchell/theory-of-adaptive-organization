@@ -203,7 +203,18 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 11 done (ledger 61); WIKIDATA-BAND outcome logged out of cycle (ledger 65; entries 62–64 are q-pick12's, in flight). Next pick (12) is the uniform slot, as before.**
 
+### NEW (15 Nov ~2:55 PM ET, from STAKES-EXOGENOUS; surprises read per rule 4)
+- **STAKES-EXOGENOUS** — DONE (pick 12, uniform slot: top of entry 63's stored uniform permutation, nothing skipped; ledger 62–64, outcome 66): `tests/STAKES_EXOGENOUS/RESULTS.md`, lock `27bbe72` (prereg, code, seeds, decision rules and a synthetic validation committed and pushed before any analysis data). **INCONCLUSIVE on proxy "CAISO DA load-forecast error; cost = error × (FMM − DA hub price)"**: ŵ 2025 = 7.8 [1.8, 12.6] × 10⁻⁴ $/(MW²·h): positive with CI excluding 0, but half-width 0.70ŵ > the locked 0.5 (S1 failed); exogeneity incremental R² 0.029 (pass); quadratic-loss shape passed (weak power); 2024 replication 3.2 [1.4, 5.1] × 10⁻³ (pass). Two declared post-lock amendments (A1 fetch timeout; A2 report-only subgroup rows used w_quad, fixed; verdict byte-identical). CLAIM_MAP N21 (v2.14); no status change; THEORY.md not edited.
+- **STAKES-PRECISION** (w 2, c 1.5; from S1 fail). New lock to reach ±50%: pooled years with year effects, net-load error, 5-min prices, a second ISO. Gate for SAME-SYSTEM-AQN.
+- **STAKES-SHIFT-CAISO** (w 3, c 3; weak surprise, unlocked): stakes fell ~4× from 2024 to 2025 (CIs do not overlap). THEORY §1 N6 causal form: pick a CAISO design quantity, fix the adjustment lag as a number, lock the direction, test on unseen years.
+- **CAISO-PROXY-DEFS** (w 1, c 0.5). DA forecast 1.76 GW (7%) below "actual" on average; check the two series' public definitions.
+- **STAKES-REFEREE** (w 2, c 1). Hostile referee of STAKES-EXOGENOUS.
+- Note added to SAME-SYSTEM-AQN: CAISO is a candidate system once STAKES-PRECISION passes.
+
+**Pick 12 done (ledger 66). Next pick (13) is the rule slot (cycle restarts: rule, rule, unaided, uniform): log a fresh unaided order, run the rule, take the rule's top among open non-active items. Next free ledger entry: 67.**
+
 ## Done (frozen)
+- STAKES-EXOGENOUS: `tests/STAKES_EXOGENOUS/` (lock 27bbe72; not refereed; N21 INCONCLUSIVE on proxy; STAKES-REFEREE queued).
 - WIKIDATA-BAND: `prereg/WIKIDATA-BAND/` (locked v1.2-era test; not refereed; N19, N20).
 - AQN-ESTIMATORS: `measurement/estimators/` (lock 3595c48; not refereed; AQN-REFEREE queued).
 - HEADLINE-PREMISE-SCOPE: `reviews/night2/HEADLINE_PREMISE_SCOPE.md` (proposal P1–P8; not applied; HEADLINE-PREMISE-APPLY queued).
