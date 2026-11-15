@@ -1,0 +1,33 @@
+{
+ "H": 0.6099759559205209,
+ "H_ci": [
+  0.5682177584874945,
+  0.6602771707589437
+ ],
+ "median_AF": {
+  "1": 0.6659779614325069,
+  "2": 0.8333333333333333,
+  "4": 1.0,
+  "8": 1.0,
+  "13": 1.25
+ },
+ "n_boot": 999,
+ "regime": "NOT-A",
+ "choices": [
+  "Allan factor AF(T) = mean((N_{k+1}-N_k)^2) / (2 mean(N_k)) over consecutive non-overlapping T-week blocks of |dx| (standard definition)",
+  "a block counts only if all its weekly change indicators are observed (no NaN); a pair counts only if both blocks count",
+  "a unit enters AF(T) if it has >=1 valid block pair and mean count > 0",
+  "pooling: median across flat units at each T; OLS of ln(median AF) on ln T over the T with a finite positive median",
+  "CI: cluster bootstrap over primary upstream (u['pu']), B=999, SEED 20261115, percentile 95%"
+ ],
+ "band": [
+  0.30046020801895834,
+  0.6004602080189584
+ ],
+ "P1_vs_band": "KILL-CONDITION",
+ "P2_vs_band": "KILL-CONDITION",
+ "original_band": {
+  "P1": "KILL-CONDITION",
+  "P2": "KILL-CONDITION"
+ }
+}

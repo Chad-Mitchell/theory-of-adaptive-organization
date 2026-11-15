@@ -65,12 +65,13 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **Locked prediction:** from Q2, before any run.
 - **Kill:** learned read exponent does not move with H (slope CI includes 0), or learned store count is not larger in 1/f worlds than in OU worlds. In-model only.
 
-### Q6. GITHUB-UPSTREAM (rule rank 6, I = 0.30; data pull running)
+### Q6. GITHUB-UPSTREAM (rule rank 6, I = 0.30) — DONE 15 Nov ~11:35 AM ET (started pre-protocol, out of cycle, unscored; ledger 36; `night2/GITHUB/RESULTS.md`)
 - **Tests:** FRAMEWORK §6.7 (drift matching), §6.3 (vigilance), §6.9.
 - **Regime:** gate added before outcomes: `reviews/night2/GITHUB_ADDENDUM_REGIME.md` (Allan-factor Ĥ of the weekly change series).
 - **Data:** public GitHub Actions scheduled runs (read-only `gh`).
 - **Locked:** PREREG (branch `prereg/github-upstream`) + addendum. Tier-2 ceiling.
 - **Kill / pass, on proxy "event-frequency drift; cron read rate":** as PREREG, with the band 1/(1+2Ĥ) ± 0.15 if regime is not A, and no status change if the regime is unestablished.
+- **Result (as locked):** P1 b̂ = −0.06 [−0.24, 0.17] and P2 â = −0.10 [−0.17, −0.04]: KILL-CONDITION under the original band, the addendum's P1-R band ("Regime B" by ΔAIC 115; weak, mixture confound) and main's Allan band (Ĥ 0.61 [0.57, 0.66] → [0.30, 0.60]; implemented post-outcome). **Failed on proxy "weekly CI-state change rate vs nominal cron reads/week"**, Tier 3 logged only (MV5, MV7(i), MV8(ii) failed: q does not track upstream drift; pinned ≈ unpinned). P3 consistent but non-discriminating; P5/P6 not analysed (5 levels, 0 with comparators): vigilance OPEN. CLAIM_MAP N14–N15. Interpretation: binary CI state = switching world; for exact reset reads the √ rule still applies at qT ≪ 1 (DERIVED HERE, unreviewed; Conti & Mora's ln τ concerns noisy-sensing memory time), so the failure is the drift instrument's. Predictions were locked under THEORY v1.1/v1.2.
 
 ### Q7. SENSE-CELL (rule rank 7, I = 0.18)
 - **Tests:** THEORY §2.3 (Chad's physics position), FRAMEWORK §3.4, §3.11.
@@ -141,6 +142,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 **Pick 5 done (ledger 35). Next pick (6) is the rule slot again (cycle rule, rule, unaided, uniform restarts at pick 5): rule's top among open non-active items (log a fresh unaided order first).**
 
 ## Done (frozen)
+- GITHUB-UPSTREAM: `night2/GITHUB/` (locked v1.1-era test; not refereed; interpretation note feeds TELEGRAPH-LINEAR-PREMISE).
 - PRIORART-LFK-ALPHA: `reviews/night2/PRIORART_LFK_ALPHA/` (not refereed; credit edits queued).
 - SPF-NOISE-PROXY: `tests/SPF_NOISE_PROXY/` (not refereed; NOISE-PROXY-REFEREE queued).
 - MEASURE-SELF: `reviews/night2/SELF/` (refereed; re-read under THEORY §2.5 in §8c).

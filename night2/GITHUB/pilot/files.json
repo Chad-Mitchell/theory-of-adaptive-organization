@@ -1,0 +1,1389 @@
+[
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "ssec/sift",
+  "path": ".github/workflows/ci.yaml",
+  "crons": [],
+  "git_upstreams": [
+   "Unidata/cftime",
+   "dask/dask",
+   "dask/distributed",
+   "mapbox/rasterio",
+   "pydata/bottleneck",
+   "pydata/xarray"
+  ],
+  "len": 4976
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "mne-tools/mne-icalabel",
+  "path": ".github/workflows/pytest.yaml",
+  "crons": [
+   "0 8 * * 1"
+  ],
+  "git_upstreams": [
+   "mne-tools/mne-bids",
+   "mne-tools/mne-python"
+  ],
+  "len": 4135
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "mne-rt-org/mne-rt",
+  "path": ".github/workflows/ci.yml",
+  "crons": [],
+  "git_upstreams": [
+   "mne-tools/mne-python"
+  ],
+  "len": 5475
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "neurodata/treeple",
+  "path": ".github/workflows/main.yml",
+  "crons": [],
+  "git_upstreams": [],
+  "len": 10686
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "python-pillow/Pillow",
+  "path": ".github/workflows/wheels.yml",
+  "crons": [
+   "42 1 * * 0,3"
+  ],
+  "git_upstreams": [],
+  "len": 11995
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "PyTables/PyTables",
+  "path": ".github/workflows/ci.yml",
+  "crons": [],
+  "git_upstreams": [],
+  "len": 7200
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "pytroll/pyspectral",
+  "path": ".github/workflows/ci.yaml",
+  "crons": [],
+  "git_upstreams": [
+   "Unidata/cftime",
+   "dask/dask",
+   "dask/distributed",
+   "pydata/bottleneck"
+  ],
+  "len": 2211
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "scipy/scipy",
+  "path": ".github/workflows/linux.yml",
+  "crons": [],
+  "git_upstreams": [
+   "mesonbuild/meson",
+   "mesonbuild/meson-python",
+   "numpy/numpy",
+   "serge-sans-paille/pythran"
+  ],
+  "len": 26975
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "scikit-image/scikit-image",
+  "path": ".github/workflows/nightly-wheel-build.yaml",
+  "crons": [
+   "27 11 * * SUN"
+  ],
+  "git_upstreams": [],
+  "len": 2694
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "ml4t/backtest",
+  "path": ".github/workflows/compatibility.yml",
+  "crons": [],
+  "git_upstreams": [],
+  "len": 6628
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "explosion/ml-datasets",
+  "path": ".github/workflows/pytest.yml",
+  "crons": [],
+  "git_upstreams": [],
+  "len": 2251
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "scikit-hep/pyhf",
+  "path": ".github/workflows/dependencies-head.yml",
+  "crons": [
+   "1 0 * * *"
+  ],
+  "git_upstreams": [
+   "pytest-dev/pytest",
+   "scikit-hep/iminuit",
+   "scikit-hep/uproot5"
+  ],
+  "len": 6434
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "pytroll/intake-satpy",
+  "path": ".github/workflows/ci.yaml",
+  "crons": [],
+  "git_upstreams": [
+   "dask/dask",
+   "dask/distributed",
+   "intake/intake",
+   "intake/intake-xarray"
+  ],
+  "len": 3717
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "pytroll/pytroll-schedule",
+  "path": ".github/workflows/ci.yaml",
+  "crons": [],
+  "git_upstreams": [
+   "Unidata/cftime"
+  ],
+  "len": 1931
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "spacetelescope/reftools",
+  "path": ".github/workflows/ci_workflows.yml",
+  "crons": [
+   "0 5 * * 1"
+  ],
+  "git_upstreams": [],
+  "len": 5344
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "pexip/os-numpy",
+  "path": ".github/workflows/compiler_sanitizers.yml",
+  "crons": [],
+  "git_upstreams": [],
+  "len": 4646
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "ge-flight-analytics/emspy",
+  "path": ".github/workflows/pandas-compat.yml",
+  "crons": [
+   "0 6 * * 1"
+  ],
+  "git_upstreams": [],
+  "len": 4424
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "dipy/dipy",
+  "path": ".github/workflows/nightly.yml",
+  "crons": [
+   "0 0 * * 0,3"
+  ],
+  "git_upstreams": [],
+  "len": 7818
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "SAIL-Labs/AMICAL",
+  "path": ".github/workflows/bleeding-edge.yaml",
+  "crons": [
+   "0 3 * * 3"
+  ],
+  "git_upstreams": [],
+  "len": 1304
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "pytroll/pyresample",
+  "path": ".github/workflows/ci.yaml",
+  "crons": [],
+  "git_upstreams": [
+   "Unidata/cftime",
+   "dask/dask",
+   "dask/distributed",
+   "mapbox/rasterio",
+   "pydata/bottleneck",
+   "pydata/xarray",
+   "pyproj4/pyproj",
+   "storpipfugl/pykdtree"
+  ],
+  "len": 3735
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "PyTables/PyTables",
+  "path": ".github/workflows/wheels.yml",
+  "crons": [
+   "12 13 * * 0"
+  ],
+  "git_upstreams": [],
+  "len": 8112
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "vferat/pycrostates",
+  "path": ".github/workflows/pytest.yaml",
+  "crons": [
+   "0 8 * * 1"
+  ],
+  "git_upstreams": [
+   "mne-tools/mne-python"
+  ],
+  "len": 2687
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "glemaitre/scikit-learn-common-test",
+  "path": ".github/workflows/testing.yaml",
+  "crons": [],
+  "git_upstreams": [],
+  "len": 666
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "xarray-contrib/xarray-array-testing",
+  "path": ".github/workflows/ci.yaml",
+  "crons": [],
+  "git_upstreams": [],
+  "len": 2632
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "scientific-python/upload-nightly-action",
+  "path": ".github/workflows/ci.yml",
+  "crons": [
+   "23 1 * * 0"
+  ],
+  "git_upstreams": [],
+  "len": 5770
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "cython/cython",
+  "path": ".github/workflows/nightly-wheels.yml",
+  "crons": [
+   "42 1 * * 0,3"
+  ],
+  "git_upstreams": [],
+  "len": 2212
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "fcbg-platforms/pycartool",
+  "path": ".github/workflows/pytest.yml",
+  "crons": [
+   "0 8 * * 1"
+  ],
+  "git_upstreams": [],
+  "len": 2068
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "pexip/os-numpy",
+  "path": ".github/workflows/emscripten.yml",
+  "crons": [
+   "42 2 * * SUN,WED"
+  ],
+  "git_upstreams": [],
+  "len": 2848
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "scikit-build/scikit-build",
+  "path": ".github/workflows/ci.yml",
+  "crons": [],
+  "git_upstreams": [],
+  "len": 6570
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "scikit-learn/scikit-learn-release",
+  "path": ".github/workflows/nightly.yml",
+  "crons": [
+   "1 1 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 1304
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "narwhals-dev/narwhals",
+  "path": ".github/workflows/extremes.yml",
+  "crons": [],
+  "git_upstreams": [],
+  "len": 5393
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "Pol-InSAR/pysarpro",
+  "path": ".github/workflows/nightly_wheel_build.yml",
+  "crons": [
+   "27 11 * * SUN"
+  ],
+  "git_upstreams": [],
+  "len": 1040
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "yt-project/unyt",
+  "path": ".github/workflows/bleeding-edge.yaml",
+  "crons": [
+   "1 0 * * 3"
+  ],
+  "git_upstreams": [],
+  "len": 1350
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "chenxingqiang/jax-sklearn",
+  "path": ".github/workflows/emscripten.yml",
+  "crons": [
+   "42 3 */1 * *"
+  ],
+  "git_upstreams": [],
+  "len": 3334
+ },
+ {
+  "q": "scientific-python-nightly-wheels path:.github/workflows",
+  "repo": "h5py/h5py",
+  "path": ".github/workflows/build_wheels.yml",
+  "crons": [
+   "23 1 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 9137
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "optuna/optuna-examples",
+  "path": ".github/workflows/dask.yml",
+  "crons": [
+   "0 15 * * 1"
+  ],
+  "git_upstreams": [
+   "optuna/optuna",
+   "optuna/optuna-integration"
+  ],
+  "len": 1113
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "yt-project/yt",
+  "path": ".github/workflows/bleeding-edge.yaml",
+  "crons": [
+   "0 3 * * 3"
+  ],
+  "git_upstreams": [
+   "pytest-dev/pytest",
+   "yt-project/unyt"
+  ],
+  "len": 2882
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "optuna/optuna-examples",
+  "path": ".github/workflows/rl.yml",
+  "crons": [
+   "0 15 * * 1"
+  ],
+  "git_upstreams": [
+   "optuna/optuna"
+  ],
+  "len": 1110
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "optuna/optuna-examples",
+  "path": ".github/workflows/sklearn.yml",
+  "crons": [
+   "0 15 * * 1"
+  ],
+  "git_upstreams": [
+   "optuna/optuna",
+   "optuna/optuna-integration"
+  ],
+  "len": 1444
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "optuna/optuna-examples",
+  "path": ".github/workflows/rapids.yml",
+  "crons": [
+   "0 15 * * 1"
+  ],
+  "git_upstreams": [
+   "optuna/optuna"
+  ],
+  "len": 1147
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "optuna/optuna-examples",
+  "path": ".github/workflows/fastai.yml",
+  "crons": [
+   "0 15 * * 1"
+  ],
+  "git_upstreams": [
+   "optuna/optuna",
+   "optuna/optuna-integration"
+  ],
+  "len": 1302
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "utPLSQL/utPLSQL",
+  "path": ".github/workflows/build.yml",
+  "crons": [
+   "0 8 * * 5"
+  ],
+  "git_upstreams": [
+   "jimporter/mike"
+  ],
+  "len": 11903
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "MLzappy/what-if",
+  "path": ".github/workflows/what-if-cron.yml",
+  "crons": [
+   "0 19 * * *"
+  ],
+  "git_upstreams": [
+   "openai/whisper"
+  ],
+  "len": 1879
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "srvanrell/tdm-dos-orillas",
+  "path": ".github/workflows/ci-site-publisher-cron.yml",
+  "crons": [
+   "0 5 * * *"
+  ],
+  "git_upstreams": [
+   "srvanrell/ranking-table-tennis"
+  ],
+  "len": 1550
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "deepset-ai/haystack-core-integrations",
+  "path": ".github/workflows/presidio.yml",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "git_upstreams": [
+   "deepset-ai/haystack"
+  ],
+  "len": 4816
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "pyvisa/pyvisa-py",
+  "path": ".github/workflows/docs.yml",
+  "crons": [
+   "0 0 * * 2"
+  ],
+  "git_upstreams": [
+   "pyvisa/pyvisa"
+  ],
+  "len": 946
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "optuna/optuna-examples",
+  "path": ".github/workflows/base.yml",
+  "crons": [
+   "0 15 * * *"
+  ],
+  "git_upstreams": [
+   "optuna/optuna"
+  ],
+  "len": 1175
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "nucleic/enaml",
+  "path": ".github/workflows/ci.yml",
+  "crons": [
+   "0 0 * * 2"
+  ],
+  "git_upstreams": [
+   "MatthieuDartiailh/bytecode",
+   "nucleic/atom",
+   "nucleic/cppy",
+   "nucleic/kiwi"
+  ],
+  "len": 3738
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "optuna/optuna-examples",
+  "path": ".github/workflows/lightgbm.yml",
+  "crons": [
+   "0 15 * * 1"
+  ],
+  "git_upstreams": [
+   "optuna/optuna",
+   "optuna/optuna-integration"
+  ],
+  "len": 1683
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "optuna/optuna-examples",
+  "path": ".github/workflows/tensorboard.yml",
+  "crons": [
+   "0 15 * * 1"
+  ],
+  "git_upstreams": [
+   "optuna/optuna",
+   "optuna/optuna-integration"
+  ],
+  "len": 1282
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "networkx/networkx",
+  "path": ".github/workflows/weekly-dispatch.yml",
+  "crons": [
+   "0 0 * * 0"
+  ],
+  "git_upstreams": [
+   "awslabs/nx-neptune",
+   "networkx/nx-parallel",
+   "python-graphblas/graphblas-algorithms"
+  ],
+  "len": 1956
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "PennyLaneAI/plugin-test-matrix",
+  "path": ".github/workflows/old-workflow",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "git_upstreams": [
+   "PennyLaneAI/pennylane"
+  ],
+  "len": 2760
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "pysal/splot",
+  "path": ".github/workflows/unittests.yml",
+  "crons": [
+   "59 23 * * *"
+  ],
+  "git_upstreams": [
+   "pysal/esda",
+   "pysal/giddy",
+   "pysal/libpysal",
+   "pysal/mapclassify",
+   "pysal/spreg"
+  ],
+  "len": 3120
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "OpenMDAO/OpenMDAO",
+  "path": ".github/workflows/openmdao_audit.yml",
+  "crons": [
+   "0 3 * * *"
+  ],
+  "git_upstreams": [
+   "google/jax",
+   "mdolab/pyxdsm"
+  ],
+  "len": 4282
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "onmax/nuxt-skills",
+  "path": ".github/workflows/bundle-ecosystem-skills.yml",
+  "crons": [
+   "0 7 * * 1"
+  ],
+  "git_upstreams": [
+   "agentskills/agentskills"
+  ],
+  "len": 1742
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "optuna/optuna-examples",
+  "path": ".github/workflows/hiplot.yml",
+  "crons": [
+   "0 15 * * 1"
+  ],
+  "git_upstreams": [
+   "optuna/optuna"
+  ],
+  "len": 1265
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "optuna/optuna-examples",
+  "path": ".github/workflows/ray.yml",
+  "crons": [
+   "0 15 * * 1"
+  ],
+  "git_upstreams": [
+   "optuna/optuna"
+  ],
+  "len": 1115
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "deepset-ai/haystack-core-integrations",
+  "path": ".github/workflows/pyversity.yml",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "git_upstreams": [
+   "deepset-ai/haystack"
+  ],
+  "len": 4394
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "FEniCS/ffcx",
+  "path": ".github/workflows/pythonapp.yml",
+  "crons": [
+   "0 8 * * 1"
+  ],
+  "git_upstreams": [],
+  "len": 6960
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "optuna/optuna-examples",
+  "path": ".github/workflows/keras.yml",
+  "crons": [
+   "0 15 * * 1"
+  ],
+  "git_upstreams": [
+   "optuna/optuna",
+   "optuna/optuna-integration"
+  ],
+  "len": 1288
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "optuna/optuna-examples",
+  "path": ".github/workflows/dashboard.yml",
+  "crons": [
+   "0 15 * * *"
+  ],
+  "git_upstreams": [
+   "optuna/optuna"
+  ],
+  "len": 1359
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "hvarfner/Ax_",
+  "path": ".github/workflows/cron.yml",
+  "crons": [
+   "0 5 * * *"
+  ],
+  "git_upstreams": [
+   "cornellius-gp/gpytorch",
+   "pytorch/botorch"
+  ],
+  "len": 3934
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "deepset-ai/haystack-core-integrations",
+  "path": ".github/workflows/monty.yml",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "git_upstreams": [
+   "deepset-ai/haystack"
+  ],
+  "len": 4769
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "deepset-ai/haystack-core-integrations",
+  "path": ".github/workflows/ddgs.yml",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "git_upstreams": [
+   "deepset-ai/haystack"
+  ],
+  "len": 5195
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "optuna/optuna-examples",
+  "path": ".github/workflows/pytorch.yml",
+  "crons": [
+   "0 15 * * 1"
+  ],
+  "git_upstreams": [
+   "optuna/optuna",
+   "optuna/optuna-integration"
+  ],
+  "len": 2645
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "alliedmodders/sourcemod",
+  "path": ".github/workflows/scripting.yml",
+  "crons": [
+   "53 05 01 */3 *"
+  ],
+  "git_upstreams": [
+   "alliedmodders/ambuild"
+  ],
+  "len": 2104
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "databio/bedbase-loader",
+  "path": ".github/workflows/upload_cron_series.yml",
+  "crons": [
+   "0 18 * * *"
+  ],
+  "git_upstreams": [
+   "databio/bedboss"
+  ],
+  "len": 2271
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "deepset-ai/haystack-core-integrations",
+  "path": ".github/workflows/vespa.yml",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "git_upstreams": [
+   "deepset-ai/haystack"
+  ],
+  "len": 4794
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "deepset-ai/haystack-core-integrations",
+  "path": ".github/workflows/lara.yml",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "git_upstreams": [
+   "deepset-ai/haystack"
+  ],
+  "len": 5210
+ },
+ {
+  "q": "\"pip install git+https://github.com\" cron path:.github/workflows",
+  "repo": "optuna/optuna-examples",
+  "path": ".github/workflows/skimage.yml",
+  "crons": [
+   "0 15 * * 1"
+  ],
+  "git_upstreams": [
+   "optuna/optuna"
+  ],
+  "len": 1143
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "rtvkiz/minimal",
+  "path": ".github/workflows/update-wolfi-packages.yml",
+  "crons": [
+   "0 7 * * 1"
+  ],
+  "git_upstreams": [],
+  "len": 39690
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "pimcore/platform-version",
+  "path": ".github/workflows/api-tests.yml",
+  "crons": [
+   "0 3 * * 1,2,3,4,5"
+  ],
+  "git_upstreams": [],
+  "len": 4048
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "aerospike/aerospike-graph-service",
+  "path": ".github/workflows/ci-gitleaks.yml",
+  "crons": [
+   "17 9 * * 0"
+  ],
+  "git_upstreams": [],
+  "len": 4257
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "tpetry/laravel-postgresql-enhanced",
+  "path": ".github/workflows/comaptibility.yml",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 1493
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "php-flasher/php-flasher",
+  "path": ".github/workflows/tests.yaml",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 9622
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "laravel/jetstream",
+  "path": ".github/workflows/tests.yml",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 2810
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "aerospike/aerospike-graph-service",
+  "path": ".github/workflows/snyk-weekly-pr.yml",
+  "crons": [
+   "0 8 * * 1"
+  ],
+  "git_upstreams": [],
+  "len": 2825
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "dayCod/laravel-stup-images",
+  "path": ".github/workflows/tests.yml",
+  "crons": [
+   "0 6 * * 1"
+  ],
+  "git_upstreams": [],
+  "len": 2524
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "WapplerSystems/form",
+  "path": ".github/workflows/unit-tests.yml",
+  "crons": [
+   "37 4 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 2971
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "ra-20017322-5/tcc_final_atualizado",
+  "path": ".github/workflows/composer.lock",
+  "crons": [],
+  "git_upstreams": [],
+  "len": 335056
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "scikit-plots/scikit-plots",
+  "path": ".github/workflows/ci_docker_image_builder.yml",
+  "crons": [
+   "11 11 * * SUN,WED",
+   "11 11 * * 1",
+   "11 11 1 * *",
+   "11 0 1 * *"
+  ],
+  "git_upstreams": [],
+  "len": 70927
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "builtbyberry/laravel-swarm",
+  "path": ".github/workflows/nightly.yml",
+  "crons": [
+   "17 6 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 3618
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "psalm/psalm-plugin-laravel",
+  "path": ".github/workflows/install-smoke.yml",
+  "crons": [
+   "23 5 * * 1"
+  ],
+  "git_upstreams": [],
+  "len": 6345
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "mkalkbrenner/search_api_solr_nlp",
+  "path": ".github/workflows/jump-start-config-sets.yml",
+  "crons": [
+   "0 7 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 17668
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "aerospike/aerospike-graph-service",
+  "path": ".github/workflows/ci-codeql.yml",
+  "crons": [
+   "42 11 * * 1"
+  ],
+  "git_upstreams": [],
+  "len": 3142
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "ValentinNikolaev/php-upgrade-preflight",
+  "path": ".github/workflows/compatibility.yml",
+  "crons": [
+   "23 4 * * 1"
+  ],
+  "git_upstreams": [],
+  "len": 11844
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "matomo-org/plugin-ci-workflows",
+  "path": ".github/workflows/plugin-branch-sweep.yml",
+  "crons": [],
+  "git_upstreams": [],
+  "len": 15822
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "paknahad/jsonapi-bundle",
+  "path": ".github/workflows/ci.yaml",
+  "crons": [
+   "0 0 * * 0"
+  ],
+  "git_upstreams": [],
+  "len": 3878
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "spiral/framework",
+  "path": ".github/workflows/main.yml",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 5168
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "trevorld/r-argparse",
+  "path": ".github/workflows/python-check.yml",
+  "crons": [
+   "42 11 * * 6"
+  ],
+  "git_upstreams": [],
+  "len": 2092
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "TripalCultivate/TripalCultivate-ChadoSearch",
+  "path": ".github/workflows/ALL-PHPUnit.yml",
+  "crons": [
+   "0 2 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 2122
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "qapris/lara",
+  "path": ".github/workflows/composer.lock",
+  "crons": [],
+  "git_upstreams": [],
+  "len": 177712
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "SanderMuller/laravel-fluent-validation",
+  "path": ".github/workflows/laravel-13-dev.yml",
+  "crons": [
+   "0 6 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 5275
+ },
+ {
+  "q": "\"3.x-dev\" cron path:.github/workflows",
+  "repo": "laravel/framework",
+  "path": ".github/workflows/install-nightly.yml",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 1581
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "loiclec/fuzzcheck-rs",
+  "path": ".github/workflows/cargo.yml",
+  "crons": [
+   "0 6 * * 6"
+  ],
+  "git_upstreams": [],
+  "len": 1006
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "moltis-org/moltis",
+  "path": ".github/workflows/ci.yml",
+  "crons": [
+   "0 4 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 23607
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "hawkw/mycelium",
+  "path": ".github/workflows/nightly.yml",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 2614
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "openobserve/openobserve",
+  "path": ".github/workflows/playwright_bugfix_regression.yml",
+  "crons": [
+   "30 17 * * *",
+   "30 23 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 39836
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "parallaxsecond/parsec",
+  "path": ".github/workflows/nightly.yml",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 1986
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "tracel-ai/burn",
+  "path": ".github/workflows/vulnerabilities.yml",
+  "crons": [
+   "0 21 * * WED"
+  ],
+  "git_upstreams": [],
+  "len": 5129
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "open-lambda/open-lambda",
+  "path": ".github/workflows/pkg.yml",
+  "crons": [
+   "30 16 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 1776
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "wgsl-analyzer/wgsl-analyzer",
+  "path": ".github/workflows/fuzz.yaml",
+  "crons": [
+   "0 0 * * 0"
+  ],
+  "git_upstreams": [],
+  "len": 1196
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "plabayo/rama",
+  "path": ".github/workflows/CI-unstable.yml",
+  "crons": [
+   "0 23 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 36165
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "rust-minidump/rust-minidump",
+  "path": ".github/workflows/ci.yml",
+  "crons": [
+   "11 7 * * 1,4"
+  ],
+  "git_upstreams": [],
+  "len": 3911
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "regexident/cargo-modules",
+  "path": ".github/workflows/rust.yml",
+  "crons": [
+   "0 3 * * 0-6"
+  ],
+  "git_upstreams": [],
+  "len": 2555
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "rustls/rcgen",
+  "path": ".github/workflows/ci.yml",
+  "crons": [
+   "0 18 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 9432
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "pombredanne/RustPython-1",
+  "path": ".github/workflows/cron-ci.yaml",
+  "crons": [
+   "0 0 * * 6"
+  ],
+  "git_upstreams": [],
+  "len": 6181
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "fallow-rs/fallow",
+  "path": ".github/workflows/fuzz-smoke.yml",
+  "crons": [
+   "30 5 * * 0"
+  ],
+  "git_upstreams": [],
+  "len": 3773
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "zzau13/yarte",
+  "path": ".github/workflows/checks.yml",
+  "crons": [
+   "40 1 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 818
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "algesten/str0m",
+  "path": ".github/workflows/cargo.yml",
+  "crons": [
+   "22 3 * * 5"
+  ],
+  "git_upstreams": [],
+  "len": 6056
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "sentinel-group/sentinel-rust",
+  "path": ".github/workflows/grcov.yml",
+  "crons": [
+   "0 0 * * 0"
+  ],
+  "git_upstreams": [],
+  "len": 1846
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "thepowersgang/rust_os",
+  "path": ".github/workflows/ci.yml",
+  "crons": [
+   "45 10 * * 2"
+  ],
+  "git_upstreams": [],
+  "len": 678
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "eval-exec/neomacs",
+  "path": ".github/workflows/regex-fuzz.yml",
+  "crons": [
+   "17 5 * * 0"
+  ],
+  "git_upstreams": [],
+  "len": 2413
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "rust-cross/rust-musl-cross",
+  "path": ".github/workflows/Build.yml",
+  "crons": [
+   "0 0 1 */2 *"
+  ],
+  "git_upstreams": [],
+  "len": 15602
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "open-lambda/open-lambda",
+  "path": ".github/workflows/ci.yml",
+  "crons": [
+   "30 15 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 3058
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "nisshi-io/solace-nisshi",
+  "path": ".github/workflows/fuzz.yml",
+  "crons": [
+   "41 3 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 9999
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "TC999/zed-loc",
+  "path": ".github/workflows/windows.yml",
+  "crons": [
+   "0 0 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 2981
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "moka-rs/moka",
+  "path": ".github/workflows/Audit.yml",
+  "crons": [
+   "5 20 * * 5"
+  ],
+  "git_upstreams": [],
+  "len": 1322
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "BurntSushi/memchr",
+  "path": ".github/workflows/ci.yml",
+  "crons": [
+   "00 01 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 12968
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "EspressoSystems/jellyfish",
+  "path": ".github/workflows/build.yml",
+  "crons": [
+   "0 0 * * 1"
+  ],
+  "git_upstreams": [],
+  "len": 2598
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "rust-lang/rustc_public",
+  "path": ".github/workflows/nightly.yml",
+  "crons": [
+   "0 6 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 753
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "worldcoin/world-chain",
+  "path": ".github/workflows/supply-chain.yml",
+  "crons": [
+   "0 6 * * 1"
+  ],
+  "git_upstreams": [],
+  "len": 1572
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "penso/arbor",
+  "path": ".github/workflows/nightly.yml",
+  "crons": [
+   "0 4 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 3844
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "microsoft/DiskANN",
+  "path": ".github/workflows/nightly.yml",
+  "crons": [
+   "0 2 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 4916
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "ferronweb/ferron",
+  "path": ".github/workflows/fuzz.yml",
+  "crons": [
+   "0 3 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 1315
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "ctz/graviola",
+  "path": ".github/workflows/lints.yml",
+  "crons": [
+   "0 18 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 2408
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "Dicklesworthstone/pi_agent_rust",
+  "path": ".github/workflows/weekly-evidence-refresh.yml",
+  "crons": [
+   "0 6 * * 1"
+  ],
+  "git_upstreams": [],
+  "len": 5468
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "carthage-software/mago",
+  "path": ".github/workflows/miri.yml",
+  "crons": [
+   "37 3 * * *"
+  ],
+  "git_upstreams": [],
+  "len": 2058
+ },
+ {
+  "q": "\"toolchain: nightly\" cron path:.github/workflows",
+  "repo": "meta/starlark-rust",
+  "path": ".github/workflows/ci.yml",
+  "crons": [
+   "0 12 * * 1"
+  ],
+  "git_upstreams": [],
+  "len": 1930
+ }
+]

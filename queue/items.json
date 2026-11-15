@@ -34,7 +34,9 @@
   "untested": true,
   "v": 0.3,
   "L": 2,
-  "c": 3
+  "c": 3,
+  "status": "DONE",
+  "done": "night2/GITHUB/RESULTS.md (started pre-protocol, out of cycle, unscored; ledger 36)"
  },
  {
   "id": "WIKIDATA-BAND",

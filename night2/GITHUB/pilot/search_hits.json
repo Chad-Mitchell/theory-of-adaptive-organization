@@ -1,0 +1,1646 @@
+{
+ "scientific-python-nightly-wheels path:.github/workflows": {
+  "total": 260,
+  "items": [
+   {
+    "repo": "scikit-learn/scikit-learn",
+    "path": ".github/workflows/emscripten.yml",
+    "sha": "29441f2f08ba23dab09643638d98013ec9ac6c5c"
+   },
+   {
+    "repo": "pandas-dev/pandas",
+    "path": ".github/workflows/wheels.yml",
+    "sha": "151dc69176a953a2a6d3777dd8275eb5fa1217cf"
+   },
+   {
+    "repo": "jax-ml/jax",
+    "path": ".github/workflows/numpy_nightly.yml",
+    "sha": "4de6ac4f019b43bb76d1cef512c9eb7059706983"
+   },
+   {
+    "repo": "jax-ml/jax",
+    "path": ".github/workflows/upstream-nightly.yml",
+    "sha": "cfa865270b3d04791e5e910fc1278c191450a2dd"
+   },
+   {
+    "repo": "python-pillow/Pillow",
+    "path": ".github/workflows/wheels.yml",
+    "sha": "a25cf83b751c5ae95a265b6850b034bfe612f1cd"
+   },
+   {
+    "repo": "cython/cython",
+    "path": ".github/workflows/nightly-wheels.yml",
+    "sha": "106d1561ee24edf1de51b6f698c225c266a55d59"
+   },
+   {
+    "repo": "numpy/numpy",
+    "path": ".github/workflows/linux_blas.yml",
+    "sha": "565454435a308eb77b1cad534a57322266470aea"
+   },
+   {
+    "repo": "cupy/cupy",
+    "path": ".github/workflows/ci-nightly.yml",
+    "sha": "d6a41a4301d69b7f7d3d235153dc1cfc0ff62438"
+   },
+   {
+    "repo": "shap/shap",
+    "path": ".github/workflows/build_wheels.yml",
+    "sha": "2068eb1f82f23d0b5ff509cb335e3ee11bb44c27"
+   },
+   {
+    "repo": "scipy/scipy",
+    "path": ".github/workflows/linux.yml",
+    "sha": "4dfb9684c2ccd23fcf3452b93a23b24aded9c1b5"
+   },
+   {
+    "repo": "scikit-image/scikit-image",
+    "path": ".github/workflows/nightly-wheel-build.yaml",
+    "sha": "a93aee733f8199ce2cb49af591d838d09eeedf03"
+   },
+   {
+    "repo": "sympy/sympy",
+    "path": ".github/workflows/runtests.yml",
+    "sha": "4fee6c3f1dcfc1a6655b0816034652285e1642a5"
+   },
+   {
+    "repo": "yzhao062/pyod",
+    "path": ".github/workflows/testing-cron.yml",
+    "sha": "3592132b667729597df0870b651f45e06661d2d0"
+   },
+   {
+    "repo": "PyWavelets/pywt",
+    "path": ".github/workflows/emscripten.yml",
+    "sha": "422f13261427c4eef1ff33a5b1b04838cc64cb8d"
+   },
+   {
+    "repo": "pydata/xarray",
+    "path": ".github/workflows/nightly-wheels.yml",
+    "sha": "049cc7ba504340a7ed044920c760e1f15371c190"
+   },
+   {
+    "repo": "raphaelvallat/pingouin",
+    "path": ".github/workflows/pytest_prerelease.yml",
+    "sha": "cf59d746ef994fb238f53294e434c9102fc79ffe"
+   },
+   {
+    "repo": "dipy/dipy",
+    "path": ".github/workflows/nightly.yml",
+    "sha": "14f72cb53c94f34ca0af8fe1feb3a274d67e0fad"
+   },
+   {
+    "repo": "PyAV-Org/PyAV",
+    "path": ".github/workflows/smoke.yml",
+    "sha": "7cd34878f98db383d7f5ea90d952b75e25a0b5ba"
+   },
+   {
+    "repo": "safetensors/safetensors",
+    "path": ".github/workflows/python.yml",
+    "sha": "f4d64a913975d1d43f6a3d80e239ff7f567b8b81"
+   },
+   {
+    "repo": "SciTools/cartopy",
+    "path": ".github/workflows/ci-testing.yml",
+    "sha": "b83ed0adc19303731d6a6d90037c587dd8a7eeed"
+   },
+   {
+    "repo": "PyTables/PyTables",
+    "path": ".github/workflows/ci.yml",
+    "sha": "b7712870f1b914df9bf4f3e21b37a03fc855fd76"
+   },
+   {
+    "repo": "pydy/pydy",
+    "path": ".github/workflows/sympy-dev.yml",
+    "sha": "5c6602a5590820ad4f5a8d5e9a15d629b6cb2a4d"
+   },
+   {
+    "repo": "ARM-DOE/pyart",
+    "path": ".github/workflows/upstream-ci.yml",
+    "sha": "a9125b58f04448df8de13ac219fbaeee592f6240"
+   },
+   {
+    "repo": "narwhals-dev/narwhals",
+    "path": ".github/workflows/extremes.yml",
+    "sha": "de0c5b7d7e71977751445f8d2d3366fb9a7056b6"
+   },
+   {
+    "repo": "PyTables/PyTables",
+    "path": ".github/workflows/wheels.yml",
+    "sha": "835d863516eb7fc4a2a93c6f3eabcdc0bfc58267"
+   },
+   {
+    "repo": "h5py/h5py",
+    "path": ".github/workflows/build_wheels.yml",
+    "sha": "2922ee71445b4cfd22df9af3b515eaa9a6b4aed8"
+   },
+   {
+    "repo": "pytroll/satpy",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "b5330d9306cddced8f8ddc46183952677eab890d"
+   },
+   {
+    "repo": "sunpy/sunpy",
+    "path": ".github/workflows/ci.yml",
+    "sha": "c8758a8261c2611b1177ae6d9ef60164097cb474"
+   },
+   {
+    "repo": "MDAnalysis/mdanalysis",
+    "path": ".github/workflows/gh-ci-cron.yaml",
+    "sha": "6185341dd70e4dd7ca88fcf24458b1e6e646576d"
+   },
+   {
+    "repo": "soda-inria/tabicl",
+    "path": ".github/workflows/testing.yml",
+    "sha": "f099bb0a87c4cd4f421f1044e085a31354be6d55"
+   },
+   {
+    "repo": "yt-project/unyt",
+    "path": ".github/workflows/bleeding-edge.yaml",
+    "sha": "2d2373523c163751a86fa667b4be71ddd3b7da62"
+   },
+   {
+    "repo": "pydata/pydata-sphinx-theme",
+    "path": ".github/workflows/publish.yml",
+    "sha": "d29b6959f679bf148e06bc0c6e8a5c20a54b2bf4"
+   },
+   {
+    "repo": "zillow/quantile-forest",
+    "path": ".github/workflows/nightly.yml",
+    "sha": "bcc0c83cd5486bf9de663700bc296246ebaedf77"
+   },
+   {
+    "repo": "pytroll/pyresample",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "0246e088f24fc63a36f98a735c7fd8b18f698ece"
+   },
+   {
+    "repo": "paulcon/active_subspaces",
+    "path": ".github/workflows/nightly.yml",
+    "sha": "e32ee77a63d4f432bb409e88d4e0993b13f81f49"
+   },
+   {
+    "repo": "pytroll/pyorbital",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "45e1cc9453f7e6237c90d993d98273976d0f609f"
+   },
+   {
+    "repo": "scikit-hep/pyhf",
+    "path": ".github/workflows/dependencies-head.yml",
+    "sha": "41274c42e9ea7cd4bd27bbc1a8411c556b5e6e4c"
+   },
+   {
+    "repo": "mne-tools/mne-icalabel",
+    "path": ".github/workflows/pytest.yaml",
+    "sha": "8221561b4947edcfd74efc11dd204e39ba1fb860"
+   },
+   {
+    "repo": "pytroll/pyspectral",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "cdea00ba814cc1bfd62bebfdd1b300682bb266f9"
+   },
+   {
+    "repo": "scikit-build/scikit-build",
+    "path": ".github/workflows/ci.yml",
+    "sha": "ed27604d2dd6764af3742adebb6674746630d602"
+   },
+   {
+    "repo": "hgrecco/pint-pandas",
+    "path": ".github/workflows/ci-pandas-pre.yml",
+    "sha": "c0d6de82a290b2aef466f017e80aadaed70b6667"
+   },
+   {
+    "repo": "mushroomfire/mdapy",
+    "path": ".github/workflows/upstream.yml",
+    "sha": "7fa5aa3073d07195b9f185fc30bc5432f21fc7cd"
+   },
+   {
+    "repo": "numpy/numpy-user-dtypes",
+    "path": ".github/workflows/ci.yml",
+    "sha": "00eb712efefb043d24e139ac5027e3002a786dba"
+   },
+   {
+    "repo": "francof2a/fxpmath",
+    "path": ".github/workflows/nightly-numpy-prerelease.yml",
+    "sha": "0c46249338070003e1f0453d32ecabdc0a35adc1"
+   },
+   {
+    "repo": "explosion/ml-datasets",
+    "path": ".github/workflows/pytest.yml",
+    "sha": "52afd6478cdfd47c583bb99c7d56dc82c8ff411e"
+   },
+   {
+    "repo": "geopandas/pyogrio",
+    "path": ".github/workflows/release.yml",
+    "sha": "bbe495138aef69cf2a1291683b0d43c640ca3e65"
+   },
+   {
+    "repo": "geoxarray/geoxarray",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "789df1e459deaca80926c2b24ed5f2ed1b39d87e"
+   },
+   {
+    "repo": "xarray-contrib/flox",
+    "path": ".github/workflows/upstream-dev-ci.yaml",
+    "sha": "777c8755488971a9bfb1e157427c0742dec9775e"
+   },
+   {
+    "repo": "pytroll/python-geotiepoints",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "dc58f42d3415795f724471e5824cfd330e797932"
+   },
+   {
+    "repo": "mne-tools/mne-lsl",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "9eaccbbb2b9dc6b61afe69c69324457f05bc57a5"
+   },
+   {
+    "repo": "pytroll/pytroll-schedule",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "a3159a2764110ac63a1262c49f3181d4a7df1418"
+   },
+   {
+    "repo": "neurodata/treeple",
+    "path": ".github/workflows/main.yml",
+    "sha": "492f70850a90d0c799d6838d7b21e01a5d14de1a"
+   },
+   {
+    "repo": "vferat/pycrostates",
+    "path": ".github/workflows/pytest.yaml",
+    "sha": "fd969625d123acadf6ce9e17715da7d37b04beb6"
+   },
+   {
+    "repo": "ssec/sift",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "55e0cbf7b203e1e2294d708adf055b58085f3b93"
+   },
+   {
+    "repo": "MIPLabCH/nigsp",
+    "path": ".github/workflows/pytest.yaml",
+    "sha": "a1c16472a11f93108f1030137fb7e637975ef99c"
+   },
+   {
+    "repo": "crusaderky/xarray_extras",
+    "path": ".github/workflows/pytest.yml",
+    "sha": "e1ca16882e74b9b5e6b3c36f9c4418862476b3e0"
+   },
+   {
+    "repo": "flintlib/python-flint",
+    "path": ".github/workflows/buildwheel.yml",
+    "sha": "c7910e4ebaed108db3625472e93e5a1fb8eae7a3"
+   },
+   {
+    "repo": "scikit-hep/mplhep",
+    "path": ".github/workflows/head-dependencies.yml",
+    "sha": "4df769b654e218aff748669fc6896f0cc43f81c8"
+   },
+   {
+    "repo": "fcbg-platforms/pycartool",
+    "path": ".github/workflows/pytest.yml",
+    "sha": "f283cf8adbb26ff380f2ed6a3d13dda615c8f991"
+   },
+   {
+    "repo": "data-engineering-collective/plateau",
+    "path": ".github/workflows/nighlies.yml",
+    "sha": "86e9bcf706715ca7178d5121c302826f8c668eb3"
+   },
+   {
+    "repo": "lincc-frameworks/nested-pandas",
+    "path": ".github/workflows/testing-pandas-dev.yml",
+    "sha": "a560815aa8546f653943e0069ad777c8f78bada5"
+   },
+   {
+    "repo": "polsys/ennemi",
+    "path": ".github/workflows/nightly-deps.yml",
+    "sha": "f0094837f5daa591c1e367140bb3adf961b6a926"
+   },
+   {
+    "repo": "yt-project/cmyt",
+    "path": ".github/workflows/bleeding-edge.yaml",
+    "sha": "e8b93c2546652e9aca244e2c6794e0fa486a7c64"
+   },
+   {
+    "repo": "pytroll/trollimage",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "7d821d7d3255b04ffd56a4272066ffc4b5417d99"
+   },
+   {
+    "repo": "scientific-python/upload-nightly-action",
+    "path": ".github/workflows/ci.yml",
+    "sha": "b3b692a3085527698ad7837ce7cd6fbc969d6c18"
+   },
+   {
+    "repo": "mne-rt-org/mne-rt",
+    "path": ".github/workflows/ci.yml",
+    "sha": "28dd628b4dc156fb6e574d203c1952efd38c5c6c"
+   },
+   {
+    "repo": "ge-flight-analytics/emspy",
+    "path": ".github/workflows/pandas-compat.yml",
+    "sha": "80bd8e98a2f942f7840a60c840b78ee09c72ce78"
+   },
+   {
+    "repo": "la-niche/cblind",
+    "path": ".github/workflows/bleeding-edge.yaml",
+    "sha": "f15dc177381271edc208260f1c416e1b3641a34c"
+   },
+   {
+    "repo": "mscheltienne/template-python",
+    "path": ".github/workflows/pytest.yaml",
+    "sha": "f9d930f1dc009804adf14a63f429c60fb0873411"
+   },
+   {
+    "repo": "la-niche/nonos",
+    "path": ".github/workflows/bleeding-edge.yml",
+    "sha": "86073112dee05fc06983a1d0462e03b0df4b64f1"
+   },
+   {
+    "repo": "neurotuning/gedai",
+    "path": ".github/workflows/pytest.yaml",
+    "sha": "cec02475069700f9f61bbe1322a7634f2bf0d3b5"
+   },
+   {
+    "repo": "scientific-python/upload-nightly-action",
+    "path": ".github/workflows/remove-wheels.yml",
+    "sha": "a3b37249acb2f960a93802d92a65eeeadddf3e40"
+   },
+   {
+    "repo": "neutrinoceros/yt_idefix",
+    "path": ".github/workflows/bleeding-edge.yaml",
+    "sha": "cae90ecf07b34606aaed4f3ba48207a6c65e7478"
+   },
+   {
+    "repo": "chenxingqiang/jax-sklearn",
+    "path": ".github/workflows/emscripten.yml",
+    "sha": "1b034dc1f65948a3d557a5bee32b0245fadd2dd5"
+   },
+   {
+    "repo": "spacetelescope/stsci.tools",
+    "path": ".github/workflows/ci_workflows.yml",
+    "sha": "b02dbeb5a9f8a8dc6db37edde06e47cb6ea8c894"
+   },
+   {
+    "repo": "la-niche/lick",
+    "path": ".github/workflows/bleeding-edge.yaml",
+    "sha": "c209ecd1261ecbd43b45408402b8416bc125d500"
+   },
+   {
+    "repo": "pexip/os-numpy",
+    "path": ".github/workflows/emscripten.yml",
+    "sha": "cf94d8cf58000a72ca6a5c62e332a431509e62b7"
+   },
+   {
+    "repo": "ruddyscent/gmes",
+    "path": ".github/workflows/prerelease.yml",
+    "sha": "ccdfd0d45237822644b1effdf7e1f24b744ba8bf"
+   },
+   {
+    "repo": "yt-project/ewah_bool_utils",
+    "path": ".github/workflows/bleeding-edge.yaml",
+    "sha": "c7a85f61831d39569abc119d76398a60ef752df3"
+   },
+   {
+    "repo": "scikit-learn/scikit-learn-release",
+    "path": ".github/workflows/nightly.yml",
+    "sha": "2b3d3393ab9a4ed70f15294806cce034d76cfcf6"
+   },
+   {
+    "repo": "SAIL-Labs/AMICAL",
+    "path": ".github/workflows/bleeding-edge.yaml",
+    "sha": "87c142312e2bb637ddbeabcc48dfbc8dd322a588"
+   },
+   {
+    "repo": "ml4t/backtest",
+    "path": ".github/workflows/compatibility.yml",
+    "sha": "d5008aa3a031d297265ffd7d64668a5d92a332d5"
+   },
+   {
+    "repo": "tkoyama010/pyvista-wasm",
+    "path": ".github/workflows/nightly.yml",
+    "sha": "64780c3f28e02b2e1b49577d17927530b19e3715"
+   },
+   {
+    "repo": "pexip/os-numpy",
+    "path": ".github/workflows/macos.yml",
+    "sha": "d40ef9f60f209a0245cc155757875f9646cc63b9"
+   },
+   {
+    "repo": "pytroll/intake-satpy",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "22bbc9e3a18e529b9b111c90783b2b70b0dfaaa8"
+   },
+   {
+    "repo": "pexip/os-numpy",
+    "path": ".github/workflows/wheels.yml",
+    "sha": "2bf5b7ce0e52955766f1812d1c797cb9cc4a573e"
+   },
+   {
+    "repo": "fcbg-platforms/demo-realtime",
+    "path": ".github/workflows/pytest.yaml",
+    "sha": "2dca817c4945467364b5bc5bd0053b6f55827a41"
+   },
+   {
+    "repo": "tkoyama010/pyvista-js",
+    "path": ".github/workflows/nightly.yml",
+    "sha": "b8586cc2b161bcf50ec96fd454f3752834fe7a03"
+   },
+   {
+    "repo": "fcbg-platforms/eeg-wiki",
+    "path": ".github/workflows/pytest.yaml",
+    "sha": "290c1bc5c25d3e32442ae3dd279b384ac2e03fbf"
+   },
+   {
+    "repo": "pexip/os-numpy",
+    "path": ".github/workflows/linux.yml",
+    "sha": "b4826f2e1642db9f65ce90f216e08c27f700a87a"
+   },
+   {
+    "repo": "pexip/os-numpy",
+    "path": ".github/workflows/compiler_sanitizers.yml",
+    "sha": "09e71051556d41f86c0ef011c48d28c6636a59e9"
+   },
+   {
+    "repo": "glemaitre/scikit-learn-common-test",
+    "path": ".github/workflows/testing.yaml",
+    "sha": "384f07790e819d8dbb745f0b3f2a44953c3141b6"
+   },
+   {
+    "repo": "pexip/os-numpy",
+    "path": ".github/workflows/windows_arm64.yml",
+    "sha": "0f9a223890495ce979bd29c1ed53fba7a51802e0"
+   },
+   {
+    "repo": "naimagradi/llmde",
+    "path": ".github/workflows/pytest.yaml",
+    "sha": "d92281f8e8ff788be0ed1c5498e58943788bb847"
+   },
+   {
+    "repo": "Pol-InSAR/pysarpro",
+    "path": ".github/workflows/nightly_wheel_build.yml",
+    "sha": "2eeab6c1557199a81727692cec5c1214f8f73274"
+   },
+   {
+    "repo": "pexip/os-numpy",
+    "path": ".github/workflows/linux_blas.yml",
+    "sha": "1b8121a16254a919186582926c7b7cdb99d08a9d"
+   },
+   {
+    "repo": "spacetelescope/reftools",
+    "path": ".github/workflows/ci_workflows.yml",
+    "sha": "971d1949032693dfa624895c6144f68d9222f97a"
+   },
+   {
+    "repo": "tuan2k33/NullableDType",
+    "path": ".github/workflows/ci.yml",
+    "sha": "7cde93e9561e6b004b6ef27d9f767315fb2f788b"
+   },
+   {
+    "repo": "LD-Shell/beamfeat",
+    "path": ".github/workflows/upcoming.yml",
+    "sha": "ee5905bf4e4ce5222aff1a34f184890f11487912"
+   },
+   {
+    "repo": "xarray-contrib/xarray-array-testing",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "0ad4b3013cf4acd5ebcee071bfd277c628ec0ef6"
+   }
+  ],
+  "err": null
+ },
+ "\"pip install git+https://github.com\" cron path:.github/workflows": {
+  "total": 1001,
+  "items": [
+   {
+    "repo": "meta/Ax",
+    "path": ".github/workflows/cron.yml",
+    "sha": "b98347efec444f2a79716056920649d9e5395139"
+   },
+   {
+    "repo": "mlflow/mlflow",
+    "path": ".github/workflows/cross-version-testing.md",
+    "sha": "acf80e0d386e396e001e391f5958ad593bf6cefb"
+   },
+   {
+    "repo": "huggingface/transformers",
+    "path": ".github/workflows/vllm-ci-caller.yml",
+    "sha": "f6dfdc26e0057eac4b30636d3894fd685ce6ec42"
+   },
+   {
+    "repo": "networkx/networkx",
+    "path": ".github/workflows/weekly-dispatch.yml",
+    "sha": "565718732618c2ebb26a98ab7113ede20d66b03d"
+   },
+   {
+    "repo": "TensorSpeech/TensorFlowTTS",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "e38bd2e7f0365b2477084aada1d45b0292e7b7be"
+   },
+   {
+    "repo": "meta-pytorch/botorch",
+    "path": ".github/workflows/nightly.yml",
+    "sha": "27f64015b84913b6550588855f5f234b9f8ef6b6"
+   },
+   {
+    "repo": "nucleic/enaml",
+    "path": ".github/workflows/ci.yml",
+    "sha": "1827f877dca3ed22ef54fb24e1145dd05a80379c"
+   },
+   {
+    "repo": "deepspeedai/DeepSpeed-MII",
+    "path": ".github/workflows/nv-v100-legacy.yml",
+    "sha": "283702bd64773dd5d34f942a2c0b0b9c01ba2812"
+   },
+   {
+    "repo": "hvarfner/Ax_",
+    "path": ".github/workflows/cron.yml",
+    "sha": "1b85039d15c3a6ef1f71e2db48e5009fd9b12187"
+   },
+   {
+    "repo": "alliedmodders/sourcemod",
+    "path": ".github/workflows/scripting.yml",
+    "sha": "da749f9c0b68d1d9a2477406630cba6ad7a19bc1"
+   },
+   {
+    "repo": "OpenMDAO/OpenMDAO",
+    "path": ".github/workflows/openmdao_audit.yml",
+    "sha": "f161e2bc7072f63569ac6cf01835d278302974f6"
+   },
+   {
+    "repo": "pyvisa/pyvisa-py",
+    "path": ".github/workflows/ci.yml",
+    "sha": "93fef4792d4a58b2cc96417b761d94a9b6c5418f"
+   },
+   {
+    "repo": "pyvisa/pyvisa-py",
+    "path": ".github/workflows/docs.yml",
+    "sha": "4ecc2374390e06b7330b1ac07da60b0029d3561d"
+   },
+   {
+    "repo": "srvanrell/tdm-dos-orillas",
+    "path": ".github/workflows/ci-site-publisher-cron.yml",
+    "sha": "966ebef887cbba9bc337045ed670f7d3d4227567"
+   },
+   {
+    "repo": "mkdocs/catalog",
+    "path": ".github/workflows/update-best-of-list.yml",
+    "sha": "144f72eece8add828998e2efab4dfb64d4517cd8"
+   },
+   {
+    "repo": "DataCanvasIO/DeepTables",
+    "path": ".github/workflows/python-pytest.yml",
+    "sha": "bd0f39bae59f04b66391900cf658b8237c54bb31"
+   },
+   {
+    "repo": "databio/bedbase-loader",
+    "path": ".github/workflows/upload_cron.yml",
+    "sha": "2f43f44123312ad0d92a9979c65241849dada7c0"
+   },
+   {
+    "repo": "tronikos/esphome-magnetometer-water-gas-meter",
+    "path": ".github/workflows/validate.yml",
+    "sha": "ba762f8254f19a71f4d2eb7410fba863231f64c5"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/rl.yml",
+    "sha": "416c7638bbd28600b5f6d6a970c0c9514b2cd951"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/dask.yml",
+    "sha": "77adb94b805eddb87d15280286298be047d5e299"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/ray.yml",
+    "sha": "679ed512e55f5f71921b04be2948ddeca787cdd5"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/faq.yml",
+    "sha": "64bac3989de53d8917f2841e1c815e8a23438e3e"
+   },
+   {
+    "repo": "databio/bedbase-loader",
+    "path": ".github/workflows/upload_cron_series.yml",
+    "sha": "f334a8fd9a3e0a08bb49635e73b3d94dddec2fe6"
+   },
+   {
+    "repo": "yt-project/yt",
+    "path": ".github/workflows/bleeding-edge.yaml",
+    "sha": "25feec285189f346dab133143be82145778a10e4"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/base.yml",
+    "sha": "60bde9e32f8893b2f63472f1ce8e6d4d45b90ee8"
+   },
+   {
+    "repo": "nucleic/atom",
+    "path": ".github/workflows/ci.yml",
+    "sha": "813bb633581bf6d537f9c9025ca8ebcb2dde9522"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/haiku.yml",
+    "sha": "a1ce53506704eb7c50c1f1a847f9c3035acad49b"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/keras.yml",
+    "sha": "c860a2bde227507ab2211e13d92b22540b75e2e9"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/basic.yml",
+    "sha": "6c7a554376f29bcdb7d65aaf063f9864578e4acd"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/hydra.yml",
+    "sha": "e2f54a4c49149a3217c2682f2aa6ec07fcafde7e"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/hiplot.yml",
+    "sha": "d6518eb7714627e0ac853f5afbe8bbc0dd3fdbe0"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/rapids.yml",
+    "sha": "a992bce5f58e1a979660761aa9b7ee2c8f1a4cac"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/fastai.yml",
+    "sha": "faca1d6ad2a975105529bf6d169f014a7dc933d5"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/sklearn.yml",
+    "sha": "7220559120f92b54a73463ebda7d9bfabf8edc5d"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/pruners.yml",
+    "sha": "f94ddaba4a0f8e7025944a2f712d10923fb77c78"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/dask_ml.yml",
+    "sha": "41f0139e239ec9a1f1b5c71e1594dddfe7288c55"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/skimage.yml",
+    "sha": "d132f45e9d1ced21a5cfddcfcced0d9adc935c32"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/tfkeras.yml",
+    "sha": "b309951ecc591286369583796d3dbca51ad475f8"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/xgboost.yml",
+    "sha": "68ef51793c92047e569cd43977469082373bf26d"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/samplers.yml",
+    "sha": "2b3eccc984c340f1348194898cf0cfc0811853a9"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/catboost.yml",
+    "sha": "f9b818e5a9bd7aa8d0b3417079ee65cc85368411"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/lightgbm.yml",
+    "sha": "37cb110b56465f8ae82dc4453fbd5d809efe44f9"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/pytorch.yml",
+    "sha": "aeddcf2b2e23f6a4a51e0ab5cfdfc881b7525d42"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/dashboard.yml",
+    "sha": "1a987c4510f0afc08b4ae58b3ba818db569af438"
+   },
+   {
+    "repo": "pcaversaccio/snekmate",
+    "path": ".github/workflows/halmos.yml",
+    "sha": "d345d82bb829c9d2c8e8f563ebe7cbcdbeb29f73"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/terminator.yml",
+    "sha": "048fe27472f716d4049fbc97c2f7d5f0b2114896"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/tensorflow.yml",
+    "sha": "de761c08648d1da36ad1b4f08c9ad65dc28946a8"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/tensorboard.yml",
+    "sha": "1fae94c67538d3c0342c6f3c00a94a77219fa058"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/transformers.yml",
+    "sha": "1a82143044e8b4518c0cbdb724c889d9cb154ff2"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/visualization.yml",
+    "sha": "1599c5746c21b1c95f48ff00cd0e096d94b89f21"
+   },
+   {
+    "repo": "jyotisham/jyotisha",
+    "path": ".github/workflows/bots.yml",
+    "sha": "e666ddc9b0aa66005021e4d0d0d959488b82e1b6"
+   },
+   {
+    "repo": "DataCanvasIO/HyperGBM",
+    "path": ".github/workflows/python-pytest.yml",
+    "sha": "9564ee980983520077ea0c039cdbbcb40660f85f"
+   },
+   {
+    "repo": "optuna/optuna-examples",
+    "path": ".github/workflows/multi_objective.yml",
+    "sha": "650052545068067422a3d10a198f6648689b9527"
+   },
+   {
+    "repo": "pcaversaccio/snekmate",
+    "path": ".github/workflows/halmos-venom.yml",
+    "sha": "2b9dea495648cbeb0553259b30fc067ebfa6e2ce"
+   },
+   {
+    "repo": "enthought/enable",
+    "path": ".github/workflows/bleeding-edge.yml",
+    "sha": "674057bfe274111e312f4839c4a1a10e6b12671c"
+   },
+   {
+    "repo": "utPLSQL/utPLSQL",
+    "path": ".github/workflows/build.yml",
+    "sha": "046d9f964a3aad39c3f78c44300712aa64ad1770"
+   },
+   {
+    "repo": "FEniCS/ffcx",
+    "path": ".github/workflows/pythonapp.yml",
+    "sha": "818f74e1358dd58780bf15932c5159652259d6a5"
+   },
+   {
+    "repo": "MLzappy/what-if",
+    "path": ".github/workflows/what-if-cron.yml",
+    "sha": "d4c7deca13e324130def336c435b273ddde47f61"
+   },
+   {
+    "repo": "e2nIEE/pandapower",
+    "path": ".github/workflows/pr-open-all.yml",
+    "sha": "7d83ba6e86e9d06af8b3dc14b4e762e0189fc4b3"
+   },
+   {
+    "repo": "DataCanvasIO/HyperTS",
+    "path": ".github/workflows/python-pytest.yml",
+    "sha": "2bd53df36321505fb076a4ea244c94a4e6b2a123"
+   },
+   {
+    "repo": "PennyLaneAI/plugin-test-matrix",
+    "path": ".github/workflows/old-workflow",
+    "sha": "34364040a08844e16907025c020ccbbe1eb0dd15"
+   },
+   {
+    "repo": "grid-parity-exchange/Egret",
+    "path": ".github/workflows/egret.yml",
+    "sha": "6f6180f3ae9b6eeba2c2638e21a14984d6bbe6ac"
+   },
+   {
+    "repo": "john-hen/Flake8-pyproject",
+    "path": ".github/workflows/scheduled.yml",
+    "sha": "6b15c7b9b77f686cfa24e20f49b2817acdc195a5"
+   },
+   {
+    "repo": "pysal/splot",
+    "path": ".github/workflows/unittests.yml",
+    "sha": "56f8df0dfbcfc6e226d59486876345569bb7c038"
+   },
+   {
+    "repo": "alliedmodders/source2mod",
+    "path": ".github/workflows/scripting.yml",
+    "sha": "5f02e4f836e56a978433d6ead3ee5054e1bb9837"
+   },
+   {
+    "repo": "Kegbot/kegboard",
+    "path": ".github/workflows/esphome-dev.yaml",
+    "sha": "b920e9f9520f972eb5d3f55a652ce5cb71dab6c4"
+   },
+   {
+    "repo": "choderalab/openmoltools",
+    "path": ".github/workflows/CI.yaml",
+    "sha": "ee0e91d33465e40f66694b71e9ef4896ab5f41bf"
+   },
+   {
+    "repo": "onmax/nuxt-skills",
+    "path": ".github/workflows/bundle-ecosystem-skills.yml",
+    "sha": "0493c6ff0349a3dd39b06794ef33d0d768ddf990"
+   },
+   {
+    "repo": "amaranth-lang/amaranth-soc",
+    "path": ".github/workflows/main.yaml",
+    "sha": "0fc79d60be5f0fb8388fe0a96e50b6a4d0fca2bc"
+   },
+   {
+    "repo": "jyotisham/jyotisha",
+    "path": ".github/workflows/generate_panchaangas.yml",
+    "sha": "ba4fa064d525a25202a49b9153a8a2b19d0c77a7"
+   },
+   {
+    "repo": "eljost/pysisyphus",
+    "path": ".github/workflows/pythonapp.yml",
+    "sha": "583f557a4d2ac9e013fa2a13007f54140a47f667"
+   },
+   {
+    "repo": "OpenBioSim/biosimspace",
+    "path": ".github/workflows/Sandpit_exs.yml",
+    "sha": "00e9199fce761b4ca344b5332f22979b2c10139e"
+   },
+   {
+    "repo": "bionumpy/bionumpy",
+    "path": ".github/workflows/benchmarking_big.yml",
+    "sha": "837e6dd44d664e4a8188714c198c63f12010e46e"
+   },
+   {
+    "repo": "huggingface/optimum-amd",
+    "path": ".github/workflows/update_rocm_projects.yaml",
+    "sha": "871a19f029ccf00182aaa59d85bfeee9a2e4b7e6"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/monty.yml",
+    "sha": "0f993489cf51fd8922dd655130b648ac6a39261a"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/pyversity.yml",
+    "sha": "8eb8bcf99f38bf96a7c7cb4cd1cea499d927dee4"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/vespa.yml",
+    "sha": "1c00f3acd5bc1116eea24a7ec84f9047a36ee542"
+   },
+   {
+    "repo": "hardenedvault/ved",
+    "path": ".github/workflows/mkosi-mainline.yml",
+    "sha": "1105b0344e1b8150f0fe6d7e1fac7d5fa9890c77"
+   },
+   {
+    "repo": "Pyomo/mpi-sppy",
+    "path": ".github/workflows/pyotracker.yml",
+    "sha": "85c90fedcbd4a4681229d4e142538007c75cda78"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/github.yml",
+    "sha": "e4fc548f314df4dd60c0348b2721e0a0dd80ecf3"
+   },
+   {
+    "repo": "NeuroML/NeuroML2",
+    "path": ".github/workflows/omv-ci.yml",
+    "sha": "2dfbce3d3c4c1426646ee0b8088c3061815f301e"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/e2b.yml",
+    "sha": "5b0319dba37a8c3c47174417f79fd66f048c77ea"
+   },
+   {
+    "repo": "mesonbuild/wrapdb",
+    "path": ".github/workflows/build_all.yml",
+    "sha": "a216a7c4e351e0a03d202f1e8a2747f4f74301ea"
+   },
+   {
+    "repo": "intel/intel-xpu-backend-for-triton",
+    "path": ".github/workflows/auto-update-translator-cid.yml",
+    "sha": "e24cef35f97088e0d620877f4509b79288a7dce6"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/datadog.yml",
+    "sha": "f428026294cf0bf9472266a94ce1743d38616f6b"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/faiss.yml",
+    "sha": "7e175dde46aa090fd9c8c26a08d25a580d992d1d"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/ddgs.yml",
+    "sha": "70b39fe83b47aea73ad3891a7a6a3bbf4a0cd62b"
+   },
+   {
+    "repo": "michellab/BioSimSpace",
+    "path": ".github/workflows/Sandpit_exs.yml",
+    "sha": "d350acbf6a0b01afa9d15cf7ca9b6f7c2f4d8641"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/lara.yml",
+    "sha": "a5ee667d73d4ae495cdb6ff3b8a472368be00443"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/weave.yml",
+    "sha": "ecdf5b90b1c3e5e5020fa38c8666f16b2e838ecd"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/jina.yml",
+    "sha": "898e5483c48a2f134e7ac4a81be096c66e8b95dc"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/mem0.yml",
+    "sha": "6fb812ec6806d435c87e163447d6c041e10b5d6a"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/spacy.yml",
+    "sha": "fc87f837b33781abfab0bcc9787cc6f15dae16d8"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/oauth.yml",
+    "sha": "e8f2f0d07f7758dc6b6c87b2dd6c1260486d378b"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/presidio.yml",
+    "sha": "3482b2add0e59eb4c0c1f3c3546172e07f42210a"
+   },
+   {
+    "repo": "jesserockz/esphome-configs",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "f215bad0214a6a03f32919b8afe33a94bbb41625"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/dspy.yml",
+    "sha": "b9d2870c3d1ff8d4791c7a2917f015887b47cad4"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/mariadb.yml",
+    "sha": "70354bb78b232d8507e026ece765febdf6fef3cc"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/brave.yml",
+    "sha": "a59f3546231fb8459367c755c8ca1e8f18586967"
+   },
+   {
+    "repo": "deepset-ai/haystack-core-integrations",
+    "path": ".github/workflows/hanlp.yml",
+    "sha": "33cb808496d92374182a1a750d21c72172259fba"
+   }
+  ],
+  "err": null
+ },
+ "\"3.x-dev\" cron path:.github/workflows": {
+  "total": 24,
+  "items": [
+   {
+    "repo": "laravel/framework",
+    "path": ".github/workflows/install-nightly.yml",
+    "sha": "81f7aadaec6335f20e8e5778be119da10b966eaa"
+   },
+   {
+    "repo": "spiral/framework",
+    "path": ".github/workflows/main.yml",
+    "sha": "010b34e0dbd9d3207d2194d09035b36ae003d6a1"
+   },
+   {
+    "repo": "tpetry/laravel-postgresql-enhanced",
+    "path": ".github/workflows/comaptibility.yml",
+    "sha": "8ca12c5d4ac3b481dc80b06e0e6b4e2e9cda1452"
+   },
+   {
+    "repo": "psalm/psalm-plugin-laravel",
+    "path": ".github/workflows/install-smoke.yml",
+    "sha": "7fcaf969eeb40e4497286bece6fb88e2ddc1d9a9"
+   },
+   {
+    "repo": "trevorld/r-argparse",
+    "path": ".github/workflows/python-check.yml",
+    "sha": "447921a5ba64684a3c9189d98040e6c2a8a3ee1a"
+   },
+   {
+    "repo": "paknahad/jsonapi-bundle",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "208bce14fa6b057a52dda2fc24106a8055b9a358"
+   },
+   {
+    "repo": "aerospike/aerospike-graph-service",
+    "path": ".github/workflows/ci-gitleaks.yml",
+    "sha": "0cc93c3f290f6ee3590cdc3c7d42e9fcd02d25ab"
+   },
+   {
+    "repo": "SanderMuller/laravel-fluent-validation",
+    "path": ".github/workflows/laravel-13-dev.yml",
+    "sha": "8ab254a6d5fc77c7e7b1f9b42dcb85f5428aee74"
+   },
+   {
+    "repo": "aerospike/aerospike-graph-service",
+    "path": ".github/workflows/ci-codeql.yml",
+    "sha": "f8b18783aee5e3d39cd2cc169a5061f80b9ceb43"
+   },
+   {
+    "repo": "rtvkiz/minimal",
+    "path": ".github/workflows/update-wolfi-packages.yml",
+    "sha": "e4ff8f3b0194c0d8b1ad70a03379c3d144212a29"
+   },
+   {
+    "repo": "builtbyberry/laravel-swarm",
+    "path": ".github/workflows/nightly.yml",
+    "sha": "29b42c1362f3e49825beaa24b061a2c91c5564b7"
+   },
+   {
+    "repo": "aerospike/aerospike-graph-service",
+    "path": ".github/workflows/snyk-weekly-pr.yml",
+    "sha": "464d5c9937a9e97f06ed4ce2d08fa1d384a5aea0"
+   },
+   {
+    "repo": "TripalCultivate/TripalCultivate-ChadoSearch",
+    "path": ".github/workflows/ALL-PHPUnit.yml",
+    "sha": "427782ac46711c96e7aa4f53f3f61b49355a8a5e"
+   },
+   {
+    "repo": "ValentinNikolaev/php-upgrade-preflight",
+    "path": ".github/workflows/compatibility.yml",
+    "sha": "729917b4c5ed0a54cd1bcafeeb3ae0049429c3cb"
+   },
+   {
+    "repo": "matomo-org/plugin-ci-workflows",
+    "path": ".github/workflows/plugin-branch-sweep.yml",
+    "sha": "179580cba0803e03437c14fa4073a7f1e7f03d89"
+   },
+   {
+    "repo": "mkalkbrenner/search_api_solr_nlp",
+    "path": ".github/workflows/jump-start-config-sets.yml",
+    "sha": "de214f4f4bff543304d9d9b53f9fd0afb494bd20"
+   },
+   {
+    "repo": "scikit-plots/scikit-plots",
+    "path": ".github/workflows/ci_docker_image_builder.yml",
+    "sha": "4829432dee1957a79afa21e8dabb9df720516185"
+   },
+   {
+    "repo": "laravel/jetstream",
+    "path": ".github/workflows/tests.yml",
+    "sha": "5eb44551ec0e665645f40a1406d7937a8ebb6ebf"
+   },
+   {
+    "repo": "pimcore/platform-version",
+    "path": ".github/workflows/api-tests.yml",
+    "sha": "98d6fa5db5b6d8c3cd76083ab5930710c3b3a7a4"
+   },
+   {
+    "repo": "php-flasher/php-flasher",
+    "path": ".github/workflows/tests.yaml",
+    "sha": "acf8ae1222d377308123feaee9eed62971b86967"
+   },
+   {
+    "repo": "WapplerSystems/form",
+    "path": ".github/workflows/unit-tests.yml",
+    "sha": "9c0e3f19693790a798ddfcf77348f74950a57fc3"
+   },
+   {
+    "repo": "dayCod/laravel-stup-images",
+    "path": ".github/workflows/tests.yml",
+    "sha": "7b8833e258b97fd1586d052ac33062835fc6539b"
+   },
+   {
+    "repo": "ra-20017322-5/tcc_final_atualizado",
+    "path": ".github/workflows/composer.lock",
+    "sha": "56a084e529888c693948683c9faf130ad51f3133"
+   },
+   {
+    "repo": "qapris/lara",
+    "path": ".github/workflows/composer.lock",
+    "sha": "47143a6cee8cf6457ac16c8e0cc58ccaec96dc17"
+   }
+  ],
+  "err": null
+ },
+ "\"toolchain: nightly\" cron path:.github/workflows": {
+  "total": 2792,
+  "items": [
+   {
+    "repo": "tracel-ai/burn",
+    "path": ".github/workflows/vulnerabilities.yml",
+    "sha": "6d9b94a4cc1ee7b8ed5f6c29106dceee31f91b8e"
+   },
+   {
+    "repo": "vortex-data/vortex",
+    "path": ".github/workflows/fuzz-coverage.yml",
+    "sha": "8dc809b82a39a9500887b13d152c66f642bb07b8"
+   },
+   {
+    "repo": "meta/starlark-rust",
+    "path": ".github/workflows/ci.yml",
+    "sha": "07c41384372fc613d529634021b68ef3bf6fe342"
+   },
+   {
+    "repo": "thepowersgang/rust_os",
+    "path": ".github/workflows/ci.yml",
+    "sha": "a199a25059d7e8741caae12f6f01260f231cfab1"
+   },
+   {
+    "repo": "matthart1983/netwatch",
+    "path": ".github/workflows/fuzz.yml",
+    "sha": "c7a2ff7b9df62358d997ffee8d8bd7744aa08f1a"
+   },
+   {
+    "repo": "carthage-software/mago",
+    "path": ".github/workflows/miri.yml",
+    "sha": "1abba4fe73db58ae497a4240ec8e31d009b9ecef"
+   },
+   {
+    "repo": "capnproto/capnproto-rust",
+    "path": ".github/workflows/ci.yml",
+    "sha": "8e8e73e453bb94440a0d8618be4b5fd878723670"
+   },
+   {
+    "repo": "openobserve/openobserve",
+    "path": ".github/workflows/api_bugfix_regression.yml",
+    "sha": "dc5ac492829c8123180aca8f96571f8893a5efd7"
+   },
+   {
+    "repo": "slint-ui/slint",
+    "path": ".github/workflows/crater.yaml",
+    "sha": "13383b288812a683c859590bc059d245efd85c58"
+   },
+   {
+    "repo": "supabase/etl",
+    "path": ".github/workflows/fuzz.yml",
+    "sha": "a600444bd64188fba560eb512aeede5325cd08b9"
+   },
+   {
+    "repo": "carthage-software/mago",
+    "path": ".github/workflows/fuzz.yml",
+    "sha": "3ba318a21a52545724a84b244ed0bb6e3c55bf2b"
+   },
+   {
+    "repo": "open-lambda/open-lambda",
+    "path": ".github/workflows/ci.yml",
+    "sha": "97a2c8d75b3f242f8b538517a7dc012c78b7846f"
+   },
+   {
+    "repo": "invariant-labs/stats",
+    "path": ".github/workflows/cron.yml",
+    "sha": "ad7135a066d021837cef9144763c7d8ce27938d9"
+   },
+   {
+    "repo": "rust-lang/regex",
+    "path": ".github/workflows/ci.yml",
+    "sha": "072ccbe7e251c2b8fa2dbcab4f2a1eafd749a236"
+   },
+   {
+    "repo": "open-lambda/open-lambda",
+    "path": ".github/workflows/pkg.yml",
+    "sha": "7d0347dd23ce67497ef78164e1cd7eb39ed31b31"
+   },
+   {
+    "repo": "moka-rs/moka",
+    "path": ".github/workflows/Miri.yml",
+    "sha": "ebbb741cd615c4a12429adaba90b8fe3e46c94d9"
+   },
+   {
+    "repo": "eclipse-iceoryx/iceoryx2",
+    "path": ".github/workflows/nightly.yml",
+    "sha": "c711307c5e6064c0344e9f1f3ce006314e946ee0"
+   },
+   {
+    "repo": "jonhoo/fantoccini",
+    "path": ".github/workflows/scheduled.yml",
+    "sha": "84759394a9e290f10c89065df867303bed7a4b53"
+   },
+   {
+    "repo": "edwardkim/rhwp",
+    "path": ".github/workflows/fuzz-smoke.yml",
+    "sha": "bb850fc166f8d2b239a755fcd26e3b364eada759"
+   },
+   {
+    "repo": "moka-rs/moka",
+    "path": ".github/workflows/Audit.yml",
+    "sha": "9c95e93b11e97f0548a39450ee2a546cc6bb8eac"
+   },
+   {
+    "repo": "PolyhedraZK/Expander",
+    "path": ".github/workflows/nightly_e2e._yml",
+    "sha": "ec02a032296cb38150af631a44f3e62d97530658"
+   },
+   {
+    "repo": "rivet-dev/agentos",
+    "path": ".github/workflows/ci-nightly.yml",
+    "sha": "480e6053ef5059a086e0e08b4bf09de5abe2bafb"
+   },
+   {
+    "repo": "rustls/rustls",
+    "path": ".github/workflows/build.yml",
+    "sha": "eb4fd0220c3ebc3206c6275159c7f6953747ee5f"
+   },
+   {
+    "repo": "eval-exec/neomacs",
+    "path": ".github/workflows/regex-fuzz.yml",
+    "sha": "ad912a9eff6929bc1ba0a98477b4cbc31c642c8d"
+   },
+   {
+    "repo": "project-machine/puzzlefs",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "d954cc2e7d2d9117d7d98e24f08cfee0a8ebc93b"
+   },
+   {
+    "repo": "esp-rs/embedded-svc",
+    "path": ".github/workflows/ci.yml",
+    "sha": "878893205d90775e41391d03a9a4e2ffb3a57365"
+   },
+   {
+    "repo": "razvandimescu/numa",
+    "path": ".github/workflows/fuzz.yml",
+    "sha": "0d4a3c0c9ae717790211a3ddeb8efd242ce882e3"
+   },
+   {
+    "repo": "nasa/spacewasm",
+    "path": ".github/workflows/daily.yml",
+    "sha": "3aa5dbbd72d126f2465aeaa1e2407b799e573052"
+   },
+   {
+    "repo": "parallaxsecond/parsec",
+    "path": ".github/workflows/nightly.yml",
+    "sha": "6f0df874e07998776d32518800def539c8b8d7db"
+   },
+   {
+    "repo": "microsoft/DiskANN",
+    "path": ".github/workflows/nightly.yml",
+    "sha": "9b136b2339b3da55bff8949014b4febe2c451d4d"
+   },
+   {
+    "repo": "openobserve/openobserve",
+    "path": ".github/workflows/playwright_bugfix_regression.yml",
+    "sha": "ccabaea51bc975aa36601d0f27a274c9f47e467b"
+   },
+   {
+    "repo": "rust-lang/libc",
+    "path": ".github/workflows/ci.yaml",
+    "sha": "790326aedd91917b36436f8555ac853f81a03eea"
+   },
+   {
+    "repo": "sheeki03/tirith",
+    "path": ".github/workflows/fuzz.yml",
+    "sha": "a890c3f8195dbd5af2af04c98e9f5ef647ca9f6f"
+   },
+   {
+    "repo": "ferronweb/ferron",
+    "path": ".github/workflows/fuzz.yml",
+    "sha": "bb5f7bf9f0c75b147014d32f16d2f1d3400c7c68"
+   },
+   {
+    "repo": "matthiaskrgr/cargo-cache",
+    "path": ".github/workflows/rust.yml",
+    "sha": "b0c3780b2336caaa1c4cb43106fa2daf034dc97a"
+   },
+   {
+    "repo": "dathere/qsv",
+    "path": ".github/workflows/rust-polars-pinned-nightly.yml",
+    "sha": "93116dcae2bce99b15be6ca1ca36464008e4a844"
+   },
+   {
+    "repo": "foundry-rs/book",
+    "path": ".github/workflows/update.yml",
+    "sha": "81d8e9a81375e9dc9303bc6da895254e853f0757"
+   },
+   {
+    "repo": "Dicklesworthstone/beads_rust",
+    "path": ".github/workflows/audit.yml",
+    "sha": "a31ec1ee7b684cc622310df1a956a212d922c47e"
+   },
+   {
+    "repo": "Dushistov/flapigen-rs",
+    "path": ".github/workflows/ci.yml",
+    "sha": "65bb91efc50ebb3443f384de1d3a38dfab653bd6"
+   },
+   {
+    "repo": "intellij-rust/intellij-rust",
+    "path": ".github/workflows/check.yml",
+    "sha": "2e232cc91febc3f740dddcc34cd64d102114a115"
+   },
+   {
+    "repo": "fallow-rs/fallow",
+    "path": ".github/workflows/fuzz-smoke.yml",
+    "sha": "6af2316e6bf3cb8940e0681837da4b0ecf4b4328"
+   },
+   {
+    "repo": "moltis-org/moltis",
+    "path": ".github/workflows/ci.yml",
+    "sha": "37fd1dbadb150e1dd6a8596655fe46ba5c27d7c9"
+   },
+   {
+    "repo": "EspressoSystems/jellyfish",
+    "path": ".github/workflows/build.yml",
+    "sha": "134854f36e7702fdd2bc18d32e116a2121945e9a"
+   },
+   {
+    "repo": "rust-embedded/embedded-alloc",
+    "path": ".github/workflows/ci.yml",
+    "sha": "b81e287640cec8e1ed6f97f846e916d419697993"
+   },
+   {
+    "repo": "ferriskey/ferriskey",
+    "path": ".github/workflows/fuzz.yaml",
+    "sha": "9134c6a2958489fdd7fc67ebcd2e431bb153f362"
+   },
+   {
+    "repo": "penso/arbor",
+    "path": ".github/workflows/nightly.yml",
+    "sha": "a3c1f7daedcf3501313b1833473ac3d3ed54617b"
+   },
+   {
+    "repo": "zzau13/yarte",
+    "path": ".github/workflows/checks.yml",
+    "sha": "b8573e03053b1d47031cb23925cdb1d99c50e0f1"
+   },
+   {
+    "repo": "loiclec/fuzzcheck-rs",
+    "path": ".github/workflows/cargo.yml",
+    "sha": "23a2069ee722a999cbbc848a16716fbca48214b1"
+   },
+   {
+    "repo": "saber-hq/stable-swap",
+    "path": ".github/workflows/fuzzing.yml",
+    "sha": "019ad145cc0a5c9dc57448b7d9f4900c84a99673"
+   },
+   {
+    "repo": "Dicklesworthstone/beads_rust",
+    "path": ".github/workflows/conformance.yml",
+    "sha": "fc76832fff03f1cdc4782abebf3af06104107c0d"
+   },
+   {
+    "repo": "regexident/cargo-modules",
+    "path": ".github/workflows/rust.yml",
+    "sha": "c029a5edc9f0a0fb06b8fda22bf0b0ca8383fb23"
+   },
+   {
+    "repo": "rustls/rcgen",
+    "path": ".github/workflows/ci.yml",
+    "sha": "8d3d4f86d9825a664c76c9a8a41cbfb26b5531e4"
+   },
+   {
+    "repo": "pombredanne/RustPython-1",
+    "path": ".github/workflows/cron-ci.yaml",
+    "sha": "6841130010515cb3d22cc85f1ac016885b19dda1"
+   },
+   {
+    "repo": "sparsemat/sprs",
+    "path": ".github/workflows/ci.yml",
+    "sha": "23b6468ca8856bcbaeb38a673bc6c1fc2a00201c"
+   },
+   {
+    "repo": "wgsl-analyzer/wgsl-analyzer",
+    "path": ".github/workflows/fuzz.yaml",
+    "sha": "3fe666bd526146499e2d44d70cef7e15f918c81b"
+   },
+   {
+    "repo": "opengeos/RustGIS",
+    "path": ".github/workflows/fuzz.yml",
+    "sha": "bf002b3862a4d86882134ace0a9f4beec7a936e5"
+   },
+   {
+    "repo": "rust-cross/rust-musl-cross",
+    "path": ".github/workflows/Build.yml",
+    "sha": "9f400518dad18dbc7a05e9c6d67aeb3dea9fc2ce"
+   },
+   {
+    "repo": "hawkw/mycelium",
+    "path": ".github/workflows/nightly.yml",
+    "sha": "e32dae687dff87439af5927765e89479fd035923"
+   },
+   {
+    "repo": "kompics/kompact",
+    "path": ".github/workflows/ci.yml",
+    "sha": "0bcc4d8b658fd20b3ba2130b7ea4238d98967154"
+   },
+   {
+    "repo": "ubugeeei-prod/vize",
+    "path": ".github/workflows/miri.yml",
+    "sha": "e632a17c873f18c5ee6d9b4435eec56e88b27dff"
+   },
+   {
+    "repo": "taunusflieger/anemometer",
+    "path": ".github/workflows/ci.yml",
+    "sha": "ef195169e9bf49ba2b5274c4aa8b8b6eb1857729"
+   },
+   {
+    "repo": "jonhoo/evmap",
+    "path": ".github/workflows/scheduled.yml",
+    "sha": "90c2b572c313ef5f6b899dfa3696511b7480b5db"
+   },
+   {
+    "repo": "rust-lang/rustc_public",
+    "path": ".github/workflows/nightly.yml",
+    "sha": "625ba8bcfe9d3ce39d562c482f14a8febeba3748"
+   },
+   {
+    "repo": "HdrHistogram/HdrHistogram_rust",
+    "path": ".github/workflows/scheduled.yml",
+    "sha": "9cf2addf7fd1a0db42613a616f98c2d09baa165e"
+   },
+   {
+    "repo": "Dicklesworthstone/pi_agent_rust",
+    "path": ".github/workflows/weekly-evidence-refresh.yml",
+    "sha": "15c27ecda81ffd700e0ef64e7e01ec6f28e9435c"
+   },
+   {
+    "repo": "harehare/mq",
+    "path": ".github/workflows/fuzz.yml",
+    "sha": "dee4094fb4e79ee180aa24a4e3b044c1e807767f"
+   },
+   {
+    "repo": "rust-minidump/rust-minidump",
+    "path": ".github/workflows/ci.yml",
+    "sha": "3dba5852e6d9c32834540b800ef6d16105a77e6e"
+   },
+   {
+    "repo": "a16z/jolt",
+    "path": ".github/workflows/fuzz-crates.yml",
+    "sha": "3ad48e262e8190ae6684fdc716146611e67bd933"
+   },
+   {
+    "repo": "esp-rs/esp-idf-template",
+    "path": ".github/workflows/ci_cmake.yml",
+    "sha": "b73aa0cd2a8569dc196abe3e02f441573d7aefe4"
+   },
+   {
+    "repo": "nisshi-io/solace-nisshi",
+    "path": ".github/workflows/fuzz.yml",
+    "sha": "7642c4a8877062a5e2ad7b8b8271c0fb82c3dfcc"
+   },
+   {
+    "repo": "zama-ai/tfhe-rs",
+    "path": ".github/workflows/benchmark_tfhe_fft.yml",
+    "sha": "ddd0ea4ed6d2ea0fdefa7b8797d3ca625ccc1933"
+   },
+   {
+    "repo": "s-arash/ascent",
+    "path": ".github/workflows/rust.yml",
+    "sha": "008c805563f03201772ba0978957fb9304b7f482"
+   },
+   {
+    "repo": "esp-rs/esp-idf",
+    "path": ".github/workflows/ci-libc-next.yml",
+    "sha": "1b1333012cfaf3a6ceb054ad0f4e18c2a55d7910"
+   },
+   {
+    "repo": "plabayo/rama",
+    "path": ".github/workflows/CI-unstable.yml",
+    "sha": "efe33b2662dae2dfeafeef9fd6e7004d873f869d"
+   },
+   {
+    "repo": "llogiq/mutagen",
+    "path": ".github/workflows/security_audit.yml",
+    "sha": "0403d9f80cb57d8d3b0d6293ed8f22c5ade0b3c4"
+   },
+   {
+    "repo": "yfedoseev/pdf_oxide",
+    "path": ".github/workflows/fuzz.yml",
+    "sha": "e2820c54b1726c0e97f5f08bcb5b0b77f130ad7c"
+   },
+   {
+    "repo": "Dicklesworthstone/pi_agent_rust",
+    "path": ".github/workflows/conformance.yml",
+    "sha": "4198613b1fcf5aff84d8ac4d6c21927a9dcf7191"
+   },
+   {
+    "repo": "BurntSushi/byteorder",
+    "path": ".github/workflows/ci.yml",
+    "sha": "1aa3c3b5e73b1b2425d50cdefaea519987d5a740"
+   },
+   {
+    "repo": "dfinity/cdk-rs",
+    "path": ".github/workflows/ci.yml",
+    "sha": "f9f68d6bf8d61f49b9bd92aa5d37bd41d67ef83b"
+   },
+   {
+    "repo": "orium/archery",
+    "path": ".github/workflows/ci.yml",
+    "sha": "94d5814afc680aedd67c84ddbaa4c7fc71a3b3e7"
+   },
+   {
+    "repo": "agent-sh/agnix",
+    "path": ".github/workflows/fuzz.yml",
+    "sha": "64be1eb720f718b8f3e3a0152a9bf55519c3e1be"
+   },
+   {
+    "repo": "theupdateframework/rust-tuf",
+    "path": ".github/workflows/rust.yml",
+    "sha": "e43f87554157b9f0a7fe201075ef17fada4eadbd"
+   },
+   {
+    "repo": "worldcoin/world-chain",
+    "path": ".github/workflows/supply-chain.yml",
+    "sha": "5d19b5ad713c7abb124441e42e5fecd1ac0ca136"
+   },
+   {
+    "repo": "sysgrok/esp-idf-matter",
+    "path": ".github/workflows/ci.yml",
+    "sha": "3cf134fa34d51bfa7c806ab66b5513f40edc18a9"
+   },
+   {
+    "repo": "TC999/zed-loc",
+    "path": ".github/workflows/windows.yml",
+    "sha": "c6776ae5a5c5c611845f51f06dee0b1a2fe9f360"
+   },
+   {
+    "repo": "synctv-org/synctv",
+    "path": ".github/workflows/docker.yml",
+    "sha": "6d78d2eb590605dacb3535f7b516d1e5753dc7e4"
+   },
+   {
+    "repo": "alloy-rs/op-alloy",
+    "path": ".github/workflows/deps.yml",
+    "sha": "0525daa4b0144ca2cf900f5da36ee55f69ff44b0"
+   },
+   {
+    "repo": "ctz/graviola",
+    "path": ".github/workflows/lints.yml",
+    "sha": "57d20fce2a3c5cfbb98c280eab9320d73bd27484"
+   },
+   {
+    "repo": "BurntSushi/jiff",
+    "path": ".github/workflows/ci.yml",
+    "sha": "c08750efa9d8eeb1dfee10b98aff8a8178345785"
+   },
+   {
+    "repo": "BurntSushi/memchr",
+    "path": ".github/workflows/ci.yml",
+    "sha": "dc0337b498edf745b4886e015d431a5c10657a84"
+   },
+   {
+    "repo": "Epistates/pmetal",
+    "path": ".github/workflows/fuzz.yml",
+    "sha": "c049e35455b150d2082a7a273181697054a138e7"
+   },
+   {
+    "repo": "sentinel-group/sentinel-rust",
+    "path": ".github/workflows/grcov.yml",
+    "sha": "4e0e5a608f1f87a1f27b511ca12950cdaac60c16"
+   },
+   {
+    "repo": "ctz/graviola",
+    "path": ".github/workflows/cranelift.yml",
+    "sha": "ce616ef13880bf6eaaf7463dd846485e7b81381c"
+   },
+   {
+    "repo": "tg-rs/carapax",
+    "path": ".github/workflows/ci.yml",
+    "sha": "193647040072ccb7b0c501ab7d08d4bce181ca4c"
+   },
+   {
+    "repo": "project-chip/rs-matter",
+    "path": ".github/workflows/ci.yml",
+    "sha": "ccac5a71340f47c23040e5764a4ecd117706f182"
+   },
+   {
+    "repo": "facebookincubator/buck2-change-detector",
+    "path": ".github/workflows/ci.yml",
+    "sha": "b6b0362434d3438485d3303102b09657a5da5009"
+   },
+   {
+    "repo": "software-mansion/pathfinder",
+    "path": ".github/workflows/ci.yml",
+    "sha": "e665473dc4c176936cd765a917922f5fc9f794a3"
+   },
+   {
+    "repo": "etemesi254/zune-image",
+    "path": ".github/workflows/fuzz_jpeg.yml",
+    "sha": "69f404e4d67f9c0b9ea873e6c1a7b31e99dcfaea"
+   },
+   {
+    "repo": "alloy-rs/examples",
+    "path": ".github/workflows/dependencies.yml",
+    "sha": "34bd8a33260b8b274343861ccd8a1543ec9f1898"
+   },
+   {
+    "repo": "algesten/str0m",
+    "path": ".github/workflows/cargo.yml",
+    "sha": "58ac9bb04660920eb97458c1f1d3a240cc75d91d"
+   }
+  ],
+  "err": null
+ }
+}
