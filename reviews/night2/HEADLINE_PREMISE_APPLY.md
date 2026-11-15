@@ -1,4 +1,4 @@
-# HEADLINE-PREMISE-APPLY — applying P1–P8 (HEADLINE-PREMISE-SCOPE) to THEORY.md v1.4.4 and CLAIM_MAP v2.14
+# HEADLINE-PREMISE-APPLY — applying P1–P8 (HEADLINE-PREMISE-SCOPE) to THEORY.md v1.4.4 and CLAIM_MAP v2.15
 
 Executor queue-pick13 (for Ace; Chad t1914, t1916), Sunday 15 Nov 2026, about 2:46–2:58 PM ET (America/New_York). Queue pick 13, **rule slot** (ledger 66 unaided order, 67 rule_rank, 68 pick; outcome entry after the PR is ready). Private repo; nothing posted or sent.
 
@@ -14,10 +14,10 @@ Executor queue-pick13 (for Ace; Chad t1914, t1916), Sunday 15 Nov 2026, about 2:
 | P4 | §1 N6 claim / number / how-it-dies | applied, reworded (T3), default added (T4) |
 | P5 | §2.1 last sentence | applied; "more of the world's law enters" → "can enter" (T5) |
 | P6 | §2.4 Net, §2.5 rule, §9 first bullet | applied; §2.4 conditioned as in T3; §9 with default (T4) |
-| P7 | CLAIM_MAP N13 row text + v2.14 note | applied with T3/T4; status stays OPEN |
+| P7 | CLAIM_MAP N13 row text + v2.15 note | applied with T3/T4; status stays OPEN |
 | P8 | §13 changelog v1.4.4 | applied |
 | V143 F2 | "What changed in v1.4" item 2; §10 LFK entry | same learner-class sentence as the §2.2 F2 fix |
-| line 6 | header CLAIM_MAP pointer | v2.11 (stale; main was v2.13) → v2.14 |
+| line 6 | header CLAIM_MAP pointer | v2.11 (stale; main was v2.13, then v2.14 after STAKES-EXOGENOUS merged) → v2.15 |
 | header | title / draft dates | v1.4.3a → v1.4.4 |
 
 Not applied: P9 (Regime C), which the proposal itself excludes (REGIME-C-GAUSSIAN-PREMISE stays open). §0's Regime C sentence is untouched.
@@ -41,7 +41,7 @@ Not applied: P9 (Regime C), which the proposal itself excludes (REGIME-C-GAUSSIA
 | Regression kernel on own observations is the linear one | §2.5 rule (iterated projections); TELEGRAPH-REFEREE V11 narrowing | ✔ |
 | Adaptation time grows only logarithmically with the switching time | t_A = (N/2μ²)[ln(2μ²/λN) − γ − 1]; switching time 1/λ | ✔ |
 | LFK √ form belongs to their learner class, not the Bayes optimum | `PRIORART_LFK_ALPHA/REPORT.md` §4; V143 fix F2 (§2.2 sentence) | ✔ same claim, same pointer; no new characterisation of LFK's learner added |
-| CLAIM_MAP pointer v2.14 | `measurement/CLAIM_MAP_v2.md` v2.14 note (this PR) | ✔ |
+| CLAIM_MAP pointer v2.15 | `measurement/CLAIM_MAP_v2.md` v2.15 note (this PR) | ✔ |
 
 **Independent numerical check** (`HEADLINE_PREMISE_APPLY_checks/check.py`, own code, output `check.out`; nice 19). At q = N = 1 fixed, λ = 10⁻⁵ … 10⁻²: best linear (Kalman, same covariance) error 0.980–1.000 (spread 1.020×); Bayes error by my own quadrature of the Wonham stationary density (substitution s = 1/(1−u²) = 1 + t²) equals the Bessel closed form μ²·2K₀/(K₀+K₁) to < 10⁻³⁰ relative and spreads **363.8×** (4.35·10⁻⁴ to 0.158). Reproduces the proposal's 2% / 364×. (c) Two-state world: E[x(t+s) | x(t)] = x(t)e^{−2λs} exactly (linear in the last exact read), so the reset-read optimum depends on second moments only.
 
@@ -54,7 +54,7 @@ Not applied: P9 (Regime C), which the proposal itself excludes (REGIME-C-GAUSSIA
 5. **Numbers quoted.** None new in THEORY; 2% / 364× stay in the review files. ✔
 6. **Credits / citations.** None added or removed; LFK qualifier repeats the reviewed F2 sentence. ✔
 7. **Labels.** No "law"; vigilance not touched; results unaffected. ✔
-8. **Residual issues (not fixed here; for the reviewer).** (a) The status block's heading time ("about 10:00 AM ET") predates several edits; left as is. (b) Regime C's Q^{1/β} in §0 still lacks any Gaussian scope (REGIME-C-GAUSSIAN-PREMISE). (c) §0's parenthesis in the bet is long; a reviewer may prefer moving the lock sentence to N6 only. (d) The causal kill names α, q, N, stakes; for a Bayes-locked jump-world prereg the predicted direction of a change in q depends on how it splits into λ and μ, which the prereg must then state. (e) If q-pick12 (STAKES-EXOGENOUS) also writes a CLAIM_MAP v2.14 note, one of the two must be renumbered at merge.
+8. **Residual issues (not fixed here; for the reviewer).** (a) The status block's heading time ("about 10:00 AM ET") predates several edits; left as is. (b) Regime C's Q^{1/β} in §0 still lacks any Gaussian scope (REGIME-C-GAUSSIAN-PREMISE). (c) §0's parenthesis in the bet is long; a reviewer may prefer moving the lock sentence to N6 only. (d) The causal kill names α, q, N, stakes; for a Bayes-locked jump-world prereg the predicted direction of a change in q depends on how it splits into λ and μ, which the prereg must then state. (e) Resolved: q-pick12 (STAKES-EXOGENOUS, PR #38) merged first with CLAIM_MAP v2.14 and an outcome numbered 66, which collided with this branch's ledger 66. Main was merged into q-pick13: this PR's CLAIM_MAP note became v2.15, and the STAKES-EXOGENOUS outcome became ledger 70 (it is not seed-bearing; entry 67's uniform seed is bound to its number). See ledger 70 renumber_note.
 
 ## 4. Outcome for the queue
 - HEADLINE-PREMISE-APPLY: DONE (applied in PR, not merged). `status_changed` false.

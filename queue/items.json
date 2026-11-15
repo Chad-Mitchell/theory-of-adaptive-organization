@@ -229,7 +229,7 @@
   "v": 0.6,
   "L": 4,
   "c": 4,
-  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the §2.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N16, P5). | TELEGRAPH-REFEREE (15 Nov): that kernel statement holds only for a regression on the system's own observations; a kernel on the true driver can discriminate (N16 v2.9). Bayes adaptation constant: (N/2mu^2)[ln(2mu^2/lambda N) - gamma - 1]. | AQN-ESTIMATORS (15 Nov): estimators now exist (measurement/estimators/). Binding input is STAKES: identified only from exogenous error variation (self-selected error biases the slope ~3x low; IV does not fix it). Choose a system with designed/natural-experiment error variation (STAKES-EXOGENOUS). Record length: +/-0.1 on alpha needs M ~ 400 frequencies below the noise crossover; >=16 switches for lambda in a jump world."
+  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the §2.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N16, P5). | TELEGRAPH-REFEREE (15 Nov): that kernel statement holds only for a regression on the system's own observations; a kernel on the true driver can discriminate (N16 v2.9). Bayes adaptation constant: (N/2mu^2)[ln(2mu^2/lambda N) - gamma - 1]. | AQN-ESTIMATORS (15 Nov): estimators now exist (measurement/estimators/). Binding input is STAKES: identified only from exogenous error variation (self-selected error biases the slope ~3x low; IV does not fix it). Choose a system with designed/natural-experiment error variation (STAKES-EXOGENOUS). Record length: +/-0.1 on alpha needs M ~ 400 frequencies below the noise crossover; >=16 switches for lambda in a jump world. | STAKES-EXOGENOUS (15 Nov): CAISO stakes positive and identified in sign but only to +/-70% from one year (N21); stakes moved ~4x 2024->2025. CAISO is a candidate system (design quantity: forecast update cadence / horizon); needs STAKES-PRECISION first."
  },
  {
   "id": "ONSET-SPECTRUM-FREE-REFEREE",
@@ -522,7 +522,7 @@
   "v": 0.8,
   "L": 2,
   "c": 0.5,
-  "note": "Independent reviewer (not the author of reviews/night2/HEADLINE_PREMISE_SCOPE.md) reviews and, if sound, applies P1-P8 to THEORY.md (status block, §0, §1 N6, §2.1, §2.4 Net, §2.5 rule, §9) and CLAIM_MAP N13 text, re-reading THEORY at use; second hostile pass of the full diff before merge (Chad t1916). Premise clause only; no headline or core rewrite; must keep the lock guard (optimum compared fixed in prereg). | V143 independent review (ledger 60; reviews/night2/V143_INDEPENDENT_REVIEW.md): the status-block 'What changed' item 2 and the §10 Lee-Flack-Krakauer entry need the same learner-class qualifier as fix F2 (the sqrt form on a telegraph world belongs to LFK's learner class, not to the Bayes optimum); apply with P1-P8. | DONE 15 Nov ~2:58 PM ET (pick 13, RULE slot, I = 3.2; ledger 66-68 + outcome): P1-P8 + V143 F2 qualifier + line-6 pointer applied in PR (THEORY v1.4.4, CLAIM_MAP v2.14), NOT merged (Chad t1916); applier tightenings T1-T5 (hold-last-value kept; only derived jump-world exponents named; extra inputs conditioned on a Bayes-locked optimum; prereg naming none scored against best linear); own source check + second hostile pass recorded; independent numerical check reproduces 2% / 364x. Merge waits for HEADLINE-PREMISE-REVIEW.",
+  "note": "Independent reviewer (not the author of reviews/night2/HEADLINE_PREMISE_SCOPE.md) reviews and, if sound, applies P1-P8 to THEORY.md (status block, §0, §1 N6, §2.1, §2.4 Net, §2.5 rule, §9) and CLAIM_MAP N13 text, re-reading THEORY at use; second hostile pass of the full diff before merge (Chad t1916). Premise clause only; no headline or core rewrite; must keep the lock guard (optimum compared fixed in prereg). | V143 independent review (ledger 60; reviews/night2/V143_INDEPENDENT_REVIEW.md): the status-block 'What changed' item 2 and the §10 Lee-Flack-Krakauer entry need the same learner-class qualifier as fix F2 (the sqrt form on a telegraph world belongs to LFK's learner class, not to the Bayes optimum); apply with P1-P8. | DONE 15 Nov ~2:58 PM ET (pick 13, RULE slot, I = 3.2; ledger 66-68, outcome 69; PR #37): P1-P8 + V143 F2 qualifier + line-6 pointer applied in PR (THEORY v1.4.4, CLAIM_MAP v2.15), NOT merged (Chad t1916); applier tightenings T1-T5 (hold-last-value kept; only derived jump-world exponents named; extra inputs conditioned on a Bayes-locked optimum; prereg naming none scored against best linear); own source check + second hostile pass recorded; independent numerical check reproduces 2% / 364x. Merge waits for HEADLINE-PREMISE-REVIEW.",
   "status": "DONE",
   "paths": [
    "reviews/night2/HEADLINE_PREMISE_APPLY.md",
@@ -554,7 +554,11 @@
   "v": 0.6,
   "L": 3,
   "c": 2,
-  "note": "From AQN-ESTIMATORS S-block (15 Nov): stakes w are identified only from error variation exogenous to w (cross-sections of self-optimizing units give ~3x low; replicate-measurement IV fixes measurement noise only). Find >=1 system with designed or natural-experiment error variation and a measurable cost (LEARNSIM-style designed AI task; E. coli growth vs mismatch; firm decisions on stale driver values) and estimate w with CI; gate for SAME-SYSTEM-AQN."
+  "note": "From AQN-ESTIMATORS S-block (15 Nov): stakes w are identified only from error variation exogenous to w (cross-sections of self-optimizing units give ~3x low; replicate-measurement IV fixes measurement noise only). Find >=1 system with designed or natural-experiment error variation and a measurable cost (LEARNSIM-style designed AI task; E. coli growth vs mismatch; firm decisions on stale driver values) and estimate w with CI; gate for SAME-SYSTEM-AQN. | DONE 15 Nov ~2:55 PM ET (pick 12, uniform slot; ledger 62-64, outcome 70 (renumbered from 66); lock 27bbe72): CAISO DA load-forecast error vs FMM-DA hub spread. INCONCLUSIVE on proxy: w 2025 7.8e-4 [1.8e-4, 12.6e-4] $/(MW^2 h) (sign identified, precision S1 failed 0.70>0.5), exogeneity R2 0.029, shape OK (weak), 2024 3.2e-3 [1.4e-3, 5.1e-3]. CLAIM_MAP N21 (v2.14). Not refereed.",
+  "status": "DONE",
+  "paths": [
+   "tests/STAKES_EXOGENOUS/"
+  ]
  },
  {
   "id": "ALPHA-ESTIMATE-AUDIT",
@@ -593,12 +597,48 @@
   "note": "From WIKIDATA-BAND (15 Nov; Tier 3, KG failed, P1 dAUC 0.024 [-0.005, 0.058]): rerun with (a) a correction-filtered drift measure (the 3 P569 'changes' were store corrections: duplicate removed, year corrected, conflicting year added), (b) n >= 63 per slow property so KG(a) is attainable, (c) more properties (> 26 clusters) for the dAUC CI, (d) wiki template policy (Wikidata-default infoboxes, e.g. frwiki/cawiki) coded as a rival. Fresh lock; reset-read signs remain premise-invariant (N16)."
  },
  {
+  "id": "STAKES-PRECISION",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 1.5,
+  "note": "From STAKES-EXOGENOUS S1 fail (15 Nov): reach +/-50% on CAISO stakes with a new lock: pooled years with year effects (2022-2025), net-load error (load - wind - solar forecasts), 5-min RTM prices; and a second ISO (ERCOT or another with public DA forecasts and prices). Gate for SAME-SYSTEM-AQN."
+ },
+ {
+  "id": "STAKES-SHIFT-CAISO",
+  "w": 3,
+  "untested": true,
+  "v": 0.4,
+  "L": 2,
+  "c": 3,
+  "note": "From STAKES-EXOGENOUS (15 Nov; unlocked observation, weak surprise): measured stakes fell ~4x from 2024 to 2025 (non-overlapping CIs). THEORY 1 N6 causal form: when stakes change, the design quantity moves in the predicted direction after its adjustment lag. Identify a CAISO design quantity (forecast precision, update cadence, reserve procurement), fix the lag as a number, lock the predicted direction/elasticity, then test on years not yet seen. Regime and premise (linear vs Bayes) first."
+ },
+ {
+  "id": "CAISO-PROXY-DEFS",
+  "w": 1,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 0.5,
+  "note": "From STAKES-EXOGENOUS (15 Nov): CAISO DA forecast sits 1.76 GW (7%) below 'Total Actual Hourly Integrated Load' on average in 2025 (1.20 GW in 2024). Read CAISO's public definitions of SYS_FCST_DA_MW and SYS_FCST_ACT_MW (no login); state whether they measure the same quantity; FE absorb the mean, so N21 is unaffected to first order."
+ },
+ {
+  "id": "STAKES-REFEREE",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 1,
+  "note": "Hostile referee of STAKES-EXOGENOUS: exogeneity argument (within-stratum surprise), reduced-form vs causal cost, k_lin estimand, week-block bootstrap coverage (0.94-0.98 synthetic), amendments A1/A2."
+ },
+ {
   "id": "HEADLINE-PREMISE-REVIEW",
   "w": 2,
   "untested": true,
   "v": 0.8,
   "L": 2,
   "c": 0.5,
-  "note": "From HEADLINE-PREMISE-APPLY (15 Nov): a SEPARATE independent reviewer (authored neither HEADLINE_PREMISE_SCOPE.md nor HEADLINE_PREMISE_APPLY.md) reviews the open THEORY v1.4.4 / CLAIM_MAP v2.14 PR (branch q-pick13): re-derive or re-check every changed sentence against its sources, judge tightenings T1-T5 (esp. T4 default: prereg naming none scored against best linear), run a second hostile pass, then merge or request changes (Chad t1916). Resolve CLAIM_MAP v2.14 numbering if q-pick12 also bumps it."
+  "note": "From HEADLINE-PREMISE-APPLY (15 Nov): a SEPARATE independent reviewer (authored neither HEADLINE_PREMISE_SCOPE.md nor HEADLINE_PREMISE_APPLY.md) reviews the open THEORY v1.4.4 / CLAIM_MAP v2.15 PR (branch q-pick13): re-derive or re-check every changed sentence against its sources, judge tightenings T1-T5 (esp. T4 default: prereg naming none scored against best linear), run a second hostile pass, then merge or request changes (Chad t1916). Resolve CLAIM_MAP v2.15 numbering if q-pick12 also bumps it."
  }
 ]
