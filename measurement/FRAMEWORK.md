@@ -1,6 +1,6 @@
 # MEASUREMENT FRAMEWORK: how A Theory of Adaptive Organization's quantities are measured, and what counts as a fair kill
 
-Sunday 15 November 2026, written 08:10–10:00 AM ET (America/New_York) by a Grok Bot executor for Chad Mitchell, via Ace. Private working file. Nothing was posted, sent or made public. This document sits on top of `night1/FORMAL/AXIOMS.md` (the model class 𝓜 and its notation, used unchanged) and `night1/SYNTHESIS/CLAIM_MAP_FINAL.md`. Its companion is `CLAIM_MAP_v2.md`.
+Sunday 15 November 2026, written about 08:10–08:20 AM ET (America/New_York) by a Grok Bot executor for Chad Mitchell, via Ace. Private working file. Nothing was posted, sent or made public. This document sits on top of `night1/FORMAL/AXIOMS.md` (the model class 𝓜 and its notation, used unchanged) and `night1/SYNTHESIS/CLAIM_MAP_FINAL.md`. Its companion is `CLAIM_MAP_v2.md`.
 
 **Why this exists.** Chad (t1908): the theory never said how its quantities are measured, so every field "kill" and "hit" so far tested a proxy whose validity nobody had checked. That is correct, and it is the single largest methodological gap in the project. This file builds the missing layer:
 1. An operational definition, procedure, validity checks and failure modes for every core quantity, at every scale (§3).
@@ -682,7 +682,7 @@ The vigilance ONA test running in `night2/VIGIL_ONA/` is Tier 3 by its own prere
 ---
 
 ## 8. Limits of this document
-- Written by one executor in about two hours. It is **not independently reviewed.** Several mappings in §3 are marked as hypotheses and need their own validity checks.
+- Written by one executor in well under an hour of drafting, on top of the night-1 files. It is **not independently reviewed.** Several mappings in §3 are marked as hypotheses and need their own validity checks.
 - The §3.9 derivation is elementary, and the numerical check is in `checks/`. It has not been checked by the math referee.
 - The heuristic "κ ≈ 1 for aggregated sub-components" is a heuristic, not a theorem.
 - Dataset verifications are existence checks (landing pages or search summaries). Nothing in §5 was downloaded except where marked [ON BOX].
