@@ -188,7 +188,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 ### NEW (15 Nov ~1:45 PM ET, from AQN-ESTIMATORS; surprises read per rule 4)
 - **AQN-ESTIMATORS** — DONE (pick 11, unaided slot; ledger 57–59, outcome 61): `measurement/estimators/RESULTS.md`, lock `3595c48`. Validated on synthetic truth: Whittle α, q, N (SE(α̂) ≈ 1/√M, M = frequencies below the noise crossover; ±0.1 needs M ≈ 400); corner check; HMM λ, μ, N, t_A (≳ 16 switches; SE(log λ̂) ≈ 1/√switches); premise LR (size ≤ 0.05, power 0.93–1.00); event worlds (Poisson floor, renewal flags); stakes only from exogenous error. DFA biased low under noise. Demo on proxy: DGS10 α̂ 2.00 ± 0.03 (random walk), log VIX regime not established. CLAIM_MAP N18 (DECIDED, method); no status change. Edits E-A1–E-A5 proposed, not applied.
-- **AQN-REFEREE** (w 2, c 1). Hostile referee of the estimators, validation, label rules (R1 gap at α ≈ 2 without a corner) and E-A1–E-A5.
+- **AQN-REFEREE** (w 2, c 1). Hostile referee of the estimators, validation, label rules (R1 gap at α ≈ 2 without a corner) and E-A1–E-A5. — DONE (see NEW ~5:25 PM ET below; pick 21).
 - **STAKES-EXOGENOUS** (w 3, c 2). Find a system with exogenous error variation and estimate stakes with a CI; gate for SAME-SYSTEM-AQN.
 - **ALPHA-ESTIMATE-AUDIT** (w 1, c 1). Re-estimate earlier α/H values (DFA, Allan factor, nugget-free variograms) with the validated Whittle and corner check.
 - **PREMISE-TEST-WIDEN** (w 2, c 1.5). Premise test beyond two-state vs Gaussian Markov (multi-state, heavy-tailed jumps, fBm null).
@@ -278,7 +278,17 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 20 done (ledger 96–98 + outcome). Next pick (21) is the rule slot. Recheck all pushed branches before any ledger write.**
 
+### NEW (15 Nov ~5:25 PM ET, from AQN-REFEREE; surprises read per rule 4)
+- **AQN-REFEREE** — DONE (pick 21, rule slot: rule's top in entry 101, I = 2.4, tied with NOISE-PROXY-REFEREE and taken by id order; Ace's unaided rank 1 of 47; ledger 100 unaided order, 101 rule_rank, 102 pick, outcome 107): `reviews/night2/AQN_REFEREE.md`, independent code in `reviews/night2/AQN_REFEREE_checks/` (`ownlib.py` does not import `aqn.py`). **PASS-WITH-FIXES** for the estimators: the Whittle model, aliasing, D1 constant, information SEs and the DGS10 demo (2.004 ± 0.026, log q −5.70) were reproduced exactly, and Wald SEs held on DGS10 against block dispersion. Corrections: (1) SE(α̂) ≈ 1/√M understates the SE by 1.5–2.3× when the noise floor is above Nyquist; (2) **the premise test rejected 0 of 24 jump-diffusion random walks** (kurtosis flagged 24 of 24), so **E-A2 FAILS** and is replaced by E-A2′; (3) R1 mislabels a random walk as B, so R1′ is proposed (DGS10 → A on proxy); (4) the plug-in t_A is 1.14–1.89× short of the exact discrete filter at block C's 0.6–14-step t_A; (5) the replicate IV for stakes is biased by 1/(1 + c²) under multiplicative error; also, "validated once M ≳ 250" fails at α 1.4 with heavy noise (coverage 0.81). E-A1 and E-A3 pass with fixes; E-A4 and E-A5 pass with a wording fix (not applied). No CLAIM_MAP change.
+- **AQN-EDITS-APPLY** (w 1, c 0.5). Apply E-A1 (fixed), E-A2′ and E-A3 (fixed) to FRAMEWORK, and add R1′ as a dated addendum in `measurement/estimators/`. A separate applier makes the THEORY pointer edits E-A4 and E-A5.
+- **DISCRETE-TA** (w 2, c 1). Bayes adaptation time of the sampled two-state filter vs per-sample SNR and λ; settle the definition against N16; independent check before any N16 field test on sampled data.
+- PREMISE-TEST-WIDEN: referee flag, L 2 → 3 (must include jump-diffusion alternatives and a GARCH null). Notes added to SAME-SYSTEM-AQN and SPF-AQN-POWERED (the SE rule is optimistic when the floor is above Nyquist; use the information-matrix SE, MV10).
+- Surprise read: **moderate** (referee flag: the premise test is blind to the most natural non-Gaussian class for prices); weak (SE rule; discrete t_A). No theory row moves.
+
+**Pick 21 done (outcome ledger 107; 104–106 are held by q-pick22, which claimed NOISE-PROXY-REFEREE as pick 22, rule slot). Next pick after 22 is pick 23, the unaided slot. Recheck all pushed branches before any ledger write.**
+
 ## Done (frozen)
+- AQN-REFEREE: `reviews/night2/AQN_REFEREE.md` (+ `AQN_REFEREE_checks/`; independent referee of AQN-ESTIMATORS; PASS-WITH-FIXES, E-A2 fails; no status change).
 - SPF-RIGIDITY-OOS: `tests/SPF_RIGIDITY_OOS/` (MV10 gate not met; no prereg locked; no outcome computed).
 - REGIME-C-GAUSSIAN-PREMISE: `reviews/night2/REGIME_C_PREMISE.md`, `reviews/night2/REGIME_C_PREMISE_REVIEW.md` (independent review PASS-WITH-FIXES; THEORY v1.4.6; PR #42 merged).
 - CAUSAL-POWER-GATE (+ KG-FEASIBILITY-GATE merged): `reviews/night2/CAUSAL_POWER_GATE.md`, `tools/power_gate.py` (FRAMEWORK MV10; process; no status change).
