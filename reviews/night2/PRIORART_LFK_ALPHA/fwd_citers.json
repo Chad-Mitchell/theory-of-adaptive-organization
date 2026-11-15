@@ -1,0 +1,528 @@
+{
+ "LFK2024": {
+  "id": "https://openalex.org/W4403856132",
+  "cited_by_count": 2,
+  "citers": [
+   {
+    "id": "https://openalex.org/W4417427841",
+    "doi": "https://doi.org/10.1088/1361-6633/ae2ca2",
+    "title": "Decoding the architecture of living systems",
+    "year": 2025,
+    "oa": "https://arxiv.org/pdf/2512.22651",
+    "abstract": "The possibility that evolutionary forces-together with a few fundamental factors such as thermodynamic constraints, specific computational features enabling information processing, and ecological processes-might constrain the logic of living systems is tantalizing. However, it is often overlooked that any practical implementation of such a logic requires complementary circuitry that, in biological systems, happens through complex networks of genetic regulation, metabolic reactions, cellular signaling, communication, social and eusocial non-trivial organization. Here, we review and discuss how circuitries are not merely passive structures, but active agents of change that, by means of hierarchical and modular organization, are able to enhance and catalyze the evolution of evolvability. By analyzing the role of non-trivial topologies in major evolutionary transitions under the lens of statistical physics and nonlinear dynamics, we show that biological innovations are strictly related to circuitry and its deviation from trivial structures and (thermo)dynamic equilibria. We argue that sparse heterogeneous networks such as hierarchical modular, which are ubiquitously observed in nature, are favored in terms of the trade-off between energetic costs for redundancy, error-correction and maintenance. We identify three main features-namely, interconnectivity, plasticity and interdependency-pointing towards a unifying framework for modeling the phenomenology, discussing them in terms of dynamical systems theory, non-equilibrium thermodynamics and evolutionary dynamics. Within this unified picture, we also show that 'slow' evolutionary dynamics is an emergent phenomenon governed by the replicator-mutator equation as the direct consequence of a constrained variational nonequilibrium process. Overall, this work highlights how dynamical systems theory and nonequilibrium thermodynamics provide powerful analytical techniques to study biological complexity."
+   },
+   {
+    "id": "https://openalex.org/W4414991272",
+    "doi": "https://doi.org/10.1103/63cv-52fj",
+    "title": "Artificial intelligence sustains higher strategic tension than humans in chess",
+    "year": 2026,
+    "oa": "https://doi.org/10.1103/63cv-52fj",
+    "abstract": "Strategic decision-making requires balancing immediate opportunities against long-term objectives: a tension fundamental to competitive environments. We investigate this trade-off in chess by analyzing the dynamics of human and AI (artificial intelligence) gameplay through a network-based metric that quantifies piece-to-piece interactions. Our analysis reveals that elite AI players sustain substantially higher levels of strategic tension for longer durations than top human grandmasters. We find that cumulative tension scales with algorithmic complexity in AI systems and increases linearly with skill level (Elo rating) in human play. Longer time controls are associated with higher tension in human games, reflecting the additional strategic complexity players can manage with more thinking time. The temporal profiles reveal contrasting approaches: Highly competitive AI systems tolerate densely interconnected positions that balance offensive and defensive tactics over extended periods, while human players systematically limit tension and game complexity. These differences have broader implications for understanding how artificial and biological systems navigate complex strategic environments and for the deployment of AI in high-stakes competitive scenarios."
+   }
+  ]
+ },
+ "LFK_preprint": {
+  "id": "https://openalex.org/W4294193436",
+  "cited_by_count": 4,
+  "citers": [
+   {
+    "id": "https://openalex.org/W4413107084",
+    "doi": "https://doi.org/10.1016/j.biosystems.2025.105548",
+    "title": "An Information Framework of Intelligence",
+    "year": 2025,
+    "oa": "https://doi.org/10.1016/j.biosystems.2025.105548",
+    "abstract": "Intelligence is a human construct to represent the ability to achieve goals. Given this wide berth, intelligence has been defined countless times, studied in a variety of ways and represented using numerous indicators. Understanding intelligence ultimately requires theory and quantification, both of which have proved elusive. I present an Information Framework of Intelligence (IFI) that applies across all systems from physics to biology, humans and AI. Central to this framework is the \u201cintelligence niche\u201d, which provides a conceptual basis for understanding constraints on intelligence and the evolution of intelligence. IFI likens intelligence to a real-time calculus, differentiating, correlating and integrating information, and anticipating or predicting future contingencies. I propose a classification of the levels and scales at which intelligence operates. Focussing on measurable macrosopic phenomena, I develop quantitative indicators of intelligence based on abilities to identify and resolve subgoals. Intelligence is reflected by acquired goal-useful information relative to goal complexity, or to the related concept of goal difficulty, or to an arbitrary reference such as a benchmark. I conclude with predictions and implications of IFI."
+   },
+   {
+    "id": "https://openalex.org/W4413114253",
+    "doi": "https://doi.org/10.1093/ismejo/wraf173",
+    "title": "Environment-mediated interactions cause an externalized and collective memory in bacteria",
+    "year": 2025,
+    "oa": "https://doi.org/10.1093/ismejo/wraf173",
+    "abstract": "Bacteria usually live in complex communities interacting with many other microbial species. These interactions determine who can persist in a community and how the overall community forms and functions. Bacteria often exert interactions by chemically changing the environment, like taking up nutrients or producing toxins. These environmental changes can persist over time. We show here that such lasting environmental changes can cause a \"memory effect\" where current growth conditions alter interaction outcomes in the future. This memory is only stored in the environment and not inside bacterial cells. Only the collective effort of many bacteria can build up this memory, making it an emergent property of bacterial populations. This externalized and collective memory can also impact the assembly of more complex communities and lead to different final compositions depending on the system's past. Overall, we show that to understand interaction outcomes fully, we have to consider not only the interacting species and abiotic conditions but also the system's history."
+   },
+   {
+    "id": "https://openalex.org/W4417454632",
+    "doi": "https://doi.org/10.1038/s41593-025-02143-6",
+    "title": "Cold and lithium delay forgetting of olfactory memories in Caenorhabditis elegans",
+    "year": 2025,
+    "oa": "https://www.nature.com/articles/s41593-025-02143-6.pdf",
+    "abstract": "The persistence of memory reflects not only how it is formed but also how forgetting is delayed. The mechanisms controlling forgetting remain obscure, and in particular it is unclear to what degree this process is actively regulated. We discovered that cold exposure delays forgetting of specific olfactory memories by more than eight-fold and that adaptation to cold abolishes this effect. To study the underlying mechanism, we performed RNA sequencing, mutant analyses and pharmacological assays. Here we show that regulation of membrane properties underlies the presence and absence of cold-induced delayed forgetting. Furthermore, lithium can also delay forgetting in cold-sensitive worms but not in cold-tolerant worms; this effect involves downregulation of the diacylglycerol pathway in AWC neurons and long-term suppression of activity in the downstream AIY interneurons. Thus, the genetic tractability of worms might be harnessed to study the mechanism of action of lithium and cold exposure and, more fundamentally, how memory is stored and lost. In this study, we identify an actively regulated process that governs the rate of forgetting in Caenorhabditis elegans, modulated by both temperature and the mood-stabilizing drug lithium."
+   },
+   {
+    "id": "https://openalex.org/W4366596863",
+    "doi": "https://doi.org/10.1101/2023.04.18.537333",
+    "title": "Playing it safe: information constrains collective betting strategies",
+    "year": 2023,
+    "oa": "https://www.biorxiv.org/content/biorxiv/early/2023/05/28/2023.04.18.537333.full.pdf",
+    "abstract": "Every interaction of a living organism with its environment involves the placement of a bet. Armed with partial knowledge about a stochastic world, the organism must decide its next step or near-term strategy, an act that implicitly or explicitly involves the assumption of a model of the world. Better information about environmental statistics can improve the bet quality, but in practice resources for information gathering are always limited. We argue that theories of optimal inference dictate that \u201ccomplex\u201d models are harder to infer with bounded information and lead to larger prediction errors. Thus, we propose a principle of playing it safe where, given finite information gathering capacity, biological systems should be biased towards simpler models of the world, and thereby to less risky betting strategies. In the framework of Bayesian inference, we show that there is an optimally safe adaptation strategy determined by the Bayesian prior. We then demonstrate that, in the context of stochastic phenotypic switching by bacteria, implementation of our principle of \u201cplaying it safe\u201d increases fitness (population growth rate) of the bacterial collective. We suggest that the principle applies broadly to problems of adaptation, learning and evolution, and illuminates the types of environments in which organisms are able to thrive."
+   }
+  ]
+ },
+ "Afterman2022": {
+  "id": "https://openalex.org/W2990376509",
+  "cited_by_count": 4,
+  "citers": [
+   {
+    "id": "https://openalex.org/W4417233341",
+    "doi": "https://doi.org/10.3150/26-bej1983",
+    "title": "Asymptotic analysis of the finite predictor for fractional Gaussian noise",
+    "year": 2026,
+    "oa": "https://arxiv.org/pdf/2504.01562",
+    "abstract": "This paper proposes a new approach to the asymptotic analysis of the finite predictor for stationary sequences. Our method yields the exact asymptotics of both the relative prediction error and the partial correlation coefficients. The underlying assumptions are analytic in nature, making the approach applicable to processes with long-range dependence. The ARMA-type process driven by fractional Gaussian noise (fGn), which had previously remained elusive, is used as a case study."
+   },
+   {
+    "id": "https://openalex.org/W7154982033",
+    "doi": "https://doi.org/10.2139/ssrn.6539199",
+    "title": "Dynamic Observability of Latent Contagion: Sequential Revelation and Observable Screening",
+    "year": 2026,
+    "oa": "https://doi.org/10.2139/ssrn.6539199",
+    "abstract": ""
+   },
+   {
+    "id": "https://openalex.org/W7155555601",
+    "doi": "https://doi.org/10.1007/978-3-032-20362-5_5",
+    "title": "Parameter and State Estimation of Stochastic Differential Systems",
+    "year": 2026,
+    "oa": "https://doi.org/10.1007/978-3-032-20362-5_5",
+    "abstract": "The framework of the paper is the use of stochastic differential equations (SDEs) in the modeling of the real world and the subsequent statistical inference problems involving this type of models. We assume that continuous-time observations are available in a specific time interval, although some references on the analogous problems in the case of discrete time observations are included. The following problems are formulated: (i) the parameter estimation problem under full observation of the system/process; (ii) the state estimation of the partially observed system; (iii) the parameter estimation under partial observation of the system, meaning that the state, which is affected by the unknown parameter(s), is not directly observed but it is observed through some observation function with added noise. This last problem is obviously the most difficult of the three and, in some sense, benefits from the solutions or properties found for the other two. Solutions to the formulated problems are discussed, as well as the most important properties. The focus is on the maximum likelihood estimators and on asymptotic properties as the observed time interval goes to infinity or as the observation noise vanishes. The EM algorithm is analyzed, in particular. Finally, the special case of the hypoelliptic SDEs is detailed, and the challenges it brings are discussed. The paper ends with some comments on present and new axes of research around the topic."
+   },
+   {
+    "id": "https://openalex.org/W7166076110",
+    "doi": "https://doi.org/10.1109/tac.2026.3707996",
+    "title": "Linear Filter for Discrete-Time Systems Driven by Fractional Noises",
+    "year": 2026,
+    "oa": "https://doi.org/10.1109/tac.2026.3707996",
+    "abstract": "In this article, we study the discrete-time filtering problems for linear systems driven by fractional noises. The main difficulty comes from the self-dependence of the noises. We construct the difference equation of the covariance process through the properties of the noises and transform the filtering problem to an optimal control problem. We obtain the condition that the coefficients of the optimal filter should satisfy and show there is no consistent optimal filter, which is a significant difference from the classical Kalman filter. As a straightforward result, the filtering problem for systems driven by white noise is also solved. Finally, an example is considered to illustrate the main results."
+   }
+  ]
+ },
+ "Kleptsyna2020": {
+  "id": "https://openalex.org/W3013481201",
+  "cited_by_count": 3,
+  "citers": [
+   {
+    "id": "https://openalex.org/W2990376509",
+    "doi": "https://doi.org/10.1137/20m1360359",
+    "title": "Linear Filtering with Fractional Noises: Large Time and Small Noise Asymptotics",
+    "year": 2022,
+    "oa": "https://arxiv.org/pdf/1911.10062",
+    "abstract": "The classical state-space approach to optimal estimation of stochastic processes is efficient when the driving noises are generated by martingales. In particular, the weight function of the optimal linear filter, which solves a complicated operator equation in general, simplifies to the Riccati ordinary differential equation in the martingale case. This reduction lies in the foundations of the Kalman--Bucy approach to linear optimal filtering. In this paper we consider a basic Kalman--Bucy model with noises, generated by independent fractional Brownian motions, and develop a new method of asymptotic analysis of the integro-differential filtering equation arising in this case. We establish existence of the steady-state error limit and find its asymptotic scaling in the high signal-to-noise regime. Closed form expressions are derived in a number of important cases."
+   },
+   {
+    "id": "https://openalex.org/W3042893462",
+    "doi": "https://doi.org/10.1515/fca-2021-0031",
+    "title": "Sharp asymptotics in a fractional Sturm-Liouville problem",
+    "year": 2021,
+    "oa": "https://arxiv.org/pdf/1912.10473",
+    "abstract": ""
+   },
+   {
+    "id": "https://openalex.org/W4381684590",
+    "doi": "https://doi.org/10.1214/23-ps20",
+    "title": "L2-small ball asymptotics for Gaussian random functions: A survey",
+    "year": 2023,
+    "oa": "https://projecteuclid.org/journals/probability-surveys/volume-20/issue-none/L2-small-ball-asymptotics-for-Gaussian-random-functions--A/10.1214/23-PS20.pdf",
+    "abstract": "This article is a survey of the results on asymptotic behavior of small ball probabilities in L2-norm. Recent progress in this field is mainly based on the methods of spectral theory of differential and integral operators."
+   }
+  ]
+ },
+ "MoraNemenman2019": {
+  "id": "https://openalex.org/W2967038867",
+  "cited_by_count": 49,
+  "citers": [
+   {
+    "id": "https://openalex.org/W3116727653",
+    "doi": "https://doi.org/10.1093/femsre/fuaa068",
+    "title": "Environmental fluctuations and their effects on microbial communities, populations and individuals",
+    "year": 2020,
+    "oa": "https://academic.oup.com/femsre/article-pdf/45/4/fuaa068/39771318/fuaa068.pdf",
+    "abstract": "From the homeostasis of human health to the cycling of Earth's elements, microbial activities underlie environmental, medical and industrial processes. These activities occur in chemical and physical landscapes that are highly dynamic and experienced by bacteria as fluctuations. In this review, we first discuss how bacteria can experience both spatial and temporal heterogeneity in their environments as temporal fluctuations of various timescales (seconds to seasons) and types (nutrient, sunlight, fluid flow, etc.). We then focus primarily on nutrient fluctuations to discuss how bacterial communities, populations and single cells respond to environmental fluctuations. Overall, we find that environmental fluctuations are ubiquitous and diverse, and strongly shape microbial behavior, ecology and evolution when compared with environments in which conditions remain constant over time. We hope this review may serve as a guide toward understanding the significance of environmental fluctuations in microbial life, such that their contributions and implications can be better assessed and exploited."
+   },
+   {
+    "id": "https://openalex.org/W2917809128",
+    "doi": "https://doi.org/10.7554/elife.62574",
+    "title": "Theory for the optimal detection of time-varying signals in cellular sensing systems",
+    "year": 2021,
+    "oa": "https://doi.org/10.7554/elife.62574",
+    "abstract": "Living cells often need to measure chemical concentrations that vary in time, yet how accurately they can do so is poorly understood. Here, we present a theory that fully specifies, without any adjustable parameters, the optimal design of a canonical sensing system in terms of two elementary design principles: (1) there exists an optimal integration time, which is determined by the input statistics and the number of receptors; and (2) in the optimally designed system, the number of independent concentration measurements as set by the number of receptors and the optimal integration time equals the number of readout molecules that store these measurements and equals the work to store these measurements reliably; no resource is then in excess and hence wasted. Applying our theory to the Escherichia coli chemotaxis system indicates that its integration time is not only optimal for sensing shallow gradients but also necessary to enable navigation in these gradients."
+   },
+   {
+    "id": "https://openalex.org/W3115964575",
+    "doi": "https://doi.org/10.1073/pnas.2109011118",
+    "title": "Trading bits in the readout from a genetic network",
+    "year": 2021,
+    "oa": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8609648/",
+    "abstract": "In the regulation of gene expression, information of relevance to the organism is represented by the concentrations of transcription factor molecules. To extract this information the cell must effectively \"measure\" these concentrations, but there are physical limits to the precision of these measurements. We use the gap gene network in the early fly embryo as an example of the tradeoff between the precision of concentration measurements and the transmission of relevant information. For thresholded measurements we find that lower thresholds are more important, and fine tuning is not required for near-optimal information transmission. We then consider general sensors, constrained only by a limit on their information capacity, and find that thresholded sensors can approach true information theoretic optima. The information theoretic approach allows us to identify the optimal sensor for the entire gap gene network and to argue that the physical limitations of sensing necessitate the observed multiplicity of enhancer elements, with sensitivities to combinations rather than single transcription factors."
+   },
+   {
+    "id": "https://openalex.org/W4399775729",
+    "doi": "https://doi.org/10.1103/prxlife.2.023012",
+    "title": "Information Theory of Chemotactic Agents Using Both Spatial and Temporal Gradient Sensing",
+    "year": 2024,
+    "oa": "https://doi.org/10.1103/prxlife.2.023012",
+    "abstract": "Biological cells and small organisms navigate in concentration fields of signaling molecules using two fundamental gradient-sensing strategies: spatial comparison of concentrations measured at different positions on their surface and temporal comparison of concentrations measured at different locations visited along their motion path. It is believed that size and speed dictate which gradient-sensing strategy cells choose, yet this has never been formally proven. Using information theory, we investigate the optimal gradient-sensing mechanism for an ideal chemotactic agent that combines spatial and temporal comparisons. We account for the physical limits of chemosensation: molecule counting noise at physiological concentrations and motility noise inevitable at the microscale. Our simulation data collapse onto an empirical power law that predicts an optimal weighting of information as a function of motility and sensing noise, demonstrating how spatial comparison becomes more beneficial for agents that are large, slow, and less persistent. This refines and quantifies the previous heuristic notion. Our idealized model assuming unlimited information processing capabilities serves as a benchmark for the chemotaxis of biological cells. Published by the American Physical Society 2024"
+   },
+   {
+    "id": "https://openalex.org/W3038305897",
+    "doi": "https://doi.org/10.1103/physrevlett.125.018102",
+    "title": "Receptor Organization Determines the Limits of Single-Cell Source Location Detection",
+    "year": 2020,
+    "oa": null,
+    "abstract": "Many types of cells require the ability to pinpoint the location of an external stimulus from the arrival of diffusing signaling molecules at cell-surface receptors. How does the organization (number and spatial configuration) of these receptors shape the limit of a cell's ability to infer the source location? In the idealized scenario of a spherical cell, we apply asymptotic analysis to compute splitting probabilities between individual receptors and formulate an information-theoretic framework to quantify the role of receptor organization. Clustered configurations of receptors provide an advantage in detecting sources aligned with the clusters, suggesting a possible multiscale mechanism for single-cell source inference."
+   },
+   {
+    "id": "https://openalex.org/W3044293712",
+    "doi": "https://doi.org/10.3389/fmars.2020.00527",
+    "title": "Cutting Through the Noise: Bacterial Chemotaxis in Marine Microenvironments",
+    "year": 2020,
+    "oa": "https://www.frontiersin.org/articles/10.3389/fmars.2020.00527/pdf",
+    "abstract": "The ability of marine microbes to navigate towards chemical hotspots can determine their nutrient uptake and has the potential to affect the cycling of elements in the ocean. The link between bacterial navigation and nutrient cycling highlights the need to understand how chemotaxis functions in the context of marine microenvironments. Chemotaxis hinges on the stochastic binding/unbinding of molecules with surface receptors, the transduction of this information through an intracellular signalling cascade, and the activation and control of flagellar motors. The intrinsic randomness of these processes is a central challenge that cells must deal with in order to navigate, particularly under dilute conditions where noise and signal are similar in magnitude. Such conditions are ubiquitous in the ocean, where nutrient concentrations are often extremely low and subject to rapid variation in space (e.g. particulate matter, nutrient plumes) and time (e.g. diffusing sources, fluid mixing). Stochastic, biophysical models of chemotaxis have the potential to illuminate how bacteria cope with noise to efficiently navigate in such environments. At the same time, new technologies for experimentation allow for continuous interrogation -- from milliseconds through to days -- of bacterial responses in custom dynamic nutrient landscapes, providing unprecedented access to the behaviour of chemotactic cells in microenvironments engineered to mimic those cells navigate in the wild. These recent theoretical and experimental developments have created an opportunity to derive population-level uptake from single-cell motility characteristics in ways that could inform the next generation of marine biogeochemical cycling models."
+   },
+   {
+    "id": "https://openalex.org/W4403187682",
+    "doi": "https://doi.org/10.1103/physrevlett.133.158401",
+    "title": "Tuning Transduction from Hidden Observables to Optimize Information Harvesting",
+    "year": 2024,
+    "oa": "https://doi.org/10.1103/physrevlett.133.158401",
+    "abstract": "Biological and living organisms sense and process information from their surroundings, typically having access only to a subset of external observables for a limited amount of time. In this Letter, we uncover how biological systems can exploit these accessible degrees of freedom to transduce information from the inaccessible ones with a limited energy budget. We find that optimal transduction strategies may boost information harvesting over the ideal case in which all degrees of freedom are known, even when only finite-time trajectories are observed, at the price of higher dissipation. We apply our results to red blood cells, inferring the implemented transduction strategy from membrane flickering data and shedding light on the connection between mechanical stress and transduction efficiency. Our framework offers novel insights into the adaptive strategies of biological systems under nonequilibrium conditions."
+   },
+   {
+    "id": "https://openalex.org/W4213338940",
+    "doi": "https://doi.org/10.1103/physrevresearch.4.013120",
+    "title": "Optimal sensing and control of run-and-tumble chemotaxis",
+    "year": 2022,
+    "oa": "http://link.aps.org/pdf/10.1103/PhysRevResearch.4.013120",
+    "abstract": "Run-and-tumble chemotaxis is a representative search strategy for odor sources by sensing its spatial gradients. The optimal ways of sensing and control in run-and-tumble chemotaxis have been theoretically analyzed to elucidate the efficiency of the strategies implemented in organisms. However, because of theoretical difficulties, most attempts have been limited to either linear or deterministic analysis, even though real biological chemotactic systems involve considerable stochasticity and nonlinearity in their sensory processes and controlled responses. In this study, by combining the theories of optimal filtering and Kullback-Leibler control of a partially observed Markov decision process (POMDP), we derive an optimal and fully nonlinear strategy for controlling run-and-tumble motion depending on the noisy sensing of a ligand gradient. The derived optimal strategy comprises optimal filtering dynamics to estimate the run direction from the noisy sensory input and control function to regulate the motor output. Furthermore, we show that this optimal strategy can be naturally associated with a standard biochemical model and experimental data of the chemotaxis of Escherichia coli. Our results demonstrate that our theoretical framework can be used as a basis for analyzing the efficiency and optimality of run-and-tumble chemotaxis."
+   },
+   {
+    "id": "https://openalex.org/W4376872436",
+    "doi": "https://doi.org/10.1073/pnas.2212795120",
+    "title": "Proofreading does not result in more reliable ligand discrimination in receptor signaling due to its inherent stochasticity",
+    "year": 2023,
+    "oa": "https://doi.org/10.1073/pnas.2212795120",
+    "abstract": "Kinetic proofreading (KPR) has been used as a paradigmatic explanation for the high specificity of ligand discrimination by cellular receptors. KPR enhances the difference in the mean receptor occupancy between different ligands compared to a nonproofread receptor, thus potentially enabling better discrimination. On the other hand, proofreading also attenuates the signal and introduces additional stochastic receptor transitions relative to a nonproofreading receptor. This increases the relative magnitude of noise in the downstream signal, which can interfere with reliable ligand discrimination. To understand the effect of noise on ligand discrimination beyond the comparison of the mean signals, we formulate the task of ligand discrimination as a problem of statistical estimation of the receptor affinity of ligands based on the molecular signaling output. Our analysis reveals that proofreading typically worsens ligand resolution compared to a nonproofread receptor. Furthermore, the resolution decreases further with more proofreading steps under most commonly biologically considered conditions. This contrasts with the usual notion that KPR universally improves ligand discrimination with additional proofreading steps. Our results are consistent across a variety of different proofreading schemes and metrics of performance, suggesting that they are inherent to the KPR mechanism itself rather than any particular model of molecular noise. Based on our results, we suggest alternative roles for KPR schemes such as multiplexing and combinatorial encoding in multi-ligand/multi-output pathways."
+   },
+   {
+    "id": "https://openalex.org/W4388699249",
+    "doi": "https://doi.org/10.1103/prxlife.1.023005",
+    "title": "Information Bottleneck in Molecular Sensing",
+    "year": 2023,
+    "oa": "http://link.aps.org/pdf/10.1103/PRXLife.1.023005",
+    "abstract": "Molecular interactions at low concentrations transmit information with low capacity; this study explores how universal features of this bottleneck influence the representation of positional information by the gap genes in the fly embryo."
+   },
+   {
+    "id": "https://openalex.org/W4415177572",
+    "doi": "https://doi.org/10.1103/gvl6-cvby",
+    "title": "Theory for optimal estimation and control under resource limitations and its applications to biological information processing and decision-making",
+    "year": 2025,
+    "oa": "https://doi.org/10.1103/gvl6-cvby",
+    "abstract": "While the information processing of organisms is evolutionarily optimized, it exhibits remarkable diversity in its complexity and capability. One potential source of this diversity is the limitations of resources available for information processing. However, we still lack a theoretical framework that clarifies the relationship between biological information processing and resource limitations and integrates it with downstream decision-making. Together with the accompanying letter [Tottori and Kobayashi, ], this full paper presents an optimal estimation and control framework that explicitly incorporates resource limitations inherent in biological systems. While the accompanying letter focuses on the nontrivial phase transitions induced by resource limitations, the present full paper establishes the theoretical foundation and provides a comprehensive analysis of these transitions. The proposed framework formulates memory that organisms can store and operate, and optimizes it using optimal control theory. This approach accounts for various resource limitations\u2014such as memory capacity, intrinsic noise, and energy cost\u2014and unifies estimation and control. Applying this theory to minimal models of biological information processing and decision-making, we demonstrate that resource limitations can induce discontinuous and nonmonotonic phase transitions between memoryless and memory-based strategies. These results provide a comprehensive theoretical foundation for studying how organisms process information and make decisions under resource limitations, and suggest that the rich diversity observed in biological systems may emerge from such constraints."
+   },
+   {
+    "id": "https://openalex.org/W4400600683",
+    "doi": "https://doi.org/10.1038/s41567-025-03111-4",
+    "title": "E. coli chemosensing accuracy is not limited by stochastic molecule arrivals",
+    "year": 2026,
+    "oa": "https://www.nature.com/articles/s41567-025-03111-4.pdf",
+    "abstract": "Organisms use specialized sensors to measure their environments, but the principles governing their accuracy are unknown. The bacterium Escherichia coli climbs chemical gradients at speeds bounded by the amount of information it receives from its environment. However, it remains unclear what prevents E. coli cells from acquiring more information. Past work argued that chemosensing by E. coli is limited by the stochastic arrival of molecules at their receptors by diffusion, without providing direct evidence. Here we show instead that E. coli encode two orders of magnitude less information than this physical limit. We develop an information-theoretic approach to quantify how accurately chemical signals can be estimated from observations of molecule arrivals as the physical limit and of chemotaxis signalling activity for E. coli cells, and then we measure the associated information rates in single-cell experiments. Our findings demonstrate that E. coli chemosensing is limited by internal noise in signal processing rather than molecule arrival noise, motivating investigations of the physical and biological constraints that shaped the evolution of this prototypical sensory system. The chemosensing accuracy of E. coli cells is shown to be limited by internal noise in signal processing, rather than the stochasticity of molecule arrivals at their receptors, contrary to long-held understanding in the field."
+   },
+   {
+    "id": "https://openalex.org/W3031304831",
+    "doi": "https://doi.org/10.1103/physrevlett.126.128102",
+    "title": "Connection between the Bacterial Chemotactic Network and Optimal Filtering",
+    "year": 2021,
+    "oa": "https://arxiv.org/pdf/2005.13208",
+    "abstract": "The chemotactic network of Escherichia coli has been studied extensively both biophysically and information theoretically. Nevertheless, connection between these two aspects is still elusive. In this work, we report such a connection. We derive an optimal filtering dynamics under the assumption that E. coli's sensory system optimally infers the binary information whether it is swimming up or down along an exponential ligand gradient from noisy sensory signals. Then we show that a standard biochemical model of the chemotactic network is mathematically equivalent to this information-theoretically optimal dynamics. Moreover, we demonstrate that an experimentally observed nonlinear response relation can be reproduced from the optimal dynamics. These results suggest that the biochemical network of E. coli chemotaxis is designed to optimally extract the binary information along an exponential gradient in a noisy condition."
+   },
+   {
+    "id": "https://openalex.org/W4390227524",
+    "doi": "https://doi.org/10.1103/physreve.108.064411",
+    "title": "Physical limits on galvanotaxis",
+    "year": 2023,
+    "oa": "https://arxiv.org/pdf/2209.04742",
+    "abstract": "Eukaryotic cells can polarize and migrate in response to electric fields via \"galvanotaxis,\" which aids wound healing. Experimental evidence suggests cells sense electric fields via molecules on the cell's surface redistributing via electrophoresis and electroosmosis, though the sensing species has not yet been conclusively identified. We develop a model that links sensor redistribution and galvanotaxis using maximum likelihood estimation. Our model predicts a single universal curve for how galvanotactic directionality depends on field strength. We can collapse measurements of galvanotaxis in keratocytes, neural crest cells, and granulocytes to this curve, suggesting that stochasticity due to the finite number of sensors may limit galvanotactic accuracy. We find cells can achieve experimentally observed directionalities with either a few (\u223c100) highly polarized sensors or many (\u223c10^{4}) sensors with an \u223c6-10% change in concentration across the cell. We also identify additional signatures of galvanotaxis via sensor redistribution, including the presence of a tradeoff between accuracy and variance in cells being controlled by rapidly switching fields. Our approach shows how the physics of noise at the molecular scale can limit cell-scale galvanotaxis, providing important constraints on sensor properties and allowing for new tests to determine the specific molecules underlying galvanotaxis."
+   },
+   {
+    "id": "https://openalex.org/W3147408590",
+    "doi": "https://doi.org/10.1016/j.bpj.2021.03.021",
+    "title": "Revising Berg-Purcell for finite receptor kinetics",
+    "year": 2021,
+    "oa": "http://www.cell.com/article/S0006349521002514/pdf",
+    "abstract": ""
+   },
+   {
+    "id": "https://openalex.org/W4391376271",
+    "doi": "https://doi.org/10.21468/scipostphyslectnotes.84",
+    "title": "Ambitions for theory in the physics of life",
+    "year": 2024,
+    "oa": "https://doi.org/10.21468/scipostphyslectnotes.84",
+    "abstract": "Theoretical physicists have been fascinated by the phenomena of life for more than a century. As we engage with more realistic descriptions of living systems, however, things get complicated. After reviewing different reactions to this complexity, I explore the optimization of information flow as a potentially general theoretical principle. The primary example is a genetic network guiding development of the fly embryo, but each idea also is illustrated by examples from neural systems. In each case, optimization makes detailed, largely parameter\u2013free predictions that connect quantitatively with experiment."
+   },
+   {
+    "id": "https://openalex.org/W4405833996",
+    "doi": "https://doi.org/10.1103/physreve.110.064407",
+    "title": "Gradient sensing limit of an elongated cell with orientational control",
+    "year": 2024,
+    "oa": "https://arxiv.org/pdf/2405.04810",
+    "abstract": "Eukaryotic cells perform chemotaxis by determining the direction of chemical gradients based on stochastic sensing of concentrations at the cell surface. To examine the efficiency of this process, previous studies have investigated the limit of estimation accuracy for gradients. However, most studies have treated a circular cell shape, and the few considering elongated shapes assume the elongated direction as fixed. This leaves the question of how adaptive regulation of cell shape affects the estimation limit. Dynamics of cell shape during gradient sensing is biologically ubiquitous and can influence the estimation by altering the way the concentration is measured, and cells may strategically regulate their shape to improve estimation accuracy. To address this gap, we investigate the estimation limits in dynamic situations where elongated cells change their orientation adaptively depending on the sensed signal. We approach this problem by analyzing the stationary solution of the Bayesian nonlinear filtering equation. By applying diffusion approximation to the ligand-receptor binding process and the Laplace method for the posterior expectation under a high signal-to-noise ratio regime, we obtain an analytical expression for the estimation limit. This expression indicates that estimation accuracy can be improved by aligning the elongated direction perpendicular to the estimated direction, which is also confirmed by numerical simulations. Our analysis provides a basis for clarifying the interplay between estimation and control in gradient sensing and sheds light on how cells optimize their shape to enhance chemotactic efficiency."
+   },
+   {
+    "id": "https://openalex.org/W4417210147",
+    "doi": "https://doi.org/10.1103/cx3r-f2g2",
+    "title": "Weak Transcription Factor Clustering at Binding Sites can Facilitate Information Transfer from Molecular Signals",
+    "year": 2025,
+    "oa": "https://doi.org/10.1103/cx3r-f2g2",
+    "abstract": "Transcription factor concentrations provide signals to cells that allow them to regulate gene expression to make correct cell fate decisions. Calculations for noise bounds in gene regulation suggest that clustering or cooperative binding of transcription factors decreases signal-to-noise ratios at binding sites. However, clustering of transcription factor molecules around binding sites is frequently observed. We develop two complementary models for clustering transcription factors at binding site sensors that allow us to study information transfer from a signal, the morphogen Bicoid, to a variable relevant to development, namely, future cell fates. We find that weak cooperativity or clustering can allow for maximal information transfer, especially about the relevant variable. The timescale of measurement is crucial for predicting the optimal clustering strength: for short measurements, finite clustering is optimal because it allows for the implementation of a switch, while for long measurements, a range of weak clustering strengths allow binding site sensors to access near-maximal developmental information. Weak transcription factor clustering also helps binding site sensors achieve optimality consistent with the information bottleneck bound, which encodes an optimal trade-off between conveying relevant information and making costly measurements: changes in clustering in conjunction with changes in the binding energy can shift the binding site sensor along the optimal bound, and towards an optimal trade-off between obtaining information about the signal and obtaining relevant information."
+   },
+   {
+    "id": "https://openalex.org/W3014173346",
+    "doi": "https://doi.org/10.1103/physrevresearch.2.043331",
+    "title": "Design principles for biochemical oscillations with limited energy resources",
+    "year": 2020,
+    "oa": "http://link.aps.org/pdf/10.1103/PhysRevResearch.2.043331",
+    "abstract": "As biochemical systems may frequently suffer from limited energy resources, so that internal molecular fluctuation has to be utilized to induce random rhythm, it is still a great theoretical challenge to understand the elementary principles for biochemical systems with limited energy resources to maintain phase accuracy and phase sensitivity.Here, we address the issue by deriving the energy-accuracy and the sensitivity-accuracy trade-off relations for a general biochemical model, analytically and numerically.We find that biochemical systems have a much lower energy cost by using noise-induced oscillations to keep almost equal efficiency to maintain precise processes compared with the energy cost using normal oscillations, clearly elucidating a survival mechanism when energy resources are limited.Moreover, an optimal system size is predicted where both the highest sensitivity and highest accuracy can be reached at the same time, providing a new strategy for the design of biological networks with limited energy sources."
+   },
+   {
+    "id": "https://openalex.org/W3007097924",
+    "doi": "https://doi.org/10.1088/1367-2630/abdb70",
+    "title": "Bayesian gradient sensing in the presence of rotational diffusion",
+    "year": 2021,
+    "oa": "https://iopscience.iop.org/article/10.1088/1367-2630/abdb70/pdf",
+    "abstract": "Abstract Biological cells estimate concentration gradients of signaling molecules with a precision that is limited not only by sensing noise, but additionally by the cell\u2019s own stochastic motion. We ask for the theoretical limits of gradient estimation in the presence of both motility and sensing noise. We introduce a minimal model of a stationary chemotactic agent in the plane subject to rotational diffusion with rotational diffusion coefficient D. The agent uses Bayesian estimation to optimally infer the gradient direction relative to itself from noisy concentration measurements. Meanwhile, this direction changes on a time-scale 1/D. We show that the optimal effective measurement time, which characterizes the time interval over which past gradient measurements should be averaged to reduce sensing noise, does not scale with the rotational diffusion time 1/D, but with the square root (rD)\u22121/2, where r is a rate of information gain defined as a signal-to-noise ratio normalized per unit time. This result for gradient sensing parallels a recent result by Mora et al (2019 Phys. Rev. Lett.) for sensing absolute concentration in time-varying environments."
+   },
+   {
+    "id": "https://openalex.org/W3019393686",
+    "doi": "https://doi.org/10.1103/physrevlett.124.168101",
+    "title": "Precision of Flow Sensing by Self-Communicating Cells",
+    "year": 2020,
+    "oa": "https://arxiv.org/pdf/1912.05091",
+    "abstract": "Metastatic cancer cells detect the direction of lymphatic flow by self-communication: they secrete and detect a chemical which, due to the flow, returns to the cell surface anisotropically. The secretion rate is low, meaning detection noise may play an important role, but the sensory precision of this mechanism has not been explored. Here we derive the precision of flow sensing for two ubiquitous detection methods: absorption vs reversible binding to surface receptors. We find that binding is more precise due to the fact that absorption distorts the signal that the cell aims to detect. Comparing to experiments, our results suggest that the cancer cells operate remarkably close to the physical detection limit. Our prediction that cells should bind the chemical reversibly, not absorb it, is supported by endocytosis data for this ligand-receptor pair."
+   },
+   {
+    "id": "https://openalex.org/W4311537924",
+    "doi": "https://doi.org/10.1103/physreve.106.054404",
+    "title": "Nonequilibrium dynamics of adaptation in sensory systems",
+    "year": 2022,
+    "oa": "http://arxiv.org/pdf/2011.09958",
+    "abstract": "Adaptation is used by biological sensory systems to respond to a wide range of environmental signals, by adapting their response properties to the statistics of the stimulus in order to maximize information transmission. We derive rules of optimal adaptation to changes in the mean and variance of a continuous stimulus in terms of Bayesian filters and map them onto stochastic equations that couple the state of the environment to an internal variable controlling the response function. We calculate numerical and exact results for the speed and accuracy of adaptation and its impact on information transmission. We find that, in the regime of efficient adaptation, the speed of adaptation scales sublinearly with the rate of change of the environment. Finally, we exploit the mathematical equivalence between adaptation and stochastic thermodynamics to quantitatively relate adaptation to the irreversibility of the adaptation time course, defined by the rate of entropy production. Our results suggest a means to empirically quantify adaptation in a model-free and nonparametric way."
+   },
+   {
+    "id": "https://openalex.org/W4393165949",
+    "doi": "https://doi.org/10.1016/j.bpj.2024.03.025",
+    "title": "Trade-offs in concentration sensing in dynamic environments",
+    "year": 2024,
+    "oa": "https://doi.org/10.1016/j.bpj.2024.03.025",
+    "abstract": ""
+   },
+   {
+    "id": "https://openalex.org/W3180290659",
+    "doi": "https://doi.org/10.3390/e23070867",
+    "title": "Close to Optimal Cell Sensing Ensures the Robustness of Tissue Differentiation Process: The Avian Photoreceptor Mosaic Case",
+    "year": 2021,
+    "oa": "https://www.mdpi.com/1099-4300/23/7/867/pdf?version=1625654506",
+    "abstract": "The way that progenitor cell fate decisions and the associated environmental sensing are regulated to ensure the robustness of the spatial and temporal order in which cells are generated towards a fully differentiating tissue still remains elusive. Here, we investigate how cells regulate their sensing intensity and radius to guarantee the required thermodynamic robustness of a differentiated tissue. In particular, we are interested in finding the conditions where dedifferentiation at cell level is possible (microscopic reversibility), but tissue maintains its spatial order and differentiation integrity (macroscopic irreversibility). In order to tackle this, we exploit the recently postulated Least microEnvironmental Uncertainty Principle (LEUP) to develop a theory of stochastic thermodynamics for cell differentiation. To assess the predictive and explanatory power of our theory, we challenge it against the avian photoreceptor mosaic data. By calibrating a single parameter, the LEUP can predict the cone color spatial distribution in the avian retina and, at the same time, suggest that such a spatial pattern is associated with quasi-optimal cell sensing. By means of the stochastic thermodynamics formalism, we find out that thermodynamic robustness of differentiated tissues depends on cell metabolism and cell sensing properties. In turn, we calculate the limits of the cell sensing radius that ensure the robustness of differentiated tissue spatial order. Finally, we further constrain our model predictions to the avian photoreceptor mosaic."
+   },
+   {
+    "id": "https://openalex.org/W3008749339",
+    "doi": "https://doi.org/10.1103/physrevresearch.2.043146",
+    "title": "Chemotaxis in uncertain environments: Hedging bets with multiple receptor types",
+    "year": 2020,
+    "oa": "http://link.aps.org/pdf/10.1103/PhysRevResearch.2.043146",
+    "abstract": "This work shows that cells should express multiple types of receptors when they are sufficiently uncertain about their environment, and also shows how cells can efficiently integrate information from these different receptor types."
+   },
+   {
+    "id": "https://openalex.org/W4223595076",
+    "doi": "https://doi.org/10.1209/0295-5075/ac6620",
+    "title": "Gradient sensing in Bayesian chemotaxis",
+    "year": 2022,
+    "oa": "https://iopscience.iop.org/article/10.1209/0295-5075/ac6620/pdf",
+    "abstract": "Abstract Bayesian chemotaxis is an information-based target search problem inspired by biological chemotaxis. It is defined by a decision strategy coupled to the dynamic estimation of target position from detections of signaling molecules. We extend the case of a point-like agent previously introduced (Vergassola et al. , Nature (2007)), which establishes concentration sensing as the dominant contribution to information processing, to the case of a circle-shaped agent of small finite size. We identify gradient sensing and a Laplacian correction to concentration sensing as the two leading-order expansion terms in the expected entropy variation. Numerically, we find that the impact of gradient sensing is most relevant because it provides direct directional information to break symmetry in likelihood distributions, which are generally circle shaped by concentration sensing."
+   },
+   {
+    "id": "https://openalex.org/W3088435168",
+    "doi": "https://doi.org/10.1103/physreve.102.032413",
+    "title": "Signaling activations through G-protein-coupled-receptor aggregations",
+    "year": 2020,
+    "oa": "https://arxiv.org/pdf/2004.07440",
+    "abstract": "Eukaryotic cells transmit extracellular signal information to cellular interiors through the formation of a ternary complex made up of a ligand (or agonist), G-protein, and G-protein-coupled receptor (GPCR). Previously formalized theories of ternary complex formation have mainly assumed that observable states of receptors can only take the form of monomers. Here, we propose a multiary complex model of GPCR signaling activations via the vector representation of various unobserved aggregated receptor states. Our results from model simulations imply that receptor aggregation processes can govern cooperative effects in a regime inaccessible by previous theories. In particular, we show how the affinity of ligand-receptor binding can be largely varied by various oligomer formations in the low concentration range of G-protein stimulus."
+   },
+   {
+    "id": "https://openalex.org/W4415177698",
+    "doi": "https://doi.org/10.1103/nz4j-tyv1",
+    "title": "Resource limitations induce phase transitions in biological information processing",
+    "year": 2025,
+    "oa": "https://doi.org/10.1103/nz4j-tyv1",
+    "abstract": "Biological information processing exhibits remarkable diversity across different organisms, which is presumably shaped by evolutionary optimization under limited resources. Starting from simple memoryless responses, more complex memory-based strategies may have evolved as resources became more available. In this Letter, we investigate minimal models of biological information processing under resource limitations by applying an optimal control technique proposed in [Tottori and Kobayashi, ]. We find that resource limitations such as sensing reliability, intrinsic stochasticity, and energy cost induce discontinuous phase transitions between memoryless and memory-based strategies, even though the minimal models fall within the standard linear-quadratic-Gaussian class. Moreover, these transitions can be nonmonotonic: Optimal information processing initially shifts from memoryless to memory-based strategies as sensing reliability increases, but then reverts to memoryless strategies if it increases further. Our results suggest that the complexity of biological information processing may be an evolvable trait that can switch back and forth between distinct strategies in a punctuated manner."
+   },
+   {
+    "id": "https://openalex.org/W4417287864",
+    "doi": "https://doi.org/10.1103/nfk6-8x5s",
+    "title": "State- versus Reaction-Based Information Processing in Biochemical Networks",
+    "year": 2026,
+    "oa": "https://doi.org/10.1103/nfk6-8x5s",
+    "abstract": "Trajectory mutual information is frequently used to quantify information transfer in biochemical systems. Tractable solutions of the trajectory mutual information can be obtained via the widely used linear-noise approximation (LNA) using Gaussian channel theory. This approach is expected to be accurate for sufficiently large systems. However, recent observations show that there are cases, where the mutual information obtained this way differs qualitatively from results derived using an exact Markov jump process formalism, and that the differences remain even in the large copy number regime. In this Letter, we show that these differences can be explained by introducing the notion of reaction- versus state-based descriptions of trajectories. In chemical systems, the information is encoded in the sequence of reaction events, and the reaction-based trajectories of Markov jump processes capture this information. We show that within the Gaussian formalism, trajectories can be defined either based on individual reaction channels, or on a state-based level, where different reaction channels are summarized into a single noise term. While both definitions agree in terms of copy number fluctuations, state-based trajectories contain in general less information than reaction-based trajectories. The commonly used Gaussian mutual information via the linear-noise approximation is consistent with a state-based trajectory notion, which causes a systematic loss of information independent of system size. We show that an alternative, reaction-based variant of the Gaussian mutual information prevents this loss of information. We illustrate the consequences of different trajectory descriptions for two common cellular reaction motifs and discuss their connection with Berg-Purcell and maximum-likelihood sensing."
+   },
+   {
+    "id": "https://openalex.org/W4417210014",
+    "doi": "https://doi.org/10.1103/sxnt-sbx9",
+    "title": "Fast Decisions with Biophysically Constrained Gene Promoter Architectures",
+    "year": 2025,
+    "oa": "https://doi.org/10.1103/sxnt-sbx9",
+    "abstract": "Cells integrate signals and make decisions about their future state in short amounts of time. A lot of theoretical effort has gone into asking how to best design gene regulatory circuits that fulfill a given function, yet much less is known about the constraints that performing that function in a small amount of time imposes on circuit architectures. Using an optimization framework, we explore the properties of a class of promoter architectures that distinguish small differences in transcription factor concentrations under time constraints. We show that the full temporal trajectory of gene activity allows for faster decisions than its integrated activity represented by the total number of transcribed mRNA. The topology of promoter architectures that allow for rapidly distinguishing low transcription factor concentrations results in a low, shallow, and noncooperative response, while at high concentrations, the response is high and cooperative. In the presence of noncognate ligands, networks with fast and accurate decision times need not be optimally selective, especially if discrimination is difficult. While optimal networks are generically out of equilibrium, the energy associated with that irreversibility is only modest and negligible at small concentrations. Instead, our results highlight the crucial role of rate-limiting steps imposed by biophysical constraints."
+   },
+   {
+    "id": "https://openalex.org/W7128166768",
+    "doi": "https://doi.org/10.1073/pnas.2520040123",
+    "title": "Theoretical limits for sensing through phase separation",
+    "year": 2026,
+    "oa": "https://doi.org/10.1073/pnas.2520040123",
+    "abstract": "Biomolecular condensates form on timescales of seconds in cells upon environmental or compositional changes. Condensate formation is thus argued to act as a mechanism for sensing such changes and quickly initiating downstream processes, such as forming stress granules in response to heat stress and amplifying cyclic GMP-AMP synthase enzymatic activity upon detection of cytosolic DNA. Here, we study a dynamical model of droplet nucleation and growth to demonstrate how phase separation allows cells to discriminate small concentration differences on finite, biologically relevant timescales. We propose optimal sensing protocols, which use the sharp onset of phase separation. We show how, given experimentally measured rates, cells can achieve rapid and robust sensing of concentration differences of [Formula: see text] on a timescale of minutes, offering an alternative to classical biochemical mechanisms."
+   },
+   {
+    "id": "https://openalex.org/W4221151487",
+    "doi": "https://doi.org/10.1063/5.0092126",
+    "title": "Improved estimation for energy dissipation in biochemical oscillations",
+    "year": 2022,
+    "oa": "https://arxiv.org/pdf/2203.08696",
+    "abstract": "Biochemical oscillations, regulating the timing of life processes, need to consume energy to achieve good performance on crucial functions, such as high accuracy of the phase period and high sensitivity to external signals. However, it is a great challenge to precisely estimate the energy dissipation in such systems. Here, based on the stochastic normal form theory, we calculate the Pearson correlation coefficient between the oscillatory amplitude and phase, and a trade-off relation between transport efficiency and phase sensitivity can then be derived, which serves as a tighter form than the estimator resulting from the conventional thermodynamic uncertainty relation. Our findings demonstrate that a more precise energy dissipation estimation can be obtained by enhancing the sensitivity of the biochemical oscillations. Moreover, the internal noise and amplitude power effects have also been discovered."
+   },
+   {
+    "id": "https://openalex.org/W4280616940",
+    "doi": "https://doi.org/10.1103/physreve.105.054406",
+    "title": "Receptor time integration via discrete sampling",
+    "year": 2022,
+    "oa": null,
+    "abstract": "Living cells can measure chemical concentrations with remarkable accuracy, even though these measurements are inherently noisy due to the stochastic binding of the ligand to the receptor. A widely used mechanism for reducing the sensing error is to increase the effective number of measurements via receptor time integration. This mechanism is implemented via the signaling network downstream of the receptor, yet how it is implemented optimally given constraints on cellular resources such as protein copies and time remains unknown. To address this question, we employ our sampling framework [Govern and ten Wolde, Proc. Natl. Acad. Sci. USA 111, 17486 (2014)PNASA60027-842410.1073/pnas.1411524111] and extend it here to time-varying ligand concentrations. This framework starts from the observation that the signaling network implements the mechanism of time integration by discretely sampling the ligand-binding state of the receptor and storing these states into chemical modification states of the readout molecules downstream. It reveals that the sensing error has two distinct contributions: a sampling error, which is determined by the number of samples, their independence, and their accuracy, and a dynamical error, which depends on the timescale that these samples are generated. We test our previously identified design principle, which states that in an optimally designed system the number of receptors and their integration time, which determine the number of independent concentration measurements at the receptor level, equals the number of readout proteins, which store these measurements. We show that this principle is robust to the dynamics of the input and the relative costs of the receptor and readout proteins: these resources are fundamental and cannot compensate each other."
+   },
+   {
+    "id": "https://openalex.org/W4366086544",
+    "doi": "https://doi.org/10.1103/physrevresearch.5.023032",
+    "title": "Theoretical upper bound of multiplexing in biological sensory receptors",
+    "year": 2023,
+    "oa": "http://link.aps.org/pdf/10.1103/PhysRevResearch.5.023032",
+    "abstract": "Biological sensory receptors provide excellent examples of microscopic scale information transduction amidst stochastic noise. We argue that stochasticity is not always a hindrance to sensing. Instead, it could allow a single stochastic sensor to perform multiplexing: simultaneously transducing multiple types of environmental information to the downstream sensory network. Through a Langevin dynamics simulation of a ligand-receptor sensor in a bath of ligands, we demonstrate that a binary-state receptor can simultaneously encode multiple independent environmental variables, such as ligand concentration and the speed of media flow. We develop a general theory of stochastic sensory multiplexing and suggest two theoretical upper bounds. Furthermore, we conjecture that randomly generated sensors typically saturate the tighter upper bound. The theoretical framework developed in this study, which involves a rank-deficient maximum likelihood analysis (rd-MLE), provides a systematic approach to comprehensively assess a sensor's sensory ability without any initial assumptions. This theoretical framework can inspire the design of more efficient artificial sensors."
+   },
+   {
+    "id": "https://openalex.org/W4405499104",
+    "doi": "https://doi.org/10.1103/prxlife.2.043019",
+    "title": "Mpemba-Like Sensory Withdrawal Effect",
+    "year": 2024,
+    "oa": "http://link.aps.org/pdf/10.1103/PRXLife.2.043019",
+    "abstract": "Biological sensors rely on the temporal dynamics of ligand concentration for signaling. The sensory performance is bounded by the distinguishability between the sensory state transition dynamics under different environmental protocols. This work presents a comprehensive theory to characterize arbitrary transient sensory dynamics of biological sensors. Here the sensory performance is quantified by the Kullback-Leibler (KL) divergence between the probability distributions of the sensor's stochastic paths. We introduce a novel benchmark to assess a sensor's transient sensory performance arbitrarily far from equilibrium. We identify a counterintuitive phenomenon in multistate sensors: while an initial exposure to high ligand concentration may hinder a sensor's sensitivity towards a future concentration up-shift, certain sensors may show a boost in sensitivity if the initial high concentration exposure is followed by a transient resetting at a low concentration environment. The boosted performance exceeds that of a sensor starting from an initially low concentration environment. This effect, reminiscent of a drug withdrawal effect, can be explained by the Markovian dynamics of the multistate sensor, similar to the Markovian Mpemba effect. Moreover, an exhaustive machine learning study of four-state sensors reveals a tight connection between the sensor's performance and the structure of the Markovian graph of its states. Published by the American Physical Society 2024"
+   },
+   {
+    "id": "https://openalex.org/W4403856132",
+    "doi": "https://doi.org/10.1098/rspb.2024.1606",
+    "title": "Constructing stability: optimal learning in noisy ecological niches",
+    "year": 2024,
+    "oa": "https://royalsocietypublishing.org/rspb/article-pdf/doi/10.1098/rspb.2024.1606/1265366/rspb.2024.1606.pdf",
+    "abstract": "Organisms can learn in response to environmental inputs as well as actively modify their environments through niche construction on slower evolutionary time scales. How quickly should an organism respond to a changing environment, and when possible, should organisms adjust the time scale of environmental change? We formulate these questions using a model of learning costs that considers optimal time scales of both memory and environment. We derive a general, sublinear scaling law for optimal memory as a function of environmental persistence. This encapsulates a trade-off between remembering and forgetting. We place learning strategies within a niche construction dynamics in a game theoretic setting. Niche construction is found to reduce or stabilize environmental volatility when learned environmental resources can be monopolized. When learned resources are shared, niche destructors evolve to degrade the shared environment. We integrate these results into a metabolic scaling framework in order to derive learning strategies as a function of body size."
+   },
+   {
+    "id": "https://openalex.org/W4414135475",
+    "doi": "https://doi.org/10.1098/rsta.2024.0261",
+    "title": "Drift velocity of bacterial chemotaxis in dynamic chemical environments",
+    "year": 2025,
+    "oa": "https://doi.org/10.1098/rsta.2024.0261",
+    "abstract": "Chemotaxis allows swimming bacteria to navigate through chemical landscapes. To date, continuum models of chemotactic populations (e.g. Patlak-Keller-Segel models) have considered bacteria responding only to spatial chemical gradients. In these models, chemotactic advection is modelled through a drift velocity proportional to the spatial chemical gradient. In nature and industry, however, bacterial populations experience dynamic, spatio-temporally varying chemical environments, such as the neighbourhood of lysing phytoplankton cells. Recent analyses have shown how temporal gradients can 'confuse' individual bacteria, impacting the precision of their gradient estimation. However, very few studies have considered how temporal gradients influence the chemotactic drift velocity of whole populations. Here, we use Monte Carlo simulations to infer the drift velocity of a population when both spatial and temporal gradients are present. We propose an ansatz for the drift velocity, which fits the simulations well. This ansatz allows us to account for how temporal gradients can significantly impact chemotaxis of bacterial populations up a spatial gradient. We explore the consequences of this new effect through a Patlak-Keller-Segel type model applied to single decaying and oscillating pulses of chemoattractant. Finally, we discuss possible biological consequences of our results and extensions of our modelling framework.This article is part of the theme issue 'Biological fluid dynamics: emerging directions'."
+   },
+   {
+    "id": "https://openalex.org/W7168129270",
+    "doi": "https://doi.org/10.1103/8gx2-rbns",
+    "title": "Balancing Information and Dissipation with Partially Observed Fluctuating Signals",
+    "year": 2026,
+    "oa": "https://doi.org/10.1103/8gx2-rbns",
+    "abstract": "Biological systems sense and extract information from fluctuating signals while operating under energetic constraints and limited resolution. We introduce a general chemical model in which a signaling pathway is activated by hidden signals and produces a readout molecule. A sensor, here modeled as an abstract optimization agent, is coupled to the signaling process and can tune the readout production. We propose viable strategies for the sensor to estimate, and eventually balance, information gathering on the hidden process and the associated dissipative cost relying solely on counting statistics of observed trajectories. We show that these strategies can be successfully implemented to adapt the readout production even with finite-time measurements and limited dynamic resolution, and remain effective in the presence of inhibitory regulatory mechanisms. Our Letter provides a plausible mechanism to actively balance information and dissipation, paving the way for an implementable design principle underpinning biological and biochemical adaptation."
+   },
+   {
+    "id": "https://openalex.org/W3136606400",
+    "doi": "https://doi.org/10.1002/cnma.202100156",
+    "title": "Composite Search of Active Particles in Three\u2010dimensional Space Based on Non\u2010directional Cues",
+    "year": 2021,
+    "oa": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/cnma.202100156",
+    "abstract": "Abstract We theoretically address minimal search strategies of self\u2010propelled particles towards hidden targets in three\u2010dimensional space. The particles can sense if targets are close, e. g., by detecting released signaling molecules, but they cannot deduce directional cues. We investigate composite search strategies, where particles switch between extensive outer search and intensive inner search; inner search is started when proximity of a target is detected and ends when a certain inner search time has elapsed. In the simplest strategy, active particles move ballistically during outer search, and transiently reduce their directional persistence during inner search. In a second, adaptive strategy, particles exploit a dynamic scattering effect by reducing directional persistence only outside a well\u2010defined target zone. These two search strategies require only minimal information processing capabilities, yet increase target encounter rates substantially. The optimal inner search time scales as power\u2010law with exponent \u22122/3 with target density, reflecting a trade\u2010off between exploration and exploitation."
+   },
+   {
+    "id": "https://openalex.org/W4400601611",
+    "doi": "https://doi.org/10.1101/2024.07.09.602750",
+    "title": "E. coli do not count single molecules",
+    "year": 2024,
+    "oa": "https://www.biorxiv.org/content/biorxiv/early/2025/08/27/2024.07.09.602750.full.pdf",
+    "abstract": "Organisms use specialized sensors to measure their environments, but the fundamental principles that determine their accuracy remain largely unknown. In Escherichia coli chemotaxis, we previously found that gradient-climbing speed is bounded by the amount of information that cells acquire from their environment, and that E. coli operate near this bound. However, it remains unclear what prevents them from acquiring more information. Past work argued that E. coli's chemosensing is limited by the physics of molecules stochastically arriving at cells' receptors, without direct evidence. Here, we show instead that E. coli are far from this physical limit. To show this, we develop a theoretical approach that uses information rates to quantify how accurately behaviorally-relevant signals can be estimated from available observations: molecule arrivals for the physical limit; chemotaxis signaling activity for E. coli. Measuring these information rates in single-cell experiments across multiple background concentrations, we find that E. coli encode two orders of magnitude less information than the physical limit. Thus, E. coli chemosensing is limited by internal noise in signal processing rather than the physics of molecule diffusion, motivating investigation of what specific physical and biological constraints shaped the evolution of this prototypical sensory system."
+   },
+   {
+    "id": "https://openalex.org/W3164905196",
+    "doi": "https://doi.org/10.11648/j.ijpbs.20210602.11",
+    "title": "\u041domeostasis as the Chemical Basis of Consciousness",
+    "year": 2021,
+    "oa": "https://article.sciencepublishinggroup.com/pdf/10.11648.j.ijpbs.20210602.11.pdf",
+    "abstract": "The general task of homeostasis, life and consciousness is to survive. Damage to the cells provokes turning on of homeostasis in them, causes an elementary negative sensation and an attempt to recover. The tension of homeostatic compensation can lead to the generation of action, corresponds to conscious decision-making and looks like a desire for life. We are developing here the idea of the connection between homeostasis and consciousness (Tsitolovsky, 2015). This makes it possible to simulate sensation, motivation, free decision making, to estimate elements of experience and to model personality. The most likely self defense tool may be chemical processes in cells, of which little is known. We explained neuron homeostasis and consciousness on the basis of imaginary, but possible chemical reactions that begin at the synapses, continue in the cytoplasm, leave traces of memory and are able to influence the decision of the neuron. Wherever possible, we tried to simplify the events taking place in living tissue, but in such a way as not to lose its function: the ability to autonomous, goal-directed behavior in an unfamiliar environment. We managed to explain many of the paradoxical properties of consciousness, which can be a collective manifestation of the elementary sensations of neurons."
+   },
+   {
+    "id": "https://openalex.org/W4283697519",
+    "doi": "https://doi.org/10.1209/0295-5075/ac9d01",
+    "title": "Learning stochastic filtering",
+    "year": 2022,
+    "oa": "https://iopscience.iop.org/article/10.1209/0295-5075/ac9d01/pdf",
+    "abstract": "Abstract We quantify the performance of approximations to stochastic filtering by the Kullback-Leibler divergence to the optimal Bayesian filter. Using a two-state Markov process that drives a Brownian measurement process as prototypical test case, we compare two stochastic filtering approximations: a static low-pass filter as baseline, and machine learning of Volterra expansions using nonlinear Vector Auto-Regression (nVAR). We highlight the crucial role of the chosen performance metric, and present two solutions to the specific challenge of predicting a likelihood bounded between 0 and 1."
+   },
+   {
+    "id": "https://openalex.org/W4395072006",
+    "doi": "https://doi.org/10.1016/j.bpj.2024.04.023",
+    "title": "Sensing a moving target: A new model reveals how cells sense dynamic signals",
+    "year": 2024,
+    "oa": "https://doi.org/10.1016/j.bpj.2024.04.023",
+    "abstract": ""
+   },
+   {
+    "id": "https://openalex.org/W4416238591",
+    "doi": "https://doi.org/10.1103/5ynb-7k4v",
+    "title": "Theoretical Analysis of Resource-Induced Phase Transitions in Estimation Strategies",
+    "year": 2026,
+    "oa": "https://doi.org/10.1103/5ynb-7k4v",
+    "abstract": "Organisms adapt to volatile environments by integrating sensory information with internal memory, yet their information processing is constrained by resource limitations. Such limitations can fundamentally alter optimal estimation strategies in biological systems. For example, recent experiments suggest that organisms exhibit phase transitions between memoryless and memory-based estimation strategies depending on energy availability and sensory reliability. However, a theoretical understanding of how resource limitations induce these transitions is still missing. This Letter presents an analytical characterization of the resource-induced phase transitions in optimal estimation strategies. Our results identify the conditions under which resource limitations alter estimation strategies and analytically reveal the mechanism underlying the emergence of discontinuous, nonmonotonic, and scaling behaviors. These results provide a theoretical foundation for understanding how limited resources shape information processing in biological systems."
+   },
+   {
+    "id": "https://openalex.org/W4417537189",
+    "doi": "https://doi.org/10.1103/jrph-wj94",
+    "title": "Quantification of Information Flow by Dual Reporter System and Its Application to Bacterial Chemotaxis",
+    "year": 2026,
+    "oa": "https://doi.org/10.1103/jrph-wj94",
+    "abstract": "Mutual information is a theoretically grounded metric for quantifying cellular signaling pathways. However, its measurement demands characterization of both input and output distributions, limiting practical applications. Here, we present alternative method that alleviates this requirement using dual reporter systems. By extending extrinsic-intrinsic noise analysis, we derive a mutual information estimator that eliminates the need to measure input distribution. We demonstrate our method by analyzing the bacterial chemotactic pathway, regarding multiple flagellar motors as natural dual reporters. We show the biological relevance of the measured information flow by comparing it with theoretical bounds on sensory information. This framework opens new directions for quantifying information flow in cellular signaling pathways."
+   },
+   {
+    "id": "https://openalex.org/W7127297873",
+    "doi": "https://doi.org/10.1103/b6b7-s4hx",
+    "title": "You ain't Seen Nothing and Yet: Future Biochemical Concentrations can be Predicted with Surprisingly High Accuracy",
+    "year": 2026,
+    "oa": "https://doi.org/10.1103/b6b7-s4hx",
+    "abstract": "Accurate sensing of chemical concentrations is essential for numerous biological processes. The accuracy of this sensing, for small numbers of molecules, is limited by shot noise. Corresponding theoretical limits on sensing precision, as a function of sensing duration, have been well studied in the context of quasistatic and randomly fluctuating concentrations. However, during development and in many other cases, concentration profiles are not random but exhibit predictable spatiotemporal patterns. We propose that leveraging prior knowledge of these structured profiles can improve and accelerate concentration sensing by utilizing information from current molecular binding events to predict future concentrations. By framing the constrained sensing problem as Bayesian inference over an allowed class of spatiotemporal profiles, we derive new theoretical limits on sensing accuracy. Our analysis reveals that maximum estimation can outperform the classical Berg-Purcell and maximum-likelihood (Poisson counting) limits, achieving a sensing precision of \u03b4 c / c = 1 / a 2 N , where N is the number of binding events, and a > 1 in certain cases. Thus knowledge of the statistical structure of concentration profiles enhances sensing precision, providing a potential explanation for the rapid yet highly accurate cell fate decisions observed during development."
+   },
+   {
+    "id": "https://openalex.org/W7130316897",
+    "doi": "https://doi.org/10.1016/j.cels.2025.101507",
+    "title": "The hierarchical timescale hypothesis: Functional and structural convergence of biological networks and artificial neural nets",
+    "year": 2026,
+    "oa": null,
+    "abstract": ""
+   },
+   {
+    "id": "https://openalex.org/W7132989043",
+    "doi": null,
+    "title": "Mesoscopic Models of Cellular Signaling Reveal Strategies for Specificity in Crosstalk Signal Pathways",
+    "year": 2023,
+    "oa": "https://utoronto.scholaris.ca/bitstreams/833c7798-f6e4-4e52-9433-b315aac42d7e/download",
+    "abstract": "Successful cellular signal processing strategies must be robust to stochastic fluctuations and yet sensitive to small differences between molecular signals, often in a signaling environment containing many cross-wired signals. Understanding how cells overcome challenges posed by signal crosstalk is important for our understanding of immune processes such as the initiation of anti-viral defenses by Type I Interferon signaling, or kinetic proofreading by T cell receptors. This thesis addresses several interrelated problems regarding molecular mechanisms for distinguishing signals and managing stochastic fluctuations for reliable cellular decision making in situations with signal crosstalk. Despite systematic categorization and highly detailed structural descriptions of the various molecular signals involved in the immune response, quantitative predictions of immune behaviour are difficult.Immune signaling pathways involve many sequential molecular interactions, and this organizational complexity presents a significant barrier to modeling immune processes. In this thesis, I study how receptor signaling dynamics contribute to signal processing specificity in situations with signal crosstalk. I use the Type I Interferon signaling pathway as a model system to study signal crosstalk and I develop a computational model of this pathway to investigate how the Interferon receptor performs signal discrimination. I use mesoscopic modeling to capture key features of complex signal pathways and to capture the intrinsic stochasticity of receptor signaling dynamics, without directly modeling every known molecular detail of these signaling systems. Using this approach, I show that the intrinsic stochasticity of kinetic proofreading receptors fundamentally constrains the robustness to fluctuations of downstream signal processing. Both the Interferon receptor and the kinetic proofreading receptor exhibit deficiencies in achieving specificity in crosstalk signal pathways. I develop a minimal model for a receptor with multiple outputs which can overcome these deficiencies to simultaneously identify and accurately sense the concentrations of arbitrary unknown ligands present individually or in a mixture, even in the presence of stochasticity. As a whole, this thesis focuses on the dynamical factors of cell signaling which contribute to specificity in noisy crosstalk signal pathways."
+   },
+   {
+    "id": "https://openalex.org/W7164820646",
+    "doi": "https://doi.org/10.1103/wtrw-345p",
+    "title": "Accuracy of directional chemosensing via signaling cascades",
+    "year": 2026,
+    "oa": null,
+    "abstract": "Cells interpret noisy biochemical signals with remarkable precision, raising fundamental questions about the limits of sensing. While receptor-level constraints in chemosensing are well characterized, the role of intracellular signaling remains underexplored. We develop a theoretical framework combining stochastic simulations and analytical methods to quantify the accuracy of spatial gradient detection via readout of the cellular response triggered by a linear signaling cascade. Our analysis reveals striking robustness: directional sensing accuracy is unaffected by cytoplasmic activation rates and remains stable under deactivation rates that are much faster or slower than the rest, a regime frequently observed in natural signaling cascades. This robustness persists under nonlinear output transformations that mimic amplification processes such as actin polymerization. Counterintuitively, under certain conditions, downstream readouts improve directional accuracy by extending the effective integration time set by intracellular dynamics."
+   }
+  ]
+ }
+}

@@ -130,9 +130,18 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **SPF-NOTE-EDITS** (w 1, c 0.5). Proposed THEORY §2.4/§8c and FRAMEWORK §3 notes from SPF-NOISE-PROXY; independent review before merge.
 - Note on **SPF-AQN-POWERED**: its S-a rationale is withdrawn (surprise → none); any powered version uses L0w and the horizon check.
 
-**Pick 4 done (ledger 31). Next pick (5) is the rule slot: rule's top among open non-active items (log a fresh unaided order first).**
+**Pick 4 done (ledger 31).**
+
+### NEW (15 Nov ~11:20 AM ET, from PRIORART-LFK-ALPHA; surprises read per rule 4)
+- **PRIORART-LFK-ALPHA** — DONE (pick 5, rule slot; ledger 32–35): `reviews/night2/PRIORART_LFK_ALPHA/REPORT.md`, lock `44e1963`. N11 PRIOR ART (in substance) → **PRIOR ART (stated in mapped form)**: Bialek, Callan & Strong 1996 state the smoothing scale ξ ∼ (ℓ^{2α_B−D}/NQ)^{1/2α_B}, i.e. (N/q)^{1/α} and ℓ^{1−1/α} with α = 2α_B. Afterman 2022 / Kleptsyna 2020 state only the error rate. Surprise: Bayes-optimal adaptation to a switching world scales ∝ ln τ, not √τ (Conti & Mora 2022; reproduced in-model). THEORY edits E1–E3 proposed, not applied.
+- **TELEGRAPH-LINEAR-PREMISE** (w 3, c 1.5). The spectrum sets memory-time exponents only for Gaussian worlds or linear trackers; derive event-world exponents under the Bayes optimum; audit event-world tests.
+- **PRIORART-CREDIT-EDITS** (w 1, c 0.5). Apply E1/E3 credit edits after independent review.
+- **PRIORART-ENGINEERING-READ** (w 1, c 1). Banerjee PLL bandwidth, a clock-steering primary, Tsybakov; unread citers.
+
+**Pick 5 done (ledger 35). Next pick (6) is the rule slot again (cycle rule, rule, unaided, uniform restarts at pick 5): rule's top among open non-active items (log a fresh unaided order first).**
 
 ## Done (frozen)
+- PRIORART-LFK-ALPHA: `reviews/night2/PRIORART_LFK_ALPHA/` (not refereed; credit edits queued).
 - SPF-NOISE-PROXY: `tests/SPF_NOISE_PROXY/` (not refereed; NOISE-PROXY-REFEREE queued).
 - MEASURE-SELF: `reviews/night2/SELF/` (refereed; re-read under THEORY §2.5 in §8c).
 - VIGIL_ONA: `prereg/vigil-ona/` (refereed).
