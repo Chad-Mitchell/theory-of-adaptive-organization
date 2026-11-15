@@ -1,0 +1,62 @@
+UNEMP    n=195 beta=0.818 (NW se 0.230) D/vf=0.045 pred GTAO=0.670 alpha2=8.085 K=0.0267
+INDPROD  excluded by E4 (se 0.509)
+HOUSING  n=195 beta=1.470 (NW se 0.286) D/vf=0.116 pred GTAO=1.219 alpha2=2.708 K=0.206
+TBILL    n=149 beta=0.623 (NW se 0.179) D/vf=0.031 pred GTAO=0.618 alpha2=2.917 K=0.0448
+BOND     n=136 beta=-0.017 (NW se 0.225) D/vf=0.046 pred GTAO=2.821 alpha2=6.647 K=0.272
+TBOND    n=108 beta=-0.066 (NW se 0.150) D/vf=0.059 pred GTAO=2.825 alpha2=8.313 K=0.346
+RSLGOV   n=149 beta=0.599 (NW se 0.473) D/vf=1.622 pred GTAO=7.625 alpha2=8.124 K=11.3
+{
+ "point": {
+  "MAE_G": 2.1397052184987575,
+  "MAE_S": 1.8946604991085598,
+  "MAE_M": 3.1480115517713734,
+  "MAE_N": 1.3611528450700205,
+  "slope": -0.8102286274485443
+ },
+ "n_vars": 6,
+ "dGS": [
+  -1.7549138754971105,
+  2.24421840035308
+ ],
+ "dGN": [
+  -1.0436057665324538,
+  2.3325410776185755
+ ],
+ "dGM": [
+  -1.3957911178454478,
+  0.28772075340422465
+ ],
+ "slope_ci": [
+  -2.188364929569662,
+  0.9565783444442972
+ ],
+ "n_boot": 2000,
+ "n_beta_nonpos": 2,
+ "verdict_primary": "INCONCLUSIVE (fewer than 8 variables)",
+ "verdict_alpha": "inconclusive",
+ "S1_tauE_slope": {
+  "point": -1.9334049133914102,
+  "ci": [
+   -3.573349316328591,
+   -0.3805642003689708
+  ],
+  "pred_1_minus_1_over_alpha": 0.6133959468468303,
+  "pred_ci": [
+   0.5630435124954426,
+   0.6755245509990897
+  ],
+  "rivals": {
+   "LFK": 0.5,
+   "S2.2_B": 1.0,
+   "fixed_q": 0.0
+  }
+ },
+ "S2_noise_scaling": {
+  "slope_logK_on_logq": -0.6159057116705219,
+  "ci": [
+   -3.9967047381365144,
+   2.889811268047311
+  ],
+  "note": "A1 (noise proportional to variance) predicts 0; noise proportional to short-timescale volatility predicts about 1"
+ }
+}

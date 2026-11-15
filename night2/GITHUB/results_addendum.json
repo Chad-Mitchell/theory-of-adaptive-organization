@@ -1,0 +1,11 @@
+{
+ "n_spells": 641,
+ "mean": 4.140405616224649,
+ "zeta_alpha": 1.7508054956898855,
+ "dAIC_geom_minus_zeta": 115.10226657833982,
+ "regime": "B",
+ "units_tested": 25,
+ "units_reject_geom": 11,
+ "P1R": "KILL-CONDITION",
+ "P1R_vs_regimeB_band_descriptive": "KILL-CONDITION"
+}

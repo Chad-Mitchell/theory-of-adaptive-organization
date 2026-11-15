@@ -1,0 +1,8 @@
+fixed q=1, N=1; sqrt(qN)=1.0000 (alpha=2 linear asymptote e* = q^1/2 N^1/2)
+       lam         mu      kappa      lin_MSE    bayes_MSE   bayes_quad
+   1.0e-05    158.114   4.00e-10      0.99998      0.00044      0.00044
+   1.0e-04     50.000   4.00e-08      0.99980      0.00343      0.00343
+   1.0e-03     15.811   4.00e-06      0.99800      0.02509      0.02509
+   1.0e-02      5.000   4.00e-04      0.98020      0.15830      0.15830
+linear MSE range / mean: 0.020 ; Bayes MSE max/min: 363.81
+PASS: at fixed (q, N) the linear optimum barely moves (leading order sqrt(qN)); the Bayes optimum moves by >3x

@@ -1,0 +1,13 @@
+Asymptotic SE(alpha) from expected Whittle information at the truth (q = 1), and n needed for SE(alpha) <= 0.05 (95% CI about +/-0.1)
+  alpha=1.4 w_c=0.005: SE at n=512..131072: [7.879, 1.45, 0.44, 0.179, 0.082]; first n with SE<=0.05: >131072 (~354042 by n^-1/2 extrapolation)
+  alpha=1.4 w_c=0.05: SE at n=512..131072: [0.721, 0.263, 0.115, 0.055, 0.027]; first n with SE<=0.05: 131072
+  alpha=1.4 w_c=0.5: SE at n=512..131072: [0.223, 0.1, 0.048, 0.023, 0.012]; first n with SE<=0.05: 8192
+  alpha=1.4 w_c=3.0: SE at n=512..131072: [0.164, 0.076, 0.037, 0.018, 0.009]; first n with SE<=0.05: 8192
+  alpha=2.0 w_c=0.005: SE at n=512..131072: [25.852, 2.337, 0.567, 0.218, 0.098]; first n with SE<=0.05: >131072 (~502365 by n^-1/2 extrapolation)
+  alpha=2.0 w_c=0.05: SE at n=512..131072: [0.871, 0.3, 0.129, 0.061, 0.03]; first n with SE<=0.05: 131072
+  alpha=2.0 w_c=0.5: SE at n=512..131072: [0.199, 0.09, 0.043, 0.021, 0.011]; first n with SE<=0.05: 8192
+  alpha=2.0 w_c=3.0: SE at n=512..131072: [0.124, 0.058, 0.029, 0.014, 0.007]; first n with SE<=0.05: 8192
+  alpha=2.6 w_c=0.005: SE at n=512..131072: [76.281, 3.11, 0.634, 0.236, 0.105]; first n with SE<=0.05: >131072 (~576014 by n^-1/2 extrapolation)
+  alpha=2.6 w_c=0.05: SE at n=512..131072: [0.977, 0.323, 0.137, 0.064, 0.031]; first n with SE<=0.05: 131072
+  alpha=2.6 w_c=0.5: SE at n=512..131072: [0.194, 0.088, 0.042, 0.021, 0.01]; first n with SE<=0.05: 8192
+  alpha=2.6 w_c=3.0: SE at n=512..131072: [0.108, 0.051, 0.025, 0.012, 0.006]; first n with SE<=0.05: 8192

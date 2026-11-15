@@ -1,0 +1,28 @@
+== 1. Generic linear-Gaussian tracker: error E(q,r) = K q^u r^(1-u) (degree-1 homogeneous) ==
+ a = theta/(theta - u + 1)  b = theta*u/(theta - u + 1)
+ onset exponent -(1-b)/(1-a) = -theta - 1   (u = the only place the spectrum enters)
+ with u=1/alpha: a = alpha*theta/(alpha*(theta + 1) - 1) ; b = theta/(alpha*(theta + 1) - 1)
+ small-share vigilance exponent in SPEND units (b-a)/(1-a) = -theta
+ ... in PRECISION units (precision = spend^(1/theta) up to a constant) = -1
+ spend share of phi at (W,q)=(1,1),(50,0.01),(0.02,300): [0.315789473684, 0.315789473684, 0.315789473684] ; theory (1-u)/(1-u+theta) = 0.315789473684
+
+== 2. Homogeneity is exact for any spectrum shape (linear estimator, Gaussian) ==
+ Scaling signal spectrum S and noise density r by lam leaves the Wiener/Kalman gain unchanged and multiplies the
+ MMSE by lam, so E(lam q, lam r) = lam E(q, r); power-law spectra add E = q*g(r/q) with g a power -> E = K q^u r^(1-u).
+ Yovits-Jackson causal MMSE for S = q|w|^-alpha:  (r/2pi) Int ln(1+q/(r w^alpha)) dw
+  alpha=2: Int_0^inf ln(1+x^-2) dx = pi ; pi/sin(pi/alpha) = pi
+  alpha=4: Int_0^inf ln(1+x^-4) dx = sqrt(2)*pi ; pi/sin(pi/alpha) = sqrt(2)*pi
+  -> MMSE = q^(1/alpha) r^(1-1/alpha)/sin(pi/alpha), i.e. u = 1/alpha, any alpha>1 (integral converges iff alpha>1)
+
+== 3. Reset reads (exact reads, hold or rescaling-closed predictor): loss depends on (W,q) only via W*q ==
+ a = (2**((4*H + 1)/(2*H + 1))*H + 4**(H/(2*H + 1)))/(4**(H/(2*H + 1))*(4*H**2 + 4*H + 1)) ; numeric a,b at H=0.3,W=2,q=5: [0.625000000000, 0.625000000000] ; 1/(1+2H) = 0.625 ; onset = -1
+
+== 4. Information-rate (entropy) pricing, any alpha: Duncan: info rate = MMSE/(2r) ==
+ a = 1/alpha  b = 1/alpha  onset = -1 (a=b: same class as reset reads)
+
+== 5. Edge alpha -> 1+ for priced precision ==
+ lim a = 1  lim b = 1
+  theta=1/2: Pi* = b^(-1/(1-a)) at alpha->1+ : exp(3/2) ; at alpha=2: 16
+  theta=1: Pi* = b^(-1/(1-a)) at alpha->1+ : exp(2) ; at alpha=2: 27
+  theta=2: Pi* = b^(-1/(1-a)) at alpha->1+ : exp(3) ; at alpha=2: 3125/32
+ spend share of info at alpha->1: 0 (sensing worthless: E indep of r)

@@ -1,0 +1,30 @@
+{
+ "tau=100,dt=0.004": {
+  "mean_tA": 2.220979,
+  "se": 0.020478090716415678,
+  "mean_L0": 5.40263890586113,
+  "censored": 0.0,
+  "Siegmund_discrete_monitoring_bias\u22480.5826*sigma*sqrt(dt)/|drift|": 0.03684685929628195
+ },
+ "tau=100,dt=0.001": {
+  "mean_tA": 2.2182965,
+  "se": 0.019618902706240674,
+  "mean_L0": 5.404051917800367,
+  "censored": 0.0,
+  "Siegmund_discrete_monitoring_bias\u22480.5826*sigma*sqrt(dt)/|drift|": 0.018423429648140977
+ },
+ "tau=10000,dt=0.004": {
+  "mean_tA": 4.602809000000001,
+  "se": 0.03138046995154391,
+  "mean_L0": 10.00411142548925,
+  "censored": 0.0,
+  "Siegmund_discrete_monitoring_bias\u22480.5826*sigma*sqrt(dt)/|drift|": 0.03684685929628195
+ },
+ "tau=10000,dt=0.001": {
+  "mean_tA": 4.5427155,
+  "se": 0.030519267885467657,
+  "mean_L0": 10.043854304289697,
+  "censored": 0.0,
+  "Siegmund_discrete_monitoring_bias\u22480.5826*sigma*sqrt(dt)/|drift|": 0.018423429648140977
+ }
+}

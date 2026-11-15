@@ -1,0 +1,34 @@
+E ci=0 cox par=0.5 n=8192 reps=100
+  pseudo-true (logq, alpha, logs2) [-7.507, 1.448, -0.693] (s2 true = mean count 0.5)
+  alpha      truth    1.448 bias +0.041 (median -0.018) RMSE 0.470 cov95 0.91 (n=100) meanSE 0.453
+  log q      truth   -7.507 bias -0.175 (median +0.290) RMSE 2.321 cov95 0.90 (n=100) meanSE 2.265
+  alpha fix  truth    1.448 bias +0.087 (median +0.015) RMSE 0.456 cov95 0.97 (n=100) meanSE 0.452
+  logq fix   truth   -7.507 bias -0.417 (median +0.144) RMSE 2.325 cov95 0.97 (n=100) meanSE 2.266
+  free floor / mean: median 0.998 [0.959, 1.025]; alpha median 1.430; gap-order z median 1.96, share z > 1.96: 0.50
+E ci=1 cox par=5.0 n=8192 reps=100
+  pseudo-true (logq, alpha, logs2) [-2.979, 1.465, 1.611] (s2 true = mean count 5.0)
+  alpha      truth    1.465 bias -0.003 (median -0.007) RMSE 0.139 cov95 0.95 (n=100) meanSE 0.142
+  log q      truth   -2.979 bias +0.072 (median +0.076) RMSE 0.527 cov95 0.95 (n=100) meanSE 0.553
+  alpha fix  truth    1.465 bias -0.008 (median -0.014) RMSE 0.134 cov95 0.94 (n=100) meanSE 0.129
+  logq fix   truth   -2.979 bias +0.091 (median +0.075) RMSE 0.502 cov95 0.94 (n=100) meanSE 0.492
+  free floor / mean: median 1.000 [0.971, 1.033]; alpha median 1.458; gap-order z median 7.21, share z > 1.96: 0.98
+E ci=2 cox par=5.0 n=32768 reps=50
+  pseudo-true (logq, alpha, logs2) [-2.98, 1.466, 1.611] (s2 true = mean count 5.0)
+  alpha      truth    1.466 bias +0.003 (median +0.001) RMSE 0.074 cov95 0.94 (n=50) meanSE 0.073
+  log q      truth   -2.980 bias +0.003 (median +0.021) RMSE 0.281 cov95 0.92 (n=50) meanSE 0.288
+  alpha fix  truth    1.466 bias -0.004 (median -0.005) RMSE 0.066 cov95 0.94 (n=50) meanSE 0.067
+  logq fix   truth   -2.980 bias +0.035 (median +0.046) RMSE 0.245 cov95 0.94 (n=50) meanSE 0.257
+  free floor / mean: median 1.003 [0.988, 1.016]; alpha median 1.467; gap-order z median 19.22, share z > 1.96: 1.00
+E ci=3 mmpp par=0.002 n=8192 reps=100
+  loglam     truth   -6.215 bias -0.072 (median -0.048) RMSE 0.273 cov95 0.98 (n=100) meanSE 0.268
+  r0 median 1.000 (1.0)  r1 median 3.004 (3.0)
+E ci=4 mmpp par=0.01 n=8192 reps=100
+  loglam     truth   -4.605 bias -0.010 (median -0.003) RMSE 0.131 cov95 0.96 (n=100) meanSE 0.128
+  r0 median 1.003 (1.0)  r1 median 3.000 (3.0)
+E ci=5 mmpp par=0.002 n=32768 reps=50
+  loglam     truth   -6.215 bias -0.021 (median -0.020) RMSE 0.127 cov95 0.98 (n=50) meanSE 0.130
+  r0 median 1.000 (1.0)  r1 median 3.000 (3.0)
+E ci=6 renewal par=1.5 n=8192 reps=100
+  free floor / mean: median 0.333 [0.000, 0.686]; alpha median 0.521; gap-order z median 0.07, share z > 1.96: 0.04
+E ci=7 renewal par=1.5 n=32768 reps=50
+  free floor / mean: median 0.386 [0.073, 0.588]; alpha median 0.528; gap-order z median 0.21, share z > 1.96: 0.02

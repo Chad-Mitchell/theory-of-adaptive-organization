@@ -1,0 +1,25 @@
+{'gamma': 0.503, 's': 1.149, 'r': np.float64(0.0263), 'a_need': 0.083, 'beta': 0.037, 'n_files': 60}
+{'gamma': 0.853, 's': 0.95, 'r': np.float64(0.0258), 'a_need': 0.176, 'beta': 0.077, 'n_files': 60}
+{'gamma': 0.75, 's': 0.967, 'r': np.float64(0.0176), 'a_need': 0.107, 'beta': 0.041, 'n_files': 60}
+{'gamma': 0.526, 's': 1.035, 'r': np.float64(0.013), 'a_need': 0.042, 'beta': 0.019, 'n_files': 57}
+{'gamma': 0.68, 's': 0.569, 'r': np.float64(0.0107), 'a_need': 0.004, 'beta': 0.015, 'n_files': 47}
+{'gamma': 0.563, 's': 1.551, 'r': np.float64(0.0243), 'a_need': 0.207, 'beta': 0.081, 'n_files': 60}
+{'gamma': 1.172, 's': 1.483, 'r': np.float64(0.0159), 'a_need': 0.451, 'beta': 0.261, 'n_files': 60}
+{'gamma': 0.866, 's': 0.996, 'r': np.float64(0.0288), 'a_need': 0.213, 'beta': 0.101, 'n_files': 60}
+{'gamma': 0.826, 's': 1.135, 'r': np.float64(0.0138), 'a_need': 0.163, 'beta': 0.058, 'n_files': 59}
+{'gamma': 0.406, 's': 1.405, 'r': np.float64(0.0465), 'a_need': 0.148, 'beta': 0.068, 'n_files': 60}
+{'gamma': 0.944, 's': 1.188, 'r': np.float64(0.0282), 'a_need': 0.319, 'beta': 0.168, 'n_files': 60}
+{'gamma': 1.087, 's': 1.451, 'r': np.float64(0.0286), 'a_need': 0.492, 'beta': 0.305, 'n_files': 60}
+{'gamma': 0.418, 's': 1.235, 'r': np.float64(0.0129), 'a_need': 0.067, 'beta': 0.041, 'n_files': 59}
+{'gamma': 0.739, 's': 0.663, 'r': np.float64(0.0208), 'a_need': 0.01, 'beta': 0.021, 'n_files': 60}
+{'gamma': 0.8, 's': 0.813, 'r': np.float64(0.0438), 'a_need': 0.141, 'beta': 0.098, 'n_files': 60}
+{'gamma': 1.041, 's': 1.432, 'r': np.float64(0.0267), 'a_need': 0.433, 'beta': 0.25, 'n_files': 60}
+{'gamma': 1.052, 's': 0.51, 'r': np.float64(0.0476), 'a_need': 0.098, 'beta': 0.055, 'n_files': 60}
+{'gamma': 0.872, 's': 1.354, 'r': np.float64(0.0279), 'a_need': 0.341, 'beta': 0.186, 'n_files': 60}
+{'gamma': 0.979, 's': 0.714, 'r': np.float64(0.0102), 'a_need': 0.09, 'beta': 0.03, 'n_files': 26}
+{'gamma': 0.777, 's': 1.659, 'r': np.float64(0.0168), 'a_need': 0.313, 'beta': 0.138, 'n_files': 60}
+{'gamma': 0.597, 's': 1.08, 'r': np.float64(0.0229), 'a_need': 0.102, 'beta': 0.066, 'n_files': 60}
+{'gamma': 0.41, 's': 1.235, 'r': np.float64(0.0273), 'a_need': 0.071, 'beta': 0.023, 'n_files': 60}
+{'gamma': 0.898, 's': 1.28, 'r': np.float64(0.0184), 'a_need': 0.277, 'beta': 0.127, 'n_files': 60}
+{'gamma': 1.038, 's': 1.68, 'r': np.float64(0.03), 'a_need': 0.544, 'beta': 0.34, 'n_files': 60}
+{'n': 24, 'spearman_beta_a': 0.975, 'p': 7.335958694340969e-16}
