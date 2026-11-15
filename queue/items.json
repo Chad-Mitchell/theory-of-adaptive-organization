@@ -17,7 +17,8 @@
   "untested": true,
   "v": 0.6,
   "L": 4,
-  "c": 4
+  "c": 4,
+  "note": " | SPECTRUM-MAP-FIXES (pick 26): do not lock the 0.14 constant; one-store excess is c(alpha-2)^2 with c model- and span-dependent (0.03-0.11 in the c3 model); compute c for the simulated model before lock."
  },
  {
   "id": "SELF-2",
@@ -208,7 +209,8 @@
   "v": 0.9,
   "L": 2,
   "c": 0.5,
-  "note": "apply SPECTRUM_MAP_REFEREE §8 as an erratum; item 1 applied in THEORY v1.4 PR (15 Nov); items 2-8 remain"
+  "note": "apply SPECTRUM_MAP_REFEREE §8 as an erratum; item 1 applied in THEORY v1.4 PR (15 Nov); items 2-8 remain | DONE 15 Nov ~5:45 PM ET (pick 26, RULE slot; ledger 120-122 + outcome 123): items 2-8 applied as dated errata in SPECTRUM_MAP/README.md; own checks A-D; referee's one-store constant 0.14 corrected (unpolished c3 K=1 fit; c ~ 0.03-0.11 in-model); d3s_shuffle_repro.py bit-reproducible, S1 PASS reproduces. THEORY N4/§2.2 store-row numeric edit: separate PR #51, DO NOT MERGE (STORE-COEF-REVIEW).",
+  "status": "DONE"
  },
  {
   "id": "AQN-ESTIMATORS",
@@ -866,5 +868,14 @@
   "L": 2,
   "c": 1,
   "note": "From CAUSAL-KILL-MAGNITUDE (pick 24): separate reviewer (authored none of the pick-24 note, checks or PR #48) re-derives the false-kill/power table with own code and passes or fails PR #48 (THEORY v1.4.7 PROPOSED: explicit share kappa in the N6/§9 causal kill, 0 < kappa <= 1/2, prediction scaled by measured adjustment share s and input reliability lambda). Open questions: cap kappa <= 1/4 for linear-locked tests until a jump-sensitive premise test exists (Bayes switching design vs default linear lock killed 45% at kappa 1/2, 1% at 1/4); effect of estimation error in s and lambda (not modelled); FRAMEWORK MV10 pointer to N6's kappa after merge. Kill-condition edit: Chad t1916."
+ },
+ {
+  "id": "STORE-COEF-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.9,
+  "L": 2,
+  "c": 0.5,
+  "note": "From SPECTRUM-MAP-FIXES (pick 26): separate reviewer (authored none of pick 26) re-derives the one-store excess constant c in excess ~ c(alpha-2)^2 with own code (c3 model with polished K=1 rate; scale-free one-EWMA model) and passes or fails the q-pick26-theory PR #51 (THEORY N4 and §2.2 store row: 0.14 -> c ~ 0.03-0.2, model- and span-dependent). Core-table numeric: Chad t1916."
  }
 ]
