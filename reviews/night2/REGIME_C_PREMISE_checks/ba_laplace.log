@@ -1,0 +1,32 @@
+/tmp/pick18/reviews/night2/REGIME_C_PREMISE_checks/ba_rd.py:19: RuntimeWarning: overflow encountered in exp
+  return float(np.exp(np.max(-u*yy**2 + logsumexp(np.log(p)[None, :] + 2*u*np.outer(yy, x), axis=1))))
+laplace u=8 d=0.06245 Rup=1.314 Rlo=1.314 it=29999 cmax0=inf
+laplace u=6.716 d=0.07438 Rup=1.226 Rlo=1.226 it=29999 cmax0=inf
+laplace u=5.637 d=0.08857 Rup=1.139 Rlo=1.139 it=29999 cmax0=inf
+laplace u=4.732 d=0.10545 Rup=1.052 Rlo=1.052 it=29999 cmax0=inf
+laplace u=3.973 d=0.12554 Rup=0.9652 Rlo=0.9651 it=29999 cmax0=inf
+laplace u=3.335 d=0.14939 Rup=0.8785 Rlo=0.8784 it=29999 cmax0=inf
+laplace u=2.799 d=0.17768 Rup=0.7922 Rlo=0.792 it=29999 cmax0=inf
+laplace u=2.35 d=0.21120 Rup=0.7063 Rlo=0.706 it=29999 cmax0=inf
+laplace u=1.973 d=0.25055 Rup=0.6217 Rlo=0.6199 it=29999 cmax0=inf
+laplace u=1.656 d=0.29704 Rup=0.5378 Rlo=0.5351 it=29999 cmax0=5.214e+274
+laplace u=1.39 d=0.35095 Rup=0.456 Rlo=0.4502 it=29999 cmax0=2.859e+228
+laplace u=1.167 d=0.41343 Rup=0.3764 Rlo=0.371 it=29999 cmax0=4.209e+189
+laplace u=0.9796 d=0.48419 Rup=0.3008 Rlo=0.2932 it=29999 cmax0=1.07e+157
+laplace u=0.8223 d=0.56373 Rup=0.2294 Rlo=0.2227 it=29999 cmax0=4.703e+129
+laplace u=0.6903 d=0.64765 Rup=0.1662 Rlo=0.1531 it=29999 cmax0=5.171e+106
+laplace u=0.5795 d=0.73279 Rup=0.1123 Rlo=0.0908 it=29999 cmax0=2.809e+87
+laplace u=0.4864 d=0.81400 Rup=0.06909 Rlo=0.05188 it=29999 cmax0=1.932e+71
+laplace u=0.4083 d=0.88308 Rup=0.03817 Rlo=0.03457 it=29999 cmax0=5.363e+57
+laplace u=0.3428 d=0.93625 Rup=0.01814 Rlo=0.01652 it=29999 cmax0=2.298e+46
+laplace u=0.2877 d=0.97066 Rup=0.007232 Rlo=0.006651 it=29999 cmax0=6.792e+36
+laplace u=0.2416 d=0.98900 Rup=0.002338 Rlo=0.002332 it=21800 cmax0=7.034e+28
+laplace u=0.2028 d=0.99680 Rup=0.0005833 Rlo=0.000574 it=12800 cmax0=1.447e+22
+laplace u=0.1702 d=0.99931 Rup=0.0001076 Rlo=9.929e-05 it=17800 cmax0=3.669e+16
+laplace u=0.1429 d=0.99990 Rup=1.4e-05 Rlo=5.154e-06 it=7800 cmax0=7.699e+11
+laplace u=0.1199 d=1.00002 Rup=2.808e-06 Rlo=-6.703e-06 it=6400 cmax0=9.577e+07
+laplace u=0.1007 d=1.00000 Rup=5.698e-08 Rlo=-9.831e-06 it=23000 cmax0=5.349e+04
+laplace u=0.08452 d=1.00006 Rup=1.361e-06 Rlo=-8.288e-06 it=7600 cmax0=106.7
+laplace u=0.07095 d=1.00011 Rup=1.52e-06 Rlo=-7.667e-06 it=8000 cmax0=1
+laplace u=0.05956 d=1.00013 Rup=1.24e-06 Rlo=-7.927e-06 it=9000 cmax0=1
+laplace u=0.05 d=1.00017 Rup=1.086e-06 Rlo=-8.689e-06 it=10000 cmax0=1

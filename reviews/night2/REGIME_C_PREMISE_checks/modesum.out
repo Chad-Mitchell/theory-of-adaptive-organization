@@ -1,0 +1,214 @@
+{
+ "bound_G_le_u": {
+  "gauss": -0.05,
+  "uniform": -0.05,
+  "laplace": -0.05,
+  "bern02": -0.05
+ },
+ "join_at_umax": {
+  "gauss": -1.3322676295501878e-12,
+  "uniform": 0.034082875535240253,
+  "laplace": -0.00014432299317057584,
+  "bern02": 0.0
+ },
+ "fits": {
+  "gauss|beta=0.6|tail=zero": {
+   "fit": 1.6769,
+   "local_last": 1.6678,
+   "theory": 1.6667,
+   "B_last_nats": 3002.1393207105484
+  },
+  "gauss|beta=0.6|tail=linear": {
+   "fit": 1.6769,
+   "local_last": 1.6678,
+   "theory": 1.6667,
+   "B_last_nats": 3002.1393207105484
+  },
+  "uniform|beta=0.6|tail=zero": {
+   "fit": 1.6754,
+   "local_last": 1.6677,
+   "theory": 1.6667,
+   "B_last_nats": 3225.6075637969
+  },
+  "uniform|beta=0.6|tail=linear": {
+   "fit": 1.6754,
+   "local_last": 1.6677,
+   "theory": 1.6667,
+   "B_last_nats": 3225.6075637969
+  },
+  "laplace|beta=0.6|tail=zero": {
+   "fit": 1.6752,
+   "local_last": 1.6676,
+   "theory": 1.6667,
+   "B_last_nats": 3439.990462713234
+  },
+  "laplace|beta=0.6|tail=linear": {
+   "fit": 1.6752,
+   "local_last": 1.6676,
+   "theory": 1.6667,
+   "B_last_nats": 3439.990462713234
+  },
+  "bern02|beta=0.6|tail=zero": {
+   "fit": 1.6681,
+   "local_last": 1.6668,
+   "theory": 1.6667,
+   "B_last_nats": 5184.335087509062
+  },
+  "bern02|beta=0.6|tail=linear": {
+   "fit": 1.6681,
+   "local_last": 1.6668,
+   "theory": 1.6667,
+   "B_last_nats": 5184.335087509062
+  },
+  "gauss|beta=0.9|tail=zero": {
+   "fit": 1.1179,
+   "local_last": 1.1118,
+   "theory": 1.1111,
+   "B_last_nats": 4500.114822862487
+  },
+  "gauss|beta=0.9|tail=linear": {
+   "fit": 1.1179,
+   "local_last": 1.1118,
+   "theory": 1.1111,
+   "B_last_nats": 4500.114822862487
+  },
+  "uniform|beta=0.9|tail=zero": {
+   "fit": 1.1175,
+   "local_last": 1.1118,
+   "theory": 1.1111,
+   "B_last_nats": 4548.418869723171
+  },
+  "uniform|beta=0.9|tail=linear": {
+   "fit": 1.1175,
+   "local_last": 1.1118,
+   "theory": 1.1111,
+   "B_last_nats": 4548.418869723171
+  },
+  "laplace|beta=0.9|tail=zero": {
+   "fit": 1.1176,
+   "local_last": 1.1118,
+   "theory": 1.1111,
+   "B_last_nats": 4581.640453993636
+  },
+  "laplace|beta=0.9|tail=linear": {
+   "fit": 1.1176,
+   "local_last": 1.1118,
+   "theory": 1.1111,
+   "B_last_nats": 4581.640453993636
+  },
+  "bern02|beta=0.9|tail=zero": {
+   "fit": 1.1121,
+   "local_last": 1.1112,
+   "theory": 1.1111,
+   "B_last_nats": 5027.433153560602
+  },
+  "bern02|beta=0.9|tail=linear": {
+   "fit": 1.1121,
+   "local_last": 1.1112,
+   "theory": 1.1111,
+   "B_last_nats": 5027.433153560602
+  },
+  "gauss|beta=1.5|tail=zero": {
+   "fit": 0.6707,
+   "local_last": 0.6671,
+   "theory": 0.6667,
+   "B_last_nats": 7497.4520859707145
+  },
+  "gauss|beta=1.5|tail=linear": {
+   "fit": 0.6707,
+   "local_last": 0.6671,
+   "theory": 0.6667,
+   "B_last_nats": 7497.4520859707145
+  },
+  "uniform|beta=1.5|tail=zero": {
+   "fit": 0.6707,
+   "local_last": 0.6671,
+   "theory": 0.6667,
+   "B_last_nats": 7241.728056206087
+  },
+  "uniform|beta=1.5|tail=linear": {
+   "fit": 0.6707,
+   "local_last": 0.6671,
+   "theory": 0.6667,
+   "B_last_nats": 7241.728056206087
+  },
+  "laplace|beta=1.5|tail=zero": {
+   "fit": 0.6708,
+   "local_last": 0.6671,
+   "theory": 0.6667,
+   "B_last_nats": 7288.590559416589
+  },
+  "laplace|beta=1.5|tail=linear": {
+   "fit": 0.6708,
+   "local_last": 0.6671,
+   "theory": 0.6667,
+   "B_last_nats": 7288.590559416589
+  },
+  "bern02|beta=1.5|tail=zero": {
+   "fit": 0.6673,
+   "local_last": 0.6667,
+   "theory": 0.6667,
+   "B_last_nats": 4968.02773461999
+  },
+  "bern02|beta=1.5|tail=linear": {
+   "fit": 0.6673,
+   "local_last": 0.6667,
+   "theory": 0.6667,
+   "B_last_nats": 4968.02773461999
+  },
+  "gauss|beta=2.0|tail=zero": {
+   "fit": 0.5031,
+   "local_last": 0.5003,
+   "theory": 0.5,
+   "B_last_nats": 9995.682285158413
+  },
+  "gauss|beta=2.0|tail=linear": {
+   "fit": 0.5031,
+   "local_last": 0.5003,
+   "theory": 0.5,
+   "B_last_nats": 9995.682285158413
+  },
+  "uniform|beta=2.0|tail=zero": {
+   "fit": 0.5031,
+   "local_last": 0.5003,
+   "theory": 0.5,
+   "B_last_nats": 9544.609162184574
+  },
+  "uniform|beta=2.0|tail=linear": {
+   "fit": 0.5031,
+   "local_last": 0.5003,
+   "theory": 0.5,
+   "B_last_nats": 9544.609162184574
+  },
+  "laplace|beta=2.0|tail=zero": {
+   "fit": 0.5031,
+   "local_last": 0.5003,
+   "theory": 0.5,
+   "B_last_nats": 9670.673930819647
+  },
+  "laplace|beta=2.0|tail=linear": {
+   "fit": 0.5031,
+   "local_last": 0.5003,
+   "theory": 0.5,
+   "B_last_nats": 9670.673930819647
+  },
+  "bern02|beta=2.0|tail=zero": {
+   "fit": 0.5005,
+   "local_last": 0.5,
+   "theory": 0.5,
+   "B_last_nats": 4962.107333116488
+  },
+  "bern02|beta=2.0|tail=linear": {
+   "fit": 0.5005,
+   "local_last": 0.5,
+   "theory": 0.5,
+   "B_last_nats": 4962.107333116488
+  }
+ },
+ "u_star_numeric": {
+  "gauss": 0.49688406427757803,
+  "uniform": 0.49688406427757803,
+  "laplace": 0.07095422797116677,
+  "bern02": 0.35791984088495993
+ }
+}
