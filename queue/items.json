@@ -797,7 +797,14 @@
   "v": 0.9,
   "L": 1,
   "c": 0.5,
-  "note": "From CAUSAL-POWER-GATE audit (pick 19): C3b (locked 14 Nov, not run) fails MV10 on its own power_output.txt: P(H1 CI>0) 0.31-0.65 at projected n 300-500 for the theory-sized effect, P(K1 fires | beta_tau=0) 0.13-0.23. Before stage 4, write a dated addendum recording the gate status at the real n from the pre-shock screen (no change to locked rules) so an INCONCLUSIVE is read as 'gate not met at lock'."
+  "note": "From CAUSAL-POWER-GATE audit (pick 19): C3b (locked 14 Nov, not run) fails MV10 on its own power_output.txt: P(H1 CI>0) 0.31-0.65 at projected n 300-500 for the theory-sized effect, P(K1 fires | beta_tau=0) 0.13-0.23. Before stage 4, write a dated addendum recording the gate status at the real n from the pre-shock screen (no change to locked rules) so an INCONCLUSIVE is read as 'gate not met at lock'.",
+  "status": "DONE",
+  "paths": [
+   "tests/C3b/PREREG_ADDENDUM_A3.md",
+   "reviews/night2/C3B_GATE_ADDENDUM.md",
+   "reviews/night2/C3B_GATE_checks/"
+  ],
+  "outcome": "pick 31 (unaided slot), 15 Nov ~6:40 PM ET: real pre-shock Arm P n 2,294 (upper bound; rules 5-6 not applied); own sim of locked rules on PREREG sec. 5 data: P(HIT|theory) 0.86, P(MISS|null) 0.65 -> MV10 NOT MET (0.75/0.93 without the confounder); addendum A3 labels any stage-4 verdict exploratory; no status change"
  },
  {
   "id": "REGIME-C-DEPENDENT-MODES",
@@ -1008,5 +1015,14 @@
   "L": 2,
   "c": 1,
   "note": "From ONSET-NOISY-READS-REVIEW (pick 30): MV10-style power for classifying a level's technology from onset curvature: in-model the local slope runs -1.2 to -1.8 across one decade of rho centred on rho_c and is straight far from it; simulate the locked decision rule (curvature vs straight, priced precision theta vs noisy reset reads) at realistic onset measurement noise and rho windows before any N2 prereg relies on it."
+ },
+ {
+  "id": "C3B-STAGE4-DECIDE",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 1,
+  "c": 2,
+  "note": "From C3B-GATE-ADDENDUM (pick 31): C3b's real n (<= 2,294) cannot meet MV10 under PREREG sec. 5's assumptions (needs ~3,500-4,000). Before any stage 3-6 run, decide: run as exploratory (A3 already labels it), or redesign before outcomes (a sixth exogenous shock or wider frame to reach n ~4,000; a kappa-relative K1 margin; S9 without near-collinear latency, e.g. pre-shock cadence) in a new dated addendum with its own MV10 output. Outcome data must stay unread until then."
  }
 ]
