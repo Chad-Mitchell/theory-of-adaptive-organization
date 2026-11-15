@@ -181,7 +181,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 ### NEW (15 Nov ~12:47 PM ET, from HEADLINE-PREMISE-SCOPE; surprises read per rule 4)
 - **HEADLINE-PREMISE-SCOPE** — DONE (pick 10, rule slot, I = 3.2; ledger 53–56): `reviews/night2/HEADLINE_PREMISE_SCOPE.md` (check in `HEADLINE_PREMISE_SCOPE_checks/`). **Proposal only; THEORY.md not edited** (Chad t1916). P1–P8 give exact old → new text putting "for a Gaussian world, or for the best linear tracker in any world" where §0, the status block, §2.1 and §1 N6 state the exponents or the inputs, with a lock guard (the optimum compared, best linear or Bayes, is fixed in the prereg; a miss against it counts). Check: at fixed q and N, splitting q into jump rate and size moves the linear tracker's error by 2% and the Bayes tracker's by 364× (two-state world, closed form confirmed by quadrature). No CLAIM_MAP status change.
 - **HEADLINE-PREMISE-APPLY** (w 2, c 0.5). An independent reviewer reviews and applies P1–P8, with a second hostile pass before merge (Chad t1916).
-- **REGIME-C-GAUSSIAN-PREMISE** (w 2, c 0.5). Regime C's model size ∝ Q^{1/β} is reverse water-filling, exact for Gaussian modes; check whether it is Gaussian-only or an upper bound otherwise, and propose scope text.
+- **REGIME-C-GAUSSIAN-PREMISE** — DONE (see NEW ~4:50 PM ET below). (w 2, c 0.5). Regime C's model size ∝ Q^{1/β} is reverse water-filling, exact for Gaussian modes; check whether it is Gaussian-only or an upper bound otherwise, and propose scope text.
 - AQN-ESTIMATORS note: for a Bayes optimum in a jump world, q alone is useless (364× spread at fixed q); estimate λ and μ separately (weak evidence; no LR change).
 
 **Pick 10 done (ledger 56). Next pick (11) is the unaided slot: log a fresh unaided order, run the rule, take Ace's unaided top (rule's if the same). Next free ledger entry: 57.**
@@ -260,7 +260,19 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 19 done (outcome ledger 95). Next pick (20) is the uniform slot (cycle position 4). Next free ledger entry: 96 or above (recheck all pushed branches, incl. the PR #42 reviewer's).**
 
+### NEW (15 Nov ~4:50 PM ET, from REGIME-C-GAUSSIAN-PREMISE; surprises read per rule 4)
+- **REGIME-C-GAUSSIAN-PREMISE** — DONE (pick 18, rule slot; ledger 87 unaided order, 88 rule_rank, 89 pick, 90 author outcome, 99 review outcome; PR #42 merged after independent review PASS-WITH-FIXES). THEORY v1.4.6: Regime C premise (independent modes of one shape; size means bits); Q^{1/β} derived for sub-Gaussian shapes at any β and finite-variance shapes at β > 1; zero-bit cutoff (w/κ)λ_i ≤ 1/(2v*); not derived: dependent modes, β ≤ 1 with non-sub-Gaussian shapes (so the interior minimum is sub-Gaussian only), drifting-world rate. §0 says "for Gaussian modes (wider scope … in §2.2)". Author note `reviews/night2/REGIME_C_PREMISE.md`; review `reviews/night2/REGIME_C_PREMISE_REVIEW.md`.
+- **REGIME-C-DEPENDENT-MODES** (w 2, c 2). Bits exponent for uncorrelated but dependent modes (natural images need it).
+- **REGIME-C-HEAVY-TAIL-LOWBETA** (w 2, c 1.5). Small-u rate asymptotics for Laplace / Student t; review heuristic: Student-t with ν ≤ 2/β may break Q^{1/β} at β ≤ 1 (decisive case).
+- **REGIME-C-DRIFT-NONGAUSS** (w 2, c 1.5). Drifting-world rate Q^{min(½,1/β)} off Gaussian innovations.
+- **REGIME-C-PRIORART-USTAR** (w 1, c 0.5). Prior art for the D_max slope 1/(2v*) (KKT / Gibbs-channel conditions; read before crediting).
+- **REGIME-C-PREREG-CASE-N6** (w 1, c 0.5). Default scoring for a Regime C prereg that states no case; kill-condition text, separate author + reviewer.
+- Surprise read: **moderate, untested** — heavy polynomial tails at β ≤ 1 may break the size exponent outright (heuristic only); no row moves.
+
+**Pick 18 done (review outcome ledger 99; 96–98 held by unmerged q-pick20). Next free ledger entry: 100 or above (recheck all pushed branches).**
+
 ## Done (frozen)
+- REGIME-C-GAUSSIAN-PREMISE: `reviews/night2/REGIME_C_PREMISE.md`, `reviews/night2/REGIME_C_PREMISE_REVIEW.md` (independent review PASS-WITH-FIXES; THEORY v1.4.6; PR #42 merged).
 - CAUSAL-POWER-GATE (+ KG-FEASIBILITY-GATE merged): `reviews/night2/CAUSAL_POWER_GATE.md`, `tools/power_gate.py` (FRAMEWORK MV10; process; no status change).
 - STAKES-SHIFT-CAISO: `tests/STAKES_SHIFT_CAISO/` (lock 874576f; not refereed; N22 INCONCLUSIVE on proxy; CAISO-PROXY-DEFS settled inside it).
 - CAUSAL-KILL-INPUTS: `reviews/night2/CAUSAL_KILL_INPUTS_REVIEW.md` (independent review PASS-WITH-FIXES; THEORY v1.4.5; PR #41 merged).
