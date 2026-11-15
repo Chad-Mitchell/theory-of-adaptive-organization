@@ -1,0 +1,12 @@
+AR(1) tau=  1.0 K=0.1: beta=0.1140  (1-G)/G=0.1140
+AR(1) tau=  1.0 K=1.0: beta=1.0754  (1-G)/G=1.0754
+AR(1) tau=  4.0 K=0.1: beta=0.2258  (1-G)/G=0.2258
+AR(1) tau=  4.0 K=1.0: beta=1.5942  (1-G)/G=1.5942
+AR(1) tau= 16.0 K=0.1: beta=0.5764  (1-G)/G=0.5764
+AR(1) tau= 16.0 K=1.0: beta=2.9173  (1-G)/G=2.9173
+Prop5 asymptotic: alpha=1.5: slope(log beta, log tauE)=0.385  1-1/alpha=0.333
+Prop5 asymptotic: alpha=2.0: slope(log beta, log tauE)=0.519  1-1/alpha=0.500
+Prop5 asymptotic: alpha=2.5: slope(log beta, log tauE)=0.582  1-1/alpha=0.600
+Prop5 asymptotic: alpha=3.0: slope(log beta, log tauE)=0.629  1-1/alpha=0.667
+Fixed q: alpha=1.5: slope=-0.006 (referee: 0)
+Fixed q: alpha=2.5: slope=-0.024 (referee: 0)
