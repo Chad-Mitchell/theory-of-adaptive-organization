@@ -5,7 +5,7 @@ Canonical copy. Ace's working folder holds only a pointer to this file. Updated 
 ## How the queue runs (binding)
 
 1. **Read at use.** Before taking an item, read `THEORY.md` (status block, §2.2, §2.5 and the section the item tests) and `STATUS.md`. Do not work from a summary.
-2. **Regime first.** Every prereg names the regime (A α = 2 Markov / B scale-free with measured α over a stated band / C many modes with β / not established), measured on the same system, then derives the prediction from `THEORY.md`, quoting the section and the premise checks (THEORY §2.5). Field results are labelled "passed / failed on proxy X". Never "law".
+2. **Regime first.** Every prereg names the regime (A α = 2 Markov / B scale-free with measured α over a stated band / C many modes with β / not established), measured on the same system, then derives the prediction from `THEORY.md`, quoting the section and the premise checks (THEORY §2.5). Field results are labelled "passed / failed on proxy X". Never "law". Before lock, every prereg meets the feasibility / power gate `measurement/FRAMEWORK.md` MV10 (run `tools/power_gate.py` or simulate the locked decision code on the planned data; paste the output in the prereg): PASS and FAIL each reachable with a stated probability, each firing at its own best-case data.
 3. **Order by SURPRISE-GUIDED-SEARCH (protocol v2, from ledger entry 6; entries 0–5 are pre-protocol and not scored).** The full protocol is the docstring of `queue/sg_rank.py`. Before each pick:
    a. Commit an `unaided_order` entry covering exactly the items to be ranked, **before** running the rule (same commit, earlier timestamp).
    b. Update `queue/items.json` and run `python3 queue/sg_rank.py log queue/items.json <entry> <unaided_entry>`. It stores the numeric index and P per item, the unaided ranks, the items-file hash, a full uniform permutation (`random.Random(20261115 + entry).shuffle(sorted(ids))`) and γ-sensitivity orders (0.2, 0.8).
@@ -250,7 +250,18 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 15 done (outcome ledger 91; PR from q-pick15-merge). Next pick in cycle after 18 is unchanged; next free ledger entry: 92 (recheck all pushed branches).**
 
+### NEW (15 Nov ~4:50 PM ET, from CAUSAL-POWER-GATE; surprises read per rule 4)
+- **CAUSAL-POWER-GATE** — DONE (pick 19, unaided slot: Ace's unaided top in entry 92, open and not active, nothing skipped; rule rank 4 in entry 93; ledger 92 unaided order, 93 rule_rank, 94 pick, 95 outcome): `reviews/night2/CAUSAL_POWER_GATE.md`, tool `tools/power_gate.py` (+ tests), FRAMEWORK **MV10**, QUEUE rule 2. Gate: |b|·S ≥ (z₁₋α/₂ + z_π)·σ/min(1, κ) (2.80σ at α 0.05, π 0.8); an absolute FAIL margin ε needs σ ≤ ε/2.80 whatever the input change. Pick 15 re-checked: PASS region empty (band top 0.352 < 1.96·0.342), P(FAIL | no response) 0.035; both rules at 0.8 need ×17.8 stakes in one year (×7.5 = coin-flip PASS, the item's "~7×"), or K ≥ 49 contrasts of |Δlog w| 0.41. Process only; THEORY not edited.
+- **KG-FEASIBILITY-GATE** — DONE, merged into CAUSAL-POWER-GATE (same rule; best-case form `power_gate.py zero-events` reproduces WIKIDATA-BAND's 0.031/yr and n ≥ 63). Open-prereg audit: C3b fails MV10 on its own power output (locked before the gate; unchanged).
+- **CAUSAL-POWER-GATE-N6** (w 1, c 0.5). Optional N6/§9 pointer to MV10; kill-condition text, separate author + independent reviewer.
+- **C3B-GATE-ADDENDUM** (w 1, c 0.5). Dated addendum before C3b stage 4 recording its MV10 status at the real n.
+- STAKES-SHIFT-MULTIYEAR note gains the gate numbers (K ≥ 49 at the observed change; κ-relative FAIL margin).
+- Surprise read: **weak** — pick 15's PASS rule was empty by construction and its FAIL rule unreachable at any stakes change; no theory row moves.
+
+**Pick 19 done (outcome ledger 95). Next pick (20) is the uniform slot (cycle position 4). Next free ledger entry: 96 or above (recheck all pushed branches, incl. the PR #42 reviewer's).**
+
 ## Done (frozen)
+- CAUSAL-POWER-GATE (+ KG-FEASIBILITY-GATE merged): `reviews/night2/CAUSAL_POWER_GATE.md`, `tools/power_gate.py` (FRAMEWORK MV10; process; no status change).
 - STAKES-SHIFT-CAISO: `tests/STAKES_SHIFT_CAISO/` (lock 874576f; not refereed; N22 INCONCLUSIVE on proxy; CAISO-PROXY-DEFS settled inside it).
 - CAUSAL-KILL-INPUTS: `reviews/night2/CAUSAL_KILL_INPUTS_REVIEW.md` (independent review PASS-WITH-FIXES; THEORY v1.4.5; PR #41 merged).
 - ONA-MORE: `reviews/night2/ONA_MORE_GATE.md` (gate not met; no data analysed).

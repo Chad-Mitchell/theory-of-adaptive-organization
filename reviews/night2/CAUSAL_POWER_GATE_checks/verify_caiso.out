@@ -1,0 +1,32 @@
+recomputed: s_yr 0.3153 (results 0.3153); se_tot 0.3425 (0.3425); D_pred 0.1382 (0.1382); band top 0.3524; z*se_tot 0.6713
+
+1) Pick 15 as locked (FAIL iff D + 1.96 se < 0.05; PASS iff D - 1.96 se > 0 and D <= band top)
+{
+ "z": 1.9599639845400536,
+ "fail_threshold": 0.05,
+ "P_pass_true": 0.0,
+ "P_fail_null": 0.03484096647277929,
+ "P_fail_true": 0.0132963306342897,
+ "P_pass_null": 0.0,
+ "pass_region_empty": true,
+ "best_case_pass_fires": false,
+ "best_case_fail_fires": false
+}
+normal, sigma known {"P_pass_true": 0.0, "P_fail_true": 0.0131, "P_pass_null": 0.0, "P_fail_null": 0.03468, "sims": 400000, "seed": 11, "noise_df": null, "noise": "normal"}
+normal, sigma_hat from 6 pairs (df 5) {"P_pass_true": 0.00505, "P_fail_true": 0.0325175, "P_pass_null": 0.0038475, "P_fail_null": 0.0689825, "sims": 400000, "seed": 11, "noise_df": 5, "noise": "normal"}
+resampled year-pair noise {"P_pass_true": 0.0, "P_fail_true": 0.0, "P_pass_null": 0.0, "P_fail_null": 0.0, "sims": 400000, "seed": 12, "noise_df": null, "noise": "resampled"}
+
+2) Needed input change, one contrast, b = 1/3, sigma = se_tot (pi = 0.8, alpha = 0.05)
+   kappa 1.0: |dlog w| >= 2.879 -> factor x17.8
+   kappa 0.5: |dlog w| >= 5.757 -> factor x316.4
+   50% PASS point (D_pred = 1.96 se_tot, the item's '~7x'): x7.49; with s_yr only x6.38
+   absolute-eps FAIL (eps 0.05) needs sigma <= 0.0178, i.e. 368 independent contrasts' averaging
+   at the observed like-for-like change (-0.415): P(PASS|true) = 0.060 without band
+
+3) Same gate with sigma estimated from 6 pairs (df 5): effect at which both rules reach 0.8 (bisection, sims)
+   effect 0.976 (sigma known: 0.960); |dlog w| 2.928 -> x18.7
+
+4) STAKES-SHIFT-MULTIYEAR planning: K independent contrasts of the observed size, slope through origin
+   |dlog w| per contrast 0.41: K >= 49  (s_yr-only sigma: K >= 41)
+   |dlog w| per contrast 0.25: K >= 133  (s_yr-only sigma: K >= 113)
+   |dlog w| per contrast 0.70: K >= 17  (s_yr-only sigma: K >= 15)
