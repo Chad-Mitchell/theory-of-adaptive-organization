@@ -1,0 +1,54 @@
+{
+ "A": {
+  "w_quad": {
+   "mean_ratio": 1.0014261837818277,
+   "coverage": 0.9133333333333333,
+   "median_rel_halfwidth": 0.05709224541512064
+  },
+  "k_lin": {
+   "mean_ratio": 1.0015728908676926,
+   "coverage": 0.94,
+   "median_rel_halfwidth": 0.036188814844719794
+  },
+  "S2_pass_rate (CI of log(k_large/k_small) contains 0)": 0.9866666666666667
+ },
+ "B": {
+  "w_quad": {
+   "mean_ratio": 0.793464066794759,
+   "coverage": 0.0,
+   "median_rel_halfwidth": 0.07713379945111527
+  },
+  "k_lin": {
+   "mean_ratio": 1.0035280366343193,
+   "coverage": 0.98,
+   "median_rel_halfwidth": 0.04903891309817451
+  },
+  "S2_pass_rate (CI of log(k_large/k_small) contains 0)": 0.9866666666666667
+ },
+ "C": {
+  "w_quad": {
+   "mean_ratio": 0.9984614429618857,
+   "coverage": 0.9266666666666666,
+   "median_rel_halfwidth": 0.08026274190343985
+  },
+  "k_lin": {
+   "mean_ratio": 0.9989314396858523,
+   "coverage": 0.9466666666666667,
+   "median_rel_halfwidth": 0.060909104023465235
+  },
+  "S2_pass_rate (CI of log(k_large/k_small) contains 0)": 0.9866666666666667
+ },
+ "D": {
+  "w_quad": {
+   "mean_ratio": 3.3970020538143295,
+   "coverage": 0.0,
+   "median_rel_halfwidth": 0.16138375321999088
+  },
+  "k_lin": {
+   "mean_ratio": 2.5957394416513684,
+   "coverage": 0.0,
+   "median_rel_halfwidth": 0.08226779806785184
+  },
+  "S2_pass_rate (CI of log(k_large/k_small) contains 0)": 0.0
+ }
+}
