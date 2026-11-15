@@ -1,6 +1,6 @@
 # SPECTRUM_MAP — hostile independent referee report
 
-Referee: executor `spectrum-map-referee` (Grok Bot, for Chad via Ace), Sunday 15 Nov 2026, 09:27–09:55 AM ET (America/New_York).
+Referee: executor `spectrum-map-referee` (Grok Bot, for Chad via Ace), Sunday 15 Nov 2026, 09:27–09:40 AM ET (America/New_York).
 Object: `reviews/night2/SPECTRUM_MAP/` at merge `2c0c56e` (PR #9): README, PREREG_D3S, all of `checks/`; THEORY.md v1.3 §2 and §2.5.
 Standard: physicist/mathematician; summaries not trusted; every load-bearing number re-derived or re-run. Referee scripts and
 outputs: `reviews/night2/SPECTRUM_MAP_REFEREE_checks/` (r1–r7, run at nice 19; numpy/scipy only). Private; nothing sent or posted.

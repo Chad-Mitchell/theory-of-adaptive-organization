@@ -271,7 +271,7 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 ## Counts (167 rows in v2; section N adds 9 in v2.1 and 2 in v2.2, total 178)
 
-The table counts the 167 v2 rows only (section N is not in it). v2.2 (referee, 15 Nov ~09:55 AM ET) moved K12 and K13 OPEN → MATH-CORRECTED and H19 PROXY-FAIL → MATH-CORRECTED; the table below reflects that.
+The table counts the 167 v2 rows only (section N is not in it). v2.2 (referee, 15 Nov 09:40 AM ET) moved K12 and K13 OPEN → MATH-CORRECTED and H19 PROXY-FAIL → MATH-CORRECTED; the table below reflects that.
 
 | v2 status | Rows |
 |---|---|
