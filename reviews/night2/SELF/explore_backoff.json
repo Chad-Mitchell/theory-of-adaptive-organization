@@ -1,0 +1,35 @@
+{
+ "3": {
+  "budget_checks": 194.3,
+  "uniform_loss": 1.5,
+  "backoff_checks": 194,
+  "backoff_tau0_days": 0.35967881944444446,
+  "backoff_loss": 2.6905688586833785,
+  "ratio_backoff_over_uniform": 1.7937125724555856,
+  "backoffW_checks": 194,
+  "backoffW_loss": 3.132896517897451,
+  "ratio_backoffW_over_uniform": 2.0885976785983007
+ },
+ "7": {
+  "budget_checks": 83.3,
+  "uniform_loss": 3.5,
+  "backoff_checks": 83,
+  "backoff_tau0_days": 5.92170138888889,
+  "backoff_loss": 4.989773317524843,
+  "ratio_backoff_over_uniform": 1.4256495192928125,
+  "backoffW_checks": 83,
+  "backoffW_loss": 4.514588555781393,
+  "ratio_backoffW_over_uniform": 1.2898824445089694
+ },
+ "14": {
+  "budget_checks": 41.6,
+  "uniform_loss": 7.0,
+  "backoff_checks": 41,
+  "backoff_tau0_days": 12.507986111111112,
+  "backoff_loss": 7.910710394083107,
+  "ratio_backoff_over_uniform": 1.1301014848690154,
+  "backoffW_checks": 37,
+  "backoffW_loss": 8.796355719286362,
+  "ratio_backoffW_over_uniform": 1.2566222456123375
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "records": 56,
+ "excluded_not_miss": 4,
+ "misses": 52,
+ "coder1": {
+  "N": 4,
+  "R": 4,
+  "J": 12,
+  "S": 16,
+  "P": 2,
+  "T": 12,
+  "C": 2,
+  "X": 4
+ },
+ "coder2": {
+  "N": 4,
+  "R": 3,
+  "J": 13,
+  "S": 12,
+  "P": 2,
+  "T": 13,
+  "C": 2,
+  "X": 7
+ },
+ "agreement": 0.8214285714285714,
+ "kappa": 0.7819314641744548,
+ "memory_caused": 28,
+ "S_plus_C": 18,
+ "share_S_plus_C_of_memory": 0.6428571428571429,
+ "share_S_plus_C_of_all": 0.34615384615384615,
+ "S_plus_C_coder2": 14,
+ "misses_coder2": 49
+}

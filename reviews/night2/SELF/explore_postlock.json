@@ -1,0 +1,37 @@
+{
+ "E1": {
+  "atoms": 23,
+  "events": 49,
+  "frac_within2d_obs": 0.3673469387755102,
+  "frac_within2d_uniform": 0.3893478260869565,
+  "median_dist_obs": 3.3847222222222224,
+  "median_dist_uniform": 2.9090743409143522,
+  "frac_within2d_obs_ci": [
+   0.24489795918367346,
+   0.5102040816326531
+  ]
+ },
+ "E2": {
+  "nonace_versions": 150,
+  "terminal": 19
+ },
+ "E3": {
+  "commits": 1201,
+  "revert_restore": 15,
+  "per100": 1.2489592006661117
+ },
+ "E4": {
+  "journal_lines": 271,
+  "discards": 2950,
+  "discard_reasons": {
+   "It does not change whether a later partial cue would succeed.": 1461,
+   "A historical excerpt. It does not change a later cue about Chad's life beyond the store.": 1106,
+   "Old-tool bookkeeping, not a life fact a later cue needs.": 154,
+   "Bookkeeping about when older lines were dated, not a new fact.": 141,
+   "A calendar sync log. Any life fact in it is stored from the statement that caused it.": 46,
+   "A delivery log, not a fact a later cue needs.": 33,
+   "A note that a brief displayed an item, not a new fact.": 8,
+   "Contact details stay out of the store.": 1
+  }
+ }
+}
