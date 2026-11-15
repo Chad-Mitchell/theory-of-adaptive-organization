@@ -730,7 +730,12 @@
   "v": 0.4,
   "L": 2,
   "c": 0.5,
-  "note": "From CAUSAL-KILL-INPUTS review Q4: the causal kill is sign-only; a right-sign move far too small passes it (optimality form and prereg size bands may catch it). Proposal only: whether a locked elasticity band should be a causal kill. Widens kills: separate applier + reviewer."
+  "note": "From CAUSAL-KILL-INPUTS review Q4: the causal kill is sign-only; a right-sign move far too small passes it (optimality form and prereg size bands may catch it). Proposal only: whether a locked elasticity band should be a causal kill. Widens kills: separate applier + reviewer. | DONE 15 Nov ~5:40 PM ET (pick 24, UNIFORM slot; ledger 112-114 + outcome 115): proposal-only finding. Symmetric elasticity band rejected (85-100% false kills under partial adjustment or input noise, own MC). Sign-only reading has only its size (5-6%) as power against the named rival b = 0, so MV10 FAIL rules already carry an unconstrained per-prereg kappa. Proposed N6/§9 wording: kill iff measured move excludes share kappa (0 < kappa <= 1/2, fixed in prereg) of the locked optimum's predicted move scaled by measured adjustment share and input reliability; author-only PR #48, DO NOT MERGE without separate reviewer PASS (CAUSAL-KILL-MAGNITUDE-REVIEW). No status change.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/CAUSAL_KILL_MAGNITUDE.md",
+   "reviews/night2/CAUSAL_KILL_MAGNITUDE_checks/"
+  ]
  },
  {
   "id": "CAUSAL-POWER-GATE",
@@ -847,5 +852,14 @@
   "L": 1,
   "c": 0.5,
   "note": "From AQN-REFEREE (15 Nov): apply E-A1 (with fixes a-c), E-A2' (replacing failed E-A2) and E-A3 (additive-error assumption) to FRAMEWORK 3.1/3.3; add R1' as a dated addendum in measurement/estimators/ (locked files untouched); corner model alias tail fix noted. THEORY 2.4 Net / 11 pointer edits E-A4, E-A5 with the wording fix ('refereed, with scope limits') by a separate applier."
+ },
+ {
+  "id": "CAUSAL-KILL-MAGNITUDE-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 1,
+  "note": "From CAUSAL-KILL-MAGNITUDE (pick 24): separate reviewer (authored none of the pick-24 note, checks or PR #48) re-derives the false-kill/power table with own code and passes or fails PR #48 (THEORY v1.4.7 PROPOSED: explicit share kappa in the N6/§9 causal kill, 0 < kappa <= 1/2, prediction scaled by measured adjustment share s and input reliability lambda). Open questions: cap kappa <= 1/4 for linear-locked tests until a jump-sensitive premise test exists (Bayes switching design vs default linear lock killed 45% at kappa 1/2, 1% at 1/4); effect of estimation error in s and lambda (not modelled); FRAMEWORK MV10 pointer to N6's kappa after merge. Kill-condition edit: Chad t1916."
  }
 ]

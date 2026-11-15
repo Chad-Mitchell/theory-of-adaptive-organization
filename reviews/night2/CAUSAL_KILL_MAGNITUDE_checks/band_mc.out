@@ -1,0 +1,14 @@
+T0 true, clean                                                                                  {'SIGN': np.float64(0.0), 'BAND2': np.float64(0.058), 'LOWk': np.float64(0.0)}
+T1 true, partial adjustment s=0.63 (L = tau)                                                    {'SIGN': np.float64(0.0), 'BAND2': np.float64(0.847), 'LOWk': np.float64(0.002)}
+T2 true, partial adjustment s=0.39 (L = tau/2)                                                  {'SIGN': np.float64(0.0), 'BAND2': np.float64(0.996), 'LOWk': np.float64(0.259)}
+T3 true, input noise reliability 0.5 (sig_x = sd_d)                                             {'SIGN': np.float64(0.0), 'BAND2': np.float64(0.957), 'LOWk': np.float64(0.068)}
+T4 true, alpha SE 0.3                                                                           {'SIGN': np.float64(0.0), 'BAND2': np.float64(0.036), 'LOWk': np.float64(0.0)}
+T5 true, all of T1+T3                                                                           {'SIGN': np.float64(0.0), 'BAND2': np.float64(1.0), 'LOWk': np.float64(0.603)}
+T6 Bayes-optimal switching (kappa=0.01, b_true=1/l=0.269) scored vs linear lock b*=0.5          {'SIGN': np.float64(0.0), 'BAND2': np.float64(0.974), 'LOWk': np.float64(0.025)}
+T6 Bayes-optimal switching (kappa=0.001, b_true=1/l=0.166) scored vs linear lock b*=0.5         {'SIGN': np.float64(0.0), 'BAND2': np.float64(1.0), 'LOWk': np.float64(0.454)}
+T6 Bayes-optimal switching (kappa=0.0001, b_true=1/l=0.120) scored vs linear lock b*=0.5        {'SIGN': np.float64(0.0), 'BAND2': np.float64(1.0), 'LOWk': np.float64(0.752)}
+F1 under-responder b=0.25 b*                                                                    {'SIGN': np.float64(0.0), 'BAND2': np.float64(0.999), 'LOWk': np.float64(0.714)}
+F2 fixed-share rival b=0                                                                        {'SIGN': np.float64(0.06), 'BAND2': np.float64(1.0), 'LOWk': np.float64(0.992)}
+F3 wrong sign b=-0.5 b*                                                                         {'SIGN': np.float64(0.993), 'BAND2': np.float64(1.0), 'LOWk': np.float64(1.0)}
+F4 over-responder b=2 b*                                                                        {'SIGN': np.float64(0.0), 'BAND2': np.float64(1.0), 'LOWk': np.float64(0.0)}
+F1' under-responder, with T1+T3 nuisances                                                       {'SIGN': np.float64(0.006), 'BAND2': np.float64(1.0), 'LOWk': np.float64(0.998)}

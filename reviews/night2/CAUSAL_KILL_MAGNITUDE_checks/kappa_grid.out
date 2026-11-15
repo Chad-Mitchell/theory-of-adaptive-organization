@@ -1,0 +1,12 @@
+true clean                                           {'k0': np.float64(0.0), 'k0.25': np.float64(0.0), 'k0.5': np.float64(0.0), 'k1.0': np.float64(0.046), 'k0adj': np.float64(0.0), 'k0.25adj': np.float64(0.0), 'k0.5adj': np.float64(0.0), 'k1.0adj': np.float64(0.046)}
+true s=0.39                                          {'k0': np.float64(0.0), 'k0.25': np.float64(0.003), 'k0.5': np.float64(0.249), 'k1.0': np.float64(0.999), 'k0adj': np.float64(0.0), 'k0.25adj': np.float64(0.0), 'k0.5adj': np.float64(0.001), 'k1.0adj': np.float64(0.053)}
+true lam=0.5                                         {'k0': np.float64(0.0), 'k0.25': np.float64(0.0), 'k0.5': np.float64(0.054), 'k1.0': np.float64(0.983), 'k0adj': np.float64(0.0), 'k0.25adj': np.float64(0.0), 'k0.5adj': np.float64(0.0), 'k1.0adj': np.float64(0.054)}
+true s=0.63 & lam=0.5                                {'k0': np.float64(0.0), 'k0.25': np.float64(0.012), 'k0.5': np.float64(0.59), 'k1.0': np.float64(1.0), 'k0adj': np.float64(0.0), 'k0.25adj': np.float64(0.0), 'k0.5adj': np.float64(0.001), 'k1.0adj': np.float64(0.054)}
+Bayes switching vs linear lock (b_true=1/l=0.166)    {'k0': np.float64(0.0), 'k0.25': np.float64(0.009), 'k0.5': np.float64(0.446), 'k1.0': np.float64(1.0), 'k0adj': np.float64(0.0), 'k0.25adj': np.float64(0.009), 'k0.5adj': np.float64(0.446), 'k1.0adj': np.float64(1.0)}
+false b=0 (fixed share), clean                       {'k0': np.float64(0.06), 'k0.25': np.float64(0.74), 'k0.5': np.float64(0.995), 'k1.0': np.float64(1.0), 'k0adj': np.float64(0.06), 'k0.25adj': np.float64(0.74), 'k0.5adj': np.float64(0.995), 'k1.0adj': np.float64(1.0)}
+false b=0.25b*, clean                                {'k0': np.float64(0.0), 'k0.25': np.float64(0.056), 'k0.5': np.float64(0.725), 'k1.0': np.float64(1.0), 'k0adj': np.float64(0.0), 'k0.25adj': np.float64(0.056), 'k0.5adj': np.float64(0.725), 'k1.0adj': np.float64(1.0)}
+false b=0 with s=0.63 & lam=0.5                      {'k0': np.float64(0.054), 'k0.25': np.float64(0.924), 'k0.5': np.float64(1.0), 'k1.0': np.float64(1.0), 'k0adj': np.float64(0.054), 'k0.25adj': np.float64(0.283), 'k0.5adj': np.float64(0.644), 'k1.0adj': np.float64(0.986)}
+analytic (clean, approx, se treated as known):
+ b_true 0.5 {'k0': 0.0, 'k0.25': 0.0, 'k0.5': 0.0, 'k1.0': 0.05}
+ b_true 0.125 {'k0': 0.0, 'k0.25': 0.05, 'k0.5': 0.738, 'k1.0': 1.0}
+ b_true 0.0 {'k0': 0.05, 'k0.25': 0.738, 'k0.5': 0.998, 'k1.0': 1.0}
