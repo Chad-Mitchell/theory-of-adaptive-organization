@@ -1,6 +1,6 @@
 # TELEGRAPH-LINEAR-PREMISE — prereg (queue pick 6, rule slot; ledger 36–38)
 
-Executor queue-pick6 (for Ace; Chad t1914), Sunday 15 Nov 2026, locked about 11:40 AM ET, **before any code below was run**.
+Executor queue-pick6 (for Ace; Chad t1914), Sunday 15 Nov 2026, locked 11:20 AM ET (commit 4d55366; header first said "about 11:40", a typo fixed in the next commit, still before any run), **before any code below was run**.
 In-model derivation + numerical checks + a reading audit. No field data. THEORY.md is not edited (Chad t1916); edits are proposed only.
 
 ## 1. What is being tested, from the current theory
