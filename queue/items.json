@@ -34,7 +34,8 @@
   "untested": true,
   "v": 0.3,
   "L": 2,
-  "c": 3
+  "c": 3,
+  "note": "TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK on linear-vs-Bayes (exact reset reads). Measurement flag (locked files untouched): the addendum H-hat is an Allan-factor exponent of the change-count process; the read-rate row needs the variogram exponent of the binary target, P(state differs at lag s), near the read interval; they need not coincide for a binary target. See GITHUB-VARIOGRAM-CHECK."
  },
  {
   "id": "WIKIDATA-BAND",
@@ -42,7 +43,8 @@
   "untested": true,
   "v": 0.4,
   "L": 1,
-  "c": 4
+  "c": 4,
+  "note": "TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK (reset reads; signs hold for every H)."
  },
  {
   "id": "LEARNSIM",
@@ -140,7 +142,8 @@
   "untested": true,
   "v": 0.5,
   "L": 2,
-  "c": 3
+  "c": 3,
+  "note": "TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK (regression kernel = Wiener kernel even for a Bayes market; cannot discriminate Bayes vs linear)."
  },
  {
   "id": "D3-TWO-EXPONENT-OOS",
@@ -194,7 +197,7 @@
   "v": 0.8,
   "L": 3,
   "c": 1.5,
-  "note": "new (THEORY v1.4): estimators with CIs for alpha (band), q, N from a noisy series and for event worlds; validated on synthetic fBm+noise, Cox and renewal truth before any lock. N13 cannot be tested without them"
+  "note": "new (THEORY v1.4): estimators with CIs for alpha (band), q, N from a noisy series and for event worlds; validated on synthetic fBm+noise, Cox and renewal truth before any lock. N13 cannot be tested without them | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. For event/jump worlds estimate jump rate lambda and amplitude mu separately (q = 4 lambda mu^2 is sufficient for the linear tracker only) and state which optimum (linear or Bayes) each estimate feeds."
  },
  {
   "id": "SAME-SYSTEM-AQN",
@@ -203,7 +206,7 @@
   "v": 0.6,
   "L": 4,
   "c": 4,
-  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the \u00a72.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS"
+  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the \u00a72.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N14, P5)."
  },
  {
   "id": "ONSET-SPECTRUM-FREE-REFEREE",
@@ -235,7 +238,7 @@
   "v": 0.5,
   "L": 2,
   "c": 3,
-  "note": "new (THEORY v1.4 \u00a72.2): every earlier memory test measured a need hazard, never a tracking kernel. Measure a response kernel on one system with alpha measured on its driver; predict survival exponent alpha/2 and sign flip at alpha=2. Overlaps VIX-KERNEL"
+  "note": "new (THEORY v1.4 \u00a72.2): every earlier memory test measured a need hazard, never a tracking kernel. Measure a response kernel on one system with alpha measured on its driver; predict survival exponent alpha/2 and sign flip at alpha=2. Overlaps VIX-KERNEL | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK if the kernel is a projection/regression kernel (equals the Wiener/Kalman kernel even for a Bayes system; cannot discriminate); NEEDS-PREMISE if it is a step/impulse response to discrete events."
  },
  {
   "id": "FROZEN-DOC-POINTERS",
@@ -311,7 +314,7 @@
   "v": 0.6,
   "L": 2,
   "c": 3,
-  "note": "From SPF-NOISE-PROXY S-1 (post hoc): with the validated nowcast-noise proxy L0w, consensus CG coefficients exceed the optimal noisy-filter beta^G 2.5-6x (UNEMP, HOUSING, TBILL, RSLGOV). Lock 'beta-hat > beta^G(K_L0w)' (and its size) on unseen data: ECB SPF, Livingston, other SPF variables/horizons not yet analysed, or post-2019 with the COVID rule fixed in advance. Bears on N13 (are forecasters near the measured-input optimum?). Dry-run power first."
+  "note": "From SPF-NOISE-PROXY S-1 (post hoc): with the validated nowcast-noise proxy L0w, consensus CG coefficients exceed the optimal noisy-filter beta^G 2.5-6x (UNEMP, HOUSING, TBILL, RSLGOV). Lock 'beta-hat > beta^G(K_L0w)' (and its size) on unseen data: ECB SPF, Livingston, other SPF variables/horizons not yet analysed, or post-2019 with the COVID rule fixed in advance. Bears on N13 (are forecasters near the measured-input optimum?). Dry-run power first. | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK; state the Gaussian premise of the noisy-information filter in the prereg."
  },
  {
   "id": "NOISE-PROXY-REFEREE",
@@ -338,7 +341,11 @@
   "v": 0.8,
   "L": 4,
   "c": 1.5,
-  "note": "From PRIORART-LFK-ALPHA surprise 4: Conti & Mora 2022 (PRE 106:054404, read) find Bayes-optimal adaptation time ~ ln(tau) for a switching (telegraph) world vs sqrt(tau) for OU, same Lorentzian spectrum; in-model check reproduces it (checks/telegraph_check.py). THEORY \u00a72.2 Regime A lists 'switching at one rate' with tau ~ (N/q)^{1/2}, true only for linear trackers. Derive design exponents (read rate, memory time, stores) for jump/event worlds under the Bayes optimum; state the premise 'Gaussian world or linear tracker'; audit pending tests that use event worlds (GITHUB-UPSTREAM, WIKIDATA-BAND, D3-*, AQN-ESTIMATORS event versions, SAME-SYSTEM-AQN) for which optimum they compare against. Theory edit E2 only after independent review."
+  "note": "From PRIORART-LFK-ALPHA surprise 4: Conti & Mora 2022 (PRE 106:054404, read) find Bayes-optimal adaptation time ~ ln(tau) for a switching (telegraph) world vs sqrt(tau) for OU, same Lorentzian spectrum; in-model check reproduces it (checks/telegraph_check.py). THEORY \u00a72.2 Regime A lists 'switching at one rate' with tau ~ (N/q)^{1/2}, true only for linear trackers. Derive design exponents (read rate, memory time, stores) for jump/event worlds under the Bayes optimum; state the premise 'Gaussian world or linear tracker'; audit pending tests that use event worlds (GITHUB-UPSTREAM, WIKIDATA-BAND, D3-*, AQN-ESTIMATORS event versions, SAME-SYSTEM-AQN) for which optimum they compare against. Theory edit E2 only after independent review. | DONE 15 Nov ~11:30 ET (pick 6, ledger 36-39): all locked rules met; single-log Bayes adaptation (slope 0.508 theta/e-fold), error elasticity 0.85-0.92 vs linear 0.5, reset reads and projection kernels unaffected; C&M ln^2 traced to their eq. (20) read as Ito. CLAIM_MAP N14 (v2.7). Not refereed.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/TELEGRAPH_LINEAR_PREMISE/"
+  ]
  },
  {
   "id": "PRIORART-CREDIT-EDITS",
@@ -357,5 +364,59 @@
   "L": 1,
   "c": 1,
   "note": "Read before crediting: Banerjee, PLL Performance, Simulation and Design (TI free download; 5th ed. pp. 305-306, ideal bandwidth at noise crossover); a primary clock-steering source for the Allan-deviation crossover time-constant rule; Tsybakov 2009 / Ibragimov & Has'minskii 1981 minimax bandwidth for H\u00f6lder signals; published PRL text of BCS 1996; unread citers (Playing it safe; hierarchical timescale hypothesis; Malaguti & ten Wolde 2021 full text)."
+ },
+ {
+  "id": "TELEGRAPH-REFEREE",
+  "w": 3,
+  "untested": true,
+  "v": 0.8,
+  "L": 3,
+  "c": 1,
+  "note": "Hostile referee of TELEGRAPH-LINEAR-PREMISE (reviews/night2/TELEGRAPH_LINEAR_PREMISE): re-derive the single-log adaptation time and 2 lambda N ln(2mu^2/lambda N) error with independent code; check the claim that Conti & Mora 2022 eq. (20) omits the Ito drift -x(1-x^2)/theta (and whether their published PRE text differs); simulate their argmax-cross-correlation t_A; search the filtering literature (Wonham high-SNR asymptotics) for prior statements and cite only what is read."
+ },
+ {
+  "id": "TLP-EDITS-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.9,
+  "L": 2,
+  "c": 0.5,
+  "note": "Independent review, then apply, THEORY edits E2', E4, E5, E6 proposed in reviews/night2/TELEGRAPH_LINEAR_PREMISE/REPORT.md (premise 'Gaussian world or best linear tracker' on the noisy-sensing rows; jump-world Bayes exponents; reset-read and projection-kernel invariance; C&M credit with ln^2 caveat). Supersedes E2 of PRIORART_LFK_ALPHA. After TELEGRAPH-REFEREE (Chad t1916)."
+ },
+ {
+  "id": "JUMP-WORLD-ONSET",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2,
+  "note": "From TELEGRAPH-LINEAR-PREMISE item 5 (sketch, S4): if a Bayes-tracking level stays in the power class with local error elasticity eta, onset = -(thetap+eta-eta*thetap)/eta when rho is a ratio of switching rates (-1 at eta=1 for any thetap) and -(1+thetap) when rho is a ratio of squared amplitudes. Derive or simulate for additive shared + private jump drifts (not two-state), LEARNSIM-style; N12 currently rests on linear-MMSE homogeneity."
+ },
+ {
+  "id": "JUMP-STORES",
+  "w": 2,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 3,
+  "note": "From TELEGRAPH-LINEAR-PREMISE: under Bayes tracking the number of 'stores' is the sufficient-statistic dimension, not set by the spectrum. Derive for multi-state chains and for superpositions of switches with log-spaced rates (1/f over a band): Bayes filter dimension and error vs the linear K* ~ ln(span) ln(stakes/upkeep) of THEORY 2.2."
+ },
+ {
+  "id": "GITHUB-VARIOGRAM-CHECK",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 1,
+  "note": "POST-LOCK descriptive check for GITHUB-UPSTREAM (label EXPLORATORY; locked verdicts stand): compute the variogram P(binary weekly state differs at lag s) per flat unit at lags 1-13 weeks and compare its log-log slope (2H_var) with the addendum's Allan-factor H-hat. If they differ, the regime gate measured the change-count process, not the target's variogram (TELEGRAPH-LINEAR-PREMISE audit)."
+ },
+ {
+  "id": "CM-PUBLISHED-CHECK",
+  "w": 1,
+  "untested": true,
+  "v": 0.7,
+  "L": 1,
+  "c": 0.5,
+  "note": "Read the published PRE 106:054404 text of Conti & Mora (no paywall sign-in; open version or library route only) to see whether eq. (20)/(36) were corrected after arXiv v2; update N14 and the credit wording. No contact with authors without Chad's go."
  }
 ]
