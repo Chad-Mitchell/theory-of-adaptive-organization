@@ -157,7 +157,9 @@
   "v": 0.7,
   "L": 2,
   "c": 0.5,
-  "note": "largely covered by SPECTRUM-MAP-REFEREE \u00a75 (15 Nov); remaining: citer full texts, PLL literature, Scholar"
+  "note": "largely covered by SPECTRUM-MAP-REFEREE \u00a75 (15 Nov); remaining: citer full texts, PLL literature, Scholar",
+  "status": "DONE",
+  "done": "reviews/night2/PRIORART_LFK_ALPHA/REPORT.md (pick 5, rule slot, ledger 34/35)"
  },
  {
   "id": "PRIORART-SCHOLAR",
@@ -328,5 +330,32 @@
   "L": 1,
   "c": 0.5,
   "note": "Proposed (unapplied) edits from SPF-NOISE-PROXY RESULTS: THEORY \u00a72.4/\u00a78c LFK line (S-a artifact) and FRAMEWORK \u00a73 N-measurement rule. Needs independent review before merge (Chad t1916 rule for theory text)."
+ },
+ {
+  "id": "TELEGRAPH-LINEAR-PREMISE",
+  "w": 3,
+  "untested": true,
+  "v": 0.8,
+  "L": 4,
+  "c": 1.5,
+  "note": "From PRIORART-LFK-ALPHA surprise 4: Conti & Mora 2022 (PRE 106:054404, read) find Bayes-optimal adaptation time ~ ln(tau) for a switching (telegraph) world vs sqrt(tau) for OU, same Lorentzian spectrum; in-model check reproduces it (checks/telegraph_check.py). THEORY \u00a72.2 Regime A lists 'switching at one rate' with tau ~ (N/q)^{1/2}, true only for linear trackers. Derive design exponents (read rate, memory time, stores) for jump/event worlds under the Bayes optimum; state the premise 'Gaussian world or linear tracker'; audit pending tests that use event worlds (GITHUB-UPSTREAM, WIKIDATA-BAND, D3-*, AQN-ESTIMATORS event versions, SAME-SYSTEM-AQN) for which optimum they compare against. Theory edit E2 only after independent review."
+ },
+ {
+  "id": "PRIORART-CREDIT-EDITS",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 1,
+  "c": 0.5,
+  "note": "Apply proposed THEORY edits E1 and E3 from reviews/night2/PRIORART_LFK_ALPHA/REPORT.md (bandwidth credit to Bialek, Callan & Strong 1996; Afterman/Kleptsyna as error-rate credit; alpha=2 geometric mean in BCS 1996 before Mora & Nemenman 2019) after an independent reviewer re-reads the BCS passages and the mapping alpha = 2 alpha_B."
+ },
+ {
+  "id": "PRIORART-ENGINEERING-READ",
+  "w": 1,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 1,
+  "note": "Read before crediting: Banerjee, PLL Performance, Simulation and Design (TI free download; 5th ed. pp. 305-306, ideal bandwidth at noise crossover); a primary clock-steering source for the Allan-deviation crossover time-constant rule; Tsybakov 2009 / Ibragimov & Has'minskii 1981 minimax bandwidth for H\u00f6lder signals; published PRL text of BCS 1996; unread citers (Playing it safe; hierarchical timescale hypothesis; Malaguti & ten Wolde 2021 full text)."
  }
 ]

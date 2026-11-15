@@ -1,0 +1,31 @@
+{
+ "runs": {
+  "10": {
+   "wonham_median_cross_time": 0.7450000000000004,
+   "ewma_best_tc": 2.2532851688727376
+  },
+  "30": {
+   "wonham_median_cross_time": 1.1500000000000008,
+   "ewma_best_tc": 3.2692919764487987
+  },
+  "100": {
+   "wonham_median_cross_time": 1.7050000000000014,
+   "ewma_best_tc": 5.968883208572184
+  },
+  "300": {
+   "wonham_median_cross_time": 2.254999999999996,
+   "ewma_best_tc": 8.660254037844386
+  },
+  "1000": {
+   "wonham_median_cross_time": 2.764999999999985,
+   "ewma_best_tc": 15.811388300841895
+  },
+  "3000": {
+   "wonham_median_cross_time": 3.2049999999999756,
+   "ewma_best_tc": 27.386127875258303
+  }
+ },
+ "slope_loglog_wonham": 0.25427206363212185,
+ "slope_w_vs_lntau": 0.44092924328608324,
+ "slope_loglog_ewma": 0.4383915935710708
+}
