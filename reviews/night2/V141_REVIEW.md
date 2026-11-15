@@ -1,6 +1,6 @@
 # V141_REVIEW — independent review of PR #15 (THEORY.md v1.4 → v1.4.1; CLAIM_MAP v2.3 → v2.4)
 
-Reviewer: Grok Bot executor `v141-review`, for Chad Mitchell via Ace. Sunday 15 November 2026, about 10:10–10:30 AM ET (America/New_York).
+Reviewer: Grok Bot executor `v141-review`, for Chad Mitchell via Ace. Sunday 15 November 2026, about 10:06–10:09 AM ET (America/New_York).
 Object: branch `v141-fixes`, head `109529d` (base `b19d213` = origin/main at review time). Checked against the exact text of
 `reviews/night2/V14_REVIEW.md` §3 and from first principles. The author's `V141_CHANGES.md` was **not** relied on.
 Chad's rule (t1916): "be extra, extra sure before you do a full rewrite of the theory … tread carefully. Causal first principles."
