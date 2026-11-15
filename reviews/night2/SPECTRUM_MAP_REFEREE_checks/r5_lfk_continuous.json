@@ -1,0 +1,114 @@
+{
+ "var_1.5": {
+  "ewma_tau_slopes": [
+   0.333,
+   0.333,
+   0.333
+  ],
+  "optimal_mse_over_N_slopes": [
+   -0.333,
+   -0.333,
+   -0.333
+  ],
+  "pred_var_norm": 0.333,
+  "pred_mse": -0.333
+ },
+ "var_2.0": {
+  "ewma_tau_slopes": [
+   0.499,
+   0.5,
+   0.5
+  ],
+  "optimal_mse_over_N_slopes": [
+   -0.499,
+   -0.5,
+   -0.5
+  ],
+  "pred_var_norm": 0.5,
+  "pred_mse": -0.5
+ },
+ "var_2.5": {
+  "ewma_tau_slopes": [
+   0.59,
+   0.596,
+   0.599
+  ],
+  "optimal_mse_over_N_slopes": [
+   -0.596,
+   -0.599,
+   -0.6
+  ],
+  "pred_var_norm": 0.6,
+  "pred_mse": -0.6
+ },
+ "var_3.5": {
+  "ewma_tau_slopes": [
+   0.654,
+   0.662,
+   0.665
+  ],
+  "optimal_mse_over_N_slopes": [
+   -0.703,
+   -0.711,
+   -0.714
+  ],
+  "pred_var_norm": 0.667,
+  "pred_mse": -0.714
+ },
+ "q_1.5": {
+  "ewma_tau_slopes": [
+   -0.0,
+   -0.0,
+   0.0
+  ],
+  "optimal_mse_over_N_slopes": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "pred_var_norm": 0.0,
+  "pred_mse": 0.0
+ },
+ "q_2.0": {
+  "ewma_tau_slopes": [
+   -0.0,
+   -0.0,
+   -0.0
+  ],
+  "optimal_mse_over_N_slopes": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "pred_var_norm": 0.0,
+  "pred_mse": 0.0
+ },
+ "q_2.5": {
+  "ewma_tau_slopes": [
+   -0.001,
+   -0.0,
+   -0.0
+  ],
+  "optimal_mse_over_N_slopes": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "pred_var_norm": 0.0,
+  "pred_mse": 0.0
+ },
+ "q_3.5": {
+  "ewma_tau_slopes": [
+   -0.167,
+   -0.167,
+   -0.167
+  ],
+  "optimal_mse_over_N_slopes": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "pred_var_norm": 0.0,
+  "pred_mse": 0.0
+ }
+}
