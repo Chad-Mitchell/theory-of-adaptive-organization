@@ -168,7 +168,7 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 | H16 | BIO1 P3a immune lifetime tracks pathogen drift | contradiction | **OPEN** | Original measure invalid (half-life depends on age at measurement; COLLAPSE1). §4.8 |
 | H17 | COLLAPSE1 C2 inventory buffers track demand volatility | KILLED | **PROXY-FAIL** | MV1, MV3, MV6 (aggregate inventory; volatility not decomposed). §4.8 |
 | H18 | COLLAPSE1 A1 immune cue model | KILLED | **PROXY-FAIL** | MV5 (literature proxies). §4.8 |
-| H19 | MATCH1 D3 redness sign | opposite sign (exploratory) | **PROXY-FAIL** | No derived spectrum→exponent mapping, so no valid construct. §4.9 |
+| H19 | MATCH1 D3 redness sign | opposite sign (exploratory) | **MATH-CORRECTED** (v2.2, referee 15 Nov) | Was PROXY-FAIL. The locked negative sign was derived for the event autocorrelation, but MATCH1's a_need is a re-occurrence hazard; a and β co-move positively under renewal and under Cox worlds (`reviews/night2/SPECTRUM_MAP_REFEREE.md` §6, R7: Cox Spearman +0.975). Locked D3S: row N10 |
 | H20 | DRIFT1 which worlds are scale-free | descriptive | **OPEN** | Measured event-rate distributions, not target drift q (MV2 for T7's condition). §4.9 |
 
 ## I. Cross-substrate implications (each conditional on an unmeasured mapping; FRAMEWORK §3 now gives a procedure per scale)
@@ -231,8 +231,8 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 | K9 | √N fade of shared memory (math) | PRIOR ART | **PRIOR ART** | Kalman averaging |
 | K10 | √N fade applied to languages (LANG1) | KILLED | **PROXY-FAIL** | MV2 (stable target, non-independent depositors, 91% uncoded forms), MV3, MV7, MV8. Out of the theorem's domain. FRAMEWORK §4.6 |
 | K11 | Austronesian test | OPEN | **OPEN** | Not run; must pass FRAMEWORK §6.8 preconditions first |
-| K12 | Geometric layers iff scale-free drift; level count | OPEN | **OPEN** | Unchanged |
-| K13 | Spectrum → exponent relation | OPEN | **OPEN** | Mapping must be derived before any lock (FRAMEWORK §6.10). **The theory's headline; first theory item in QUEUE.md (SPECTRUM-MAP-DERIVE)** |
+| K12 | Geometric layers iff scale-free drift; level count | OPEN | **MATH-CORRECTED** (v2.2, referee 15 Nov) | One store iff rational spectrum (knife-edge at α = 2: one-store excess ≈ 0.14(α−2)²); K\* ∝ ln(span)·ln(stakes/upkeep) is prior-art exponential-sum complexity plus a price (Jiang et al. 2017; Benna & Fusi 2016); (log-span)^{2/3} withdrawn. `SPECTRUM_MAP_REFEREE.md` §4 |
+| K13 | Spectrum → exponent relation | OPEN | **MATH-CORRECTED** (v2.2, referee 15 Nov) | Derived in-model (`reviews/night2/SPECTRUM_MAP/`, refereed in `SPECTRUM_MAP_REFEREE.md`). The stated exponents (½ for one pace; slope 1 and power-law forgetting for scale-free) are superseded: read rate 1/α (reset reads), memory ∝ (N/q)^{1/α} (τ_E^{1−1/α} only at fixed variance), kernel tail τ^{−(1+α/2)}. The replacement is mostly PRIOR ART (Wiener/Kalman, Afterman et al. 2022). Field relation untested |
 | K14 | Internal-model bound | PROVED | **PROVED (in-model)** | Self-checked; probably folklore |
 | K15 | Universality classes of fixing | OPEN | **OPEN** | Unchanged |
 | K16 | Pooling cools | PROVED | **PROVED (in-model)** | Standard algebra |
@@ -265,17 +265,21 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 | N6 | SELF P4a: closed items freeze | new | **NOT EVIDENCE** | 0/21, every rival predicts it |
 | N7 | Bridge: R1 elasticities a = b = 1/(1+2H), so the formal constants are functions of the spectrum | in Lemma 1(i) | **PROVED (in-model)** | Restating Lemma 1(i) as the link between the formal layer and THEORY §2; hold-last-value is a restricted estimator for H ≠ ½ |
 | N8 | Proposition SG: surprise threshold for follow-up rises as ln(dormancy) with slope 1 **in the large-age limit** under a Lomax (decreasing-hazard) model of regime B (all-ages fit 0.947; exact 0.70 at a = 3Δ); flat in regime A | new | **PROVED (in-model); PRIOR ART close** | Elementary Bayes + renewal hazard; Monte Carlo check `reviews/night2/AUDIT_checks/sg_check.out`; restless bandits, crawler revisit, Bayesian surprise are close. Not independently reviewed |
+| N10 | D3S (locked gap-shuffle): median Δβ in [−0.03, 0.05] | new | **PROXY-PASS (non-discriminating)** | Passed (0.024; reruns 0.021–0.023) on proxy "binary daily edit series"; a pure Cox world gives Δβ ≈ 0.045–0.05 at β ≈ 0.2, also inside the band (referee R6), so it does not support renewal over Cox |
+| N11 | LFK generalisation τ_m ∝ τ_E^{1−1/α} (single store min(1−1/α, 2/3)) | new | **PRIOR ART** (in substance) | Correct in-model (referee R5), but it is the published bandwidth law τ ∝ (N/q)^{1/α} (Afterman et al. 2022; Kleptsyna et al. 2020) re-expressed at fixed variance; at fixed q the τ_E slope is 0. α = 2 case: Mora & Nemenman 2019 |
 | N9 | SG ranking beats uniform and unaided judgment at picking follow-ups that change a claim status | new | **OPEN** | Locked in `queue/sg_rank.py`; scored from `queue/LEDGER.jsonl` after ≥ 15 completed items |
 
-## Counts (167 rows in v2; section N adds 9 in v2.1, total 176)
+## Counts (167 rows in v2; section N adds 9 in v2.1 and 2 in v2.2, total 178)
+
+The table counts the 167 v2 rows only (section N is not in it). v2.2 (referee, 15 Nov ~09:55 AM ET) moved K12 and K13 OPEN → MATH-CORRECTED and H19 PROXY-FAIL → MATH-CORRECTED; the table below reflects that.
 
 | v2 status | Rows |
 |---|---|
 | PROVED (in-model) | 41 |
-| MATH-CORRECTED | 17 |
-| PROXY-FAIL | 13 |
+| MATH-CORRECTED | 20 |
+| PROXY-FAIL | 12 |
 | PROXY-PASS | 2 |
-| OPEN | 44 |
+| OPEN | 42 |
 | PRIOR ART | 20 |
 | SIM-FAIL | 6 |
 | NOT EVIDENCE | 13 |

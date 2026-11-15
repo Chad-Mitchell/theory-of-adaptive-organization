@@ -94,13 +94,15 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - Tier 3 by construction; cannot change vigilance's status. Take only if a dataset with tenure, real reporting units and a shared-environment vs own-task question appears (referee fixes, `reviews/night2/REFEREE/REPORT.md` §6).
 
 ### NEW (15 Nov 09:26 ET, from SPECTRUM_MAP; surprises read per rule 4)
-- **SPECTRUM-MAP-REFEREE** (w 3, untested). Hostile math + prior-art referee of `reviews/night2/SPECTRUM_MAP/` (Thm 1 proof, Prop. 3 tail sketch, Prop. 4 rate conjecture, Prop. 5, D3S). Must happen before any CLAIM_MAP status change from Q2 (K12, K13, H19, N7).
-- **THEORY-2.2-REWRITE** (w 3, after the referee). Decide and apply: regime A = "α = 2 / Markov" not "one pace"; drop "(log-span)^{2/3}"; separate tracking kernels from re-occurrence hazards; two exponents for event worlds; demote "central new bet". Chad-visible wording change of the headline.
-- **LFK-ALPHA-SPF** (w 3, untested). Locked public-data test of P-LFKα: SPF forecaster gains (Coibion–Gorodnichenko measure) across CPI, unemployment, T-bill, GDP growth vs each variable's τ_E and α (FRED). Regime measured first. Kill: slope CI excludes 1−1/α and includes ½.
+- **SPECTRUM-MAP-REFEREE** — DONE 15 Nov ~09:55 AM ET (pick 1, ledger 13/14): `reviews/night2/SPECTRUM_MAP_REFEREE.md`. Items 1–2 confirmed; 3 confirmed/KNOWN but its inference withdrawn; 4 prior art plus a price, α = 2 a knife-edge; 5 correct in-model but valid only at fixed variance and prior art in substance (τ ∝ (N/q)^{1/α}; α = 2 in Mora & Nemenman 2019); 6 lock verified, pass reproduced, explanation wrong (estimator mismatch), D3S non-discriminating vs Cox. CLAIM_MAP v2.2: K12, K13, H19 → MATH-CORRECTED; N10, N11 added. Headline demotion endorsed and strengthened (§7).
+- **THEORY-2.2-REWRITE** (w 3; now unblocked by the referee; use its §7 headline and §8 list). Decide and apply: regime A = "α = 2 / Markov" not "one pace"; drop "(log-span)^{2/3}"; separate tracking kernels from re-occurrence hazards; two exponents for event worlds; demote "central new bet". Chad-visible wording change of the headline.
+- **LFK-ALPHA-SPF** (w 3, untested). Locked public-data test of P-LFKα: SPF forecaster gains (Coibion–Gorodnichenko measure) across CPI, unemployment, T-bill, GDP growth vs each variable's τ_E and α (FRED). Regime measured first. Kill: slope CI excludes 1−1/α and includes ½. **Referee (15 Nov): the τ_E form holds only at fixed variance; at fixed q the slope is 0. Lock the normalisation-free form τ_m ∝ (N/q)^{1/α} with q (high-frequency level) and N (forecast-noise proxy) measured per variable, or the test is of a normalisation.**
 - **VIX-KERNEL** (w 2, untested). Kernel of implied log-variance on past realized log-variance: tail ≈ τ^{−(1+α/2)} with α measured from realized variance (≈ 1.2 if H ≈ 0.1), positive weights. Public CBOE/FRED VIX and index returns.
-- **D3-TWO-EXPONENT-OOS** (w 2, untested). Locked out-of-sample version of D3S on ≥ 20 new repos and Wikipedia: renewal-implied β tracks measured β (Spearman > 0.3), gap-shuffle Δβ median ≤ 0.05.
-- **SPECTRUM-BRIDGE-SIM lock** (Q5 now unblocked): lock predictions from SPECTRUM_MAP (read elasticity 1/α for both estimators; K\* = 1 in OU, rising with log-span otherwise; kernel sign flip at α = 2).
-- **PRIORART-LFK-ALPHA** (w 2). Forward citations of LFK 2024 and Afterman et al. 2022 for any statement of τ_m ∝ τ_E^{1−1/α}.
+- **D3-TWO-EXPONENT-OOS** (w 2, untested). Locked out-of-sample version of D3S on ≥ 20 new repos and Wikipedia: renewal-implied β tracks measured β (Spearman > 0.3), gap-shuffle Δβ median ≤ 0.05. **Referee (15 Nov): as written this cannot discriminate (a pure Cox world gives Δβ ≈ 0.045 at β ≈ 0.2; Cox also gives positive Spearman(β, a)). Replace with D3-DISCRIMINATE.**
+- **SPECTRUM-BRIDGE-SIM lock** (Q5 now unblocked): lock predictions from SPECTRUM_MAP (read elasticity 1/α for both estimators; K\* = 1 in OU, rising with log-span otherwise (referee: lock the continuous form, one store iff ψ·0.14(α−2)² ≲ 1, not the α = 2 knife-edge); kernel sign flip at α = 2).
+- **PRIORART-LFK-ALPHA** (w 2). Forward citations of LFK 2024 and Afterman et al. 2022 for any statement of τ_m ∝ τ_E^{1−1/α}. **Largely covered by SPECTRUM-MAP-REFEREE §5:** the scaling is published in substance, and α = 2 is in Mora & Nemenman 2019. Remaining: full texts of the 6 LFK citers, Afterman/Kleptsyna citers, PLL/clock-steering loop-bandwidth literature, Scholar.
+- **D3-DISCRIMINATE** (w 2, untested; new from referee R6/R7). Design and lock a statistic that separates renewal from Cox event worlds at β ≈ 0.2 (e.g. Δβ/β_orig calibrated on simulated renewal and Cox worlds matched to each repo's gap marginal, or a conditional-intensity test on lagged event counts). Show power on synthetic controls before running real repos.
+- **SPECTRUM-MAP-FIXES** (w 1). Apply SPECTRUM_MAP_REFEREE §8 items 1–8 to `reviews/night2/SPECTRUM_MAP/README.md` (as a dated erratum block; locked files untouched).
 - **PRIORART-SCHOLAR** (w 1). Google Scholar gap of Q1 (only via a sanctioned route; no sign-in).
 
 ## Done (frozen)
@@ -108,5 +110,6 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - VIGIL_ONA: `prereg/vigil-ona/` (refereed).
 - Night-2 referee: `reviews/night2/REFEREE/`.
 - Divergence audit: `reviews/night2/AUDIT_DIVERGENCE.md`.
-- PRIORART-SWEEP (gap-fill) and SPECTRUM-MAP-DERIVE: `reviews/night2/SPECTRUM_MAP/` (not yet refereed).
+- PRIORART-SWEEP (gap-fill) and SPECTRUM-MAP-DERIVE: `reviews/night2/SPECTRUM_MAP/` (refereed: `reviews/night2/SPECTRUM_MAP_REFEREE.md`).
+- SPECTRUM-MAP-REFEREE: `reviews/night2/SPECTRUM_MAP_REFEREE.md` + `reviews/night2/SPECTRUM_MAP_REFEREE_checks/`.
 - LEARNSIM: `tests/LEARNSIM/`, referee `reviews/night2/LEARNSIM_REFEREE.md` (T1.8 NOT PASSED; no CLAIM_MAP status change).
