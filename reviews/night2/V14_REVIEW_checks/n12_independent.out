@@ -1,0 +1,19 @@
+tech | a | b | onset exponent d ln N*/d ln rho (rho 1e-6..1e-5) | small-share V(N*) exponent in rho | beyond-onset V growth exponent in N
+reset alpha=1.5                  a=0.6667 b=0.6667 onset=-1.0000 V*(rho)=-0.0000 V~N^0.6667
+precision alpha=1.5 theta=0.5    a=0.6000 b=0.4000 onset=-1.5000 V*(rho)=-0.5000 V~N^0.6000
+precision alpha=1.5 theta=1.0    a=0.7500 b=0.5000 onset=-2.0000 V*(rho)=-1.0000 V~N^0.7500
+precision alpha=1.5 theta=2.0    a=0.8571 b=0.5714 onset=-3.0000 V*(rho)=-2.0000 V~N^0.8571
+reset alpha=2.0                  a=0.5000 b=0.5000 onset=-1.0000 V*(rho)=-0.0000 V~N^0.5000
+precision alpha=2.0 theta=0.5    a=0.5000 b=0.2500 onset=-1.5000 V*(rho)=-0.5000 V~N^0.5000
+precision alpha=2.0 theta=1.0    a=0.6667 b=0.3333 onset=-2.0000 V*(rho)=-1.0000 V~N^0.6667
+precision alpha=2.0 theta=2.0    a=0.8000 b=0.4000 onset=-3.0000 V*(rho)=-2.0000 V~N^0.8000
+reset alpha=2.5                  a=0.4000 b=0.4000 onset=-1.0000 V*(rho)=-0.0000 V~N^0.4000
+precision alpha=2.5 theta=0.5    a=0.4545 b=0.1818 onset=-1.5000 V*(rho)=-0.5000 V~N^0.4545
+precision alpha=2.5 theta=1.0    a=0.6250 b=0.2500 onset=-2.0000 V*(rho)=-1.0000 V~N^0.6250
+precision alpha=2.5 theta=2.0    a=0.7692 b=0.3077 onset=-3.0000 V*(rho)=-2.0000 V~N^0.7692
+
+mixed: level precision theta=1, members reset reads: e_g=-(1-b_L)/(1-a_L), e_u=+(1-b_m)/(1-a_L)
+ alpha=1.5: e_g=-2.0000  e_u=+1.3333  (alpha-dependent; =theta+1-1/alpha)
+ alpha=2.0: e_g=-2.0000  e_u=+1.5000  (alpha-dependent; =theta+1-1/alpha)
+ alpha=2.5: e_g=-2.0000  e_u=+1.6000  (alpha-dependent; =theta+1-1/alpha)
+Pi* = b^(-1/(1-a)) for reset reads: {1.5: 3.375, 2.0: 4.0, 2.5: 4.605}
