@@ -65,3 +65,10 @@ The Holm floor 0.035 is a resolution limit of NSIM = 200 (declared, not changed)
    within-forecaster nowcast dispersion over the environment-implied variance; never divide by the sample variance of a slow
    consensus series without the finite-sample correction."
 No change to §0 or the core is implied.
+
+## Referee addendum (NOISE-PROXY-REFEREE, pick 22, 15 Nov ~5:20 PM ET; `reviews/night2/NOISE_PROXY_REFEREE.md`)
+PASS-WITH-FIXES; the text above is left as run. Fixes: (F1) RSLGOV's K̂_L0w is not identified (consensus nowcast variance favours
+neither branch, leans upper, where β^G ≈ 7), so S-1 reads "2.5–6× on UNEMP, HOUSING, TBILL; RSLGOV branch-ambiguous" (post hoc).
+(F2) L0w was validated on K ∈ [0.01, 1]; UNEMP, TBILL, TBOND are below it (estimator re-checked to K = 0.001 by the referee, bias
+≈ −0.07 in log; environment refit not re-checked). (F3) Erratum: G is ≥ 3 null SDs in **5** of 7 (UNEMP 2.4), not 6; T1 verdicts
+unchanged. A common public signal does not reproduce G > 0 or β̂ > β^G (it pushes both the other way).

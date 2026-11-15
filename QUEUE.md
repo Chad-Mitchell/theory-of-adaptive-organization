@@ -127,7 +127,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 ### NEW (15 Nov ~11:05 AM ET, from SPF-NOISE-PROXY; surprises read per rule 4)
 - **SPF-NOISE-PROXY** — DONE (pick 4, uniform slot; ledger 26–28, outcome 31): `tests/SPF_NOISE_PROXY/RESULTS.md`, lock `2f96b41`. Validated N proxy L0w (within-forecaster nowcast dispersion over the environment-implied variance; passed on synthetic truth). LFK's h = 3 dispersion-as-N **failed on proxy "horizon overidentification"** for 6 of 7 variables; contamination broad (T2 inconclusive); L0w passed known-groups marginally (T3). Post hoc: LFK S-a was an artifact; with measured noise the optimal filter under-predicts consensus CG 2.5–6×. No CLAIM_MAP change.
 - ~~**SPF-RIGIDITY-OOS**~~ — DONE 15 Nov ~5:15 PM ET (pick 20): **MV10 gate not met**; no prereg locked, no outcome (`tests/SPF_RIGIDITY_OOS/RESULTS.md`). Follow-on: SPF-RIGIDITY-LIVINGSTON.
-- **NOISE-PROXY-REFEREE** (w 2, c 1). Hostile referee of the finite-sample bias, the L0w selection and the G test; audit other dispersion-based N.
+- ~~**NOISE-PROXY-REFEREE**~~ — DONE 15 Nov ~5:20 PM ET (pick 22): PASS-WITH-FIXES (`reviews/night2/NOISE_PROXY_REFEREE.md`).
 - **SPF-NOTE-EDITS** (w 1, c 0.5). Proposed THEORY §2.4/§8c and FRAMEWORK §3 notes from SPF-NOISE-PROXY; independent review before merge.
 - Note on **SPF-AQN-POWERED**: its S-a rationale is withdrawn (surprise → none); any powered version uses L0w and the horizon check.
 
@@ -287,7 +287,15 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 21 done (outcome ledger 107; 104–106 are held by q-pick22, which claimed NOISE-PROXY-REFEREE as pick 22, rule slot). Next pick after 22 is pick 23, the unaided slot. Recheck all pushed branches before any ledger write.**
 
+### NEW (15 Nov ~5:20 PM ET, from NOISE-PROXY-REFEREE; surprises read per rule 4)
+- **NOISE-PROXY-REFEREE** — DONE (pick 22, RULE slot: rule's top AQN-REFEREE is active on q-pick21, so the next, I = 2.4 tied, id order; Ace's unaided rank 6 of 47; uniform rank 33 of 47; ledger 104–106 + outcome 111). **PASS-WITH-FIXES on proxy "SPF within-forecaster nowcast dispersion".** Own time-domain code reproduces K̂_L0w (7/7) and β^G (3 decimals). Consensus-nowcast-variance branch check confirms the lower branch for 6 of 7; **RSLGOV not identified** (leans upper, β^G ≈ 7), so post hoc S-1 narrows to UNEMP, HOUSING, TBILL. Estimator fine below the validated K range (to 0.001). A common public signal gives G ≤ 0 and true β ≤ β^G, so it explains neither T1 nor S-1. Erratum: ≥ 3 null SDs in 5 of 7, not 6. Audit: no other live dispersion-based N; SPF-RIGIDITY-OOS inherits wide PGDP/CPI K ranges. No status change; N13 OPEN.
+- Notes added to SPF-RIGIDITY-LIVINGSTON (branch check + validated K range) and SPF-NOTE-EDITS (edit 1 has no target in THEORY v1.4.6; edit 2 endorsed with additions).
+- Surprise read: **weak**. New items: none.
+
+**Pick 22 done (ledger 104–106 + outcome 111; 107 = pick 21 outcome, 108–110 pick 23). Next pick (23) is the unaided slot. Recheck all pushed branches before any ledger write.**
+
 ## Done (frozen)
+- NOISE-PROXY-REFEREE: `reviews/night2/NOISE_PROXY_REFEREE.md`, `reviews/night2/NOISE_PROXY_REFEREE_checks/` (PASS-WITH-FIXES; no status change).
 - AQN-REFEREE: `reviews/night2/AQN_REFEREE.md` (+ `AQN_REFEREE_checks/`; independent referee of AQN-ESTIMATORS; PASS-WITH-FIXES, E-A2 fails; no status change).
 - SPF-RIGIDITY-OOS: `tests/SPF_RIGIDITY_OOS/` (MV10 gate not met; no prereg locked; no outcome computed).
 - REGIME-C-GAUSSIAN-PREMISE: `reviews/night2/REGIME_C_PREMISE.md`, `reviews/night2/REGIME_C_PREMISE_REVIEW.md` (independent review PASS-WITH-FIXES; THEORY v1.4.6; PR #42 merged).

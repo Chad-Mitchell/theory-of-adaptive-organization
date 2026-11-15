@@ -42,6 +42,8 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 **v2.21 note (15 Nov 2026, about 5:15 PM ET; QUEUE SPF-RIGIDITY-OOS, pick 20, uniform slot, ledger 96–98 + outcome).** No row changes status; **N13 stays OPEN**. The out-of-sample test of the post hoc SPF rigidity pattern (consensus CG ≈ 2.5–6 × the optimal noisy-filter β at measured nowcast noise, SPF-NOISE-PROXY S-1) failed the FRAMEWORK MV10 power gate on the only unseen SPF variables (best P(PASS | ×2.5) 0.62, P(FAIL | optimum) 0.60), so nothing was locked and no outcome exists (`tests/SPF_RIGIDITY_OOS/RESULTS.md`). The pattern remains post hoc evidence only. THEORY.md not edited.
 
+**v2.22 note (15 Nov 2026, about 5:20 PM ET; QUEUE NOISE-PROXY-REFEREE, pick 22, rule slot, ledger 104–106 + outcome 111).** No row changes status; **N13 stays OPEN**. Independent referee of SPF-NOISE-PROXY: PASS-WITH-FIXES on proxy "SPF within-forecaster nowcast dispersion" (`reviews/night2/NOISE_PROXY_REFEREE.md`). The post hoc rigidity pattern S-1 narrows to UNEMP, HOUSING, TBILL (RSLGOV's noise is not identified). THEORY.md not edited.
+
 **Why v2 exists.** Chad (t1908): no field test so far measured GTAO's quantities validly, so field "kills" and "hits" were results about **proxies**. v2 says so in every row. It does **not** soften the mathematics. Statements refuted by proof stay refuted (as MATH-CORRECTED, with their replacement), and failed locked simulations stay failed (SIM-FAIL).
 
 ## Statuses (exactly one per row)
