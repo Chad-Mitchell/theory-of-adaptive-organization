@@ -118,9 +118,9 @@ def cmd_score():
     rng = random.Random(SEED0)
     for name, j in (("rule", 0), ("unaided", 1), ("uniform", 2)):
         s = [first[k][j] for k in ids]
-        bs = sorted(auc([s[i] for i in b], [y[i] for i in b])
-                    for b in ([rng.randrange(len(ids)) for _ in ids] for _ in range(2000)))
-        bs = [x for x in bs if x == x]
+        bs = [auc([s[i] for i in b], [y[i] for i in b])
+              for b in ([rng.randrange(len(ids)) for _ in ids] for _ in range(2000))]
+        bs = sorted(x for x in bs if x == x)  # drop NaN BEFORE sorting (ledger 74 rule_change; NaN garbles sorted())
         print(f"{name:8s} AUC {auc(s, y):.3f}  95% CI {bs[int(.025*len(bs))]:.3f}-{bs[int(.975*len(bs))]:.3f}")
     nf = [k for k in ids if first[k][3]]
     print(f"items with non-flat P (SG clock subset): {len(nf)}" + ("" if len(nf) >= 8 else " (< 8: no clock verdict)"))
