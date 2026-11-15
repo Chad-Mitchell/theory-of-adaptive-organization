@@ -1,0 +1,36 @@
+== A. finite-rho local onset slope and fitted slope over rho in [0.01, 1] (h=0, equal prices) ==
+ reset th=1 alpha=1.2: e_g(1)=-0.698 e_g(0.1)=-0.953 fit[0.01,1]=-0.927  Pi*=b^(-1/(1-a))=2.986  N*(0.1)=31.3 ceil 32
+ reset th=1 alpha=1.5: e_g(1)=-0.702 e_g(0.1)=-0.953 fit[0.01,1]=-0.928  Pi*=b^(-1/(1-a))=3.375  N*(0.1)=35.4 ceil 36
+ reset th=1 alpha=2: e_g(1)=-0.707 e_g(0.1)=-0.953 fit[0.01,1]=-0.928  Pi*=b^(-1/(1-a))=4.000  N*(0.1)=42.0 ceil 42
+ reset th=1 alpha=2.5: e_g(1)=-0.710 e_g(0.1)=-0.954 fit[0.01,1]=-0.929  Pi*=b^(-1/(1-a))=4.605  N*(0.1)=48.3 ceil 49
+ reset th=1 alpha=2.9: e_g(1)=-0.712 e_g(0.1)=-0.954 fit[0.01,1]=-0.929  Pi*=b^(-1/(1-a))=5.079  N*(0.1)=53.3 ceil 54
+ prec  th=1 alpha=1.2: e_g(1)=-1.402 e_g(0.1)=-1.907 fit[0.01,1]=-1.855  Pi*=b^(-1/(1-a))=10.541  N*(0.1)=1161.1 ceil 1162
+ prec  th=1 alpha=1.5: e_g(1)=-1.414 e_g(0.1)=-1.907 fit[0.01,1]=-1.857  Pi*=b^(-1/(1-a))=16.000  N*(0.1)=1762.0 ceil 1762
+ prec  th=1 alpha=2: e_g(1)=-1.424 e_g(0.1)=-1.907 fit[0.01,1]=-1.858  Pi*=b^(-1/(1-a))=27.000  N*(0.1)=2973.0 ceil 2973
+ prec  th=1 alpha=2.5: e_g(1)=-1.428 e_g(0.1)=-1.907 fit[0.01,1]=-1.858  Pi*=b^(-1/(1-a))=40.317  N*(0.1)=4439.1 ceil 4440
+ prec  th=1 alpha=2.9: e_g(1)=-1.431 e_g(0.1)=-1.907 fit[0.01,1]=-1.859  Pi*=b^(-1/(1-a))=52.605  N*(0.1)=5791.9 ceil 5792
+ prec  th=2 alpha=1.2: e_g(1)=-2.099 e_g(0.1)=-2.860 fit[0.01,1]=-2.782  Pi*=b^(-1/(1-a))=30.288  N*(0.1)=35012.7 ceil 35013
+ prec  th=2 alpha=1.5: e_g(1)=-2.115 e_g(0.1)=-2.860 fit[0.01,1]=-2.784  Pi*=b^(-1/(1-a))=50.265  N*(0.1)=58093.9 ceil 58094
+ prec  th=2 alpha=2: e_g(1)=-2.130 e_g(0.1)=-2.861 fit[0.01,1]=-2.786  Pi*=b^(-1/(1-a))=97.656  N*(0.1)=112844.2 ceil 112845
+ prec  th=2 alpha=2.5: e_g(1)=-2.138 e_g(0.1)=-2.861 fit[0.01,1]=-2.787  Pi*=b^(-1/(1-a))=165.258  N*(0.1)=190939.2 ceil 190940
+ prec  th=2 alpha=2.9: e_g(1)=-2.142 e_g(0.1)=-2.861 fit[0.01,1]=-2.787  Pi*=b^(-1/(1-a))=235.861  N*(0.1)=272500.2 ceil 272501
+
+== B. vigilance growth beyond onset V(N) ∝ N^a (THEOREMS T5.5): exponent a in spend units, a/theta in precision units ==
+ alpha=1.5: reset a=0.667;  prec th=1 a=0.750;  prec th=2 a=0.857 (precision units 0.429)
+ alpha=2: reset a=0.500;  prec th=1 a=0.667;  prec th=2 a=0.800 (precision units 0.400)
+ alpha=2.5: reset a=0.400;  prec th=1 a=0.625;  prec th=2 a=0.769 (precision units 0.385)
+
+== C. small-share onset vigilance value V(N*) = b^(-a/(1-a)) rho^((b-a)/(1-a)) (T5.3) ==
+ reset alpha=1.5: V(N*) = 2.250 (rho-free; value moves with alpha)
+ reset alpha=2: V(N*) = 2.000 (rho-free; value moves with alpha)
+ reset alpha=2.5: V(N*) = 1.842 (rho-free; value moves with alpha)
+ reset alpha=3: V(N*) = 1.732 (rho-free; value moves with alpha)
+
+== D. mixed technologies (T1.8): e_g = -(1-b_L)/(1-a_L), e_u = +(1-b_m)/(1-a_L) ==
+ prec level / reset members: e_g = -theta - 1;  e_u = (alpha*theta + alpha - 1)/alpha
+ reset level / prec members: e_g = -1;  e_u = alpha*(theta + 1)/(alpha*theta + alpha - 1)
+
+== E. same-alpha premise (analytic note, numerics in c2 mixed rows and c5) ==
+ Flat member's marginal error from adding S_g: (1/pi) Int S_g(w) r/(r+S_u(w)) dw; near w->0 the integrand ~ q_g r w^(alpha_u-alpha_g)/q_u,
+ finite iff alpha_g - alpha_u < 1. Then the flat gain is linear in q_g and d ln N*/d ln q_g -> -(1+theta) at fixed q_u;
+ at alpha_g - alpha_u >= 1 the gain is sub-linear in q_g and the exponent changes (c5).
