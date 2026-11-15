@@ -629,7 +629,7 @@ As claim map §3.2 and FAIR_MEASURE, plus:
 - **Systems.** Wikidata vs hardcoded facts; software pinning; AI memory.
 
 ### 6.7 Drift matching (refresh rate vs drift; the "√" core)
-- **Prediction.** On flat units, the elasticity of effort on drift equals b̂ measured from the technology's price structure (MV5 convergent). For class R, b = ½.
+- **Prediction.** On flat units, the elasticity of effort on drift equals b̂ measured from the technology's price structure (MV5 convergent). For class R, b = 1/(1+2H) with H measured on the same targets (½ only at H = ½; v1.2 correction, THEORY §2.5).
 - **Kill.** The elasticity CI excludes the technology-derived b by > 0.15 in a gated sample.
 - **Note.** The √ law is PRIOR ART (EOQ; Lee, Flack & Krakauer 2024). This test calibrates the class gate. It does not test novelty.
 

@@ -2,6 +2,8 @@
 
 Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot executor for Chad Mitchell, via Ace. Private. Nothing was posted, sent or made public. This map **supersedes the status column** of `reviews/night1/CLAIM_MAP_FINAL.md`. That file still holds the full evidence, scope and credit for each row, and row IDs are unchanged. The reason for every change is the measurement re-audit in `FRAMEWORK.md` (same folder). Gates MV1–MV9 are defined in FRAMEWORK §2.2.
 
+**v2.1 note (15 Nov 2026, ~09:30 AM ET).** Section N adds night-2 results and the audit corrections (`reviews/night2/AUDIT_DIVERGENCE.md`). Rows are interpreted under THEORY.md v1.2 §2.5: a constant quoted for class R (a = b = ½) is the H = ½ instance; for reset reads with Hurst H, a = b = 1/(1+2H). The headline hypothesis is rows K12–K13 and N7; it is untested, not peripheral.
+
 **Why v2 exists.** Chad (t1908): no field test so far measured GTAO's quantities validly, so field "kills" and "hits" were results about **proxies**. v2 says so in every row. It does **not** soften the mathematics. Statements refuted by proof stay refuted (as MATH-CORRECTED, with their replacement), and failed locked simulations stay failed (SIM-FAIL).
 
 ## Statuses (exactly one per row)
@@ -26,7 +28,7 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 | # | Claim (short; full text in CLAIM_MAP_FINAL) | v1 status | **v2 status** | Why |
 |---|---|---|---|---|
-| A1 | √ sampling cost for reset reads / entropy-priced filtering (a = b = ½) | PRIOR ART | **PRIOR ART** | Unchanged. EOQ; M&R 1972 ch. 7 eq. 5.13 [OCR]; Reis 2006 |
+| A1 | √ sampling cost for reset reads / entropy-priced filtering (a = b = ½) | PRIOR ART | **PRIOR ART** | Unchanged. EOQ; M&R 1972 ch. 7 eq. 5.13 [OCR]; Reis 2006. **Regime A (H = ½) only**; R1 with Hurst H gives 1/(1+2H) (Lemma 1(i); THEORY §2.5) |
 | A2 | A_θ, |e|^p and α-stable rows of Lemma 1 | PROVED | **PROVED (in-model)** | Unchanged |
 | A3 | (a, b) chart classifies technologies | PROVED | **PROVED (in-model)** | Unchanged. **Measurement now specified**: FRAMEWORK §3.4 class gate |
 | A4 | Periodic reading optimal in R1 (no observation between reads) | PROVED | **PROVED (in-model)** | Unchanged; event-triggered sampling dominates with continuous observation |
@@ -230,7 +232,7 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 | K10 | √N fade applied to languages (LANG1) | KILLED | **PROXY-FAIL** | MV2 (stable target, non-independent depositors, 91% uncoded forms), MV3, MV7, MV8. Out of the theorem's domain. FRAMEWORK §4.6 |
 | K11 | Austronesian test | OPEN | **OPEN** | Not run; must pass FRAMEWORK §6.8 preconditions first |
 | K12 | Geometric layers iff scale-free drift; level count | OPEN | **OPEN** | Unchanged |
-| K13 | Spectrum → exponent relation | OPEN | **OPEN** | Mapping must be derived before any lock (FRAMEWORK §6.10) |
+| K13 | Spectrum → exponent relation | OPEN | **OPEN** | Mapping must be derived before any lock (FRAMEWORK §6.10). **The theory's headline; first theory item in QUEUE.md (SPECTRUM-MAP-DERIVE)** |
 | K14 | Internal-model bound | PROVED | **PROVED (in-model)** | Self-checked; probably folklore |
 | K15 | Universality classes of fixing | OPEN | **OPEN** | Unchanged |
 | K16 | Pooling cools | PROVED | **PROVED (in-model)** | Standard algebra |
@@ -251,7 +253,21 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 ---
 
-## Counts (167 rows)
+## N. Night-2 results and audit corrections (v2.1, 15 Nov 2026)
+
+| # | Claim | v1 status | **v2.1 status** | Why |
+|---|---|---|---|---|
+| N1 | VIGIL_ONA H1: higher rank seeks more outside its unit | new | **PROXY-PASS (downgraded)** | Locked fixed-effect rule met; random-effects/HKSJ pool includes 0; prior art (Mintzberg). Referee `reviews/night2/REFEREE/REPORT.md` |
+| N2 | VIGIL_ONA H2: outward tilt beyond status | new | **PROXY-PASS (downgraded)** | Barely met; 82% one law firm; not robust to seniority/age; the advice item measures own-task advice |
+| N3 | VIGIL_ONA H3: growth with span | new | **OPEN** | Overturned: N was a function of level; measured spans give ε ≈ 0 |
+| N4 | SELF P1: item change is scale-free (regime B) | new | **OPEN (regime not established)** | Passed a Poisson null on statement times, but the observer-schedule null (0.60–0.92) contains 0.82; burstiness alone does not identify a scale-free spectrum |
+| N5 | SELF P2/P3b: checks ∝ √(drift × stakes) | new | **PROXY-FAIL (scope)** | Regime-A instance; premise (stable per-item drift) unmet, P3a ρ = −0.06; stakes elasticity 2.0 excludes 0.5. Not a test of the spectrum core |
+| N6 | SELF P4a: closed items freeze | new | **NOT EVIDENCE** | 0/21, every rival predicts it |
+| N7 | Bridge: R1 elasticities a = b = 1/(1+2H), so the formal constants are functions of the spectrum | in Lemma 1(i) | **PROVED (in-model)** | Restating Lemma 1(i) as the link between the formal layer and THEORY §2; hold-last-value is a restricted estimator for H ≠ ½ |
+| N8 | Proposition SG: surprise threshold for follow-up rises as ln(dormancy) with slope 1 in regime B, flat in regime A | new | **PROVED (in-model); PRIOR ART close** | Elementary Bayes + renewal hazard; Monte Carlo check `reviews/night2/AUDIT_checks/sg_check.out`; restless bandits, crawler revisit, Bayesian surprise are close. Not independently reviewed |
+| N9 | SG ranking beats uniform and unaided judgment at picking follow-ups that change a claim status | new | **OPEN** | Locked in `queue/sg_rank.py`; scored from `queue/LEDGER.jsonl` after ≥ 15 completed items |
+
+## Counts (167 rows in v2; section N adds 9 in v2.1, total 176)
 
 | v2 status | Rows |
 |---|---|
