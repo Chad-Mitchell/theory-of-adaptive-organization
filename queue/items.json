@@ -46,7 +46,11 @@
   "v": 0.4,
   "L": 1,
   "c": 4,
-  "note": "TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK (reset reads; signs hold for every H)."
+  "note": "TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK (reset reads; signs hold for every H). | DONE 15 Nov ~1:55 PM ET (pre-existing locked test, out of cycle, unscored; ledger 65): KG FAIL (instrument does not count); P1-P3 INCONCLUSIVE; P4 PASS on proxy (4/4 wikis, k=4); stability sensitivity not run (<5 props). CLAIM_MAP N19 (OPEN), N20 (PROXY-PASS), v2.13. Not refereed.",
+  "status": "DONE",
+  "paths": [
+   "prereg/WIKIDATA-BAND/"
+  ]
  },
  {
   "id": "LEARNSIM",
@@ -564,5 +568,23 @@
   "L": 2,
   "c": 1.5,
   "note": "From AQN-ESTIMATORS (15 Nov): the validated premise test compares only symmetric two-state switching vs Gaussian Markov. Extend: multi-state / asymmetric HMM, power-law jump (compound Poisson with heavy tails), fBm-Gaussian null via exact Gaussian likelihood or Whittle-calibrated bootstrap; size/power on synthetic truth. Pairs with JUMP-STORES."
+ },
+ {
+  "id": "KG-FEASIBILITY-GATE",
+  "w": 1,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 0.5,
+  "note": "From WIKIDATA-BAND (15 Nov): its known-groups bound (P569 drift upper 95% <= 0.02/yr) and 'moot' set were unattainable at the locked n = 40 over 3.0 years (zero changes still give 0.031/yr; n >= 63 needed), and no pre-lock dry run caught it. Add to FRAMEWORK sec 2.2 / the prereg template: every known-groups, moot or equivalence bound must be shown attainable at the planned n (power/feasibility line) before lock; audit open preregs for the same flaw."
+ },
+ {
+  "id": "WIKIDATA-BAND-2",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 2.5,
+  "note": "From WIKIDATA-BAND (15 Nov; Tier 3, KG failed, P1 dAUC 0.024 [-0.005, 0.058]): rerun with (a) a correction-filtered drift measure (the 3 P569 'changes' were store corrections: duplicate removed, year corrected, conflicting year added), (b) n >= 63 per slow property so KG(a) is attainable, (c) more properties (> 26 clusters) for the dAUC CI, (d) wiki template policy (Wikidata-default infoboxes, e.g. frwiki/cawiki) coded as a rival. Fresh lock; reset-read signs remain premise-invariant (N16)."
  }
 ]

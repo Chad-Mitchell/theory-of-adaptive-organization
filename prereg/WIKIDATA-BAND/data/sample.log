@@ -1,0 +1,40 @@
+P569 40 of 1636
+P19 40 of 2185
+P27 40 of 2027
+P102 40 of 2309
+P108 40 of 935
+P1082 40 of 2566
+P2046 40 of 2400
+P2044 40 of 2692
+P281 40 of 1208
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "wbgetentities", "ids": "Q28198|Q73212|Q48696|Q5059444|Q651108|Q957280|Q39856|Q1208436|Q648963|Q429908|Q3741|Q983796|Q28603|Q476677|Q199880
+P6 40 of 2850
+P169 40 of 1813
+P1128 40 of 1237
+P2139 40 of 1016
+P159 40 of 1037
+P571 40 of 1192
+P112 40 of 2136
+P286 40 of 2553
+P115 40 of 2009
+http 429 https://www.wikidata.org/w/api.php 25 {"action": "wbgetentities", "ids": "Q389136|Q1089769|Q748725|Q100870636|Q817399|Q4954212|Q18921915|Q55616054|Q1790711|Q1100863|Q30122668|Q24005552|Q49
+P118 40 of 982
+P348 40 of 755
+P277 40 of 1284
+P178 40 of 1896
+P35 40 of 1050
+P2131 40 of 673
+P1081 40 of 2978
+P36 40 of 2925
+http 429 https://www.wikidata.org/w/api.php 26 {"action": "wbgetentities", "ids": "Q1003399|Q100394553|Q100870636|Q1008745|Q1011|Q1018522|Q1020541|Q102316491|Q10304535|Q10322245", "props": "claims|
+http 429 https://www.wikidata.org/w/api.php 30 {"action": "wbgetentities", "ids": "Q121932|Q1222486|Q1229275|Q1229804|Q12331771|Q1233641|Q1239076|Q1240549|Q124365459|Q124385953", "props": "claims|s
+http 429 https://www.wikidata.org/w/api.php 30 {"action": "wbgetentities", "ids": "Q1563765|Q1567694|Q15713100|Q1573093|Q1574090|Q15766996|Q1576771|Q15783686|Q15813204|Q15822858", "props": "claims|
+http 429 https://www.wikidata.org/w/api.php 30 {"action": "wbgetentities", "ids": "Q1761493|Q1761637|Q17623993|Q1767678|Q1772770|Q1773907|Q1777757|Q1786926|Q17877|Q1790711", "props": "claims|siteli
+http 429 https://www.wikidata.org/w/api.php 30 {"action": "wbgetentities", "ids": "Q20596839|Q2061302|Q20642687|Q2065815|Q20658556|Q20658866|Q20675601|Q20710660|Q20713758|Q2074305", "props": "claim
+http 429 https://www.wikidata.org/w/api.php 30 {"action": "wbgetentities", "ids": "Q274804|Q27500963|Q27538319|Q276024|Q276557|Q277973|Q278175|Q27855774|Q280832|Q28198", "props": "claims|sitelinks"
+http 429 https://www.wikidata.org/w/api.php 30 {"action": "wbgetentities", "ids": "Q3758885|Q3786866|Q379327|Q3808315|Q3811186|Q3814501|Q383277|Q3838611|Q3868421|Q3873189", "props": "claims|sitelin
+http 429 https://www.wikidata.org/w/api.php 30 {"action": "wbgetentities", "ids": "Q4830166|Q484834|Q485112|Q4865054|Q48696|Q4869748|Q48802923|Q48854718|Q48860896|Q4897737", "props": "claims|siteli
+http 429 https://www.wikidata.org/w/api.php 30 {"action": "wbgetentities", "ids": "Q5665125|Q56707556|Q56795481|Q56861590|Q56882744|Q569166|Q569275|Q5696552|Q571428|Q57158325", "props": "claims|sit
+http 429 https://www.wikidata.org/w/api.php 30 {"action": "wbgetentities", "ids": "Q718614|Q7197271|Q7201361|Q7209478|Q7227656|Q7235597|Q7241030|Q7243828|Q72597|Q7262647", "props": "claims|sitelink
+http 429 https://www.wikidata.org/w/api.php 30 {"action": "wbgetentities", "ids": "Q938620|Q941196|Q944487|Q948617|Q95225611|Q952767|Q953|Q954018|Q955313|Q95690344", "props": "claims|sitelinks", "f
+sample done 1040

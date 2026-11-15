@@ -1,0 +1,130 @@
+old 0
+http 429 https://www.wikidata.org/w/api.php 14 {"action": "query", "prop": "revisions", "titles": "Q65704528", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q355687", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q114901036", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|tim
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q4137147", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q5980534", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+old 50
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q6276542", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q107631016", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|tim
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q4945309", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q6694707", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q261809", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+old 100
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q72597", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timesta
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q365273", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q66762630", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q65198820", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q15822858", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+old 150
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q43388929", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q16214361", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q15813204", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q19950520", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q18408041", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+old 200
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q2295105", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q4282125", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q4123745", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q2021722", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q790", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timestamp
+old 250
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q52085255", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q882896", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q32212709", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q15207429", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q15256425", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+old 300
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q847302", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q1233641", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q585507", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q1736507", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q276024", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+old 350
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q28198", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timesta
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q3741", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timestam
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q162279", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q209059", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+exc ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='www.wikidata.org', port=443): Read timed out. (read timeout=90)"
+old 400
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q524255", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q5411505", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q4198514", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q160120", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q60775807", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+old 450
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q5614548", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q85852875", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q2855344", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q7241030", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q16238140", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+old 500
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q263016", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q7201361", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q5019107", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q6545535", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q17104210", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+old 550
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q3355059", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q11722596", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q1076663", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q5273884", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q6099989", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+old 600
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q48860896", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q111157048", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|tim
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q3786866", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q132068", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q39046020", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+old 650
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q19880275", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q26255789", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q4577210", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q22097068", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q796195", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+exc ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='www.wikidata.org', port=443): Read timed out. (read timeout=90)"
+old 700
+http 429 https://www.wikidata.org/w/api.php 26 {"action": "query", "prop": "revisions", "titles": "Q14564658", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q17021718", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q4954212", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q6408359", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q86419395", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+exc ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='www.wikidata.org', port=443): Read timed out. (read timeout=90)"
+old 750
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q2160022", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q5451840", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q1757633", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q6694765", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+old 800
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q21850561", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+exc ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='www.wikidata.org', port=443): Read timed out. (read timeout=90)"
+http 429 https://www.wikidata.org/w/api.php 19 {"action": "query", "prop": "revisions", "titles": "Q5130622", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q7280934", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q7197271", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q2977510", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+old 850
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q3285191", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q7759043", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q105975048", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|tim
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q22048", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timesta
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q27260", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timesta
+old 900
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q1011", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timestam
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q334714", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q85758521", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q97233086", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q159", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timestamp
+old 950
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q225", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timestamp
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q983810", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q630520", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q1754934", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q241645", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+old 1000
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q27538319", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|time
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q1724662", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|times
+http 429 https://www.wikidata.org/w/api.php 28 {"action": "query", "prop": "revisions", "titles": "Q182614", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timest
+http 429 https://www.wikidata.org/w/api.php 27 {"action": "query", "prop": "revisions", "titles": "Q10616", "rvstart": "2023-11-15T00:00:00Z", "rvdir": "older", "rvlimit": 1, "rvprop": "ids|timesta
+http 429 https://www.wikidata.org/w/api.php 29 {"action": "wbgetentities", "ids": "Q154804|Q154912|Q154927|Q155|Q155074|Q155223|Q156349|Q156725|Q156806|Q1568174|Q157|Q1574185|Q157553|Q15777|Q158256
+http 429 https://www.wikidata.org/w/api.php 30 {"action": "wbgetentities", "ids": "Q7688028|Q7693102|Q770570|Q7783317|Q7856199|Q7913551|Q792293|Q7930882|Q79775|Q7978292|Q7980201|Q7981583|Q79854|Q80
+old+labels done

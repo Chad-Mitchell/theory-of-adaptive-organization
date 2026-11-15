@@ -1,0 +1,23 @@
+{
+ "P1": "INCONCLUSIVE",
+ "P2": "INCONCLUSIVE",
+ "P3": "INCONCLUSIVE",
+ "P4": "PASS",
+ "KG": {
+  "a_drift": false,
+  "P569_rank": 16,
+  "P569_lam_hi": 0.079828334096694,
+  "b_local_share": {
+   "en": 1.0,
+   "fr": 0.3
+  },
+  "b_pass_wikis": [
+   "en"
+  ],
+  "PASS": false
+ },
+ "MV5_spearman": 0.5383945172422878,
+ "n_P1": 1384,
+ "n_P1_lookup": 386,
+ "n_P3": 83
+}

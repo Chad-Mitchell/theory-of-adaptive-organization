@@ -1,0 +1,46 @@
+{
+ "n_stable": 4,
+ "n_unstable": 3,
+ "n_not_assessable": 19,
+ "stable_props": [
+  "P1082",
+  "P1128",
+  "P2131",
+  "P348"
+ ],
+ "P1_sens_item_stable": "NOT RUN (<5 properties or no outcome variation; 4 properties)",
+ "P1_sens_item_stable_or_moot": "NOT RUN (<5 properties or no outcome variation; 4 properties)",
+ "locked_verdicts_for_reference": {
+  "P1": "INCONCLUSIVE",
+  "P2": "INCONCLUSIVE",
+  "P3": "INCONCLUSIVE",
+  "P4": "PASS"
+ },
+ "P1_sens_lockregimeA_and_itemstable_or_moot": "NOT RUN (<5 properties or no outcome variation; 0 properties)"
+}
+P569 {'n': 0, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P19 {'n': 0, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P27 {'n': 0, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P102 {'n': 1, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P108 {'n': 5, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P1082 {'n': 32, 'rho': 0.6058610146234533, 'lo': 0.3371813620276655, 'hi': 0.7855473938076476, 'verdict': 'STABLE'}
+P2046 {'n': 7, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P2044 {'n': 0, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P281 {'n': 0, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P6 {'n': 18, 'rho': -0.2773500981126146, 'lo': -0.47577560511622247, 'hi': -0.125, 'verdict': 'UNSTABLE'}
+P169 {'n': 10, 'rho': -0.1111111111111111, 'lo': -0.3327326835353988, 'hi': -0.1111111111111111, 'verdict': 'UNSTABLE'}
+P1128 {'n': 16, 'rho': 0.7949442018847594, 'lo': 0.17069308669897248, 'hi': 1.0, 'verdict': 'STABLE'}
+P2139 {'n': 26, 'rho': 0.1916745430013663, 'lo': 0.15356681425330573, 'hi': 0.390472964240124, 'verdict': 'UNSTABLE'}
+P159 {'n': 0, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P571 {'n': 0, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P112 {'n': 0, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P286 {'n': 2, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P115 {'n': 1, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P118 {'n': 3, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P348 {'n': 21, 'rho': 0.879295387902004, 'lo': 0.6754820805392358, 'hi': 0.9820016119126274, 'verdict': 'STABLE'}
+P277 {'n': 0, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P178 {'n': 1, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P35 {'n': 8, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P2131 {'n': 22, 'rho': 0.6592443967173134, 'lo': 0.40789473684210514, 'hi': 0.8864052604279183, 'verdict': 'STABLE'}
+P1081 {'n': 3, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}
+P36 {'n': 0, 'rho': None, 'verdict': 'NOT ASSESSABLE (n<10)'}

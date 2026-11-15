@@ -80,7 +80,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **First:** derive one physical-unit bound for E. coli adaptation; then lock the predicted class and binding ratio.
 - **Kill / pass:** specified at prereg; proxy named per FRAMEWORK gates.
 
-### Q8. WIKIDATA-BAND (rule rank 8, I = 0.15; pilot only, not locked)
+### Q8. WIKIDATA-BAND (rule rank 8, I = 0.15) — DONE 15 Nov ~1:55 PM ET (locked `7cffd93` + addendum `28a0f21`; out of cycle, unscored; ledger 65; `prereg/WIKIDATA-BAND/RESULTS.md`)
 - **Tests:** formal T8 (freeze / hold / lookup band, N widening), FRAMEWORK §6.6.
 - **Regime / premise gate (before lock):** per-property split-half change-rate Spearman ≥ 0.3 (stable rate, the premise SELF P3a failed); properties failing it are excluded and counted.
 - **Data:** Wikidata statement histories; `wblistentityusage`; ≥ 2 language editions.
@@ -196,7 +196,15 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 11 done (ledger 61). Next pick (12) is the uniform slot: log a fresh unaided order, run the rule, take the top of the new entry's stored uniform permutation that is open and not active.**
 
+### NEW (15 Nov ~1:55 PM ET, from WIKIDATA-BAND; surprises read per rule 4)
+- **WIKIDATA-BAND** — DONE (pre-existing locked test, out of cycle, unscored; ledger 65): `prereg/WIKIDATA-BAND/RESULTS.md`, lock `7cffd93` (THEORY v1.2-era T8 signs), addendum `28a0f21`. Full locked sample collected (2,693 pages, 0 AMBIG); analysis code unchanged; rerun from committed data byte-identical. **KG FAIL** (instrument does not count; Tier 3). P1 drift gradient INCONCLUSIVE (β_q 0.58 [0.21, 0.99]; ΔAUC vs item type 0.024 [−0.005, 0.058]); P2 INCONCLUSIVE; P3 INCONCLUSIVE (n = 83); **P4 passed on proxy** (4/4 wikis, k = 4). Item-level stability gate: 4 STABLE / 3 UNSTABLE / 19 not assessable; sensitivity refits not run. Optimum compared: reset-read cost optimum, premise-invariant (N16). Data event-like: scheduled series H < ½, leadership replacements rate-unstable (cf. N17). CLAIM_MAP N19 (OPEN), N20 (PROXY-PASS), v2.13. THEORY not edited (RESULTS §5).
+- **KG-FEASIBILITY-GATE** (w 1, c 0.5). Known-groups / moot bounds must be shown attainable at the planned n before lock (WIKIDATA-BAND's KG(a) was unattainable at n = 40).
+- **WIKIDATA-BAND-2** (w 1, c 2.5). Rerun with correction-filtered drift, n ≥ 63 per slow property, more properties, wiki template policy as a rival.
+
+**Pick 11 done (ledger 61); WIKIDATA-BAND outcome logged out of cycle (ledger 65; entries 62–64 are q-pick12's, in flight). Next pick (12) is the uniform slot, as before.**
+
 ## Done (frozen)
+- WIKIDATA-BAND: `prereg/WIKIDATA-BAND/` (locked v1.2-era test; not refereed; N19, N20).
 - AQN-ESTIMATORS: `measurement/estimators/` (lock 3595c48; not refereed; AQN-REFEREE queued).
 - HEADLINE-PREMISE-SCOPE: `reviews/night2/HEADLINE_PREMISE_SCOPE.md` (proposal P1–P8; not applied; HEADLINE-PREMISE-APPLY queued).
 - TLP-EDITS-REVIEW: `reviews/night2/TLP_EDITS_REVIEW.md` (THEORY v1.4.3; two passes recorded).
