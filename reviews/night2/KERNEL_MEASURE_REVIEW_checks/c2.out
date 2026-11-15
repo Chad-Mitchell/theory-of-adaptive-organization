@@ -1,0 +1,65 @@
+{'S21_direct_504_locked': np.float64(0.3007), 'S21_direct_2000_locked': np.float64(0.3045), 'w0_locked': 0.1337, 'S21_direct_504_free_consistent': np.float64(0.302), 'S21_direct_2000_free_consistent': np.float64(0.3064), 'w0_free_consistent': 0.1707, 'S21_direct_504_free_alpha_only': np.float64(0.3475), 'S21_direct_2000_free_alpha_only': np.float64(0.3522), 'w0_free_alpha_only': 0.1119}
+planned_locked {'mean': np.float64(0.27732958499193994), 'sd': np.float64(0.006406429750062777), 'se_mean': np.float64(0.0006406429750062776)}
+dW/da -0.5972933384254131
+free {'mean': np.float64(0.2774162663341473), 'sd': np.float64(0.006827716472004318), 'se_mean': np.float64(0.0006827716472004318)} {'mean': np.float64(0.3200092519198311), 'sd': np.float64(0.00786897812961537), 'se_mean': np.float64(0.0007868978129615369)}
+/usr/local/lib/python3.13/dist-packages/numpy/_core/_methods.py:219: RuntimeWarning: Degrees of freedom <= 0 for slice
+  ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/usr/local/lib/python3.13/dist-packages/numpy/_core/_methods.py:211: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+{
+ "S21_direct_504_locked": 0.300679936866061,
+ "S21_direct_2000_locked": 0.3044503245497505,
+ "w0_locked": 0.13368135678173465,
+ "S21_direct_504_free_consistent": 0.3020326229654113,
+ "S21_direct_2000_free_consistent": 0.30641769335491204,
+ "w0_free_consistent": 0.1706742948549268,
+ "S21_direct_504_free_alpha_only": 0.3475470402776675,
+ "S21_direct_2000_free_alpha_only": 0.352195900296142,
+ "w0_free_alpha_only": 0.11186322421232242,
+ "planned_locked": {
+  "mean": 0.27732958499193994,
+  "sd": 0.006406429750062777,
+  "se_mean": 0.0006406429750062776
+ },
+ "planned_a+0.1": {
+  "mean": 0.22370307328393463,
+  "sd": 0.004826765409332509,
+  "se_mean": 0.0004826765409332509
+ },
+ "planned_a-0.1": {
+  "mean": 0.34316174096901725,
+  "sd": 0.007647229622989098,
+  "se_mean": 0.0007647229622989098
+ },
+ "dW21_dalpha": -0.5972933384254131,
+ "planned_lq+0.2": {
+  "mean": 0.2707486675553741,
+  "sd": 0.0063141592728232915,
+  "se_mean": 0.0006314159272823291
+ },
+ "planned_ls+0.2": {
+  "mean": 0.2850335100044311,
+  "sd": 0.007072275535121232,
+  "se_mean": 0.0007072275535121232
+ },
+ "planned_free_consistent": {
+  "mean": 0.2774162663341473,
+  "sd": 0.006827716472004318,
+  "se_mean": 0.0006827716472004318
+ },
+ "planned_free_alpha_only": {
+  "mean": 0.3200092519198311,
+  "sd": 0.00786897812961537,
+  "se_mean": 0.0007868978129615369
+ },
+ "planned_locked_r0.45": {
+  "mean": 0.28037002793456867,
+  "sd": 0.05274438772062312,
+  "se_mean": 0.006809271174929344
+ },
+ "long_200k": {
+  "mean": 0.2900976648493753,
+  "sd": NaN,
+  "se_mean": NaN
+ }
+}
