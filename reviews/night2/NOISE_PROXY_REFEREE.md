@@ -2,7 +2,7 @@
 
 **Verdict: PASS-WITH-FIXES on proxy "SPF within-forecaster nowcast dispersion, latest-vintage environment".**
 Referee: executor queue-pick22 (for Ace, Chad t1914), Sunday 15 Nov 2026, about 5:20 PM ET (America/New_York). Queue pick 22,
-rule slot (ledger 104 unaided order, 105 rule_rank, 106 claim, outcome 107). I authored none of `tests/SPF_NOISE_PROXY/`,
+rule slot (ledger 104 unaided order, 105 rule_rank, 106 claim, outcome 111). I authored none of `tests/SPF_NOISE_PROXY/`,
 `tests/LFK_SPF/` or `tests/SPF_RIGIDITY_OOS/`. Every check reported as independent uses my own code in
 `NOISE_PROXY_REFEREE_checks/` (time-domain Matérn autocovariance via Bessel K_ν, Toeplitz normal equations; it imports nothing
 from `tests/`, and reads only the micro csv files and the environment fits/var_x recorded in `results/analysis.json`, which I take

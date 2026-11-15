@@ -279,11 +279,11 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 **Pick 20 done (ledger 96–98 + outcome). Next pick (21) is the rule slot. Recheck all pushed branches before any ledger write.**
 
 ### NEW (15 Nov ~5:20 PM ET, from NOISE-PROXY-REFEREE; surprises read per rule 4)
-- **NOISE-PROXY-REFEREE** — DONE (pick 22, RULE slot: rule's top AQN-REFEREE is active on q-pick21, so the next, I = 2.4 tied, id order; Ace's unaided rank 6 of 47; uniform rank 33 of 47; ledger 104–106 + outcome 107). **PASS-WITH-FIXES on proxy "SPF within-forecaster nowcast dispersion".** Own time-domain code reproduces K̂_L0w (7/7) and β^G (3 decimals). Consensus-nowcast-variance branch check confirms the lower branch for 6 of 7; **RSLGOV not identified** (leans upper, β^G ≈ 7), so post hoc S-1 narrows to UNEMP, HOUSING, TBILL. Estimator fine below the validated K range (to 0.001). A common public signal gives G ≤ 0 and true β ≤ β^G, so it explains neither T1 nor S-1. Erratum: ≥ 3 null SDs in 5 of 7, not 6. Audit: no other live dispersion-based N; SPF-RIGIDITY-OOS inherits wide PGDP/CPI K ranges. No status change; N13 OPEN.
+- **NOISE-PROXY-REFEREE** — DONE (pick 22, RULE slot: rule's top AQN-REFEREE is active on q-pick21, so the next, I = 2.4 tied, id order; Ace's unaided rank 6 of 47; uniform rank 33 of 47; ledger 104–106 + outcome 111). **PASS-WITH-FIXES on proxy "SPF within-forecaster nowcast dispersion".** Own time-domain code reproduces K̂_L0w (7/7) and β^G (3 decimals). Consensus-nowcast-variance branch check confirms the lower branch for 6 of 7; **RSLGOV not identified** (leans upper, β^G ≈ 7), so post hoc S-1 narrows to UNEMP, HOUSING, TBILL. Estimator fine below the validated K range (to 0.001). A common public signal gives G ≤ 0 and true β ≤ β^G, so it explains neither T1 nor S-1. Erratum: ≥ 3 null SDs in 5 of 7, not 6. Audit: no other live dispersion-based N; SPF-RIGIDITY-OOS inherits wide PGDP/CPI K ranges. No status change; N13 OPEN.
 - Notes added to SPF-RIGIDITY-LIVINGSTON (branch check + validated K range) and SPF-NOTE-EDITS (edit 1 has no target in THEORY v1.4.6; edit 2 endorsed with additions).
 - Surprise read: **weak**. New items: none.
 
-**Pick 22 done (ledger 104–106 + outcome 107; 100–102 held by unmerged q-pick21). Next pick (23) is the unaided slot. Recheck all pushed branches before any ledger write.**
+**Pick 22 done (ledger 104–106 + outcome 111; 107 = pick 21 outcome, 108–110 pick 23). Next pick (23) is the unaided slot. Recheck all pushed branches before any ledger write.**
 
 ## Done (frozen)
 - NOISE-PROXY-REFEREE: `reviews/night2/NOISE_PROXY_REFEREE.md`, `reviews/night2/NOISE_PROXY_REFEREE_checks/` (PASS-WITH-FIXES; no status change).
