@@ -208,7 +208,7 @@
   "v": 0.8,
   "L": 3,
   "c": 1.5,
-  "note": "new (THEORY v1.4): estimators with CIs for alpha (band), q, N from a noisy series and for event worlds; validated on synthetic fBm+noise, Cox and renewal truth before any lock. N13 cannot be tested without them | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. For event/jump worlds estimate jump rate lambda and amplitude mu separately (q = 4 lambda mu^2 is sufficient for the linear tracker only) and state which optimum (linear or Bayes) each estimate feeds."
+  "note": "new (THEORY v1.4): estimators with CIs for alpha (band), q, N from a noisy series and for event worlds; validated on synthetic fBm+noise, Cox and renewal truth before any lock. N13 cannot be tested without them | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. For event/jump worlds estimate jump rate lambda and amplitude mu separately (q = 4 lambda mu^2 is sufficient for the linear tracker only) and state which optimum (linear or Bayes) each estimate feeds. | HEADLINE-PREMISE-SCOPE (15 Nov): at fixed (q, N) the two-state Bayes error spans 364x across splits of q into (lambda, mu) while the linear error moves 2% (reviews/night2/HEADLINE_PREMISE_SCOPE_checks/check.out): for a Bayes optimum q alone is useless; estimate lambda, mu separately and say which optimum each feeds. Weak evidence, no LR change (untested)."
  },
  {
   "id": "SAME-SYSTEM-AQN",
@@ -496,6 +496,29 @@
   "v": 0.8,
   "L": 2,
   "c": 0.5,
-  "note": "From TLP-EDITS-REVIEW (unresolved): THEORY §0, the status block, §2.1 ('three quantities set the tracking optimum') and §1 N6 / CLAIM_MAP N13 state the noisy-sensing exponents and the inputs (alpha, q, N, stakes) without the premise 'Gaussian world, or the best linear tracker'; for a Bayes tracker of a jump world jump rate and amplitude enter separately. Propose a minimal premise clause; touches the headline, so an independent reviewer applies it (Chad t1916)."
+  "note": "From TLP-EDITS-REVIEW (unresolved): THEORY §0, the status block, §2.1 ('three quantities set the tracking optimum') and §1 N6 / CLAIM_MAP N13 state the noisy-sensing exponents and the inputs (alpha, q, N, stakes) without the premise 'Gaussian world, or the best linear tracker'; for a Bayes tracker of a jump world jump rate and amplitude enter separately. Propose a minimal premise clause; touches the headline, so an independent reviewer applies it (Chad t1916). | DONE 15 Nov ~12:55 PM ET (pick 10, RULE slot (dispatch said unaided; cycle corrected, ledger 53); ledger 53-56): proposal P1-P8 (exact old->new text) + lock guard (optimum compared, best linear or Bayes, fixed in prereg); check: at fixed q,N linear error moves 2%, Bayes 364x. THEORY.md not edited; applier = HEADLINE-PREMISE-APPLY.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/HEADLINE_PREMISE_SCOPE.md",
+   "reviews/night2/HEADLINE_PREMISE_SCOPE_checks/"
+  ]
+ },
+ {
+  "id": "HEADLINE-PREMISE-APPLY",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 0.5,
+  "note": "Independent reviewer (not the author of reviews/night2/HEADLINE_PREMISE_SCOPE.md) reviews and, if sound, applies P1-P8 to THEORY.md (status block, §0, §1 N6, §2.1, §2.4 Net, §2.5 rule, §9) and CLAIM_MAP N13 text, re-reading THEORY at use; second hostile pass of the full diff before merge (Chad t1916). Premise clause only; no headline or core rewrite; must keep the lock guard (optimum compared fixed in prereg)."
+ },
+ {
+  "id": "REGIME-C-GAUSSIAN-PREMISE",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 0.5,
+  "note": "From HEADLINE-PREMISE-SCOPE P9: THEORY §2.2 Regime C model size ∝ Q^{1/β} uses reverse water-filling, exact for Gaussian modes; for non-Gaussian sources the Gaussian R(D) is an upper bound (standard fact, not re-read). Read the rate-distortion source, decide whether Q^{1/β} is Gaussian-only (or an upper bound), and propose scope text for §0/§2.2 Regime C; headline-touching, so an independent applier."
  }
 ]

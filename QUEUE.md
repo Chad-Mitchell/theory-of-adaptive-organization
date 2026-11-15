@@ -176,7 +176,18 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 9 done (ledger 52). Next pick (10) is the unaided slot: log a fresh unaided order, run the rule, take Ace's unaided top (rule's if the same). Next free ledger entry: 53.**
 
+*Correction (ledger 53):* the line above is wrong about the slot. The cycle (rule 3c) is rule, rule, unaided, uniform from pick 1, and pick 9 was a rule slot at cycle position 1, so pick 10 was the **rule** slot. Pick 10 followed the protocol, not that line.
+
+### NEW (15 Nov ~12:55 PM ET, from HEADLINE-PREMISE-SCOPE; surprises read per rule 4)
+- **HEADLINE-PREMISE-SCOPE** — DONE (pick 10, rule slot, I = 3.2; ledger 53–56): `reviews/night2/HEADLINE_PREMISE_SCOPE.md` (check in `HEADLINE_PREMISE_SCOPE_checks/`). **Proposal only; THEORY.md not edited** (Chad t1916). P1–P8 give exact old → new text putting "for a Gaussian world, or for the best linear tracker in any world" where §0, the status block, §2.1 and §1 N6 state the exponents or the inputs, with a lock guard (the optimum compared, best linear or Bayes, is fixed in the prereg; a miss against it counts). Check: at fixed q and N, splitting q into jump rate and size moves the linear tracker's error by 2% and the Bayes tracker's by 364× (two-state world, closed form confirmed by quadrature). No CLAIM_MAP status change.
+- **HEADLINE-PREMISE-APPLY** (w 2, c 0.5). An independent reviewer reviews and applies P1–P8, with a second hostile pass before merge (Chad t1916).
+- **REGIME-C-GAUSSIAN-PREMISE** (w 2, c 0.5). Regime C's model size ∝ Q^{1/β} is reverse water-filling, exact for Gaussian modes; check whether it is Gaussian-only or an upper bound otherwise, and propose scope text.
+- AQN-ESTIMATORS note: for a Bayes optimum in a jump world, q alone is useless (364× spread at fixed q); estimate λ and μ separately (weak evidence; no LR change).
+
+**Pick 10 done (ledger 56). Next pick (11) is the unaided slot: log a fresh unaided order, run the rule, take Ace's unaided top (rule's if the same). Next free ledger entry: 57.**
+
 ## Done (frozen)
+- HEADLINE-PREMISE-SCOPE: `reviews/night2/HEADLINE_PREMISE_SCOPE.md` (proposal P1–P8; not applied; HEADLINE-PREMISE-APPLY queued).
 - TLP-EDITS-REVIEW: `reviews/night2/TLP_EDITS_REVIEW.md` (THEORY v1.4.3; two passes recorded).
 - D3-TWO-EXPONENT-OOS: `tests/D3_OOS/` (locked out-of-sample test; not refereed; N17).
 - TELEGRAPH-REFEREE: `reviews/night2/TELEGRAPH_REFEREE/` (referee of TELEGRAPH-LINEAR-PREMISE; N16 MATH-CORRECTED v2.9).
