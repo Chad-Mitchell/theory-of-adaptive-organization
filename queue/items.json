@@ -639,6 +639,20 @@
   "v": 0.8,
   "L": 2,
   "c": 0.5,
-  "note": "From HEADLINE-PREMISE-APPLY (15 Nov): a SEPARATE independent reviewer (authored neither HEADLINE_PREMISE_SCOPE.md nor HEADLINE_PREMISE_APPLY.md) reviews the open THEORY v1.4.4 / CLAIM_MAP v2.15 PR (branch q-pick13): re-derive or re-check every changed sentence against its sources, judge tightenings T1-T5 (esp. T4 default: prereg naming none scored against best linear), run a second hostile pass, then merge or request changes (Chad t1916). Resolve CLAIM_MAP v2.15 numbering if q-pick12 also bumps it."
+  "note": "From HEADLINE-PREMISE-APPLY (15 Nov): a SEPARATE independent reviewer (authored neither HEADLINE_PREMISE_SCOPE.md nor HEADLINE_PREMISE_APPLY.md) reviews the open THEORY v1.4.4 / CLAIM_MAP v2.15 PR (branch q-pick13): re-derive or re-check every changed sentence against its sources, judge tightenings T1-T5 (esp. T4 default: prereg naming none scored against best linear), run a second hostile pass, then merge or request changes (Chad t1916). Resolve CLAIM_MAP v2.15 numbering if q-pick12 also bumps it. | DONE 15 Nov ~3:40 PM ET (pick 14, RULE slot, I = 3.2 tied with REGIME-C-GAUSSIAN-PREMISE, id order; ledger 71-73, rule_change 74, outcome 75): independent review PASS with three narrow fixes on q-pick13 (R1 precision-effort exponent listed among those that differ (N16); R3 status heading time; R4 LFK pointer 'verdict item 4'); T1-T5 judged correct (T2 rationale wrong about precision effort; text fixed by R1); own numerics (scipy CARE/Bessel 1.0202x vs 363.8x; Wonham log-odds MC: t_A 1.862+-0.006 vs 1.861 at kappa 1e-2, 3.063+-0.012 vs 3.012 at 1e-3; precision elasticity 0.552 vs linear 2/3). R2 (causal kill inputs + prereg-fixed lag) proposed only -> CAUSAL-KILL-INPUTS. PR #37 merged (92fc632). Side: sg_rank.py score NaN-sort bug declared (ledger 74) and fixed; Q0 at 19 outcomes reads INCONCLUSIVE, not the buggy PASS. CLAIM_MAP v2.16 note; no status change.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/HEADLINE_PREMISE_REVIEW.md",
+   "reviews/night2/HEADLINE_PREMISE_REVIEW_checks/"
+  ]
+ },
+ {
+  "id": "CAUSAL-KILL-INPUTS",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 0.5,
+  "note": "From HEADLINE-PREMISE-REVIEW R2 (15 Nov; reviews/night2/HEADLINE_PREMISE_REVIEW.md §2, §4): THEORY §1 N6 causal form and §9 causal bullet name only alpha, q, N, stakes. For a Bayes-locked jump-world test, lambda and mu can change at fixed q (design staying put would not count: a hole) and a q change split between them can leave the Bayes optimum fixed (§9 'stays put' mis-fires); §9 'stays put' is weaker than N6 'does not move in the predicted direction'; N6's 'after its adjustment lag' is not locked in THEORY (V141 review: a number fixed in each prereg). Exact proposed text in the review §4 R2. A separate applier (not the pick-14 reviewer) applies or rejects it, with an independent second reviewer before merge (kill conditions; Chad t1916). Not urgent: no Bayes-locked or causal-form test is locked yet; until then such preregs must list their inputs and fix the lag as a number."
  }
 ]
