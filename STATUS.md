@@ -17,6 +17,7 @@ GTAO models every adaptive organization with one budget: holding memory, predict
 ## Running or in flight (15 Nov, about 10:00 AM ET)
 - Queue protocol v2: post-protocol pick 1 SPECTRUM-MAP-REFEREE (DONE), pick 2 THEORY-2.2-REWRITE (DONE, rule slot; ledger 15–18). Next is pick 3, the unaided slot.
 - LFK-ALPHA-SPF DONE (manual, unscored; ledger 10/19; `tests/LFK_SPF/RESULTS.md`): locked N13 probe using N11 (q from spectrum, N from SPF dispersion). Primary INCONCLUSIVE (n = 6; MV8 failed by pre-lock dry run; Tier 3); no CLAIM_MAP change. New items SPF-AQN-POWERED, SPF-NOISE-PROXY, LAB-AKLMT-TAU.
+- SPF-NOISE-PROXY DONE (pick 4, uniform slot; ledger 28/31; `tests/SPF_NOISE_PROXY/RESULTS.md`, 15 Nov ~11:05 AM ET): validated N proxy (within-forecaster nowcast dispersion; passed on synthetic truth); LFK's dispersion-as-N failed on proxy "horizon overidentification" for 6 of 7 variables; LFK's post hoc S-a closeness was an artifact of that proxy. No CLAIM_MAP change. New items SPF-RIGIDITY-OOS, NOISE-PROXY-REFEREE, SPF-NOTE-EDITS.
 - GITHUB-UPSTREAM data pull (lock branch `prereg/github-upstream`; regime addendum `reviews/night2/GITHUB_ADDENDUM_REGIME.md`). WIKIDATA-BAND pilot (stationarity gate owed before locking).
 - New items from v1.4: ONSET-SPECTRUM-FREE-REFEREE, AQN-ESTIMATORS, SAME-SYSTEM-AQN, ONSET-ACROSS-ALPHA-SIM, KERNEL-MEASURE, FROZEN-DOC-POINTERS.
 
