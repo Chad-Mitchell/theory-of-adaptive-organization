@@ -241,7 +241,17 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 17 done (PR #41 merged; outcome ledger 86). Next pick (18) is the rule slot. Next free ledger entry: 87; recheck all pushed branches, because q-pick15 holds 76–78.**
 
+### NEW (15 Nov ~4:40 PM ET, from STAKES-SHIFT-CAISO; surprises read per rule 4)
+- **STAKES-SHIFT-CAISO** — DONE (pick 15, unaided slot: Ace's unaided top in entry 76, open and not active, nothing skipped; rule rank 27 in entry 77; ledger 76 unaided order (Ace's verbatim, matched the 41 open ids exactly), 77 rule_rank, 78 pick, outcome 91): `tests/STAKES_SHIFT_CAISO/RESULTS.md`, lock `874576f` (pushed 3:14 PM ET before any outcome data). First locked N6 causal-form test (best linear tracker, α = 2, lag 12 months: stakes 2024→2025 predict DA forecast precision 2026 vs 2025). **INCONCLUSIVE on proxy "CAISO DA-vs-RTD forecast MSE (q-adjusted by seasonal naive), stakes = k_lin on the same error"**, by gates: on the like-for-like error the stakes fall is only −0.41 [−0.88, +0.07] in log (G0 fail) and the seasonal-naive MSE rose ×2.17 (G2 fail, Sep–Oct 2026 heat). D = −0.09 vs predicted +0.14; with year noise s_yr 0.32 neither rule was attainable. α̂ 2.10 ± 0.09. CLAIM_MAP N22 (v2.19); N21 pointer. Amendment A1 fetch-only.
+- **CAISO-PROXY-DEFS** — DONE inside pick 15 (before its lock; unscored): mean (actual − DA) is solar-shaped (~0 at night, +4–6 GW at noon): "actual" is gross of BTM solar, the forecasts net of it (secondary source; CAISO's page not found). Use RTD − DA.
+- **CAUSAL-POWER-GATE** (w 1, c 0.5). Causal-form preregs must show their PASS and FAIL rules are attainable at the expected effect and year-to-year noise before lock.
+- **STAKES-SHIFT-MULTIYEAR** (w 3, c 3). Powered N6 causal test: many stakes changes (archived CAISO prices 2019–2023, or an ISO panel), like-for-like error, lag 12 months, q control, power gate met.
+- Surprise read: **weak** — N21's 4× stakes fall shrinks to ~34% on the like-for-like error (likely attenuation by BTM-definition noise) → note on STAKES-REFEREE and STAKES-PRECISION; the naive-MSE jump is weather (diagnostic), no item.
+
+**Pick 15 done (outcome ledger 91; PR from q-pick15-merge). Next pick in cycle after 18 is unchanged; next free ledger entry: 92 (recheck all pushed branches).**
+
 ## Done (frozen)
+- STAKES-SHIFT-CAISO: `tests/STAKES_SHIFT_CAISO/` (lock 874576f; not refereed; N22 INCONCLUSIVE on proxy; CAISO-PROXY-DEFS settled inside it).
 - CAUSAL-KILL-INPUTS: `reviews/night2/CAUSAL_KILL_INPUTS_REVIEW.md` (independent review PASS-WITH-FIXES; THEORY v1.4.5; PR #41 merged).
 - ONA-MORE: `reviews/night2/ONA_MORE_GATE.md` (gate not met; no data analysed).
 - HEADLINE-PREMISE-REVIEW: `reviews/night2/HEADLINE_PREMISE_REVIEW.md` (independent review PASS with R1, R3, R4; PR #37 merged; R2 → CAUSAL-KILL-INPUTS).

@@ -608,7 +608,7 @@
   "v": 0.6,
   "L": 2,
   "c": 1.5,
-  "note": "From STAKES-EXOGENOUS S1 fail (15 Nov): reach +/-50% on CAISO stakes with a new lock: pooled years with year effects (2022-2025), net-load error (load - wind - solar forecasts), 5-min RTM prices; and a second ISO (ERCOT or another with public DA forecasts and prices). Gate for SAME-SYSTEM-AQN."
+  "note": "From STAKES-EXOGENOUS S1 fail (15 Nov): reach +/-50% on CAISO stakes with a new lock: pooled years with year effects (2022-2025), net-load error (load - wind - solar forecasts), 5-min RTM prices; and a second ISO (ERCOT or another with public DA forecasts and prices). Gate for SAME-SYSTEM-AQN. | Pick 15: use the like-for-like error e_rt = RTD hourly mean - DA (N21's actual - DA mixes BTM-solar definition noise)."
  },
  {
   "id": "STAKES-SHIFT-CAISO",
@@ -617,7 +617,8 @@
   "v": 0.4,
   "L": 2,
   "c": 3,
-  "note": "From STAKES-EXOGENOUS (15 Nov; unlocked observation, weak surprise): measured stakes fell ~4x from 2024 to 2025 (non-overlapping CIs). THEORY 1 N6 causal form: when stakes change, the design quantity moves in the predicted direction after its adjustment lag. Identify a CAISO design quantity (forecast precision, update cadence, reserve procurement), fix the lag as a number, lock the predicted direction/elasticity, then test on years not yet seen. Regime and premise (linear vs Bayes) first."
+  "note": "From STAKES-EXOGENOUS (15 Nov; unlocked observation, weak surprise): measured stakes fell ~4x from 2024 to 2025 (non-overlapping CIs). THEORY 1 N6 causal form: when stakes change, the design quantity moves in the predicted direction after its adjustment lag. Identify a CAISO design quantity (forecast precision, update cadence, reserve procurement), fix the lag as a number, lock the predicted direction/elasticity, then test on years not yet seen. Regime and premise (linear vs Bayes) first. | DONE pick 15 (unaided; ledger 76-78, outcome 91): tests/STAKES_SHIFT_CAISO/RESULTS.md, lock 874576f. INCONCLUSIVE on proxy 'CAISO DA-vs-RTD forecast MSE (q-adjusted by seasonal naive), stakes = k_lin on the same error' by gates G0 (clean stakes fall -0.41 [-0.88, +0.07], CI includes 0) and G2 (naive MSE x2.17 > 2). D = -0.09, total interval [-0.76, +0.58]. CLAIM_MAP N22.",
+  "status": "DONE"
  },
  {
   "id": "CAISO-PROXY-DEFS",
@@ -626,7 +627,8 @@
   "v": 0.8,
   "L": 2,
   "c": 0.5,
-  "note": "From STAKES-EXOGENOUS (15 Nov): CAISO DA forecast sits 1.76 GW (7%) below 'Total Actual Hourly Integrated Load' on average in 2025 (1.20 GW in 2024). Read CAISO's public definitions of SYS_FCST_DA_MW and SYS_FCST_ACT_MW (no login); state whether they measure the same quantity; FE absorb the mean, so N21 is unaffected to first order."
+  "note": "From STAKES-EXOGENOUS (15 Nov): CAISO DA forecast sits 1.76 GW (7%) below 'Total Actual Hourly Integrated Load' on average in 2025 (1.20 GW in 2024). Read CAISO's public definitions of SYS_FCST_DA_MW and SYS_FCST_ACT_MW (no login); state whether they measure the same quantity; FE absorb the mean, so N21 is unaffected to first order. | Settled inside pick 15 (STAKES-SHIFT-CAISO PREREG, before lock; not a pick, unscored): mean (actual - DA) is solar-shaped (~0 at night, +4.1/+5.8 GW at noon in 2024/2025), consistent with DA/RTD forecasts net of BTM solar and 'actual' gross of it (secondary source; CAISO's own definition page not found). Clean like-for-like error = RTD hourly mean - DA.",
+  "status": "DONE"
  },
  {
   "id": "STAKES-REFEREE",
@@ -635,7 +637,7 @@
   "v": 0.8,
   "L": 2,
   "c": 1,
-  "note": "Hostile referee of STAKES-EXOGENOUS: exogeneity argument (within-stratum surprise), reduced-form vs causal cost, k_lin estimand, week-block bootstrap coverage (0.94-0.98 synthetic), amendments A1/A2."
+  "note": "Hostile referee of STAKES-EXOGENOUS: exogeneity argument (within-stratum surprise), reduced-form vs causal cost, k_lin estimand, week-block bootstrap coverage (0.94-0.98 synthetic), amendments A1/A2. | Pick 15 finding to check: on the like-for-like error (RTD - DA) k_lin is 5.37e-3 (2024) and 3.54e-3 (2025), 1.7x and 4.5x N21's; the 4x fall shrinks to ~34% (CI includes 0): N21's error likely attenuated by BTM-estimate noise (errors in variables). Weak surprise."
  },
  {
   "id": "HEADLINE-PREMISE-REVIEW",
@@ -701,5 +703,23 @@
   "L": 2,
   "c": 0.5,
   "note": "From CAUSAL-KILL-INPUTS review Q4: the causal kill is sign-only; a right-sign move far too small passes it (optimality form and prereg size bands may catch it). Proposal only: whether a locked elasticity band should be a causal kill. Widens kills: separate applier + reviewer."
+ },
+ {
+  "id": "CAUSAL-POWER-GATE",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 2,
+  "c": 0.5,
+  "note": "From STAKES-SHIFT-CAISO (pick 15): a one-year causal contrast on CAISO had year-to-year noise s_yr 0.32 log units vs a predicted D of 0.14, so neither PASS nor FAIL was attainable (a ~7x stakes change would be needed). Rule proposal: every causal-form prereg shows, before lock, that its PASS and FAIL rules are attainable at the expected effect and noise (sibling of KG-FEASIBILITY-GATE). Process; QUEUE text only."
+ },
+ {
+  "id": "STAKES-SHIFT-MULTIYEAR",
+  "w": 3,
+  "untested": true,
+  "v": 0.4,
+  "L": 2,
+  "c": 3,
+  "note": "From STAKES-SHIFT-CAISO (pick 15): OASIS keeps ~36 months of prices, so stakes on CAISO were measurable only for 2024-2025 (a ~34% fall on the clean error, not established). A powered N6 causal test needs many stakes changes: archived CAISO prices (DMM reports, other public archives) for 2019-2023, or several ISOs (ERCOT, PJM, NYISO DA load forecasts and prices) as a panel; lock lag 12 months, like-for-like error, q control, with CAUSAL-POWER-GATE met before lock."
  }
 ]
