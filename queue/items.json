@@ -909,7 +909,8 @@
   "v": 0.9,
   "L": 2,
   "c": 1,
-  "note": "From DISCRETE-TA (15 Nov): separate reviewer for the authored N16 scope sentence (THEORY 2.2 Regime A premise bullet + CLAIM_MAP N16 + changelog; PR marked DO NOT MERGE without separate reviewer PASS): definition (pre-switch law fixed in prereg; quiet vs switch law O(kappa ln 1/kappa)) and sampled-grid validity (t_A + 0.58 sqrt(Delta N)/mu; 10% at >= 10-27 samples, 5% at >= 30-120; linear memory time fine beyond 2 samples). Reviewer re-derives with own code (not tools/discrete_ta.py) and checks the BGK constant in the source."
+  "note": "From DISCRETE-TA (15 Nov): separate reviewer for the authored N16 scope sentence (THEORY 2.2 Regime A premise bullet + CLAIM_MAP N16 + changelog; PR marked DO NOT MERGE without separate reviewer PASS): definition (pre-switch law fixed in prereg; quiet vs switch law O(kappa ln 1/kappa)) and sampled-grid validity (t_A + 0.58 sqrt(Delta N)/mu; 10% at >= 10-27 samples, 5% at >= 30-120; linear memory time fine beyond 2 samples). Reviewer re-derives with own code (not tools/discrete_ta.py) and checks the BGK constant in the source. | DONE 15 Nov ~6:02 PM ET (out-of-cycle, unscored; ledger 133): PASS-WITH-FIXES, PR #53 merged as THEORY v1.4.9 (CLAIM_MAP v2.26). Own code confirms linear closed form, thresholds, laws, BGK constant (read); grid coefficient is kappa-dependent (0.567 at 1e-2), wording hedged; clock origin stated; both laws named. reviews/night2/DISCRETE_TA_N16_REVIEW.md",
+  "status": "DONE"
  },
  {
   "id": "DISCRETE-TA-INTEGRATED",
@@ -927,6 +928,6 @@
   "v": 0.6,
   "L": 1,
   "c": 1,
-  "note": "From DISCRETE-TA (15 Nov): prove the mean-time version of the overshoot correction C1 = -zeta(1/2)/sqrt(2 pi) (BGK prove the probability version) and derive the O(Delta) coefficient c2 (fitted 0.21-0.26; kappa-dependent residual at kappa = 1e-2, rho = 0.0025 unresolved, 4.5%)."
+  "note": "From DISCRETE-TA (15 Nov): prove the mean-time version of the overshoot correction C1 = -zeta(1/2)/sqrt(2 pi) (BGK prove the probability version) and derive the O(Delta) coefficient c2 (fitted 0.21-0.26; kappa-dependent residual at kappa = 1e-2, rho = 0.0025 unresolved, 4.5%). | Updated by DISCRETE-TA-N16-REVIEW (ledger 133): the 4.5% residual was a lattice-extrapolation artifact (g = 0.5803 at kappa 1e-2, rho 0.0025), but the rho->0 coefficient is kappa-dependent: c = 0.5822/0.5673/0.5466 at kappa 1e-4/1e-2/3e-2; barrier-shift heuristic C1*int_0^inf exp(-z-kappa(cosh z-1))dz explains ~80%; derive c(kappa) and c2."
  }
 ]
