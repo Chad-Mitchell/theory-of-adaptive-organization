@@ -6,6 +6,8 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 **v2.3 note (15 Nov 2026, about 10:00 AM ET; THEORY.md v1.4).** THEORY v1.4 demotes the tracking layer (K12, K13, N11) to classical filtering and approximation theory plus a price; the headline is now the empirical bet N13 (measured-input optimality, OPEN) and its cross-scale form J6 (OPEN). Added: LEARNSIM rows G23–G29 (from `reviews/night2/LEARNSIM_REFEREE.md` §8, applied here with two in-model statuses defined below), N12 (formal exponents are α-independent for the two sensing technologies; self-checked, not refereed) and N13. N7's scope is updated. No existing row changes status.
 
+**v2.4 note (15 Nov 2026; THEORY.md v1.4.1).** Per `reviews/night2/V14_REVIEW.md` Fix 2, J16 moves PRIOR ART → OPEN: definitional inside the model (Axiom 5), but as a claim about real systems it has testable content (sufficiency: no fourth cost type needed at any level, plus J6). The tally table is updated (PRIOR ART 20 → 19, OPEN 42 → 43). N12 is unchanged here; its narrowing (V14_REVIEW Fix 1) is pending a separate referee.
+
 **Why v2 exists.** Chad (t1908): no field test so far measured GTAO's quantities validly, so field "kills" and "hits" were results about **proxies**. v2 says so in every row. It does **not** soften the mathematics. Statements refuted by proof stay refuted (as MATH-CORRECTED, with their replacement), and failed locked simulations stay failed (SIM-FAIL).
 
 ## Statuses (exactly one per row)
@@ -224,7 +226,7 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 | J13 | 'No dynamic drift → structure theory exists' | KILLED | **WITHDRAWN** | MOVZ 2001; Aoki 1986 |
 | J14 | Title 'A Theory of Adaptive Organization' | KILLED (as distinctive) | **DECIDED** | **Decided (Chad, t1908): keep the title**; cite Dessein & Santos 2006 prominently |
 | J15 | Core mechanism C (drift destroys information; re-buying costs; selection keeps cheapest allocation) | OPEN | **OPEN** | Unchanged; no valid field test yet |
-| J16 | Same three costs (upkeep/memory, prediction error, reads) at every level | new | **PRIOR ART** | True **by construction** of Axiom 5 (definitional), so not itself testable; the universal content is J6. Recursion qualitatively prior art (Beer's VSM) |
+| J16 | Same three costs (upkeep/memory, prediction error, reads) at every level | new | **OPEN** (v2.4; was PRIOR ART) | Definitional inside the model (Axiom 5). Empirical content: sufficiency (no fourth cost type needed at any level) plus J6. OPEN. Recursion qualitatively prior art (Beer's VSM). The qualitative recursion is prior art; the three-cost sufficiency claim was not found stated (`reviews/night2/V14_REVIEW.md` Fix 2) |
 
 ## K. Earlier repo claims (THEORY v1.0 and public X posts)
 
@@ -284,7 +286,7 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 ## Counts (167 rows in v2; section N adds 9 in v2.1, 2 in v2.2 and 2 in v2.3; section G adds 7 in v2.3; total 187)
 
-The table counts the 167 v2 rows only (section N and rows G23–G29 are not in it). v2.2 (referee, 15 Nov 09:40 AM ET) moved K12 and K13 OPEN → MATH-CORRECTED and H19 PROXY-FAIL → MATH-CORRECTED; the table below reflects that.
+The table counts the 167 v2 rows only (section N and rows G23–G29 are not in it). v2.2 (referee, 15 Nov 09:40 AM ET) moved K12 and K13 OPEN → MATH-CORRECTED and H19 PROXY-FAIL → MATH-CORRECTED; v2.4 moved J16 PRIOR ART → OPEN; the table below reflects both.
 
 | v2 status | Rows |
 |---|---|
@@ -292,8 +294,8 @@ The table counts the 167 v2 rows only (section N and rows G23–G29 are not in i
 | MATH-CORRECTED | 20 |
 | PROXY-FAIL | 12 |
 | PROXY-PASS | 2 |
-| OPEN | 42 |
-| PRIOR ART | 20 |
+| OPEN | 43 |
+| PRIOR ART | 19 |
 | SIM-FAIL | 6 |
 | NOT EVIDENCE | 13 |
 | WITHDRAWN | 9 |
@@ -308,7 +310,7 @@ The table counts the 167 v2 rows only (section N and rows G23–G29 are not in i
   - J14 (keep the title) and J3 (never 'law') are **DECIDED** / **WITHDRAWN**.
   - The physics claim is restated as J10′ (floors at every level, binding where β_phys ≈ 1).
   - The free-energy special case is K1′.
-  - The 'same three costs' framing is J16 (definitional).
+  - The 'same three costs' framing is J16 (definitional in the model; OPEN as an empirical claim since v2.4).
 - New rows M1–M4 come from the measurement layer.
 
 **Caveats.** This relabel was done by one executor and is not independently reviewed. M1 and M3 are elementary self-checked derivations. The gates (M2) become binding only once Chad signs off on them and they are locked before new data.
