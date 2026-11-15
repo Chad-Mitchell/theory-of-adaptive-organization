@@ -1,0 +1,40 @@
+{'a_true': 0.2, 'o1': 0.3, 'a_hat': 0.201, 'beta': 0.154, 'n_beta_files': 300}
+{'a_true': 0.35, 'o1': 0.3, 'a_hat': 0.346, 'beta': 0.204, 'n_beta_files': 300}
+{'a_true': 0.5, 'o1': 0.3, 'a_hat': 0.495, 'beta': 0.276, 'n_beta_files': 300}
+{'a_true': 0.65, 'o1': 0.3, 'a_hat': 0.645, 'beta': 0.342, 'n_beta_files': 300}
+{'a_true': 0.8, 'o1': 0.3, 'a_hat': 0.787, 'beta': 0.371, 'n_beta_files': 175}
+{'a_true': 0.95, 'o1': 0.3, 'a_hat': 0.88, 'beta': 0.39, 'n_beta_files': 6}
+{'n': 24, 'spearman_beta_a': 0.754, 'p': 2.097354763559075e-05}
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+{'repo': 'phoenixframework_phoenix', 'a_need': 0.581, 'beta_measured': 0.236, 'beta_renewal': 0.216}
+{'repo': 'psf_requests', 'a_need': 0.577, 'beta_measured': 0.212, 'beta_renewal': 0.221}
+{'repo': 'pandas-dev_pandas', 'a_need': 0.663, 'beta_measured': 0.337, 'beta_renewal': 0.276}
+{'repo': 'pandas-dev_pandas', 'a_need': 0.663, 'beta_measured': 0.337, 'beta_renewal': 0.276}
+{'repo': 'pandas-dev_pandas', 'a_need': 0.663, 'beta_measured': 0.337, 'beta_renewal': 0.276}
+{'repo': 'pandas-dev_pandas', 'a_need': 0.663, 'beta_measured': 0.337, 'beta_renewal': 0.276}
+{'repo': 'scikit-learn_scikit-learn', 'a_need': 0.586, 'beta_measured': 0.227, 'beta_renewal': 0.205}
+{'repo': 'scikit-learn_scikit-learn', 'a_need': 0.586, 'beta_measured': 0.227, 'beta_renewal': 0.205}
+{'repo': 'vuejs_core', 'a_need': 0.724, 'beta_measured': 0.355, 'beta_renewal': 0.292}
+{'repo': 'rails', 'a_need': 0.646, 'beta_measured': 0.192, 'beta_renewal': 0.245}
+{'repo': 'rails', 'a_need': 0.646, 'beta_measured': 0.192, 'beta_renewal': 0.245}
+{'repo': 'rails', 'a_need': 0.646, 'beta_measured': 0.192, 'beta_renewal': 0.245}
+{'repo': 'rails', 'a_need': 0.646, 'beta_measured': 0.192, 'beta_renewal': 0.245}
+{
+ "n": 6,
+ "spearman_measured_vs_renewal": 0.48571428571428577,
+ "spearman_renewal_beta_vs_a": 0.7714285714285715,
+ "spearman_measured_beta_vs_a": 0.6,
+ "mean_abs_diff": 0.038
+}
