@@ -960,7 +960,7 @@
   "v": 0.8,
   "L": 2,
   "c": 0.5,
-  "note": "From KERNEL-MEASURE (pick 28): independent hostile referee of tests/KERNEL_MEASURE (own code): ok_kernel derivation, like-with-like prediction (sim planned-n 0.277 vs direct 0.301), band choice after AQN R1 'not established', fixed- vs free-noise alpha (decides PASS vs INCONCLUSIVE), block bootstrap, VIX proxies (risk-neutral, log of expectation, overnight omitted); and pass/fail THEORY v1.4.10 PR #58 (DO NOT MERGE without separate reviewer PASS). | PR #58 part DONE 15 Nov ~6:20 PM ET (out-of-cycle, unscored; ledger 139): PASS-WITH-FIXES, merged as THEORY v1.4.10 / CLAIM_MAP v2.28 (reviews/night2/KERNEL_MEASURE_REVIEW.md). Numbers reproduce with own code; like-with-like, band and noise questions ruled; free-noise INCONCLUSIVE was an alpha-only artifact (consistent refits 0.276-0.278). Remaining scope: proxy validity only (variance risk premium, log of expectation, overnight variance, jumps / Gaussian driver premise). | Proxy-validity part DONE 15 Nov ~6:50 PM ET (pick 33, rule slot; ledger 153-155 + outcome; reviews/night2/KERNEL_PROXY_REVIEW.md): VIX-free realized-target kernel W21 0.259 +/- 0.058 vs like-with-like 0.258 (P1 PASS on proxy, exploratory); VIX minus realized-target survival 0.0005 +/- 0.055 (post hoc), locked P2 vs realized level UNRESOLVED (MV10 not met); Jensen in-model +0.003; scale distorted (sum of weights VIX 0.75 vs realized 0.88, post hoc); overnight open (KERNEL-OVERNIGHT-REFIT).",
+  "note": "From KERNEL-MEASURE (pick 28): independent hostile referee of tests/KERNEL_MEASURE (own code): ok_kernel derivation, like-with-like prediction (sim planned-n 0.277 vs direct 0.301), band choice after AQN R1 'not established', fixed- vs free-noise alpha (decides PASS vs INCONCLUSIVE), block bootstrap, VIX proxies (risk-neutral, log of expectation, overnight omitted); and pass/fail THEORY v1.4.10 PR #58 (DO NOT MERGE without separate reviewer PASS). | PR #58 part DONE 15 Nov ~6:20 PM ET (out-of-cycle, unscored; ledger 139): PASS-WITH-FIXES, merged as THEORY v1.4.10 / CLAIM_MAP v2.28 (reviews/night2/KERNEL_MEASURE_REVIEW.md). Numbers reproduce with own code; like-with-like, band and noise questions ruled; free-noise INCONCLUSIVE was an alpha-only artifact (consistent refits 0.276-0.278). Remaining scope: proxy validity only (variance risk premium, log of expectation, overnight variance, jumps / Gaussian driver premise). | Proxy-validity part DONE 15 Nov ~6:50 PM ET (pick 33, rule slot; ledger 153-155 + outcome; reviews/night2/KERNEL_PROXY_REVIEW.md): VIX-free realized-target kernel W21 0.259 +/- 0.058 vs like-with-like 0.258 (P1 PASS on proxy, exploratory); VIX minus realized-target survival 0.0005 +/- 0.055 (post hoc), locked P2 vs realized level UNRESOLVED (MV10 not met); Jensen in-model +0.003; scale distorted (sum of weights VIX 0.75 vs realized 0.88, post hoc); overnight open (KERNEL-OVERNIGHT-REFIT). | PR #66 (THEORY v1.4.13) independent review DONE ~6:57 PM ET (out-of-cycle, unscored; ledger 158): PASS-WITH-FIXES, merged (reviews/night2/KERNEL_PROXY_REVIEW2.md).",
   "status": "DONE"
  },
  {
@@ -1051,6 +1051,20 @@
   "note": "From ONSET-ACROSS-ALPHA-SIM (pick 32): the precision-priced arm (predicted -(1+theta), -2 at linear price, at every alpha) across alpha 1.5 vs 2.5 with learners not given the cost function; the self-tuned EWMA is not the best linear tracker at alpha != 2 (still degree-1 homogeneous, so the prediction stands for it); MV10 gate on an out-of-contrast pilot first; small-rho onset gaps are smaller than for reset reads."
  },
  {
+  "id": "KERNEL-PROXY-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 0.5,
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/KERNEL_PROXY_REVIEW2.md",
+   "reviews/night2/KERNEL_PROXY_REVIEW2_checks/"
+  ],
+  "note": "From KERNEL-MEASURE-REFEREE proxy part (pick 33): separate reviewer for PR #66 (THEORY v1.4.13 / CLAIM_MAP v2.31, DO NOT MERGE without separate reviewer PASS, Chad t1916). | DONE 15 Nov ~6:57 PM ET (out-of-cycle, unscored; ledger 158): PASS-WITH-FIXES, merged. Own code reproduces every data number (9+ digits) and the in-model references (realized mean-log 0.2585 +/- 0.0025 vs 0.2579; Jensen +0.0028). Identity valid in population (regressors F-measurable; no future-noise orthogonality needed); in-model VIX-minus-realized reference is about +0.02, not 0; P1 PASS slack 0.004 holds at 56/60 bootstrap seeds; 'supported' -> 'consistent, not certified'; gain clause narrowed (target-dependent: VIX - realized log level -0.05 +/- 0.05)."
+ },
+ {
   "id": "KERNEL-OVERNIGHT-REFIT",
   "w": 2,
   "untested": true,
@@ -1072,8 +1086,9 @@
   "c": 1,
   "status": null,
   "paths": [
-   "reviews/night2/KERNEL_PROXY_REVIEW.md"
+   "reviews/night2/KERNEL_PROXY_REVIEW.md",
+   "reviews/night2/KERNEL_PROXY_REVIEW2.md"
   ],
-  "note": "From KERNEL-MEASURE-REFEREE proxy part (pick 33, POST HOC): VIX's total kernel loading on past log range variance is 0.754 +/- 0.028 vs 0.878 +/- 0.042 for the realized 21-day mean log (paired -0.124 +/- 0.050; simulated best linear tracker 0.976). Shape (W21) unaffected. Test a premium-elasticity explanation (premium shrinking in relative terms as variance rises) before any test reads a tracker's gain from VIX."
+  "note": "From KERNEL-MEASURE-REFEREE proxy part (pick 33, POST HOC): VIX's total kernel loading on past log range variance is 0.754 +/- 0.028 vs 0.878 +/- 0.042 for the realized 21-day mean log (paired -0.124 +/- 0.050; simulated best linear tracker 0.976). Shape (W21) unaffected. Test a premium-elasticity explanation (premium shrinking in relative terms as variance rises) before any test reads a tracker's gain from VIX. | PR #66 review (ledger 158): target-dependent. VIX minus realized log LEVEL (closer to what VIX prices) is -0.054 +/- 0.053; on 2008-2026 the realized close-to-close log level has lower gain (0.59 +/- 0.12) than VIX (0.75 +/- 0.05). Define the target (level vs mean log, overnight, horizon) before testing a premium explanation."
  }
 ]
