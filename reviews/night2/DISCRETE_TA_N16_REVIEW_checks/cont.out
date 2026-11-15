@@ -1,0 +1,6 @@
+0.1 plugin 0.7093 quiet/pl 1.17821 switch/pl 1.02309  (q-s)/pl 0.15512  k ln(1/k) 0.23026
+0.03 plugin 1.3112 quiet/pl 1.03573 switch/pl 0.96537  (q-s)/pl 0.07036  k ln(1/k) 0.10520
+0.01 plugin 1.8606 quiet/pl 1.00981 switch/pl 0.97774  (q-s)/pl 0.03207  k ln(1/k) 0.04605
+0.001 plugin 3.0118 quiet/pl 1.00079 switch/pl 0.99578  (q-s)/pl 0.00501  k ln(1/k) 0.00691
+0.0001 plugin 4.1631 quiet/pl 1.00007 switch/pl 0.99940  (q-s)/pl 0.00068  k ln(1/k) 0.00092
+1e-06 plugin 6.4657 quiet/pl 1.00000 switch/pl 0.99999  (q-s)/pl 0.00001  k ln(1/k) 0.00001

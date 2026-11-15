@@ -1,0 +1,4 @@
+quiet 0.002 9 mine 16.3157 report-lattice 16.3150
+quiet 0.0005 36 mine 61.1065 report-lattice 61.1010
+switch 0.002 9 mine 15.5698 report-lattice 15.5690
+switch 0.01 2.25 mine 4.2458 report-lattice 4.2458

@@ -1,0 +1,17 @@
+pole iter vs closed: 0.01 1 1 0.5 0.20091468652489475 0.20091468652489064
+pole iter vs closed: 0.002 1 9 1 0.030080276812893554 0.03008027681289981
+pole iter vs closed: 0.1 2 0.3 0.7 2.1214431941930876 2.1214431941930876
+pole iter vs closed: 0.05 1 2 3.0 0.3214388319570924 0.3214388319570923
+beta^2 = a**2 + b + -b**2/12 D^2 +...
+beta_c/beta - 1 = D**2*b**2/(24*(a**2 + b))  ; claim b^2 D^2/(24 bc^2): 0
+r=0.60 ratio(a=0)=1.09868 series=1.11574 ratio(a=.5bc)=1.05376
+r=0.88 ratio(a=0)=1.04956 series=1.05381 ratio(a=.5bc)=1.02748
+r=1.00 ratio(a=0)=1.03904 series=1.04167 ratio(a=.5bc)=1.02172
+r=1.50 ratio(a=0)=1.01797 series=1.01852 ratio(a=.5bc)=1.01006
+r=2.00 ratio(a=0)=1.01024 series=1.01042 ratio(a=.5bc)=1.00574
+r=2.05 ratio(a=0)=1.00975 series=1.00991 ratio(a=.5bc)=1.00547
+r=3.00 ratio(a=0)=1.00459 series=1.00463 ratio(a=.5bc)=1.00258
+r=10.00 ratio(a=0)=1.00042 series=1.00042 ratio(a=.5bc)=1.00023
+slow-world threshold r for 0.01 2.02405567970455
+slow-world threshold r for 0.05 0.8758472667016859
+slow-world threshold r for 0.1 0.5954217705789596
