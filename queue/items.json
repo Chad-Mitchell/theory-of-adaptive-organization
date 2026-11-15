@@ -991,7 +991,30 @@
   "v": 0.9,
   "L": 2,
   "c": 1,
-  "note": "From ONSET-NOISY-READS (pick 29, 15 Nov): separate reviewer of PR #60 (THEORY v1.4.11 N12 premise (ii) clause + CLAIM_MAP v2.29; DO NOT MERGE without separate reviewer PASS). Re-derive with own code: collapse N*rho = X(s2/rho); g_alpha = (Gamma(alpha) sin(pi(alpha-1)/2))^(1/alpha)/sin(pi/alpha) dense-sampling asymptote for sampled fBm (author checked 1.5-2.75, M-limited at 1.25); C_alpha and rho_c; uniform-convergence step; whether curvature separates noisy reset reads from priced precision over finite windows; v1.4.10/v2.28 numbering vs PR #58."
+  "note": "From ONSET-NOISY-READS (pick 29, 15 Nov): separate reviewer of PR #60 (THEORY v1.4.11 N12 premise (ii) clause + CLAIM_MAP v2.29; DO NOT MERGE without separate reviewer PASS). Re-derive with own code: collapse N*rho = X(s2/rho); g_alpha = (Gamma(alpha) sin(pi(alpha-1)/2))^(1/alpha)/sin(pi/alpha) dense-sampling asymptote for sampled fBm (author checked 1.5-2.75, M-limited at 1.25); C_alpha and rho_c; uniform-convergence step; whether curvature separates noisy reset reads from priced precision over finite windows; v1.4.10/v2.28 numbering vs PR #58. | DONE 15 Nov ~6:27 PM ET (pick 30, RULE slot; ledger 145 unaided, 146 rule_rank, 147 claim, 148 outcome): PASS-WITH-FIXES, PR #60 merged as THEORY v1.4.11 / CLAIM_MAP v2.29 (main ff9fdde). Asymptote derived (Kolmogorov-Szego); fixes F1-F4.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/ONSET_NOISY_READS_REVIEW.md",
+   "reviews/night2/ONSET_NOISY_READS_REVIEW_checks/"
+  ]
+ },
+ {
+  "id": "ONSET-SLOPE-POINTWISE",
+  "w": 1,
+  "untested": true,
+  "v": 0.7,
+  "L": 1,
+  "c": 0.5,
+  "note": "From ONSET-NOISY-READS-REVIEW (pick 30): write out the derivative asymptote z f'(z)/f(z) -> 1-1/alpha for sampled fBm from the Kolmogorov-Szego form (differentiate J under the integral, with the aliasing remainder), turning the pointwise local-slope limit -2 from numerical into derived; also the dominated-convergence step of the reviewer's asymptote sketch."
+ },
+ {
+  "id": "N2-CURVATURE-POWER",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 1,
+  "note": "From ONSET-NOISY-READS-REVIEW (pick 30): MV10-style power for classifying a level's technology from onset curvature: in-model the local slope runs -1.2 to -1.8 across one decade of rho centred on rho_c and is straight far from it; simulate the locked decision rule (curvature vs straight, priced precision theta vs noisy reset reads) at realistic onset measurement noise and rho windows before any N2 prereg relies on it."
  },
  {
   "id": "C3B-STAGE4-DECIDE",

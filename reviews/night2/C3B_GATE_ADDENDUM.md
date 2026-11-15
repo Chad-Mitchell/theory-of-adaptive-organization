@@ -1,4 +1,4 @@
-# C3B-GATE-ADDENDUM (pick 31, unaided slot; ledger 142–144, outcome 145) — 15 Nov 2026 ~6:40 PM ET
+# C3B-GATE-ADDENDUM (pick 31, unaided slot; ledger 142–144, outcome 152) — 15 Nov 2026 ~6:40 PM ET
 
 **Deliverable:** `tests/C3b/PREREG_ADDENDUM_A3.md` (dated, before stage 4; hash appended to `tests/C3b/PREREG.sha256`;
 PREREG/A1/A2 hashes verified unchanged). Checks: `reviews/night2/C3B_GATE_checks/` (`count_n.py` + `count_n.json`,
