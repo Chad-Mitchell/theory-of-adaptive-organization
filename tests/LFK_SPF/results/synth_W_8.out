@@ -1,0 +1,25 @@
+W v0: tau=3.34 a=3.47 phi=0.19 K=1.26 excluded {'E2': True, 'E3': True, 'E4': False} fit a=3.17 se=0.78
+W v1: tau=37.99 a=2.49 phi=0.34 K=1.06 excluded {'E2': True, 'E3': False, 'E4': False} fit a=1.83 se=0.64
+W v2: tau=12.01 a=2.87 phi=0.40 K=1.81 excluded {'E2': True, 'E3': False, 'E4': False} fit a=1.48 se=0.73
+W v3: tau=3.07 a=1.60 phi=0.17 K=2.80 excluded {'E2': False, 'E3': True, 'E4': False} fit a=6.00 se=1.23
+W v4: tau=5.83 a=3.02 phi=0.57 K=0.17 excluded {'E2': False, 'E3': True, 'E4': False} fit a=6.00 se=0.59
+W v5: tau=2.42 a=3.46 phi=0.43 K=0.27 excluded {'E2': True, 'E3': True, 'E4': False} fit a=1.58 se=0.61
+W v6: tau=1.33 a=1.84 phi=0.52 K=0.06 excluded {'E2': False, 'E3': True, 'E4': False} fit a=6.00 se=1.64
+W v7: tau=5.99 a=2.99 phi=0.14 K=0.38 | fit tau=8.02 a=2.63 | beta^=1.025 true=0.800 predG=0.862 static=0.155 a2=1.083
+W v8: tau=6.57 a=3.19 phi=0.34 K=0.08 excluded {'E2': False, 'E3': True, 'E4': True} fit a=6.00 se=0.31
+W v9: tau=32.02 a=3.44 phi=0.45 K=0.31 excluded {'E2': False, 'E3': True, 'E4': False} fit a=6.00 se=0.56
+W v10: tau=4.70 a=2.50 phi=0.47 K=0.45 excluded {'E2': False, 'E3': True, 'E4': False} fit a=6.00 se=0.71
+W v11: tau=1.37 a=1.43 phi=0.05 K=0.08 excluded {'E2': True, 'E3': True, 'E4': False} fit a=4.06 se=0.62
+W v12: tau=21.34 a=1.60 phi=0.58 K=0.37 excluded {'E2': False, 'E3': True, 'E4': True} fit a=6.00 se=0.46
+W v13: tau=18.32 a=3.06 phi=0.48 K=1.16 excluded {'E2': True, 'E3': False, 'E4': False} fit a=2.25 se=0.63
+W v14: tau=1.21 a=2.60 phi=0.48 K=0.88 excluded {'E2': True, 'E3': True, 'E4': False} fit a=1.21 se=2.78
+W v15: tau=22.85 a=2.84 phi=0.60 K=0.06 | fit tau=21.97 a=1.22 | beta^=-0.383 true=0.051 predG=0.094 static=0.047 a2=0.084
+W v16: tau=35.20 a=2.35 phi=0.35 K=0.19 excluded {'E2': False, 'E3': True, 'E4': True} fit a=6.00 se=0.28
+W v17: tau=34.98 a=2.47 phi=0.13 K=2.12 excluded {'E2': True, 'E3': True, 'E4': False} fit a=2.73 se=0.81
+W v18: tau=4.82 a=2.39 phi=0.56 K=0.08 | fit tau=2.94 a=3.71 | beta^=0.642 true=0.079 predG=0.088 static=0.053 a2=0.100
+W v19: tau=24.70 a=1.61 phi=0.30 K=1.34 excluded {'E2': False, 'E3': True, 'E4': False} fit a=6.00 se=0.70
+W v20: tau=1.86 a=1.87 phi=0.07 K=1.59 excluded {'E2': True, 'E3': True, 'E4': False} fit a=2.59 se=1.23
+W v21: tau=4.65 a=2.82 phi=0.06 K=0.21 | fit tau=4.40 a=2.48 | beta^=1.159 true=0.633 predG=0.516 static=0.126 a2=0.602
+W v22: tau=30.51 a=2.79 phi=0.01 K=0.10 | fit tau=44.98 a=2.86 | beta^=1.158 true=1.537 predG=5.504 static=0.077 a2=8.519
+W v23: tau=1.24 a=2.86 phi=0.49 K=0.19 excluded {'E2': False, 'E3': True, 'E4': False} fit a=6.00 se=2.15
+W {"point": {"MAE_G": 1.21623823067265, "MAE_S": 2.0350215871220305, "MAE_M": 1.198239435897019, "MAE_N": 1.0641539462384195, "slope": 0.6188403149537999}, "n_vars": 5, "dGS": [-1.4495103930207598, 0.31851071951935944], "dGN": [-2.1243479353531325, 1.684215244329196], "dGM": [-0.47139694491241835, 0.965261372429483], "slope_ci": [-0.6578362498998632, 2.0320716889252557], "n_boot": 2000, "verdict": "INCONCLUSIVE (fewer than 8 variables)"}
