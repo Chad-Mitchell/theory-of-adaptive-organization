@@ -1,6 +1,6 @@
 # HEADLINE-PREMISE-SCOPE — proposed premise clause for §0, the status block, §2.1, §1 N6 (and CLAIM_MAP N13)
 
-Executor queue-pick10 (for Ace; Chad t1914, t1916), Sunday 15 Nov 2026, about 12:42–12:55 PM ET (America/New_York). Queue pick 10, **rule slot** (ledger 53 unaided order, 54 rule_rank, 55 pick, 56 outcome). Private repo; nothing posted or sent.
+Executor queue-pick10 (for Ace; Chad t1914, t1916), Sunday 15 Nov 2026, about 12:42–12:47 PM ET (America/New_York). Queue pick 10, **rule slot** (ledger 53 unaided order, 54 rule_rank, 55 pick, 56 outcome). Private repo; nothing posted or sent.
 
 **Scope (binding).** This file **proposes** text only. Per the item note and Chad t1916 ("be extra, extra sure before you do a full rewrite of the theory ... tread carefully"), a change that touches the headline is applied by a *separate* independent reviewer, with a second hostile pass, before merge (new item HEADLINE-PREMISE-APPLY). `THEORY.md` and the CLAIM_MAP N13 row text are **not** edited in this PR. No locked prediction, result or proof is touched. GTAO is a theory; no "law". Vigilance stays OPEN.
 
