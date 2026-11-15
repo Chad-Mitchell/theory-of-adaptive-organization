@@ -1,0 +1,5 @@
+base: lam=0.01 mu=2.0 q=0.04 t_A=0.6384
+(a) q fixed=0.0400, lam x0.5: t_A=0.4059 (-36.4%)
+(a) q fixed=0.0400, lam x2.0: t_A=0.9303 (+45.7%)
+(b) q x2.000, lam x2.6546, mu^2 x0.7534: t_A=0.6384 (-2.22e-16)
+validity: 2mu^2/(lam N) = 800 (base), 227 (b)
