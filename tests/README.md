@@ -13,8 +13,9 @@ The headline scoreboard is in the repository `README.md`.
 | `F1/` | Finished, inconclusive under the prereg. SEC `companyfacts.zip` / `submissions.zip` (~3 GB) omitted; hashes and derived datasets are here. |
 | `DRIFT1/` | Finished for public domains. Raw pull files omitted. Person-scale arm withheld (`REDACTION.md`). |
 | `ANTS1/` | Prereg locked; run incomplete; `results.pkl` is a partial artifact; no RESULTS.md. |
-| `DECISIVE/` | Three locked preregs (banks, glucose, populations). Raw and clinical data omitted. Each arm has a machine `results.json` with no RESULTS.md — not scored. |
+| `DECISIVE/` | Three locked preregs (banks, glucose, populations), each now with a `RESULTS.md` and `SUMMARY.md` at the top (written after the prereg commit; not independently reviewed). Raw and clinical data omitted. |
+| `MATCH1/` | Finished. Locked predictions (sha256 checked), results, chart, code and derived curves. Raw headlines, Wikipedia revision dump and source files omitted (`DATA.md`). |
 
-Not included: `MATCH1` (predictions locked, outcomes not computed) and earlier Looper/AI-memory experiment notes that are not these tests.
+Not included: earlier Looper/AI-memory experiment notes that are not these tests.
 
 Several analysis scripts still contain absolute paths from the machine they were run on (`/workspace/gtao/tests/...`). They will need those paths pointed at a local `data/` or `raw/` directory after a download.

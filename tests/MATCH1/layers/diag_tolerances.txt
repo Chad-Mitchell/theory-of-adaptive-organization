@@ -1,0 +1,6 @@
+antibody_viral_vs_age []
+code_need_pooled [(1, 9, 2, 2, np.float64(0.023)), (1.5, 9, 3, 2, np.float64(0.025)), (2, 9, 3, 3, np.float64(0.022)), (2.5, 7, 4, 3, np.float64(0.02)), (3, 7, 4, 3, np.float64(0.018))]
+news_memory_recall [(1, 2, 2, 2, np.float64(0.02)), (1.5, 9, 2, 2, np.float64(0.02)), (2, 9, 2, 2, np.float64(0.021)), (2.5, 9, 3, 2, np.float64(0.029))]
+news_need [(1, 9, 2, 2, np.float64(0.025)), (1.5, 9, 3, 2, np.float64(0.028)), (2, 9, 3, 3, np.float64(0.024)), (2.5, 9, 4, 3, np.float64(0.021))]
+science_reference_age [(1, 9, 9, 1, np.float64(0.045)), (1.5, 9, 9, 2, np.float64(0.042)), (2, 9, 9, 2, np.float64(0.039))]
+wiki_need [(1, 2, 2, 2, np.float64(0.005)), (1.5, 3, 3, 2, np.float64(0.007)), (2, 4, 3, 3, np.float64(0.006)), (2.5, 5, 4, 3, np.float64(0.01)), (3, 5, 4, 3, np.float64(0.012))]
