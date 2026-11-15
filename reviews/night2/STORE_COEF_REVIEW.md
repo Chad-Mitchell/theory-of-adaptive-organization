@@ -2,7 +2,7 @@
 
 **Verdict: PASS-WITH-FIXES.** Merged as THEORY v1.4.8 after the fixes below.
 
-- Queue: STORE-COEF-REVIEW, pick 27 (unaided slot, protocol v2); ledger 125 (unaided order), 126 (rule_rank), 128 (claim), outcome entry after this report. Sunday 15 November 2026, about 5:40–6:15 PM ET.
+- Queue: STORE-COEF-REVIEW, pick 27 (unaided slot, protocol v2); ledger 125 (unaided order), 126 (rule_rank), 128 (claim), outcome entry after this report. Sunday 15 November 2026, about 5:37–5:50 PM ET.
 - Reviewer: executor queue-pick27 (for Ace, Chad t1914/t1916). I wrote none of pick 26, PR #51, `SPECTRUM_MAP/checks/c3_layers.py`, `SPECTRUM_MAP_FIXES_checks/` or the referee's R4.
 - Own code: `STORE_COEF_REVIEW_checks/` (`coef.py`, `cont2.py`, `c_limit.py` and their `.out`/`.json`). It imports nothing from the repo. I re-implemented the model class from its written definition (SPECTRUM_MAP §1, Prop. 4) and did not run or read the author's checks.
 - Everything here is **in-model**. No data and no outcomes are involved.
@@ -105,6 +105,6 @@ The two-store threshold is 1/(ε₁ − ε₂), with ε₂ the polished two-stor
 
 - (i) N4 and the §2.2 store row: c is named as span- and model-dependent, with the exact no-free-memory value and the c3-model cases by span, and a prereg computes its own c.
 - (ii) The §2.2 knife-edge bullet: thresholds are given with model and span (2.4–2.6×10³; 4.8×10³–9.8×10³; about 5–6×10⁴ at span 10).
-- (iii) The changelog entry is v1.4.8 with this review record, and the header CLAIM_MAP pointer is v2.26.
+- (iii) The changelog entry is v1.4.8 with this review record, and the header CLAIM_MAP pointer is v2.27 (v2.26 is taken by unmerged PR #53, q-pick23-n16).
 
 No CLAIM_MAP status changes: K12 stays MATH-CORRECTED.
