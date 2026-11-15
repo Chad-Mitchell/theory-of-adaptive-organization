@@ -232,7 +232,17 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **ONA-MORE** — DONE (pick 16, UNIFORM slot: top of entry 80's stored perm, seed 20261195; rule rank 41 of 41, I = 0.035; Ace's unaided rank 40 of 41). Gate check with criteria fixed before searching: no public dataset has tenure, real reporting units and a shared-environment vs own-task question (Netzschleuder 811 nets, networkdata 990, 3 web searches; table in the report). No data analysed; H8 vigilance OPEN; no status change. Surprise: none (expected by the item's own note).
 - **ONA-INSTRUMENT-DRAFT** (w 1, c 0.5, untested). Draft and lock the two-generator ONA instrument, analysis code (QAP primary, HKSJ pool, tenure covariates) and a power curve on synthetic data only, so primary collection could run if Chad chooses. No contact with anyone.
 
+### NEW (15 Nov ~4:12 PM ET, from CAUSAL-KILL-INPUTS; surprises read per rule 4)
+- **CAUSAL-KILL-INPUTS** — DONE (pick 17, rule slot, I = 3.2, tied with REGIME-C-GAUSSIAN-PREMISE and taken by id order; ledger 83 unaided order, 84 rule_rank, 85 pick, 86 outcome; PR #41). Author note `reviews/night2/CAUSAL_KILL_INPUTS_AUTHOR.md`. Separate independent review `reviews/night2/CAUSAL_KILL_INPUTS_REVIEW.md` (own checks in `CAUSAL_KILL_INPUTS_REVIEW_checks/`, including a Wonham-filter Monte Carlo): **PASS-WITH-FIXES**, with fixes to the changelog and pointer only. **Merged:** THEORY v1.4.5 is on main. N6's causal kill now also fires on the further inputs of a Bayes-locked prereg and is scored by the direction the locked optimum predicts from inputs before and after the change. The lag is a number fixed in the prereg, and §9 is aligned with N6. STAKES-SHIFT-CAISO is unaffected. No status change.
+- **CAUSAL-NULL-INVARIANCE** (w 2, c 1). Review Q1. Decide whether a move beyond error under a predicted null should count as a miss. This is an invariance claim, so a separate applier and reviewer are needed. It is also a Bayes-vs-linear discriminator: a split q change leaves Bayes t_A fixed, while the linear optimum predicts −29.5%.
+- **CAUSAL-KILL-PRICE** (w 1, c 0.5). Review Q2. The effort price is an input of every §2.2 optimum but is not in the causal trigger list. Proposal only.
+- **CAUSAL-KILL-MAGNITUDE** (w 1, c 0.5). Review Q4. Decide whether a locked elasticity band should be a causal kill. Proposal only.
+- Surprise read (weak): R2's claim that a linear-locked optimum moves under any input change holds only for single-input changes. The joint-change null is recorded in the v1.4.5 changelog. No LR change.
+
+**Pick 17 done (PR #41 merged; outcome ledger 86). Next pick (18) is the rule slot. Next free ledger entry: 87; recheck all pushed branches, because q-pick15 holds 76–78.**
+
 ## Done (frozen)
+- CAUSAL-KILL-INPUTS: `reviews/night2/CAUSAL_KILL_INPUTS_REVIEW.md` (independent review PASS-WITH-FIXES; THEORY v1.4.5; PR #41 merged).
 - ONA-MORE: `reviews/night2/ONA_MORE_GATE.md` (gate not met; no data analysed).
 - HEADLINE-PREMISE-REVIEW: `reviews/night2/HEADLINE_PREMISE_REVIEW.md` (independent review PASS with R1, R3, R4; PR #37 merged; R2 → CAUSAL-KILL-INPUTS).
 - HEADLINE-PREMISE-APPLY: `reviews/night2/HEADLINE_PREMISE_APPLY.md` (THEORY v1.4.4; merged after independent review, PR #37).

@@ -658,7 +658,13 @@
   "v": 0.8,
   "L": 2,
   "c": 0.5,
-  "note": "From HEADLINE-PREMISE-REVIEW R2 (15 Nov; reviews/night2/HEADLINE_PREMISE_REVIEW.md §2, §4): THEORY §1 N6 causal form and §9 causal bullet name only alpha, q, N, stakes. For a Bayes-locked jump-world test, lambda and mu can change at fixed q (design staying put would not count: a hole) and a q change split between them can leave the Bayes optimum fixed (§9 'stays put' mis-fires); §9 'stays put' is weaker than N6 'does not move in the predicted direction'; N6's 'after its adjustment lag' is not locked in THEORY (V141 review: a number fixed in each prereg). Exact proposed text in the review §4 R2. A separate applier (not the pick-14 reviewer) applies or rejects it, with an independent second reviewer before merge (kill conditions; Chad t1916). Not urgent: no Bayes-locked or causal-form test is locked yet; until then such preregs must list their inputs and fix the lag as a number."
+  "note": "From HEADLINE-PREMISE-REVIEW R2 (15 Nov; reviews/night2/HEADLINE_PREMISE_REVIEW.md §2, §4): THEORY §1 N6 causal form and §9 causal bullet name only alpha, q, N, stakes. For a Bayes-locked jump-world test, lambda and mu can change at fixed q (design staying put would not count: a hole) and a q change split between them can leave the Bayes optimum fixed (§9 'stays put' mis-fires); §9 'stays put' is weaker than N6 'does not move in the predicted direction'; N6's 'after its adjustment lag' is not locked in THEORY (V141 review: a number fixed in each prereg). Exact proposed text in the review §4 R2. A separate applier (not the pick-14 reviewer) applies or rejects it, with an independent second reviewer before merge (kill conditions; Chad t1916). Not urgent: no Bayes-locked or causal-form test is locked yet; until then such preregs must list their inputs and fix the lag as a number.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/CAUSAL_KILL_INPUTS_AUTHOR.md",
+   "reviews/night2/CAUSAL_KILL_INPUTS_REVIEW.md",
+   "reviews/night2/CAUSAL_KILL_INPUTS_REVIEW_checks/"
+  ]
  },
  {
   "id": "ONA-INSTRUMENT-DRAFT",
@@ -668,5 +674,32 @@
   "L": 1,
   "c": 0.5,
   "note": "From ONA-MORE (gate not met, 15 Nov ~4:00 PM ET; reviews/night2/ONA_MORE_GATE.md): the only realistic route to an ONA test meeting referee REPORT 6.3 is primary collection. Draft and lock, on synthetic data only, a short instrument (shared-environment name generator: who do you go to about changes in customers/markets/regulation/other units; own-task name generator: help with your own work; tenure and reporting line from records; ties inside the lead's own pool excluded from 'outside'), the analysis code (dyadic logit with ego/alter FE, ego tenure x outside, alter-more-senior; QAP node permutation primary; random-effects pool with HKSJ) and a power curve vs organisation size. Process only: no contact with any organisation or person; any collection needs Chad's go."
+ },
+ {
+  "id": "CAUSAL-NULL-INVARIANCE",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 1,
+  "note": "From CAUSAL-KILL-INPUTS review Q1 (15 Nov): THEORY scores the causal form only by direction; a change whose locked optimum predicts no move is unscored. Proposal-only item: should a move beyond error under a predicted null count as a miss (an invariance claim, widens claims; kill-condition edit needs separate applier + reviewer, Chad t1916)? Also a Bayes-vs-linear discriminator: a q change split between jump rate and size (lam x2.65, mu^2 x0.75) leaves Bayes t_A fixed (MC -1%) while the linear optimum predicts -29.5% (review checks rev_holes.py). Derive the null manifolds per design quantity (t_A, MSE, precision) and sketch a test."
+ },
+ {
+  "id": "CAUSAL-KILL-PRICE",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 0.5,
+  "note": "From CAUSAL-KILL-INPUTS review Q2: N6/§9 causal trigger lists alpha, q, N, stakes, not the effort price c, which every §2.2 optimum uses (J6 covers price response separately). Proposal only: whether the trigger should read 'any input of the locked optimum'; an unmeasured price change is a confounder each causal prereg must hold or measure. Kill-condition edit: separate applier + reviewer."
+ },
+ {
+  "id": "CAUSAL-KILL-MAGNITUDE",
+  "w": 1,
+  "untested": true,
+  "v": 0.4,
+  "L": 2,
+  "c": 0.5,
+  "note": "From CAUSAL-KILL-INPUTS review Q4: the causal kill is sign-only; a right-sign move far too small passes it (optimality form and prereg size bands may catch it). Proposal only: whether a locked elasticity band should be a causal kill. Widens kills: separate applier + reviewer."
  }
 ]
