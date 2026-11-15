@@ -1,0 +1,9 @@
+START RR rho=0.16 seed 0
+DONE RR rho=0.16 sec 3.9 flat_eff_match True max_abs_D_rel 3.3306690738754696e-16 flat_pm_rel 0.0
+START RA rho=0.16 seed 0
+DONE RA rho=0.16 sec 11.8 flat_eff_match True max_abs_D_rel 1.5959455978986625e-16 flat_pm_rel 0.0
+START AA rho=0.16 seed 0
+DONE AA rho=0.16 sec 15.0 flat_eff_match True max_abs_D_rel 1.6219664500383146e-16 flat_pm_rel 0.0
+START RA rho=0.64 seed 0
+DONE RA rho=0.64 sec 12.2 flat_eff_match True max_abs_D_rel 6.106226635438361e-16 flat_pm_rel 0.0
+wrote sim_rerun.json

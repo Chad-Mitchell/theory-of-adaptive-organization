@@ -4,7 +4,7 @@
  {"id": "SELF-2", "w": 2, "surprise": "strong", "age_days": 0.1, "v": 0.5, "L": 2, "c": 2},
  {"id": "GITHUB-UPSTREAM", "w": 3, "untested": true, "v": 0.3, "L": 2, "c": 3},
  {"id": "WIKIDATA-BAND", "w": 3, "untested": true, "v": 0.4, "L": 1, "c": 4},
- {"id": "LEARNSIM", "w": 3, "untested": true, "v": 0.8, "L": 2, "c": 1},
+ {"id": "LEARNSIM", "w": 3, "untested": true, "v": 0.8, "L": 2, "c": 1, "status": "DONE", "paths": ["tests/LEARNSIM/", "reviews/night2/LEARNSIM_REFEREE.md"]},
  {"id": "SENSE-CELL", "w": 3, "untested": true, "v": 0.3, "L": 2, "c": 5},
  {"id": "IMMUNE", "w": 2, "untested": true, "v": 0.3, "L": 1, "c": 4},
  {"id": "ONA-MORE", "w": 3, "surprise": "weak", "age_days": 0.1, "v": 0.05, "L": 1, "c": 2},
