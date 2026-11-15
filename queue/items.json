@@ -707,7 +707,7 @@
   "v": 0.6,
   "L": 2,
   "c": 1,
-  "note": "From CAUSAL-KILL-INPUTS review Q1 (15 Nov): THEORY scores the causal form only by direction; a change whose locked optimum predicts no move is unscored. Proposal-only item: should a move beyond error under a predicted null count as a miss (an invariance claim, widens claims; kill-condition edit needs separate applier + reviewer, Chad t1916)? Also a Bayes-vs-linear discriminator: a q change split between jump rate and size (lam x2.65, mu^2 x0.75) leaves Bayes t_A fixed (MC -1%) while the linear optimum predicts -29.5% (review checks rev_holes.py). Derive the null manifolds per design quantity (t_A, MSE, precision) and sketch a test."
+  "note": "From CAUSAL-KILL-INPUTS review Q1 (15 Nov): THEORY scores the causal form only by direction; a change whose locked optimum predicts no move is unscored. Proposal-only item: should a move beyond error under a predicted null count as a miss (an invariance claim, widens claims; kill-condition edit needs separate applier + reviewer, Chad t1916)? Also a Bayes-vs-linear discriminator: a q change split between jump rate and size (lam x2.65, mu^2 x0.75) leaves Bayes t_A fixed (MC -1%) while the linear optimum predicts -29.5% (review checks rev_holes.py). Derive the null manifolds per design quantity (t_A, MSE, precision) and sketch a test. Note from DISCRETE-TA (pick 23): on sampled data the Bayes t_A carries a grid term 0.58 sqrt(Delta N)/mu with elasticities (0, 1/2, -1); the lam x2.65, mu^2 x0.75 null moves it by +15.5% (about +1.2% of t_A at 20 samples per t_A), so null manifolds for sampled tests must include it."
  },
  {
   "id": "CAUSAL-KILL-PRICE",
@@ -832,7 +832,14 @@
   "v": 0.7,
   "L": 2,
   "c": 1,
-  "note": "From AQN-REFEREE V8 (15 Nov): the continuous-time Bayes t_A plug-in (N16) differs from an exact discrete-time two-state filter's crossing time by 1.14-1.89x at t_A 0.6-14 steps (1.07-1.11x at 56-151 steps). Derive or tabulate the sampled-grid Bayes adaptation time vs per-sample SNR and lambda, fix the definition against N16's, independent numerical check; before any N16 field test on sampled data."
+  "note": "From AQN-REFEREE V8 (15 Nov): the continuous-time Bayes t_A plug-in (N16) differs from an exact discrete-time two-state filter's crossing time by 1.14-1.89x at t_A 0.6-14 steps (1.07-1.11x at 56-151 steps). Derive or tabulate the sampled-grid Bayes adaptation time vs per-sample SNR and lambda, fix the definition against N16's, independent numerical check; before any N16 field test on sampled data. DONE 15 Nov (pick 23, unaided slot; ledger 108-110 + outcome 111): definitions fixed (quiet = resting law after a long quiet spell, N16's derivation law and the referee's; switch = stationary law at a typical switch; both -> plug-in, differ O(kappa ln 1/kappa)); linear closed form cosh(beta D) = cosh(aD) + rho sinh(aD) (1% at r >= 2); Bayes grid t_A = T(kappa) + 0.5826 sqrt(Delta N)/mu + ~0.25 Delta (C1 by optional stopping + BGK overshoot; c2 fitted); quiet grid within 10% of plug-in at r >= 10-27, 5% at r >= 30-122 (kappa 1e-6..1e-2); lattice vs independent MC chi2 12.9/20; tools/discrete_ta.py. No THEORY edit in the merged PR; N16 scope sentence proposed (DISCRETE-TA-N16-REVIEW).",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/DISCRETE_TA/REPORT.md",
+   "reviews/night2/DISCRETE_TA/checks/",
+   "tools/discrete_ta.py",
+   "tools/test_discrete_ta.py"
+  ]
  },
  {
   "id": "AQN-EDITS-APPLY",
@@ -841,6 +848,33 @@
   "v": 0.9,
   "L": 1,
   "c": 0.5,
-  "note": "From AQN-REFEREE (15 Nov): apply E-A1 (with fixes a-c), E-A2' (replacing failed E-A2) and E-A3 (additive-error assumption) to FRAMEWORK 3.1/3.3; add R1' as a dated addendum in measurement/estimators/ (locked files untouched); corner model alias tail fix noted. THEORY 2.4 Net / 11 pointer edits E-A4, E-A5 with the wording fix ('refereed, with scope limits') by a separate applier."
+  "note": "From AQN-REFEREE (15 Nov): apply E-A1 (with fixes a-c), E-A2' (replacing failed E-A2) and E-A3 (additive-error assumption) to FRAMEWORK 3.1/3.3; add R1' as a dated addendum in measurement/estimators/ (locked files untouched); corner model alias tail fix noted. THEORY 2.4 Net / 11 pointer edits E-A4, E-A5 with the wording fix ('refereed, with scope limits') by a separate applier. Note from DISCRETE-TA (pick 23): the referee's rule 'continuous-limit t_A only when t_A >~ 20 steps' is right for 10% at kappa <= 1e-3 only; use tools/discrete_ta.py or the thresholds in reviews/night2/DISCRETE_TA/REPORT.md section 3.4 in any FRAMEWORK/addendum text (5% needs 30-120+ steps)."
+ },
+ {
+  "id": "DISCRETE-TA-N16-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.9,
+  "L": 2,
+  "c": 1,
+  "note": "From DISCRETE-TA (15 Nov): separate reviewer for the authored N16 scope sentence (THEORY 2.2 Regime A premise bullet + CLAIM_MAP N16 + changelog; PR marked DO NOT MERGE without separate reviewer PASS): definition (pre-switch law fixed in prereg; quiet vs switch law O(kappa ln 1/kappa)) and sampled-grid validity (t_A + 0.58 sqrt(Delta N)/mu; 10% at >= 10-27 samples, 5% at >= 30-120; linear memory time fine beyond 2 samples). Reviewer re-derives with own code (not tools/discrete_ta.py) and checks the BGK constant in the source."
+ },
+ {
+  "id": "DISCRETE-TA-INTEGRATED",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 1,
+  "c": 1,
+  "note": "From DISCRETE-TA (15 Nov): integrate-and-dump sampling of a continuous switching world (switch inside a sampling interval; partially contaminated first post-switch sample; time measured from the true switch) and asymmetric/multi-state worlds: grid correction vs the per-sample HMM of DISCRETE-TA; needed before an N16 field test on binned data."
+ },
+ {
+  "id": "DISCRETE-TA-SECOND-ORDER",
+  "w": 1,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 1,
+  "note": "From DISCRETE-TA (15 Nov): prove the mean-time version of the overshoot correction C1 = -zeta(1/2)/sqrt(2 pi) (BGK prove the probability version) and derive the O(Delta) coefficient c2 (fitted 0.21-0.26; kappa-dependent residual at kappa = 1e-2, rho = 0.0025 unresolved, 4.5%)."
  }
 ]
