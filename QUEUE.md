@@ -186,7 +186,18 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 10 done (ledger 56). Next pick (11) is the unaided slot: log a fresh unaided order, run the rule, take Ace's unaided top (rule's if the same). Next free ledger entry: 57.**
 
+### NEW (15 Nov ~1:45 PM ET, from AQN-ESTIMATORS; surprises read per rule 4)
+- **AQN-ESTIMATORS** — DONE (pick 11, unaided slot; ledger 57–59, outcome 61): `measurement/estimators/RESULTS.md`, lock `3595c48`. Validated on synthetic truth: Whittle α, q, N (SE(α̂) ≈ 1/√M, M = frequencies below the noise crossover; ±0.1 needs M ≈ 400); corner check; HMM λ, μ, N, t_A (≳ 16 switches; SE(log λ̂) ≈ 1/√switches); premise LR (size ≤ 0.05, power 0.93–1.00); event worlds (Poisson floor, renewal flags); stakes only from exogenous error. DFA biased low under noise. Demo on proxy: DGS10 α̂ 2.00 ± 0.03 (random walk), log VIX regime not established. CLAIM_MAP N18 (DECIDED, method); no status change. Edits E-A1–E-A5 proposed, not applied.
+- **AQN-REFEREE** (w 2, c 1). Hostile referee of the estimators, validation, label rules (R1 gap at α ≈ 2 without a corner) and E-A1–E-A5.
+- **STAKES-EXOGENOUS** (w 3, c 2). Find a system with exogenous error variation and estimate stakes with a CI; gate for SAME-SYSTEM-AQN.
+- **ALPHA-ESTIMATE-AUDIT** (w 1, c 1). Re-estimate earlier α/H values (DFA, Allan factor, nugget-free variograms) with the validated Whittle and corner check.
+- **PREMISE-TEST-WIDEN** (w 2, c 1.5). Premise test beyond two-state vs Gaussian Markov (multi-state, heavy-tailed jumps, fBm null).
+- Notes added: SAME-SYSTEM-AQN (stakes binding; record-length rules), SPF-AQN-POWERED (quarterly n ≈ 240 too short for ±0.1), VIX-KERNEL (log VIX has a corner; use realized variance), HEADLINE-PREMISE-APPLY (V143 F2 learner-class qualifier also for the status-block "What changed" item 2 and the §10 LFK entry).
+
+**Pick 11 done (ledger 61). Next pick (12) is the uniform slot: log a fresh unaided order, run the rule, take the top of the new entry's stored uniform permutation that is open and not active.**
+
 ## Done (frozen)
+- AQN-ESTIMATORS: `measurement/estimators/` (lock 3595c48; not refereed; AQN-REFEREE queued).
 - HEADLINE-PREMISE-SCOPE: `reviews/night2/HEADLINE_PREMISE_SCOPE.md` (proposal P1–P8; not applied; HEADLINE-PREMISE-APPLY queued).
 - TLP-EDITS-REVIEW: `reviews/night2/TLP_EDITS_REVIEW.md` (THEORY v1.4.3; two passes recorded).
 - D3-TWO-EXPONENT-OOS: `tests/D3_OOS/` (locked out-of-sample test; not refereed; N17).
