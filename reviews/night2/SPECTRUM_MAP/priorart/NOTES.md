@@ -1,6 +1,6 @@
 # Prior-art notes for QUEUE Q1 (PRIORART-SWEEP) and Q2 (SPECTRUM-MAP-DERIVE)
 
-Executor, 15 Nov 2026, ~09:05–09:40 AM ET. Every citation below was checked this session against a publisher, DOI or
+Executor, 15 Nov 2026, ~09:05–09:26 AM ET. Every citation below was checked this session against a publisher, DOI or
 arXiv/OpenAlex record (web search); screening of citing works was by title and abstract, not full text, unless stated.
 
 ## Q1: what was already done, and what this run added
