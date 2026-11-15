@@ -1,0 +1,20 @@
+Median |ln Khat/K| (median signed ln Khat/K) by arm; G = ln Khat_L3 - ln Khat_L0: median, share CI>0, share CI<0
+arm lam   n             P0            P0T            P1T             L3             L0            L0w   G
+a    0  140    0.36(+0.24)    0.39(-0.07)    0.39(-0.02)    0.62(+0.11)    0.31(+0.05)    0.33(-0.17)   +0.14 0.56 0.28
+b    1  140    1.19(+1.19)    0.92(+0.81)    0.37(+0.08)    1.35(+1.18)    0.38(+0.06)    0.33(-0.14)   +1.00 0.86 0.05
+b    3  140    2.29(+2.29)    1.86(+1.79)    0.46(+0.28)    2.22(+2.16)    0.41(+0.30)    0.31(-0.13)   +1.80 0.91 0.04
+c    0  140    1.24(+1.24)    0.96(+0.80)    0.35(+0.11)    1.23(+0.94)    0.35(+0.06)    0.33(-0.07)   +0.56 0.72 0.10
+d    1  140    1.16(+1.16)    0.83(+0.77)    0.42(+0.12)    1.20(+1.05)    0.32(+0.04)    0.35(-0.13)   +0.96 0.91 0.04
+d    3  140    2.11(+2.11)    1.74(+1.61)    0.40(+0.19)    2.21(+2.07)    0.49(+0.25)    0.34(+0.08)   +1.79 0.91 0.03
+
+Arm a by world: median signed ln Khat/K per candidate; share of above_noise_max flags (L3, L0)
+UNEMP    P0=+0.23 P0T=+0.04 P1T=+0.01 L3=+0.40 L0=+0.07 L0w=-0.24  flagsL3=0.15 flagsL0=0.00  G CI>0 0.70
+HOUSING  P0=+0.23 P0T=+0.07 P1T=+0.07 L3=+0.02 L0=+0.02 L0w=-0.19  flagsL3=0.10 flagsL0=0.00  G CI>0 0.65
+TBILL    P0=+0.20 P0T=-0.34 P1T=-0.32 L3=-0.09 L0=-0.09 L0w=-0.32  flagsL3=0.00 flagsL0=0.00  G CI>0 0.40
+BOND     P0=+0.88 P0T=+0.40 P1T=+0.66 L3=+0.75 L0=+0.35 L0w=+0.02  flagsL3=0.05 flagsL0=0.05  G CI>0 0.75
+TBOND    P0=+1.65 P0T=-0.45 P1T=-0.39 L3=+0.17 L0=+0.08 L0w=-0.34  flagsL3=0.25 flagsL0=0.15  G CI>0 0.45
+RSLGOV   P0=+0.09 P0T=-0.20 P1T=-0.01 L3=+0.20 L0=+0.05 L0w=-0.02  flagsL3=0.10 flagsL0=0.10  G CI>0 0.55
+INDPROD  P0=-0.00 P0T=-0.01 P1T=+0.01 L3=-0.04 L0=+0.02 L0w=-0.06  flagsL3=0.20 flagsL0=0.00  G CI>0 0.45
+
+Selection (P0 excluded as status quo): {"P0T": {"arm_a_abs": 0.39158035711335426, "arm_a_signed": -0.07051413296807917, "worst_contaminated": 1.85550677926554, "admissible": false}, "P1T": {"arm_a_abs": 0.39259605597913283, "arm_a_signed": -0.018407977765996873, "worst_contaminated": 0.45943015817718136, "admissible": false}, "L3": {"arm_a_abs": 0.6160290917454211, "arm_a_signed": 0.10995948714162629, "worst_contaminated": 2.223149062313619, "admissible": false}, "L0": {"arm_a_abs": 0.31135902649491604, "arm_a_signed": 0.04780908542441365, "worst_contaminated": 0.48762143089587745, "admissible": true}, "L0w": {"arm_a_abs": 0.32604432397286676, "arm_a_signed": -0.16525418057158692, "worst_contaminated": 0.35455381071072917, "admissible": true}}
+CHOSEN PROXY: L0w
