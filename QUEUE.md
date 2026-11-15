@@ -204,16 +204,24 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 **Pick 11 done (ledger 61); WIKIDATA-BAND outcome logged out of cycle (ledger 65; entries 62–64 are q-pick12's, in flight). Next pick (12) is the uniform slot, as before.**
 
 ### NEW (15 Nov ~2:55 PM ET, from STAKES-EXOGENOUS; surprises read per rule 4)
-- **STAKES-EXOGENOUS** — DONE (pick 12, uniform slot: top of entry 63's stored uniform permutation, nothing skipped; ledger 62–64, outcome 66): `tests/STAKES_EXOGENOUS/RESULTS.md`, lock `27bbe72` (prereg, code, seeds, decision rules and a synthetic validation committed and pushed before any analysis data). **INCONCLUSIVE on proxy "CAISO DA load-forecast error; cost = error × (FMM − DA hub price)"**: ŵ 2025 = 7.8 [1.8, 12.6] × 10⁻⁴ $/(MW²·h): positive with CI excluding 0, but half-width 0.70ŵ > the locked 0.5 (S1 failed); exogeneity incremental R² 0.029 (pass); quadratic-loss shape passed (weak power); 2024 replication 3.2 [1.4, 5.1] × 10⁻³ (pass). Two declared post-lock amendments (A1 fetch timeout; A2 report-only subgroup rows used w_quad, fixed; verdict byte-identical). CLAIM_MAP N21 (v2.14); no status change; THEORY.md not edited.
+- **STAKES-EXOGENOUS** — DONE (pick 12, uniform slot: top of entry 63's stored uniform permutation, nothing skipped; ledger 62–64, outcome 70, renumbered from 66 at the q-pick13 merge): `tests/STAKES_EXOGENOUS/RESULTS.md`, lock `27bbe72` (prereg, code, seeds, decision rules and a synthetic validation committed and pushed before any analysis data). **INCONCLUSIVE on proxy "CAISO DA load-forecast error; cost = error × (FMM − DA hub price)"**: ŵ 2025 = 7.8 [1.8, 12.6] × 10⁻⁴ $/(MW²·h): positive with CI excluding 0, but half-width 0.70ŵ > the locked 0.5 (S1 failed); exogeneity incremental R² 0.029 (pass); quadratic-loss shape passed (weak power); 2024 replication 3.2 [1.4, 5.1] × 10⁻³ (pass). Two declared post-lock amendments (A1 fetch timeout; A2 report-only subgroup rows used w_quad, fixed; verdict byte-identical). CLAIM_MAP N21 (v2.14); no status change; THEORY.md not edited.
 - **STAKES-PRECISION** (w 2, c 1.5; from S1 fail). New lock to reach ±50%: pooled years with year effects, net-load error, 5-min prices, a second ISO. Gate for SAME-SYSTEM-AQN.
 - **STAKES-SHIFT-CAISO** (w 3, c 3; weak surprise, unlocked): stakes fell ~4× from 2024 to 2025 (CIs do not overlap). THEORY §1 N6 causal form: pick a CAISO design quantity, fix the adjustment lag as a number, lock the direction, test on unseen years.
 - **CAISO-PROXY-DEFS** (w 1, c 0.5). DA forecast 1.76 GW (7%) below "actual" on average; check the two series' public definitions.
 - **STAKES-REFEREE** (w 2, c 1). Hostile referee of STAKES-EXOGENOUS.
 - Note added to SAME-SYSTEM-AQN: CAISO is a candidate system once STAKES-PRECISION passes.
 
-**Pick 12 done (ledger 66). Next pick (13) is the rule slot (cycle restarts: rule, rule, unaided, uniform): log a fresh unaided order, run the rule, take the rule's top among open non-active items. Next free ledger entry: 67.**
+**Pick 12 done (ledger 64; outcome 70, written as 66, renumbered because q-pick13 had already used 66–68). Next pick (13) is the rule slot (cycle restarts: rule, rule, unaided, uniform): log a fresh unaided order, run the rule, take the rule's top among open non-active items. Next free ledger entry: 67.**
+
+### NEW (15 Nov ~2:58 PM ET, from HEADLINE-PREMISE-APPLY; surprises read per rule 4)
+- **HEADLINE-PREMISE-APPLY** — DONE as a PR, **not merged** (pick 13, rule slot, I = 3.2, tied with REGIME-C-GAUSSIAN-PREMISE and taken by id order; ledger 66–68, outcome 69; PR #37): `reviews/night2/HEADLINE_PREMISE_APPLY.md` (check in `HEADLINE_PREMISE_APPLY_checks/`). THEORY v1.4.4 / CLAIM_MAP v2.14 on branch q-pick13: P1–P8, the V143 F2 learner-class qualifier ("What changed" item 2, §10 LFK) and the line-6 CLAIM_MAP pointer. Applier tightenings T1–T5: keep hold-last-value in the reset-read premise; name only the derived jump-world exponents (adaptation time, error), with reset reads and the regression kernel unaffected; extra inputs only where the locked optimum is Bayes for a non-Gaussian world; a prereg naming no optimum is scored against the best linear one, in the causal form too. No status change. Own second hostile pass recorded; it does not satisfy Chad t1916.
+- **HEADLINE-PREMISE-REVIEW** (w 2, c 0.5). A separate independent reviewer reviews the PR (sources, T1–T5, hostile pass) and merges or requests changes.
+- Surprise read: none beyond the proposal's; the one design gap found (the lock would have excused tests locked before v1.4.4) is fixed in the text (T4), not a new item.
+
+**Pick 13 done (PR #37 open, not merged; outcome ledger 69). Next pick (14) is the rule slot: log a fresh unaided order, run the rule, take the rule's top among open non-active items.**
 
 ## Done (frozen)
+- HEADLINE-PREMISE-APPLY: `reviews/night2/HEADLINE_PREMISE_APPLY.md` (THEORY v1.4.4 PR, not merged; HEADLINE-PREMISE-REVIEW queued).
 - STAKES-EXOGENOUS: `tests/STAKES_EXOGENOUS/` (lock 27bbe72; not refereed; N21 INCONCLUSIVE on proxy; STAKES-REFEREE queued).
 - WIKIDATA-BAND: `prereg/WIKIDATA-BAND/` (locked v1.2-era test; not refereed; N19, N20).
 - AQN-ESTIMATORS: `measurement/estimators/` (lock 3595c48; not refereed; AQN-REFEREE queued).

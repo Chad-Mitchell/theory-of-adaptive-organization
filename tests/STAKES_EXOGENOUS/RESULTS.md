@@ -1,4 +1,4 @@
-# RESULTS — STAKES-EXOGENOUS (pick 12, uniform slot; ledger 62–64, outcome 66)
+# RESULTS — STAKES-EXOGENOUS (pick 12, uniform slot; ledger 62–64, outcome 70, renumbered from 66 at the q-pick13 merge)
 
 Lock: `27bbe72` (PREREG.md, code, seeds, decision rules, synthetic validation), pushed to `origin/q-pick12` at 2:07 PM ET on 15 Nov 2026,
 before any 2025 data or any 2024 data beyond the declared plumbing day was fetched. Data: CAISO OASIS public API, fetched about 2:07–2:49 PM ET
