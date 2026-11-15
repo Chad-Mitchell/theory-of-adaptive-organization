@@ -68,7 +68,7 @@
   "v": 0.3,
   "L": 2,
   "c": 5,
-  "note": "v1.4 \u00a72.5: onset exponent is -(1+theta) at every alpha, so the physics matters through the precision-price exponent theta; measure theta and the binding ratio | N12 referee C1: receptor reads are noisy, so at small rho the level is in the priced-precision class; measure theta."
+  "note": "v1.4 §2.5: onset exponent is -(1+theta) at every alpha, so the physics matters through the precision-price exponent theta; measure theta and the binding ratio | N12 referee C1: receptor reads are noisy, so at small rho the level is in the priced-precision class; measure theta."
  },
  {
   "id": "IMMUNE",
@@ -153,7 +153,12 @@
   "untested": true,
   "v": 0.6,
   "L": 2,
-  "c": 2
+  "c": 2,
+  "status": "DONE",
+  "paths": [
+   "tests/D3_OOS/"
+  ],
+  "note": "15 Nov ~12:35 PM ET (pick 8, uniform slot; ledger 45-48): pure renewal failed on proxy (P3 27/27 + 5/5); P1/P2 passed, non-discriminating; CLAIM_MAP N17 (v2.10)"
  },
  {
   "id": "PRIORART-LFK-ALPHA",
@@ -162,7 +167,7 @@
   "v": 0.7,
   "L": 2,
   "c": 0.5,
-  "note": "largely covered by SPECTRUM-MAP-REFEREE \u00a75 (15 Nov); remaining: citer full texts, PLL literature, Scholar",
+  "note": "largely covered by SPECTRUM-MAP-REFEREE §5 (15 Nov); remaining: citer full texts, PLL literature, Scholar",
   "status": "DONE",
   "done": "reviews/night2/PRIORART_LFK_ALPHA/REPORT.md (pick 5, rule slot, ledger 34/35)"
  },
@@ -181,7 +186,11 @@
   "v": 0.7,
   "L": 2,
   "c": 1,
-  "note": "new from SPECTRUM-MAP-REFEREE R6/R7: D3S has no power vs Cox at beta~0.2"
+  "note": "new from SPECTRUM-MAP-REFEREE R6/R7: D3S has no power vs Cox at beta~0.2 | covered by D3-TWO-EXPONENT-OOS P3: within-file log-gap correlation vs shuffle null, synthetic power shown pre-lock; not separately picked. Cox vs Hawkes vs trend moved to EDIT-MODULATION-SOURCE",
+  "status": "DONE",
+  "paths": [
+   "tests/D3_OOS/"
+  ]
  },
  {
   "id": "SPECTRUM-MAP-FIXES",
@@ -190,7 +199,7 @@
   "v": 0.9,
   "L": 2,
   "c": 0.5,
-  "note": "apply SPECTRUM_MAP_REFEREE \u00a78 as an erratum; item 1 applied in THEORY v1.4 PR (15 Nov); items 2-8 remain"
+  "note": "apply SPECTRUM_MAP_REFEREE §8 as an erratum; item 1 applied in THEORY v1.4 PR (15 Nov); items 2-8 remain"
  },
  {
   "id": "AQN-ESTIMATORS",
@@ -208,7 +217,7 @@
   "v": 0.6,
   "L": 4,
   "c": 4,
-  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the \u00a72.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N16, P5). | TELEGRAPH-REFEREE (15 Nov): that kernel statement holds only for a regression on the system's own observations; a kernel on the true driver can discriminate (N16 v2.9). Bayes adaptation constant: (N/2mu^2)[ln(2mu^2/lambda N) - gamma - 1]."
+  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the §2.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N16, P5). | TELEGRAPH-REFEREE (15 Nov): that kernel statement holds only for a regression on the system's own observations; a kernel on the true driver can discriminate (N16 v2.9). Bayes adaptation constant: (N/2mu^2)[ln(2mu^2/lambda N) - gamma - 1]."
  },
  {
   "id": "ONSET-SPECTRUM-FREE-REFEREE",
@@ -217,7 +226,7 @@
   "v": 0.8,
   "L": 3,
   "c": 1,
-  "note": "new (THEORY v1.4 \u00a72.5, CLAIM_MAP N12): hostile math + prior-art referee of 'formal onset exponent is alpha-independent: -1 reset reads, -(1+theta) priced precision'",
+  "note": "new (THEORY v1.4 §2.5, CLAIM_MAP N12): hostile math + prior-art referee of 'formal onset exponent is alpha-independent: -1 reset reads, -(1+theta) priced precision'",
   "status": "DONE",
   "paths": [
    "reviews/night2/N12_REFEREE.md",
@@ -240,7 +249,7 @@
   "v": 0.5,
   "L": 2,
   "c": 3,
-  "note": "new (THEORY v1.4 \u00a72.2): every earlier memory test measured a need hazard, never a tracking kernel. Measure a response kernel on one system with alpha measured on its driver; predict survival exponent alpha/2 and sign flip at alpha=2. Overlaps VIX-KERNEL | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK if the kernel is a projection/regression kernel (equals the Wiener/Kalman kernel even for a Bayes system; cannot discriminate); NEEDS-PREMISE if it is a step/impulse response to discrete events. | TELEGRAPH-REFEREE (15 Nov): the 'projection kernel cannot discriminate' audit holds only for regressions on the system's own observations; a kernel on the true driver (sensing noise unobserved) differs between Bayes and linear trackers (rel L2 0.61 at kappa=1/60). See KERNEL-INPUT-DISCRIMINATE."
+  "note": "new (THEORY v1.4 §2.2): every earlier memory test measured a need hazard, never a tracking kernel. Measure a response kernel on one system with alpha measured on its driver; predict survival exponent alpha/2 and sign flip at alpha=2. Overlaps VIX-KERNEL | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): OK if the kernel is a projection/regression kernel (equals the Wiener/Kalman kernel even for a Bayes system; cannot discriminate); NEEDS-PREMISE if it is a step/impulse response to discrete events. | TELEGRAPH-REFEREE (15 Nov): the 'projection kernel cannot discriminate' audit holds only for regressions on the system's own observations; a kernel on the true driver (sensing noise unobserved) differs between Bayes and linear trackers (rel L2 0.61 at kappa=1/60). See KERNEL-INPUT-DISCRIMINATE."
  },
  {
   "id": "FROZEN-DOC-POINTERS",
@@ -249,7 +258,7 @@
   "v": 0.9,
   "L": 1,
   "c": 0.5,
-  "note": "new: litmap/LEFT_ON_THE_TABLE.md, theory/THEOREMS.md, AUDIT files still state slope 1 / (log-span)^(2/3); add one-line 'superseded by THEORY v1.4 \u00a72.2' pointers (no content edits to frozen files)"
+  "note": "new: litmap/LEFT_ON_THE_TABLE.md, theory/THEOREMS.md, AUDIT files still state slope 1 / (log-span)^(2/3); add one-line 'superseded by THEORY v1.4 §2.2' pointers (no content edits to frozen files)"
  },
  {
   "id": "SPF-AQN-POWERED",
@@ -334,7 +343,7 @@
   "v": 0.9,
   "L": 1,
   "c": 0.5,
-  "note": "Proposed (unapplied) edits from SPF-NOISE-PROXY RESULTS: THEORY \u00a72.4/\u00a78c LFK line (S-a artifact) and FRAMEWORK \u00a73 N-measurement rule. Needs independent review before merge (Chad t1916 rule for theory text)."
+  "note": "Proposed (unapplied) edits from SPF-NOISE-PROXY RESULTS: THEORY §2.4/§8c LFK line (S-a artifact) and FRAMEWORK §3 N-measurement rule. Needs independent review before merge (Chad t1916 rule for theory text)."
  },
  {
   "id": "TELEGRAPH-LINEAR-PREMISE",
@@ -343,7 +352,7 @@
   "v": 0.8,
   "L": 4,
   "c": 1.5,
-  "note": "From PRIORART-LFK-ALPHA surprise 4: Conti & Mora 2022 (PRE 106:054404, read) find Bayes-optimal adaptation time ~ ln(tau) for a switching (telegraph) world vs sqrt(tau) for OU, same Lorentzian spectrum; in-model check reproduces it (checks/telegraph_check.py). THEORY \u00a72.2 Regime A lists 'switching at one rate' with tau ~ (N/q)^{1/2}, true only for linear trackers. Derive design exponents (read rate, memory time, stores) for jump/event worlds under the Bayes optimum; state the premise 'Gaussian world or linear tracker'; audit pending tests that use event worlds (GITHUB-UPSTREAM, WIKIDATA-BAND, D3-*, AQN-ESTIMATORS event versions, SAME-SYSTEM-AQN) for which optimum they compare against. Theory edit E2 only after independent review. | DONE 15 Nov ~11:30 ET (pick 6, ledger 37-40): all locked rules met; single-log Bayes adaptation (slope 0.508 theta/e-fold), error elasticity 0.85-0.92 vs linear 0.5, reset reads and projection kernels unaffected; C&M ln^2 traced to their eq. (20) read as Ito. CLAIM_MAP N16 (v2.8). Not refereed.",
+  "note": "From PRIORART-LFK-ALPHA surprise 4: Conti & Mora 2022 (PRE 106:054404, read) find Bayes-optimal adaptation time ~ ln(tau) for a switching (telegraph) world vs sqrt(tau) for OU, same Lorentzian spectrum; in-model check reproduces it (checks/telegraph_check.py). THEORY §2.2 Regime A lists 'switching at one rate' with tau ~ (N/q)^{1/2}, true only for linear trackers. Derive design exponents (read rate, memory time, stores) for jump/event worlds under the Bayes optimum; state the premise 'Gaussian world or linear tracker'; audit pending tests that use event worlds (GITHUB-UPSTREAM, WIKIDATA-BAND, D3-*, AQN-ESTIMATORS event versions, SAME-SYSTEM-AQN) for which optimum they compare against. Theory edit E2 only after independent review. | DONE 15 Nov ~11:30 ET (pick 6, ledger 37-40): all locked rules met; single-log Bayes adaptation (slope 0.508 theta/e-fold), error elasticity 0.85-0.92 vs linear 0.5, reset reads and projection kernels unaffected; C&M ln^2 traced to their eq. (20) read as Ito. CLAIM_MAP N16 (v2.8). Not refereed.",
   "status": "DONE",
   "paths": [
    "reviews/night2/TELEGRAPH_LINEAR_PREMISE/"
@@ -365,7 +374,7 @@
   "v": 0.6,
   "L": 1,
   "c": 1,
-  "note": "Read before crediting: Banerjee, PLL Performance, Simulation and Design (TI free download; 5th ed. pp. 305-306, ideal bandwidth at noise crossover); a primary clock-steering source for the Allan-deviation crossover time-constant rule; Tsybakov 2009 / Ibragimov & Has'minskii 1981 minimax bandwidth for H\u00f6lder signals; published PRL text of BCS 1996; unread citers (Playing it safe; hierarchical timescale hypothesis; Malaguti & ten Wolde 2021 full text)."
+  "note": "Read before crediting: Banerjee, PLL Performance, Simulation and Design (TI free download; 5th ed. pp. 305-306, ideal bandwidth at noise crossover); a primary clock-steering source for the Allan-deviation crossover time-constant rule; Tsybakov 2009 / Ibragimov & Has'minskii 1981 minimax bandwidth for Hölder signals; published PRL text of BCS 1996; unread citers (Playing it safe; hierarchical timescale hypothesis; Malaguti & ten Wolde 2021 full text)."
  },
  {
   "id": "TELEGRAPH-REFEREE",
@@ -387,7 +396,7 @@
   "v": 0.9,
   "L": 2,
   "c": 0.5,
-  "note": "Independent review, then apply, THEORY edits E2', E4, E5, E6 proposed in reviews/night2/TELEGRAPH_LINEAR_PREMISE/REPORT.md (premise 'Gaussian world or best linear tracker' on the noisy-sensing rows; jump-world Bayes exponents; reset-read and projection-kernel invariance; C&M credit with ln^2 caveat). Supersedes E2 of PRIORART_LFK_ALPHA. After TELEGRAPH-REFEREE (Chad t1916). | Referee verdicts on E2'/E4/E5/E6 in reviews/night2/TELEGRAPH_REFEREE/REPORT.md \u00a74: E2' accept with changes (gamma+1 constant, closed-form error, elasticities 1/l,1-1/l,-2+2/l, prior-art credits); E4 accept; E5 correct the kernel sentence (own observations only); E6 add eqs (41)/(42) and credits. Unblocked."
+  "note": "Independent review, then apply, THEORY edits E2', E4, E5, E6 proposed in reviews/night2/TELEGRAPH_LINEAR_PREMISE/REPORT.md (premise 'Gaussian world or best linear tracker' on the noisy-sensing rows; jump-world Bayes exponents; reset-read and projection-kernel invariance; C&M credit with ln^2 caveat). Supersedes E2 of PRIORART_LFK_ALPHA. After TELEGRAPH-REFEREE (Chad t1916). | Referee verdicts on E2'/E4/E5/E6 in reviews/night2/TELEGRAPH_REFEREE/REPORT.md §4: E2' accept with changes (gamma+1 constant, closed-form error, elasticities 1/l,1-1/l,-2+2/l, prior-art credits); E4 accept; E5 correct the kernel sentence (own observations only); E6 add eqs (41)/(42) and credits. Unblocked."
  },
  {
   "id": "JUMP-WORLD-ONSET",
@@ -445,7 +454,7 @@
   "v": 0.6,
   "L": 1,
   "c": 0.5,
-  "note": "New from TELEGRAPH-REFEREE \u00a76: read in full (open copy or library route; no paywall sign-in) Khasminskii & Zeitouni 1996, Golubev 2000, Wonham 1964, Liptser-Shiryaev ch. 9, Shiryaev 1963 to confirm the continuous-time constants and whether the closed form 2K0/(K0+K1) or the gamma+1 adaptation constant are stated; update N16 credits."
+  "note": "New from TELEGRAPH-REFEREE §6: read in full (open copy or library route; no paywall sign-in) Khasminskii & Zeitouni 1996, Golubev 2000, Wonham 1964, Liptser-Shiryaev ch. 9, Shiryaev 1963 to confirm the continuous-time constants and whether the closed form 2K0/(K0+K1) or the gamma+1 adaptation constant are stated; update N16 credits."
  },
  {
   "id": "POISSON-SENSING-JUMP",
@@ -454,6 +463,24 @@
   "v": 0.6,
   "L": 2,
   "c": 2,
-  "note": "New from TELEGRAPH-REFEREE \u00a76 / TLP unresolved: Bayes adaptation time, error and read/effort elasticities for a switching world observed through Poisson events (event sensing; relevant to GitHub/Wikidata-style event data); prior art to check first: Peskir & Shiryaev 2002 Poisson disorder problem, point-process filtering (Snyder). In-model."
+  "note": "New from TELEGRAPH-REFEREE §6 / TLP unresolved: Bayes adaptation time, error and read/effort elasticities for a switching world observed through Poisson events (event sensing; relevant to GitHub/Wikidata-style event data); prior art to check first: Peskir & Shiryaev 2002 Poisson disorder problem, point-process filtering (Snyder). In-model."
+ },
+ {
+  "id": "EDIT-MODULATION-SOURCE",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2,
+  "note": "from D3-TWO-EXPONENT-OOS: edit gaps are not renewal (27/27); separate rate modulation (Cox; shared within a repo -> cross-file co-modulation, THEORY section 6 'a shared driver calls for a level') from per-file self-excitation (Hawkes) and life-cycle trend; design + synthetic power before any real run"
+ },
+ {
+  "id": "NEG-DELTA-BETA",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 1,
+  "note": "weak surprise from D3-TWO-EXPONENT-OOS: lodash and Wikipedia dog breeds have delta-beta ~ -0.11 with high M_w; no power-check world produced negative delta; find the mechanism (dormancy after busy phase?)"
  }
 ]

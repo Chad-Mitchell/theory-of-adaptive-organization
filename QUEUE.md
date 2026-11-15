@@ -162,7 +162,16 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 7 done (ledger 44). Next pick (8) is the uniform slot: log a fresh unaided order, run the rule, take the top of that entry's stored uniform permutation (skip DONE/active per the pre-declared rule). Next free ledger entry: 45.**
 
+### NEW (15 Nov ~12:35 PM ET, from D3-TWO-EXPONENT-OOS; surprises read per rule 4)
+- **D3-TWO-EXPONENT-OOS** — DONE (pick 8, uniform slot; ledger 45–48): `tests/D3_OOS/RESULTS.md`, lock `83aba94` (prereg, code, lists, seeds, decision rules and a synthetic power check committed before any data). Out of sample (27 new GitHub repos, 5 Wikipedia category groups): **pure renewal failed on proxy "within-file consecutive log-gap correlation, binary daily edit series"** (M_w above its within-file-shuffle null in 27/27 and 5/5; median 0.225 vs null ≈ −0.01; renewal controls 0–0.10, R6 Cox 1.00); Δβ > 0 detected (Wilcoxon p = 0.00027, median 0.046). The item's own P1/P2 passed again and are non-discriminating (as the referee said). D3's positive sign replicated (+0.645; expected under both worlds). Post hoc: survives trimming each file's first year and the repo's last year (27/27). Does not separate Cox, trend and Hawkes. CLAIM_MAP N17 (v2.10); no existing row changed status. One post-lock code fix (A1, UTF-8 decode; no statistic affected).
+- **D3-DISCRIMINATE** — DONE (covered by D3-TWO-EXPONENT-OOS P3; not separately picked).
+- **EDIT-MODULATION-SOURCE** (w 2, c 2). Edit gaps are not renewal; separate shared rate modulation (Cox; cross-file co-modulation within a repo, cf. THEORY §6 "a shared driver calls for a level") from per-file self-excitation (Hawkes) and life-cycle trend. Design and synthetic power before any real run.
+- **NEG-DELTA-BETA** (w 1, c 1; weak surprise). lodash and Wikipedia dog breeds have Δβ ≈ −0.11 with high M_w; no power-check world gave negative Δβ. Find the mechanism.
+
+**Pick 8 done (ledger 48). Next pick (9) is the rule slot: log a fresh unaided order, run the rule, take the rule's top among open non-active items. Next free ledger entry: 49.**
+
 ## Done (frozen)
+- D3-TWO-EXPONENT-OOS: `tests/D3_OOS/` (locked out-of-sample test; not refereed; N17).
 - TELEGRAPH-REFEREE: `reviews/night2/TELEGRAPH_REFEREE/` (referee of TELEGRAPH-LINEAR-PREMISE; N16 MATH-CORRECTED v2.9).
 - TELEGRAPH-LINEAR-PREMISE: `reviews/night2/TELEGRAPH_LINEAR_PREMISE/` (refereed by TELEGRAPH-REFEREE: corrected; TLP-EDITS-REVIEW queued).
 - GITHUB-UPSTREAM: `night2/GITHUB/` (locked v1.1-era test; not refereed; interpretation note feeds TELEGRAPH-LINEAR-PREMISE).

@@ -9,7 +9,7 @@ GITDIR, WIKI = sys.argv[1], sys.argv[2]; HERE = os.path.dirname(os.path.abspath(
 repos = [l.strip() for l in open(os.path.join(HERE, "repos.txt")) if l.strip()]
 reserve = [l.strip() for l in open(os.path.join(HERE, "reserve.txt")) if l.strip()]
 def git_repo(path, seed):
-    txt = subprocess.run(["git", "-C", path, "log", "--no-merges", "--format=@%ct", "--name-status", "--no-renames", "HEAD"], capture_output=True, text=True).stdout
+    txt = subprocess.run(["git", "-C", path, "log", "--no-merges", "--format=@%ct", "--name-status", "--no-renames", "HEAD"], capture_output=True, text=True, errors="replace").stdout
     commits = []; cur = None
     for line in txt.splitlines():
         if line.startswith("@"): cur = [int(line[1:])//86400, []]; commits.append(cur)

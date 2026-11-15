@@ -1,0 +1,66 @@
+{"repo": "sinatra/sinatra", "k": 0, "n_files": 17, "beta_orig": 0.3122, "beta_shuf": 0.2773, "beta_shuf_sd": 0.0165, "delta": 0.0349, "a_need": 0.6924, "M_raw": 0.3772, "M_w": 0.2897, "M_w_null_q": [-0.0504, -0.0078, 0.0464], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "pallets/click", "k": 1, "n_files": 16, "beta_orig": 0.3517, "beta_shuf": 0.2602, "beta_shuf_sd": 0.0219, "delta": 0.0915, "a_need": 0.6069, "M_raw": 0.3598, "M_w": 0.2755, "M_w_null_q": [-0.0703, -0.0138, 0.0477], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "pallets/jinja", "k": 2, "n_files": 17, "beta_orig": 0.4717, "beta_shuf": 0.2775, "beta_shuf_sd": 0.0101, "delta": 0.1942, "a_need": 0.6905, "M_raw": 0.4416, "M_w": 0.4183, "M_w_null_q": [-0.0593, -0.0125, 0.036], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "psf/black", "k": 3, "n_files": 24, "beta_orig": 0.2846, "beta_shuf": 0.2014, "beta_shuf_sd": 0.0192, "delta": 0.0833, "a_need": 0.6272, "M_raw": 0.4006, "M_w": 0.247, "M_w_null_q": [-0.0476, -0.0096, 0.0259], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "sqlalchemy/sqlalchemy", "k": 4, "n_files": 243, "beta_orig": 0.2027, "beta_shuf": 0.229, "beta_shuf_sd": 0.0054, "delta": -0.0264, "a_need": 0.6071, "M_raw": 0.4047, "M_w": 0.2115, "M_w_null_q": [-0.0188, -0.0084, 0.0009], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "tornadoweb/tornado", "k": 5, "n_files": 46, "beta_orig": 0.1939, "beta_shuf": 0.198, "beta_shuf_sd": 0.0046, "delta": -0.0041, "a_need": 0.591, "M_raw": 0.226, "M_w": 0.1581, "M_w_null_q": [-0.0376, -0.0101, 0.0169], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "encode/django-rest-framework", "k": 6, "n_files": 51, "beta_orig": 0.3019, "beta_shuf": 0.2684, "beta_shuf_sd": 0.0123, "delta": 0.0335, "a_need": 0.6345, "M_raw": 0.4293, "M_w": 0.3266, "M_w_null_q": [-0.0346, -0.0106, 0.0159], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "junegunn/fzf", "k": 7, "n_files": 30, "beta_orig": 0.2821, "beta_shuf": 0.2398, "beta_shuf_sd": 0.0073, "delta": 0.0423, "a_need": 0.6206, "M_raw": 0.3272, "M_w": 0.2245, "M_w_null_q": [-0.0345, -0.0058, 0.0217], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "spf13/cobra", "k": 8, "n_files": 5, "beta_orig": 0.2019, "beta_shuf": 0.1967, "beta_shuf_sd": 0.0204, "delta": 0.0052, "a_need": 0.3697, "M_raw": 0.3221, "M_w": 0.278, "M_w_null_q": [-0.1085, -0.0128, 0.0785], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "gin-gonic/gin", "k": 9, "n_files": 16, "beta_orig": 0.229, "beta_shuf": 0.1605, "beta_shuf_sd": 0.0157, "delta": 0.0685, "a_need": 0.4883, "M_raw": 0.3328, "M_w": 0.2598, "M_w_null_q": [-0.0569, -0.0068, 0.0296], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "prometheus/prometheus", "k": 10, "n_files": 136, "beta_orig": 0.2085, "beta_shuf": 0.1628, "beta_shuf_sd": 0.0072, "delta": 0.0457, "a_need": 0.6468, "M_raw": 0.2708, "M_w": 0.1304, "M_w_null_q": [-0.0246, -0.0107, 0.0043], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "sharkdp/bat", "k": 11, "n_files": 14, "beta_orig": 0.1883, "beta_shuf": 0.1743, "beta_shuf_sd": 0.0097, "delta": 0.014, "a_need": 0.7452, "M_raw": 0.2586, "M_w": 0.1584, "M_w_null_q": [-0.0552, -0.0082, 0.0403], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "serde-rs/serde", "k": 12, "n_files": 29, "beta_orig": 0.3084, "beta_shuf": 0.2316, "beta_shuf_sd": 0.0064, "delta": 0.0768, "a_need": 0.6946, "M_raw": 0.338, "M_w": 0.2838, "M_w_null_q": [-0.0452, -0.0085, 0.0277], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "clap-rs/clap", "k": 13, "n_files": 47, "beta_orig": 0.3358, "beta_shuf": 0.2885, "beta_shuf_sd": 0.0094, "delta": 0.0473, "a_need": 0.6694, "M_raw": 0.2955, "M_w": 0.2055, "M_w_null_q": [-0.0377, -0.0086, 0.0182], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "lodash/lodash", "k": 14, "n_files": 35, "beta_orig": 0.5082, "beta_shuf": 0.6154, "beta_shuf_sd": 0.0133, "delta": -0.1072, "a_need": 0.8978, "M_raw": 0.4893, "M_w": 0.3452, "M_w_null_q": [-0.0329, -0.0055, 0.0209], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "axios/axios", "k": 15, "n_files": 27, "beta_orig": 0.227, "beta_shuf": 0.213, "beta_shuf_sd": 0.0037, "delta": 0.014, "a_need": 0.5456, "M_raw": 0.2784, "M_w": 0.205, "M_w_null_q": [-0.0505, -0.0127, 0.0258], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "webpack/webpack", "k": 16, "n_files": 160, "beta_orig": 0.3382, "beta_shuf": 0.2832, "beta_shuf_sd": 0.0039, "delta": 0.0551, "a_need": 0.7956, "M_raw": 0.4144, "M_w": 0.1935, "M_w_null_q": [-0.0257, -0.0095, 0.0028], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "koajs/koa", "k": 17, "n_files": 8, "beta_orig": 0.2161, "beta_shuf": 0.2423, "beta_shuf_sd": 0.015, "delta": -0.0262, "a_need": 0.6627, "M_raw": 0.3766, "M_w": 0.354, "M_w_null_q": [-0.0871, -0.008, 0.068], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "jquery/jquery", "k": 18, "n_files": 47, "beta_orig": 0.3286, "beta_shuf": 0.2747, "beta_shuf_sd": 0.0053, "delta": 0.0539, "a_need": 0.673, "M_raw": 0.4369, "M_w": 0.3498, "M_w_null_q": [-0.0306, -0.0097, 0.0205], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "square/okhttp", "k": 19, "n_files": 26, "beta_orig": 0.2743, "beta_shuf": 0.1952, "beta_shuf_sd": 0.006, "delta": 0.0791, "a_need": 0.7214, "M_raw": 0.3897, "M_w": 0.2143, "M_w_null_q": [-0.0514, -0.013, 0.0359], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "google/gson", "k": 20, "n_files": 19, "beta_orig": 0.167, "beta_shuf": 0.1652, "beta_shuf_sd": 0.0088, "delta": 0.0018, "a_need": 0.3461, "M_raw": 0.2741, "M_w": 0.2082, "M_w_null_q": [-0.0574, -0.0157, 0.0299], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "apache/commons-lang", "k": 21, "n_files": 62, "beta_orig": 0.1842, "beta_shuf": 0.1474, "beta_shuf_sd": 0.0054, "delta": 0.0369, "a_need": 0.5877, "M_raw": 0.3772, "M_w": 0.1346, "M_w_null_q": [-0.0358, -0.0115, 0.0139], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "libuv/libuv", "k": 22, "n_files": 59, "beta_orig": 0.1583, "beta_shuf": 0.1631, "beta_shuf_sd": 0.0083, "delta": -0.0048, "a_need": 0.5874, "M_raw": 0.3988, "M_w": 0.3015, "M_w_null_q": [-0.0323, -0.0099, 0.0131], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "tmux/tmux", "k": 23, "n_files": 100, "beta_orig": 0.3441, "beta_shuf": 0.2685, "beta_shuf_sd": 0.0058, "delta": 0.0755, "a_need": 0.7248, "M_raw": 0.2868, "M_w": 0.1857, "M_w_null_q": [-0.0247, -0.0074, 0.0083], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "nlohmann/json", "k": 24, "n_files": 57, "beta_orig": 0.4343, "beta_shuf": 0.3178, "beta_shuf_sd": 0.01, "delta": 0.1165, "a_need": 0.7321, "M_raw": 0.3705, "M_w": 0.2016, "M_w_null_q": [-0.0429, -0.0114, 0.0129], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "fmtlib/fmt", "k": 25, "n_files": 44, "beta_orig": 0.3331, "beta_shuf": 0.276, "beta_shuf_sd": 0.0131, "delta": 0.0571, "a_need": 0.7389, "M_raw": 0.3543, "M_w": 0.1843, "M_w_null_q": [-0.033, -0.0079, 0.0162], "M_w_exceed": true, "M_w_p": 0.005}
+{"repo": "rubocop/rubocop", "k": 26, "n_files": 97, "beta_orig": 0.2389, "beta_shuf": 0.1838, "beta_shuf_sd": 0.0107, "delta": 0.0551, "a_need": 0.6524, "M_raw": 0.5191, "M_w": 0.2375, "M_w_null_q": [-0.0273, -0.0098, 0.0091], "M_w_exceed": true, "M_w_p": 0.005}
+{"category": "Category:Chemical elements", "n_files": 39, "beta_orig": 0.2627, "beta_shuf": 0.2717, "beta_shuf_sd": 0.0076, "delta": -0.009, "a_need": null, "M_raw": 0.3962, "M_w": 0.2919, "M_w_null_q": [-0.0098, -0.0004, 0.0092], "M_w_exceed": true, "M_w_p": 0.005}
+{"category": "Category:Member states of the European Union", "n_files": 30, "beta_orig": 0.341, "beta_shuf": 0.2661, "beta_shuf_sd": 0.0089, "delta": 0.0749, "a_need": null, "M_raw": 0.2574, "M_w": 0.2089, "M_w_null_q": [-0.0075, -0.0002, 0.006], "M_w_exceed": true, "M_w_p": 0.005}
+{"category": "Category:Programming languages created in the 1990s", "excluded": "< 5 pages with >= 50 edit days"}
+{"category": "Category:Theorems in number theory", "n_files": 13, "beta_orig": 0.1574, "beta_shuf": 0.1093, "beta_shuf_sd": 0.0145, "delta": 0.0482, "a_need": null, "M_raw": 0.2831, "M_w": 0.1768, "M_w_null_q": [-0.0535, -0.0077, 0.0428], "M_w_exceed": true, "M_w_p": 0.005}
+{"category": "Category:Rivers of Germany", "excluded": "< 5 pages with >= 50 edit days"}
+{"category": "Category:Dog breeds originating in England", "n_files": 35, "beta_orig": 0.1834, "beta_shuf": 0.2929, "beta_shuf_sd": 0.0116, "delta": -0.1095, "a_need": null, "M_raw": 0.4435, "M_w": 0.2692, "M_w_null_q": [-0.0164, -0.0032, 0.0104], "M_w_exceed": true, "M_w_p": 0.005}
+{"category": "Category:Operas by Giuseppe Verdi", "n_files": 29, "beta_orig": 0.1664, "beta_shuf": 0.1598, "beta_shuf_sd": 0.0154, "delta": 0.0066, "a_need": null, "M_raw": 0.2806, "M_w": 0.2226, "M_w_null_q": [-0.0257, -0.0025, 0.0172], "M_w_exceed": true, "M_w_p": 0.005}
+{
+ "arm": "github",
+ "n": 27,
+ "P1_spearman_orig_shuf": 0.863,
+ "median_delta": 0.0457,
+ "P3_exceed_frac": 1.0,
+ "P4_wilcoxon_p": 0.00027,
+ "median_M_w": 0.225,
+ "median_M_raw": 0.37,
+ "median_beta_orig": 0.282,
+ "D3_spearman_beta_orig_vs_a": 0.645,
+ "S2_spearman_beta_shuf_vs_a": 0.636,
+ "P1": "PASS (non-discriminating)",
+ "P2": "PASS (non-discriminating)",
+ "P3": "RENEWAL REJECTED",
+ "P4": "DELTA>0 DETECTED"
+}
+{
+ "arm": "wikipedia",
+ "n": 5,
+ "P1_spearman_orig_shuf": 0.6,
+ "median_delta": 0.0066,
+ "P3_exceed_frac": 1.0,
+ "P4_wilcoxon_p": null,
+ "median_M_w": 0.223,
+ "median_M_raw": 0.283,
+ "median_beta_orig": 0.183,
+ "P1": "PASS (non-discriminating)",
+ "P2": "PASS (non-discriminating)",
+ "P3": "RENEWAL REJECTED",
+ "P4": null
+}
