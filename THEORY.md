@@ -1,24 +1,20 @@
-# A Theory of Adaptive Organization — v1.1 draft
+# A Theory of Adaptive Organization — v1.2 draft
 
-**Author:** Chad Mitchell. **Draft date:** Saturday 14 November 2026; scoreboard updated Sunday 15 November 2026 (America/New_York).
-**Status:** private working draft. **Not peer reviewed. Not independently reviewed as a whole.** An independent review of the DECISIVE and F1 tests (`reviews/DECISIVE_F1_REVIEW.md`, 14 November 2026, America/New_York) is now in; the §8 scoreboard follows its verdict. Locked prediction files in `tests/` are untouched; this document only interprets them.
-**Night 1 (15 November 2026):** three independent hostile reviews (mathematics, physics and statistics, prior art) of the new formal layer and of every night-1 test are in `reviews/night1/`. The claim-by-claim verdicts are in `reviews/night1/CLAIM_MAP_FINAL.md`, which this document now follows (§8b).
+**Author:** Chad Mitchell. **Draft dates:** v1.0 Saturday 14 November 2026; v1.2 Sunday 15 November 2026 (America/New_York). Changelog: §13.
+**Status:** private working draft. **Not peer reviewed. Not independently reviewed as a whole.** Locked prediction files in `tests/` and `reviews/` are untouched; this document only interprets them.
 
-**Night 2 (15 November 2026): measurement layer.** No field test so far measured GTAO's quantities validly (Chad, t1908). Field verdicts in this document that say "killed" or "passed" on real data are superseded by the proxy-aware statuses in `measurement/CLAIM_MAP_v2.md` (PROXY-FAIL / PROXY-PASS). Operational definitions per scale, validity gates and fair-kill specs are in `measurement/FRAMEWORK.md`. Proof-level corrections and simulation failures are unchanged. Title decision (Chad, t1908): keep it, and cite Dessein & Santos 2006.
+**This file is the one canonical statement of the theory.** Every other theory file in this repository (`theory/`, `reviews/night1/formal/`, claim maps, write-ups) and in Ace's working folders is either a derivation this file cites by path and section, or frozen history. If another file disagrees with this one, this one governs until it is changed here. Current status, commits and the work queue: `STATUS.md` and `QUEUE.md`.
 
 **What kind of claim this is.** GTAO is a **falsifiable causal theory**. It is not a law, and nothing here should be read as one. A law could emerge only if one relation held, in the same form, in at least two very different substrates whose sensing classes were measured independently. That has not happened.
 
-**Open decision (title).** The title collides with Dessein & Santos 2006, "Adaptive Organizations", *JPE* 114(5):956–985 [read in full by the prior-art referee]. Whether to keep the title (and cite them prominently) or to differentiate it is Chad's decision. The repository has not been renamed.
+**Title (decided, Chad, t1908):** the title stays. It collides with Dessein & Santos 2006, "Adaptive Organizations", *JPE* 114(5):956–985, which is cited prominently (§10).
 
-### Status at a glance (15 November 2026)
-- **Confirmed on real data, specific to GTAO: nothing.** The one real-data pass of night 1 (supervisors report reading outside material about 14–19% more often than comparable non-supervisors, in 9 OECD countries) is Mintzberg's "monitor" role, which was already published. The earlier measles freeze-or-hold pass (MATCH1) is a caveated postdiction that has not been reviewed.
-- **Killed on real data:**
-  - the item-level news-recall slope (P1: 0.32, 95% CI 0.29–0.35, against a predicted 0.5–1.2);
-  - vigilance rising with rank in Enron email (0.93 per rank level; a weak measure, but adequately powered);
-  - earlier: the strong memory-equals-need exponent match, the τ ("temperature") structure of failure rates, and √N in languages.
-- **Proved inside the model:** a set of correct but elementary theorems (onset exponent set by the sensing class, opposite effects of shared and private drift, loss-shape irrelevance under bundled decisions, an exact vigilance formula with price invariance, an ordering threshold for hierarchies, a closed-form freeze/hold/lookup band). Most of this rests on published foundations: Marschak & Radner 1972, Veldkamp & Wolfers 2007, Van Zandt & Radner 2001, EOQ and inventory pooling, and Topkis. **The earlier claim that "a new level watches at least twice as hard as its members, whatever the costs" is wrong as stated.** At finite shared share the exact onset value lies between 1 and 2 when upkeep is free.
-- **Simulations:** the passes are circular (the learners minimize the same cost whose boundary is the theorem). Four locked in-model predictions failed: SENSING2's risky world, and three ANTS1 predictions.
-- **Open:** everything distinctive about GTAO in real systems.
+### Status at a glance (15 November 2026, 09:02 AM ET)
+- **Measurement first (Chad, t1908).** No field test so far measured GTAO's quantities validly, so no field result is a kill or a confirmation of the theory. Field results are reported as "passed / failed on proxy X" (`measurement/FRAMEWORK.md`, `measurement/CLAIM_MAP_v2.md`). Proof-level corrections and simulation failures stand as they are.
+- **On real data, specific to GTAO: nothing confirmed, nothing validly refuted.** Proxy fails include the item-level news-recall slope (P1: 0.32, CI 0.29–0.35, vs a predicted 0.5–1.2; the need proxy is not drift) and rank vs external mail in Enron. The one proxy pass of night 1 (PIAAC supervisors' external reading) is Mintzberg's prior art. Night-2 nomination-network results (VIGIL_ONA) were downgraded by a blind referee; vigilance is **OPEN**.
+- **Proved inside the model** (`reviews/night1/formal/`): onset exponent set by the level's sensing class; opposite effects of shared and private drift; loss-shape irrelevance under bundled decisions; an exact vigilance formula with price invariance (at zero upkeep the onset value is 1 + (1+ρ)^{−1/2}, between 1 and 2; the earlier "≥ 2" is wrong as stated); an ordering threshold; a freeze/hold/lookup band. Mostly built on published foundations (Marschak & Radner 1972; Veldkamp & Wolfers 2007; Van Zandt & Radner 2001; EOQ and inventory pooling; Topkis). How these relate to the drift-spectrum core: §2.5.
+- **Simulations:** passes so far are circular; four locked in-model predictions failed (SENSING2's risky world; three in ANTS1).
+- **The headline hypothesis (§2) is the least developed part.** The map from a measured spectrum to the predicted design exponents has not been derived beyond the single-tracker case (§2.5). That is now the first theory item in `QUEUE.md`.
 
 **Labels used throughout**
 - **KNOWN**: already in the literature (credited in §10).
@@ -105,6 +101,7 @@ What matters about the world is not one drift rate but its **spectrum**: how muc
 - **Not literal above the cell.** kT ln 2 per bit does not bind for neurons, people or firms; synapses pay roughly 10⁵ times that (Laughlin et al. 1998). Above the cell the exponents come from information theory plus network transport costs, not from the second law. This draft says so plainly. The objection "decision theory in a lab coat" mostly survives above the cell.
 - **What is the same at every scale** is one known inequality: growth ≤ disequilibrium + information − house take. It covers Szilard engines, Kelly bettors and selection (KNOWN; `theory/INTERNAL_MODEL.md` §8). In markets no-arbitrage plays the role of the second law: in an efficient environment blind persistence is impossible, so persistence requires information (PROOF, assembly; novelty unconfirmed). The constraint there is competition, not heat.
 - **Night-1 physics review (15 Nov):** in the formal layer, the energy / second-law framing is **decorative**. No conserved quantity, entropy production or Landauer-type bound enters any proof, and "one currency" is only an exchange rate inside one organization. The one place physics could earn its keep is cells, where assigning entropy-priced sensing as "the thermodynamic floor" decides the predicted exponent (−1 vs −2) and is asserted, not derived. Either derive one bound in physical units for one sensing system, or keep this language out of public claims.
+- **Open disagreement, stated (Chad, t1908):** the physics is not decorative. The same three costs (holding a memory, predicting, upkeep) apply at every level from atoms to cities; the thermodynamic floor binds tightly at the cell and constrains less at firm scale; variational free energy equals thermodynamic free energy only in a special case. The night-1 referee's point stands for the *proofs* (no physical quantity enters them). What would settle it: one system where the thermodynamic binding ratio is measured and the predicted sensing class is the one the floor selects (`measurement/FRAMEWORK.md` §3.11; QUEUE SENSE-CELL).
 - **Scale invariance holds only if one currency dominates** (`theory/GENERAL_THEOREM.md`, Theorem S).
 
 ### 2.4 Evidence so far on the spectrum hypothesis (honest)
@@ -124,6 +121,14 @@ What matters about the world is not one drift rate but its **spectrum**: how muc
 **Net:** the direction (redder worlds call for longer, layered, power-law memory) has some support; every exact exponent tested so far has missed or been inconclusive; one exploratory sign went the wrong way. The hypothesis stands as the organizing bet, not as a finding.
 
 **POST HOC, untested:** memory outlasting need (MATCH1's ratio below 1) may follow from the theory's own keep rule. Keep an item while need × miss cost exceeds upkeep. When the miss cost is high relative to upkeep, the hold horizon stretches far past where need has fallen, so memory's exponent should be *smaller* than need's, with the gap growing with miss cost ÷ upkeep. This was proposed after seeing MATCH1 and **must be locked and tested on new data before it counts.**
+
+### 2.5 How the formal layer sits inside the spectrum core, and the rule "regime first" (added v1.2)
+
+- **The bridge already proved.** In the formal layer (`reviews/night1/formal/THEOREMS.md`, Lemma 1(i)), a tracker that reads and then holds the last value, in a world with fractional drift of Hurst exponent H, has stakes and drift elasticities a = b = **1/(1+2H)**. The √ (½) is the H = ½ (Brownian, single-pace) case. Every formal theorem is stated in (a, b), so the onset exponent −(1−b)/(1−a), the vigilance criterion and the ordering threshold all move with the world's spectrum through (a, b). The constants quoted for "class R" (a = b = ½; the vigilance floor 1 + (1+ρ)^{−1/2}) are H = ½ instances (`reviews/night1/ARCH_EQUATION.md` §0.2: the constants are functions of H, not universal numbers).
+- **Two axes, one rule.** The formal layer is the *across-members* axis (who shares a model of which driver: levels). §2.2 is the *across-timescales* axis (how many memory stores at which speeds: layers). Both are "track what the spectrum makes worth tracking at the price paid", applied to the cross-member covariance and to the temporal spectrum respectively. This is what "fractal" means here: the same cost comparison deciding levels across members and layers across time.
+- **What is missing.** The formal layer allows one held value per tracker (Axiom 6), so regime B's predicted design (a log-spaced ladder of stores) cannot be expressed there, and hold-last-value is a restricted estimator when H ≠ ½. The joint map from a measured spectrum to read rate, number and spacing of stores, and forgetting exponent is **not derived** (§2.4; `measurement/FRAMEWORK.md` §6.10). Night-1 found that the layering part, as far as it was derived, adds only "approximation theory plus a price" (`reviews/night1/ARCH_EQUATION.md` §0.5). Deriving the joint map, or demoting the headline if it cannot give a non-trivial prediction, is the first theory task.
+- **Rule for every prediction (binding).** State the regime first, measured on the same system: single-pace (A), scale-free with measured H or α (B), many modes with measured β (C), or not established. Then derive the exponent for that regime from this file, quoting the section. A formal-layer constant computed at H = ½ is a regime-A prediction and must not be presented as "GTAO's prediction" for a world whose regime is unmeasured. Premises of the cited result (for example a stable, known per-item drift rate) are checked before the result is applied.
+- **Surprise-guided follow-up (Proposition SG, in-model, elementary; `reviews/night2/AUDIT_DIVERGENCE.md` §6).** With changes as a renewal process and new evidence of likelihood ratio Λ, follow an item up iff w·L·p > c. In regime A the time since the last change carries no information. In regime B (decreasing hazard) the surprise needed rises as the log of the item's dormancy, with slope 1, and recently changed items need almost none. Prior art is close (restless bandits and Whittle indices, crawler revisit policies, Bayesian surprise); the regime-conditional clock is the only candidate addition. It now orders `QUEUE.md`, and its choices are logged so it can be scored.
 
 ---
 
@@ -278,6 +283,13 @@ Locks, applying to everything in this table:
 
 ---
 
+### 8c. Night 2 (15 November 2026), read under §2.5
+- **VIGIL_ONA** (nomination networks): blind referee downgraded the direction and the beyond-status tilt (Lazega-driven, not robust to seniority) and overturned the span test to inconclusive. Vigilance **OPEN**.
+- **MEASURE-SELF** (Ace's own memory store): the √(drift × stakes) allocation it tested is the regime-A instance (§2.5), and its premise failed: an item's change rate was not a stable property (Spearman −0.06). So P3b is "failed on a statement-time proxy; premise unmet (scope)", not a test of the spectrum core. The burstiness "pass" is explained by the observer's conversation schedule (referee null band 0.60–0.92 contains 0.82); the regime is **not established**. Closed items stayed closed (0/21; non-discriminating). Most later changes were dormant items reawakening, which no schedule caught (motivates §2.5 Proposition SG). Details: `reviews/night2/SELF/`, `reviews/night2/REFEREE/REPORT.md`, `reviews/night2/AUDIT_DIVERGENCE.md`.
+- **Audit:** `reviews/night2/AUDIT_DIVERGENCE.md` lists where the project's working summaries had drifted from this file and why.
+
+---
+
 ## 9. What would sink the theory
 
 - **The spectrum relation fails twice:** the design exponent stays constant as the environment's measured spectrum changes, at two scales with locked tests.
@@ -408,6 +420,8 @@ Verification key: **[DOI]** resolved against Crossref in the sweep (`litmap/veri
 
 ## 11. Next tests, in order
 
+**The live queue is `QUEUE.md` (ordered by Proposition SG, §2.5).** The lists below are kept as history from 14–15 November.
+
 **Updated 15 Nov 2026 after night 1.** Full specifications are in `reviews/night1/CLAIM_MAP_FINAL.md` §3.
 1. **Prior-art sweeps before any public novelty claim:** forward citations of Marschak & Radner 1972 ch. 7 §5 and of Van Zandt & Radner 2001; Veldkamp 2011 ch. 8; the 2023 *JEL* rational-inattention survey; the inventory-pooling line.
 2. **Process:**
@@ -440,3 +454,9 @@ Verification key: **[DOI]** resolved against Crossref in the sweep (`litmap/veri
 - Tests: `tests/*/` (locked predictions with sha256, code, results; raw data excluded, see each `DATA.md`).
 - Literature: `litmap/LITMAP.md`, `litmap/PRIOR_ART.md`, `litmap/THREATS.md`, `litmap/LEFT_ON_THE_TABLE.md`.
 - Reviews: `reviews/`, including the DECISIVE/F1 independent review (`reviews/DECISIVE_F1_REVIEW.md`) and its checks.
+
+## 13. Changelog
+- **v1.2 (15 Nov 2026, 09:02 AM ET).** Rewrote the header and status block (it contradicted itself: "killed on real data" under a note that no field test measured validly; title "open" after Chad decided it). Added this file's canonical role. Added §2.5 (formal layer inside the spectrum core; "regime first" rule; Proposition SG). Added Chad's physics position to §2.3 as an open disagreement with its test. Added §8c (night 2). Pointed §11 to `QUEUE.md`. No locked prediction, result or proof was changed. Reason: `reviews/night2/AUDIT_DIVERGENCE.md`.
+- v1.1 (15 Nov, 03:04 ET; measurement note 08:20 ET). Night-1 scoreboard (§8b); measurement-layer note.
+- v1.0 (14 Nov, 23:09 ET, `cbe60a5`). Drift-spectrum core; prior-art credits; drift-reduction lever; narrowed "no one in charge".
+

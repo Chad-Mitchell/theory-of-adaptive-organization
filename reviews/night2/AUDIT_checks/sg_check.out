@@ -1,0 +1,22 @@
+Regime B (Lomax, gamma=0.4, a0=1)
+  age     0.0: MC 0.2421  formula 0.2421
+  age     1.0: MC 0.1497  formula 0.1497
+  age     3.0: MC 0.0854  formula 0.0854
+  age    10.0: MC 0.0341  formula 0.0342
+  age    30.0: MC 0.0128  formula 0.0126
+  age   100.0: MC 0.0042  formula 0.0039
+Regime A (exponential, lambda=0.1)
+  age     0.0: MC 0.0950  formula 0.0952
+  age     1.0: MC 0.0952  formula 0.0952
+  age     3.0: MC 0.0949  formula 0.0952
+  age    10.0: MC 0.0948  formula 0.0952
+  age    30.0: MC 0.0950  formula 0.0952
+Threshold ln LR vs ln(age) (regime B):
+  age      3: ln LR* = 0.174
+  age     10: ln LR* = 1.143
+  age     30: ln LR* = 2.163
+  age    100: ln LR* = 3.337
+  age    300: ln LR* = 4.427
+  age   1000: ln LR* = 5.628
+  slope d lnLR*/d ln a (last 3 points): 0.995
+Regime A threshold is independent of age: 0.05494388370787062

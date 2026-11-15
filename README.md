@@ -8,13 +8,13 @@ This repository holds the theory (`THEORY.md`), the theorem notes with their cod
 
 ## Start here
 
-**[`THEORY.md`](THEORY.md) is the current statement of the theory (v1.0 draft, 14 November 2026, America/New_York).** It leads with what looks new, credits prior art, and reports every test result, including the failures. This README is a summary of it.
+**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.2 draft, 15 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands, with commits; [`QUEUE.md`](QUEUE.md) is the live work queue. This README is a summary.
 
 ## In plain words
 
 An adaptive organization has to stay solvent in a changing world. It can hold a fact, check it, correct it, let it fade, or make the world itself change less. Each of those costs something, and acting late also costs something. One budget covers all of them.
 
-The central bet of v1.0 is that **the world's drift spectrum sets the exponents of good design**. The drift spectrum is how much change arrives at each timescale, or how "red" the world is.
+The central bet (since v1.0) is that **the world's drift spectrum sets the exponents of good design**. The drift spectrum is how much change arrives at each timescale, or how "red" the world is.
 - A world with **one characteristic pace** calls for a square-root law and one memory timescale. That law is already published (Lee, Flack & Krakauer 2024).
 - A world that drifts **at every pace** calls for log-spaced layers of memory, which look like power-law forgetting from outside, and for adaptation times that scale one-for-one with the world's.
 - A world whose variation spreads over **many modes** sets how fast a model should grow with throughput: as Q^(1/β), with β read from the environment.
@@ -29,13 +29,12 @@ Optimality is claimed only where selection is strong. Below Lynch's drift barrie
 
 ## Honest status
 
-**Update, 15 Nov 2026 (night 1):** GTAO is a falsifiable causal theory, not a law.
-- No GTAO-specific prediction has yet passed on real data.
-- P1 (news recall) and the Enron vigilance test were killed.
-- The formal layer is proved in-model with corrections: "V ≥ 2" is wrong as stated.
-- Most of it builds on published team theory and inventory pooling.
+**Update, 15 Nov 2026 (v1.2):** GTAO is a falsifiable causal theory, not a law.
+- No field test so far measured GTAO's quantities validly, so field results are "passed / failed on proxy X", not kills or confirmations (`measurement/`).
+- The formal layer is proved in-model, with corrections ("V ≥ 2" is wrong as stated), and mostly builds on published team theory and inventory pooling. Its constants are functions of the world's drift spectrum (`THEORY.md` §2.5).
+- The headline (the spectrum sets the exponents) is the least developed part: the full map has not been derived. It is the first theory item in `QUEUE.md`.
 
-See `THEORY.md` §8b and `reviews/night1/CLAIM_MAP_FINAL.md`.
+See `THEORY.md` (status block, §2.5, §8b–8c) and `measurement/CLAIM_MAP_v2.md`.
 
 - **There is no new theorem of large scope.** Most individual rules are known results, placed side by side. The math notes label what is known, what is a calculation, and what fails. The one new proof worth keeping (a quantitative internal-model bound) is modest, and its novelty is unconfirmed.
 - **This is a working hypothesis under test**, not a finding. Nothing here has been peer reviewed. An independent review of the DECISIVE and F1 tests is in `reviews/DECISIVE_F1_REVIEW.md` (14 November 2026, America/New_York); the scoreboard below follows its verdict. That review was not fully blind (the reviewer had the results and write-ups). Most other tests have not had an independent review.
@@ -50,6 +49,8 @@ See `THEORY.md` §8b and `reviews/night1/CLAIM_MAP_FINAL.md`.
 - **The information and thermodynamic floors:** Mitter & Newton 2005; Horowitz & Sandberg 2014; Stratonovich's value of information; the data-rate theorems (Nair & Evans 2004; Tatikonda & Mitter 2004); Polani; Shalizi & Crutchfield 2001; Kussell & Leibler 2005.
 
 ### What still looks new (each with a kill condition in `THEORY.md` §1)
+
+*This is the v1.0 list, kept as history. The current list of what looks like the theory's own is `THEORY.md` §8b; statuses are in `measurement/CLAIM_MAP_v2.md`.*
 
 Pending targeted searches, and none yet confirmed by a locked, reviewed test:
 
