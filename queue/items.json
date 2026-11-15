@@ -355,7 +355,12 @@
   "v": 0.8,
   "L": 3,
   "c": 1,
-  "note": "Hostile referee of SPF-NOISE-PROXY: finite-sample variance bias of D/vf (common.moments_T), level-normalised lower-branch inversion, L0w selection rule, parametric-bootstrap G test (conservative size; Holm floor 0.035 at NSIM 200), env-variance uncertainty for slow yields. Also audit other dispersion-based N in the repo."
+  "note": "Hostile referee of SPF-NOISE-PROXY: finite-sample variance bias of D/vf (common.moments_T), level-normalised lower-branch inversion, L0w selection rule, parametric-bootstrap G test (conservative size; Holm floor 0.035 at NSIM 200), env-variance uncertainty for slow yields. Also audit other dispersion-based N in the repo. | DONE 15 Nov ~5:20 PM ET (pick 22, RULE slot: rule top AQN-REFEREE active on q-pick21, so next by I=2.4 tie/id order; Ace's unaided rank 6/47; ledger 104-106 + outcome 107): PASS-WITH-FIXES on proxy 'SPF within-forecaster nowcast dispersion'. Own time-domain code reproduces K_L0w (7/7) and beta^G (3 decimals). Branch check (consensus nowcast variance) confirms lower branch for 6/7; RSLGOV not identified (leans upper, beta^G ~7) -> S-1 narrowed to UNEMP, HOUSING, TBILL. Estimator fine below validated K range (to 0.001). Public-signal alternative gives G<=0 and beta_true<=beta^G: explains neither T1 nor S-1. Erratum: >=3 null SD in 5 of 7, not 6. No status change.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/NOISE_PROXY_REFEREE.md",
+   "reviews/night2/NOISE_PROXY_REFEREE_checks/"
+  ]
  },
  {
   "id": "SPF-NOTE-EDITS",
@@ -364,7 +369,7 @@
   "v": 0.9,
   "L": 1,
   "c": 0.5,
-  "note": "Proposed (unapplied) edits from SPF-NOISE-PROXY RESULTS: THEORY §2.4/§8c LFK line (S-a artifact) and FRAMEWORK §3 N-measurement rule. Needs independent review before merge (Chad t1916 rule for theory text)."
+  "note": "Proposed (unapplied) edits from SPF-NOISE-PROXY RESULTS: THEORY §2.4/§8c LFK line (S-a artifact) and FRAMEWORK §3 N-measurement rule. Needs independent review before merge (Chad t1916 rule for theory text). | NOISE-PROXY-REFEREE verdicts (15 Nov): edit 1 (THEORY 2.4/8c LFK line) has no target text in v1.4.6 -> drop, or author PR DO NOT MERGE with 3-variable post hoc wording; edit 2 (FRAMEWORK, measuring N; home 3.4) endorse with branch check + validated K range, and 'horizon check is a premise check, not a diagnosis'."
  },
  {
   "id": "TELEGRAPH-LINEAR-PREMISE",
@@ -818,6 +823,6 @@
   "v": 0.5,
   "L": 2,
   "c": 3,
-  "note": "From SPF-RIGIDITY-OOS (gate not met, 15 Nov ~5:15 PM ET): the SPF's unused quarterly growth/inflation variables cannot power the post hoc rigidity test (c = consensus CG / optimal-filter beta at measured nowcast noise). Route: Livingston Survey (Philadelphia Fed, public, semiannual since 1946; level series such as unemployment, T-bill, bond yields) and/or ECB SPF (public microdata since 1999). Needs first: a nowcast/short-horizon noise instrument for their horizon design validated on synthetic truth (SPF-NOISE-PROXY method), then the MV10 power simulation of tests/SPF_RIGIDITY_OOS/power.py on planned data; lock only if both rules reach 0.8. State the Gaussian noisy-filter premise."
+  "note": "From SPF-RIGIDITY-OOS (gate not met, 15 Nov ~5:15 PM ET): the SPF's unused quarterly growth/inflation variables cannot power the post hoc rigidity test (c = consensus CG / optimal-filter beta at measured nowcast noise). Route: Livingston Survey (Philadelphia Fed, public, semiannual since 1946; level series such as unemployment, T-bill, bond yields) and/or ECB SPF (public microdata since 1999). Needs first: a nowcast/short-horizon noise instrument for their horizon design validated on synthetic truth (SPF-NOISE-PROXY method), then the MV10 power simulation of tests/SPF_RIGIDITY_OOS/power.py on planned data; lock only if both rules reach 0.8. State the Gaussian noisy-filter premise. | NOISE-PROXY-REFEREE (15 Nov): the instrument step must include a branch check (consensus nowcast variance vs both roots of the level curve) and a validated K range covering the estimates."
  }
 ]
