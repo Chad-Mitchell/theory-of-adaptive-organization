@@ -123,7 +123,17 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 3 taken (ledger 24). Next pick (4) is the uniform slot: top of entry 23's stored uniform permutation (SAME-SYSTEM-AQN), or log a fresh ranking first.** Old note: log a fresh unaided order covering the items to be ranked, run the rule, then take the unaided top (rule's if the same).
 
+### NEW (15 Nov ~11:05 AM ET, from SPF-NOISE-PROXY; surprises read per rule 4)
+- **SPF-NOISE-PROXY** — DONE (pick 4, uniform slot; ledger 26–28, outcome 31): `tests/SPF_NOISE_PROXY/RESULTS.md`, lock `2f96b41`. Validated N proxy L0w (within-forecaster nowcast dispersion over the environment-implied variance; passed on synthetic truth). LFK's h = 3 dispersion-as-N **failed on proxy "horizon overidentification"** for 6 of 7 variables; contamination broad (T2 inconclusive); L0w passed known-groups marginally (T3). Post hoc: LFK S-a was an artifact; with measured noise the optimal filter under-predicts consensus CG 2.5–6×. No CLAIM_MAP change.
+- **SPF-RIGIDITY-OOS** (w 2, c 3). Lock "consensus CG > optimal-filter β at measured nowcast noise" on unseen surveys/variables (ECB SPF, Livingston, other SPF variables); power first.
+- **NOISE-PROXY-REFEREE** (w 2, c 1). Hostile referee of the finite-sample bias, the L0w selection and the G test; audit other dispersion-based N.
+- **SPF-NOTE-EDITS** (w 1, c 0.5). Proposed THEORY §2.4/§8c and FRAMEWORK §3 notes from SPF-NOISE-PROXY; independent review before merge.
+- Note on **SPF-AQN-POWERED**: its S-a rationale is withdrawn (surprise → none); any powered version uses L0w and the horizon check.
+
+**Pick 4 done (ledger 31). Next pick (5) is the rule slot: rule's top among open non-active items (log a fresh unaided order first).**
+
 ## Done (frozen)
+- SPF-NOISE-PROXY: `tests/SPF_NOISE_PROXY/` (not refereed; NOISE-PROXY-REFEREE queued).
 - MEASURE-SELF: `reviews/night2/SELF/` (refereed; re-read under THEORY §2.5 in §8c).
 - VIGIL_ONA: `prereg/vigil-ona/` (refereed).
 - Night-2 referee: `reviews/night2/REFEREE/`.

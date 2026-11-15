@@ -247,12 +247,12 @@
  {
   "id": "SPF-AQN-POWERED",
   "w": 3,
-  "surprise": "weak",
+  "surprise": "none",
   "age_days": 0.1,
   "v": 0.5,
   "L": 3,
   "c": 4,
-  "note": "POST HOC S-a: UNEMP/HOUSING/TBILL consensus CG within 0-25% of optimal-filter prediction, alpha=2 rival 2-10x high. Powered version: monthly series for alpha, more surveys/variables (ECB SPF, Livingston), individual panels; dry-run power first (MV8)."
+  "note": "POST HOC S-a: UNEMP/HOUSING/TBILL consensus CG within 0-25% of optimal-filter prediction, alpha=2 rival 2-10x high. Powered version: monthly series for alpha, more surveys/variables (ECB SPF, Livingston), individual panels; dry-run power first (MV8). | 15 Nov SPF-NOISE-PROXY: the S-a rationale is WITHDRAWN (artifact of an invalid N proxy; with measured nowcast noise the filter under-predicts CG 2.5-6x, post hoc). Any powered version must use the L0w noise proxy and the horizon check; see SPF-RIGIDITY-OOS."
  },
  {
   "id": "SPF-NOISE-PROXY",
@@ -262,7 +262,9 @@
   "v": 0.5,
   "L": 2,
   "c": 2,
-  "note": "S-b: long yields beta~0 vs predicted 2.8; dispersion is not signal noise for priced variables. Find an independent N proxy (e.g. data-release noise, information-acquisition measures) before any N13 test on SPF."
+  "note": "S-b: long yields beta~0 vs predicted 2.8; dispersion is not signal noise for priced variables. Find an independent N proxy (e.g. data-release noise, information-acquisition measures) before any N13 test on SPF.",
+  "status": "DONE",
+  "done": "tests/SPF_NOISE_PROXY/RESULTS.md (pick 4, ledger 28/31)"
  },
  {
   "id": "LAB-AKLMT-TAU",
@@ -299,5 +301,32 @@
   "L": 2,
   "c": 0.5,
   "note": "new from N12 referee C3: formal Lemma 1(viii) 'effort = spend/price' holds only at theta=1; precision elasticities are (a/theta, b/theta); small-share vigilance is rho^-theta in spend but rho^-1 in precision. Dated erratum in THEOREMS/FIXES and the CLAIM_MAP vigilance rows."
+ },
+ {
+  "id": "SPF-RIGIDITY-OOS",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 3,
+  "note": "From SPF-NOISE-PROXY S-1 (post hoc): with the validated nowcast-noise proxy L0w, consensus CG coefficients exceed the optimal noisy-filter beta^G 2.5-6x (UNEMP, HOUSING, TBILL, RSLGOV). Lock 'beta-hat > beta^G(K_L0w)' (and its size) on unseen data: ECB SPF, Livingston, other SPF variables/horizons not yet analysed, or post-2019 with the COVID rule fixed in advance. Bears on N13 (are forecasters near the measured-input optimum?). Dry-run power first."
+ },
+ {
+  "id": "NOISE-PROXY-REFEREE",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 3,
+  "c": 1,
+  "note": "Hostile referee of SPF-NOISE-PROXY: finite-sample variance bias of D/vf (common.moments_T), level-normalised lower-branch inversion, L0w selection rule, parametric-bootstrap G test (conservative size; Holm floor 0.035 at NSIM 200), env-variance uncertainty for slow yields. Also audit other dispersion-based N in the repo."
+ },
+ {
+  "id": "SPF-NOTE-EDITS",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 1,
+  "c": 0.5,
+  "note": "Proposed (unapplied) edits from SPF-NOISE-PROXY RESULTS: THEORY \u00a72.4/\u00a78c LFK line (S-a artifact) and FRAMEWORK \u00a73 N-measurement rule. Needs independent review before merge (Chad t1916 rule for theory text)."
  }
 ]
