@@ -45,7 +45,7 @@ def power(vs, tau, rng):
             P_ += lo > 1; F_ += hi < M_R
         out[name] = dict(P_pass=P_ / REPS, P_fail=F_ / REPS, c_sd=float(np.std(cs)), c_median=float(np.median(cs)))
     se_c = float(1 / math.sqrt(np.sum(bG ** 2 / sd ** 2)))   # sampling-only analytic se of c
-    gate = power_gate.gate(M_R - M_0, se_c)                     # optimality form: gap 1.5 vs sampling-only se (best case)
+    gate = power_gate.gate(M_R - M_0, se_c, form="optimality")  # optimality form: gap 1.5 vs sampling-only se (best case); form= added at v1.4.7 (tool default became causal, kappa 1/2) so this reproduces its recorded output
     return dict(vars=vs, tau=tau, se_c_sampling_only=se_c, info_share={v: float((bG[i] / sd[i]) ** 2 / np.sum(bG ** 2 / sd ** 2)) for i, v in enumerate(vs)},
                 sim=out, gate_met=bool(out["R"]["P_pass"] >= 0.8 and out["0"]["P_fail"] >= 0.8),
                 power_gate_tool_best_case=dict(P_pass_true=gate["analytic"]["P_pass_true"], P_fail_null=gate["analytic"]["P_fail_null"],

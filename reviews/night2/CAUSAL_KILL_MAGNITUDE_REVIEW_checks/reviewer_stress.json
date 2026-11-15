@@ -1,0 +1,362 @@
+{
+ "z=1.645 s=0.22 lam=1.0 m=0 sd_logtau=0.5 k=0.25": {
+  "plug": 0.002,
+  "prop": 0.002,
+  "known": 0.002
+ },
+ "z=1.645 s=0.22 lam=1.0 m=0 sd_logtau=0.5 k=0.5": {
+  "plug": 0.013,
+  "prop": 0.006,
+  "known": 0.005
+ },
+ "z=1.645 s=0.22 lam=1.0 m=0 sd_logtau=0.5 k=1.0": {
+  "plug": 0.144,
+  "prop": 0.043,
+  "known": 0.057
+ },
+ "z=1.645 s=0.22 lam=1.0 m=0 sd_logtau=1.0 k=0.25": {
+  "plug": 0.005,
+  "prop": 0.003,
+  "known": 0.002
+ },
+ "z=1.645 s=0.22 lam=1.0 m=0 sd_logtau=1.0 k=0.5": {
+  "plug": 0.06,
+  "prop": 0.014,
+  "known": 0.005
+ },
+ "z=1.645 s=0.22 lam=1.0 m=0 sd_logtau=1.0 k=1.0": {
+  "plug": 0.259,
+  "prop": 0.037,
+  "known": 0.057
+ },
+ "z=1.645 s=0.22 lam=0.3 m=10 sd_logtau=0.5 k=0.25": {
+  "plug": 0.015,
+  "prop": 0.01,
+  "known": 0.01
+ },
+ "z=1.645 s=0.22 lam=0.3 m=10 sd_logtau=0.5 k=0.5": {
+  "plug": 0.049,
+  "prop": 0.019,
+  "known": 0.019
+ },
+ "z=1.645 s=0.22 lam=0.3 m=10 sd_logtau=0.5 k=1.0": {
+  "plug": 0.185,
+  "prop": 0.043,
+  "known": 0.059
+ },
+ "z=1.645 s=0.22 lam=0.3 m=10 sd_logtau=1.0 k=0.25": {
+  "plug": 0.026,
+  "prop": 0.01,
+  "known": 0.01
+ },
+ "z=1.645 s=0.22 lam=0.3 m=10 sd_logtau=1.0 k=0.5": {
+  "plug": 0.089,
+  "prop": 0.013,
+  "known": 0.019
+ },
+ "z=1.645 s=0.22 lam=0.3 m=10 sd_logtau=1.0 k=1.0": {
+  "plug": 0.219,
+  "prop": 0.014,
+  "known": 0.059
+ },
+ "z=1.645 s=0.22 lam=0.3 m=20 sd_logtau=0.5 k=0.25": {
+  "plug": 0.01,
+  "prop": 0.007,
+  "known": 0.008
+ },
+ "z=1.645 s=0.22 lam=0.3 m=20 sd_logtau=0.5 k=0.5": {
+  "plug": 0.036,
+  "prop": 0.015,
+  "known": 0.016
+ },
+ "z=1.645 s=0.22 lam=0.3 m=20 sd_logtau=0.5 k=1.0": {
+  "plug": 0.144,
+  "prop": 0.033,
+  "known": 0.054
+ },
+ "z=1.645 s=0.22 lam=0.3 m=20 sd_logtau=1.0 k=0.25": {
+  "plug": 0.018,
+  "prop": 0.007,
+  "known": 0.008
+ },
+ "z=1.645 s=0.22 lam=0.3 m=20 sd_logtau=1.0 k=0.5": {
+  "plug": 0.068,
+  "prop": 0.011,
+  "known": 0.016
+ },
+ "z=1.645 s=0.22 lam=0.3 m=20 sd_logtau=1.0 k=1.0": {
+  "plug": 0.195,
+  "prop": 0.013,
+  "known": 0.054
+ },
+ "z=1.645 s=0.10 lam=1.0 m=0 sd_logtau=0.5 k=0.25": {
+  "plug": 0.015,
+  "prop": 0.014,
+  "known": 0.013
+ },
+ "z=1.645 s=0.10 lam=1.0 m=0 sd_logtau=0.5 k=0.5": {
+  "plug": 0.029,
+  "prop": 0.025,
+  "known": 0.023
+ },
+ "z=1.645 s=0.10 lam=1.0 m=0 sd_logtau=0.5 k=1.0": {
+  "plug": 0.088,
+  "prop": 0.056,
+  "known": 0.056
+ },
+ "z=1.645 s=0.10 lam=1.0 m=0 sd_logtau=1.0 k=0.25": {
+  "plug": 0.021,
+  "prop": 0.015,
+  "known": 0.013
+ },
+ "z=1.645 s=0.10 lam=1.0 m=0 sd_logtau=1.0 k=0.5": {
+  "plug": 0.062,
+  "prop": 0.02,
+  "known": 0.023
+ },
+ "z=1.645 s=0.10 lam=1.0 m=0 sd_logtau=1.0 k=1.0": {
+  "plug": 0.176,
+  "prop": 0.024,
+  "known": 0.056
+ },
+ "z=1.645 s=0.10 lam=0.3 m=10 sd_logtau=0.5 k=0.25": {
+  "plug": 0.031,
+  "prop": 0.028,
+  "known": 0.027
+ },
+ "z=1.645 s=0.10 lam=0.3 m=10 sd_logtau=0.5 k=0.5": {
+  "plug": 0.046,
+  "prop": 0.034,
+  "known": 0.034
+ },
+ "z=1.645 s=0.10 lam=0.3 m=10 sd_logtau=0.5 k=1.0": {
+  "plug": 0.102,
+  "prop": 0.048,
+  "known": 0.057
+ },
+ "z=1.645 s=0.10 lam=0.3 m=10 sd_logtau=1.0 k=0.25": {
+  "plug": 0.037,
+  "prop": 0.025,
+  "known": 0.027
+ },
+ "z=1.645 s=0.10 lam=0.3 m=10 sd_logtau=1.0 k=0.5": {
+  "plug": 0.071,
+  "prop": 0.024,
+  "known": 0.034
+ },
+ "z=1.645 s=0.10 lam=0.3 m=10 sd_logtau=1.0 k=1.0": {
+  "plug": 0.149,
+  "prop": 0.021,
+  "known": 0.057
+ },
+ "z=1.645 s=0.10 lam=0.3 m=20 sd_logtau=0.5 k=0.25": {
+  "plug": 0.028,
+  "prop": 0.026,
+  "known": 0.026
+ },
+ "z=1.645 s=0.10 lam=0.3 m=20 sd_logtau=0.5 k=0.5": {
+  "plug": 0.042,
+  "prop": 0.033,
+  "known": 0.035
+ },
+ "z=1.645 s=0.10 lam=0.3 m=20 sd_logtau=0.5 k=1.0": {
+  "plug": 0.088,
+  "prop": 0.046,
+  "known": 0.055
+ },
+ "z=1.645 s=0.10 lam=0.3 m=20 sd_logtau=1.0 k=0.25": {
+  "plug": 0.035,
+  "prop": 0.026,
+  "known": 0.026
+ },
+ "z=1.645 s=0.10 lam=0.3 m=20 sd_logtau=1.0 k=0.5": {
+  "plug": 0.063,
+  "prop": 0.027,
+  "known": 0.035
+ },
+ "z=1.645 s=0.10 lam=0.3 m=20 sd_logtau=1.0 k=1.0": {
+  "plug": 0.135,
+  "prop": 0.022,
+  "known": 0.055
+ },
+ "z=1.96 s=0.22 lam=1.0 m=0 sd_logtau=0.5 k=0.25": {
+  "plug": 0.001,
+  "prop": 0.0,
+  "known": 0.0
+ },
+ "z=1.96 s=0.22 lam=1.0 m=0 sd_logtau=0.5 k=0.5": {
+  "plug": 0.007,
+  "prop": 0.003,
+  "known": 0.003
+ },
+ "z=1.96 s=0.22 lam=1.0 m=0 sd_logtau=0.5 k=1.0": {
+  "plug": 0.105,
+  "prop": 0.017,
+  "known": 0.033
+ },
+ "z=1.96 s=0.22 lam=1.0 m=0 sd_logtau=1.0 k=0.25": {
+  "plug": 0.003,
+  "prop": 0.001,
+  "known": 0.0
+ },
+ "z=1.96 s=0.22 lam=1.0 m=0 sd_logtau=1.0 k=0.5": {
+  "plug": 0.041,
+  "prop": 0.009,
+  "known": 0.003
+ },
+ "z=1.96 s=0.22 lam=1.0 m=0 sd_logtau=1.0 k=1.0": {
+  "plug": 0.227,
+  "prop": 0.026,
+  "known": 0.033
+ },
+ "z=1.96 s=0.22 lam=0.3 m=10 sd_logtau=0.5 k=0.25": {
+  "plug": 0.007,
+  "prop": 0.004,
+  "known": 0.004
+ },
+ "z=1.96 s=0.22 lam=0.3 m=10 sd_logtau=0.5 k=0.5": {
+  "plug": 0.03,
+  "prop": 0.008,
+  "known": 0.009
+ },
+ "z=1.96 s=0.22 lam=0.3 m=10 sd_logtau=0.5 k=1.0": {
+  "plug": 0.142,
+  "prop": 0.017,
+  "known": 0.031
+ },
+ "z=1.96 s=0.22 lam=0.3 m=10 sd_logtau=1.0 k=0.25": {
+  "plug": 0.014,
+  "prop": 0.004,
+  "known": 0.004
+ },
+ "z=1.96 s=0.22 lam=0.3 m=10 sd_logtau=1.0 k=0.5": {
+  "plug": 0.061,
+  "prop": 0.005,
+  "known": 0.009
+ },
+ "z=1.96 s=0.22 lam=0.3 m=10 sd_logtau=1.0 k=1.0": {
+  "plug": 0.186,
+  "prop": 0.006,
+  "known": 0.031
+ },
+ "z=1.96 s=0.22 lam=0.3 m=20 sd_logtau=0.5 k=0.25": {
+  "plug": 0.005,
+  "prop": 0.003,
+  "known": 0.004
+ },
+ "z=1.96 s=0.22 lam=0.3 m=20 sd_logtau=0.5 k=0.5": {
+  "plug": 0.022,
+  "prop": 0.007,
+  "known": 0.009
+ },
+ "z=1.96 s=0.22 lam=0.3 m=20 sd_logtau=0.5 k=1.0": {
+  "plug": 0.113,
+  "prop": 0.013,
+  "known": 0.029
+ },
+ "z=1.96 s=0.22 lam=0.3 m=20 sd_logtau=1.0 k=0.25": {
+  "plug": 0.01,
+  "prop": 0.003,
+  "known": 0.004
+ },
+ "z=1.96 s=0.22 lam=0.3 m=20 sd_logtau=1.0 k=0.5": {
+  "plug": 0.047,
+  "prop": 0.004,
+  "known": 0.009
+ },
+ "z=1.96 s=0.22 lam=0.3 m=20 sd_logtau=1.0 k=1.0": {
+  "plug": 0.164,
+  "prop": 0.005,
+  "known": 0.029
+ },
+ "z=1.96 s=0.10 lam=1.0 m=0 sd_logtau=0.5 k=0.25": {
+  "plug": 0.006,
+  "prop": 0.006,
+  "known": 0.006
+ },
+ "z=1.96 s=0.10 lam=1.0 m=0 sd_logtau=0.5 k=0.5": {
+  "plug": 0.013,
+  "prop": 0.01,
+  "known": 0.01
+ },
+ "z=1.96 s=0.10 lam=1.0 m=0 sd_logtau=0.5 k=1.0": {
+  "plug": 0.052,
+  "prop": 0.024,
+  "known": 0.029
+ },
+ "z=1.96 s=0.10 lam=1.0 m=0 sd_logtau=1.0 k=0.25": {
+  "plug": 0.011,
+  "prop": 0.006,
+  "known": 0.006
+ },
+ "z=1.96 s=0.10 lam=1.0 m=0 sd_logtau=1.0 k=0.5": {
+  "plug": 0.038,
+  "prop": 0.008,
+  "known": 0.01
+ },
+ "z=1.96 s=0.10 lam=1.0 m=0 sd_logtau=1.0 k=1.0": {
+  "plug": 0.135,
+  "prop": 0.009,
+  "known": 0.029
+ },
+ "z=1.96 s=0.10 lam=0.3 m=10 sd_logtau=0.5 k=0.25": {
+  "plug": 0.016,
+  "prop": 0.014,
+  "known": 0.014
+ },
+ "z=1.96 s=0.10 lam=0.3 m=10 sd_logtau=0.5 k=0.5": {
+  "plug": 0.025,
+  "prop": 0.017,
+  "known": 0.019
+ },
+ "z=1.96 s=0.10 lam=0.3 m=10 sd_logtau=0.5 k=1.0": {
+  "plug": 0.066,
+  "prop": 0.024,
+  "known": 0.031
+ },
+ "z=1.96 s=0.10 lam=0.3 m=10 sd_logtau=1.0 k=0.25": {
+  "plug": 0.022,
+  "prop": 0.013,
+  "known": 0.014
+ },
+ "z=1.96 s=0.10 lam=0.3 m=10 sd_logtau=1.0 k=0.5": {
+  "plug": 0.048,
+  "prop": 0.012,
+  "known": 0.019
+ },
+ "z=1.96 s=0.10 lam=0.3 m=10 sd_logtau=1.0 k=1.0": {
+  "plug": 0.115,
+  "prop": 0.007,
+  "known": 0.031
+ },
+ "z=1.96 s=0.10 lam=0.3 m=20 sd_logtau=0.5 k=0.25": {
+  "plug": 0.013,
+  "prop": 0.012,
+  "known": 0.012
+ },
+ "z=1.96 s=0.10 lam=0.3 m=20 sd_logtau=0.5 k=0.5": {
+  "plug": 0.022,
+  "prop": 0.016,
+  "known": 0.016
+ },
+ "z=1.96 s=0.10 lam=0.3 m=20 sd_logtau=0.5 k=1.0": {
+  "plug": 0.057,
+  "prop": 0.022,
+  "known": 0.029
+ },
+ "z=1.96 s=0.10 lam=0.3 m=20 sd_logtau=1.0 k=0.25": {
+  "plug": 0.019,
+  "prop": 0.012,
+  "known": 0.012
+ },
+ "z=1.96 s=0.10 lam=0.3 m=20 sd_logtau=1.0 k=0.5": {
+  "plug": 0.041,
+  "prop": 0.011,
+  "known": 0.016
+ },
+ "z=1.96 s=0.10 lam=0.3 m=20 sd_logtau=1.0 k=1.0": {
+  "plug": 0.103,
+  "prop": 0.008,
+  "known": 0.029
+ }
+}

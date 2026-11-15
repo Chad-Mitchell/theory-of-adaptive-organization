@@ -354,18 +354,18 @@
   "c": 0.5
  },
  {
-  "id": "CAUSAL-KILL-MAGNITUDE-REVIEW",
-  "w": 2,
-  "untested": true,
-  "v": 0.8,
-  "L": 2,
-  "c": 1
- },
- {
   "id": "STORE-COEF-REVIEW",
   "w": 2,
   "untested": true,
   "v": 0.9,
+  "L": 2,
+  "c": 0.5
+ },
+ {
+  "id": "LOCK-SENSITIVITY-REPORT",
+  "w": 1,
+  "untested": true,
+  "v": 0.4,
   "L": 2,
   "c": 0.5
  }
