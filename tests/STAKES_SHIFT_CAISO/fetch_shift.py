@@ -27,6 +27,9 @@ def get(url, tries=4):
     return None
 
 def main(years):
+    # post-lock amendment A1 (fetch scope only): FETCH_KEYS limits the queries; used for 2019-2023, where only DAM and RTD
+    # enter any statistic (s_yr uses e_rt and e_naive only); 2DA and ACTUAL there feed nothing.
+    keys = os.environ.get("FETCH_KEYS", ",".join(Q)).split(",")
     for y in years:
         for m in range(1, 13):
             if y == 2026 and m > 10:
@@ -34,7 +37,7 @@ def main(years):
             ny, nm = (y + 1, 1) if m == 12 else (y, m + 1)
             for half, (s, e) in enumerate([(f"{y}{m:02d}01T07:00-0000", f"{y}{m:02d}16T08:00-0000"),
                                            (f"{y}{m:02d}16T07:00-0000", f"{ny}{nm:02d}01T08:00-0000")]):
-                for key, q in Q.items():
+                for key, q in [(k, Q[k]) for k in keys]:
                     out = os.path.join(HERE, "data", "raw", str(y), f"{key}_{y}{m:02d}_{half}.csv")
                     if os.path.exists(out):
                         continue
