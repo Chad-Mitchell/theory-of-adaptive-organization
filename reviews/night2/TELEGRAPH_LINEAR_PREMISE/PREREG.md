@@ -93,7 +93,7 @@ are not edited; findings go into items.json notes and the report.
 verdicts dictate); N11 premise text already states the premise. Proposed THEORY edits in the report only + a queue item for
 independent review. Field results: none.
 
-## Amendment 1 (dated 15 Nov 2026, ~11:35 AM ET; after P1–P4 outputs were seen, before this check was written or run)
+## Amendment 1 (dated 15 Nov 2026, 11:22 AM ET per its commit; first written as "~11:35", a typo; after P1–P4 outputs were seen, before this check was written or run)
 Added because the audit (§6) raised a measurement question: does a *linear-regression* (projection) kernel of a Bayes-optimal
 tracker look like the linear optimum? Identity (law of iterated projections): for a stationary world, the best linear projection of
 the Bayes estimate E[y_t | s_{≤t}] onto the past observations equals the projection of y_t itself, i.e. the Kalman/Wiener estimate.
