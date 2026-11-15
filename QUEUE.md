@@ -152,8 +152,19 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 
 **Pick 6 done (ledger 40). Next pick (7) is the unaided slot: Ace's unaided top (rule's if the same), after a fresh unaided order and rule run. Next free ledger entry: 41.**
 
+### NEW (15 Nov ~11:55 AM ET, from TELEGRAPH-REFEREE; surprises read per rule 4)
+- **TELEGRAPH-REFEREE** — DONE (pick 7, unaided slot = rule top, I = 3.6; ledger 41–44): `reviews/night2/TELEGRAPH_REFEREE/REPORT.md` (independent code in `checks/`). Premise finding and C&M diagnosis **confirmed** (deterministic quadrature + own MC; C&M's own cross-correlation t_A is single-log too). **Corrected:** adaptation constant −0.7 → −(γ+1), t_A = (N/2μ²)[ln(2μ²/λN) − γ − 1]; "any projection kernel cannot discriminate" narrowed to regressions on the tracker's own observations (Bayes kernel on the true driver differs, rel. L2 0.61); precision vs effort label. **New:** exact MSE = μ²·2K₀(κ)/(K₀+K₁); C&M eqs. (41) α/4 and (42) α ln²α also come from the dropped drift (exact: (α/4)[ln(4/α) − γ], K₀/(K₀+K₁)); published PRE text unchanged. **Prior art:** leading-order error (Khasminskii & Zeitouni 1996; Golubev 2000; continuous time per Chigansky 2005); single-log delay is the quickest-detection form (Shiryaev; Tartakovsky & Veeravalli 2005). N16 → MATH-CORRECTED (v2.9). E2′/E4/E5/E6 verdicts in §4 (accept with changes); TLP-EDITS-REVIEW unblocked.
+- **CM-PUBLISHED-CHECK** — DONE (covered by TELEGRAPH-REFEREE; not separately picked).
+- **KERNEL-INPUT-DISCRIMINATE** (w 2, c 1.5). Bayes vs linear kernel on the true driver: shape, κ-scaling, and a discriminating design for KERNEL-MEASURE / VIX-KERNEL / SENSE-CELL. In-model first.
+- **WONHAM-PRIORART-FULLTEXT** (w 1, c 0.5). Read Khasminskii & Zeitouni 1996, Golubev 2000, Wonham 1964, Liptser–Shiryaev ch. 9, Shiryaev 1963 in full via a sanctioned route; check whether 2K₀/(K₀+K₁) and γ + 1 are stated.
+- **POISSON-SENSING-JUMP** (w 2, c 2). Bayes exponents for a switching world sensed through Poisson events (event data); check Peskir & Shiryaev 2002 and point-process filtering first.
+- Notes added to TLP-EDITS-REVIEW, KERNEL-MEASURE, VIX-KERNEL, SAME-SYSTEM-AQN.
+
+**Pick 7 done (ledger 44). Next pick (8) is the uniform slot: log a fresh unaided order, run the rule, take the top of that entry's stored uniform permutation (skip DONE/active per the pre-declared rule). Next free ledger entry: 45.**
+
 ## Done (frozen)
-- TELEGRAPH-LINEAR-PREMISE: `reviews/night2/TELEGRAPH_LINEAR_PREMISE/` (not refereed; TELEGRAPH-REFEREE and TLP-EDITS-REVIEW queued).
+- TELEGRAPH-REFEREE: `reviews/night2/TELEGRAPH_REFEREE/` (referee of TELEGRAPH-LINEAR-PREMISE; N16 MATH-CORRECTED v2.9).
+- TELEGRAPH-LINEAR-PREMISE: `reviews/night2/TELEGRAPH_LINEAR_PREMISE/` (refereed by TELEGRAPH-REFEREE: corrected; TLP-EDITS-REVIEW queued).
 - GITHUB-UPSTREAM: `night2/GITHUB/` (locked v1.1-era test; not refereed; interpretation note feeds TELEGRAPH-LINEAR-PREMISE).
 - PRIORART-LFK-ALPHA: `reviews/night2/PRIORART_LFK_ALPHA/` (not refereed; credit edits queued).
 - SPF-NOISE-PROXY: `tests/SPF_NOISE_PROXY/` (not refereed; NOISE-PROXY-REFEREE queued).
