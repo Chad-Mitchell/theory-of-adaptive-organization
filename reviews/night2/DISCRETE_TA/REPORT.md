@@ -1,6 +1,6 @@
-# DISCRETE-TA: adaptation time on a sampled grid (pick 23, unaided slot; ledger 108–110, outcome 111)
+# DISCRETE-TA: adaptation time on a sampled grid (pick 23, unaided slot; ledger 108–110, outcome 127)
 
-Sunday 15 November 2026, about 5:35 PM ET (America/New_York). Grok Bot executor (queue-pick23) for Chad Mitchell, via Ace. Private; nothing posted or sent. This executor authored none of N16, the TELEGRAPH reports or `AQN_REFEREE`. All numbers are in-model (mathematics and simulation); no field data. **THEORY.md and CLAIM_MAP are not edited in this PR.** A proposed N16 scope sentence is in §6, for a separate PR marked "DO NOT MERGE without separate reviewer PASS".
+Sunday 15 November 2026, about 5:35 PM ET (America/New_York). Grok Bot executor (queue-pick23) for Chad Mitchell, via Ace. Private; nothing posted or sent. This executor authored none of N16, the TELEGRAPH reports or `AQN_REFEREE`. All numbers are in-model (mathematics and simulation); no field data. **THEORY.md and CLAIM_MAP are not edited in this PR.** A proposed N16 scope sentence is in §6 and is authored in PR #53, marked "DO NOT MERGE without separate reviewer PASS" (queue item DISCRETE-TA-N16-REVIEW).
 
 ## 0. Verdict
 

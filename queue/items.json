@@ -17,7 +17,8 @@
   "untested": true,
   "v": 0.6,
   "L": 4,
-  "c": 4
+  "c": 4,
+  "note": " | SPECTRUM-MAP-FIXES (pick 26): do not lock the 0.14 constant; one-store excess is c(alpha-2)^2 with c model- and span-dependent (0.03-0.11 in the c3 model); compute c for the simulated model before lock."
  },
  {
   "id": "SELF-2",
@@ -208,7 +209,8 @@
   "v": 0.9,
   "L": 2,
   "c": 0.5,
-  "note": "apply SPECTRUM_MAP_REFEREE §8 as an erratum; item 1 applied in THEORY v1.4 PR (15 Nov); items 2-8 remain"
+  "note": "apply SPECTRUM_MAP_REFEREE §8 as an erratum; item 1 applied in THEORY v1.4 PR (15 Nov); items 2-8 remain | DONE 15 Nov ~5:45 PM ET (pick 26, RULE slot; ledger 120-122 + outcome 123): items 2-8 applied as dated errata in SPECTRUM_MAP/README.md; own checks A-D; referee's one-store constant 0.14 corrected (unpolished c3 K=1 fit; c ~ 0.03-0.11 in-model); d3s_shuffle_repro.py bit-reproducible, S1 PASS reproduces. THEORY N4/§2.2 store-row numeric edit: separate PR #51, DO NOT MERGE (STORE-COEF-REVIEW).",
+  "status": "DONE"
  },
  {
   "id": "AQN-ESTIMATORS",
@@ -333,7 +335,12 @@
   "v": 0.9,
   "L": 2,
   "c": 0.5,
-  "note": "new from N12 referee C3: formal Lemma 1(viii) 'effort = spend/price' holds only at theta=1; precision elasticities are (a/theta, b/theta); small-share vigilance is rho^-theta in spend but rho^-1 in precision. Dated erratum in THEOREMS/FIXES and the CLAIM_MAP vigilance rows."
+  "note": "new from N12 referee C3: formal Lemma 1(viii) 'effort = spend/price' holds only at theta=1; precision elasticities are (a/theta, b/theta); small-share vigilance is rho^-theta in spend but rho^-1 in precision. Dated erratum in THEOREMS/FIXES and the CLAIM_MAP vigilance rows. | DONE 15 Nov ~5:25 PM ET (pick 25, RULE slot; ledger 116-118 + outcome 119): N12 C3 confirmed with own code (A_theta precision elasticities (a/theta, b/theta); onset vigilance rho^-theta spend vs rho^-1 precision, first-principles slopes). Dated errata in formal THEOREMS (L1(viii), T5 Definition) and FIXES G1; CLAIM_MAP v2.23 unit qualifiers on A5, E9, E10; no status change; THEORY.md not edited (already unit-correct); no locked prereg moves.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/EFFORT_UNITS_ERRATUM.md",
+   "reviews/night2/EFFORT_UNITS_ERRATUM_checks/"
+  ]
  },
  {
   "id": "SPF-RIGIDITY-OOS",
@@ -355,7 +362,12 @@
   "v": 0.8,
   "L": 3,
   "c": 1,
-  "note": "Hostile referee of SPF-NOISE-PROXY: finite-sample variance bias of D/vf (common.moments_T), level-normalised lower-branch inversion, L0w selection rule, parametric-bootstrap G test (conservative size; Holm floor 0.035 at NSIM 200), env-variance uncertainty for slow yields. Also audit other dispersion-based N in the repo."
+  "note": "Hostile referee of SPF-NOISE-PROXY: finite-sample variance bias of D/vf (common.moments_T), level-normalised lower-branch inversion, L0w selection rule, parametric-bootstrap G test (conservative size; Holm floor 0.035 at NSIM 200), env-variance uncertainty for slow yields. Also audit other dispersion-based N in the repo. | DONE 15 Nov ~5:20 PM ET (pick 22, RULE slot: rule top AQN-REFEREE active on q-pick21, so next by I=2.4 tie/id order; Ace's unaided rank 6/47; ledger 104-106 + outcome 111): PASS-WITH-FIXES on proxy 'SPF within-forecaster nowcast dispersion'. Own time-domain code reproduces K_L0w (7/7) and beta^G (3 decimals). Branch check (consensus nowcast variance) confirms lower branch for 6/7; RSLGOV not identified (leans upper, beta^G ~7) -> S-1 narrowed to UNEMP, HOUSING, TBILL. Estimator fine below validated K range (to 0.001). Public-signal alternative gives G<=0 and beta_true<=beta^G: explains neither T1 nor S-1. Erratum: >=3 null SD in 5 of 7, not 6. No status change.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/NOISE_PROXY_REFEREE.md",
+   "reviews/night2/NOISE_PROXY_REFEREE_checks/"
+  ]
  },
  {
   "id": "SPF-NOTE-EDITS",
@@ -364,7 +376,7 @@
   "v": 0.9,
   "L": 1,
   "c": 0.5,
-  "note": "Proposed (unapplied) edits from SPF-NOISE-PROXY RESULTS: THEORY §2.4/§8c LFK line (S-a artifact) and FRAMEWORK §3 N-measurement rule. Needs independent review before merge (Chad t1916 rule for theory text)."
+  "note": "Proposed (unapplied) edits from SPF-NOISE-PROXY RESULTS: THEORY §2.4/§8c LFK line (S-a artifact) and FRAMEWORK §3 N-measurement rule. Needs independent review before merge (Chad t1916 rule for theory text). | NOISE-PROXY-REFEREE verdicts (15 Nov): edit 1 (THEORY 2.4/8c LFK line) has no target text in v1.4.6 -> drop, or author PR DO NOT MERGE with 3-variable post hoc wording; edit 2 (FRAMEWORK, measuring N; home 3.4) endorse with branch check + validated K range, and 'horizon check is a premise check, not a diagnosis'."
  },
  {
   "id": "TELEGRAPH-LINEAR-PREMISE",
@@ -725,7 +737,12 @@
   "v": 0.4,
   "L": 2,
   "c": 0.5,
-  "note": "From CAUSAL-KILL-INPUTS review Q4: the causal kill is sign-only; a right-sign move far too small passes it (optimality form and prereg size bands may catch it). Proposal only: whether a locked elasticity band should be a causal kill. Widens kills: separate applier + reviewer."
+  "note": "From CAUSAL-KILL-INPUTS review Q4: the causal kill is sign-only; a right-sign move far too small passes it (optimality form and prereg size bands may catch it). Proposal only: whether a locked elasticity band should be a causal kill. Widens kills: separate applier + reviewer. | DONE 15 Nov ~5:20 PM ET (pick 24, UNIFORM slot; ledger 112-114 + outcome 115): proposal-only finding. Symmetric elasticity band rejected (85-100% false kills under partial adjustment or input noise, own MC). Sign-only reading has only its size (5-6%) as power against the named rival b = 0, so MV10 FAIL rules already carry an unconstrained per-prereg kappa. Proposed N6/§9 wording: kill iff measured move excludes share kappa (0 < kappa <= 1/2, fixed in prereg) of the locked optimum's predicted move scaled by measured adjustment share and input reliability; author-only PR #48, DO NOT MERGE without separate reviewer PASS (CAUSAL-KILL-MAGNITUDE-REVIEW). No status change.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/CAUSAL_KILL_MAGNITUDE.md",
+   "reviews/night2/CAUSAL_KILL_MAGNITUDE_checks/"
+  ]
  },
  {
   "id": "CAUSAL-POWER-GATE",
@@ -823,7 +840,7 @@
   "v": 0.5,
   "L": 2,
   "c": 3,
-  "note": "From SPF-RIGIDITY-OOS (gate not met, 15 Nov ~5:15 PM ET): the SPF's unused quarterly growth/inflation variables cannot power the post hoc rigidity test (c = consensus CG / optimal-filter beta at measured nowcast noise). Route: Livingston Survey (Philadelphia Fed, public, semiannual since 1946; level series such as unemployment, T-bill, bond yields) and/or ECB SPF (public microdata since 1999). Needs first: a nowcast/short-horizon noise instrument for their horizon design validated on synthetic truth (SPF-NOISE-PROXY method), then the MV10 power simulation of tests/SPF_RIGIDITY_OOS/power.py on planned data; lock only if both rules reach 0.8. State the Gaussian noisy-filter premise."
+  "note": "From SPF-RIGIDITY-OOS (gate not met, 15 Nov ~5:15 PM ET): the SPF's unused quarterly growth/inflation variables cannot power the post hoc rigidity test (c = consensus CG / optimal-filter beta at measured nowcast noise). Route: Livingston Survey (Philadelphia Fed, public, semiannual since 1946; level series such as unemployment, T-bill, bond yields) and/or ECB SPF (public microdata since 1999). Needs first: a nowcast/short-horizon noise instrument for their horizon design validated on synthetic truth (SPF-NOISE-PROXY method), then the MV10 power simulation of tests/SPF_RIGIDITY_OOS/power.py on planned data; lock only if both rules reach 0.8. State the Gaussian noisy-filter premise. | NOISE-PROXY-REFEREE (15 Nov): the instrument step must include a branch check (consensus nowcast variance vs both roots of the level curve) and a validated K range covering the estimates."
  },
  {
   "id": "DISCRETE-TA",
@@ -832,7 +849,7 @@
   "v": 0.7,
   "L": 2,
   "c": 1,
-  "note": "From AQN-REFEREE V8 (15 Nov): the continuous-time Bayes t_A plug-in (N16) differs from an exact discrete-time two-state filter's crossing time by 1.14-1.89x at t_A 0.6-14 steps (1.07-1.11x at 56-151 steps). Derive or tabulate the sampled-grid Bayes adaptation time vs per-sample SNR and lambda, fix the definition against N16's, independent numerical check; before any N16 field test on sampled data. DONE 15 Nov (pick 23, unaided slot; ledger 108-110 + outcome 111): definitions fixed (quiet = resting law after a long quiet spell, N16's derivation law and the referee's; switch = stationary law at a typical switch; both -> plug-in, differ O(kappa ln 1/kappa)); linear closed form cosh(beta D) = cosh(aD) + rho sinh(aD) (1% at r >= 2); Bayes grid t_A = T(kappa) + 0.5826 sqrt(Delta N)/mu + ~0.25 Delta (C1 by optional stopping + BGK overshoot; c2 fitted); quiet grid within 10% of plug-in at r >= 10-27, 5% at r >= 30-122 (kappa 1e-6..1e-2); lattice vs independent MC chi2 12.9/20; tools/discrete_ta.py. No THEORY edit in the merged PR; N16 scope sentence proposed (DISCRETE-TA-N16-REVIEW).",
+  "note": "From AQN-REFEREE V8 (15 Nov): the continuous-time Bayes t_A plug-in (N16) differs from an exact discrete-time two-state filter's crossing time by 1.14-1.89x at t_A 0.6-14 steps (1.07-1.11x at 56-151 steps). Derive or tabulate the sampled-grid Bayes adaptation time vs per-sample SNR and lambda, fix the definition against N16's, independent numerical check; before any N16 field test on sampled data. DONE 15 Nov (pick 23, unaided slot; ledger 108-110 + outcome 127): definitions fixed (quiet = resting law after a long quiet spell, N16's derivation law and the referee's; switch = stationary law at a typical switch; both -> plug-in, differ O(kappa ln 1/kappa)); linear closed form cosh(beta D) = cosh(aD) + rho sinh(aD) (1% at r >= 2); Bayes grid t_A = T(kappa) + 0.5826 sqrt(Delta N)/mu + ~0.25 Delta (C1 by optional stopping + BGK overshoot; c2 fitted); quiet grid within 10% of plug-in at r >= 10-27, 5% at r >= 30-122 (kappa 1e-6..1e-2); lattice vs independent MC chi2 12.9/20; tools/discrete_ta.py. No THEORY edit in the merged PR; N16 scope sentence proposed (DISCRETE-TA-N16-REVIEW).",
   "status": "DONE",
   "paths": [
    "reviews/night2/DISCRETE_TA/REPORT.md",
@@ -849,6 +866,40 @@
   "L": 1,
   "c": 0.5,
   "note": "From AQN-REFEREE (15 Nov): apply E-A1 (with fixes a-c), E-A2' (replacing failed E-A2) and E-A3 (additive-error assumption) to FRAMEWORK 3.1/3.3; add R1' as a dated addendum in measurement/estimators/ (locked files untouched); corner model alias tail fix noted. THEORY 2.4 Net / 11 pointer edits E-A4, E-A5 with the wording fix ('refereed, with scope limits') by a separate applier. Note from DISCRETE-TA (pick 23): the referee's rule 'continuous-limit t_A only when t_A >~ 20 steps' is right for 10% at kappa <= 1e-3 only; use tools/discrete_ta.py or the thresholds in reviews/night2/DISCRETE_TA/REPORT.md section 3.4 in any FRAMEWORK/addendum text (5% needs 30-120+ steps)."
+ },
+ {
+  "id": "CAUSAL-KILL-MAGNITUDE-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 1,
+  "note": "From CAUSAL-KILL-MAGNITUDE (pick 24): separate reviewer (authored none of the pick-24 note, checks or PR #48) re-derives the false-kill/power table with own code and passes or fails PR #48 (THEORY v1.4.7 PROPOSED: explicit share kappa in the N6/§9 causal kill, 0 < kappa <= 1/2, prediction scaled by measured adjustment share s and input reliability lambda). Open questions: cap kappa <= 1/4 for linear-locked tests until a jump-sensitive premise test exists (Bayes switching design vs default linear lock killed 45% at kappa 1/2, 1% at 1/4); effect of estimation error in s and lambda (not modelled); FRAMEWORK MV10 pointer to N6's kappa after merge. Kill-condition edit: Chad t1916. | DONE 15 Nov ~5:50 PM ET (out-of-cycle, unscored: continuation of pick 24 author PR per t1916 independent-review rule; ledger 124): PASS-WITH-FIXES, PR #48 merged, THEORY v1.4.7. Table reproduced (own code). No kappa <= 1/4 cap (Bayes-switching under linear lock killed whenever kappa_F > 2/l with enough data; legitimate under lock rule); s, lambda estimation adds <= ~1 pt false kills at kappa_F <= 1/2 (<= 7 in stress; propagation removes); fixes: kappa_F symbol, one-sided 'falls short beyond measurement error', s/lambda not from response to inputs under test, zero prediction unscored, power_gate default kappa 1/2 + range check + form (optimality keeps kappa 1), MV10 pointer.",
+  "status": "DONE",
+  "paths": [
+   "THEORY.md (v1.4.7)",
+   "reviews/night2/CAUSAL_KILL_MAGNITUDE_REVIEW.md",
+   "reviews/night2/CAUSAL_KILL_MAGNITUDE_REVIEW_checks/",
+   "tools/power_gate.py"
+  ]
+ },
+ {
+  "id": "STORE-COEF-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.9,
+  "L": 2,
+  "c": 0.5,
+  "note": "From SPECTRUM-MAP-FIXES (pick 26): separate reviewer (authored none of pick 26) re-derives the one-store excess constant c in excess ~ c(alpha-2)^2 with own code (c3 model with polished K=1 rate; scale-free one-EWMA model) and passes or fails the q-pick26-theory PR #51 (THEORY N4 and §2.2 store row: 0.14 -> c ~ 0.03-0.2, model- and span-dependent). Core-table numeric: Chad t1916."
+ },
+ {
+  "id": "LOCK-SENSITIVITY-REPORT",
+  "w": 1,
+  "untested": true,
+  "v": 0.4,
+  "L": 2,
+  "c": 0.5,
+  "note": "From CAUSAL-KILL-MAGNITUDE-REVIEW Q1 (reviews/night2/CAUSAL_KILL_MAGNITUDE_REVIEW.md section 4): no lower kappa cap for linear-locked tests; instead MV10 reporting line + tools/power_gate.py option: each linear-locked causal prereg reports, at its kappa_F on its planned data, the kill probability under the Bayes-switching alternative at its measured (or a stated range of) jump inputs (kill whenever kappa_F > 2/l with enough data). Process/docs; joins PREMISE-TEST-WIDEN."
  },
  {
   "id": "DISCRETE-TA-N16-REVIEW",

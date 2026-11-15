@@ -1,0 +1,372 @@
+[
+ {
+  "id": "SPECTRUM-BRIDGE-SIM",
+  "w": 3,
+  "untested": true,
+  "v": 0.6,
+  "L": 4,
+  "c": 4
+ },
+ {
+  "id": "SELF-2",
+  "w": 2,
+  "surprise": "strong",
+  "age_days": 0.1,
+  "v": 0.5,
+  "L": 2,
+  "c": 2
+ },
+ {
+  "id": "SENSE-CELL",
+  "w": 3,
+  "untested": true,
+  "v": 0.3,
+  "L": 2,
+  "c": 5
+ },
+ {
+  "id": "IMMUNE",
+  "w": 2,
+  "untested": true,
+  "v": 0.3,
+  "L": 1,
+  "c": 4
+ },
+ {
+  "id": "VIX-KERNEL",
+  "w": 2,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 3
+ },
+ {
+  "id": "PRIORART-SCHOLAR",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 1
+ },
+ {
+  "id": "SPECTRUM-MAP-FIXES",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 2,
+  "c": 0.5
+ },
+ {
+  "id": "SAME-SYSTEM-AQN",
+  "w": 3,
+  "untested": true,
+  "v": 0.6,
+  "L": 4,
+  "c": 4
+ },
+ {
+  "id": "ONSET-ACROSS-ALPHA-SIM",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 3
+ },
+ {
+  "id": "KERNEL-MEASURE",
+  "w": 2,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 3
+ },
+ {
+  "id": "FROZEN-DOC-POINTERS",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 1,
+  "c": 0.5
+ },
+ {
+  "id": "SPF-AQN-POWERED",
+  "w": 3,
+  "surprise": "none",
+  "age_days": 0.1,
+  "v": 0.5,
+  "L": 3,
+  "c": 4
+ },
+ {
+  "id": "LAB-AKLMT-TAU",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2
+ },
+ {
+  "id": "ONSET-NOISY-READS",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 1
+ },
+ {
+  "id": "MIXED-ALPHA-ONSET",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 1
+ },
+ {
+  "id": "SPF-NOTE-EDITS",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 1,
+  "c": 0.5
+ },
+ {
+  "id": "PRIORART-CREDIT-EDITS",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 1,
+  "c": 0.5
+ },
+ {
+  "id": "PRIORART-ENGINEERING-READ",
+  "w": 1,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 1
+ },
+ {
+  "id": "JUMP-WORLD-ONSET",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2
+ },
+ {
+  "id": "JUMP-STORES",
+  "w": 2,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 3
+ },
+ {
+  "id": "GITHUB-VARIOGRAM-CHECK",
+  "w": 1,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 1
+ },
+ {
+  "id": "KERNEL-INPUT-DISCRIMINATE",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 1.5
+ },
+ {
+  "id": "WONHAM-PRIORART-FULLTEXT",
+  "w": 1,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 0.5
+ },
+ {
+  "id": "POISSON-SENSING-JUMP",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2
+ },
+ {
+  "id": "EDIT-MODULATION-SOURCE",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2
+ },
+ {
+  "id": "NEG-DELTA-BETA",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 1
+ },
+ {
+  "id": "ALPHA-ESTIMATE-AUDIT",
+  "w": 1,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 1
+ },
+ {
+  "id": "PREMISE-TEST-WIDEN",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 3,
+  "c": 1.5
+ },
+ {
+  "id": "WIKIDATA-BAND-2",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 2.5
+ },
+ {
+  "id": "STAKES-PRECISION",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 1.5
+ },
+ {
+  "id": "STAKES-REFEREE",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 1
+ },
+ {
+  "id": "ONA-INSTRUMENT-DRAFT",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 0.5
+ },
+ {
+  "id": "CAUSAL-NULL-INVARIANCE",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 1
+ },
+ {
+  "id": "CAUSAL-KILL-PRICE",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 0.5
+ },
+ {
+  "id": "STAKES-SHIFT-MULTIYEAR",
+  "w": 3,
+  "untested": true,
+  "v": 0.4,
+  "L": 2,
+  "c": 3
+ },
+ {
+  "id": "CAUSAL-POWER-GATE-N6",
+  "w": 1,
+  "untested": true,
+  "v": 0.8,
+  "L": 1,
+  "c": 0.5
+ },
+ {
+  "id": "C3B-GATE-ADDENDUM",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 1,
+  "c": 0.5
+ },
+ {
+  "id": "REGIME-C-DEPENDENT-MODES",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2
+ },
+ {
+  "id": "REGIME-C-HEAVY-TAIL-LOWBETA",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 1.5
+ },
+ {
+  "id": "REGIME-C-DRIFT-NONGAUSS",
+  "w": 2,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 1.5
+ },
+ {
+  "id": "REGIME-C-PRIORART-USTAR",
+  "w": 1,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 0.5
+ },
+ {
+  "id": "REGIME-C-PREREG-CASE-N6",
+  "w": 1,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 0.5
+ },
+ {
+  "id": "SPF-RIGIDITY-LIVINGSTON",
+  "w": 2,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 3
+ },
+ {
+  "id": "DISCRETE-TA",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 1
+ },
+ {
+  "id": "AQN-EDITS-APPLY",
+  "w": 1,
+  "untested": true,
+  "v": 0.9,
+  "L": 1,
+  "c": 0.5
+ },
+ {
+  "id": "CAUSAL-KILL-MAGNITUDE-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 1
+ }
+]

@@ -1,0 +1,72 @@
+{
+ "T0 true, clean": {
+  "SIGN": 0.0,
+  "BAND2": 0.058,
+  "LOWk": 0.0
+ },
+ "T1 true, partial adjustment s=0.63 (L = tau)": {
+  "SIGN": 0.0,
+  "BAND2": 0.847,
+  "LOWk": 0.002
+ },
+ "T2 true, partial adjustment s=0.39 (L = tau/2)": {
+  "SIGN": 0.0,
+  "BAND2": 0.996,
+  "LOWk": 0.259
+ },
+ "T3 true, input noise reliability 0.5 (sig_x = sd_d)": {
+  "SIGN": 0.0,
+  "BAND2": 0.957,
+  "LOWk": 0.068
+ },
+ "T4 true, alpha SE 0.3": {
+  "SIGN": 0.0,
+  "BAND2": 0.036,
+  "LOWk": 0.0
+ },
+ "T5 true, all of T1+T3": {
+  "SIGN": 0.0,
+  "BAND2": 1.0,
+  "LOWk": 0.603
+ },
+ "T6 Bayes-optimal switching (kappa=0.01, b_true=1/l=0.269) scored vs linear lock b*=0.5": {
+  "SIGN": 0.0,
+  "BAND2": 0.974,
+  "LOWk": 0.025
+ },
+ "T6 Bayes-optimal switching (kappa=0.001, b_true=1/l=0.166) scored vs linear lock b*=0.5": {
+  "SIGN": 0.0,
+  "BAND2": 1.0,
+  "LOWk": 0.454
+ },
+ "T6 Bayes-optimal switching (kappa=0.0001, b_true=1/l=0.120) scored vs linear lock b*=0.5": {
+  "SIGN": 0.0,
+  "BAND2": 1.0,
+  "LOWk": 0.752
+ },
+ "F1 under-responder b=0.25 b*": {
+  "SIGN": 0.0,
+  "BAND2": 0.999,
+  "LOWk": 0.714
+ },
+ "F2 fixed-share rival b=0": {
+  "SIGN": 0.06,
+  "BAND2": 1.0,
+  "LOWk": 0.992
+ },
+ "F3 wrong sign b=-0.5 b*": {
+  "SIGN": 0.993,
+  "BAND2": 1.0,
+  "LOWk": 1.0
+ },
+ "F4 over-responder b=2 b*": {
+  "SIGN": 0.0,
+  "BAND2": 1.0,
+  "LOWk": 0.0
+ },
+ "F1' under-responder, with T1+T3 nuisances": {
+  "SIGN": 0.006,
+  "BAND2": 1.0,
+  "LOWk": 0.998
+ }
+}

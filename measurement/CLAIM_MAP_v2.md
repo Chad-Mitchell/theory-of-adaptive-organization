@@ -42,6 +42,14 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 **v2.21 note (15 Nov 2026, about 5:15 PM ET; QUEUE SPF-RIGIDITY-OOS, pick 20, uniform slot, ledger 96–98 + outcome).** No row changes status; **N13 stays OPEN**. The out-of-sample test of the post hoc SPF rigidity pattern (consensus CG ≈ 2.5–6 × the optimal noisy-filter β at measured nowcast noise, SPF-NOISE-PROXY S-1) failed the FRAMEWORK MV10 power gate on the only unseen SPF variables (best P(PASS | ×2.5) 0.62, P(FAIL | optimum) 0.60), so nothing was locked and no outcome exists (`tests/SPF_RIGIDITY_OOS/RESULTS.md`). The pattern remains post hoc evidence only. THEORY.md not edited.
 
+**v2.22 note (15 Nov 2026, about 5:20 PM ET; QUEUE NOISE-PROXY-REFEREE, pick 22, rule slot, ledger 104–106 + outcome 111).** No row changes status; **N13 stays OPEN**. Independent referee of SPF-NOISE-PROXY: PASS-WITH-FIXES on proxy "SPF within-forecaster nowcast dispersion" (`reviews/night2/NOISE_PROXY_REFEREE.md`). The post hoc rigidity pattern S-1 narrows to UNEMP, HOUSING, TBILL (RSLGOV's noise is not identified). THEORY.md not edited.
+
+**v2.24 note (15 Nov 2026, about 5:45 PM ET; QUEUE SPECTRUM-MAP-FIXES, pick 26, rule slot, ledger 120–122 + outcome 123).** SPECTRUM_MAP_REFEREE §8 items 2–8 applied as dated errata in `reviews/night2/SPECTRUM_MAP/README.md` (`reviews/night2/SPECTRUM_MAP_FIXES.md`, own checks `SPECTRUM_MAP_FIXES_checks/`). One referee number corrected: the one-store excess constant 0.14 in K12 (and THEORY N4 / §2.2 store row) is an artifact of `c3_layers.py`'s unpolished K = 1 fit; polished, c ≈ 0.03–0.11 (span 10²–10⁴), law (α−2)² unchanged; "two stores at |α−2| = 0.05 once ψ ≈ 10⁴" survives (threshold ψ ≈ 4.9–9.8×10³). THEORY text edit is a separate PR (DO NOT MERGE without separate reviewer PASS). D3S rerun bit-reproducibly (median Δβ 0.024, S1 PASS on proxy, non-discriminating). **No row changes status.** If PR #48 also adds a note, it takes the next number.
+
+**v2.23 note (15 Nov 2026, about 5:25 PM ET; QUEUE EFFORT-UNITS-ERRATUM, pick 25, rule slot, ledger 116–118 + outcome).** Dated erratum to formal Lemma 1(viii) and the T5 Definition (`reviews/night1/formal/THEOREMS.md`, `FIXES.md` G1; checks `reviews/night2/EFFORT_UNITS_ERRATUM_checks/`), from `reviews/night2/N12_REFEREE.md` C3: "effort = spend/price" is precision only at θ = 1; A_θ precision elasticities are (a/θ, b/θ); small-share onset vigilance is ∝ ρ^{−θ} in spend/price units and ρ^{−1} in precision units. Unit qualifiers added to A5, E9 and E10. **No row changes status** (A5's and E10's night-1 scope already used spend/price units; N12 already named both units). No locked prereg is affected: SELF (R1 reset reads) and STAKES-SHIFT-CAISO (θ = 1) use technologies where the two units coincide; STAKES-EXOGENOUS gives no verdict from precision. H8 vigilance stays OPEN. If PR #48 also adds a note, it takes the next number.
+
+**v2.25 note (15 Nov 2026, about 5:50 PM ET; QUEUE CAUSAL-KILL-MAGNITUDE-REVIEW, out-of-cycle and unscored, ledger 124).** No row changes status; **N13 stays OPEN**. THEORY v1.4.7 (PR #48, independent review PASS-WITH-FIXES, `reviews/night2/CAUSAL_KILL_MAGNITUDE_REVIEW.md`): N13's causal form (THEORY §1 N6, §9) now kills when the measured move falls short, in the predicted direction and beyond measurement error, of a share κ_F (0 < κ_F ≤ ½, fixed in the prereg) of the locked optimum's predicted move scaled by measured adjustment share and input reliability; a predicted move of zero is unscored. N22 (STAKES-SHIFT-CAISO) is unchanged: INCONCLUSIVE on its proxy, and it could not fail under the new wording either.
+
 **Why v2 exists.** Chad (t1908): no field test so far measured GTAO's quantities validly, so field "kills" and "hits" were results about **proxies**. v2 says so in every row. It does **not** soften the mathematics. Statements refuted by proof stay refuted (as MATH-CORRECTED, with their replacement), and failed locked simulations stay failed (SIM-FAIL).
 
 ## Statuses (exactly one per row)
@@ -72,7 +80,7 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 | A2 | A_θ, |e|^p and α-stable rows of Lemma 1 | PROVED | **PROVED (in-model)** | Unchanged |
 | A3 | (a, b) chart classifies technologies | PROVED | **PROVED (in-model)** | Unchanged. **Measurement now specified**: FRAMEWORK §3.4 class gate |
 | A4 | Periodic reading optimal in R1 (no observation between reads) | PROVED | **PROVED (in-model)** | Unchanged; event-triggered sampling dominates with continuous observation |
-| A5 | Effort elasticities = (a, b), so the class is measurable on a lone unit | PROVED | **PROVED (in-model)** | Unchanged. Now the basis of the class gate (FRAMEWORK §3.4). Members' and level's classes must be measured on different units |
+| A5 | Effort elasticities = (a, b), so the class is measurable on a lone unit | PROVED | **PROVED (in-model)** | Unchanged. Now the basis of the class gate (FRAMEWORK §3.4). Members' and level's classes must be measured on different units. **Unit (v2.23 erratum):** "effort" = spend/price (read rate in R1, information rate in R2, r^{−θ} in A_θ); A_θ precision elasticities are (a/θ, b/θ), equal to (a, b) only at θ = 1 (formal Lemma 1(viii) erratum). Status unchanged: the row's night-1 scope already fixed this convention |
 
 ## B. Pooling onset (T1, T2)
 
@@ -123,8 +131,8 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 | E6 | Exact V(N*) formula with upkeep and price | PROVED | **PROVED (in-model)** | Unchanged |
 | E7 | Floor V(N*) ≥ 1 + (1+ρ)^{−1/2} | PROVED | **PROVED (in-model)** | Unchanged; not independently re-checked |
 | E8 | T5.4 price invariance at h = 0 | PROVED | **PROVED (in-model)** | Unchanged; never tested. Spec: FRAMEWORK §6.3 |
-| E9 | T5.5 V grows as N^a | PRIOR ART | **PRIOR ART** | Unchanged |
-| E10 | V ∝ ρ^{−θ} in A_θ | PROVED | **PROVED (in-model)** | Unchanged |
+| E9 | T5.5 V grows as N^a | PRIOR ART | **PRIOR ART** | Unchanged. Spend/price units; in precision units N^{a/θ} for A_θ (v2.23 erratum) |
+| E10 | V ∝ ρ^{−θ} in A_θ | PROVED | **PROVED (in-model)** | Unchanged as stated in spend/price units (T5's definition of V). In precision units V ∝ ρ^{−1} for every θ (v2.23 erratum; as already in N12). A vigilance test must name its unit |
 | E11 | F15: VIGIL's 1.15 cannot come from upkeep/prices in class R | KILLED | **MATH-CORRECTED** | Holds only as ρ → 0 |
 | E12 | '≈ 2× at every rank'; 'V > 1 always'; 'V ∝ √(c/c_g) at onset' | KILLED | **MATH-CORRECTED** | Replaced by T5.2–T5.5 |
 
@@ -278,7 +286,7 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 | K9 | √N fade of shared memory (math) | PRIOR ART | **PRIOR ART** | Kalman averaging |
 | K10 | √N fade applied to languages (LANG1) | KILLED | **PROXY-FAIL** | MV2 (stable target, non-independent depositors, 91% uncoded forms), MV3, MV7, MV8. Out of the theorem's domain. FRAMEWORK §4.6 |
 | K11 | Austronesian test | OPEN | **OPEN** | Not run; must pass FRAMEWORK §6.8 preconditions first |
-| K12 | Geometric layers iff scale-free drift; level count | OPEN | **MATH-CORRECTED** (v2.2, referee 15 Nov) | One store iff rational spectrum (knife-edge at α = 2: one-store excess ≈ 0.14(α−2)²); K\* ∝ ln(span)·ln(stakes/upkeep) is prior-art exponential-sum complexity plus a price (Jiang et al. 2017; Benna & Fusi 2016); (log-span)^{2/3} withdrawn. `SPECTRUM_MAP_REFEREE.md` §4 |
+| K12 | Geometric layers iff scale-free drift; level count | OPEN | **MATH-CORRECTED** (v2.2, referee 15 Nov) | One store iff rational spectrum (knife-edge at α = 2: one-store excess ≈ c(α−2)²; **v2.24 erratum:** c ≈ 0.03–0.11 in the c3 model after polishing the one-store rate, 0.16–0.21 in a scale-free one-EWMA model; the referee's 0.14 came from an unpolished K = 1 grid fit); K\* ∝ ln(span)·ln(stakes/upkeep) is prior-art exponential-sum complexity plus a price (Jiang et al. 2017; Benna & Fusi 2016); (log-span)^{2/3} withdrawn. `SPECTRUM_MAP_REFEREE.md` §4 |
 | K13 | Spectrum → exponent relation | OPEN | **MATH-CORRECTED** (v2.2, referee 15 Nov) | Derived in-model (`reviews/night2/SPECTRUM_MAP/`, refereed in `SPECTRUM_MAP_REFEREE.md`). The stated exponents (½ for one pace; slope 1 and power-law forgetting for scale-free) are superseded: read rate 1/α (reset reads), memory ∝ (N/q)^{1/α} (τ_E^{1−1/α} only at fixed variance), kernel tail τ^{−(1+α/2)}. The replacement is mostly PRIOR ART (Wiener/Kalman, Afterman et al. 2022). Field relation untested |
 | K14 | Internal-model bound | PROVED | **PROVED (in-model)** | Self-checked; probably folklore |
 | K15 | Universality classes of fixing | OPEN | **OPEN** | Unchanged |
