@@ -1,7 +1,7 @@
 # CAUSAL-KILL-MAGNITUDE-REVIEW — independent review of PR #48 (THEORY v1.4.7, N6 / §9 causal kill share)
 
 **Queue:** CAUSAL-KILL-MAGNITUDE-REVIEW. **Out-of-cycle, unscored** (continuation of pick 24's author PR, under Chad's t1916
-independent-review rule; no rank or pick logged). 15 Nov 2026, about 5:25–5:50 PM ET (America/New_York).
+independent-review rule; no rank or pick logged; outcome ledger 124). 15 Nov 2026, about 5:25–5:50 PM ET (America/New_York).
 **By:** independent reviewer executor (for Ace, Chad t1914/t1916). **Exposure:** I authored none of
 `CAUSAL_KILL_MAGNITUDE.md`, its checks (`band_mc.py`, `kappa_grid.py`), PR #48's text, N6, §9, R2, the pick-17 note or
 review, or `tools/power_gate.py` before this review. I did not import or run the author's checks to produce my numbers;
@@ -93,7 +93,7 @@ The clause widens the kill and changes no headline, core, row or status. That ma
 The header now says v1.4.7 and the changelog entry is rewritten as merged, with this review recorded. The author's entry was
 stamped "about 5:40 PM ET", but both of its commits are 5:19–5:20 PM ET. I corrected the stamp to the commit time and left
 `CAUSAL_KILL_MAGNITUDE.md` (frozen, on main) as written. The header's CLAIM_MAP pointer was stale (v2.20; main has v2.23) and
-now reads v2.24.
+now reads v2.25.
 
 ## 6. Fixes applied (narrow)
 - **F1 Symbol.** "κ" is already used in THEORY for N16's λN/μ² (§2.2 Regime A premise bullet), for Regime C's price of a

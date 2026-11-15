@@ -17,7 +17,8 @@
   "untested": true,
   "v": 0.6,
   "L": 4,
-  "c": 4
+  "c": 4,
+  "note": " | SPECTRUM-MAP-FIXES (pick 26): do not lock the 0.14 constant; one-store excess is c(alpha-2)^2 with c model- and span-dependent (0.03-0.11 in the c3 model); compute c for the simulated model before lock."
  },
  {
   "id": "SELF-2",
@@ -208,7 +209,8 @@
   "v": 0.9,
   "L": 2,
   "c": 0.5,
-  "note": "apply SPECTRUM_MAP_REFEREE §8 as an erratum; item 1 applied in THEORY v1.4 PR (15 Nov); items 2-8 remain"
+  "note": "apply SPECTRUM_MAP_REFEREE §8 as an erratum; item 1 applied in THEORY v1.4 PR (15 Nov); items 2-8 remain | DONE 15 Nov ~5:45 PM ET (pick 26, RULE slot; ledger 120-122 + outcome 123): items 2-8 applied as dated errata in SPECTRUM_MAP/README.md; own checks A-D; referee's one-store constant 0.14 corrected (unpolished c3 K=1 fit; c ~ 0.03-0.11 in-model); d3s_shuffle_repro.py bit-reproducible, S1 PASS reproduces. THEORY N4/§2.2 store-row numeric edit: separate PR #51, DO NOT MERGE (STORE-COEF-REVIEW).",
+  "status": "DONE"
  },
  {
   "id": "AQN-ESTIMATORS",
@@ -865,7 +867,7 @@
   "v": 0.8,
   "L": 2,
   "c": 1,
-  "note": "From CAUSAL-KILL-MAGNITUDE (pick 24): separate reviewer (authored none of the pick-24 note, checks or PR #48) re-derives the false-kill/power table with own code and passes or fails PR #48 (THEORY v1.4.7 PROPOSED: explicit share kappa in the N6/§9 causal kill, 0 < kappa <= 1/2, prediction scaled by measured adjustment share s and input reliability lambda). Open questions: cap kappa <= 1/4 for linear-locked tests until a jump-sensitive premise test exists (Bayes switching design vs default linear lock killed 45% at kappa 1/2, 1% at 1/4); effect of estimation error in s and lambda (not modelled); FRAMEWORK MV10 pointer to N6's kappa after merge. Kill-condition edit: Chad t1916. | DONE 15 Nov ~5:50 PM ET (out-of-cycle, unscored: continuation of pick 24 author PR per t1916 independent-review rule; ledger 123): PASS-WITH-FIXES, PR #48 merged, THEORY v1.4.7. Table reproduced (own code). No kappa <= 1/4 cap (Bayes-switching under linear lock killed whenever kappa_F > 2/l with enough data; legitimate under lock rule); s, lambda estimation adds <= ~1 pt false kills at kappa_F <= 1/2 (<= 7 in stress; propagation removes); fixes: kappa_F symbol, one-sided 'falls short beyond measurement error', s/lambda not from response to inputs under test, zero prediction unscored, power_gate default kappa 1/2 + range check, MV10 pointer.",
+  "note": "From CAUSAL-KILL-MAGNITUDE (pick 24): separate reviewer (authored none of the pick-24 note, checks or PR #48) re-derives the false-kill/power table with own code and passes or fails PR #48 (THEORY v1.4.7 PROPOSED: explicit share kappa in the N6/§9 causal kill, 0 < kappa <= 1/2, prediction scaled by measured adjustment share s and input reliability lambda). Open questions: cap kappa <= 1/4 for linear-locked tests until a jump-sensitive premise test exists (Bayes switching design vs default linear lock killed 45% at kappa 1/2, 1% at 1/4); effect of estimation error in s and lambda (not modelled); FRAMEWORK MV10 pointer to N6's kappa after merge. Kill-condition edit: Chad t1916. | DONE 15 Nov ~5:50 PM ET (out-of-cycle, unscored: continuation of pick 24 author PR per t1916 independent-review rule; ledger 124): PASS-WITH-FIXES, PR #48 merged, THEORY v1.4.7. Table reproduced (own code). No kappa <= 1/4 cap (Bayes-switching under linear lock killed whenever kappa_F > 2/l with enough data; legitimate under lock rule); s, lambda estimation adds <= ~1 pt false kills at kappa_F <= 1/2 (<= 7 in stress; propagation removes); fixes: kappa_F symbol, one-sided 'falls short beyond measurement error', s/lambda not from response to inputs under test, zero prediction unscored, power_gate default kappa 1/2 + range check + form (optimality keeps kappa 1), MV10 pointer.",
   "status": "DONE",
   "paths": [
    "THEORY.md (v1.4.7)",
@@ -873,6 +875,15 @@
    "reviews/night2/CAUSAL_KILL_MAGNITUDE_REVIEW_checks/",
    "tools/power_gate.py"
   ]
+ },
+ {
+  "id": "STORE-COEF-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.9,
+  "L": 2,
+  "c": 0.5,
+  "note": "From SPECTRUM-MAP-FIXES (pick 26): separate reviewer (authored none of pick 26) re-derives the one-store excess constant c in excess ~ c(alpha-2)^2 with own code (c3 model with polished K=1 rate; scale-free one-EWMA model) and passes or fails the q-pick26-theory PR #51 (THEORY N4 and §2.2 store row: 0.14 -> c ~ 0.03-0.2, model- and span-dependent). Core-table numeric: Chad t1916."
  },
  {
   "id": "LOCK-SENSITIVITY-REPORT",
