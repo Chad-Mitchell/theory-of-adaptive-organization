@@ -92,3 +92,13 @@ are not edited; findings go into items.json notes and the report.
 `REPORT.md`, `out_*.json`, CLAIM_MAP: a new row for this item's result (status "PROVED (in-model, self-checked; not refereed)" or as the
 verdicts dictate); N11 premise text already states the premise. Proposed THEORY edits in the report only + a queue item for
 independent review. Field results: none.
+
+## Amendment 1 (dated 15 Nov 2026, ~11:35 AM ET; after P1–P4 outputs were seen, before this check was written or run)
+Added because the audit (§6) raised a measurement question: does a *linear-regression* (projection) kernel of a Bayes-optimal
+tracker look like the linear optimum? Identity (law of iterated projections): for a stationary world, the best linear projection of
+the Bayes estimate E[y_t | s_{≤t}] onto the past observations equals the projection of y_t itself, i.e. the Kalman/Wiener estimate.
+**P5 (`code/linproj.py`, seed 20261118):** τ = 100, θ = 1, dt = 0.01, 64 paths × 400τ. Regress (i) F1's output x̂ and (ii) the true y on
+80 lagged bins of observation increments (width 0.5); compare with the analytic Kalman kernel g·e^{−βu} (β = √(1/τ² + 2/(τθ)),
+g = P/θ). Pass: relative L2 difference ≤ 0.10 between (i) and (ii), and between (i) and the Kalman kernel. Consequence if it passes:
+a projection kernel cannot tell a Bayes from a linear tracker; only transient (switch-triggered) responses can. This amendment does
+not change P1–P4 rules or verdicts.
