@@ -236,7 +236,7 @@
   "v": 0.6,
   "L": 4,
   "c": 4,
-  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the §2.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N16, P5). | TELEGRAPH-REFEREE (15 Nov): that kernel statement holds only for a regression on the system's own observations; a kernel on the true driver can discriminate (N16 v2.9). Bayes adaptation constant: (N/2mu^2)[ln(2mu^2/lambda N) - gamma - 1]. | AQN-ESTIMATORS (15 Nov): estimators now exist (measurement/estimators/). Binding input is STAKES: identified only from exogenous error variation (self-selected error biases the slope ~3x low; IV does not fix it). Choose a system with designed/natural-experiment error variation (STAKES-EXOGENOUS). Record length: +/-0.1 on alpha needs M ~ 400 frequencies below the noise crossover; >=16 switches for lambda in a jump world. | STAKES-EXOGENOUS (15 Nov): CAISO stakes positive and identified in sign but only to +/-70% from one year (N21); stakes moved ~4x 2024->2025. CAISO is a candidate system (design quantity: forecast update cadence / horizon); needs STAKES-PRECISION first. AQN-REFEREE V3: 'SE(alpha) ~ 1/sqrt(M); +-0.1 needs M ~ 400' holds only when the noise floor is visible in band (omega_c <~ 0.5); with the floor above Nyquist SE is 1.5-2.3/sqrt(M) (M ~ 1200-2100). Use the information-matrix SE at the planned design (MV10)."
+  "note": "new (THEORY v1.4): first test of N13. Measure alpha, q, N, stakes and one design quantity (read rate / memory time / store count) on one real system; lock the §2.2 prediction; rivals fixed budget share and universal 1/2. Candidates: SPF (with LFK-ALPHA-SPF), VIX (VIX-KERNEL), E. coli (SENSE-CELL). After AQN-ESTIMATORS | TELEGRAPH-LINEAR-PREMISE audit (15 Nov): NEEDS-PREMISE. Lock linear vs Bayes optimum before data. If the driver jumps, the discriminating quantity is switch-triggered adaptation time (Bayes ~ (N/2mu^2) ln(2mu^2/lambda N), linear sqrt(N/q)); a regression kernel equals the linear optimum for a Bayes tracker too (N16, P5). | TELEGRAPH-REFEREE (15 Nov): that kernel statement holds only for a regression on the system's own observations; a kernel on the true driver can discriminate (N16 v2.9). Bayes adaptation constant: (N/2mu^2)[ln(2mu^2/lambda N) - gamma - 1]. | AQN-ESTIMATORS (15 Nov): estimators now exist (measurement/estimators/). Binding input is STAKES: identified only from exogenous error variation (self-selected error biases the slope ~3x low; IV does not fix it). Choose a system with designed/natural-experiment error variation (STAKES-EXOGENOUS). Record length: +/-0.1 on alpha needs M ~ 400 frequencies below the noise crossover; >=16 switches for lambda in a jump world. | STAKES-EXOGENOUS (15 Nov): CAISO stakes positive and identified in sign but only to +/-70% from one year (N21); stakes moved ~4x 2024->2025. CAISO is a candidate system (design quantity: forecast update cadence / horizon); needs STAKES-PRECISION first. AQN-REFEREE V3: 'SE(alpha) ~ 1/sqrt(M); +-0.1 needs M ~ 400' holds only when the noise floor is visible in band (omega_c <~ 0.5); with the floor above Nyquist SE is 1.5-2.3/sqrt(M) (M ~ 1200-2100). Use the information-matrix SE at the planned design (MV10). | PREREG-LOSS-LOCK (pick 37): the loss is an input of the optimum; measure the error-cost shape (FRAMEWORK 3.3) on the same system; under |e|^p reset-read elasticities are 2/(2+p(alpha-1)), p/(2+p(alpha-1)) (a=b only at p=2)."
  },
  {
   "id": "ONSET-SPECTRUM-FREE-REFEREE",
@@ -1158,7 +1158,12 @@
   "v": 0.6,
   "L": 2,
   "c": 0.5,
-  "note": "From CAUSAL-NULL-INVARIANCE section 3 (pick 35): propose N6 / 2.5 text that a prereg fixes the loss (payoff) of its locked optimum and names the rival optimum for the same loss; under a 0-1 payoff the Bayes-locked causal kill cannot fail the best linear rival (70-81% of the move). Kill/premise edit: separate applier + separate reviewer (Chad t1916). | CAUSAL-NULL-INVARIANCE-REVIEW (ledger 175): use the corrected value: the 0-1-best one-pole linear move is +0.318, 90% of Bayes (not 70-81%); two-pole kernels of equal accuracy give +0.32..+0.37, so the prereg must also name the rival family."
+  "note": "From CAUSAL-NULL-INVARIANCE section 3 (pick 35): propose N6 / 2.5 text that a prereg fixes the loss (payoff) of its locked optimum and names the rival optimum for the same loss; under a 0-1 payoff the Bayes-locked causal kill cannot fail the best linear rival (70-81% of the move). Kill/premise edit: separate applier + separate reviewer (Chad t1916). | CAUSAL-NULL-INVARIANCE-REVIEW (ledger 175): use the corrected value: the 0-1-best one-pole linear move is +0.318, 90% of Bayes (not 70-81%); two-pole kernels of equal accuracy give +0.32..+0.37, so the prereg must also name the rival family. | DONE pick 37 (ledger 172-174 + outcome 176): proposal in author-only PR (THEORY v1.4.16 / CLAIM_MAP v2.36, q-pick37-theory), DO NOT MERGE without separate reviewer PASS.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/PREREG_LOSS_LOCK.md",
+   "reviews/night2/PREREG_LOSS_LOCK_checks/"
+  ]
  },
  {
   "id": "BAYES-LINEAR-LAB",
@@ -1167,7 +1172,7 @@
   "v": 0.5,
   "L": 2,
   "c": 4,
-  "note": "From CAUSAL-NULL-INVARIANCE section 5 (pick 35): decisive real-data Bayes-vs-linear test: quadratic (graded) payoff, kappa x4 at fixed q, lam/mu/N measured, change-of-mind latency, >= ~180 switches per arm before behavioral noise, rival computed for the same payoff. Needs recruiting participants or requesting lab data (Piet 2018 data on request): BLOCKED ON CHAD."
+  "note": "From CAUSAL-NULL-INVARIANCE section 5 (pick 35): decisive real-data Bayes-vs-linear test: quadratic (graded) payoff, kappa x4 at fixed q, lam/mu/N measured, change-of-mind latency, >= ~180 switches per arm before behavioral noise, rival computed for the same payoff. Needs recruiting participants or requesting lab data (Piet 2018 data on request): BLOCKED ON CHAD. | PREREG-LOSS-LOCK (pick 37, one-pole family, in-model): under squared error the best one-pole tracker moves ~0 (-0.07..+0.12), under absolute error -0.19 (-0.36..+0.01), vs Bayes +0.36: graded payoff discriminates; fix loss and rival family in the prereg."
  },
  {
   "id": "LIN01-RESPONSE-EXACT",
@@ -1213,5 +1218,23 @@
   "L": 2,
   "c": 2,
   "note": "From LAB-AKLMT-TAU: the item's target (tau proportional to (N/q)^(1/alpha), tau_E slope at fixed variance) needs read noise N>0. Find a public known-DGP lab dataset with noisy signals at >=2 noise or persistence levels (fixed variance), then lock with MV10."
+ },
+ {
+  "id": "PREREG-LOSS-LOCK-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 1,
+  "c": 0.5,
+  "note": "From PREREG-LOSS-LOCK (pick 37): separate reviewer of the THEORY v1.4.16 / CLAIM_MAP v2.36 author-only PR (N6 loss + rival-family clause and discrimination label; 2.2 squared-error-loss premise; 2.5 bridge scope; FRAMEWORK MV10 discrimination line). Own code: power-loss elasticities a_p=2/(2+p(alpha-1)), b_p=p/(2+p(alpha-1)); precision 2alpha/(2alpha+p(alpha-1)), p/(...); one-pole loss table (abs-loss sign -0.19); Theorem 4 scope wording."
+ },
+ {
+  "id": "SEPARABLE-LOSS-ONSET",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 1,
+  "note": "From PREREG-LOSS-LOCK (pick 37, weak-moderate surprise): the 2.5 bridge a=b=1/alpha is a squared-error fact; formal Theorem 4 keeps the level's onset exponent only under bundled decisions. Derive the pooling-onset exponent when member decisions are separable and the loss is |e|^p (p != 2), reset reads and priced precision; check numerically; say what a field test must measure (bundled vs separable, p)."
  }
 ]
