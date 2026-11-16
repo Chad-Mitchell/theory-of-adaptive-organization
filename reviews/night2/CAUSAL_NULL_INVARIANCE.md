@@ -94,3 +94,12 @@ this pick is §3.
 2. Is 70–81% for the 0–1-best linear move robust (flat accuracy in the pole; my two grids disagree by 0.04)? Re-derive with own code.
 3. Should "the prereg fixes the loss of the locked optimum" become N6/§2.5 text (a kill/premise edit: separate applier)?
 4. Is the in-model PASS correctly labelled (D 2σ below the prediction; pilot noise from a non-arm point with 8 learners)?
+
+## Reviewer erratum (CAUSAL-NULL-INVARIANCE-REVIEW, PR #70, 15 Nov 2026 about 7:49 PM ET; `CAUSAL_NULL_INVARIANCE_REVIEW.md`)
+§3's "+0.244 / +0.284, 70–81% of the Bayes move" is a Monte Carlo artefact of locating a flat optimum. The exact grid value
+for the accuracy-best one-pole linear tracker is Δln t_A = **+0.318** (pole ×2.265 at A, ×1.548 at B; t_A 0.7246 → 0.9960),
+i.e. **90%** of the Bayes +0.354 on the same grid. Its excess error is 11.3% (A) and 8.1% (B). Two-pole kernels of equal
+accuracy (within 0.1%) give +0.32 to +0.37. The "optimality-form gap 0.07–0.11" is 0.036 for the one-pole family and may be
+about 0 for richer linear kernels. A→Bnull for that tracker is −4.3% (Δln −0.044), not −11%. §4: seven independent replicates of the
+locked design average D = 0.347 ± 0.012, so the 0.06 shortfall is selection noise, not a finite-experience bias. The
+conclusion that a Bayes-locked causal test cannot fail the 0–1 linear rival holds with more margin.
