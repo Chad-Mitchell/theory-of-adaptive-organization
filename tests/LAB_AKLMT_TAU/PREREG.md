@@ -1,6 +1,6 @@
 # LAB-AKLMT-TAU — preregistration (pick 36, uniform slot; ledger 168–170)
 
-Written 15 Nov 2026, about 7:35 PM ET, by executor queue-pick36 (for Ace, Chad t1914/t1916). Locked by the pushed
+Written 15 Nov 2026, about 7:33 PM ET (corrected after push from a forward-dated "7:35"; text otherwise unchanged), by executor queue-pick36 (for Ace, Chad t1914/t1916). Locked by the pushed
 commit that adds this file together with `common.py`, `analysis.py`, `analysis_rule.py`, `prediction.py/json`,
 `pilot.py/json`, `validate.py/json` and `power_gate.json`. `analysis.py` had not been run when this was pushed.
 
