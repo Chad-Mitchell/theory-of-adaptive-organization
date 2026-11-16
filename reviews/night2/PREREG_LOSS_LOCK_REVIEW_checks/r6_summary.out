@@ -1,0 +1,5 @@
+M12 dln Bayes 0.3541
+M12 dln err 0.3186 share 0.900 | M6 0.3180
+M12 dln mse -0.0678 share -0.191 | M6 -0.0678
+M12 dln abs -0.2254 share -0.636 | M6 -0.2274
+Kalman (fixed) M6 dln -0.0678

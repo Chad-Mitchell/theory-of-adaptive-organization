@@ -1,0 +1,18 @@
+reset reads: a_p = 2/(alpha*p - p + 2)  b_p = p/(alpha*p - p + 2)
+  equals 2/(2+p(a-1))? True  p/(2+p(a-1))? True
+  p=2: 1/alpha 1/alpha
+  a_p=b_p solve for p: [2]
+  alpha=2 (formal Lemma 1(iv) 2/(p+2), p/(p+2)): True True
+  alpha=2,p=1: 2/3 1/3
+precision: FOC residual at r* = (alpha*c*(K**(p/2)*k*p*q**(p/(2*alpha))*w*(alpha - 1))**(2*alpha/(2*alpha + p*(alpha - 1))) - k*p*w*(4*alpha**2*c**2)**(alpha/(2*alpha + p*(alpha - 1)))*(K*q**(1/alpha)*((K**(p/2)*k*p*q**(p/(2*alpha))*w*(alpha - 1))**(2*alpha/(2*alpha + p*(alpha - 1)))/(2*alpha*c)**(2*alpha/(2*alpha + p*(alpha - 1))))**((1 - alpha)/alpha))**(p/2)*(alpha - 1)/2)/(alpha*(K**(p/2)*k*p*q**(p/(2*alpha))*w*(alpha - 1))**(2*alpha/(2*alpha + p*(alpha - 1))))
+  a = 2*alpha/(2*alpha + p*(alpha - 1))  b = p/(2*alpha + p*(alpha - 1))
+  equals 2a/(2a+p(a-1))? True  p/(2a+p(a-1))? True
+  p=2: alpha/(2*alpha - 1) 1/(2*alpha - 1)
+  ratio b/a = p/(2*alpha) (=p/(2 alpha); a=b impossible for alpha>1 unless p=2 alpha)
+separable lone-member onset -(1-b_p)/(1-a_p) = (-alpha*p + 2*p - 2)/(p*(alpha - 1)) ; alpha=2: p=1/2,1,2,4 -> [-4, -2, -1, -1/2]
+H3 (R1, fBm) finite iff p > 2*(alpha - 2)/(alpha - 1) ; alpha=1.5,2,2.5 -> [-2, 0, 2/3]
+  precision FOC residual (numeric, 30 digits): -4.21001131869200522323783653615e-16
+  precision FOC residual (numeric, 30 digits): -1.06303294832800211385678691997e-15
+  precision FOC residual (numeric, 30 digits): 1.32961965061321073245442497282e-15
+  precision FOC residual (numeric, 30 digits): 2.10998547652018290964960103410e-15
+  precision FOC residual (numeric, 30 digits): -1.88297939515117867621726545552e-15
