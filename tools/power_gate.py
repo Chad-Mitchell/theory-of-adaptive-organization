@@ -34,6 +34,8 @@ Commands (all print JSON; exit code 0 = gate met, 1 = not met):
                          [--form causal|optimality]
                          [--band-top T] [--alpha 0.05] [--power 0.8] [--noise-df DF] [--sims N] [--seed 1]
                          [--rival-effect R]   (report-only: P(FAIL | named same-loss rival true); PREREG-LOSS-LOCK)
+                         causal form with a relative FAIL rule also reports 'mirror_pass' (report-only: P(PASS) when PASS
+                         needs D - z*sigma > kappa*effect; CAUSAL-KAPPA-LENIENCY proposal, THEORY v1.4.17 PR)
   power_gate.py required --sigma S --b B [--scale SL] [--fail-kappa K (default 0.5)] [--alpha 0.05] [--power 0.8] [--per-contrast DX]
   power_gate.py zero-events --n N --years Y --bound L [--method wilson|poisson] [--z 1.96]
 Defaults (v1.4.7 review, CAUSAL-KILL-MAGNITUDE-REVIEW): form = "causal" (THEORY Sec. 1 N6 causal kill): kappa = 1/2
@@ -142,6 +144,21 @@ def rival_check(effect, rival_effect, sigma, alpha=0.05, power=0.8, fail_eps=Non
             "discriminates_rival": p >= power and rival_effect + z * sigma < thr}
 
 
+def mirror_pass(effect, sigma, alpha=0.05, power=0.8, fail_kappa=None, form="causal"):
+    """Proposed mirror PASS (QUEUE CAUSAL-KAPPA-LENIENCY, pick 38; THEORY v1.4.17 author-only PR, not yet in force):
+    a causal-form test reads PASSED only if the move is established ABOVE the same share kappa_F of the scaled predicted
+    move that its FAIL rule uses (PASS iff D - z sigma > kappa*effect; FAIL unchanged), instead of only above 0. So
+        P(PASS_mirror | true) = Phi((1 - kappa) * SNR - z),   P(FAIL | null) = Phi(kappa * SNR - z).
+    For 0 < kappa <= 1/2 the FAIL leg binds, so MV10's minimal gate |b|S >= (z + z_pi) sigma / kappa is unchanged.
+    Reporting only: gate_met is unchanged."""
+    z = z_two_sided(alpha)
+    k = fail_kappa if fail_kappa is not None else default_kappa(form)
+    p = Phi((1 - k) * effect / sigma - z)
+    return {"pass_floor": k * effect, "P_pass_true_mirror": p, "P_pass_at_floor_mirror": Phi(-z),
+            "best_case_pass_fires_mirror": effect - z * sigma > k * effect,
+            "pass_reachable_mirror": p >= power and effect - z * sigma > k * effect}
+
+
 def gate(effect, sigma, alpha=0.05, power=0.8, fail_eps=None, fail_kappa=None, band_top=None, noise_df=None,
          sims=0, seed=1, form="causal", rival_effect=None):
     a = analytic(effect, sigma, alpha, fail_eps, fail_kappa, band_top, form)
@@ -168,6 +185,8 @@ def gate(effect, sigma, alpha=0.05, power=0.8, fail_eps=None, fail_kappa=None, b
             res["reason"] = "kappa_outside_N6_range (THEORY v1.4.7 Sec. 1 N6: 0 < kappa <= 1/2)"
     else:
         res["kappa_in_N6_range"] = None   # absolute margin: not N6's causal form (MV10 corollary 1)
+    if fail_eps is None and form == "causal":
+        res["mirror_pass"] = mirror_pass(effect, sigma, alpha, power, fail_kappa, form)
     if rival_effect is not None:
         res["rival"] = rival_check(effect, rival_effect, sigma, alpha, power, fail_eps, fail_kappa, form)
     return res

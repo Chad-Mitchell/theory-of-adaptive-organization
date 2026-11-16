@@ -172,3 +172,23 @@ def test_rival_line_pick35_numbers_unreachable_and_kalman_reachable():
 def test_rival_line_absent_by_default_and_cli():
     assert "rival" not in pg.gate(0.35, 0.028)
     assert pg.main(["contrast", "--sigma", "0.028", "--effect", "0.35", "--rival-effect", "0.26", "--sims", "0"]) == 0
+
+def test_mirror_pass_same_gate_at_kappa_le_half():
+    # CAUSAL-KAPPA-LENIENCY (pick 38): mirror PASS (D - z sigma > kappa*effect) needs (1-kappa)SNR >= z+z_pi; for
+    # kappa <= 1/2 the FAIL leg (kappa*SNR >= z+z_pi) binds, so the minimal gate is unchanged.
+    zp = pg.z_two_sided(0.05) + pg.zq(0.8)
+    for k in (0.1, 0.25, 0.5):
+        eff = zp / k * 1.0001
+        g = pg.gate(eff, 1.0, fail_kappa=k)
+        assert g["gate_met"] and g["mirror_pass"]["pass_reachable_mirror"]
+        g = pg.gate(eff * 0.98, 1.0, fail_kappa=k)
+        assert not g["gate_met"]
+    m = pg.mirror_pass(5.6, 1.0, fail_kappa=0.5)
+    assert abs(m["P_pass_true_mirror"] - pg.Phi(0.5 * 5.6 - 1.959964)) < 1e-6
+
+
+def test_mirror_pass_rereads_aklmt_as_inconclusive():
+    # LAB-AKLMT-TAU primary: D 0.5182, sigma 0.0479, b_opt 0.9835 -> current PASS, mirror INCONCLUSIVE (lo 0.424 < 0.492).
+    D, s, b = 0.5182, 0.0479, 0.9835
+    assert D - 1.96 * s > 0 and D + 1.96 * s > 0.5 * b and not (D - 1.96 * s > 0.5 * b)
+    assert "mirror_pass" not in pg.gate(0.35, 0.028, fail_eps=0.05)
