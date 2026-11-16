@@ -1,0 +1,9 @@
+{
+ "C1_stacked_D": 0.5182,
+ "C1_cluster_se": 0.0469,
+ "C2_b_opt_RLS": 0.9835,
+ "C3_D": 0.5182,
+ "C3_jackknife_se": 0.0485,
+ "verdict_C1": "PASS",
+ "verdict_C3": "PASS"
+}
