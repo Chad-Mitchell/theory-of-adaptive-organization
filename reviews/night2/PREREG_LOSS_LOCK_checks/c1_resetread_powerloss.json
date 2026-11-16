@@ -1,0 +1,134 @@
+{
+ "alpha=1.5,p=0.5": {
+  "moment_slope": 0.1266,
+  "moment_slope_theory": 0.125,
+  "a_hat": 0.9214,
+  "a_theory": 0.8889,
+  "b_hat": 0.2328,
+  "b_theory": 0.2222,
+  "onset_sep_hat": -9.757,
+  "onset_sep_theory": -7.0,
+  "quadratic_rival_a=b": 0.6667
+ },
+ "alpha=1.5,p=1.0": {
+  "moment_slope": 0.253,
+  "moment_slope_theory": 0.25,
+  "a_hat": 0.7906,
+  "a_theory": 0.8,
+  "b_hat": 0.3931,
+  "b_theory": 0.4,
+  "onset_sep_hat": -2.898,
+  "onset_sep_theory": -3.0,
+  "quadratic_rival_a=b": 0.6667
+ },
+ "alpha=1.5,p=2.0": {
+  "moment_slope": 0.5056,
+  "moment_slope_theory": 0.5,
+  "a_hat": 0.6563,
+  "a_theory": 0.6667,
+  "b_hat": 0.6563,
+  "b_theory": 0.6667,
+  "onset_sep_hat": -1.0,
+  "onset_sep_theory": -1.0,
+  "quadratic_rival_a=b": 0.6667
+ },
+ "alpha=1.5,p=4.0": {
+  "moment_slope": 1.0095,
+  "moment_slope_theory": 1.0,
+  "a_hat": 0.5031,
+  "a_theory": 0.5,
+  "b_hat": 1.0067,
+  "b_theory": 1.0,
+  "onset_sep_hat": 0.013,
+  "onset_sep_theory": -0.0,
+  "quadratic_rival_a=b": 0.6667
+ },
+ "alpha=2.0,p=0.5": {
+  "moment_slope": 0.249,
+  "moment_slope_theory": 0.25,
+  "a_hat": 0.806,
+  "a_theory": 0.8,
+  "b_hat": 0.1912,
+  "b_theory": 0.2,
+  "onset_sep_hat": -4.169,
+  "onset_sep_theory": -4.0,
+  "quadratic_rival_a=b": 0.5
+ },
+ "alpha=2.0,p=1.0": {
+  "moment_slope": 0.4983,
+  "moment_slope_theory": 0.5,
+  "a_hat": 0.6563,
+  "a_theory": 0.6667,
+  "b_hat": 0.3236,
+  "b_theory": 0.3333,
+  "onset_sep_hat": -1.968,
+  "onset_sep_theory": -2.0,
+  "quadratic_rival_a=b": 0.5
+ },
+ "alpha=2.0,p=2.0": {
+  "moment_slope": 0.998,
+  "moment_slope_theory": 1.0,
+  "a_hat": 0.5031,
+  "a_theory": 0.5,
+  "b_hat": 0.5031,
+  "b_theory": 0.5,
+  "onset_sep_hat": -1.0,
+  "onset_sep_theory": -1.0,
+  "quadratic_rival_a=b": 0.5
+ },
+ "alpha=2.0,p=4.0": {
+  "moment_slope": 2.0011,
+  "moment_slope_theory": 2.0,
+  "a_hat": 0.3236,
+  "a_theory": 0.3333,
+  "b_hat": 0.6563,
+  "b_theory": 0.6667,
+  "onset_sep_hat": -0.508,
+  "onset_sep_theory": -0.5,
+  "quadratic_rival_a=b": 0.5
+ },
+ "alpha=2.5,p=0.5": {
+  "moment_slope": 0.3766,
+  "moment_slope_theory": 0.375,
+  "a_hat": 0.7348,
+  "a_theory": 0.7273,
+  "b_hat": 0.1912,
+  "b_theory": 0.1818,
+  "onset_sep_hat": -3.05,
+  "onset_sep_theory": -3.0,
+  "quadratic_rival_a=b": 0.4
+ },
+ "alpha=2.5,p=1.0": {
+  "moment_slope": 0.7527,
+  "moment_slope_theory": 0.75,
+  "a_hat": 0.5585,
+  "a_theory": 0.5714,
+  "b_hat": 0.2685,
+  "b_theory": 0.2857,
+  "onset_sep_hat": -1.657,
+  "onset_sep_theory": -1.667,
+  "quadratic_rival_a=b": 0.4
+ },
+ "alpha=2.5,p=2.0": {
+  "moment_slope": 1.5031,
+  "moment_slope_theory": 1.5,
+  "a_hat": 0.3931,
+  "a_theory": 0.4,
+  "b_hat": 0.3931,
+  "b_theory": 0.4,
+  "onset_sep_hat": -1.0,
+  "onset_sep_theory": -1.0,
+  "quadratic_rival_a=b": 0.4
+ },
+ "alpha=2.5,p=4.0": {
+  "moment_slope": 2.9977,
+  "moment_slope_theory": 3.0,
+  "a_hat": 0.2685,
+  "a_theory": 0.25,
+  "b_hat": 0.5031,
+  "b_theory": 0.5,
+  "onset_sep_hat": -0.679,
+  "onset_sep_theory": -0.667,
+  "quadratic_rival_a=b": 0.4
+ }
+}

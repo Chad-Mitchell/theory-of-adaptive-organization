@@ -1,0 +1,43 @@
+{
+ "bayes_dln_tA_lattice_switch_law": 0.358,
+ "MSE(s=1)": {
+  "dln_tA_at_fit": -0.0058,
+  "dln_tA_range_within_tol": {
+   "tol0.005": [
+    -0.07,
+    0.123
+   ],
+   "tol0.01": [
+    -0.167,
+    0.221
+   ]
+  }
+ },
+ "abs(best s)": {
+  "dln_tA_at_fit": -0.1863,
+  "dln_tA_range_within_tol": {
+   "tol0.005": [
+    -0.363,
+    0.008
+   ],
+   "tol0.01": [
+    -0.55,
+    0.104
+   ]
+  }
+ },
+ "sign01": {
+  "dln_tA_at_fit": 0.32,
+  "dln_tA_range_within_tol": {
+   "tol0.005": [
+    0.241,
+    0.342
+   ],
+   "tol0.01": [
+    0.241,
+    0.342
+   ]
+  }
+ },
+ "kalman_cont_gain_dln_tA": -0.069
+}
