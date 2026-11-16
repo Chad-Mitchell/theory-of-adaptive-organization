@@ -1,0 +1,1 @@
+{'W': np.float64(0.2590551458607546), 'boot_sd_mean': np.float64(0.05879473163462457), 'boot_sd_sd': np.float64(0.0010519460596385593), 'boot_sd_range': [np.float64(0.056901721516258774), np.float64(0.06205352547251993)], 'stat_mean': np.float64(0.12747955756397647), 'frac_PASS': 0.9333333333333333, 'seeds': 60, 'bootsd_at_boundary': 0.06020311937609465}

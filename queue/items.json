@@ -259,7 +259,12 @@
   "v": 0.6,
   "L": 2,
   "c": 3,
-  "note": "new (N12): LEARNSIM-style non-circular learners in fGn worlds at two alpha values, same technology; locked prediction: onset exponent unchanged (-1 reset; -2 linear precision price) | N12 referee (15 Nov): lock the narrowed form: same alpha for shared and private drift, exact reads (or report read noise; noisy reads go to -2 at small rho), stated rho window (fits over [0.01,1] give -0.93 / -1.86)."
+  "note": "new (N12): LEARNSIM-style non-circular learners in fGn worlds at two alpha values, same technology; locked prediction: onset exponent unchanged (-1 reset; -2 linear precision price) | N12 referee (15 Nov): lock the narrowed form: same alpha for shared and private drift, exact reads (or report read noise; noisy reads go to -2 at small rho), stated rho window (fits over [0.01,1] give -0.93 / -1.86). | DONE 15 Nov ~6:40 PM ET (commit time; first stamped ~7:15 PM) (pick 32, UNIFORM slot; ledger 149 unaided, 150 rule_rank, 151 claim, 156 outcome): PASSED in-model on proxy 'learned reset-read pooling onset in simulated fBm worlds' (lock 2921bb2; MV10 met): e(1.5) -0.950, e(2.5) -0.937, Delta +0.013 [-0.072, +0.118] vs margin 0.267. Reset reads only. THEORY v1.4.12 / CLAIM_MAP v2.30 author-only PR #64; merged after separate reviewer PASS-WITH-FIXES as v1.4.14 / v2.33 (ledger 166).",
+  "status": "DONE",
+  "paths": [
+   "tests/ONSET_ACROSS_ALPHA/RESULTS.md",
+   "tests/ONSET_ACROSS_ALPHA/"
+  ]
  },
  {
   "id": "KERNEL-MEASURE",
@@ -654,7 +659,7 @@
   "v": 0.6,
   "L": 2,
   "c": 1.5,
-  "note": "From STAKES-EXOGENOUS S1 fail (15 Nov): reach +/-50% on CAISO stakes with a new lock: pooled years with year effects (2022-2025), net-load error (load - wind - solar forecasts), 5-min RTM prices; and a second ISO (ERCOT or another with public DA forecasts and prices). Gate for SAME-SYSTEM-AQN. | Pick 15: use the like-for-like error e_rt = RTD hourly mean - DA (N21's actual - DA mixes BTM-solar definition noise)."
+  "note": "From STAKES-EXOGENOUS S1 fail (15 Nov): reach +/-50% on CAISO stakes with a new lock: pooled years with year effects (2022-2025), net-load error (load - wind - solar forecasts), 5-min RTM prices; and a second ISO (ERCOT or another with public DA forecasts and prices). Gate for SAME-SYSTEM-AQN. | Pick 15: use the like-for-like error e_rt = RTD hourly mean - DA (N21's actual - DA mixes BTM-solar definition noise). | STAKES-REFEREE (pick 34): use e_rt (like-for-like), declare payment vs resource cost (F2, factor ~1/2), FMM price carries operator conformance (F3; see STAKES-SETTLEMENT-PRICE), 2024 size rests on ISO week 2024-30 (F4)."
  },
  {
   "id": "STAKES-SHIFT-CAISO",
@@ -683,7 +688,12 @@
   "v": 0.8,
   "L": 2,
   "c": 1,
-  "note": "Hostile referee of STAKES-EXOGENOUS: exogeneity argument (within-stratum surprise), reduced-form vs causal cost, k_lin estimand, week-block bootstrap coverage (0.94-0.98 synthetic), amendments A1/A2. | Pick 15 finding to check: on the like-for-like error (RTD - DA) k_lin is 5.37e-3 (2024) and 3.54e-3 (2025), 1.7x and 4.5x N21's; the 4x fall shrinks to ~34% (CI includes 0): N21's error likely attenuated by BTM-estimate noise (errors in variables). Weak surprise."
+  "note": "Hostile referee of STAKES-EXOGENOUS: exogeneity argument (within-stratum surprise), reduced-form vs causal cost, k_lin estimand, week-block bootstrap coverage (0.94-0.98 synthetic), amendments A1/A2. | Pick 15 finding to check: on the like-for-like error (RTD - DA) k_lin is 5.37e-3 (2024) and 3.54e-3 (2025), 1.7x and 4.5x N21's; the 4x fall shrinks to ~34% (CI includes 0): N21's error likely attenuated by BTM-estimate noise (errors in variables). Weak surprise. | DONE 15 Nov ~7:20 PM ET (pick 34, rule slot; ledger 159-162): PASS-WITH-FIXES; N21 INCONCLUSIVE stands; locked R-EIV (lock 1635e28, MV10 met) PASSED on proxy 'CAISO night-hour k_lin, ACTUAL vs RTD reference error' (r_night -0.20 [-0.32,-0.08] vs midpoint -0.48): BTM-definition wedge explains ~79% of the log gap, non-classically; fixes F1-F8.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/STAKES_REFEREE.md",
+   "reviews/night2/STAKES_REFEREE/"
+  ]
  },
  {
   "id": "HEADLINE-PREMISE-REVIEW",
@@ -779,7 +789,7 @@
   "v": 0.4,
   "L": 2,
   "c": 3,
-  "note": "From STAKES-SHIFT-CAISO (pick 15): OASIS keeps ~36 months of prices, so stakes on CAISO were measurable only for 2024-2025 (a ~34% fall on the clean error, not established). A powered N6 causal test needs many stakes changes: archived CAISO prices (DMM reports, other public archives) for 2019-2023, or several ISOs (ERCOT, PJM, NYISO DA load forecasts and prices) as a panel; lock lag 12 months, like-for-like error, q control, with CAUSAL-POWER-GATE met before lock. | Gate numbers (CAUSAL-POWER-GATE, pick 19): with sigma = se_tot 0.342 and b = 1/3, both rules at 0.8 need sqrt(sum dlog w_k^2) >= 2.88 over independent contrasts, i.e. K >= 49 contrasts of |dlog w| = 0.41 (17 at 0.70); use a kappa-relative FAIL margin, not an absolute eps; contrasts sharing weather years are not independent."
+  "note": "From STAKES-SHIFT-CAISO (pick 15): OASIS keeps ~36 months of prices, so stakes on CAISO were measurable only for 2024-2025 (a ~34% fall on the clean error, not established). A powered N6 causal test needs many stakes changes: archived CAISO prices (DMM reports, other public archives) for 2019-2023, or several ISOs (ERCOT, PJM, NYISO DA load forecasts and prices) as a panel; lock lag 12 months, like-for-like error, q control, with CAUSAL-POWER-GATE met before lock. | Gate numbers (CAUSAL-POWER-GATE, pick 19): with sigma = se_tot 0.342 and b = 1/3, both rules at 0.8 need sqrt(sum dlog w_k^2) >= 2.88 over independent contrasts, i.e. K >= 49 contrasts of |dlog w| = 0.41 (17 at 0.70); use a kappa-relative FAIL margin, not an absolute eps; contrasts sharing weather years are not independent. | STAKES-REFEREE (pick 34): year-to-year changes in FMM-DA spread include operator conformance policy (~1,400 MW peak Jan-Feb 2025 vs 50 MW Jan-Feb 2026, CAISO Q2 2026 MPPF); a stakes change measured on FMM may be policy, not market stakes (F3)."
  },
  {
   "id": "CAUSAL-POWER-GATE-N6",
@@ -955,7 +965,8 @@
   "v": 0.8,
   "L": 2,
   "c": 0.5,
-  "note": "From KERNEL-MEASURE (pick 28): independent hostile referee of tests/KERNEL_MEASURE (own code): ok_kernel derivation, like-with-like prediction (sim planned-n 0.277 vs direct 0.301), band choice after AQN R1 'not established', fixed- vs free-noise alpha (decides PASS vs INCONCLUSIVE), block bootstrap, VIX proxies (risk-neutral, log of expectation, overnight omitted); and pass/fail THEORY v1.4.10 PR #58 (DO NOT MERGE without separate reviewer PASS). | PR #58 part DONE 15 Nov ~6:20 PM ET (out-of-cycle, unscored; ledger 139): PASS-WITH-FIXES, merged as THEORY v1.4.10 / CLAIM_MAP v2.28 (reviews/night2/KERNEL_MEASURE_REVIEW.md). Numbers reproduce with own code; like-with-like, band and noise questions ruled; free-noise INCONCLUSIVE was an alpha-only artifact (consistent refits 0.276-0.278). Remaining scope: proxy validity only (variance risk premium, log of expectation, overnight variance, jumps / Gaussian driver premise)."
+  "note": "From KERNEL-MEASURE (pick 28): independent hostile referee of tests/KERNEL_MEASURE (own code): ok_kernel derivation, like-with-like prediction (sim planned-n 0.277 vs direct 0.301), band choice after AQN R1 'not established', fixed- vs free-noise alpha (decides PASS vs INCONCLUSIVE), block bootstrap, VIX proxies (risk-neutral, log of expectation, overnight omitted); and pass/fail THEORY v1.4.10 PR #58 (DO NOT MERGE without separate reviewer PASS). | PR #58 part DONE 15 Nov ~6:20 PM ET (out-of-cycle, unscored; ledger 139): PASS-WITH-FIXES, merged as THEORY v1.4.10 / CLAIM_MAP v2.28 (reviews/night2/KERNEL_MEASURE_REVIEW.md). Numbers reproduce with own code; like-with-like, band and noise questions ruled; free-noise INCONCLUSIVE was an alpha-only artifact (consistent refits 0.276-0.278). Remaining scope: proxy validity only (variance risk premium, log of expectation, overnight variance, jumps / Gaussian driver premise). | Proxy-validity part DONE 15 Nov ~6:50 PM ET (pick 33, rule slot; ledger 153-155 + outcome; reviews/night2/KERNEL_PROXY_REVIEW.md): VIX-free realized-target kernel W21 0.259 +/- 0.058 vs like-with-like 0.258 (P1 PASS on proxy, exploratory); VIX minus realized-target survival 0.0005 +/- 0.055 (post hoc), locked P2 vs realized level UNRESOLVED (MV10 not met); Jensen in-model +0.003; scale distorted (sum of weights VIX 0.75 vs realized 0.88, post hoc); overnight open (KERNEL-OVERNIGHT-REFIT). | PR #66 (THEORY v1.4.13) independent review DONE ~6:57 PM ET (out-of-cycle, unscored; ledger 158): PASS-WITH-FIXES, merged (reviews/night2/KERNEL_PROXY_REVIEW2.md).",
+  "status": "DONE"
  },
  {
   "id": "KERNEL-DECISIVE-RV",
@@ -964,7 +975,8 @@
   "v": 0.6,
   "L": 2,
   "c": 3,
-  "note": "From KERNEL-MEASURE: a decisive kernel test needs realized sigma_D <= 0.04: lower driver noise (intraday realized variance or a second independent proxy for N, MV5) and a tighter alpha (SE ~0.02); or a second system (other implied-vol indices: VSTOXX, VXN; or non-market trackers). Lock before data, MV10 at the measured tracker-noise ratio (VIX r ~0.4-0.5). | KERNEL-MEASURE review (ledger 139): alpha precision is not the binding constraint (W21_pred is pinned by the in-band spectrum; joint-cov sigma_pred 0.023); the bootstrap SE of W21 alone (0.041) exceeds 0.040, so a decisive design must cut tracker/driver noise or add data/systems."
+  "note": "From KERNEL-MEASURE: a decisive kernel test needs realized sigma_D <= 0.04: lower driver noise (intraday realized variance or a second independent proxy for N, MV5) and a tighter alpha (SE ~0.02); or a second system (other implied-vol indices: VSTOXX, VXN; or non-market trackers). Lock before data, MV10 at the measured tracker-noise ratio (VIX r ~0.4-0.5). | KERNEL-MEASURE review (ledger 139): alpha precision is not the binding constraint (W21_pred is pinned by the in-band spectrum; joint-cov sigma_pred 0.023); the bootstrap SE of W21 alone (0.041) exceeds 0.040, so a decisive design must cut tracker/driver noise or add data/systems. | KERNEL-MEASURE-REFEREE proxy part (pick 33): the VIX-free realized-target kernel is noisier (boot sd 0.058) than VIX's own (0.042) at daily resolution, so realized-target checks cannot be decisive either; intraday RV or more systems still needed.",
+  "status": null
  },
  {
   "id": "AQN-R1-NOISE-BAND",
@@ -1024,5 +1036,96 @@
   "L": 1,
   "c": 2,
   "note": "From C3B-GATE-ADDENDUM (pick 31): C3b's real n (<= 2,294) cannot meet MV10 under PREREG sec. 5's assumptions (needs ~3,500-4,000). Before any stage 3-6 run, decide: run as exploratory (A3 already labels it), or redesign before outcomes (a sixth exogenous shock or wider frame to reach n ~4,000; a kappa-relative K1 margin; S9 without near-collinear latency, e.g. pre-shock cadence) in a new dated addendum with its own MV10 output. Outcome data must stay unread until then."
+ },
+ {
+  "id": "ONSET-ACROSS-ALPHA-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 1,
+  "c": 0.5,
+  "note": "From ONSET-ACROSS-ALPHA-SIM (pick 32): separate reviewer of PR #64 (THEORY v1.4.12 N12 in-model evidence sentence; CLAIM_MAP v2.30). Re-run with own code (different fBm generator; an ES learner as in LEARNSIM); judge population selection as the primary learner, the 0.267 margin (alpha-dependence of vigilance growth / mixed e_u over alpha 1.5-2.5), the alpha=2 pre-lock pilot as noise source, the per-alpha read-cost unit choice; check the post hoc level gap 0.34 vs 0.31. | DONE 15 Nov ~7:45 PM ET (out-of-cycle, unscored; ledger 166; independent review of pick 32 author PR #64 per t1916): PASS-WITH-FIXES, merged as THEORY v1.4.14 / CLAIM_MAP v2.33 (renumbered from v1.4.12 / v2.30; reviews/night2/ONSET_ACROSS_ALPHA_REVIEW.md, own code ONSET_ACROSS_ALPHA_REVIEW_checks/). Own code (Cholesky fBm, own grid + ES learners, own estimators): ES Delta +0.012 [-0.116, +0.137] PASS; grid +0.119 [-0.028, +0.273] at 16 seeds INCONCLUSIVE (small-rho noise), -0.007 [-0.070, +0.065] at 48 seeds (post hoc); exact discrete optimum Delta +0.002. Rulings: pop selection acceptable (ES agrees); margin fair but generous (95% bound |Delta| <~ 0.13 now stated); alpha=2 pilot clean; per-alpha C unbiased (discrete exponent within 0.004 once T >~ 25). Times corrected to commits (lock 6:34 PM, results 6:40 PM ET). No goalpost moved; no status change; vigilance OPEN.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/ONSET_ACROSS_ALPHA_REVIEW.md",
+   "reviews/night2/ONSET_ACROSS_ALPHA_REVIEW_checks/"
+  ]
+ },
+ {
+  "id": "ONSET-ACROSS-ALPHA-PRICED",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2,
+  "note": "From ONSET-ACROSS-ALPHA-SIM (pick 32): the precision-priced arm (predicted -(1+theta), -2 at linear price, at every alpha) across alpha 1.5 vs 2.5 with learners not given the cost function; the self-tuned EWMA is not the best linear tracker at alpha != 2 (still degree-1 homogeneous, so the prediction stands for it); MV10 gate on an out-of-contrast pilot first; small-rho onset gaps are smaller than for reset reads. | Review of pick 32 (ledger 166): onset noise is 2-3x larger at alpha 1.5 than 2.5 in every run; pilot at both alpha ends (or inflate sigma accordingly) for the MV10 gate; keep the lone member's T >~ 25 (discreteness bias at T <~ 15)."
+ },
+ {
+  "id": "KERNEL-PROXY-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 2,
+  "c": 0.5,
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/KERNEL_PROXY_REVIEW2.md",
+   "reviews/night2/KERNEL_PROXY_REVIEW2_checks/"
+  ],
+  "note": "From KERNEL-MEASURE-REFEREE proxy part (pick 33): separate reviewer for PR #66 (THEORY v1.4.13 / CLAIM_MAP v2.31, DO NOT MERGE without separate reviewer PASS, Chad t1916). | DONE 15 Nov ~6:57 PM ET (out-of-cycle, unscored; ledger 158): PASS-WITH-FIXES, merged. Own code reproduces every data number (9+ digits) and the in-model references (realized mean-log 0.2585 +/- 0.0025 vs 0.2579; Jensen +0.0028). Identity valid in population (regressors F-measurable; no future-noise orthogonality needed); in-model VIX-minus-realized reference is about +0.02, not 0; P1 PASS slack 0.004 holds at 56/60 bootstrap seeds; 'supported' -> 'consistent, not certified'; gain clause narrowed (target-dependent: VIX - realized log level -0.05 +/- 0.05)."
+ },
+ {
+  "id": "KERNEL-OVERNIGHT-REFIT",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 1,
+  "status": null,
+  "paths": [
+   "reviews/night2/KERNEL_PROXY_REVIEW.md"
+  ],
+  "note": "From KERNEL-MEASURE-REFEREE proxy part (pick 33, descriptive): on 2008-2026 VIX's W21 is 0.268 +/- 0.067 on the intraday Parkinson driver but 0.358 +/- 0.056 on a close-to-close driver ln(Parkinson + overnight return^2) (overnight = 14.6% of variance). Refit alpha, q, N on the close-to-close driver (regime first) and compute the like-with-like prediction before reading the shift; lock + MV10 first."
+ },
+ {
+  "id": "VIX-GAIN-SCALE",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 1,
+  "status": null,
+  "paths": [
+   "reviews/night2/KERNEL_PROXY_REVIEW.md",
+   "reviews/night2/KERNEL_PROXY_REVIEW2.md"
+  ],
+  "note": "From KERNEL-MEASURE-REFEREE proxy part (pick 33, POST HOC): VIX's total kernel loading on past log range variance is 0.754 +/- 0.028 vs 0.878 +/- 0.042 for the realized 21-day mean log (paired -0.124 +/- 0.050; simulated best linear tracker 0.976). Shape (W21) unaffected. Test a premium-elasticity explanation (premium shrinking in relative terms as variance rises) before any test reads a tracker's gain from VIX. | PR #66 review (ledger 158): target-dependent. VIX minus realized log LEVEL (closer to what VIX prices) is -0.054 +/- 0.053; on 2008-2026 the realized close-to-close log level has lower gain (0.59 +/- 0.12) than VIX (0.75 +/- 0.05). Define the target (level vs mean log, overnight, horizon) before testing a premium explanation."
+ },
+ {
+  "id": "STAKES-CAUSAL-CONTROLS",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2,
+  "note": "From STAKES-REFEREE F1 (pick 34): k_lin is reduced form; partial DA-vs-actual wind/solar/import surprises (OASIS) out of the spread before estimating stakes on e_rt, so w is the cost a better load forecast saves (THEORY 2.2's w); lock + MV10 before reading."
+ },
+ {
+  "id": "STAKES-SETTLEMENT-PRICE",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 1.5,
+  "note": "From STAKES-REFEREE F3 (pick 34): recompute k on e_rt with the 5-min RTD price / load settlement price and the OASIS conformance series (published since Jun 2022); measure the operator-policy share of the FMM-DA spread and of the 2024->2025 stakes change."
+ },
+ {
+  "id": "STAKES-BIAS-TERM",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 0.5,
+  "note": "From STAKES-REFEREE F8 (pick 34, post hoc, weak surprise): DA forecast averages ~0.9 GW above RTD; between-strata bias x premium is 32-46% of mean e_rt*spread, outside k_lin and outside quadratic loss. Definition gap (conformance?) or real DA bias? Also the non-BTM night wedge (F7, sd 294 MW, r_night -0.20)."
  }
 ]

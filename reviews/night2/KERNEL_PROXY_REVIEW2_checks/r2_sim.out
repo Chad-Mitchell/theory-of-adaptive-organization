@@ -1,0 +1,97 @@
+0 {'W_ybar': np.float64(0.3628), 'W_ybar_8694': np.float64(0.3597), 'sum_ybar': np.float64(0.9737), 'W_m': np.float64(0.2879), 'sum_m': np.float64(0.9842), 'W_L': np.float64(0.3457), 'W_lnE': np.float64(0.2908), 'jensen_shift': np.float64(0.0029), 'W_z0.25': np.float64(0.348), 'D_z0.25_ybar': np.float64(-0.0148), 'D_z0.25_L': np.float64(0.0023), 'W_z0.45': np.float64(0.3453), 'D_z0.45_ybar': np.float64(-0.0175), 'D_z0.45_L': np.float64(-0.0004), 'D_m_ybar': np.float64(-0.0748)}
+50 {'W_ybar': np.float64(0.2992), 'W_ybar_8694': np.float64(0.2987), 'sum_ybar': np.float64(0.931), 'W_m': np.float64(0.2768), 'sum_m': np.float64(0.9723), 'W_L': np.float64(0.2984), 'W_lnE': np.float64(0.2788), 'jensen_shift': np.float64(0.002), 'W_z0.25': np.float64(0.2651), 'D_z0.25_ybar': np.float64(-0.0341), 'D_z0.25_L': np.float64(-0.0332), 'W_z0.45': np.float64(0.2916), 'D_z0.45_ybar': np.float64(-0.0076), 'D_z0.45_L': np.float64(-0.0067), 'D_m_ybar': np.float64(-0.0223)}
+100 {'W_ybar': np.float64(0.2633), 'W_ybar_8694': np.float64(0.2627), 'sum_ybar': np.float64(0.9442), 'W_m': np.float64(0.2804), 'sum_m': np.float64(0.9715), 'W_L': np.float64(0.2627), 'W_lnE': np.float64(0.2833), 'jensen_shift': np.float64(0.0029), 'W_z0.25': np.float64(0.2684), 'D_z0.25_ybar': np.float64(0.0051), 'D_z0.25_L': np.float64(0.0057), 'W_z0.45': np.float64(0.3071), 'D_z0.45_ybar': np.float64(0.0438), 'D_z0.45_L': np.float64(0.0444), 'D_m_ybar': np.float64(0.0171)}
+150 {'W_ybar': np.float64(0.274), 'W_ybar_8694': np.float64(0.276), 'sum_ybar': np.float64(0.9771), 'W_m': np.float64(0.2881), 'sum_m': np.float64(0.9841), 'W_L': np.float64(0.2763), 'W_lnE': np.float64(0.2913), 'jensen_shift': np.float64(0.0032), 'W_z0.25': np.float64(0.3085), 'D_z0.25_ybar': np.float64(0.0345), 'D_z0.25_L': np.float64(0.0322), 'W_z0.45': np.float64(0.3114), 'D_z0.45_ybar': np.float64(0.0374), 'D_z0.45_L': np.float64(0.0351), 'D_m_ybar': np.float64(0.0141)}
+200 {'W_ybar': np.float64(0.2798), 'W_ybar_8694': np.float64(0.2764), 'sum_ybar': np.float64(0.8866), 'W_m': np.float64(0.2738), 'sum_m': np.float64(0.9684), 'W_L': np.float64(0.2561), 'W_lnE': np.float64(0.276), 'jensen_shift': np.float64(0.0022), 'W_z0.25': np.float64(0.2725), 'D_z0.25_ybar': np.float64(-0.0073), 'D_z0.25_L': np.float64(0.0163), 'W_z0.45': np.float64(0.2075), 'D_z0.45_ybar': np.float64(-0.0723), 'D_z0.45_L': np.float64(-0.0487), 'D_m_ybar': np.float64(-0.006)}
+250 {'W_ybar': np.float64(0.2847), 'W_ybar_8694': np.float64(0.2895), 'sum_ybar': np.float64(0.9668), 'W_m': np.float64(0.2852), 'sum_m': np.float64(0.9837), 'W_L': np.float64(0.2716), 'W_lnE': np.float64(0.2886), 'jensen_shift': np.float64(0.0033), 'W_z0.25': np.float64(0.241), 'D_z0.25_ybar': np.float64(-0.0437), 'D_z0.25_L': np.float64(-0.0306), 'W_z0.45': np.float64(0.359), 'D_z0.45_ybar': np.float64(0.0743), 'D_z0.45_L': np.float64(0.0874), 'D_m_ybar': np.float64(0.0004)}
+300 {'W_ybar': np.float64(0.2744), 'W_ybar_8694': np.float64(0.2713), 'sum_ybar': np.float64(0.8906), 'W_m': np.float64(0.2699), 'sum_m': np.float64(0.9661), 'W_L': np.float64(0.2505), 'W_lnE': np.float64(0.2727), 'jensen_shift': np.float64(0.0028), 'W_z0.25': np.float64(0.3078), 'D_z0.25_ybar': np.float64(0.0335), 'D_z0.25_L': np.float64(0.0573), 'W_z0.45': np.float64(0.3027), 'D_z0.45_ybar': np.float64(0.0284), 'D_z0.45_L': np.float64(0.0522), 'D_m_ybar': np.float64(-0.0045)}
+350 {'W_ybar': np.float64(0.2187), 'W_ybar_8694': np.float64(0.2181), 'sum_ybar': np.float64(0.9927), 'W_m': np.float64(0.2827), 'sum_m': np.float64(0.9882), 'W_L': np.float64(0.2269), 'W_lnE': np.float64(0.2853), 'jensen_shift': np.float64(0.0026), 'W_z0.25': np.float64(0.3536), 'D_z0.25_ybar': np.float64(0.1349), 'D_z0.25_L': np.float64(0.1267), 'W_z0.45': np.float64(0.1128), 'D_z0.45_ybar': np.float64(-0.1059), 'D_z0.45_L': np.float64(-0.1141), 'D_m_ybar': np.float64(0.0641)}
+{
+ "nrep": 400,
+ "Lw": 2000,
+ "summary": {
+  "W_ybar": {
+   "mean": 0.258499280254477,
+   "sd": 0.05013048640172205,
+   "se_mean": 0.0025065243200861026
+  },
+  "W_ybar_8694": {
+   "mean": 0.25828348936324425,
+   "sd": 0.050153352891435854,
+   "se_mean": 0.0025076676445717925
+  },
+  "sum_ybar": {
+   "mean": 0.9274193669014301,
+   "sd": 0.04051581197921279,
+   "se_mean": 0.0020257905989606397
+  },
+  "W_m": {
+   "mean": 0.27727287422443736,
+   "sd": 0.006044738854703202,
+   "se_mean": 0.0003022369427351601
+  },
+  "sum_m": {
+   "mean": 0.9742595689203597,
+   "sd": 0.009231666121026421,
+   "se_mean": 0.00046158330605132106
+  },
+  "W_L": {
+   "mean": 0.2576291196801477,
+   "sd": 0.05176870157206166,
+   "se_mean": 0.0025884350786030833
+  },
+  "W_lnE": {
+   "mean": 0.2801000885658169,
+   "sd": 0.0061507777282610145,
+   "se_mean": 0.0003075388864130507
+  },
+  "jensen_shift": {
+   "mean": 0.002827214341379529,
+   "sd": 0.00039060412100962893,
+   "se_mean": 1.9530206050481447e-05
+  },
+  "W_z0.25": {
+   "mean": 0.2777967391096152,
+   "sd": 0.024944499665221734,
+   "se_mean": 0.0012472249832610866
+  },
+  "D_z0.25_ybar": {
+   "mean": 0.019297458855138207,
+   "sd": 0.052502442490759166,
+   "se_mean": 0.002625122124537958
+  },
+  "D_z0.25_L": {
+   "mean": 0.02016761942946753,
+   "sd": 0.05400905682752678,
+   "se_mean": 0.002700452841376339
+  },
+  "W_z0.45": {
+   "mean": 0.2794184117523548,
+   "sd": 0.04414968183407917,
+   "se_mean": 0.0022074840917039587
+  },
+  "D_z0.45_ybar": {
+   "mean": 0.02091913149787784,
+   "sd": 0.06477586968711568,
+   "se_mean": 0.003238793484355784
+  },
+  "D_z0.45_L": {
+   "mean": 0.02178929207220716,
+   "sd": 0.06571946184668322,
+   "se_mean": 0.003285973092334161
+  },
+  "D_m_ybar": {
+   "mean": 0.018760720341314995,
+   "sd": 0.04810547174205169,
+   "se_mean": 0.0024052735871025843
+  }
+ },
+ "dWybar_dalpha": -0.5396472407326235,
+ "dWybar_dalpha_se": 0.0063457889373943095,
+ "W_ybar_at_alpha_pm0.1": [
+  0.31606070926243446,
+  0.2564370185164028,
+  0.20813126111590974
+ ],
+ "sigma_pred_alpha_only(0.0429)": 0.02315086662742955
+}
