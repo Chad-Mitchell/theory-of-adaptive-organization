@@ -1,6 +1,6 @@
 # STAKES-REFEREE — hostile referee of STAKES-EXOGENOUS (N21), with pick 15's errors-in-variables flag
 
-Queue item STAKES-REFEREE, pick 34 (rule slot; ledger 159 unaided order, 160 rule_rank, 161 claim; outcome entry in the ledger). Referee: executor
+Queue item STAKES-REFEREE, pick 34 (rule slot; ledger 159 unaided order, 160 rule_rank, 161 claim; 162 outcome). Referee: executor
 queue-pick34, who authored none of STAKES-EXOGENOUS, STAKES-SHIFT-CAISO (pick 15) or their amendments. All numbers below are from this referee's own
 code in `reviews/night2/STAKES_REFEREE/` (`ref_n21.py`, `eiv.py`, `extra.py`; outputs `*.out`, `*.json`). Data: the committed N21 hourly panels
 (`tests/STAKES_EXOGENOUS/data/panel_{2024,2025}.csv.gz`) plus CAISO OASIS `SLD_FCST` RTM/RTD (CA ISO-TAC) for 2024–2025, re-fetched by this referee
