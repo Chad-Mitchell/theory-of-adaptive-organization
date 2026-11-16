@@ -1,0 +1,17 @@
+{
+ "T1_opt": {
+  "D": 0.974,
+  "sigma": 0.025,
+  "verdict": "PASS"
+ },
+ "T2_slope025": {
+  "D": 0.25,
+  "sigma": 0.016,
+  "verdict": "FAIL"
+ },
+ "T3_flat": {
+  "D": 0.004,
+  "sigma": 0.019,
+  "verdict": "FAIL"
+ }
+}
