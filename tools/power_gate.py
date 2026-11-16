@@ -33,6 +33,7 @@ Commands (all print JSON; exit code 0 = gate met, 1 = not met):
   power_gate.py contrast --sigma S (--effect M | --b B --dlogx DX [DX ...]) [--scale SL] [--fail-eps E | --fail-kappa K]
                          [--form causal|optimality]
                          [--band-top T] [--alpha 0.05] [--power 0.8] [--noise-df DF] [--sims N] [--seed 1]
+                         [--rival-effect R]   (report-only: P(FAIL | named same-loss rival true); PREREG-LOSS-LOCK)
   power_gate.py required --sigma S --b B [--scale SL] [--fail-kappa K (default 0.5)] [--alpha 0.05] [--power 0.8] [--per-contrast DX]
   power_gate.py zero-events --n N --years Y --bound L [--method wilson|poisson] [--z 1.96]
 Defaults (v1.4.7 review, CAUSAL-KILL-MAGNITUDE-REVIEW): form = "causal" (THEORY Sec. 1 N6 causal kill): kappa = 1/2
@@ -123,8 +124,26 @@ def simulate(effect, sigma, alpha=0.05, fail_eps=None, fail_kappa=None, band_top
     return out
 
 
+def rival_check(effect, rival_effect, sigma, alpha=0.05, power=0.8, fail_eps=None, fail_kappa=None, form="causal"):
+    """Proposed MV10 discrimination line (QUEUE PREREG-LOSS-LOCK, pick 37; THEORY v1.4.16 author-only PR, not yet in force):
+    a prereg that claims its test can tell the locked optimum from a named rival optimum (computed for the SAME loss)
+    reports P(FAIL | the rival's predicted move is the truth) on its planned data. The FAIL rule fires iff
+    D + z sigma < thr (thr = fail_eps or kappa*effect), so with D ~ N(rival_effect, sigma^2):
+        P(FAIL | rival) = Phi((thr - z sigma - rival_effect) / sigma).
+    If rival_effect >= thr the FAIL leg cannot reach the rival at any sample size (sigma -> 0 never helps):
+    'rival_unreachable_any_n' (pick 35: a 0-1-best linear rival moves 70-81% of the Bayes move, above kappa_F = 1/2).
+    Reporting only: gate_met is unchanged; 'discriminates_rival' is the proposed label condition."""
+    z = z_two_sided(alpha)
+    thr = fail_eps if fail_eps is not None else (fail_kappa if fail_kappa is not None else default_kappa(form)) * effect
+    p = Phi((thr - z * sigma - rival_effect) / sigma)
+    return {"rival_effect": rival_effect, "fail_threshold": thr, "P_fail_rival": p,
+            "rival_unreachable_any_n": rival_effect >= thr,
+            "best_case_rival_fail_fires": rival_effect + z * sigma < thr,
+            "discriminates_rival": p >= power and rival_effect + z * sigma < thr}
+
+
 def gate(effect, sigma, alpha=0.05, power=0.8, fail_eps=None, fail_kappa=None, band_top=None, noise_df=None,
-         sims=0, seed=1, form="causal"):
+         sims=0, seed=1, form="causal", rival_effect=None):
     a = analytic(effect, sigma, alpha, fail_eps, fail_kappa, band_top, form)
     res = {"inputs": {"effect": effect, "sigma": sigma, "alpha": alpha, "power": power, "fail_eps": fail_eps,
                       "fail_kappa": fail_kappa, "band_top": band_top, "noise_df": noise_df, "form": form},
@@ -149,6 +168,8 @@ def gate(effect, sigma, alpha=0.05, power=0.8, fail_eps=None, fail_kappa=None, b
             res["reason"] = "kappa_outside_N6_range (THEORY v1.4.7 Sec. 1 N6: 0 < kappa <= 1/2)"
     else:
         res["kappa_in_N6_range"] = None   # absolute margin: not N6's causal form (MV10 corollary 1)
+    if rival_effect is not None:
+        res["rival"] = rival_check(effect, rival_effect, sigma, alpha, power, fail_eps, fail_kappa, form)
     return res
 
 
@@ -181,6 +202,8 @@ def main(argv=None):
     c.add_argument("--form", default="causal", choices=["causal", "optimality"])
     c.add_argument("--power", type=float, default=0.8); c.add_argument("--noise-df", type=int)
     c.add_argument("--sims", type=int, default=200_000); c.add_argument("--seed", type=int, default=1)
+    c.add_argument("--rival-effect", type=float, help="predicted move of the named rival optimum for the SAME loss, in "
+                   "the units of --effect after --scale (report-only discrimination line; PREREG-LOSS-LOCK proposal)")
     r = sp.add_parser("required")
     r.add_argument("--sigma", type=float, required=True); r.add_argument("--b", type=float, required=True)
     r.add_argument("--scale", type=float, default=1.0, help="s*lam: adjustment share x input reliability (N6)")
@@ -193,7 +216,9 @@ def main(argv=None):
     a = ap.parse_args(argv)
     if a.cmd == "contrast":
         eff = a.scale * (a.effect if a.effect is not None else abs(a.b) * math.sqrt(sum(x * x for x in a.dlogx)))
-        res = gate(eff, a.sigma, a.alpha, a.power, a.fail_eps, a.fail_kappa, a.band_top, a.noise_df, a.sims, a.seed, a.form)
+        riv = None if a.rival_effect is None else a.scale * a.rival_effect
+        res = gate(eff, a.sigma, a.alpha, a.power, a.fail_eps, a.fail_kappa, a.band_top, a.noise_df, a.sims, a.seed, a.form,
+                   rival_effect=riv)
         ok = res["gate_met"]
     elif a.cmd == "required":
         bs = a.b * a.scale

@@ -156,3 +156,19 @@ def test_optimality_form_keeps_kappa_one_and_spf_rigidity_record():
         g = pg.gate(1.5, o["se_c_sampling_only"], form="optimality")["analytic"]
         assert g["P_fail_null"] == pytest.approx(o["power_gate_tool_best_case"]["P_fail_null"], abs=1e-9)
         assert g["P_pass_true"] == pytest.approx(o["power_gate_tool_best_case"]["P_pass_true"], abs=1e-9)
+
+
+def test_rival_line_pick35_numbers_unreachable_and_kalman_reachable():
+    # pick 35 (CAUSAL-NULL-INVARIANCE): Bayes move 0.350, sigma 0.028, kappa_F 1/2 -> kill line 0.175.
+    # 0-1-best linear rival moves +0.244..+0.284 -> FAIL cannot reach it at any n; MSE-best (Kalman) rival -0.071 -> reached.
+    for r in (0.244, 0.284):
+        g = pg.gate(0.350, 0.028, rival_effect=r)
+        assert g["gate_met"] and g["rival"]["rival_unreachable_any_n"] and not g["rival"]["discriminates_rival"]
+        assert g["rival"]["P_fail_rival"] < 1e-3
+    g = pg.gate(0.350, 0.028, rival_effect=-0.071)
+    assert g["rival"]["discriminates_rival"] and g["rival"]["P_fail_rival"] > 0.999
+
+
+def test_rival_line_absent_by_default_and_cli():
+    assert "rival" not in pg.gate(0.35, 0.028)
+    assert pg.main(["contrast", "--sigma", "0.028", "--effect", "0.35", "--rival-effect", "0.26", "--sims", "0"]) == 0

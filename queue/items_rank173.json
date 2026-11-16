@@ -468,13 +468,22 @@
   "note": "From STAKES-REFEREE F8 (pick 34, post hoc, weak surprise): DA forecast averages ~0.9 GW above RTD; between-strata bias x premium is 32-46% of mean e_rt*spread, outside k_lin and outside quadratic loss. Definition gap (conformance?) or real DA bias? Also the non-BTM night wedge (F7, sd 294 MW, r_night -0.20)."
  },
  {
+  "id": "CAUSAL-NULL-INVARIANCE-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 1,
+  "c": 0.5,
+  "note": "From CAUSAL-NULL-INVARIANCE (pick 35): separate reviewer of the THEORY v1.4.15 / CLAIM_MAP v2.34 author-only PR (N16 discriminator passage). Own code: kappa-only separation scope (continuous; lam*Delta on grids); the 0-1-best linear move (70-81% of Bayes; flat accuracy, two grids differ by 0.04); the in-model PASS label (D 2 sigma below prediction; 8-learner non-arm pilot)."
+ },
+ {
   "id": "PREREG-LOSS-LOCK",
   "w": 2,
   "untested": true,
   "v": 0.6,
   "L": 2,
   "c": 0.5,
-  "note": "From CAUSAL-NULL-INVARIANCE section 3 (pick 35): propose N6 / 2.5 text that a prereg fixes the loss (payoff) of its locked optimum and names the rival optimum for the same loss; under a 0-1 payoff the Bayes-locked causal kill cannot fail the best linear rival (70-81% of the move). Kill/premise edit: separate applier + separate reviewer (Chad t1916). | CAUSAL-NULL-INVARIANCE-REVIEW (ledger 175): use the corrected value: the 0-1-best one-pole linear move is +0.318, 90% of Bayes (not 70-81%); two-pole kernels of equal accuracy give +0.32..+0.37, so the prereg must also name the rival family."
+  "note": "From CAUSAL-NULL-INVARIANCE section 3 (pick 35): propose N6 / 2.5 text that a prereg fixes the loss (payoff) of its locked optimum and names the rival optimum for the same loss; under a 0-1 payoff the Bayes-locked causal kill cannot fail the best linear rival (70-81% of the move). Kill/premise edit: separate applier + separate reviewer (Chad t1916)."
  },
  {
   "id": "BAYES-LINEAR-LAB",
@@ -492,7 +501,7 @@
   "v": 0.6,
   "L": 1,
   "c": 0.5,
-  "note": "From CAUSAL-NULL-INVARIANCE (pick 35, post hoc): pin the 0-1-best linear tracker's t_A response exactly (lattice/Gaussian-sum method, not grid MC; accuracy flat in the pole) and test whether the MSE learners' 0.06 shortfall vs the Bayes move shrinks with experience (E=80 switches). | CAUSAL-NULL-INVARIANCE-REVIEW (ledger 175) did the exact part: deterministic grid, dln t_A +0.318 (pole x2.265 -> x1.548; curvature and convergence in the review). Learner shortfall: 7 own replicates at E = 20 average D = 0.347 +- 0.012, so no shortfall to track with experience; remaining open part (if kept): general linear kernels beyond two poles."
+  "note": "From CAUSAL-NULL-INVARIANCE (pick 35, post hoc): pin the 0-1-best linear tracker's t_A response exactly (lattice/Gaussian-sum method, not grid MC; accuracy flat in the pole) and test whether the MSE learners' 0.06 shortfall vs the Bayes move shrinks with experience (E=80 switches)."
  },
  {
   "id": "CAUSAL-KAPPA-LENIENCY",
