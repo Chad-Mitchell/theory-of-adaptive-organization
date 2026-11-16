@@ -1,0 +1,27 @@
+true optimum, s*lam known                     SNR  5.6 (real  5.5)  R0 F/P/I 0.000/0.998/0.002  R1 0.000/0.778/0.222  R2 0.031/0.969  L 0.739  anR1 F 0.000 P 0.800
+true optimum, s*lam known                     SNR  9.7 (real  9.5)  R0 F/P/I 0.000/1.000/0.000  R1 0.000/0.993/0.007  R2 0.031/0.969  L 0.943  anR1 F 0.000 P 0.998
+true optimum, s*lam known                     SNR 20.0 (real 19.7)  R0 F/P/I 0.000/1.000/0.000  R1 0.000/1.000/0.000  R2 0.031/0.969  L 0.948  anR1 F 0.000 P 1.000
+true optimum, s*lam plug-in (log-sd 0.3)      SNR  5.6 (real  5.5)  R0 F/P/I 0.002/0.996/0.001  R1 0.002/0.702/0.296  R2 0.006/0.873  L 0.669  anR1 F 0.000 P 0.800
+true optimum, s*lam plug-in (log-sd 0.3)      SNR  9.7 (real  9.5)  R0 F/P/I 0.003/0.997/0.000  R1 0.003/0.908/0.089  R2 0.003/0.938  L 0.866  anR1 F 0.000 P 0.998
+true optimum, s*lam plug-in (log-sd 0.3)      SNR 20.0 (real 19.7)  R0 F/P/I 0.005/0.995/0.000  R1 0.005/0.972/0.023  R2 0.002/0.957  L 0.924  anR1 F 0.000 P 1.000
+true optimum, level proxy offset 0.15         SNR  5.6 (real  5.5)  R0 F/P/I 0.000/0.998/0.002  R1 0.000/0.775/0.225  R2 0.028/0.971  L 0.117  anR1 F 0.000 P 0.800
+true optimum, level proxy offset 0.15         SNR  9.7 (real  9.5)  R0 F/P/I 0.000/1.000/0.000  R1 0.000/0.991/0.009  R2 0.030/0.970  L 0.147  anR1 F 0.000 P 0.998
+true optimum, level proxy offset 0.15         SNR 20.0 (real 19.7)  R0 F/P/I 0.000/1.000/0.000  R1 0.000/1.000/0.000  R2 0.031/0.969  L 0.147  anR1 F 0.000 P 1.000
+prediction overstated 1.6x (r 0.63)           SNR  5.6 (real  5.5)  R0 F/P/I 0.005/0.915/0.080  R1 0.005/0.120/0.875  R2 0.545/0.452  L 0.115  anR1 F 0.004 P 0.109
+prediction overstated 1.6x (r 0.63)           SNR  9.7 (real  9.5)  R0 F/P/I 0.001/0.999/0.001  R1 0.001/0.259/0.740  R2 0.924/0.076  L 0.246  anR1 F 0.001 P 0.242
+prediction overstated 1.6x (r 0.63)           SNR 20.0 (real 19.7)  R0 F/P/I 0.000/1.000/0.000  R1 0.000/0.720/0.280  R2 1.000/0.000  L 0.684  anR1 F 0.000 P 0.739
+AKLMT-like partial responder (r 0.53)         SNR  5.6 (real  5.5)  R0 F/P/I 0.020/0.823/0.157  R1 0.020/0.043/0.936  R2 0.728/0.268  L 0.042  anR1 F 0.017 P 0.037
+AKLMT-like partial responder (r 0.53)         SNR  9.7 (real  9.5)  R0 F/P/I 0.017/0.981/0.002  R1 0.017/0.053/0.930  R2 0.986/0.014  L 0.050  anR1 F 0.012 P 0.048
+AKLMT-like partial responder (r 0.53)         SNR 20.0 (real 19.6)  R0 F/P/I 0.008/0.992/0.000  R1 0.008/0.096/0.896  R2 1.000/0.000  L 0.091  anR1 F 0.005 P 0.087
+half responder (r 0.40)                       SNR  5.6 (real  5.5)  R0 F/P/I 0.087/0.602/0.310  R1 0.087/0.009/0.904  R2 0.895/0.101  L 0.009  anR1 F 0.081 P 0.006
+half responder (r 0.40)                       SNR  9.7 (real  9.5)  R0 F/P/I 0.173/0.818/0.010  R1 0.173/0.003/0.825  R2 0.999/0.001  L 0.002  anR1 F 0.161 P 0.002
+half responder (r 0.40)                       SNR 20.0 (real 19.6)  R0 F/P/I 0.517/0.483/0.000  R1 0.517/0.000/0.483  R2 1.000/0.000  L 0.000  anR1 F 0.516 P 0.000
+quarter responder (r 0.25)                    SNR  5.6 (real  5.5)  R0 F/P/I 0.296/0.298/0.406  R1 0.296/0.001/0.703  R2 0.971/0.027  L 0.001  anR1 F 0.288 P 0.000
+quarter responder (r 0.25)                    SNR  9.7 (real  9.5)  R0 F/P/I 0.665/0.316/0.019  R1 0.665/0.000/0.335  R2 1.000/0.000  L 0.000  anR1 F 0.679 P 0.000
+quarter responder (r 0.25)                    SNR 20.0 (real 19.7)  R0 F/P/I 0.993/0.007/0.000  R1 0.993/0.000/0.007  R2 1.000/0.000  L 0.000  anR1 F 0.999 P 0.000
+named rival: no move (r 0)                    SNR  5.6 (real  5.5)  R0 F/P/I 0.781/0.029/0.190  R1 0.781/0.000/0.219  R2 0.998/0.001  L 0.000  anR1 F 0.800 P 0.000
+named rival: no move (r 0)                    SNR  9.7 (real  9.5)  R0 F/P/I 0.993/0.005/0.002  R1 0.993/0.000/0.007  R2 1.000/0.000  L 0.000  anR1 F 0.998 P 0.000
+named rival: no move (r 0)                    SNR 20.0 (real 19.7)  R0 F/P/I 1.000/0.000/0.000  R1 1.000/0.000/0.000  R2 1.000/0.000  L 0.000  anR1 F 1.000 P 0.000
+true optimum, lam 0.8 measured                SNR  5.6 (real  5.5)  R0 F/P/I 0.000/0.999/0.001  R1 0.000/0.778/0.222  R2 0.030/0.969  L 0.740  anR1 F 0.000 P 0.800
+true optimum, lam 0.8 measured                SNR  9.7 (real  9.5)  R0 F/P/I 0.000/1.000/0.000  R1 0.000/0.991/0.009  R2 0.031/0.969  L 0.939  anR1 F 0.000 P 0.998
+true optimum, lam 0.8 measured                SNR 20.0 (real 10.8)  R0 F/P/I 0.000/1.000/0.000  R1 0.000/0.997/0.003  R2 0.032/0.968  L 0.946  anR1 F 0.000 P 1.000

@@ -1190,7 +1190,12 @@
   "v": 0.6,
   "L": 2,
   "c": 1,
-  "note": "From LAB-AKLMT-TAU (pick 36, strong surprise): a system 20x off the optimum's level at rho=0 (0.45 vs 0.02) and ~10 SE below the predicted move (D 0.52 vs 0.98) passes the N6 causal form at kappa_F=1/2. Decide whether the causal kill needs a paired level/optimality check or a kappa_F tied to measured s*lam; kill-rule edit: author-only PR + separate reviewer (t1916)."
+  "note": "From LAB-AKLMT-TAU (pick 36, strong surprise): a system 20x off the optimum's level at rho=0 (0.45 vs 0.02) and ~10 SE below the predicted move (D 0.52 vs 0.98) passes the N6 causal form at kappa_F=1/2. Decide whether the causal kill needs a paired level/optimality check or a kappa_F tied to measured s*lam; kill-rule edit: author-only PR + separate reviewer (t1916). | DONE pick 38 (ledger 177-179 + outcome): the leniency is a PASS/FAIL asymmetry (PASS vs 0, FAIL vs kappa_F), not kappa_F; proposed mirror PASS (D - z sigma > kappa_F * P), same MV10 gate at kappa_F <= 1/2; s*lam tie and level AND-pairing rejected (own MC); author-only PR #74 (THEORY v1.4.17 / CLAIM_MAP v2.37), DO NOT MERGE without separate reviewer PASS.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/CAUSAL_KAPPA_LENIENCY.md",
+   "reviews/night2/CAUSAL_KAPPA_LENIENCY_checks/"
+  ]
  },
  {
   "id": "LAB-AKLMT-EXTRAPOLATION",
@@ -1236,5 +1241,23 @@
   "L": 2,
   "c": 1,
   "note": "From PREREG-LOSS-LOCK (pick 37, weak-moderate surprise): the 2.5 bridge a=b=1/alpha is a squared-error fact; formal Theorem 4 keeps the level's onset exponent only under bundled decisions. Derive the pooling-onset exponent when member decisions are separable and the loss is |e|^p (p != 2), reset reads and priced precision; check numerically; say what a field test must measure (bundled vs separable, p)."
+ },
+ {
+  "id": "CAUSAL-KAPPA-LENIENCY-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 1,
+  "c": 0.5,
+  "note": "From CAUSAL-KAPPA-LENIENCY (pick 38): separate reviewer of PR #74 (THEORY v1.4.17 N6 causal-form mirror PASS; FRAMEWORK MV10 PASS line; CLAIM_MAP v2.37 note). Own code: R0/R1/R2/L rule rates, Phi((r-kappa)SNR - z), gate unchanged at kappa <= 1/2; AKLMT/CNI re-reads. Questions: Q1 label qualifier when share CI excludes 1; Q2 over-response report line; Q3 non-retroactivity for N23. Rebase against PR #73 (same N6 cell)."
+ },
+ {
+  "id": "PASS-RULE-SYMMETRY-AUDIT",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 1,
+  "note": "From CAUSAL-KAPPA-LENIENCY (pick 38, moderate surprise): the causal form's PASS was tested against 0 while its FAIL was tested against kappa_F. Audit every other locked rule (optimality form 'gap >= 2.80 sigma', onset/kernel tests with rival margins, MV10 band/moot/equivalence bounds) for the same PASS-vs-FAIL asymmetry; list which locked passes would read inconclusive under the mirror; propose wording (no locked label changes)."
  }
 ]

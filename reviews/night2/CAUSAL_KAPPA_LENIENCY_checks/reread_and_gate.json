@@ -1,0 +1,77 @@
+{
+ "LAB_AKLMT_TAU primary (Exp 1)": {
+  "D": 0.5182,
+  "sigma": 0.0479,
+  "pred": 0.9835,
+  "kill_line": 0.4918,
+  "lo": 0.4243,
+  "hi": 0.6121,
+  "share": 0.527,
+  "share_ci": [
+   0.431,
+   0.622
+  ],
+  "current_rule": "PASS",
+  "mirror_rule": "INCONCLUSIVE"
+ },
+ "LAB_AKLMT_TAU R3 (Exp 3, report-only)": {
+  "D": 0.6287,
+  "sigma": 0.0941,
+  "pred": 1.0274,
+  "kill_line": 0.5137,
+  "lo": 0.4443,
+  "hi": 0.8131,
+  "share": 0.612,
+  "share_ci": [
+   0.432,
+   0.791
+  ],
+  "current_rule": "PASS",
+  "mirror_rule": "INCONCLUSIVE"
+ },
+ "CAUSAL_NULL_INVARIANCE locked test (raw keys)": {
+  "D": 0.289507103500705,
+  "sigma": 0.02947266552128049,
+  "pred_bayes": 0.3504,
+  "kill_line": 0.1752,
+  "verdict": "PASSED"
+ },
+ "gate": [
+  {
+   "kappa": 0.25,
+   "snr": 11.2,
+   "P_pass_mirror": 1.0,
+   "P_pass_direction": 1.0,
+   "P_fail_null": 0.7995,
+   "power_gate_met": true,
+   "mirror_gate_met": true
+  },
+  {
+   "kappa": 0.25,
+   "snr": 10.08,
+   "P_pass_mirror": 1.0,
+   "P_pass_direction": 1.0,
+   "P_fail_null": 0.7123,
+   "power_gate_met": false,
+   "mirror_gate_met": false
+  },
+  {
+   "kappa": 0.5,
+   "snr": 5.6,
+   "P_pass_mirror": 0.7995,
+   "P_pass_direction": 0.9999,
+   "P_fail_null": 0.7995,
+   "power_gate_met": true,
+   "mirror_gate_met": true
+  },
+  {
+   "kappa": 0.5,
+   "snr": 5.04,
+   "P_pass_mirror": 0.7123,
+   "P_pass_direction": 0.999,
+   "P_fail_null": 0.7123,
+   "power_gate_met": false,
+   "mirror_gate_met": false
+  }
+ ]
+}
