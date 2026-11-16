@@ -128,5 +128,6 @@ CLAIM_MAP pointer and note.
 - F4: Glaze attribution corrected; Piet Fig. 2g noted.
 - F5: replication of the locked test stated (0.400; seven replicates 0.347 ± 0.012).
 - F6: CLAIM_MAP v2.34 note numbers corrected. THEORY's CLAIM_MAP pointer set to v2.35, the latest note on main.
+- F8: times. The PR's "authored about 7:45 PM" stamps (THEORY changelog, CLAIM_MAP v2.34) are corrected to its commit, 7:27 PM ET. Pick 35's merged stamps ("about 7:30 PM" in the report, "~7:40 PM" in QUEUE and items) are later than their commits (7:26–7:27 PM ET) and are left as recorded.
 - F7: erratum appended to `CAUSAL_NULL_INVARIANCE.md` (the author's text is left as written). Notes added to
   PREREG-LOSS-LOCK and LIN01-RESPONSE-EXACT.
