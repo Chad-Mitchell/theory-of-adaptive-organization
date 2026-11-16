@@ -659,7 +659,7 @@
   "v": 0.6,
   "L": 2,
   "c": 1.5,
-  "note": "From STAKES-EXOGENOUS S1 fail (15 Nov): reach +/-50% on CAISO stakes with a new lock: pooled years with year effects (2022-2025), net-load error (load - wind - solar forecasts), 5-min RTM prices; and a second ISO (ERCOT or another with public DA forecasts and prices). Gate for SAME-SYSTEM-AQN. | Pick 15: use the like-for-like error e_rt = RTD hourly mean - DA (N21's actual - DA mixes BTM-solar definition noise)."
+  "note": "From STAKES-EXOGENOUS S1 fail (15 Nov): reach +/-50% on CAISO stakes with a new lock: pooled years with year effects (2022-2025), net-load error (load - wind - solar forecasts), 5-min RTM prices; and a second ISO (ERCOT or another with public DA forecasts and prices). Gate for SAME-SYSTEM-AQN. | Pick 15: use the like-for-like error e_rt = RTD hourly mean - DA (N21's actual - DA mixes BTM-solar definition noise). | STAKES-REFEREE (pick 34): use e_rt (like-for-like), declare payment vs resource cost (F2, factor ~1/2), FMM price carries operator conformance (F3; see STAKES-SETTLEMENT-PRICE), 2024 size rests on ISO week 2024-30 (F4)."
  },
  {
   "id": "STAKES-SHIFT-CAISO",
@@ -688,7 +688,12 @@
   "v": 0.8,
   "L": 2,
   "c": 1,
-  "note": "Hostile referee of STAKES-EXOGENOUS: exogeneity argument (within-stratum surprise), reduced-form vs causal cost, k_lin estimand, week-block bootstrap coverage (0.94-0.98 synthetic), amendments A1/A2. | Pick 15 finding to check: on the like-for-like error (RTD - DA) k_lin is 5.37e-3 (2024) and 3.54e-3 (2025), 1.7x and 4.5x N21's; the 4x fall shrinks to ~34% (CI includes 0): N21's error likely attenuated by BTM-estimate noise (errors in variables). Weak surprise."
+  "note": "Hostile referee of STAKES-EXOGENOUS: exogeneity argument (within-stratum surprise), reduced-form vs causal cost, k_lin estimand, week-block bootstrap coverage (0.94-0.98 synthetic), amendments A1/A2. | Pick 15 finding to check: on the like-for-like error (RTD - DA) k_lin is 5.37e-3 (2024) and 3.54e-3 (2025), 1.7x and 4.5x N21's; the 4x fall shrinks to ~34% (CI includes 0): N21's error likely attenuated by BTM-estimate noise (errors in variables). Weak surprise. | DONE 15 Nov ~7:20 PM ET (pick 34, rule slot; ledger 159-162): PASS-WITH-FIXES; N21 INCONCLUSIVE stands; locked R-EIV (lock 1635e28, MV10 met) PASSED on proxy 'CAISO night-hour k_lin, ACTUAL vs RTD reference error' (r_night -0.20 [-0.32,-0.08] vs midpoint -0.48): BTM-definition wedge explains ~79% of the log gap, non-classically; fixes F1-F8.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/STAKES_REFEREE.md",
+   "reviews/night2/STAKES_REFEREE/"
+  ]
  },
  {
   "id": "HEADLINE-PREMISE-REVIEW",
@@ -784,7 +789,7 @@
   "v": 0.4,
   "L": 2,
   "c": 3,
-  "note": "From STAKES-SHIFT-CAISO (pick 15): OASIS keeps ~36 months of prices, so stakes on CAISO were measurable only for 2024-2025 (a ~34% fall on the clean error, not established). A powered N6 causal test needs many stakes changes: archived CAISO prices (DMM reports, other public archives) for 2019-2023, or several ISOs (ERCOT, PJM, NYISO DA load forecasts and prices) as a panel; lock lag 12 months, like-for-like error, q control, with CAUSAL-POWER-GATE met before lock. | Gate numbers (CAUSAL-POWER-GATE, pick 19): with sigma = se_tot 0.342 and b = 1/3, both rules at 0.8 need sqrt(sum dlog w_k^2) >= 2.88 over independent contrasts, i.e. K >= 49 contrasts of |dlog w| = 0.41 (17 at 0.70); use a kappa-relative FAIL margin, not an absolute eps; contrasts sharing weather years are not independent."
+  "note": "From STAKES-SHIFT-CAISO (pick 15): OASIS keeps ~36 months of prices, so stakes on CAISO were measurable only for 2024-2025 (a ~34% fall on the clean error, not established). A powered N6 causal test needs many stakes changes: archived CAISO prices (DMM reports, other public archives) for 2019-2023, or several ISOs (ERCOT, PJM, NYISO DA load forecasts and prices) as a panel; lock lag 12 months, like-for-like error, q control, with CAUSAL-POWER-GATE met before lock. | Gate numbers (CAUSAL-POWER-GATE, pick 19): with sigma = se_tot 0.342 and b = 1/3, both rules at 0.8 need sqrt(sum dlog w_k^2) >= 2.88 over independent contrasts, i.e. K >= 49 contrasts of |dlog w| = 0.41 (17 at 0.70); use a kappa-relative FAIL margin, not an absolute eps; contrasts sharing weather years are not independent. | STAKES-REFEREE (pick 34): year-to-year changes in FMM-DA spread include operator conformance policy (~1,400 MW peak Jan-Feb 2025 vs 50 MW Jan-Feb 2026, CAISO Q2 2026 MPPF); a stakes change measured on FMM may be policy, not market stakes (F3)."
  },
  {
   "id": "CAUSAL-POWER-GATE-N6",
@@ -1090,5 +1095,32 @@
    "reviews/night2/KERNEL_PROXY_REVIEW2.md"
   ],
   "note": "From KERNEL-MEASURE-REFEREE proxy part (pick 33, POST HOC): VIX's total kernel loading on past log range variance is 0.754 +/- 0.028 vs 0.878 +/- 0.042 for the realized 21-day mean log (paired -0.124 +/- 0.050; simulated best linear tracker 0.976). Shape (W21) unaffected. Test a premium-elasticity explanation (premium shrinking in relative terms as variance rises) before any test reads a tracker's gain from VIX. | PR #66 review (ledger 158): target-dependent. VIX minus realized log LEVEL (closer to what VIX prices) is -0.054 +/- 0.053; on 2008-2026 the realized close-to-close log level has lower gain (0.59 +/- 0.12) than VIX (0.75 +/- 0.05). Define the target (level vs mean log, overnight, horizon) before testing a premium explanation."
+ },
+ {
+  "id": "STAKES-CAUSAL-CONTROLS",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 2,
+  "note": "From STAKES-REFEREE F1 (pick 34): k_lin is reduced form; partial DA-vs-actual wind/solar/import surprises (OASIS) out of the spread before estimating stakes on e_rt, so w is the cost a better load forecast saves (THEORY 2.2's w); lock + MV10 before reading."
+ },
+ {
+  "id": "STAKES-SETTLEMENT-PRICE",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 1.5,
+  "note": "From STAKES-REFEREE F3 (pick 34): recompute k on e_rt with the 5-min RTD price / load settlement price and the OASIS conformance series (published since Jun 2022); measure the operator-policy share of the FMM-DA spread and of the 2024->2025 stakes change."
+ },
+ {
+  "id": "STAKES-BIAS-TERM",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 0.5,
+  "note": "From STAKES-REFEREE F8 (pick 34, post hoc, weak surprise): DA forecast averages ~0.9 GW above RTD; between-strata bias x premium is 32-46% of mean e_rt*spread, outside k_lin and outside quadratic loss. Definition gap (conformance?) or real DA bias? Also the non-BTM night wedge (F7, sd 294 MW, r_night -0.20)."
  }
 ]
