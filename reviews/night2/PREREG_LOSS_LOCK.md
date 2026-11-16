@@ -18,7 +18,9 @@ requires a prereg to use it. The loss enters in three separable places:
 1. **The price trade-off (any world).** Read rate and effort balance a price against w·E[ℓ(e)]. With Gaussian errors and
    ℓ = |e|^p, E[ℓ] = c_p V^{p/2}, so the elasticities change with p (§2).
 2. **The tracker family (non-Gaussian worlds only).** Within linear trackers, the best one depends on the loss when errors are
-   not Gaussian (pick 35's finding; independently re-checked in §3). In a Gaussian world it does not: any symmetric,
+   not Gaussian, and it depends on the **rival family** too (pick 35's finding, corrected by its reviewer, ledger 175:
+   one-pole sign-payoff optimum +0.318 = 90% of the Bayes +0.354, exact; two-pole kernels of equal accuracy 0.32–0.37 =
+   90–105%; re-checked independently in §3). In a Gaussian world it does not: any symmetric,
    nondecreasing loss is minimised by the same linear filter (Sherman 1958), so memory time at a given noise level is
    loss-free; but the chosen noise level, hence the memory time at the effort optimum, still moves with p (place 1).
 3. **The Bayes act.** The posterior does not depend on the loss; the act does. In the symmetric two-state world the MSE act
@@ -58,7 +60,7 @@ common random numbers, optimum by local quadratic fit in ln g. t_A = mean zero-c
 
 | Loss (best EWMA for it) | A→B Δln t_A at fit | range over gains within 0.5% of the minimum loss | share of Bayes move |
 |---|---|---|---|
-| sign (0–1) | +0.32 | +0.24 to +0.34 | 0.67–0.95 |
+| sign (0–1) | +0.32 | +0.24 to +0.34 | 0.67–0.95 (exact one-pole, ledger 175: +0.318, 0.90) |
 | squared error (scale 1) | −0.01 | −0.07 to +0.12 | below the kill line |
 | absolute error (best scale) | −0.19 | −0.36 to +0.01 | opposite sign |
 | continuous Kalman gain (fixed) | −0.07 | — | — |
@@ -66,15 +68,18 @@ common random numbers, optimum by local quadratic fit in ln g. t_A = mean zero-c
 
 Sign-error minima 0.0097 (A) and 0.0294 (B) reproduce pick 35's 0.0097–0.0101 and 0.0292–0.0301. **Pick 35's finding
 reproduces**: under a sign payoff the best one-pole linear tracker moves most of the Bayes move, above the κ_F = ½ kill line
-(0.18), so a Bayes-locked causal test cannot fail it at any n. My central value (+0.32, 89%) is above pick 35's 70–81%;
-both sit inside the flat-minimum range (+0.24 to +0.34). New: under **absolute** loss the best one-pole tracker moves the
+(0.18), so a Bayes-locked causal test cannot fail it at any n. My central value (+0.32, 89%) agrees with the reviewer's exact
+one-pole value (+0.318, 90%; `CAUSAL_NULL_INVARIANCE_REVIEW.md` Q2, written in parallel, read after my run) and not with the
+authored 70–81%; across richer (two-pole) linear kernels the reviewer finds 90–105%. All C3 results are for the **one-pole
+(EWMA) family**; the MSE and absolute-loss rows are not claimed for richer linear kernels. New: under **absolute** loss the best one-pole tracker moves the
 other way (−0.19), and under squared error about zero, so for those losses the same test does discriminate. The direction
 of the linear rival's move is loss-dependent, not just its size. (MSE and absolute minima are flat too: the ranges are wide.)
 
 ## 4. Proposed text (author-only PR; DO NOT MERGE without separate reviewer PASS)
 - **§1 N6, "The number" column:** after "exactly one optimum … is locked in the prereg before the data, and it is the one
   scored", add: the prereg also fixes the **loss** the optimum is computed for (the error-cost shape ℓ, measured on the system
-  per FRAMEWORK §3.3, or ℓ = e² stated as an assumption) and computes any named rival optimum **for the same loss**.
+  per FRAMEWORK §3.3, or ℓ = e² stated as an assumption) and computes any named rival optimum **for the same loss and a
+  named rival family** (e.g. one-pole linear, or all linear kernels up to a stated order).
 - **§1 N6, "How it dies" column:** a test reported as telling the locked optimum from a named rival optimum shows, at lock,
   that its FAIL rule reaches that rival with probability ≥ π on the planned data (MV10 discrimination line); if not, its
   result is labelled non-discriminating between them.
@@ -84,7 +89,10 @@ of the linear rival's move is loss-dependent, not just its size. (MSE and absolu
 - **FRAMEWORK MV10:** one sentence for the discrimination line; `tools/power_gate.py --rival-effect` (report-only; added on
   `q-pick37`, does not change `gate_met`; 2 new tests, 33 pass) prints P(FAIL | rival true) and flags
   `rival_unreachable_any_n` when the rival's predicted move is at or above the kill line. Pick 35's numbers: Bayes move 0.350,
-  σ 0.028, κ_F ½ → rival +0.244 or +0.284: unreachable at any n; Kalman −0.071: P(FAIL | rival) > 0.999.
+  σ 0.028, κ_F ½ → rival +0.318 (exact one-pole) or 0.32–0.37 (two-pole): unreachable at any n; Kalman −0.068:
+  P(FAIL | rival) > 0.999. (The tool's unit tests use pick 35's authored +0.244/+0.284; the corrected values give the same
+  verdict.) As the reviewer notes, a Bayes-vs-linear test should use a graded (quadratic) payoff, or an observable other than
+  mean t_A.
 
 Not proposed: an invariance clause for nulls (pick 35's ruling stands for its reviewer), or any κ_F change (that is
 CAUSAL-KAPPA-LENIENCY).
