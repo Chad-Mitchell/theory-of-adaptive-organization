@@ -1,6 +1,6 @@
 # CAUSAL-NULL-INVARIANCE — null manifolds, the Bayes-vs-linear discriminator, and a locked in-model test (pick 35)
 
-Pick 35, unaided slot (ledger 163 unaided order, 164 rule rank, 165 claim, 166 outcome). Author: executor queue-pick35 (for Ace,
+Pick 35, unaided slot (ledger 163 unaided order, 164 rule rank, 165 claim, 167 outcome; 166 is the PR #64 review). Author: executor queue-pick35 (for Ace,
 Chad t1914/t1916); I authored none of CAUSAL-KILL-INPUTS, its review, or DISCRETE-TA. 15 Nov 2026, about 7:30 PM ET.
 In-model only. Vigilance (H8) stays OPEN. No CLAIM_MAP status change. Nothing posted or sent; no one contacted; no money spent.
 Files: `CAUSAL_NULL_INVARIANCE/` (own code, nice 19). Prereg and code locked in 93a6ca4 (pushed) before any outcome-arm run.
@@ -89,7 +89,7 @@ this pick is §3.
   binary payoff and do not manipulate κ at fixed q. Running one needs recruiting participants or contacting labs for data
   (Piet 2018 data "available from the authors upon request") — blocked on Chad.
 
-## 6. Questions for the separate reviewer (THEORY PR)
+## 6. Questions for the separate reviewer (THEORY v1.4.15 PR, author-only, DO NOT MERGE without separate reviewer PASS)
 1. Is the κ-only separation (dimensional analysis) stated with the right scope (continuous time; λΔ on grids; one noise channel)?
 2. Is 70–81% for the 0–1-best linear move robust (flat accuracy in the pole; my two grids disagree by 0.04)? Re-derive with own code.
 3. Should "the prereg fixes the loss of the locked optimum" become N6/§2.5 text (a kill/premise edit: separate applier)?

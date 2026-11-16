@@ -740,7 +740,12 @@
   "v": 0.6,
   "L": 2,
   "c": 1,
-  "note": "From CAUSAL-KILL-INPUTS review Q1 (15 Nov): THEORY scores the causal form only by direction; a change whose locked optimum predicts no move is unscored. Proposal-only item: should a move beyond error under a predicted null count as a miss (an invariance claim, widens claims; kill-condition edit needs separate applier + reviewer, Chad t1916)? Also a Bayes-vs-linear discriminator: a q change split between jump rate and size (lam x2.65, mu^2 x0.75) leaves Bayes t_A fixed (MC -1%) while the linear optimum predicts -29.5% (review checks rev_holes.py). Derive the null manifolds per design quantity (t_A, MSE, precision) and sketch a test. Note from DISCRETE-TA (pick 23): on sampled data the Bayes t_A carries a grid term 0.58 sqrt(Delta N)/mu with elasticities (0, 1/2, -1); the lam x2.65, mu^2 x0.75 null moves it by +15.5% (about +1.2% of t_A at 20 samples per t_A), so null manifolds for sampled tests must include it."
+  "note": "From CAUSAL-KILL-INPUTS review Q1 (15 Nov): THEORY scores the causal form only by direction; a change whose locked optimum predicts no move is unscored. Proposal-only item: should a move beyond error under a predicted null count as a miss (an invariance claim, widens claims; kill-condition edit needs separate applier + reviewer, Chad t1916)? Also a Bayes-vs-linear discriminator: a q change split between jump rate and size (lam x2.65, mu^2 x0.75) leaves Bayes t_A fixed (MC -1%) while the linear optimum predicts -29.5% (review checks rev_holes.py). Derive the null manifolds per design quantity (t_A, MSE, precision) and sketch a test. Note from DISCRETE-TA (pick 23): on sampled data the Bayes t_A carries a grid term 0.58 sqrt(Delta N)/mu with elasticities (0, 1/2, -1); the lam x2.65, mu^2 x0.75 null moves it by +15.5% (about +1.2% of t_A at 20 samples per t_A), so null manifolds for sampled tests must include it. | DONE 15 Nov ~7:40 PM ET (pick 35, unaided slot; ledger 163-165 + outcome 167): reviews/night2/CAUSAL_NULL_INVARIANCE.md. Ruling proposed: keep nulls unscored, no invariance clause (Bayes-vs-linear separation lives only in dln kappa, kappa=lam N/mu^2, by dimensional analysis; lock the optimum that predicts a move). Strong surprise: the discriminator depends on the loss: the 0-1-payoff-best linear tracker moves +0.24..+0.28 in ln t_A under the q-fixed kappa x4 change, 70-81% of Bayes's +0.350, above the kappa_F=1/2 kill line, so MV10's FAIL leg is structurally unreachable for that rival (Piet, El Hady & Brody 2018 read in full: linear 99.8% of nonlinear accuracy). Locked in-model test (lock 93a6ca4, MV10 met SNR 12.5): MSE-payoff-selected learners D=+0.290+/-0.029 vs predicted +0.350, kill line 0.175: PASSED on proxy 'MSE-payoff-selected learners (F(pp,g)+linear family; E=20 switches), zero-crossing t_A on a Delta=0.01 grid'. THEORY v1.4.15 passage: author-only PR, DO NOT MERGE without separate reviewer PASS.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/CAUSAL_NULL_INVARIANCE.md",
+   "reviews/night2/CAUSAL_NULL_INVARIANCE/"
+  ]
  },
  {
   "id": "CAUSAL-KILL-PRICE",
@@ -1127,5 +1132,41 @@
   "L": 1,
   "c": 0.5,
   "note": "From STAKES-REFEREE F8 (pick 34, post hoc, weak surprise): DA forecast averages ~0.9 GW above RTD; between-strata bias x premium is 32-46% of mean e_rt*spread, outside k_lin and outside quadratic loss. Definition gap (conformance?) or real DA bias? Also the non-BTM night wedge (F7, sd 294 MW, r_night -0.20)."
+ },
+ {
+  "id": "CAUSAL-NULL-INVARIANCE-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 1,
+  "c": 0.5,
+  "note": "From CAUSAL-NULL-INVARIANCE (pick 35): separate reviewer of the THEORY v1.4.15 / CLAIM_MAP v2.34 author-only PR (N16 discriminator passage). Own code: kappa-only separation scope (continuous; lam*Delta on grids); the 0-1-best linear move (70-81% of Bayes; flat accuracy, two grids differ by 0.04); the in-model PASS label (D 2 sigma below prediction; 8-learner non-arm pilot)."
+ },
+ {
+  "id": "PREREG-LOSS-LOCK",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 0.5,
+  "note": "From CAUSAL-NULL-INVARIANCE section 3 (pick 35): propose N6 / 2.5 text that a prereg fixes the loss (payoff) of its locked optimum and names the rival optimum for the same loss; under a 0-1 payoff the Bayes-locked causal kill cannot fail the best linear rival (70-81% of the move). Kill/premise edit: separate applier + separate reviewer (Chad t1916)."
+ },
+ {
+  "id": "BAYES-LINEAR-LAB",
+  "w": 3,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 4,
+  "note": "From CAUSAL-NULL-INVARIANCE section 5 (pick 35): decisive real-data Bayes-vs-linear test: quadratic (graded) payoff, kappa x4 at fixed q, lam/mu/N measured, change-of-mind latency, >= ~180 switches per arm before behavioral noise, rival computed for the same payoff. Needs recruiting participants or requesting lab data (Piet 2018 data on request): BLOCKED ON CHAD."
+ },
+ {
+  "id": "LIN01-RESPONSE-EXACT",
+  "w": 1,
+  "untested": true,
+  "v": 0.6,
+  "L": 1,
+  "c": 0.5,
+  "note": "From CAUSAL-NULL-INVARIANCE (pick 35, post hoc): pin the 0-1-best linear tracker's t_A response exactly (lattice/Gaussian-sum method, not grid MC; accuracy flat in the pole) and test whether the MSE learners' 0.06 shortfall vs the Bayes move shrinks with experience (E=80 switches)."
  }
 ]
