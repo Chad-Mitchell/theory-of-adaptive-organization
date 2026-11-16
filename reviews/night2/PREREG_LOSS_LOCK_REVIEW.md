@@ -1,6 +1,6 @@
 # PREREG-LOSS-LOCK-REVIEW — independent review of PR #73 (THEORY v1.4.16 / CLAIM_MAP v2.36, pick 37)
 
-Out-of-cycle, unscored (independent review of pick 37 author PR per t1916); ledger 184. Reviewer: independent reviewer
+Out-of-cycle, unscored (independent review of pick 37 author PR per t1916); ledger 185. Reviewer: independent reviewer
 executor (for Ace, Chad t1914/t1916). I authored none of pick 37, `PREREG_LOSS_LOCK*`, PRs #72/#73, N6's kill text, the
 CAUSAL-NULL-INVARIANCE work or formal Theorem 4. Sunday 15 November 2026, about 7:54–8:15 PM ET. Own code, imported from
 nothing of the author's: `PREREG_LOSS_LOCK_REVIEW_checks/` (all runs at nice 19). In-model checks only; no data outcome
