@@ -1144,7 +1144,12 @@
   "v": 0.8,
   "L": 1,
   "c": 0.5,
-  "note": "From CAUSAL-NULL-INVARIANCE (pick 35): separate reviewer of the THEORY v1.4.15 / CLAIM_MAP v2.34 author-only PR (N16 discriminator passage). Own code: kappa-only separation scope (continuous; lam*Delta on grids); the 0-1-best linear move (70-81% of Bayes; flat accuracy, two grids differ by 0.04); the in-model PASS label (D 2 sigma below prediction; 8-learner non-arm pilot)."
+  "note": "From CAUSAL-NULL-INVARIANCE (pick 35): separate reviewer of the THEORY v1.4.15 / CLAIM_MAP v2.34 author-only PR (N16 discriminator passage). Own code: kappa-only separation scope (continuous; lam*Delta on grids); the 0-1-best linear move (70-81% of Bayes; flat accuracy, two grids differ by 0.04); the in-model PASS label (D 2 sigma below prediction; 8-learner non-arm pilot). | DONE 15 Nov ~7:49 PM ET (out-of-cycle, unscored; ledger 175; independent review of pick 35 author PR #70 per t1916): PASS-WITH-FIXES, merged as THEORY v1.4.15 / CLAIM_MAP v2.34 (reviews/night2/CAUSAL_NULL_INVARIANCE_REVIEW.md, own code CAUSAL_NULL_INVARIANCE_REVIEW_checks/). Exact grid: 0-1-best one-pole linear dln t_A +0.318 = 90% of Bayes +0.354 (author 70-81% was noise-limited MC); two-pole kernels of equal accuracy +0.32..+0.37. kappa-only separation correct with scope (scale-free loss; symmetric two-level, one noise channel). Locked PASS correct; own re-implementation 7 replicates D = 0.347 +- 0.012, all PASSED (0.290 a low draw). Glaze attribution corrected. No goalpost moved; no status change; vigilance OPEN.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/CAUSAL_NULL_INVARIANCE_REVIEW.md",
+   "reviews/night2/CAUSAL_NULL_INVARIANCE_REVIEW_checks/"
+  ]
  },
  {
   "id": "PREREG-LOSS-LOCK",
@@ -1153,7 +1158,7 @@
   "v": 0.6,
   "L": 2,
   "c": 0.5,
-  "note": "From CAUSAL-NULL-INVARIANCE section 3 (pick 35): propose N6 / 2.5 text that a prereg fixes the loss (payoff) of its locked optimum and names the rival optimum for the same loss; under a 0-1 payoff the Bayes-locked causal kill cannot fail the best linear rival (70-81% of the move). Kill/premise edit: separate applier + separate reviewer (Chad t1916)."
+  "note": "From CAUSAL-NULL-INVARIANCE section 3 (pick 35): propose N6 / 2.5 text that a prereg fixes the loss (payoff) of its locked optimum and names the rival optimum for the same loss; under a 0-1 payoff the Bayes-locked causal kill cannot fail the best linear rival (70-81% of the move). Kill/premise edit: separate applier + separate reviewer (Chad t1916). | CAUSAL-NULL-INVARIANCE-REVIEW (ledger 175): use the corrected value: the 0-1-best one-pole linear move is +0.318, 90% of Bayes (not 70-81%); two-pole kernels of equal accuracy give +0.32..+0.37, so the prereg must also name the rival family."
  },
  {
   "id": "BAYES-LINEAR-LAB",
@@ -1171,7 +1176,7 @@
   "v": 0.6,
   "L": 1,
   "c": 0.5,
-  "note": "From CAUSAL-NULL-INVARIANCE (pick 35, post hoc): pin the 0-1-best linear tracker's t_A response exactly (lattice/Gaussian-sum method, not grid MC; accuracy flat in the pole) and test whether the MSE learners' 0.06 shortfall vs the Bayes move shrinks with experience (E=80 switches)."
+  "note": "From CAUSAL-NULL-INVARIANCE (pick 35, post hoc): pin the 0-1-best linear tracker's t_A response exactly (lattice/Gaussian-sum method, not grid MC; accuracy flat in the pole) and test whether the MSE learners' 0.06 shortfall vs the Bayes move shrinks with experience (E=80 switches). | CAUSAL-NULL-INVARIANCE-REVIEW (ledger 175) did the exact part: deterministic grid, dln t_A +0.318 (pole x2.265 -> x1.548; curvature and convergence in the review). Learner shortfall: 7 own replicates at E = 20 average D = 0.347 +- 0.012, so no shortfall to track with experience; remaining open part (if kept): general linear kernels beyond two poles."
  },
  {
   "id": "CAUSAL-KAPPA-LENIENCY",
