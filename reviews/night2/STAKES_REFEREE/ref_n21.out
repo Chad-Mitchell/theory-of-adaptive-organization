@@ -1,0 +1,132 @@
+/workspace/wt-pick34/reviews/night2/STAKES_REFEREE/ref_n21.py:53: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
+  lag = p[["dkey", "hr", "e"]].copy(); lag1 = lag.copy(); lag1["dkey"] += pd.Timedelta(days=1); lag2 = lag.copy(); lag2["dkey"] += pd.Timedelta(days=2)
+/workspace/wt-pick34/reviews/night2/STAKES_REFEREE/ref_n21.py:55: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
+  am = lag[lag.hr <= 9].groupby("dkey").e.mean().rename("l1am").reset_index(); am["dkey"] += pd.Timedelta(days=1)
+/workspace/wt-pick34/reviews/night2/STAKES_REFEREE/ref_n21.py:53: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
+  lag = p[["dkey", "hr", "e"]].copy(); lag1 = lag.copy(); lag1["dkey"] += pd.Timedelta(days=1); lag2 = lag.copy(); lag2["dkey"] += pd.Timedelta(days=2)
+/workspace/wt-pick34/reviews/night2/STAKES_REFEREE/ref_n21.py:55: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
+  am = lag[lag.hr <= 9].groupby("dkey").e.mean().rename("l1am").reset_index(); am["dkey"] += pd.Timedelta(days=1)
+{
+ "2025": {
+  "n": 8761,
+  "k_lin": 0.0007779678729330043,
+  "ci_day": [
+   0.00028762183640887137,
+   0.0013099657763825827,
+   0.6570605133855907,
+   0.0002602112968786111
+  ],
+  "ci_week": [
+   0.00018059900956143797,
+   0.0012648845577641322,
+   0.6968703888213574,
+   0.0002856233878941653
+  ],
+  "ci_2week": [
+   0.0001467482333122959,
+   0.0012250121296437965,
+   0.6930002727916997,
+   0.0002745086321479953
+  ],
+  "ci_4week": [
+   0.00015797169758795433,
+   0.001230655522373633,
+   0.6894139604644408,
+   0.00027524471344136643
+  ],
+  "jackknife_se": 0.00030984974361204044,
+  "top3_week_influence(k - k_without)": [
+   [
+    0.00017148364643641324,
+    202552
+   ],
+   [
+    9.314723206783936e-05,
+    202506
+   ],
+   [
+    7.955425532900427e-05,
+    202549
+   ]
+  ],
+  "k_drop_abs_spread_gt_p99.9": 0.0007183288602545269,
+  "k_drop_abs_spread_gt_p99.0": 0.0005931560162091036,
+  "k_winsor_1_99": 0.0006915663564277984,
+  "numerator_share_top1pct_hours_abs": 0.14128718853667788,
+  "numerator_share_top1pct_signed": 0.20011899818498424,
+  "coverage_week_block_real_resid": 0.9666666666666667,
+  "coverage_4week_block_real_resid": 0.9333333333333333,
+  "coverage_reps": 150,
+  "incrR2_l2": 0.028834764988991735,
+  "incrR2_l1am_l2": 0.028903333063428516,
+  "incrR2_l1_l2_upper": 0.1962947825274003,
+  "k_on_unforecastable_part": 0.0007191800899390537,
+  "identity_weighted_mean_kg": 0.0007779678729330042,
+  "share_strata_kg_negative": 0.3055555555555556
+ },
+ "2024": {
+  "n": 8760,
+  "k_lin": 0.0032133876388049923,
+  "ci_day": [
+   0.001656435379617579,
+   0.0050735930931003126,
+   0.5317064259874853,
+   0.0008882535552167862
+  ],
+  "ci_week": [
+   0.0013835470536998572,
+   0.005143788302838344,
+   0.5850898913859114,
+   0.0009778267218578743
+  ],
+  "ci_2week": [
+   0.0013801767991312138,
+   0.004681419079788192,
+   0.5136700970637731,
+   0.0008544278309769561
+  ],
+  "ci_4week": [
+   0.0012193128665580356,
+   0.004947379736820359,
+   0.5800835892380436,
+   0.0010614845679319496
+  ],
+  "jackknife_se": 0.0011584671804111624,
+  "top3_week_influence(k - k_without)": [
+   [
+    0.0010136800886212456,
+    202430
+   ],
+   [
+    0.00020914640165270535,
+    202432
+   ],
+   [
+    0.0001750493063893562,
+    202436
+   ]
+  ],
+  "k_drop_abs_spread_gt_p99.9": 0.002562013916888806,
+  "k_drop_abs_spread_gt_p99.0": 0.0018229778194192355,
+  "k_winsor_1_99": 0.001972921208616268,
+  "numerator_share_top1pct_hours_abs": 0.3166229386401149,
+  "numerator_share_top1pct_signed": 0.5300350531925484,
+  "coverage_week_block_real_resid": 0.9,
+  "coverage_4week_block_real_resid": 0.88,
+  "coverage_reps": 150,
+  "incrR2_l2": 0.053036964675897136,
+  "incrR2_l1am_l2": 0.060314229547681175,
+  "incrR2_l1_l2_upper": 0.2198032065111083,
+  "k_on_unforecastable_part": 0.003190930247411231,
+  "identity_weighted_mean_kg": 0.0032133876388049914,
+  "share_strata_kg_negative": 0.19444444444444445
+ },
+ "dlog_k_2025_vs_2024": {
+  "est": -1.4183957699415575,
+  "ci": [
+   -2.909461635808831,
+   -0.39902574826700726
+  ],
+  "frac_b25_le0": 0.004
+ }
+}

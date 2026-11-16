@@ -1,0 +1,83 @@
+rows 17466 night rows 6556 years [np.int32(2024), np.int32(2025)]
+{"sigma_n": 0.06261773514347502, "boot_nan": 0, "r_all": -0.9650395083994685, "m": -0.48251975419973425}
+GATE exit 0 {
+ "inputs": {
+  "effect": 0.48251975419973425,
+  "sigma": 0.06261773514347502,
+  "alpha": 0.05,
+  "power": 0.8,
+  "fail_eps": null,
+  "fail_kappa": null,
+  "band_top": null,
+  "noise_df": null,
+  "form": "optimality"
+ },
+ "SNR": 7.705800171375481,
+ "analytic": {
+  "z": 1.9599639845400536,
+  "fail_threshold": 0.48251975419973425,
+  "P_pass_true": 0.9999999954266086,
+  "P_fail_null": 0.9999999954266086,
+  "P_fail_true": 0.025000000000000078,
+  "P_pass_null": 0.025000000000000022,
+  "pass_region_empty": false,
+  "best_case_pass_fires": true,
+  "best_case_fail_fires": true
+ },
+ "simulated": {
+  "P_pass_true": 1.0,
+  "P_fail_true": 0.024995,
+  "P_pass_null": 0.02456,
+  "P_fail_null": 1.0,
+  "sims": 200000,
+  "seed": 1,
+  "noise_df": null,
+  "noise": "normal"
+ },
+ "needed": {
+  "effect_for_pass": 0.1754289211696725,
+  "sigma_max_for_fail": null,
+  "effect_for_fail": 0.1754289211696725
+ },
+ "pass_reachable": true,
+ "fail_reachable": true,
+ "gate_met": true,
+ "kappa_used": 1.0,
+ "kappa_in_N6_range": null
+}
+LOCKED {"r_night": -0.2018832190029319, "ci": [-0.3246139798841429, -0.07915245812172088], "verdict": "PASS", "gate_met": true}
+REPORT {
+ "all": {
+  "k_act": 0.0017274037360830953,
+  "k_rt": 0.0045342471415275925,
+  "lambda": 0.5080308034721012,
+  "sd_u": 617.2337528814003,
+  "sd_e_rt": 626.6599400451344,
+  "corr": 0.6926650554051148,
+  "ratio": 0.38096814800022816
+ },
+ "night": {
+  "k_act": 0.004537218692734848,
+  "k_rt": 0.005552217628097121,
+  "lambda": 0.7044820714878325,
+  "sd_u": 294.4564849285339,
+  "sd_e_rt": 429.8519479909777,
+  "corr": 0.8025502914830296,
+  "ratio": 0.817190354674527
+ },
+ "day": {
+  "k_act": 0.0005766911574781222,
+  "k_rt": 0.00377267645931639,
+  "lambda": 0.42338978530723215,
+  "sd_u": 969.0609416817658,
+  "sd_e_rt": 834.7846160466316,
+  "corr": 0.6376861747016388,
+  "ratio": 0.15285995597476143
+ },
+ "r_night_2024": -0.1746333503023915,
+ "r_all_2024": -0.6242731531725014,
+ "k_rt_2024": 0.005365516925009796,
+ "r_night_2025": -0.2510027736520834,
+ "r_all_2025": -1.5182808808496715,
+ "k_rt_2025": 0.003543936159419897
+}

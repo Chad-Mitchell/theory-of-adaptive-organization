@@ -209,7 +209,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **STAKES-PRECISION** (w 2, c 1.5; from S1 fail). New lock to reach ±50%: pooled years with year effects, net-load error, 5-min prices, a second ISO. Gate for SAME-SYSTEM-AQN.
 - **STAKES-SHIFT-CAISO** (w 3, c 3; weak surprise, unlocked): stakes fell ~4× from 2024 to 2025 (CIs do not overlap). THEORY §1 N6 causal form: pick a CAISO design quantity, fix the adjustment lag as a number, lock the direction, test on unseen years.
 - **CAISO-PROXY-DEFS** (w 1, c 0.5). DA forecast 1.76 GW (7%) below "actual" on average; check the two series' public definitions.
-- **STAKES-REFEREE** (w 2, c 1). Hostile referee of STAKES-EXOGENOUS.
+- ~~**STAKES-REFEREE**~~ (w 2, c 1). Hostile referee of STAKES-EXOGENOUS. — DONE 15 Nov ~7:20 PM ET (pick 34; see NEW section from STAKES-REFEREE).
 - Note added to SAME-SYSTEM-AQN: CAISO is a candidate system once STAKES-PRECISION passes.
 
 **Pick 12 done (ledger 64; outcome 70, written as 66, renumbered because q-pick13 had already used 66–68). Next pick (13) is the rule slot (cycle restarts: rule, rule, unaided, uniform): log a fresh unaided order, run the rule, take the rule's top among open non-active items. Next free ledger entry: 67.**
@@ -383,3 +383,12 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - ~~**KERNEL-PROXY-REVIEW**~~ — DONE ~6:57 PM ET (out-of-cycle, unscored; ledger 158; independent review of pick 33 author PR #66 per t1916): **PASS-WITH-FIXES**, merged as THEORY v1.4.13 / CLAIM_MAP v2.31 (`reviews/night2/KERNEL_PROXY_REVIEW2.md`, own code `KERNEL_PROXY_REVIEW2_checks/`). Every number reproduces; identity valid in population (no future-noise orthogonality needed); in-model VIX − realized reference ≈ +0.02, not 0; P1 PASS (0.004 slack) holds at 56/60 bootstrap seeds; 'supported' → 'consistent, not certified'; gain clause narrowed. No goalpost moved; no status change; vigilance OPEN.
 
 **Pick 33 done (rule slot; ledger 153–155 + outcome 157; its PR #66 reviewed out of cycle, ledger 158). Pick 32 (uniform) done on main (outcome 156); ONSET-ACROSS-ALPHA-REVIEW active. Next pick (34) is the rule slot (cycle position 2). Recheck all pushed branches before any ledger write.**
+
+### NEW (15 Nov ~7:20 PM ET, from STAKES-REFEREE; surprises read per rule 4)
+- ~~**STAKES-REFEREE**~~ — DONE (pick 34, RULE slot: entry 160's top eligible id, I = 1.6, tied with ONSET-ACROSS-ALPHA-REVIEW (active, ineligible); Ace's unaided rank 2 of 52; ledger 159 unaided order, 160 rule_rank, 161 claim, 162 outcome): `reviews/night2/STAKES_REFEREE.md`. **PASS-WITH-FIXES**; N21 stays INCONCLUSIVE on proxy, no status change. Own code reproduces N21 and pick 15's k on e_rt. Locked check R-EIV (`reviews/night2/STAKES_REFEREE/PREREG_EIV.md`, lock `1635e28` before any RTD fetch; MV10 met blind, SNR 7.7): **PASSED on proxy "CAISO night-hour k_lin, ACTUAL vs RTD reference error"**, r_night −0.20 [−0.32, −0.08] vs midpoint −0.48: pick 15's BTM-definition mechanism explains ~79% of N21's log gap; N21's "4× fall" withdrawn. Fixes: F1 S3 tests predictability, not slope exogeneity (reduced form ≠ §2.2's w); F2 payment vs resource cost (~½); F3 FMM price ≠ load settlement price and carries operator conformance (CAISO DMM 2023 annual report, Feb 2024 memo, Q2 2026 MPPF, read); F4 coverage 0.97 (2025) / 0.90 (2024), 2024 size rests on ISO week 2024-30 (31%); F5 S2 uninformative; F7 wedge non-classical (day ratio 0.15 vs λ 0.42) plus a non-BTM night wedge; F8 bias × premium linear cost 32–46% of mean cost on e_rt.
+- Surprise read: **weak** — the attenuation is non-classical (correlated with a negatively priced solar surprise) and a linear bias cost sits outside the quadratic premise; no row moves.
+- **STAKES-CAUSAL-CONTROLS** (w 2, c 2). Partial out supply surprises (wind/solar/imports) before estimating stakes on e_rt.
+- **STAKES-SETTLEMENT-PRICE** (w 2, c 1.5). k on e_rt with 5-min RTD / settlement price and the OASIS conformance series.
+- **STAKES-BIAS-TERM** (w 1, c 0.5). The 0.9 GW DA-above-RTD offset and its linear cost; the non-BTM night wedge.
+
+**Pick 34 done (rule slot; ledger 159–161 + outcome 162). Next pick (35) is the unaided slot (cycle position 3). Recheck all pushed branches before any ledger write.**
