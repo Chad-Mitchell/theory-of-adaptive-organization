@@ -1258,6 +1258,30 @@
   "v": 0.7,
   "L": 2,
   "c": 1,
-  "note": "From CAUSAL-KAPPA-LENIENCY (pick 38, moderate surprise): the causal form's PASS was tested against 0 while its FAIL was tested against kappa_F. Audit every other locked rule (optimality form 'gap >= 2.80 sigma', onset/kernel tests with rival margins, MV10 band/moot/equivalence bounds) for the same PASS-vs-FAIL asymmetry; list which locked passes would read inconclusive under the mirror; propose wording (no locked label changes)."
+  "note": "From CAUSAL-KAPPA-LENIENCY (pick 38, moderate surprise): the causal form's PASS was tested against 0 while its FAIL was tested against kappa_F. Audit every other locked rule (optimality form 'gap >= 2.80 sigma', onset/kernel tests with rival margins, MV10 band/moot/equivalence bounds) for the same PASS-vs-FAIL asymmetry; list which locked passes would read inconclusive under the mirror; propose wording (no locked label changes). | DONE pick 39 (ledger 181-183 + outcome): the causal-form split is not unique. HIT-vs-0 / MISS-vs-a-floor (C3b/F1/banks) has the same wrong-pass shape; relative 15% and V ×/÷1.15 PASS on the point estimate, so LEARNSIM RA, AA, V RR and V RRh would read INCONCLUSIVE under TOST (T1.8 stays NOT PASSED). KERNEL, KERNEL-PROXY and EIV are already symmetric; ONSET primary PASS is already TOST. Report-only re-reads; locked labels unchanged. No THEORY/FRAMEWORK/CLAIM_MAP edit (PR #73 and #74 already pending on N6). New items RELATIVE-BAND-TOST, HIT-ZERO-MISS-FLOOR.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/PASS_RULE_SYMMETRY_AUDIT.md",
+   "reviews/night2/PASS_RULE_SYMMETRY_AUDIT_checks/",
+   "tools/pass_rule_symmetry.py"
+  ]
+ },
+ {
+  "id": "RELATIVE-BAND-TOST",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 0.5,
+  "note": "From PASS-RULE-SYMMETRY-AUDIT (pick 39, moderate surprise): LEARNSIM's 15% exponent rule and V ×/÷1.15 PASS on the point estimate, not on the CI lying inside the band. At RA's locked SE (0.136) a TOST PASS is unreachable (1.96 sigma > band) but the point rule still PASSed, and a truth already outside the band PASSed 35% in a 20k MC. Report-only: RA, AA (known-groups), V RR and V RRh would read INCONCLUSIVE under TOST; T1.8 stays NOT PASSED; locked labels unchanged. Propose that future relative-band locks use TOST and meet MV10's 'PASS band wider than the CI half-width' before they are decisive."
+ },
+ {
+  "id": "HIT-ZERO-MISS-FLOOR",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 0.5,
+  "note": "From PASS-RULE-SYMMETRY-AUDIT (pick 39, moderate surprise): C3b/F1 HIT against 0 while MISS/K1c is against a magnitude floor (0.15 or ½ β_σ); DECISIVE banks HIT is a sign test plus a point-only P3 condition, and its kill is a subset magnitude rule. Own MC (sigma 0.06): a true effect of 0.10 HITs 38% under the locked pair, 0.3% under a floor-mirror (MISS unchanged). C3 and F1 already INCONCLUSIVE; C3b not yet run; banks HIT re-read only (lo 0.11 would not clear 0.2). Propose symmetric HIT/MISS wording for future locks; no FRAMEWORK §6 or locked-label change in the audit itself."
  }
 ]
