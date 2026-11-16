@@ -1,0 +1,4 @@
+A err M12 argmin x Kalman 2.2722 (M6 2.2686)  tA 0.7241 (M6 0.7252)
+A mse M12 argmin x Kalman 0.9997 (M6 0.9988)  tA 1.6388 (M6 1.6402)
+A abs M12 argmin x Kalman 0.5652 (M6 0.5643)  tA 2.8370 (M6 2.8412)
+A Bayes M12 tA 0.6629 (M6 0.6628)

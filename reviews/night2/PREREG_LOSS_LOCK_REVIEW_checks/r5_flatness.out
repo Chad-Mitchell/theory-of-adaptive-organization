@@ -1,0 +1,3 @@
+err dln at argmin 0.3180; range within 0.5% of min loss [0.208, 0.425]
+mse dln at argmin -0.0678; range within 0.5% of min loss [-0.276, 0.142]
+abs dln at argmin -0.2274; range within 0.5% of min loss [-0.511, 0.057]
