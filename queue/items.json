@@ -259,7 +259,7 @@
   "v": 0.6,
   "L": 2,
   "c": 3,
-  "note": "new (N12): LEARNSIM-style non-circular learners in fGn worlds at two alpha values, same technology; locked prediction: onset exponent unchanged (-1 reset; -2 linear precision price) | N12 referee (15 Nov): lock the narrowed form: same alpha for shared and private drift, exact reads (or report read noise; noisy reads go to -2 at small rho), stated rho window (fits over [0.01,1] give -0.93 / -1.86). | DONE 15 Nov ~7:15 PM ET (pick 32, UNIFORM slot; ledger 149 unaided, 150 rule_rank, 151 claim, 156 outcome): PASSED in-model on proxy 'learned reset-read pooling onset in simulated fBm worlds' (lock 2921bb2; MV10 met): e(1.5) -0.950, e(2.5) -0.937, Delta +0.013 [-0.072, +0.118] vs margin 0.267. Reset reads only. THEORY v1.4.12 / CLAIM_MAP v2.30 author-only PR #64 (DO NOT MERGE without separate reviewer PASS).",
+  "note": "new (N12): LEARNSIM-style non-circular learners in fGn worlds at two alpha values, same technology; locked prediction: onset exponent unchanged (-1 reset; -2 linear precision price) | N12 referee (15 Nov): lock the narrowed form: same alpha for shared and private drift, exact reads (or report read noise; noisy reads go to -2 at small rho), stated rho window (fits over [0.01,1] give -0.93 / -1.86). | DONE 15 Nov ~6:40 PM ET (commit time; first stamped ~7:15 PM) (pick 32, UNIFORM slot; ledger 149 unaided, 150 rule_rank, 151 claim, 156 outcome): PASSED in-model on proxy 'learned reset-read pooling onset in simulated fBm worlds' (lock 2921bb2; MV10 met): e(1.5) -0.950, e(2.5) -0.937, Delta +0.013 [-0.072, +0.118] vs margin 0.267. Reset reads only. THEORY v1.4.12 / CLAIM_MAP v2.30 author-only PR #64; merged after separate reviewer PASS-WITH-FIXES as v1.4.14 / v2.33 (ledger 166).",
   "status": "DONE",
   "paths": [
    "tests/ONSET_ACROSS_ALPHA/RESULTS.md",
@@ -1044,7 +1044,12 @@
   "v": 0.8,
   "L": 1,
   "c": 0.5,
-  "note": "From ONSET-ACROSS-ALPHA-SIM (pick 32): separate reviewer of PR #64 (THEORY v1.4.12 N12 in-model evidence sentence; CLAIM_MAP v2.30). Re-run with own code (different fBm generator; an ES learner as in LEARNSIM); judge population selection as the primary learner, the 0.267 margin (alpha-dependence of vigilance growth / mixed e_u over alpha 1.5-2.5), the alpha=2 pre-lock pilot as noise source, the per-alpha read-cost unit choice; check the post hoc level gap 0.34 vs 0.31."
+  "note": "From ONSET-ACROSS-ALPHA-SIM (pick 32): separate reviewer of PR #64 (THEORY v1.4.12 N12 in-model evidence sentence; CLAIM_MAP v2.30). Re-run with own code (different fBm generator; an ES learner as in LEARNSIM); judge population selection as the primary learner, the 0.267 margin (alpha-dependence of vigilance growth / mixed e_u over alpha 1.5-2.5), the alpha=2 pre-lock pilot as noise source, the per-alpha read-cost unit choice; check the post hoc level gap 0.34 vs 0.31. | DONE 15 Nov ~7:30 PM ET (out-of-cycle, unscored; ledger 166; independent review of pick 32 author PR #64 per t1916): PASS-WITH-FIXES, merged as THEORY v1.4.14 / CLAIM_MAP v2.33 (renumbered from v1.4.12 / v2.30; reviews/night2/ONSET_ACROSS_ALPHA_REVIEW.md, own code ONSET_ACROSS_ALPHA_REVIEW_checks/). Own code (Cholesky fBm, own grid + ES learners, own estimators): ES Delta +0.012 [-0.116, +0.137] PASS; grid +0.119 [-0.028, +0.273] at 16 seeds INCONCLUSIVE (small-rho noise), -0.007 [-0.070, +0.065] at 48 seeds (post hoc); exact discrete optimum Delta +0.002. Rulings: pop selection acceptable (ES agrees); margin fair but generous (95% bound |Delta| <~ 0.13 now stated); alpha=2 pilot clean; per-alpha C unbiased (discrete exponent within 0.004 once T >~ 25). Times corrected to commits (lock 6:34 PM, results 6:40 PM ET). No goalpost moved; no status change; vigilance OPEN.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/ONSET_ACROSS_ALPHA_REVIEW.md",
+   "reviews/night2/ONSET_ACROSS_ALPHA_REVIEW_checks/"
+  ]
  },
  {
   "id": "ONSET-ACROSS-ALPHA-PRICED",
@@ -1053,7 +1058,7 @@
   "v": 0.6,
   "L": 2,
   "c": 2,
-  "note": "From ONSET-ACROSS-ALPHA-SIM (pick 32): the precision-priced arm (predicted -(1+theta), -2 at linear price, at every alpha) across alpha 1.5 vs 2.5 with learners not given the cost function; the self-tuned EWMA is not the best linear tracker at alpha != 2 (still degree-1 homogeneous, so the prediction stands for it); MV10 gate on an out-of-contrast pilot first; small-rho onset gaps are smaller than for reset reads."
+  "note": "From ONSET-ACROSS-ALPHA-SIM (pick 32): the precision-priced arm (predicted -(1+theta), -2 at linear price, at every alpha) across alpha 1.5 vs 2.5 with learners not given the cost function; the self-tuned EWMA is not the best linear tracker at alpha != 2 (still degree-1 homogeneous, so the prediction stands for it); MV10 gate on an out-of-contrast pilot first; small-rho onset gaps are smaller than for reset reads. | Review of pick 32 (ledger 166): onset noise is 2-3x larger at alpha 1.5 than 2.5 in every run; pilot at both alpha ends (or inflate sigma accordingly) for the MV10 gate; keep the lone member's T >~ 25 (discreteness bias at T <~ 15)."
  },
  {
   "id": "KERNEL-PROXY-REVIEW",

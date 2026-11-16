@@ -1,0 +1,2 @@
+grid.jsonl iso {"1.5": {"e": -1.0832, "se": 0.0755, "ci": [-1.234, -0.947], "valid": 6, "medTf": 38.5}, "2.5": {"e": -0.9645, "se": 0.0253, "ci": [-1.019, -0.918], "valid": 6, "medTf": 39.0}, "contrast": {"delta": 0.1188, "se": 0.0794, "ci": [-0.0276, 0.2729], "verdict": "INCONCLUSIVE"}}
+grid.jsonl cubic {"1.5": {"e": -1.0815, "se": 0.0743, "ci": [-1.232, -0.95], "valid": 6, "medTf": 38.5}, "2.5": {"e": -0.9631, "se": 0.0249, "ci": [-1.019, -0.918], "valid": 6, "medTf": 39.0}, "contrast": {"delta": 0.1184, "se": 0.0781, "ci": [-0.0253, 0.271], "verdict": "INCONCLUSIVE"}}
