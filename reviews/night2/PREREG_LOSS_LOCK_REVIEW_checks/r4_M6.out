@@ -1,0 +1,15 @@
+A Bayes {'err': np.float64(0.00870673565018816), 'tA': np.float64(0.6628352145789521)} Kalman rate 0.4004994215566436
+A err best pole x Kalman 2.268645859231363 {'err': np.float64(0.009679097965082692), 'mse': np.float64(0.4933423185642698), 'abs': np.float64(0.539681622862837), 'abs_scale': np.float64(0.9056210411328022), 'mse_scale': np.float64(0.8958721870992571), 'tA': np.float64(0.725200334810669)}
+A mse best pole x Kalman 0.9988481331204532 {'err': np.float64(0.017167083238004532), 'mse': np.float64(0.38019465685881926), 'abs': np.float64(0.419785608668241), 'abs_scale': np.float64(0.9587618146769711), 'mse_scale': np.float64(0.9500996434275127), 'tA': np.float64(1.6402241890507203)}
+A abs best pole x Kalman 0.5643149790254048 {'err': np.float64(0.028893016427630897), 'mse': np.float64(0.43435915400863134), 'abs': np.float64(0.3930545364019191), 'abs_scale': np.float64(0.9834510631702764), 'mse_scale': np.float64(0.9701963541721778), 'tA': np.float64(2.8411604170945246)}
+A Kalman pole {'err': np.float64(0.017149020915000982), 'mse': np.float64(0.38019487514850203), 'abs': np.float64(0.4198972186303896), 'abs_scale': np.float64(0.9576596699634885), 'mse_scale': np.float64(0.9500474772064964), 'tA': np.float64(1.6383771821212492)}
+B Bayes {'err': np.float64(0.027129192856356923), 'tA': np.float64(0.9443920154375333)} Kalman rate 0.4019947595021886
+B err best pole x Kalman 1.548469999188121 {'err': np.float64(0.029297873915028624), 'mse': np.float64(0.3876602850794302), 'abs': np.float64(0.4703529842736871), 'abs_scale': np.float64(0.8737349540259313), 'mse_scale': np.float64(0.8578024713594045), 'tA': np.float64(0.9966903762342729)}
+B mse best pole x Kalman 0.9988560668167362 {'err': np.float64(0.03505445646415056), 'mse': np.float64(0.3617175207268615), 'abs': np.float64(0.4296784473943654), 'abs_scale': np.float64(0.9226391611401281), 'mse_scale': np.float64(0.9005622353806623), 'tA': np.float64(1.5326755749762067)}
+B abs best pole x Kalman 0.6605472843955849 {'err': np.float64(0.04828000104054729), 'mse': np.float64(0.38480081799375543), 'abs': np.float64(0.41618917259323357), 'abs_scale': np.float64(0.956582213160747), 'mse_scale': np.float64(0.929069355578757), 'tA': np.float64(2.2631809188868615)}
+B Kalman pole {'err': np.float64(0.03502680046324272), 'mse': np.float64(0.3617176975562928), 'abs': np.float64(0.42974985332696236), 'abs_scale': np.float64(0.92158584308268), 'mse_scale': np.float64(0.9004688108887675), 'tA': np.float64(1.5309867005355264)}
+dln_err 0.318 share of Bayes 0.898
+dln_mse -0.0678 share of Bayes -0.192
+dln_abs -0.2274 share of Bayes -0.642
+dln_bayes 0.354 share of Bayes 1.0
+dln_kalman -0.0678 share of Bayes -0.191

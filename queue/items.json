@@ -1172,7 +1172,7 @@
   "v": 0.5,
   "L": 2,
   "c": 4,
-  "note": "From CAUSAL-NULL-INVARIANCE section 5 (pick 35): decisive real-data Bayes-vs-linear test: quadratic (graded) payoff, kappa x4 at fixed q, lam/mu/N measured, change-of-mind latency, >= ~180 switches per arm before behavioral noise, rival computed for the same payoff. Needs recruiting participants or requesting lab data (Piet 2018 data on request): BLOCKED ON CHAD. | PREREG-LOSS-LOCK (pick 37, one-pole family, in-model): under squared error the best one-pole tracker moves ~0 (-0.07..+0.12), under absolute error -0.19 (-0.36..+0.01), vs Bayes +0.36: graded payoff discriminates; fix loss and rival family in the prereg."
+  "note": "From CAUSAL-NULL-INVARIANCE section 5 (pick 35): decisive real-data Bayes-vs-linear test: quadratic (graded) payoff, kappa x4 at fixed q, lam/mu/N measured, change-of-mind latency, >= ~180 switches per arm before behavioral noise, rival computed for the same payoff. Needs recruiting participants or requesting lab data (Piet 2018 data on request): BLOCKED ON CHAD. | PREREG-LOSS-LOCK (pick 37, one-pole family, in-model): under squared error the best one-pole tracker moves ~0 (-0.07..+0.12), under absolute error -0.19 (-0.36..+0.01), vs Bayes +0.36: graded payoff discriminates; fix loss and rival family in the prereg. | PREREG-LOSS-LOCK-REVIEW (ledger 185, exact grid): squared-error-best linear = Kalman, -0.068 (not ~0); abs-error-best one-pole -0.225; sign-best +0.318 vs Bayes +0.354."
  },
  {
   "id": "LIN01-RESPONSE-EXACT",
@@ -1190,7 +1190,12 @@
   "v": 0.6,
   "L": 2,
   "c": 1,
-  "note": "From LAB-AKLMT-TAU (pick 36, strong surprise): a system 20x off the optimum's level at rho=0 (0.45 vs 0.02) and ~10 SE below the predicted move (D 0.52 vs 0.98) passes the N6 causal form at kappa_F=1/2. Decide whether the causal kill needs a paired level/optimality check or a kappa_F tied to measured s*lam; kill-rule edit: author-only PR + separate reviewer (t1916)."
+  "note": "From LAB-AKLMT-TAU (pick 36, strong surprise): a system 20x off the optimum's level at rho=0 (0.45 vs 0.02) and ~10 SE below the predicted move (D 0.52 vs 0.98) passes the N6 causal form at kappa_F=1/2. Decide whether the causal kill needs a paired level/optimality check or a kappa_F tied to measured s*lam; kill-rule edit: author-only PR + separate reviewer (t1916). | DONE pick 38 (ledger 177-179 + outcome): the leniency is a PASS/FAIL asymmetry (PASS vs 0, FAIL vs kappa_F), not kappa_F; proposed mirror PASS (D - z sigma > kappa_F * P), same MV10 gate at kappa_F <= 1/2; s*lam tie and level AND-pairing rejected (own MC); author-only PR #74 (THEORY v1.4.17 / CLAIM_MAP v2.37), DO NOT MERGE without separate reviewer PASS.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/CAUSAL_KAPPA_LENIENCY.md",
+   "reviews/night2/CAUSAL_KAPPA_LENIENCY_checks/"
+  ]
  },
  {
   "id": "LAB-AKLMT-EXTRAPOLATION",
@@ -1226,7 +1231,12 @@
   "v": 0.8,
   "L": 1,
   "c": 0.5,
-  "note": "From PREREG-LOSS-LOCK (pick 37): separate reviewer of the THEORY v1.4.16 / CLAIM_MAP v2.36 author-only PR (N6 loss + rival-family clause and discrimination label; 2.2 squared-error-loss premise; 2.5 bridge scope; FRAMEWORK MV10 discrimination line). Own code: power-loss elasticities a_p=2/(2+p(alpha-1)), b_p=p/(2+p(alpha-1)); precision 2alpha/(2alpha+p(alpha-1)), p/(...); one-pole loss table (abs-loss sign -0.19); Theorem 4 scope wording."
+  "note": "From PREREG-LOSS-LOCK (pick 37): separate reviewer of the THEORY v1.4.16 / CLAIM_MAP v2.36 author-only PR (N6 loss + rival-family clause and discrimination label; 2.2 squared-error-loss premise; 2.5 bridge scope; FRAMEWORK MV10 discrimination line). Own code: power-loss elasticities a_p=2/(2+p(alpha-1)), b_p=p/(2+p(alpha-1)); precision 2alpha/(2alpha+p(alpha-1)), p/(...); one-pole loss table (abs-loss sign -0.19); Theorem 4 scope wording. | DONE (out-of-cycle, unscored, ledger 185): PASS-WITH-FIXES, PR #73 merged as THEORY v1.4.16 / CLAIM_MAP v2.36. Exponents re-derived (sympy; precision quadrature at alpha 1.5/2/2.5 within 1e-5; alpha=1.5,p=1/2 gap is a short-interval sampling effect). Exact grid: sign-best one-pole +0.318 (90%), squared-error-best one-pole = Kalman -0.068 (author's ~0 fixed output scale 1), abs-best -0.225 (sign confirmed). Fixes: no-loss default = squared error; prospective clause (no locked verdict relabelled; inventory in review 4); 'in any world' -> Gaussian errors; credit formal Lemma 1(iv)/Cor 4.1; separable onset at alpha=2 is -2/p; H3 for R1 fBm needs p > 2(alpha-2)/(alpha-1).",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/PREREG_LOSS_LOCK_REVIEW.md",
+   "reviews/night2/PREREG_LOSS_LOCK_REVIEW_checks/"
+  ]
  },
  {
   "id": "SEPARABLE-LOSS-ONSET",
@@ -1235,6 +1245,66 @@
   "v": 0.6,
   "L": 2,
   "c": 1,
-  "note": "From PREREG-LOSS-LOCK (pick 37, weak-moderate surprise): the 2.5 bridge a=b=1/alpha is a squared-error fact; formal Theorem 4 keeps the level's onset exponent only under bundled decisions. Derive the pooling-onset exponent when member decisions are separable and the loss is |e|^p (p != 2), reset reads and priced precision; check numerically; say what a field test must measure (bundled vs separable, p)."
+  "note": "From PREREG-LOSS-LOCK (pick 37, weak-moderate surprise): the 2.5 bridge a=b=1/alpha is a squared-error fact; formal Theorem 4 keeps the level's onset exponent only under bundled decisions. Derive the pooling-onset exponent when member decisions are separable and the loss is |e|^p (p != 2), reset reads and priced precision; check numerically; say what a field test must measure (bundled vs separable, p). | PREREG-LOSS-LOCK-REVIEW (ledger 185): at alpha=2, reset reads, the separable exponent is already -2/p (formal Theorem 4 exact checks -1.996 at p=1, -0.499 at p=4; Cor 4.2); open part is alpha != 2 and priced precision."
+ },
+ {
+  "id": "CAUSAL-KAPPA-LENIENCY-REVIEW",
+  "w": 2,
+  "untested": true,
+  "v": 0.8,
+  "L": 1,
+  "c": 0.5,
+  "note": "From CAUSAL-KAPPA-LENIENCY (pick 38): separate reviewer of PR #74 (THEORY v1.4.17 N6 causal-form mirror PASS; FRAMEWORK MV10 PASS line; CLAIM_MAP v2.37 note). Own code: R0/R1/R2/L rule rates, Phi((r-kappa)SNR - z), gate unchanged at kappa <= 1/2; AKLMT/CNI re-reads. Questions: Q1 label qualifier when share CI excludes 1; Q2 over-response report line; Q3 non-retroactivity for N23. Rebase against PR #73 (same N6 cell)."
+ },
+ {
+  "id": "PASS-RULE-SYMMETRY-AUDIT",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 1,
+  "note": "From CAUSAL-KAPPA-LENIENCY (pick 38, moderate surprise): the causal form's PASS was tested against 0 while its FAIL was tested against kappa_F. Audit every other locked rule (optimality form 'gap >= 2.80 sigma', onset/kernel tests with rival margins, MV10 band/moot/equivalence bounds) for the same PASS-vs-FAIL asymmetry; list which locked passes would read inconclusive under the mirror; propose wording (no locked label changes). | DONE pick 39 (ledger 181-183 + outcome): the causal-form split is not unique. HIT-vs-0 / MISS-vs-a-floor (C3b/F1/banks) has the same wrong-pass shape; relative 15% and V ×/÷1.15 PASS on the point estimate, so LEARNSIM RA, AA, V RR and V RRh would read INCONCLUSIVE under TOST (T1.8 stays NOT PASSED). KERNEL, KERNEL-PROXY and EIV are already symmetric; ONSET primary PASS is already TOST. Report-only re-reads; locked labels unchanged. No THEORY/FRAMEWORK/CLAIM_MAP edit (PR #73 and #74 already pending on N6). New items RELATIVE-BAND-TOST, HIT-ZERO-MISS-FLOOR.",
+  "status": "DONE",
+  "paths": [
+   "reviews/night2/PASS_RULE_SYMMETRY_AUDIT.md",
+   "reviews/night2/PASS_RULE_SYMMETRY_AUDIT_checks/",
+   "tools/pass_rule_symmetry.py"
+  ]
+ },
+ {
+  "id": "RELATIVE-BAND-TOST",
+  "w": 2,
+  "untested": true,
+  "v": 0.7,
+  "L": 2,
+  "c": 0.5,
+  "note": "From PASS-RULE-SYMMETRY-AUDIT (pick 39, moderate surprise): LEARNSIM's 15% exponent rule and V ×/÷1.15 PASS on the point estimate, not on the CI lying inside the band. At RA's locked SE (0.136) a TOST PASS is unreachable (1.96 sigma > band) but the point rule still PASSed, and a truth already outside the band PASSed 35% in a 20k MC. Report-only: RA, AA (known-groups), V RR and V RRh would read INCONCLUSIVE under TOST; T1.8 stays NOT PASSED; locked labels unchanged. Propose that future relative-band locks use TOST and meet MV10's 'PASS band wider than the CI half-width' before they are decisive."
+ },
+ {
+  "id": "HIT-ZERO-MISS-FLOOR",
+  "w": 2,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 0.5,
+  "note": "From PASS-RULE-SYMMETRY-AUDIT (pick 39, moderate surprise): C3b/F1 HIT against 0 while MISS/K1c is against a magnitude floor (0.15 or ½ β_σ); DECISIVE banks HIT is a sign test plus a point-only P3 condition, and its kill is a subset magnitude rule. Own MC (sigma 0.06): a true effect of 0.10 HITs 38% under the locked pair, 0.3% under a floor-mirror (MISS unchanged). C3 and F1 already INCONCLUSIVE; C3b not yet run; banks HIT re-read only (lo 0.11 would not clear 0.2). Propose symmetric HIT/MISS wording for future locks; no FRAMEWORK §6 or locked-label change in the audit itself."
+ },
+ {
+  "id": "LOSS-SENSITIVITY-REPORT",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 0.5,
+  "note": "From PREREG-LOSS-LOCK-REVIEW (ledger 185, Q1): a prereg whose locked prediction is loss-sensitive (effort elasticities; a linear rival in a non-Gaussian world) reports it at one alternative p (or over the measured p's CI) at lock. Kill-text edit: author-only PR + separate reviewer (t1916)."
+ },
+ {
+  "id": "THM4-H3-ALPHA",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 0.5,
+  "note": "From PREREG-LOSS-LOCK-REVIEW (ledger 185, Q4): formal Theorem 4's H3 for R1 in fBm needs p > 2(alpha-2)/(alpha-1) (all p>0 at alpha<=2; p>2/3 at alpha=2.5); its exact checks are at alpha=2 only. Check the bundled onset exponent numerically at alpha 1.5 and 2.5, and derive what happens at or below the H3 bound for alpha>2."
  }
 ]
