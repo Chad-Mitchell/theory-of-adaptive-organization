@@ -402,3 +402,13 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **LIN01-RESPONSE-EXACT** (w 1, c 0.5). Exact 0–1-best linear response; learner shortfall vs experience.
 
 **Pick 35 done (unaided slot; ledger 163–165 + outcome 167; 166 = PR #64 review). Next pick (36) is the uniform slot (cycle position 4 = 0). Recheck all pushed branches before any ledger write.**
+
+### NEW (15 Nov ~7:36 PM ET, from LAB-AKLMT-TAU; surprises read per rule 4)
+- ~~**LAB-AKLMT-TAU**~~ — DONE (pick 36, UNIFORM slot: first id of entry 169's stored permutation, seed 20261284, open and not active, nothing skipped; rule rank 26 of 53, Ace's unaided rank 29 of 53; ledger 168 unaided order, 169 rule_rank, 170 claim, 171 outcome). *Numbering collision declared:* first logged as 167–169 (seed 20261283, KERNEL-LONG-LAG) while q-pick35 pushed its outcome as 167; those entries were voided before any work and the draw redone at the new entry number. `tests/LAB_AKLMT_TAU/RESULTS.md`, lock `1b47884` (MV10 met: σ_gate 0.102 from an Exp 2 pilot outside the contrast, SNR 9.7). N11's fixed-variance τ_E slope **inapplicable** (AKLMT fix innovation sd, reads exact, τ_E 0.6–4.5 rounds). Locked N6 causal-form test **passed on proxy "implied persistence of h = 1 lab forecasts, AKLMT Exp 1 (MTurk)", at the boundary**: D 0.518 [0.424, 0.612] vs feasible-OLS-learner move 0.984, κ_F = ½ kill line 0.492. Independent checks (clustered stacked regression, RLS learner, jackknife) agree; published Figure II values reproduced. Not a strongly selected system: cannot move N6. CLAIM_MAP N23 (v2.35). No status change; vigilance OPEN. THEORY not edited.
+- Surprise read: **strong** — the N6 causal form at κ_F = ½ passes a system ~10 SE below the predicted move and 20× off the optimum's level at ρ = 0; **weak** — trend extrapolation (negative lag-2 weights); **weak** — concave response in ρ.
+- **CAUSAL-KAPPA-LENIENCY** (w 3, c 1). Should the causal kill be paired with a level/optimality check, or κ_F tied to measured s·λ? Kill-rule edit: author-only PR + separate reviewer (t1916).
+- **LAB-AKLMT-EXTRAPOLATION** (w 2, c 1). Negative lag-2 weights; lock and test on AKLMT Exp 2/4/5.
+- **LAB-AKLMT-CURVATURE** (w 1, c 0.5). Concave response; span rule for causal contrasts; test on Exp 2/4/5.
+- **LAB-NOISY-READ-TAU** (w 2, c 2). Known-DGP lab data with read noise at ≥ 2 levels to test τ ∝ (N/q)^{1/α}.
+
+**Pick 36 done (uniform slot; ledger 168–170 + outcome 171). Next pick (37) is the rule slot (cycle position 1). Recheck all pushed branches before any ledger write.**

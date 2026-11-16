@@ -317,7 +317,11 @@
   "v": 0.6,
   "L": 2,
   "c": 2,
-  "note": "Afrouzi et al. 2023 QJE replication data (doi 10.7910/dvn/3q6bhc): AR(1) with set persistence rho in {0,...,1}; known DGP; test the fixed-variance tau_E slope (N11 at alpha=2) and memory vs optimum; note their forecasters overreact."
+  "note": "Afrouzi et al. 2023 QJE replication data (doi 10.7910/dvn/3q6bhc): AR(1) with set persistence rho in {0,...,1}; known DGP; test the fixed-variance tau_E slope (N11 at alpha=2) and memory vs optimum; note their forecasters overreact. | DONE 15 Nov ~7:35 PM ET (pick 36, UNIFORM slot: first id of entry 169's stored permutation, seed 20261284, after a declared numbering redraw; ledger 168 unaided, 169 rule_rank, 170 claim + outcome). N11 fixed-variance tau_E slope INAPPLICABLE (innovation sd fixed; exact reads; tau_E 0.6-4.5 rounds). Locked N6 causal-form test (lock 1b47884, MV10 met): PASSED on proxy 'implied persistence of h=1 lab forecasts, AKLMT Exp 1', at the boundary: D 0.518 [0.424, 0.612] vs b_opt 0.984, kill line 0.492. Not a strongly selected system. CLAIM_MAP N23 (v2.35). tests/LAB_AKLMT_TAU/RESULTS.md",
+  "status": "DONE",
+  "paths": [
+   "tests/LAB_AKLMT_TAU/"
+  ]
  },
  {
   "id": "ONSET-NOISY-READS",
@@ -1168,5 +1172,41 @@
   "L": 1,
   "c": 0.5,
   "note": "From CAUSAL-NULL-INVARIANCE (pick 35, post hoc): pin the 0-1-best linear tracker's t_A response exactly (lattice/Gaussian-sum method, not grid MC; accuracy flat in the pole) and test whether the MSE learners' 0.06 shortfall vs the Bayes move shrinks with experience (E=80 switches)."
+ },
+ {
+  "id": "CAUSAL-KAPPA-LENIENCY",
+  "w": 3,
+  "untested": true,
+  "v": 0.6,
+  "L": 2,
+  "c": 1,
+  "note": "From LAB-AKLMT-TAU (pick 36, strong surprise): a system 20x off the optimum's level at rho=0 (0.45 vs 0.02) and ~10 SE below the predicted move (D 0.52 vs 0.98) passes the N6 causal form at kappa_F=1/2. Decide whether the causal kill needs a paired level/optimality check or a kappa_F tied to measured s*lam; kill-rule edit: author-only PR + separate reviewer (t1916)."
+ },
+ {
+  "id": "LAB-AKLMT-EXTRAPOLATION",
+  "w": 2,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 1,
+  "note": "From LAB-AKLMT-TAU R5 (post hoc, weak): participants' weight on x_{t-2} given x_{t-1} is negative (-0.04 to -0.17 at rho>=0.2) and weight on x_{t-1} exceeds 1 at rho>=0.8 (trend extrapolation); the optimum's is +0.04. Lock and test on AKLMT Exp 2/4/5 (unseen) before reading."
+ },
+ {
+  "id": "LAB-AKLMT-CURVATURE",
+  "w": 1,
+  "untested": true,
+  "v": 0.5,
+  "L": 1,
+  "c": 0.5,
+  "note": "From LAB-AKLMT-TAU (post hoc, weak): response concave in rho (slope ~0.65 over 0-0.6, ~0.36 over 0.6-1) so the causal contrast's span changes the kappa_F verdict; lock a span rule and test on Exp 2/4/5."
+ },
+ {
+  "id": "LAB-NOISY-READ-TAU",
+  "w": 2,
+  "untested": true,
+  "v": 0.5,
+  "L": 2,
+  "c": 2,
+  "note": "From LAB-AKLMT-TAU: the item's target (tau proportional to (N/q)^(1/alpha), tau_E slope at fixed variance) needs read noise N>0. Find a public known-DGP lab dataset with noisy signals at >=2 noise or persistence levels (fixed variance), then lock with MV10."
  }
 ]
