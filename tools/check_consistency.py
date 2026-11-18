@@ -132,7 +132,7 @@ def scan_wording(path, sink, tag):
                 sink.append("%s %s:%d theory-of-everything: …%s…" % (tag, path, i, s.strip()[:160])); hits += 1
             if FIELD.search(s) and VERDICT.search(s) and not LABEL.search(s):
                 sink.append("%s %s:%d unlabeled field verdict: …%s…" % (tag, path, i, s.strip()[:200])); hits += 1
-            if SIGNOFF.search(s) and GATECTX.search(s) and not re.search(r"(no longer|superseded|bind(s|ing)? as of|was:|before 18 Nov|binding since|nothing awaits)", s, re.I):
+            if SIGNOFF.search(s) and GATECTX.search(s) and not re.search(r"(no longer|superseded|bind(s|ing)? as of|was:|before 18 Nov|binding since|nothing awaits|treated as binding)", s, re.I):
                 sink.append("%s %s:%d gates-await-sign-off: …%s…" % (tag, path, i, s.strip()[:200])); hits += 1
             if STALE.search(s) and not STALE_OK.search(s):
                 sink.append("%s %s:%d stale-scope: …%s…" % (tag, path, i, s.strip()[:200])); hits += 1
