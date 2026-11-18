@@ -15,7 +15,7 @@ Canonical copy. Ace's working folder holds only a pointer to this file. Updated 
 4. **Iterate.** Every result is read for surprises: a number off its prediction by > 1 SE, a referee flag, a broken premise, a dormant topic reawakening. Each surprise becomes a new item (or raises the LR of an existing one) in `items.json` before the next pick. Items are never deleted; finished ones are marked DONE with paths.
 5. **Budget.** Heavy compute at `nice -n 19`, few heavy jobs at once. Continue autonomously up to 90% of weekly usage (Chad, t1914); no check-ins needed, but log everything.
 6. **Score SG** with `python3 queue/sg_rank.py score` after ≥ 15 post-protocol outcomes (item Q0). The predictor is each item's first-seen post-protocol score; a pass tests the operational rule (including the judgment factors w, v, L, c), not the bare SG clock, which is scored only on items with non-flat P (n ≥ 8).
-7. **Privacy and outside acts.** Repo stays private. No posts, emails or messages. Looper README wording needs Chad's approval; reversible Looper code changes do not.
+7. **Privacy and outside acts.** This repository is public as of 18 November 2026. No posts, emails or messages without Chad's go. Looper README wording needs Chad's approval; reversible Looper code changes do not.
 
 ## Items, in the current rule order (ledger entry 1, 15 Nov 2026 ~08:58 AM ET)
 

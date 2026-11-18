@@ -6,6 +6,8 @@ Video: [an earlier draft explainer](video/gtao_v7.mp4), **superseded**; a new vi
 
 **The spine (plain words).** Everything obeys the second law: total disorder rises, though local order can grow by pushing disorder out somewhere else. That law, together with gravity, the speed of light, quantum physics and the universe's low-entropy start, sets the stage; GTAO adds no new physics. Atoms and crystals carry information but have no use for a model; stars hold themselves up on a flow but track nothing outside; cells, people, firms and cities last only by staying matched to a world that changes and can ruin them, and once acting late is costly, carrying a model and acting ahead can pay. That is judgment: not a new physical principle, but a way of staying alive under the old one (`THEORY.md` §0; how the pieces fit, from chemistry to heat death: `theory/BOOKENDS.md`).
 
+The claim is a falsifiable theory of how any adaptive organization lasts. The design mathematics is proved only inside the model, and much of it is known mathematics assembled here. The open bet is that real cells, people, firms and cities sit near those optima once the inputs are measured on the same system; that bet is untested, not refuted. No field test has yet measured the theory's quantities validly, and results so far are reported as passed / failed on a proxy.
+
 Working repository for a general theory of **any adaptive organization** — cells, immune systems, ant colonies, people, firms, and cities. It is **not** a theory of everything. The bet is narrower: once acting late is costly, the same tradeoff between what a system remembers, what it predicts, and what that costs shapes efficient design at every scale. The costs are physically priced from atoms to the cosmic horizon (Chad, 18 Nov 2026, t1927); what changes along the scale is whether a model is worth carrying (`THEORY.md` §2.3, "The ends of the scale"). How the world's change is spread over timescales fixes the optimal design exponents, but that part is classical filtering and approximation theory plus a price, not new; GTAO's open bet is that real systems sit near those optima once the inputs are measured on the same system. Only the cost currency changes (heat in a cell, attention in a person, money in a firm). The physical floors are literal at every scale, but above the cell they do not bind; there the exponents come from information theory and competition, not from heat (`THEORY.md` §2.3).
 
 This repository holds the theory (`THEORY.md`), the theorem notes with their code checks, the tests (locked predictions, code, and results), a literature map, and reviews. It is public as of 18 November 2026. Nothing here is a published paper.
@@ -14,7 +16,7 @@ This repository holds the theory (`THEORY.md`), the theorem notes with their cod
 
 ## Start here
 
-**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.20 draft, 18 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands, with commits; [`QUEUE.md`](QUEUE.md) is the live work queue; [`BRIEF.md`](BRIEF.md) is a plain-words brief of the whole record, checked against the files; `measurement/FRAMEWORK.md` and `measurement/CLAIM_MAP_v2.md` (v2.41) say how quantities are measured and give one status per claim. `python3 tools/check_consistency.py` checks versions, wording and claim statuses across these files. This README is a summary.
+**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.21 draft, 18 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands, with commits; [`QUEUE.md`](QUEUE.md) is the live work queue; [`BRIEF.md`](BRIEF.md) is a plain-words brief of the whole record, checked against the files; `measurement/FRAMEWORK.md` and `measurement/CLAIM_MAP_v2.md` (v2.41) say how quantities are measured and give one status per claim. `python3 tools/check_consistency.py` checks versions, wording and claim statuses across these files. This README is a summary.
 
 ## In plain words
 
@@ -75,7 +77,7 @@ Pending targeted searches, and none yet confirmed by a locked, reviewed test:
 
 Dates are America/New_York, 13–14 November 2026. For DECISIVE and F1, the verdicts below follow the independent review in `reviews/DECISIVE_F1_REVIEW.md`, not the tests' own more generous labels. Other tests follow their locked rules and have not had an independent review unless noted.
 
-The preregistration commits for these tests lived only in local, unpushed git repos. Adding their histories to this private repository (as `tests/<name>/history.bundle` where a bundle could be shipped without excluded data, and as `tests/<name>/history.txt` receipts for every test) gives them an **external timestamp only from today**. The author dates inside those histories are self-attested.
+The preregistration commits for these tests lived only in local, unpushed git repos. Adding their histories to this repository (as `tests/<name>/history.bundle` where a bundle could be shipped without excluded data, and as `tests/<name>/history.txt` receipts for every test) gives them an **external timestamp only from today**. The author dates inside those histories are self-attested.
 
 | Test | What it asked | Verdict (after review, where one exists) | Plain reading |
 |---|---|---|---|
@@ -96,7 +98,7 @@ The preregistration commits for these tests lived only in local, unpushed git re
 ## Repository layout
 
 ```
-THEORY.md         The theory, v1.4.20 draft (start here)
+THEORY.md         The theory, v1.4.21 draft (start here)
 STATUS.md         Where the work stands (rewritten, not appended)
 BRIEF.md          Plain-words brief of the whole record, checked against the files
 QUEUE.md, queue/  Live work queue and ledger
@@ -118,7 +120,7 @@ LICENSE.md        Placeholder: no license chosen yet (TODO for the author)
 
 ## How this should be read
 
-Do not treat locked predictions as findings, and do not treat a support that is already in the literature as a new confirmation. Formal misses and inconclusives stay on the board. Wording in public-facing documents needs the author's go, and this repository stays private until that go is given.
+Do not treat locked predictions as findings, and do not treat a support that is already in the literature as a new confirmation. Formal misses and inconclusives stay on the board. This repository is public as of 18 November 2026; posts and other outside acts still need the author's go.
 
 ## License
 
