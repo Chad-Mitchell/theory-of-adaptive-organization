@@ -7,5 +7,7 @@ Reviews of the theory notes, the tests, and the AI-memory toy. Independence is s
 | `math-attack/REVIEW.md` | `MATH_ATTACK.md` and `GENERAL_THEOREM.md`, with rerun checks | Stated as a separate hostile pass that did not write the reviewed files. |
 | `architecture/REVIEW.md` | The fractal-architecture note and toy sim (the AI-memory application) | Not independent (same executor). |
 | `independent-sim/REVIEW.md` | The same application math and toy, plus the reviewer's own re-derivations | Stated as an independent pass. The full sim rerun lives in the public [`adaptive-memory-levels`](https://github.com/Chad-Mitchell/adaptive-memory-levels) `review/` folder; only the review text and independent checks are copied here. |
+| `bookends/` | `theory/BOOKENDS.md` (math/logic, physics, biology/prior art, disposition, final verifier; 18 November 2026) | Stated as independent passes (fresh clones, read-only). |
+| `public_2026-11-18/` | The whole repository at main abd56e5: `PUBLIC_READINESS.md` (honesty, privacy, newcomer lens) and `TECHNICAL.md` (math, physics, biology, prior art) | Stated as independent, read-only passes. Their fixes are THEORY v1.4.22. |
 
 Test-specific reviews (for example `tests/C3/REVIEW.md`) stay with those tests.
