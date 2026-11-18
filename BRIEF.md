@@ -1,0 +1,99 @@
+# BRIEF: A Theory of Adaptive Organization (GTAO), the whole record in plain words
+
+**Written:** Wednesday 18 November 2026, about 3:55 PM ET (America/New_York), by a Grok Bot executor for Chad Mitchell, via Ace, in the repo consistency audit (branch `docs/consistency-audit-2026-11-18`). Private. Nothing was posted, sent or made public.
+
+**Checked against:** THEORY.md v1.4.18 (with the 18 Nov label and citation errata), CLAIM_MAP v2.40, `measurement/FRAMEWORK.md`, `theory/SCALE_ENDS.md`, `reviews/night2/SCALE_ENDS_INDEP_REVIEW.md`, `reviews/night2/SYNTHESIS_2026-11-15.md`, `QUEUE.md`. Every statement below names the file and section it comes from. **If this brief and THEORY.md disagree, THEORY.md governs**; if a status here and CLAIM_MAP disagree, CLAIM_MAP governs. `python3 tools/check_consistency.py` checks the version pointers in this file and the CLAIM_MAP statuses it quotes.
+
+**Why this file exists.** Chad (18 Nov, pt1928u) asked that nothing about the theory live only in an agent's memory or in off-repo notes. This file replaces Ace's off-repo briefs (`/workspace/gtao/CURRENT_BRIEF.md`, `/workspace/gtao/STATE.md`, `/workspace/gtao-video/MEMORY_BRIEF.md`), which are now marked as stale pointers to this repo. A verbatim snapshot of CURRENT_BRIEF (written before PR #80) is kept in `history/2026-11-18_CURRENT_BRIEF.md` for provenance only.
+
+---
+
+## 1. The claim
+
+- GTAO is a **falsifiable causal theory** of any adaptive organization. It is a theory, never a "law", and **not a theory of everything** (THEORY header and §0; CLAIM_MAP J3 WITHDRAWN by decision).
+- One budget at every scale: the cost of holding memory, the loss from prediction error (including acting late), and the cost of the reads or effort that keep memory current, plus ruin risk. Only the implementation and the currency change (THEORY §0).
+- The map from a world's drift spectrum (slope α, drift level q, sensing noise N, stakes) to design exponents is **classical** (optimal filtering and approximation theory plus a price on effort) and credited, not claimed as new (THEORY §0, §2.2, §10; CLAIM_MAP K13 MATH-CORRECTED). For reset reads with Hurst H the stakes and drift elasticities are a = b = **1/(1+2H) = 1/α** (formal Lemma 1(i); CLAIM_MAP N7 PROVED (in-model)); the square-root rules are the H = ½ (α = 2, Markov) case. Prior art: Kalman/Muth; Mora & Nemenman 2019 for a sensing cell; Lee, Flack & Krakauer 2024 as an application with an energy cost (THEORY §0, "What changed in v1.4" item 2).
+- These exponents hold for a Gaussian world, or for the **best linear tracker** in any world. Outside a Gaussian world the best linear tracker is not the best possible one: the Bayes tracker of a switching world needs jump rate and size separately (THEORY §2.2 Regime A premise bullet; CLAIM_MAP N16 MATH-CORRECTED (in-model)).
+- **The open bet is empirical and untested:** real, strongly selected systems sit near these optima once α, q, N and stakes are measured on the same system, with the same relations (not constants) at every level (THEORY §0, §1 N6; CLAIM_MAP N13 OPEN, J6 OPEN).
+- **Regime first (binding):** every prediction names its section and its regime (A α = 2; B scale-free with measured α; C many modes with β; or not established), measured on the same system, before stating a number (THEORY §2.5; QUEUE rule 2).
+
+## 2. Scope: atoms to the cosmos (Chad, t1927, 18 Nov 2026)
+
+The three costs are physically priced at every scale. What changes along the scale is whether a model is worth carrying (THEORY §2.3 "The ends of the scale"; `theory/SCALE_ENDS.md`; independent referee PASS-WITH-FIXES).
+
+| Claim | Status (CLAIM_MAP) | What it does and does not say |
+|---|---|---|
+| **Atoms are frozen.** With no action whose payoff depends on the world, Φ = 0 and holding never beats fading (E1); blind persistence is viable (E2; H ionization Boltzmann factor ≈ 10^−228.5 at 300 K) | N25 PROVED (in-model) | The "no move to make" step rests on the Axiom-7 reading of action and is **partly definitional**. Atoms **do** carry physical information (hyperfine spin ln 4 ≈ 1.39 nats; one atom's speed carries ≈ 0.08 nats about 300 K vs 600 K); that is physics, not a model. A model would cost at least kT ln 2 per bit and buy nothing. |
+| **Stars are held with no model** (third class): they burn fuel and track nothing outside | part of SE4, PRIOR ART in substance (inside N25's row) | Three-class split credited to Prigogine 1978, Pross 2011, Kolchinsky & Wolpert 2018, Krakauer et al. 2020. |
+| **Black hole = the extreme of the frozen class:** maximal memory for its size (Bekenstein-minimum energy per nat), no upkeep, readable state (M, J, Q), the rest returned scrambled only after about the Page time (≈ 0.54 t_ev); leak lifetime ≈ 1.2×10⁶⁷ yr × (M/M☉)³ | N26 PROVED (in-model), conditional | Conditional on (i) the Axiom-7 reading of action and (ii) read latency counted as prediction error (lateness). With read cost priced as energy alone it fails. A classification given published physics, not a derivation of black-hole physics. |
+| **Not claimed:** why black holes exist, the area law, the Page curve; "black holes think"; the universe as a tracker | N29 WITHDRAWN (as framing) | GTAO has no gravitational content. |
+| **Light-delay federation (LAT-1):** a tracker of extent L with hold-last-value reads holds a target only if q(L/c)^{α−1} is below tolerance, so L_max = c(D\*/q)^{1/(α−1)}; large organizations federate | N27 OPEN | The bound is elementary and derived for hold-last-value reads; its real-system form is untested. Prior art in substance: Simon 1962; Abadi 2012 (PACELC). |
+| **Switch-on of models:** heredity below Eigen's threshold, a world-dependent action, drift inside the hold band, a first nat that pays; for a bacterium E_gen ≈ 10¹¹–10¹² kT, so the Landauer floor does not bind | N28 OPEN (HYPOTHESIS) | Heredity and action overlap under the Axiom-7 reading; the non-circular content is the drift band, the energy inequality and Eigen's threshold. |
+| **Cosmic horizon:** memory cap ≈ 3.3×10¹²² nats; bit price ≥ kT_dS ln 2 ≈ 2.1×10⁻⁵³ J | SE13, DERIVED from PRIOR ART | Gibbons & Hawking 1977; Egan & Lineweaver 2010. Smolin's cosmological natural selection is credited; GTAO adds no support to it (SCALE_ENDS §4.4). |
+
+FRAMEWORK §1.2 item 4 (the scope question left to Chad) is resolved by t1927 in Chad's direction; SCALE_ENDS shows the two readings agree (costs everywhere; design predictions where selection makes a model pay).
+
+## 3. Measurement (`measurement/FRAMEWORK.md`)
+
+- A prediction X follows from theory T plus measurement mapping M plus auxiliaries A. **A failed X refutes the conjunction T∧M∧A**; it moves blame to T only if M and A were validated first (FRAMEWORK §1.1).
+- **Gates MV1–MV10** (§2.2), **three tiers** (Tier 1 decisive = every gate; Tier 2 = MV1–MV4 and MV8; Tier 3 otherwise), and the **anti-rescue (admissibility) rule**: a test that passes MV1–MV8 counts fully, win or lose.
+- **The gates bind every new prereg from 18 Nov 2026** (Chad, t1927; CLAIM_MAP M2, v2.40 note). MV9's external timestamp is an outside act and still needs Chad's go for each lock, so no Tier-1 result can exist until that go is given.
+- The re-audit of every past field test found **no FIELD-PASS and no FIELD-FAIL**: the theory is **untested in the field, not refuted** (FRAMEWORK §2.3, §4 "Net position"). No Tier-1 test has run.
+- **Proxy results do not count as field results.** A proxy fail is a valid fail *of that mapping* and narrows where the theory can live; it is not a refutation of the theory (FRAMEWORK §1.2 item 2, §2.3). Report every field result as "passed / failed on proxy X".
+- **Vigilance is OPEN** (CLAIM_MAP H8, N1–N3). The onset value at zero upkeep is 1 + (1+ρ)^{−1/2}, between 1 and 2; "≥ 2" is wrong as stated (THEORY status block).
+- **Next real test:** SAME-SYSTEM-AQN, the first test of N13 (SYNTHESIS §7; QUEUE), on a system whose stakes can be estimated.
+
+## 4. The freeze / hold / lookup band
+
+- **Theorem G** (GENERAL_THEOREM; THEORY §3 "Freeze-or-hold" row): a checked copy beats fading iff drift × check cost < Φ. PROOF.
+- **Theorem 8 / T8** gives the closed-form band: freeze edge, lookup edge, and a hold band **iff μuH_l > 2c + hH_l**, with N² widening for shared stores (CLAIM_MAP F13 PROVED (in-model)). A band need not exist.
+- Field readings: measles freeze-or-hold passed on proxy (H9 PROXY-PASS; the proxy measured use rate μ, not antigenic drift q); WIKIDATA-BAND N19 OPEN (known-groups check failed), N20 PROXY-PASS (weak); immune strategies PRIOR ART (Mayer et al. 2016 show the best strategy depends on pathogen frequency and timescale; mapping those strategies onto freeze, hold and lookup is ours; CLAIM_MAP I4).
+
+## 5. Wording rules
+
+"Theory", never "law" or "theory of everything". Field results are "passed / failed on proxy X". No field kills. Proof-level corrections are MATH-CORRECTED; locked simulation failures are SIM-FAIL. Repo private; nothing public without Chad's go (STATUS "Standing rules").
+
+## 6. Corrections to earlier agent memory found in this audit
+
+| Earlier belief | What the files say |
+|---|---|
+| "The freeze/hold band is Theorem G" | Theorem G is the hold-vs-fade condition; the closed-form band is Theorem 8 (T8; CLAIM_MAP F13). Both are in-model results. |
+| "Gates MV1–MV10 await Chad's sign-off" (superseded) | Binding since 18 Nov 2026 (t1927; CLAIM_MAP M2). MV9's external timestamp still needs Chad's go per lock. |
+| "Proxy fails don't count against the theory" | They do not refute it, but each kills the tested mapping and narrows the theory (FRAMEWORK §1.2 item 2). |
+| "Laughlin: synapses pay 10⁵ × kT ln 2" | Laughlin et al. 1998 give about 10⁴ ATP per bit at a chemical synapse (2–6×10⁴ in the text) and 10⁶–10⁷ for graded signals and spikes; at ΔG_ATP ≈ 20 kT (our conversion) that is **at least about** 3×10⁵ × kT ln 2 (THEORY §2.3). |
+| "England 2013 = dissipative adaptation" | England 2013 is the self-replication heat bound. Dissipative adaptation is England 2015 (*Nat Nanotechnol* 10:919) and Perunov, Marsland & England 2016 (*PRX* 6:021036): related prior art and a possible rival route with no model, not a rival to the N28 switch-on conditions (THEORY §10; LITMAP; THREATS). |
+| "The market (VIX) test measured all the inputs" | KERNEL-MEASURE measured α, q and N on one system and compared one stakes-free design quantity; it did not measure stakes, and it compares against the best linear tracker (THEORY §2.4). |
+| "Black hole: the rest comes back after ~10⁶⁷ years" | For a hole of one solar mass; the time scales as (M/M☉)³ (SCALE_ENDS §0 item 3; erratum note in SCALE_ENDS). |
+| "The theory is silent on black holes / nothing keeps score at the cosmic scale" (superseded) | Wrong (SCALE_ENDS §8). See §2 above. |
+| "ANTS1 is unfinished" | Finished 15 Nov; `reviews/night1/ANTS1_WRITEUP.md`; CLAIM_MAP G13–G17. |
+| "Measles freeze-or-hold passed" | Passed on proxy only: H9 PROXY-PASS. |
+
+## 7. Off-repo notes and where their content now lives
+
+| Off-repo file | Status | Where the content is in the repo |
+|---|---|---|
+| `/workspace/gtao/CURRENT_BRIEF.md` (18 Nov, before PR #80) | Stale; pointer banner added | This file; snapshot in `history/2026-11-18_CURRENT_BRIEF.md`. Its §8 file conflicts are resolved in §8 below. |
+| `/workspace/gtao/STATE.md` (15 Nov; says THEORY v1.2) | Stale; pointer banner added | `STATUS.md` |
+| `/workspace/gtao-video/MEMORY_BRIEF.md` (cites main 77dd71c, CM v2.37) | Stale; pointer banner added | This file |
+| `/workspace/gtao/longform/HYPOTHESES.md` (raw log, 11 Nov; not imported because it mixes in personal context) | Frozen history; relabel banner added | **H1** ("black holes: maximal storage, not organizers"; unaudited) is superseded by CLAIM_MAP **N26** (PROVED (in-model), conditional); it survives as a derived output, not a scope exclusion. **H8/H9** (free vs paid persistence; "freeze or hold") live on as the three persistence classes (N25/SE4) and the T8 band (F13). **H2** (origin of life) is superseded by **N28** (OPEN). **H7** ("upkeep near zero means they never fade") is narrowed by E4: frozen stores have finite lifetimes set by a barrier, a conservation law or a leak. |
+
+## 8. Conflicts listed in CURRENT_BRIEF §8, and how they stand on main
+
+| Conflict | Resolution |
+|---|---|
+| README pointed to THEORY v1.4.3a and CLAIM_MAP v2.12 | Fixed; checked by `tools/check_consistency.py` |
+| ANTS1 "unfinished" in README, tests/README, applications/README | Fixed |
+| THEORY §8 said measles "passed" | Fixed: "passed on proxy" (H9 PROXY-PASS); other field verdicts in §4, §8, §8b also labelled |
+| FRAMEWORK §6.10 said the spectrum map was owed | Note added: derived in THEORY §2.2; N13 stays OPEN |
+| M2 gates "need Chad's sign-off" (superseded) | Binding since 18 Nov 2026 (v2.40) |
+| THEORY §2.3 named SENSE-CELL as the open test | Note added: ran, N24 INCONCLUSIVE; disagreement stays open |
+| Black holes: H1 vs Chad's view | Resolved by SCALE_ENDS (N26) |
+| CLAIM_MAP counts header (194 rows) not recomputed | Still stated as not recomputed (CLAIM_MAP "Counts"); left as is |
+| `queue/items.json` statuses lag STATUS/LEDGER | Not changed in this audit (the queue files are the scored ledger's inputs) |
+| THEORY status block and §0 still read "15 November" and "from cells to cities" for the empirical bet | Headline text; proposed in a separate PR for independent review (see §9) |
+| Public X post of 12 Nov says atoms have "nothing to maintain" | Outside the repo. A correction post needs Chad's go |
+
+## 9. Pending
+
+- A headline/status-block update to THEORY (dated status block naming the ends of the scale and binding gates; §0 scope sentence) is drafted in a separate pull request and **needs an independent reviewer before merge** (Chad, t1916).
+- SAME-SYSTEM-AQN; SENSE-CELL-MATCHED; C3b; the SG referee (QUEUE Q0).

@@ -1,6 +1,6 @@
 # A Theory of Adaptive Organization
 
-Private working repository for a general theory of **any adaptive organization** — cells, immune systems, ant colonies, people, firms, and cities. It is **not** a theory of everything. The bet is narrower: once acting late is costly, the same tradeoff between what a system remembers, what it predicts, and what that costs shapes efficient design at every scale. How the world's change is spread over timescales fixes the optimal design exponents, but that part is classical filtering and approximation theory plus a price, not new; GTAO's open bet is that real systems sit near those optima once the inputs are measured on the same system. Only the cost currency changes (heat in a cell, attention in a person, money in a firm). The physical floors are literal at every scale, but above the cell they do not bind; there the exponents come from information theory and competition, not from heat (`THEORY.md` §2.3).
+Private working repository for a general theory of **any adaptive organization** — cells, immune systems, ant colonies, people, firms, and cities. It is **not** a theory of everything. The bet is narrower: once acting late is costly, the same tradeoff between what a system remembers, what it predicts, and what that costs shapes efficient design at every scale. The costs are physically priced from atoms to the cosmic horizon (Chad, 18 Nov 2026, t1927); what changes along the scale is whether a model is worth carrying (`THEORY.md` §2.3, "The ends of the scale"). How the world's change is spread over timescales fixes the optimal design exponents, but that part is classical filtering and approximation theory plus a price, not new; GTAO's open bet is that real systems sit near those optima once the inputs are measured on the same system. Only the cost currency changes (heat in a cell, attention in a person, money in a firm). The physical floors are literal at every scale, but above the cell they do not bind; there the exponents come from information theory and competition, not from heat (`THEORY.md` §2.3).
 
 This repository holds the theory (`THEORY.md`), the theorem notes with their code checks, the tests (locked predictions, code, and results), a literature map, and reviews. It is **private** until the author says otherwise. Nothing here is a published paper.
 
@@ -8,7 +8,7 @@ This repository holds the theory (`THEORY.md`), the theorem notes with their cod
 
 ## Start here
 
-**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.3a draft, 15 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands, with commits; [`QUEUE.md`](QUEUE.md) is the live work queue. This README is a summary.
+**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.18 draft, 18 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands, with commits; [`QUEUE.md`](QUEUE.md) is the live work queue; [`BRIEF.md`](BRIEF.md) is a plain-words brief of the whole record, checked against the files; `measurement/FRAMEWORK.md` and `measurement/CLAIM_MAP_v2.md` (v2.40) say how quantities are measured and give one status per claim. `python3 tools/check_consistency.py` checks versions, wording and claim statuses across these files. This README is a summary.
 
 ## In plain words
 
@@ -21,6 +21,8 @@ How the world's change is spread over timescales (its drift spectrum, slope α) 
 
 **GTAO's open bet is empirical and untested:** real systems at every scale sit near these optima once α, the drift level, the sensing noise and the stakes are measured on the same system, with the same relations (not the same constants) holding from cells to cities. In the model, the same three costs at every level is an axiom (Axiom 5; CLAIM_MAP J16), so the model alone cannot test it. As a claim about real systems it is testable through its consequences: at each level the three costs can be measured separately, and the claim fails if a level's design needs a fourth kind of cost to be explained, or if design does not respond to the measured prices of the three as the relations require (J6).
 
+**The ends of the scale** (`THEORY.md` §2.3; `theory/SCALE_ENDS.md`, independently refereed, PASS-WITH-FIXES; CLAIM_MAP N25–N29). Atoms are frozen: nothing threatens them and nothing selects among their responses, so a model would cost something and buy nothing (N25 PROVED (in-model); the "no move to make" step is partly definitional; atoms still carry physical information, e.g. ln 4 nats of hyperfine spin). Stars are held with no model: they burn fuel and track nothing outside. A black hole is the extreme of the frozen class: the most memory physics allows for its size, three readable numbers (mass, spin, charge), the rest returned scrambled only after about the Page time (N26 PROVED (in-model), conditional on counting lateness as error and on the Axiom-7 reading of action; GTAO does not derive why black holes exist, the area law or the Page curve). Models switch on only with heredity below Eigen's threshold, a world-dependent action, trackable drift and a first nat that pays (N28 OPEN). Light delay caps what one tracker can hold, so large organizations federate (N27 OPEN; prior art Simon 1962, PACELC). The cosmic horizon caps memory at about 3×10¹²² nats and the price of a bit at ≥ about 2×10⁻⁵³ J.
+
 Two corrections to earlier drafts:
 - **Reduce drift, not just track it.** Homeostasis, niche construction, buffering and contracts lower σ, and that substitutes for watching.
 - **"No one in charge" is narrowed.** No one needs to be in charge *when* keeping up shared memory is privately rewarded. Otherwise expect enforcement (free riders; Ostrom).
@@ -29,12 +31,12 @@ Optimality is claimed only where selection is strong. Below Lynch's drift barrie
 
 ## Honest status
 
-**Update, 15 Nov 2026 (v1.4.1):** GTAO is a falsifiable causal theory.
+**Update, 18 Nov 2026 (v1.4.18):** GTAO is a falsifiable causal theory. The validity gates MV1–MV10 bind every new prereg from 18 Nov 2026 (CLAIM_MAP M2). No Tier-1 test has run: there is no field pass and no field fail, so the theory is untested in the field, not refuted.
 - No field test so far measured GTAO's quantities validly, so field results are "passed / failed on proxy X", not kills or confirmations (`measurement/`).
 - The formal layer is proved in-model, with corrections ("V ≥ 2" is wrong as stated), and mostly builds on published team theory and inventory pooling. Its constants are functions of the world's drift spectrum (`THEORY.md` §2.5).
 - The spectrum-to-design map is now derived and refereed (`reviews/night2/SPECTRUM_MAP_REFEREE.md`): it is classical, so it is no longer the headline. What remains open is whether real systems sit near it once its inputs are measured (`QUEUE.md`).
 
-See `THEORY.md` (status block, §2.5, §8b–8c) and `measurement/CLAIM_MAP_v2.md` (v2.12).
+See `THEORY.md` (status block, §2.3, §2.5, §8b–8c) and `measurement/CLAIM_MAP_v2.md` (v2.40).
 
 - **There is no new theorem of large scope.** Most individual rules are known results, placed side by side. The math notes label what is known, what is a calculation, and what fails. The one new proof worth keeping (a quantitative internal-model bound) is modest, and its novelty is unconfirmed.
 - **This is a working hypothesis under test**, not a finding. Nothing here has been peer reviewed. An independent review of the DECISIVE and F1 tests is in `reviews/DECISIVE_F1_REVIEW.md` (14 November 2026, America/New_York); the scoreboard below follows its verdict. That review was not fully blind (the reviewer had the results and write-ups). Most other tests have not had an independent review.
@@ -51,7 +53,7 @@ See `THEORY.md` (status block, §2.5, §8b–8c) and `measurement/CLAIM_MAP_v2.m
 
 ### What still looks new (each with a kill condition in `THEORY.md` §1)
 
-*This is the v1.0 list, kept as history. The current list of what looks like the theory's own is `THEORY.md` §8b; statuses are in `measurement/CLAIM_MAP_v2.md` (v2.12).*
+*This is the v1.0 list, kept as history. The current list of what looks like the theory's own is `THEORY.md` §8b; statuses are in `measurement/CLAIM_MAP_v2.md` (v2.40).*
 
 Pending targeted searches, and none yet confirmed by a locked, reviewed test:
 
@@ -71,23 +73,29 @@ The preregistration commits for these tests lived only in local, unpushed git re
 
 | Test | What it asked | Verdict (after review, where one exists) | Plain reading |
 |---|---|---|---|
-| **DECISIVE / banks** | Does slower correction raise failure risk at fixed shock and buffer? (7,837 banks, 2008–14) | **Sign-only, not a HIT** | β = +0.20 [0.11, 0.29], ≈ 15% higher hazard per doubling; adds to the Z-score. The sign holds only for detrended τ; the specified own-mean τ is null. The exact identity, ε_B = −ε_σ and the horizon test all failed. |
-| **DECISIVE / glucose** | Fixed-spread sign (224 adults with type 1 diabetes) | **Sign right, size off; MATH_ATTACK literal joint kill fires on the full sample** | Slope −0.46 vs implied −0.82 and literal −1. Collapse across cohorts failed. The test's own prereg, scored against a lowered sampling-corrected target, does not kill; those targets rewrote the kill rule after MATH_ATTACK wrote it. The cold regime is not evaluable (n = 2). |
+| **DECISIVE / banks** | Does slower correction raise failure risk at fixed shock and buffer? (7,837 banks, 2008–14) | **Sign-only, not a HIT; PROXY-FAIL (CLAIM_MAP H11)** | β = +0.20 [0.11, 0.29], ≈ 15% higher hazard per doubling; adds to the Z-score. The sign holds only for detrended τ; the specified own-mean τ is null. The exact identity, ε_B = −ε_σ and the horizon test all failed on this proxy. |
+| **DECISIVE / glucose** | Fixed-spread sign (224 adults with type 1 diabetes) | **Sign right, size off; MATH_ATTACK literal joint kill fires on the full sample** | Slope −0.46 vs implied −0.82 and literal −1. Collapse across cohorts failed on proxy (CLAIM_MAP H12 PROXY-FAIL). The test's own prereg, scored against a lowered sampling-corrected target, does not kill; those targets rewrote the kill rule after MATH_ATTACK wrote it. The cold regime is not evaluable (n = 2). |
 | **DECISIVE / populations** | Fixed-spread sign (274 GPDD series) | **MATH_ATTACK literal joint kill fires on any reading** | Slope −0.21 vs −0.34. Cold-regime slope has the wrong sign, where the theory says the effect should be strongest. The test's own prereg against the sampling-corrected target does not kill, but those targets rewrote the rule. The result is fragile (half the series are fur-harvest records; source fixed effects, taxon clustering, or dropping clipped series remove significance) and should not be cited as support. |
 | **F1** | Same index on ≈ 4,100 US public firms | **Inconclusive; not a theory-specific hit** | All four directions held; the main link is published. τ mostly measures fixed-cost share (operating leverage), not correction speed, so construct validity fails. The novel interaction p = 0.055. Data prefer a τ weight near 1 over ½ (suggestive only). The prereg kill rules did not fire. |
 | **C3** | Same index on 896 open-source projects | **Inconclusive / miss** | τ added nothing; the design could not have seen it. It rejects the reset-clock mechanism at that scale (predicted ≈ 11× per doubling, measured ≈ 1.0). |
 | **BIO1** | Drift matching at biological scales (literature) | Kill not triggered; one contradiction | Holds, but almost entirely as prior art. The neural slope ≈ 1 comes from periodic switching, which v1.4 places outside the spectrum map. |
 | **COLLAPSE1** | Memory time vs world time across substrates | Mixed (two proxy fails, weak passes) | The immune "contradiction" was largely a measurement-age artifact under power-law waning. Code re-edit need decays as a power law (≈ 0.6). |
-| **MATCH1** | Need vs memory exponents in the same system; freeze-or-hold | Match **failed**; freeze-or-hold **passed**; layer count inconclusive | News memory 0.24 vs need 0.71. Measles antibodies stay nearly flat (0.11) while measles-return odds fall at 2.15. Need exponents 0.6–0.8 replicate across code, Wikipedia and news. The redness correlation had the opposite sign to the prediction; v1.4: that prediction was mis-derived (CLAIM_MAP H19). |
+| **MATCH1** | Need vs memory exponents in the same system; freeze-or-hold | Match **failed on proxy** (H2 PROXY-FAIL); freeze-or-hold **passed on proxy** "town-level measles recurrence" (H9 PROXY-PASS; substance prior art, Mayer et al. 2016); layer count inconclusive | News memory 0.24 vs need 0.71. Measles antibodies stay nearly flat (0.11) while measles-return odds fall at 2.15. Need exponents 0.6–0.8 replicate across code, Wikipedia and news. The redness correlation had the opposite sign to the prediction; v1.4: that prediction was mis-derived (CLAIM_MAP H19). |
 | **DRIFT1** | Is drift scale-free? | Kill not triggered | City 311 looks scale-free; Wikipedia and filings have cadences. Supports T7 only as a conditional claim. A person-scale arm is withheld (`tests/DRIFT1/REDACTION.md`). |
-| **ANTS1, C3b** | √N trail fade (simulation); exogenous shocks in open source | Not finished | — |
+| **ANTS1** | √N trail fade (simulation) | Finished 15 Nov; passes by construction (G13–G14 NOT EVIDENCE); three locked in-model failures (G15–G17 SIM-FAIL) | `reviews/night1/ANTS1_WRITEUP.md`; limits √N pooling to linear readouts |
+| **C3b** | Exogenous shocks in open source | Not finished | — |
 
-**Overall (following the DECISIVE/F1 review):** the numbers reproduce and every sign is right. That is not enough. The τ (time-to-fix) term as a theory-specific claim **failed on these proxies** under MATH_ATTACK's literal joint kill rule (CLAIM_MAP K4 PROXY-FAIL): it fires for populations on any reading and for glucose on the full sample; banks are sign-only, not a hit. "Fewer crossings at fixed spread with slower correction" follows from dimensional analysis and standard first-passage results (Siegert 1951; Black–Cox 1976). The theory-specific structure — the −1 exponent, the √τ weighting, the identities, the τ-buffer interaction, and one collapse curve — failed. F1's τ mostly measures fixed-cost share. The lowered sampling-corrected targets rewrote the kill rule after it was written; this scoreboard leads with the literal verdict. C3 rejected a fixed-clock version. Reading the missed exponents as "½ is the single-timescale special case of the spectrum relation" is post hoc and must be tested in its own right.
+**Overall (following the DECISIVE/F1 review):** the numbers reproduce and every sign is right. That is not enough. The τ (time-to-fix) term as a theory-specific claim **failed on these proxies** under MATH_ATTACK's literal joint kill rule (CLAIM_MAP K4 PROXY-FAIL): it fires for populations on any reading and for glucose on the full sample; banks are sign-only, not a hit. "Fewer crossings at fixed spread with slower correction" follows from dimensional analysis and standard first-passage results (Siegert 1951; Black–Cox 1976). The theory-specific structure — the −1 exponent, the √τ weighting, the identities, the τ-buffer interaction, and one collapse curve — failed on these proxies (H11–H15 PROXY-FAIL; out of scope for the structural core). F1's τ mostly measures fixed-cost share. The lowered sampling-corrected targets rewrote the kill rule after it was written; this scoreboard leads with the literal verdict. C3 rejected a fixed-clock version. Reading the missed exponents as "½ is the single-timescale special case of the spectrum relation" is post hoc and must be tested in its own right.
 
 ## Repository layout
 
 ```
-THEORY.md         The theory, v1.4.3a draft (start here)
+THEORY.md         The theory, v1.4.18 draft (start here)
+STATUS.md         Where the work stands (rewritten, not appended)
+BRIEF.md          Plain-words brief of the whole record, checked against the files
+QUEUE.md, queue/  Live work queue and ledger
+measurement/      FRAMEWORK (gates MV1–MV10, tiers, anti-rescue rule) and CLAIM_MAP_v2 (one status per claim)
+tools/            check_consistency.py (versions, wording, CLAIM_MAP N statuses)
 theory/           Theorem notes, the math attack, and their code checks
 tests/            Preregistered tests: predictions, code, results (raw data excluded)
 litmap/           Literature map, prior-art table, threats, and DOI verification
@@ -100,7 +108,7 @@ LICENSE.md        Placeholder: no license chosen yet (TODO for the author)
 
 - **AI memory**, worked out as math and a toy simulation in the public repository [`Chad-Mitchell/adaptive-memory-levels`](https://github.com/Chad-Mitchell/adaptive-memory-levels). That repo is one application. It is not this theory, and its toy results are not evidence that the theory is true.
 - **Looper** is a personal-assistant application of the same hypothesis. It is developed separately. This repository does not contain Looper code, store contents, or any personal data.
-- **Ants:** the field-literature check is in BIO1; a code-ant simulation of the √N claim is ANTS1 (unfinished).
+- **Ants:** the field-literature check is in BIO1; a code-ant simulation of the √N claim is ANTS1 (finished 15 Nov; `reviews/night1/ANTS1_WRITEUP.md`).
 
 ## How this should be read
 
