@@ -5,7 +5,7 @@ during the risk period. D1 codes them as events at t0+0.5d; D2 drops them. Also 
 import json, numpy as np, pandas as pd, statsmodels.formula.api as smf
 from scipy import stats
 from lifelines import CoxPHFitter
-d0 = pd.read_csv('/workspace/gtao/tests/C3/data/analysis_dataset.csv')
+d0 = pd.read_csv('<local>/gtao/tests/C3/data/analysis_dataset.csv')
 def fit(df, cols):
     c = CoxPHFitter(); c.fit(df[cols + ['T', 'E']], 'T', 'E'); return c
 out = {}
@@ -25,5 +25,5 @@ for name, d in [('L_literal_prereg', L), ('D1_events_at_t0', d0.assign(E=np.wher
     m = smf.ols('E ~ ltauc * lsbc', d).fit(cov_type='HC1')
     r['P2_interaction'] = [round(float(m.params['ltauc:lsbc']), 4), round(float(m.conf_int().loc['ltauc:lsbc', 0]), 4), round(float(m.conf_int().loc['ltauc:lsbc', 1]), 4)]
     out[name] = r
-json.dump(out, open('/workspace/gtao/tests/C3/deviation_results.json', 'w'), indent=1)
+json.dump(out, open('<local>/gtao/tests/C3/deviation_results.json', 'w'), indent=1)
 print(json.dumps(out, indent=1))

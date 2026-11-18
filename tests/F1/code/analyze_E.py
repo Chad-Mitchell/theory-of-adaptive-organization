@@ -1,7 +1,7 @@
 """Secondary arm E analysis (non-decisive for the F1 verdict)."""
 import numpy as np, pandas as pd, json, statsmodels.formula.api as smf
 from lifelines import CoxPHFitter
-d=pd.read_csv('/workspace/gtao/tests/F1/data/analysis_dataset_E.csv').dropna(subset=['shockE'])
+d=pd.read_csv('<local>/gtao/tests/F1/data/analysis_dataset_E.csv').dropna(subset=['shockE'])
 # risk window starts 2020-04-01: drop firms with event before then; re-base time
 d=d[~((d.D==1)&(d['T']<91))].copy(); d['TE']=(d['T']-91).clip(lower=1)
 d['zE']=np.log1p(d.shockE*d.rev_q_mean/d.B)
@@ -14,4 +14,4 @@ R={'n':int(len(d)),'events':int(d.D.sum()),'LPM_inter':[float(m.params[k]),float
    'LPM_all':{x:float(m.params[x]) for x in m.params.index},
    'cox':{x:[float(c.params_[x]),float(c.confidence_intervals_.loc[x].iloc[0]),float(c.confidence_intervals_.loc[x].iloc[1])] for x in c.params_.index}}
 R['label']='SUPPORT' if R['LPM_inter'][1]>0 else ('AGAINST' if R['LPM_inter'][2]<=0 else 'NULL/INCONCLUSIVE')
-json.dump(R,open('/workspace/gtao/tests/F1/results_E.json','w'),indent=1); print(json.dumps(R,indent=1))
+json.dump(R,open('<local>/gtao/tests/F1/results_E.json','w'),indent=1); print(json.dumps(R,indent=1))

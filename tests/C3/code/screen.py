@@ -3,7 +3,7 @@ default-branch commit counts in 2021 and in the gap (2022-07-01..2023-06-30)."""
 import json, subprocess, sys, time, re, os
 import pandas as pd
 from concurrent.futures import ThreadPoolExecutor
-D = '/workspace/gtao/tests/C3/data'
+D = '<local>/gtao/tests/C3/data'
 urls = pd.read_csv(f'{D}/package_urls.csv')['url'].dropna().astype(str)
 repos = sorted({u.lower().strip('/').removesuffix('.git') for u in urls if re.fullmatch(r'github\.com/[\w.-]+/[\w.-]+', u.strip('/'))})
 print('unique repos', len(repos), flush=True)

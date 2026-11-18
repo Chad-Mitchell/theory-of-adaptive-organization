@@ -100,10 +100,10 @@ def ecm_tau_small(lnR,lnC,qs):
 
 if __name__=='__main__':
     from multiprocessing import Pool
-    recs=(json.loads(l) for l in open(f'/workspace/gtao/tests/F1/data/extract_{COH}.jsonl'))
+    recs=(json.loads(l) for l in open(f'<local>/gtao/tests/F1/data/extract_{COH}.jsonl'))
     with Pool(6) as p: rows=p.map(build,list(recs),chunksize=50)
     df=pd.DataFrame(rows)
     df['B']=df['cash'].fillna(0)+df['sti'].fillna(0)+df['loc'].fillna(0)
     df['cohort']=COH
-    df.to_csv(f'/workspace/gtao/tests/F1/data/measures_{COH}.csv',index=False)
+    df.to_csv(f'<local>/gtao/tests/F1/data/measures_{COH}.csv',index=False)
     print(len(df), df[['tau','tau_drop','sigma','B','assets']].notna().sum().to_dict())

@@ -154,7 +154,7 @@ them, the PREREG changed in one line only: the lock-time text went from "about 0
 changed. Limits: commit times are self-reported, the analysis script was not locked (the PREREG specifies the pipeline in words), and git cannot prove
 no shuffle was computed earlier. On the record as committed, **the lock preceded the result.**
 
-*Rerun.* Same 12 clones (`/workspace/collapse_repos/`, unchanged since 14 Nov 22:55 ET). Median Δβ = 0.021 (PREREG order) and 0.023 (alphabetical
+*Rerun.* Same 12 clones (`<local>/collapse_repos/`, unchanged since 14 Nov 22:55 ET). Median Δβ = 0.021 (PREREG order) and 0.023 (alphabetical
 order, as the original ran) vs 0.024 committed. S1 PASS reproduces. It is **not bit-reproducible**: (i) one RNG stream is shared across repos, so repo
 order matters; (ii) the order of files in `ed.values()` depends on PYTHONHASHSEED; (iii) pandoc's β_orig came out 0.258 in both reruns vs 0.253 committed,
 which I could not explain from the code. None of these changes the verdict. S2 (exploratory) Spearman(β_shuf, a) = +0.40, p = 0.20, n = 12: not

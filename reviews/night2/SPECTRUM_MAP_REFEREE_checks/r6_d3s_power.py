@@ -5,7 +5,7 @@ Synthetic 'repos': 40 files, 5000 days, binary daily edit series. Same spectral_
         (shared within a file) -> rate modulation; expect delta > 0 if the test has power.
 Reports beta_orig, beta_shuf, delta (median over 6 synthetic repos per setting)."""
 import sys, json, numpy as np
-sys.path.insert(0,"/workspace/smr-wt/tests/MATCH1"); from aslib import spectral_beta
+sys.path.insert(0,"<local>/smr-wt/tests/MATCH1"); from aslib import spectral_beta
 rng=np.random.default_rng(7); n=5000; F=40
 def series(d):
     s=np.zeros(n); s[d]=1; return s

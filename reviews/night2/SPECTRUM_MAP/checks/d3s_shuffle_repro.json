@@ -1,7 +1,7 @@
 {
  "repos": [
   {
-   "repo": "/workspace/collapse_repos/BurntSushi_ripgrep",
+   "repo": "<local>/collapse_repos/BurntSushi_ripgrep",
    "a_need": 0.623,
    "beta_orig": 0.349,
    "beta_shuf": 0.272,
@@ -12,7 +12,7 @@
    "delta": 0.077
   },
   {
-   "repo": "/workspace/collapse_repos/Alamofire_Alamofire",
+   "repo": "<local>/collapse_repos/Alamofire_Alamofire",
    "a_need": 0.463,
    "beta_orig": 0.21,
    "beta_shuf": 0.216,
@@ -23,7 +23,7 @@
    "delta": -0.006
   },
   {
-   "repo": "/workspace/collapse_repos/expressjs_express",
+   "repo": "<local>/collapse_repos/expressjs_express",
    "a_need": 0.714,
    "beta_orig": 0.312,
    "beta_shuf": 0.332,
@@ -34,7 +34,7 @@
    "delta": -0.02
   },
   {
-   "repo": "/workspace/collapse_repos/pallets_flask",
+   "repo": "<local>/collapse_repos/pallets_flask",
    "a_need": 0.572,
    "beta_orig": 0.26,
    "beta_shuf": 0.183,
@@ -45,7 +45,7 @@
    "delta": 0.077
   },
   {
-   "repo": "/workspace/collapse_repos/psf_requests",
+   "repo": "<local>/collapse_repos/psf_requests",
    "a_need": 0.577,
    "beta_orig": 0.212,
    "beta_shuf": 0.233,
@@ -56,7 +56,7 @@
    "delta": -0.021
   },
   {
-   "repo": "/workspace/collapse_repos/jekyll_jekyll",
+   "repo": "<local>/collapse_repos/jekyll_jekyll",
    "a_need": 0.729,
    "beta_orig": 0.245,
    "beta_shuf": 0.262,
@@ -67,7 +67,7 @@
    "delta": -0.017
   },
   {
-   "repo": "/workspace/collapse_repos/phoenixframework_phoenix",
+   "repo": "<local>/collapse_repos/phoenixframework_phoenix",
    "a_need": 0.581,
    "beta_orig": 0.236,
    "beta_shuf": 0.214,
@@ -78,7 +78,7 @@
    "delta": 0.022
   },
   {
-   "repo": "/workspace/collapse_repos/tokio-rs_tokio",
+   "repo": "<local>/collapse_repos/tokio-rs_tokio",
    "a_need": 0.534,
    "beta_orig": 0.195,
    "beta_shuf": 0.16,
@@ -89,7 +89,7 @@
    "delta": 0.035
   },
   {
-   "repo": "/workspace/collapse_repos/redis_redis",
+   "repo": "<local>/collapse_repos/redis_redis",
    "a_need": 0.702,
    "beta_orig": 0.245,
    "beta_shuf": 0.206,
@@ -100,7 +100,7 @@
    "delta": 0.039
   },
   {
-   "repo": "/workspace/collapse_repos/jgm_pandoc",
+   "repo": "<local>/collapse_repos/jgm_pandoc",
    "a_need": 0.735,
    "beta_orig": 0.258,
    "beta_shuf": 0.213,
@@ -111,7 +111,7 @@
    "delta": 0.045
   },
   {
-   "repo": "/workspace/collapse_repos/laravel_framework",
+   "repo": "<local>/collapse_repos/laravel_framework",
    "a_need": 0.613,
    "beta_orig": 0.187,
    "beta_shuf": 0.162,
@@ -122,7 +122,7 @@
    "delta": 0.025
   },
   {
-   "repo": "/workspace/collapse_repos/curl_curl",
+   "repo": "<local>/collapse_repos/curl_curl",
    "a_need": 0.711,
    "beta_orig": 0.197,
    "beta_shuf": 0.18,

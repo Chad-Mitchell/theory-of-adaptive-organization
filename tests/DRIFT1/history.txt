@@ -1,6 +1,6 @@
 # Local git history receipt for tests/DRIFT1
 #
-# Source: unpushed local repo at /workspace/gtao/tests/DRIFT1
+# Source: unpushed local repo at <local>/gtao/tests/DRIFT1
 # Written: 2026-11-14, America/New_York.
 #
 # These commits were not pushed anywhere before they were added to this

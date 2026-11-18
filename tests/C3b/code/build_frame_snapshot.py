@@ -7,7 +7,7 @@ SNAP = {'sqlalchemy': '2023.01.25', 'pandas': '2023.03.19', 'urllib3': '2023.04.
 GH = re.compile(r'github\.com/([\w.-]+)/([\w.-]+)', re.I)
 rows = []
 for k, s in SNAP.items():
-    c = sqlite3.connect(f'/workspace/pypidata/{s}.db')
+    c = sqlite3.connect(f'<local>/pypidata/{s}.db')
     if k == 'W':
         pk = {r[0] for r in c.execute("select distinct package_name from wheels where python like '%cp311%'")}
     else:
@@ -24,4 +24,4 @@ for k, s in SNAP.items():
         rows.append({'pkg': p, 'frame_shock': k, 'snapshot': s, 'url': urls[p].most_common(1)[0][0] if urls[p] else None})
     print(k, s, len(pk), sum(1 for p in pk if urls[p]), flush=True)
 F = pd.DataFrame(rows)
-F.to_csv('/workspace/gtao/tests/C3b/data/frame_snapshot.csv', index=False)
+F.to_csv('<local>/gtao/tests/C3b/data/frame_snapshot.csv', index=False)

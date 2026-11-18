@@ -8,7 +8,7 @@ Nothing in the hypotheses, models, SESOI or verdict rules changes.
 **Data state when written.** Stages 1 (PyPI screen, done 2026-11-14 23:18 ET) and 2 (repo resolution and pre-shock
 commit window, done 23:50 ET) are complete; stages 3 (exposure), 4 (fix window / tau), 5 (outcomes) and 6 have **not** been
 run. Only stage-1/2 pre-shock files were read for this addendum (`data/candidates_resolved.csv`, `data/commits_pre.jsonl`
-in the working copy at /workspace/gtao/tests/C3b; no post-shock, tau, latency, star or outcome data exist or were fetched).
+in the working copy at <local>/gtao/tests/C3b; no post-shock, tau, latency, star or outcome data exist or were fetched).
 
 ## 1. Real n
 Arm P rows passing rules 1–4 after the dedupe (one row per repo × shock): **2,294** (numpy 1,063, pandas 532, pydantic 362,

@@ -13,7 +13,7 @@ Outputs: data/target_<VAR>.csv (quarterly target series, latest vintage) and dat
 import hashlib, os, re, sys
 import numpy as np, pandas as pd
 
-RAW = os.environ.get("LFK_RAW", "/workspace/lfk_spf")
+RAW = os.environ.get("LFK_RAW", "<local>/lfk_spf")
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 
 # var: (kind, source, file/series, scale applied to actual)

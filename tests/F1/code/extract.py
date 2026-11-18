@@ -3,7 +3,7 @@ Only facts with filed <= CUTOFF_FILED are used. Writes data/panel.parquet-ish CS
 """
 import zipfile, json, sys, datetime as dt, csv
 from multiprocessing import Pool
-ZIP='/workspace/gtao/tests/F1/raw/companyfacts.zip'
+ZIP='<local>/gtao/tests/F1/raw/companyfacts.zip'
 COH=sys.argv[1] if len(sys.argv)>1 else 'C2'
 CUTOFF_FILED={'C1':'2014-12-31','C2':'2019-12-31'}[COH]
 REV=['Revenues','RevenueFromContractWithCustomerExcludingAssessedTax','RevenueFromContractWithCustomerIncludingAssessedTax','SalesRevenueNet','SalesRevenueGoodsNet','SalesRevenueServicesNet','RevenuesNetOfInterestExpense']
@@ -97,7 +97,7 @@ def proc(name):
 
 if __name__=='__main__':
     z=zipfile.ZipFile(ZIP); names=z.namelist()
-    out=open(f'/workspace/gtao/tests/F1/data/extract_{COH}.jsonl','w')
+    out=open(f'<local>/gtao/tests/F1/data/extract_{COH}.jsonl','w')
     with Pool(5) as p:
         for i,res in enumerate(p.imap_unordered(proc,names,chunksize=20)):
             if res:

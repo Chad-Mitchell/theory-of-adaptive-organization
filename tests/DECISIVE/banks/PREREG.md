@@ -1,6 +1,6 @@
 # DECISIVE / banks — preregistration (D1, firm scale)
 
-Written Sat 2026-11-14, ~22:55 ET, by a Grok Bot executor for Chad (via Ace). Committed and sha256-hashed before any outcome (failure) data are joined to predictors. Source theory: `/workspace/gtao/attack/math/MATH_ATTACK.md` §2.1, §2.3, §2.6, §5 D1. Lessons from C3 (`tests/C3/RESULTS.md`): B must be a stock, σ an innovation, τ pre-measured and not chosen in response to the outcome; report the continuous and incident versions of the identity.
+Written Sat 2026-11-14, ~22:55 ET, by a Grok Bot executor for Chad (via Ace). Committed and sha256-hashed before any outcome (failure) data are joined to predictors. Source theory: `<local>/gtao/attack/math/MATH_ATTACK.md` §2.1, §2.3, §2.6, §5 D1. Lessons from C3 (`tests/C3/RESULTS.md`): B must be a stock, σ an innovation, τ pre-measured and not chosen in response to the outcome; report the continuous and incident versions of the identity.
 
 ## What was seen before this commit (disclosure)
 - FDIC BankFind `financials` 2001Q1–2007Q4 for all FDIC-insured institutions (predictor block only), summary stats and power simulation (`power_output.txt`).

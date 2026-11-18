@@ -1,306 +1,306 @@
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
   wls_results = wls_model.fit(method=wls_method2)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
   wls_results = wls_model.fit(method=wls_method2)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
   wls_results = wls_model.fit(method=wls_method2)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
   wls_results = wls_model.fit(method=wls_method2)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
   wls_results = wls_model.fit(method=wls_method2)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
   wls_results = wls_model.fit(method=wls_method2)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3802: RuntimeWarning: overflow encountered in scalar power
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3802: RuntimeWarning: overflow encountered in scalar power
   da1 = -(alpha**-2)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3706: RuntimeWarning: divide by zero encountered in scalar divide
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3706: RuntimeWarning: divide by zero encountered in scalar divide
   size = 1 / alpha * mu**Q
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3707: RuntimeWarning: invalid value encountered in divide
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3707: RuntimeWarning: invalid value encountered in divide
   prob = size / (size + mu)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3708: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3708: RuntimeWarning: invalid value encountered in subtract
   coeff = gamma_ln(size + endog) - gamma_ln(endog + 1) - gamma_ln(size)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3785: RuntimeWarning: divide by zero encountered in scalar divide
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3785: RuntimeWarning: divide by zero encountered in scalar divide
   a1 = 1 / alpha * mu**Q
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3786: RuntimeWarning: invalid value encountered in divide
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3786: RuntimeWarning: invalid value encountered in divide
   prob = a1 / (a1 + mu)  # a1 aka "size" in _ll_nbin
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3800: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3800: RuntimeWarning: invalid value encountered in subtract
   dgpart = digamma(y + a1) - digamma(a1)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3801: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3801: RuntimeWarning: invalid value encountered in multiply
   dparams = exog * a1 * (y - mu) / (mu + a1)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3801: RuntimeWarning: invalid value encountered in divide
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3801: RuntimeWarning: invalid value encountered in divide
   dparams = exog * a1 * (y - mu) / (mu + a1)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3802: RuntimeWarning: divide by zero encountered in scalar power
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3802: RuntimeWarning: divide by zero encountered in scalar power
   da1 = -(alpha**-2)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3947: RuntimeWarning: invalid value encountered in divide
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3947: RuntimeWarning: invalid value encountered in divide
   da2 * dalpha / da1
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in subtract
   special.polygamma(1, a1 + y)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3948: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3948: RuntimeWarning: invalid value encountered in multiply
   + da1**2
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3947: RuntimeWarning: invalid value encountered in divide
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3947: RuntimeWarning: invalid value encountered in divide
   da2 * dalpha / da1
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in subtract
   special.polygamma(1, a1 + y)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3948: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3948: RuntimeWarning: invalid value encountered in multiply
   + da1**2
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3714: RuntimeWarning: overflow encountered in exp
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3714: RuntimeWarning: overflow encountered in exp
   alpha = np.exp(params[-1])
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3708: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3708: RuntimeWarning: invalid value encountered in subtract
   coeff = gamma_ln(size + endog) - gamma_ln(endog + 1) - gamma_ln(size)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3778: RuntimeWarning: overflow encountered in exp
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3778: RuntimeWarning: overflow encountered in exp
   alpha = np.exp(params[-1])
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3800: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3800: RuntimeWarning: invalid value encountered in subtract
   dgpart = digamma(y + a1) - digamma(a1)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: divide by zero encountered in log
   dgpart + np.log(a1) - np.log(a1 + mu) - (y - mu) / (a1 + mu)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: invalid value encountered in add
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: invalid value encountered in add
   dgpart + np.log(a1) - np.log(a1 + mu) - (y - mu) / (a1 + mu)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3910: RuntimeWarning: overflow encountered in exp
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3910: RuntimeWarning: overflow encountered in exp
   alpha = np.exp(params[-1])
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3920: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3920: RuntimeWarning: invalid value encountered in subtract
   dgpart = digamma(a1 + y) - digamma(a1)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: divide by zero encountered in log
   dalpha = da1 * (dgpart + np.log(prob) - (y - mu) / (a1 + mu))
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: invalid value encountered in add
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: invalid value encountered in add
   dalpha = da1 * (dgpart + np.log(prob) - (y - mu) / (a1 + mu))
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in subtract
   special.polygamma(1, a1 + y)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3952: RuntimeWarning: divide by zero encountered in scalar divide
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3952: RuntimeWarning: divide by zero encountered in scalar divide
   + 1 / a1
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in add
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in add
   special.polygamma(1, a1 + y)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:4110: RuntimeWarning: overflow encountered in exp
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:4110: RuntimeWarning: overflow encountered in exp
   mlefit._results.params[-1] = np.exp(mlefit._results.params[-1])
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3708: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3708: RuntimeWarning: invalid value encountered in subtract
   coeff = gamma_ln(size + endog) - gamma_ln(endog + 1) - gamma_ln(size)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3800: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3800: RuntimeWarning: invalid value encountered in subtract
   dgpart = digamma(y + a1) - digamma(a1)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: divide by zero encountered in log
   dgpart + np.log(a1) - np.log(a1 + mu) - (y - mu) / (a1 + mu)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: invalid value encountered in add
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: invalid value encountered in add
   dgpart + np.log(a1) - np.log(a1 + mu) - (y - mu) / (a1 + mu)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3920: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3920: RuntimeWarning: invalid value encountered in subtract
   dgpart = digamma(a1 + y) - digamma(a1)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: divide by zero encountered in log
   dalpha = da1 * (dgpart + np.log(prob) - (y - mu) / (a1 + mu))
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: invalid value encountered in add
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: invalid value encountered in add
   dalpha = da1 * (dgpart + np.log(prob) - (y - mu) / (a1 + mu))
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in subtract
   special.polygamma(1, a1 + y)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3952: RuntimeWarning: divide by zero encountered in scalar divide
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3952: RuntimeWarning: divide by zero encountered in scalar divide
   + 1 / a1
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in add
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in add
   special.polygamma(1, a1 + y)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3714: RuntimeWarning: overflow encountered in exp
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3714: RuntimeWarning: overflow encountered in exp
   alpha = np.exp(params[-1])
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3708: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3708: RuntimeWarning: invalid value encountered in subtract
   coeff = gamma_ln(size + endog) - gamma_ln(endog + 1) - gamma_ln(size)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3778: RuntimeWarning: overflow encountered in exp
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3778: RuntimeWarning: overflow encountered in exp
   alpha = np.exp(params[-1])
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3800: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3800: RuntimeWarning: invalid value encountered in subtract
   dgpart = digamma(y + a1) - digamma(a1)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: divide by zero encountered in log
   dgpart + np.log(a1) - np.log(a1 + mu) - (y - mu) / (a1 + mu)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: invalid value encountered in add
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: invalid value encountered in add
   dgpart + np.log(a1) - np.log(a1 + mu) - (y - mu) / (a1 + mu)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3910: RuntimeWarning: overflow encountered in exp
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3910: RuntimeWarning: overflow encountered in exp
   alpha = np.exp(params[-1])
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3920: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3920: RuntimeWarning: invalid value encountered in subtract
   dgpart = digamma(a1 + y) - digamma(a1)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: divide by zero encountered in log
   dalpha = da1 * (dgpart + np.log(prob) - (y - mu) / (a1 + mu))
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: invalid value encountered in add
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: invalid value encountered in add
   dalpha = da1 * (dgpart + np.log(prob) - (y - mu) / (a1 + mu))
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in subtract
   special.polygamma(1, a1 + y)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3952: RuntimeWarning: divide by zero encountered in scalar divide
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3952: RuntimeWarning: divide by zero encountered in scalar divide
   + 1 / a1
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in add
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in add
   special.polygamma(1, a1 + y)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:4110: RuntimeWarning: overflow encountered in exp
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:4110: RuntimeWarning: overflow encountered in exp
   mlefit._results.params[-1] = np.exp(mlefit._results.params[-1])
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3708: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3708: RuntimeWarning: invalid value encountered in subtract
   coeff = gamma_ln(size + endog) - gamma_ln(endog + 1) - gamma_ln(size)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3800: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3800: RuntimeWarning: invalid value encountered in subtract
   dgpart = digamma(y + a1) - digamma(a1)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: divide by zero encountered in log
   dgpart + np.log(a1) - np.log(a1 + mu) - (y - mu) / (a1 + mu)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: invalid value encountered in add
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3804: RuntimeWarning: invalid value encountered in add
   dgpart + np.log(a1) - np.log(a1 + mu) - (y - mu) / (a1 + mu)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3920: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3920: RuntimeWarning: invalid value encountered in subtract
   dgpart = digamma(a1 + y) - digamma(a1)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: divide by zero encountered in log
   dalpha = da1 * (dgpart + np.log(prob) - (y - mu) / (a1 + mu))
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: invalid value encountered in add
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3945: RuntimeWarning: invalid value encountered in add
   dalpha = da1 * (dgpart + np.log(prob) - (y - mu) / (a1 + mu))
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in subtract
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in subtract
   special.polygamma(1, a1 + y)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3952: RuntimeWarning: divide by zero encountered in scalar divide
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3952: RuntimeWarning: divide by zero encountered in scalar divide
   + 1 / a1
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in add
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3950: RuntimeWarning: invalid value encountered in add
   special.polygamma(1, a1 + y)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
   wls_results = wls_model.fit(method=wls_method2)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
   wls_results = wls_model.fit(method=wls_method2)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
   wls_results = wls_model.fit(method=wls_method2)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
   wls_results = wls_model.fit(method=wls_method2)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
   wls_results = wls_model.fit(method=wls_method2)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: divide by zero encountered in log
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:3709: RuntimeWarning: invalid value encountered in multiply
   llf = coeff + size * np.log(prob) + endog * np.log(1 - prob)
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: HessianInversionWarning: Inverting hessian failed, no bse or cov_params available
   mlefit = super().fit(
-/workspace/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
+<local>/gtao/tests/DECISIVE/.venv/lib/python3.13/site-packages/statsmodels/genmod/generalized_linear_model.py:1486: SingularMatrixWarning: The design matrix is rank-deficient. The model parameters are not uniquely determined.
   wls_results = wls_model.fit(method=wls_method2)
 {
  "REPLACEBG_T1D": {

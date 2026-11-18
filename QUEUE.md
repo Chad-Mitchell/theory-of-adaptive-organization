@@ -30,7 +30,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **Also owed:** a hostile referee of Proposition SG (math + prior art), as part of Q1.
 
 ### Q1. PRIORART-SWEEP (rule rank 1, I = 3.15) — DONE 15 Nov 09:26 ET (gap-fill only; `reviews/night2/SPECTRUM_MAP/priorart/NOTES.md`)
-- **Outcome:** night 1 had already swept the main seeds (`/workspace/gtao/night1/REVIEW/priorart/SWEEP.md`). Added: forward citations of Bimpikis & Markakis 2016 (72) and Abolhassani 2024 (16): no statement of O1 or O5. SG's regime-conditional clock is anticipated in substance by Ferragut, Rodríguez & Paganini 2018 (Queueing Systems 88:207–241): relabel SG's novelty "application". Google Scholar not swept (PRIORART-SCHOLAR). No CLAIM_MAP status applied (referee first).
+- **Outcome:** night 1 had already swept the main seeds (`<local>/gtao/night1/REVIEW/priorart/SWEEP.md`). Added: forward citations of Bimpikis & Markakis 2016 (72) and Abolhassani 2024 (16): no statement of O1 or O5. SG's regime-conditional clock is anticipated in substance by Ferragut, Rodríguez & Paganini 2018 (Queueing Systems 88:207–241): relabel SG's novelty "application". Google Scholar not swept (PRIORART-SCHOLAR). No CLAIM_MAP status applied (referee first).
 - **Tests:** THEORY §1 and §8b novelty statements; Proposition SG's prior art.
 - **Regime:** n/a.
 - **Data:** OpenAlex / Semantic Scholar / Crossref APIs (Google Scholar was blocked): forward citations of Marschak & Radner 1972 ch. 7 §5, Van Zandt & Radner 2001, Veldkamp & Wolfers 2007, Bimpikis & Markakis 2016, Abolhassani 2024; queries for decreasing-hazard / renewal-process monitoring and Whittle-index scheduling with bursty sources.

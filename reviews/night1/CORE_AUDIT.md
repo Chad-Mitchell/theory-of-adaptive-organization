@@ -1,7 +1,7 @@
 # CORE_AUDIT (night 1): the core causal claim, what it implies, a discriminating-predictions audit, prior-art closure, and tonight's tests
 
 Sunday 2026-11-15, about 00:30–01:30 ET. Written by a Grok Bot executor for Chad (via Ace). Private working note.
-Nothing was posted or sent. The Looper repo and the theory repo (`/workspace/theory-of-adaptive-organization`) were not touched.
+Nothing was posted or sent. The Looper repo and the theory repo (`<repo>`) were not touched.
 New files: this document, `vigilance_check.py` with `vigilance_check.out` (a 1-second numerical check, §2.3), and `src/` (the Dessein–Galeotti–Santos PDF and its text; Geanakoplos–Milgrom was read through the fetch tool and not saved).
 
 **Read for this audit:** the repo's `THEORY.md` (whole, including the §8 scoreboard), `theory/THEOREMS.md` §T3–T7; `theory-v3/SCALEFREE.md` and `PREDICTIONS.md`; `PROFOUND.md`; `profound/PROFOUND_v2.md`, `POOLING_REVIEW.md` and `PREREG_DRAFT.md` §0–1 plus headings; `theorem-v2/INTERNAL_MODEL_REVIEW.md` §0–1; `reviews/DECISIVE_F1_REVIEW.md` §0–2; `tests/LANG1/RESULTS.md`, `tests/MATCH1/RESULTS.md`, `tests/ANTS1/PREREG.md`, and the `theory-v3/prereg/p1_meeter_conditional.py` script. **Not re-read line by line:** BIO1, COLLAPSE1, DRIFT1, DECISIVE and F1 RESULTS (I used the repo's §8 summaries of them and the independent review), `GENERAL_THEOREM.md`, `MATH_ATTACK.md`, and the full INTERNAL_MODEL draft.
@@ -257,7 +257,7 @@ At 00:30 ET, free memory was about 3 GB. Each test below is single-process and s
 - **Prediction:** a_c ∈ [0.5, 1.2], lower CI > 0.35.
 - **Competitor:** Anderson 1990 item-level d ≈ ⅓, giving a_c ≈ 0.24.
 - **Kill:** a_c < 0.35, or upper CI < 0.5.
-- **Command:** `cd /workspace/gtao/theory-v3 && .venv/bin/python prereg/p1_meeter_conditional.py`
+- **Command:** `cd <local>/gtao/theory-v3 && .venv/bin/python prereg/p1_meeter_conditional.py`
 
 **Decision needed before running.** PROFOUND's Day 1 plan said to run this "with Chad's go to anchor the hash" externally. **Running it first permanently gives up the external timestamp.** An anchor made after the result proves nothing. Either:
 - (a) run tonight and report it as self-attested (the lock commit predates this audit), or

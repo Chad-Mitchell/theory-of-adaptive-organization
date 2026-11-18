@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Extract SPF individual forecasts at horizons h = 0..4 (current quarter .. 4 quarters ahead) for the 7 variables.
-Source: Philadelphia Fed SPFmicrodata.xlsx (box: /workspace/lfk_spf/, sha256 in ../LFK_SPF/data/RAW_SHA256.txt).
+Source: Philadelphia Fed SPFmicrodata.xlsx (box: <local>/lfk_spf/, sha256 in ../LFK_SPF/data/RAW_SHA256.txt).
 Columns VAR2..VAR6 = quarters t..t+4 (VAR1 = t-1). Level variables: the value. Growth variables: annualised q/q growth
 100((X_k/X_{k-1})^4 - 1) from the same forecaster's levels (as ../LFK_SPF). Sample: surveys with t+3 <= 2019Q4 (LFK sample).
 Output: data/micro_<VAR>.csv (survey_q, id, h, f). Usage: python3 build_micro.py [VARS...]
@@ -8,7 +8,7 @@ Output: data/micro_<VAR>.csv (survey_q, id, h, f). Usage: python3 build_micro.py
 import os, sys
 import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__))
-RAW = os.environ.get("LFK_RAW", "/workspace/lfk_spf")
+RAW = os.environ.get("LFK_RAW", "<local>/lfk_spf")
 KIND = {"UNEMP": "level", "HOUSING": "level", "TBILL": "level", "BOND": "level", "TBOND": "level",
         "RSLGOV": "growth", "INDPROD": "growth", "CPROF": "growth"}
 END_Q = 2019 * 4 + 3

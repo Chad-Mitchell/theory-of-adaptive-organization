@@ -1,6 +1,6 @@
 # Night 1 (14–15 November 2026, America/New_York): formal layer, tests and hostile reviews
 
-Private. These files are copied as-is from the working area on the agent box (`/workspace/gtao/night1/`). Paths inside them, such as `night1/POOLSIM/RESULTS.md`, refer to that working area. Simulation code, raw outputs and test folders were **not** copied.
+Private. These files are copied as-is from the working area on the agent box (`<local>/gtao/night1/`). Paths inside them, such as `night1/POOLSIM/RESULTS.md`, refer to that working area. Simulation code, raw outputs and test folders were **not** copied.
 
 | File | What it is |
 |---|---|

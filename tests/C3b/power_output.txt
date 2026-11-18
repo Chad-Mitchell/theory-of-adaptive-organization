@@ -1,4 +1,4 @@
-/home/box/.local/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+<local>/.local/lib/python3.13/site-packages/statsmodels/discrete/discrete_model.py:268: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
   mlefit = super().fit(
 n, b_tau, b_int -> P(H1 CI>0), P(H2 CI>0), P(K1 fires)
 150 0.25 0.03 (0.39666666666666667, np.float64(0.39666666666666667), 0.0033333333333333335)

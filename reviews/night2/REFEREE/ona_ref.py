@@ -4,7 +4,7 @@ Own loaders, own estimators (statsmodels GLM), jackknife + two-way cluster SEs, 
 ego-rank permutation test, robustness to unit/threshold choices."""
 import numpy as np, pandas as pd, statsmodels.api as sm, json, sys, warnings
 warnings.filterwarnings('ignore')
-RAW='/workspace/gtao/night2/VIGIL_ONA/data/raw'
+RAW='<local>/gtao/night2/VIGIL_ONA/data/raw'
 rng=np.random.default_rng(2026)
 
 def nodes():
@@ -122,4 +122,4 @@ if __name__=='__main__':
                  'H2_senior_jack(consulting unadjusted)':meta(H2s,'beta','se_jack'),
                  'H2_noLazega_jack':meta([x for k,x in zip(R,H2) if k!='lazega'],'beta','se_jack')}
     print(json.dumps(R['pooled'],indent=1))
-    json.dump(R,open('/workspace/gtao/night2/REVIEW/ona_ref_main.json','w'),indent=1,default=float)
+    json.dump(R,open('<local>/gtao/night2/REVIEW/ona_ref_main.json','w'),indent=1,default=float)

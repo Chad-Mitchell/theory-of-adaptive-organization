@@ -1,7 +1,7 @@
 """Compute σ, B, τ per repo from issues.jsonl (window 2021), per PREREG §3."""
 import json, numpy as np, pandas as pd
 from lifelines import KaplanMeierFitter
-D = '/workspace/gtao/tests/C3/data'
+D = '<local>/gtao/tests/C3/data'
 BOTS = {'dependabot','dependabot-preview','renovate','pre-commit-ci','pyup-bot','greenkeeper','codecov',
         'allcontributors','github-actions','stale','mergify','imgbot','snyk-bot'}
 NONCORE = {'NONE','CONTRIBUTOR','FIRST_TIMER','FIRST_TIME_CONTRIBUTOR','MANNEQUIN'}

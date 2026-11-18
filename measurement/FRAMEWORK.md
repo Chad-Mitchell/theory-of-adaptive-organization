@@ -69,7 +69,7 @@ Every GTAO quantity is defined **relative to** three things:
 A test that leaves any of the three implicit fails gate MV1 below.
 
 ### 2.2 Validity gates (MV1–MV10)
-**Binding since 18 Nov 2026** (Chad, t1927; CLAIM_MAP M2 and v2.40 note): every prereg locked from then on must state its tier against these gates before data. MV9's external timestamp still needs Chad's go per lock.
+**Treated as binding from 18 November 2026, on Chad's instruction to proceed without his sign-off (t1927; CLAIM_MAP M2 and v2.40 note):** every prereg locked from then on must state its tier against these gates before data. MV9's external timestamp still needs Chad's go per lock.
 
 A field test is **decisive (Tier 1)** only if it passes every gate. It is **Tier 2** if it passes MV1–MV4 and MV8 but not all the rest. It is **Tier 3** otherwise. The tiers extend those in `night2/VIGIL_ONA/FAIR_MEASURE.md` from vigilance to every prediction.
 

@@ -1,7 +1,7 @@
 """Stage 3 (outcome): archivedAt and last default-branch commit date for analysis-eligible repos."""
 import json, subprocess, time
 import pandas as pd
-D = '/workspace/gtao/tests/C3/data'
+D = '<local>/gtao/tests/C3/data'
 repos = [l.strip() for l in open(f'{D}/eligible_repos.txt') if l.strip()]
 FRAG = 'r%d: repository(owner:%s, name:%s){ nameWithOwner isArchived archivedAt pushedAt defaultBranchRef{ target{ ... on Commit { history(first:1){ nodes{ committedDate } } } } } }'
 out = open(f'{D}/outcome.jsonl', 'w')

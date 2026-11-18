@@ -124,7 +124,7 @@ None of these was done, and none will be done without an explicit go:
 - Making this repository public (it stays private).
 - Changing the Looper README wording.
 
-Standing constraints unchanged: no emails, posts or messages unasked; no public acts; calendar writes only to the private "Looper" calendar; never invent facts or citations; field results labelled by proxy; no field kills; heavy compute at nice 19.
+Standing constraints unchanged: no emails, posts or messages unasked; no public acts; calendar writes only to the private calendar; never invent facts or citations; field results labelled by proxy; no field kills; heavy compute at nice 19.
 
 ---
 

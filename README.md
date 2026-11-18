@@ -33,7 +33,7 @@ Optimality is claimed only where selection is strong. Below Lynch's drift barrie
 
 ## Honest status
 
-**Update, 18 Nov 2026 (v1.4.18):** GTAO is a falsifiable causal theory. The validity gates MV1–MV10 bind every new prereg from 18 Nov 2026 (CLAIM_MAP M2). No Tier-1 test has run: there is no field pass and no field fail, so the theory is untested in the field, not refuted.
+**Update, 18 Nov 2026 (v1.4.18):** GTAO is a falsifiable causal theory. The validity gates MV1–MV10 are treated as binding from 18 November 2026, on Chad's instruction to proceed without his sign-off (t1927; CLAIM_MAP M2), for every new prereg. No Tier-1 test has run: there is no field pass and no field fail, so the theory is untested in the field, not refuted.
 - No field test so far measured GTAO's quantities validly, so field results are "passed / failed on proxy X", not kills or confirmations (`measurement/`).
 - The formal layer is proved in-model, with corrections ("V ≥ 2" is wrong as stated), and mostly builds on published team theory and inventory pooling. Its constants are functions of the world's drift spectrum (`THEORY.md` §2.5).
 - The spectrum-to-design map is now derived and refereed (`reviews/night2/SPECTRUM_MAP_REFEREE.md`): it is classical, so it is no longer the headline. What remains open is whether real systems sit near it once its inputs are measured (`QUEUE.md`).

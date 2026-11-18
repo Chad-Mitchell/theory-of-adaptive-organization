@@ -1,6 +1,6 @@
 """Apply PREREG §2 rules 1-3 to screen.jsonl; dedupe by resolved nameWithOwner; sample 2,500 (seed 20261113)."""
 import json, numpy as np, pandas as pd
-D = '/workspace/gtao/tests/C3/data'
+D = '<local>/gtao/tests/C3/data'
 rows = []
 for l in open(f'{D}/screen.jsonl'):
     r = json.loads(l); res = r['res']

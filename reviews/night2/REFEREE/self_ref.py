@@ -4,7 +4,7 @@ import json, re, collections, datetime as dt, numpy as np, statsmodels.api as sm
 from zoneinfo import ZoneInfo
 from scipy.stats import spearmanr
 NY=ZoneInfo('America/New_York'); rng=np.random.default_rng(77)
-rows=[json.loads(l) for l in open('/workspace/looper/store/journal.jsonl')]
+rows=[json.loads(l) for l in open('<private-app-repo>/store/journal.jsonl')]
 def ts(s):
     d=dt.datetime.fromisoformat(s); return d if d.tzinfo else d.replace(tzinfo=NY)
 CUT=ts('2026-11-15T08:00:00-05:00'); ACE=('review','routine','eval','research'); TERM={'done','cancelled'}
@@ -23,10 +23,12 @@ def life(vs,upto):
         if (t-ev[-1]).total_seconds()<3600: continue
         ev.append(t)
     return t0,end,ev,term
+def _withheld_pattern(tier):
+    raise NotImplementedError('A private personal-item classifier was used; its keyword list is withheld for privacy.')
 def W(v):
     s=(v['id']+' '+' '.join(v.get('cues') or [])+' '+(v.get('why') or '')).lower()
-    if re.search('bill|pay|nelnet|loan|tax|insur|bank|card|hours|invoice|medical|doctor|dentist|appointment|health|vitamin|school|pickup|dogwood|half-day|deadline|renew|registration|refund',s): return 3
-    if re.search('idea|hypothes|research|theory|readme|looper|gtao|adaptive|bet|explore|someday|docuseries|brainstorm|model',s): return 1
+    if re.search(_withheld_pattern('hi'),s): return 3  # keyword list withheld for privacy
+    if re.search(_withheld_pattern('lo'),s): return 1  # keyword list withheld for privacy
     return 2
 OUT={}
 Q=[];allev=[]

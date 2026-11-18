@@ -60,7 +60,7 @@ Worlds = the 7 LFK environments (E1–E3 passers) with their survey counts; envi
    so a T1 "not rejected" is weak evidence for the premise, especially for TBOND and BOND.
 
 ## 2. Data
-SPF microdata (`SPFmicrodata.xlsx`, Philadelphia Fed; box copy `/workspace/lfk_spf/`, sha256 in `tests/LFK_SPF/data/RAW_SHA256.txt`),
+SPF microdata (`SPFmicrodata.xlsx`, Philadelphia Fed; box copy `<local>/lfk_spf/`, sha256 in `tests/LFK_SPF/data/RAW_SHA256.txt`),
 columns VAR2–VAR6 = quarters t … t+4; growth variables (RSLGOV, INDPROD) as annualised q/q growth of the same forecaster's levels;
 surveys with t+3 ≤ 2019Q4 (LFK sample); per-survey statistics only for surveys with ≥ 10 forecasters at that horizon; within-
 forecaster dispersion uses forecasters with ≥ 8 surveys at that horizon. Environment: LFK `target_<VAR>.csv` 1960Q1–2019Q4 and

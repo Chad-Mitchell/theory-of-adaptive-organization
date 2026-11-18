@@ -1,8 +1,8 @@
 """Forking-path and reproduction checks for LEARNSIM RA / RR / AA (referee)."""
 import json, sys, os
 import numpy as np
-sys.path.insert(0, '/workspace/gtao/night2/LEARNSIM')
-os.chdir('/workspace/gtao/night2/LEARNSIM')
+sys.path.insert(0, '<local>/gtao/night2/LEARNSIM')
+os.chdir('<local>/gtao/night2/LEARNSIM')
 import analyze as A
 
 R = A.load('results_es.jsonl')

@@ -18,4 +18,4 @@ SEC bulk archives (as of 2026; confirm on the SEC site if a URL moves):
 
 SEC requires a descriptive User-Agent identifying the requester. The preregistration used `Looper research research@example.invalid`. `download_sec.sh` in this folder uses that placeholder; replace the contact if you are the one downloading.
 
-The extract and outcome scripts still point at `/workspace/gtao/tests/F1/raw/...`. Point them at this folder's `raw/` after the download.
+The extract and outcome scripts still point at `<local>/gtao/tests/F1/raw/...`. Point them at this folder's `raw/` after the download.

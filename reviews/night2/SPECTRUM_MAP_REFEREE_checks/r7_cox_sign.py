@@ -3,7 +3,7 @@ Spearman(beta, a_need) with MATCH1's estimators? If yes, the positive D3 sign do
 24 random synthetic repos: 60 files x 5000 days; log-rate Gaussian 1/f^gamma, gamma~U(0.4,1.2), s~U(0.5,1.8), r~logU(0.01,0.05)."""
 import sys, json, numpy as np
 from scipy.stats import spearmanr
-sys.path.insert(0,"/workspace/smr-wt/tests/MATCH1"); from aslib import spectral_beta, need_counts, fit
+sys.path.insert(0,"<local>/smr-wt/tests/MATCH1"); from aslib import spectral_beta, need_counts, fit
 rng=np.random.default_rng(11); n=5000; F=60
 def gp(gamma):
     f=np.fft.rfftfreq(2*n); A=np.zeros_like(f); A[1:]=f[1:]**(-gamma/2)

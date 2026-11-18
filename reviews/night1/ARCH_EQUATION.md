@@ -1,7 +1,7 @@
 # ARCH_EQUATION: an attempt at GTAO's "architecture equation"
 
 Sunday 2026-11-15, about 00:40–01:10 ET. Written by a Grok Bot executor for Chad (via Ace). Private working note.
-Nothing was posted or sent. The Looper repo and the theory repo (`/workspace/theory-of-adaptive-organization`) were only read, never edited.
+Nothing was posted or sent. The Looper repo and the theory repo (`<repo>`) were only read, never edited.
 Checks: `arch_checks/` (scripts with matching `.out` files, one light process at a time, all under 200 MB). The LAYERS-1 lock is `arch_checks/LAYERS1_LOCK.md`, sha256 `dd718eb0…1a88`, written at 00:46 ET before its script was run (local only, no external anchor).
 
 **Labels.** **THEOREM**: proved here under stated assumptions, with a proof sketch and a numerical check. **KNOWN**: published by others. **CONJECTURE**: plausible, not proved. **[R]** = read this session (full text or the named part), **[R-abs]** = abstract or summary page only, **[M]** = from memory, not re-read, **[PR]** = verified by an earlier reviewer in this project (file named).
