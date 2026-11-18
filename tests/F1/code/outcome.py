@@ -2,7 +2,7 @@
 For each CIK in the pre-outcome candidate list: sic, all filings (form, date, items)."""
 import zipfile, json, sys, pandas as pd
 from multiprocessing import Pool
-Z='/workspace/gtao/tests/F1/raw/submissions.zip'
+Z='<local>/gtao/tests/F1/raw/submissions.zip'
 WIN={'C1':('2015-01-01','2019-12-31'),'C2':('2020-01-01','2024-12-31')}
 _Z=None
 def _init():
@@ -35,5 +35,5 @@ def load(cik):
 if __name__=='__main__':
     ciks=[int(x) for x in open(sys.argv[1]).read().split()]
     with Pool(6,initializer=_init) as p: out=p.map(load,ciks,chunksize=20)
-    pd.DataFrame(out).to_csv('/workspace/gtao/tests/F1/data/outcomes_raw.csv',index=False)
+    pd.DataFrame(out).to_csv('<local>/gtao/tests/F1/data/outcomes_raw.csv',index=False)
     print(len(out))

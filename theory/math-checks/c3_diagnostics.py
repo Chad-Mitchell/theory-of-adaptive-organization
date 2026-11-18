@@ -1,7 +1,7 @@
 """Task 2 / C3: measurement diagnostics using ONLY the predictor columns of C3's analysis_dataset.csv
 (no outcome columns E, T, event_time, last_commit are read). Plus the identity-based prediction for beta_tau."""
 import csv, numpy as np
-rows = list(csv.DictReader(open('/workspace/gtao/tests/C3/data/analysis_dataset.csv')))
+rows = list(csv.DictReader(open('<local>/gtao/tests/C3/data/analysis_dataset.csv')))
 def col(k): return np.array([float(r[k]) if r[k] not in ('', 'None') else np.nan for r in rows])
 sig, mu, B, tau = col('sigma'), col('noncore_mean'), col('B'), col('tau')
 ok = np.isfinite(sig) & np.isfinite(mu) & np.isfinite(B) & np.isfinite(tau) & (sig > 0) & (mu > 0) & (B > 0)

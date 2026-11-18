@@ -4,7 +4,7 @@ Executor, 15 Nov 2026, ~09:05–09:26 AM ET. Every citation below was checked th
 arXiv/OpenAlex record (web search); screening of citing works was by title and abstract, not full text, unless stated.
 
 ## Q1: what was already done, and what this run added
-- **Already done (night 1):** `/workspace/gtao/night1/REVIEW/priorart/SWEEP.md` (box copy, not in this repo): OpenAlex
+- **Already done (night 1):** `<local>/gtao/night1/REVIEW/priorart/SWEEP.md` (box copy, not in this repo): OpenAlex
   forward citations of Marschak & Radner 1972 (~1,492 citers screened by query), Van Zandt & Radner 2001, Eppen, Reis 2006,
   Veldkamp & Wolfers 2007, Veldkamp 2011. Found no earlier statement of O1–O5; closest neighbours Bimpikis & Markakis 2016
   (Management Science, doi 10.1287/mnsc.2015.2204) and Abolhassani et al. 2024 (arXiv 2401.03613). Q1 as written mostly

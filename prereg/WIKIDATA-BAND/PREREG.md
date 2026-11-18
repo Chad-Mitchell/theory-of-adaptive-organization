@@ -7,7 +7,7 @@ time of this file on branch `prereg/wikidata-band` of the private repo `Chad-Mit
 Nothing is edited on Wikipedia or Wikidata; all access is read-only public APIs with an identifying User-Agent and throttling.
 
 ## 0. Theory provenance (required by Ace's HOLD, 8:49 AM)
-- **Current THEORY.md** (`/workspace/theory-of-adaptive-organization/THEORY.md`, commit 81a1a13):
+- **Current THEORY.md** (`<repo>/THEORY.md`, commit 81a1a13):
   - §8, line 267: "5. The closed-form freeze/hold/lookup band, its N² widening for shared stores, and the dissolution order under
     cheap lookup." Listed as one of the theory's own (untested) results. THEORY.md does **not** restate the formulas.
   - §3, line 143 (design rules table): "Freeze-or-hold | Freeze (stop refreshing, keep the copy) when the world barely drifts and

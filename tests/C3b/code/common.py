@@ -5,7 +5,7 @@ from packaging.requirements import Requirement
 from packaging.version import Version, InvalidVersion
 from packaging.utils import canonicalize_name
 
-D = '/workspace/gtao/tests/C3b/data'
+D = '<local>/gtao/tests/C3b/data'
 UTC = timezone.utc
 def dt(s): return datetime.fromisoformat(s.replace('Z', '+00:00')).astimezone(UTC)
 

@@ -11,14 +11,14 @@ Locked: 2026-11-15 (America/New_York), before any outcome below was computed. Gi
 - The same agent (Ace) designed Looper (README v0.13+ is derived from GTAO) and wrote this test. That self-selection is a standing limitation: a "pass" on P2 can mean only "Ace follows its own GTAO-derived rule", not that GTAO is true of adaptive systems in general.
 
 ## System mapping (operational definitions)
-- Item = a journal atom id (`/workspace/looper/store/journal.jsonl`), excluding the meta-log atom `morning-returns`.
+- Item = a journal atom id (`<private-app-repo>/store/journal.jsonl`), excluding the meta-log atom `morning-returns`.
 - Held copy = the atom's latest version. Frozen = prior versions + git history + terminal atoms (done/cancelled). Lookup = sources read live and never copied (calendars, Gmail, raw log).
 - Change event (drift observation) = a version v>=2 whose `from` is NOT Ace-initiated. Ace-initiated = `from` starting with `review`, `routine`, `eval`, `research`. Versions of one atom with `at` within 60 minutes of the previous counted event are merged into one event (one message split into parts). Time stamp = `at` (when the statement behind the version was made). Timestamps without offset are America/New_York.
 - Life of an atom: from its v1 `at` to the earlier of its first terminal-status (done/cancelled) version `at` or the cutoff 2026-11-15T08:00-05:00. Minimum life floored at 0.5 day.
 - Drift rate lambda_i = (K_i + 0.5) / L_i, K = change events inside the life window (after v1), L = life in days.
 - Stakes W_i (rule, applied to lower-cased `id` + `cues` + `why` of the latest version as of the measurement date; first matching tier wins):
-  - 3 if any of: bill, pay, nelnet, loan, tax, insur, bank, card, hours, invoice, medical, doctor, dentist, appointment, health, vitamin, school, pickup, dogwood, half-day, deadline, renew, registration, refund
-  - 1 if any of: idea, hypothes, research, theory, readme, looper, gtao, adaptive, bet, explore, someday, docuseries, brainstorm, model
+  - 3 if the text matches the high-stakes keyword tier of a private personal-item classifier (bills, health, school and deadline terms; the keyword list is withheld for privacy)
+  - 1 if the text matches the low-stakes keyword tier (idea, research and project-note terms; the keyword list is withheld for privacy)
   - else 2.
   Validity: face validity only (no independent rating); reported as a limitation.
 - Attention (Ace-initiated pull) = number of the 5 morning-return runs (Nov 11-15) whose bracketed id list includes the atom.

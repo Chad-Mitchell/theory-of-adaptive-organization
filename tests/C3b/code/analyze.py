@@ -6,7 +6,7 @@ import statsmodels.formula.api as smf
 import statsmodels.api as sm
 from scipy import stats
 
-DD = sys.argv[1] if len(sys.argv) > 1 else '/workspace/gtao/tests/C3b/data'
+DD = sys.argv[1] if len(sys.argv) > 1 else '<local>/gtao/tests/C3b/data'
 SEED = 20261114; NBOOT = 1000; SESOI = 0.15
 CTRL = 'lcommits + lrel + lage'
 res = {}

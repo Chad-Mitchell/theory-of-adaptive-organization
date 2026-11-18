@@ -2,9 +2,9 @@
 (>=5 others; else 2-digit, >=5 others) of ln(R_2020Q2 / R_2019Q2), from companyfacts (any filing date).
 Own-firm 2020 data never used for the firm's own shock."""
 import zipfile, json, numpy as np, pandas as pd, sys
-sys.path.insert(0,'/workspace/gtao/tests/F1/code')
+sys.path.insert(0,'<local>/gtao/tests/F1/code')
 from multiprocessing import Pool
-ZIP='/workspace/gtao/tests/F1/raw/companyfacts.zip'
+ZIP='<local>/gtao/tests/F1/raw/companyfacts.zip'
 REV=['Revenues','RevenueFromContractWithCustomerExcludingAssessedTax','RevenueFromContractWithCustomerIncludingAssessedTax','SalesRevenueNet','SalesRevenueGoodsNet','SalesRevenueServicesNet']
 import datetime as dt
 def qidx(e):
@@ -24,7 +24,7 @@ def rq(cik):
             if t in v: return v[t]
     return (cik,g(2019*4+1),g(2020*4+1))
 if __name__=='__main__':
-    D='/workspace/gtao/tests/F1/data/'
+    D='<local>/gtao/tests/F1/data/'
     a=pd.read_csv(D+'analysis_dataset.csv'); a=a[a.cohort=='C2'].copy()
     o=pd.read_csv(D+'outcomes_raw.csv')   # all candidate firms with SIC (industry peers)
     o=o[o.found==1].copy(); o['sicn']=pd.to_numeric(o.sic,errors='coerce'); o=o[o.sicn.notna()]

@@ -34,7 +34,7 @@ No locked number I recomputed was wrong. No proof or pre-lock prediction was sil
 | `c86f8e5` | 08:27:34 | PREREG_2.md, level-class inputs, measured-input predictions, `analyze2.py`, extension runner |
 | `2843f5b` | 09:08:56 | Results, post-lock fixes (labelled), raw data |
 
-Every file listed in `PREREG.sha256` (after the time-fix commit) and in `PREREG_2.sha256` hashes to the blob in that lock commit, and those blobs are byte-identical to the working tree and to `/workspace/gtao/night2/LEARNSIM/`. `MEASURED_AB.sha256` matches. Analysis code, bootstrap seeds (2026 / 2027) and the PAVA estimator were inside the locks.
+Every file listed in `PREREG.sha256` (after the time-fix commit) and in `PREREG_2.sha256` hashes to the blob in that lock commit, and those blobs are byte-identical to the working tree and to `<local>/gtao/night2/LEARNSIM/`. `MEASURED_AB.sha256` matches. Analysis code, bootstrap seeds (2026 / 2027) and the PAVA estimator were inside the locks.
 
 ### Order versus filesystem times
 
@@ -183,4 +183,4 @@ The authors' next-step list is right and should be freshly locked: more (or bett
 
 ---
 
-Checks live in `reviews/night2/LEARNSIM_REFEREE_checks/` (`rerun_official.sh`, `robust_ra.py`, `rerun_jobs.py`, rerun JSON, `robust.json`, `sim_rerun.json`). Working data: `/workspace/gtao/night2/LEARNSIM/` and branch `learnsim-prereg` (commits `820b224..2843f5b`).
+Checks live in `reviews/night2/LEARNSIM_REFEREE_checks/` (`rerun_official.sh`, `robust_ra.py`, `rerun_jobs.py`, rerun JSON, `robust.json`, `sim_rerun.json`). Working data: `<local>/gtao/night2/LEARNSIM/` and branch `learnsim-prereg` (commits `820b224..2843f5b`).

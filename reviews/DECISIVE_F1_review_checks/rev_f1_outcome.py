@@ -1,6 +1,6 @@
 import zipfile, json, pandas as pd, numpy as np
-Z=zipfile.ZipFile('/workspace/gtao/tests/F1/raw/submissions.zip')
-d=pd.read_csv('/workspace/gtao/tests/F1/data/analysis_dataset.csv')
+Z=zipfile.ZipFile('<local>/gtao/tests/F1/raw/submissions.zip')
+d=pd.read_csv('<local>/gtao/tests/F1/data/analysis_dataset.csv')
 W={'C1':('2015-01-01','2019-12-31'),'C2':('2020-01-01','2024-12-31')}
 cache={}
 def filings(cik):

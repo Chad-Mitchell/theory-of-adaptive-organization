@@ -1,10 +1,10 @@
-/workspace/wt-pick34/reviews/night2/STAKES_REFEREE/ref_n21.py:53: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
+<local>/wt-pick34/reviews/night2/STAKES_REFEREE/ref_n21.py:53: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
   lag = p[["dkey", "hr", "e"]].copy(); lag1 = lag.copy(); lag1["dkey"] += pd.Timedelta(days=1); lag2 = lag.copy(); lag2["dkey"] += pd.Timedelta(days=2)
-/workspace/wt-pick34/reviews/night2/STAKES_REFEREE/ref_n21.py:55: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
+<local>/wt-pick34/reviews/night2/STAKES_REFEREE/ref_n21.py:55: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
   am = lag[lag.hr <= 9].groupby("dkey").e.mean().rename("l1am").reset_index(); am["dkey"] += pd.Timedelta(days=1)
-/workspace/wt-pick34/reviews/night2/STAKES_REFEREE/ref_n21.py:53: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
+<local>/wt-pick34/reviews/night2/STAKES_REFEREE/ref_n21.py:53: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
   lag = p[["dkey", "hr", "e"]].copy(); lag1 = lag.copy(); lag1["dkey"] += pd.Timedelta(days=1); lag2 = lag.copy(); lag2["dkey"] += pd.Timedelta(days=2)
-/workspace/wt-pick34/reviews/night2/STAKES_REFEREE/ref_n21.py:55: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
+<local>/wt-pick34/reviews/night2/STAKES_REFEREE/ref_n21.py:55: DeprecationWarning: The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.
   am = lag[lag.hr <= 9].groupby("dkey").e.mean().rename("l1am").reset_index(); am["dkey"] += pd.Timedelta(days=1)
 {
  "2025": {

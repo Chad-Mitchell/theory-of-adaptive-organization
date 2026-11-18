@@ -5,8 +5,8 @@
 Nothing here reads edge files except in `real` mode.
 """
 import sys, json, math, argparse, numpy as np, pandas as pd
-RAW = '/workspace/gtao/night2/VIGIL_ONA/data/raw'
-OUT = '/workspace/gtao/night2/VIGIL_ONA'
+RAW = '<local>/gtao/night2/VIGIL_ONA/data/raw'
+OUT = '<local>/gtao/night2/VIGIL_ONA'
 
 # ---------------- node attributes (non-outcome) ----------------
 def pyramid_N(level_top_is_high):

@@ -4,7 +4,7 @@
 115 200
 141 250
 Traceback (most recent call last):
-  File "/workspace/gtao/tests/MATCH1/wiki/fetch.py", line 16, in <module>
+  File "<local>/gtao/tests/MATCH1/wiki/fetch.py", line 16, in <module>
     d=get(q); p=list(d["query"]["pages"].values())[0]
                      ~^^^^^^^^^
 TypeError: 'NoneType' object is not subscriptable

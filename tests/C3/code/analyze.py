@@ -3,7 +3,7 @@ import json, numpy as np, pandas as pd, statsmodels.formula.api as smf
 from scipy import stats
 from lifelines import CoxPHFitter
 from lifelines.statistics import proportional_hazard_test
-D = '/workspace/gtao/tests/C3/data'
+D = '<local>/gtao/tests/C3/data'
 T0, TEND = pd.Timestamp('2023-07-01', tz='UTC'), pd.Timestamp('2025-10-31T23:59:59', tz='UTC')
 sc = pd.read_csv(f'{D}/sample_screen.csv'); me = pd.read_csv(f'{D}/measures.csv')
 oc = []

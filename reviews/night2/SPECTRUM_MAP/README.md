@@ -165,7 +165,7 @@ deterministic periodic switching is outside this map (a predictable periodic wor
 
 ## 5. Q1 gap-fill (prior-art sweep)
 Night-1 already swept forward citations of M&R 1972, VZR 2001, Eppen, Reis 2006, V&W 2007 and Veldkamp 2011
-(`/workspace/gtao/night1/REVIEW/priorart/SWEEP.md`, not in this repo; summarized in `priorart/NOTES.md`). This run filled
+(`<local>/gtao/night1/REVIEW/priorart/SWEEP.md`, not in this repo; summarized in `priorart/NOTES.md`). This run filled
 the two missing seeds and SG's prior art; see `priorart/NOTES.md`. Google Scholar remains unswept.
 
 ## 6. Files

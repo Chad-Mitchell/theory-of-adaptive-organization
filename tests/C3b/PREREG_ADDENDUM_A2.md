@@ -1,6 +1,6 @@
 # Addendum A2 (2026-11-14 ~22:55 ET): response to independent math review, before any post-shock or outcome data
 
-Source: /workspace/gtao/attack/math/REVIEW.md (C3 section, G1), relayed by Ace at 22:49 ET. PREREG.md and A1 were already
+Source: <local>/gtao/attack/math/REVIEW.md (C3 section, G1), relayed by Ace at 22:49 ET. PREREG.md and A1 were already
 hashed, so nothing in them changes. The items below are added as labeled SECONDARY analyses, not decisive, and do not alter
 any primary hypothesis, model, SESOI or verdict rule. Stage 1 (pre-shock PyPI screen) was ~65% done; no post-shock, tau,
 GitHub or outcome data had been fetched.

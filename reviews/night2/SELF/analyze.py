@@ -3,7 +3,7 @@ import numpy as np
 from zoneinfo import ZoneInfo
 import statsmodels.api as sm
 NY=ZoneInfo('America/New_York')
-J=[json.loads(l) for l in open('/workspace/looper/store/journal.jsonl')]
+J=[json.loads(l) for l in open('<private-app-repo>/store/journal.jsonl')]
 def T(s):
     d=dt.datetime.fromisoformat(s)
     if d.tzinfo is None: d=d.replace(tzinfo=NY)
@@ -30,10 +30,12 @@ def atom_events(vs, upto=CUT):
         if days(ev[-1],t)*24*60<60: continue
         ev.append(t)
     return t0,end,ev,term
+def _withheld_keywords(tier):
+    raise NotImplementedError('A private personal-item classifier was used; its keyword list is withheld for privacy.')
 def stakes(v):
     s=(v['id']+' '+' '.join(v.get('cues') or [])+' '+(v.get('why') or '')).lower()
-    hi='bill pay nelnet loan tax insur bank card hours invoice medical doctor dentist appointment health vitamin school pickup dogwood half-day deadline renew registration refund'.split()
-    lo='idea hypothes research theory readme looper gtao adaptive bet explore someday docuseries brainstorm model'.split()
+    hi=_withheld_keywords('hi')  # private personal-item classifier; keyword list withheld for privacy
+    lo=_withheld_keywords('lo')  # keyword list withheld for privacy
     if any(k in s for k in hi): return 3
     if any(k in s for k in lo): return 1
     return 2
@@ -197,5 +199,5 @@ allK=[];allL=[]
 for i,vs in by.items():
     t0,end,ev,term=atom_events(vs); allK.append(len(ev)-1); allL.append(days(t0,end))
 out['desc']=dict(atoms=len(by),versions=sum(len(v) for v in by.values()),ace_initiated_versions=sum(1 for v in sum(by.values(),[]) if v['from'].startswith(ACE)),change_events=int(sum(allK)),atom_days=float(sum(allL)),median_lambda=float(np.median([(k+0.5)/max(l,0.5) for k,l in zip(allK,allL)])),stakes_hist=dict(collections.Counter(stakes(v[-1]) for v in by.values())))
-json.dump(out,open('/workspace/gtao/night2/SELF/results.json','w'),indent=1,default=str)
+json.dump(out,open('<local>/gtao/night2/SELF/results.json','w'),indent=1,default=str)
 print(json.dumps(out,indent=1,default=str))

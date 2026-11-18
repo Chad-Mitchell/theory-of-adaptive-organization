@@ -1,6 +1,6 @@
 # Local git history receipt for tests/DECISIVE
 #
-# Source: unpushed local repo at /workspace/gtao/tests/DECISIVE
+# Source: unpushed local repo at <local>/gtao/tests/DECISIVE
 # Written: 2026-11-14, America/New_York.
 #
 # These commits were not pushed anywhere before they were added to this

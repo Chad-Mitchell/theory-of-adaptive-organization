@@ -29,11 +29,11 @@ for i,vs in by.items():
         tot+=1; term_ev+= v['status'] in TERM
 E2=dict(nonace_versions=tot,terminal=term_ev)
 # E3: P4b reverts / restores in looper git history
-log=subprocess.run(['git','-C','/workspace/looper','log','--all','--format=%s'],capture_output=True,text=True).stdout.splitlines()
+log=subprocess.run(['git','-C','<private-app-repo>','log','--all','--format=%s'],capture_output=True,text=True).stdout.splitlines()
 rev=[s for s in log if s.lower().startswith('revert') or 'restore' in s.lower() or 'recover' in s.lower()]
 E3=dict(commits=len(log),revert_restore=len(rev),per100=100*len(rev)/len(log))
 # E4: write ratio
-D=[json.loads(l) for l in open('/workspace/looper/store/discards.jsonl')]
+D=[json.loads(l) for l in open('<private-app-repo>/store/discards.jsonl')]
 E4=dict(journal_lines=len(J),discards=len(D),discard_reasons=dict(collections.Counter(d['why'] for d in D).most_common()))
 o=dict(E1=E1,E2=E2,E3=E3,E4=E4)
 json.dump(o,open('explore_postlock.json','w'),indent=1); print(json.dumps(o,indent=1))

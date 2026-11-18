@@ -1,6 +1,6 @@
 # P5 EXPLORATORY (unblinded). Coder 1 = Ace manual rubric; coder 2 = deterministic keyword rule.
 import json,re,collections
-E=[json.loads(l) for l in open('/workspace/looper/archive/pre-graph-29cf8e4/Chad.jsonl')]
+E=[json.loads(l) for l in open('<private-app-repo>/archive/pre-graph-29cf8e4/Chad.jsonl')]
 recs={i+1:e for i,e in enumerate(E) if e.get('type') in ('mistake','correction')}
 manual={186:'N',189:'R',190:'R',308:'J',309:'J',315:'S',326:'S',329:'P',343:'R',344:'R',362:'S',410:'S',421:'S',425:'P',444:'S',447:'S',458:'S',464:'S',466:'S',482:'T',493:'S',494:'N',495:'N',499:'T',500:'C',512:'J',513:'J',535:'N',568:'J',571:'C',598:'J',646:'X',669:'T',679:'X',706:'T',709:'S',710:'T',727:'S',741:'T',748:'S',768:'T',775:'T',848:'T',2295:'T',2342:'T',2519:'J',2520:'J',2521:'J',2522:'S',2637:'S',2638:'J',2676:'X',2686:'J',2759:'X',2842:'J',2868:'T'}
 def kw(t):

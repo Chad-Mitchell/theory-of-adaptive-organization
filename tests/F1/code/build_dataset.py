@@ -1,6 +1,6 @@
 """Apply preregistered sample rules and outcome coding -> data/analysis_dataset.csv"""
 import pandas as pd, numpy as np, datetime as dt
-D='/workspace/gtao/tests/F1/data/'
+D='<local>/gtao/tests/F1/data/'
 import sys
 o=pd.read_csv(D+'outcomes_raw.csv')
 WIN={'C1':('2015-01-01','2019-12-31','2019-07-01'),'C2':('2020-01-01','2024-12-31','2024-07-01')}

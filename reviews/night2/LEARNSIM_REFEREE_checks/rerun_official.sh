@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-cd /workspace/gtao/night2/LEARNSIM
+cd <local>/gtao/night2/LEARNSIM
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 NUMBA_NUM_THREADS=1 PYTHONHASHSEED=0
 echo "START analyze2 $(date)"
 nice -n 19 python3 analyze2.py results_es.jsonl results_ext.jsonl PREDICTIONS_2.json > /tmp/learnsim_ref/ANALYSIS_2_rerun.json

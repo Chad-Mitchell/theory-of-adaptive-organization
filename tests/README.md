@@ -26,4 +26,4 @@ Clone a bundle with `git clone history.bundle <dir>`. Author dates inside the bu
 
 Not included: earlier Looper/AI-memory experiment notes that are not these tests.
 
-Several analysis scripts still contain absolute paths from the machine they were run on (`/workspace/gtao/tests/...`). They will need those paths pointed at a local `data/` or `raw/` directory after a download.
+Several analysis scripts still contain absolute paths from the machine they were run on (`<local>/gtao/tests/...`). They will need those paths pointed at a local `data/` or `raw/` directory after a download.

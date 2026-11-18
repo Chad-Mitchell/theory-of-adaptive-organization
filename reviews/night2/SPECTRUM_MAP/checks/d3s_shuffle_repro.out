@@ -1,15 +1,15 @@
-{"repo": "/workspace/collapse_repos/BurntSushi_ripgrep", "a_need": 0.623, "beta_orig": 0.349, "beta_shuf": 0.272, "beta_shuf_sd": 0.015, "n_files": 10, "M_gb": 0.086, "M_loggaps": 0.278, "delta": 0.077}
-{"repo": "/workspace/collapse_repos/Alamofire_Alamofire", "a_need": 0.463, "beta_orig": 0.21, "beta_shuf": 0.216, "beta_shuf_sd": 0.012, "n_files": 17, "M_gb": 0.393, "M_loggaps": 0.447, "delta": -0.006}
-{"repo": "/workspace/collapse_repos/expressjs_express", "a_need": 0.714, "beta_orig": 0.312, "beta_shuf": 0.332, "beta_shuf_sd": 0.02, "n_files": 23, "M_gb": 0.261, "M_loggaps": 0.356, "delta": -0.02}
-{"repo": "/workspace/collapse_repos/pallets_flask", "a_need": 0.572, "beta_orig": 0.26, "beta_shuf": 0.183, "beta_shuf_sd": 0.007, "n_files": 31, "M_gb": 0.253, "M_loggaps": 0.287, "delta": 0.077}
-{"repo": "/workspace/collapse_repos/psf_requests", "a_need": 0.577, "beta_orig": 0.212, "beta_shuf": 0.233, "beta_shuf_sd": 0.007, "n_files": 22, "M_gb": 0.307, "M_loggaps": 0.357, "delta": -0.021}
-{"repo": "/workspace/collapse_repos/jekyll_jekyll", "a_need": 0.729, "beta_orig": 0.245, "beta_shuf": 0.262, "beta_shuf_sd": 0.012, "n_files": 42, "M_gb": 0.444, "M_loggaps": 0.47, "delta": -0.017}
-{"repo": "/workspace/collapse_repos/phoenixframework_phoenix", "a_need": 0.581, "beta_orig": 0.236, "beta_shuf": 0.214, "beta_shuf_sd": 0.004, "n_files": 67, "M_gb": 0.222, "M_loggaps": 0.357, "delta": 0.022}
-{"repo": "/workspace/collapse_repos/tokio-rs_tokio", "a_need": 0.534, "beta_orig": 0.195, "beta_shuf": 0.16, "beta_shuf_sd": 0.008, "n_files": 41, "M_gb": 0.277, "M_loggaps": 0.303, "delta": 0.035}
-{"repo": "/workspace/collapse_repos/redis_redis", "a_need": 0.702, "beta_orig": 0.245, "beta_shuf": 0.206, "beta_shuf_sd": 0.006, "n_files": 83, "M_gb": 0.301, "M_loggaps": 0.371, "delta": 0.039}
-{"repo": "/workspace/collapse_repos/jgm_pandoc", "a_need": 0.735, "beta_orig": 0.258, "beta_shuf": 0.213, "beta_shuf_sd": 0.007, "n_files": 108, "M_gb": 0.263, "M_loggaps": 0.34, "delta": 0.045}
-{"repo": "/workspace/collapse_repos/laravel_framework", "a_need": 0.613, "beta_orig": 0.187, "beta_shuf": 0.162, "beta_shuf_sd": 0.005, "n_files": 242, "M_gb": 0.233, "M_loggaps": 0.297, "delta": 0.025}
-{"repo": "/workspace/collapse_repos/curl_curl", "a_need": 0.711, "beta_orig": 0.197, "beta_shuf": 0.18, "beta_shuf_sd": 0.004, "n_files": 327, "M_gb": 0.286, "M_loggaps": 0.39, "delta": 0.017}
+{"repo": "<local>/collapse_repos/BurntSushi_ripgrep", "a_need": 0.623, "beta_orig": 0.349, "beta_shuf": 0.272, "beta_shuf_sd": 0.015, "n_files": 10, "M_gb": 0.086, "M_loggaps": 0.278, "delta": 0.077}
+{"repo": "<local>/collapse_repos/Alamofire_Alamofire", "a_need": 0.463, "beta_orig": 0.21, "beta_shuf": 0.216, "beta_shuf_sd": 0.012, "n_files": 17, "M_gb": 0.393, "M_loggaps": 0.447, "delta": -0.006}
+{"repo": "<local>/collapse_repos/expressjs_express", "a_need": 0.714, "beta_orig": 0.312, "beta_shuf": 0.332, "beta_shuf_sd": 0.02, "n_files": 23, "M_gb": 0.261, "M_loggaps": 0.356, "delta": -0.02}
+{"repo": "<local>/collapse_repos/pallets_flask", "a_need": 0.572, "beta_orig": 0.26, "beta_shuf": 0.183, "beta_shuf_sd": 0.007, "n_files": 31, "M_gb": 0.253, "M_loggaps": 0.287, "delta": 0.077}
+{"repo": "<local>/collapse_repos/psf_requests", "a_need": 0.577, "beta_orig": 0.212, "beta_shuf": 0.233, "beta_shuf_sd": 0.007, "n_files": 22, "M_gb": 0.307, "M_loggaps": 0.357, "delta": -0.021}
+{"repo": "<local>/collapse_repos/jekyll_jekyll", "a_need": 0.729, "beta_orig": 0.245, "beta_shuf": 0.262, "beta_shuf_sd": 0.012, "n_files": 42, "M_gb": 0.444, "M_loggaps": 0.47, "delta": -0.017}
+{"repo": "<local>/collapse_repos/phoenixframework_phoenix", "a_need": 0.581, "beta_orig": 0.236, "beta_shuf": 0.214, "beta_shuf_sd": 0.004, "n_files": 67, "M_gb": 0.222, "M_loggaps": 0.357, "delta": 0.022}
+{"repo": "<local>/collapse_repos/tokio-rs_tokio", "a_need": 0.534, "beta_orig": 0.195, "beta_shuf": 0.16, "beta_shuf_sd": 0.008, "n_files": 41, "M_gb": 0.277, "M_loggaps": 0.303, "delta": 0.035}
+{"repo": "<local>/collapse_repos/redis_redis", "a_need": 0.702, "beta_orig": 0.245, "beta_shuf": 0.206, "beta_shuf_sd": 0.006, "n_files": 83, "M_gb": 0.301, "M_loggaps": 0.371, "delta": 0.039}
+{"repo": "<local>/collapse_repos/jgm_pandoc", "a_need": 0.735, "beta_orig": 0.258, "beta_shuf": 0.213, "beta_shuf_sd": 0.007, "n_files": 108, "M_gb": 0.263, "M_loggaps": 0.34, "delta": 0.045}
+{"repo": "<local>/collapse_repos/laravel_framework", "a_need": 0.613, "beta_orig": 0.187, "beta_shuf": 0.162, "beta_shuf_sd": 0.005, "n_files": 242, "M_gb": 0.233, "M_loggaps": 0.297, "delta": 0.025}
+{"repo": "<local>/collapse_repos/curl_curl", "a_need": 0.711, "beta_orig": 0.197, "beta_shuf": 0.18, "beta_shuf_sd": 0.004, "n_files": 327, "M_gb": 0.286, "M_loggaps": 0.39, "delta": 0.017}
 {
  "n": 12,
  "median_delta": 0.024,

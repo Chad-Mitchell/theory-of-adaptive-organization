@@ -2,7 +2,7 @@
 that were updated since 2021-01-01 (covers all items opened in 2021 and all closed in 2021)."""
 import json, subprocess, sys, time, os
 from concurrent.futures import ThreadPoolExecutor, as_completed
-D = '/workspace/gtao/tests/C3/data'
+D = '<local>/gtao/tests/C3/data'
 sample = [l.strip() for l in open(f'{D}/sample_repos.txt') if l.strip()]
 OUT = f'{D}/issues.jsonl'
 done = set()

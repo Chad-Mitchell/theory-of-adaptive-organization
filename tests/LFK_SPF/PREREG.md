@@ -99,5 +99,5 @@ short-timescale volatility; robustness R1 full sample to 2026, R2 SD instead of 
 ## 8. Files and seeds
 `build_data.py` (assembly), `model.py`, `analysis.py` (`env`, `outcome`, `robust`), `checks_model.py`, `synth_check.py`; seeds 20261115+k.
 Run: `nice -n 19 python3 analysis.py env && nice -n 19 python3 analysis.py outcome && nice -n 19 python3 analysis.py robust`.
-Raw data on the box: `/workspace/lfk_spf/` (Philadelphia Fed SPF and RTDSM xlsx, H.15 package; downloaded 15 Nov 2026 09:29–09:50 ET).
+Raw data on the box: `<local>/lfk_spf/` (Philadelphia Fed SPF and RTDSM xlsx, H.15 package; downloaded 15 Nov 2026 09:29–09:50 ET).
 VIX-KERNEL (optional in the brief) is not done here; it stays a separate queue item.

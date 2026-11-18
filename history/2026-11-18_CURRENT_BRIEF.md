@@ -1,11 +1,11 @@
-> **SUPERSEDED SNAPSHOT (archived 18 Nov 2026, consistency audit).** Verbatim copy of Ace's off-repo `/workspace/gtao/CURRENT_BRIEF.md` (written 18 Nov, about 12:20 PM ET, before PR #80 merged). Several statements here are now stale (e.g. "the gates await Chad's sign-off", "no black-hole content in the repo", README version pointers). Use `BRIEF.md`, `STATUS.md` and `THEORY.md` instead. Kept for provenance only; not maintained and not checked by `tools/check_consistency.py`.
+> **SUPERSEDED SNAPSHOT (archived 18 Nov 2026, consistency audit).** Verbatim copy of Ace's off-repo `<local>/gtao/CURRENT_BRIEF.md` (written 18 Nov, about 12:20 PM ET, before PR #80 merged). Several statements here are now stale (e.g. "the gates await Chad's sign-off", "no black-hole content in the repo", README version pointers). Use `BRIEF.md`, `STATUS.md` and `THEORY.md` instead. Kept for provenance only; not maintained and not checked by `tools/check_consistency.py`.
 
 # CURRENT_BRIEF: A Theory of Adaptive Organization (GTAO), reread from the sources
 
-Written Wed 18 Nov 2026, early afternoon ET, by an executor for Ace (Chad's request pt1926u). I reread the sources for this brief; no summary or memory brief was used as a source. `/workspace/gtao-video/MEMORY_BRIEF.md` was read only to find what is stale in it (§7).
+Written Wed 18 Nov 2026, early afternoon ET, by an executor for Ace (Chad's request pt1926u). I reread the sources for this brief; no summary or memory brief was used as a source. `<local>/gtao-video/MEMORY_BRIEF.md` was read only to find what is stale in it (§7).
 No repo edits. Nothing was sent or posted.
 
-**Citation keys** (repo = `/workspace/theory-of-adaptive-organization`, main = `4b7a6a1`, PR #79, 18 Nov 07:20 ET). Note: during this reread another agent checked the shared clone out to branch `q-scale-ends` (`bb14154`, 12:17 PM ET: "SCALE-ENDS: claim ledger 191 (out-of-cycle, unscored)"). That commit differs from main only by one `queue/LEDGER.jsonl` line, and there is an untracked `theory/scale_ends_checks/`, the black-hole/cosmos deep pass in progress, which I did not read. Every doc cited here is identical on main:
+**Citation keys** (repo = `<repo>`, main = `4b7a6a1`, PR #79, 18 Nov 07:20 ET). Note: during this reread another agent checked the shared clone out to branch `q-scale-ends` (`bb14154`, 12:17 PM ET: "SCALE-ENDS: claim ledger 191 (out-of-cycle, unscored)"). That commit differs from main only by one `queue/LEDGER.jsonl` line, and there is an untracked `theory/scale_ends_checks/`, the black-hole/cosmos deep pass in progress, which I did not read. Every doc cited here is identical on main:
 - THEORY = repo `THEORY.md` (v1.4.17).
 - FW = `measurement/FRAMEWORK.md`.
 - CM = `measurement/CLAIM_MAP_v2.md` (v2.38).
@@ -14,10 +14,10 @@ No repo edits. Nothing was sent or posted.
 - SCR = `prereg/SENSE-CELL/RESULTS.md`. SCREV = `reviews/night2/SENSE_CELL_REVIEW.md`. SCP = `prereg/SENSE-CELL/PREREG.md`.
 - AUD = `reviews/night2/AUDIT_DIVERGENCE.md`.
 - LIT = `litmap/LITMAP.md`. THR = `litmap/THREATS.md`.
-- HYP = `/workspace/gtao/longform/HYPOTHESES.md` (frozen raw log, 11 Nov). HC2 = `/workspace/gtao/longform/HYPOTHESES_CORE_v2_reviewed.md` (frozen).
-- Video files: VS = `/workspace/gtao-video/main/script.py`, TS = `teaser/script.py`, VD = `DESIGN.md`, VF = `FACTCHECK.md`, VDESC = `DESCRIPTIONS.md`, VPY = `main/video.py`.
+- HYP = `<local>/gtao/longform/HYPOTHESES.md` (frozen raw log, 11 Nov). HC2 = `<local>/gtao/longform/HYPOTHESES_CORE_v2_reviewed.md` (frozen).
+- Video files: VS = `<local>/gtao-video/main/script.py`, TS = `teaser/script.py`, VD = `DESIGN.md`, VF = `FACTCHECK.md`, VDESC = `DESCRIPTIONS.md`, VPY = `main/video.py`.
 
-Precedence: THEORY governs where files disagree (THEORY:6). Everything in `/workspace/gtao` outside the repo is frozen history (STATUS:16; `/workspace/gtao/STATE.md`).
+Precedence: THEORY governs where files disagree (THEORY:6). Everything in `<local>/gtao` outside the repo is frozen history (STATUS:16; `<local>/gtao/STATE.md`).
 
 ---
 
@@ -158,7 +158,7 @@ FW:46: "physics is not decorative in the theory's scope. It is idle in its curre
   - free: conservation or topology, as in the proton or a Skyrmion;
   - paid.
   - Free things formed in a past non-equilibrium flow (hadronization, baryogenesis, Sakharov 1967) and then froze: "formed in a flow, then either frozen (free) or held (paid)". Status: open, with a check for analogy creep.
-- **HYP:18–23, H9 "Freeze or hold"** (Chad: "that locks it"). The tradeoff applies only to the held part. In Looper, the Git history is the frozen part and the store is the held part (this matches Looper README R4, `/workspace/looper/README.md:22`, v0.16).
+- **HYP:18–23, H9 "Freeze or hold"** (Chad: "that locks it"). The tradeoff applies only to the held part. In Looper, the Git history is the frozen part and the store is the held part (this matches Looper README R4, `<private-app-repo>/README.md:22`, v0.16).
 - **HC2:178–227, C6.**
   - It is the core bet that carries this.
   - The reviewer's warning (HC2:214): "the physics half (protons, crystals) is illustration only. The theory claims nothing about how physical structure froze."
@@ -181,12 +181,12 @@ FW:46: "physics is not decorative in the theory's scope. It is idle in its curre
 - **Chad's current position** (t1923, recorded in shared memory, 18 Nov; not yet in any repo doc): the three costs apply from atoms to the cosmos, and the theory should directly predict what black holes are.
 - **This is unresolved.**
   - The docs' only stance (H1) was written as an unaudited scope condition, and its "maximal storage, not organizers" reading runs against Chad's t1923 view.
-  - A deep pass is in progress (`/workspace/scale_ends/`, which has Smolin source files and no written output yet).
+  - A deep pass is in progress (`<local>/scale_ends/`, which has Smolin source files and no written output yet).
   - No doc derives a black-hole prediction.
   - Do not say the theory is "silent". Say: "the only written stance is unaudited hypothesis H1; Chad holds the theory should predict black holes directly; that derivation is open."
 
 **Public record that conflicts with Chad's current view.**
-- `/workspace/gtao/v5/X_TEXT_v9_final.txt:4` (posted 12 Nov) says: "One principle runs from atoms to cities, the second law… Atoms and molecules follow it on average, settling and reacting with nothing to maintain."
+- `<local>/gtao/v5/X_TEXT_v9_final.txt:4` (posted 12 Nov) says: "One principle runs from atoms to cities, the second law… Atoms and molecules follow it on average, settling and reacting with nothing to maintain."
 - That treats atoms as having no upkeep, while THEORY:126 (Chad, t1908) says the same three costs apply at every level from atoms.
 - The X correction post is blocked on Chad (SYN:118–127).
 
@@ -284,7 +284,7 @@ None of these is Tier 1.
 - **Source:** CM v2.38.
 - **Tally** (CM:368–379; covers the 167 v2 rows only): PROVED 41 · MATH-CORRECTED 20 · PROXY-FAIL 12 · PROXY-PASS 2 · OPEN 43 · PRIOR ART 19 · SIM-FAIL 6 · NOT EVIDENCE 13 · WITHDRAWN 9 · DECIDED 2.
 - **Bottom line:** "untested, not refuted" (CM:96).
-- **The full table** of every row (file line, id, claim, exact status label, reason, with long text truncated at "...") is in **`/workspace/gtao/_cm_rows.md`**. It has 198 rows, extracted mechanically from CM:103–362.
+- **The full table** of every row (file line, id, claim, exact status label, reason, with long text truncated at "...") is in **`<local>/gtao/_cm_rows.md`**. It has 198 rows, extracted mechanically from CM:103–362.
 
 **Key rows:**
 
@@ -419,12 +419,12 @@ The video files are VS (main narration, v2 text, unchanged in v3/v4 per VF:118),
 7. **The τ / temperature results** (banks, C3, F1, glucose) are PROXY-FAIL and out of scope for the core (FW:509, FW:515). They are not failures of the theory's structure.
 8. **Vigilance (H8) is OPEN** (CM:239). The floor is 1+(1+ρ)^{−1/2}, not ≥ 2 (THEORY:16).
 9. **Theory, not law** (CM:281). Not a theory of everything (THEORY:35). "Every system pays for a model" is MATH-CORRECTED (CM:319).
-10. **The Looper README is v0.16, not "contract 0.15"** (`/workspace/looper/README.md:3`; commits 2d1ffbb/9c49188, 12 Nov, approved by Chad). R4 encodes freeze vs hold (README:22).
+10. **The Looper README is v0.16, not "contract 0.15"** (`<private-app-repo>/README.md:3`; commits 2d1ffbb/9c49188, 12 Nov, approved by Chad). R4 encodes freeze vs hold (README:22).
 11. **MEMORY_BRIEF.md is stale.**
     - It cites main 77dd71c and CM v2.37 (MEMORY_BRIEF:3); the current state is 4b7a6a1 / v2.38.
     - It omits FW entirely.
     - It says "measles freeze-or-hold passed" (MEMORY_BRIEF:65), but CM H9 says PROXY-PASS.
-12. **Pointer files are stale.** `/workspace/gtao/STATE.md` still says THEORY v1.2 at main db6ee2d. Read THEORY/STATUS at use. AUD:9–13 records the same failure on 15 Nov.
+12. **Pointer files are stale.** `<local>/gtao/STATE.md` still says THEORY v1.2 at main db6ee2d. Read THEORY/STATUS at use. AUD:9–13 records the same failure on 15 Nov.
 
 ---
 

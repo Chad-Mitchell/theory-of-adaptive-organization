@@ -4,7 +4,7 @@
 
 **Checked against:** THEORY.md v1.4.19 (v1.4.18 plus its 18 Nov label and citation errata, with the headline and status block updated in v1.4.19), CLAIM_MAP v2.40, `measurement/FRAMEWORK.md`, `theory/SCALE_ENDS.md`, `reviews/night2/SCALE_ENDS_INDEP_REVIEW.md`, `reviews/night2/SYNTHESIS_2026-11-15.md`, `QUEUE.md`. Every statement below names the file and section it comes from. **If this brief and THEORY.md disagree, THEORY.md governs**; if a status here and CLAIM_MAP disagree, CLAIM_MAP governs. `python3 tools/check_consistency.py` checks the version pointers in this file and the CLAIM_MAP statuses it quotes.
 
-**Why this file exists.** Chad (18 Nov, pt1928u) asked that nothing about the theory live only in an agent's memory or in off-repo notes. This file replaces Ace's off-repo briefs (`/workspace/gtao/CURRENT_BRIEF.md`, `/workspace/gtao/STATE.md`, `/workspace/gtao-video/MEMORY_BRIEF.md`), which are now marked as stale pointers to this repo. A verbatim snapshot of CURRENT_BRIEF (written before PR #80) is kept in `history/2026-11-18_CURRENT_BRIEF.md` for provenance only.
+**Why this file exists.** Chad (18 Nov, pt1928u) asked that nothing about the theory live only in an agent's memory or in off-repo notes. This file replaces Ace's off-repo briefs (`<local>/gtao/CURRENT_BRIEF.md`, `<local>/gtao/STATE.md`, `<local>/gtao-video/MEMORY_BRIEF.md`), which are now marked as stale pointers to this repo. A verbatim snapshot of CURRENT_BRIEF (written before PR #80) is kept in `history/2026-11-18_CURRENT_BRIEF.md` for provenance only.
 
 ---
 
@@ -37,7 +37,7 @@ FRAMEWORK §1.2 item 4 (the scope question left to Chad) is resolved by t1927 in
 
 - A prediction X follows from theory T plus measurement mapping M plus auxiliaries A. **A failed X refutes the conjunction T∧M∧A**; it moves blame to T only if M and A were validated first (FRAMEWORK §1.1).
 - **Gates MV1–MV10** (§2.2), **three tiers** (Tier 1 decisive = every gate; Tier 2 = MV1–MV4 and MV8; Tier 3 otherwise), and the **anti-rescue (admissibility) rule**: a test that passes MV1–MV8 counts fully, win or lose.
-- **The gates bind every new prereg from 18 Nov 2026** (Chad, t1927; CLAIM_MAP M2, v2.40 note). MV9's external timestamp is an outside act and still needs Chad's go for each lock, so no Tier-1 result can exist until that go is given.
+- **The gates are treated as binding from 18 November 2026, on Chad's instruction to proceed without his sign-off (t1927)** for every new prereg (CLAIM_MAP M2, v2.40 note); this is a working decision, not a formal approval. MV9's external timestamp is an outside act and still needs Chad's go for each lock, so no Tier-1 result can exist until that go is given.
 - The re-audit of every past field test found **no FIELD-PASS and no FIELD-FAIL**: the theory is **untested in the field, not refuted** (FRAMEWORK §2.3, §4 "Net position"). No Tier-1 test has run.
 - **Proxy results do not count as field results.** A proxy fail is a valid fail *of that mapping* and narrows where the theory can live; it is not a refutation of the theory (FRAMEWORK §1.2 item 2, §2.3). Report every field result as "passed / failed on proxy X".
 - **Vigilance is OPEN** (CLAIM_MAP H8, N1–N3). The onset value at zero upkeep is 1 + (1+ρ)^{−1/2}, between 1 and 2; "≥ 2" is wrong as stated (THEORY status block).
@@ -58,7 +58,7 @@ FRAMEWORK §1.2 item 4 (the scope question left to Chad) is resolved by t1927 in
 | Earlier belief | What the files say |
 |---|---|
 | "The freeze/hold band is Theorem G" | Theorem G is the hold-vs-fade condition; the closed-form band is Theorem 8 (T8; CLAIM_MAP F13). Both are in-model results. |
-| "Gates MV1–MV10 await Chad's sign-off" (superseded) | Binding since 18 Nov 2026 (t1927; CLAIM_MAP M2). MV9's external timestamp still needs Chad's go per lock. |
+| "Gates MV1–MV10 await Chad's sign-off" (superseded) | Treated as binding from 18 November 2026, on Chad's instruction to proceed without his sign-off (t1927; CLAIM_MAP M2). MV9's external timestamp still needs Chad's go per lock. |
 | "Proxy fails don't count against the theory" | They do not refute it, but each kills the tested mapping and narrows the theory (FRAMEWORK §1.2 item 2). |
 | "Laughlin: synapses pay 10⁵ × kT ln 2" | Laughlin et al. 1998 give about 10⁴ ATP per bit at a chemical synapse (2–6×10⁴ in the text) and 10⁶–10⁷ for graded signals and spikes; at ΔG_ATP ≈ 20 kT (our conversion) that is **at least about** 3×10⁵ × kT ln 2 (THEORY §2.3). |
 | "England 2013 = dissipative adaptation" | England 2013 is the self-replication heat bound. Dissipative adaptation is England 2015 (*Nat Nanotechnol* 10:919) and Perunov, Marsland & England 2016 (*PRX* 6:021036): related prior art and a possible rival route with no model, not a rival to the N28 switch-on conditions (THEORY §10; LITMAP; THREATS). |
@@ -72,10 +72,10 @@ FRAMEWORK §1.2 item 4 (the scope question left to Chad) is resolved by t1927 in
 
 | Off-repo file | Status | Where the content is in the repo |
 |---|---|---|
-| `/workspace/gtao/CURRENT_BRIEF.md` (18 Nov, before PR #80) | Stale; pointer banner added | This file; snapshot in `history/2026-11-18_CURRENT_BRIEF.md`. Its §8 file conflicts are resolved in §8 below. |
-| `/workspace/gtao/STATE.md` (15 Nov; says THEORY v1.2) | Stale; pointer banner added | `STATUS.md` |
-| `/workspace/gtao-video/MEMORY_BRIEF.md` (cites main 77dd71c, CM v2.37) | Stale; pointer banner added | This file |
-| `/workspace/gtao/longform/HYPOTHESES.md` (raw log, 11 Nov; not imported because it mixes in personal context) | Frozen history; relabel banner added | **H1** ("black holes: maximal storage, not organizers"; unaudited) is superseded by CLAIM_MAP **N26** (PROVED (in-model), conditional); it survives as a derived output, not a scope exclusion. **H8/H9** (free vs paid persistence; "freeze or hold") live on as the three persistence classes (N25/SE4) and the T8 band (F13). **H2** (origin of life) is superseded by **N28** (OPEN). **H7** ("upkeep near zero means they never fade") is narrowed by E4: frozen stores have finite lifetimes set by a barrier, a conservation law or a leak. |
+| `<local>/gtao/CURRENT_BRIEF.md` (18 Nov, before PR #80) | Stale; pointer banner added | This file; snapshot in `history/2026-11-18_CURRENT_BRIEF.md`. Its §8 file conflicts are resolved in §8 below. |
+| `<local>/gtao/STATE.md` (15 Nov; says THEORY v1.2) | Stale; pointer banner added | `STATUS.md` |
+| `<local>/gtao-video/MEMORY_BRIEF.md` (cites main 77dd71c, CM v2.37) | Stale; pointer banner added | This file |
+| `<local>/gtao/longform/HYPOTHESES.md` (raw log, 11 Nov; not imported because it mixes in personal context) | Frozen history; relabel banner added | **H1** ("black holes: maximal storage, not organizers"; unaudited) is superseded by CLAIM_MAP **N26** (PROVED (in-model), conditional); it survives as a derived output, not a scope exclusion. **H8/H9** (free vs paid persistence; "freeze or hold") live on as the three persistence classes (N25/SE4) and the T8 band (F13). **H2** (origin of life) is superseded by **N28** (OPEN). **H7** ("upkeep near zero means they never fade") is narrowed by E4: frozen stores have finite lifetimes set by a barrier, a conservation law or a leak. |
 
 ## 8. Conflicts listed in CURRENT_BRIEF §8, and how they stand on main
 
@@ -85,7 +85,7 @@ FRAMEWORK §1.2 item 4 (the scope question left to Chad) is resolved by t1927 in
 | ANTS1 "unfinished" in README, tests/README, applications/README | Fixed |
 | THEORY §8 said measles "passed" | Fixed: "passed on proxy" (H9 PROXY-PASS); other field verdicts in §4, §8, §8b also labelled |
 | FRAMEWORK §6.10 said the spectrum map was owed | Note added: derived in THEORY §2.2; N13 stays OPEN |
-| M2 gates "need Chad's sign-off" (superseded) | Binding since 18 Nov 2026 (v2.40) |
+| M2 gates "need Chad's sign-off" (superseded) | Treated as binding from 18 November 2026, on Chad's instruction to proceed without his sign-off (t1927; v2.40) |
 | THEORY §2.3 named SENSE-CELL as the open test | Note added: ran, N24 INCONCLUSIVE; disagreement stays open |
 | Black holes: H1 vs Chad's view | Resolved by SCALE_ENDS (N26) |
 | CLAIM_MAP counts header (194 rows) not recomputed | Still stated as not recomputed (CLAIM_MAP "Counts"); left as is |

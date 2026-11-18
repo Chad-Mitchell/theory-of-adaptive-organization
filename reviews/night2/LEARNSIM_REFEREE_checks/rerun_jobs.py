@@ -1,7 +1,7 @@
 """Rerun a subset of locked onset jobs and compare to saved jsonl (nice 19)."""
 import json, os, sys, time
-sys.path.insert(0, '/workspace/gtao/night2/LEARNSIM')
-os.chdir('/workspace/gtao/night2/LEARNSIM')
+sys.path.insert(0, '<local>/gtao/night2/LEARNSIM')
+os.chdir('<local>/gtao/night2/LEARNSIM')
 os.nice(19)
 import run_onset as ro
 

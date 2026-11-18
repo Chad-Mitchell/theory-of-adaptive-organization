@@ -8,8 +8,8 @@ from lifelines.statistics import proportional_hazard_test
 from scipy import stats
 warnings.filterwarnings('ignore')
 SEED=20261114; NBOOT=int(__import__("os").environ.get("NBOOT","1000"))
-path=sys.argv[1] if len(sys.argv)>1 else '/workspace/gtao/tests/F1/data/analysis_dataset.csv'
-outp=sys.argv[2] if len(sys.argv)>2 else '/workspace/gtao/tests/F1/results.json'
+path=sys.argv[1] if len(sys.argv)>1 else '<local>/gtao/tests/F1/data/analysis_dataset.csv'
+outp=sys.argv[2] if len(sys.argv)>2 else '<local>/gtao/tests/F1/results.json'
 df=pd.read_csv(path)
 df['ls']=np.log(df.sigma); df['lb']=np.log(df.B); df['ltau']=np.log(df.tau); df['la']=np.log(df.assets)
 df['lsb']=df.ls-df.lb
