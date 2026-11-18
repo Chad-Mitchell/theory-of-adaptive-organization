@@ -183,7 +183,7 @@ The question is whether the optimal policy at one level has the same form at the
 - **Penalty per level.** A level covering log-width Δ, set at its log-center, has mean penalty φ(Δ) = (2/Δ)·sinh(Δ/2) − 1. *Checked* symbolically.
 - **Why the levels are equal (proof step corrected after review).** The total mean penalty is Σ_k (Δ_k/L)·φ(Δ_k) with Σ_k Δ_k = L, so the function that must be convex is ψ(Δ) = Δ·φ(Δ) = 2 sinh(Δ/2) − Δ, not φ itself. ψ''(Δ) = ½ sinh(Δ/2) > 0 for Δ > 0, so ψ is strictly convex, and for fixed K Jensen's inequality makes **equal log-widths** optimal. (The earlier draft justified this with the convexity of φ, which is true but is the wrong function; the conclusion is unchanged. `../review/indep_checks.out` checks ψ.) The levels are therefore **geometrically spaced**, with ratio e^{L/K}: each level's interval is a fixed multiple of the one below.
 - **Cross-check.** At ratio 2, the mean penalty is 1/(√2·ln 2) − 1 = **2.01%** and the edge penalty is **6.07%**. These are the same numbers, from the same integral, as Roundy's (1985) power-of-two results (1.02 and about 1.06). The statements differ: Roundy's 1.02 is a **worst-case bound** after optimizing the base period (1.06 with a fixed base); 2.01% here is a population mean under a log-uniform spread. Same math, different statement.
-- **Number of levels.** With base cost C, K\* ≈ (C·L²/(12h))^{1/3} (exact search agrees: K\* = 9 for a 1000x span, 13 for 10⁵x, with level ratios of about 2.2-2.4).
+- **Number of levels (superseded; see T7(iii) below and CLAIM_MAP K12, MATH-CORRECTED).** With base cost C, K\* ≈ (C·L²/(12h))^{1/3} (exact search agrees: K\* = 9 for a 1000x span, 13 for 10⁵x, with level ratios of about 2.2-2.4).
 
 **T7c (coarse-graining closure) [PROOF, elementary].**
 - **Closure of the drift model.** Sums of independent random walks are random walks with summed variance rates (Gaussian laws are closed under addition). So a unit made of n sub-units faces the same problem as T1, with aggregated parameters. For α-stable increments (α < 2) the variance is infinite. The same closure holds for the scale parameter (it grows as n^{1/α}), but the quadratic-loss cost in T1 then has to be replaced.
@@ -194,7 +194,7 @@ The question is whether the optimal policy at one level has the same form at the
 **What this makes testable (the fractal claim, stated so it can fail).**
 - **(i)** At every level, the check interval falls with drift with the same exponent: −½ in drift variance under quadratic loss.
 - **(ii)** Across levels, log(check interval) against log(unit size) is a straight line with one slope.
-- **(iii)** When the drift rates of what a system tracks are spread log-uniformly, its review cadences cluster at geometrically spaced intervals. The number of levels grows as L^{2/3}.
+- **(iii)** When the drift rates of what a system tracks are spread log-uniformly, its review cadences cluster at geometrically spaced intervals. ~~The number of levels grows as L^{2/3}.~~ **Withdrawn (18 Nov 2026, BOOKENDS BK-P8):** the L^{2/3} level count (L = log-span) predates THEORY v1.4. The current store count is ∝ ln(span)·ln(stakes/upkeep) away from α = 2, with its rate conjectural (THEORY §1 N4; CLAIM_MAP K12, MATH-CORRECTED).
 
 **What fails.** The theory does not make the architecture fractal by itself. Self-similarity holds only if:
 - the world's drift is scale-free (no characteristic time: mean reversion, seasonality or regime lengths break it);

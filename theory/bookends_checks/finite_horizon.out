@@ -1,0 +1,4 @@
+T=  200  P(survive)=0.1380  P(R_T>0)=0.3616  bound=0.9394  ok=True
+T=  400  P(survive)=0.0579  P(R_T>0)=0.2257  bound=0.7548  ok=True
+T=  800  P(survive)=0.0190  P(R_T>0)=0.1099  bound=0.4650  ok=True
+T= 1600  P(survive)=0.0034  P(R_T>0)=0.0307  bound=0.1724  ok=True

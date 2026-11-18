@@ -25,17 +25,31 @@ def copy():
                 src = os.path.join(root, f); dst = os.path.join(d, os.path.relpath(src, ROOT))
                 os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copy(src, dst)
     return d
-ok = True
-d = copy(); rc, out = run(d); shutil.rmtree(d)
-print("clean copy:", "PASS" if rc == 0 else "FAIL"); ok &= rc == 0
-for f, text, key in MUTATIONS:
-    d = copy()
-    with open(os.path.join(d, f), "a", encoding="utf-8") as fh: fh.write(text)
-    rc, out = run(d); shutil.rmtree(d)
-    caught = rc != 0 and key in out
-    print("planted %-24s in %-10s -> %s" % (key, f, "caught" if caught else "MISSED")); ok &= caught
-# version drift
-d = copy(); p = os.path.join(d, "README.md"); s = open(p).read().replace("(v1.4.19 draft", "(v1.4.18 draft"); open(p, "w").write(s)
-rc, out = run(d); shutil.rmtree(d); caught = rc != 0 and "versions" in out
-print("planted %-24s in %-10s -> %s" % ("stale version pointer", "README.md", "caught" if caught else "MISSED")); ok &= caught
-print("RESULT:", "PASS" if ok else "FAIL"); sys.exit(0 if ok else 1)
+def run_all():
+    """Return True iff the clean copy passes and every planted error is caught."""
+    ok = True
+    d = copy(); rc, out = run(d); shutil.rmtree(d)
+    print("clean copy:", "PASS" if rc == 0 else "FAIL"); ok &= rc == 0
+    for f, text, key in MUTATIONS:
+        d = copy()
+        with open(os.path.join(d, f), "a", encoding="utf-8") as fh: fh.write(text)
+        rc, out = run(d); shutil.rmtree(d)
+        caught = rc != 0 and key in out
+        print("planted %-24s in %-10s -> %s" % (key, f, "caught" if caught else "MISSED")); ok &= caught
+    # version drift
+    import re
+    cur = re.search(r"v(1\.4\.\d+[a-z]?) draft", open(os.path.join(ROOT, "THEORY.md"), encoding="utf-8").read()).group(1)
+    d = copy(); p = os.path.join(d, "README.md"); s = open(p, encoding="utf-8").read().replace("(v%s draft" % cur, "(v1.4.0 draft"); open(p, "w", encoding="utf-8").write(s)
+    rc, out = run(d); shutil.rmtree(d); caught = rc != 0 and "versions" in out
+    print("planted %-24s in %-10s -> %s" % ("stale version pointer", "README.md", "caught" if caught else "MISSED")); ok &= caught
+    print("RESULT:", "PASS" if ok else "FAIL")
+    return ok
+
+
+def test_check_consistency():
+    """pytest entry point."""
+    assert run_all()
+
+
+if __name__ == "__main__":
+    sys.exit(0 if run_all() else 1)

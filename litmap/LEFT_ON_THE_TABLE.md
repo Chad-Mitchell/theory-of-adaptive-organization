@@ -19,7 +19,7 @@ Preregistration rules for every test are the same as in MATH_ATTACK §5: fix mea
 | 6 | Rosen + Still + lateness: anticipation lead time ≈ the time it takes to act | 3 | 3 | 4 | **36** |
 | 7 | The missing lever: reduce the world's drift (niche construction, contracts, homeostasis) instead of tracking it | 3 | 2 | 5 | **30** |
 | 8 | Free riders on stigmergy: shared memory goes stale in proportion to users per maintainer | 3 | 3 | 3 | **27** |
-| 9 | Lumps and levels: count the levels (K ∝ L^{2/3}) in body-mass lumps and social layers | 3 | 3 | 3 | **27** |
+| 9 | Lumps and levels: count the levels (K ∝ L^{2/3}, withdrawn in THEORY v1.4; see CLAIM_MAP K12) in body-mass lumps and social layers | 3 | 3 | 3 | **27** |
 | 10 | A Landauer ladder: the efficiency gap c_eff/kT at each scale, and a drift barrier for organizations | 3 | 2 | 4 | **24** |
 
 ---
@@ -230,7 +230,7 @@ The objective J should include a control on σ with its own cost. That predicts 
 
 ## 9. Lumps and levels: count the levels (score 27; speculative mapping)
 
-**The claim** *(hypothesis)*. If T7b is right and the levels are cost-driven, the number of levels grows as (log-span)^{2/3}. Check this against:
+**The claim** *(hypothesis)*. If T7b is right and the levels are cost-driven, the number of levels grows as (log-span)^{2/3} *(withdrawn in THEORY v1.4; the current store count is in THEORY §1 N4 and CLAIM_MAP K12)*. Check this against:
 - the lumps in Holling's body-mass distributions (count against log mass range across faunas; mammal body-mass compilations such as MOM, *not fetched*);
 - the social-layer counts of Zhou-Dunbar and Hamilton.
 
