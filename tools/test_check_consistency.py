@@ -35,7 +35,7 @@ for f, text, key in MUTATIONS:
     caught = rc != 0 and key in out
     print("planted %-24s in %-10s -> %s" % (key, f, "caught" if caught else "MISSED")); ok &= caught
 # version drift
-d = copy(); p = os.path.join(d, "README.md"); s = open(p).read().replace("(v1.4.18 draft", "(v1.4.17 draft"); open(p, "w").write(s)
+d = copy(); p = os.path.join(d, "README.md"); s = open(p).read().replace("(v1.4.19 draft", "(v1.4.18 draft"); open(p, "w").write(s)
 rc, out = run(d); shutil.rmtree(d); caught = rc != 0 and "versions" in out
 print("planted %-24s in %-10s -> %s" % ("stale version pointer", "README.md", "caught" if caught else "MISSED")); ok &= caught
 print("RESULT:", "PASS" if ok else "FAIL"); sys.exit(0 if ok else 1)

@@ -8,7 +8,7 @@ This repository holds the theory (`THEORY.md`), the theorem notes with their cod
 
 ## Start here
 
-**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.18 draft, 18 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands, with commits; [`QUEUE.md`](QUEUE.md) is the live work queue; [`BRIEF.md`](BRIEF.md) is a plain-words brief of the whole record, checked against the files; `measurement/FRAMEWORK.md` and `measurement/CLAIM_MAP_v2.md` (v2.40) say how quantities are measured and give one status per claim. `python3 tools/check_consistency.py` checks versions, wording and claim statuses across these files. This README is a summary.
+**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.19 draft, 18 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands, with commits; [`QUEUE.md`](QUEUE.md) is the live work queue; [`BRIEF.md`](BRIEF.md) is a plain-words brief of the whole record, checked against the files; `measurement/FRAMEWORK.md` and `measurement/CLAIM_MAP_v2.md` (v2.40) say how quantities are measured and give one status per claim. `python3 tools/check_consistency.py` checks versions, wording and claim statuses across these files. This README is a summary.
 
 ## In plain words
 
@@ -90,7 +90,7 @@ The preregistration commits for these tests lived only in local, unpushed git re
 ## Repository layout
 
 ```
-THEORY.md         The theory, v1.4.18 draft (start here)
+THEORY.md         The theory, v1.4.19 draft (start here)
 STATUS.md         Where the work stands (rewritten, not appended)
 BRIEF.md          Plain-words brief of the whole record, checked against the files
 QUEUE.md, queue/  Live work queue and ledger
