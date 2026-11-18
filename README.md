@@ -1,5 +1,7 @@
 # A Theory of Adaptive Organization
 
+Author: Chad Mitchell — X: [@torusflow](https://x.com/torusflow)
+
 Private working repository for a general theory of **any adaptive organization** — cells, immune systems, ant colonies, people, firms, and cities. It is **not** a theory of everything. The bet is narrower: once acting late is costly, the same tradeoff between what a system remembers, what it predicts, and what that costs shapes efficient design at every scale. The costs are physically priced from atoms to the cosmic horizon (Chad, 18 Nov 2026, t1927); what changes along the scale is whether a model is worth carrying (`THEORY.md` §2.3, "The ends of the scale"). How the world's change is spread over timescales fixes the optimal design exponents, but that part is classical filtering and approximation theory plus a price, not new; GTAO's open bet is that real systems sit near those optima once the inputs are measured on the same system. Only the cost currency changes (heat in a cell, attention in a person, money in a firm). The physical floors are literal at every scale, but above the cell they do not bind; there the exponents come from information theory and competition, not from heat (`THEORY.md` §2.3).
 
 This repository holds the theory (`THEORY.md`), the theorem notes with their code checks, the tests (locked predictions, code, and results), a literature map, and reviews. It is **private** until the author says otherwise. Nothing here is a published paper.
