@@ -15,7 +15,7 @@ Sat 2026-11-14 ET. These are ranked by danger. Citations and DOIs are in `LITMAP
   - the √N fade with N depositors (T4);
   - the T3a threshold;
   - the temperature identity, the fix-mechanism classes and the fixed-spread sign;
-  - T7b (geometric levels iff drift is scale-free; K ∝ L^{2/3});
+  - T7b (geometric levels iff drift is scale-free; the K ∝ L^{2/3} count was withdrawn in THEORY v1.4, CLAIM_MAP K12);
   - the rise-then-cliff of watching effort (T5);
   - the cross-scale claim made *with tests*.
 - **Action:** cite Lee 2024 and Flack prominently, and reframe T1 as "agrees with". Any wording change needs Chad's approval.
@@ -105,6 +105,14 @@ Against it:
 
 Hierarchy and enforcement appear exactly where shared memory is a public good. **Suggest:** "no one *needs* to be in charge *when* shared memory is privately rewarded; otherwise expect enforcement" (needs Chad's approval).
 
+**Update (18 Nov 2026, THEORY v1.4.20, `theory/BOOKENDS.md` BK-P10).** THEORY §6 now reads "otherwise expect shared fate or enforcement, usually both". Shared fate (MATH_ATTACK §3.4's own route) needs no one in charge but is usually partial: relatedness r gives Λ_i ≈ r·Λ_whole. Frank 1995 shows self-restraint through relatedness is not sufficient without policing. CLAIM_MAP J9 stays OPEN.
+
+### C6. Dissipative adaptation: drive-matched persistence without a model. *(added 18 Nov 2026, BOOKENDS BK-P12)*
+- England 2015 and Perunov, Marsland & England 2016 (LITMAP §1) show driven matter settling into configurations matched to the drive, with no model.
+- Under `theory/BOOKENDS.md` §2.0.2 such systems carry correlation and possibly survival-relevant information, but no structural model (K1/K1s): they are expected to fail BK-IMP (CLAIM_MAP N31).
+- **The threat stands and is not removed by definition.** It is a physical route to persistence matched to a changing world that needs no prediction. GTAO's claim is only that, where acting late is costly and the world drifts within the hold band, selected structures carry models; dissipative adaptation competes with that wherever drive-matching alone suffices.
+- **What would sharpen it:** a driven, non-modelling system whose persistence under a *drifting* drive matches that of a modelling system at equal throughput.
+
 ### C4. A missing lever invites easy counterexamples.
 - Organizations reduce drift (contracts, homeostasis, niche construction; Thompson's buffering and smoothing; Lee 2024; Lenton 2018).
 - Any system that is "under-watching" relative to GTAO may simply have lowered its σ.
@@ -117,7 +125,7 @@ Hierarchy and enforcement appear exactly where shared memory is a public good. *
 ## D. Short list: what to change (all require Chad's approval for any public wording)
 1. **Shrink the novelty claims** for T1, the temperature ratio and the nested levels. Cite Lee/Flack/Krakauer, Reis, safety stock/Galbraith, Brand/Holling, Shankar & Howard, Rosen and Anderson & Schooler.
 2. **Add a drift-reduction lever** to the objective.
-3. **Condition "no one in charge"** on shared memory being privately rewarded.
+3. **Condition "no one in charge"** on shared memory being privately rewarded, or fate being (partly) shared; otherwise expect enforcement, usually alongside shared fate (applied in THEORY v1.4.20 §6).
 4. **Reconcile exponents.** Predict ½ for single-timescale worlds and power-law kernels (slope → 1) for scale-free worlds. Fix the BIO1 P5 reading.
 5. **Scope optimality** with a drift-barrier or selection-strength condition.
 6. **Lead with what is new:** T4 √N, T3a, the fixed-spread sign, T7b and the T5 cliff.
