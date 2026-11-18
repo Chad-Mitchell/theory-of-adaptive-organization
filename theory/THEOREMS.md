@@ -2,8 +2,8 @@
 
 Draft, Friday 2026-11-13 (ET). **Everything here is either a known result restated, an elementary corollary, or a hypothesis. Nothing here is claimed as a new theorem.**
 
-Every algebraic step marked *checked* is reproduced by `checks/check_all.py`
-(output in `checks/check_all.out`; sympy 1.14, numpy 2.5, scipy 1.18). The section labels printed in `check_all.out` are the script's own and do not always match the T-numbers below (for example, the output's "T1d" is T1c here). An independent re-derivation is in `../review/indep_checks.py`. The fixes from the independent review (`../review/REVIEW.md`) are applied in this public copy; see "Changes from the reviewed draft" at the end.
+Every algebraic step marked *checked* is reproduced by `theorems-checks/check_all.py`
+(output in `theorems-checks/check_all.out`; sympy 1.14, numpy 2.5, scipy 1.18). The section labels printed in `check_all.out` are the script's own and do not always match the T-numbers below (for example, the output's "T1d" is T1c here). An independent re-derivation is in `../reviews/independent-sim/indep_checks.py`. The fixes from the independent review (`../reviews/independent-sim/REVIEW.md`) are applied in this public copy; see "Changes from the reviewed draft" at the end.
 
 **Labels.** **[PROOF]** an elementary proof is given and checked. **[KNOWN]** the result is an existing theorem, restated in the theory's terms. **[UNCONFIRMED]** not found in a quick search, but elementary enough that it may well be known; no novelty is claimed. **[NUMERIC]** shown by computation only, no proof. **[FAILS]** the hoped-for result does not hold or could not be proved. **[ANALOGY]** a resemblance, not math.
 
@@ -259,7 +259,7 @@ In these results tori come from topology and integrability. They do not express 
 | T8 | Internal models; successive refinement (analogy only) | KNOWN | Francis–Wonham 1976; Equitz–Cover 1991; Lastras–Berger 2001 |
 | T9 | Tori from topology/integrability; spheromak as a constrained energy minimum; coupled loops as phase-locking (not tested on real data) | KNOWN math/physics; link is ANALOGY | Liouville–Arnold, KAM, Arnold 1966, Poincaré–Hopf, Woltjer 1958, Taylor 1974/2000, Rosenbluth & Bussac 1979, Adler 1946, Kuramoto 1975 |
 
-## Changes from the reviewed draft (independent review, `../review/REVIEW.md`)
+## Changes from the reviewed draft (independent review, `../reviews/independent-sim/REVIEW.md`)
 - T7b: the convexity step now uses ψ(Δ) = Δφ(Δ) = 2 sinh(Δ/2) − Δ, the function actually being summed (issue 10).
 - T7b: Roundy's 1.02 described as a worst-case bound; ours is a population mean ("same math"), and T7b called near-tautological (issues 11, prior-art table).
 - T2b: relabeled as an accounting identity, with its assumptions (issue 6).

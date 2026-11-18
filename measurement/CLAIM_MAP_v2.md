@@ -1,6 +1,6 @@
 # CLAIM_MAP_v2: A Theory of Adaptive Organization (GTAO), with proxy-aware statuses
 
-Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot executor for Chad Mitchell, via Ace. Private. Nothing was posted, sent or made public. This map **supersedes the status column** of `reviews/night1/CLAIM_MAP_FINAL.md`. That file still holds the full evidence, scope and credit for each row, and row IDs are unchanged. The reason for every change is the measurement re-audit in `FRAMEWORK.md` (same folder). Gates MV1–MV10 are defined in FRAMEWORK §2.2 and bind every new prereg from 18 Nov 2026 (v2.40 note).
+Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot executor for Chad Mitchell, via Ace. Nothing was posted or sent by that work. This map **supersedes the status column** of `reviews/night1/CLAIM_MAP_FINAL.md`. That file still holds the full evidence, scope and credit for each row, and row IDs are unchanged. The reason for every change is the measurement re-audit in `FRAMEWORK.md` (same folder). Gates MV1–MV10 are defined in FRAMEWORK §2.2 and bind every new prereg from 18 Nov 2026 (v2.40 note).
 
 **v2.1 note (15 Nov 2026, 09:02 AM ET).** Section N adds night-2 results and the audit corrections (`reviews/night2/AUDIT_DIVERGENCE.md`). Rows are interpreted under THEORY.md v1.2 §2.5: a constant quoted for class R (a = b = ½) is the H = ½ instance; for reset reads with Hurst H, a = b = 1/(1+2H). The headline hypothesis was rows K12–K13 and N7; it is untested, not peripheral. *(v2.3: superseded; see the v2.3 note.)*
 
