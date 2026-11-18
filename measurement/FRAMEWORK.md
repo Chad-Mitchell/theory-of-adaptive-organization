@@ -8,7 +8,7 @@ Sunday 15 November 2026, written about 08:10–08:20 AM ET (America/New_York) by
 3. The systems where all quantities can be measured validly, ranked by feasibility with public data (§5).
 4. A fair-kill specification for each main prediction (§6), and the three decisive tests to run next (§7).
 
-**Wording rule (Chad's, kept throughout).** GTAO is a general causal theory of adaptive organization, from cells to cities, with the same three costs (memory/upkeep, prediction error, and reads) at every level. It is never called a law.
+**Wording rule (Chad's, kept throughout).** GTAO is a general causal theory of adaptive organization, with the same three costs (memory/upkeep, prediction error, and reads) at every level. It is never called a law, nor a theory of everything. *Scope (updated 18 Nov 2026, Chad t1927):* the costs apply from atoms to the cosmos; design predictions apply where selection makes a model pay (THEORY §2.3, `theory/SCALE_ENDS.md`; §1.2 item 4 below).
 
 **Citation markers.** Markers carried over from the night-1 reviews keep their meanings: [FULL], [ABS], [OCR], [SEC], [BIB], [DOI], [UNVERIFIED]. New in this file:
 - **[DATA-VERIFIED 15 Nov]**: I confirmed this session that the named public dataset exists at the named location (landing page or search summary). I did **not** download or inspect it unless stated.
@@ -39,7 +39,7 @@ Chad asked me to push back where I disagree. I disagree on four points.
    - a test that passes the gates counts **fully**, as a pass or a kill, with no later appeal to "the measure missed it".
 
    Otherwise relabeling every failure as a proxy failure is exactly the unfalsifiability the free-energy principle has been criticised for (Aguilera et al. 2022 [DOI]; Bruineberg et al. 2022 [DOI]).
-4. **"From atoms to cities."** The cost accounting, including physical floors on what a read or a stored bit costs, applies from atoms up. The *design predictions* (onset, vigilance, freeze/hold/lookup) need Axiom 7, a process that selects cheaper designs. An atom or a crystal has physics but no selection over tracking designs. So I would state the scope as: **physical floors at every scale; design predictions wherever there is selection, from cells (and arguably self-replicating chemistry) upward.** This is a scope disagreement worth Chad's call, not a correction.
+4. **"From atoms to cities."** The cost accounting, including physical floors on what a read or a stored bit costs, applies from atoms up. The *design predictions* (onset, vigilance, freeze/hold/lookup) need Axiom 7, a process that selects cheaper designs. An atom or a crystal has physics but no selection over tracking designs. So I would state the scope as: **physical floors at every scale; design predictions wherever there is selection, from cells (and arguably self-replicating chemistry) upward.** This is a scope disagreement worth Chad's call, not a correction. *Resolved 18 Nov 2026 (Chad, t1927):* the costs apply from atoms to the cosmos. `theory/SCALE_ENDS.md` (independently refereed, PASS-WITH-FIXES; THEORY v1.4.18 §2.3; CLAIM_MAP N25–N29) shows the two readings agree: the costs are physically priced at every scale, and what vanishes where nothing selects is the value of a model (N25, PROVED in-model, partly definitional under Axiom 7).
 
 ### 1.3 Where I think Chad is more right than the night-1 map
 - **"Killed" was the wrong word for P1, Enron, LANG1, the τ tests and inventory buffering.** In every case at least one gate in §2 fails. The v2 map relabels them all as **PROXY-FAIL**.
@@ -69,6 +69,8 @@ Every GTAO quantity is defined **relative to** three things:
 A test that leaves any of the three implicit fails gate MV1 below.
 
 ### 2.2 Validity gates (MV1–MV10)
+**Binding since 18 Nov 2026** (Chad, t1927; CLAIM_MAP M2 and v2.40 note): every prereg locked from then on must state its tier against these gates before data. MV9's external timestamp still needs Chad's go per lock.
+
 A field test is **decisive (Tier 1)** only if it passes every gate. It is **Tier 2** if it passes MV1–MV4 and MV8 but not all the rest. It is **Tier 3** otherwise. The tiers extend those in `night2/VIGIL_ONA/FAIR_MEASURE.md` from vigilance to every prediction.
 
 | Gate | Requirement | What it rules out |
@@ -575,7 +577,7 @@ Scored 0–3 on: (A) all inputs measurable (MV3); (B) a sampling choice is obser
 
 ## 6. Fair-kill specifications, one per main prediction (fixed now, before data)
 
-Every spec inherits MV1–MV9 and the admissibility rule (§2.2). "Kill" means a Tier-1 failure. Tier 2 → DISFAVORED. Tier 3 → logged only.
+Every spec inherits MV1–MV10 and the admissibility rule (§2.2). "Kill" means a Tier-1 failure. Tier 2 → DISFAVORED. Tier 3 → logged only.
 
 ### 6.1 O1: the level's sensing class sets the onset exponent, e_g = −(1−b_L)/(1−a_L)
 - **System.** A designed AI multi-agent system (preferred), or any system scoring ≥ 2 on A–E in §5.
@@ -651,10 +653,13 @@ As claim map §3.2 and FAIR_MEASURE, plus:
 
 ### 6.10 Spectrum → exponent (N4/N6) and layers
 **Precondition:** first derive the mapping from a measured spectrum to the predicted memory exponent. MATCH1 D3's sign came out opposite, so this is owed before any lock. Until then, nothing in N6 can be fairly killed or passed. **OPEN.**
+*Update (18 Nov 2026 audit):* the precondition is now met. THEORY v1.4 §2.2 derives the spectrum → exponent map by regime (classical; CLAIM_MAP K12/K13 MATH-CORRECTED), and MATCH1 D3's opposite sign was a mis-derived prediction (CLAIM_MAP H19 MATH-CORRECTED). What stays open is measured-input optimality on one system (CLAIM_MAP N13 OPEN; THEORY §1 N6), first tested by SAME-SYSTEM-AQN.
 
 ---
 
 ## 7. The three decisive, validly measurable tests to run next (today)
+
+*Update (18 Nov 2026 audit):* this list is from 15 Nov. Exploratory versions of #2 and #3 have since run and failed gates: GITHUB-UPSTREAM (CLAIM_MAP N14 PROXY-FAIL, Tier 3; N15 OPEN) and WIKIDATA-BAND (N19 OPEN, known-groups check failed; N20 PROXY-PASS weak). Reruns count only if they pass MV1–MV8. No Tier-1 test has run anywhere. The current first test is SAME-SYSTEM-AQN (`reviews/night2/SYNTHESIS_2026-11-15.md` §7; `QUEUE.md`).
 
 1. **The mixed-technology onset test in agents not given the cost function** (§6.1, plus §6.4 as a second factorial arm). This is the only test where every quantity passes MV1–MV8 today. It discriminates O1 (level's class sets e_g) from the members-set and technology-independent rivals, which SENSING2 never ran cleanly.
    - Build on `night2/LEARNSIM/`. Make sure it has a level ≠ member arm (e.g. A₁ level over R members), (a_L, b_L) measured on the level alone before onset is fitted, real per-call costs, and a gated ρ range.
@@ -688,4 +693,5 @@ The vigilance ONA test running in `night2/VIGIL_ONA/` is Tier 3 by its own prere
 - The heuristic "κ ≈ 1 for aggregated sub-components" is a heuristic, not a theorem.
 - Dataset verifications are existence checks (landing pages or search summaries). Nothing in §5 was downloaded except where marked [ON BOX].
 - This file relabels; it does not re-run any test. Every number quoted is from the cited project files.
+- Updated 18 Nov 2026 (consistency audit): gates binding (§2.2, CLAIM_MAP M2), scope per Chad t1927 (§1.2 item 4), §6.10 and §7 status notes. Re-audit result unchanged: no FIELD-PASS and no FIELD-FAIL; the theory is untested in the field, not refuted.
 - External timestamping of future locks (MV9) still needs Chad's explicit go.

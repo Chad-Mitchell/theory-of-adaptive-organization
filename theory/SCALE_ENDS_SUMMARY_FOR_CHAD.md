@@ -6,7 +6,7 @@
 
 **Switch-on.** Models pay only when heredity is good enough (Eigen's limit), a choice depends on the world, the world drifts at a trackable pace, and the first bit is worth its cost. For a bacterium the energy floor is far from binding.
 
-**Top.** Stars burn fuel but track nothing outside: held, no model. A black hole is the extreme of the frozen class: the most information possible for its size, at the lowest energy per bit for that size, no upkeep. It leaks away over ~10⁶⁷ years × (solar masses)³. Three numbers are readable; the rest returns scrambled after ~10⁶⁷ years, so nothing uses it as memory. It records the past and predicts nothing.
+**Top.** Stars burn fuel but track nothing outside: held, no model. A black hole is the extreme of the frozen class: the most information possible for its size, at the lowest energy per bit for that size, no upkeep. It leaks away over ~10⁶⁷ years × (solar masses)³. Three numbers are readable; the rest returns scrambled only after about the Page time (~0.54 of its lifetime, so ~10⁶⁷ years for a Sun-mass hole, ∝ M³), so nothing uses it as memory. It records the past and predicts nothing.
 
 **How high.** To the cosmic horizon: memory cap ~3×10¹²² nats, a floor price per bit. Light delay forces big structures to federate (testable on Earth).
 

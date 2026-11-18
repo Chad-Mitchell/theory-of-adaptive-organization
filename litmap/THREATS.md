@@ -83,7 +83,7 @@ These already say "fast learns, slow remembers" and give geometric spacing:
 ### B6. Other explanations for "memory" patterns.
 - **Immune memory longevity:** Slifka & Amanna 2019 explain antibody durability by antigen multivalency and structure, not by matching pathogen drift.
 - **LSM-tree and storage levels** are geometric for pure write-cost reasons, with no drift.
-- **Dissipative adaptation** (England 2013; Perunov et al. 2016): matter organizes to absorb work from drives without any internal model. That threatens "atoms as agents" if read as requiring prediction.
+- **Dissipative adaptation** (England 2015, *Nat Nanotechnol* 10:919, doi 10.1038/nnano.2015.250; Perunov, Marsland & England 2016, *PRX* 6:021036; England 2013, *J Chem Phys* 139:121923, is the self-replication heat bound, not the adaptation work; corrected 18 Nov 2026): matter organizes to absorb work from drives without any internal model. That threatens "atoms as agents" if read as requiring prediction.
 
 ## C. Structural and methodological threats
 
