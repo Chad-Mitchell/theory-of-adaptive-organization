@@ -1,0 +1,4 @@
+SENSE-CELL lock manifest. Timestamp of record = git commit time of this file (branch q-sensecell).
+rng seed 20261118, B=2000; nice 19 for all compute; data adapter (sensecell_run.py) written after lock, computation formulas fixed here
+e408d404dded4acc0db1f3abec7f06aa42b9364565af9be6ddf3b0bbb24239f4  PREREG.md
+7623060bf4cd5c3dea8f7b4e423e4aac0bb4a4f289b8d9d62eae0e556fbf20be  sensecell_calc.py
