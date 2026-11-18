@@ -1,0 +1,40 @@
+== 1. ATOMIC END ==
+H ionisation: E/kT at 300 K = 525.99; Boltzmann factor = 10^-228.4
+H ionisation: E/kT at 5800 K = 27.21; Boltzmann factor = 10^-11.8
+Saha ionised fraction, 300 K, n=2.4e25 m^-3 (1 bar): 10^-114.4
+Saha ionised fraction, 5800 K, n=1e23 m^-3 (photosphere-like): 1.28e-04  (Boltzmann factor alone: 10^-11.8)
+n=2 occupancy at 300 K: 10^-170.7; electronic-excitation entropy ~ p(1-ln p) = 10^-168.1 nats
+hyperfine spin entropy at T=300.0 K: 1.3863 nats (ln 4 = 1.3863)
+hyperfine spin entropy at T=2.7255 K: 1.3862 nats (ln 4 = 1.3863)
+translational (Sackur-Tetrode) entropy per H atom, 300 K, 1 bar: 13.12 nats
+I(atom speed; T) with T in {300,600} K equiprobable: 0.079 nats  (one atom is a weak thermometer)
+I(electron spin; B in {0,1 T}) at 300 K: 6.27e-07 nats (tiny but > 0)
+Landauer kT ln2 at 300 K: 2.8710e-21 J = 0.01792 eV
+Bekenstein bound proton (R=8.409e-16 m): 25.12 nats = 36.24 bits
+== 2. EIGEN THRESHOLD and BACTERIAL BUDGET ==
+eps=0.01: L_max = ln(sigma)/eps -> sigma=2: 69.3, sigma=10: 230, sigma=100: 461
+eps=0.001: L_max = ln(sigma)/eps -> sigma=2: 693, sigma=10: 2.3e+03, sigma=100: 4.61e+03
+eps=0.0001: L_max = ln(sigma)/eps -> sigma=2: 6.93e+03, sigma=10: 2.3e+04, sigma=100: 4.61e+04
+eps=1e-09: L_max = ln(sigma)/eps -> sigma=2: 6.93e+08, sigma=10: 2.3e+09, sigma=100: 4.61e+09
+E_gen: 2.7e+10 ATP x 40 kJ/mol at 310 K = 4.19e+11 kT
+E_gen: 2.7e+10 ATP x 50 kJ/mol at 310 K = 5.24e+11 kT
+E_gen: 2.7e+10 ATP x 60 kJ/mol at 310 K = 6.29e+11 kT
+E_gen: 9.0e+09 ATP x 40 kJ/mol at 310 K = 1.40e+11 kT
+E_gen: 9.0e+09 ATP x 50 kJ/mol at 310 K = 1.75e+11 kT
+E_gen: 9.0e+09 ATP x 60 kJ/mol at 310 K = 2.10e+11 kT
+== 3. BLACK HOLES (Planck units) ==
+1 Msun {'M_planck': '9.136e+37', 'S_nats': '1.049e+77', 'T_K': '6.17e-08', 'rs_m': '2953'} bits=1.513e+77
+Sgr A* 4.3e6 Msun {'M_planck': '3.929e+44', 'S_nats': '1.94e+90', 'T_K': '1.435e-14', 'rs_m': '1.27e+10'} bits=2.798e+90
+1 kg {'M_planck': '4.595e+07', 'S_nats': '2.653e+16', 'T_K': '1.227e+23', 'rs_m': '1.485e-27'} bits=3.827e+16
+E/(kT_H S) = M/(T S) = 2.000000  (Smarr: 2);  dM/(T dS) = 1.000000 (first law: 1)
+Bekenstein bound at R=r_s: 2 pi R E = 2 pi (2M) M = 1.000000 x S_BH  (saturated)
+naive Stefan-Boltzmann photons on horizon area (no greybody): alpha = 2.0723e-05
+gamma+grav: alpha=3.7474e-05, t_ev = 1.159e+67 yr x (M/Msun)^3; Srad/|dSbh| = 1.4848; Page time = 0.5381 t_ev; half-S-radiated = 0.6464 t_ev; emitted entropy rate (1 Msun) = 284 nats/s; ODE M(end)/M0=1.000e-02
+Page1976: 2 massless nu + gamma + grav: alpha=2.0113e-04, t_ev = 2.159e+66 yr x (M/Msun)^3; Srad/|dSbh| = 1.6104; Page time = 0.5155 t_ev; half-S-radiated = 0.6464 t_ev; emitted entropy rate (1 Msun) = 1653 nats/s; ODE M(end)/M0=1.000e-02
+3 massless nu + gamma + grav: alpha=2.8296e-04, t_ev = 1.535e+66 yr x (M/Msun)^3; Srad/|dSbh| = 1.6187; Page time = 0.5140 t_ev; half-S-radiated = 0.6464 t_ev; emitted entropy rate (1 Msun) = 2337 nats/s; ODE M(end)/M0=1.000e-02
+naive SB photons: alpha=2.0723e-05, t_ev = 2.096e+67 yr x (M/Msun)^3
+kT_H = 0.05 eV at M = 2.11e+20 kg = 1.06e-10 Msun; fraction of a 1 Msun lifetime spent below that mass = 1.2e-30 -> realistic 1 Msun lifetime = gamma+grav value
+scrambling (hbar/2 pi k T_H) ln S, 1 Msun: 3.494 ms; Sgr A*: 4.89 h
+== 4. COSMOLOGICAL HORIZON ==
+H0=67.4, OmegaL=0.685: 1/H_L=17.53 Gyr; S_dS = 3 pi/(Lambda lP^2) = 3.307e+122 nats; T_dS = 2.198e-30 K; kT_dS ln2 = 2.10e-53 J/bit
+H0=67.66, OmegaL=0.6889: 1/H_L=17.41 Gyr; S_dS = 3 pi/(Lambda lP^2) = 3.263e+122 nats; T_dS = 2.212e-30 K; kT_dS ln2 = 2.12e-53 J/bit

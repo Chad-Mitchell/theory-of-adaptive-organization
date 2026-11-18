@@ -1,0 +1,15 @@
+T8 band vs read cost c (W=1,H=10,mu=1,u=1,h=0.1):
+  c=0.01     q_f=0.0002 q_c=40.5 band_exists=True (q_c>q_f: True)
+  c=0.1      q_f=0.002 q_c=4.05 band_exists=True (q_c>q_f: True)
+  c=1        q_f=0.02 q_c=0.405 band_exists=True (q_c>q_f: True)
+  c=4.4      q_f=0.088 q_c=0.092 band_exists=True (q_c>q_f: True)
+  c=4.6      q_f=0.092 q_c=0.088 band_exists=False (q_c>q_f: False)
+  c=10       q_f=0.2 q_c=0.0405 band_exists=False (q_c>q_f: False)
+  c=1000     q_f=20 q_c=0.000405 band_exists=False (q_c>q_f: False)
+  c=1e+09    q_f=2e+07 q_c=4.05e-10 band_exists=False (q_c>q_f: False)
+  brute force modes reached over q in [1e-6,1e4] at c=0.1: ['freeze', 'hold', 'lookup']
+  brute force modes reached over q in [1e-6,1e4] at c=1000.0: ['lookup']
+Lateness MC (4000 paths): mse=1.2107, predicted q(T/2+l)=1.2000 (discrete-time grid adds ~dt/2)
+  alpha=1.5: L_max ∝ c*(F/(W q))^(1/(alpha-1)) -> exponent on q = -2.00
+  alpha=2.0: L_max ∝ c*(F/(W q))^(1/(alpha-1)) -> exponent on q = -1.00
+  alpha=2.5: L_max ∝ c*(F/(W q))^(1/(alpha-1)) -> exponent on q = -0.67

@@ -1,0 +1,29 @@
+A. Theorem 8 as c -> infinity (no latency term). Which mode is optimal?
+  c=10: q_f=2c/(W H^2)=0.2 (freeze edge vs hold), modes reached over q in [1e-12,1e4]: ['lookup']
+  c=1000: q_f=2c/(W H^2)=20 (freeze edge vs hold), modes reached over q in [1e-12,1e4]: ['lookup']
+  c=1e+09: q_f=2c/(W H^2)=2e+07 (freeze edge vs hold), modes reached over q in [1e-12,1e4]: ['lookup']
+  -> as c grows, the hold/freeze comparison favours 'freeze' (q_f -> inf) but freeze costs c/H -> inf, so the OPTIMUM is LOOKUP, not freeze.
+     Theorem 8 therefore places an infinitely costly store beyond the lookup edge (unused), not in the frozen corner.
+  Even with zero-upkeep freezing (h_freeze=0) and q -> 0:
+    c=10, q=1e-12: best=lookup, freeze cost=1 vs lookup=1
+    c=1000, q=1e-12: best=lookup, freeze cost=100 vs lookup=1
+
+B. Read cost priced as ENERGY per bit (GTAO's beta_phys convention) instead of time.
+   A 1 Msun hole's emitted quanta cost ~kT_H ~ 8.5e-31 J per nat; take c in units where lookup mu*u=1 and c = 1e-6:
+   latency ignored: modes reached = ['freeze', 'hold(interior)']  -> band wide open; a black hole would look like an excellent store.
+   So the 'band closes' conclusion does NOT follow from energy pricing; it needs the time cost (lateness) GTAO's budget counts.
+
+C. Same cheap c, but each read is l old (lateness enters prediction error, THEORY §0):
+   l=0: lookup wins for all q >= nan (analytic: q > (mu u - h)/(W l) = inf)
+   l=1: lookup wins for all q >= 0.977 (analytic: q > (mu u - h)/(W l) = 0.9)
+   l=10: lookup wins for all q >= 0.0972 (analytic: q > (mu u - h)/(W l) = 0.09)
+   l=1000: lookup wins for all q >= 0.00096 (analytic: q > (mu u - h)/(W l) = 0.0009)
+   l=1e+66: lookup wins for all q >= 1e-12 (analytic: q > (mu u - h)/(W l) = 9e-67)
+   (Lookup is assumed latency-free here. If lookup also has latency l_L, the comparison is W q (l - l_L): the store loses only if it is later than the world.)
+
+D. LAT-1: hold-last-value with read latency l on fBm targets, structure function E(dx^2)=q tau^(alpha-1).
+   alpha=1.5: mse vs l slope = 0.502 (predicted alpha-1 = 0.50); mse(l=0.4)=0.631 vs q l^(alpha-1)=0.632
+   alpha=2.0: mse vs l slope = 1.002 (predicted alpha-1 = 1.00); mse(l=0.4)=0.402 vs q l^(alpha-1)=0.400
+   alpha=2.5: mse vs l slope = 1.498 (predicted alpha-1 = 1.50); mse(l=0.4)=0.251 vs q l^(alpha-1)=0.253
+     linear extrapolation from 8 past reads (each 0.4 old): mse=0.202 vs hold-last-value 0.251 -> latency penalty smaller, as SCALE_ENDS says
+   L_max: need q (L/c)^(alpha-1) < D*  =>  L_max = c (D*/q)^(1/(alpha-1)); e.g. alpha=2, D*/q = 1 day -> L_max = 1 light-day.

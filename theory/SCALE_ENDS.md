@@ -1,0 +1,348 @@
+# SCALE_ENDS: what GTAO's own budget says at the bottom (particles, atoms, crystals) and the top (stars, black holes, the cosmological horizon)
+
+Wednesday 18 November 2026, about 12:10 PM to 1:30 PM ET (America/New_York). Written by a Grok Bot executor for Chad Mitchell, via Ace (QUEUE item SCALE-ENDS, out of cycle and unscored; ledger 191). Branch `q-scale-ends`. Private. Nothing was posted, sent or made public.
+
+**Status of this file.** It is a derivation file that `THEORY.md` may cite. It does **not** edit THEORY.md's core, headline or premises. The THEORY.md and CLAIM_MAP text it proposes is in §9, and that text needs a separate reviewer before it is applied (Chad, t1916). An independent hostile referee pass is in `reviews/night2/SCALE_ENDS_REVIEW.md`. The numbers below come from `theory/scale_ends_checks/` (`physics_numbers.py`, `band_latency.py`, with outputs saved beside them).
+
+**Scope decision (Chad, t1927, 18 Nov 2026).** The three costs apply from atoms to the cosmos, and the theory should say what black holes are. This resolves FRAMEWORK §1.2 item 4 ("a scope disagreement worth Chad's call") in Chad's direction. The MV gates stay binding. Under that scope, the ends are derived as consequences of the budget: the frozen corner wherever there is no selection, and the place where a selection-like process is proposed at cosmic scale (Smolin, §4.4). The scope is settled; the truth of each claim is not, and the labels below say which is which.
+
+**Review status.** First referee pass `reviews/night2/SCALE_ENDS_REVIEW.md`, PASS-WITH-FIXES, run by the same executor (disclosed as not independent); its FIX 1–8 are marked [R-FIXn]. **Independent hostile referee pass:** `reviews/night2/SCALE_ENDS_INDEP_REVIEW.md` (18 Nov 2026), verdict **PASS-WITH-FIXES**; its fixes are applied below and marked [IR-FIXn]. The amended §9 is applied as THEORY v1.4.18 §2.3 and CLAIM_MAP v2.39 rows N25–N29.
+
+**Why it exists.** On 18 Nov (t1922 to t1924) Ace told Chad, from memory, that "the theory makes no predictions about black holes" and that at the cosmic scale "nothing is keeping score." That contradicts the record. THEORY.md §2.3 records Chad's open disagreement (t1908): the physics is not decorative, and the same three costs apply at every level from atoms to cities. HYPOTHESES.md H1, H7, H8 and H9 treat free versus paid persistence as a real distinction, and H9 / C6 ("freeze or hold") came out of that very discussion. This file does the work properly. It uses only the theory's own results, and it reads every source before citing it.
+
+**Sources read for this file (not summaries).** THEORY.md v1.4.17: status block, §0, §2.3 including line 126 (t1908), §2.5, and §3 including the freeze-or-hold row. `theory/GENERAL_THEOREM.md`: Theorem P, G2 (hold iff λc < Φ) and G3. `theory/INTERNAL_MODEL.md`: §0, I1–I5, the solvency corollary and §8. `reviews/night1/formal/THEOREMS.md`: Theorem 8, the freeze/hold/lookup band. `measurement/FRAMEWORK.md`: §1–§2 (MV1–MV10), §3.1, §3.5, §3.8, §3.10, §3.11, §6.6 and §8. `measurement/CLAIM_MAP_v2.md`: sections F and J (J6, J10′, J11, J16). `/workspace/gtao/longform/HYPOTHESES.md`: H1–H9, H10, H37 and the imposter flags. `HYPOTHESES_CORE_v2_reviewed.md`: C6 (about lines 175–225) and §3–§4 (about lines 700–730).
+
+---
+
+## 0. Bottom line
+
+1. **The costs are present at both ends.** What vanishes is the value of carrying a model. A read of any physical system costs at least kT ln 2 per bit erased (Landauer; Sagawa & Ueda), and holding information about anything that drifts needs a continual inflow and dissipation (INTERNAL_MODEL I5). A black hole stores information at an energy of 2kT_H per nat, which is the Bekenstein minimum for its size. The cosmological horizon caps the information in our causal patch at about 3×10¹²² nats and sets a floor temperature of about 2×10⁻³⁰ K. So Chad is right that the costs do not switch off. Ace's line, "nothing is keeping score up there," was wrong.
+2. **At the atomic end the theory's own results give the zero-model corner as the optimum.** No argument from outside the theory is needed. Two results carry it [IR-FIX1]. Blind persistence is viable (Theorem P; non-definitional). And under the Axiom-7 definition of an action (E1) nothing selects among the atom's responses, so the value of information *to the atom* is zero (partly definitional, and said so). An atom does carry some information about its surroundings: its speed, spin and level populations correlate with temperature and fields, which is why atoms make thermometers, magnetometers and clocks. That correlation is physics, not a model. *Withdrawn:* the earlier claim that an atom's state entropy is about 10^−171 nats, so that it cannot carry information about its surroundings. That figure is only the electronic-excitation occupancy; the hyperfine spin alone carries ln 4 ≈ 1.39 nats (independent review, `reviews/night2/SCALE_ENDS_INDEP_REVIEW.md`). So atoms skip models because a model would buy them nothing, not because a model would cost them nothing. This sharpens Chad's wording ("no cost there"): the bill for a model would be nonzero, but the benefit is exactly zero.
+3. **A black hole, in GTAO terms, is the extreme of the frozen class (the limit of the frozen corner), and nobody's usable memory [IR-FIX2].** It is the store with the most information per unit size and energy that physics allows. It pays no upkeep to persist (and today it takes in net energy from the CMB). Its readable state is two or three numbers (mass, spin, charge). Everything else comes back only as scrambled radiation, late by about the Page time. Counting that lateness as prediction error (THEORY §0), every tracker sits past its lookup edge: it would sooner look at the world directly than read a black hole [IR-FIX2, IR-FIX3]. Its place in the frozen *class* comes from E1, E2 and E4 (it is not selected, nothing outside threatens it, and its lifetime is set by its own leak), and its being the *limit* of that class comes from physics (Bekenstein saturation). It records the past; it predicts nothing. Its upkeep is a leak, Hawking evaporation, which sets its lifetime at about **1.2×10⁶⁷ yr × (M/M☉)³** (photons and gravitons with greybody factors, the physical case for any hole heavier than ~10⁻¹⁰ M☉; the full species range quoted in older sources is 10⁶⁶–10⁶⁷ yr) [IR-FIX4]. Ace's old H1 ("maximal storage, not organizers") survives, but it is now a *derived output*, not a scope exclusion.
+4. **What GTAO does not do.** It does not derive that black holes exist, nor the area law, nor the Page curve. Those are general relativity and quantum gravity. Saying "GTAO predicts what black holes are" in that stronger sense is an imposter. The defensible form is this: *given* published black-hole physics, GTAO's results (E1, E2, E4, and Theorem 8 with the lateness term) sort the black hole to the extreme of the frozen class and past every tracker's lookup edge, and they predict that no selected system will keep drifting content in BH-like storage (dense, scrambled, costly to read). That last claim can be tested only in ordinary storage hierarchies (O5, FRAMEWORK §6.6), where the black hole is the limit point.
+5. **How high it goes.** The budget applies up to the cosmological event horizon. The lateness term, though, shrinks what a large structure can track. A tracker of extent L reads with latency at least L/c, so it can hold a target only if q·(L/c)^{α−1} is below its error tolerance. This is DERIVED for hold-last-value reads (§5). Big structures must therefore federate: the top level tracks only slow drift. This generalizes H26 ("higher levels see further but update slower") and can be tested on Earth.
+6. **The switch-on (origin of models).** Carrying a model is selected only when four conditions hold together: heredity below the Eigen error threshold, an action whose payoff depends on the world, drift inside the hold band, and a per-nat cost below the marginal value of the first nat. With Kelly-type fitness the last condition reads E_gen > β_phys·kT, where E_gen is the energy per generation. A bacterium spends about 10¹⁰ ATP per division, so for a bacterium the Landauer floor does not prevent the switch-on (E_gen ≈ 10¹¹–10¹² kT). That it *never* does anywhere, and that heredity and drift are what bind, is a HYPOTHESIS with the kill in §3.4 [IR-FIX11]. The inequality is DERIVED under stated premises (§3.4) and partly prior art (Eigen; Donaldson-Matasci et al.; Kussell & Leibler; Woelfle et al.). Under the Axiom-7 reading of "action", the first two conditions overlap, so "models need selection" is close to definitional; the non-circular content is the drift band, the energy inequality and Eigen's threshold (§3.4, IR-FIX10).
+
+---
+
+## 1. The theory's tools used here (as stated in the canonical files)
+
+| Tool | Statement (source) | Used for |
+|---|---|---|
+| Budget | memory upkeep + loss from prediction error (lateness included) + reads, plus ruin (THEORY §0) | everything |
+| **Theorem P / solvency corollary** | viability ⇔ min_R [κR + w(E_L − IB_L(R))] ≤ m; a model is necessary iff acting blind is not viable; carrying any model pays only if κ is below the marginal value of the first bit (GENERAL_THEOREM §1 item 2; INTERNAL_MODEL I1 corollary) | E2, switch-on |
+| **G2 (hold or fade)** | a checked copy beats fading iff λ·c < Φ = ∫₀^∞ (r_∞ − r(u)) du (GENERAL_THEOREM G2; THEORY §3 "Freeze-or-hold" row) | E1, black holes |
+| **Theorem 8 (freeze/hold/lookup)** | freeze iff q ≤ q_f = 2c/(W H_l²); lookup iff q > q_c = (μu − h)²/(2cW); hold band exists iff μuH_l > 2c + hH_l (formal THEOREMS.md Thm 8; CLAIM_MAP F13, PROVED in-model) | ends of the band |
+| **I5 (upkeep is a flow)** | holding I bits about a drifting world needs an observation inflow ≥ (1 − η)·I bits per step (INTERNAL_MODEL I5; Mitter–Newton; Horowitz–Sandberg) | E3 |
+| **Growth inequality** | growth ≤ disequilibrium + information − house take (THEORY §2.3; INTERNAL_MODEL §8; KNOWN) | universe, heat death |
+| **Axiom 7 scope** | design predictions need a process that selects cheaper designs; "physical floors at every scale; design predictions wherever there is selection" (FRAMEWORK §1.2 item 4; §3.10) | which end-claims are testable |
+| **β_phys** | actual cost of a read or held bit ÷ its thermodynamic floor (FRAMEWORK §3.11; CLAIM_MAP J10′, OPEN) | measurement at the ends |
+| **H80 ladder** | cheapest predictor whose error stays inside tolerance: frozen, timer, thermostat, small model, large model | stars |
+
+**The key point of method.** Freeze-or-hold (G2, Theorem 8) is a theorem about optima. Its frozen corner (stop reading, keep the copy) is where the optimum goes as drift goes to 0 or stakes go to 0. As read cost goes to ∞, the optimum goes to *lookup* when lookup is available, and to the frozen corner only when it is not (Theorem 8: freezing still costs c/H_l > μu) [IR-FIX2]. So "free persistence" (H8) is not a scope exclusion bolted onto the theory. It is a corner of the theory's own solution, and the physics decides which structures sit there and why. C6's review warned that "the physics half (protons, crystals) is illustration only." This file replaces that illustration with the mapping in §3 and §4, and it marks the parts that are still analogy.
+
+---
+
+## 2. One derived result that covers both ends: when the zero-model corner is optimal (Proposition E)
+
+Take any structure X that persists. Define the target as the world variable Y whose value affects X's ruin hazard, and the action set as the options available to X whose effect on ruin or growth depends on Y.
+
+**E1 (no decision, no model) [DERIVED; elementary].** If X has no action whose payoff depends on Y (a single effective action), then for every loss r(u) = r_∞ and Φ = 0. By G2, holding never beats fading for any λ > 0, and Theorem 8 has W_effective = 0, so q_f → ∞ and the structure is frozen at every drift. Equivalently, the value of information is zero when no decision uses it: Blackwell's comparison of experiments (1953, used in GENERAL_THEOREM G1) orders experiments by decision value, and with one action every experiment has value 0. *Consequence: the drift spectrum α, q and N enter nothing.* The spectrum matters only where Φ > 0.
+
+**E2 (blind-viable, no model) [DERIVED from Theorem P].** If the blind margin m − wE_L ≥ 0, so that X persists with R = 0, then a model is unnecessary. It is optimal only if κ is below the marginal value of the first bit. When E1 also holds, that marginal value is 0, so R\* = 0 for any κ > 0. Because the cost of a read is never 0 (at least kT ln 2 per bit erased, E3), this is strict.
+
+**E3 (no coupling, no held information about drift; corrected per [R-FIX3]) [DERIVED from KNOWN pieces].**
+- (a) If a structure is uncoupled from a drifting variable Y (frozen: no inflow), its mutual information with Y_t cannot increase, and it decays as Y decorrelates (data-processing inequality). DERIVED.
+- (b) Keeping it requires coupling: an information inflow of at least (1 − η)·I per step (I5).
+- (c) The thermodynamic price of that inflow depends on how the coupling works. It is at least kT per nat for measure-and-erase feedback cycles (Sagawa & Ueda 2009; Landauer 1961). It is at least kT × (nonpredictive information retained) for driven systems (Still et al. 2012). It **can approach 0** for quasi-static passive coupling to slow drift. The review's counterexample shows this: a two-state receptor tracking a drifting energy keeps I ≈ 0.18 nats while its dissipation per cycle falls ∝ ω, to 0.026 kT at ω/γ = 0.01 (`reviews/night2/SCALE_ENDS_REVIEW_checks/e3_counterexample.out`). Mehta & Schwab (2012) give the cellular case for *learning* (time-averaging), which does require dissipation.
+- (d) In every case, I(X; Y) ≤ H(X): a structure cannot carry more information about anything than its own state entropy. DERIVED.
+
+*The first version of E3 said "zero entropy production ⇒ no held information about drift". That is false, and it is withdrawn.* What survives is narrower. Holding **memory** (information beyond the present instantaneous correlation) about a drifting variable costs dissipation. *[IR-FIX1] The self-review's atomic application of (d), "a ground-state atom has near-zero state entropy, so it can carry no information about its surroundings", is also withdrawn.* Only ground-state hydrogen's electronic-excitation entropy is tiny (occupancy 10^−170.7, entropy ≈ 10^−168 nats at 300 K). Its hyperfine spin entropy is ln 4 ≈ 1.39 nats, its translational entropy about 13 nats (300 K, 1 bar), and one atom's speed carries 0.08 nats about whether the bath is at 300 K or 600 K (`reviews/night2/SCALE_ENDS_INDEP_checks/physics_indep.out`). Atoms are passive sensors of the (c) kind.
+
+**E4 (frozen lifetime) [KNOWN physics, mapped].** A frozen store pays no upkeep, but its lifetime H_l is finite, and its protection sets that lifetime:
+- a barrier E_a: H_l ≈ τ₀ e^{E_a/kT} (Arrhenius/Kramers; crystal defects, isotopic zoning, metastable nuclei);
+- a conservation law: the proton, τ > 1.6×10³⁴ yr for p → e⁺π⁰ at 90% CL (Super-Kamiokande, Abe et al. 2017);
+- a horizon: a black hole, H_l ∝ M³ (§4.2).
+In Theorem 8 terms, H_l is the "lifetime" input, and the frozen keeping cost is 0. Physics thus confirms C6's kill clause ("a frozen layer's keeping cost rises enough that it needs fading") as **not met**: frozen stores do not need fading, because they leak on their own.
+
+**The ladder these give [DERIVED classification].** There are three distinct persistence classes. The theory's three costs take different values in each, and each class needs its own conditions.
+
+| Class | Upkeep h | Model R | Needs | Examples |
+|---|---|---|---|---|
+| **Frozen** | 0 | 0 (at most a record of its formation) | protection (barrier ≫ kT over the horizon, a conservation law, a horizon) | proton, atom, nucleus, crystal, black hole |
+| **Held structure, no model** (H80's thermostat tier) | > 0, paid from a free-energy flux | 0 (feedback on its own state only) | disequilibrium D > 0 (growth ≤ D + I − take with I = 0) | star, convection cell, hurricane, galaxy's self-regulated star formation |
+| **Held model** | > 0 | > 0 (tracks an external drifting target) | E1 fails (an action with world-dependent payoff), E2 fails (blind not viable, or the first bit pays), a flux (E3), and **selection over designs** (Axiom 7: heredity) | cells and every level above |
+
+H8/H9's "frozen vs held" split becomes three classes. Stars are *held* (they dissipate to persist) but carry no model, so "held" and "has a model" are different things. GTAO's design predictions (onset, vigilance, band edges) apply only to the third class (FRAMEWORK §1.2 item 4). The *cost accounting* applies to all three.
+
+**Prior art for the three classes [IR-FIX8].** The split is not new in substance. GTAO restates it in its own cost terms. Prigogine (1978) separates equilibrium structures (crystals) from dissipative structures. Pross (2011) separates thermodynamic stability from the dynamic kinetic stability of replicators. Kolchinsky & Wolpert (2018) define the value of a system's information about its environment by whether it is causally necessary for the system's continued existence, explicitly for "a rock, a hurricane, a bacterium": close prior art for E1/E2's viability-based value of information and for these three classes. Krakauer et al. (2020) derive organismal, colonial and driven forms of individuality from information propagated from past to future. Friston et al. (2023) sort particles into conservative vs dissipative, inert vs active, and ordinary vs strange. That framework is a **rival** at the atomic end: it grants inference-like dynamics to broad classes of particles, where E1/E2 give R\* = 0 wherever nothing is selected. As stated, the disagreement is about wording, not a testable difference.
+
+---
+
+## 3. The bottom end: particles, nuclei, atoms, crystals, and the switch-on
+
+### 3.1 Mapping table (atom in a thermal environment; the same holds for nuclei and crystals, with a different barrier)
+
+| Theory quantity | Physical quantity at the atomic end | Mapping status | Valid measurement under FRAMEWORK |
+|---|---|---|---|
+| Target Y | the bath energy fluctuations that could ionize or dissociate it; the constants of nature that fix its levels | DERIVED as "ruin-relevant variable"; there is **no tracker**, so MV1's triple (target, pool, channel) cannot be completed for *design* tests | none for design predictions (MV1/MV2 fail by construction) |
+| Drift q, spectrum α | constants: α̇/α = (−1.6 ± 2.3)×10⁻¹⁷ /yr (Rosenband et al. 2008); bath: stationary | DERIVED (q ≈ 0 for the laws) | **Known-groups calibration (MV7)** for §3.1: any drift instrument must return q ≈ 0 on constants |
+| Stakes W | ruin hazard ≈ ν e^{−E_b/kT}: hydrogen at 300 K has E_b/kT = 526, Boltzmann factor 10^−228.5; at 5,800 K, 27.2, Boltzmann factor 10^−11.8. These are Boltzmann factors, not ionization odds: the Saha equilibrium ionized fraction is about 10^−114 at 300 K and 1 bar, and about 10^−4 at photosphere conditions (5,800 K, n ≈ 10²³ m⁻³), because of the free electron's phase space [IR-FIX5] | DERIVED (ruin); but by E1 the *decision* stakes are 0 | the ruin side is measurable (ionization equilibria, Saha), but it is not a design input |
+| Upkeep h | entropy production needed to persist: 0 in the ground state (a stationary state) | DERIVED (physics) | calorimetry or the entropy-production rate; **known-group "h = 0"** for FRAMEWORK §3.5 |
+| Read price c, θ (§2.5) | ≥ kT ln 2 per bit erased = 2.9×10⁻²¹ J = 0.018 eV at 300 K; approached experimentally (Bérut et al. 2012) | DERIVED floor (per-nat pricing, β_phys → 1 achievable) | **β_phys anchor:** a measured erasure near kT ln 2 is the β ≈ 1 end of J10′'s curve |
+| Φ (G2) | 0 (no decision) | DERIVED (E1) | — |
+| Lifetime H_l | ∞ for the stable ground state; τ₀e^{E_a/kT} for metastable states and defects; > 1.6×10³⁴ yr for the proton | DERIVED physics | decay and retention lifetimes (half-lives, diffusion closure); known-group for §3.8 "values that never change must classify as freeze" |
+| N (sensing noise) | thermal (kT), quantum (ħ) | defined but unused (E1) | — |
+| Selection (Axiom 7) | none over tracking designs. What persists is filtered by stability (survival of the stable), not by tracking cost | DERIVED: there is a filter but no design optimization | MV8-ii fails, so no design prediction is admissible |
+| Memory capacity | Bekenstein bound for a proton: 2πRE/(ħc) = 25.1 nats = **36 bits** (R = 0.84 fm) | DERIVED (KNOWN bound) | — (agrees with the H-file flag "Bekenstein ~40 bits") |
+
+**What the atom stores.** Its quantum numbers (Z, A, charge, spin) are frozen, conserved records. A crystal can also keep a frozen record of its formation environment: zoning, defects, isotope ratios. That is memory in GTAO's sense, a record whose keeping cost is 0. It is not a model. The atom does nothing with it, so by E1 it is worth nothing *to the atom*. It is worth something to a later tracker that reads it: a geologist reading a zircon is doing a GTAO "freeze" read of a frozen store with a long H_l.
+
+### 3.2 Why atoms do not carry added model complexity (the answer to Chad's question)
+
+DERIVED, from the results below (item 2 withdrawn by the independent review, IR-FIX1):
+1. **E2 (non-definitional):** blind persistence is overwhelmingly viable (thermal ionization suppressed by a Boltzmann factor of 10^−228 at room temperature; Saha ionized fraction about 10^−114 at 1 bar [IR-FIX5]), so Theorem P makes a model unnecessary.
+2. ~~**E3(d) (non-definitional) [R-FIX3]:** a ground-state hydrogen atom has state entropy … about 10^−171 … it *cannot* carry information about its surroundings.~~ **Withdrawn [IR-FIX1].** That number is the n = 2 occupancy, not the atom's state entropy, which includes ln 4 ≈ 1.39 nats of hyperfine spin and about 13 nats of translational entropy. An atom does carry (small) information about its surroundings; it is a passive sensor (E3(c)), which is why atoms serve as thermometers, magnetometers and clocks. What it lacks is any selected use for that information (item 3).
+3. **E1 (the Axiom-7 reading) [R-FIX4]:** an "action" in GTAO is an alternative over which a selection process operates. Atoms have physical responses but no selection over them, so Φ = 0 by that definition. This is the band's frozen corner where there is no selection, which is the scope Chad set at t1927. It is partly definitional. Since item 2 is withdrawn [IR-FIX1], it is load-bearing together with item 1, and the atomic case should be read that way: E2 says nothing threatens the atom, and E1 (Axiom-7 reading) says nothing it does is selected. Under that reading the marginal value of the first bit is zero, so R\* = 0 for any read price above 0.
+
+The costs are not zero. A model would cost at least kT ln 2 per bit per refresh, and its benefit is exactly zero. **The bottom of the scale is the frozen corner of GTAO's own band, reached at W → 0 and q → 0 together.**
+
+### 3.3 Where the switch-on happens
+
+The first structures that are *held* rather than frozen persist by a flux, with no model: prebiotic dissipative chemistry, autocatalytic cycles and "dynamic kinetic stability."
+- Prior art: Prigogine 1978 on dissipative structures; Kauffman 1986 on autocatalytic sets; England 2013 on the thermodynamic lower bound for self-replication.
+- These need only D > 0. They are class 2 in §2.
+
+**A held model (class 3) needs selection over designs**, which means heredity. Below the Eigen error threshold, a replicator of length L with per-site copying error ε and selective superiority σ keeps its information only if εL ≲ ln σ (Eigen 1971, KNOWN). Vasas, Szathmáry & Santos (2010) showed that compositional (metabolism-first) autocatalytic networks lack evolvability, so a GTAO-type design optimum cannot be approached without template heredity. That is prior art, and it supports putting the switch-on at heredity.
+
+### 3.4 Is there a derivable threshold? (DERIVED under stated premises; partly PRIOR ART)
+
+A model is selected only if all four of the following hold:
+- **(S1) Heredity:** εL < ln σ. KNOWN (Eigen).
+- **(S2) An action whose payoff depends on the world** (E1 fails).
+- **(S3) Drift inside the hold band:** q_f < q < q_c (Theorem 8). In evolutionary terms, the environment must change on time scales between "slow enough to be frozen into the genome" and "too fast or unpredictable to track." Below q_f, constitutive (frozen) wins; above q_c, lookup or bet-hedging wins. Kussell & Leibler (2005) is the KNOWN phenotype-switching version.
+- **(S4) The first nat pays (Theorem P).** For proportional-betting (Kelly-type) fitness, the growth value of a cue carrying I nats is at most I nats per generation, with equality in many cases (Donaldson-Matasci, Bergstrom & Lachmann 2010). Rivoire & Leibler (2011) treat general fitness structures.
+
+  Suppose the cost of acquiring and using I nats is at least β_phys·kT·I per generation, and a cell needs energy E_gen per division. Spending ΔE then slows growth by about ΔE/E_gen nats per generation. Including the fixed cost κ₀ of building the sensing machinery (protein burden) [R-FIX7], net gain ≥ I·(1 − β_phys·kT/E_gen) − κ₀/E_gen. The Landauer part alone is positive iff
+
+  **E_gen > β_phys · kT,**
+
+  and the binding term is then κ₀/E_gen (machinery), not the floor. By E3(c), passive coupling can cost less than the per-cycle kT per nat, which only strengthens this.
+
+  A 1 µm³ bacterium needs about 2.7×10¹⁰ ATP per division (Lynch & Marinov 2015; other estimates are about 3× lower), roughly 10¹¹–10¹² kT. So S4 is met unless β_phys exceeds about 10¹¹.
+
+**Consequence (HYPOTHESIS, falsifiable).** The Landauer floor never prevents a model from switching on. The binding conditions are S1 and S3. The floor shapes the *design* of the models that switch on (precision and speed: §2.5's θ; Lan et al. 2012), not whether they exist. This partly cuts against a strong reading of "the floor binds tightly at the cell": it binds the exponents, not the existence.
+
+**Kill.** A primitive sensing or regulatory system shown to be energy-limited at its existence margin, i.e. one that would pay in information terms but is absent because β_phys·kT·I is comparable to E_gen. Premises: Kelly-type fitness (outside it, the value per nat can be lower; Rivoire & Leibler); a growth penalty linear in ΔE/E_gen; erasure-type cost.
+
+**Evidence that fits S3 (PRIOR ART, not GTAO-specific).** In Woelfle et al. 2004, cyanobacteria with a working circadian clock beat clock-disrupted strains in light–dark cycles, but the advantage disappears in constant light (the arrhythmic strain even gained slightly), and a strain does best when its period matches the cycle. A held model pays only when the world drifts in a way it can track. This is H2's "anticipating chemistry," with real data, in a cell. It is not a GTAO magnitude test: it does not measure where q_f and q_c sit.
+
+---
+
+## 4. The top end: stars, galaxies, black holes, the universe
+
+### 4.1 Stars and galaxies (class 2: held structure, no model)
+
+A star persists by dissipating: its upkeep h is its luminosity L, paid from nuclear free energy. It regulates on its *own* state: negative heat capacity makes hydrostatic and thermal balance act as a thermostat, H80's feedback tier. Its ruin (fuel exhaustion, then collapse) is fixed by its mass and composition, not by tracking anything external. The interstellar medium's drift does not enter its main-sequence persistence, so E1 holds and R\* = 0. This is DERIVED as a classification. Mapping: h ↔ L (DERIVED, measurable); no target; no selection (stars do not inherit designs, except in Smolin's universe-level reading, §4.4). Under FRAMEWORK it is **a known group for "held but not modeling"**: any instrument that reports a model in a star fails MV7.
+
+### 4.2 Black holes: what GTAO says they are
+
+**Published physics (PRIOR ART; numbers recomputed in `scale_ends_checks/physics_numbers.out`, CODATA 2018 constants):**
+
+| Quantity | Formula | 1 M☉ | Sgr A\* (4.3×10⁶ M☉) | Source |
+|---|---|---|---|---|
+| Entropy (memory capacity) | S = kA/(4ℓ_p²) = 4πkGM²/(ħc) | 1.05×10⁷⁷ nats = 1.5×10⁷⁷ bits | 1.9×10⁹⁰ nats | Bekenstein 1973; Hawking 1975 |
+| Hawking temperature | T_H = ħc³/(8πGMk) | 6.2×10⁻⁸ K | 1.4×10⁻¹⁴ K | Hawking 1975 |
+| Energy per nat | Mc² = 2T_H·S (Smarr), marginal dE = kT_H per nat (first law) | 2kT_H average | same | Bekenstein 1981 bound: E/S ≥ ħc/(2πR) = 2kT_H at R = r_s, so **saturated** |
+| Evaporation lifetime [IR-FIX4] | t_ev = M³G²/(3αħc⁴). Photons + gravitons with greybody factors: α = 3.747×10⁻⁵ (Page 2005 eq 19). Naive photon blackbody (no greybody): 5120πG²M³/(ħc⁴). Page 1976 with two massless ν, γ, graviton: α = 2.0×10⁻⁴ | **1.16×10⁶⁷ yr (photons + gravitons; physical)**; 2.1×10⁶⁷ yr (naive, no greybody); 2.2×10⁶⁶ yr (massless-ν, historical) | **9.2×10⁸⁶ yr**; 1.7×10⁸⁷ yr; 1.7×10⁸⁶ yr | Hawking 1975; Page 1976 (abstract read); Page 2005, *New J Phys* 7:203, doi 10.1088/1367-2630/7/1/203 (PDF read, eqs 19–21). Real neutrinos have mass: kT_H reaches 0.05 eV only at ~10⁻¹⁰ M☉, so a stellar-mass hole emits essentially only photons and gravitons for all but the last ~10⁻³⁰ of its life. Today it absorbs more from the CMB than it emits, which delays the start by ~3×10¹¹ yr (negligible) |
+| Page time [R-FIX1] | radiation entropy = BH entropy at S_BH/S₀ = 0.5975 (radiation carries 1.4847× the BH entropy loss), so t_P ≈ **0.538 t_ev**. Hayden–Preskill's "half-way" point (half the initial S radiated) is 0.646 t_ev. The 1.4847 factor and 0.538 hold for photons + gravitons; with massless neutrinos the fraction would be 0.516 [IR-FIX4] | ≈ 6.2×10⁶⁶ yr (0.538 × 1.16×10⁶⁷) | — | Page 1993; Page 2013, *JCAP* 09:028, doi 10.1088/1475-7516/2013/09/028 [arXiv 1301.4995 abstract fetched] |
+| Scrambling time | t\* ≈ (ħ/2πkT_H) ln S = (2r_s/c) ln S, up to O(1) factors | 3.5 ms | 4.9 h | Sekino & Susskind 2008 (conjecture: BHs are the fastest scramblers); Hayden & Preskill 2007 |
+| Readable state | (M, J, Q): no-hair (Kerr uniqueness in classical GR) | — | — | ringdown test: GW150914 consistent with Kerr at ~10% (mass and spin) and ~20% (first overtone frequency) (Isi et al. 2019) |
+| Decoding cost (reading radiation) | conjectured exponential in S for the AMPS-type decode | — | — | Harlow & Hayden 2013 |
+| Computation | ops/s ≤ 2E/(πħ); at the BH limit "computation is fully serial": a bit flip takes as long as a signal around the horizon. A 1 kg BH holds 3.8×10¹⁶ bits | — | — | Lloyd 2000 (fetched; our 1 kg value 3.827×10¹⁶ bits matches his); Margolus & Levitin 1998 |
+| Today, vs the CMB (net inflow, not upkeep) | T_H(1 M☉) = 6×10⁻⁸ K < T_CMB = 2.7 K, so it absorbs more than it emits and grows | — | — | arithmetic; in a Λ-dominated expansion the CMB falls below 6×10⁻⁸ K in about 3×10¹¹ yr (rough estimate, §4.5) |
+
+**GTAO reading (DERIVED, given the physics above):**
+1. **Memory.** The black hole has the most memory any region of its size can hold (holographic bound; Bousso 2002 review). It stores at the Bekenstein-minimum energy per nat. So it sits at the extreme of "cheapest storage per unit size and energy." That is a property of the frozen corner: keeping cost 0, capacity at the physical maximum.
+2. **Upkeep.** Persisting needs none (h = 0: nothing is paid to persist). Today there is also a net energy inflow from the CMB, which is not "negative upkeep" [R-FIX6]. Its only loss is a *leak* (Hawking emission ∝ M⁻²), which fixes its frozen lifetime H_l ∝ M³ (E4). The leak is not upkeep paid to hold information; it is the store's spontaneous decay.
+3. **Reads.** For an outside tracker, the readable interface is 2–3 numbers out of about 10⁷⁷ bits. Everything else returns only as thermal-looking radiation. It returns after the Page time for early infall. For an old hole it returns after about t\* (Hayden–Preskill's "mirror"), but only to someone who holds essentially all earlier radiation and can decode it, which is conjectured to take time exponential in S (Harlow–Hayden). In GTAO terms the binding cost is **lateness**, not energy [IR-FIX3]. Priced as energy (FRAMEWORK §3.11's convention), a Hawking quantum is the cheapest read in nature, about kT_H ≈ 10⁻³⁰ J per nat for 1 M☉, and with energy pricing alone Theorem 8's band would be wide open (`reviews/night2/SCALE_ENDS_INDEP_checks/band_indep.out`, B). What closes it is time. A read of infallen content arrives no earlier than the Page time for a young hole (Page 1993). For an old hole it arrives only to a collector that has gathered the radiation since before the Page time and can decode it (conjectured exponentially hard, Harlow–Hayden). The emitted entropy rate is only about 3×10² nats/s for 1 M☉ (photons and gravitons). Lateness ℓ adds W·q·ℓ^{α−1} to every read's error and cannot be bought down (§5). So lookup beats any read of the hole once q > (μu − h)/(Wℓ^{α−1}), which at ℓ ~ 10⁶⁶ yr is every drift anyone tracks (`band_indep.out`, C).
+   - Theorem 8's own limit c → ∞ (energy or effort per read) gives the same outcome by a different route [IR-FIX2]. q_f = 2c/(WH_l²) → ∞, so freezing beats holding, but freezing then costs c/H_l > μu. The optimum is **lookup**, not freeze, at every drift (`band_latency.out`; `band_indep.out`, A). The band condition μuH_l > 2c + hH_l fails: no hold band at any drift.
+   - So the band sorts a black hole, *as somebody else's memory*, beyond the lookup edge: unused. Its membership in the frozen *class*, as a persisting structure, comes from E1, E2 and E4 (items 2 and 4), not from Theorem 8.
+
+   **A tracker never uses a black hole as its memory; it looks at the world instead.**
+4. **Prediction.** The black hole has no action whose payoff depends on its surroundings, and its persistence is blind-viable, so E1 and E2 give R\* = 0. What it holds is a scrambled record of its past: what fell in. That is not information about the future of anything it faces. Fast scrambling is, if anything, the *opposite* of holding a model. It turns locally readable correlations into global ones that no local read can recover. **In GTAO's terms a black hole has maximal memory, maximal mixing and minimal readability. It is the frozen class's extreme, and past every tracker's lookup edge [IR-FIX2].**
+
+**Does the theory *predict* this endpoint?** Here is where it succeeds and where it fails, stated plainly.
+- *Succeeds (DERIVED, conditional on two mappings [R-FIX5, IR-FIX3]: the Axiom-7 reading of "action" (E1), and lateness counted as prediction error with the hole's retrieval latency ≥ the Page time ∝ M³; decoding complexity is a conjectural second route):* given the physical facts (capacity S, readable state (M, J, Q), retrieval latency ~t_Page, leak ∝ M⁻²), E1, E2 and E4 put the black hole in the frozen class, at its extreme, and Theorem 8 with the lateness term puts it beyond every tracker's lookup edge [IR-FIX2]. H1 ("maximal storage, not organizers") is now an output of E1, E2 and Theorem 8, not a scope rule.
+- *Fails (stated):* GTAO does not explain *why* maximal density and maximal unreadability coincide. That comes from gravity: horizons are what saturate the bound and what block signals. GTAO also does not derive the area law, the Page curve (recent derivations: Penington 2020; Almheiri, Engelhardt, Marolf & Maxfield 2019) or the scrambling bound. Claiming any of these as GTAO predictions is an **imposter**.
+- *Falsifiable prediction left over (HYPOTHESIS BH-1).* Across selected memory systems, the denser and costlier-to-read a storage tier is, the slower the drift of the items kept there. The freeze edge q_f = 2c/(WH_l²) grows linearly with read cost. The black hole is the limit where read latency or cost diverges, and nothing drifting is kept there (in Theorem 8 terms: past the lookup edge) [IR-FIX2]. "Denser" is not an input of Theorem 8; it enters only because, physically, the densest stores are the hardest to read. **Kill:** FRAMEWORK §6.6's O5 kill (closed-form mode classification no better than item type, ΔAUC < 0.02) on a gated sample of storage tiers (cold, archival or tape vs hot caches; DNA vs mRNA vs protein modification). This is the existing O5 test (CLAIM_MAP F13). The black hole adds a limit point, not a new test. It cannot be tested on black holes themselves: MV1 fails, since there is no tracker, target or pool.
+- *Physics-side check that the frozen reading is right:* "no readable memory beyond (M, J, Q)" is exactly what black-hole spectroscopy tests (Isi et al. 2019: consistent with Kerr). Echoes or hair would put readable memory on a black hole. That is GR's falsifier, which GTAO borrows; it adds a label, not content.
+
+**Compared with H1.** H1's kill ("any black hole showing anticipation") is now concrete: a black hole whose response to infall depends on its history beyond (M, J, Q) in a way that tracks its surroundings ahead of time. Under known physics this is excluded at the ringdown-test level. Status: H1 is **upheld and re-derived**, and its source changes from "scope condition" to "E1 + E2 + Theorem 8 with published physics."
+
+### 4.3 Holography and ER = EPR (published claims only)
+
+- **Holography** ('t Hooft 1993; Susskind 1995; Bousso 2002). The maximum information in a region scales with its boundary area. For GTAO this is a hard **capacity cap on memory at every scale**: no tracker of radius R can hold more than about A/(4ℓ_p²) nats. Every real tracker sits astronomically below it, so it never binds a design. This is PRIOR ART used as a bound.
+- **ER = EPR** (Maldacena & Susskind 2013). This is the published conjecture that entangled black holes, and perhaps all entangled systems, are joined by non-traversable Einstein–Rosen bridges. By the authors' own premise these bridges carry no signals, so they provide **no read channel**. GTAO can draw nothing from it: no read, no Φ. Any reading of "black holes as a connected memory network" is an **imposter**.
+
+### 4.4 Smolin's cosmological natural selection (nearest prior art for an adaptive reading at cosmic scale; credited)
+
+Smolin (1992; 2004 review, hep-th/0407213, fetched) proposes the following. Universes reproduce through black holes. Each child inherits slightly mutated parameters. Over many generations the parameters come to maximize black-hole production. That gives Axiom 7 at cosmic scale: heredity plus selection. It is falsifiable. Smolin's §6.3 argues that if the strange-quark mass sits below a critical value (the Bethe–Brown kaon-condensate case), the neutron-star upper mass limit is about 1.5 M☉. He then says that a sufficiently heavy neutron star would refute the theory: "Sufficiently high is certainly 2.5M☉, although if one is completely confident of Bethe and Brown's upper limit of 1.5 solar masses, any value higher than this would be troubling." Measured masses since then include PSR J0740+6620 at 2.08 ± 0.07 M☉ (Fonseca et al. 2021) and PSR J0952−0607 at 2.35 ± 0.17 M☉ (Romani et al. 2022). Both are "troubling" by his own wording, and neither reaches the "certainly" refuting 2.5 M☉. Status: **PRIOR ART, under observational pressure** (that is our reading of the published masses against Smolin's stated criterion, not a published verdict).
+
+**Where selection exists at cosmic scale (under the t1927 scope).** CNS is the one published proposal in which Axiom 7 (heredity plus selection over designs) operates above the level of stars. If it holds, GTAO's design layer applies to universes as units, and MV8-ii (selection) is met *in that hypothesis*. MV1 still needs a named target, pool and channel. The "target" would be the fitness landscape (black-hole yield as a function of parameters). It has no drift, so there is nothing to track and the design optimum is the frozen corner.
+
+**GTAO's reading of CNS (HYPOTHESIS, labelled; not a GTAO prediction).** If CNS holds, the universe-level "organism" has a stationary fitness function (black-hole yield as a function of parameters, with no drift, q = 0). With q = 0, GTAO's optimum is the frozen corner: no sensing, no plasticity, inheritance by copying frozen parameters. GTAO therefore predicts that the constants do not drift, which matches the Rosenband bound. **This does not discriminate:** any physics with constant constants predicts the same, so GTAO adds no test beyond Smolin's own. In the CNS reading the black hole is the *reproductive* step. Its scrambled archive is not passed on; only the frozen parameters are. That fits §4.2: a black hole is not a memory anyone uses.
+
+### 4.5 The universe as a whole
+
+- **Is the universe a GTAO tracker?** No. It has no exterior target, no stakes conditioned on error, and no action set (E1). It is an **IMPOSTER** to call the universe an adaptive organization, a model-carrier or "a universe choosing" (already a retired flag in HYPOTHESES_CORE §4). That covers the whole. Smolin's population of universes is the only published version with selection, and §4.4 covers it.
+- **Costs at the horizon (DERIVED from published bounds; numbers in `physics_numbers.out`).** With H₀ = 67.4 km/s/Mpc and Ω_Λ = 0.685, 1/H_Λ ≈ 17.5 Gyr.
+  - The de Sitter horizon entropy S_dS = πc²/(H_Λ²ℓ_p²) ≈ 3.3×10¹²² nats. This is the asymptotic value. Egan & Lineweaver's (2010) *current* cosmic-event-horizon value is 2.6 ± 0.3 × 10¹²² k. Theirs is smaller because today's event horizon is smaller than the asymptotic de Sitter horizon and grows toward it [R-FIX2]. This is the memory cap for anything in our causal patch.
+  - The de Sitter temperature T_dS = ħH_Λ/(2πk) ≈ 2.2×10⁻³⁰ K (Gibbons & Hawking 1977). That puts a permanent floor on the price of a bit, kT_dS ln 2 ≈ 2×10⁻⁵³ J. No tracker anywhere in our future can pay less.
+  - The present entropy of the observable universe, S_obs ≈ 3×10¹⁰⁴ k, is dominated by supermassive black holes (Egan & Lineweaver 2010). It lies far below the cap. That gap is the disequilibrium D that funds every held structure (Egan & Lineweaver say the same in words: the increase "has not yet been capped… is the reason dissipative processes are ongoing and that life can exist").
+- **Heat death (DERIVED + PRIOR ART).** By the growth inequality, held structures need D > 0. By E3, held information about drift needs a dissipative flux. As stars burn out (Adams & Laughlin 1997) and D → 0, class-2 and class-3 structures cannot persist; only frozen stores remain (black holes until they evaporate; protons if they are stable). Krauss & Starkman (2000) already argue that in a Λ-dominated universe the total recoverable energy and information are finite, that T_dS sets a minimum operating temperature, and that hibernation fails because "all alarm clocks eventually fail" and run at a minimum power. **In GTAO's terms:** Dyson's (1979) hibernation strategy is the move to the freeze corner. Krauss–Starkman's alarm clock is the read that a frozen store still needs (G2: freezing still needs one read per lifetime). Its failure is E4's finite H_l plus a read price that cannot drop below kT_dS. This is PRIOR ART relabelled. GTAO adds the labels, not a new result.
+
+---
+
+## 5. How high does it go? The lateness bound on a tracker's extent (DERIVED; testable)
+
+THEORY §0 counts lateness inside prediction error. A tracker whose sensor and decision sit a distance L apart, or whose parts must agree across L, reads with latency at least ℓ = L/c. Take a target with structure function E(Δ_τ x)² = qτ^{α−1} (FRAMEWORK §3.1; 1 < α < 3) and **hold-last-value reads** every T (THEORY's reset-read premise). The mean squared error is q·avg_{s∈[0,T]}(ℓ + s)^{α−1}. At α = 2 it is q(T/2 + ℓ) exactly (Monte Carlo over 4,000 paths: 1.2107 vs 1.2000 + dt/2 grid bias; `band_latency.out`). The latency part, Wqℓ^{α−1}, **cannot be bought down by reading more often**.
+
+- **Bound.** With an error tolerance D\*, or a bounded fallback F (local autonomy at its own cost): the tracker can hold the target only if qℓ^{α−1} < D\*, so **L_max = c·(D\*/q)^{1/(α−1)}**. At α = 2, L_max ∝ 1/q.
+- **Consequence (HYPOTHESIS LAT-1).** A large organization federates. A target with drift q is held centrally only if q(L/c)^{α−1} is below tolerance. Faster targets are delegated to local levels. The top level of anything galaxy-sized could centrally hold only targets whose change over one light-crossing time (~10⁵ yr) stays within tolerance [R-FIX8]. This is H26 with a physical latency floor. For predictors that extrapolate (α > 2, an optimal linear tracker), the latency penalty is smaller. The bound is stated for hold-last-value reads only.
+- **The ceiling.** Nothing beyond the cosmological event horizon can ever be read, so the horizon is the hard top of any tracker. Inside it, the lateness bound and the horizon's memory and price caps (§4.5) are where "how high" ends.
+- **Kill (testable on Earth and in space, MV1–MV8 satisfiable).**
+  - Systems: spacecraft operations with measured one-way light time; geo-distributed databases or firms with measured latency ℓ, per-target drift q from §3.1, and a recorded mode (central vs delegated).
+  - Prediction: P(central) falls with q·ℓ^{α−1}.
+  - Kill: at fixed q, no dependence on ℓ (CI includes 0), or the fitted exponent on ℓ excludes α − 1 while including 0, in a gated sample.
+  - Rival: mode set by size or norms alone.
+- **Prior art (swept by the independent review, IR-FIX8).** Simon (1962): near-decomposability, with fast local and slow global dynamics in hierarchies. Flack (2017): slow, coarse-grained variables at higher levels. Abadi (2012, PACELC): the latency-vs-consistency trade in geo-replicated stores. Bailis et al. (2012, PBS; already cited in THEORY §3, rule 5). Tatikonda & Mitter (2004): control under communication constraints. Lloyd (2000): communication time vs flip time, and fully serial computation at the black-hole limit. Olson (2022, arXiv 2208.07871): horizon limits on signalling within a cosmological-scale civilization. No published statement of L_max = c(D\*/q)^{1/(α−1)} in this exact form was found. The form is elementary, and novelty is **not claimed**.
+
+---
+
+## 6. Claims register
+
+| ID | Claim | Label | Derivation / source | Kill or limit |
+|---|---|---|---|---|
+| SE1 | No world-dependent action ⇒ Φ = 0 ⇒ frozen at every drift; α, q, N irrelevant | DERIVED (elementary) | §2 E1; G2; Theorem 8 with W = 0 | none (it is a theorem); scope: "action" must be defined before data |
+| SE2 | Blind-viable + E1 ⇒ R\* = 0 for any read price > 0 | DERIVED | Theorem P | — |
+| SE3 | (corrected) Uncoupled ⇒ information about drift decays; keeping it needs inflow; its price is ≥ kT/nat (measure-erase) or ≥ kT × nonpredictive info (driven), and → 0 for quasi-static passive coupling; I ≤ H(X) | DERIVED from KNOWN pieces; **the original form is WITHDRAWN (counterexample)** | I5; Sagawa–Ueda; Still et al.; data processing; review counterexample | — |
+| SE4 | Three persistence classes (frozen / held structure / held model) with distinct conditions | DERIVED classification in GTAO's cost terms; **PRIOR ART in substance** (Prigogine; Pross; Kolchinsky & Wolpert; Krakauer et al.; Friston et al. as rival) [IR-FIX8] | §2 | a persistent structure that holds a model without a flux, or without heredity. Decidable only once "action" is defined before data (IR-FIX10; e.g. entrained chemical oscillators hold phase information about an external drive without heredity) |
+| SE5 | Atoms skip models because the benefit is 0, not because the cost is 0 | DERIVED from E2 + E1 under the Axiom-7 reading (partly definitional); the state-entropy route is WITHDRAWN [IR-FIX1] | §3.2 | an atom-level response shown to be selected (heritable variation in the response map) |
+| SE6 | Proton Bekenstein capacity ≈ 36 bits | PRIOR ART (bound), recomputed | Bekenstein 1981 | — |
+| SE7 | Switch-on needs S1–S4; the Landauer floor does not bind existence (E_gen > β_phys kT) | DERIVED under premises; consequence = HYPOTHESIS | §3.4; Eigen; Donaldson-Matasci et al.; Lynch & Marinov | §3.4 kill |
+| SE8 | Held models pay only in drifting (tracked) environments | PRIOR ART consistent (Woelfle 2004; Kussell & Leibler 2005) | §3.4 | not a GTAO magnitude test |
+| SE9 | Stars and galaxies are held structures with no model | DERIVED classification | §4.1 | a star whose persistence depends on tracking an external drift |
+| SE10 | A black hole is the extreme of the frozen class: maximal memory at the Bekenstein-minimum energy per nat for its size, h = 0 [IR-FIX6], leak lifetime ∝ M³, readable state (M, J, Q); as anyone's memory it lies beyond the lookup edge | DERIVED classification given published physics, **conditional on (i) the Axiom-7 reading of "action" and (ii) read latency ≥ the Page time, entering through the lateness term, not through c** [R-FIX5, IR-FIX3]. Under energy-only read pricing the conclusion fails. The complexity route (Harlow–Hayden) is conjectural | §4.2; E1, E2, E4; Theorem 8 with lateness | history-dependent readable hair or echoes (GR's falsifier) |
+| SE11 | GTAO predicts why black holes exist / the area law / the Page curve | **IMPOSTER** | — | — |
+| BH-1 | Denser, costlier-to-read tiers hold slower-drifting items; q_f ∝ c | HYPOTHESIS (= O5 / F13 with the BH as limit) | Theorem 8 | O5 kill, FRAMEWORK §6.6 |
+| SE12 | Under CNS, frozen constants are GTAO-optimal | HYPOTHESIS, non-discriminating | §4.4 | adds no test beyond Smolin's |
+| SE13 | Horizon caps: memory ≈ 3×10¹²² nats; bit price ≥ kT_dS ln 2 ≈ 2×10⁻⁵³ J | DERIVED from PRIOR ART | Gibbons & Hawking 1977; Egan & Lineweaver 2010 | — |
+| SE14 | Heat death ends classes 2 and 3; hibernation = freeze corner; the alarm clock = the frozen store's one read | PRIOR ART relabelled | Dyson 1979; Krauss & Starkman 2000; Adams & Laughlin 1997 | — |
+| LAT-1 | Tracker extent L_max = c(D\*/q)^{1/(α−1)}; organizations federate | DERIVED (elementary) + HYPOTHESIS for real systems | §5 | §5 kill |
+| SE15 | β_phys rises with level: ≈ 1 at engineered micro-scale erasure (Bérut 2012), about 5–21 at cell sensing (SENSE-CELL, INCONCLUSIVE), about 10⁵ at synapses, astronomically high at firms | HYPOTHESIS (extends J10′); the black hole's "2kT_H per nat" is a storage energy, not an erasure cost, so it is **not** a point on this curve | FRAMEWORK §3.11 | a level above the cell with β_phys near 1 for its main reads, or a cell-level read with β_phys ≫ 10³ that is still selected for precision |
+
+## 6b. Where derivations fail, and what would fix them
+
+- **"GTAO predicts that black holes exist / the area law / the Page curve" (SE11): fails.** GTAO has no gravitational content. *What would fix it:* a GTAO-internal argument that a maximal-density store must be minimally readable, i.e. a store-capacity vs read-cost trade-off derived from the budget plus locality (Bekenstein capacity ∝ R·E; read rate ≤ Margolus–Levitin; signal speed c). This is not attempted here. The candidate statement is: "at fixed E and R, the readable fraction falls as the stored fraction approaches the bound". It is an open problem (item SCALE-ENDS-STORE-READ, proposed).
+- **Original E3: failed** (counterexample) and was replaced. *Fix applied.*
+- **S1/S2 overlap (circularity) [IR-FIX10].** Under the Axiom-7 reading, an "action" is an alternative that selection acts on, so S2 presupposes selection and therefore the heredity of S1. "Models switch on only with selection" is close to definitional. The non-circular content of §3.4 is S3 (the drift band), S4 (the energy inequality) and Eigen's quantitative threshold. *What would fix it:* the operational test in the next bullet.
+- **E1 at atoms: definitional.** *What would fix it:* an operational test that tells a "selected response" from a "physical response" before data, e.g. heritable variation in the response map. Under that test atoms score 0 and protocells score > 0. Proposed as part of the switch-on item.
+- **§3.4 switch-on inequality: holds only for Kelly-type fitness with reproduction.** It is silent for prebiotic, non-reproducing chemistry. *What would fix it:* a persistence-only (ruin-hazard) version of Theorem P for non-replicating held structures, with the frozen-lifetime edge (E4) as the comparator.
+- **SE10: mapping-conditional** (Axiom-7 reading; read latency ↔ lateness term). *Corrected [IR-FIX2, IR-FIX3]:* Theorem 8's c → ∞ alone selects lookup, not freeze, and energy pricing alone would open the band. *What would fix it:* nothing on the GTAO side. It is fine as a conditional classification, stated through lateness.
+- **CNS: GTAO adds no discriminating test.** *What would fix it:* a CNS-internal quantity that drifts (for example, if the fitness landscape changed across generations of universes). None is published.
+
+## 7. Imposters (rejected)
+
+- **"Atoms or particles predict / carry models."** No action set, so the value of information is 0 (E1). This is the existing H37 flag, now with a derivation.
+- **"Black holes are organizers, think, or adapt."** E1 and E2. This is H1.
+- **"A black hole stores the information needed to predict the universe."** It stores a scrambled record of what fell in. Its readable state is (M, J, Q).
+- **"Hawking radiation is the black hole reading or broadcasting."** It is a leak. Seen from outside, it is a read channel with conjectured exponential decoding cost, not a read chosen to lower anyone's error.
+- **Applying Still et al.'s (2012) "nonpredictive information dissipates" bound to black holes.** That result is for a system driven by a protocol while coupled to a heat bath. A black hole is outside its stated domain.
+- **"ER = EPR makes black holes a connected memory network."** By the published premise there are no signals, so no reads.
+- **"GTAO predicts black holes exist / the area law / the Page curve."** (SE11)
+- **"The universe is a tracker / chooses / has a model."** E1 applies to the whole. This is a retired flag.
+- **"Heat death is the universe's ruin in GTAO's sense."** There is no tracker, so there is no GTAO ruin. Only the held structures inside it are ruined.
+- **"Smolin's CNS shows the universe adapts the way cells do."** CNS is a hypothesis under pressure. GTAO adds no independent support (SE12).
+- Kept from HYPOTHESES.md: vacuum "popping" particles as messages; "the proton contains the universe's information" (36 bits, SE6); variational = thermodynamic free energy as a general identity (H17, withdrawn).
+
+## 8. What this changes, relative to the record
+
+- **Ace's 18 Nov statement** ("the theory makes no predictions about black holes / nothing is keeping score"): **wrong** on both counts. The costs are present and physically priced at both ends. The theory's optimum puts those structures in the zero-model corner, and the black hole's place there is derived.
+- **H1:** upheld and re-derived (§4.2). **H8:** the free/paid split is the band's frozen corner (an output, not a scope exclusion), and it needs a third class (held structure, no model). **H9/C6:** physics confirms the frozen layer's keeping cost is 0 and its lifetime is set by its protection (E4). C6's "physics half is illustration only" is replaced, for the frozen corner, by the mapping in §3.1 and §4.2. The parts still marked mapping hypothesis are listed there. **H7** (protected memory): conservation and topology protection are E4's routes to long H_l. That supports H7's direction but is not a test. **H37:** the "particles predict" imposter is now derived (E1).
+- **Chad's t1908 disagreement:** this file **supports** "the same costs apply at every level, physics not decorative" as cost accounting. Every class pays physically priced costs, and the ends are where the physical prices are most exact. It **qualifies** "at every level the three costs shape design": at the ends the design is the zero-model corner, because the benefit side vanishes. It **narrows** "the floor binds tightly at the cell": it binds the exponents (θ, §2.5), not whether models exist (§3.4). The night-1 point that no *proof* in 𝓜 uses a physical floor still stands for the design theorems. E3 and SE7 are the first places where a physical floor enters a GTAO derivation, and SE7 shows it does **not** bind there.
+- **Testable content added:** LAT-1 (new form, testable on Earth). BH-1 is O5 with a limit point. SE7's kill is weak but stated. The rest is classification and bounds.
+
+## 9. Text for THEORY.md and CLAIM_MAP (amended and APPLIED after the independent review: THEORY v1.4.18 §2.3, CLAIM_MAP v2.39)
+
+**THEORY §2.3, new bullet after line 126 (proposed):**
+> - **The ends of the scale (v1.4.18; `theory/SCALE_ENDS.md`, independently reviewed in `reviews/night2/SCALE_ENDS_INDEP_REVIEW.md`, PASS-WITH-FIXES).** The three costs are physically priced at every scale, including atoms and black holes (Chad, t1927). What vanishes at the ends is the value of a model. With no action whose payoff depends on the world, Φ = 0 and holding never beats fading (DERIVED, elementary; "action" read under Axiom 7 as an alternative that selection acts on, so this step is partly definitional). Atoms, nuclei and crystals are frozen (h = 0; lifetime set by a barrier or a conservation law). They carry physical correlations with their surroundings, but no model. Stars are held without a model (h = luminosity; feedback on their own state). The three-class split is prior art in substance (Prigogine; Pross; Kolchinsky & Wolpert 2018). Black holes are the extreme of the frozen class: maximal memory at the Bekenstein-minimum energy per nat for their size, no upkeep, a leak lifetime ≈ 1.2×10⁶⁷ yr × (M/M☉)³, and a readable state (M, J, Q). Everything else returns only after about the Page time, so with lateness counted as prediction error every tracker is past its lookup edge, and none uses a black hole as memory. This is a derived *classification given published physics*, conditional on that lateness mapping (with read cost priced as energy alone it fails); it is not a derivation of black-hole physics. Models switch on only with heredity, a world-dependent action, drift inside the hold band, and a first nat that pays. With Kelly-type fitness the Landauer floor does not bind that switch-on for a bacterium (E_gen ≈ 10¹¹–10¹² kT ≫ β_phys kT). A tracker of extent L can hold only targets with q(L/c)^{α−1} below tolerance (hold-last-value reads; elementary, with prior art in Simon 1962 and PACELC), so large organizations federate, up to the cosmological horizon. The horizon caps memory at ~3×10¹²² nats and the bit price at ≥ kT_dS ln 2 ≈ 2×10⁻⁵³ J.
+
+**CLAIM_MAP v2.39, section N (rows, as amended by the independent review):** N25 SE1, SE2 and their atomic application SE5 (PROVED (in-model); SE5 rests on the Axiom-7 reading; SE3 is KNOWN assembly and SE4 PRIOR ART in substance). N26 SE10 (PROVED (in-model) as a classification, conditional on the Axiom-7 reading and read latency ≥ Page time through the lateness term; nothing about nature beyond the published physics it assumes). N27 LAT-1 (OPEN; spec in §5). N28 SE7 (OPEN; HYPOTHESIS with the stated kill). N29 SE11 + §7 imposters (WITHDRAWN as framing). H1 in HYPOTHESES_CORE §3 (Ace's working folder, outside this repository) is to be re-labelled "derived classification (SCALE_ENDS SE10)".
+
+## 10. Limits
+
+- E1 is partly definitional (review FIX 4); the atomic case rests on E2 and E1's Axiom-7 reading, because E3(d)'s atomic application is withdrawn (IR-FIX1). E1's force depends on defining "action" before data. For borderline chemistry (a catalyst whose rate responds to conditions), whether that is a world-dependent *action* or just physics is a modelling choice. The switch-on is a band, not a line.
+- §3.4's inequality is an order-of-magnitude argument resting on three premises (Kelly-type fitness, a linear growth penalty, erasure-type cost). Prebiotic systems with no reproduction fall outside it entirely.
+- The black-hole read cost (exponential decoding) rests on Harlow–Hayden's complexity *argument*, which is conjectural. The Page-time latency bound alone (∝ M³), entering through the lateness term, already puts every tracker past its lookup edge for any drift faster than once per ~10⁶⁶ yr. With read cost priced as energy only, the band would stay open (IR-FIX3).
+- The evaporation times depend on which species are emitted. The physical value for stellar and larger holes is the photon + graviton one, ≈ 1.16×10⁶⁷ yr × (M/M☉)³; the naive no-greybody (2.1×10⁶⁷) and massless-neutrino (2.2×10⁶⁶) figures are kept only as labelled comparisons (IR-FIX4).
+- LAT-1 is for hold-last-value reads; extrapolating trackers do better at α > 2 (independent check: 20% lower penalty at α = 2.5). Its prior art has now been swept (§5, IR-FIX8).
+- The first referee pass was by the same executor (disclosed). The independent review is `reviews/night2/SCALE_ENDS_INDEP_REVIEW.md` (PASS-WITH-FIXES; fixes marked [IR-FIXn]). Prior art for LAT-1 and for the three-class ladder has been swept there.
+
+## References (each checked this session: DOI resolved via Crossref, or arXiv or PubMed page fetched)
+
+- Abe K et al. (Super-Kamiokande) 2017, *Phys Rev D* 95:012004, doi 10.1103/PhysRevD.95.012004 [arXiv 1610.03597 fetched: τ > 1.6×10³⁴ yr for p → e⁺π⁰]
+- Adams FC, Laughlin G 1997, "A dying universe," *Rev Mod Phys* 69:337, doi 10.1103/RevModPhys.69.337 [DOI]
+- Almheiri A, Engelhardt N, Marolf D, Maxfield H 2019, *JHEP* 12:063, doi 10.1007/JHEP12(2019)063 [DOI]
+- Bekenstein JD 1973, "Black holes and entropy," *Phys Rev D* 7:2333, doi 10.1103/PhysRevD.7.2333 [DOI]
+- Bekenstein JD 1981, "Universal upper bound on the entropy-to-energy ratio for bounded systems," *Phys Rev D* 23:287, doi 10.1103/PhysRevD.23.287 [DOI]
+- Bérut A et al. 2012, "Experimental verification of Landauer's principle…," *Nature* 483:187–189, doi 10.1038/nature10872 [DOI]
+- Bousso R 2002, "The holographic principle," *Rev Mod Phys* 74:825, doi 10.1103/RevModPhys.74.825 [DOI]
+- Donaldson-Matasci MC, Bergstrom CT, Lachmann M 2010, "The fitness value of information," *Oikos* 119:219–230, doi 10.1111/j.1600-0706.2009.17781.x [DOI; abstract read: equal to the mutual information in many cases, bounded by it more generally]
+- Dyson FJ 1979, "Time without end," *Rev Mod Phys* 51:447, doi 10.1103/RevModPhys.51.447 [DOI]
+- Egan CA, Lineweaver CH 2010, *ApJ* 710:1825, doi 10.1088/0004-637X/710/2/1825 [arXiv 0909.3983 abstract fetched]
+- Eigen M 1971, *Naturwissenschaften* 58:465, doi 10.1007/BF00623322 [DOI]
+- England JL 2013, "Statistical physics of self-replication," *J Chem Phys* 139:121923, doi 10.1063/1.4818538 [DOI]
+- Fonseca E et al. 2021, *ApJL* 915:L12, doi 10.3847/2041-8213/ac03b8 [abstract read: m_p = 2.08 ± 0.07 M☉, 68.3% credibility]
+- Gibbons GW, Hawking SW 1977, *Phys Rev D* 15:2738, doi 10.1103/PhysRevD.15.2738 [DOI]
+- Harlow D, Hayden P 2013, "Quantum computation vs. firewalls," *JHEP* 06:085, doi 10.1007/JHEP06(2013)085 [arXiv 1301.4504 abstract fetched]
+- Hawking SW 1975, "Particle creation by black holes," *Commun Math Phys* 43:199, doi 10.1007/BF02345020 [DOI]
+- Hayden P, Preskill J 2007, "Black holes as mirrors," *JHEP* 09:120, doi 10.1088/1126-6708/2007/09/120 [arXiv 0708.4025 abstract fetched]
+- Isi M, Giesler M, Farr WM, Scheel MA, Teukolsky SA 2019, "Testing the no-hair theorem with GW150914," *Phys Rev Lett* 123:111102, doi 10.1103/PhysRevLett.123.111102 [abstract read]
+- Kauffman SA 1986, "Autocatalytic sets of proteins," *J Theor Biol* 119:1, doi 10.1016/S0022-5193(86)80047-9 [DOI]
+- Krauss LM, Starkman GD 2000, "Life, the universe, and nothing," *ApJ* 531:22, doi 10.1086/308434 [arXiv astro-ph/9902189 fetched]
+- Kussell E, Leibler S 2005, *Science* 309:2075, doi 10.1126/science.1114383 [DOI]
+- Landauer R 1961, *IBM J Res Dev* 5:183, doi 10.1147/rd.53.0183 [DOI]
+- Lloyd S 2000, "Ultimate physical limits to computation," *Nature* 406:1047, doi 10.1038/35023282 [arXiv quant-ph/9908043 fetched]
+- Lynch M, Marinov GK 2015, "The bioenergetic costs of a gene," *PNAS* 112:15690, doi 10.1073/pnas.1514974112 [full text excerpt read: C_G = 26.92 V^0.97 × 10⁹ ATP]
+- Maldacena J, Susskind L 2013, "Cool horizons for entangled black holes," *Fortschr Phys* 61:781, doi 10.1002/prop.201300020 [arXiv 1306.0533 fetched]
+- Margolus N, Levitin LB 1998, *Physica D* 120:188, doi 10.1016/S0167-2789(98)00054-2 [DOI]
+- Mehta P, Schwab DJ 2012, "Energetic costs of cellular computation," *PNAS* 109:17978, doi 10.1073/pnas.1207814109 [abstract read]
+- Page DN 1976, *Phys Rev D* 13:198, doi 10.1103/PhysRevD.13.198 [abstract read: P = 2×10⁻⁴ ħc⁶G⁻²M⁻², 81% ν, 17% γ, 2% graviton]
+- Page DN 1993, "Information in black hole radiation," *Phys Rev Lett* 71:3743, doi 10.1103/PhysRevLett.71.3743 [DOI]
+- Page DN 2013, "Time dependence of Hawking radiation entropy," *JCAP* 09:028, doi 10.1088/1475-7516/2013/09/028 [arXiv 1301.4995 abstract fetched: maximum at 53.81% of the evaporation time]
+- Penington G 2020, *JHEP* 09:002, doi 10.1007/JHEP09(2020)002 [DOI]
+- Prigogine I 1978, "Time, structure, and fluctuations," *Science* 201:777, doi 10.1126/science.201.4358.777 [DOI]
+- Rivoire O, Leibler S 2011, *J Stat Phys* 142:1124, doi 10.1007/s10955-011-0166-2 [DOI]
+- Romani RW et al. 2022, *ApJL* 934:L17, doi 10.3847/2041-8213/ac8007 [abstract read: 2.35 ± 0.17 M☉]
+- Rosenband T et al. 2008, *Science* 319:1808, doi 10.1126/science.1154622 [abstract read: α̇/α = (−1.6 ± 2.3)×10⁻¹⁷ /yr]
+- Sagawa T, Ueda M 2009, *Phys Rev Lett* 102:250602, doi 10.1103/PhysRevLett.102.250602 [DOI]
+- Sekino Y, Susskind L 2008, "Fast scramblers," *JHEP* 10:065, doi 10.1088/1126-6708/2008/10/065 [arXiv 0808.2096 fetched]
+- Smolin L 1992, "Did the universe evolve?," *Class Quantum Grav* 9:173, doi 10.1088/0264-9381/9/1/016 [DOI]; Smolin L 2004, arXiv hep-th/0407213 [PDF fetched, §6.3 quoted]
+- Still S, Sivak DA, Bell AJ, Crooks GE 2012, "Thermodynamics of prediction," *Phys Rev Lett* 109:120604, doi 10.1103/PhysRevLett.109.120604 [DOI]
+- Susskind L 1995, "The world as a hologram," *J Math Phys* 36:6377, doi 10.1063/1.531249 [DOI]; 't Hooft G 1993, "Dimensional reduction in quantum gravity," arXiv gr-qc/9310026 [fetched by the independent review: observable degrees of freedom "Boolean variables defined on a two-dimensional lattice"] [IR-FIX9]
+- Vasas V, Szathmáry E, Santos M 2010, *PNAS* 107:1470, doi 10.1073/pnas.0912628107 [DOI]
+- Woelfle MA, Ouyang Y, Phanvijhitsiri K, Johnson CH 2004, "The adaptive value of circadian clocks," *Curr Biol* 14:1481, doi 10.1016/j.cub.2004.08.023 [abstract read]
+- Project files: Bailis et al. 2012, Blackwell 1953, Laughlin et al. 1998, Lan et al. 2012, Mitter & Newton 2005 and Horowitz & Sandberg 2014, as cited in THEORY.md and INTERNAL_MODEL.md with their markers there.
+
+**Added by the independent review [IR-FIX8, IR-FIX9]** (DOI resolved via Crossref, or arXiv record read, 18 Nov 2026)
+- Abadi D 2012, "Consistency tradeoffs in modern distributed database system design: CAP is only part of the story," *Computer* 45(2):37–42, doi 10.1109/MC.2012.33
+- Flack JC 2017, "Coarse-graining as a downward causation mechanism," *Phil Trans R Soc A* 375:20160338, doi 10.1098/rsta.2016.0338
+- Friston K, Da Costa L, Sakthivadivel DAR, Heins C, Pavliotis GA, Ramstead M, Parr T 2023, "Path integrals, particular kinds, and strange things," *Phys Life Rev* 47:35–62, doi 10.1016/j.plrev.2023.08.016 [arXiv 2210.12761 abstract read]
+- Kolchinsky A, Wolpert DH 2018, "Semantic information, autonomous agency and non-equilibrium statistical physics," *Interface Focus* 8:20180041, doi 10.1098/rsfs.2018.0041 [abstract read]
+- Krakauer D, Bertschinger N, Olbrich E, Flack JC, Ay N 2020, "The information theory of individuality," *Theory Biosci* 139:209–223, doi 10.1007/s12064-020-00313-7 [abstract read]
+- Olson SJ 2022, "A causal limit to communication within an expanding cosmological civilization," arXiv 2208.07871 [record read]
+- Page DN 2005, "Hawking radiation and black hole thermodynamics," *New J Phys* 7:203, doi 10.1088/1367-2630/7/1/203 [arXiv hep-th/0409024 PDF read, eqs 19–21]
+- Pross A 2011, "Toward a general theory of evolution: extending Darwinian theory to inanimate matter," *J Syst Chem* 2:1, doi 10.1186/1759-2208-2-1
+- Simon HA 1962, "The architecture of complexity," *Proc Am Philos Soc* 106(6):467–482 [no DOI; journal text seen]
+- Tatikonda S, Mitter S 2004, "Control under communication constraints," *IEEE Trans Autom Control* 49:1056–1068, doi 10.1109/TAC.2004.831187
