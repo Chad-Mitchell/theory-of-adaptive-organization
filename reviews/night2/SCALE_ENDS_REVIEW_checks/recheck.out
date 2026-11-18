@@ -1,0 +1,14 @@
+T_H via surface gravity: 6.170073828591918e-08
+S via area/4lp^2 (nats): 1.0489548855362511e+77  bits: 1.5133220114793998e+77
+first law dE/(k T dS): 0.9999994998639559
+t_ev photon-only (yr): 2.0956824219485158e+67
+t_ev Page-1976 massless set (yr): 2.1595949918929054e+66
+ODE M at 0.9 t_ev / M0: 0.4641588839015955  analytic: 0.4641588833612779
+Page time: S_BH/S0=0.5975, t_P/t_ev=0.5381 (Page 2013: 0.5381, 0.5975)
+half initial entropy radiated at t/t_ev = 0.6464466094067263
+t_scr (s): 0.003494186808398033
+proton Bekenstein bits: 36.244414393390024
+1 kg BH bits: 3.8273066732425576e+16 (Lloyd: 3.827e16)
+T_dS: 2.1976961486283347e-30  S_dS: 3.307213472675831e+122
+H n=2 occupancy at 300K ~ 4 e^-395 = 10^-171
+ATP ~50 kJ/mol in kT at 310K: 19.39876694237517  -> 2.7e10 ATP = 523766707444.1296 kT
