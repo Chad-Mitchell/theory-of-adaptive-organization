@@ -74,7 +74,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **Kill / pass, on proxy "event-frequency drift; cron read rate":** as PREREG, with the band 1/(1+2Ĥ) ± 0.15 if regime is not A, and no status change if the regime is unestablished.
 - **Result (as locked):** P1 b̂ = −0.06 [−0.24, 0.17] and P2 â = −0.10 [−0.17, −0.04]: KILL-CONDITION under the original band, the addendum's P1-R band ("Regime B" by ΔAIC 115; weak, mixture confound) and main's Allan band (Ĥ 0.61 [0.57, 0.66] → [0.30, 0.60]; implemented post-outcome). **Failed on proxy "weekly CI-state change rate vs nominal cron reads/week"**, Tier 3 logged only (MV5, MV7(i), MV8(ii) failed: q does not track upstream drift; pinned ≈ unpinned). P3 consistent but non-discriminating; P5/P6 not analysed (5 levels, 0 with comparators): vigilance OPEN. CLAIM_MAP N14–N15. Interpretation: binary CI state = switching world; for exact reset reads the √ rule still applies at qT ≪ 1 (DERIVED HERE, unreviewed; Conti & Mora's ln τ concerns noisy-sensing memory time), so the failure is the drift instrument's. Predictions were locked under THEORY v1.1/v1.2.
 
-### Q7. SENSE-CELL (rule rank 7, I = 0.18)
+### Q7. SENSE-CELL (rule rank 7, I = 0.18) — DONE 18 Nov (out of cycle, unscored; ledger 187/188; `prereg/SENSE-CELL/RESULTS.md`): H2 beta_phys = 18 [12, 26] **failed on proxy** (whole-array adaptation precision, Lan BP line; Tar-vs-array caveat), H1 theta_eff 0.24-0.53 INCONCLUSIVE (A pass, F inconclusive), H4 data gap; Tier 3; N6/N13 unchanged; CLAIM_MAP/THEORY not edited (proposed N24 text left for a reviewer)
 - **Tests:** THEORY §2.3 (Chad's physics position), FRAMEWORK §3.4, §3.11.
 - **Regime:** set by designed stimulus statistics (exact).
 - **Data:** Keegstra et al. 2017 source data; Lan et al. 2012 energy–speed–accuracy relation (to be fetched and verified).
@@ -441,3 +441,6 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 - **HIT-ZERO-MISS-FLOOR** (w 2, c 0.5). Future HIT/MISS rules should not HIT against 0 while they MISS against a magnitude floor, and should not let a point-only side condition decide a HIT.
 
 **Pick 39 done (unaided slot; ledger 181–183 + outcome 184). Next pick (40) is the uniform slot (cycle position 4 = 0). Recheck all pushed branches before any ledger write.**
+- **SENSE-CELL-TAR** (w 1.5, c 1; from SENSE-CELL): resolve the Tar-vs-whole-array mismatch (Neumann et al. 2014 population precision; Lan BP line for Tar parameters).
+- **SENSE-CELL-REFEREE** (w 2, c 1): independent re-read of Lan Fig 4a (eps0, slope) and of the beta_phys definition before anyone cites N24 or edits FRAMEWORK §3.11.
+- **SENSE-CELL-EFFORT** (w 2, c 3; blocked on a dataset, authors contact needs Chad): E. coli adaptation/sensing effort vs input fluctuation level and benefit, with energy state, to test H4.
