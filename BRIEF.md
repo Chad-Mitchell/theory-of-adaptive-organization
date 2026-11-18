@@ -2,7 +2,7 @@
 
 **Written:** Wednesday 18 November 2026, about 3:55 PM ET (America/New_York), by a Grok Bot executor for Chad Mitchell, via Ace, in the repo consistency audit (branch `docs/consistency-audit-2026-11-18`). Private. Nothing was posted, sent or made public.
 
-**Checked against:** THEORY.md v1.4.20 (v1.4.19 plus the BOOKENDS amendments, `theory/BOOKENDS.md` §6), CLAIM_MAP v2.41, `theory/BOOKENDS.md`, `measurement/FRAMEWORK.md`, `theory/SCALE_ENDS.md`, `reviews/night2/SCALE_ENDS_INDEP_REVIEW.md`, `reviews/night2/SYNTHESIS_2026-11-15.md`, `QUEUE.md`. Every statement below names the file and section it comes from. **If this brief and THEORY.md disagree, THEORY.md governs**; if a status here and CLAIM_MAP disagree, CLAIM_MAP governs. `python3 tools/check_consistency.py` checks the version pointers in this file and the CLAIM_MAP statuses it quotes.
+**Checked against:** THEORY.md v1.4.21 (v1.4.20 plus public-status wording; no claim changes), CLAIM_MAP v2.41, `theory/BOOKENDS.md`, `measurement/FRAMEWORK.md`, `theory/SCALE_ENDS.md`, `reviews/night2/SCALE_ENDS_INDEP_REVIEW.md`, `reviews/night2/SYNTHESIS_2026-11-15.md`, `QUEUE.md`. Every statement below names the file and section it comes from. **If this brief and THEORY.md disagree, THEORY.md governs**; if a status here and CLAIM_MAP disagree, CLAIM_MAP governs. `python3 tools/check_consistency.py` checks the version pointers in this file and the CLAIM_MAP statuses it quotes.
 
 **Why this file exists.** Chad (18 Nov, pt1928u) asked that nothing about the theory live only in an agent's memory or in off-repo notes. This file replaces Ace's off-repo briefs (`<local>/gtao/CURRENT_BRIEF.md`, `<local>/gtao/STATE.md`, `<local>/gtao-video/MEMORY_BRIEF.md`), which are now marked as stale pointers to this repo. A verbatim snapshot of CURRENT_BRIEF (written before PR #80) is kept in `history/2026-11-18_CURRENT_BRIEF.md` for provenance only.
 
@@ -51,7 +51,7 @@ FRAMEWORK §1.2 item 4 (the scope question left to Chad) is resolved by t1927 in
 
 ## 5. Wording rules
 
-"Theory", never "law" or "theory of everything". Field results are "passed / failed on proxy X". No field kills. Proof-level corrections are MATH-CORRECTED; locked simulation failures are SIM-FAIL. Repo private; nothing public without Chad's go (STATUS "Standing rules").
+"Theory", never "law" or "theory of everything". Field results are "passed / failed on proxy X". No field kills. Proof-level corrections are MATH-CORRECTED; locked simulation failures are SIM-FAIL. Repo is public as of 18 November 2026; posts and other outside acts still need Chad's go (STATUS "Standing rules").
 
 ## 6. Corrections to earlier agent memory found in this audit
 
