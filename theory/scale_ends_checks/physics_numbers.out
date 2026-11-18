@@ -1,0 +1,48 @@
+1 Msun
+   rs = 2953
+   S_nats = 1.049e+77
+   S_bits = 1.513e+77
+   T = 6.17e-08
+   P_photon = 9.008e-29
+   t_photon_yr = 2.096e+67
+   P_page = 8.741e-28
+   t_page_yr = 2.16e+66
+   t_scr = 0.003494
+   rs_over_c = 9.851e-06
+   E_per_nat_over_kT = 2
+Sgr A* 4.3e6 Msun
+   rs = 1.27e+10
+   S_nats = 1.94e+90
+   S_bits = 2.798e+90
+   T = 1.435e-14
+   P_photon = 4.872e-42
+   t_photon_yr = 1.666e+87
+   P_page = 4.727e-41
+   t_page_yr = 1.717e+86
+   t_scr = 1.761e+04
+   rs_over_c = 42.36
+   E_per_nat_over_kT = 2
+1 kg
+   rs = 1.485e-27
+   S_nats = 2.653e+16
+   S_bits = 3.827e+16
+   T = 1.227e+23
+   P_photon = 3.562e+32
+   t_photon_yr = 2.665e-24
+   P_page = 3.456e+33
+   t_page_yr = 2.747e-25
+   t_scr = 3.747e-34
+   rs_over_c = 4.954e-36
+   E_per_nat_over_kT = 2
+Page time fraction of lifetime (half entropy radiated, constant species): 0.6464466094067263
+Bekenstein proton R=8.409e-16: 25.123 nats = 36.24 bits
+Bekenstein proton R=8.4e-16: 25.096 nats = 36.21 bits
+hbar c/(2 pi r_s k T_H) = 1.9999999999999996
+H ionisation E/kT at 300 K = 526.1; exp(-E/kT)=10^-228.5
+H ionisation E/kT at 5800 K = 27.2; exp(-E/kT)=10^-11.8
+kT ln2 at 300K (J): 2.870978885078724e-21  in eV: 0.0179192407638041
+H_Lambda^-1 = 17.53 Gyr; de Sitter S = 3.31e+122 nats; T_dS = 2.2e-30 K
+kT_dS ln2 = 2.1e-53 J per bit
+T_H(1 Msun)=6.17e-08 K; ln(2.7255/T_H)=17.60; t ~ 309 Gyr after now
+mass with T_H = T_dS: 2.81e+22 Msun
+alpha-dot/alpha bound (Rosenband 2008): (-1.6 +- 2.3)e-17 /yr
