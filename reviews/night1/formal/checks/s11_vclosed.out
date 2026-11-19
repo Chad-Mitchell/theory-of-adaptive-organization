@@ -1,0 +1,2 @@
+max rel error over 2000 draws (rho in 1e-7..1e-5): 3.65e-06; min possible V = 2 (h'=0)
+F16: a>=b, random prices r in [1e-3,1e3], h in {0}U[1e-3,1e3]: violations 0/20000, min V = 1.0014

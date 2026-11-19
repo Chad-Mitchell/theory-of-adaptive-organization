@@ -71,6 +71,7 @@ OK  10.1080/00049182.2015.1077539 | 2015 | Nunn,Reid | Aboriginal Memories of In
 OK  10.1080/00207727008920220 | 1970 | CONANT,ROSS ASHBY | Every good regulator of a system must be a model of that system † | International Journal of Systems Science | v1 p89-97
 OK  10.1080/14697688.2013.800219 | 2013 | Taleb,Douady | Mathematical definition, mapping, and detection of (anti)fragility | Quantitative Finance | v13 p1677-1689
 OK  10.1086/226424 | 1977 | Hannan,Freeman | The Population Ecology of Organizations | American Journal of Sociology | v82 p929-964
+OK  10.1086/256940 | 1950 | Alchian | Uncertainty, Evolution, and Economic Theory | Journal of Political Economy | v58 p211-221
 OK  10.1086/282697 | 1970 | Pianka | On r- and K-Selection | The American Naturalist | v104 p592-597
 OK  10.1086/285324 | 1992 |  | Erratum: "Habitat Selection in Plants" | The American Naturalist | v139 p227-227
 OK  10.1086/317671 | 2000 | Garicano | Hierarchies and the Organization of Knowledge in Production | Journal of Political Economy | v108 p874-904
@@ -106,6 +107,8 @@ OK  10.1103/PhysRevX.6.021036 | 2016 | Perunov,Marsland,England | Statistical Ph
 OK  10.1111/j.1467-9280.1991.tb00174.x | 1991 | Anderson,Schooler | Reflections of the Environment in Memory | Psychological Science | v2 p396-408
 OK  10.1111/j.1467-937X.2006.00396.x | 2006 | Reis | Inattentive Producers | The Review of Economic Studies | v73 p793-821
 OK  10.1111/j.1540-6261.1974.tb03058.x | 1974 | Merton | ON THE PRICING OF CORPORATE DEBT: THE RISK STRUCTURE OF INTEREST RATES* | The Journal of Finance | v29 p449-470
+OK  10.1111/j.1540-6261.1974.tb03058.x | 1974 | Merton | On the Pricing of Corporate Debt: The Risk Structure of Interest Rates | The Journal of Finance | v29 p449-470
+OK  10.1111/j.1540-6261.1976.tb01891.x | 1976 | Black,Cox | Valuing Corporate Securities: Some Effects of Bond Indenture Provisions | The Journal of Finance | v31 p351-367
 OK  10.1111/j.1558-5646.1953.tb00070.x | 1953 | Waddington | GENETIC ASSIMILATION OF AN ACQUIRED CHARACTER | Evolution | v7 p118-126
 OK  10.1111/j.1600-0706.2009.17781.x | 2010 | Donaldson‐Matasci,Bergstrom,Lachmann | The fitness value of information | Oikos | v119 p219-230
 OK  10.1111/jels.12012 | 2013 | Black,Spriggs | The Citation and Depreciation of <scp>U</scp>.<scp>S</scp>. Supreme Court Precedent | Journal of Empirical Legal Studies | v10 p325-358

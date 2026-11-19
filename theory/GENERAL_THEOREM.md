@@ -1,5 +1,7 @@
 # GENERAL_THEOREM: an attempt at the central theorem of A Theory of Adaptive Organization, and a red team of it
 
+> **Status banner (19 Nov 2026, ET; added with THEORY v2.0).** Frozen derivation, public in this repository since 18 Nov 2026. The "private working file" line below is from its drafting and no longer holds. Off-repo paths below: `checks/` is `theory/theorem-v2-checks/`; `public-repo/` is this repository (`public-repo/theorems/THEOREMS.md` is `theory/THEOREMS.md`); `X_TEXT.txt` was an off-repo draft of the 12 Nov post (the posted text is archived in `history/2026-11-12_X_POST.md`). **Convention warning:** in §4 of this file z = σ√τ/B (the temperature); the canonical statement (`THEORY.md` v2.0) and `theory/MATH_ATTACK.md` write z = B/(σ√τ) and call 1/z the temperature. Results here are listed in `measurement/CLAIM_MAP_v2.md` section O (v2.49).
+
 Draft, Saturday 2026-11-14 (ET). Private working file. Nothing here was posted or sent, and nothing in `public-repo/` or the Looper README was edited.
 
 **Sources read for this pass, from the files themselves:**
@@ -114,6 +116,7 @@ Draft, Saturday 2026-11-14 (ET). Private working file. Nothing here was posted o
 **P1 (when a model is necessary) [PROOF].** A model is necessary if and only if blind action is not viable.
 - **Blind is not viable.** If r_∞ = D(0) > y − c̄, every persistent agent has I_pred > 0.
 - **Blind is viable.** If D(0) ≤ y − c̄, persistence with I_pred = 0 is possible.
+- **Erratum (19 Nov 2026, ET; math-attack REVIEW G3, applied with THEORY v2.0).** The inequality must be strict: at D(0) = y − c̄, P0's recurrence clause makes ruin certain. And c̄ depends on the policy (a blind agent pays no memory or read cost), so the threshold is per policy: blind action is viable iff some blind policy π₀ has D(0) < y − c̄(π₀); a model is necessary iff every blind policy has D(0) ≥ y − c̄(π₀). The recurrence step at equality also needs nondegenerate increments (positive asymptotic variance, as for i.i.d. or mixing increments); a bounded coboundary is the exception. This note governs the two bullets above.
 - **Counterexample to the universal bet "every self-maintaining system pays to keep a model":** bet-hedging in an i.i.d. world (`c7d`).
   - A lineage with allocation f = p grows at ln 1.5 per generation with zero predictive information.
   - It carries a constant, the distribution, which needs no tracking.
@@ -265,6 +268,7 @@ Setting: S with renewal checks (A3). A copy taken at age 0 is used by the Bayes 
 
   - Even with every dilution stacked, β stays above C3's upper CI (0.10–0.12) unless the diffusive share is small.
 - **Verdict on C3 (FAILS for this mechanism at this scale and proxy).**
+  - **Erratum (19 Nov 2026, ET; math-attack REVIEW G1, applied with THEORY v2.0).** Every C3 conclusion in this file (§0 item 5, this R6, §8, §9 items 2, 9 and the closing line) holds only if the fix interval is **deterministic (or narrowly distributed) and exogenous** given (σ, B). With random fix intervals the same pinning predicts a hazard ratio per doubling of 3.0 (exponential), 2.1 (lognormal, sd 1), 1.5 (Pareto κ = 1.5), 1.26 (Pareto κ = 1.2) or 1.20 (lognormal, sd 2), and the diffusive share of hazard compatible with C3 rises from ≈1% to ≈4%, 8%, 18%, 34% or 43% (`reviews/math-attack/review_checks/review_checks.out` R2b). If τ is chosen in response to z, the coefficient can lie anywhere down to −1. So C3 excludes a deterministic, exogenous reset clock at that proxy; with heavy-tailed or endogenous fix intervals it does not. Read "rules out", "at most about 1–5%" and "dead" below and above with this condition. In the repo's vocabulary C3 is a **proxy result** (CLAIM_MAP H15, PROXY-FAIL), not a kill of the theory.
   - OSS dormancy is not diffusive error accumulation reset at issue-close time.
   - The surviving readings are: (i) dormancy is jump-like (people leave); (ii) issue-close time is not the error-correction interval; (iii) both.
   - A fair second test needs a setting where errors are plausibly diffusive and the fix interval is measured directly.

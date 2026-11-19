@@ -1,0 +1,11 @@
+=== (1) mixed technologies, h=0, qu=1, slopes at rho 1e-6 -> 2e-6 and qu slope ===
+  level (0.500,0.500) members (0.667,0.333): e_g=-1.0000 (pred -1.0000);  e_u=+1.3333 (pred +1.3333)
+  level (0.667,0.333) members (0.500,0.500): e_g=-2.0000 (pred -2.0000);  e_u=+1.5000 (pred +1.5000)
+  level (0.500,0.250) members (0.500,0.500): e_g=-1.5000 (pred -1.5000);  e_u=+1.0000 (pred +1.0000)
+  level (0.500,0.500) members (0.400,0.200): e_g=-1.0000 (pred -1.0000);  e_u=+1.6000 (pred +1.6000)
+
+=== (2) separately-read components: member cost sum_m sqrt(2 w B^2 q_m) + sqrt(2 w qu) -> modular ===
+  max |marginal at S - marginal at empty| = 2.84e-14  (0 => modular: levels independent)
+
+=== (3) T7 ordering with heterogeneous concave members psi_i(R)=k_i R^{b_i} (same R), kappa<kappa* ===
+  non-upper optimal sets: 0/120

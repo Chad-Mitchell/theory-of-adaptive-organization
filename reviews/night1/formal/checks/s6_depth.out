@@ -1,0 +1,37 @@
+=== class R (|e_g|=1, kappa*=1): kappa* = (1-a)/(1-b) = 1.000 ===
+  kappa=0.30 (< kappa*): shapes over 13 q0 values: {'upper (broad scales: top-down)': 13}; first-order subset of exact 13/13; e.g. [(np.float64(0.01), [13, 14], [13, 14]), (np.float64(0.032), [11, 12, 13, 14], [11, 12, 13, 14])]
+  kappa=0.60 (< kappa*): shapes over 13 q0 values: {'none': 2, 'upper (broad scales: top-down)': 11}; first-order subset of exact 13/13; e.g. [(np.float64(0.1), [14], [14]), (np.float64(0.316), [11, 12, 13, 14], [11, 12, 13, 14])]
+  kappa=0.90 (< kappa*): shapes over 13 q0 values: {'none': 13}; first-order subset of exact 13/13; e.g. []
+  kappa=1.10 (> kappa*): shapes over 13 q0 values: {'none': 13}; first-order subset of exact 13/13; e.g. []
+  kappa=1.40 (> kappa*): shapes over 13 q0 values: {'none': 12, 'upper (broad scales: top-down)': 1}; first-order subset of exact 13/13; e.g. [(np.float64(10000.0), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], [])]
+  kappa=2.00 (> kappa*): shapes over 13 q0 values: {'none': 11, 'lower (narrow scales: bottom-up)': 2}; first-order subset of exact 13/13; e.g. [(np.float64(3162.278), [1, 2, 3, 4, 5, 6, 7, 8, 9], []), (np.float64(10000.0), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], [])]
+=== class A_1 (|e_g|=2, kappa*=0.5): kappa* = (1-a)/(1-b) = 0.500 ===
+  kappa=0.10 (< kappa*): shapes over 13 q0 values: {'none': 5, 'upper (broad scales: top-down)': 8}; first-order subset of exact 13/13; e.g. [(np.float64(3.162), [14], [14]), (np.float64(10.0), [14], [14])]
+  kappa=0.25 (< kappa*): shapes over 13 q0 values: {'none': 13}; first-order subset of exact 13/13; e.g. []
+  kappa=0.40 (< kappa*): shapes over 13 q0 values: {'none': 13}; first-order subset of exact 13/13; e.g. []
+  kappa=0.60 (> kappa*): shapes over 13 q0 values: {'none': 13}; first-order subset of exact 13/13; e.g. []
+  kappa=0.80 (> kappa*): shapes over 13 q0 values: {'none': 13}; first-order subset of exact 13/13; e.g. []
+  kappa=1.20 (> kappa*): shapes over 13 q0 values: {'none': 13}; first-order subset of exact 13/13; e.g. []
+
+=== upkeep h=2 (a=b: e_g=-1 for all h, so kappa*=1 unchanged; class A at small rho keeps kappa*=0.5) ===
+  a=0.50 b=0.50 kappa=0.3: {'upper (broad scales: top-down)': 11}
+  a=0.50 b=0.50 kappa=0.45: {'upper (broad scales: top-down)': 11}
+  a=0.50 b=0.50 kappa=0.55: {'none': 1, 'upper (broad scales: top-down)': 10}
+  a=0.50 b=0.50 kappa=0.9: {'none': 11}
+  a=0.50 b=0.50 kappa=1.1: {'none': 11}
+  a=0.50 b=0.50 kappa=1.5: {'none': 11}
+  a=0.67 b=0.33 kappa=0.3: {'none': 11}
+  a=0.67 b=0.33 kappa=0.45: {'none': 11}
+  a=0.67 b=0.33 kappa=0.55: {'none': 11}
+  a=0.67 b=0.33 kappa=0.9: {'none': 11}
+  a=0.67 b=0.33 kappa=1.1: {'none': 11}
+  a=0.67 b=0.33 kappa=1.5: {'none': 11}
+
+=== depth vs q0 (fine scan), class R, h=0: gradual growth for kappa<kappa*, avalanche for kappa>kappa* ===
+  kappa=0.3: depth over q0=1e-2..10^4.5 (27 log steps): [2, 3, 4, 5, 6, 7, 8, 8, 9, 9, 9, 10, 10, 10, 10, 10, 10, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14]
+  kappa=0.6: depth over q0=1e-2..10^4.5 (27 log steps): [0, 0, 0, 0, 1, 2, 4, 5, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 14, 14, 14, 14, 14, 14, 14]
+  kappa=1.4: depth over q0=1e-2..10^4.5 (27 log steps): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 14, 14]
+  kappa=2.0: depth over q0=1e-2..10^4.5 (27 log steps): [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 9, 10, 11, 12, 12]
+
+=== exact upper-set property for kappa<kappa*: random (a,b), concave member cost, h>=0 ===
+  optimal set not an upper set: 0/150

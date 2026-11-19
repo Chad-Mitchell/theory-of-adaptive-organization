@@ -1,0 +1,30 @@
+=== (1) random models: heterogeneous concave member costs psi_i(R)=min(sqrt(w_i) R^b_i, cap_i), b_i in (0.1,0.95) ===
+  submodularity violations: 0/119658;  lattice failures: 0/300;  first-order set outside an optimum: 0/300
+
+=== (2) accretion in upkeep h (Topkis), same model family ===
+  largest optimal set lost a level as h fell: 0/2320 steps
+
+=== (3) accretion in STAKES without fallback (power class, all costs scale s^a): check ===
+  level lost as stakes rose (no fallback): 0/1440
+
+=== (4) COUNTEREXAMPLE: bounded lookup fallback breaks stakes-accretion and lookup-cost monotonicity ===
+  stakes s=1, lookup cost mu*u=2: flat=148.32 level=146.39 -> LEVEL
+  stakes s=4, lookup cost mu*u=2: flat=200.00 level=209.44 -> no level
+  stakes s=1, lookup cost mu*u=1.4: flat=140.00 level=144.97 -> no level
+  stakes s=1, lookup cost mu*u=9e+09: flat=148.32 level=146.39 -> LEVEL
+  stakes s=4, lookup cost mu*u=9e+09: flat=296.65 level=292.29 -> LEVEL
+  => with a fallback, raising stakes (1->4) or cheapening lookup (2->1.4) DISSOLVES the level; without one it stays.
+
+=== (5) COUNTEREXAMPLE: convex member cost (read-rate cap + quartic loss) -> levels are substitutes ===
+  J: {(): np.float64(520.0), (0,): np.float64(432.0), (1,): np.float64(432.0), (0, 1): np.float64(504.0)}
+  submodularity violations 2/6; lattice holds: False; optima [(0,), (1,)]
+  marginal member saving of level 2: alone = 320.0  given level 1 = 160.0
+  each level pays alone (first-order/standalone rule keeps both), but the optima are {0} or {1}: union not optimal, inclusion fails.
+
+=== (6) COUNTEREXAMPLE: supermodular level costs (convex span-of-control cost h|S|^2) ===
+  net savings without span cost: first level 7.316, second given first 7.645; choose k=4.932 in (s12/3, s1)
+  J: {(): np.float64(593.2959), (0,): np.float64(590.9119), (1,): np.float64(590.9119), (0, 1): np.float64(598.0638)}
+  submodularity violations 2/6; lattice holds: False; optima [(0,), (1,)]
+
+=== (7) ARCH_EQUATION claim check: an indivisible bundled level (one read returns all sources in S) ===
+  submodularity violations: 0/93207; lattice failures: 0/200  (ARCH said J 'is then no longer submodular')

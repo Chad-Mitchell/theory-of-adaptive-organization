@@ -1,0 +1,6 @@
+q=1 T=1: simulated mse=0.5099  qT/2=0.5000
+q=0.1 T=2: simulated mse=0.1015  qT/2=0.1000
+q=4 T=0.25: simulated mse=0.4891  qT/2=0.5000
+
+min simulated cost W=q=c=1: 1.4189 vs sqrt(2)=1.4142
+stakes elasticity a ~ 0.496 (1/2);  drift elasticity b ~ 0.491 (1/2)
