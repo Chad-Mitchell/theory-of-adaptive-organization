@@ -1,0 +1,21 @@
+(A) circle map: measured 0:1 tongue width vs 2 eps Z (Z = 0.5 phase cycles per unit stimulus)
+  eps = 0.05  K = 0.1571  measured width 0.0501   2 eps Z = 0.0500   K/pi = 0.0500
+  eps = 0.10  K = 0.3142  measured width 0.1001   2 eps Z = 0.1000   K/pi = 0.1000
+  eps = 0.20  K = 0.6283  measured width 0.2001   2 eps Z = 0.2000   K/pi = 0.2000
+
+(B) optimum a(c) for V = 1, sigma = 1; closed form for mu = 0, and the largest jump of the optimum as the price c varies, for several mu
+  c0 = 2V/(sigma sqrt(2 pi)) = 0.7979
+  mu = 0:   c/c0   a* (numeric)  a* (closed form)
+             0.05      2.4477      2.4477
+             0.20      1.7941      1.7941
+             0.50      1.1774      1.1774
+             0.80      0.6680      0.6680
+             0.95      0.3203      0.3203
+             1.05      0.0000      0.0000
+  mu = 0.0 sigma: largest jump of a*(c) between neighbouring prices = 0.061   (continuous)
+  mu = 0.5 sigma: largest jump of a*(c) between neighbouring prices = 0.065   (continuous)
+  mu = 0.9 sigma: largest jump of a*(c) between neighbouring prices = 0.121   (continuous)
+  mu = 1.0 sigma: largest jump of a*(c) between neighbouring prices = 0.422   (steep or discontinuous (at mu = sigma exactly: a fourth-root cusp, still continuous))
+  mu = 1.1 sigma: largest jump of a*(c) between neighbouring prices = 0.990   (steep or discontinuous (at mu = sigma exactly: a fourth-root cusp, still continuous))
+  mu = 1.5 sigma: largest jump of a*(c) between neighbouring prices = 2.045   (steep or discontinuous (at mu = sigma exactly: a fourth-root cusp, still continuous))
+  mu = 2.5 sigma: largest jump of a*(c) between neighbouring prices = 3.509   (steep or discontinuous (at mu = sigma exactly: a fourth-root cusp, still continuous))

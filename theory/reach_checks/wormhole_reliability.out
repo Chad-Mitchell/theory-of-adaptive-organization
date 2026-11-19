@@ -1,0 +1,73 @@
+(A) independent delivery failure: Monte Carlo of the age process vs T(2-s)/(2s)   [T = 1]
+     s     MC age    formula
+  1.00     0.5000     0.5000
+  0.90     0.6105     0.6111
+  0.70     0.9279     0.9286
+  0.50     1.4936     1.5000
+  0.25     3.4905     3.5000
+
+(A) thresholds, brute force over T (c = 1, w s2 = 1) vs closed form; central wins iff cost_central < N sqrt(2)
+  brute force vs closed form: disagree in 0 of 979 cases (cases within 1e-3 of a boundary skipped)
+  examples (N = 16): s = 1: d/c < 0.9375;  s = 0.9 no retry: d/c < 0.7557, retry: d/c < 0.8438;  s = 0.5 no retry: d/c < 0.2708, retry: d/c < 0.4688
+  per-hop failure p over h hops: s = (1-p)^h, g = 2 (1-p)^-h - 1  (about 1 + 2 h p for small p); e.g. p = 0.1: h = 1 g = 1.222, h = 3 g = 1.743
+
+(B) throat outages: Monte Carlo of the mean age with FIFO delivery vs T/2 + (1-A) theta (1+CV^2)/2   [T = 1, up mean 10]
+down-time law (mean theta = 2)        A     CV^2     MC age    formula
+exponential                    0.8341     1.00     0.8304     0.8318
+gamma k=4 (CV^2 = 0.25)        0.8333     0.25     0.7084     0.7084
+lognormal sigma=1.2 (CV^2>1)   0.8328     3.22     1.1836     1.2058
+constant                       0.8337     0.00     0.6663     0.6663
+
+(C) station coverage with independent throat failure p: sim vs 1 - exp(-(4pi/3)(1-p) nu r^3)   [periodic unit cube]
+     p      nu      r       sim   formula
+   0.0     100   0.10     0.340     0.342
+   0.0    1000   0.05     0.406     0.408
+   0.3     100   0.10     0.250     0.254
+   0.3    1000   0.05     0.307     0.307
+   0.6     100   0.10     0.158     0.154
+   0.6    1000   0.05     0.192     0.189
+
+(C) tube map with throats failing independently (quenched): latency slope vs distance (box 10, mouths density 2, Lam = 1, tau = 0.1, light transfers within 1.5, c = 1)
+     p      slope   (light only = 1.000; bound tau/Lam = 0.100)
+  0.00      0.150
+  0.30      0.173
+  0.60      0.188
+  0.80      0.442
+  0.90      0.686
+  0.95      0.847
+  1.00      1.000
+
+(D) endogenous drift q = q0 m^beta
+(D1) zero-latency rule is invariant to a common scaling of q; latency threshold scales as q^(-1/2) (brute force):
+  N=16 d/c=0.00  q=0.25: wins=True l_crit=2.1213 (l_crit sqrt(q)=1.0607) | q=1: wins=True l_crit=1.0607 (l_crit sqrt(q)=1.0607) | q=4: wins=True l_crit=0.5303 (l_crit sqrt(q)=1.0607) | q=16: wins=True l_crit=0.2652 (l_crit sqrt(q)=1.0607)
+  N=16 d/c=0.50  q=0.25: wins=True l_crit=0.7071 (l_crit sqrt(q)=0.3536) | q=1: wins=True l_crit=0.3536 (l_crit sqrt(q)=0.3536) | q=4: wins=True l_crit=0.1768 (l_crit sqrt(q)=0.3536) | q=16: wins=True l_crit=0.0884 (l_crit sqrt(q)=0.3536)
+  N=100 d/c=0.05  q=0.25: wins=True l_crit=2.1356 (l_crit sqrt(q)=1.0678) | q=1: wins=True l_crit=1.0678 (l_crit sqrt(q)=1.0678) | q=4: wins=True l_crit=0.5339 (l_crit sqrt(q)=1.0678) | q=16: wins=True l_crit=0.2670 (l_crit sqrt(q)=1.0678)
+(D2) reach L = m c (D*/q0 m^beta)^(1/(alpha-1)) relative to m = 1 (c = 1, D* = q0 = 1); exponent 1 - beta/(alpha-1)
+  alpha    beta      m  L(m)/L(1) m^(1-b/(a-1))
+    2.0     0.0      2     2.0000     2.0000
+    2.0     0.0     10    10.0000    10.0000
+    2.0     0.5      2     1.4142     1.4142
+    2.0     0.5     10     3.1623     3.1623
+    2.0     1.0      2     1.0000     1.0000
+    2.0     1.0     10     1.0000     1.0000
+    2.0     1.5      2     0.7071     0.7071
+    2.0     1.5     10     0.3162     0.3162
+    2.0     2.0      2     0.5000     0.5000
+    2.0     2.0     10     0.1000     0.1000
+    3.0     0.0      2     2.0000     2.0000
+    3.0     0.0     10    10.0000    10.0000
+    3.0     0.5      2     1.6818     1.6818
+    3.0     0.5     10     5.6234     5.6234
+    3.0     1.0      2     1.4142     1.4142
+    3.0     1.0     10     3.1623     3.1623
+    3.0     1.5      2     1.1892     1.1892
+    3.0     1.5     10     1.7783     1.7783
+    3.0     2.0      2     1.0000     1.0000
+    3.0     2.0     10     1.0000     1.0000
+(D3) partial sharing: 1/N*(rho) = (sqrt(1+rho)-1)/(sqrt(1+rho)+1)  (identity check) and its direction under acceleration of the shared or private part
+  rho =    0.1  1/N* = 0.02382  (s-1)/(s+1) = 0.02382
+  rho =    0.5  1/N* = 0.10102  (s-1)/(s+1) = 0.10102
+  rho =    1.0  1/N* = 0.17157  (s-1)/(s+1) = 0.17157
+  rho =    4.0  1/N* = 0.38197  (s-1)/(s+1) = 0.38197
+  rho =  100.0  1/N* = 0.81900  (s-1)/(s+1) = 0.81900
+  1/N*(rho) increases with rho, so acceleration of the SHARED drift (rho up) widens the range of d/c where pooling wins, and of the PRIVATE drift narrows it.
