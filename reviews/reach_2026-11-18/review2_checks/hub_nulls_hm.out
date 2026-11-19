@@ -1,0 +1,60 @@
+data N = 16535, mask 8766 deg^2, nbar = 0.0304 (h/Mpc)^3
+data xi_s: [15.715 10.471  6.625  4.344  2.664  1.589  0.919  0.511  0.279]
+DATA: {'l4': 1.3947, 'vm4': 6.6718, 'kmax4': 47.0, 'S1_4': 0.0849, 'l10': 2.1867, 'vm10': 14.2579, 'kmax10': 95.0, 'S1_10': 0.0774, 'kfix0': 4.0002, 'kfix1': 9.9995, 'knn20': 2.5007}
+field-only pass 0: var(G) = 1.21, mock/data xi_s = [0.124 0.184 0.274 0.384 0.523 0.632 0.661 0.672 0.64 ] (+- [0.009 0.012 0.018 0.026 0.036 0.048 0.064 0.095 0.136])
+field-only pass 1: var(G) = 1.44, mock/data xi_s = [0.187 0.269 0.405 0.561 0.761 0.914 0.94  0.887 0.713] (+- [0.015 0.022 0.033 0.047 0.064 0.075 0.074 0.078 0.078])
+field-only pass 2: var(G) = 1.54, mock/data xi_s = [0.203 0.292 0.441 0.613 0.831 1.006 1.054 1.004 0.785] (+- [0.017 0.024 0.035 0.048 0.063 0.075 0.079 0.088 0.107])
+group amplitudes A_j = [  0.     16.467  71.39  263.845] for sigma_j = [0.15 0.3  0.6  1.2 ] (fitted to the small-scale excess of the data over the field)
+HM check pass 0 (m = 30.0): var(G) = 1.51, F = 0.357, mock/data xi_s = [1.09  1.041 1.047 1.021 1.054 1.106 1.131 1.081 0.883] (178 s)
+   groups rescaled: A_j = [  0.     15.682  67.988 251.271]
+HM check pass 1 (m = 30.0): var(G) = 1.57, F = 0.340, mock/data xi_s = [0.944 0.948 0.981 0.943 0.95  0.969 0.991 0.973 0.806] (224 s)
+HM m = 15.0: fraction of points in groups F = 0.679, 30 fresh mocks (533 s)
+HM m = 30.0: fraction of points in groups F = 0.340, 30 fresh mocks (713 s)
+HM m = 60.0: fraction of points in groups F = 0.170, 30 fresh mocks (1099 s)
+
+=== VALIDATION (COSMIC_WEB.md section 8 item 3: xi within 10 percent over 1-20 Mpc/h on >= 20 untuned mocks; mean degree at fixed l scatters <= 30 percent)
+HM m=15.0 mock/data xi_s (r = [ 0.63  0.98  1.47  2.2   3.29  4.9   7.35 10.82 16.12]): [1.045 1.031 1.062 1.046 1.108 1.195 1.264 1.249 1.056] (+-[0.039 0.036 0.042 0.055 0.078 0.101 0.116 0.129 0.13 ]); worst |dev| over 1-20 Mpc/h 0.264; also at r = 0.63, 0.98: 1.045, 1.031
+HM m=15.0 mean degree at fixed l = 1.39: 4.06 +- 0.72 (scatter 18%); at l = 2.19: 10.25 +- 1.91 (scatter 19%) -> xi check FAIL, scatter check PASS
+HM m=30.0 mock/data xi_s (r = [ 0.63  0.98  1.47  2.2   3.29  4.9   7.35 10.82 16.12]): [0.965 0.963 0.992 0.97  1.02  1.085 1.145 1.148 1.028] (+-[0.041 0.034 0.032 0.035 0.047 0.059 0.071 0.082 0.099]); worst |dev| over 1-20 Mpc/h 0.148; also at r = 0.63, 0.98: 0.965, 0.963
+HM m=30.0 mean degree at fixed l = 1.39: 3.79 +- 0.68 (scatter 18%); at l = 2.19: 9.63 +- 1.47 (scatter 15%) -> xi check FAIL, scatter check PASS
+HM m=60.0 mock/data xi_s (r = [ 0.63  0.98  1.47  2.2   3.29  4.9   7.35 10.82 16.12]): [1.032 1.004 1.029 1.005 1.048 1.098 1.146 1.166 1.018] (+-[0.06  0.039 0.033 0.035 0.05  0.067 0.084 0.107 0.109]); worst |dev| over 1-20 Mpc/h 0.166; also at r = 0.63, 0.98: 1.032, 1.004
+HM m=60.0 mean degree at fixed l = 1.39: 3.97 +- 0.83 (scatter 21%); at l = 2.19: 10.00 +- 1.55 (scatter 15%) -> xi check FAIL, scatter check PASS
+
+=== HUB STATISTIC S1 (top-1 percent share of degree) and secondaries: data vs null mean +- sd; z = (data - mean)/sd
+-- HM m = 15.0 (F = 0.68; 30 sets; null FAILS VALIDATION)
+   S1_4    data   0.0849   null   0.0686 +-  0.0153   z =  +1.07   data/null - 1 =  +23.7%
+   S1_10   data   0.0774   null   0.0599 +-  0.0184   z =  +0.96   data/null - 1 =  +29.4%
+   vm4     data   6.6718   null   7.0063 +-  1.9041   z =  -0.18   data/null - 1 =   -4.8%
+   vm10    data  14.2579   null  11.5469 +-  5.7138   z =  +0.47   data/null - 1 =  +23.5%
+   kmax4   data  47.0000   null  38.5000 +-  9.0773   z =  +0.94   data/null - 1 =  +22.1%
+   kmax10  data  95.0000   null  80.9667 +- 21.4596   z =  +0.65   data/null - 1 =  +17.3%
+   l4      data   1.3947   null   1.3990 +-  0.1147   z =  -0.04   data/null - 1 =   -0.3%
+   l10     data   2.1867   null   2.1875 +-  0.1852   z =  -0.00   data/null - 1 =   -0.0%
+   knn20   data   2.5007   null   2.7870 +-  0.3277   z =  -0.87   data/null - 1 =  -10.3%
+-- HM m = 30.0 (F = 0.34; 30 sets; null FAILS VALIDATION)
+   S1_4    data   0.0849   null   0.0923 +-  0.0143   z =  -0.52   data/null - 1 =   -8.0%
+   S1_10   data   0.0774   null   0.0651 +-  0.0155   z =  +0.80   data/null - 1 =  +19.0%
+   vm4     data   6.6718   null  11.5433 +-  2.6108   z =  -1.87   data/null - 1 =  -42.2%
+   vm10    data  14.2579   null  15.6515 +-  3.5427   z =  -0.39   data/null - 1 =   -8.9%
+   kmax4   data  47.0000   null  47.7667 +-  8.6171   z =  -0.09   data/null - 1 =   -1.6%
+   kmax10  data  95.0000   null  87.6333 +- 24.1325   z =  +0.31   data/null - 1 =   +8.4%
+   l4      data   1.3947   null   1.4421 +-  0.1205   z =  -0.39   data/null - 1 =   -3.3%
+   l10     data   2.1867   null   2.2428 +-  0.1666   z =  -0.34   data/null - 1 =   -2.5%
+   knn20   data   2.5007   null   2.8816 +-  0.1711   z =  -2.23   data/null - 1 =  -13.2%
+-- HM m = 60.0 (F = 0.17; 30 sets; null FAILS VALIDATION)
+   S1_4    data   0.0849   null   0.1574 +-  0.0444   z =  -1.63   data/null - 1 =  -46.0%
+   S1_10   data   0.0774   null   0.0822 +-  0.0174   z =  -0.27   data/null - 1 =   -5.8%
+   vm4     data   6.6718   null  23.2475 +- 11.1262   z =  -1.49   data/null - 1 =  -71.3%
+   vm10    data  14.2579   null  26.7794 +-  9.6326   z =  -1.30   data/null - 1 =  -46.8%
+   kmax4   data  47.0000   null  72.8000 +- 17.7014   z =  -1.46   data/null - 1 =  -35.4%
+   kmax10  data  95.0000   null 100.0000 +- 17.8808   z =  -0.28   data/null - 1 =   -5.0%
+   l4      data   1.3947   null   1.4097 +-  0.1346   z =  -0.11   data/null - 1 =   -1.1%
+   l10     data   2.1867   null   2.1990 +-  0.1621   z =  -0.08   data/null - 1 =   -0.6%
+   knn20   data   2.5007   null   2.3290 +-  0.1190   z =  +1.44   data/null - 1 =   +7.4%
+
+H_hub rule of section 8 item 5 (S1 above null mean by > 3 sd AND by >= 25 percent, at <k> = 4 and 10), single SDSS arm only:
+  m = 15.0: <k> = 4 within; <k> = 10 within
+  m = 30.0: <k> = 4 within; <k> = 10 within
+  m = 60.0: <k> = 4 within; <k> = 10 within
+mocks redrawn (fewer than N points in the footprint): []
+elapsed 1099 s
