@@ -7,7 +7,7 @@ Wednesday 18 November 2026, evening ET. Companion to [`REACH.md`](REACH.md) (§5
 ## 0. Verdict in plain words
 
 1. **The resemblance is real but shallow.** The web is clustered and spatially embedded, as brains' local circuits and many spatial networks are. That much is shared.
-2. **It is mostly geometry, not function.** Linking points that are near each other already gives high clustering and positive degree correlation, whatever the points are. A random point set with the same linking rule (the published "random" curve in Coutinho et al.; my check below) does most of it. The excess of the real web over that proper null is modest (a clustering of about 0.55 to 0.6 against about 0.4 for random positions, read by eye from their Fig. 4(c)).
+2. **It is mostly geometry, not function.** Linking points that are near each other already gives high clustering and positive degree correlation, whatever the points are. A random point set with the same linking rule (the published "random" curve in Coutinho et al.; my check below) does much of it. The excess of the real web over that proper null is modest (a clustering of about 0.55 to 0.6 against about 0.4 for random positions, read by eye from their Fig. 4(c)).
 3. **The big difference is hubs.** Organizations, the internet and the web graph have hubs (some nodes with enormous degree). The published cosmic-web networks have none: the in-degree variance is below the Poisson value. Part of that is built into the nearest-neighbour link rule they used (my check below), so it is not a finding about the universe alone.
 4. **Why hubs appear elsewhere, in this theory's terms (HYPOTHESIS).** A hub is what you get when the price of delay is high compared with the price of a link (the Fabrikant–Koutsoupias–Papadimitriou trade-off, Theorem 1). GTAO's own two costs (link upkeep and lateness) are the same trade-off. The web pays for neither: it tracks nothing, so nothing in it is penalized for being late. So the theory predicts no cost-driven hubs in the web, and that is what is published.
 5. **What the theory derives about the web itself: nothing it does not take as input.** The web's structure comes from the initial density fluctuations plus gravity (Bond, Kofman & Pogosyan 1996: the final web is "present in embryonic form" in the initial overdensity pattern). GTAO calls this an unselected, untracked structure. That is a negative prediction (N39), not a silence.
@@ -33,7 +33,7 @@ Reference networks used for the comparison, as opened:
 | Film actors | C = 0.79 vs 0.00027; L = 3.65 vs 2.99 | same |
 | Scale-free degree (WWW, genetic networks) | "vertex connectivities follow a scale-free power-law distribution", produced by growth plus preferential attachment | Barabási & Albert 1999, abstract read |
 | Internal e-mail network of one organization (about 1,700 employees) | community structure is self-similar | Guimerà et al. 2003, arXiv cond-mat/0211498, abstract read. The degree distribution is not in the abstract and was not read |
-| Hierarchy and span of control | not network measurements; the theory's own derived span levels = ln N / ln k_max | `THEORY.md` §2.3 and the cost model below (DERIVED) |
+| Hierarchy and span of control | not a network measurement; plain arithmetic: at least ln N / ln k_max levels if no node has more than k_max reports | below (ARITHMETIC) |
 
 I did not open a primary source for the internet's router-level degree distribution here, so no internet numbers are quoted. The scale-free statement is only Barabási & Albert's abstract on the WWW.
 
@@ -69,7 +69,7 @@ Limits of this check: Neyman–Scott is not the web; the radius graph is not Cou
 
 **What the theory takes as input about the web (N39).** The web's morphology follows from the initial density field and gravity (Bond et al. 1996). GTAO has no tracker and no selected design in it, so it makes the negative prediction that the web's topology is unrelated to any cost the web pays. It has no such cost.
 
-**Organizations and span of control (DERIVED).** The theory's own result for how many levels a hierarchy needs, levels = ln N / ln k_max, comes from a limit on how many reports one node can handle. A brain has the same limit at the neuron level (bounded synapses), which is why "hubs" in connectomes are limited in degree compared with the internet. This is a plausibility argument, not a measurement; the sources for hub degrees in connectomes are metadata only here (Vazza ref. list).
+**Organizations and span of control (ARITHMETIC, not a result of the theory).** If no node can handle more than k_max direct reports, a tree over N nodes needs at least ln N / ln k_max levels. The limit k_max is an input here, not derived by the theory, and I make no claim about hub degrees in connectomes (not read).
 
 ## 4. Shared and different, in one table
 

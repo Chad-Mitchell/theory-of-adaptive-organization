@@ -30,7 +30,7 @@ Results (closed forms, checked against brute-force minimization in `wormhole_che
 
 Examples (saved output): N = 16, d/c = 0: local 22.63, central 5.66, central wins up to ℓ = 0.75 T*; N = 16, d/c = 1: local 22.63, central 23.32, **local wins even at zero latency**; N = 100, d/c = 0.05: central wins up to ℓ = 0.755 T*.
 
-Reading. The benefit of pooling is a square-root saving in reads, √N versus N, so it is large when N is large and the dissemination price is small. It disappears when telling costs as much as looking. **Zero latency is necessary for nothing here; low dissemination price is.** This is risk pooling in the textbook sense, and the theory's own T3a (pool when N > (√(1+ρ)+1)²/ρ for shared fraction ρ) is the partial-sharing version. The dissemination-price extension is new in this note. I did not simulate ρ < 1 beyond T3a.
+Reading. The benefit of pooling is a square-root saving in reads, √N versus N, so it is large when N is large and the dissemination price is small. It disappears when telling costs as much as looking. **Zero latency is necessary for nothing here; low dissemination price is.** This is risk pooling in the textbook sense, and the theory's own T3a (modeling the shared driver once is guaranteed cheaper when N > (√(1+ρ)+1)²/ρ for shared fraction ρ; a sufficient condition, not a cutoff) is the partial-sharing version. The dissemination-price extension is new in this note. I did not simulate ρ < 1 beyond T3a.
 
 Label: DERIVED (in-model; PROVED as algebra, simulation as a check), CONDITIONAL on the model.
 
@@ -59,7 +59,7 @@ Mouths ("stations") as a Poisson process of density ν; a target is served if so
 
 1 − exp(−(4π/3)·ν·(c(ℓ* − τ))³),
 
-united with the direct light ball of radius cℓ* around the tracker. The simulation matches this formula to within 0.01 absolute at the nine (ν, r) points checked (e.g. ν = 100, r = 0.1: 0.347 simulated, 0.342 formula; ν = 1000, r = 0.05: 0.408 and 0.408). Coverage reaches 95% when ν ≳ 0.72/(c(ℓ* − τ))³ (from −ln 0.05 = 3.0 divided by 4π/3).
+united with the direct light ball of radius cℓ* around the tracker. The simulation matches this formula to within 0.005 absolute at the nine (ν, r) points checked (e.g. ν = 100, r = 0.1: 0.347 simulated, 0.342 formula; ν = 1000, r = 0.05: 0.408 and 0.408). Coverage reaches 95% when ν ≳ 0.72/(c(ℓ* − τ))³ (from −ln 0.05 = 3.0 divided by 4π/3).
 
 Findings (saved output, part c): with ν = 0 the coverage is the light ball alone (0.030 for ℓ* = 0.2); at ν = 100 it is 0.967 for τ = 0, 0.365 for τ = 0.1 and 0.030 for τ = 0.19. **Hop latency eats the budget:** a shortcut whose hop latency is nearly the whole budget adds nothing. Dependence on τ is cubic through (ℓ* − τ)³, so it is steep.
 
@@ -77,7 +77,7 @@ No store can hold more than the holographic bound allows: the area of any surfac
 
 | Row | Claim | Label | Kill condition |
 |---|---|---|---|
-| N41 | The pooling and coverage forms in §2 and §4 | PROVED (in-model); CONDITIONAL on the cost model and on shortcuts existing | An algebra or sampling error (checked here to 10⁻³ and 0.01); or a shown inconsistency with the T3a form at d = 0 |
+| N41 | The pooling and coverage forms in §2 and §4 | PROVED (in-model); CONDITIONAL on the cost model and on shortcuts existing | An algebra or sampling error (checked here to 10⁻³ and 0.005); or a shown inconsistency with the T3a form at d = 0 |
 | N42 | In ordinary networks with a latency shortcut (a relay, content-delivery node, a fast fibre or microwave link), centralized pooling of a shared signal beats local reads iff d/c < 1 − 1/N at zero latency | HYPOTHESIS (testable with real systems; no data collected) | A system with measured read cost c, dissemination price d, shared drift ρ ≈ 1 and N, where d/c < 1 − 1/N holds and the local design is still cheaper after adding latency, with ρ and N measured independently. Must meet MV1 to MV10 before a prereg locks |
 | N46 | "GTAO predicts that wormholes exist or that distance will not matter" | WITHDRAWN as framing | n/a |
 

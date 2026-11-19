@@ -31,7 +31,7 @@ An unpublished toy simulation of agents that share a store (called Test C there)
 
 The honest status (modest wording from that review): in one unpublished toy of agents that share a store, two loops locked once each could trigger the other; the coupling forces it, so it is not evidence; accuracy depended on the weight given to shared error signals, not on locking; locking is untested on real data.
 
-**Why INVALID rather than FAILED.** A failure requires a test whose design could have supported the idea. A trigger-and-reset coupling is not phase coupling of two oscillators; my own check in §1 shows that phase coupling gives a staircase and trigger-forcing gives locking for another reason, and the toy's staircase test used the wrong coupling. Under the repo's gates this matches a mismatched proxy (MV5): the proxy does not measure the construct. Status: INVALID (N43). Nothing here changes any CLAIM_MAP row.
+**Why INVALID rather than FAILED.** A failure requires a test whose design could have supported the idea. A trigger-and-reset coupling is not phase coupling of two oscillators; my own check in §1 shows that phase coupling gives a staircase and trigger-forcing gives locking for another reason, and the toy's staircase test used the wrong coupling. Under the repo's gates this matches a mismatched proxy (MV2, construct match): the proxy does not measure the construct. Status: INVALID (N43). Nothing here changes any CLAIM_MAP row.
 
 ## 3. What a valid test would need (so the next attempt finds out)
 
