@@ -20,5 +20,5 @@ Looper is a personal-assistant application of the same hypothesis: memory that i
 
 Two pieces, neither established as a *new* empirical claim:
 
-- **BIO1** reviews the ant-pheromone literature (layered lifetimes; the √N trail-fade law has no adequate field dataset).
+- **BIO1** reviews the ant-pheromone literature (layered lifetimes; the √N trail-fade rule (THEORY §1 N1) has no adequate field dataset).
 - **ANTS1** is a code-ant simulation of the √N and drift-matched-evaporation claims. The preregistration is locked and the run finished on 15 Nov 2026; the write-up is `reviews/night1/ANTS1_WRITEUP.md` (passes mostly by construction, CLAIM_MAP G13–G14 NOT EVIDENCE; three locked in-model failures, G15–G17 SIM-FAIL, which limit the √N pooling claim to linear readouts). A simulation does not speak for real colonies.

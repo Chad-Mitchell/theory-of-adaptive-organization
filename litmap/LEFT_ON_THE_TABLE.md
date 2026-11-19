@@ -1,6 +1,6 @@
 # LEFT_ON_THE_TABLE: connections nobody seems to have made, ranked
 
-Sat 2026-11-14 ET. **Every idea here is a hypothesis.** Speculation is labelled. None has been run. "Not found" means not found in this sweep (see `LITMAP.md`), not proven new. Citations are in `LITMAP.md`.
+Sat 2026-11-14 ET. **Every idea here is a hypothesis.** *(18 Nov 2026: this ranking predates THEORY v1.4; the status column says where each idea stands now.)* Speculation is labelled. None has been run. "Not found" means not found in this sweep (see `LITMAP.md`), not proven new. Citations are in `LITMAP.md`.
 
 **Ranking.** Score = novelty × testability × payoff, each scored 1–5:
 - **Novelty:** how far from anything found.
@@ -9,18 +9,18 @@ Sat 2026-11-14 ET. **Every idea here is a hypothesis.** Speculation is labelled.
 
 Preregistration rules for every test are the same as in MATH_ATTACK §5: fix measures before pulling outcomes, hash the plan, name a competitor that predicts differently, and get a blind review.
 
-| # | Idea | N | T | P | Score |
-|---|---|---|---|---|---|
-| 1 | Power-law forgetting is nested memory tuned to a scale-free world | 4 | 4 | 5 | **80** |
-| 2 | A √N law for shared memory: ant trails, languages, wikis | 4 | 4 | 4 | **64** |
-| 3 | The temperature is the safety factor: an iso-risk exchange rate (B ∝ σ√τ) plus the fixed-spread sign that reinterprets critical slowing down | 3 | 5 | 4 | **60** |
-| 4 | T3a as the condition for a new level: ant trails, Levin's light cone, shared code | 4 | 3 | 4 | **48** |
-| 5 | Knowledge depreciation tracks drift, and refresh effort rises then falls (law, medicine, R&D) | 3 | 5 | 3 | **45** |
-| 6 | Rosen + Still + lateness: anticipation lead time ≈ the time it takes to act | 3 | 3 | 4 | **36** |
-| 7 | The missing lever: reduce the world's drift (niche construction, contracts, homeostasis) instead of tracking it | 3 | 2 | 5 | **30** |
-| 8 | Free riders on stigmergy: shared memory goes stale in proportion to users per maintainer | 3 | 3 | 3 | **27** |
-| 9 | Lumps and levels: count the levels (K ∝ L^{2/3}, withdrawn in THEORY v1.4; see CLAIM_MAP K12) in body-mass lumps and social layers | 3 | 3 | 3 | **27** |
-| 10 | A Landauer ladder: the efficiency gap c_eff/kT at each scale, and a drift barrier for organizations | 3 | 2 | 4 | **24** |
+| # | Idea | N | T | P | Score | Status now (added 18 Nov 2026, v1.4.27; CLAIM_MAP governs) |
+|---|---|---|---|---|---|---|
+| 1 | Power-law forgetting is nested memory tuned to a scale-free world | 4 | 4 | 5 | **80** | Withdrawn as GTAO's claim in v1.4: the optimal kernel's survival exponent is α/2, not a matching exponent (THEORY §2.2; CLAIM_MAP K13 MATH-CORRECTED); log-spaced memory for power-law signals is Shankar & Howard 2013 |
+| 2 | A √N rule for shared memory: ant trails, languages, wikis | 4 | 4 | 4 | **64** | Math PRIOR ART (K9); languages PROXY-FAIL (K10); ANTS1 SIM-FAIL limits it to linear readouts (G15); THEORY §1 N1 |
+| 3 | The temperature is the safety factor: an iso-risk exchange rate (B ∝ σ√τ) plus the fixed-spread sign that reinterprets critical slowing down | 3 | 5 | 4 | **60** | Ratio is prior art (safety factor; Black & Cox 1976); fixed-spread sign held but is not theory-specific; τ term PROXY-FAIL (K4) |
+| 4 | T3a as the condition for a new level: ant trails, Levin's light cone, shared code | 4 | 3 | 4 | **48** | PROOF as a sufficient condition; −1 case prior art in substance; untested in the field (THEORY §1 N2) |
+| 5 | Knowledge depreciation tracks drift, and refresh effort rises then falls (law, medicine, R&D) | 3 | 5 | 3 | **45** | Cliff core PRIOR ART (K5; Cho & Garcia-Molina 2003); cross-domain claim untested (THEORY §1 N5) |
+| 6 | Rosen + Still + lateness: anticipation lead time ≈ the time it takes to act | 3 | 3 | 4 | **36** | No CLAIM_MAP row; untested |
+| 7 | The missing lever: reduce the world's drift (niche construction, contracts, homeostasis) instead of tracking it | 3 | 2 | 5 | **30** | In THEORY §5 (HYPOTHESIS, untested); microcosm form N35 OPEN |
+| 8 | Free riders on stigmergy: shared memory goes stale in proportion to users per maintainer | 3 | 3 | 3 | **27** | In THEORY §6 (HYPOTHESIS, untested); J9 OPEN |
+| 9 | Lumps and levels: count the levels (K ∝ L^{2/3}, withdrawn in THEORY v1.4; see CLAIM_MAP K12) in body-mass lumps and social layers | 3 | 3 | 3 | **27** | Level count withdrawn (K12 MATH-CORRECTED) |
+| 10 | A Landauer ladder: the efficiency gap c_eff/kT at each scale, and a drift barrier for organizations | 3 | 2 | 4 | **24** | Physics-as-floor J10′ OPEN; cell test N24 INCONCLUSIVE on proxy |
 
 ---
 
@@ -62,7 +62,7 @@ Preregistration rules for every test are the same as in MATH_ATTACK §5: fix mea
 - It ties T7's "fractal iff the world is" to an observable.
 - It answers Chad's "same principle at every scale" with a measurable exponent, not an analogy.
 
-## 2. A √N law for shared memory: ant trails, languages, wikis (score 64)
+## 2. A √N rule for shared memory: ant trails, languages, wikis (score 64)
 
 **Fields joined:**
 - GTAO T4: the optimal fade of a shared trace rises as √N with N independent depositors.

@@ -1,6 +1,6 @@
 # MEASUREMENT FRAMEWORK: how A Theory of Adaptive Organization's quantities are measured, and what counts as a fair kill
 
-Sunday 15 November 2026, written about 08:10–08:20 AM ET (America/New_York) by a Grok Bot executor for Chad Mitchell, via Ace. Nothing was posted or sent by that work. This document sits on top of `night1/FORMAL/AXIOMS.md` (the model class 𝓜 and its notation, used unchanged) and `night1/SYNTHESIS/CLAIM_MAP_FINAL.md`. Its companion is `CLAIM_MAP_v2.md`.
+Sunday 15 November 2026, written about 08:10–08:20 AM ET (America/New_York) by a Grok Bot executor for Chad Mitchell, via Ace. Nothing was posted or sent by that work. This document sits on top of `reviews/night1/formal/AXIOMS.md` (the model class 𝓜 and its notation, used unchanged) and `reviews/night1/CLAIM_MAP_FINAL.md`. Its companion is `CLAIM_MAP_v2.md`.
 
 **Why this exists.** Chad (t1908): the theory never said how its quantities are measured, so every field "kill" and "hit" so far tested a proxy whose validity nobody had checked. That is correct, and it is the single largest methodological gap in the project. This file builds the missing layer:
 1. An operational definition, procedure, validity checks and failure modes for every core quantity, at every scale (§3).
@@ -24,7 +24,7 @@ No citation or dataset in this file was invented. If a source is named without a
 
 ### 1.1 Every field test was a test of a conjunction
 A field prediction is never "GTAO says X". It is **T ∧ M ∧ A ⇒ X**, where:
-- **T** is the theory: the in-model theorems in `FORMAL/THEOREMS.md`. These are mostly correct, after the math review's corrections.
+- **T** is the theory: the in-model theorems in `reviews/night1/formal/THEOREMS.md`. These are mostly correct, after the math review's corrections.
 - **M** is the measurement mapping. It says which observable stands for which model quantity: target, pool, level, drift, effort, stakes, price.
 - **A** is the set of auxiliary assumptions: the sensing class (often class R with a = b = ½), Brownian drift (H = ½), zero upkeep, κ = 0 (see §3.9), strong selection, and the right comparator.
 
@@ -71,7 +71,7 @@ A test that leaves any of the three implicit fails gate MV1 below.
 ### 2.2 Validity gates (MV1–MV10)
 **Treated as binding from 18 November 2026, on Chad's instruction to proceed without his sign-off (t1927; CLAIM_MAP M2 and v2.40 note):** every prereg locked from then on must state its tier against these gates before data. MV9's external timestamp still needs Chad's go per lock.
 
-A field test is **decisive (Tier 1)** only if it passes every gate. It is **Tier 2** if it passes MV1–MV4 and MV8 but not all the rest. It is **Tier 3** otherwise. The tiers extend those in `night2/VIGIL_ONA/FAIR_MEASURE.md` from vigilance to every prediction.
+A field test is **decisive (Tier 1)** only if it passes every gate. It is **Tier 2** if it passes MV1–MV4 and MV8 but not all the rest. It is **Tier 3** otherwise. The tiers extend those in `prereg/vigil-ona/FAIR_MEASURE.md` from vigilance to every prediction.
 
 | Gate | Requirement | What it rules out |
 |---|---|---|
@@ -79,7 +79,7 @@ A field test is **decisive (Tier 1)** only if it passes every gate. It is **Tier
 | **MV2 Construct match** | The observable is the model quantity, not a correlate. **Effort means the tracker's chosen sampling of the named target** (not receipt, not role assignment). **Drift means the variance rate of the target's own increments** (not event frequency or "need"). **A level means a tracker whose estimate is demonstrably consumed by ≥ 2 members** (not a title) | Received mail (Enron); headline-word recurrence standing in for an item's need (P1); town presence standing in for antigenic drift (measles); titles standing in for levels |
 | **MV3 Independent measurement of inputs** | Every input a prediction needs (ρ, q, (a, b), h, κ, N) is measured *in the same system*, by a procedure that does not use the outcome | Constants imported from theory under assumed class R, H = ½, h = 0, κ = 0 |
 | **MV4 Comparator correct** | The comparator matches the theorem. **V needs a flat comparator** (an unlevelled unit, or the same unit before the level), not the level's own members (math Issue 10). Onset needs groups both below and above N\* | Leads compared with their own nested members |
-| **MV5 Convergent validity** | At least two independent methods agree on each key input, within a stated tolerance (e.g. |Δ ln| < 0.3) | Single-proxy inputs |
+| **MV5 Convergent validity** | At least two independent methods agree on each key input, within a stated tolerance (e.g. \|Δ ln\| < 0.3) | Single-proxy inputs |
 | **MV6 Discriminant validity** | Pre-declared rival drivers of the same observable are controlled or contrasted: status, generic activity volume, function, the generic OU-with-barrier baseline, and heterogeneity | Generic "seniors do more of everything" (PIAAC P2), status-driven advice flows |
 | **MV7 Known-groups check** | The instrument reproduces a value known in advance in at least one calibration case (§3, per quantity) | Instruments that cannot see the effect even where it is known to exist |
 | **MV8 Power / resolution** | (i) Statistical: the SE of the key estimate is ≤ \|Δ\|/2.8, where Δ is the gap between GTAO's value and the nearest named rival (80% power, two-sided α = 0.05). (ii) **Selection** (Prop 10): the prize at the observed operating point exceeds the measured design resolution ε̂ (§3.10). Settings outside the selection gate are not analysed | Underpowered nulls; the small-ρ regime that POOLSIM showed is invisible under ≥ 1% decision noise |
@@ -303,7 +303,7 @@ Each table cell is an **operational proposal** [PROPOSAL] unless it cites a data
 | Person | Tasks sharing a fact: when does a person create an external note? |
 | Team/firm | Groups of units sharing a driver: when does a central tracking role or system exist? |
 | City | When does a citywide monitoring office exist, by city size and ρ? |
-| AI | Agent groups: when is a shared memory adopted? (LEARNSIM, `night2/LEARNSIM/`, in progress) |
+| AI | Agent groups: when is a shared memory adopted? (LEARNSIM, `tests/LEARNSIM/`, done 15 Nov 2026; CLAIM_MAP G23–G29) |
 
 **Validity checks.** Selection gate (§3.10) is mandatory: POOLSIM showed the onset is invisible when decision noise is ≥ 1% of cost. Known-groups: designed AI arms. Discriminant: rule out the rival "levels appear at a fixed size regardless of ρ" (span-of-control norms).
 
@@ -491,7 +491,7 @@ Each row lists the gates from §2.2 that the test **failed**. "Mapping" means wh
 - **The κ point.** As derived in §3.9, under class R a flat raw rate across ranks is what GTAO predicts when κ ≈ 1. So a powered null on raw rates is uninformative about V unless κ is measured. **I flag this as a post-hoc observation that must not be used to claim Enron "fits".** It shows that the locked band encoded an unmeasured auxiliary.
 - **Relabel: PROXY-FAIL** (a valid fail of the instrument's own prediction: "the external share of received mail rises with title rank").
 
-### 4.6 LANG1: √N fade on Polynesian vocabulary (ABVD) [ON BOX: `tests/LANG1/raw/`]
+### 4.6 LANG1: √N fade on Polynesian vocabulary (ABVD) [raw data off-repo, on the author's box; not in this repository]
 - **Measured.** The elasticity of word-gain rate (91% of "gains" are *uncoded forms*) on current speaker population, over 10 sister pairs: 0.13 [0.05, 0.26].
 - **Mapping.** Speakers stood for independent depositors. Basic vocabulary stood for a drifting shared target. Gain rate stood for the fade or turnover rate.
 - **Failed gates.**
@@ -560,7 +560,7 @@ Scored 0–3 on: (A) all inputs measurable (MV3); (B) a sampling choice is obser
 
 | Rank | System | Data (verification) | A | B | C | D | E | F | Total | What it can test validly | Main validity risk |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | **Designed AI multi-agent systems** with real token or compute prices and agents *not given* the cost function | Generated; LEARNSIM in progress (`night2/LEARNSIM/`) | 3 | 3 | 3 | 3 | 3 | 3 | 21 | O1 (level vs member class), O2, T3 signs, V formula, O5 band | External validity is AI-only. It is "nature" only for AI systems |
+| 1 | **Designed AI multi-agent systems** with real token or compute prices and agents *not given* the cost function | Generated; LEARNSIM done 15 Nov 2026 (`tests/LEARNSIM/`; CLAIM_MAP G23–G29) | 3 | 3 | 3 | 3 | 3 | 3 | 21 | O1 (level vs member class), O2, T3 signs, V formula, O5 band | External validity is AI-only. It is "nature" only for AI systems |
 | 2 | **Public software ecosystems** (GitHub): named upstream drivers, scheduled CI jobs that poll upstream (designed read rates with real compute cost), dependency manifests, org-level shared infrastructure | GitHub API via authenticated `gh` on the box (works; used for this repo). **No pilot pull yet** | 3 | 3 | 3 | 2 | 1 | 3 | 18 | Class gate (a, b) from read rate vs upstream drift and stakes; drift matching; V on named drivers; κ; freeze/hold/lookup (pinned / vendored / floating) | Cron quantization (daily/weekly defaults); copying of templates (weak selection); zero-inflation |
 | 3 | **Wikipedia + Wikidata** as an information organization: facts held locally (hardcoded) vs looked up from a shared store (Wikidata or templates) vs frozen | MediaWiki API `prop=wbentityusage`, `list=wblistentityusage` and revision histories [DATA-VERIFIED 15 Nov via mediawiki.org and the Wikibase usage-tracking docs] | 2 | 3 | 3 | 3 | 1 | 3 | 18 | O5 band and its N widening; T3 signs for shared-store adoption; known-groups (birth dates frozen) | Community policy (some wikis restrict Wikidata in infoboxes) dominates cost; volunteer selection |
 | 4 | **Influenza and other antigenically variable pathogens + vaccine-update system** (immune and public-health levels) | Bedford et al. 2014 HI data, Dryad doi 10.5061/dryad.rc515 [DATA-VERIFIED 15 Nov]; Antia 2018 and Meeter data [ON BOX]; iReceptor / AIRR Data Commons repertoires [DATA-VERIFIED 15 Nov, search summary] | 2 | 2 | 3 | 1 | 2 | 2 | 14 | Valid drift q (antigenic units per year); freeze vs hold across pathogens; known-groups (measles vs H3N2) | Few pathogens (n ≈ 4–8); costs u, c, h hard to price; prior art (Mayer 2016) |
@@ -662,8 +662,8 @@ As claim map §3.2 and FAIR_MEASURE, plus:
 *Update (18 Nov 2026 audit):* this list is from 15 Nov. Exploratory versions of #2 and #3 have since run and failed gates: GITHUB-UPSTREAM (CLAIM_MAP N14 PROXY-FAIL, Tier 3; N15 OPEN) and WIKIDATA-BAND (N19 OPEN, known-groups check failed; N20 PROXY-PASS weak). Reruns count only if they pass MV1–MV8. No Tier-1 test has run anywhere. The current first test is SAME-SYSTEM-AQN (`reviews/night2/SYNTHESIS_2026-11-15.md` §7; `QUEUE.md`).
 
 1. **The mixed-technology onset test in agents not given the cost function** (§6.1, plus §6.4 as a second factorial arm). This is the only test where every quantity passes MV1–MV8 today. It discriminates O1 (level's class sets e_g) from the members-set and technology-independent rivals, which SENSING2 never ran cleanly.
-   - Build on `night2/LEARNSIM/`. Make sure it has a level ≠ member arm (e.g. A₁ level over R members), (a_L, b_L) measured on the level alone before onset is fitted, real per-call costs, and a gated ρ range.
-   - Feasibility: high, already in progress.
+   - Build on `tests/LEARNSIM/`. Make sure it has a level ≠ member arm (e.g. A₁ level over R members), (a_L, b_L) measured on the level alone before onset is fitted, real per-call costs, and a gated ρ range.
+   - Feasibility: high; LEARNSIM (done 15 Nov 2026, `tests/LEARNSIM/`) is the starting point.
 2. **The GitHub named-driver read-rate test: class gate → drift matching → κ → V** (§3.4, §6.7, §6.9, §6.3). This is the first real-world measurement of (a, b) anywhere.
    - **Units**: repositories that depend on a named upstream (e.g. a major scientific-Python library).
    - **Effort**: scheduled CI runs that test against the upstream's development branch. Cron frequency is a designed read rate with real compute cost.
@@ -683,7 +683,7 @@ As claim map §3.2 and FAIR_MEASURE, plus:
 
 Fourth (the physics route Chad cares about): measure β_phys and the class (a, b) for *E. coli* chemotaxis from Keegstra 2017 source data plus the Lan 2012 energy–speed–accuracy relation. If the cell sits near its thermodynamic floor and its class is the one that floor selects, that is the first place GTAO's physics does work. It is lower feasibility today (data parsing, plus a derivation still owed).
 
-The vigilance ONA test running in `night2/VIGIL_ONA/` is Tier 3 by its own preregistration. It cannot change vigilance's status. It is useful as a dry run of the status and channel controls.
+The vigilance ONA test run in `prereg/vigil-ona/` (finished; CLAIM_MAP N1–N3) is Tier 3 by its own preregistration. It cannot change vigilance's status. It is useful as a dry run of the status and channel controls.
 
 ---
 
