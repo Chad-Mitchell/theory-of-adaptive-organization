@@ -1,6 +1,6 @@
 # PROCESS: what the repo's history teaches, as first principles
 
-19 November 2026, early morning ET (America/New_York). Grok Bot executor for Chad Mitchell, via Ace (pt1957u). **Not independent.** The author of this file worked inside the process it describes.
+Wednesday 18 November 2026, late evening ET (America/New_York). Grok Bot executor for Chad Mitchell, via Ace (pt1957u). **Not independent.** The author of this file worked inside the process it describes.
 
 ## 1. Sources and the numbers they give
 
@@ -31,7 +31,7 @@ From the WITHDRAWN and MATH-CORRECTED rows, the review files and the corrections
 | E5 | **A rule changed after seeing data** | glucose sampling-corrected targets; the torus toy test ruled INVALID after its result | Locked preregs read literally; referees |
 | E6 | **Independence mislabelled** | reach REVIEW.md called independent (fixed in v1.4.24); `theory/SCALE_ENDS.md:5` still called a same-executor pass "independent" until **this pass**, caught by the new checker rule R1 | Independent review 1; checker R1 |
 | E7 | **Answering from memory** | the ten rows of BRIEF §6 (Theorem G vs T8, the gates, Laughlin, England, the black-hole time, the stale "silent on black holes", ANTS1, measles) | Reading the files (BRIEF audit) |
-| E8 | **Stale pointers, counts and statuses** | version pointers, FRAMEWORK paths, the 167-row count table, C3b "unfinished", unescaped table pipes that hid 99 LITMAP verdicts | The checker (versions); this audit (the rest) |
+| E8 | **Stale pointers, counts, dates and statuses** | version pointers, FRAMEWORK paths, the 167-row count table, C3b "unfinished", unescaped table pipes that hid 99 LITMAP verdicts; **this pass itself** dated its files "19 November, early morning" from a stale sense of the time and merged them at 10:57 PM ET on 18 November (fixed in a follow-up PR) | The checker (versions); this audit (the rest) |
 | E9 | **Scope framed wrong, in both directions** | under: "silent on black holes"; over: "the virus redefines life", "time is fractal" (N46 WITHDRAWN) | Chad (under); referees and labels (over) |
 | E10 | **Numerical slips** | the black-hole time stated without its (M/M☉)³ scaling; effort units erratum; store coefficient c | Referees re-deriving numbers |
 
