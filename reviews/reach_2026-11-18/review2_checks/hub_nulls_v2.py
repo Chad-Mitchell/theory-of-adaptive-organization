@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Independent review 2, improved matched nulls for the SDSS radius-graph hub statistic (COSMIC_WEB.md section 2b).
+"""STATUS: this run STOPPED. The LN2 calibration diverged (var(G) 6.5 -> 15.3 -> 22.6 over three passes; see hub_nulls_v2.out) and a
+final mock was so clustered that no linking length gave <k> = 4; the CP part never ran. Kept as evidence that a fine-grid lognormal
+cannot be calibrated to this xi_s. The working null is hub_nulls_hm.py.
+Independent review 2, improved matched nulls for the SDSS radius-graph hub statistic (COSMIC_WEB.md section 2b).
 Run: nice -n 19 python3 hub_nulls_v2.py > hub_nulls_v2.out   (numpy, scipy; needs sdss_r0.csv from web_hubs_sdss.py's query)
 Same data selection as web_hubs_sdss.py (volume-limited SDSS DR17 main sample, N = 16,535), same mask rule, same statistics.
 Nulls built here (both are fitted to the data's measured xi_s monopole; neither has redshift-space anisotropy):
