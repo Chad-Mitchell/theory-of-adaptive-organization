@@ -1,3 +1,5 @@
+> **Frozen history (moved here 19 November 2026; not maintained).** Written for THEORY v1.4.29; only its version pointers were moved to v2.0. The current pages are `README.md`, `STATUS.md` and `THEORY.md`.
+
 # A Theory of Adaptive Organization (GTAO)
 
 Author: Chad Mitchell — X: [@torusflow](https://x.com/torusflow). *Public working draft since 18 November 2026. Not peer reviewed, not independently reviewed as a whole, not a published paper. Public domain (CC0).*

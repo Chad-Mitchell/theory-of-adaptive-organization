@@ -1,5 +1,7 @@
 # GTAO work queue (live; executable)
 
+*Moved from the repository root to `process/` on 19 November 2026. Paths in `queue/` below are relative to this folder; run the commands from `process/`. Section numbers of THEORY cited below (§2.2, §2.5, …) are those of the frozen `reference/THEORY_v1.4.29.md`, unless they name v2.0.*
+
 Canonical copy. Ace's working folder holds only a pointer to this file. Updated by small PRs to `main`; the git history is the timestamp of every choice.
 
 ## How the queue runs (binding)

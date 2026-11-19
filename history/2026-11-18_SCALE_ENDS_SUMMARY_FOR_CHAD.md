@@ -1,3 +1,5 @@
+> **Frozen history (moved here 19 November 2026; not maintained).** Written against THEORY v1.4.29. The current pages are `README.md`, `STATUS.md` and `THEORY.md`.
+
 # The ends of the scale, in plain English (18 Nov 2026; corrected after independent review)
 
 **The costs are real at every scale.** What changes at the ends is whether a model is worth anything.

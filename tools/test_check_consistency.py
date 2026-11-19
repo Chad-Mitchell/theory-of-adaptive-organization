@@ -5,29 +5,29 @@ planted error was detected and the clean copy passes."""
 import os, shutil, subprocess, sys, tempfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MUTATIONS = [
-    ("BRIEF.md", "\n\nN26 OPEN.\n", "N-status"),
+    ("STATUS.md", "\n\nN26 OPEN.\n", "N-status"),
     ("README.md", "\n\nGTAO is a universal law of adaptive organization.\n", "law"),
     ("STATUS.md", "\n\nThe MV gates become binding once Chad signs off.\n", "gates-await-sign-off"),
     ("README.md", "\n\nThe MATCH1 measles test passed.\n", "unlabeled field verdict"),
     ("THEORY.md", "\n\nGTAO is a theory of everything.\n", "theory-of-everything"),
     ("STATUS.md", "\n\nThe theory is silent on black holes.\n", "stale-scope"),
-    ("BRIEF.md", "\n\nSee CLAIM_MAP N99.\n", "N-ref"),
+    ("STATUS.md", "\n\nSee CLAIM_MAP N99.\n", "N-ref"),
     # process rules R1-R5 (reviews/lock_2026-11-18/PROCESS.md)
-    ("BRIEF.md", "\n\nThe independent review `reviews/reach_2026-11-18/REVIEW.md` passed.\n", "self-review-called-independent"),
+    ("STATUS.md", "\n\nThe independent review `reviews/reach_2026-11-18/REVIEW.md` passed.\n", "self-review-called-independent"),
     ("README.md", "\n\n| a | b |\n|---|---|\n| x | y | z |\n", "table-cells"),
     ("applications/README.md", "\n\nColonies follow the √N law.\n", "law-named"),
     ("tests/README.md", "\n\nThe repository is private.\n", "stale-private"),
     # added in the independent review of the lock pass (INDEPENDENT_REVIEW.md)
-    ("BRIEF.md", "\n\nThe lock audit `reviews/lock_2026-11-18/LOCK_AUDIT.md` is an independent review.\n", "self-review-called-independent"),
-    ("BRIEF.md", "\n\nAn independent hostile referee pass is in `reviews/night2/SCALE_ENDS_REVIEW.md`.\n", "self-review-called-independent"),
-    ("BRIEF.md", "\n\nSee `reviews/reach_2026-11-18/REVIEW.md`, which is independent.\n", "self-review-called-independent"),
-    ("BRIEF.md", "\n\nShared trails obey a √N scaling law.\n", "law-named"),
-    ("BRIEF.md", "\n\nThe repository remains private.\n", "stale-private"),
+    ("STATUS.md", "\n\nThe lock audit `reviews/lock_2026-11-18/LOCK_AUDIT.md` is an independent review.\n", "self-review-called-independent"),
+    ("STATUS.md", "\n\nAn independent hostile referee pass is in `reviews/night2/SCALE_ENDS_REVIEW.md`.\n", "self-review-called-independent"),
+    ("STATUS.md", "\n\nSee `reviews/reach_2026-11-18/REVIEW.md`, which is independent.\n", "self-review-called-independent"),
+    ("STATUS.md", "\n\nShared trails obey a √N scaling law.\n", "law-named"),
+    ("STATUS.md", "\n\nThe repository remains private.\n", "stale-private"),
 ]
 # (file, text): sentences that must NOT be flagged (known false positives, now fixed)
 CLEAN = [
-    ("BRIEF.md", "\n\nIndependent review 2 superseded the earlier pass in `reviews/reach_2026-11-18/REVIEW.md`.\n"),
-    ("BRIEF.md", "\n\nInventory pooling follows the square-root law of Maister (1976), which is prior art.\n"),
+    ("STATUS.md", "\n\nIndependent review 2 superseded the earlier pass in `reviews/reach_2026-11-18/REVIEW.md`.\n"),
+    ("STATUS.md", "\n\nInventory pooling follows the square-root law of Maister (1976), which is prior art.\n"),
 ]
 # (file, old text, new text, key): replacements that must be caught
 REPLACEMENTS = [
