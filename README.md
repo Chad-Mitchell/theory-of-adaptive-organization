@@ -109,14 +109,14 @@ tests/            Preregistered tests: predictions, code, results (raw data excl
 litmap/           Literature map, prior-art table, threats, and DOI verification
 reviews/          Hostile and independent reviews, including the DECISIVE/F1 review
 applications/     How this theory is applied (AI memory; Looper; ants) — no personal data
-LICENSE.md        Placeholder: no license chosen yet (TODO for the author)
+LICENSE.md        CC0 1.0: public domain, free for any use
 ```
 
 ## Applications (separate from the theory)
 
 - **AI memory**, worked out as math and a toy simulation in the public repository [`Chad-Mitchell/adaptive-memory-levels`](https://github.com/Chad-Mitchell/adaptive-memory-levels). That repo is one application. It is not this theory, and its toy results are not evidence that the theory is true.
 - **Looper** is a personal-assistant application of the same hypothesis. It is developed separately. This repository does not contain Looper code, store contents, or any personal data.
-- **Video:** an [earlier draft explainer](video/gtao_v7.mp4), **superseded**; a new video is on hold while the theory is finalized. Its script and fact-check are in [`video/`](video/); the fact-check was run against v1.4.19, before the v1.4.20 narrowing of N26 and N28.
+- **Video:** a new explainer is on hold while the theory is finalized. An earlier draft (v7) was removed on 18 November 2026; it is in Git history.
 - **Ants:** the field-literature check is in BIO1; a code-ant simulation of the √N claim is ANTS1 (finished 15 Nov; `reviews/night1/ANTS1_WRITEUP.md`).
 
 ## How this should be read
@@ -128,4 +128,4 @@ Do not treat locked predictions as findings, and do not treat a support that is 
 
 ## License
 
-See `LICENSE.md`. No license has been chosen.
+Public domain under CC0 1.0 (`LICENSE.md`): anyone may use, change and share any of this for any purpose, without asking or crediting.
