@@ -7,7 +7,8 @@ d = price of one telling attempt, N targets, update interval T; cost rate of the
 (A) independent delivery failure, s = (1-p)^h = success probability per target per cycle, no retry within the cycle:
       E[age] = T (2-s)/(2 s);  central wins at zero extra latency iff d/c < 1/g - 1/N, g = (2-s)/s.
 (A') retry until acknowledged (attempts per target 1/s, same age as no failure): central wins iff d/c < s (1 - 1/N).
-(B) throat outages (alternating up/down renewal process, up-fraction A, down time X with mean theta, CV^2), FIFO delivery:
+(B) throat outages (alternating up/down renewal process, up-fraction A, down time X with mean theta, CV^2), queued updates
+    delivered at reopening (FIFO here; only the newest matters for the age, so newest-first gives the same mean):
       E[age] = T/2 + (1-A) E[X^2]/(2 E[X]) = T/2 + (1-A) theta (1+CV^2)/2  -> the section-2 latency rule with l = that extra term.
 (C) station coverage with independent throat failure p: nu -> (1-p) nu (thinning of a Poisson process).
     Tube map with throats failing independently (quenched) with probability p: slope of latency against distance (simulation).

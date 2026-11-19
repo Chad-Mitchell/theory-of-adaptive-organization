@@ -11,7 +11,7 @@ Working drafts. None of this is claimed as a new theorem. Each file labels what 
 | `theorem-v2-checks/` | Code checks for those two drafts. |
 | `MATH_ATTACK.md` | Hostile mathematical pass: what follows from one objective, what does not, the thermodynamic floor, and proposed decisive tests. |
 | `math-checks/` | Code checks for `MATH_ATTACK.md`. |
-| `REACH.md`, `COSMIC_WEB.md`, `WORMHOLES.md`, `TORUS.md` | (v1.4.23; corrected v1.4.24 after `reviews/reach_2026-11-18/INDEPENDENT_REVIEW.md`; open items worked v1.4.25) Viruses and what counts as life (the cost ledger), the cosmic web as a network, wormholes (CONDITIONAL), the torus and cosmic topology, dark matter and energy as inputs, fractal time stated exactly. Labelled DERIVED / RESTATEMENT / PRIOR ART / HYPOTHESIS / CONDITIONAL. |
+| `REACH.md`, `COSMIC_WEB.md`, `WORMHOLES.md`, `TORUS.md` | (v1.4.23; corrected v1.4.24 after `reviews/reach_2026-11-18/INDEPENDENT_REVIEW.md`; open items worked v1.4.25; second independent review `reviews/reach_2026-11-18/INDEPENDENT_REVIEW_2.md` applied v1.4.26) Viruses and what counts as life (the cost ledger), the cosmic web as a network, wormholes (CONDITIONAL), the torus and cosmic topology, dark matter and energy as inputs, fractal time stated exactly. Labelled DERIVED / RESTATEMENT / PRIOR ART / HYPOTHESIS / CONDITIONAL. |
 | `reach_checks/` | Code and saved output for those notes: proximity-graph nulls, pooling and station-catchment checks, the sine circle map. |
 
 Reviews of these documents live in `../reviews/`.

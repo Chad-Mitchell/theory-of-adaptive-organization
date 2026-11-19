@@ -5,8 +5,9 @@
 (B) Interior optimum, ASSUMPTIONS: benefit V per unit time while locked (locked = |Omega| < a, a = K/2pi = eps Z), Omega ~ Normal(mu, sigma^2) across
     the targets or over time, price c per unit of a (linear in K).   maximise  U(a) = V P(|Omega| < a) - c a.
     mu = 0:  interior optimum a* = sigma sqrt(2 ln(2V/(c sigma sqrt(2 pi)))) for c < c0 = 2V/(sigma sqrt(2 pi)), else a* = 0 (continuous onset).
-    P'(a) = phi(a - mu) + phi(a + mu) is unimodal on a >= 0 iff |mu| <= sigma, so U is concave (unique interior optimum, continuous in c) iff |mu| <= sigma;
-    for |mu| > sigma the benefit is convex at small a and the optimum jumps between 0 and a large value (first-order, all-or-nothing).
+    P'(a) = phi(a - mu) + phi(a + mu) is unimodal on a >= 0 iff |mu| <= sigma, so U is concave on a >= 0 (optimum continuous in c; zero for c >= 2 V phi(mu/sigma)/sigma) iff |mu| <= sigma;
+    for |mu| > sigma the benefit is convex at small a and the optimum jumps from 0 to a large interior value (first order).
+    Also assumed (A0, independent review 2): symmetric phase-response curve (Z_max = -Z_min) and an invertible map, 1 + eps Z' > 0.
 """
 import numpy as np
 from scipy.special import erf

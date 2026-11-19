@@ -1,0 +1,19 @@
+data N = 16535, mask 8815 deg^2, nbar = 0.0302 (h/Mpc)^3
+data xi_s: [15.658 10.51   6.616  4.305  2.632  1.576  0.913  0.505  0.27 ]
+DATA: {'l4': 1.3947, 'vm4': 6.6716, 'kmax4': 47.0, 'S1_4': 0.0849, 'l10': 2.1869, 'vm10': 14.258, 'kmax10': 95.0, 'S1_10': 0.0774, 'kfix0': 3.9993, 'kfix1': 10.0013, 'knn20': 2.5007}
+LN2 calibration pass 0: var(G) = 6.52, mean mock/data xi_s = [1.05 0.92 0.9  0.88 0.9  0.87 0.79 0.73 0.56]  (83 s)
+LN2 calibration pass 1: var(G) = 15.33, mean mock/data xi_s = [2.68 0.88 1.02 0.95 1.23 1.14 0.97 0.62 0.59]  (152 s)
+LN2 calibration pass 2: var(G) = 22.61, mean mock/data xi_s = [3.57 1.04 1.25 0.72 0.53 0.56 0.59 0.65 0.7 ]  (226 s)
+LN2 final input table: [ 5.436 11.858  6.002  6.157  3.811  2.379  1.588  1.189  0.751]
+Traceback (most recent call last):
+  File "/tmp/rv2/work/hub_nulls_v2.py", line 128, in <module>
+    P_, vg = ln_mock_ok(1000 + sd, sqP, nhi); LNxi.append(ls_xi(P_)); LNrows.append(allstats(P_, lfix))
+                                                                                    ~~~~~~~~^^^^^^^^^^
+  File "/tmp/rv2/work/hub_nulls_v2.py", line 74, in allstats
+    s = radius_stats(P, kmean=km); out.update({"l%d" % km: s["l"], "vm%d" % km: s["vm"], "kmax%d" % km: s["kmax"], "S1_%d" % km: s["top1"]})
+  File "/tmp/rv2/work/hub_nulls_v2.py", line 67, in radius_stats
+    if l is None: l = brentq(lambda x: (t.query_ball_point(P, x, return_length=True) - 1).mean() - kmean, 0.05, 30.0, xtol=1e-3)
+                      ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/box/.local/lib/python3.13/site-packages/scipy/optimize/_zeros_py.py", line 858, in brentq
+    r = _zeros._brentq(f, a, b, xtol, rtol, maxiter, args, full_output, disp)
+ValueError: f(a) and f(b) must have different signs
