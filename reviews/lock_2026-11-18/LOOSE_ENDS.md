@@ -103,8 +103,8 @@
 ## Self-application (third order, about this project)
 
 Theorem G says a checked copy beats letting a fact fade only while drift × check cost is below the fact's value; past the freeze edge, freeze it. The repo's own ledger fits that pattern:
-- Six of the first eleven scored outcomes on 15 November changed a CLAIM_MAP status.
-- None of the next 40 scored outcomes did. That run started at 12:45 PM ET and continued to the end of the 15 November work; the only later change was SENSE-CELL-REFEREE on 18 November, which was unscored.
+- Six of the first eleven scored outcomes on 15 November are logged as changing the claim map.
+- In the next 40 scored outcomes (12:45 PM ET to the end of 15 November), no existing row changed status; four only added new rows (N18, N21, N22, N23). The only later logged change was SENSE-CELL-REFEREE on 18 November, which was unscored.
 
 Read through GTAO's own lens, the canonical text's drift rate has fallen below what continued rewriting costs, which argues for **freezing** it (a lock and a v1.5 tag) and moving the spend to measurement. This is a heuristic, not a test, and `PROCESS.md` §4 states the count's limits.
 
