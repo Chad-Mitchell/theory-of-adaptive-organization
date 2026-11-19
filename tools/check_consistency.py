@@ -6,7 +6,7 @@ Exit code 0 = no FAIL in the maintained (canonical) documents.
 
 What it checks
   1. Versions: THEORY.md's title version and CLAIM_MAP_v2.md's latest "vN note"
-     agree with every maintained pointer (README, STATUS, THEORY header, BRIEF).
+     agree with every maintained pointer (README, STATUS, THEORY header).
   2. Banned wording in maintained docs:
        - "law" used of GTAO (any bare 'law' not in an allow-listed compound
          such as 'power law', 'area law', 'law firm', a named physical law,
@@ -42,9 +42,9 @@ def main(argv=None):
     os.chdir(ROOT)
 
     MAINTAINED = [
-        "README.md", "STATUS.md", "THEORY.md", "QUEUE.md", "BRIEF.md",
+        "README.md", "STATUS.md", "THEORY.md", "process/QUEUE.md",
         "measurement/FRAMEWORK.md", "measurement/CLAIM_MAP_v2.md",
-        "theory/README.md", "theory/SCALE_ENDS.md", "theory/SCALE_ENDS_SUMMARY_FOR_CHAD.md",
+        "theory/README.md", "theory/SCALE_ENDS.md",
         "applications/README.md", "tests/README.md", "reviews/README.md",
         "litmap/LITMAP.md", "litmap/PRIOR_ART.md", "litmap/THREATS.md",
         "litmap/LEFT_ON_THE_TABLE.md", "theory/BOOKENDS.md",
@@ -85,7 +85,6 @@ def main(argv=None):
         ("STATUS.md", r"`THEORY\.md` — the theory \(v(\d+\.\d+(?:\.\d+)?[a-z]?)\)", "T"),
         ("STATUS.md", r"`measurement/CLAIM_MAP_v2\.md` \(v(2\.\d+);", "C"),
         ("THEORY.md", r"Claim statuses: `measurement/CLAIM_MAP_v2\.md` \(v(2\.\d+)\)", "C"),
-        ("BRIEF.md", r"\*\*Checked against:\*\*[^\n]*?CLAIM_MAP v(2\.\d+)", "C"),
     ]
     for f, rx, which in POINTERS:
         if not os.path.exists(f):
