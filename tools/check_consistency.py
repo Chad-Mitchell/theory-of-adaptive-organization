@@ -26,6 +26,11 @@ What it checks
      R1 no self-review is called independent; R2 the CLAIM_MAP current tally
      equals the rows; R3 table rows have as many cells as their header; R4 no
      named GTAO relation is called a 'law'; R5 the repo is not called private.
+  5. Core rules (THEORY v2.0, 19 Nov 2026): R6 every ID in THEORY Appendix C
+     is in CLAIM_MAP section O (and back) with the same base status and
+     counted row; R7 length budgets (THEORY main text <= 5,500 words, README
+     <= 900); R8 the keep / hold / know table appears only in THEORY §1 and
+     README.
 Frozen history (locked tests, preregs, review records, night-1/2 working
 files, older theory notes) is scanned for the same wording and reported as
 INFO only: those files are dated records and are not edited.
@@ -49,6 +54,8 @@ def main(argv=None):
         "litmap/LITMAP.md", "litmap/PRIOR_ART.md", "litmap/THREATS.md",
         "litmap/LEFT_ON_THE_TABLE.md", "theory/BOOKENDS.md",
         "theory/REACH.md", "theory/COSMIC_WEB.md", "theory/WORMHOLES.md", "theory/TORUS.md",
+        "theory/GENERAL_THEOREM.md", "theory/INTERNAL_MODEL.md", "theory/MATH_ATTACK.md", "reference/CHANGELOG.md",
+        "reviews/night1/formal/AXIOMS.md", "reviews/night1/formal/THEOREMS.md", "reviews/night1/formal/checks/README.md",
     ]
     MAINTAINED = [f for f in MAINTAINED if os.path.exists(f)]
     ALL_MD = sorted(p for p in glob.glob("**/*.md", recursive=True))
@@ -110,7 +117,7 @@ def main(argv=None):
     TOE_NEG = re.compile(r"(not|never|isn't|is not|no)[^.]{0,40}theor(y|ies) of everything|theor(y|ies) of everything['\"”’]?\)?[^.]{0,30}(imposter|banned|withdrawn)", re.I)
     FIELD = re.compile(r"\b(MATCH1|DECISIVE|banks?|glucose|populations|F1|C3b?|BIO1|COLLAPSE1|DRIFT1|measles|PIAAC|Enron|VIGIL[_-]ONA|GITHUB-UPSTREAM|WIKIDATA-BAND|CAISO|SPF|VIX|SENSE-CELL|LANG1|MEASURE-SELF|news(-| )recall|D3S?)\b")
     VERDICT = re.compile(r"(\b(passed|failed|confirmed|refuted|killed|kill fired)\b|\bHIT\b)")
-    LABEL = re.compile(r"(proxy|PROXY|in-model|in model|SIM-|simulat|synthetic|dry run|gate|MV\d|Tier|known-groups|prereg|locked|lock |kill rule|joint (kill )?rule|literal|referee|review|power|not a (theory-specific )?hit|sign-only|INCONCLUSIVE|NOT EVIDENCE|MATH-CORRECTED|withdrawn|premise|by construction|reproduce|replicate|own code|own MC|Monte Carlo|pass rule|wrong-pass|[\"“][^\"”]{0,12}(hit|passed|failed)[^\"”]{0,3}[\"”])", re.I)
+    LABEL = re.compile(r"(failed[- ]bank|proxy|PROXY|in-model|in model|SIM-|simulat|synthetic|dry run|gate|MV\d|Tier|known-groups|prereg|locked|lock |kill rule|joint (kill )?rule|literal|referee|review|power|not a (theory-specific )?hit|sign-only|INCONCLUSIVE|NOT EVIDENCE|MATH-CORRECTED|withdrawn|premise|by construction|reproduce|replicate|own code|own MC|Monte Carlo|pass rule|wrong-pass|[\"“][^\"”]{0,12}(hit|passed|failed)[^\"”]{0,3}[\"”])", re.I)
     SIGNOFF = re.compile(r"(sign[- ]?off|signs off|signed off|once Chad|until Chad|await(s|ing)? Chad)", re.I)
     GATECTX = re.compile(r"(gate|MV\d|M2\b|binding)", re.I)
     STALE = re.compile(r"(silent on black holes|nothing (is )?keeping score|no predictions? about black holes|makes no predictions about black holes)", re.I)
@@ -344,6 +351,76 @@ def main(argv=None):
         print("  FAIL " + x)
     print("  process-rule FAILs: %d" % len(pf))
     fails.extend("FAIL " + x for x in pf)
+
+    # ---------------------------------------------------------------- 5. core rules (THEORY v2.0)
+    print("\n== 5. Core rules (THEORY v2.0)")
+    cf = []
+    # R6: THEORY Appendix C claim index <-> CLAIM_MAP section O, same base status and counted row
+    sec_o = re.search(r"^## O\. .*?(?=^## )", cm, re.M | re.S)
+    o_rows = {}
+    if sec_o:
+        for ln in sec_o.group(0).split("\n"):
+            mo = re.match(r"^\| ((?:CT|CL|CX)\d+)(?: → ([A-Z]{1,2}\d+[′']?[a-z]?))? \|", ln)
+            if mo:
+                cells = [c.strip() for c in re.split(r"(?<!\\)\|", ln)]
+                o_rows[mo.group(1)] = (base(cells[4]) if len(cells) > 4 else None, mo.group(2) or mo.group(1))
+    app_c = re.search(r"^## Appendix C\..*", theory, re.M | re.S)
+    c_rows = {}
+    if app_c:
+        for ln in app_c.group(0).split("\n"):
+            mo = re.match(r"^\| ((?:CT|CL|CX)\d+) \|", ln)
+            if mo:
+                cells = [c.strip() for c in re.split(r"(?<!\\)\|", ln)]
+                c_rows[mo.group(1)] = (base(cells[4]) if len(cells) > 4 else None, cells[5] if len(cells) > 5 else "")
+    if not o_rows:
+        cf.append("core-index: CLAIM_MAP has no section O rows")
+    if not c_rows:
+        cf.append("core-index: THEORY.md has no Appendix C claim index")
+    for k, (st, counted) in sorted(c_rows.items()):
+        if k not in o_rows:
+            cf.append("core-index: THEORY Appendix C lists %s, which CLAIM_MAP section O lacks" % k); continue
+        if st != o_rows[k][0]:
+            cf.append("core-index: THEORY Appendix C says %s is %s; CLAIM_MAP section O says %s" % (k, st, o_rows[k][0]))
+        if counted != o_rows[k][1]:
+            cf.append("core-index: THEORY Appendix C counts %s as %s; CLAIM_MAP section O counts it as %s" % (k, counted, o_rows[k][1]))
+    for k in sorted(set(o_rows) - set(c_rows)):
+        cf.append("core-index: CLAIM_MAP section O has %s, missing from THEORY Appendix C" % k)
+    print("  claim index: %d rows in THEORY Appendix C, %d in CLAIM_MAP section O" % (len(c_rows), len(o_rows)))
+    # R7: length budgets
+    def words(t):
+        return len(re.findall(r"\S+", t))
+    mi = re.search(r"^## Appendix A\.", theory, re.M)
+    main_w = words(theory[:mi.start()] if mi else theory)
+    readme_w = words(read("README.md"))
+    BUDGET = {"THEORY.md main text (before Appendix A)": (main_w, 5500), "README.md": (readme_w, 900)}
+    for name, (n, cap) in BUDGET.items():
+        print("  %-4s %-42s %5d words (cap %d)" % ("OK" if n <= cap else "FAIL", name, n, cap))
+        if n > cap:
+            cf.append("length: %s has %d words, over the cap of %d" % (name, n, cap))
+    if not mi:
+        cf.append("length: THEORY.md has no '## Appendix A.' heading to end the main text")
+    # R8: the keep / hold / know table lives only in THEORY §1 and README
+    SPINE = re.compile(r"^\|\s*\**(Keep|Hold|Know|Burn)\**\s*\(", re.M)
+    for p in MAINTAINED:
+        t = read(p)
+        hits = [t.count("\n", 0, m_.start()) + 1 for m_ in SPINE.finditer(t)]
+        if not hits:
+            continue
+        if p == "THEORY.md":
+            s1 = re.search(r"^## 1\. .*?(?=^## )", t, re.M | re.S)
+            lo = t.count("\n", 0, s1.start()) + 1 if s1 else 0
+            hi = t.count("\n", 0, s1.end()) + 1 if s1 else -1
+            out = [h for h in hits if not lo <= h <= hi]
+            if out:
+                cf.append("spine-duplicate: THEORY.md has the keep/hold/know table outside §1 (line %s)" % ",".join(map(str, out)))
+        elif p != "README.md":
+            cf.append("spine-duplicate: %s:%d repeats the keep/hold/know table (only THEORY §1 and README may carry it)" % (p, hits[0]))
+        if len(hits) > 3:
+            cf.append("spine-duplicate: %s carries the keep/hold/know table more than once" % p)
+    for x in cf:
+        print("  FAIL " + x)
+    print("  core-rule FAILs: %d" % len(cf))
+    fails.extend("FAIL " + x for x in cf)
 
     # ---------------------------------------------------------------- summary
     print("\n== Summary")
