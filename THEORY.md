@@ -49,13 +49,13 @@ The bill has three parts, plus the risk of ruin:
 
 The three parts are priced by physics as floors at every scale. Erasing a bit costs at least kT ln 2 of heat (Landauer). For a driven system that meets their conditions, memory that does not predict the signal sets a floor on dissipation (Still, Sivak, Bell & Crooks 2012). Holding information is a continuing flow, not a one-time purchase (Result I5). Tracking has an exact floor with the economic form (Result O1): keeping a random walk of variance rate σ² to mean squared error D dissipates at least kT·σ²/(2D), so the cheapest total is **σ√(2kT·w)**, the same function as the inventory rule σ√(2c·w) with the read price c replaced by kT per nat. That is the precise sense of "only the currency changes": replace kT by what a nat actually costs the system, and the gap between the two is measurable.
 
-Which floor applies to which part matters. Erasure, and the measure-and-erase cycle, never become free. The price of *holding* information about very slow drift can approach zero for quasi-static passive coupling (`theory/SCALE_ENDS.md` E3). The floors bind in cells, where sensing is measurably dissipative (Lan et al. 2012). Above the cell they are literal but slack: a chemical synapse pays about 10⁵–10⁶ times kT ln 2 per bit (Laughlin, de Ruyter van Steveninck & Anderson 1998), and a firm pays far more in salaries and attention. There the exponents come from information theory and competition, not from heat. Whether the second law does more than this above the cell is an **open disagreement**. Chad's position is that the physics is not decorative. In the proofs it supplies why upkeep exists and the floors, and nothing else. A cell in which the physical price per nat and the precision exponent are both measured would settle it.
+Which floor applies to which part matters. Erasure, and the measure-and-erase cycle, never become free. The price of *holding* information about very slow drift can approach zero for quasi-static passive coupling (`theory/SCALE_ENDS.md` E3). The floors bind in cells, where sensing is measurably dissipative (Lan et al. 2012). Above the cell they are literal but slack: a chemical synapse pays about 10⁵–10⁶ times kT ln 2 per bit (Laughlin, de Ruyter van Steveninck & Anderson 1998), and a firm pays far more in salaries and attention. There the exponents come from information theory and competition, not from heat. Whether the second law does more than this above the cell is an **open disagreement**. Chad's position is that the physics is not decorative. In the proofs, physics supplies only the floors and the reason upkeep exists. A cell in which the physical price per nat and the precision exponent are both measured would settle it.
 
 ## 3. When judgment pays
 
 **Result 1 (Theorem P).** In a stationary world (W-a):
 - **(P0)** every agent's long-run mean loss is at least D(I_pred), the least loss any action can reach with I_pred nats of predictive information about the world it will meet. If income minus other costs falls below that, ruin is certain.
-- **(P1)** a model is necessary exactly when acting blind is not viable: when every blind policy's loss is at least its income minus its own other costs (strict inequality; Appendix B).
+- **(P1)** a model is necessary exactly when acting blind is not viable: when every blind policy's loss is at least its income minus its own other costs (equality counts as not viable when the reserve's increments are nondegenerate; Appendix B, CT2).
 - **(P2)** there is a horizon. Nothing in memory can predict the world at lead k better than the world's own present does, so beyond some lead no model makes acting ahead viable.
 - **(P3)** a model is carried only if its first bit pays: when κ is less than the loss that bit saves. In the Gaussian case, carry a model iff κ < 2 ln 2·a²·Var, and then its size is I\* = ½ log₂(2 ln 2·a²·Var/κ) bits. A model grows only with the logarithm of what is at stake.
 
@@ -91,7 +91,7 @@ The six results below are the ones the rules stand on. Each is proved in Appendi
 
 *Why.* Over a check cycle, the saving against acting blind is the integral of what a reading is still worth as it ages. That integral only grows with the cycle length, and its limit is Φ, so some cycle beats fading exactly when Φ exceeds the drift-scaled price of a check.
 
-Three consequences complete rule 2 and rule 7. A copy's value only falls with age and with hops (G1, by Blackwell's garbling theorem). Watching effort rises with stakes (G4) and with drift, then stops: with any bounded fallback, such as reading the source at use, it falls off a **cliff**, not a slope (G3). And with a lookup price u, use rate μ, read price c, upkeep h and lifetime τ_life, a fact is **frozen** when drift is below q_f = 2c/(W·τ_life²), **looked up** when drift is above q_c = (μu − h)²/(2cW), and **held** in between. That holding band exists iff μu·τ_life > 2c + h·τ_life, and a store shared by N users widens it by a factor N² (Result T8). With no action whose payoff depends on the world, Φ = 0 and nothing is ever held (E1): this is why atoms are frozen. The statement is partly definitional.
+Three consequences complete rule 2 and rule 7. A copy's value only falls with age and with hops (G1, by Blackwell's garbling theorem). Watching effort rises with stakes (G4) and with drift, then stops: with any bounded fallback, such as reading the source at use, it falls off a **cliff**, not a slope (G3). And with stakes W per user, a lookup price u, use rate μ, read price c, upkeep h and lifetime τ_life, a fact is **frozen** when drift is below q_f = 2c/(W·τ_life²), **looked up** when drift is above q_c = (μu − h)²/(2cW), and **held** in between. That holding band exists iff μu·τ_life > 2c + h·τ_life, and a store shared by N users widens it by a factor N² (Result T8). With no action whose payoff depends on the world, Φ = 0 and nothing is ever held (E1): this is why atoms are frozen. The statement is partly definitional.
 
 ### 5.2 How often to look
 
@@ -118,7 +118,7 @@ The onset −1 is prior art in substance (Veldkamp & Wolfers 2007; Van Zandt & R
 
 ### 5.4 Who must be in charge
 
-**Result 5 (one clock, and who under-watches).** One clock serving several parts costs at least what the parts would pay on their own clocks, with equality **iff c_i/(w_i·σ_i²) is the same for every part** (the analogue of Gorman's 1953 condition for a representative agent). If a part counts only Λ_i of the loss Λ_whole that the whole suffers when it fails, it watches at (Λ_i/Λ_whole)^{1/α} of the whole's optimal rate. That is √ at α = 2, so a worker that shares relatedness r of its colony's fate under-watches by about 13% even in the best case (r = ¾, full sisters under single mating).
+**Result 5 (one clock, and who under-watches).** One clock serving several parts costs at least what the parts would pay on their own clocks, with equality **iff c_i/(w_i·σ_i²) is the same for every part** (the analogue of Gorman's 1953 condition for a representative agent). If a part counts only Λ_i of the loss Λ_whole that the whole suffers when it fails, it watches at (Λ_i/Λ_whole)^{1/α} of the whole's optimal rate. That is √ at α = 2, so a worker whose stake in its colony's fate is its relatedness r_rel under-watches by about 13% even in the best case (r_rel = ¾, full sisters under single mating).
 
 *Why.* Cauchy–Schwarz gives the first part. The read-rate rule, applied to the stake each part actually bears, gives the second.
 
@@ -173,7 +173,7 @@ A system with buffer B, diffusive shocks of size σ and one fixing time scale τ
 **The theory's own, as far as anyone has found:**
 1. **The synthesis**: one three-part bill, with ruin and a selection tolerance, priced the same way from cells to cities, with every cost term booked (§2.2). Most pieces exist; no one is known to have assembled them into one budget with one set of relations and tested it across scales with measured inputs.
 2. **The bet** posed so that it can fail at every scale, with measured inputs, a fixed rival, preregistered kills and validity gates.
-3. **Elementary results that appear to be new:** hold-or-fade for any Markov world and any loss (Result 2); the freeze, hold and look-up band with its N² widening (T8); the onset exponent fixed by the level's technology, independently of α, and the telling-price rule (Result 4); the vigilance floor; the exact form of LAT-1 (Result 6); the temperature identity (Result R); and when judgment pays, with the persistence operating point (Result 1).
+3. **Elementary results that appear to be new:** hold-or-fade for any Markov world and any loss (Result 2); the freeze, hold and look-up band with its N² widening (T8); the onset exponent fixed by the level's technology, independently of α, and the telling-price rule (Result 4); the vigilance floor; the exact form of LAT-1 (Result 6); the temperature identity (Result R); and the assembly of when judgment pays (Result 1).
 
 Each is new only "as far as we know": the prior-art search is not exhaustive, and none of these is claimed as deep. The structure is the point.
 
@@ -213,6 +213,7 @@ One symbol, one meaning, throughout this file. Files elsewhere in the repository
 | θ | precision-price exponent (spend ∝ precision^θ) | a Lundberg exponent (here: ϑ) and an outage mean |
 | B, σ, τ, z | buffer; shock scale; fixing time scale; **z = B/(σ√τ)** (temperature = 1/z) | `theory/GENERAL_THEOREM.md` §4 writes z = σ√τ/B |
 | L, v, τ_hop, Λ_hop | extent; fastest signal speed; hop latency; span of one shortcut | — |
+| τ_life | lifetime of a fact (T8) | — |
 | ε | selection tolerance | ε_X = ∂ ln ν/∂ ln X, an elasticity |
 
 ---
@@ -338,9 +339,9 @@ At d = 0 this is CT14; as ρ → ∞ it becomes d/c < 1 − 1/N. Latency ℓ on 
 
 **Lemma B3 (shared and private drift push the onset in opposite directions).** ∂N\*/∂q_g < 0 < ∂N\*/∂q_u at every ρ, for a common technology (CLAIM_MAP C1; formal Theorem 3).
 
-**Lemma B4 (vigilance at birth).** In the reset class at α = 2, the new level's effort over a flat member's effort at onset is V(N\*) = ½(1 + (1+ρ)^{−1/2})(1 + √(1 + 4h′(√(1+ρ) − 1)/(rρ))), where r is the level's price over a member's and h′ is upkeep in member-cost units. Its floor (h′ = 0) is **1 + (1+ρ)^{−1/2}**, strictly between 1 and 2. The earlier "V ≥ 2" is false as stated (CLAIM_MAP E5, E6, E7).
+**Lemma B4 (vigilance at birth).** In the reset class at α = 2, the new level's effort over a flat member's effort at onset is V(N\*) = ½(1 + (1+ρ)^{−1/2})(1 + √(1 + 4h′(√(1+ρ) − 1)/(r_pρ))), where r_p is the level's read price over a member's and h′ is upkeep in member-cost units. Its floor (h′ = 0) is **1 + (1+ρ)^{−1/2}**, strictly between 1 and 2. The earlier "V ≥ 2" is false as stated (CLAIM_MAP E5, E6, E7).
 
-**Lemma B5 (clocks).** With K independent components read separately at additive cost, separate clocks save at most 1 − K^{−(1−γ)}: 29% for K = 2 at γ = ½. With indivisible reads they never save (formal Proposition 9; known).
+**Lemma B5 (clocks).** With K independent components read separately at additive cost, in the technology class P(γ, γ), separate clocks save at most 1 − K^{−(1−γ)}: 29% for K = 2 at γ = ½. With indivisible reads they never save (formal Proposition 9; known).
 
 **Lemma B6 (selection resolution).** In 𝒜₁ a level's largest possible fractional saving (N → ∞) is 1 − (1+ρ)^{−b} ≤ bρ (Bernoulli's inequality). So if selection resolves only relative differences larger than ε, no level is selected at any N when ρ ≤ (1 − ε)^{−1/b} − 1 ≈ ε/b: 0.020 at ε = 1% and 0.108 at ε = 5% (b = ½). Formal Proposition 10; CLAIM_MAP F15.
 
@@ -356,7 +357,7 @@ With heterogeneous read prices the shared-clock penalty is unbounded (51× in ra
 
 ### B.6 Buffers, failure and the temperature
 
-**CT18 (the temperature identity).** *The error accumulates as σ·W_t from each fix, and fixes act on one time scale τ (periodic resets, Poisson resets at rate 1/τ, or proportional restoring at rate 1/τ). Failure occurs when the error reaches B (one- or two-sided).* Then the hazard is **ν = F(z)/τ with z = B/(σ√τ)**, for some function F fixed by the fixing mechanism. Its elasticities satisfy **ε_B = −ε_σ and ε_τ = ε_σ/2 − 1**. Slow fixing raises the hazard iff ε_σ > 2, and at a fixed observed spread s = σ√τ, ε_τ = −1.
+**CT18 (the temperature identity).** *The error accumulates from each fix as σ times a standard Brownian motion, and fixes act on one time scale τ (periodic resets, Poisson resets at rate 1/τ, or proportional restoring at rate 1/τ). Failure occurs when the error reaches B (one- or two-sided).* Then the hazard is **ν = F(z)/τ with z = B/(σ√τ)**, for some function F fixed by the fixing mechanism. Its elasticities satisfy **ε_B = −ε_σ and ε_τ = ε_σ/2 − 1**. Slow fixing raises the hazard iff ε_σ > 2, and at a fixed observed spread s = σ√τ, ε_τ = −1.
 
 *Proof.* The inputs are σ (units x·t^{−1/2}), τ (t) and B (x), and ν has units 1/t. The only dimensionless group is z, so ν·τ = F(z) (Buckingham π). With g = d ln F/d ln z: ε_B = g, ε_σ = −g, and ε_τ = −g/2 − 1 = ε_σ/2 − 1. At fixed s, ν = F(B/s)/τ, so ε_τ = −1. ∎
 
