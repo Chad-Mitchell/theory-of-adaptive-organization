@@ -8,7 +8,7 @@
 
 **Top.** Stars burn fuel but track nothing outside: held, no model. A black hole is the extreme of the frozen class: the most information possible for its size, at the lowest energy per bit for that size, no upkeep. It leaks away over ~10⁶⁷ years × (solar masses)³. Three numbers are readable; if evaporation is unitary, the rest returns scrambled only after about the Page time (~0.54 of its lifetime, so ~10⁶⁷ years for a Sun-mass hole, ∝ M³), so nothing uses it as memory. It records the past and predicts nothing.
 
-**How high.** To the cosmic horizon: memory cap ~3×10¹²² nats, a floor price per erased bit (Landauer). Light delay forces big structures to federate (testable on Earth).
+**How high.** To the cosmic horizon: memory cap ~3×10¹²² nats, a floor price per erased bit (Landauer). With no shortcut faster than light, light delay forces big structures to federate (testable on Earth); `WORMHOLES.md` §4b covers the conditional cases.
 
 **Labels.** Derived: both ends, the black hole's place (given known physics; lateness counted as error), the light-delay bound. Hypothesis: the switch-on conditions. Credited: Prigogine, Pross, Kolchinsky–Wolpert, Smolin, Simon. Rejected: atoms predict; black holes think; the theory explains why black holes exist.
 
