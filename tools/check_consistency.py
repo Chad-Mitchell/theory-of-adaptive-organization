@@ -22,7 +22,7 @@ What it checks
      maintained doc exists in CLAIM_MAP section N, and wherever a maintained
      doc states a status right after a CLAIM_MAP N-number, the base status
      matches the CLAIM_MAP row.
-  4. Process rules (lock pass, 19 Nov 2026; reviews/lock_2026-11-18/PROCESS.md):
+  4. Process rules (lock pass, 18 Nov 2026; reviews/lock_2026-11-18/PROCESS.md):
      R1 no self-review is called independent; R2 the CLAIM_MAP current tally
      equals the rows; R3 table rows have as many cells as their header; R4 no
      named GTAO relation is called a 'law'; R5 the repo is not called private.

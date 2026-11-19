@@ -1,4 +1,4 @@
-# Lock-readiness pass, 18–19 November 2026
+# Lock-readiness pass, 18 November 2026
 
 Done for Chad Mitchell (pt1957u) by one Grok Bot executor, via Ace. Times are ET (America/New_York). Base: `main` at `601344e` (THEORY v1.4.26, CLAIM_MAP v2.45). Result: THEORY v1.4.27, CLAIM_MAP v2.46.
 
