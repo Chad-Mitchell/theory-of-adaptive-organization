@@ -2,26 +2,26 @@
 
 Author: Chad Mitchell — X: [@torusflow](https://x.com/torusflow)
 
-**Everything that lasts has to pay, and anything that must stay matched to a changing world pays one three-part bill: holding memory, being wrong or late, and the reads that keep the memory fresh.** GTAO is a falsifiable theory of how that bill shapes the design of any adaptive organization: a cell, an immune system, an ant colony, a person, a firm, a city. Its mathematics is proved only inside the model, and much of it is known mathematics, assembled and credited. Whether real systems follow it is **untested, not refuted**. It is a theory, not a law, and **not a theory of everything**.
+**To last, a thing must either sit where almost nothing can knock it loose or pay to stay; anything that must stay matched to a changing world pays one three-part bill: holding memory, being wrong or late, and the reads that keep the memory fresh.** GTAO is a falsifiable theory of how that bill shapes the design of any adaptive organization: a cell, an immune system, an ant colony, a person, a firm, a city. Its mathematics is proved only inside the model, and much of it is known mathematics, assembled and credited. Its bet is that strongly selected real systems sit near its optima, with the same relations (not the same constants) holding from cells to cities once the inputs are measured on each system; that bet is **untested, not refuted**. It is a theory, not a law, and **not a theory of everything**.
 
-*Public working draft since 18 November 2026. Not peer reviewed; not a published paper. Public domain (CC0).*
+*Public working draft since 18 November 2026. Not peer reviewed, not independently reviewed as a whole, and not a published paper. Public domain (CC0).*
 
 ## The idea in one table
 
-The second law says total disorder rises. Local order can still grow, but only by pushing disorder out somewhere else. That law, together with gravity, the speed of light, quantum physics and the universe's low-entropy start, sets the stage; **GTAO adds no new physics.** It asks what it takes to last, and finds three ways:
+The second law says total disorder rises. Local order can still grow, but only by pushing disorder out somewhere else. That law, together with gravity, the speed of light, quantum physics and the universe's low-entropy start, sets the stage; **GTAO adds no new physics**, and no proof in its formal layer depends on the second law (`THEORY.md` §2.3). It asks what it takes to last, and finds three ways:
 
 | Way to last | What it pays | Does a model of the world pay? | Examples |
 |---|---|---|---|
 | **Keep** (frozen) | Nothing: it sits in a state almost nothing can knock loose | **No.** Nothing it does changes whether it lasts, so a model would cost something and buy nothing (CLAIM_MAP N25, PROVED (in-model); partly definitional) | Atoms, crystals, a virus particle; at the extreme, a black hole: the most memory physics allows for its size, almost none of it readable (N26, PROVED (in-model), conditional) |
 | **Burn** (held) | A steady flow of energy | **No.** It steadies itself and tracks nothing outside | Stars, flames, hurricanes |
-| **Know** (tracks) | A flow of energy *and* the cost of staying matched to a world that changes and can ruin it | **Yes, once acting late is costly.** Then carrying a model and acting ahead pays | Cells, immune systems, ant colonies, people, firms, cities |
+| **Know** (tracks) | A flow of energy *and* the cost of staying matched to a world that changes and can ruin it | **Yes, once acting late is costly.** Then carrying a model and acting ahead can pay | Cells, immune systems, ant colonies, people, firms, cities |
 
 The third way is **judgment**: not a new physical principle, but a way of staying alive under the old one (`THEORY.md` §0; the full picture, from chemistry to heat death, is [`theory/BOOKENDS.md`](theory/BOOKENDS.md) §1).
 
 **The bill.** A knower pays one budget in three parts, plus the risk of ruin: (1) holding memory, (2) being wrong, including being late, and (3) the reads and effort that keep the memory current. Only the currency changes: heat in a cell, attention in a person, money in a firm. A knower can also pay to make its world change less (homeostasis, buffers, contracts), and that substitutes for watching (`THEORY.md` §5).
 
 **What the bill implies, inside the model** (status in brackets; details in `THEORY.md`):
-- **How often to look, how long to remember, how many memory stores** are set by how the world's change is spread over timescales (spectral slope α), with drift level, sensing noise and stakes. For example, with exact reset reads, read rate ∝ (stakes·drift/price)^{1/α}; one memory store suffices only near α = 2 (a Markov world), and elsewhere the number of stores grows with the span of timescales and with stakes over upkeep. [Known filtering and approximation mathematics plus a price on effort, credited; §2.2.]
+- **How often to look, how long to remember, how many memory stores** are set by how the world's change is spread over timescales (spectral slope α: the power of its change falls as frequency^−α), with drift level, sensing noise and stakes. For example, with exact reset reads, read rate ∝ (stakes·drift/price)^{1/α}; one memory store suffices only near α = 2 (a Markov world), and elsewhere the number of stores grows with the span of timescales and with stakes over upkeep. [Known filtering and approximation mathematics plus a price on effort, credited; §2.2.]
 - **When to share a model:** once enough members face a common driver, a shared level pays: at zero upkeep, N > (√(1+ρ)+1)²/ρ is sufficient, where ρ is shared over private drift. [PROOF in-model; §6, §1 N2.]
 - **Who must be in charge:** no one, *when* keeping shared memory up is privately rewarded; otherwise expect shared fate or enforcement, usually both; shared fate is usually partial (Frank 1995; Ostrom). This narrows the earlier "no one in charge". [HYPOTHESIS; CLAIM_MAP J9 OPEN.]
 - **How big one tracker can be:** light delay caps it, so large organizations federate. On Earth this is a latency cost; off-planet it is a hard cap. [Elementary bound; real-system form N27 OPEN.]
@@ -41,7 +41,7 @@ Optimality is claimed only where selection is strong. Below Lynch's drift barrie
 | Layer | Status | Where |
 |---|---|---|
 | The spine and the keep / burn / know split | A framing. The three-class split is prior art in substance (Prigogine; Pross). Bookend rows are classifications, not predictions: no data could fail them | `theory/BOOKENDS.md`, `theory/SCALE_ENDS.md` |
-| Design exponents from the world's drift spectrum | **Known mathematics**, assembled and credited. In a Markov world (α = 2) the square-root rules hold and one store suffices (Kalman/Muth; Mora & Nemenman 2019 for a sensing cell; Lee, Flack & Krakauer 2024 as an application). In a scale-free world (α ≠ 2) the exponents become 1/α and its relatives, forgetting kernels have power-law tails, and the number of stores grows with log-span and log stakes/upkeep (Afterman et al. 2022; Nuzman & Poor 2000; Benna & Fusi 2016; and others). Holds for a Gaussian world or the best linear tracker; the Bayes tracker of a jump world can differ (N16) | `THEORY.md` §2.2, §10 |
+| Design exponents from the world's drift spectrum | **Known mathematics**, assembled and credited. In a Markov world (α = 2) the square-root rules hold and one store suffices (Kalman/Muth; Mora & Nemenman 2019 for a sensing cell, whose world is a geometric random walk, so α = 2 holds for log-concentration; Lee, Flack & Krakauer 2024 as an application). In a scale-free world (α ≠ 2) the exponents become 1/α and its relatives, forgetting kernels have power-law tails, and the number of stores grows with log-span and log stakes/upkeep (Afterman et al. 2022; Nuzman & Poor 2000; Benna & Fusi 2016; and others). Holds for a Gaussian world or the best linear tracker; the Bayes tracker of a jump world can differ (N16) | `THEORY.md` §2.2, §10 |
 | Model size across many modes (Regime C) | Model size ∝ Q^{1/β}, an interior minimum of the model's budget share iff β < 1, a minimum viable size from unstable modes: PROOF under stated assumptions with known tools; not reviewed by the spectrum-map referee | `THEORY.md` §2.2 |
 | Levels, vigilance, freeze / hold / look up (the formal layer) | Proved in-model, with corrections ("V ≥ 2" is wrong as stated); mostly built on published team theory and inventory pooling | `THEORY.md` §2.5, §6, §8b |
 | The ends of the scale | Atoms frozen (N25) and black holes as the frozen extreme (N26): PROVED (in-model), the first partly definitional, the second conditional on unitary evaporation and on counting lateness as error; the switch-on of selected models is a hypothesis (N28 OPEN) | `THEORY.md` §2.3 |
@@ -69,7 +69,7 @@ The costs are physically priced, as floors, at every scale from atoms to the cos
 
 ## Start here
 
-**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.27 draft, 18 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands; [`QUEUE.md`](QUEUE.md) is the live work queue; [`BRIEF.md`](BRIEF.md) is a plain-words brief of the whole record, checked against the files; `measurement/FRAMEWORK.md` says how quantities are measured, and `measurement/CLAIM_MAP_v2.md` (v2.46) gives one status per claim. `python3 tools/check_consistency.py` checks versions, wording and claim statuses across these files. This README is a summary.
+**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.28 draft, 18 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands; [`QUEUE.md`](QUEUE.md) is the live work queue; [`BRIEF.md`](BRIEF.md) is a plain-words brief of the whole record, checked against the files; `measurement/FRAMEWORK.md` says how quantities are measured, and `measurement/CLAIM_MAP_v2.md` (v2.47) gives one status per claim. `python3 tools/check_consistency.py` checks versions, wording and claim statuses across these files. This README is a summary.
 
 **Reading paths** (each about an hour):
 - **Physicist:** `THEORY.md` §2.3 (where the physics is literal and where it is not) → `theory/SCALE_ENDS.md` → `theory/BOOKENDS.md` §2 → `theory/WORMHOLES.md`, `theory/COSMIC_WEB.md`. Expect classifications given published physics, not new physics.
@@ -85,7 +85,7 @@ GTAO is a falsifiable causal theory. No Tier-1 test has run: there is no field p
 - The formal layer is proved in-model, with corrections ("V ≥ 2" is wrong as stated), and mostly builds on published team theory and inventory pooling. Its constants are functions of the world's drift spectrum (`THEORY.md` §2.5).
 - The spectrum-to-design map is now derived and refereed (`reviews/night2/SPECTRUM_MAP_REFEREE.md`): it is classical, so it is no longer the headline. What remains open is whether real systems sit near it once its inputs are measured (`QUEUE.md`).
 
-See `THEORY.md` (status block, §2.3, §2.5, §8b–8c) and `measurement/CLAIM_MAP_v2.md` (v2.46).
+See `THEORY.md` (status block, §2.3, §2.5, §8b–8c) and `measurement/CLAIM_MAP_v2.md` (v2.47).
 
 - **There is no new theorem of large scope.** Most individual rules are known results, placed side by side. The math notes label what is known, what is a calculation, and what fails. The one new proof worth keeping (a quantitative internal-model bound) is modest, and its novelty is unconfirmed.
 - **This is a working hypothesis under test**, not a finding. Nothing here has been peer reviewed. An independent review of the DECISIVE and F1 tests is in `reviews/DECISIVE_F1_REVIEW.md` (14 November 2026, America/New_York); the scoreboard below follows its verdict. That review was not fully blind (the reviewer had the results and write-ups). Most other tests have not had an independent review.
@@ -105,7 +105,7 @@ See `THEORY.md` (status block, §2.3, §2.5, §8b–8c) and `measurement/CLAIM_M
 <summary><b>What looked new in v1.0 (kept as history)</b></summary>
 
 
-*This is the v1.0 list, kept as history. The current list of what looks like the theory's own is `THEORY.md` §8b; statuses are in `measurement/CLAIM_MAP_v2.md` (v2.46).*
+*This is the v1.0 list, kept as history. The current list of what looks like the theory's own is `THEORY.md` §8b; statuses are in `measurement/CLAIM_MAP_v2.md` (v2.47).*
 
 Pending targeted searches, and none yet confirmed by a locked, reviewed test:
 
@@ -144,7 +144,7 @@ The preregistration commits for these tests lived only in local, unpushed git re
 ## Repository layout
 
 ```
-THEORY.md         The theory, v1.4.27 draft (start here)
+THEORY.md         The theory, v1.4.28 draft (start here)
 STATUS.md         Where the work stands (rewritten, not appended)
 BRIEF.md          Plain-words brief of the whole record, checked against the files
 QUEUE.md, queue/  Live work queue and ledger

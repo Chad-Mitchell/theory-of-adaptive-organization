@@ -2,7 +2,7 @@
 
 Wednesday 18 November 2026, late evening ET (America/New_York). Grok Bot executor for Chad Mitchell, via Ace (pt1957u). **Not independent** (see `README.md` in this folder). **Every item here is a HYPOTHESIS.** None is a result, and none changes a status in `measurement/CLAIM_MAP_v2.md`. Three items that could be stated precisely are added as OPEN rows (N51–N53, CLAIM_MAP v2.46). The rest stay here, because they are too loose to score.
 
-**How these were found.** Each THEORY rule was taken one step further than the repo takes it (second order: what follows for a system that obeys the rule) and then two steps (third order: what follows for the systems around it). That was done at each scale: cell, person, firm, institution, AI system, cosmos. Every candidate was then checked against the prior art already in the repo (THEORY §12, `litmap/`), plus a short search per item. Citations not already in the repo were checked this session against the publisher or indexing page; the ones read only in a secondary source are marked [SEC]. No full prior-art sweep was done for any item, so "novel" below means **"not found in a short search"**, never "new".
+**How these were found.** Each THEORY rule was taken one step further than the repo takes it (second order: what follows for a system that obeys the rule) and then two steps (third order: what follows for the systems around it). That was done at each scale: cell, person, firm, institution, AI system, cosmos. Every candidate was then checked against the prior art already in the repo (THEORY §10, `litmap/`; this file first said §12, corrected in the independent review), plus a short search per item. Citations not already in the repo were checked this session against the publisher or indexing page; the ones read only in a secondary source are marked [SEC]. No full prior-art sweep was done for any item, so "novel" below means **"not found in a short search"**, never "new".
 
 **How they are ranked.** Three things are weighed:
 - **(T) Testability:** can the inputs be measured, and the test run in months with data or a lab that exists?
@@ -14,9 +14,9 @@ Wednesday 18 November 2026, late evening ET (America/New_York). Grok Bot executo
 | Rank | Loose end | Follows from | T | G | C | CLAIM_MAP |
 |---|---|---|---|---|---|---|
 | 1 | Human attention follows the spectrum exponent 1/α, not a universal ½ | §2.2 read-rate rule | high | medium | high | **N51** OPEN |
-| 2 | Cheap lookup dissolves shared-memory levels but not enforcement levels | T8 lookup edge (F13) + J9 | medium | medium | high | **N52** OPEN |
+| 2 | Cheap lookup dissolves shared-memory levels but not enforcement levels | T8 lookup edge (F13) + J9 (extrapolated, not derived) | medium | low–medium (G lowered in the independent review: Garicano/Bloom prior art; monitoring rival) | high | **N52** OPEN |
 | 3 | Delegation in firms rises with local drift and with latency to the centre | LAT-1 (N27) | medium | low–medium | medium | already **N27** |
-| 4 | Rules vs standards as freeze vs lookup, with drift as the missing variable | T8 (F13) | medium | medium | low–medium | **N53** OPEN |
+| 4 | Rules vs standards as freeze vs lookup, with measured drift as a separate variable | T8 (F13) | medium | low (G lowered in the independent review: Kaplow §IV.C treats change over time) | low–medium | **N53** OPEN |
 | 5 | Co-adapting trackers raise each other's drift, so read spending escalates | §5 drift reduction; N47 endogenous drift | low | low–medium | medium | not added |
 | 6 | An AI multi-agent testbed with explicit prices | whole §2.2 | high | low | medium | not added |
 | 7 | Transitions to a new level need shared drift above the T3a threshold *and* aligned fate | T3a (§6) + J9 | low | medium | medium | not added |
@@ -33,9 +33,9 @@ Wednesday 18 November 2026, late evening ET (America/New_York). Grok Bot executo
 - **Third order:** feeds, dashboards and notification designs that fix one check rate for all sources overpay for smooth sources and underpay for rough ones. Here "smooth" means α > 2 (most variance at slow timescales) and "rough" means α < 2.
 - **Prior art:**
   - Sampling rate proportional to signal bandwidth in instrument monitoring (Senders 1964, [SEC]: read in a secondary source only).
-  - How often a supervisor should sample (Sheridan 1970, in THEORY §12).
+  - How often a supervisor should sample (Sheridan 1970, in THEORY §10).
   - The √ rule and rational inattention (Reis 2006; Sims 2003).
-  - Costly-sampling lab paradigms (Juni, Gureckis & Maloney 2016, *Decision* 3:147–168, doi 10.1037/dec0000045).
+  - Costly-sampling lab paradigms (Juni, Gureckis & Maloney 2016, *Decision* 3:147–168, doi 10.1037/dec0000045). Its hidden target is static (repeated draws around a fixed centre), so it supplies the paradigm, not a drifting-world test.
   - The repo's own LAB-AKLMT-TAU proxy test.
 - **GTAO-specific:** the stakes and price elasticity is 1/α and so *varies with the measured spectrum*. The √ rule is the α = 2 case.
 - **Test:** an online lab task. Participants pay per look to observe a hidden process with a power-law spectrum, α ∈ {1.5, 2.5}, with stakes and look price varied in a factorial and α measured from the generated paths. Train to a preregistered criterion, then measure look rates.
@@ -51,8 +51,11 @@ Wednesday 18 November 2026, late evening ET (America/New_York). Grok Bot executo
 - **Prior art:**
   - Bloom, Garicano, Sadun & Van Reenen 2014 (*Mgmt Sci* 60:2859): information technology decentralizes and communication technology centralizes.
   - Garicano 2000 (knowledge hierarchies).
-  - Both are in THEORY §12. The direction for information layers is therefore prior art.
-- **GTAO-specific:** only the contrast between memory-pooling and enforcement layers. Whether that contrast is already in the organizational-economics literature was not checked beyond these two papers.
+  - Both are in THEORY §10. The direction for information layers is therefore prior art. Garicano's layers are themselves knowledge-pooling layers, so the "shared-memory levels shrink" half is prior art in substance.
+  - **Which cost falls matters.** Bloom et al. separate information technology (cheaper acquisition of knowledge: more autonomy, wider span of control) from communication technology (cheaper transmission: *less* autonomy, i.e. centralization). The "lookup" in this item is an **information-acquisition** cost; a drop in communication cost predicts the opposite direction for decision rights, so any test must code which cost fell.
+  - **A rival for the enforcement half.** Cheaper information also makes monitoring cheaper. Baker & Hubbard 2004 (*QJE* 119:1443–1479) find that on-board computers in US trucking went with less independent contracting and larger firms. So enforcement and governance can move with information cost through a monitoring channel that GTAO does not model; a divergence between relay and enforcement roles does not by itself favour the GTAO reading.
+- **The step from T8 to levels is not derived.** T8 is a per-fact result (hold, freeze or look up one fact). That a whole shared-memory level loses its reason when its facts pass the lookup edge is an extrapolation, not a theorem; the shared driver model also buys prediction (acting ahead), which a lookup at use time does not replace.
+- **GTAO-specific:** only the contrast between memory-pooling and enforcement layers. Whether that contrast is already in the organizational-economics literature was not checked beyond the papers named here.
 - **Test:** firm or agency panels with a dated drop in lookup cost and role-level headcount coded by function (information relay or coordination versus audit, compliance or enforcement).
 - **Kill:** after the drop, the two classes do not diverge in the predicted direction, or enforcement layers shrink at least as fast as relay layers.
 
@@ -66,9 +69,9 @@ Wednesday 18 November 2026, late evening ET (America/New_York). Grok Bot executo
   - A **rule** fixed in advance is a *freeze*: it is paid for once and goes stale as conduct drifts.
   - A **standard** applied case by case is a *lookup*: paid for at each use.
   - A rule **revised on a schedule** is the *hold* band.
-- **Prior art:** Kaplow 1992 (*Duke LJ* 42:557–629). Rules pay off when conduct is frequent, because their cost is paid in advance; standards pay off when it is rare.
-- **GTAO adds:** drift as a second variable. At fixed frequency, faster drift in the regulated conduct should shift law toward standards or toward rules with scheduled revision (sunset or review clauses).
-- **Novelty:** not found in a short search; the law-and-economics literature on legal obsolescence was **not** swept.
+- **Prior art:** Kaplow 1992 (*Duke LJ* 42:557–629). Rules pay off when conduct is frequent, because their cost is paid in advance; standards pay off when it is rare. **Kaplow also treats change:** his §IV.C is titled "Changing Rules and Standards over Time" (pp. 616–618), his n. 25 says "the possibility of changing circumstances is considered in Section IV(C)", and his n. 63 notes acts "about which little is known, as when there is a technological advance". (Contents page and those notes were read in the independent review; the body of §IV.C was not, because the retrieved text was truncated before it.) So drift as a factor in the rules-versus-standards choice is **not** absent from the founding paper; this file first said Kaplow covers "frequency, not drift", which understated the prior art.
+- **GTAO adds, at most:** a measured drift rate as a variable separate from frequency, and the three-way map (fixed rule = freeze, standard = lookup, rule with scheduled revision = hold band) with T8's edges. At fixed frequency, faster drift in the regulated conduct should shift law toward standards or toward rules with scheduled revision (sunset or review clauses).
+- **Novelty:** not found in a short search; Kaplow §IV.C and the law-and-economics literature on legal obsolescence and temporary legislation were **not** swept, and either may already contain this.
 - **Test:** a preregistered cross-domain sample. Code rule versus standard and revision clauses; measure the drift in the regulated conduct independently (for example, the rate of change in the technology regulated) and its frequency.
 - **Kill:** no partial association with drift, or the opposite sign.
 
@@ -103,8 +106,8 @@ Wednesday 18 November 2026, late evening ET (America/New_York). Grok Bot executo
 ## Self-application (third order, about this project)
 
 Theorem G says a checked copy beats letting a fact fade only while drift × check cost is below the fact's value; past the freeze edge, freeze it. The repo's own ledger fits that pattern:
-- Six of the first eleven scored outcomes on 15 November are logged as changing the claim map.
-- In the next 40 scored outcomes (12:45 PM ET to the end of 15 November), no existing row changed status; four only added new rows (N18, N21, N22, N23). The only later logged change was SENSE-CELL-REFEREE on 18 November, which was unscored.
+- Six of the first eleven scored outcomes on 15 November (09:40 AM to 1:45 PM ET) are logged as changing the claim map; the eleventh (entry 61) added N18.
+- In the remaining 37 scored outcomes (2:53 PM to 8:19 PM ET on 15 November), none is logged `status_changed` true and no existing row changed status; three only added new rows (N21, N22, N23). The only later logged change was SENSE-CELL-REFEREE on 18 November, which was unscored. ("Scored" here means a protocol-2 outcome entry in `queue/LEDGER.jsonl` not marked `scored: false`; the counts first written here, "0 of the next 40 from 12:45 PM" with four added rows, used an unstated filter and were corrected in the independent review.)
 
 Read through GTAO's own lens, the canonical text's drift rate has fallen below what continued rewriting costs, which argues for **freezing** it (a lock and a v1.5 tag) and moving the spend to measurement. This is a heuristic, not a test, and `PROCESS.md` §4 states the count's limits.
 

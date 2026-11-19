@@ -17,6 +17,17 @@ MUTATIONS = [
     ("README.md", "\n\n| a | b |\n|---|---|\n| x | y | z |\n", "table-cells"),
     ("applications/README.md", "\n\nColonies follow the √N law.\n", "law-named"),
     ("tests/README.md", "\n\nThe repository is private.\n", "stale-private"),
+    # added in the independent review of the lock pass (INDEPENDENT_REVIEW.md)
+    ("BRIEF.md", "\n\nThe lock audit `reviews/lock_2026-11-18/LOCK_AUDIT.md` is an independent review.\n", "self-review-called-independent"),
+    ("BRIEF.md", "\n\nAn independent hostile referee pass is in `reviews/night2/SCALE_ENDS_REVIEW.md`.\n", "self-review-called-independent"),
+    ("BRIEF.md", "\n\nSee `reviews/reach_2026-11-18/REVIEW.md`, which is independent.\n", "self-review-called-independent"),
+    ("BRIEF.md", "\n\nShared trails obey a √N scaling law.\n", "law-named"),
+    ("BRIEF.md", "\n\nThe repository remains private.\n", "stale-private"),
+]
+# (file, text): sentences that must NOT be flagged (known false positives, now fixed)
+CLEAN = [
+    ("BRIEF.md", "\n\nIndependent review 2 superseded the earlier pass in `reviews/reach_2026-11-18/REVIEW.md`.\n"),
+    ("BRIEF.md", "\n\nInventory pooling follows the square-root law of Maister (1976), which is prior art.\n"),
 ]
 # (file, old text, new text, key): replacements that must be caught
 REPLACEMENTS = [
@@ -52,6 +63,11 @@ def run_all():
         rc, out = run(d); shutil.rmtree(d)
         caught = rc != 0 and key in out
         print("planted %-24s in %-10s -> %s" % (key, f, "caught" if caught else "MISSED")); ok &= caught
+    for f, text in CLEAN:
+        d = copy()
+        with open(os.path.join(d, f), "a", encoding="utf-8") as fh: fh.write(text)
+        rc, out = run(d); shutil.rmtree(d)
+        print("clean sentence in %-10s -> %s" % (f, "passes" if rc == 0 else "FALSE POSITIVE")); ok &= rc == 0
     # version drift
     import re
     cur = re.search(r"v(1\.4\.\d+[a-z]?) draft", open(os.path.join(ROOT, "THEORY.md"), encoding="utf-8").read()).group(1)

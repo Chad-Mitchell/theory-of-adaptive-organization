@@ -7,6 +7,7 @@ Done for Chad Mitchell (pt1957u) by one Grok Bot executor, via Ace. Times are ET
 | `LOCK_AUDIT.md` | Full read: 1 BLOCKER, 19 SHOULD-FIX, 8 NIT, each with file:line and its fix. **Lock verdict: lockable, not locked.** |
 | `NARRATIVE.md` | Cold-reader diagnosis of the old README, the recommended arc and reading order, and the before/after of the README rewrite (old text: `git show 601344e:README.md`) |
 | `PROCESS.md` | The repo's history (414 commits, 94 PRs, the reviews, the ledger) compressed into error types, what paid off and what was wasted, eleven first principles, and checker rules R1–R5 |
+| `INDEPENDENT_REVIEW.md` | Added after the pass: a review by a fresh executor that wrote none of this folder (same bot family, so it does not meet LOCK_AUDIT condition 3). Verdict and the fixes applied in v1.4.28 / CLAIM_MAP v2.47 |
 | `LOOSE_ENDS.md` | Second- and third-order implications across scales, all HYPOTHESIS, ranked; three became OPEN rows N51–N53 |
 
 ## Independence: NOT independent
@@ -25,7 +26,7 @@ Everything in this folder was written by **one executor**, from the same bot fam
 - All README paths resolve, and `tools/check_consistency.py` passes.
 
 **LOOSE_ENDS:**
-- The status-yield count was first written as "0 of the next 41". It is 0 of 40 scored outcomes for changes to existing rows. Four of those 40 added new rows, and the 15 November ruling (QUEUE rule 3d) counts an added row as a change. Corrected in LOOSE_ENDS and PROCESS.
+- The status-yield count was first written as "0 of the next 41". It is 0 of 40 scored outcomes for changes to existing rows. Four of those 40 added new rows, and the 15 November ruling (QUEUE rule 3d) counts an added row as a change. Corrected in LOOSE_ENDS and PROCESS. *(Independent review: with a stated filter the figure is 0 of the remaining 37 scored outcomes, three of which added rows; see `INDEPENDENT_REVIEW.md`.)*
 - Every citation not already in the repo was checked this session against a publisher or index page: Juni, Gureckis & Maloney 2016; Kaplow 1992; Boraas, Seale & Boxhorn 1998; Herron et al. 2019; Kirkwood 1977; Grossman & Stiglitz 1980; Van Valen 1973; Krauss & Scherrer 2007. Senders 1964 was read only in a secondary source and is marked [SEC].
 - LOOSE_ENDS L3 duplicated N27, so no row was added for it.
 
