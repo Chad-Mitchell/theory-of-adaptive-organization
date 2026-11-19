@@ -1,0 +1,33 @@
+OK   CT4 first-bit threshold 
+OK   CT4 optimum I* 
+OK   CT7 tracking floor J* = sigma sqrt(2 kT w) 
+OK   CT9 Phi for the two-state chain 
+OK   CT9 holds below lambda_c 
+OK   CT9 fades above lambda_c 
+OK   CT11 T8 edges and band condition (0 mismatches)
+OK   CT11 shared store widens the band by N^2 
+OK   CT12 read interval closed form (0 mismatches)
+OK   CT12 a = b = 1/alpha (a=0.416667 b=0.416667 1/al=0.416667)
+OK   CT12 equal gaps beat unequal (al=2.4) 
+OK   CT13 robustness formula 
+OK   CT13 +6% at m=2, +74% at m=10 (0.0607, 0.7393)
+OK   CT14 T3a identity at a=b=1/2 
+OK   CT14 single crossing at N* (0 mismatches)
+OK   CT14 small-rho exponent (a,b)=(0.500,0.500) (e=-1.00000)
+OK   CT14 small-rho exponent (a,b)=(0.667,0.333) (e=-2.00000)
+OK   CT14 small-rho exponent (a,b)=(0.500,0.250) (e=-1.50000)
+OK   CT14 small-rho exponent (a,b)=(0.800,0.200) (e=-4.00000)
+OK   CT15 precision class exponent 1+theta, alpha-free 
+OK   CT15 reset class exponent 1 
+OK   CT15 precision-class (a, b) from the minimization (0 mismatches)
+OK   CT16 telling-price rule (0 mismatches in 5000)
+OK   CT17 aggregate clock never cheaper 
+OK   CT17 equality when c_i/(w_i s_i^2) is equal 
+OK   CT17 relatedness r=3/4 at alpha=2 under-watches by ~13% 
+OK   CT18 eps_B = -eps_sigma 
+OK   CT18 eps_tau = eps_sigma/2 - 1 
+OK   CT18 eps_tau = -1 at fixed observed spread 
+OK   CL4 per-window ruin erfc(z/sqrt2) (MC, discrete monitoring biases low) (MC 0.2154 vs exact 0.2301)
+OK   CT19 latency floor q l^(al-1) 
+OK   CT19 L_max inverts the floor 
+ALL OK (32 checks)
