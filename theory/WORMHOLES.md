@@ -2,7 +2,7 @@
 
 Wednesday 18 November 2026, evening ET. Companion to [`REACH.md`](REACH.md) (§5). Code and saved output: `reach_checks/wormhole_checks.py`, `wormhole_checks.out`; the independent review's checks, `reach_checks/independent_review_checks.py` (parts A and B); throat reliability and endogenous drift (§4c, v1.4.25), `reach_checks/wormhole_reliability.py`, `wormhole_reliability.out`. **Everything here is CONDITIONAL on traversable wormholes (or some other zero-or-short-latency link) existing.** The theory does not predict that they exist, and nothing here is evidence for or against them.
 
-**The idea tested (Chad, t1955/t1956).** If instant travel between places were possible, the theory's limit on how far one tracker can reach (LAT-1) would change: split the cases into open and finite wormholes, and say what happens to organization. Treated as a hypothesis. The split turned out not to be the right one (§3).
+**The idea tested (Chad, t1955/t1956).** If instant travel between places were possible, the theory's limit on how far one tracker can reach (LAT-1) would change: split the cases into open and finite wormholes, and say what happens to organization. Treated as a hypothesis. For reach (how far one tracker can serve), the open/finite split turned out to be the right first split (§0 item 2, §4b; the first version of this note wrongly called it secondary). For whether to centralize it is not enough on its own (§3).
 
 ## 0. Verdict in plain words
 
