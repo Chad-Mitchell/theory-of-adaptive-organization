@@ -47,7 +47,7 @@ The ends of the scale (atoms, black holes, the horizon) belong in step 2 as *pla
 | v1.0 "What still looks new" list in the main flow | Kept verbatim inside a collapsed `<details>` block, marked as history |
 | Scoreboard, layout, applications, how to read, license | Kept; C3b's power-gate status added; scoreboard dates corrected to 13–15 Nov |
 
-**Nothing true was dropped.** A token check compared old and new: every author–year citation, every CLAIM_MAP id and every number in the old README is still present. The removed pieces are the stale version heading and some duplicated sentences. The README is longer (175 lines against 133) because the reading paths and tables were added; the first screen is shorter and leads with the idea.
+**Nothing true was dropped.** A token check compared old and new: every author–year citation, every CLAIM_MAP id and every number in the old README is still present. *(Independent review: a token check cannot see dropped qualifiers. Three were lost and are restored in v1.4.28: "no proof in the formal layer depends on the second law", "can pay" (the rewrite said "pays"), and Mora & Nemenman's geometric-random-walk premise; see `INDEPENDENT_REVIEW.md`.)* The removed pieces are the stale version heading and some duplicated sentences. The README is longer (175 lines against 133) because the reading paths and tables were added; the first screen is shorter and leads with the idea.
 
 ## 4. Other recommendations (not applied here; each needs its own review)
 

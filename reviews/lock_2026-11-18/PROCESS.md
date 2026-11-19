@@ -96,6 +96,8 @@ From the WITHDRAWN and MATH-CORRECTED rows, the review files and the corrections
 | R4 | A named GTAO relation is called a "law" (√N, trail-fade, shared-memory, read-rate, freeze-or-hold, three-cost) | "Colonies follow the √N law." | E1/E9; J3 |
 | R5 | The repository is called private in the present tense | "The repository is private." | E8 |
 
+**Adjusted after the independent review (v1.4.28):** R1 missed the lock-pass files themselves as self-reviews (their headers say "**Not independent**" mid-line) and flagged a sentence that merely set an independent review beside a self-review; it now detects those headers and needs "independent" next to the citation, unless a contrast word sits between. R4 now also catches "√N scaling law" and exempts the published inventory "square-root law" (Maister 1976). R5 also catches "remains private". Each change has a test, including two must-not-flag sentences.
+
 The first run of R1 found a real error, `theory/SCALE_ENDS.md:5`, fixed in this PR. R2 and R3 found no remaining errors, because this pass had already fixed them by hand.
 
 **Not checkable, so kept as judgment:** P1 (overstated "iff"), P2 (novelty), P7 (overhead cap) and P8 (breadth). They belong in reviewer checklists, not in regexes. A regex for "iff" would flag every proved one.

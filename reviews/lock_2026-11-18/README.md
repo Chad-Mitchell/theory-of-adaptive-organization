@@ -7,6 +7,7 @@ Done for Chad Mitchell (pt1957u) by one Grok Bot executor, via Ace. Times are ET
 | `LOCK_AUDIT.md` | Full read: 1 BLOCKER, 19 SHOULD-FIX, 8 NIT, each with file:line and its fix. **Lock verdict: lockable, not locked.** |
 | `NARRATIVE.md` | Cold-reader diagnosis of the old README, the recommended arc and reading order, and the before/after of the README rewrite (old text: `git show 601344e:README.md`) |
 | `PROCESS.md` | The repo's history (414 commits, 94 PRs, the reviews, the ledger) compressed into error types, what paid off and what was wasted, eleven first principles, and checker rules R1–R5 |
+| `INDEPENDENT_REVIEW.md` | Added after the pass: a review by a fresh executor that wrote none of this folder (same bot family, so it does not meet LOCK_AUDIT condition 3). Verdict and the fixes applied in v1.4.28 / CLAIM_MAP v2.47 |
 | `LOOSE_ENDS.md` | Second- and third-order implications across scales, all HYPOTHESIS, ranked; three became OPEN rows N51–N53 |
 
 ## Independence: NOT independent
