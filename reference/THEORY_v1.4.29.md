@@ -1,3 +1,27 @@
+> **FROZEN REFERENCE (19 November 2026).** This is THEORY v1.4.29, the canonical statement until 19 November 2026, moved here unchanged when [`THEORY.md`](../THEORY.md) v2.0 replaced it. It no longer governs: where the two differ, `THEORY.md` v2.0 does. It is kept for its detail, its prior-art list and its test history. The changelog is continued in [`CHANGELOG.md`](CHANGELOG.md).
+>
+> **Erratum (19 Nov 2026), §0 line "stars hold themselves up on a flow but track nothing outside".** Read: stars regulate themselves (convection, dynamos, layered composition, self-regulating fusion) but anticipate nothing outside them. They are the "hold" class, not inert. Same fix as in `theory/BOOKENDS.md`, `theory/REACH.md` and THEORY v2.0 §1.
+>
+> **Where each section went in v2.0.**
+>
+> | v1.4.29 section | In THEORY v2.0 |
+> |---|---|
+> | Header, status at a glance, labels | §0, §7; labels replaced by the CLAIM_MAP statuses |
+> | §0 The claim; the spine | §0, §1, §9 |
+> | §1 Candidate claims with kill conditions | §6 predictions table; §4 the bet |
+> | §2 Tracking layer, spectrum map, ends of the scale | §2.3, §5.2, Appendix B.3 (Lemma B2) |
+> | §3 Design rules | §5 rules table |
+> | §4 Failure, buffers, temperature | §5.6, Appendix B.6 |
+> | §5 The missing lever (drift reduction) | §2.2 (booked as part 3 of the bill; CLAIM_MAP J16, K17) |
+> | §6 Levels, shared memory, who is in charge | §5.3–§5.4, Appendix B.4–B.5 |
+> | §7 Where optimality should hold | §4, §7 |
+> | §8, §8b Test results and scoreboard | §7 (summary); details stay here and in `STATUS.md` |
+> | §9 What would sink the theory | §4, §6 |
+> | §10 Prior art credited | §8 (short form); full list stays here |
+> | §11 Next tests | `STATUS.md`, §7 |
+> | §12 Source files | Appendix C |
+> | §13 Changelog | [`CHANGELOG.md`](CHANGELOG.md) |
+
 # A Theory of Adaptive Organization — v1.4.29 draft
 
 **Author:** Chad Mitchell. **Draft dates:** v1.0 Saturday 14 November 2026; v1.4, v1.4.1, v1.4.2, v1.4.3, v1.4.3a, v1.4.4, v1.4.5, v1.4.6, v1.4.7, v1.4.8, v1.4.9, v1.4.10, v1.4.11, v1.4.13, v1.4.14, v1.4.15, v1.4.16 and v1.4.17 Sunday 15 November 2026; v1.4.18, v1.4.19, v1.4.20, v1.4.21, v1.4.22, v1.4.23, v1.4.24, v1.4.25, v1.4.26, v1.4.27, v1.4.28 and v1.4.29 Wednesday 18 November 2026 (v1.4.12 was reserved for pick 32's PR #64, which merged after v1.4.13 as v1.4.14; v1.4.12 is unused) (America/New_York). Changelog: §13.

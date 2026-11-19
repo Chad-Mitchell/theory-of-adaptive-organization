@@ -65,7 +65,7 @@ def main(argv=None):
 
     # ---------------------------------------------------------------- 1. versions
     theory = read("THEORY.md")
-    m = re.search(r"^# .*? v(1\.4\.\d+[a-z]?) draft", theory, re.M)
+    m = re.search(r"^# .*? v(\d+\.\d+(?:\.\d+)?[a-z]?) draft", theory, re.M)
     THEORY_V = m.group(1) if m else None
     cm = read("measurement/CLAIM_MAP_v2.md")
     notes = [tuple(int(x) for x in v.split(".")) for v in re.findall(r"^\*\*v(2\.\d+) note", cm, re.M)]
@@ -77,15 +77,14 @@ def main(argv=None):
 
     # Pointer patterns: (file, regex, which) -- each must match at least once and every match must agree.
     POINTERS = [
-        ("README.md", r"canonical statement of the theory \(v(1\.4\.\d+[a-z]?)", "T"),
-        ("README.md", r"THEORY\.md\s+The theory, v(1\.4\.\d+[a-z]?)", "T"),
+        ("README.md", r"canonical statement of the theory \(v(\d+\.\d+(?:\.\d+)?[a-z]?)", "T"),
+        ("README.md", r"THEORY\.md\s+The theory, v(\d+\.\d+(?:\.\d+)?[a-z]?)", "T"),
         ("README.md", r"CLAIM_MAP_v2\.md` \(v(2\.\d+)\)", "C"),
-        ("STATUS.md", r"\*\*As of:\*\*.*?`THEORY\.md` v(1\.4\.\d+[a-z]?)", "T"),
+        ("STATUS.md", r"\*\*As of:\*\*.*?`THEORY\.md` v(\d+\.\d+(?:\.\d+)?[a-z]?)", "T"),
         ("STATUS.md", r"\*\*As of:\*\*.*?`measurement/CLAIM_MAP_v2\.md` v(2\.\d+)", "C"),
-        ("STATUS.md", r"`THEORY\.md` — the theory \(v(1\.4\.\d+[a-z]?)\)", "T"),
+        ("STATUS.md", r"`THEORY\.md` — the theory \(v(\d+\.\d+(?:\.\d+)?[a-z]?)\)", "T"),
         ("STATUS.md", r"`measurement/CLAIM_MAP_v2\.md` \(v(2\.\d+);", "C"),
         ("THEORY.md", r"Claim statuses: `measurement/CLAIM_MAP_v2\.md` \(v(2\.\d+)\)", "C"),
-        ("BRIEF.md", r"\*\*Checked against:\*\* THEORY\.md v(1\.4\.\d+[a-z]?)", "T"),
         ("BRIEF.md", r"\*\*Checked against:\*\*[^\n]*?CLAIM_MAP v(2\.\d+)", "C"),
     ]
     for f, rx, which in POINTERS:

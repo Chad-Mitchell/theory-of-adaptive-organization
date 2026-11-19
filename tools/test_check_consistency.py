@@ -70,7 +70,7 @@ def run_all():
         print("clean sentence in %-10s -> %s" % (f, "passes" if rc == 0 else "FALSE POSITIVE")); ok &= rc == 0
     # version drift
     import re
-    cur = re.search(r"v(1\.4\.\d+[a-z]?) draft", open(os.path.join(ROOT, "THEORY.md"), encoding="utf-8").read()).group(1)
+    cur = re.search(r"^# .*? v(\d+\.\d+(?:\.\d+)?[a-z]?) draft", open(os.path.join(ROOT, "THEORY.md"), encoding="utf-8").read(), re.M).group(1)
     d = copy(); p = os.path.join(d, "README.md"); s = open(p, encoding="utf-8").read().replace("(v%s draft" % cur, "(v1.4.0 draft"); open(p, "w", encoding="utf-8").write(s)
     rc, out = run(d); shutil.rmtree(d); caught = rc != 0 and "versions" in out
     print("planted %-24s in %-10s -> %s" % ("stale version pointer", "README.md", "caught" if caught else "MISSED")); ok &= caught

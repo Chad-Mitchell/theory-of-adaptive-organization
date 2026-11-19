@@ -189,7 +189,7 @@ The preregistration commits for these tests lived only in local, unpushed git re
 
 ## Start here
 
-**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.29 draft, 18 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands; [`QUEUE.md`](QUEUE.md) is the live work queue; [`BRIEF.md`](BRIEF.md) is a plain-words brief of the whole record, checked against the files; `measurement/FRAMEWORK.md` says how quantities are measured, and `measurement/CLAIM_MAP_v2.md` (v2.49) gives one status per claim. `python3 tools/check_consistency.py` checks versions, wording and claim statuses across these files. This README is a summary.
+**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v2.0 draft, 19 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands; [`QUEUE.md`](QUEUE.md) is the live work queue; [`BRIEF.md`](BRIEF.md) is a plain-words brief of the whole record, checked against the files; `measurement/FRAMEWORK.md` says how quantities are measured, and `measurement/CLAIM_MAP_v2.md` (v2.49) gives one status per claim. `python3 tools/check_consistency.py` checks versions, wording and claim statuses across these files. This README is a summary.
 
 **Reading paths** (each about an hour):
 - **Physicist:** `THEORY.md` §2.3 (where the physics is literal and where it is not) → `theory/SCALE_ENDS.md` → `theory/BOOKENDS.md` §2 → `theory/WORMHOLES.md`, `theory/COSMIC_WEB.md`. Expect classifications given published physics, not new physics.
@@ -202,7 +202,7 @@ The preregistration commits for these tests lived only in local, unpushed git re
 ## Repository layout
 
 ```
-THEORY.md         The theory, v1.4.29 draft (start here)
+THEORY.md         The theory, v2.0 draft (start here)
 STATUS.md         Where the work stands (rewritten, not appended)
 BRIEF.md          Plain-words brief of the whole record, checked against the files
 QUEUE.md, queue/  Live work queue and ledger
