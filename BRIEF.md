@@ -91,7 +91,7 @@ FRAMEWORK §1.2 item 4 (the scope question left to Chad) is resolved by t1927 in
 | CLAIM_MAP counts header (194 rows) not recomputed | Still stated as not recomputed (CLAIM_MAP "Counts"); left as is |
 | `queue/items.json` statuses lag STATUS/LEDGER | Not changed in this audit (the queue files are the scored ledger's inputs) |
 | THEORY status block and §0 still read "15 November" and "from cells to cities" for the empirical bet | DONE: headline text merged (THEORY v1.4.19) |
-| Public X post of 12 Nov says atoms have "nothing to maintain" | Outside the repo. A correction post needs Chad's go |
+| Public X post of 12 Nov says atoms have "nothing to maintain" | Superseded; archived verbatim in `history/2026-11-12_X_POST.md` with what changed |
 
 ## 9. Pending
 
