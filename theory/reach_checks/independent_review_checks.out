@@ -1,0 +1,28 @@
+(A) pooling algebra
+  q_u=0, l=0: flat^2 - central^2 = 2*N*q_g*w*(N*c - N*d - c)
+  q_u=0: l_crit / T*_local = 1 - sqrt(N*d + c)/(sqrt(N)*sqrt(c))  (expect 1 - sqrt((1+N d/c)/N))
+  partial sharing: brute force vs 'd/c < 1/N*(rho) - 1/N' agree in 180/180 cases
+  at d=0 this is N > N*(rho) = (sqrt(1+rho)+1)^2/rho, i.e. T3a; e.g. N*(1) = 5.828, N*(0.1) = 42.0
+  NOTE: WORMHOLES' 'fully shared drift (rho = 1)' is T3a's rho -> infinity (q_u = 0), not T3a's rho = 1.
+
+(B) multi-hop shortcut networks (c = 1); centre at the origin corner of a box of side 10; mouths Poisson, density 2
+  case                              slope   pred tau/Lam   median lat
+  no throats (light only)           1.000       light: 1        7.630
+  finite Lam=1, tau=0.1             0.138          0.100        2.847
+  finite Lam=1, tau=0.3             0.447          0.300        4.464
+  finite Lam=2, tau=0.1             0.057          0.050        1.843
+  finite Lam=1, tau=0 (percolating)     -0.003              0        0.725
+  open (any-to-any), tau=0.1       -0.001              0        1.436
+  Reading: finite throats with tau > 0 act as a faster medium (slope >= tau/Lam, approached as mouths get dense; v_eff <= Lam/tau);
+  LAT-1 then holds with c -> v_eff. Open throats, or tau = 0 on a percolating throat graph, give slope ~ 0: no distance limit.
+
+(C) circle-map tongue widths at small K (width of the plateau at rotation number p/q)
+  1:2 tongue width at K = 0.2, 0.4, 0.8: 3.17e-03 1.26e-02 4.85e-02; local exponent 1.99, 1.95 (expect -> 2 at small K)
+  1:3 tongue width at K = 0.2, 0.4, 0.8: 2.90e-04 2.20e-03 1.64e-02; local exponent 2.92, 2.90 (expect -> 3 at small K)
+
+(D) nearest-neighbour (M3-style) in-degree, Poisson vs clustered points, periodic cube, N = 6000
+  Poisson                          k=1 var/mean 0.72 max 5 | k=4 var/mean 0.60 max 10 | k=20 var/mean 0.58 max 32
+  Neyman-Scott 300 parents s=0.03  k=1 var/mean 0.73 max 4 | k=4 var/mean 0.99 max 11 | k=20 var/mean 2.08 max 48
+  Neyman-Scott 60 parents s=0.02   k=1 var/mean 0.71 max 4 | k=4 var/mean 0.95 max 10 | k=20 var/mean 4.78 max 48
+  Reading: random points give in-degree narrower than Poisson (Coutinho's analytic 0.709 at <k> = 1 is for RANDOM points);
+  clustering of the point set broadens it, as Coutinho Fig. 4(a) shows for the real web at <k> = 20. Broader than Poisson is not a hub tail.
