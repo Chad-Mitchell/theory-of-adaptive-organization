@@ -4,7 +4,7 @@ Each included test keeps its locked prediction or preregistration file (and sha2
 
 The headline scoreboard is in the repository `README.md`. For DECISIVE and F1 it follows the independent review in `reviews/DECISIVE_F1_REVIEW.md`.
 
-**Local git histories.** These tests were preregistered in local, unpushed git repos. Their histories are recorded here so the original commit dates and SHAs are preserved, but the first external timestamp is the commit that adds them to this private GitHub repository (today). Each test folder with a local history has a `history.txt` receipt (commit SHAs, dates, messages, and file lists with blob SHAs; no file contents). A `history.bundle` is included where the original commits can be shipped without reintroducing excluded data:
+**Local git histories.** These tests were preregistered in local, unpushed git repos. Their histories are recorded here so the original commit dates and SHAs are preserved, but the first external timestamp is the commit that adds them to this repository (14 November 2026; the repository was private then and has been public since 18 November 2026). Each test folder with a local history has a `history.txt` receipt (commit SHAs, dates, messages, and file lists with blob SHAs; no file contents). A `history.bundle` is included where the original commits can be shipped without reintroducing excluded data:
 
 - Full bundles (original tip and all earlier commits): `ANTS1/`, `C3b/`, `F1/`.
 - Prefix bundles (preregistration / locked-prediction commits only): `BIO1/`, `C3/`, `COLLAPSE1/`, `DRIFT1/`. Later commits in those repos contain publisher PDFs, large raw pulls, or withheld person-scale statistics.
@@ -17,7 +17,7 @@ Clone a bundle with `git clone history.bundle <dir>`. Author dates inside the bu
 | `BIO1/` | Finished literature test. Local paper PDFs and extracts omitted; `sources/INDEX.md` lists what was used. |
 | `COLLAPSE1/` | Finished. Paper PDFs/extracts omitted; SEC frame JSONs omitted; derived tables, the plot, and code are here. |
 | `C3/` | Finished. Large GitHub pulls and the Valiev frame zip omitted; analysis dataset and results are here. |
-| `C3b/` | Prereg locked; results not yet written. Large screening dumps omitted. |
+| `C3b/` | Prereg locked; results not yet written. MV10 power gate not met at the largest n the frame supplies (`reviews/night2/C3B_GATE_ADDENDUM.md`), so it cannot give a verdict as preregistered. Large screening dumps omitted. |
 | `F1/` | Finished. Independent review: inconclusive, not a theory-specific hit; τ mostly measures fixed-cost share. SEC `companyfacts.zip` / `submissions.zip` (~3 GB) omitted; hashes, derived datasets, and a full `history.bundle` are here. |
 | `DRIFT1/` | Finished for public domains. Raw pull files omitted. Person-scale arm withheld (`REDACTION.md`). |
 | `ANTS1/` | Prereg locked; run finished 15 Nov 2026 (final analysis 01:54 ET). No RESULTS.md here; the write-up is `reviews/night1/ANTS1_WRITEUP.md` (CLAIM_MAP G13–G17: NOT EVIDENCE by construction, three SIM-FAILs). |

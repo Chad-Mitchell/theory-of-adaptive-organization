@@ -22,6 +22,10 @@ What it checks
      maintained doc exists in CLAIM_MAP section N, and wherever a maintained
      doc states a status right after a CLAIM_MAP N-number, the base status
      matches the CLAIM_MAP row.
+  4. Process rules (lock pass, 19 Nov 2026; reviews/lock_2026-11-18/PROCESS.md):
+     R1 no self-review is called independent; R2 the CLAIM_MAP current tally
+     equals the rows; R3 table rows have as many cells as their header; R4 no
+     named GTAO relation is called a 'law'; R5 the repo is not called private.
 Frozen history (locked tests, preregs, review records, night-1/2 working
 files, older theory notes) is scanned for the same wording and reported as
 INFO only: those files are dated records and are not edited.
@@ -165,7 +169,7 @@ def main(argv=None):
     for ln in cm.split("\n"):
         mm = re.match(r"^\| (N\d+) \|", ln)
         if mm:
-            cells = [c.strip() for c in ln.split("|")]
+            cells = [c.strip() for c in re.split(r"(?<!\\)\|", ln)]
             rows[mm.group(1)] = cells[4] if len(cells) > 4 else ""
     BASES = ["PROXY-PASS", "PROXY-FAIL", "MATH-CORRECTED", "NOT EVIDENCE", "PRIOR ART", "INCONCLUSIVE", "WITHDRAWN", "DECIDED", "PROVED", "OPEN", "SIM-FAIL", "SIM-PASS", "BINDING"]
     def base(s):
@@ -211,6 +215,117 @@ def main(argv=None):
                     elif base(rows[nid]) != st:
                         fails.append("N-status: %s:%d says %s %s; CLAIM_MAP says %s" % (p, i, nid, st, rows[nid])); nfail += 1
     print("  N references checked: %d; mismatches: %d" % (nchecked, nfail))
+
+
+    # ---------------------------------------------------------------- 4. process rules
+    # Added in the lock pass (reviews/lock_2026-11-18/PROCESS.md, rules R1-R5):
+    # each encodes an error type that recurred in the repo's history.
+    print("\n== 4. Process rules (reviews/lock_2026-11-18/PROCESS.md)")
+    pf = []
+
+    def split_cells(ln):
+        """GitHub splits a table row on every unescaped pipe, even inside backticks."""
+        t = ln.strip()
+        parts = re.split(r"(?<!\\)\|", t)
+        if t.startswith("|"):
+            parts = parts[1:]
+        if t.endswith("|") and not t.endswith("\\|"):
+            parts = parts[:-1]
+        return parts
+
+    # R1: a self-review must never be called independent.
+    SELF_MARK = re.compile(r"(Independence:\s*\**\s*NOT independent|This pass is not independent|\(NOT independent\)|same executor that wrote|same executor, reread|^\s*\**Not independent\b)", re.I | re.M)
+    self_reviews = []
+    for p in sorted(glob.glob("reviews/**/*.md", recursive=True)):
+        if SELF_MARK.search("\n".join(lines(p)[:15])):
+            self_reviews.append(p)
+    INDEP = re.compile(r"\bindependent(ly)?\b", re.I)
+    INDEP_OK = re.compile(r"(\bnot\s+(an?\s+)?(fully\s+)?independent|\bno(n-?| )independent|self-review|self-check|was called|called it|isn't independent|same executor)", re.I)
+    pats = [(sr, re.compile(r"(?<![\w-])(?:reviews/)?" + re.escape(sr[len("reviews/"):]))) for sr in self_reviews]
+    for p in MAINTAINED:
+        for i, ln in enumerate(lines(p), 1):
+            for s_ in sentences(ln):
+                if not INDEP.search(s_) or INDEP_OK.search(s_):
+                    continue
+                for sr, rx in pats:
+                    if rx.search(s_):
+                        pf.append("self-review-called-independent: %s:%d calls %s independent (its header says it is not)" % (p, i, sr))
+    print("  self-reviews found by header: %d" % len(self_reviews))
+
+    # R2: the CLAIM_MAP current tally must equal the rows.
+    TB = ["PROXY-PASS", "PROXY-FAIL", "MATH-CORRECTED", "NOT EVIDENCE", "PRIOR ART", "SIM-INCONCLUSIVE", "INCONCLUSIVE", "WITHDRAWN", "DECIDED", "PROVED", "OPEN", "SIM-FAIL", "SIM-PASS"]
+    counted, sec, unknown = {}, None, []
+    for ln in cm.split("\n"):
+        mm = re.match(r"^## ([A-Z])\.", ln)
+        if mm:
+            sec = mm.group(1)
+        if ln.startswith("## Counts"):
+            sec = None
+        mm = re.match(r"^\| ([A-Z]\d+[′']?[a-z]?) \|", ln)
+        if mm and sec:
+            c = split_cells(ln)
+            t = c[3].replace("*", "").strip() if len(c) > 3 else ""
+            st = next((b for b in TB if t.startswith(b)), None) or next((b for b in TB if b in t), None)
+            if not st:
+                unknown.append(mm.group(1)); continue
+            counted[st] = counted.get(st, 0) + 1
+    mm = re.search(r"<!-- tally:begin -->(.*?)<!-- tally:end -->", cm, re.S)
+    if not mm:
+        pf.append("tally: CLAIM_MAP has no <!-- tally:begin --> block")
+    else:
+        stated, total = {}, None
+        for ln in mm.group(1).split("\n"):
+            c = [x.replace("*", "").strip() for x in split_cells(ln)] if ln.startswith("|") else []
+            if len(c) == 2 and c[1].isdigit():
+                if c[0] == "Total":
+                    total = int(c[1])
+                else:
+                    stated[next((b for b in TB if c[0].startswith(b)), c[0])] = int(c[1])
+        if stated != counted:
+            pf.append("tally: CLAIM_MAP current tally %s differs from the rows %s" % (stated, counted))
+        if total != sum(counted.values()):
+            pf.append("tally: CLAIM_MAP tally total %s, rows %d" % (total, sum(counted.values())))
+        print("  CLAIM_MAP rows counted: %d (tally total %s)" % (sum(counted.values()), total))
+    for u in unknown:
+        pf.append("tally: CLAIM_MAP row %s has no recognised status" % u)
+
+    # R3: every table row in a maintained doc has as many cells as its header
+    # (an unescaped pipe silently drops the last cell on GitHub).
+    nt = 0
+    for p in MAINTAINED:
+        L = lines(p); fence = False; n = None
+        for i, ln in enumerate(L, 1):
+            if ln.lstrip().startswith("```"):
+                fence = not fence; n = None; continue
+            if fence or not ln.lstrip().startswith("|"):
+                n = None; continue
+            if n is None:
+                if i < len(L) and re.match(r"^\s*\|?\s*:?-{3,}", L[i]):
+                    n = len(split_cells(ln)); nt += 1
+                continue
+            if re.match(r"^\s*\|?\s*:?-{3,}", ln):
+                continue
+            k = len(split_cells(ln))
+            if k != n:
+                pf.append("table-cells: %s:%d has %d cells, header has %d (escape a pipe as \\|)" % (p, i, k, n))
+    print("  tables checked: %d" % nt)
+
+    # R4: no named GTAO relation is called a 'law' ('the sqrt N law'); use 'rule'.
+    NAMED_LAW = re.compile(r"(√N|sqrt\(?N\)?|square[- ]root|trail[- ]fade|fade|shared[- ]memory|freeze[- ]or[- ]hold|read[- ]rate|three[- ]cost)\s+laws?\b", re.I)
+    # R5: the repository is public since 18 Nov 2026; never call it private in the present tense.
+    PRIVATE = re.compile(r"\b(repo|repository) is (still |currently )?private\b|\bthis private (repo|repository)\b", re.I)
+    for p in MAINTAINED:
+        for i, ln in enumerate(lines(p), 1):
+            for s_ in sentences(ln):
+                if NAMED_LAW.search(s_) and not NEG_LAW.search(s_) and "WITHDRAWN" not in ln:
+                    pf.append("law-named: %s:%d …%s…" % (p, i, s_.strip()[:160]))
+                mp = PRIVATE.search(s_)
+                if mp and not (s_[max(0, mp.start() - 1):mp.start()] in "\"“'" or "→" in s_):  # quoted old wording in a changelog is history
+                    pf.append("stale-private: %s:%d …%s…" % (p, i, s_.strip()[:160]))
+    for x in pf:
+        print("  FAIL " + x)
+    print("  process-rule FAILs: %d" % len(pf))
+    fails.extend("FAIL " + x for x in pf)
 
     # ---------------------------------------------------------------- summary
     print("\n== Summary")

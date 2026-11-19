@@ -12,6 +12,15 @@ MUTATIONS = [
     ("THEORY.md", "\n\nGTAO is a theory of everything.\n", "theory-of-everything"),
     ("STATUS.md", "\n\nThe theory is silent on black holes.\n", "stale-scope"),
     ("BRIEF.md", "\n\nSee CLAIM_MAP N99.\n", "N-ref"),
+    # process rules R1-R5 (reviews/lock_2026-11-18/PROCESS.md)
+    ("BRIEF.md", "\n\nThe independent review `reviews/reach_2026-11-18/REVIEW.md` passed.\n", "self-review-called-independent"),
+    ("README.md", "\n\n| a | b |\n|---|---|\n| x | y | z |\n", "table-cells"),
+    ("applications/README.md", "\n\nColonies follow the √N law.\n", "law-named"),
+    ("tests/README.md", "\n\nThe repository is private.\n", "stale-private"),
+]
+# (file, old text, new text, key): replacements that must be caught
+REPLACEMENTS = [
+    ("measurement/CLAIM_MAP_v2.md", "| **Total** | **", "| **Total** | **1", "tally"),
 ]
 def run(d):
     r = subprocess.run([sys.executable, os.path.join(d, "tools", "check_consistency.py")], cwd=d, capture_output=True, text=True)
@@ -33,6 +42,13 @@ def run_all():
     for f, text, key in MUTATIONS:
         d = copy()
         with open(os.path.join(d, f), "a", encoding="utf-8") as fh: fh.write(text)
+        rc, out = run(d); shutil.rmtree(d)
+        caught = rc != 0 and key in out
+        print("planted %-24s in %-10s -> %s" % (key, f, "caught" if caught else "MISSED")); ok &= caught
+    for f, a, b, key in REPLACEMENTS:
+        d = copy(); p = os.path.join(d, f); t = open(p, encoding="utf-8").read()
+        assert a in t, (f, a)
+        open(p, "w", encoding="utf-8").write(t.replace(a, b, 1))
         rc, out = run(d); shutil.rmtree(d)
         caught = rc != 0 and key in out
         print("planted %-24s in %-10s -> %s" % (key, f, "caught" if caught else "MISSED")); ok &= caught

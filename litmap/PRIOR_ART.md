@@ -37,7 +37,7 @@ Sat 2026-11-14 ET. **Not independently reviewed.** Full citations and DOIs are i
   - in *exact form for memory duration* by Lee-Flack-Krakauer 2024, from SFI.
 - **What remains GTAO's own** (pending targeted searches):
   - the T3a threshold;
-  - the T4 √N evaporation law;
+  - the T4 √N evaporation rule;
   - the temperature identity and fix-mechanism universality classes;
   - the conditions for geometric levels, and their count;
   - the Rosen + Still + lateness synthesis;
