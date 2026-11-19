@@ -41,7 +41,7 @@ The bill has three parts, plus the risk of ruin:
 
 1. **Holding memory:** the price κ per nat held per unit time, and the upkeep h of a store or of a shared level.
 2. **Being wrong or late:** the stake-weighted loss w·ℓ. Lateness is counted as error at the moment of use, because a prediction that arrives after the moment to act buys nothing.
-3. **The reads and effort that keep the memory fresh:** the price c of a read (or a price per nat acquired, or c′·r^{−θ} for precision), the price d of telling a member, the link cost κ_b of a broadcast, the price u of looking something up, and the effort g(σ₀ → σ) spent making the world drift less.
+3. **The reads and effort that keep the memory fresh:** the price c of a read (or a price per nat acquired, or c′·r_n^{−θ} for precision), the price d of telling a member, the link cost κ_b of a broadcast, the price u of looking something up, and the effort g(σ₀ → σ) spent making the world drift less.
 
 **Ruin** is not a fourth part: the failure hazard, weighted by what failure costs (Λ), enters as the persistence constraint the bill already names. **Drift reduction is a lever, not a fourth cost type.** Paying g to make the world drift less (homeostasis, buffers, contracts, niche construction) is effort spent keeping memory fresh, so it books in part 3. The optimum then chooses between watching and steadying by comparing their marginal costs. With this booking the cross-scale claim becomes checkable: **it fails at a level if that level's design needs a cost that cannot be booked as holding, error or lateness, or reads and effort (or ruin)** (CLAIM_MAP J16, open).
 
