@@ -44,6 +44,7 @@ def main(argv=None):
         "applications/README.md", "tests/README.md", "reviews/README.md",
         "litmap/LITMAP.md", "litmap/PRIOR_ART.md", "litmap/THREATS.md",
         "litmap/LEFT_ON_THE_TABLE.md", "theory/BOOKENDS.md",
+        "theory/REACH.md", "theory/COSMIC_WEB.md", "theory/WORMHOLES.md", "theory/TORUS.md",
     ]
     MAINTAINED = [f for f in MAINTAINED if os.path.exists(f)]
     ALL_MD = sorted(p for p in glob.glob("**/*.md", recursive=True))

@@ -1,0 +1,10 @@
+sine circle map, 4000 Omega values in [0,1); 'locked' = rotation number within 1e-4 of p/q, q<=12 (the 1e-4 band can only be reached on a plateau)
+    K   locked share  0:1 tongue width (Om)
+ 0.00          0.010       0.0000 (theory K/pi = 0.0000)
+ 0.25          0.094       0.0798 (theory K/pi = 0.0796)
+ 0.50          0.199       0.1593 (theory K/pi = 0.1592)
+ 0.75          0.346       0.2387 (theory K/pi = 0.2387)
+ 1.00          0.621       0.3182 (theory K/pi = 0.3183)
+
+Reading: with phase coupling the staircase appears and the locked share grows with K, as in textbooks (Adler 1946; Pikovsky, Rosenblum & Kurths 2001).
+A test that finds 'no staircase' in a system whose coupling is not phase coupling (e.g. trigger-and-reset events) has not tested this.

@@ -1,0 +1,22 @@
+N = 4000 points per box; periodic unit cube; seed 20261118
+
+(1) Radius-graph (proximity) rule, mean degree ~4 for Poisson
+point set                           mean_k  var/mean  max_k  clustering   assort
+Poisson (no structure)                4.03      0.99     13       0.422    0.474
+Neyman-Scott, 200 parents, s=0.03    13.04      3.80     40       0.648    0.601
+Neyman-Scott, 60 parents, s=0.02     57.59      4.05    118       0.871    0.514
+Erdos-Renyi, same N and mean_k        3.99      0.99     13      0.0009   -0.011
+
+(2) Directed nearest-neighbour rule (as in Coutinho et al. 2016 model M3: link to the closest galaxy)
+point set                           k_out mean_in  var/mean max_in
+Poisson                                 1    1.00      0.72      4
+Poisson                                 4    4.00      0.60     10
+Neyman-Scott, 60 parents, s=0.02        1    1.00      0.73      5
+Neyman-Scott, 60 parents, s=0.02        4    4.00      1.05     11
+
+Reading: a proximity rule alone gives clustering far above Erdos-Renyi, and (for a nearest-neighbour link rule) an in-degree capped by geometry, so 'no hubs' is partly built into the construction.
+
+(3) Hub-and-spoke references (arithmetic, not data): a star with 30 leaves and a Barabasi-Albert graph (m=2, N=4000)
+star: degree assortativity r = -1.000
+BA:   r = -0.065  clustering = 0.0095  max degree = 168  mean degree = 4.00
+Reading: hub-and-spoke growth gives r <= 0 and almost no clustering; proximity gives r > 0 and high clustering. They are different signatures.
