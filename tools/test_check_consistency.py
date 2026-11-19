@@ -23,6 +23,10 @@ MUTATIONS = [
     ("STATUS.md", "\n\nSee `reviews/reach_2026-11-18/REVIEW.md`, which is independent.\n", "self-review-called-independent"),
     ("STATUS.md", "\n\nShared trails obey a √N scaling law.\n", "law-named"),
     ("STATUS.md", "\n\nThe repository remains private.\n", "stale-private"),
+    # core rules R6-R8 (THEORY v2.0, 19 Nov 2026)
+    ("THEORY.md", "\n| CT99 | An unlisted result | §0 | OPEN | CT99 | none |\n", "core-index"),
+    ("README.md", "\n\n" + "word " * 1000 + "\n", "length"),
+    ("STATUS.md", "\n\n| Way | Pays |\n|---|---|\n| **Keep** (frozen) | Nothing |\n| **Hold** (self-regulating) | A flow |\n", "spine-duplicate"),
 ]
 # (file, text): sentences that must NOT be flagged (known false positives, now fixed)
 CLEAN = [
@@ -32,6 +36,9 @@ CLEAN = [
 # (file, old text, new text, key): replacements that must be caught
 REPLACEMENTS = [
     ("measurement/CLAIM_MAP_v2.md", "| **Total** | **", "| **Total** | **1", "tally"),
+    ("THEORY.md", "| CX1 | Theorem P for drifting worlds | §3, §7 | OPEN |", "| CX1 | Theorem P for drifting worlds | §3, §7 | PROVED (in-model) |", "core-index"),
+    ("THEORY.md", "| CT15 | The level's technology sets the exponent | §5.3, Result 4 | MATH-CORRECTED (exponent stands; scope narrowed) | N12 |", "| CT15 | The level's technology sets the exponent | §5.3, Result 4 | MATH-CORRECTED (exponent stands; scope narrowed) | N13 |", "core-index"),
+    ("THEORY.md", "## Appendix A. Notation", "## Notation", "length"),
 ]
 def run(d):
     r = subprocess.run([sys.executable, os.path.join(d, "tools", "check_consistency.py")], cwd=d, capture_output=True, text=True)

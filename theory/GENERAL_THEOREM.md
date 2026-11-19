@@ -49,7 +49,7 @@ Draft, Saturday 2026-11-14 (ET). Private working file. Nothing here was posted o
      - long memory (σ τ^H / B);
      - partial fixes.
    - **In calendar-time hazard, τ's exponent is not ½ of σ's.** The model's own ratio runs from about 0.42 in the cold regime to about 0.02 in the hot regime.
-5. **C3 failed, and the theory now says why, quantitatively.** In the reset model, hazard × τ equals per-window ruin, so the observed dormancy hazard and τ alone pin z, with no units needed.
+5. **C3 failed on proxy, and the theory now says why, quantitatively.** In the reset model, hazard × τ equals per-window ruin, so the observed dormancy hazard and τ alone pin z, with no units needed.
    - At C3's numbers (h ≈ 0.07/yr, median τ = 44 days), the model would predict a hazard ratio of about 11 per doubling of τ. C3 measured about 1.0 (upper CI ≈ 1.09).
    - So at most about 1–5% of OSS dormancy hazard can come from diffusive error accumulation reset at issue-close time.
    - **Reading.** Dormancy is not diffusive first passage at this τ. Either failures are jump-like (maintainers leave) or τ does not measure the fix interval. This kills the mechanism as posted for this proxy and scale. It does not kill the index where errors really are diffusive.
@@ -63,7 +63,7 @@ Draft, Saturday 2026-11-14 (ET). Private working file. Nothing here was posted o
    - "Behavior is optimal for some cost" is vacuous unless costs are measured independently (C7c).
    - Nothing guarantees real systems sit at the optimum (Alchian 1950: selection gives "as if" at best).
 
-   So the theory's content lives entirely in predictions with independently measured costs, and its first such prediction, C3, failed in a way the theory itself now shows is decisive for that mechanism.
+   So the theory's content lives entirely in predictions with independently measured costs, and its first such prediction, C3, failed on proxy in a way the theory itself now shows is decisive for that mechanism.
 
 ---
 
@@ -416,7 +416,7 @@ Setting: S with renewal checks (A3). A copy taken at age 0 is used by the Bayes 
    - **Verdict: correct; it survives only in a reduced form.** The literal physics enters as (a) the existence of a maintenance cost (why y > 0 is needed) and (b) a memory-cost floor (Landauer; Still) that binds only for molecular and cellular systems.
    - The claim that can be defended is "one optimization problem at every scale, whose budget the second law guarantees exists". "The same physics doing the work at every scale" is not established by any theorem here, and Chad's framing should not claim it is.
 2. **"Optimal for some cost" is vacuous.** Every policy is the unique optimum of some loss (`c7c`).
-   - **Verdict: correct.** Predictions have content only with costs, stakes and drifts measured independently of the behavior they predict. That is how C3 was built, and it failed.
+   - **Verdict: correct.** Predictions have content only with costs, stakes and drifts measured independently of the behavior they predict. That is how C3 was built, and it failed on proxy.
 3. **There is no mechanism that puts real systems at the optimum.** Alchian (1950): selection rewards relative, realized success; "as if" optimization is at best an approximation.
    - **Verdict: open.** The theory needs either a selection argument (survivors are near the persistence frontier P0, which is testable) or a learning argument (outcome-driven updating, rule 6).
 4. **The temperature index is forced by dimensional analysis, so it has no content.**
