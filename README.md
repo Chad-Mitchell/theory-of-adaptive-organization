@@ -6,6 +6,8 @@ Author: Chad Mitchell — X: [@torusflow](https://x.com/torusflow)
 
 **The spine (plain words).** Everything obeys the second law: total disorder rises, though local order can grow by pushing disorder out somewhere else. That law, together with gravity, the speed of light, quantum physics and the universe's low-entropy start, sets the stage; GTAO adds no new physics, and no proof in the formal layer depends on the second law (`THEORY.md` §2.3). Atoms and crystals carry information but have no use for a model; stars hold themselves up on a flow but track nothing outside; cells, people, firms and cities last only by staying matched to a world that changes and can ruin them, and once acting late is costly, carrying a model and acting ahead can pay. That is judgment: not a new physical principle, but a way of staying alive under the old one (`THEORY.md` §0; how the pieces fit, from chemistry to heat death: `theory/BOOKENDS.md`).
 
+**One sentence on viruses.** A virus particle is frozen and pays nothing, while an infected cell and the viral lineage are alive, so GTAO says a virus is alive as a lineage, not as a particle, and treats "alive" as a ledger of who pays for what (a restatement of published views; `theory/REACH.md` §1). The cosmic web, wormholes, the torus, dark matter and energy, and fractal time are worked in [`theory/REACH.md`](theory/REACH.md) and three companion notes; the theory makes no prediction that wormholes exist or about the shape of the universe.
+
 The claim is a falsifiable theory of how any adaptive organization lasts. The design mathematics is proved only inside the model, and much of it is known mathematics assembled here. The open bet is that real cells, people, firms and cities sit near those optima once the inputs are measured on the same system; that bet is untested, not refuted. No field test has yet measured the theory's quantities validly, and results so far are reported as passed / failed on a proxy.
 
 Working repository for a general theory of **any adaptive organization** — cells, immune systems, ant colonies, people, firms, and cities. It is **not** a theory of everything. The bet is narrower: once acting late is costly, the same tradeoff between what a system remembers, what it predicts, and what that costs shapes efficient design at every scale. The costs are physically priced, as floors, at every scale from atoms to the cosmic horizon. That is the author's scope choice of 18 November 2026, not a finding: the formal proofs do not depend on it, and whether the physics does work in them is an open disagreement (`THEORY.md` §2.3); what changes along the scale is whether a model is worth carrying (`THEORY.md` §2.3, "The ends of the scale"). How the world's change is spread over timescales fixes the optimal design exponents, but that part is classical filtering and approximation theory plus a price, not new; GTAO's open bet is that real systems sit near those optima once the inputs are measured on the same system. Only the cost currency changes (heat in a cell, attention in a person, money in a firm). The physical floors are literal as floors at every scale, but above the cell they do not bind; there the exponents come from information theory and competition, not from heat (`THEORY.md` §2.3).
@@ -16,7 +18,7 @@ This repository holds the theory (`THEORY.md`), the theorem notes with their cod
 
 ## Start here
 
-**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.22 draft, 18 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands, with commits; [`QUEUE.md`](QUEUE.md) is the live work queue; [`BRIEF.md`](BRIEF.md) is a plain-words brief of the whole record, checked against the files; `measurement/FRAMEWORK.md` and `measurement/CLAIM_MAP_v2.md` (v2.41) say how quantities are measured and give one status per claim. `python3 tools/check_consistency.py` checks versions, wording and claim statuses across these files. This README is a summary.
+**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.23 draft, 18 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands, with commits; [`QUEUE.md`](QUEUE.md) is the live work queue; [`BRIEF.md`](BRIEF.md) is a plain-words brief of the whole record, checked against the files; `measurement/FRAMEWORK.md` and `measurement/CLAIM_MAP_v2.md` (v2.42) say how quantities are measured and give one status per claim. `python3 tools/check_consistency.py` checks versions, wording and claim statuses across these files. This README is a summary.
 
 ## In plain words
 
@@ -44,7 +46,7 @@ Optimality is claimed only where selection is strong. Below Lynch's drift barrie
 - The formal layer is proved in-model, with corrections ("V ≥ 2" is wrong as stated), and mostly builds on published team theory and inventory pooling. Its constants are functions of the world's drift spectrum (`THEORY.md` §2.5).
 - The spectrum-to-design map is now derived and refereed (`reviews/night2/SPECTRUM_MAP_REFEREE.md`): it is classical, so it is no longer the headline. What remains open is whether real systems sit near it once its inputs are measured (`QUEUE.md`).
 
-See `THEORY.md` (status block, §2.3, §2.5, §8b–8c) and `measurement/CLAIM_MAP_v2.md` (v2.41).
+See `THEORY.md` (status block, §2.3, §2.5, §8b–8c) and `measurement/CLAIM_MAP_v2.md` (v2.42).
 
 - **There is no new theorem of large scope.** Most individual rules are known results, placed side by side. The math notes label what is known, what is a calculation, and what fails. The one new proof worth keeping (a quantitative internal-model bound) is modest, and its novelty is unconfirmed.
 - **This is a working hypothesis under test**, not a finding. Nothing here has been peer reviewed. An independent review of the DECISIVE and F1 tests is in `reviews/DECISIVE_F1_REVIEW.md` (14 November 2026, America/New_York); the scoreboard below follows its verdict. That review was not fully blind (the reviewer had the results and write-ups). Most other tests have not had an independent review.
@@ -61,7 +63,7 @@ See `THEORY.md` (status block, §2.3, §2.5, §8b–8c) and `measurement/CLAIM_M
 
 ### What still looks new (each with a kill condition in `THEORY.md` §1)
 
-*This is the v1.0 list, kept as history. The current list of what looks like the theory's own is `THEORY.md` §8b; statuses are in `measurement/CLAIM_MAP_v2.md` (v2.41).*
+*This is the v1.0 list, kept as history. The current list of what looks like the theory's own is `THEORY.md` §8b; statuses are in `measurement/CLAIM_MAP_v2.md` (v2.42).*
 
 Pending targeted searches, and none yet confirmed by a locked, reviewed test:
 
@@ -98,7 +100,7 @@ The preregistration commits for these tests lived only in local, unpushed git re
 ## Repository layout
 
 ```
-THEORY.md         The theory, v1.4.22 draft (start here)
+THEORY.md         The theory, v1.4.23 draft (start here)
 STATUS.md         Where the work stands (rewritten, not appended)
 BRIEF.md          Plain-words brief of the whole record, checked against the files
 QUEUE.md, queue/  Live work queue and ledger
