@@ -1,0 +1,31 @@
+exact threshold roots of sqrt(t rho)+1 = sqrt(1+rho): [4*t/(t**2 - 2*t + 1)]  (claim 4t/(1-t)^2, t<1)
+
+kappa/c=0.0001: rho_b=0.00040008
+  rho=   0.9*rho_b: N*=inf  V(N*)=nan
+  rho=  0.99*rho_b: N*=inf  V(N*)=nan
+  rho=  1.01*rho_b: N*=1e+06  V(N*)=1.9998
+  rho=   1.1*rho_b: N*=1e+05  V(N*)=1.9998
+  rho=     2*rho_b: N*=1e+04  V(N*)=1.9996
+  rho=    10*rho_b: N*=1113  V(N*)=1.9980
+  rho=   100*rho_b: N*=103  V(N*)=1.9806
+
+kappa/c=0.001: rho_b=0.00400801
+  rho=   0.9*rho_b: N*=inf  V(N*)=nan
+  rho=  0.99*rho_b: N*=inf  V(N*)=nan
+  rho=  1.01*rho_b: N*=1.002e+05  V(N*)=1.9980
+  rho=   1.1*rho_b: N*=1.002e+04  V(N*)=1.9978
+  rho=     2*rho_b: N*=1004  V(N*)=1.9960
+  rho=    10*rho_b: N*=113.3  V(N*)=1.9805
+  rho=   100*rho_b: N*=12.04  V(N*)=1.8449
+
+kappa/c=0.01: rho_b=0.0408122
+  rho=   0.9*rho_b: N*=inf  V(N*)=nan
+  rho=  0.99*rho_b: N*=inf  V(N*)=nan
+  rho=  1.01*rho_b: N*=1.02e+04  V(N*)=1.9800
+  rho=   1.1*rho_b: N*=1022  V(N*)=1.9783
+  rho=     2*rho_b: N*=104  V(N*)=1.9615
+  rho=    10*rho_b: N*=13.27  V(N*)=1.8427
+  rho=   100*rho_b: N*=2.664  V(N*)=1.4436
+
+POOLSIM W3-like check: equal-cost formula sqrt(N*rho/(1+rho)) vs true V at onset (kappa=1e-3, rho=0.032):
+  N*=145.5; naive formula=2.12; true V=1.984

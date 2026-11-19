@@ -46,7 +46,7 @@ The three costs from `THEORY.md` §0, split so that each can be paid by someone 
 And a column for **who selects the design** (Axiom 7): the entity itself, a lineage, or nothing. The classes:
 
 - **Frozen** (class 1): U = F = T = 0 paid by the entity; lifetime set by a barrier (SCALE_ENDS §3.1, E4).
-- **Held, no structural model** (class 2): pays U, nothing selected (stars, flames).
+- **Held, no structural model** (class 2, "Hold"): pays U, nothing selected; it regulates itself (in a star: self-regulating fusion, convection, dynamos, layered composition) but anticipates nothing outside (stars, flames).
 - **Selected model** (class 3s): heredity above the Eigen threshold, a world-dependent action, drift in the hold band, a first nat that pays (S1 to S4; BOOKENDS §2.0.2).
 
 ### 1.2 Placing the viral objects
@@ -62,7 +62,7 @@ And a column for **who selects the design** (Axiom 7): the entity itself, a line
 | **Giant virus (Mimivirus)** | none | encodes components of all DNA repair pathways and several translation components (aminoacyl-tRNA synthetases, factors); no ribosome is listed in the abstract (Raoult et al. 2004) | none known | virion frozen; virocell held | nearer to the cell end of the ledger than a small virus, but the particle still pays no U | DERIVED |
 | **Viroid** | host | none beyond the host's RNA polymerases (Gago et al. 2009: replication mediated by host RNA polymerases and, in some cases, hammerhead ribozymes; Flores et al. 2014: no protein-coding ability) | none | a bare replicator at the edge of the threshold: mutation rate 1/400 per site in one viroid, the highest reported (Gago et al. 2009) | a lineage with the shortest ledger; sits at the Eigen limit | DERIVED (conditional) |
 | **Prion** | host (it converts host PrP) | the template is a conformation, not a sequence | none | has heredity and selection without a nucleic-acid genome (Li et al. 2010: "subject to mutation and selective amplification") | a replicator lineage with a protein template; whether S1 applies is open (§1.6) | HYPOTHESIS |
-| **Hurricane or flame** (contrast) | yes | no record | none | held, no model | not alive: no heredity | PRIOR ART in substance (BOOKENDS) |
+| **Hurricane or flame** (contrast) | yes | no record | none | held (self-regulating), no model; anticipates nothing outside | not alive: no heredity | PRIOR ART in substance (BOOKENDS) |
 
 Notes on the least certain rows. (i) "None" for the virion's U, F and T is the standard picture of a virion as an inert package; the theory's contribution is only the accounting. A virion shown to burn energy to repair itself outside a host would break the frozen verdict for that particle (kill K-V1 below). (ii) Prions are edge-case: Li et al. 2010 is the evidence that heredity and selection exist without a nucleic acid; whether the Eigen-type threshold has a prion form is not known. (iii) The viroid in Gago et al. 2009 is chrysanthemum chlorotic mottle viroid, 398–399 nucleotides (Navarro & Flores 1997, abstract; added by the independent review), so the "order one per genome" statement in §1.4 holds: εL ≈ 399/400 ≈ 1.0.
 

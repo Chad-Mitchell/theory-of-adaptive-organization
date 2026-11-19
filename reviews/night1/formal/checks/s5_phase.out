@@ -1,0 +1,20 @@
+=== (1) symbolic edges ===
+  freeze edge: T*(q_f) - H_l = 0
+  lookup edge: sqrt(2cW q_c)+h - mu u = h - mu*u + Abs(h - mu*u)  (for mu u>h)
+  q_c - q_f = -(-H_l*h + H_l*mu*u + 2*c)*(H_l*h - H_l*mu*u + 2*c)/(2*H_l**2*W*c)
+  q_c>q_f  <=>  H_l(mu u - h) > 2c  <=>  mu u H_l > 2c + h H_l   [ (mu u-h)^2 H_l^2 > 4c^2, mu u>h ]
+  shared store, h=0: (q_c/q_f)_N / (q_c/q_f)_1 = N**2
+  elasticity of q_c in u: 2*mu*u/(-h + mu*u)  (=2 at h=0); of sigma_c=sqrt(q_c): Piecewise((0, Eq(h - mu*u, 0)), (mu*u/(-h + mu*u), True))
+
+=== (2) numeric phase diagram on a q-grid, 2000 random parameter sets ===
+  band existence mismatches vs (mu u H_l > 2c + h H_l): 0/2000;  max |log edge error| = 0.0230 (grid step 0.0230)
+
+=== (3) power class hold cost k W^a q^b + h vs lookup mu u: q_c = ((mu u - h)/(k W^a))^(1/b) ===
+  elasticity in u at h=0: 1/b
+  shared (N users) / single, h=0: N**((1 - a)/b)
+
+=== (4) fallback cliff: effort just below q_c is strictly positive (R1: 1/T* = sqrt(Wq/2c)) ===
+  effort at q_c^- = Abs(h - mu*u)/(2*c)  > 0 whenever mu u > h ; effort above q_c = 0  => discontinuity
+
+=== (5) T5: Poisson change rate lam, use rate mu, bounded miss loss Wb, refresh cost c: f*>0 iff lam < mu Wb/c ===
+  mismatches: 0/3000

@@ -1,0 +1,38 @@
+=== E2 rho = 1 and rho -> inf (h=0) ===
+  (a,b)=(0.50,0.50): N*(rho=1)=5.828 formula=5.828;  N*(1e3)=1.0653  N*(1e6)=1.00200
+  (a,b)=(0.67,0.33): N*(rho=1)=56.948 formula=56.948;  N*(1e3)=1.3702  N*(1e6)=1.03061
+  (a,b)=(0.80,0.20): N*(rho=1)=13755.272 formula=13755.272;  N*(1e3)=4.2419  N*(1e6)=1.38523
+
+=== E3 total drift lam -> 0 with upkeep h=1 (rho=0.1, a=b=1/2): N* ~ lam^{-b}? ===
+  lam=1e-03 N*=835.1  local slope d lnN*/d ln lam=-0.4153 (pred -> -b = -0.5)
+  lam=1e-04 N*=2364  local slope d lnN*/d ln lam=-0.4519 (pred -> -b = -0.5)
+  lam=1e-05 N*=7022  local slope d lnN*/d ln lam=-0.4728 (pred -> -b = -0.5)
+  lam=1e-06 N*=2.144e+04  local slope d lnN*/d ln lam=-0.4847 (pred -> -b = -0.5)
+
+=== E1 depth vs log N in the nested tree (first-order rule, class R, kappa<kappa*) ===
+  kappa=0.3: depth at S=4..40 step 4 (log2 N = S): [np.int64(0), np.int64(3), np.int64(7), np.int64(11), np.int64(15), np.int64(19), np.int64(23), np.int64(27), np.int64(31), np.int64(35)]  increments [3, 4, 4, 4, 4, 4, 4, 4, 4]
+  kappa=0.7: depth at S=4..40 step 4 (log2 N = S): [np.int64(0), np.int64(0), np.int64(1), np.int64(5), np.int64(9), np.int64(13), np.int64(17), np.int64(21), np.int64(25), np.int64(29)]  increments [0, 1, 4, 4, 4, 4, 4, 4, 4]
+  kappa=1.5 (>kappa*): depth [np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0)]
+
+=== E4 lookup cost u -> 0 (R1 quadratic, c=1, w=1, mu=1, H_l=inf, h=0.05) ===
+  u=3      private holding:yes  level optimal:yes  shared store held:yes
+  u=2      private holding:yes  level optimal:yes  shared store held:yes
+  u=1.5    private holding:yes  level optimal:no   shared store held:yes
+  u=1.2    private holding:no   level optimal:no   shared store held:yes
+  u=1.0    private holding:no   level optimal:no   shared store held:yes
+  u=0.8    private holding:no   level optimal:no   shared store held:yes
+  u=0.5    private holding:no   level optimal:no   shared store held:yes
+  u=0.3    private holding:no   level optimal:no   shared store held:yes
+  u=0.2    private holding:no   level optimal:no   shared store held:no 
+  u=0.1    private holding:no   level optimal:no   shared store held:no 
+  u=0.05   private holding:no   level optimal:no   shared store held:no 
+  u=0.02   private holding:no   level optimal:no   shared store held:no 
+  u=0.01   private holding:no   level optimal:no   shared store held:no 
+  u=0.005  private holding:no   level optimal:no   shared store held:no 
+  u=0.002  private holding:no   level optimal:no   shared store held:no 
+  exact edges: level dissolves below u=1.5285 (valid since < flat cost 1.5332); private residual holding stops below u=1.4642; shared store stops below u=0.2010
+  ORDER: with whole-item lookup the level dissolves FIRST, then private residual holding, the shared store (component lookup) LAST.
+
+=== E5 vigilance beyond onset ~ N^a, and p_g/p -> 0 ===
+  (a,b)=(0.50,0.50): V(N*)=2.000, V(100N*)/V(N*)=10.00 (pred 10.00)
+  (a,b)=(0.67,0.33): V(N*)=9003.000, V(100N*)/V(N*)=21.54 (pred 21.54)

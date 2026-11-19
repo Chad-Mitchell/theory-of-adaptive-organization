@@ -1,0 +1,11 @@
+=== (a) K clocks: saving = 1 - sum q_k^g / (K^(1-g) (sum q)^g)  in [0, 1-K^-(1-g)); indivisible reads: saving <= 0 ===
+  min saving 2.14e-07 (>=0);  max(saving - cap) -7.71e-08 (<0);  indivisible-read cases with positive saving: 0/20000
+  two components, g=1/2, separation R=sqrt(q_fast/q_slow):  R=1: 0.000, R=2: 0.051, R=4: 0.143, R=10: 0.226, R=1000000.0: 0.293
+
+=== (b) resolution: max fractional saving of a level (N->inf) = 1-(1+rho)^-b <= b*rho ===
+  rho threshold for relative resolution eps: [(-1/(epsilon - 1))**(1/b) - 1]
+  violations of 1-(1+rho)^-b <= b rho: 0/20000;  b=1/2, eps=1%: rho_min = 0.0203; eps=5%: 0.1080
+
+=== (c) readability: members read x_i and subtract the level's current estimate (R1, quadratic, Brownian) ===
+  rho=0.03: N*rho (subtract scheme) = 7.351;  separable/aligned = 4.060  (Pi* bounds 4 <= . <= 8)
+  rho=0.01: N*rho (subtract scheme) = 7.275;  separable/aligned = 4.020  (Pi* bounds 4 <= . <= 8)

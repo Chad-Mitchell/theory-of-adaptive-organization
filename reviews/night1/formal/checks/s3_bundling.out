@@ -1,0 +1,25 @@
+=== (1) closed form of E[(qg s_g + qu s_u)^beta], s_g~U[0,Tg], s_u~U[0,Tu] ===
+  beta=1/4: relative difference at a test point = 0.0e+00
+  beta=1/2: relative difference at a test point = 0.0e+00
+  beta=2: relative difference at a test point = 0.0e+00
+  first-order term in qg: d/dqg at qg->0 of E[(qg s_g+qu s_u)^beta] = beta*qu^(beta-1)*E[s_u^(beta-1)]*Tg/2,
+  sympy (beta=1/2): T_g/(2*sqrt(T_u)*sqrt(q_u))  vs claim beta*qu^(beta-1)*Tu^(beta-1)/beta*Tg/2 = T_g/(2*sqrt(T_u)*sqrt(q_u))
+  (E[s_u^(beta-1)] = Tu^(beta-1)/beta is finite iff beta>0, i.e. p>0.)
+
+=== (2) R1, bundled |e|^p loss: exact N* (joint T_g,T_u), qu=1 ===
+  p=0.5: N* = 9140.3, 2956.5, 848.8 at rho=[0.001, 0.003, 0.01];  slope e_g = -1.032;  lone-member (a,b)=(0.800,0.200) would predict -4.000
+  p=1.0: N* = 5945.3, 1970.0, 585.2 at rho=[0.001, 0.003, 0.01];  slope e_g = -1.007;  lone-member (a,b)=(0.667,0.333) would predict -2.000
+  p=2.0: N* = 4002.0, 1335.3, 402.0 at rho=[0.001, 0.003, 0.01];  slope e_g = -0.998;  lone-member (a,b)=(0.500,0.500) would predict -1.000
+  p=4.0: N* = 3002.1, 1002.1, 302.1 at rho=[0.001, 0.003, 0.01];  slope e_g = -0.997;  lone-member (a,b)=(0.333,0.667) would predict -0.500
+  contrast, SEPARABLE loss |e_g|^p+|e_u|^p (the review's model):
+    p=1.0: slope -1.996 (power-class prediction -2/p = -2.000)
+    p=4.0: slope -0.499 (power-class prediction -2/p = -0.500)
+
+=== (3) class A_1 (averaging), bundled absolute loss ===
+  N* = 3.009e+06, 2.727e+05, 3.09e+04; slope e_g = -1.989;  quadratic-class prediction -2;  lone-member (a,b)=(4/5,1/5) would predict -4
+
+=== (4) convergence for p=0.5 (remainder is O(rho^(p/2)) relative) ===
+  local slope rho 1e-06->1e-05: -1.0052
+  local slope rho 1e-05->0.0001: -1.0096
+  local slope rho 0.0001->0.001: -1.0176
+  N* rho: 9.85, 9.73, 9.52, 9.14

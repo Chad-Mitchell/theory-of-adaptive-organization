@@ -278,7 +278,7 @@ def main(argv=None):
             sec = mm.group(1)
         if ln.startswith("## Counts"):
             sec = None
-        mm = re.match(r"^\| ([A-Z]\d+[′']?[a-z]?) \|", ln)
+        mm = re.match(r"^\| ([A-Z]{1,2}\d+[′']?[a-z]?) \|", ln)  # two-letter IDs: section O (CT/CL/CX); alias rows "CTk → X" are not counted
         if mm and sec:
             c = split_cells(ln)
             t = c[3].replace("*", "").strip() if len(c) > 3 else ""

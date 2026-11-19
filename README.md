@@ -9,7 +9,7 @@ One principle runs from atoms to cities: the second law. Total disorder rises; l
 | Way to last | What it pays | Does a model of the world pay? | Examples |
 |---|---|---|---|
 | **Keep** (frozen) | Nothing: it sits in a state almost nothing can knock loose | **No.** Nothing it does changes whether it lasts, so a model would cost something and buy nothing (CLAIM_MAP N25, PROVED (in-model); partly definitional) | Atoms, crystals, a virus particle; at the extreme, a black hole: the most memory physics allows for its size, almost none of it readable (N26, PROVED (in-model), conditional) |
-| **Burn** (held) | A steady flow of energy | **No.** It steadies itself and tracks nothing outside | Stars, flames, hurricanes |
+| **Hold** (self-regulating) | A steady flow of energy | **No.** It regulates itself (in a star: self-regulating fusion, convection, dynamos, layered composition) but anticipates nothing outside | Stars, flames, hurricanes |
 | **Know** (tracks) | A flow of energy *and* the cost of staying matched to a world that changes and can ruin it | **Yes, once acting late is costly.** Then carrying a model and acting ahead can pay | Cells, immune systems, ant colonies, people, firms, cities |
 
 A knower can't wait for the world to arrive. Once acting late is costly, it can pay to carry a model and act ahead. **That is judgment: not a new physical principle, but a way of staying alive under the old one.**
@@ -81,7 +81,7 @@ Optimality is claimed only where selection is strong. Below Lynch's drift barrie
 
 The costs are physically priced, as floors, at every scale from atoms to the cosmic horizon. That is the author's scope choice of 18 November 2026, not a finding: no formal proof depends on it, and whether the physics does real work in the proofs is an open disagreement (`THEORY.md` §2.3). Above the cell the floors are literal but do not bind; there the exponents come from information theory and competition, not from heat. What changes along the scale is whether a model is worth carrying (`theory/SCALE_ENDS.md`, independently refereed, PASS-WITH-FIXES; CLAIM_MAP N25–N29):
 - **Atoms** are frozen. A model would buy nothing (N25), though atoms still carry physical information (for example ln 4 nats of hyperfine spin).
-- **Stars** are held with no model: they burn fuel and track nothing outside.
+- **Stars** are held with no model: they regulate themselves (self-regulating fusion, convection, dynamos, layered composition) but anticipate nothing outside.
 - **Black holes** are the extreme of the frozen class: the most memory physics allows for their size, three readable numbers (mass, spin, charge), and, if evaporation is unitary (the Page-curve assumption; Hawking's original calculation says information never returns), the rest returned scrambled only after about the Page time, for every black hole that exists today (N26, PROVED (in-model) for such pre-Page-time holes; older holes rest on a conjecture). GTAO does not derive why black holes exist, the area law or the Page curve (N29 WITHDRAWN as framing).
 - **Selected models** switch on only with heredity below Eigen's threshold, a world-dependent action, trackable drift and a first nat that pays (N28 OPEN); survival-relevant information and the simplest models (integral feedback) may come earlier.
 - **Light delay, and what shortcuts would change** (`theory/WORMHOLES.md`; the shortcut cases are CONDITIONAL throughout):
@@ -117,7 +117,7 @@ GTAO is a falsifiable causal theory. No Tier-1 test has run: there is no field p
 - **The validity gates MV1–MV10 are treated as binding** from 18 November 2026 for every new preregistration (Chad's instruction to proceed without his sign-off; CLAIM_MAP M2). MV9's external timestamp still needs the author's go for each lock.
 - **The first real test** of the open bet (SAME-SYSTEM-AQN) is designed and not yet run (`STATUS.md`, `QUEUE.md`).
 
-See `THEORY.md` (status block, §2.3, §2.5, §8b–8c) and `measurement/CLAIM_MAP_v2.md` (v2.48).
+See `THEORY.md` (status block, §2.3, §2.5, §8b–8c) and `measurement/CLAIM_MAP_v2.md` (v2.49).
 
 - **There is no new theorem of large scope.** Most individual rules are known results, placed side by side. The math notes label what is known, what is a calculation, and what fails. The one new proof worth keeping (a quantitative internal-model bound) is modest, and its novelty is unconfirmed.
 - **This is a working hypothesis under test**, not a finding. Nothing here has been peer reviewed. An independent review of the DECISIVE and F1 tests is in `reviews/DECISIVE_F1_REVIEW.md` (14 November 2026, America/New_York); the scoreboard below follows its verdict. That review was not fully blind (the reviewer had the results and write-ups). Most other tests have not had an independent review.
@@ -128,7 +128,7 @@ See `THEORY.md` (status block, §2.3, §2.5, §8b–8c) and `measurement/CLAIM_M
 
 | Layer | Status | Where |
 |---|---|---|
-| The spine and the keep / burn / know split | A framing. The three-class split is prior art in substance (Prigogine; Pross). Bookend rows are classifications, not predictions: no data could fail them | `theory/BOOKENDS.md`, `theory/SCALE_ENDS.md` |
+| The spine and the keep / hold / know split | A framing. The three-class split is prior art in substance (Prigogine; Pross). Bookend rows are classifications, not predictions: no data could fail them | `theory/BOOKENDS.md`, `theory/SCALE_ENDS.md` |
 | Design exponents from the world's drift spectrum | **Known mathematics**, assembled and credited. In a Markov world (α = 2) the square-root rules hold and one store suffices (Kalman/Muth; Mora & Nemenman 2019 for a sensing cell, whose world is a geometric random walk, so α = 2 holds for log-concentration; Lee, Flack & Krakauer 2024 as an application). In a scale-free world (α ≠ 2) the exponents become 1/α and its relatives, forgetting kernels have power-law tails, and the number of stores grows with log-span and log stakes/upkeep (Afterman et al. 2022; Nuzman & Poor 2000; Benna & Fusi 2016; and others). Holds for a Gaussian world or the best linear tracker; the Bayes tracker of a jump world can differ (N16) | `THEORY.md` §2.2, §10 |
 | Model size across many modes (Regime C) | Model size ∝ Q^{1/β}, an interior minimum of the model's budget share iff β < 1, a minimum viable size from unstable modes: PROOF under stated assumptions with known tools; not reviewed by the spectrum-map referee | `THEORY.md` §2.2 |
 | Levels, vigilance, freeze / hold / look up (the formal layer) | Proved in-model, with corrections ("V ≥ 2" is wrong as stated); mostly built on published team theory and inventory pooling | `THEORY.md` §2.5, §6, §8b |
@@ -151,7 +151,7 @@ See `THEORY.md` (status block, §2.3, §2.5, §8b–8c) and `measurement/CLAIM_M
 <summary><b>What looked new in v1.0 (kept as history)</b></summary>
 
 
-*This is the v1.0 list, kept as history. The current list of what looks like the theory's own is `THEORY.md` §8b; statuses are in `measurement/CLAIM_MAP_v2.md` (v2.48).*
+*This is the v1.0 list, kept as history. The current list of what looks like the theory's own is `THEORY.md` §8b; statuses are in `measurement/CLAIM_MAP_v2.md` (v2.49).*
 
 Pending targeted searches, and none yet confirmed by a locked, reviewed test:
 
@@ -189,7 +189,7 @@ The preregistration commits for these tests lived only in local, unpushed git re
 
 ## Start here
 
-**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.29 draft, 18 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands; [`QUEUE.md`](QUEUE.md) is the live work queue; [`BRIEF.md`](BRIEF.md) is a plain-words brief of the whole record, checked against the files; `measurement/FRAMEWORK.md` says how quantities are measured, and `measurement/CLAIM_MAP_v2.md` (v2.48) gives one status per claim. `python3 tools/check_consistency.py` checks versions, wording and claim statuses across these files. This README is a summary.
+**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v1.4.29 draft, 18 November 2026, America/New_York).** Where anything else disagrees, it governs. [`STATUS.md`](STATUS.md) says where the work stands; [`QUEUE.md`](QUEUE.md) is the live work queue; [`BRIEF.md`](BRIEF.md) is a plain-words brief of the whole record, checked against the files; `measurement/FRAMEWORK.md` says how quantities are measured, and `measurement/CLAIM_MAP_v2.md` (v2.49) gives one status per claim. `python3 tools/check_consistency.py` checks versions, wording and claim statuses across these files. This README is a summary.
 
 **Reading paths** (each about an hour):
 - **Physicist:** `THEORY.md` §2.3 (where the physics is literal and where it is not) → `theory/SCALE_ENDS.md` → `theory/BOOKENDS.md` §2 → `theory/WORMHOLES.md`, `theory/COSMIC_WEB.md`. Expect classifications given published physics, not new physics.

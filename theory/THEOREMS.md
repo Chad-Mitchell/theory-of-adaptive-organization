@@ -196,12 +196,12 @@ The question is whether the optimal policy at one level has the same form at the
 - **(ii)** Across levels, log(check interval) against log(unit size) is a straight line with one slope.
 - **(iii)** When the drift rates of what a system tracks are spread log-uniformly, its review cadences cluster at geometrically spaced intervals. ~~The number of levels grows as L^{2/3}.~~ **Withdrawn (18 Nov 2026, BOOKENDS BK-P8):** the L^{2/3} level count (L = log-span) predates THEORY v1.4. The current store count is ∝ ln(span)·ln(stakes/upkeep) away from α = 2, with its rate conjectural (THEORY §1 N4; CLAIM_MAP K12, MATH-CORRECTED).
 
-**What fails.** The theory does not make the architecture fractal by itself. Self-similarity holds only if:
+**What fails.** The theory does not make the architecture fractal by itself. Self-similarity holds if (sufficient conditions; necessity is not proved: erratum 19 Nov 2026, ET, LOCK_AUDIT S4 and THEORY v2.0, replacing "only if"):
 - the world's drift is scale-free (no characteristic time: mean reversion, seasonality or regime lengths break it);
 - costs are power laws in size (fixed setup costs break it);
 - the loss form is the same at every level.
 
-T7b is close to tautological: scale-free input gives scale-free output. It is a statement of conditions, not a finding. The honest statement is that **the optimal architecture inherits whatever scale structure the world has**. It is fractal only where the world is. Human calendars (day, week, month, quarter, year) are roughly geometric but astronomical in origin, so they are not evidence.
+T7b is close to tautological: scale-free input gives scale-free output. It is a statement of conditions, not a finding. The honest statement is that **the optimal architecture inherits whatever scale structure the world has**: it is self-similar when the world, the costs and the loss are scale-free (conditional; whether it can be self-similar otherwise is not proved either way). Human calendars (day, week, month, quarter, year) are roughly geometric but astronomical in origin, so they are not evidence.
 
 ## T8. Supporting known theorems the theory rests on **[KNOWN]**
 
