@@ -1,6 +1,6 @@
 # The torus: where it is real, what an earlier toy test did and did not show, and what the theory does not say about the shape of the universe
 
-Wednesday 18 November 2026, evening ET. Companion to [`REACH.md`](REACH.md) (§5). Code and saved output: `reach_checks/circle_map.py`, `circle_map.out`. Labels as in REACH.md.
+Wednesday 18 November 2026, evening ET. Companion to [`REACH.md`](REACH.md) (§5). Code and saved output: `reach_checks/circle_map.py`, `circle_map.out`; price-to-K map and the shape of the optimum (§4b, v1.4.25): `reach_checks/price_maps.py`, `price_maps.out`. Labels as in REACH.md.
 
 **The idea tested (Chad, t1955/t1956).** Revisit the torus rigorously: the idea that coupled cycles live on a torus, and that this connects to the theory. Treated as a hypothesis. One earlier test is re-read, and it was a mismatched proxy.
 
@@ -46,9 +46,24 @@ The honest status (modest wording from that review): in one unpublished toy of a
 
 **Claim.** A tracker whose reads follow a cycle can lock to an outside cycle (the world's, or another loop's) over a detuning range that grows with coupling strength K. The 0:1 (and 1:1) tongue width is ∝ K (§1); a p/q tongue grows like K^q at small K (independent review check C: local exponents 1.99 and 1.95 for 1:2, 2.92 and 2.90 for 1:3), so locking at higher ratios needs much stronger coupling. Locking saves reads, because they are timed to when they are needed; coupling has a price (upkeep for the link); and an outside cycle whose phase drifts out of the locked range is tracked late (LAT-1).
 
-**What can be derived.** If both the benefit (fraction of detunings covered) and the price are linear in K, the optimum is all or nothing, with no interior peak. An interior optimum requires a convex price or a saturating benefit, and I could not derive which holds for any real system without an assumption about the price. So the hypothesis is "plateaus of locking exist in adaptive loops, and their width tracks measured coupling cost", and nothing stronger. That is a hypothesis about plateau structure, and it could be wrong, as the circle-map result says nothing about whether adaptive organizations phase-couple. The half that ties width to cost needs a defined map from a measured coupling price to K before it can be run (the same gap N40 declares for its price ratio).
+**What can be derived.** If the benefit is a fixed amount and both it and the price are linear in K, the optimum is all or nothing. (v1.4.25: §4b shows that when the benefit is instead the covered share of a spread of detunings, the optimum is interior iff the mean mismatch is no larger than the spread; it still rests on an assumed price.) I could not derive which price shape holds for any real system. So the hypothesis is "plateaus of locking exist in adaptive loops, and their width tracks measured coupling cost", and nothing stronger. That is a hypothesis about plateau structure, and it could be wrong, as the circle-map result says nothing about whether adaptive organizations phase-couple. The half that ties width to cost needs a defined map from a measured coupling price to K before it can be run: §4b now defines it, K = 2π·Z·ε(price), for systems with a measured phase-response curve and coupling cost, and finds none yet for organizations.
 
 **Kill condition (N45).** In real pairs of cycles with independently measured phase coupling (the setup in §3), rotation number versus detuning shows no plateaus beyond a surrogate-null, or the plateau width is uncorrelated with the measured coupling cost across at least a preregistered number of pairs. A system whose coupling turns out to be reset-type rather than phase-type is not a test of N45 (INVALID, as in §2).
+
+## 4b. A price-to-K map, and what shape the optimum has (v1.4.25; DERIVED in-model, CONDITIONAL; checked)
+
+Code and saved output: `reach_checks/price_maps.py`, `price_maps.out`.
+
+**The map (definable where a phase-response curve and a coupling cost are measurable).** Take a loop whose phase advances by Ω each cycle (the detuning from the locking ratio) and is nudged by a stimulus of amplitude ε per cycle through a phase-response curve Z(θ) (phase cycles per unit stimulus). The one-cycle map is θ → θ + Ω + ε·Z(θ). A fixed point (a locked state) exists iff Ω is in −ε·[Z_min, Z_max], so the locking plateau has width **ε·(Z_max − Z_min)**, exactly for this map. For a sine curve of peak sensitivity Z this is the sine circle map with **K = 2π·Z·ε** and width 2εZ = K/π, which agrees with §1 (circle map, Z = 0.5: measured widths 0.0501, 0.1001, 0.2001 against 2εZ = 0.05, 0.10, 0.20 at ε = 0.05, 0.1, 0.2). The price-to-K map is therefore the composition of two measured curves: K(price) = 2π·Z·ε(price), where ε(price) is the inverse of the measured cost of delivering or sensing stimulus ε. If that cost is linear in ε then K is proportional to price, and if it is quadratic then K goes as √price.
+
+**Where it is and is not definable.** It is definable for oscillators with a measured phase-response curve and a measured coupling cost (the type of system is, for instance, a paced or light-entrained biological or engineered oscillator; I did not search for data sets). It is **not definable for an adaptive organization yet**: what Z is for a firm's reporting cycle has no measurement. The p/q tongues for p/q ≠ 0/1 grow like K^q (§4), so their widths need the same map raised to a power.
+
+**Shape of the optimum (assumptions A1 to A3).** A1: the benefit is V per unit time while locked, and locked means |Ω| < a, with a = K/2π = ε·Z. A2: Ω is Normal(μ, σ²) across targets or over time. A3: the price is linear, c per unit of a. Maximize U(a) = V·P(|Ω| < a) − c·a.
+- The derivative P′(a) = φ(a − μ) + φ(a + μ), the sum of two Gaussians a distance 2μ apart, which is unimodal on a ≥ 0 exactly when |μ| ≤ σ. So **U is concave, with a unique interior optimum that moves continuously with the price, iff |μ| ≤ σ**; for |μ| > σ the benefit is convex at small a and the optimum **jumps** between no coupling and a large coupling at a threshold price (first order, all or nothing).
+- For μ = 0 the optimum is **a\* = σ·√(2 ln(2V/(c·σ·√(2π))))** for prices below c₀ = 2V/(σ√(2π)), and zero above (checked numerically at six prices, to four decimals). Plateau width falls smoothly with price and vanishes at c₀.
+- Numerically, with σ = 1, the largest jump of the optimum between neighbouring prices is 0.06, 0.07 and 0.12 at μ = 0, 0.5σ, 0.9σ (continuous) and 0.99, 2.0 and 3.5 at μ = 1.1σ, 1.5σ and 2.5σ (discontinuous), matching the criterion. At μ = σ exactly the onset is a fourth-root cusp: still continuous, but the grid reads it as a jump of 0.42.
+
+So the earlier statement that linear benefit and linear price give all or nothing was too coarse. When the benefit is the *covered share of a spread of detunings* and the spread is wider than the mean mismatch, the optimum is interior. What remains an assumption is A1 to A3 themselves (a real price may not be linear, and the benefit of locking is not literally V·P). Label: DERIVED (in-model); CLAIM_MAP N49. I have not had it independently checked.
 
 ## 5. The shape of the universe (no theory prediction; the numbers are Planck's)
 
@@ -62,7 +77,8 @@ The honest status (modest wording from that review): in one unpublished toy of a
 |---|---|---|---|
 | N43 | Torus mathematics (§1): phase coupling gives Arnold tongues of width K/π (0:1) | PRIOR ART | The check's tongue widths disagree with K/π by more than the grid step (currently within 1e-4), or a standard source contradicts it |
 | N44 | The earlier toy test (§2): locking forced by the coupling, accuracy effect due to the information weight | NOT EVIDENCE (INVALID as a test of the torus idea; not FAILED) | A source or rerun showing the toy's coupling was phase coupling and the factorial split does not reproduce |
-| N45 | Locking plateaus in adaptive loops, width tracks coupling cost (the cost half needs a price-to-K map first) | OPEN (HYPOTHESIS) | §4 |
+| N45 | Locking plateaus in adaptive loops, width tracks coupling cost (price-to-K map defined for systems with a measured phase-response curve, §4b; none yet for organizations) | OPEN (HYPOTHESIS) | §4 |
+| N49 | Price-to-K map K = 2π·Z·ε(price) (plateau width ε(Z_max − Z_min), exact for the one-cycle map) and the shape of the optimum under A1 to A3: interior and continuous iff |μ| ≤ σ, with a\* = σ√(2 ln(2V/(cσ√(2π)))) at μ = 0 | PROVED (in-model); CONDITIONAL on A1 to A3 | An algebra or numeric disagreement (checked to four decimals); or a source showing the plateau width is not ε(Z_max − Z_min) for the one-cycle map. No independent check yet |
 | N46 | "GTAO predicts a torus universe" | WITHDRAWN as framing | n/a |
 
 ## References
