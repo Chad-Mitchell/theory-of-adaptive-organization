@@ -25,7 +25,7 @@ Everything in this folder was written by **one executor**, from the same bot fam
 - All README paths resolve, and `tools/check_consistency.py` passes.
 
 **LOOSE_ENDS:**
-- The status-yield count was first written as "0 of the next 41". It is 0 of 40 scored outcomes for changes to existing rows. Four of those 40 added new rows, and the 15 November ruling (QUEUE rule 3d) counts an added row as a change. Corrected in LOOSE_ENDS and PROCESS.
+- The status-yield count was first written as "0 of the next 41". It is 0 of 40 scored outcomes for changes to existing rows. Four of those 40 added new rows, and the 15 November ruling (QUEUE rule 3d) counts an added row as a change. Corrected in LOOSE_ENDS and PROCESS. *(Independent review: with a stated filter the figure is 0 of the remaining 37 scored outcomes, three of which added rows; see `INDEPENDENT_REVIEW.md`.)*
 - Every citation not already in the repo was checked this session against a publisher or index page: Juni, Gureckis & Maloney 2016; Kaplow 1992; Boraas, Seale & Boxhorn 1998; Herron et al. 2019; Kirkwood 1977; Grossman & Stiglitz 1980; Van Valen 1973; Krauss & Scherrer 2007. Senders 1964 was read only in a secondary source and is marked [SEC].
 - LOOSE_ENDS L3 duplicated N27, so no row was added for it.
 

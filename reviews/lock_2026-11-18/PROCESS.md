@@ -4,17 +4,18 @@ Wednesday 18 November 2026, late evening ET (America/New_York). Grok Bot executo
 
 ## 1. Sources and the numbers they give
 
-Everything below comes from `git log`, the 94 pull requests (`gh pr list`), the review files, `queue/LEDGER.jsonl`, the CLAIM_MAP notes and BRIEF §6, all read this session.
+Everything below comes from `git log`, the 94 pull requests (`gh pr list`), the review files, `queue/LEDGER.jsonl`, the CLAIM_MAP notes and BRIEF §6, all read this session. **All counts are at `601344e`, the tree before this pass** (main now has more commits; recount with `git rev-list --count 601344e`). The commit counts, PR counts and the 62% were recomputed in the independent review (`INDEPENDENT_REVIEW.md`); rows marked † were corrected there.
 
 | Quantity | Value | Source |
 |---|---|---|
 | Commits / PRs | 414 commits; 94 PRs: 93 merged, 1 closed (#16) | `git log`, `gh pr list` |
 | Non-merge commits by day (ET) | 14 Nov: 4; 15 Nov: 238; 18 Nov: 40 | `git log --no-merges` |
-| Non-merge commits mentioning ledger, queue or pick | 176 of 282 (62%) | commit subjects |
+| Non-merge commits whose subject mentions ledger, queue or pick | 176 of 282 (62%); many of these also carry a result | commit subjects (`git log --no-merges --format=%s 601344e \| grep -Eic 'ledger\|queue\|pick'`) |
+| † Non-merge commits that touch **only** `queue/`, `QUEUE.md`, `STATUS.md` or `BRIEF.md` | 99 of 282 (35%) | `git show --name-only` per commit |
 | Commits fixing in-file timestamps | 11 | commit subjects |
-| THEORY versions | 27 (v1.0 to v1.4.26) in 4 calendar days, two of them working days | THEORY header |
-| Review verdicts (explicit verdict lines, excluding this pass) | 25 "with fixes" (PASS-WITH-FIXES, READY-WITH-FIXES, "PASS with three narrow fixes"), 1 FAIL (fixable), 0 clean whole-review passes, 0 rejections | `rg -i verdict reviews/` |
-| Scored SG outcomes logged `status_changed` true | 6 of the first 11; 0 of the next 40. Of those 40, none changed an existing row's status; four added a new row (N18, N21, N22, N23), which the 15 Nov ruling in QUEUE rule 3d counts as a change (only entry 171 was re-read that way) | `queue/LEDGER.jsonl`, CLAIM_MAP v2.12–v2.37 notes |
+| † THEORY versions | 28 dated versions from v1.0 to v1.4.26 (counting v1.4.3a; v1.4.12 unused), on 3 calendar days (Sat 14, Sun 15 and Wed 18 November) | THEORY header |
+| Review verdicts (explicit verdict lines, excluding this pass; a hand count, not reproducible from one command) | 25 "with fixes" (PASS-WITH-FIXES, READY-WITH-FIXES, "PASS with three narrow fixes"), 1 FAIL (fixable), 0 clean whole-review passes, 0 rejections | `rg -i verdict reviews/` |
+| † Scored SG outcomes logged `status_changed` true | 6 of the first 11 (09:40 AM–1:45 PM ET, 15 Nov; the 11th, entry 61, added N18); 0 of the remaining 37 (2:53–8:19 PM ET, 15 Nov). Of those 37, none changed an existing row's status; three added a new row (N21, N22, N23), which the 15 Nov ruling in QUEUE rule 3d counts as a change (only entry 171 was re-read that way). "Scored" = protocol-2 outcome not marked `scored: false` | `queue/LEDGER.jsonl`, CLAIM_MAP v2.12–v2.37 notes |
 | Valid Tier-1 field tests run | 0 | CLAIM_MAP, FRAMEWORK |
 | Agent-memory beliefs the files contradicted | 10 | BRIEF §6 |
 
@@ -50,8 +51,8 @@ From the WITHDRAWN and MATH-CORRECTED rows, the review files and the corrections
 5. **One canonical file plus a mutation-tested checker.** Cheap, and it caught real errors, including one this pass (E6).
 
 **Wasted or low-yield:**
-1. **Bookkeeping.** 62% of non-merge commits touched the ledger, queue or picks. The SG ranking protocol consumed much of that, yet its own locked prediction (N9) was never scored, and the scorer crashes on ledger entry 156 because one field was renamed (`claim_map_status_changed`). An exploratory scoring in scratch, not a verdict, gives INCONCLUSIVE under the locked rule either way (QUEUE SG-SCORE).
-2. **Version churn.** 27 THEORY versions, many of them wording-only, each forcing pointer bumps across five files. It is the main source of E8.
+1. **Bookkeeping.** 62% of non-merge commits mention the ledger, queue or a pick in their subject, and 35% touch nothing but queue and status files. The SG ranking protocol consumed much of that, yet its own locked prediction (N9) was never scored, and the scorer crashes on ledger entry 156 because one field was renamed (`claim_map_status_changed`). An exploratory scoring in scratch, not a verdict, gives INCONCLUSIVE under the locked rule either way (QUEUE SG-SCORE).
+2. **Version churn.** 28 THEORY versions, many of them wording-only, each forcing pointer bumps across five files. It is the main source of E8.
 3. **Underpowered tests run before the power gate existed.** ONA-MORE, SPF-RIGIDITY and C3b. MV10 was written after them.
 4. **Reach work.** Cosmic web, wormholes and torus produced 15 rows, mostly PRIOR ART, CONDITIONAL, OPEN or WITHDRAWN. None moves the core bet. They answer Chad's scope, which is binding, and they were worth one careful pass. The marginal pass was not.
 5. **Simulations that pass by construction** (POOLSIM). They cost a review each and are NOT EVIDENCE.
@@ -72,13 +73,13 @@ From the WITHDRAWN and MATH-CORRECTED rows, the review files and the corrections
 | P4 | **An author cannot certify its own work, and same-family reviewers are second readers, not blind graders.** | E6; B1 | **Checker R1:** no self-review called independent. Lock needs one reviewer outside the bot family. |
 | P5 | **Memory is a cache; the files are the record.** | E7 (ten corrections) | Already QUEUE rule 1 (read at use). |
 | P6 | **Derived numbers rot unless a machine recomputes them.** | E8: counts, pointers, pipes | **Checker R2** (CLAIM_MAP tally), **R3** (table cells), **R5** (stale "private") plus the existing version checks. |
-| P7 | **Process overhead grows to fill the budget unless capped.** | 62% bookkeeping; SG never scored | Fold ledger and queue edits into the result PR; cap process-only commits at about a quarter. Score a locked process bet when its trigger is reached, or withdraw it. **Judgment rule.** |
+| P7 | **Process overhead grows to fill the budget unless capped.** | 35% of commits pure bookkeeping (62% mention it); SG never scored | Fold ledger and queue edits into the result PR; cap process-only commits at about a quarter. Score a locked process bet when its trigger is reached, or withdraw it. **Judgment rule.** |
 | P8 | **Breadth is cheap to produce and expensive to verify, and it does not move the bet.** | Reach rows | Every new area names the core row (N13, J6, J9, J16) it could move; if none, one note and stop. **Judgment rule.** |
 | P9 | **Rules written after the data are rescue.** | E5 | Already binding (prereg, anti-rescue). |
-| P10 | **The bottleneck is measurement, not mathematics.** | 0 Tier-1 tests in 94 PRs; no existing row changed status in the 40 scored outcomes after the first 11 | Freeze the text (lock) and move the effort to data: SAME-SYSTEM-AQN, N51 (LOOSE_ENDS L1) and the MV9 decision. |
+| P10 | **The bottleneck is measurement, not mathematics.** | 0 Tier-1 tests in 94 PRs; no existing row changed status in the 37 scored outcomes after the first 11 | Freeze the text (lock) and move the effort to data: SAME-SYSTEM-AQN, N51 (LOOSE_ENDS L1) and the MV9 decision. |
 | P11 | **Words that name a GTAO claim "law" invite the overclaim the project has banned.** | S10 (√N "law" in four maintained files) | **Checker R4.** |
 
-**The theory applied to itself (P10, heuristic only).** By Theorem G, a checked copy is worth keeping current only while drift × check cost is below the copy's value; past the freeze edge, freeze it. The canonical text's measured "drift" fell from 6 status-changing outcomes in the first 11 to none in the next 40 that changed an existing row (four only added rows). That argues for freezing now.
+**The theory applied to itself (P10, heuristic only).** By Theorem G, a checked copy is worth keeping current only while drift × check cost is below the copy's value; past the freeze edge, freeze it. The canonical text's measured "drift" fell from 6 status-changing outcomes in the first 11 to none in the remaining 37 (three only added rows). That argues for freezing now.
 
 **Limits of that count:**
 - `status_changed` is a narrow outcome measure: premise tightenings and gates mattered without changing a status.

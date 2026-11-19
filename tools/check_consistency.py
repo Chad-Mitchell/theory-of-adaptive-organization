@@ -234,13 +234,19 @@ def main(argv=None):
         return parts
 
     # R1: a self-review must never be called independent.
-    SELF_MARK = re.compile(r"(Independence:\s*\**\s*NOT independent|This pass is not independent|\(NOT independent\)|same executor that wrote|same executor, reread|^\s*\**Not independent\b)", re.I | re.M)
+    # Header marks of a self-review. Widened in the independent review of the lock
+    # pass: "**Not independent**" mid-line and "This audit ... is not independent"
+    # were missed, so the four lock-pass files were not treated as self-reviews.
+    SELF_MARK = re.compile(r"(Independence:\s*\**\s*NOT independent|This pass is not independent|\(NOT independent\)|same executor that wrote|same executor, reread|^\s*\**Not independent\b|\*\*Not independent\b|\bThis (pass|audit|review|file|self-review|self-check)\b[^.]{0,40}\bis not independent\b)", re.I | re.M)
     self_reviews = []
     for p in sorted(glob.glob("reviews/**/*.md", recursive=True)):
         if SELF_MARK.search("\n".join(lines(p)[:15])):
             self_reviews.append(p)
     INDEP = re.compile(r"\bindependent(ly)?\b", re.I)
     INDEP_OK = re.compile(r"(\bnot\s+(an?\s+)?(fully\s+)?independent|\bno(n-?| )independent|self-review|self-check|was called|called it|isn't independent|same executor)", re.I)
+    # words between "independent" and the citation that mean the self-review is
+    # being contrasted with, not called, an independent review
+    BETWEEN_OK = re.compile(r"(supersed|replac|correct|instead of|unlike|\bthan\b|earlier|re-?deriv|checked|reviewed)", re.I)
     pats = [(sr, re.compile(r"(?<![\w-])(?:reviews/)?" + re.escape(sr[len("reviews/"):]))) for sr in self_reviews]
     for p in MAINTAINED:
         for i, ln in enumerate(lines(p), 1):
@@ -248,7 +254,18 @@ def main(argv=None):
                 if not INDEP.search(s_) or INDEP_OK.search(s_):
                     continue
                 for sr, rx in pats:
-                    if rx.search(s_):
+                    # Flag only when "independent" sits next to the citation
+                    # ("the independent review `X`", "`X` is independent"), so a
+                    # sentence that merely mentions an independent review and a
+                    # self-review side by side is not a false positive.
+                    def near(m_):
+                        w = s_[max(0, m_.start() - 60):m_.start()]
+                        k = [x for x in INDEP.finditer(w)]
+                        return bool(k) and not BETWEEN_OK.search(w[k[-1].end():])
+                    hit = any(near(m_) or
+                              re.match(r"[`)\]]*\s*(\([^)]*\)\s*)?,?\s*((which|that)\s+)?(is|was|are|were)\s+(an?\s+)?(fully\s+)?independent", s_[m_.end():])
+                              for m_ in rx.finditer(s_))
+                    if hit:
                         pf.append("self-review-called-independent: %s:%d calls %s independent (its header says it is not)" % (p, i, sr))
     print("  self-reviews found by header: %d" % len(self_reviews))
 
@@ -311,13 +328,16 @@ def main(argv=None):
     print("  tables checked: %d" % nt)
 
     # R4: no named GTAO relation is called a 'law' ('the sqrt N law'); use 'rule'.
-    NAMED_LAW = re.compile(r"(√N|sqrt\(?N\)?|square[- ]root|trail[- ]fade|fade|shared[- ]memory|freeze[- ]or[- ]hold|read[- ]rate|three[- ]cost)\s+laws?\b", re.I)
+    NAMED_LAW = re.compile(r"(√N|sqrt\(?N\)?|square[- ]root|trail[- ]fade|fade|shared[- ]memory|freeze[- ]or[- ]hold|read[- ]rate|three[- ]cost)\s+(scaling\s+)?laws?\b", re.I)
+    # Published names that contain one of those words are prior art, not GTAO claims
+    # (e.g. the inventory "square-root law", Maister 1976).
+    NAMED_LAW_OK = re.compile(r"(inventor|Maister|pooling of stock|safety stock)", re.I)
     # R5: the repository is public since 18 Nov 2026; never call it private in the present tense.
-    PRIVATE = re.compile(r"\b(repo|repository) is (still |currently )?private\b|\bthis private (repo|repository)\b", re.I)
+    PRIVATE = re.compile(r"\b(repo|repository) (is|remains|stays) (still |currently )?private\b|\bthis private (repo|repository)\b", re.I)
     for p in MAINTAINED:
         for i, ln in enumerate(lines(p), 1):
             for s_ in sentences(ln):
-                if NAMED_LAW.search(s_) and not NEG_LAW.search(s_) and "WITHDRAWN" not in ln:
+                if NAMED_LAW.search(s_) and not NEG_LAW.search(s_) and not NAMED_LAW_OK.search(s_) and "WITHDRAWN" not in ln:
                     pf.append("law-named: %s:%d …%s…" % (p, i, s_.strip()[:160]))
                 mp = PRIVATE.search(s_)
                 if mp and not (s_[max(0, mp.start() - 1):mp.start()] in "\"“'" or "→" in s_):  # quoted old wording in a changelog is history

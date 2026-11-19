@@ -1,6 +1,6 @@
 # NARRATIVE: does the README make the idea click, and how should GTAO be told?
 
-Wednesday 18 November 2026, late evening ET (America/New_York). Grok Bot executor for Chad Mitchell, via Ace (pt1957u). Not independent. The README rewrite described here is applied in the same PR; the old README is recoverable with `git show 601344e:README.md`.
+Wednesday 18 November 2026, late evening ET (America/New_York). Grok Bot executor for Chad Mitchell, via Ace (pt1957u). **Not independent.** The README rewrite described here is applied in the same PR; the old README is recoverable with `git show 601344e:README.md`.
 
 ## 1. Diagnosis of the old README (at 601344e)
 
