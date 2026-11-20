@@ -5,3 +5,4 @@
 - **DV2** (before any spectrum): parsing fixes; Germany = sum of four TSO columns (identical where both exist).
 - **DV2 erratum**: TSO columns not complete; GRID-1 INVALID by premise (mFRR coverage 0.666). Follow-up GRID-1b locked in `PREREG_GRID1b.md`.
 - GRID-1b run (code fix: H2 date filter offset, rule unchanged); results in RESULTS_GRID1.md. GRID-2 (GB) preregistered.
+- **DV-GB1** (GRID-2, before downloading GB series): 4-week main sample with BM, 12-month fast robustness, reconstruction, corner-wise INVALID rules; S1 adapted; S2 BLOCKED.
