@@ -1,0 +1,30 @@
+== C1 ergodicity ==
+coin: ensemble factor 1.050, time-avg log growth -0.0527; P(W ever hits 0)=0; P(min W<0.01 by T=1000)=1.000
+R1: n_E (additive/ensemble) = 3, n_G (time-average growth) = 4
+  n=1 J=0.13400 G=-0.07831
+  n=2 J=0.04200 G=0.04647
+  n=3 J=0.02680 G=0.06860
+  n=4 J=0.02696 G=0.07008
+  n=5 J=0.03019 G=0.06740
+  n=6 J=0.03404 G=0.06386
+  n=7 J=0.03801 G=0.06014
+  LG: var=0.01 E[l]=0.0100 E ln(1-0.5 l)=-0.00506
+  LG: var=0.02 E[l]=0.0200 E ln(1-0.5 l)=-0.01015
+  LG: var=0.04 E[l]=0.0400 E ln(1-0.5 l)=-0.02068
+== C2 bet-hedging vs common mode (CX7) ==
+arith mean fitness lean 1.235 robust 1.0425 (per-design expected-value picks lean)
+geo growth: pure lean -inf, pure robust 0.0411, best mixture q*=0.260 G=0.1279
+== C3 barbell under a population-frequency ruin target (CT22 model) ==
+B=0.490 pure J*=0.320683, best 2-design mix J=0.320683, gain 0.00e+00 (0.0000%)
+B=0.500 pure J*=0.316721, best 2-design mix J=0.316721, gain 0.00e+00 (0.0000%)
+B=0.505 pure J*=0.316283, best 2-design mix J=0.316283, gain 0.00e+00 (0.0000%)
+== C4 Bode / Jensen for the tracker's error filter (two OU modes + white sensing noise) ==
+int_0^inf ln|S| dw = -5.40745 ; -(pi/2)*lim sH = -5.40745
+amplification band |S|>1: none
+== C5 redesign cost -> inaction band (Dixit 1991, quadratic loss, Brownian target) ==
+  b=0.247 MC avg cost 0.1542  theory 0.1735
+  b=0.495 MC avg cost 0.0819  theory 0.0816
+  b=0.990 MC avg cost 0.1769  theory 0.1735
+b* = (6 k s^2/w)^(1/4) = 0.495 for k=0.01; k 100x smaller -> b* only 3.16x smaller
+== C3b discrete designs (R1-b copies): mixing n and n+1 under a population-frequency eps ==
+n_R=7 (all systems), P(n_R-1)=0.0010; mix 0.555 at n_R, rest at n_R-1 meets eps on average; mean copies 6.555 vs 7

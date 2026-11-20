@@ -1,0 +1,43 @@
+OK  10.1016/0022-5193(66)90188-3 | Cohen 1966 | Optimizing reproduction in a randomly varying environment | Journal of Theoretical Biology
+OK  10.1016/0165-1889(91)90037-2 | Dixit 1991 | A simplified treatment of the theory of optimal regulation of Brownian motion | Journal of Economic Dynamics and Control
+OK  10.1086/261619 | Dixit 1989 | Entry and Exit Decisions under Uncertainty | Journal of Political Economy
+OK  10.1038/s41567-019-0732-0 | Peters 2019 | The ergodicity problem in economics | Nature Physics
+FAIL 10.1063/1.4940236 HTTP Error 429: Too Many Requests
+OK  10.1007/978-1-4471-0965-5 | Seron 1997 | Fundamental Limitations in Filtering and Control | Communications and Control Engineering
+OK  10.1126/science.1069981 | Csete 2002 | Reverse Engineering of Biological Complexity | Science
+OK  10.1016/j.tibtech.2004.07.007 | Csete 2004 | Bow ties, metabolism and disease | Trends in Biotechnology
+OK  10.1016/j.jtbi.2009.11.008 | Whitacre 2010 | Degeneracy: A design principle for achieving robustness and evolvability | Journal of Theoretical Biology
+OK  10.1073/pnas.0503610102 | Kashtan 2005 | Spontaneous evolution of modularity and network motifs | Proceedings of the National Academy of S
+OK  10.1080/00207727008920220 | CONANT 1970 | Every good regulator of a system must be a model of that system † | International Journal of Systems Science
+FAIL 10.1016/0005-1098(76)90006-6 HTTP Error 429: Too Many Requests
+FAIL 10.1007/s10021-001-0101-5 HTTP Error 429: Too Many Requests
+FAIL 10.1257/aer.100.3.641 HTTP Error 429: Too Many Requests
+FAIL 10.1080/14697688.2013.800219 HTTP Error 429: Too Many Requests
+FAIL 10.2307/1911802 HTTP Error 429: Too Many Requests
+FAIL 10.1016/0022-0531(72)90136-X HTTP Error 429: Too Many Requests
+FAIL 10.1109/TAC.1974.1100635 HTTP Error 429: Too Many Requests
+FAIL 10.1126/science.1114383 HTTP Error 429: Too Many Requests
+FAIL 10.1201/9781315140223 HTTP Error 429: Too Many Requests
+FAIL 10.2307/1882646 HTTP Error 429: Too Many Requests
+FAIL 10.1109/TAC.1985.1103865 HTTP Error 429: Too Many Requests
+FAIL 10.1073/pnas.231499798 HTTP Error 429: Too Many Requests
+FAIL 10.1103/PhysRevE.60.1412 HTTP Error 429: Too Many Requests
+OK  10.1214/aoms/1177728190 | Rosenblatt 1956 | Remarks on Some Nonparametric Estimates of a Density Function | The Annals of Mathematical Statistics
+OK  10.1038/nature09333 | Lestas 2010 | Fundamental limits on the suppression of molecular fluctuations | Nature
+FAIL 10.1086/284838 HTTP Error 429: Too Many Requests
+OK  10.1063/1.4940236 | Peters 2016 | Evaluating gambles using dynamics | Chaos: An Interdisciplinary Journal of N
+OK  10.1016/0005-1098(76)90006-6 | Francis 1976 | The internal model principle of control theory | Automatica
+OK  10.1007/s10021-001-0101-5 | Holling 2001 | Understanding the Complexity of Economic, Ecological, and Social Systems | Ecosystems
+OK  10.1257/aer.100.3.641 | Ostrom 2010 | Beyond Markets and States: Polycentric Governance of Complex Economic Systems | American Economic Review
+OK  10.1080/14697688.2013.800219 | Taleb 2013 | Mathematical definition, mapping, and detection of (anti)fragility | Quantitative Finance
+OK  10.2307/1911802 | Mandelbrot 1961 | Stable Paretian Random Functions and the Multiplicative Variation of Income | Econometrica
+FAIL 10.1016/0022-0531(72)90136-X HTTP Error 404: Not Found
+OK  10.1109/TAC.1974.1100635 | Bar-Shalom 1974 | Dual effect, certainty equivalence, and separation in stochastic control | IEEE Transactions on Automatic Control
+OK  10.1126/science.1114383 | Kussell 2005 | Phenotypic Diversity, Population Growth, and Information in Fluctuating Environments | Science
+OK  10.1201/9781315140223 | Altman 2021 | Constrained Markov Decision Processes | 
+OK  10.2307/1882646 | Howitt 1988 | Business Cycles with Costly Search and Recruiting | The Quarterly Journal of Economics
+OK  10.1109/TAC.1985.1103865 | Hyland 1985 | The optimal projection equations for model reduction and the relationships among the metho | IEEE Transactions on Automatic Control
+OK  10.1073/pnas.231499798 | Edelman 2001 | Degeneracy and complexity in biological systems | Proceedings of the National Academy of S
+OK  10.1103/PhysRevE.60.1412 | Carlson 1999 | Highly optimized tolerance: A mechanism for power laws in designed systems | Physical Review E
+FAIL 10.1086/284838 HTTP Error 429: Too Many Requests
+OK  10.1016/0169-5347(89)90138-9 | Philippi 1989 | Hedging one's evolutionary bets, revisited | Trends in Ecology &amp; Evolution

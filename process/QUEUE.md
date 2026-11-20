@@ -1,3 +1,7 @@
+# GTAO work queue — FROZEN
+
+**Frozen 20 November 2026 (America/New_York).** This file is a historical record and is superseded by [`OPEN_WORK.md`](../OPEN_WORK.md). The items, protocol, and ledger below are not deleted. Live open work is listed only in `OPEN_WORK.md`.
+
 # GTAO work queue (live; executable)
 
 *Moved from the repository root to `process/` on 19 November 2026. Paths in `queue/` below are relative to this folder; run the commands from `process/`. Section numbers of THEORY cited below (§2.2, §2.5, …) are those of the frozen `reference/THEORY_v1.4.29.md`, unless they name v2.0.*
