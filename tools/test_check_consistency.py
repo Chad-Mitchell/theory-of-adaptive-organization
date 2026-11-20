@@ -25,7 +25,6 @@ MUTATIONS = [
     ("STATUS.md", "\n\nThe repository remains private.\n", "stale-private"),
     # core rules R6-R8 (THEORY v2.0, 19 Nov 2026)
     ("THEORY.md", "\n| CT99 | An unlisted result | §0 | OPEN | CT99 | none |\n", "core-index"),
-    ("README.md", "\n\n" + "word " * 1000 + "\n", "length"),
     ("STATUS.md", "\n\n| Way | Pays |\n|---|---|\n| **Keep** (frozen) | Nothing |\n| **Hold** (self-regulating) | A flow |\n", "spine-duplicate"),
 ]
 # (file, text): sentences that must NOT be flagged (known false positives, now fixed)
@@ -75,6 +74,12 @@ def run_all():
         with open(os.path.join(d, f), "a", encoding="utf-8") as fh: fh.write(text)
         rc, out = run(d); shutil.rmtree(d)
         print("clean sentence in %-10s -> %s" % (f, "passes" if rc == 0 else "FALSE POSITIVE")); ok &= rc == 0
+    # R7 is a soft warning: an over-long README warns but does not fail
+    d = copy()
+    with open(os.path.join(d, "README.md"), "a", encoding="utf-8") as fh: fh.write("\n\n" + "word " * 1000 + "\n")
+    rc, out = run(d); shutil.rmtree(d)
+    soft = rc == 0 and "WARN length" in out
+    print("over-long README -> %s" % ("warns, does not fail" if soft else "WRONG (must warn only)")); ok &= soft
     # version drift
     import re
     cur = re.search(r"^# .*? v(\d+\.\d+(?:\.\d+)?[a-z]?) draft", open(os.path.join(ROOT, "THEORY.md"), encoding="utf-8").read(), re.M).group(1)

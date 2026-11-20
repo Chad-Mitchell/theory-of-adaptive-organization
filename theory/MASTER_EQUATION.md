@@ -228,3 +228,10 @@ Derivations are in THEORY B.6 (CT18-H), B.9 (CT24, general form) and B.10 (CT26�
 - **Rules 6 and 1 (CT27).** Outcome records are information about the model's own error; regret falls in the number of records, and the number worth buying falls in their price. The Hebbian form is a hypothesis.
 - **Closure (CT28).** J\*(nW) = n^{1/α}J\*(W); level-by-level solving equals the joint optimum iff levels interact through passed-up stakes, else regret O(κ²).
 - **Free-riding toy (CT29).** Price of anarchy ½(√(a/W) + √(W/a)); free-riders capture (√N+1)/(2√N) of the pooling gain; stake-proportional cost shares restore the joint optimum; adaptation settles iff step < 2/N. CX2 (general convergence) stays open.
+
+## 7. The ant trail and the CX2 classification (THEORY CT30–CT32; added v2.4)
+
+Derivations are in THEORY B.10; checks in `theory/meq_checks/ants_cx2_checks.py` (run by `tools/test_ants_cx2_checks.py`, output in `ants_cx2_checks.out`).
+
+- **Trail update (CT30).** The steady-state optimal tracker of a random walk seen through noise is x ← (1−λ)x + λ·signal, which is reinforce-on-use plus evaporation at λ\* = (−ρ+√(ρ²+4ρ))/2, ρ = q/r (√(q/r) in continuous time). Independent trails updated locally equal the central filter. That real systems implement it by selection is a hypothesis.
+- **CX2 classes (CT31, CT32).** Shared-driver coupling is a weighted potential game: Nash = argmin of the potential, PoA ≤ (N+1)/(2√N), stake-proportional cost shares give Nash = joint optimum. Opposed coupling cycles, so no general convergence theorem is true; time-scale separation restores convergence.

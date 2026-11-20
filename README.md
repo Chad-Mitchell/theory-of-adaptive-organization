@@ -22,16 +22,16 @@ Choose the design (layers, what each tracks, how it senses, what it shares) that
 
 - Whether to centralize is an output of the same cost: a shared level pays above a group size, lateness caps its reach, and parts merge when the gain over competing exceeds the cost of linking; free-riding parties capture only about half the pooling gain (proved in a toy, open in general).
 
-![Illustrative phase diagram](theory/meq_checks/phase.png)
+![One map for every adaptive system](figures/face.png)
 
-*One picture, in one made-up model world:* the best design on dimensionless axes (stakes over upkeep, latency over the fast time scale), with dotted contours of a measurable, currency-free share of cost. No real system is placed on it.
+*One map for every adaptive system* (`figures/face.png`): the best design in one made-up model world on dimensionless axes, with dotted contours of a currency-free, measurable share of cost and **hypothesized** positions of six systems (order-of-magnitude guesses with sources where they exist, `figures/face_placements.md`). Not measurements; the plain model-world diagram is `theory/meq_checks/phase.png`.
 
 **How it dies.** Measure strongly selected systems' worlds and costs. If, at two or more scales, their layers sit away from the minimum (and a named rival fits better), or a system needs a cost the equation cannot book, the hypothesis is dead. A wrong picture of the world only means re-measuring. The bet is untested, not refuted: no field test has yet measured its quantities validly, so every result so far is "passed / failed on proxy". The parts are known and credited; the claim is new. Open: what happens when a system and the world it reshapes co-adapt as coupled levels.
 
-**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v2.3 draft, 19 November 2026, America/New_York).** Claim statuses: `measurement/CLAIM_MAP_v2.md` (v2.52). Where the work stands: [`STATUS.md`](STATUS.md).
+**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v2.4 draft, 20 November 2026, America/New_York).** Claim statuses: `measurement/CLAIM_MAP_v2.md` (v2.53). Where the work stands: [`STATUS.md`](STATUS.md).
 
 ```
-THEORY.md         The theory, v2.3 draft (start here; §5 the theorem, §7 uses, §8 tests)
+THEORY.md         The theory, v2.4 draft (start here; §5 the theorem, §7 uses, §8 tests)
 theory/           Derivations and code checks (MASTER_EQUATION.md, LAYERS.md)
 measurement/      Validity gates and one status per claim
 tests/, reviews/  Preregistered tests and reviews
