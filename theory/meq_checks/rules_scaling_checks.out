@@ -1,0 +1,76 @@
+== 1. Self-similar temperature: per-window ruin P = F_H(B/(sigma tau^H)) exactly (self-similarity); sqrt = H=1/2
+H=0.3: P(sup over window >= z=1.0) = 0.5199
+H=0.3: P(sup over window >= z=1.6) = 0.2184
+H=0.5: P(sup over window >= z=1.0) = 0.2975  (closed form 2*Phibar = 0.3173, discretisation underestimates)
+H=0.5: P(sup over window >= z=1.6) = 0.1004  (closed form 2*Phibar = 0.1096, discretisation underestimates)
+H=0.75: P(sup over window >= z=1.0) = 0.1861
+H=0.75: P(sup over window >= z=1.6) = 0.0595
+H=0.3: z_eps (eps=1e-2, MC) = 2.886  ->  B >= z_eps*sigma*tau^H ; survivable shock ~ tau^(-0.3); elasticity eps_tau = H*eps_sigma - 1
+H=0.5: z_eps (eps=1e-2, MC) = 2.538  ->  B >= z_eps*sigma*tau^H ; survivable shock ~ tau^(-0.5); elasticity eps_tau = H*eps_sigma - 1
+H=0.75: z_eps (eps=1e-2, MC) = 2.354  ->  B >= z_eps*sigma*tau^H ; survivable shock ~ tau^(-0.75); elasticity eps_tau = H*eps_sigma - 1
+elasticity identities eps_B=-eps_sigma, eps_tau=H*eps_sigma-1 verified for H=0.3,0.5,0.75
+
+== 2. Shares = elasticities for ANY price-linear problem J(x)=sum p_i phi_i(x), with a price-free constraint
+seed 1: shares [0.13271 0.13957 0.54438 0.18333] elasticities [0.13271 0.13957 0.54438 0.18333] sum shares 1.000000
+seed 2: shares [0.30886 0.42591 0.10423 0.16099] elasticities [0.30886 0.42591 0.10423 0.16099] sum shares 1.000000
+seed 3: shares [0.42469 0.22034 0.1029  0.25206] elasticities [0.42469 0.22034 0.1029  0.25206] sum shares 1.000000
+virial identity sum_i a_i s_i = 0 verified for the single tracker; with 2 terms it pins s = (a2, -a1)/(a2-a1), with >2 terms it does not.
+
+== 3. Rule 4: keep the superseded version iff k < p*nu*(L_full - L_r), else never (bang-bang in the keep time)
+k=0.2 p=0.1 nu=0.5 dL=19.0: J(0)=2.0000 J(inf)=0.5000; J decreasing in keep-time everywhere=True; rule says keep-until-proof=True (p*nu*dL=0.950)
+k=1.0 p=0.1 nu=0.5 dL=19.0: J(0)=2.0000 J(inf)=2.1000; J decreasing in keep-time everywhere=False; rule says keep-until-proof=False (p*nu*dL=0.950)
+k=0.05 p=0.3 nu=2.0 dL=3.5: J(0)=1.2000 J(inf)=0.1750; J decreasing in keep-time everywhere=True; rule says keep-until-proof=True (p*nu*dL=2.100)
+k=0.5 p=0.3 nu=2.0 dL=3.5: J(0)=1.2000 J(inf)=0.4000; J decreasing in keep-time everywhere=True; rule says keep-until-proof=True (p*nu*dL=2.100)
+
+== 4. Rules 1 and 6: outcome records as information acquisition (Beta-Bernoulli relevance, uniform prior)
+regret R(n) at n=0,1,2,5,10,20,40,60: [0.08    0.04667 0.03    0.0181  0.0103  0.00554 0.00288 0.00195]
+marginal value of the n-th record (n=0,1,2,5,10,20,40):  [3.3333e-02 1.6667e-02 0.0000e+00 2.3810e-03 8.1600e-04 2.4500e-04
+ 6.8000e-05]
+records worth buying n*(price): {0.05: 0, 0.02: 1, 0.01: 2, 0.005: 4, 0.002: 7, 0.001: 9, 0.0002: 22}
+teaching value of the first record (n=0):  0.03333  vs of the 20th: 0.000245
+EWMA gain 0.005: mse 0.01050
+EWMA gain 0.01: mse 0.00564
+EWMA gain 0.02: mse 0.00413
+EWMA gain 0.05: mse 0.00597
+EWMA gain 0.1: mse 0.01100
+EWMA gain 0.3: mse 0.03554
+best gain 0.02 (interior optimum: neither the slowest nor the fastest trace)
+
+== 5. fBm collapse: windows with different (sigma, tau, B) but equal z = B/(sigma tau^H) have the same ruin probability
+H=0.3: two-sided P(ruin in window) at z=1.4 for (sigma,tau)=(1,1),(2.5,16),(0.4,0.05): [0.5696 0.5696 0.5696]
+H=0.75: two-sided P(ruin in window) at z=1.4 for (sigma,tau)=(1,1),(2.5,16),(0.4,0.05): [0.1882 0.1882 0.1882]
+
+== 6. Nesting: pooled level = same J with stake W = sum w_i B_i^2; level-by-level solving vs the joint optimum
+closure: J*(nW) = n^(1/alpha) J*(W); pooled/separate = n^(a-1) with a = 1/alpha; pooled read interval shrinks as n^(-1/alpha)  (verified)
+kappa, relative regret of level-by-level solving:
+  kappa=0.0: 2.220e-16
+  kappa=0.05: 1.889e-05
+  kappa=0.1: 7.378e-05
+  kappa=0.2: 2.819e-04
+  kappa=0.4: 1.035e-03
+  kappa=0.8: 3.564e-03
+log-log slope of the regret at small kappa: 1.95 (second order: 2)
+stake-passing coupling (pooled stake, the case in the theory): sequential = joint exactly; feedback that changes a lower layer's own error: regret O(kappa^2)
+
+== 7. Compete, collaborate, organize: N parties free-riding on one shared driver (CX2 toy; alpha = 2, reads of total rate F)
+n=6: Nash total 4.3937 (formula 4.3937), joint 3.6531, price of anarchy 1.2027 = (1/2)(sqrt(a/W)+sqrt(W/a)) = 1.2027
+n=2: Nash total 2.6447 (formula 2.6447), joint 2.5318, price of anarchy 1.0446 = (1/2)(sqrt(a/W)+sqrt(W/a)) = 1.0446
+n=3: Nash total 2.3524 (formula 2.3524), joint 2.2939, price of anarchy 1.0255 = (1/2)(sqrt(a/W)+sqrt(W/a)) = 1.0255
+n=5: Nash total 4.3359 (formula 4.3359), joint 3.6851, price of anarchy 1.1766 = (1/2)(sqrt(a/W)+sqrt(W/a)) = 1.1766
+n=6: Nash total 5.2511 (formula 5.2511), joint 4.1111, price of anarchy 1.2773 = (1/2)(sqrt(a/W)+sqrt(W/a)) = 1.2773
+n=3: Nash total 2.7018 (formula 2.7018), joint 2.6106, price of anarchy 1.0349 = (1/2)(sqrt(a/W)+sqrt(W/a)) = 1.0349
+equal parties: separate trackers cost N*J1, free-riding (N+1)/2*J1, one pooled tracker sqrt(N)*J1; free-riding captures (sqrt N+1)/(2 sqrt N) of the pooling gain, tending to 1/2
+equal parties: price of anarchy = (N+1)/(2 sqrt N): 1.06 at N=2, 2.1 at N=16, 5.05 at N=100 (grows as sqrt(N)/2)
+cost shares proportional to stakes make every party want the joint total read rate (public-good pricing; needs the stakes to be revealed)
+N=2, adaptation step lam=0.250 (2/N=1.000): total read rate -> 1.0000, late spread 0.00e+00, converged=True
+N=2, adaptation step lam=0.950 (2/N=1.000): total read rate -> 1.0000, late spread 1.78e-15, converged=True
+N=2, adaptation step lam=1.100 (2/N=1.000): total read rate -> -0.2500, late spread 2.75e+00, converged=False
+N=3, adaptation step lam=0.167 (2/N=0.667): total read rate -> 1.0000, late spread 0.00e+00, converged=True
+N=3, adaptation step lam=0.633 (2/N=0.667): total read rate -> 1.0000, late spread 4.44e-15, converged=True
+N=3, adaptation step lam=0.733 (2/N=0.667): total read rate -> 0.4444, late spread 1.22e+00, converged=False
+N=5, adaptation step lam=0.100 (2/N=0.400): total read rate -> 1.0000, late spread 0.00e+00, converged=True
+N=5, adaptation step lam=0.380 (2/N=0.400): total read rate -> 1.0000, late spread 5.55e-16, converged=True
+N=5, adaptation step lam=0.440 (2/N=0.400): total read rate -> 1.3158, late spread 5.79e-01, converged=False
+simultaneous adaptation settles at the Nash total iff the step is below 2/N of a full best response; above 2/N the total read rate does not settle (bounded oscillation here)
+
+RESULT: PASS
