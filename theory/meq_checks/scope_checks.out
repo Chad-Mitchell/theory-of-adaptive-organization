@@ -1,6 +1,6 @@
-/workspace/gtao-v24/theory/meq_checks/scope_checks.py:176: RuntimeWarning: overflow encountered in exp
+/workspace/gtao-map/theory/meq_checks/scope_checks.py:178: RuntimeWarning: overflow encountered in exp
   b = np.exp(x[:K]); g = x[K:]; Hf = sum(g[k] * b[k] / (b[k] + s) for k in range(K)); return E_of(Hf)
-/workspace/gtao-v24/theory/meq_checks/scope_checks.py:176: RuntimeWarning: invalid value encountered in divide
+/workspace/gtao-map/theory/meq_checks/scope_checks.py:178: RuntimeWarning: invalid value encountered in divide
   b = np.exp(x[:K]); g = x[K:]; Hf = sum(g[k] * b[k] / (b[k] + s) for k in range(K)); return E_of(Hf)
 == 1. CT33: with read rates chosen, layers can FALL as stakes rise, but total judgment spend S* = h*K* + (read price)*(reads) cannot
   w/h     K*   S*=hK+c*f   E*      J*
@@ -30,7 +30,7 @@
        w= 14: best feasible D1  S*=1.0  E*=1.0  J*=15.00
        w= 16: best feasible D1  S*=1.0  E*=1.0  J*=17.00
        so CT33 and Master Theorem (ii) are statements for the ruin constraint slack at the stakes compared (B >= B_slack) or absent.
-  model world of the face figure (14 modes, sensing optimized, ruin constraint absent): spend nondecreasing at every latency tried: True; layers per unit fall somewhere (central vs federated): True; with sensing fixed, layers nondecreasing at lead 0: True; with the ruin constraint imposed, spend fell somewhere: False
+  face map (300 random worlds, ruin slack): upkeep of the chosen design never falls and its error never rises as stakes rise: True
 
 == 2. CT34: a team's optimized cost enters the parent's problem exactly as upkeep if (generically only if) the parent sees the team only through quantities fixed before the team optimizes
   parent+team joint min (grid over x, T) = 36.43222;  reduced problem F(x)+J*_T(theta(x)) at its argmin x=0.407: 36.43175
