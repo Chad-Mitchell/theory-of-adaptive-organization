@@ -12,7 +12,7 @@ Checks: `theory/dynamics_checks/` (d1–d5, run by
 Status words as in THEORY.md: **PRIOR ART** (a published result, credited), **PROVED (in-model)** (a derivation inside
 the stated model, which says nothing by itself about nature), **OPEN** (untested, not refuted). Row IDs CT41–CT43,
 CL19–CL21, CX9–CX10 follow the IDs PR #115 uses (CT37–CT40, CL18, CX7, CX8; merged as `1998a2d`, CLAIM_MAP v2.66).
-This file's rows enter CLAIM_MAP at v2.68 (provisional: draft PR #116 holds v2.67; the second to merge renumbers).
+This file's rows enter CLAIM_MAP at v2.67. Draft PR #116 must take v2.68.
 
 ## 1. What changes and what does not
 
@@ -294,5 +294,5 @@ Review (20 Nov 2026, about 3:15 PM ET; separate executor; verdict READY-WITH-FIX
 - **Should-fix.** CT43 (iv) grid shares by X (d3 extended); "for a large population" and Gillespie's 1/N effect in
   CT42; Waite et al. 2016 credited; Dixit 1991 *RES* and Chalkley 1997 added (Crossref OK, `crossref.out`); the
   log-reserve form's scaling assumption stated; the ruin threshold excludes zero drift too; CX9's volatility and grid
-  stated; README keeps "only where adjustment is lumpy". Version line: THEORY v2.9 draft, CLAIM_MAP v2.68, provisional (PR #115
-  merged first as v2.66; draft PR #116 provisionally holds v2.67).
+  stated; README keeps "only where adjustment is lumpy". Version line: THEORY v2.9 draft, CLAIM_MAP v2.67
+  (PR #115 merged first as v2.66; draft PR #116 must take v2.68).
