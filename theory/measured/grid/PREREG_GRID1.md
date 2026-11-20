@@ -86,3 +86,81 @@ above aFRR's, the diagnosis fails and the kill holds.
   on netztransparenz.de "Sekündliche Daten"; no static link. The netztransparenz API portal needs credentials;
   ENTSO-E Transparency API needs a token (account). No sign-in or account will be used.
 - Capacity prices: regelleistung.net tender results (open download, to be checked).
+
+---
+
+## Deviation DV1 (appended after the lock; the text above is unchanged)
+
+Written Friday 20 November 2026 after Chad downloaded the public 2022 files (no login) to
+`/workspace/gtao-grid-data/`, **before computing any spectrum or any outcome-bearing statistic**. What I have
+seen of the data: file names, sizes, column headers, and the first 3–4 rows of each file (needed to read the
+formats). That is all.
+
+### DV1.1 Data substitution
+Preregistered: German second-wise NRV-Saldo (aFRR + mFRR), 2022. **Not available** (the site's picker starts
+in 2026). Substitute:
+- `SRL_Soll_20220101_20221231.csv`: German aFRR **setpoint**, 1 s, full year (`GERMANY_aFRR_SETPOINT_[MW]`).
+- `Aktivierte aFRR/mFRR qualitaetsgesichert`: quality-assured activations, 15 min, full year, Germany,
+  positive and negative columns.
+- `2022_frequenz.zip`: CE frequency, 1 s, Jan, Feb, Apr–Jun (March missing).
+
+### DV1.2 Circularity and what the substitute can and cannot show
+The aFRR setpoint is the output of the TSOs' PI controller acting on the area control error, not the
+pre-control imbalance. The pre-control German area imbalance is
+ΔP_DE(t) = A(t) + M(t) + F_DE(t) + ACE_res(t), with A the aFRR activation, M the mFRR activation, F_DE the
+German FCR + self-regulation response (≈ β·Δf) and ACE_res the part not yet corrected, which flows over the
+tie lines to the rest of Continental Europe. ACE and tie-line flows are **not published** at seconds. On time
+scales shorter than the aFRR loop (≲ 5–15 min), ACE_res is a large, unobserved part of ΔP_DE (a German deficit
+is met ≈ 80 % by the rest of CE through the ties), and A(t) there is shaped by the controller's own roll-off,
+so a corner near 300 s in A could be the controller's pole, not the world's. On time scales of **30 min or
+more**, aFRR and mFRR have fully acted, frequency is restored (F_DE ≈ 0) and ACE_res is small, so
+D(t) = A(t) + M(t) is an open-loop reading of the German imbalance. The frequency-implied FCR share
+(β·Δf) is negligible there and is not used.
+
+### DV1.3 Which arms stay valid (declared in advance)
+- **G1 (count, band 10 s–4 h): INVALID.** The band below 30 min cannot be reconstructed open-loop (DV1.2).
+- **G2 fast corner θ_3 ∈ (30, 300) s: INVALID** (needs ACE/tie flows and FCR dynamics at seconds).
+- **G2 middle corner θ_2 ∈ (300, 900) s: INVALID** (sits at the aFRR loop's own time scale: circular; and
+  mFRR resolves only ≥ 30 min).
+- **G2-slow (the one scorable arm), with its rival:** Interlacing a_1 < b_1 requires the world's slowest mode to
+  be slower than the slowest layer (mFRR, τ = 900 s; robustness 300 s). Rule on D_15 (below):
+  - **PASS** iff the chosen model has a separated Lorentzian corner with bootstrap 95 % CI wholly above
+    900 s.
+  - **FAIL** iff the chosen model is white in band (K = 0, or power law with γ < 0.3), i.e. no world variance
+    beyond the slowest layer for it to track.
+  - **NEITHER** otherwise (including a corner whose CI reaches below the resolvable limit of 900 s).
+  - **R1-slow** (rival "set at", θ_1 ∈ [450, 1800] s): PASS iff the slowest corner's CI overlaps
+    [450, 1800] s. The arm **discriminates** only if the corner CI lies wholly above 1800 s (GTAO PASS, R1 not)
+    or wholly in [900, 1800] s (both PASS: no discrimination).
+  - A power law with γ ∈ [0.3, ∞) is read as variance beyond the slowest layer: PASS for G2-slow, R1-slow
+    NEITHER (no corner).
+  - **Risk disclosed:** I expect this arm to pass (imbalances have slow drifts), so it is a weak, low-risk
+    test. It is fail-able only through a white spectrum, which the theory forbids and the "set at" rival does
+    not need.
+- **Kill condition:** cannot be reached in this run (G1 is INVALID). It stands as written for any future run
+  with open-loop seconds data.
+
+### DV1.4 Reconstruction (exact)
+- A_15: 15-min means of the aFRR setpoint over each quarter hour [00:00, 00:15) CET/CEST as given in the files,
+  requiring ≥ 90 % of the 900 s present.
+- M_15: German mFRR, positive minus negative (`Deutschland (Positiv)` − `Deutschland (Negativ)`).
+- D_15 = A_15 + M_15 (MW; the sign of the setpoint as published, positive = positive aFRR, i.e. deficit).
+- Premise check (not an outcome): the correlation of A_15 with the QA aFRR (positive − negative). If it is
+  < 0.9, the setpoint does not represent the activation, and the run is **INVALID**.
+- Deterministic removal: subtract the mean per quarter-hour-of-day (96 slots) over the year; this replaces
+  "per second of hour and per minute of day", which the 15-min series cannot resolve.
+- Spectrum: Welch on D_15, 7-day Hann segments, 50 % overlap; gaps shorter than 1 h linearly filled, longer
+  gaps split segments. Log-binned (20 bins per decade) over periods 1 h–3.5 days. The same K = 0…5
+  Lorentzian + white and power-law + white fits, chosen by BIC. A corner is resolvable only for θ ≥ 900 s
+  (corner frequency ≤ 1/3 of the 1/(30 min) Nyquist). Separated means ×2.5 apart and ≥ 5 % of band variance,
+  as before. Bootstrap: 200 resamples of whole 7-day segments.
+
+### DV1.5 Coverage and INVALID rules (adjusted conservatively)
+- Coverage: ≥ 90 % of 2022 quarter-hours valid for A_15 **and** for M_15, or INVALID (as written, applied to
+  both series).
+- The β ±50 % robustness rule is replaced by: the chosen model and the slowest corner must not move by more
+  than ×2 when M_15 is (a) dropped and (b) doubled; otherwise INVALID. A stricter version of "the
+  reconstruction is not the test".
+- The "FCR term dominates" rule is moot in this band (β·Δf is not used) and is replaced by the setpoint
+  check above.
+- The frequency file is not used by any valid arm; it is not opened for values.

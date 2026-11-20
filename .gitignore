@@ -6,3 +6,8 @@ __pycache__/
 .env
 *.egg-info/
 .ipynb_checkpoints/
+
+# GRID-1 raw data (never commit)
+theory/measured/grid/data/
+/gtao-grid-data/
+*.csv.zip
