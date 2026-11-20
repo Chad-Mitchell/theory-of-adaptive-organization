@@ -8,7 +8,7 @@ Written Friday 20 November 2026, after the lock `PREREG_GRIDDX.md` (original com
 
 The definition qualifies a *class*, not a single system. The relevant class here is synchronous-area balancing designs. No class-specific N_e, n_min, or coverage was preregistered at lock, and the one system audited in full (GB) is not qualified.
 
-GRID-2 is therefore **NOT A TEST OF THE HYPOTHESIS (qualification not established)**. The measured mismatch (reconstructed pre-control imbalance a power law with γ = 2.09 in 2026 and γ = 2.02 in 2024, both inside [1.7, 2.3], against four operational layers) is kept as a diagnosis of a system examined to prescribe; no inefficiency is shown. The locked G1 arm score "FAIL on proxy" in `RESULTS_GRID2.md` and the G3a replication in `RESULTS_GRID3_4.md` are not deleted. The qualification check required by THEORY §3 and FRAMEWORK §9 at the lock ("decide before any measurement; all five, with the evidence recorded") should have been done before scoring and was not.
+GRID-2 is therefore **NOT A TEST (not qualified; proxy: failed)**. The measured mismatch (reconstructed pre-control imbalance a power law with γ = 2.09 in 2026 and γ = 2.02 in 2024, both inside [1.7, 2.3], against four operational layers) is kept as a diagnosis of a system examined to prescribe; no inefficiency is shown. The locked G1 arm score "FAIL on proxy" in `RESULTS_GRID2.md` and the G3a replication in `RESULTS_GRID3_4.md` are not deleted. The qualification check required by THEORY §3 and FRAMEWORK §9 at the lock ("decide before any measurement; all five, with the evidence recorded") should have been done before scoring and was not.
 
 ## 1. What the lock-time definition required
 

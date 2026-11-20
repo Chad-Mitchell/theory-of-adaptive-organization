@@ -8,7 +8,7 @@
   "system": "GB balancing system (NESO / former National Grid ESO)",
   "class": "synchronous-area balancing designs",
   "verdict": "NOT QUALIFIED",
-  "headline": "NOT A TEST OF THE HYPOTHESIS (qualification not established)",
+  "headline": "NOT A TEST (not qualified; proxy: failed)",
   "items": {
     "a_cost_to_fitness_map": "not established",
     "b_population_proxy": "failed",

@@ -93,7 +93,7 @@ A field test is **decisive (Tier 1)** only if it passes every gate. It is **Tier
 - **MATH-CORRECTED**: the original statement was false as mathematics, and a corrected statement replaces it (the correction is usually PROVED).
 - **PROXY-FAIL / PROXY-PASS**: a locked prediction failed or passed on a proxy that fails at least one of MV1–MV8. The row names the failed gates. A PROXY-FAIL is a valid fail *of that mapping*.
 
-- **NOT A TEST OF THE HYPOTHESIS (qualification not established)** (added 20 Nov 2026, GRID-DX review of PR #113): a field claim scored without a recorded pre-test qualification check under THEORY §3 / FRAMEWORK §9. Applied symmetrically to PROXY-PASS and PROXY-FAIL. The original proxy result stays in the cell as history; nothing is deleted. This is not a rescue of a miss.
+- **NOT A TEST** (added 20 Nov 2026, GRID-DX review of PR #113; compound status after the confirm round): a field claim is first gated on qualification under the pre-written definition (THEORY §3 / FRAMEWORK §9), then reported as passed or failed on proxy. The headline is **NOT A TEST (qualification not established; proxy: passed)** or **(…; proxy: failed)** or **(…; proxy: INVALID)** when no pre-test qualification check was recorded, and **NOT A TEST (not qualified; proxy: …)** when the class is shown not to qualify. Applied symmetrically to PROXY-PASS and PROXY-FAIL. The original proxy result and the validity-gate reasons stay visible in the status column and the cell; nothing is deleted. This is not a rescue of a miss.
 - **OPEN**: not tested on a valid instrument.
 - **PRIOR ART**: published by others.
 - Three extra labels, because forcing rows into the six above would misstate them:
@@ -661,7 +661,7 @@ As claim map §3.2 and FAIR_MEASURE, plus:
 
 ## 7. The three decisive, validly measurable tests to run next (today)
 
-*Update (18 Nov 2026 audit):* this list is from 15 Nov. Exploratory versions of #2 and #3 have since run and failed gates: GITHUB-UPSTREAM (CLAIM_MAP N14 PROXY-FAIL → NOT A TEST OF THE HYPOTHESIS (qualification not established), Tier 3; N15 OPEN) and WIKIDATA-BAND (N19 OPEN, known-groups check failed; N20 PROXY-PASS → NOT A TEST OF THE HYPOTHESIS (qualification not established), historically weak). Reruns count only if they pass MV1–MV8. No Tier-1 test has run anywhere. The current first test is SAME-SYSTEM-AQN (`reviews/night2/SYNTHESIS_2026-11-15.md` §7; `process/QUEUE.md`).
+*Update (18 Nov 2026 audit):* this list is from 15 Nov. Exploratory versions of #2 and #3 have since run and failed gates: GITHUB-UPSTREAM (CLAIM_MAP N14 PROXY-FAIL → NOT A TEST (qualification not established; proxy: failed), Tier 3; N15 OPEN) and WIKIDATA-BAND (N19 OPEN, known-groups check failed; N20 PROXY-PASS → NOT A TEST (qualification not established; proxy: passed), historically weak). Reruns count only if they pass MV1–MV8. No Tier-1 test has run anywhere. The current first test is SAME-SYSTEM-AQN (`reviews/night2/SYNTHESIS_2026-11-15.md` §7; `process/QUEUE.md`).
 
 1. **The mixed-technology onset test in agents not given the cost function** (§6.1, plus §6.4 as a second factorial arm). This is the only test where every quantity passes MV1–MV8 today. It discriminates O1 (level's class sets e_g) from the members-set and technology-independent rivals, which SENSING2 never ran cleanly.
    - Build on `tests/LEARNSIM/`. Make sure it has a level ≠ member arm (e.g. A₁ level over R members), (a_L, b_L) measured on the level alone before onset is fitted, real per-call costs, and a gated ρ range.

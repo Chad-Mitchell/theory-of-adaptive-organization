@@ -4,13 +4,15 @@ import json, pathlib, re
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 G = ROOT / "theory/measured/grid"
 
-HEADLINE = "NOT A TEST OF THE HYPOTHESIS (qualification not established)"
+GB_HEADLINE = "NOT A TEST (not qualified; proxy: failed)"
+PASS_STATUS = "NOT A TEST (qualification not established; proxy: passed)"
+FAIL_STATUS = "NOT A TEST (qualification not established; proxy: failed)"
 
 
 def test_qualification_verdict_and_wording():
     q = json.loads((G / "qualification_verdict.json").read_text())
     assert q["verdict"] == "NOT QUALIFIED"
-    assert q["headline"] == HEADLINE
+    assert q["headline"] == GB_HEADLINE
     assert "law" not in q["headline"].lower()
     assert q["locked_g1_arm_deleted"] is False
     assert q["g3b_used"] is False
@@ -29,11 +31,11 @@ def test_qualification_verdict_and_wording():
     # Locked arm scores were not deleted.
     r2 = (G / "RESULTS_GRID2.md").read_text()
     assert "**FAIL on proxy**" in r2
-    assert HEADLINE in r2
+    assert GB_HEADLINE in r2
     assert "not a test of the law" not in r2.lower()
     r3 = (G / "RESULTS_GRID3_4.md").read_text()
     assert "the GRID-2 G1 FAIL replicates" in r3
-    assert HEADLINE in r3
+    assert GB_HEADLINE in r3
     # QUALIFICATION: BSIS sourced; (a) not established; inertia is world change;
     # falling requirement is a design choice; go-live count not a T_red test.
     qual = (G / "QUALIFICATION.md").read_text()
@@ -83,7 +85,7 @@ def test_rank_test_untested_when_n_lt_5():
     assert "ROBUSTNESS.md" in text
     assert "cannot test the hypothesis as scored" in text
     assert "competing design lineages" in text
-    assert HEADLINE in text
+    assert GB_HEADLINE in text
     assert "law" not in text.lower() or "law" in " ".join(
         ln for ln in text.splitlines() if "law" in ln.lower() and "gloss" in ln.lower()
     )  # allow only flagged uses; this file should have none
@@ -98,8 +100,14 @@ def test_claim_map_retype_and_new_rows():
         assert m, pid
         return m.group(1)
 
-    for pid in ("P18", "P19", "P20", "P21", "P1", "H3"):
-        assert status(pid) == HEADLINE, (pid, status(pid))
+    assert status("P19") == GB_HEADLINE
+    assert status("P21") == GB_HEADLINE
+    assert status("P18") == PASS_STATUS
+    assert status("P20") == PASS_STATUS
+    assert status("H3") == PASS_STATUS
+    assert status("P1") == FAIL_STATUS
+    assert "Qualification prospect (reviewer judgment, not a verdict)" in cm
+    assert "not a test of the law" not in cm
     assert status("P23") == "DECIDED"
     assert status("P24") == "INCONCLUSIVE"
     assert status("P25") == "OPEN"
