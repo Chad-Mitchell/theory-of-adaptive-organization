@@ -47,6 +47,8 @@ def test_r3_lean():
     assert m[0.49] < 1e-6 and m[0.5] < 1e-6 and m[0.505] < 1e-6
     assert 0 < m[0.52] < m[0.6] < m[1.0] < m[5.0]
     assert r["a_bound_at_binding_sigma+1%"] > 1
+    mc, floor, nojump = r["b_mc_capped"]
+    assert mc >= floor - 0.015 and nojump < 0.01
     assert r["e_theta_decreasing_in_sigma_violations"] == 0
     assert r["e_tau_nonincreasing_in_u"] and r["e_cost_nondecreasing_in_u"]
     bm = [v["Bmin"] for v in r["e_robust_by_u"].values()]

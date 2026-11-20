@@ -4,7 +4,7 @@ Each entry is dated, written before any data for this item were opened, download
 independent review 30 of PR #115 (READY-WITH-FIXES; the reviewer's notes are outside the repository). `PREREG.md` is
 not edited; where an entry and `PREREG.md` disagree, the entry governs. Times are America/New_York.
 
-## D1–D9 (Friday 20 November 2026, about 2:50 PM ET; branch `v2.7-robust`; one executor for Chad; no data opened)
+## D1–D9 (Friday 20 November 2026, about 2:15 PM ET, committed 2:18 PM ET as `6532d24`; the first push of this file said "about 2:50 PM ET", a typo corrected in the next commit; branch `v2.7-robust`; one executor for Chad; no data opened)
 
 **D1. RS-2a is replaced by a test with a calibrated null (review 30, must-fix 1).** *Why:* r_i = B_obs/(z·σ̂_i)
 with σ̂_i from the system's own n_i windows. Because 1/σ̂ is right-skewed and noisier for short records, a class in

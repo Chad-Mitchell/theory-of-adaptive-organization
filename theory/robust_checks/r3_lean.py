@@ -50,6 +50,26 @@ def margin_sigma(B, t):
     return brentq(g, 0, hi)
 
 
+def mc_capped_jump(B, Bcap, X, lam, T, dt=0.01, paths=4000, seed=5):
+    """Reserve in CT22's model at the EOQ interval, capped at Bcap, plus jumps of size X > Bcap at rate lam.
+    Returns (MC ruin by T, floor 1 - e^{-lam T}, MC ruin without jumps)."""
+    t = math.sqrt(2 * C / (W * SG ** 2))
+    m = Y - cost(t)
+    s = math.sqrt(S0 ** 2 + W ** 2 * SG ** 4 * t ** 3 / 3)
+    out = []
+    for jumps in (True, False):
+        rng = np.random.default_rng(seed)
+        R = np.full(paths, B); alive = np.ones(paths, bool)
+        for _ in range(int(T / dt)):
+            dR = m * dt + s * math.sqrt(dt) * rng.standard_normal(paths)
+            if jumps:
+                dR -= X * (rng.random(paths) < lam * dt)
+            R = np.minimum(np.where(alive, R + dR, R), Bcap)
+            alive &= R > 0
+        out.append(float(1 - alive.mean()))
+    return out[0], 1 - math.exp(-lam * T), out[1]
+
+
 def run():
     res = {}
     tE = math.sqrt(2 * C / (W * SG ** 2))
@@ -66,9 +86,12 @@ def run():
     # first-order violation at a binding point: bound e^{-theta B} with sigma +1% exceeds eps
     B = 0.5; t = tau_star(B)
     res["a_bound_at_binding_sigma+1%"] = math.exp(-theta(t, SG * 1.01) * B) / EPS
-    # R3-b: an unmodeled jump of size X > B at rate lam: P(ruin by T) >= 1 - e^{-lam T}, any design here
+    # R3-b: an unmodeled jump. With positive drift the reserve can grow past B, so the bound needs a cap:
+    # reserve capped at Bcap (income above it is paid out, a dividend barrier) and jump size X > Bcap.
+    # Then every jump ruins, so P(ruin by T) >= 1 - e^{-lam T}, whatever the design. Monte Carlo check.
     lam, T = 1e-3, 1e4
     res["b_ruin_floor_unmodeled_jump"] = 1 - math.exp(-lam * T)
+    res["b_mc_capped"] = mc_capped_jump(B=0.6, Bcap=1.0, X=1.2, lam=0.05, T=40.0)
     # R2-e: ambiguity sigma in [SG, SG(1+u)]; theta falls in sigma, so the worst case is the top.
     viol = 0
     for t in [0.1, 0.2, 0.3, 0.4]:

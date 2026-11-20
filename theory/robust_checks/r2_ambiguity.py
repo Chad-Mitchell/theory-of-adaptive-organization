@@ -1,8 +1,9 @@
 """R2: model uncertainty and the reserve (theory/ROBUSTNESS.md §4).
 
 R2-a  reserve-and-check design under an ambiguity set on the shock scale (sympy + numeric).
-R2-b  plug-in versus predictive buffer when sigma is estimated from n observations (exact t law).
-R2-c  plug-in versus predictive copy count when the copy failure rate p is estimated (Beta posterior).
+R2-b  plug-in versus predictive buffer when sigma is estimated from n observations (exact t distribution).
+R2-c  plug-in versus predictive copy count when the copy failure rate p is estimated (Beta posterior);
+      PRIOR ART: the state-of-knowledge correlation (Apostolakis & Kaplan 1981).
 R2-d  tail ambiguity: Student-t at fixed variance, and the moment-only (Cantelli) worst case.
 """
 import math
@@ -122,7 +123,7 @@ def run():
     e1 = 1e-6
     rows = {}
     viol = 0
-    for k, m in [(1, 10), (5, 50), (50, 500), (500, 5000), (2, 100), (20, 1000)]:
+    for k, m in [(1, 12), (5, 50), (50, 500), (500, 5000), (2, 100), (20, 1000)]:
         npl, npr = copies_plugin(k, m, e1), copies_predictive(k, m, e1)
         # plug-in with the posterior mean, for a like-for-like Jensen comparison
         a, b = 1 + k, 1 + m - k
