@@ -346,6 +346,108 @@ def armD():
               'io', r['io_count'], np.round(r['io_taus'], 2), 'H', round(r['dfa_h'], 2), 'mfw', round(r['mf_width'], 2), 'interl', r['interlaced'], flush=True)
 
 
+
+# ------------------------------------------------------------------ D2: arm D redone after review of PR #116 (B2)
+# Many independent worlds (one optimized design per world and K), random designs, realistic record noise, and
+# interlacing computed from DATA: store taus from the I/O fit, mode taus from a Whittle fit of the input record.
+D2_DT = 0.25; D2_N = 200000; D2_NOISE = 0.5; D2_REC_NOISE = (0.1, 0.3)   # record noise sd as a fraction of the clean record's sd
+
+
+def d2_world(rng):
+    while True:
+        taus = np.sort(np.exp(rng.uniform(np.log(0.5), np.log(500.0), 3)))
+        if np.all(taus[1:] / taus[:-1] >= 4):
+            break
+    v = rng.dirichlet(np.full(3, 2.0))
+    return taus, v
+
+
+def d2_job(args):
+    w, taus, v, label, b, g, rel, seed = args
+    rng = np.random.default_rng(seed)
+    y = H.ou_modes_fast(taus, v, D2_N, D2_DT, rng).sum(0) + D2_NOISE * rng.standard_normal(D2_N)
+    clean = agent_record(y, b, g, D2_DT)
+    rec = clean + rel * np.std(clean) * rng.standard_normal(D2_N)
+    band = (D2_DT, D2_N * D2_DT / 10)
+    c_rec, m_rec, _, _ = H.whittle_pole_count(rec, D2_DT, band=band, rng=np.random.default_rng(seed))
+    c_y, m_y, _, _ = H.whittle_pole_count(y, D2_DT, band=band, rng=np.random.default_rng(seed + 1))
+    kio, tio = io_pole_count(y, rec, D2_DT)
+    st = 1 / np.asarray(b)
+    return dict(world=w, world_taus=taus.tolist(), world_v=v.tolist(), label=label, K_agent=len(b), store_taus=sorted(st.tolist()),
+                rec_noise_rel=rel, seed=seed, ht_absdrec=H.ht_index(np.abs(np.diff(rec))),
+                whittle_record=int(c_rec), whittle_record_taus=m_rec.tolist(), whittle_input=int(c_y), whittle_input_taus=m_y.tolist(),
+                io_count=int(kio), io_taus=np.asarray(tio).tolist(),
+                interlaced_params=interlaced(st, taus),
+                interlaced_data=(interlaced(np.asarray(tio), np.asarray(m_y)) if (len(tio) == 3 and len(m_y) == 3) else None))
+
+
+def armD2():
+    rng = np.random.default_rng(2117); jobs = []; meta = []; seed = 12000; worlds = []
+    for w in range(12):
+        taus, v = d2_world(rng); worlds.append(taus)
+        a = 1 / taus; N = D2_NOISE ** 2 * D2_DT; ei = E_inf(a, v, N)
+        for K in (1, 2, 3):
+            e, lb = E_K(a, v, N, K, starts=10)
+            b = np.exp(lb); _, g = mse_given_b(a, v, b, N)
+            meta.append(dict(world=w, kind='opt', K=K, eps=(e - ei) / ei, store_taus=sorted((1 / b).tolist()), interlaced_params=interlaced(1 / b, taus) if K == 3 else None))
+            for rel in D2_REC_NOISE:
+                jobs.append((w, taus, v, f'opt_K{K}', b, g, rel, seed)); seed += 1
+        for i in range(3):
+            K = int(rng.integers(1, 4))
+            b = np.exp(rng.uniform(np.log(1 / (3 * taus.max())), np.log(3 / taus.min()), K))
+            e, g = mse_given_b(a, v, b, N)
+            meta.append(dict(world=w, kind='rand', K=K, eps=(e - ei) / ei, store_taus=sorted((1 / b).tolist()), interlaced_params=interlaced(1 / b, taus) if K == 3 else None))
+            for rel in D2_REC_NOISE:
+                jobs.append((w, taus, v, f'rand_K{K}', b, g, rel, seed)); seed += 1
+    # chance that a random K=3 design (log-uniform rates over the same band) interlaces, per world, by Monte Carlo
+    chance = []
+    for taus in worlds:
+        bb = np.exp(rng.uniform(np.log(1 / (3 * taus.max())), np.log(3 / taus.min()), (20000, 3)))
+        chance.append(float(np.mean([interlaced(1 / x, taus) for x in bb])))
+    print('D2 chance interlace per world', np.round(chance, 3), flush=True)
+    with Pool(NPROC) as p:
+        res = p.map(d2_job, jobs, chunksize=1)
+    dump('arm_D2.json', dict(designs=meta, chance_interlaced_random_K3=chance, records=res))
+    for r in res:
+        print(r['world'], r['label'], r['rec_noise_rel'], 'rec', r['whittle_record'], 'in', r['whittle_input'], 'io', r['io_count'],
+              'int_p', r['interlaced_params'], 'int_d', r['interlaced_data'], flush=True)
+
+
+# ------------------------------------------------------------------ M: MF-DFA width against record length (review of PR #116, B3)
+def m_job(args):
+    taus, n, seed = args
+    rng = np.random.default_rng(seed)
+    y = H.ou_modes_fast(taus, np.ones(len(taus)) / len(taus), n, DT, rng).sum(0) + 0.3 * rng.standard_normal(n)
+    _, _, h = H.mfdfa(y, qs=(-3, 2, 5))
+    return dict(taus=list(taus), n=n, seed=seed, width=float(h[0] - h[2]), h2=float(h[1]))
+
+
+def armM():
+    jobs = [(t, n, 100 + s) for t in ([10.0], [1.0, 10.0, 100.0, 1000.0]) for n in (20000, 200000, 2000000) for s in range(3)]
+    with Pool(NPROC) as p:
+        res = p.map(m_job, jobs, chunksize=1)
+    dump('arm_M.json', res)
+    for r in res:
+        print(r['taus'], r['n'], round(r['width'], 3), flush=True)
+
+
+# ------------------------------------------------------------------ H2: head/tail breaks 2.0 (Jiang 2019) on the arm-A distributions
+def armH2():
+    rng = np.random.default_rng(202)
+    gens = {'halfnormal': lambda n: np.abs(rng.standard_normal(n)), 'exponential': lambda n: rng.exponential(size=n),
+            'pareto_2': lambda n: rng.pareto(2.0, n) + 1}
+    out = {}
+    for d, g in gens.items():
+        rows = []
+        for n in (10**3, 10**4, 10**5, 10**6):
+            xs = [g(n) for _ in range(20)]
+            rows.append(dict(n=n, v1=float(np.mean([H.ht_index(x) for x in xs])),
+                             v2_stepwise=float(np.mean([H.ht_index_v2(x) for x in xs])),
+                             v2_prefix=float(np.mean([H.ht_index_v2(x, reading='prefix') for x in xs]))))
+        out[d] = rows
+        print(d, rows, flush=True)
+    dump('arm_H2.json', out)
+
 if __name__ == '__main__':
     for a in (sys.argv[1:] or ['A', 'B', 'K', 'C', 'D']):
         globals()['arm' + a]()

@@ -14,13 +14,13 @@ DT = 0.1
 def plugin(fit):
     taus, vs, N = np.array(fit['taus'], float), np.array(fit['vs'], float), fit['N']
     if taus.size == 0:
-        return {R: 0 for R in Rs}
+        return {R: 0 for R in Rs}, []
     a = 1 / taus; Nc = N * DT
     ei = E_inf(a, vs, Nc); rows = []
     for K in range(1, min(4, len(a) + 1) + 1):
         e, _ = E_K(a, vs, Nc, K, starts=6)
         rows.append((K, (e - ei) / ei))
-    return {R: min(rows, key=lambda r: r[0] + float(R) * (1 + r[1]))[0] for R in Rs}
+    return {R: min(rows, key=lambda r: r[0] + float(R) * (1 + r[1]))[0] for R in Rs}, [r[1] for r in rows]
 
 
 def main():
@@ -32,8 +32,8 @@ def main():
     big = [r for r in ou if r['n'] == 200000]
     with Pool(6) as p:
         pk = p.map(plugin, [r['whittle_fit'] for r in big])
-    for r, k in zip(big, pk):
-        r['plugin_kstar'] = k
+    for r, (k, eps) in zip(big, pk):
+        r['plugin_kstar'] = k; r['plugin_eps'] = eps
     est = ['ht_absdy', 'ht_absdy_t05', 'ht_absy', 'ht_per', 'ht_cross', 'whittle', 'peaks', 'dfa_h', 'mf_width']
     out = {'per_n': {}}
     for n in (20000, 200000):
@@ -48,7 +48,13 @@ def main():
         out['per_n'][str(n)] = res
     out['plugin_exact_kstar'] = {R: round(float(np.mean([r['plugin_kstar'][R] == r['kstar'][R] for r in big])), 3) for R in Rs}
     out['whittle_as_kstar_exact_n200k'] = {R: round(float(np.mean([min(r['whittle'], 99) == r['kstar'][R] for r in big])), 3) for R in Rs}
-    out['plugin_detail'] = [dict(par=r['par'], noise=r['noise'], kstar=r['kstar'], plugin=r['plugin_kstar'], whittle=r['whittle']) for r in big]
+    # baselines (review of PR #116, S2/S3): n of records behind the plug-in numbers, the true K* distribution, the best
+    # constant guess (the modal K* at that R, chosen with hindsight, so an upper bound for any constant), raw pole count
+    out['plugin_n_records'] = len(big)
+    out['kstar_distribution_n200k'] = {R: {str(k): int(sum(r['kstar'][R] == k for r in big)) for k in sorted({r['kstar'][R] for r in big})} for R in Rs}
+    out['best_constant_exact_n200k'] = {R: round(max(out['kstar_distribution_n200k'][R].values()) / len(big), 3) for R in Rs}
+    out['plugin_negative_eps'] = int(sum(any(e < -1e-9 for e in r['plugin_eps']) for r in big))
+    out['plugin_detail'] = [dict(par=r['par'], noise=r['noise'], kstar=r['kstar'], plugin=r['plugin_kstar'], plugin_eps=r['plugin_eps'], whittle=r['whittle']) for r in big]
     # scale-free controls: pole count vs n
     out['scalefree_poles'] = {}
     for r in B:

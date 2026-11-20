@@ -18,13 +18,26 @@ def mats(a, v, b, N):
     r = (v[:, None] * b[None, :] / (a[:, None] + b[None, :])).sum(0)
     return Ms + Mn, r
 
-def mse_given_b(a, v, b, N):
-    M, r = mats(a, v, b, N)
+def mse_given_b(a, v, b, N, rcond=1e-11):
+    """MSE of the best weights g for store rates b, and g.  Numerically guarded (v2.67 fix, PR #116 review S1):
+    M is Jacobi-scaled and inverted on its well-conditioned eigen-subspace only (eigenvalues above rcond times the
+    largest).  The returned value is sum(v) - sum_kept (u.r)^2/lambda >= 0 reduction, i.e. the MSE of a realizable
+    filter (the truncated-pseudo-inverse g), so near-coincident stores can no longer produce a spurious MSE below
+    the causal MMSE E_inf.  The earlier version used np.linalg.solve on the raw, possibly singular M."""
+    with np.errstate(all='ignore'):
+        M, r = mats(a, v, b, N)
+    if not (np.all(np.isfinite(M)) and np.all(np.isfinite(r))):
+        return np.inf, np.zeros(len(b))      # overflowed rates: not a usable design
+    d = np.sqrt(np.clip(np.diag(M), 1e-300, None))
+    Ms = M / np.outer(d, d); rs = r / d
     try:
-        g = np.linalg.solve(M, r)
+        lam, U = np.linalg.eigh(Ms)
     except np.linalg.LinAlgError:
-        g = np.linalg.lstsq(M, r, rcond=None)[0]
-    return float(np.sum(v) - r @ g), g
+        return np.inf, np.zeros(len(b))
+    keep = lam > rcond * lam.max()
+    c = U[:, keep].T @ rs
+    gs = U[:, keep] @ (c / lam[keep])
+    return float(np.sum(v) - np.sum(c * c / lam[keep])), gs / d
 
 def E_inf(a, v, N):
     a = np.asarray(a); v = np.asarray(v)
@@ -37,6 +50,8 @@ def E_inf(a, v, N):
     return float(N / np.pi * np.trapezoid(vals, xs))
 
 def E_K(a, v, N, K, starts=12, rng=None):
+    """Best K-store MSE and its log-rates.  The returned MSE is re-evaluated at the returned rates with the guarded
+    mse_given_b (v2.67 fix), so it is always the MSE of the design actually returned."""
     rng = rng or np.random.default_rng(0)
     la = np.log(np.asarray(a)); lo, hi = la.min() - 3, la.max() + 6
     best = (np.inf, None)
@@ -46,7 +61,7 @@ def E_K(a, v, N, K, starts=12, rng=None):
         res = minimize(obj, x0, method='Nelder-Mead', options=dict(xatol=1e-7, fatol=1e-13, maxiter=4000*K))
         if res.fun < best[0]:
             best = (res.fun, np.sort(res.x))
-    return best
+    return obj(best[1]), best[1]
 
 def scalefree_world(alpha, span, per_decade=8, tau_min=1.0):
     """Lorentzian mixture over log-span: tau log-uniform in [tau_min, tau_min*span], v ∝ tau^(alpha-1).

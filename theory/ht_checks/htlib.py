@@ -21,6 +21,31 @@ def ht_index(x, thr=THR):
     return h
 
 
+def ht_index_v2(x, thr=THR, reading='stepwise'):
+    """Head/tail breaks 2.0 (Jiang 2019, Sustainability 11:4091): the 40% threshold applies to the AVERAGE of all head
+    fractions so far, not to each head.  Recursive function 2 as printed ("While (~head <= 40%)") is ambiguous on
+    whether the average is checked after every split ('stepwise': stop at the first split that pushes the running
+    average above thr) or over the whole sequence ('prefix': split while the head is a strict minority (< 50%), then
+    keep the longest prefix of splits whose average head fraction is <= thr).  Both readings are returned on request."""
+    x = np.asarray(x, float); x = x[np.isfinite(x)]
+    fr = []
+    while x.size > 1:
+        head = x[x > x.mean()]
+        if head.size == 0 or head.size / x.size >= 0.5:
+            break
+        fr.append(head.size / x.size); x = head
+    if reading == 'stepwise':
+        k = 0
+        for i in range(len(fr)):
+            if np.mean(fr[:i + 1]) <= thr:
+                k = i + 1
+            else:
+                break
+        return 1 + k
+    ok = [i + 1 for i in range(len(fr)) if np.mean(fr[:i + 1]) <= thr]
+    return 1 + (max(ok) if ok else 0)
+
+
 def head_fractions(x, thr=THR):
     x = np.asarray(x, float); out = []
     while x.size > 1:
