@@ -180,3 +180,20 @@ def test_dots_match_notes():
         assert rows[(d['system'], d['lab'])] == fm.VALUE_NAMES[c['d']]
         if np.isfinite(c['XS']): assert int(fm.decide(c['XL'], c['XS'], c['nu'], c['kL'], c['kS'])) == c['d']
         else: assert c['d'] == int(c['XL'] > 1)
+
+def test_inputs_frozen():
+    """face_systems.py is the preregistered prediction (face_placements.md §4 step 9): a change voids the comparison for that class."""
+    import hashlib
+    h = hashlib.sha256(open(os.path.join(FIG, 'face_systems.py'), 'rb').read()).hexdigest()
+    assert h == '00f6f25d796bbd1862f6ad9f04ef53bd986185f1177052339632e20b15095377' and h in open(os.path.join(FIG, 'face_placements.md')).read(), 'face_systems.py changed after the freeze'
+
+def test_conditioning_guard_review26_seed34():
+    """Near-coincident stores (review 26 round 2, seed 34): both evaluators now agree, and the optimizer keeps stores >= 1% apart."""
+    sys.path.insert(0, FIG); import face_hybrid as fh
+    a, v, rho = np.array([1.0, 5e-3]), np.array([0.5, 0.5]), 0.5
+    bl = np.array([18.968661, 18.968958, 19.173794]); bc = np.array([0.1, 0.01])
+    x, y = fh.mse_fast(a, v, 0.3, 8, rho, 1.0, bl, bc), fh.mse(a, v, 0.3, 8, rho, 1.0, bl, bc)
+    assert abs(x - y) < 1e-8 * v.sum()
+    r = fh._rates(np.log(bl)); assert np.all(np.diff(np.log(r)) >= np.log(1.01) - 1e-12)
+    e, xopt = fh.best_fast(a, v, 0.3, 8, rho, 1.0, 2, 1, starts=2)
+    assert e >= fh.confirm(a, v, 0.3, 8, rho, 1.0, 2, 1, xopt) - 1e-12

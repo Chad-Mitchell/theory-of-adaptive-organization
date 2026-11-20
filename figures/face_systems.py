@@ -35,9 +35,10 @@ SYSTEMS = [
    # One species throughout: the trail-recruiting black garden ant Lasius niger (v2.5.1; v2.5 mixed in harvester ants).
    # patch: where food is now.  Shared physical store: the pheromone trail (Beckers, Deneubourg & Goss 1993, 10.1007/bf01201674; the often
    #   cited ~47 min trail lifetime is NOT checked against the full text, so tau is kept wide).  Local store: each forager's private route
-   #   memory (Grueter, Czaczkes & Ratnieks 2011, 10.1007/s00265-010-1020-2).  rho: several patches; a forager uses one; how much of what
-   #   one forager meets the others meet is unmeasured (guess, wide).
-   dict(lab='patch', tau=(20 * MIN, 3 * H), lead=(15 * MIN, 45 * MIN), n=(100, 1000), rho=(0.3, 0.9), snr=(0.3, 10), R=(3, 300), hc=(1, 30)),
+   #   memory (Grueter, Czaczkes & Ratnieks 2011 (online 2010), 10.1007/s00265-010-1020-2).  rho = 0-0.3, the v2.5 range, restored
+   #   (review 26 round 2: inputs are frozen; v2.5.1 had raised it to 0.3-0.9 with a reason that argued the other way).  A trail marks one
+   #   route and serves only the foragers working that patch, so little of what one forager meets is met by all (guess).
+   dict(lab='patch', tau=(20 * MIN, 3 * H), lead=(15 * MIN, 45 * MIN), n=(100, 1000), rho=(0.0, 0.3), snr=(0.3, 10), R=(3, 300), hc=(1, 30)),
    # food supply: the colony's nutritional state.  Hypothesized shared store: food held in nestmates' crops and passed by trophallaxis
    #   (named, not measured as a store; no source used).  rho high: the colony's intake is common to all its workers (guess).
    dict(lab='food supply', tau=(6 * H, 7 * D), lead=(15 * MIN, 45 * MIN), n=(100, 1000), rho=(0.7, 1.0), snr=(0.03, 1), R=(0.3, 30), hc=(1, 30))]),

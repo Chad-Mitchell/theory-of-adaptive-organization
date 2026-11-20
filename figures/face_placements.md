@@ -1,6 +1,6 @@
 # The map of designs (`figures/face.png`, "Where the cost of judgment puts layers"): theorem, placements and sources
 
-*v2.5.1, Friday 20 November 2026 (America/New_York). Branch `v2.5-map`. Written by a Grok Bot executor for Chad. Revised after the
+*v2.5.2, Friday 20 November 2026 (America/New_York). Branch `v2.5-map`. Written by a Grok Bot executor for Chad. Revised after the
 independent review of PR #111 (review 26, verdict NOT READY); every blocker and should-fix is answered in §8.*
 
 **What this map is.**
@@ -46,7 +46,7 @@ Files:
 - So the cheapest design is the largest of (0, X_L − 1, (X_S − 1)/ν, (1 + 1/ν)(X_B − 1)). This is `decide()`, and it is always exact.
 - Also (1 − κ_S)·G_S = (1 − κ_L)·G_L, so κ_S > 1 iff κ_L > 1. **Subadditivity**, G_B ≤ G_L + G_S, is κ ≤ 1.
 
-**Map theorem.** Fix the gains G_L, G_S, G_B. The quadrant rule below gives the cheapest design for every stake and upkeep **if and only if the
+**Map theorem (CT35).** Premises: G_L, G_S > 0 (so κ is defined), and gains that do not depend on the stake or the upkeeps. That holds when reading is fixed. It fails when reading is priced and chosen per design, because the optimized net gains then move with w_u. Fix the gains G_L, G_S, G_B. The quadrant rule below gives the cheapest design for every stake and upkeep **if and only if the
 value is subadditive**, G_B ≤ G_L + G_S.
 
 | Where | Cheapest design under subadditivity |
@@ -66,9 +66,10 @@ value is subadditive**, G_B ≤ G_L + G_S.
 
   (G_B − G_L − G_S)/Var = r_LS·[(r_L² + r_S²)·r_LS − 2·r_L·r_S] / (1 − r_LS²)   (`face_map.excess_fixed`, tested).
 
-- This is > 0 iff r_LS < 0 or r_LS > 2 r_L r_S/(r_L² + r_S²).
+- With each estimate's sign chosen so that r_L, r_S ≥ 0 (no loss of generality), this is > 0 iff r_LS < 0 or r_LS > 2 r_L r_S/(r_L² + r_S²). Without that convention the condition is false (r_L = 0.6, r_S = −0.3, r_LS = −0.1 gives −0.032).
 - That is the case when the shared store is correlated with the local estimates' *errors* more than with the target. It then works as a **common-mode reference**: subtracting it cancels noise that the local layers share.
 - When the estimates are independent given the target (r_LS = r_L r_S), the excess equals r_L²r_S²(r_L² + r_S² − 2)/(1 − r_L²r_S²) ≤ 0, so the value is subadditive.
+- **At optimized rates the formula is a necessary condition, not a classification.** CT35's gains are each at their own optimal rates. At the rates b* optimal for both, G_L(b*) ≤ G_L^opt and G_S(b*) ≤ G_S^opt, so G_B* − G_L^opt − G_S^opt ≤ the fixed-rate excess at b*. A positive fixed-rate excess at the joint optimum is necessary, not sufficient. Which classes are superadditive is measured below (CX6), not read off the formula.
 
 **Prior art** (the mechanism is not new; its use for layer design is the point here):
 - the suppressor variable of regression: Horst 1941 (10.1037/11521-016); Conger 1974 (10.1177/001316447403400105);
@@ -80,10 +81,10 @@ value is subadditive**, G_B ≤ G_L + G_S.
 
 | Class | Worlds with G_B > G_L + G_S | Largest excess (share of variance) | Status |
 |---|---|---|---|
-| Separate channel per component, one OU component, independent unit noise, unpriced reading (the class of every dot) | **0 / 500**; 20 adversarial maximisations: max 4×10⁻¹⁶ | 0 | subadditive, **NUMERICAL** (CX6) |
+| Separate channel per component, one OU component, independent unit noise, unpriced reading (the class of every dot) | **0 / 500**; 20 adversarial maximisations: max 3×10⁻¹⁶ | 0 | subadditive, **NUMERICAL** (CX6) |
 | Same, plus read noise common to all units | 28 / 500 | 0.20 | **not** subadditive |
 | One read stream: a fast common part and a slow idiosyncratic part (ρ = (1, 0)) | 8 / 500 | 0.016 | **not** subadditive (counterexample B) |
-| Reading priced at c/N per unit, N chosen per design (`face_collapse_v1b`) | 119 / 1500 (κ_L up to 49) | — | **not** subadditive (counterexample A; it was paid once by both) |
+| Reading priced at c/N per unit, N chosen per design (`face_collapse_v1b`; net worths) | 119 / 1500 (κ_L up to 49) | — | **not** subadditive (counterexample A; reads are paid once by both). CT35's fixed-gain premise also fails here |
 
 - In the 1500 sampled priced worlds, none fell where the superadditivity flips the quadrant reading.
 - The reviewer's counterexample A shows that such worlds exist (tested).
@@ -122,20 +123,28 @@ Hence **X_S = ν · π · e^(−2ℓ/τ) · X_L**, where π is the pooling gain.
 
 **One read stream (many scales through one channel, as in a cell's receptors).**
 - Per-component reading is not exact here, because one store can follow two components.
-- The cheapest set of stores is found by **exhaustive search over small store counts** (`face_hybrid.best`).
+- The cheapest set of stores is found by **exhaustive search over small store counts** (`face_hybrid.best`). That is the rule.
+- **Numerical guard (review 26, round 2).** Near-coincident stores make the read-out matrix ill-conditioned, and the optimizer exploited that (seed 34: a spurious error 7–75% too low). Now:
+  - stores of one kind are kept ≥ 1% apart in rate;
+  - a read-out matrix with condition number > 10¹⁰ is solved by a truncated pseudo-inverse, which can only understate the stores' value;
+  - every reported optimum is confirmed with the Lyapunov `mse()` at rates rounded to 6 significant digits, and the larger error is reported.
+  All the runs below were redone with the guard.
 - Adding stores one at a time by marginal worth (greedy) is exact when marginal worths are submodular. That is not guaranteed: counterexample B has κ > 1, and greedy stops at NONE while local + shared together pay.
 
-The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and ≤ 2 stores per location, so it could not see this case.** The rerun (`face_collapse_v23.py`, 800 two-scale worlds, ≤ 2 local and ≤ 2 shared stores):
+The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and ≤ 2 stores per location, so it could not see this case.** The rerun (`face_collapse_v23.py`, 800 two-scale worlds, ≤ 2 local and ≤ 2 shared stores). **These numbers hold only in this tested scope.** Regret is a fraction of the optimal total cost.
 
 | Worlds | Greedy = exact | Worst greedy regret | Greedy + pairwise look-ahead = exact | Per-component reading = exact |
 |---|---|---|---|---|
 | ρ = 1 (400) | 100% | 0 | 100% | 50.5% |
-| ρ drawn per component (400) | 99.5% (2 misses) | 2.2×10⁻⁵ of value | 100% | 47% |
+| ρ drawn per component (400) | 99.5% (2 misses) | 2.2×10⁻⁵ of total cost | 100% | 47% |
 
-- The review's own greedy appendix (a partial run of 92 worlds) found 2 greedy misses with regret up to 3.04 (its units). The look-ahead is therefore the stated rule, and exhaustive search is the reference.
+- **Outside the tested scope the look-ahead also misses.** Review 26 ran 92 three- and four-scale worlds with up to 3 local + 3 shared stores.
+  - Seed 40 is a real miss for greedy and for greedy + look-ahead. The optimum is 2 local + 3 shared stores (cost 4280.549). Greedy goes 1 → 2 → 3 local stores, then adds shared stores to 3 + 2 (4281.731) and stops. The regret is 2.8×10⁻⁴ of total cost. This was reproduced here with the guarded optimizer (12 starts per design): the same costs to 4 significant figures, and the same greedy path.
+  - Additions cannot undo the third local store, so outside the tested scope only exhaustive search is the rule.
+  - Its other miss (seed 34, regret 3.04) was the ill-conditioning artifact that the guard above removes.
 - V2 (one stream, layer count): marginal worths fell layer by layer in 97.3% of 300 worlds, and in 100% within a 10⁻⁵ tolerance. 0 of the 300 fits failed.
 - The earlier crash (seed 139, error −∞) was a numerically unstable solve. The solver now rejects non-finite or negative errors and retries with 30 starts.
-- The remaining 2.7% are rises below 10⁻⁵ of value. They are within the optimizer's tolerance and are not evidence either way.
+- The remaining 2.7% are rises below 10⁻⁵ of total error. They are within the optimizer's tolerance and are not evidence either way.
 
 **Data collapse** (`face_collapse.png`):
 - (a) 3000 random worlds in raw inputs: the best designs overlap.
@@ -170,27 +179,36 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
    | city, nation-state, global economy | a documented shock (price, fiscal, climate) | allocation response (spend, land use, rates) | 1 mo–50 y |
 
 2. **Measure the response kernel** over that band (impulse, step or white-noise input), by a protocol fixed in advance.
-3. **Fit sums of exponentials** (complex-conjugate pairs allowed) of order K = 1 … K_max.
+3. **Fit sums of exponentials** (complex-conjugate pairs allowed) of order K = 1 … K_max, separately to the isolated-unit response and to the pooled response (step 6 says how each is obtained).
    - Accept order K + 1 over K only if **ΔBIC ≥ 10**.
-   - Two poles whose time constants differ by less than a **factor 3** (the resolution) count as one.
    - Poles outside the band are not counted.
+   - **Classify, then merge.** Classify each pole as local or shared (step 6) *before* any merging. Then merge only within a class: two poles of the same class whose time constants differ by less than a **factor 3** (the resolution) count as one. A local and a shared pole are never merged, however close, so "both" stays observable.
 4. **Count by degree.** The layer count is the number of poles: a complex pair (a rhythm) counts 2, and an integrator-plus-filter counts 2.
 5. **Relay-only test.** Remove the candidate level, or bypass it, or replace it with a pure delay of the same latency, and refit.
    - The level is a layer only if a pole disappears or moves by more than the resolution factor.
    - If only a delay disappears, it is a relay (CT16).
-6. **Local vs shared.**
+6. **Local vs shared** (applied in step 3, before merging).
    - *Local:* the pole appears in each unit's own response, measured on isolated units.
    - *Shared:* it appears only in the pooled response and disappears when units are isolated.
    - Where isolation is impossible, use the substitute fixed in advance: per-unit vs pooled response to unit-specific vs common drives.
-7. **Compare with the map, with a miss rule against the per-dot share of draws.**
+7. **Assign poles to dots** (fixed in advance).
+   - A pole belongs to a dot if its time constant lies inside that dot's τ range widened by a factor 3 at each end. If it fits several dots, it goes to the one whose range centre (in log τ) is nearest.
+   - A dot's observed design is **none** (no pole), **local** (local poles only), **shared** (shared poles only) or **both** (at least one of each).
+   - A pole that matches no dot is a **miss** (an unpredicted layer).
+   - **Only degree-1 components are compared.** B.11 is proved for one store per design per component. Degree-2 components (rhythms, integrator + filter, as in E. coli) are counted and reported but not scored until B.11 is extended.
+8. **Compare with the map, with a miss rule against the per-dot share of draws.**
    - It is a **pass** if the observed design has ≥ 50% of that dot's draws.
    - It is a **miss** if the observed design has < 10% of draws.
    - Between 10% and 50% is inconclusive.
    - A system misses if any of its components misses.
+9. **The prediction is frozen.**
+   - The input ranges in `figures/face_systems.py` are the preregistered prediction, frozen on 20 Nov 2026 (ET) with SHA-256 `00f6f25d796bbd1862f6ad9f04ef53bd986185f1177052339632e20b15095377`.
+   - `tools/test_face_map.py` fails if the file changes.
+   - Any later change to a class's ranges voids the comparison for that class. A new prediction needs a new freeze date before any data.
 
 | System | Observed by this rule | Map gives |
 |---|---|---|
-| E. coli | not counted by this rule. A two-pole kernel G·e^(−t/τ2)(1 − e^(−t/τ1)) was fitted to 442 cells (Mattingly et al. 2021; PR #110), but not with this rule's ΔBIC selection or relay test | off the map (one cell; proxy only) |
+| E. coli | not counted by this rule (degree 2: reported, not scored). A two-pole kernel G·e^(−t/τ2)(1 − e^(−t/τ1)) was fitted to 442 cells (Mattingly et al. 2021; PR #110), but not with this rule's ΔBIC selection or relay test | off the map (one cell; proxy only) |
 | every other system | not yet measured by the rule | see table |
 
 ## 5. Placements (hypothesized positions, not measurements)
@@ -202,7 +220,7 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
   - 400 draws per dot;
   - the ellipses are the 1σ (main figure) or 2σ (`face_all.png`) covariance in log space.
 - "Share of draws" is how often each design wins across the input ranges.
-- A dot is drawn **hollow** when no design wins ≥ 65% of draws, which means its reading can change within its input ranges.
+- A dot is drawn **hollow** when no design wins ≥ 65% of its input draws. Solid dots can also change design within their ranges, just less often (the share column gives the numbers).
 - Systems whose selection is weak or unknown are starred (*).
 - "Joint value" is the share of draws with G_B > G_L + G_S. It is none for every dot.
 - `figures/face_table.py` writes this table from `face_dots.json`. `tools/test_face_map.py` checks every design and X_B against the coordinates.
@@ -214,7 +232,7 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
 | immune system | innate | 1 h–10 h | 12 h–2 d | 100–1000 | 0.1–0.5 | 1–30 | 30–3e+03 | 3–100 | 131 | 0.000388 | 124 | 1.00, 0.00 | **local** | local 99% | none | lead as adaptive (Randolph et al. 2005); rest guess |
 | immune system | adaptive | 5 d–4.29 wk | 12 h–2 d | 100–1000 | 0.5–1 | 0.3–10 | 3–300 | 3–100 | 7.38 | 316 | 17.1 | 0.10, 0.62 | **shared** | shared 62%, both 38% | none | lead: dendritic-cell trafficking to lymph nodes, Randolph, Angeli & Swartz 2005 (10.1038/nri1670); rest guess |
 | immune system | memory | 10 y–100 y | 1 d–1 wk | 100–1000 | 0.7–1 | 10–1e+03 | 0.3–30 | 3–100 | 2.46 | 46 | 2.57 | 0.08, 0.10 | **shared** | shared 82%, both 15%, none 2%, local 1% | none | tau: antibody half-lives 11 y (tetanus) to >200 y (measles, mumps), Amanna, Carlson & Slifka 2007 (10.1056/NEJMoa066092); rest guess |
-| ant colony | patch | 20 min–3 h | 15 min–45 min | 100–1000 | 0.3–0.9 | 0.3–10 | 3–300 | 1–30 | 7.38 | 392 | 9.81 | 0.43, 0.38 | **both** | both 70%, shared 27%, local 2% | none | Lasius niger. Shared store = the pheromone trail; tau: trail lifetime ~47 min, Beckers, Deneubourg & Goss 1993 (10.1007/bf01201674; figure from secondary citations, full text not checked). Local store = private route memory, Grüter, Czaczkes & Ratnieks 2011 (10.1007/s00265-010-1020-2). rho 0.3–0.9: a trail marks one route, which serves only the foragers working that patch (guess); rest guess |
+| ant colony | patch | 20 min–3 h | 15 min–45 min | 100–1000 | 0–0.3 | 0.3–10 | 3–300 | 1–30 | 7.38 | 89.4 | 7.71 | 0.85, 0.30 | **both** | both 70%, local 16%, shared 13%, none 2% | none | Lasius niger. Shared store = the pheromone trail; tau: trail lifetime ~47 min, Beckers, Deneubourg & Goss 1993 (10.1007/bf01201674; figure from secondary citations, full text not checked). Local store = private route memory, Grüter, Czaczkes & Ratnieks 2011, online 2010 (10.1007/s00265-010-1020-2). rho 0–0.3 (v2.5 range; v2.5.1 had raised it, reverted): a trail serves only the foragers working that patch (guess); rest guess |
 | ant colony | food supply | 6 h–1 wk | 15 min–45 min | 100–1000 | 0.7–1 | 0.03–1 | 0.3–30 | 1–30 | 0.12 | 107 | 1.83 | 0.03, 0.94 | **shared** | shared 100% | none | Lasius niger. Hypothesized shared store = crop food passed by trophallaxis (the colony's stomach, which every worker's hunger reads); rho 0.7–1 because colony-wide hunger is common to all workers (guess); rest guess |
 | small team | tasks | 1 d–5 d | 2 h–12 h | 5–10 | 0.3–0.8 | 1–30 | 1–30 | 0.5–3 | 2.39 | 10.6 | 2.27 | 0.34, 0.15 | **shared** | shared 56%, both 26%, local 15%, none 2% | none | guess |
 | small team | goals | 1 mo–6 mo | 1 d–1 wk | 5–10 | 0.8–1 | 3–100 | 1–30 | 0.5–3 | 3.4 | 22.1 | 3.42 | 0.05, 0.16 | **shared** | shared 88%, both 10%, local 2% | none | guess |
@@ -240,18 +258,22 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
     - a proteome share is not a fitness cost;
     - the component is degree 2, which is outside B.11's one-store-per-layer setup.
   - It is therefore drawn in its own strip beside the map, not on the "≈ 0" band.
-  - It says only that the benefit is plausibly larger than the signalling cost. In glucose the benefit is about 0, and the cell does cut motility there (Ni et al.).
+  - It says only that the measured benefit is plausibly larger than the signalling proteome share; neither is X_L. In glucose the benefit is about 0, and the cell does cut motility there (Ni et al.).
   - **Caveat:** PR #110 found that the slow store's memory (9.9 s) is 8.5× the optimum under exogenous noise. This proxy does not test the memory time.
 - **Ant colony: one species, *Lasius niger*, with named stores.**
   - *Patch.*
     - The shared store is the pheromone trail. Its lifetime is ~47 min (Beckers, Deneubourg & Goss 1993). That figure is taken from secondary citations; the full text was not checked.
-    - The local store is each forager's private route memory (Grüter, Czaczkes & Ratnieks 2011).
-    - ρ = 0.3–0.9 because a trail marks one route, which serves only the foragers working that patch.
+    - The local store is each forager's private route memory (Grüter, Czaczkes & Ratnieks 2011, online 2010).
+    - ρ = 0–0.3, the v2.5 range. A trail marks one route and serves only the foragers working that patch, so little of what one forager meets is met by all. This is a guess.
   - *Food supply.*
     - The hypothesized shared store is crop food passed by trophallaxis (the colony's "social stomach"), which every worker's hunger reads.
     - ρ = 0.7–1 because colony hunger is common to all workers. This is a guess.
   - The v2.5 citation of Prabhakar et al. 2012 (a harvester ant) was dropped so that the species are no longer mixed.
-  - The inputs were set from the biology before the coordinates were computed. They were not tuned afterward, and they were not preregistered.
+  - **Disclosure: a post-review change, now reverted.**
+    - v2.5.1 raised the patch's ρ from 0–0.3 to 0.3–0.9 after the coordinates had been computed. The reason it gave (a trail serves only that patch's foragers) argues for a *lower* common share, not a higher one.
+    - Review 26 (round 2) caught this, and the v2.5 range is restored: inputs are frozen (§4, step 9).
+    - Effect on the pick: the pick is **both** either way. With ρ = 0.3–0.9 the shares were both 70%, shared 27%, local 2%. With ρ = 0–0.3 restored they are both 70%, local 16%, shared 13%, none 2%, as in v2.5. X_S at the centre falls from 392 to 89, X_L is unchanged at 7.4, and the dot stays solid.
+  - Apart from this change, the inputs were set from the biology before the coordinates were computed. They were not preregistered until the freeze in §4.
 - **Immune memory:** antibody half-lives run from 11 y (tetanus) and 19 y (diphtheria) to about 50 y (varicella-zoster) and >200 y (measles, mumps) (Amanna, Carlson & Slifka 2007, abstract checked).
 - **Order.** Systems are numbered 1–7 from small to large for reading only. Each dot's code (e.g. 2b) gives its system and scale, and no order is implied by position.
 
@@ -265,7 +287,7 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
 | κ ≤ 1 in the separate-channel, independent-noise, unpriced OU class | **Numerical only** (CX6: 500 + 3000 worlds, 20 adversarial runs) |
 | κ ≤ 1 with priced reading, common read noise, or mixed-rate one stream | **False** (counterexamples A and B; counts above) |
 | OU closed forms for G_L, G_S; X_S = ν·π·e^(−2ℓ/τ)·X_L | **Proved** (Kalman–Bucy); numerically confirmed to 10⁻¹³ to 10⁻¹¹ |
-| One stream: greedy store-by-store | **False in general** (counterexample B); 99.5–100% in samples; the pairwise look-ahead matched exhaustive search in 800/800 (numerical) |
+| One stream: greedy store-by-store | **False in general** (counterexample B). In the tested scope (2 scales, ≤ 2 + 2 stores) greedy matched in 99.5–100% of samples and the pairwise look-ahead in 800/800 (numerical). Outside it the look-ahead misses too (review 26, 3 scales, seed 40) |
 | CT33 on the map (spend never falls as stakes rise, ruin slack) | Follows from CT33; tested on 200 worlds |
 | Every dot's inputs | **Guessed**, except the cited time scales and delays |
 
@@ -329,6 +351,32 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
   16. **One-stream check and F1.**
       - The one-stream check now states ρ and store limits.
       - F1 now says ν and "at equal read quality".
+
+- **v2.5.2 answers review 26, round 2 (READY-WITH-FIXES):**
+  - **Must-fixes.**
+    1. Hollow legend: "no design wins ≥ 65% of its input draws".
+    2. The shading sentence is limited to outside the top-right.
+    3. The ν gloss is fixed: all local layers' upkeep ÷ the shared layer's upkeep.
+    4. 1b/2a in `face.png`: the two no longer overlap, because 2a moved once its input was restored (item 5).
+    5. The ant patch ρ is reverted to 0–0.3 and the change is disclosed (§5 notes). The pick stays **both**.
+    6. CT36: the sign convention is added, and the formula is stated as necessary, not sufficient, at optimized rates.
+  - **Should-fixes.**
+    7. Counting rule:
+       - classify, then merge (so "both" is observable);
+       - pole-to-dot assignment;
+       - degree-1 scoring only;
+       - inputs frozen by SHA-256 and date, with a test.
+    8. Conditioning guard (rates ≥ 1% apart, truncated solve above cond 10¹⁰, Lyapunov confirmation of each optimum). V1, V1b, CX6 and V3 were rerun with it.
+    9. The one-stream claims are scoped to what was tested, and the three-scale miss (seed 40) is reported.
+    10. "Of total cost" replaces "of value".
+    11. The E. coli inset no longer shows shading or an edge, and is captioned "the map's edges do not apply".
+    12. CT35's premises are stated.
+    13. Grüter et al. 2011 (online 2010).
+  - Every sentence on the four PNGs was reread against the code and data. Changes made on that pass:
+    - E. coli's denominator now says "signalling proteome share", not "cost";
+    - collapse panel (d) now says "quadrant rule ≠ best design";
+    - the clipping note was corrected;
+    - `face_all.png` gained its own legend.
 
 ## 9. Regenerate
 

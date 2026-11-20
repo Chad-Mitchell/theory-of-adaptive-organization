@@ -42,10 +42,10 @@ sup = np.array([r['kL'] > 1 + 1e-6 or r['kS'] > 1 + 1e-6 for r in w2]); q2 = np.
 wrong = (q2 < 3) & (q2 != b2)
 ax.scatter(L([r['XL'] for r in np.array(w2)[sup]]), L([r['XS'] for r in np.array(w2)[sup]]), s=26, facecolors='none', edgecolors='k', lw=0.7, label=f'\u03ba > 1 ({sup.sum()})')
 ax.legend(loc='lower right', markerscale=1.5, fontsize=10)
-ax.set_title(f'(d) reading priced: value not always subadditive\n\u03ba > 1 in {sup.sum()} of {len(w2)} worlds; shading \u2260 best design in {wrong.sum()}', weight='bold')
-fig.suptitle('Data collapse: the map\u2019s coordinates sort random worlds by their best design', fontsize=18, weight='bold')
+ax.set_title(f'(d) reading priced: value not always subadditive\n\u03ba > 1 in {sup.sum()} of {len(w2)} worlds; quadrant rule \u2260 best design in {wrong.sum()}', weight='bold')
+fig.suptitle('Data collapse: random worlds by their best design, in raw inputs and in the map\u2019s coordinates', fontsize=18, weight='bold')
 S3 = V23['v3_all']
-fig.text(0.5, 0.012, f'One read stream, two time scales ({S3["worlds"]} worlds; \u03c1 per component in half): adding layers one at a time finds the best design in {S3["greedy_same"]:.1%}\n'
-         f'(worst regret {S3["greedy_regret_max"]:.1e} of value); with a pairwise look-ahead {S3["pair_same"]:.0%}.  Sampled, not proved: the reviewer\'s counterexample B (tests) stops greedy at NONE.', ha='center', fontsize=11.5)
-fig.text(0.5, 0.068, 'Points drawn at $10^{-6}$ have worth \u2264 0 (clipped to the frame).', ha='center', fontsize=11, color='#444444')
+fig.text(0.5, 0.012, f'One read stream, two time scales, \u2264 2 local + 2 shared stores ({S3["worlds"]} worlds; \u03c1 per component in half): adding layers one at a time finds the best design in {S3["greedy_same"]:.1%}\n'
+         f'(worst regret {S3["greedy_regret_max"]:.1e} of total cost); with a pairwise look-ahead {S3["pair_same"]:.1%}.  Tested scope only: counterexample B stops greedy at NONE, and a 3-scale world defeats the look-ahead.', ha='center', fontsize=11.5)
+fig.text(0.5, 0.068, 'Values \u2264 $10^{-6}$ (including 0 and below) are drawn at $10^{-6}$.', ha='center', fontsize=11, color='#444444')
 fig.tight_layout(rect=(0, 0.09, 1, 0.96)); fig.savefig(os.path.join(HERE, 'face_collapse.png')); print('saved face_collapse.png')

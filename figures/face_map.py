@@ -12,7 +12,8 @@ Exact identities (any model, any loss: nothing but the definitions):
   value over NONE, in units of n*h_l:  local = X_L - 1;  shared = (X_S - 1)/nu;  both = X_L - 1 + (k_S*X_S - 1)/nu = (1 + 1/nu)(X_B - 1),
   with nu = n*h_l/h_c, k_S = (G_B - G_L)/G_S, k_L = (G_B - G_S)/G_L and X_B = n*w_u*G_B/(n*h_l + h_c) (the joint layers' stakes over
   their joint upkeep).  So the best design is the argmax of (0, X_L - 1, (X_S - 1)/nu, (1 + 1/nu)(X_B - 1)) -- always exact (decide()).
-Map theorem (THEORY B.11): the quadrant edges X_L = 1 and X_S = 1 decide the design outside the upper-right quadrant  IFF  the layers'
+Map theorem (THEORY B.11, CT35; premises G_L, G_S > 0 and gains independent of stake and upkeep): for fixed gains, the quadrant edges
+  X_L = 1 and X_S = 1 decide the design outside the upper-right quadrant for every stake and upkeep  IFF  the layers'
   value is SUBADDITIVE, G_B <= G_L + G_S (equivalently k_L, k_S <= 1, equivalently X_B <= 1 whenever X_L, X_S <= 1).  Then:
     NONE   iff X_L <= 1 and X_S <= 1;   LOCAL if X_L > 1 >= X_S;   SHARED if X_S > 1 >= X_L;
     X_L > 1 and X_S > 1: local vs shared by nu*(X_L - 1) vs X_S - 1; both iff k_L*X_L > 1 and k_S*X_S > 1.
@@ -69,7 +70,9 @@ def subadditive(kL, kS, tol=1e-9):
 
 def excess_fixed(rL, rS, rLS):
     """Exact at fixed store rates: (G_B - G_L - G_S)/Var for two linear predictors with correlations rL, rS to the target and rLS to each
-    other (G_B = the two-predictor R^2).  Positive (joint value) iff rLS < 0 or rLS > 2 rL rS / (rL^2 + rS^2): suppression."""
+    other (G_B = the two-predictor R^2).  With signs chosen so rL, rS >= 0 (no loss of generality),
+    positive (joint value) iff rLS < 0 or rLS > 2 rL rS / (rL^2 + rS^2): suppression.  At optimized rates a positive value at the joint optimum is
+    necessary, not sufficient, for superadditivity (each single layer re-optimizes its own rate)."""
     return rLS * ((rL ** 2 + rS ** 2) * rLS - 2 * rL * rS) / (1 - rLS ** 2)
 
 def quadrant(XL, XS):
