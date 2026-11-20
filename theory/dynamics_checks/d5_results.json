@@ -1,0 +1,50 @@
+{
+ "D5a_scalar_AR1_a_q_r_maxS_at_meanlnS_identityerr": [
+  [
+   0.95,
+   0.1,
+   1.0,
+   1.1330138273533346,
+   3.141592653589793,
+   0.0,
+   1.1102230246251565e-15
+  ],
+  [
+   0.5,
+   1,
+   0.1,
+   1.4360490254392337,
+   3.141592653589793,
+   8.834874115176436e-18,
+   3.552713678800501e-15
+  ],
+  [
+   0.99,
+   0.01,
+   1,
+   1.045186053428131,
+   3.141592653589793,
+   -4.417437057588218e-18,
+   1.1102230246251565e-15
+  ],
+  [
+   0.9,
+   1,
+   1,
+   1.394665903490116,
+   3.141592653589793,
+   -8.834874115176436e-18,
+   1.9984014443252818e-15
+  ]
+ ],
+ "D5b_random_worlds_maxS_min_max": [
+  1.0390196015594502,
+  1.8910768770810928
+ ],
+ "D5b_random_worlds_max_abs_mean_lnS": 3.533949646070574e-17,
+ "D5b_random_worlds_max_identity_err": 7.105427357601002e-15,
+ "D5b_random_worlds_argmax_freq_min": 3.141592653589793,
+ "D5_reading": "continuous observation (Kalman-Bucy, d4a): |S| <= 1, no waterbed. Periodic or sampled reads: the predictor obeys integral ln|S| = 0 and |S| > 1 on a high-frequency band in every world checked (maximum at Nyquist in all 44). Whether that changes argmin J is OPEN: S maps observations to innovations and is not a cost J pays.",
+ "checks_passed": 49,
+ "checks_total": 49
+}
