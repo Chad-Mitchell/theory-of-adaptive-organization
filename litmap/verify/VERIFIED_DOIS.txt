@@ -175,3 +175,5 @@ OK  10.3402/tellusb.v35i4.14616 | 1983 | Watson,Lovelock | Biological homeostasi
 OK  10.5465/amr.1990.4308154 | 1990 | Orton,Weick | Loosely Coupled Systems: A Reconceptualization | The Academy of Management Review | v15 p203
 OK  10.5465/amr.1991.4278992 | 1991 | Walsh,Ungson | Organizational Memory | The Academy of Management Review | v16 p57
 OK  10.7326/0003-4819-147-4-200708210-00179 | 2007 | Shojania,Sampson,Ansari | How Quickly Do Systematic Reviews Go Out of Date? A Survival Analysis | Annals of Internal Medicine | v147 p224-233
+OK  10.1088/1742-5468/2016/04/043403 | 2016 | Vinkler,Permuter,Merhav | Analogy between gambling and measurement-based work extraction | Journal of Statistical Mechanics: Theory and Experiment | 043403
+OK  10.1007/s100510070114 | 2000 | Dragulescu,Yakovenko | Statistical mechanics of money | The European Physical Journal B | v17 p723-729

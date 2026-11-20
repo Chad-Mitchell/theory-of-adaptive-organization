@@ -63,8 +63,6 @@ Checks: `theory/meq_checks/` (run at nice 19; a few seconds each). **`meq_derive
 
 ## 2. Worked engineering example (hypothetical numbers)
 
-## 3. Is it useful? A worked engineering example
-
 **System.** A team keeps a demand forecast (units/day) that feeds replenishment. *All numbers below are hypothetical and chosen for illustration.*
 1. **Measure the world.** Fit the structure function and spectrum of the demand logs with the repo's gated estimator. Suppose it finds two modes: a 3-day fluctuation (sd 40) and a 90-day trend (sd 120), seen through daily sampling noise (density 3600 units²·day).
 2. **Solve for the layers.** From `theory/meq_checks/meq_checks2.out`, E_∞ = 1762.7, E_1 = 1796.3 (flat penalty 1.9%) and E_2 = E_∞. So a second forecasting layer pays iff w(E_1 − E_2) > h, i.e. w > h/33.6.
@@ -82,7 +80,7 @@ Checks: `theory/meq_checks/` (run at nice 19; a few seconds each). **`meq_derive
 
 **Verdict.** It is buildable today for machine systems: monitors, caches, sensor networks and inventory. For organizations, use it for **signs and thresholds** (§b) until w and h are measured.
 
-## 3. Revealed costs and the price of survival
+## 3. Revealed costs and the price of survival (THEORY §7, CT22)
 
 **(c) The inverse problem: revealed costs. PARTLY HOLDS. Circular when exactly identified, real when over-identified.**
 - Only price **ratios** are identified (w/c, h/w), by homogeneity (S1).
@@ -91,7 +89,8 @@ Checks: `theory/meq_checks/` (run at nice 19; a few seconds each). **`meq_derive
   - one system observed at several exogenous q (the implied w/c must be constant, and the rates must move as q^{1/α});
   - several items under one clock (Result 5: equality iff c_i/(w_iσ_i²) is equal);
   - the same read technology across layers.
-- This is Afriat/Varian revealed preference and Kalman's 1964 inverse-optimality question applied to design. It is a real way around the w bottleneck, and the repo should state the over-identification count for each test.
+- This is Afriat/Varian revealed preference and Kalman's 1964 inverse-optimality question applied to design. It is a real way around the w bottleneck.
+- **Over-identification count (v2.2).** One system observed at m exogenous drift levels gives m − 1 equalities of the implied w/c. n items under one clock give n − 1 equalities of c_i/(w_iσ_i²). A K-way allocation under one binding budget gives K − 1 equalities of marginal value per currency unit (the shadow price of THEORY CT24). A test needs at least one such equality beyond the free ratios.
 
 **(d) The ruin multiplier as a price of survival. HOLDS (diffusion approximation, Lundberg sufficient bound).**
 - μ = −m′/θ′ at the binding constraint. It is the marginal expected cost of extra survival exponent.
@@ -103,9 +102,9 @@ Checks: `theory/meq_checks/` (run at nice 19; a few seconds each). **`meq_derive
 
 ## 4. Dimensionless groups, phase diagram, dynamics, robustness (THEORY CT23, N54, N55)
 
-## (h) Dimensionless numbers. PARTLY HOLDS: equal numbers give the same design only when the world's shape is also equal
+### (h) Dimensionless numbers. PARTLY HOLDS: equal numbers give the same design only when the world's shape is also equal
 
-**The examples in the brief are not dimensionless.** E[ℓ] has units x², so w has units of cost per (x²·time). Then:
+**Quantities that look dimensionless but are not.** E[ℓ] has units x², so w has units of cost per (x²·time). Then:
 - w·σ²/h has units 1/time;
 - w·q/c has units time^{−α};
 - buffer/σ mixes cost with x/√time.
@@ -134,7 +133,7 @@ The noise share Nτ/Var counts as part of the world's shape when sensing is nois
 - For a **parametric** world (a power law, or a few modes) the design is fixed by about 5–7 numbers, and systems with equal numbers get the same design up to units. That is the precise meaning of "the same design at every scale".
 - For a general world the shape is a whole function, so "few numbers" holds only after the world has been summarized.
 
-## (i) Phase diagram. HOLDS in a model world; cells, firms and cities can be placed only illustratively
+### (i) Phase diagram. HOLDS in a model world; cells, firms and cities can be placed only illustratively
 
 `theory/meq_checks/phase.png` (illustrative) is computed exactly in one model world (`theory/meq_checks/phase.py`).
 - **World:** two OU modes at τ = 1 and 100, equal variance, sensing noise 0.05.
@@ -166,7 +165,7 @@ The two-layer region is closed at large latency: the fast mode can't be predicte
 - **Cells, firms and cities only illustratively.** No system in the repo has a valid measured R (stakes have never been measured, G3), latency ratio or shape. Putting them on the plot now would be invented placement.
 - **The first honest placement** would be a system where the same-system test of G2 measures all three. A cell's chemotaxis pathway, where sensing costs are physically measured (Lan et al. 2012), is the best candidate.
 
-## (j) Dynamics: selection or learning as descent on J. PARTLY HOLDS; two testable predictions, both elementary
+### (j) Dynamics: selection or learning as descent on J. PARTLY HOLDS; two testable predictions, both elementary
 
 **Status of the setting.** Gradient descent on design traits is a standard limit of selection (adaptive dynamics: Dieckmann & Law 1996, 10.1007/bf02409751) and of learning. Discrete choices such as K follow replicator- or threshold-type dynamics instead.
 
@@ -184,7 +183,7 @@ The two-layer region is closed at large latency: the fast mode can't be predicte
 
 **Verdict.** Treating dynamics as descent adds two testable predictions: the redesign/slowest-scale ratio and the 1/√(α−1) scatter. Both are elementary. "Redesign is the slowest layer" holds as a necessity (you cannot redesign faster than you can learn the law). It is not a theorem that real systems do it.
 
-## (k) Robustness: regret and flatness. HOLDS as the formal form of "re-measure, not a dead theory", with three named exceptions
+### (k) Robustness: regret and flatness. HOLDS as the formal form of "re-measure, not a dead theory", with three named exceptions
 
 **Theorem (local regret; elementary).** Suppose J is C² in log design variables with a nondegenerate minimum, and the design is computed from a picture of the world that is off by δ in log parameters. Then:
 - the design error is O(δ) (implicit function theorem);
@@ -208,3 +207,14 @@ For one layer, mis-scaling drift by a factor m costs exactly [(α−1)m^{−1/α
 **Verdict.** The "two kinds of wrong" (t1970) now has a formal form:
 - **Picture errors cost second-order regret.** The fix is to re-measure. Exceptions 1–3 mark where that fails for the *system*.
 - **Cost errors are a different object.** A missing cost term (J16) is not a perturbation of the inputs. No regret bound covers it, and it is what kills the theory.
+
+
+## 5. Cost shares, the floor multiplier and the temperature (THEORY CT24, CT25; added v2.2)
+
+Derivations are in THEORY B.9 (CT24) and B.6 (CT25); checks in `theory/meq_checks/scale_free_checks.py` (run by `tools/test_scale_free_checks.py`, output in `scale_free_checks.out`). Origin: `reviews/audit_2026-11-19/AUDIT.md` §2 and §5.
+
+- **Scale-free accounting.** In CT12's single tracker J is degree-1 homogeneous in prices, so the optimum depends only on α and the cost shares equal price elasticities: sensing (α−1)/α, error 1/α, so reads : error = α − 1 in any currency (N57, open). Checked to 10⁻⁷ over 18 decades of currency.
+- **Floor with an inefficiency multiplier.** Pricing a nat at β·kT multiplies J\* by β^{(α−1)/α} and leaves the shares unchanged; J\* is nondecreasing in every price, so any actual price at or above kT is above the CT7 floor. β is one measured number per system, which the theory does not predict.
+- **Shadow prices.** For a system with a binding read budget B, the stake w is the reciprocal of the budget's multiplier; equal marginal values across trackers under one budget are testable equalities. That real internal prices equal multipliers is a conjecture (CX5).
+- **Not claimed.** One conserved energy across scales; firms or cities paying in joules; physics fixing prices above the cell; equal numbers across systems of different world shape.
+- **Temperature.** In the diffusive-reset class ruin ≤ ε is B ≥ z_ε·σ√τ (z_ε = 3.29 at ε = 10⁻³); the survivable shock is ∝ τ^{−1/2}. Monte Carlo of the closed form agrees within 5%.

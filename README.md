@@ -12,19 +12,20 @@ $$
 
 Choose the design (layers, what each tracks, how it senses, what it shares) that makes holding memory, being wrong or late, and acquiring and sharing information cheapest without going broke. The world is a measured input.
 
-**What follows** (proved in-model, linear-Gaussian):
+**What follows** (proved in a model; the layer results are linear-Gaussian):
 - One time scale needs one layer, even a self-similar random walk; J separated time scales need J layers once stakes outweigh upkeep.
 - In every world, layers never fall as stakes rise relative to upkeep.
 - A shared layer forms once enough members face a common driver; cheap lookup dissolves layers that only hold facts.
 - Lateness caps how far one tracker reaches, so large systems federate.
-- Survival is free above a buffer and decides the design below it.
+- Survival is free above a buffer and decides the design below it. The buffer a unit needs grows as shock × √(time to fix), so faster correction raises the shock it survives.
+- At the optimum a tracker spends α − 1 on looking for every 1 it loses to being wrong, in any currency: written in a system's own units the equation is the same at every scale, though not with the same numbers.
 
 **How it dies.** Measure strongly selected systems' worlds and costs. If, at two or more scales, their layers sit away from the minimum (and a named rival fits better), or a system needs a cost the equation cannot book, the hypothesis is dead. A wrong picture of the world only means re-measuring. The bet is untested, not refuted: no field test has yet measured its quantities validly, so every result so far is "passed / failed on proxy". The parts are known and credited; the claim is new. Open: what happens when a system and the world it reshapes co-adapt as coupled levels.
 
-**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v2.1 draft, 19 November 2026, America/New_York).** Claim statuses: `measurement/CLAIM_MAP_v2.md` (v2.50). Where the work stands: [`STATUS.md`](STATUS.md).
+**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v2.2 draft, 19 November 2026, America/New_York).** Claim statuses: `measurement/CLAIM_MAP_v2.md` (v2.51). Where the work stands: [`STATUS.md`](STATUS.md).
 
 ```
-THEORY.md         The theory, v2.1 draft (start here; §5 the theorem, §7 uses, §8 tests)
+THEORY.md         The theory, v2.2 draft (start here; §5 the theorem, §7 uses, §8 tests)
 theory/           Derivations and code checks (MASTER_EQUATION.md, LAYERS.md)
 measurement/      Validity gates and one status per claim
 tests/, reviews/  Preregistered tests and reviews

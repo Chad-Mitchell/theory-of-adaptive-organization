@@ -94,7 +94,7 @@ The four terms are upkeep, prediction-error loss, the cost of acting late, and t
 - **Combine with quadratic loss.** J = kT·σ²/(2D) + w·D gives D\* = σ√(kT/(2w)) and **J\* = σ√(2kT·w)**. EOQ (THEOREMS T1a) gives J\* = σ√(2cw) with mean error σ√(c/(2w)). **Both are identical under c = kT per nat** (sympy-checked).
   - Berger's (1970, IEEE Trans. Inf. Theory 16(2)) non-causal rate floor gives a looser bound, 2/π of this.
 - **What it licenses.**
-  - At cell scale, the economic tracking optimum and the physical one sit on the same curve. The ratio c_eff/kT is a measurable "efficiency gap" at each scale (cells are near it, per Lan et al. 2012, Nat. Phys. 8:422; firms are ~10¹² above it).
+  - At cell scale, the economic tracking optimum and the physical one sit on the same curve. The ratio c_eff/kT is a measurable "efficiency gap" at each scale (cells may be near it, per Lan et al. 2012, Nat. Phys. 8:422; for firms and cities the ratio has no measured value, and the 10¹² once quoted here had no derivation and is withdrawn).
   - This makes "only the currency changes" a precise statement: replace kT by the cost per nat acquired.
 - **What it does not license.**
   - With one cost scale, one drift σ² and one quadratic stake, dimensional analysis forces any optimum to be ∝ σ√(cw). The form match is guaranteed; only the √2 prefactor match is a (minor) coincidence.

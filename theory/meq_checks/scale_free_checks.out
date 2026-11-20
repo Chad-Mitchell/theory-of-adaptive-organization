@@ -1,0 +1,47 @@
+== 1. Covariance: only dimensionless ratios matter (Buckingham pi / homogeneity, S1-S2)
+alpha=1.3: T*/T0=3.089322 (closed form 3.089322), J*/J1=1.402681 (closed form 1.402681)
+alpha=1.6: T*/T0=1.845995 (closed form 1.845995), J*/J1=1.444569 (closed form 1.444569)
+alpha=2.0: T*/T0=1.414214 (closed form 1.414214), J*/J1=1.414214 (closed form 1.414214)
+alpha=2.5: T*/T0=1.226703 (closed form 1.226703), J*/J1=1.358655 (closed form 1.358655)
+alpha=2.9: T*/T0=1.156979 (closed form 1.156979), J*/J1=1.319225 (closed form 1.319225)
+max relative deviation over random currency/unit rescalings: 1.93e-08  (spans 18 decades of currency)
+
+== 2. Cost shares = elasticities (envelope theorem) and sum to 1 (Euler, J homogeneous degree 1 in prices)
+alpha=1.5: sensing share=0.333333 elasticity d lnJ*/d ln c=0.333333 closed form (a-1)/a=0.333333; error share=0.666667 elasticity=0.666667 1/a=0.666667; sum=1.000000
+alpha=2.0: sensing share=0.500000 elasticity d lnJ*/d ln c=0.500000 closed form (a-1)/a=0.500000; error share=0.500000 elasticity=0.500000 1/a=0.500000; sum=1.000000
+alpha=2.5: sensing share=0.600000 elasticity d lnJ*/d ln c=0.600000 closed form (a-1)/a=0.600000; error share=0.400000 elasticity=0.400000 1/a=0.400000; sum=1.000000
+=> at the optimum, spend on looking : cost of being wrong = alpha-1, whatever the currency, units or scale (EOQ 'equal costs' at alpha=2).
+
+== 3. Shadow-price reading: w is the multiplier of the system's own read budget
+alpha=1.5: budget T=6.250000, J-optimal T at w=1/lambda: 6.250000; lambda*w=1.000000 (should be 1)
+alpha=2.0: budget T=6.250000, J-optimal T at w=1/lambda: 6.250000; lambda*w=1.000000 (should be 1)
+alpha=2.5: budget T=6.250000, J-optimal T at w=1/lambda: 6.250000; lambda*w=1.000000 (should be 1)
+two trackers, one budget: allocations [0.63269 2.36731]; marginal value per currency unit [2.498146 2.498146] (equal => one shadow price)
+
+== 4. Landauer floor as a lower bound with an inefficiency multiplier beta = c/(kT per nat)
+CT7 with price beta*kT per nat: D* = sqrt(2)*sqrt(beta)*sqrt(kT)*sigma/(2*sqrt(w)) ; J* = sqrt(2)*sqrt(beta)*sqrt(kT)*sigma*sqrt(w) ; ratio to floor = sqrt(beta)
+alpha=1.5: J*(beta)/J*(1) vs beta^((a-1)/a), sensing share: [(1.0, np.float64(1.0), 1.0, np.float64(0.3333)), (10.0, np.float64(2.1544), 2.1544, np.float64(0.3333)), (1000000.0, np.float64(100.0), 100.0, np.float64(0.3333))]
+alpha=2.0: J*(beta)/J*(1) vs beta^((a-1)/a), sensing share: [(1.0, np.float64(1.0), 1.0, np.float64(0.5)), (10.0, np.float64(3.1623), 3.1623, np.float64(0.5)), (1000000.0, np.float64(1000.0), 1000.0, np.float64(0.5))]
+alpha=2.5: J*(beta)/J*(1) vs beta^((a-1)/a), sensing share: [(1.0, np.float64(1.0), 1.0, np.float64(0.6)), (10.0, np.float64(3.9811), 3.9811, np.float64(0.6)), (1000000.0, np.float64(3981.0717), 3981.0717, np.float64(0.6))]
+=> J* is nondecreasing in the price per nat (envelope: dJ*/dc = reads/time > 0), so ANY actual price >= kT gives J* >= floor.
+   The optimum's cost SHARES do not depend on beta; only the scales T0, J1 move (by beta^(1/a), beta^((a-1)/a)).
+   beta itself is a measured, per-scale number (FRAMEWORK 3.11 beta_phys); the theory does not predict it.
+
+== 5. Kelly: the one currency-free exchange rate (horse race, proportional betting, fair odds): gain = I(X;Y) nats
+growth gain 0.12916347 nats vs mutual information 0.12916347 nats
+growth gain 0.04969684 nats vs mutual information 0.04969684 nats
+growth gain 0.13396631 nats vs mutual information 0.13396631 nats
+
+== 6. Temperature <-> survival constraint: P(ruin per window)=erfc(z/sqrt2)<=eps  <=>  B >= z_eps * sigma*sqrt(tau)
+eps=0.01: z_eps=2.5758
+eps=0.001: z_eps=3.2905
+eps=1e-06: z_eps=4.8916
+MC per-window ruin at z=1.6: 0.1047 vs 2*Phi_bar(z)=0.1096
+tau=1: stress ceiling sigma_max = B/(z_eps sqrt(tau)) with B=1: 0.3039  (ceiling x sqrt(tau) = 0.3039, constant)
+tau=4: stress ceiling sigma_max = B/(z_eps sqrt(tau)) with B=1: 0.1520  (ceiling x sqrt(tau) = 0.3039, constant)
+tau=16: stress ceiling sigma_max = B/(z_eps sqrt(tau)) with B=1: 0.0760  (ceiling x sqrt(tau) = 0.3039, constant)
+tau=64: stress ceiling sigma_max = B/(z_eps sqrt(tau)) with B=1: 0.0380  (ceiling x sqrt(tau) = 0.3039, constant)
+=> the firm/volatility prediction 'risk ~ shock*sqrt(time to fix)/buffer' is the ruin constraint of the master equation in the diffusive-reset class;
+   'faster correction raises the stress ceiling' follows as sigma_max ~ tau^(-1/2). 'Stress strengthens' (adaptation) is NOT implied.
+
+RESULT: PASS
