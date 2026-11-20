@@ -1,4 +1,4 @@
-"""DYNAMICS (theory/DYNAMICS.md) checks: redesign band (CL19, CT41, CX9), lineage objective (CL20, CT42),
+"""DYNAMICS (theory/DYNAMICS.md) checks: redesign band (CL19, CT41, CX9), lineage objective (CL20, CT42), discrete Bode (d5),
 time average (CL21, CT43), and the two re-checked OVERREACH verdicts (Bode, barbell)."""
 import json, os, subprocess, sys
 
@@ -39,3 +39,17 @@ def test_d4_overreach():
     r = json.load(open(os.path.join(D, "d4_results.json")))
     assert r["D4a_max_abs_S_over_40_random_worlds"] <= 1 + 1e-9
     assert all(g[3] < 1e-6 for g in r["D4b_mix_gain_continuous"])
+
+
+def test_d3_share_by_X():
+    r = json.load(open(os.path.join(D, "d3_results.json")))
+    sh = {float(k): v[2] for k, v in r["D3c_grid_share_differ_by_X"].items()}
+    assert sh[0.05] == 0.08 and sh[0.8] == 0.32                 # review should-fix 2: not confined to lumpy X
+
+
+def test_d5_bode_discrete():
+    run("d5_bode_discrete.py", "ALL D5 CHECKS PASS")
+    r = json.load(open(os.path.join(D, "d5_results.json")))
+    mx = [row[3] for row in r["D5a_scalar_AR1_a_q_r_maxS_at_meanlnS_identityerr"]]
+    assert abs(min(mx) - 1.045) < 1e-3 and abs(max(mx) - 1.436) < 1e-3   # sampled reads: |S| > 1 (waterbed)
+    assert r["D5b_random_worlds_maxS_min_max"][0] > 1 and r["D5b_random_worlds_max_abs_mean_lnS"] < 1e-6

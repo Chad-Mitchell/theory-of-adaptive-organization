@@ -39,7 +39,7 @@ R["D3c_scan_toy_J3_J4_relgap"] = (J[3] - J[2]) / J[2]   # how close to a tie the
 ok.append([nE, nG] == [3, 4] and R["D3c_scan_toy_J3_J4_relgap"] < 0.01)
 
 # Robustness of the direction over a grid of parameters (not cherry-picked): how often n_G != n_E, and which way.
-cnt = {"same": 0, "G_more": 0, "G_fewer": 0}; diffs = []
+cnt = {"same": 0, "G_more": 0, "G_fewer": 0}; diffs = []; byX = {}
 for g in (0.02, 0.05, 0.10, 0.20):
     for h in (0.0005, 0.001, 0.002, 0.004, 0.008):
         for X in (0.05, 0.1, 0.2, 0.4, 0.6, 0.8):
@@ -47,10 +47,16 @@ for g in (0.02, 0.05, 0.10, 0.20):
                 a, b_, _, _ = nE_nG(g, h, 0.01, X, p)
                 if 1 + g - b_ * h - 0.01 - X <= 0: continue
                 cnt["same" if a == b_ else ("G_more" if b_ > a else "G_fewer")] += 1; diffs.append(b_ - a)
+                byX.setdefault(X, [0, 0]); byX[X][0] += 1; byX[X][1] += int(a != b_)
 R["D3c_grid_counts"] = cnt
 R["D3c_grid_max_extra_copies"] = int(max(diffs))
+# share of grid points where the counts differ, by X (added after independent review of PR #117, should-fix 2):
+# the effect is not confined to lumpy X; it is present at X = 0.05 and broadly rises with X
+R["D3c_grid_share_differ_by_X"] = {str(X): [n, k, round(k / n, 3)] for X, (n, k) in sorted(byX.items())}
+ok.append(byX[0.05][1] > 0 and byX[0.8][1] / byX[0.8][0] > byX[0.05][1] / byX[0.05][0])
 ok.append(cnt["G_fewer"] == 0 and cnt["G_more"] > 0)
-# where they differ, the extra copies come from large X (lumpy losses); for small X they coincide
+# three hand-picked points (g = 0.05, h = 0.002): at X = 0.05 these coincide; at X = 0.8 one differs. Illustration only;
+# the grid share above is the claim
 small = []; large = []
 for p in (0.05, 0.1, 0.2):
     small.append(nE_nG(0.05, 0.002, 0.01, 0.05, p)[:2]); large.append(nE_nG(0.05, 0.002, 0.01, 0.8, p)[:2])
