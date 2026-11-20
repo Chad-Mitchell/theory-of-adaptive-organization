@@ -27,7 +27,7 @@ Checks: `theory/meq_checks/` (run at nice 19; a few seconds each). **`meq_derive
 - K\* is nondecreasing in w/h.
 - For one layer whose error grows with the age of its reading, the read rate f\* is nondecreasing in w/c.
 - *Proof.* −J = −hK − wE_K has increasing differences in (K, w/h), so Topkis (1978) and Milgrom & Shannon (1994) apply. Likewise −J(f) = −cf − wĒ(1/f), with Ē(1/f) decreasing in f.
-- With sensing fixed this holds **independently of the world's law**. With read rates chosen it can fail (reads substitute for layers; the referee's counterexample is in THEORY B.9): what survives is that total judgment spend never falls and error never rises with stakes (CT33, THEORY B.10; `scope_checks.py` §1). Checked: K\* = 1, 1, 1, 2, 2, 2 at R = 1 … 1000 (`theory/meq_checks/meq_checks.out` S3).
+- With sensing fixed and the ruin constraint slack or absent this holds **independently of the world's statistics**. With read rates chosen it can fail (reads substitute for layers; the referee's counterexample is in THEORY B.9): what survives, with ruin slack, is that total judgment spend never falls and error never rises with stakes (CT33; a binding ruin constraint breaks it, `scope_checks.py` §1b; THEORY B.10; `scope_checks.py` §1). Checked: K\* = 1, 1, 1, 2, 2, 2 at R = 1 … 1000 (`theory/meq_checks/meq_checks.out` S3).
 
 **(iii) Layer cap set by the world.**
 - K\* is at most the McMillan degree of the world's optimal predictor, counting one state per layer: J for a sum of J OU modes (PROOF_A L2(i)); a rhythm (complex pole) is a two-state mode, two layers by degree, and unbounded if only real first-order stores are allowed (`scope_checks.py` §4).
@@ -157,7 +157,7 @@ The noise share Nτ/Var counts as part of the world's shape when sensing is nois
 The two-layer region is closed at large latency: the fast mode can't be predicted that far ahead, so only the slow layer is worth keeping. Latency also shifts the no-model boundary right, because a late model is worth less.
 
 **What is and is not general.**
-- The region **order** along R (none → one → many) follows from Master Theorem (ii) **with sensing fixed**; "not viable" is an artifact of the fixed income, and this two-scale world caps the layers at two by construction. The corrected map is `figures/face.png` (many-scale world, read effort optimized, no ceiling in R; regions computed from J, placements hypotheses).
+- The region **order** along R (none → one → many) follows from Master Theorem (ii) **with sensing fixed**; "not viable" is an artifact of the fixed income, and this two-scale world caps the layers at two by construction. The corrected map is `figures/face.png` (many-scale world, read effort optimized, federation charged n× upkeep and sensing and the lost pooling, the ruin constraint imposed with assumed income and reserve; regions computed from J, placements hypotheses). In this two-scale diagram federation is a free fixed overhead with no lost pooling, so its region is too large: superseded.
 - Region **positions** depend on the shape, h_f/h and y/h. The figure is a 2-D slice of a 5–7-dimensional space.
 
 **Placing real systems.**
@@ -171,7 +171,7 @@ The two-layer region is closed at large latency: the fast mode can't be predicte
 
 **What follows:**
 1. **The design layer is the slowest layer.**
-   - To redesign, a system must estimate the world's law, and estimating the slowest rate a to relative precision δ needs a record of about 2/(aδ²) of that time scale.
+   - To redesign, a system must estimate the world's statistics, and estimating the slowest rate a to relative precision δ needs a record of about 2/(aδ²) of that time scale.
    - Monte Carlo (`theory/meq_checks/part2.out`): records of 10, 30 and 100 slowest time constants give relative errors of 0.55, 0.30 and 0.15, against the asymptotic √(2/(aT)) of 0.45, 0.26 and 0.14.
    - So the record a redesign learns from must be **tens of the slowest tracked time scale** long (the record length, not the update cadence: a system can redesign daily on a sliding window). Redesign is itself a layer, inside J, which is the recursion of (e).
    - Two-timescale learning is known in substance (Borkar 1997, 10.1016/s0167-6911(97)90015-3). The GTAO-specific prediction is the ratio: redesign record length ≳ 10–100× the slowest tracked scale.
@@ -181,7 +181,7 @@ The two-layer region is closed at large latency: the fast mode can't be predicte
    - This is testable across populations at known α. Its premise (spread set by curvature) is standard for stabilizing selection and was not derived here for a specific selection model. I found no prior statement, but the search was not targeted.
 3. **Rates move before structure, with hysteresis.** Continuous parameters re-tune smoothly after a shift in q, with elasticity 1/α. K changes only at thresholds, and with a switching cost it shows hysteresis (entry and exit under uncertainty: Dixit 1989, 10.1086/261619). This is known in substance.
 
-**Verdict.** Treating dynamics as descent adds two testable predictions: the redesign/slowest-scale ratio and the 1/√(α−1) scatter. Both are elementary. "Redesign is the slowest layer" holds as a necessity (you cannot redesign faster than you can learn the law). It is not a theorem that real systems do it.
+**Verdict.** Treating dynamics as descent adds two testable predictions: the redesign/slowest-scale ratio and the 1/√(α−1) scatter. Both are elementary. "Redesign is the slowest layer" holds as a necessity (you cannot redesign faster than you can learn the world's statistics). It is not a theorem that real systems do it.
 
 ### (k) Robustness: regret and flatness. HOLDS as the formal form of "re-measure, not a dead theory", with three named exceptions
 
@@ -201,7 +201,7 @@ For one layer, mis-scaling drift by a factor m costs exactly [(α−1)m^{−1/α
 
 **Exceptions:**
 1. **A wrong layered design can be worse than no layering.** Believing variance shares of 0.2/0.8 instead of 0.5/0.5 costs 7.0%, more than the 2.2% of a correct one-layer design.
-2. **Fitting α far from the scales that matter** (the 29% case). Measure the law at the scales of the decision.
+2. **Fitting α far from the scales that matter** (the 29% case). Measure the statistics at the scales of the decision.
 3. **Phase boundaries with cliffs.** Near the viability edge B_min (Lemma iv) or the lookup cliff (T5b), a small picture error can flip feasibility. Regret is not flat there, so a system near an edge can die of a picture error even though the theory does not.
 
 **Verdict.** The "two kinds of wrong" (t1970) now has a formal form:
@@ -226,7 +226,7 @@ Derivations are in THEORY B.6 (CT18-H), B.9 (CT24, general form) and B.10 (CT26�
 - **Temperature, general form.** For error self-similar with exponent H (fBm; stable Lévy with H = 1/α_s) the group is z = B/(σ·τ^H); the √ is H = ½.
 - **Rule 4 (CT26).** Keep the superseded version until proof iff its upkeep rate k < p·ν·(L_f − L_r); the optimum is bang-bang.
 - **Rules 6 and 1 (CT27).** Outcome records are information about the model's own error; regret falls in the number of records, and the number worth buying falls in their price. The Hebbian form is a hypothesis.
-- **Closure (CT28).** J\*(nW) = n^{1/α}J\*(W); level-by-level solving equals the joint optimum iff levels interact through passed-up stakes, else regret O(κ²).
+- **Homogeneity (CT28).** J\*(nW) = n^{1/α}J\*(W); level-by-level solving equals the joint optimum if levels interact through passed-up stakes, else regret O(κ²).
 - **Free-riding toy (CT29).** Price of anarchy ½(√(a/W) + √(W/a)); free-riders capture (√N+1)/(2√N) of the pooling gain; stake-proportional cost shares restore the joint optimum; adaptation settles iff step < 2/N. CX2 (general convergence) stays open.
 
 ## 7. The ant trail, the CX2 classification, judgment spend and exact nesting (THEORY CT30–CT34; added v2.4)
@@ -234,6 +234,6 @@ Derivations are in THEORY B.6 (CT18-H), B.9 (CT24, general form) and B.10 (CT26�
 Derivations are in THEORY B.10; checks in `theory/meq_checks/ants_cx2_checks.py` (run by `tools/test_ants_cx2_checks.py`, output in `ants_cx2_checks.out`).
 
 - **Trail update (CT30).** The steady-state optimal tracker of a random walk seen through noise is x ← (1−λ)x + λ·signal, which is reinforce-on-use plus evaporation at λ\* = (−ρ+√(ρ²+4ρ))/2, ρ = q/r (√(q/r) in continuous time). Independent trails updated locally equal the central filter. That real systems implement it by selection is a hypothesis.
-- **CX2 classes (CT31, CT32).** Shared-driver coupling is a weighted potential game: Nash = argmin of the potential, PoA ≤ (N+1)/(2√N), stake-proportional cost shares give Nash = joint optimum. Opposed coupling cycles, so no general convergence theorem is true; time-scale separation restores convergence.
-- **Judgment spend (CT33).** With J = S + wE, adding the optimality inequalities at two stakes shows error never rises and spend S never falls as stakes rise, for any design set with reads chosen; the layer count can fall. Check: `scope_checks.py` §1.
-- **Exact nesting (CT34).** A team's optimized cost enters its parent's problem exactly as upkeep iff the parent sees the team only through quantities fixed before the team optimizes; weak coupling ε costs at most (εL)²/(2μ). Check: `scope_checks.py` §2.
+- **CX2 classes (CT31, CT32).** Shared-driver coupling is a weighted potential game: Nash = argmin of the potential, PoA ≤ (N+1)/(2√N), stake-proportional cost shares give Nash = joint optimum. Opposed coupling cycles, so no general convergence theorem is true; time-scale separation moves gradient play to a point that is not a Nash equilibrium when the slow cost is concave, and with convex own costs never changes stability (CT32 (iii); `scope_checks.py` §9): whether it restores equilibrium inside J's class is open.
+- **Judgment spend (CT33).** With J = S + wE, adding the optimality inequalities at two stakes shows error never rises and spend S never falls as stakes rise, for any design set with reads chosen and the ruin constraint slack or absent (a binding ruin constraint makes the feasible set depend on the stake, and spend can fall); the layer count can fall. Check: `scope_checks.py` §1.
+- **Exact nesting (CT34).** A team's optimized cost enters its parent's problem exactly as upkeep if (generically only if) the parent sees the team only through quantities fixed before the team optimizes; weak coupling ε costs at most (εL)²/(2μ). Check: `scope_checks.py` §2.

@@ -83,3 +83,7 @@ REMOVED v2.4 :: 10.1103/PhysRevLett.113.068101 resolves to Hayrapetyan 2014 "Ree
 10.2307/1909285 | Aggregation of variables in dynamic systems | Simon, Ando | 1961 | Econometrica 29, 111-138
 10.1287/opre.18.3.375 | Primal resource-directive approaches for optimizing nonlinear decomposable systems | Geoffrion | 1970 | Operations Research 18, 375-403
 10.1287/opre.8.1.101 | Decomposition principle for linear programs | Dantzig, Wolfe | 1960 | Operations Research 8, 101-111
+10.1038/nrg.2016.104 :: Genetic drift, selection and the evolution of the mutation rate | Lynch, Ackerman, Gout, Long, Sung, Thomas, Foster | 2016 | Nature Reviews Genetics   [v2.4: drift barrier; verified on Crossref in the review of PR #109]
+10.1080/01621459.1960.10482064 :: Optimal Properties of Exponentially Weighted Forecasts | Muth | 1960 | Journal of the American Statistical Association   [v2.4: verified; credited at CT30 and rule 3]
+10.1007/bf00462870 :: Self-organized shortcuts in the Argentine ant | Goss, Aron, Deneubourg, Pasteels | 1989 | Naturwissenschaften   [v2.4: verified; lock-in under nonlinear positive feedback]
+10.2307/2234208 :: Competing Technologies, Increasing Returns, and Lock-In by Historical Events | Arthur | 1989 | The Economic Journal   [v2.4: verified; lock-in]

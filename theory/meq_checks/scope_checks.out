@@ -1,3 +1,7 @@
+/workspace/gtao-v24/theory/meq_checks/scope_checks.py:176: RuntimeWarning: overflow encountered in exp
+  b = np.exp(x[:K]); g = x[K:]; Hf = sum(g[k] * b[k] / (b[k] + s) for k in range(K)); return E_of(Hf)
+/workspace/gtao-v24/theory/meq_checks/scope_checks.py:176: RuntimeWarning: invalid value encountered in divide
+  b = np.exp(x[:K]); g = x[K:]; Hf = sum(g[k] * b[k] / (b[k] + s) for k in range(K)); return E_of(Hf)
 == 1. CT33: with read rates chosen, layers can FALL as stakes rise, but total judgment spend S* = h*K* + (read price)*(reads) cannot
   w/h     K*   S*=hK+c*f   E*      J*
        1  2       0.1224  0.94721  0.1697
@@ -12,12 +16,23 @@
     1000  1       7.1211  0.14142  14.1921
     4000  1      14.1921  0.07071  28.3343
    20000  1      31.6728  0.03162  63.2956
+  the one-layer and two-layer designs cost the same at w/h = 255.2: K* = 2 up to about 250, K* = 1 from about 260
   layers fall (K: 222222221111) while spend rises and error falls: reads substitute for the second layer
   300 random design menus (any size, any E, S): spend nondecreasing, error nonincreasing, J* slopes bracket E*: True
   upkeep falling at fixed stake (E_K = 1/K, w = 100): spend h*K* = [10.   5.   2.5] falls, so the statement is about stakes at fixed prices (or w/h in units of h), not about h alone
-  model world of the face figure (14 modes, sensing optimized): spend nondecreasing at every latency tried: True; layers per unit fall somewhere (federation lowers the lead each layer must cover): True; with sensing fixed, layers nondecreasing at lead 0: True
+  (1b) with a BINDING ruin constraint (y=20, theta>=1), judgment spend can fall and error rise as stakes rise:
+       w=  2: best feasible D1  S*=1.0  E*=1.0  J*=3.00
+       w=  4: best feasible D1  S*=1.0  E*=1.0  J*=5.00
+       w=  6: best feasible D2  S*=3.0  E*=0.5  J*=6.00
+       w=  8: best feasible D2  S*=3.0  E*=0.5  J*=7.00
+       w= 10: best feasible D2  S*=3.0  E*=0.5  J*=8.00
+       w= 11: best feasible D1  S*=1.0  E*=1.0  J*=12.00
+       w= 14: best feasible D1  S*=1.0  E*=1.0  J*=15.00
+       w= 16: best feasible D1  S*=1.0  E*=1.0  J*=17.00
+       so CT33 and Master Theorem (ii) are statements for the ruin constraint slack at the stakes compared (B >= B_slack) or absent.
+  model world of the face figure (14 modes, sensing optimized, ruin constraint absent): spend nondecreasing at every latency tried: True; layers per unit fall somewhere (central vs federated): True; with sensing fixed, layers nondecreasing at lead 0: True; with the ruin constraint imposed, spend fell somewhere: False
 
-== 2. CT34: a team's optimized cost enters the parent's problem exactly as upkeep iff the parent sees the team only through quantities fixed before the team optimizes
+== 2. CT34: a team's optimized cost enters the parent's problem exactly as upkeep if (generically only if) the parent sees the team only through quantities fixed before the team optimizes
   parent+team joint min (grid over x, T) = 36.43222;  reduced problem F(x)+J*_T(theta(x)) at its argmin x=0.407: 36.43175
   envelope: dJ*_T/dW = 0.134907 = q*T*^(alpha-1)/alpha = 0.134907 (the team's own error per unit stake)
   (b) stake-passing exogenous: parent's argmin x* is the same with or without the team's problem; J*_T is the upkeep h (exact).
@@ -43,7 +58,7 @@
 
 == 4. CT21 (iii): a rhythm (lightly damped oscillator, complex poles) seen through noise
   Wiener filter denominator s^2 + 0.3281 s + 1.0488: discriminant -4.088 < 0, so complex poles, McMillan degree 2; E_inf = 0.22805
-  real first-order stores K=1,2,3: excess over the degree-2 optimum ['68.2%', '44.5%', '39.1%'] (never zero: counted by degree a rhythm is 2 layers; counted as real stores it needs ever more)
+  real first-order stores K=1,2,3: excess over the degree-2 optimum ['68.2%', '44.5%', '30.5%'] (never zero: counted by degree a rhythm is 2 layers; counted as real stores it needs ever more)
 
 == 5. S1: look : wrong = alpha - 1 for exact reads of a power-law world; not with noisy reads
   alpha=1.3: look/wrong = 0.300000 (alpha-1 = 0.3)
@@ -63,5 +78,9 @@
 
 == 8. S11: interlacing of the filter roots with the mode rates (proof: N + sum_j c_j/(x + a_j^2) changes sign between consecutive poles)
   200 random worlds (J = 2..7 modes): roots b_j satisfy a_j < b_j < a_(j+1) and b_J > a_J: True
+
+== 9. B2 (review 24): CT32 (iii): J1 = x1 x2 - (m/2) x1^2 is CONCAVE in the slow party's own action, so the rest point (0,0) is not a Nash equilibrium
+  party 1 deviating from 0 to x1 = 1 (party 2 at 0): J1 changes by -0.500 (negative = it gains): the rest point is not a best response
+  20000 random two-party games with CONVEX own costs (a, b > 0): stability depended on the speed ratio in 0 of them; it holds iff a*b > c1*c2 (trace -eps*a - b < 0 always)
 
 RESULT: PASS

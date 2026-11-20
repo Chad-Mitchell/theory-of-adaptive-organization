@@ -1,6 +1,6 @@
 """Checks for THEORY v2.4: CT30 (the ant-trail update rule: optimal exponential smoothing = reinforce on use + evaporate at rate
 lambda*, set by drift over noise, decentralizable), CT31 (CX2 classification: potential-game class, price of anarchy bound,
-stake-proportional cost shares), CT32 (no general convergence theorem: counterexamples; time-scale separation restores it).
+stake-proportional cost shares), CT32 (no general convergence theorem: counterexamples; time-scale separation changes which stationary point gradient play reaches, not shown to restore equilibrium).
 Run: nice -n 19 python3 ants_cx2_checks.py ; prints the numbers, then ends with RESULT: PASS."""
 import sys
 import numpy as np
@@ -167,14 +167,14 @@ for t in range(1, 200000):
 traj = np.array(traj)
 print(f"Shapley-type game: distance of empirical play from the mixed Nash (1/3,1/3,1/3), sampled every 1000 steps: first {traj[0]:.3f}, min over the last half {traj[len(traj)//2:].min():.3f}, max over the last half {traj[len(traj)//2:].max():.3f}")
 chk("fictitious play in the Shapley-type game does not converge to the mixed Nash", traj[len(traj)//2:].min() > 0.2)
-# (iii) time-scale separation restores convergence (linear two-player model: J1 = x1*x2 - (m/2) x1^2 [anti-damped], J2 = -x1*x2 + (b/2) x2^2)
+# (iii) time-scale separation changes the stability of gradient play (linear two-player model; its rest point is NOT a Nash equilibrium of the slow party, whose own cost is concave: see scope_checks.py sec. 9: J1 = x1*x2 - (m/2) x1^2 [anti-damped], J2 = -x1*x2 + (b/2) x2^2)
 m, b = 1.0, 0.5            # m*b < 1 so the fast player's reduced game is stable
 for eps in (2.0, 1.0, 0.6, 0.3, 0.1, 0.02):
     Jac = np.array([[eps*m, -eps], [1.0, -b]])    # xdot1 = -eps*dJ1/dx1 = -eps*(x2 - m x1) ; xdot2 = -dJ2/dx2 = x1 - b x2
     ev = np.linalg.eigvals(Jac); stable = np.all(ev.real < 0)
     print(f"slow player's adaptation speed eps={eps}: eigenvalues real parts {np.round(ev.real, 3)}  -> {'converges' if stable else 'cycles outward'}")
     chk(f"stable iff eps < b/m (eps={eps})", stable == (eps < b/m))
-print("proof: trace = eps*m - b, det = eps*(1 - m*b); with m*b < 1 the determinant is positive, so the system is stable iff eps < b/m, i.e. the slow player must be slower than the fast one's damping rate")
+print("proof: trace = eps*m - b, det = eps*(1 - m*b); with m*b < 1 the determinant is positive, so the system is stable iff eps < b/m, i.e. the slow player must be slower than the fast one's damping rate.  CAUTION (review 24 B2): J1 is concave in x1 (m > 0), so the rest point reached is a stationary point of gradient play, not a Nash equilibrium; with convex own costs the speed ratio never changes stability (scope_checks.py sec. 9)")
 if bad:
     print("FAIL", bad); sys.exit(1)
 print("\nRESULT: PASS")

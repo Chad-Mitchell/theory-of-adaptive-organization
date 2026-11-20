@@ -206,3 +206,5 @@ OK  10.2307/1909285 | 1961 | Simon,Ando | Aggregation of Variables in Dynamic Sy
 OK  10.1287/opre.18.3.375 | 1970 | Geoffrion | Primal Resource-Directive Approaches for Optimizing Nonlinear Decomposable Systems | Operations Research
 OK  10.1287/opre.8.1.101 | 1960 | Dantzig,Wolfe | Decomposition Principle for Linear Programs | Operations Research
 OK  10.1109/tac.1967.1098668 | 1967 | Meier,Peschon,Dressler | Optimal control of measurement subsystems | IEEE Transactions on Automatic Control
+OK  10.1080/01621459.1960.10482064 | 1960 | Muth | Optimal Properties of Exponentially Weighted Forecasts | Journal of the American Statistical Association | v55 p299-306
+OK  10.1007/bf00462870 | 1989 | Goss,Aron,Deneubourg,Pasteels | Self-organized shortcuts in the Argentine ant | Naturwissenschaften | v76 p579-581

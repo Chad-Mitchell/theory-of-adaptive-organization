@@ -44,6 +44,6 @@ slow player's adaptation speed eps=0.6: eigenvalues real parts [0.05 0.05]  -> c
 slow player's adaptation speed eps=0.3: eigenvalues real parts [-0.1 -0.1]  -> converges
 slow player's adaptation speed eps=0.1: eigenvalues real parts [-0.2 -0.2]  -> converges
 slow player's adaptation speed eps=0.02: eigenvalues real parts [-0.022 -0.458]  -> converges
-proof: trace = eps*m - b, det = eps*(1 - m*b); with m*b < 1 the determinant is positive, so the system is stable iff eps < b/m, i.e. the slow player must be slower than the fast one's damping rate
+proof: trace = eps*m - b, det = eps*(1 - m*b); with m*b < 1 the determinant is positive, so the system is stable iff eps < b/m, i.e. the slow player must be slower than the fast one's damping rate.  CAUTION (review 24 B2): J1 is concave in x1 (m > 0), so the rest point reached is a stationary point of gradient play, not a Nash equilibrium; with convex own costs the speed ratio never changes stability (scope_checks.py sec. 9)
 
 RESULT: PASS

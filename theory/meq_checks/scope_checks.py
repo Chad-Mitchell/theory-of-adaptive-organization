@@ -6,7 +6,9 @@
  5  S1    the alpha-1 look-to-wrong ratio holds for exact reads of a power-law world, not with noisy reads   [review S1]
  6  S5    CT25 is a per-window statement; over a fixed horizon the survivable-shock elasticity is not exactly -1/2   [review S5]
  7  S6    CT29 adaptation threshold 2/N holds for N EQUAL parties (reads clipped at 0); not derived for unequal stakes   [review S6]
- 8  S11   L2 interlacing a_1 < b_1 < a_2 < ... : every layer is faster than its mode (proved by sign changes, checked on random worlds)"""
+ 8  S11   L2 interlacing a_1 < b_1 < a_2 < ... : every layer is faster than its mode (proved by sign changes, checked on random worlds)
+ 9  CT32  (iii) 'time-scale separation' changes which stationary point gradient play reaches, but that point is not a Nash equilibrium when the slow cost is concave; with convex own costs the speed ratio never changes stability   [review 24 B2]
+ 1b CT33  with the master equation's own RUIN constraint binding, spend CAN fall and error rise as stakes rise (the feasible set depends on the stake)   [review 24 B1]"""
 import os, sys, json
 import numpy as np
 from scipy.optimize import minimize_scalar, minimize, brentq
@@ -34,6 +36,9 @@ for r_ in (1, 2, 5, 10, 20, 50, 100, 200, 400, 1000, 4000, 20000):
 Ks = [r[1] for r in rows]; Ss = np.array([r[2] for r in rows]); Es = np.array([r[3] for r in rows])
 chk('counterexample: K falls', any(Ks[i + 1] < Ks[i] for i in range(len(Ks) - 1)))
 chk('counterexample: S nondecreasing', np.all(np.diff(Ss) >= -1e-9)); chk('counterexample: E nonincreasing', np.all(np.diff(Es) <= 1e-9))
+dstar = brentq(lambda r: (h + best(E1, r * h)[0]) - (2 * h + best(E2, r * h)[0]), 250, 300)
+print(f"  the one-layer and two-layer designs cost the same at w/h = {dstar:.1f}: K* = 2 up to about 250, K* = 1 from about 260")
+chk('crossing near 255', 250 < dstar < 260)
 print("  layers fall (K: " + "".join(map(str, Ks)) + ") while spend rises and error falls: reads substitute for the second layer")
 # general statement: any finite design menu d with spend S(d) and error E(d); J = S + w E
 ok = True
@@ -53,17 +58,32 @@ for hh in (1.0, 0.25, 0.0625):
     Ks_ = np.arange(1, 400); J = hh * Ks_ + 100.0 * Es_(Ks_); k = Ks_[J.argmin()]; Sf.append(hh * k)
 print(f"  upkeep falling at fixed stake (E_K = 1/K, w = 100): spend h*K* = {np.round(Sf, 3)} falls, so the statement is about stakes at fixed prices (or w/h in units of h), not about h alone")
 chk('spend can fall when h falls at fixed w', Sf[0] > Sf[-1])
+# (1b) the master equation also carries the ruin constraint theta(D)*B >= ln(1/eps) with the reserve paying J; the feasible set then depends on w.
+#      the reviewer's case: diffusion reserve, income y = 20, theta = 2(y - J)/sigma^2 >= 1;  D1: S=1, E=1, sigma^2 = 0.01 w^2;  D2: S=3, E=0.5, sigma^2 = 0.2 w^2
+def ruin_opt(w):
+    best_ = None
+    for nm, S_, E_, v in (('D1', 1.0, 1.0, 0.01), ('D2', 3.0, 0.5, 0.2)):
+        J_ = S_ + w * E_
+        if 2 * (20.0 - J_) / (v * w ** 2) >= 1.0 and (best_ is None or J_ < best_[0]): best_ = (J_, nm, S_, E_)
+    return best_
+print("  (1b) with a BINDING ruin constraint (y=20, theta>=1), judgment spend can fall and error rise as stakes rise:")
+seq = []
+for w in (2, 4, 6, 8, 10, 11, 14, 16):
+    o = ruin_opt(w); seq.append(o); print(f"       w={w:3d}: best feasible {o[1]}  S*={o[2]}  E*={o[3]}  J*={o[0]:.2f}")
+chk('ruin-binding counterexample: S falls and E rises', seq[-1][2] < max(o[2] for o in seq) and seq[-1][3] > min(o[3] for o in seq))
+print("       so CT33 and Master Theorem (ii) are statements for the ruin constraint slack at the stakes compared (B >= B_slack) or absent.")
 tabs = os.path.join(ROOT, 'figures', 'face_tables.json')
 if os.path.exists(tabs):
     sys.path.insert(0, os.path.join(ROOT, 'figures')); import face_regions as fr
-    Rg = np.logspace(-1, 9, 121); allS = True; anyfall = False; fixmono = True
-    for lat in (0.0, 0.1, 3.0, 100.0, 3000.0):
-        K, F, Jb, Sb = fr.best_with_spend(Rg, lat); allS &= bool(np.all(np.diff(Sb) >= -1e-9)); anyfall |= bool(np.any(np.diff(K) < 0))
-    K0, _, _ = fr.best_design(Rg, 0.0, 'fixed'); fixmono = bool(np.all(np.diff(K0) >= 0))
-    print(f"  model world of the face figure (14 modes, sensing optimized): spend nondecreasing at every latency tried: {allS}; layers per unit fall somewhere (federation lowers the lead each layer must cover): {anyfall}; with sensing fixed, layers nondecreasing at lead 0: {fixmono}")
-    chk('face world: spend nondecreasing', allS); chk('face world: fixed-sensing layers monotone', fixmono)
+    Rg = np.logspace(-1, 9, 121); allS = True; anyfall = False; fixmono = True; ruinS = False
+    for lat in (0.0, 1e-3, 0.1, 3.0, 100.0, 3000.0):
+        K, F, Jb, Sb = fr.unconstrained_design(Rg, lat); allS &= bool(np.all(np.diff(Sb) >= -1e-9)); anyfall |= bool(np.any(np.diff(K) < 0))
+        Kr, Fr, Jr, Sr, bd = fr.best_design(Rg, lat); v = Kr >= 0; ruinS |= bool(np.any(np.diff(Sr[v]) < -1e-9))
+    K0, *_ = fr.best_design(Rg, 0.0, 'fixed', ruin=False); fixmono = bool(np.all(np.diff(K0) >= 0))
+    print(f"  model world of the face figure (14 modes, sensing optimized, ruin constraint absent): spend nondecreasing at every latency tried: {allS}; layers per unit fall somewhere (central vs federated): {anyfall}; with sensing fixed, layers nondecreasing at lead 0: {fixmono}; with the ruin constraint imposed, spend fell somewhere: {ruinS}")
+    chk('face world: spend nondecreasing without ruin', allS); chk('face world: fixed-sensing layers monotone', fixmono)
 
-print("\n== 2. CT34: a team's optimized cost enters the parent's problem exactly as upkeep iff the parent sees the team only through quantities fixed before the team optimizes")
+print("\n== 2. CT34: a team's optimized cost enters the parent's problem exactly as upkeep if (generically only if) the parent sees the team only through quantities fixed before the team optimizes")
 # (a) partial minimisation identity  min_{x,y} F(x)+G(y; theta(x)) = min_x [ F(x) + J*_T(theta(x)) ], exact; J*_T acts as a constant iff theta does not depend on x
 c0, q, al = 0.7, 1.3, 2.0
 def JT(W):                                       # team = one tracker, exact reads (CT12), pooled stake W; J*_T(W) = min_T c/T + W q T^(al-1)/al
@@ -150,13 +170,14 @@ s = 1j * om; p = s ** 2 + 2 * z_ * w0_ * s + w0_ ** 2; pt = s ** 2 + b1 * s + b0
 Einf = E_of((pt - p) / pt)
 print(f"  Wiener filter denominator s^2 + {b1:.4f} s + {b0:.4f}: discriminant {b1**2-4*b0:.3f} < 0, so complex poles, McMillan degree 2; E_inf = {Einf:.5f}")
 chk('complex filter poles', b1 ** 2 - 4 * b0 < 0)
-def best_real(K, starts=3):
+def best_real(K, starts=12):
     rr = np.random.default_rng(K); bst = np.inf
     def f(x):
         b = np.exp(x[:K]); g = x[K:]; Hf = sum(g[k] * b[k] / (b[k] + s) for k in range(K)); return E_of(Hf)
     for st in range(starts):
         x0 = np.concatenate([rr.uniform(-3, 2, K), rr.normal(0, 0.5, K)])
-        bst = min(bst, minimize(f, x0, method='Nelder-Mead', options={'maxiter': 3000, 'xatol': 1e-9, 'fatol': 1e-11}).fun)
+        r0 = minimize(f, x0, method='Nelder-Mead', options={'maxiter': 3000, 'xatol': 1e-9, 'fatol': 1e-11}); r0 = minimize(f, r0.x, method='Nelder-Mead', options={'maxiter': 3000, 'xatol': 1e-10, 'fatol': 1e-13})
+        bst = min(bst, r0.fun)
     return bst
 exc = [best_real(K) / Einf - 1 for K in (1, 2, 3)]
 print("  real first-order stores K=1,2,3: excess over the degree-2 optimum", [f"{e:.1%}" for e in exc], "(never zero: counted by degree a rhythm is 2 layers; counted as real stores it needs ever more)")
@@ -214,6 +235,19 @@ for t in range(200):
     good = all(a[j] < roots[j] < a[j + 1] for j in range(J - 1)) and roots[-1] > a[-1] and np.allclose(num.r.imag, 0, atol=1e-7)
     ok &= bool(good)
 chk('interlacing a_j < b_j < a_{j+1}, b_J > a_J', ok); print(f"  200 random worlds (J = 2..7 modes): roots b_j satisfy a_j < b_j < a_(j+1) and b_J > a_J: {ok}")
+
+print("\n== 9. B2 (review 24): CT32 (iii): J1 = x1 x2 - (m/2) x1^2 is CONCAVE in the slow party's own action, so the rest point (0,0) is not a Nash equilibrium")
+m_ = 1.0; J1 = lambda x1, x2: x1 * x2 - m_ / 2 * x1 ** 2
+gain = J1(0.0, 0.0) - J1(1.0, 0.0); print(f"  party 1 deviating from 0 to x1 = 1 (party 2 at 0): J1 changes by {-gain:+.3f} (negative = it gains): the rest point is not a best response")
+chk('concave own cost: rest point not Nash', J1(1.0, 0.0) < J1(0.0, 0.0))
+nst = 0; nr = 20000
+for t in range(nr):
+    a_, b_ = rng.uniform(0.05, 5, 2); c1, c2 = rng.uniform(-5, 5, 2); stab_by_eps = []
+    for e_ in (0.01, 0.3, 1.0, 20.0):
+        Jm = np.array([[-e_ * a_, -e_ * c1], [-c2, -b_]]); stab_by_eps.append(bool(np.all(np.linalg.eigvals(Jm).real < 0)))
+    nst += len(set(stab_by_eps)) > 1 or (stab_by_eps[0] != (a_ * b_ > c1 * c2))
+print(f"  {nr} random two-party games with CONVEX own costs (a, b > 0): stability depended on the speed ratio in {nst} of them; it holds iff a*b > c1*c2 (trace -eps*a - b < 0 always)")
+chk('convex own costs: speed ratio never changes stability', nst == 0)
 
 print("\nRESULT:", "PASS" if not bad else "FAIL " + str(bad))
 sys.exit(0 if not bad else 1)
