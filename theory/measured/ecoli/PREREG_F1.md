@@ -1,6 +1,6 @@
 # ECOLI-MEM follow-up F1 preregistration: does the best memory shorten in steeper gradients?
 
-Written Friday 20 November 2026, about 8:30 AM ET, after the locked ECOLI-MEM run (`results.json`) and before searching
+Written Friday 20 November 2026, about 8:20 AM ET (commit c402814), after the locked ECOLI-MEM run (`results.json`) and before searching
 for or reading any data on chemotactic performance versus adaptation time. Locked by the commit that adds this file.
 
 ## Why (the diagnosis that motivates it; see ../README.md §E.4)
