@@ -178,3 +178,5 @@ and a preregistered band before any period table is opened.
 `ecoli/PREREG.md`, `LOCK.txt`, `ecoli_calc.py`, `results.json`, `run.out`, `DEVIATIONS.md`, `PREREG_F1.md`,
 `PREREG_F2.md`, `posthoc/` (labelled post hoc; no verdicts), `coords.py`, `measured.json`, `SOURCES.md`,
 `crossref.py`, `crossref.out` (all 22 DOIs resolved on Crossref, 20 Nov 2026).
+
+**Update (v2.57).** Testbed ranking with open data (`TESTBEDS.md`); GRID-1 (CE reserve layers vs open-loop imbalance spectrum) preregistered at `4820d91`, not yet run: the German second-wise NRV file is behind a form postback (`grid/RESULTS_GRID1.md`).

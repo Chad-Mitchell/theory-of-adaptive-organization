@@ -74,6 +74,8 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 **v2.40 note (18 Nov 2026, about 3:55 PM ET; repo consistency audit, branch `docs/consistency-audit-2026-11-18`; status-label and pointer fixes, no theory claim changes).** **M2 (validity gates MV1–MV10 and the admissibility rule): DECIDED → DECIDED; BINDING, treated as binding from 18 November 2026, on Chad's instruction to proceed without his sign-off (t1927).** On 18 Nov 2026 (t1927) Chad said his ideas are done and the remaining work is to flesh out, prove, validate and verify; `theory/SCALE_ENDS.md` records the same decision as "the MV gates stay binding". The gates are therefore treated as binding from 18 November 2026, on Chad's instruction to proceed without his sign-off (t1927), for every new prereg; this is a working decision, not a formal approval. MV9's externally timestamped lock is an outside act and still needs Chad's go for each lock (FRAMEWORK MV9), so no Tier-1 result can exist until that go is given or MV9 is met another way. Gate range in the header and in M2 corrected from MV1–MV9 to MV1–MV10 (MV10 was added in v2.20). No other row changes status. No row has FIELD-PASS or FIELD-FAIL; no Tier-1 test has run.
 
+**v2.57 note (20 Nov 2026, afternoon ET; branch `v2.5-measure`; one executor for Chad, a self-check, not independent).** Testbeds with open data ranked (`theory/measured/TESTBEDS.md`): grid frequency-control layers first (distinctive via interlacing and count by degree; open data; can plainly fail), then learning-rate-vs-volatility (distinctive only via store noise or CT33), central-bank meeting frequency, inventory (prior art), market microstructure (data gated). GRID-1 preregistered and locked at `4820d91` before any outcome data; not run (blocker: form-postback download of German second-wise NRV). New row P17 OPEN. The tally moves OPEN 75 → 76; total 285 → 286. Outreach email to the Emonet or Cluzel/Park lab drafted, not sent (`OUTREACH_DRAFT.md`).
+
 **v2.56 note (20 Nov 2026, about 11:00 AM ET; branch `v2.5-measure`; one executor for Chad, a self-check, not independent).** Prior-art search (`theory/STORE_NOISE.md` §6): the optimal-memory trade-off behind Model S+ is established (Malaguti & ten Wolde 2021; Govern & ten Wolde 2014; Sartori & Tu 2011; Becker, Mugler & ten Wolde 2015; Andrews, Yi & Iglesias 2006; Lan et al. 2012); novelty wording dropped and P9 credited (status word unchanged: the in-model derivation stands). SN1 run as locked (`theory/measured/SN1_RESULTS.md`): 0 of 7 systems scorable (5 UNTESTED for lack of a noise-vs-memory measurement, 1 INVALID by premise, 1 untested human); P11 stays OPEN. New rows: P12 NOT EVIDENCE (SN1-F1 INVALID: V. ordalii's noise is 6.6× the counting bound), P13 PROXY-FAIL (drift objective, noiseless maximin, 0.38–0.58 s), P14 INCONCLUSIVE (gain-bounded drift equals the tracking optimum), P15 INCONCLUSIVE (speed price from measured dissipation: CONSISTENT by the locked rule only at the box corner; MARGINAL for k = 2), P16 OPEN (slow habitat mode, needs 20–30 s with 6–10% of the variance; no field data; Y4 discriminator locked `1db68db`, UNTESTED). The tally moves OPEN 74 → 75, PROXY-FAIL 17 → 18, INCONCLUSIVE 4 → 6, NOT EVIDENCE 18 → 19; total 280 → 285. THEORY.md: only its CLAIM_MAP version pointer is updated.
 
 **v2.55 note (20 Nov 2026, about 10:00 AM ET; branch `v2.5-measure`, merged with main after the v2.4 merge; one executor for Chad, a self-check, not independent).** F2 scored by its locked rule (`theory/measured/ecoli/RESULTS_F2.md`): E. coli's store-noise exponent s = d ln σ/d ln τ = 0.31 (95% CI 0.24–0.37; Park et al. 2010 Fig. 4c digitized, 9 conditions; Keegstra et al. 2017 single-cell FRET, 70 cells, s = 0.28, CI −0.28 to 0.88): **neither** locked arm. P6 OPEN → **INCONCLUSIVE**. P7 restated: the gap is now formalized as the Model S+ extension (`theory/STORE_NOISE.md`, found because P1 failed, not a patch; P1 stays PROXY-FAIL). New rows: P9 PROVED (in-model; E1-a/b/c, closed form λτ\* = (1−s)/s, equivalence at s = ½, copies), P10 NOT EVIDENCE (diagnostic rerun with the measured s: optimum 1.9–3.6 s, reference verdict NEITHER over the CI, FAIL at the point), P11 OPEN (SN1 predictions for new systems, locked at `d99eade` before their data). The tally moves OPEN 74 → 74, INCONCLUSIVE 3 → 4, PROVED (in-model) 81 → 82, NOT EVIDENCE 17 → 18; total 277 → 280. THEORY.md: only its CLAIM_MAP version pointer is updated; the proposed Master Theorem changes are in STORE_NOISE.md §4, not applied.
@@ -515,15 +517,16 @@ Preregistered tests on published measurements of E. coli chemotaxis (ECOLI-MEM, 
 | P14 | Same, with drift as the objective under Model S+ noise and a bounded activity range | new (v2.56) | **INCONCLUSIVE** | Locked rule: NEITHER. Optimum identical to tracking (1.9–3.6 s): maximizing drift at fixed activity variance maximizes corr(a, u) |
 | P15 | Same, with upkeep priced by speed from measured dissipation (Lan et al. 2012: 10³ ATP/s at 10 s) | new (v2.56) | **INCONCLUSIVE** | Locked rule: CONSISTENT (k = 1; required 0.14–0.28 vs measured 5×10⁻⁵ to 0.21) only at the corner (×3 dissipation, slowest growth, 2% benefit); MARGINAL (k = 2). Central estimate 30–60× short |
 | P16 | Same, with a slow habitat mode in the world | new (v2.56) | **OPEN** | Diagnostic: needs a 20–30 s mode carrying 6–10% of u's variance. No field data on E. coli habitat time scales found. Discriminator vs P15 (Y4, adaptation time across benefit levels) locked `1db68db`, UNTESTED |
+| P17 | GRID-1: Continental Europe's reserve layers (FCR 30 s, aFRR 300 s, mFRR 900 s) match the open-loop imbalance by degree (three separated modes) and interlace it (θ ∈ (30,300), (300,900), >900 s) against the rival 'set at' (θ_j ∈ [τ_j/2, 2τ_j]) | new (v2.57) | **OPEN** | Locked `4820d91` (`theory/measured/grid/PREREG_GRID1.md`) before any outcome data; testbed ranking `theory/measured/TESTBEDS.md`. Not run: German second-wise NRV is served only by a form postback (needs Chad's approval); ENTSO-E/API portal need accounts (`grid/RESULTS_GRID1.md`) |
 
 ## Counts
 
-**Current tally (v2.56, 20 Nov 2026).** Every row in sections A–O (alias rows in O excluded), counted by the first status word in its status column. `tools/check_consistency.py` recomputes this table and fails if it drifts.
+**Current tally (v2.57, 20 Nov 2026).** Every row in sections A–O (alias rows in O excluded), counted by the first status word in its status column. `tools/check_consistency.py` recomputes this table and fails if it drifts.
 
 <!-- tally:begin -->
 | Status now (all sections) | Rows |
 |---|---|
-| OPEN | 75 |
+| OPEN | 76 |
 | PROVED (in-model) | 82 |
 | PRIOR ART | 28 |
 | MATH-CORRECTED | 22 |
@@ -536,7 +539,7 @@ Preregistered tests on published measurements of E. coli chemotaxis (ECOLI-MEM, 
 | SIM-INCONCLUSIVE | 3 |
 | SIM-PASS | 3 |
 | INCONCLUSIVE | 6 |
-| **Total** | **285** |
+| **Total** | **286** |
 <!-- tally:end -->
 
 A count is not a score: most OPEN rows are untested, not refuted, and PROVED means proved inside the model only.
