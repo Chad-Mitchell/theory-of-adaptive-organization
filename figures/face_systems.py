@@ -18,11 +18,13 @@ SYSTEMS = [
  dict(name='E. coli', strong=True, measured=True, comps=[
    # MEASURED (PR #110, branch v2.5-measure, theory/measured/measured.json, Mattingly et al. 2021 conditions): the world is ONE OU signal
    # (the swim's log-concentration gradient, tau_v = 1.16 s) read through its integral, McMillan degree 2, so it is ONE component of
-   # degree 2 and gets 2 stores (counted by degree; the measured kernel has 2 poles).  Its X_L is the measured PROXY benefit / upkeep
-   # (fitness benefit of chemotaxis in poor carbon, Ni 2020, over the signalling machinery's proteome share): log10 -0.26 .. 1.89,
-   # central 0.81.  The benefit is the stakes the layers actually win (net of reading and latency), so it is X_L itself, not w*Var/h.
+   # degree 2 and gets 2 stores (counted by degree; the measured kernel has 2 poles).  Its ratio is a measured PROXY, benefit / signalling share
+   # (fitness benefit of chemotaxis in poor carbon, Ni et al. 2019 (PNAS, issued 23 Dec 2019), over the signalling machinery's proteome share): log10 -0.26 .. 1.89,
+   # central 0.81 (v2.5 read this as X_L itself; withdrawn, see below).
    # Latency l/tau_fast: log10 -0.76 (-1.47 .. -0.58), snr 0.0043-0.103 (arm B); both are already inside the measured benefit.
-   # n = 1: no shared option.  Not w*Var/h: a proxy (README of PR #110).
+   # n = 1: no shared option.  v2.5.1 (review 26): this is a PLAUSIBILITY PROXY, not X_L -- the benefit is of motility plus chemotaxis
+   # (it needs the flagella) while the cost is the signalling proteome share only, a proteome share is not a fitness cost (growth law
+   # conversion about 2x), and B.11 covers one layer per component while this component has degree 2.  Drawn apart from the map.
    dict(lab='gradient signal', degree=2, logXL=(-0.263, 1.893), logXL_c=0.815, tau=(1.16 * SEC, 1.16 * SEC),
         lead=(10 ** -1.468 * 1.16 * SEC, 10 ** -0.582 * 1.16 * SEC), n=(1, 1), rho=(1, 1), snr=(0.0043, 0.103), R=(10 ** -0.263, 10 ** 1.893), hc=(1, 1))]),
  dict(name='immune system', strong=True, comps=[
@@ -30,7 +32,14 @@ SYSTEMS = [
    dict(lab='adaptive', tau=(5 * D, 30 * D), lead=(12 * H, 48 * H), n=(100, 1000), rho=(0.5, 1.0), snr=(0.3, 10), R=(3, 300), hc=(3, 100)),
    dict(lab='memory', tau=(10 * Y, 100 * Y), lead=(1 * D, 7 * D), n=(100, 1000), rho=(0.7, 1.0), snr=(10, 1000), R=(0.3, 30), hc=(3, 100))]),
  dict(name='ant colony', strong=True, comps=[
-   dict(lab='patch', tau=(20 * MIN, 3 * H), lead=(15 * MIN, 45 * MIN), n=(100, 1000), rho=(0.0, 0.3), snr=(0.3, 10), R=(3, 300), hc=(1, 30)),
+   # One species throughout: the trail-recruiting black garden ant Lasius niger (v2.5.1; v2.5 mixed in harvester ants).
+   # patch: where food is now.  Shared physical store: the pheromone trail (Beckers, Deneubourg & Goss 1993, 10.1007/bf01201674; the often
+   #   cited ~47 min trail lifetime is NOT checked against the full text, so tau is kept wide).  Local store: each forager's private route
+   #   memory (Grueter, Czaczkes & Ratnieks 2011, 10.1007/s00265-010-1020-2).  rho: several patches; a forager uses one; how much of what
+   #   one forager meets the others meet is unmeasured (guess, wide).
+   dict(lab='patch', tau=(20 * MIN, 3 * H), lead=(15 * MIN, 45 * MIN), n=(100, 1000), rho=(0.3, 0.9), snr=(0.3, 10), R=(3, 300), hc=(1, 30)),
+   # food supply: the colony's nutritional state.  Hypothesized shared store: food held in nestmates' crops and passed by trophallaxis
+   #   (named, not measured as a store; no source used).  rho high: the colony's intake is common to all its workers (guess).
    dict(lab='food supply', tau=(6 * H, 7 * D), lead=(15 * MIN, 45 * MIN), n=(100, 1000), rho=(0.7, 1.0), snr=(0.03, 1), R=(0.3, 30), hc=(1, 30))]),
  dict(name='small team', strong=True, comps=[
    dict(lab='tasks', tau=(1 * D, 5 * D), lead=(2 * H, 12 * H), n=(5, 10), rho=(0.3, 0.8), snr=(1, 30), R=(1, 30), hc=(0.5, 3)),

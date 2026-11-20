@@ -26,7 +26,8 @@ def coords(c, u):
     XS = (n / hc) * R * GS / v; nu = n / hc
     eB = best_fast([a], [v], N, n, rho, lead, 1, 1, starts=2)[0]; GB = max(v - eB, GL, GS)
     kS = (GB - GL) / GS if GS > 1e-12 * GL else 0.0; kL = (GB - GS) / GL
-    return dict(XL=float(XL), XS=float(XS), nu=nu, kL=float(kL), kS=float(kS), d=int(fm.decide(XL, XS, nu, kL, kS)), ell_tau=lead / tau, pi=float(pi))
+    return dict(XL=float(XL), XS=float(XS), nu=nu, kL=float(kL), kS=float(kS), XB=float(fm.XB(XL, XS, nu, kS)), joint=bool(GB - GL - GS > 1e-5 * v),
+                d=int(fm.decide(XL, XS, nu, kL, kS)), ell_tau=lead / tau, pi=float(pi))
 
 def job(args):
     si, ci = args; S = SYSTEMS[si]; c = S['comps'][ci]; rng = np.random.default_rng(100 * si + ci)
@@ -38,7 +39,7 @@ def job(args):
     lx = np.log10([d['XL'] for d in draws]); ly = np.log10([max(d['XS'], 1e-300) for d in draws]) if c['n'][1] > 1 else None
     out = dict(system=S['name'], strong=S['strong'], measured=bool(S.get('measured')), degree=c.get('degree', 1), lab=c['lab'], inputs={k: c[k] for k in c if k != 'lab'}, centre=centre,
                design_share={fm.VALUE_NAMES[k]: float(np.mean([d['d'] == k for d in draws])) for k in range(4)},
-               logXL_mean=float(lx.mean()), logXL_sd=float(lx.std()))
+               logXL_mean=float(lx.mean()), logXL_sd=float(lx.std()), joint_share=float(np.mean([d.get('joint', False) for d in draws])))
     if ly is not None:
         ly = np.maximum(ly, -6.0)                 # far below the band: X_S < 1e-6, the shared layer is worthless
         C = np.cov(lx, ly); out.update(logXS_mean=float(ly.mean()), cov=C.tolist(), logXS_q=[float(np.quantile(ly, q)) for q in (0.05, 0.5, 0.95)])

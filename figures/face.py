@@ -1,11 +1,14 @@
-"""The face figure: where layers belong.   nice -n 19 python3 figures/face.py        (seconds; needs figures/face_dots.json from face_place.py)
-Regions are the map theorem (face_map.py, THEORY B.11): exact for any world, noise, delay and number of units.  Dots are hypothesized
-placements (inputs face_systems.py, coordinates face_place.py).  Writes figures/face.png (1600x1000), figures/face_square.png (1200x1200)
-and figures/face_all.png (every system's chain with 2-sigma ellipses from the input ranges; a detail figure, not for phones)."""
+"""The face figure: where the cost of judgment puts layers.   nice -n 19 python3 figures/face.py   (seconds; needs figures/face_dots.json)
+What is drawn (v2.5.1, after review 26):
+  SHADING = which single layer would pay ON ITS OWN (X_L > 1: a layer in each unit; X_S > 1: one shared layer).  Exact by definition, any model.
+  SHAPE   = the cheapest design for that dot, from all four costs (face_map.decide, with the dot's own nu and kappa: exact in its model).
+  The two agree outside the top-right quadrant exactly when the layers' value is subadditive (THEORY B.11).  A ringed dot would mark joint
+  value (a shared layer paying as a common-mode reference); none of the placements has it in its model.
+Dots are hypothesized placements (inputs face_systems.py, coordinates face_place.py); E. coli (one cell, no shared option, a plausibility
+proxy) is drawn apart from the map.  Writes face.png (1600x1000), face_square.png (1200x1200), face_all.png (every system, 2-sigma ellipses)."""
 import os, sys, json
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
-import face_map as fm
 import matplotlib; matplotlib.use('Agg')
 import matplotlib.pyplot as plt, matplotlib.patheffects as pe
 from matplotlib.patches import Rectangle, Ellipse
@@ -13,167 +16,192 @@ from matplotlib.lines import Line2D
 
 DOTS = json.load(open(os.path.join(HERE, 'face_dots.json')))
 SYSTEMS = list(dict.fromkeys(d['system'] for d in DOTS))
-C_NONE, C_LOC, C_SH, C_BOTH = '#ebebeb', '#fbe2bb', '#cfe5f6', '#d2eee0'
-K_LOC, K_SH, K_BOTH, K_NONE = '#c25100', '#0b5fa0', '#00785a', '#7a7a7a'
+MAPPED = [s for s in SYSTEMS if s != 'E. coli']
+NUM = {s: i + 1 for i, s in enumerate(MAPPED)}
+C_NONE, C_LOC, C_SH, C_EACH = '#ececec', '#fbe3c2', '#d4e7f6', '#f3f1e4'
+K_LOC, K_SH, K_BOTH, K_NONE = '#c25100', '#0b5fa0', '#00785a', '#6e6e6e'
 MK = {0: ('o', K_NONE), 1: ('o', K_LOC), 2: ('s', K_SH), 3: ('D', K_BOTH)}
-OUT = [pe.withStroke(linewidth=4, foreground='white')]
+OUT = [pe.withStroke(linewidth=3.5, foreground='white')]
+NEAR = 0.65
+LIM = (-1.3, 3.0, -3.0, 3.0)
 
 def comps(name):
-    out = []
-    for d in DOTS:
-        if d['system'] != name: continue
-        c = d['centre']; ly = np.log10(c['XS']) if np.isfinite(c['XS']) and c['XS'] > 0 else -999.0
-        out.append((np.log10(c['XL']), ly, d))
-    return out
+    return [d for d in DOTS if d['system'] == name]
+
+def code(d):
+    i = [x['lab'] for x in comps(d['system'])].index(d['lab'])
+    return f"{NUM[d['system']]}{'abc'[i]}"
+
+def near(d): return max(d['design_share'].values()) < NEAR
 
 def reading(name, short=False):
-    ds = [d['centre']['d'] for _, _, d in comps(name)]; n1 = all(not np.isfinite(d['centre']['XS']) for _, _, d in comps(name))
-    dg = [d.get('degree', 1) for _, _, d in comps(name)]
-    kl = sum(g for x, g in zip(ds, dg) if x in (1, 3)); ks = sum(g for x, g in zip(ds, dg) if x in (2, 3))
-    nb = sum(max(d['design_share'].values()) < 0.65 for _, _, d in comps(name))
-    tail = '' if not nb else (f' ({nb} near edge)' if short else (' (1 borderline)' if nb == 1 else f' ({nb} borderline)'))
-    if n1: return (f'{kl} layer' + ('s' if kl != 1 else '')) + (' (by degree; measured proxy)' if name == 'E. coli' else '') + tail
-    parts = []
-    if kl: parts.append(f'{kl} local' if short else f'{kl} in each unit')
-    if ks: parts.append(f'{ks} shared')
-    return (' + '.join(parts) if parts else 'no layer') + tail
+    ds = comps(name); dg = [d.get('degree', 1) for d in ds]; dd = [d['centre']['d'] for d in ds]
+    kl = sum(g for x, g in zip(dd, dg) if x in (1, 3)); ks = sum(g for x, g in zip(dd, dg) if x in (2, 3))
+    if name == 'E. coli': return f'{kl} stores (degree 2), local'
+    parts = ([f'{kl} local' if short else f'{kl} in each unit'] if kl else []) + ([f'{ks} shared'] if ks else [])
+    nb = sum(near(d) for d in ds)
+    return (' + '.join(parts) if parts else 'no layer') + (f'  ({nb} near an edge)' if nb else '')
 
-def tick_lab(t):
-    return {0: '1', 1: '10'}.get(t, f'$10^{{{t}}}$')
+def tick_lab(t): return {0: '1', 1: '10'}.get(t, f'$10^{{{t}}}$')
 
-def draw_map(ax, st, lim, fs, show, lab, ell_sigma=1.0, ell_alpha=0.10, strip_rows=None):
-    X0, X1, Y0, Y1 = lim
+def place_labels(ax, pts, fs, fixed):
+    """Deterministic labels: each label takes the nearest free spot (rings of 16 directions at growing radius) that overlaps no placed label,
+    no dot and stays inside the axes; the most crowded dots choose first.  Far labels get a leader line."""
+    fig = ax.figure; fig.canvas.draw(); T = ax.transData; k = 72.0 / fig.dpi; fs = fs / k
+    bb = ax.get_window_extent(); P = np.array([T.transform(p[:2]) for p in pts]); n = len(pts)
+    W = np.array([len(p[2]) * fs * 0.62 + 6 for p in pts]); H = fs * 1.25; rdot = fs * 0.75
+    D = np.hypot(*(P[:, None, :] - P[None, :, :]).transpose(2, 0, 1)) + np.eye(n) * 1e9
+    order = np.argsort(np.sort(D, 1)[:, :3].sum(1)); boxes = []; off = np.zeros((n, 2))
+    dirs = [np.deg2rad(t) for t in (45, 0, 90, 135, 315, 180, 270, 225, 22, 68, 112, 158, 202, 248, 292, 338)]
+    R = fig.canvas.get_renderer(); obst = [t.get_window_extent(R) for t in ax.texts]
+    def free(cx, cy, w):
+        for o in obst:
+            if cx + w / 2 > o.x0 - 3 and cx - w / 2 < o.x1 + 3 and cy + H / 2 > o.y0 - 3 and cy - H / 2 < o.y1 + 3: return False
+        if cx - w / 2 < bb.x0 + 4 or cx + w / 2 > bb.x1 - 4 or cy - H / 2 < bb.y0 + 4 or cy + H / 2 > bb.y1 - 4: return False
+        for (bx, by, bw) in boxes:
+            if abs(cx - bx) < (w + bw) / 2 + 2 and abs(cy - by) < H + 2: return False
+        for q in P:
+            if abs(cx - q[0]) < w / 2 + rdot and abs(cy - q[1]) < H / 2 + rdot: return False
+        return True
+    for i in order:
+        if pts[i][3] in fixed:
+            o = np.array(fixed[pts[i][3]]) * fs; off[i] = o; boxes.append((P[i][0] + o[0], P[i][1] + o[1], W[i])); continue
+        done = False
+        r0 = 2.3 if np.sort(D[i])[0] < fs * 3.0 else 1.25
+        for r in np.arange(r0, 12.0, 0.45) * fs:
+            for t in dirs:
+                cx, cy = P[i][0] + (r + W[i] / 2 * abs(np.cos(t)) * 0.6) * np.cos(t), P[i][1] + r * np.sin(t)
+                if free(cx, cy, W[i]): off[i] = (cx - P[i][0], cy - P[i][1]); boxes.append((cx, cy, W[i])); done = True; break
+            if done: break
+        if not done: off[i] = (fs, fs)
+    return off * k
+
+def draw_map(ax, st, fs, show, with_labels=True, ell_sigma=0.0, names=False, fixed=None):
+    X0, X1, Y0, Y1 = LIM
     ax.set_xlim(X0, X1); st.set_xlim(X0, X1); ax.set_ylim(Y0, Y1); st.set_ylim(0, 1)
-    for a, (y0, y1) in ((ax, (Y0, Y1)), (st, (0, 1))):
-        a.add_patch(Rectangle((X0, y0), -X0, (0 if a is ax else 1) - y0, color=C_NONE, zorder=0))
-        a.add_patch(Rectangle((0, y0), X1, (0 if a is ax else 1) - y0, color=C_LOC, zorder=0))
-        a.axvline(0, color='#1a1a1a', lw=2.6, zorder=1)
-    ax.add_patch(Rectangle((X0, 0), -X0, Y1, color=C_SH, zorder=0)); ax.add_patch(Rectangle((0, 0), X1, Y1, color=C_BOTH, zorder=0))
-    ax.axhline(0, color='#1a1a1a', lw=2.6, zorder=1)
-    kw = dict(fontsize=fs * 1.3, weight='bold', zorder=2, path_effects=OUT)
-    ax.text(X0 + 0.1, Y0 + 0.12, 'NO LAYER', color='#555555', ha='left', va='bottom', **kw)
-    ax.text(0.08, Y0 + 0.12, 'A LAYER IN\nEACH UNIT', color=K_LOC, ha='left', va='bottom', **kw)
-    ax.text(X0 + 0.1, 0.1, 'ONE SHARED\nLAYER', color=K_SH, ha='left', va='bottom', **kw)
-    ax.text(X1 - 0.08, 0.1, 'BOTH PAY', color=K_BOTH, ha='right', va='bottom', **kw)
-    st.text(X0 + 0.06, 0.78, 'shared layer worth ≈ 0', color='#555555', ha='left', va='center', fontsize=fs * 0.74, zorder=2, path_effects=OUT)
-    for k, name in enumerate(show):
-        pts = comps(name); strong = pts[0][2]['strong']; ls = '-' if strong else (0, (3, 2))
-        row = (strip_rows or {}).get(name, 0.5)
-        P = [(x, y if y >= Y0 else None) for x, y, _ in pts]
-        for (x1, y1), (x2, y2) in zip(P[:-1], P[1:]):
-            if y1 is not None and y2 is not None: ax.plot([x1, x2], [y1, y2], color='#2a2a2a', lw=1.7, ls=ls, zorder=3)
-            elif y1 is None and y2 is not None:
-                ax.plot([x1, x2], [Y0, y2], color='#2a2a2a', lw=1.7, ls=ls, zorder=3)
-                st.plot([x1, x1], [row, 1], color='#2a2a2a', lw=1.7, ls=ls, zorder=3)
-            elif y1 is None and y2 is None: st.plot([x1, x2], [row, row], color='#2a2a2a', lw=1.7, ls=ls, zorder=3)
-        for (x, y, d), (_, yy) in zip(pts, P):
-            m, col = MK[d['centre']['d']]; a, yv = (ax, y) if yy is not None else (st, row)
-            if ell_sigma and a is ax and 'cov' in d:
-                C = np.array(d['cov']); w, V = np.linalg.eigh(C); ang = np.degrees(np.arctan2(V[1, 1], V[0, 1]))
-                a.add_patch(Ellipse((x, y), 2 * ell_sigma * np.sqrt(w[1]), 2 * ell_sigma * np.sqrt(max(w[0], 1e-8)), angle=ang, facecolor=col, edgecolor='none', alpha=ell_alpha, zorder=2.2))
-            if d.get('measured') and a is st:
-                q = d['inputs']['logXL']; a.plot(q, [yv, yv], color=col, lw=3, alpha=0.55, zorder=3.5, solid_capstyle='butt')
-                a.plot(q, [yv, yv], ls='none', marker='|', ms=fs * 0.9, mew=2.4, color=col, zorder=3.5)
-            a.plot([x], [yv], marker=m, ms=fs * 0.85, mfc=col if strong else 'white', mec=col, mew=2.4, zorder=4, clip_on=False)
-            if (name, d['lab']) in lab:
-                dx, dy = lab[(name, d['lab'])]
-                a.annotate(d['lab'], (x, yv), xytext=(dx, dy), textcoords='offset points', fontsize=fs * 0.74, color='#222222', zorder=5, path_effects=OUT,
-                           ha='center' if dx == 0 else ('left' if dx > 0 else 'right'), va='center',
-                           arrowprops=dict(arrowstyle='-', lw=0.8, color='#555555', shrinkA=0, shrinkB=4) if abs(dx) + abs(dy) > 25 else None)
-        if (name, None) in lab:
-            i, dx, dy = lab[(name, None)]; x, y, d = pts[i]; yy = P[i][1]; a, yv = (ax, y) if yy is not None else (st, row)
-            a.annotate(name + ('' if strong else '*'), (x, yv), xytext=(dx, dy), textcoords='offset points', fontsize=fs * 0.98, weight='bold', color='#111111',
-                       zorder=6, path_effects=OUT, ha='center' if dx == 0 else ('left' if dx > 0 else 'right'), va='center',
-                       arrowprops=dict(arrowstyle='-', lw=1.0, color='#333333', shrinkA=0, shrinkB=5) if abs(dx) + abs(dy) > 30 else None)
+    ax.add_patch(Rectangle((X0, Y0), -X0, -Y0, color=C_NONE, zorder=0)); ax.add_patch(Rectangle((0, Y0), X1, -Y0, color=C_LOC, zorder=0))
+    ax.add_patch(Rectangle((X0, 0), -X0, Y1, color=C_SH, zorder=0)); ax.add_patch(Rectangle((0, 0), X1, Y1, color=C_EACH, zorder=0))
+    st.add_patch(Rectangle((X0, 0), -X0, 1, color=C_NONE, zorder=0)); st.add_patch(Rectangle((0, 0), X1, 1, color=C_LOC, zorder=0))
+    for a in (ax, st): a.axvline(0, color='#1a1a1a', lw=2.4, zorder=1)
+    ax.axhline(0, color='#1a1a1a', lw=2.4, zorder=1)
+    kw = dict(fontsize=fs * 1.05, weight='bold', zorder=2, path_effects=OUT)
+    ax.text(X0 + 0.08, Y0 + 0.1, 'NEITHER PAYS\nON ITS OWN', color='#555555', ha='left', va='bottom', **kw)
+    ax.text(0.08, -0.25, 'ONLY A LAYER IN EACH\nUNIT PAYS ON ITS OWN', color=K_LOC, ha='left', va='top', **kw)
+    ax.text(X0 + 0.08, 0.12, 'ONLY ONE SHARED\nLAYER PAYS\nON ITS OWN', color=K_SH, ha='left', va='bottom', **kw)
+    ax.text(X1 - 0.08, 0.12, 'EACH PAYS ON ITS OWN:\nthe shape shows the pick', color='#4a4a3a', ha='right', va='bottom', **kw)
+    st.text(X0 + 0.06, 0.5, 'shared layer\nworth < $10^{-3}$', color='#555555', ha='left', va='center', fontsize=fs * 0.62, zorder=2, linespacing=1.0)
+    pts = []; seen = {}
+    for name in show:
+        for d in comps(name):
+            c = d['centre']; x = np.log10(c['XL']); y = np.log10(c['XS']) if c['XS'] > 0 else -99
+            inmap = y >= Y0; a = ax if inmap else st
+            if not inmap: y = 0.45
+            m, col = MK[c['d']]; hollow = near(d)
+            if ell_sigma and inmap and 'cov' in d:
+                C = np.array(d['cov']); w_, V = np.linalg.eigh(C); ang = np.degrees(np.arctan2(V[1, 1], V[0, 1]))
+                ax.add_patch(Ellipse((x, y), 2 * ell_sigma * np.sqrt(w_[1]), 2 * ell_sigma * np.sqrt(max(w_[0], 1e-8)), angle=ang, facecolor=col, edgecolor='none', alpha=0.12, zorder=2.2))
+            a.plot([x], [y], marker=m, ms=fs * 0.85, mfc='white' if hollow else col, mec=col, mew=2.4, zorder=4, clip_on=False)
+            if c.get('joint'): a.plot([x], [y], marker='o', ms=fs * 1.5, mfc='none', mec='#111111', mew=1.6, zorder=4)
+            key = (round(x, 2), round(y, 2) if inmap else 'strip'); t = d['lab'] if names else code(d)
+            if key in seen: seen[key][2] += (', ' if names else ' ') + t; continue
+            seen[key] = [x, y, t, code(d), inmap]
+    for x, y, t, cd, inmap in seen.values():
+        if inmap: pts.append((x, y, t, cd))
+        elif with_labels: st.annotate(t, (x, y), xytext=(0, fs * 0.55), textcoords='offset points', ha='center', va='bottom',
+                                      fontsize=fs * 0.68, weight='bold', zorder=5, path_effects=OUT)
+    if with_labels and pts:
+        off = place_labels(ax, pts, fs * 0.72, fixed or {})
+        for (x, y, t, _), o in zip(pts, off):
+            far = np.hypot(*o) > fs * 1.3
+            ax.annotate(t, (x, y), xytext=tuple(o), textcoords='offset points', ha='center', va='center', fontsize=fs * 0.72, weight='bold', zorder=5,
+                        path_effects=OUT, arrowprops=dict(arrowstyle='-', lw=0.9, color='#444444', shrinkA=0, shrinkB=4) if far else None)
     tk = range(int(np.ceil(X0)), int(np.floor(X1)) + 1)
-    st.set_xticks(list(tk)); st.set_xticklabels([tick_lab(t) for t in tk], fontsize=fs * 0.88); ax.set_xticks(list(tk)); ax.set_xticklabels([])
+    st.set_xticks(list(tk)); st.set_xticklabels([tick_lab(t) for t in tk], fontsize=fs * 0.82); ax.set_xticks(list(tk)); ax.set_xticklabels([])
     ty = range(int(np.ceil(Y0)), int(np.floor(Y1)) + 1)
-    ax.set_yticks(list(ty)); ax.set_yticklabels([tick_lab(t) for t in ty], fontsize=fs * 0.88)
-    st.set_yticks([0.5]); st.set_yticklabels(['≈0'], fontsize=fs * 0.88)
-    for a in (ax, st): a.tick_params(length=5, width=1.4)
-    st.set_xlabel('A layer in each unit:  stakes it can win, net of reading cost, ÷ its upkeep', fontsize=fs * 1.0, labelpad=3)
-    ax.set_ylabel('One shared layer:  net stakes ÷ upkeep', fontsize=fs * 1.0, labelpad=5)
+    ax.set_yticks(list(ty)); ax.set_yticklabels([tick_lab(t) for t in ty], fontsize=fs * 0.82); st.set_yticks([])
+    for a in (ax, st): a.tick_params(length=5, width=1.3)
+    st.set_xlabel('A layer in each unit:  stakes it can win ÷ its upkeep  (at the stated read quality)', fontsize=fs * 0.9, labelpad=3)
+    ax.set_ylabel('One shared layer:  stakes it can win ÷ its upkeep', fontsize=fs * 0.9, labelpad=4)
 
-def side_panel(fig, x, y_top, dy, fs, names):
-    fig.text(x, y_top, 'What the map gives each system', fontsize=fs * 1.0, weight='bold', va='center')
-    fig.text(x, y_top - 0.033, 'its time scales, fast \u2192 slow:', fontsize=fs * 0.78, color='#444444', va='center')
-    legend_row(fig, x + 0.006, y_top - 0.068, fs, 0.105)
-    fig.text(x, y_top - 0.1, 'both: when each still pays on what the other\ndoes not know; else the one that nets more', fontsize=fs * 0.66, color=K_BOTH, va='center', linespacing=1.1)
+def legend_rows(fig, x, y, fs, dy):
+    items = [('o', K_LOC, False, 'cheapest: a layer in each unit'), ('s', K_SH, False, 'cheapest: one shared layer'),
+             ('D', K_BOTH, False, 'cheapest: both'), ('o', '#777777', True, 'hollow: pick changes within its input ranges')]
+    for i, (m, c, hol, t) in enumerate(items):
+        fig.lines.append(Line2D([x + 0.007], [y - i * dy], marker=m, ms=fs * 0.62, mfc='white' if hol else c, mec=c, mew=2, transform=fig.transFigure))
+        fig.text(x + 0.02, y - i * dy, t, fontsize=fs * 0.74, va='center')
+
+def key_rows(fig, x, y, fs, dy, names):
     for i, name in enumerate(names):
-        yy = y_top - 0.17 - i * dy; pts = comps(name); strong = pts[0][2]['strong']
-        fig.text(x, yy, name + ('' if strong else '*'), fontsize=fs * 0.88, weight='bold', va='center')
-        for j, (_, _, d) in enumerate(pts):
-            m, col = MK[d['centre']['d']]
-            fig.lines.append(Line2D([x + 0.006 + j * 0.019], [yy - 0.029], marker=m, ms=fs * 0.58, mfc=col if strong else 'white', mec=col, mew=2, transform=fig.transFigure))
-        fig.text(x + 0.008 + len(pts) * 0.019, yy - 0.029, reading(name), fontsize=fs * 0.76, va='center', color='#222222')
+        ds = comps(name); yy = y - i * dy; star = '' if ds[0]['strong'] else '*'
+        fig.text(x, yy, f'{NUM[name]}  {name}{star}', fontsize=fs * 0.8, weight='bold', va='center')
+        fig.text(x + 0.012, yy - dy * 0.45, '  '.join(f"{'abc'[j]} {d['lab']}" for j, d in enumerate(ds)) + '   \u2192 ' + reading(name, short=True).split('  (')[0],
+                 fontsize=fs * 0.62, va='center', color='#222222')
 
-def legend_row(fig, x, y, fs, gap):
-    items = [('o', K_LOC, 'in each unit'), ('s', K_SH, 'shared'), ('D', K_BOTH, 'both')]
-    for i, (m, c, t) in enumerate(items):
-        fig.lines.append(Line2D([x + i * gap], [y], marker=m, ms=fs * 0.6, mfc=c, mec=c, transform=fig.transFigure))
-        fig.text(x + i * gap + 0.012, y, t, fontsize=fs * 0.78, va='center')
-
-LIM = (-1.3, 3.0, -3.0, 3.2)
-SHOW = ['E. coli', 'immune system', 'ant colony', 'firm', 'nation-state']
-LAB = {('E. coli', None): (0, 0, 15),
-       ('immune system', 'innate'): (10, 0), ('immune system', 'adaptive'): (11, 0), ('immune system', 'memory'): (-11, 0), ('immune system', None): (1, 70, 14),
-       ('ant colony', 'patch'): (-9, 13), ('ant colony', 'food supply'): (0, 15), ('ant colony', None): (1, 0, 34),
-       ('firm', 'operations'): (11, -3), ('firm', 'management'): (12, 0), ('firm', 'strategy'): (-4, -18), ('firm', None): (0, 12, 18),
-       ('nation-state', 'local'): (10, 0), ('nation-state', 'business cycle'): (12, -3), ('nation-state', 'institutions'): (-9, -15), ('nation-state', None): (1, 110, -28)}
-ROWS = {'E. coli': 0.3, 'nation-state': 0.7, 'immune system': 0.7}
+def ecoli_axis(fig, rect, fs):
+    d = comps('E. coli')[0]; ax = fig.add_axes(rect); q = d['inputs']['logXL']; c = np.log10(d['centre']['XL'])
+    ax.set_xlim(-1.3, 3.0); ax.set_ylim(0, 1); ax.add_patch(Rectangle((-1.3, 0), 1.3, 1, color=C_NONE)); ax.add_patch(Rectangle((0, 0), 3, 1, color=C_LOC))
+    ax.axvline(0, color='#1a1a1a', lw=2); ax.plot(q, [0.45, 0.45], color=K_LOC, lw=3, alpha=0.6); ax.plot(q, [0.45, 0.45], ls='none', marker='|', ms=fs * 0.8, mew=2.2, color=K_LOC)
+    ax.plot([c], [0.45], marker='o', ms=fs * 0.7, mfc='white', mec=K_LOC, mew=2.2)
+    ax.set_yticks([]); tk = range(-1, 4); ax.set_xticks(list(tk)); ax.set_xticklabels([tick_lab(t) for t in tk], fontsize=fs * 0.62)
+    ax.set_title('E. coli: one cell, no shared option (off the map)\nproxy: motility benefit ÷ signalling cost (not X_L)', fontsize=fs * 0.64, loc='left')
+    return ax
 
 T = 'Where the cost of judgment puts layers'
 RED = 'Hypothesized positions, not measurements'
-SUB = 'For each time scale of its world, the cost picks no layer, a layer in each unit, one shared layer, or both.'
-SUB2 = 'Layer = tracking store, not org-chart level.  Edges hold for any world.  Inputs are guesses (E. coli: measured proxy).'
-F1 = 'A shared layer\u2019s worth = upkeep shared \u00d7 pooling gain \u00d7 e^(\u22122 \u00d7 delay \u00f7 time scale) \u00d7 a local layer\u2019s worth, so fast scales go local and slow ones shared.'
-F2 = 'Survival is a separate gate.   * hollow, dashed: selection weak or unknown.   Shading: input ranges; bar: measured range.   figures/face_placements.md  \u00b7  CC0'
+SUB = 'Each dot is one time scale of a system\u2019s world.  Shading: which layer would pay on its own.  Shape: the cheapest design.'
+SUB2 = 'Layer = tracking store, not org-chart level.  Shading = the design whenever two layers are worth no more together than apart (THEORY B.11).'
+F1 = ('Shared layer\u2019s worth = \u03bd \u00d7 pooling gain \u00d7 e^(\u22122\u00b7delay \u00f7 time scale) \u00d7 local layer\u2019s worth (\u03bd: shared upkeep '
+      'in local layers; same read quality): fast scales go local, slow ones shared.')
+F2 = ('If a shared layer pays only as a reference for local ones (common read noise, priced reading, mixed-rate common parts), both can win '
+      'below the edges; no dot here has that in its model.')
+F3 = 'Survival is a separate gate.   * selection weak or unknown.   Inputs, sources, ellipses: figures/face_placements.md, face_all.png  \u00b7  CC0'
+FIX_MAIN = {}
 
 def face():
     fig = plt.figure(figsize=(16, 10), dpi=100); fs = 19
-    st = fig.add_axes([0.075, 0.125, 0.56, 0.07]); ax = fig.add_axes([0.075, 0.201, 0.56, 0.59])
-    draw_map(ax, st, LIM, fs, SHOW, LAB, strip_rows=ROWS)
-    fig.text(0.5, 0.958, T, ha='center', va='center', fontsize=40, weight='bold')
-    fig.text(0.5, 0.908, RED, ha='center', va='center', fontsize=25, weight='bold', color='#cc0000')
-    fig.text(0.5, 0.866, SUB, ha='center', va='center', fontsize=17, color='#222222')
-    fig.text(0.5, 0.834, SUB2, ha='center', va='center', fontsize=17, color='#222222')
-    side_panel(fig, 0.668, 0.77, 0.068, 19, SYSTEMS)
-    fig.text(0.5, 0.045, F1, ha='center', va='center', fontsize=13.5, color='#222222')
-    fig.text(0.5, 0.016, F2, ha='center', va='center', fontsize=12, color='#444444')
+    st = fig.add_axes([0.07, 0.15, 0.56, 0.055]); ax = fig.add_axes([0.07, 0.212, 0.56, 0.6])
+    draw_map(ax, st, fs, MAPPED, fixed=FIX_MAIN)
+    fig.text(0.5, 0.962, T, ha='center', va='center', fontsize=38, weight='bold')
+    fig.text(0.5, 0.915, RED, ha='center', va='center', fontsize=24, weight='bold', color='#cc0000')
+    fig.text(0.5, 0.875, SUB, ha='center', va='center', fontsize=15.5, color='#222222')
+    fig.text(0.5, 0.846, SUB2, ha='center', va='center', fontsize=15.5, color='#222222')
+    legend_rows(fig, 0.655, 0.79, 19, 0.03)
+    key_rows(fig, 0.655, 0.655, 19, 0.062, MAPPED)
+    ecoli_axis(fig, [0.672, 0.15, 0.30, 0.03], 19)
+    fig.text(0.5, 0.072, F1, ha='center', va='center', fontsize=11.6, color='#222222')
+    fig.text(0.5, 0.046, F2, ha='center', va='center', fontsize=11.6, color='#222222')
+    fig.text(0.5, 0.018, F3, ha='center', va='center', fontsize=11.5, color='#444444')
     fig.savefig(os.path.join(HERE, 'face.png'), dpi=100); plt.close(fig)
 
 def square():
     fig = plt.figure(figsize=(12, 12), dpi=100); fs = 17
-    st = fig.add_axes([0.1, 0.315, 0.87, 0.055]); ax = fig.add_axes([0.1, 0.375, 0.87, 0.47])
-    draw_map(ax, st, LIM, fs, SHOW, LAB, strip_rows=ROWS)
-    fig.text(0.5, 0.967, T, ha='center', va='center', fontsize=38, weight='bold')
-    fig.text(0.5, 0.927, RED, ha='center', va='center', fontsize=23, weight='bold', color='#cc0000')
-    fig.text(0.5, 0.884, 'For each time scale of its world, the cost picks no layer, a layer in each unit, one shared layer,\nor both.  Layer = tracking store, not org-chart level.  Edges exact; inputs guessed (E. coli: proxy).',
-             ha='center', va='center', fontsize=15, color='#222222', linespacing=1.25)
-    legend_row(fig, 0.07, 0.222, 17, 0.17)
-    fig.text(0.56, 0.222, 'both: if each still pays on what the other does not know', fontsize=12.5, color=K_BOTH, va='center')
-    for k, name in enumerate(SYSTEMS):
-        col, row = divmod(k, 4); x = 0.04 + col * 0.495; off = 0.183 if col == 0 else 0.166; yy = 0.18 - row * 0.034; pts = comps(name); strong = pts[0][2]['strong']
-        fig.text(x, yy, name + ('' if strong else '*'), fontsize=14.5, weight='bold', va='center')
-        for j, (_, _, d) in enumerate(pts):
-            m, c = MK[d['centre']['d']]
-            fig.lines.append(Line2D([x + off + j * 0.022], [yy], marker=m, ms=10, mfc=c if strong else 'white', mec=c, mew=2, transform=fig.transFigure))
-        fig.text(x + off + 0.003 + len(pts) * 0.022, yy, reading(name, short=True), fontsize=11.8, va='center')
-    fig.text(0.5, 0.034, 'Fast scales go local, slow ones shared: a shared layer\u2019s worth falls as e^(\u22122 \u00d7 delay \u00f7 time scale).', ha='center', fontsize=13, color='#222222')
-    fig.text(0.5, 0.01, 'Survival is a separate gate.  * hollow, dashed: selection weak or unknown.  Shading: input ranges.  figures/face_placements.md \u00b7 CC0', ha='center', fontsize=11, color='#444444')
+    st = fig.add_axes([0.09, 0.39, 0.88, 0.045]); ax = fig.add_axes([0.09, 0.44, 0.88, 0.415])
+    draw_map(ax, st, fs, MAPPED, fixed=FIX_MAIN)
+    fig.text(0.5, 0.969, T, ha='center', va='center', fontsize=34, weight='bold')
+    fig.text(0.5, 0.932, RED, ha='center', va='center', fontsize=22, weight='bold', color='#cc0000')
+    fig.text(0.5, 0.888, 'Each dot is one time scale of a system\u2019s world.  Shading: which layer would pay on its own.\nShape: the cheapest design.  '
+             'Layer = tracking store, not org-chart level.  Shading = design if together \u2264 apart (B.11).', ha='center', va='center', fontsize=13.5, color='#222222', linespacing=1.3)
+    legend_rows(fig, 0.05, 0.31, 15, 0.024)
+    ecoli_axis(fig, [0.55, 0.255, 0.42, 0.022], 16)
+    key_rows(fig, 0.05, 0.205, 17, 0.042, MAPPED[:4]); key_rows(fig, 0.55, 0.205, 17, 0.042, MAPPED[4:])
+    fig.text(0.5, 0.03, 'Fast scales go local, slow ones shared.  Where a shared layer pays only as a reference for local ones, both can win below the edges.',
+             ha='center', fontsize=11.5, color='#222222')
+    fig.text(0.5, 0.01, 'Survival is a separate gate.  * selection weak or unknown.  figures/face_placements.md \u00b7 CC0', ha='center', fontsize=10.5, color='#444444')
     fig.savefig(os.path.join(HERE, 'face_square.png'), dpi=100); plt.close(fig)
 
 def all_systems():
-    fig = plt.figure(figsize=(24, 14), dpi=80); fs = 11
-    for k, name in enumerate(SYSTEMS):
-        r, c = divmod(k, 4); x0 = 0.045 + c * 0.243; y0 = 0.53 - r * 0.45
-        st = fig.add_axes([x0, y0, 0.2, 0.04]); ax = fig.add_axes([x0, y0 + 0.045, 0.2, 0.27])
-        lab = {(name, d['lab']): (8, 8) for _, _, d in comps(name)}
-        draw_map(ax, st, (-1.5, 3.5, -3.0, 3.5), fs, [name], lab, ell_sigma=2.0, ell_alpha=0.12)
-        st.set_xlabel('local: net stakes \u00f7 upkeep', fontsize=12); ax.set_ylabel('shared: net stakes \u00f7 upkeep' if c == 0 else '', fontsize=12)
-        ax.set_title(name + ('' if comps(name)[0][2]['strong'] else '*') + '\n' + reading(name, short=True), fontsize=15, weight='bold')
-    fig.suptitle('Every placement with 2\u03c3 ellipses from its input ranges (hypothesized positions, not measurements)', fontsize=22, weight='bold', color='#cc0000', y=0.985)
-    fig.savefig(os.path.join(HERE, 'face_all.png'), dpi=80); plt.close(fig)
+    fig = plt.figure(figsize=(20, 12), dpi=120); fs = 13
+    for k, name in enumerate(MAPPED):
+        r, c = divmod(k, 4); x0 = 0.05 + c * 0.245; y0 = 0.53 - r * 0.47
+        st = fig.add_axes([x0, y0, 0.2, 0.035]); ax = fig.add_axes([x0, y0 + 0.04, 0.2, 0.3])
+        draw_map(ax, st, fs, [name], ell_sigma=2.0, names=True)
+        for t in ax.texts: t.set_fontsize(10) if t.get_text().isupper() or '\n' in t.get_text() else None
+        st.set_xlabel('local layer: stakes ÷ upkeep', fontsize=11); ax.set_ylabel('shared layer: stakes ÷ upkeep' if c == 0 else '', fontsize=11)
+        ax.set_title(f"{NUM[name]}  {name}{'' if comps(name)[0]['strong'] else '*'}\n{reading(name, short=True)}", fontsize=14, weight='bold')
+    ax = fig.add_axes([0.785, 0.07, 0.19, 0.03]); fig.delaxes(ax)
+    ecoli_axis(fig, [0.785, 0.12, 0.19, 0.025], 14)
+    fig.suptitle('Every placement with 2\u03c3 ellipses from its input ranges (hypothesized positions, not measurements)', fontsize=20, weight='bold', color='#cc0000', y=0.985)
+    fig.savefig(os.path.join(HERE, 'face_all.png'), dpi=120); plt.close(fig)
 
 if __name__ == '__main__':
     face(); square(); all_systems(); print('saved face.png, face_square.png, face_all.png')

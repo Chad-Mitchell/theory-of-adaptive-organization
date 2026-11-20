@@ -1,9 +1,10 @@
 """V1b: the map theorem with READING PRICED (the reviewer's C0): every design also chooses how precisely its units read.
    nice -n 19 python3 figures/face_collapse_v1b.py [M]       writes face_collapse_v1b.json
 Each unit reading at noise density N costs c/N per unit time (precision priced linearly, the face model's C0/N).  Each design picks its
-own N (bounded scalar search over log N); errors are computed numerically (face_hybrid.best_fast).  The map's coordinates become NET worths,
-  X_L = (w_u*G_L(N_L) - c/N_L)/h_l,   X_S = n*(w_u*G_S(N_S) - c/N_S)/h_c,
-and the same quadrants decide.  So the reading price moves the dots, never the edges.  Brute-force best design vs the map's reading."""
+own N (bounded scalar search over log N); errors are computed numerically (face_hybrid.best_fast).  The coordinates become NET worths.
+'agree' checks that the exact decision rule (face_map.decide, with kappa_L, kappa_S on net worths) reproduces brute force: an identity check.
+It does NOT show that the quadrant edges decide: priced reading is paid once by 'both', so value can be superadditive (kappa > 1) and BOTH
+can win below the edges (review 26, counterexample A; tools/test_face_map.py).  face_subadd.py counts kappa > 1 in these worlds."""
 import os, sys, json, time
 import numpy as np
 from multiprocessing import Pool

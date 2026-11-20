@@ -4,7 +4,7 @@ import numpy as np
 from scipy.linalg import solve_continuous_lyapunov, expm
 from scipy.optimize import minimize
 
-def mse(a, v, N, n, rho, lead, bl, bc):
+def mse(a, v, N, n, rho, lead, bl, bc, Nc=0.0):
     a = np.asarray(a, float); v = np.asarray(v, float); J = len(a)
     vm = v * (rho + (1 - rho) / n); vd = v - vm
     bl = np.asarray(bl, float); bc = np.asarray(bc, float); kl, kc = len(bl), len(bc)
@@ -15,7 +15,7 @@ def mse(a, v, N, n, rho, lead, bl, bc):
     for i, b in enumerate(bc):
         r = 2 * J + kl + i; A[r, :J] = b; A[r, r] = -b
     Q = np.zeros((d, d)); Q[:J, :J] = np.diag(2 * a * vm); Q[J:2*J, J:2*J] = np.diag(2 * a * vd)
-    b = np.concatenate([bl, bc]); dens = np.full((kl + kc, kl + kc), N / n); dens[:kl, :kl] = N
+    b = np.concatenate([bl, bc]); dens = np.full((kl + kc, kl + kc), N / n); dens[:kl, :kl] = N; dens = dens + Nc
     Q[2*J:, 2*J:] = dens * np.outer(b, b)
     P = solve_continuous_lyapunov(A, -Q); P = (P + P.T) / 2
     if kl + kc == 0: return float(v.sum())
@@ -28,7 +28,7 @@ def mse(a, v, N, n, rho, lead, bl, bc):
     try: g = np.linalg.solve(M, r)
     except np.linalg.LinAlgError: g = np.linalg.lstsq(M, r, rcond=None)[0]
     e = float(v.sum() - r @ g)
-    return e if np.isfinite(e) else 1e9
+    return e if (np.isfinite(e) and e >= -1e-9 * float(v.sum())) else 1e9      # reject numerically broken (negative or non-finite) errors
 
 def best(a, v, N, n, rho, lead, kl, kc, starts=6, seed=0):
     if kl + kc == 0: return float(np.sum(v)), None
@@ -57,7 +57,8 @@ def _Flag(a, b1, b2, lag):
     b1 = np.where(np.abs(a - b1) < 1e-9 * (a + b1), b1 * (1 + 1e-7), b1)
     return b1 * b2 * (2 * a * np.exp(-b1 * lag) / ((a * a - b1 * b1) * (b1 + b2)) - np.exp(-a * lag) / ((a - b1) * (a + b2)))
 
-def mse_fast(a, v, N, n, rho, lead, bl, bc):
+def mse_fast(a, v, N, n, rho, lead, bl, bc, Nc=0.0):
+    """Nc: density of read noise COMMON to all units (also in the pooled reads); 0 in the theory's base class."""
     a = np.asarray(a, float)[:, None, None]; v = np.asarray(v, float)
     vm = v * (rho + (1 - rho) / n); vv = v[:, None, None]; vmm = vm[:, None, None]
     bl = np.asarray(bl, float); bc = np.asarray(bc, float); kl, kc = len(bl), len(bc)
@@ -65,29 +66,29 @@ def mse_fast(a, v, N, n, rho, lead, bl, bc):
     M = np.zeros((kl + kc, kl + kc)); r = np.zeros(kl + kc)
     if kl:
         BK, BL = bl[None, :, None], bl[None, None, :]
-        M[:kl, :kl] = (vv * _F0(a, BK, BL)).sum(0) + N * np.outer(bl, bl) / (bl[:, None] + bl[None, :])
+        M[:kl, :kl] = (vv * _F0(a, BK, BL)).sum(0) + (N + Nc) * np.outer(bl, bl) / (bl[:, None] + bl[None, :])
         r[:kl] = (vv[:, :, 0] * bl[None, :] / (a[:, :, 0] + bl[None, :])).sum(0)
     if kc:
         BK, BL = bc[None, :, None], bc[None, None, :]
-        M[kl:, kl:] = (vmm * _F0(a, BK, BL)).sum(0) + (N / n) * np.outer(bc, bc) / (bc[:, None] + bc[None, :])
+        M[kl:, kl:] = (vmm * _F0(a, BK, BL)).sum(0) + (N / n + Nc) * np.outer(bc, bc) / (bc[:, None] + bc[None, :])
         r[kl:] = (vmm[:, :, 0] * bc[None, :] * np.exp(-a[:, :, 0] * lead) / (a[:, :, 0] + bc[None, :])).sum(0)
     if kl and kc:
         B1, B2 = bl[None, :, None], bc[None, None, :]
-        X = (vmm * _Flag(a, B1, B2, lead)).sum(0) + (N / n) * np.outer(bl, bc) * np.exp(-bl[:, None] * lead) / (bl[:, None] + bc[None, :])
+        X = (vmm * _Flag(a, B1, B2, lead)).sum(0) + (N / n + Nc) * np.outer(bl, bc) * np.exp(-bl[:, None] * lead) / (bl[:, None] + bc[None, :])
         M[:kl, kl:] = X; M[kl:, :kl] = X.T
     try: g = np.linalg.solve(M, r)
     except np.linalg.LinAlgError: g = np.linalg.lstsq(M, r, rcond=None)[0]
     e = float(v.sum() - r @ g)
-    return e if np.isfinite(e) else 1e9
+    return e if (np.isfinite(e) and e >= -1e-9 * float(v.sum())) else 1e9      # reject numerically broken (negative or non-finite) errors
 
-def best_fast(a, v, N, n, rho, lead, kl, kc, starts=6, seed=0):
+def best_fast(a, v, N, n, rho, lead, kl, kc, starts=6, seed=0, Nc=0.0):
     if kl + kc == 0: return float(np.sum(v)), None
     a = np.asarray(a, float); rng = np.random.default_rng(seed)
     la = np.log(a); lo, hi = la.min() - 3, la.max() + 7
     def f(x):
         bl = np.exp(np.clip(np.sort(x[:kl]), -40, 25)) * (1 + 1e-6 * np.arange(kl)); bc = np.exp(np.clip(np.sort(x[kl:]), -40, 25)) * (1 + 1e-6 * np.arange(kc))
         with np.errstate(all='ignore'):
-            return mse_fast(a, v, N, n, rho, lead, bl, bc)
+            return mse_fast(a, v, N, n, rho, lead, bl, bc, Nc)
     inits = [np.concatenate([np.linspace(lo + 2, hi - 2, kl), np.linspace(lo + 1, hi - 3, kc)])]
     inits += [rng.uniform(lo, hi, kl + kc) for _ in range(starts)]
     bestv = (np.inf, None)

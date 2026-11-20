@@ -1,116 +1,153 @@
 # The map of designs (`figures/face.png`, "Where the cost of judgment puts layers"): theorem, placements and sources
 
-*v2.5, Friday 20 November 2026 (America/New_York). Branch `v2.5-map`. Written by a Grok Bot executor for Chad. It checks itself
-and has **not** been independently reviewed. The map replaces the v2.4 figure withdrawn in `bc9a1ec`.*
+*v2.5.1, Friday 20 November 2026 (America/New_York). Branch `v2.5-map`. Written by a Grok Bot executor for Chad. Revised after the
+independent review of PR #111 (review 26, verdict NOT READY); every blocker and should-fix is answered in §8.*
 
 **What this map is.**
-- **The regions are derived.** They are a theorem of the cost of judgment, J = upkeep + stakes × error + reading cost.
-- **The dots are hypotheses.** Every input behind a dot is a guess, except E. coli's, which uses a measured proxy from PR #110.
+- **The shading is derived.** It shows which single layer pays on its own, which is exact in every model by definition.
+- **The marker is derived.** Its shape is the cheapest design from the exact decision rule, which is right in every model.
+- **When the two agree is a theorem.** They agree exactly when the layers' value is subadditive (§1).
+- **The dots are hypotheses.** Every input behind a dot is a guess, apart from the cited time scales and delays.
+- **E. coli is not on the map.** It is drawn beside it as a plausibility proxy.
 - **A layer is a tracking store,** a memory with its own time constant. It is not an org-chart level.
 
 Files:
-- Regions: `face_map.py`.
+- Map theorem and decision rule: `face_map.py`.
 - Store model: `face_hybrid.py`.
+- Which model classes are subadditive: `face_subadd.py` → `face_subadd.json`.
 - Placement inputs: `face_systems.py`.
 - Coordinates and uncertainty: `face_place.py`.
 - Drawing: `face.py`.
 - Data-collapse figure: `face_collapse.py`.
 - Checks: `face_collapse_v1.py`, `face_collapse_v1b.py`, `face_collapse_v23.py`.
-- Tests: `tools/test_face_map.py`.
+- Tests, including the reviewer's counterexamples: `tools/test_face_map.py`.
 
 ## 1. The map theorem (THEORY B.11)
 
 **Setup.**
 - A system has n units (n = 1 is allowed).
-- The world is a sum of independent components, one per time scale. Each component is read by the units through its own channel.
-- For one component, there are four designs:
+- For one component of the world (one time scale), there are four designs:
   - **Local:** a layer in each unit, using that unit's own reads, on time. Upkeep n·h_l; gain G_L per unit.
   - **Shared:** one layer that pools all n units' reads, which reach it a delay ℓ late. Upkeep h_c; gain G_S per unit.
-  - **Both:** local layers plus a shared one. Gain G_B per unit.
+  - **Both:** local layers plus a shared one. Gain G_B ≥ max(G_L, G_S) per unit.
   - **None.**
 - "Gain" is the drop in expected loss that the layer buys per unit stake. The stake per unit is w_u.
 
-**Coordinates.** Each axis is "stakes the layer can win ÷ its upkeep":
+**Coordinates.** Each is "stakes the layer can win ÷ its upkeep":
 
-  X_L = w_u·G_L / h_l,    X_S = n·w_u·G_S / h_c.
+  X_L = w_u·G_L / h_l,   X_S = n·w_u·G_S / h_c,   and for both together  X_B = n·w_u·G_B / (n·h_l + h_c).
 
-**Two more numbers.**
-- ν = n·h_l / h_c: how many local layers' upkeep one shared layer costs.
-- κ_S = (G_B − G_L)/G_S and κ_L = (G_B − G_S)/G_L: the share of each layer's gain that the other layer does not already supply.
+**Exact identities.** These hold in any model and for any loss, because they use only the definitions.
+- Let ν = n·h_l / h_c, κ_S = (G_B − G_L)/G_S and κ_L = (G_B − G_S)/G_L.
+- The value of each design over none, in units of n·h_l:
+  - local = X_L − 1
+  - shared = (X_S − 1)/ν
+  - both = X_L − 1 + (κ_S·X_S − 1)/ν = (1 + 1/ν)(X_B − 1)
+- So the cheapest design is the largest of (0, X_L − 1, (X_S − 1)/ν, (1 + 1/ν)(X_B − 1)). This is `decide()`, and it is always exact.
+- Also (1 − κ_S)·G_S = (1 − κ_L)·G_L, so κ_S > 1 iff κ_L > 1. **Subadditivity**, G_B ≤ G_L + G_S, is κ ≤ 1.
 
-**Value of each design over none**, in units of n·h_l (each line is stakes won minus upkeep):
-- local = X_L − 1
-- shared = (X_S − 1)/ν
-- both = X_L − 1 + (κ_S·X_S − 1)/ν
+**Map theorem.** Fix the gains G_L, G_S, G_B. The quadrant rule below gives the cheapest design for every stake and upkeep **if and only if the
+value is subadditive**, G_B ≤ G_L + G_S.
 
-**Proof.** Divide each value by n·h_l. For "both", use G_B = G_L + κ_S·G_S. The identity (1 − κ_S)·G_S = (1 − κ_L)·G_L gives both − shared = κ_L·X_L − 1. With 0 ≤ κ ≤ 1:
+| Where | Cheapest design under subadditivity |
+|---|---|
+| X_L ≤ 1 and X_S ≤ 1 | **none** |
+| X_L > 1 ≥ X_S | **local** (both − local = (κ_S X_S − 1)/ν ≤ 0) |
+| X_S > 1 ≥ X_L | **shared** (both − shared = κ_L X_L − 1 ≤ 0) |
+| X_L > 1 and X_S > 1 | **both** iff κ_L X_L > 1 and κ_S X_S > 1; otherwise local iff ν(X_L − 1) > X_S − 1 |
 
-| Where | Best design | Which numbers decide |
-|---|---|---|
-| X_L ≤ 1 and X_S ≤ 1 | **none** | only X_L, X_S |
-| X_L > 1, X_S ≤ 1 | **local** (both − local = (κ_S X_S − 1)/ν ≤ 0) | only X_L, X_S |
-| X_S > 1, X_L ≤ 1 | **shared** (both − shared = κ_L X_L − 1 ≤ 0) | only X_L, X_S |
-| X_L > 1 and X_S > 1 | **both** iff κ_L X_L > 1 and κ_S X_S > 1; otherwise local iff ν(X_L − 1) > X_S − 1 | ν, κ_L, κ_S as well |
+*Proof.*
+- **If.** With κ ≤ 1, the two differences in the table are ≤ 0. In the none quadrant, X_B = (ν X_L + κ_S X_S)/(ν + 1) ≤ 1.
+- **Only if.** If κ_S > 1, set X_L = X_S = 1 − ε by choice of upkeeps. Then X_B → (ν + κ_S)/(ν + 1) > 1, so both beats none in the none quadrant. Likewise, at X_S slightly below 1, both beats local in the local quadrant. ∎
 
-**Assumptions behind the theorem.**
-- κ ≥ 0 because an added layer can be given zero gain.
-- κ ≤ 1 is subadditivity, G_B ≤ G_L + G_S. This is **verified numerically, not proved**:
-  - it held in every one of the 3000 + 15 random worlds tried;
-  - the largest κ_S found was 0.99, and the largest κ_L was 1 − 3×10⁻¹⁰.
-- Costs add across components when each component has its own read channel (the theory's 𝒜₁ class), so each component is placed on its own.
+**Mechanism: joint value, or a common-mode reference.**
+- Superadditivity means that a layer is worth more next to the other than on its own.
+- In the linear-Gaussian case at fixed rates, take two estimates with correlations r_L and r_S to the target and r_LS to each other. Then:
+
+  (G_B − G_L − G_S)/Var = r_LS·[(r_L² + r_S²)·r_LS − 2·r_L·r_S] / (1 − r_LS²)   (`face_map.excess_fixed`, tested).
+
+- This is > 0 iff r_LS < 0 or r_LS > 2 r_L r_S/(r_L² + r_S²).
+- That is the case when the shared store is correlated with the local estimates' *errors* more than with the target. It then works as a **common-mode reference**: subtracting it cancels noise that the local layers share.
+- When the estimates are independent given the target (r_LS = r_L r_S), the excess equals r_L²r_S²(r_L² + r_S² − 2)/(1 − r_L²r_S²) ≤ 0, so the value is subadditive.
+
+**Prior art** (the mechanism is not new; its use for layer design is the point here):
+- the suppressor variable of regression: Horst 1941 (10.1037/11521-016); Conger 1974 (10.1177/001316447403400105);
+- common-mode rejection and reference channels: adaptive noise cancelling, Widrow et al. 1975 (10.1109/PROC.1975.10036);
+- team theory, the value of information structures held by different members: Radner 1962 (10.1214/aoms/1177704455); Marschak & Radner 1972, *Economic Theory of Teams* (Yale University Press);
+- when signals are complements: Börgers, Hernando-Veciana & Krähmer 2013, JET 148:165–195 (10.1016/j.jet.2012.12.012).
+
+**Which model classes are subadditive** (`face_subadd.py`; sampled, not proved; 500 worlds per class):
+
+| Class | Worlds with G_B > G_L + G_S | Largest excess (share of variance) | Status |
+|---|---|---|---|
+| Separate channel per component, one OU component, independent unit noise, unpriced reading (the class of every dot) | **0 / 500**; 20 adversarial maximisations: max 4×10⁻¹⁶ | 0 | subadditive, **NUMERICAL** (CX6) |
+| Same, plus read noise common to all units | 28 / 500 | 0.20 | **not** subadditive |
+| One read stream: a fast common part and a slow idiosyncratic part (ρ = (1, 0)) | 8 / 500 | 0.016 | **not** subadditive (counterexample B) |
+| Reading priced at c/N per unit, N chosen per design (`face_collapse_v1b`) | 119 / 1500 (κ_L up to 49) | — | **not** subadditive (counterexample A; it was paid once by both) |
+
+- In the 1500 sampled priced worlds, none fell where the superadditivity flips the quadrant reading.
+- The reviewer's counterexample A shows that such worlds exist (tested).
 
 **Closed forms for an Ornstein–Uhlenbeck component.** The component has rate a = 1/τ and variance v, and is read through white noise of density N per unit. A share ρ of its variance is common to all units. Then (Kalman–Bucy; THEORY L1):
 - G_L = v − P(v, a, N)
 - G_S = e^(−2ℓ/τ) · (v_m − P(v_m, a, N/n)), where v_m = v·(ρ + (1 − ρ)/n)
 - P(v, a, N) = N·a·(√(1 + 2v/(Na)) − 1)
 
-Hence **X_S = ν · π · e^(−2ℓ/τ) · X_L**, where π is the pooling gain. A shared layer's worth falls as e^(−2ℓ/τ), so fast scales go local and slow scales go shared. This is the theory's nesting (CT28, CT34), now drawn.
+Hence **X_S = ν · π · e^(−2ℓ/τ) · X_L**, where π is the pooling gain. A shared layer's worth falls as e^(−2ℓ/τ), so fast scales go local and slow scales go shared, *at equal read quality and with shared upkeep measured in local layers (ν)*. This is the theory's nesting (CT28, CT34), now drawn.
 
-## 2. What the axes absorb, and what a single 2-D map cannot show
+## 2. How the figure shows a theorem that needs three numbers
 
-**Absorbed into the coordinates:**
-- **The world's spectrum.** Each component is its own dot. A rhythm or an integrated signal is one component of degree 2, so it gets 2 stores.
-- **Read noise.**
-- **Delay.** It enters only as e^(−2ℓ/τ).
-- **Number of units, and how much of the world they share.** These enter through π and ν.
-- **The reading price.**
-  - With reading priced at c/N per unit and N chosen per design, the coordinates become *net* worths. The same edges then decide.
-  - `face_collapse_v1b.py` checks this: 1500 random worlds, numerical optimum vs the map's reading, **100% agreement**.
-  - So the reading price that review 3 found driving the v2.4 figure (C0) moves dots. It never moves edges.
-- **The loss function.** Only gains in expected loss enter.
+**Why this design.**
+- The cheapest design depends on three values (X_L, X_S, X_B), so no 2-D picture with fixed edges is true in general.
+- Three options were considered:
+  - **Shading a "joint" zone.** Not principled: superadditive excess is unbounded in these coordinates.
+  - **An X_B marker beside each dot.** Correct, but it adds a third number per dot to a phone-sized figure.
+  - **Chosen: shade one exact fact and mark another.**
+- How the chosen design works:
+  - the shading says which single layer pays on its own (X_L > 1, X_S > 1). That is true by definition in every model;
+  - each marker's shape and colour is the cheapest design from the full rule, which is equivalent to reading X_B;
+  - the theorem says when shading and shape agree;
+  - a black ring would mark a dot whose model has joint value. No dot has one (all 19 dots are in the subadditive class; the table's "joint value" column is "none" throughout).
+- The footer states the general case: if a shared layer pays only as a reference for local ones, both can win below the edges.
 
-**Not on one 2-D map, by the theorem itself.**
-- Inside the upper-right quadrant, the choice between local, shared and both also depends on ν, κ_L and κ_S.
-- No pair of axes can absorb these, because each dot has its own values.
-- So the map draws each dot with its own design (circle = local, square = shared, diamond = both).
-- Panel (c) of `face_collapse.png` shows that split: both iff κ_L X_L > 1 and κ_S X_S > 1.
-- **The edges X_L = 1 and X_S = 1 are universal. The split of the upper-right quadrant is per dot.**
+**Axes are gross worths at the stated read quality.**
+- The dots are computed at each system's stated read quality (snr), with reading unpriced.
+- If reading is priced, the coordinates become net worths and the exact rule still holds. The quadrant edges do not, because value can be superadditive.
 
 **Survival (ruin) is a gate, not a region.**
 - CT33 and the regions hold where the ruin constraint is slack.
 - Where ruin binds, the cheapest feasible design can differ.
 - Below the minimum reserve, no design survives.
-- The v2.4 "NOT VIABLE" region came from an assumed income (η = 1.5). It covered the zero-layer region, so it is gone.
-- **None** here means "react, don't model". It does not mean "not viable".
+- **None** means "react, don't model". It does not mean "not viable".
 
-**One read stream (many scales through one channel, as in a cell's receptors).** The per-component reading is not exact here, because one store can follow two components.
-- Place layers **one at a time by marginal worth.**
-- `face_collapse_v23.py` (V3) tested two-scale worlds with up to 2 local and 2 shared stores (600 worlds):
-  - the layer-by-layer reading matched the exact optimum in **600/600**, regret 0;
-  - reading each scale as if it had its own channel matched in only **51%** (regret median 0, 90th percentile 12%), because it overstates slow layers.
-- V2 (one stream, layer count): marginal worths fell layer by layer in 97% of 300 worlds, and in 99.7% within a 10⁻⁵ tolerance. The exceptions are optimizer noise.
+**One read stream (many scales through one channel, as in a cell's receptors).**
+- Per-component reading is not exact here, because one store can follow two components.
+- The cheapest set of stores is found by **exhaustive search over small store counts** (`face_hybrid.best`).
+- Adding stores one at a time by marginal worth (greedy) is exact when marginal worths are submodular. That is not guaranteed: counterexample B has κ > 1, and greedy stops at NONE while local + shared together pay.
+
+The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and ≤ 2 stores per location, so it could not see this case.** The rerun (`face_collapse_v23.py`, 800 two-scale worlds, ≤ 2 local and ≤ 2 shared stores):
+
+| Worlds | Greedy = exact | Worst greedy regret | Greedy + pairwise look-ahead = exact | Per-component reading = exact |
+|---|---|---|---|---|
+| ρ = 1 (400) | 100% | 0 | 100% | 50.5% |
+| ρ drawn per component (400) | 99.5% (2 misses) | 2.2×10⁻⁵ of value | 100% | 47% |
+
+- The review's own greedy appendix (a partial run of 92 worlds) found 2 greedy misses with regret up to 3.04 (its units). The look-ahead is therefore the stated rule, and exhaustive search is the reference.
+- V2 (one stream, layer count): marginal worths fell layer by layer in 97.3% of 300 worlds, and in 100% within a 10⁻⁵ tolerance. 0 of the 300 fits failed.
+- The earlier crash (seed 139, error −∞) was a numerically unstable solve. The solver now rejects non-finite or negative errors and retries with 30 starts.
+- The remaining 2.7% are rises below 10⁻⁵ of value. They are within the optimizer's tolerance and are not evidence either way.
 
 **Data collapse** (`face_collapse.png`):
 - (a) 3000 random worlds in raw inputs: the best designs overlap.
-- (b) The same worlds in (X_L, X_S): the edges at 1 separate them exactly (3000/3000; closed-form gains agree with numerics to 4×10⁻¹⁴ and 5×10⁻¹¹).
-- (c) The κ split.
-- (d) Reading priced.
+- (b) The same worlds in (X_L, X_S). The closed forms plus the decision rule agree with brute force in 3000/3000, and κ ≤ 1 holds in all of them. The closed-form gains agree with numerics to 4×10⁻¹⁴ and 5×10⁻¹¹.
+- (c) The upper-right split: both iff κ_L X_L > 1 and κ_S X_S > 1.
+- (d) Reading priced: κ > 1 in 119 of 1500 worlds (circled). In this sample no circled world falls where shading ≠ best design. Counterexample A shows that one can.
 
 ## 3. Layers are tracking stores, not management levels
 
 **What counts as a layer.**
 - A layer is a store: a state the system holds that follows the world with its own time constant.
-- An org-chart level counts only if it holds such a state, with a distinct measured time constant.
+- An org-chart level counts only if it holds such a state, with a distinct measured time constant (§4).
 - A level that only relays reads is not a layer. That is the "telling" of CT16.
 
 **One shared level per component.**
@@ -118,22 +155,42 @@ Hence **X_S = ν · π · e^(−2ℓ/τ) · X_L**, where π is the pooling gain.
   - a shared level forms once enough members face a common driver (CT14);
   - nested levels pay when their time scales separate (CT28, CT34);
   - a team's optimized cost enters its parent's problem as upkeep (CT34).
-- So a firm's "management" component on the map is the firm-wide store. Its divisions would be the same map applied one level down.
+- So a firm's "management" component is the firm-wide store. Its divisions would be the same map applied one level down.
 
-## 4. An operational rule for counting a real system's layers (proposed; to be preregistered per class)
+## 4. An operational rule for counting a real system's layers (proposed; preregister per class before use)
 
-1. **Measure the response.** Measure the system's response kernel to the driving signal (impulse, step, or white-noise input) over the band of time scales in question, by a protocol fixed in advance.
-2. **Fit sums of exponentials.** Fit sums of exponentials, complex-conjugate pairs allowed, of order K = 1, …, K_max. Choose K by a preregistered criterion (for example BIC, or held-out prediction error with a stated threshold).
-   - Two poles closer than a preregistered resolution factor count as one.
-3. **Count by degree.** The layer count is the number of poles: a complex pair (a rhythm) counts 2, and an integrator-plus-filter like E. coli's counts 2.
-4. **Classify each pole.**
-   - *Local:* it appears in each unit's own response, measured on isolated units.
-   - *Shared:* it appears only in the pooled response, and disappears when units are isolated.
-5. **Compare.** Compare this count, and the local/shared split, with the map's prediction per component.
+1. **Fix the pair and the band.** Before any data, fix per class the input/output pair and the band of time scales:
+
+   | Class | Input (drive) | Output (read-out) | Band |
+   |---|---|---|---|
+   | bacterium | attractant step or noise | motor bias (CW/CCW) | 0.1 s–10 min |
+   | immune system | antigen dose | antigen-specific antibody / T-cell titre | 1 h–50 y |
+   | ant colony | food offered at a site | forager flow to that site; colony intake | 1 min–1 mo |
+   | team, firm | demand or task arrivals | allocation of effort or spend | 1 d–10 y |
+   | city, nation-state, global economy | a documented shock (price, fiscal, climate) | allocation response (spend, land use, rates) | 1 mo–50 y |
+
+2. **Measure the response kernel** over that band (impulse, step or white-noise input), by a protocol fixed in advance.
+3. **Fit sums of exponentials** (complex-conjugate pairs allowed) of order K = 1 … K_max.
+   - Accept order K + 1 over K only if **ΔBIC ≥ 10**.
+   - Two poles whose time constants differ by less than a **factor 3** (the resolution) count as one.
+   - Poles outside the band are not counted.
+4. **Count by degree.** The layer count is the number of poles: a complex pair (a rhythm) counts 2, and an integrator-plus-filter counts 2.
+5. **Relay-only test.** Remove the candidate level, or bypass it, or replace it with a pure delay of the same latency, and refit.
+   - The level is a layer only if a pole disappears or moves by more than the resolution factor.
+   - If only a delay disappears, it is a relay (CT16).
+6. **Local vs shared.**
+   - *Local:* the pole appears in each unit's own response, measured on isolated units.
+   - *Shared:* it appears only in the pooled response and disappears when units are isolated.
+   - Where isolation is impossible, use the substitute fixed in advance: per-unit vs pooled response to unit-specific vs common drives.
+7. **Compare with the map, with a miss rule against the per-dot share of draws.**
+   - It is a **pass** if the observed design has ≥ 50% of that dot's draws.
+   - It is a **miss** if the observed design has < 10% of draws.
+   - Between 10% and 50% is inconclusive.
+   - A system misses if any of its components misses.
 
 | System | Observed by this rule | Map gives |
 |---|---|---|
-| E. coli | **2**, local. The kernel G·e^(−t/τ2)(1 − e^(−t/τ1)) was fitted to 442 cells (Mattingly et al. 2021; PR #110); the two-pole fit was not chosen by this rule's preregistered selection | 2 (one degree-2 component, local) |
+| E. coli | not counted by this rule. A two-pole kernel G·e^(−t/τ2)(1 − e^(−t/τ1)) was fitted to 442 cells (Mattingly et al. 2021; PR #110), but not with this rule's ΔBIC selection or relay test | off the map (one cell; proxy only) |
 | every other system | not yet measured by the rule | see table |
 
 ## 5. Placements (hypothesized positions, not measurements)
@@ -144,92 +201,142 @@ Hence **X_S = ν · π · e^(−2ℓ/τ) · X_L**, where π is the pooling gain.
   - log-uniform draws for every input except ρ, which is drawn uniformly;
   - 400 draws per dot;
   - the ellipses are the 1σ (main figure) or 2σ (`face_all.png`) covariance in log space.
-- "Share of draws" is how often each design wins across the input ranges. A dot is drawn hollow or dashed when its system's selection is weak or unknown (marked *).
-- A dot is called "near edge" when no design wins ≥ 65% of draws.
-- `figures/face_table.py` writes this table from `face_dots.json`. `tools/test_face_map.py` checks every "map gives" against the coordinates.
+- "Share of draws" is how often each design wins across the input ranges.
+- A dot is drawn **hollow** when no design wins ≥ 65% of draws, which means its reading can change within its input ranges.
+- Systems whose selection is weak or unknown are starred (*).
+- "Joint value" is the share of draws with G_B > G_L + G_S. It is none for every dot.
+- `figures/face_table.py` writes this table from `face_dots.json`. `tools/test_face_map.py` checks every design and X_B against the coordinates.
 
 <!-- TABLE -->
-| System | Scale | τ | delay ℓ | units n | shared ρ | snr | stakes ÷ upkeep R | h_c ÷ h_l | X_L (centre) | X_S (centre) | map gives | share of draws | sources |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| E. coli | gradient signal | 1.16 s | 0.039 s–0.3 s | 1 | 1 | 0.0043–0.103 | proxy 10^-0.26–10^1.89 | 1 | 6.53 | — | **local** | local 88%, none 12% | all inputs measured or proxy: PR #110 `theory/measured/measured.json` (Mattingly et al. 2021, 10.1038/s41567-021-01380-3; Ni et al. 2019, 10.1073/pnas.1910849117); X_L is a proxy (benefit / proteome share) |
-| immune system | innate | 1 h–10 h | 12 h–2 d | 100–1000 | 0.1–0.5 | 1–30 | 30–3e+03 | 3–100 | 131 | 0.000388 | **local** | local 99% | lead as adaptive (Randolph et al. 2005); rest guess |
-| immune system | adaptive | 5 d–4.29 wk | 12 h–2 d | 100–1000 | 0.5–1 | 0.3–10 | 3–300 | 3–100 | 7.38 | 316 | **shared** | shared 62%, both 38% | lead: dendritic-cell trafficking to lymph nodes, Randolph, Angeli & Swartz 2005 (10.1038/nri1670); rest guess |
-| immune system | memory | 10 y–100 y | 1 d–1 wk | 100–1000 | 0.7–1 | 10–1e+03 | 0.3–30 | 3–100 | 2.46 | 46 | **shared** | shared 82%, both 15%, none 2%, local 1% | tau: antibody half-lives 11 to >200 y, Amanna, Carlson & Slifka 2007 (10.1056/NEJMoa066092); rest guess |
-| ant colony | patch | 20 min–3 h | 15 min–45 min | 100–1000 | 0–0.3 | 0.3–10 | 3–300 | 1–30 | 7.38 | 89.4 | **both** | both 70%, local 16%, shared 13%, none 2% | tau: trail lifetime ~47 min (Lasius niger), Beckers, Deneubourg & Goss 1993 (10.1007/bf01201674); rest guess |
-| ant colony | food supply | 6 h–1 wk | 15 min–45 min | 100–1000 | 0.7–1 | 0.03–1 | 0.3–30 | 1–30 | 0.12 | 107 | **shared** | shared 100% | rho: foraging regulated by return rate with no spatial information, Prabhakar, Dektar & Gordon 2012 (10.1371/journal.pcbi.1002670); rest guess |
-| small team | tasks | 1 d–5 d | 2 h–12 h | 5–10 | 0.3–0.8 | 1–30 | 1–30 | 0.5–3 | 2.39 | 10.6 | **shared** | shared 56%, both 26%, local 15%, none 2% | guess |
-| small team | goals | 1 mo–6 mo | 1 d–1 wk | 5–10 | 0.8–1 | 3–100 | 1–30 | 0.5–3 | 3.4 | 22.1 | **shared** | shared 88%, both 10%, local 2% | guess |
-| firm | operations | 1 d–1 wk | 1 wk–1.15 mo | 10–300 | 0.1–0.5 | 1–30 | 30–3e+03 | 3–30 | 131 | 0.00322 | **local** | local 99%, both 1% | guess |
-| firm | management | 1 mo–6 mo | 2 wk–1.84 mo | 10–300 | 0.5–0.9 | 1–30 | 3–300 | 3–30 | 13.1 | 50.4 | **both** | both 59%, local 28%, shared 13% | guess |
-| firm | strategy | 2 y–10 y | 1 mo–3 mo | 10–300 | 0.7–1 | 1–30 | 1–100 | 3–30 | 4.36 | 40.9 | **shared** | shared 81%, both 16%, none 2%, local 1% | guess |
-| city* | services | 6 h–3 d | 3 d–4.29 wk | 10–100 | 0–0.3 | 1–30 | 10–1e+03 | 3–30 | 43.6 | 1.27e-08 | **local** | local 100% | guess |
-| city* | budget | 1 y–4 y | 1 mo–6 mo | 10–100 | 0.5–0.9 | 1–30 | 1–100 | 3–30 | 4.36 | 16.3 | **shared** | shared 44%, both 39%, local 10%, none 6% | guess |
-| city* | land use | 10 y–50 y | 6 mo–2 y | 10–100 | 0.5–1 | 3–100 | 1–100 | 3–30 | 6.21 | 21.2 | **shared** | shared 47%, both 39%, local 11%, none 2% | guess |
-| nation-state* | local | 1 d–4.29 wk | 1 mo–3 mo | 10–100 | 0–0.3 | 1–30 | 10–1e+03 | 3–100 | 43.6 | 1.02e-07 | **local** | local 100% | guess |
-| nation-state* | business cycle | 2 y–8 y | 1 mo–3 mo | 10–100 | 0.5–0.9 | 1–30 | 1–300 | 3–100 | 7.55 | 17.7 | **both** | both 48%, shared 38%, local 10%, none 4% | lead: data-release lags, Giannone, Reichlin & Small 2008 (10.1016/j.jmoneco.2008.05.010); rest guess |
-| nation-state* | institutions | 20 y–100 y | 3 mo–2 y | 10–100 | 0.7–1 | 3–100 | 1–100 | 3–100 | 6.21 | 14 | **shared** | shared 63%, both 23%, local 11%, none 2% | guess |
-| global economy* | markets | 1 h–1 wk | 1 mo–6 mo | 50–200 | 0–0.5 | 1–30 | 10–1e+03 | 10–1e+03 | 43.6 | 3.76e-119 | **local** | local 100% | guess |
-| global economy* | world cycle | 3 y–10 y | 1 mo–6 mo | 50–200 | 0.3–0.8 | 1–30 | 1–100 | 10–1e+03 | 4.36 | 4.59 | **both** | local 30%, both 30%, shared 29%, none 10% | guess |
-| global economy* | climate | 30 y–300 y | 1 y–5 y | 50–200 | 0.8–1 | 1–100 | 0.3–30 | 10–1e+03 | 1.61 | 2.41 | **shared** | shared 57%, none 24%, local 15%, both 3% | guess |
+| System | Scale | τ | delay ℓ | units n | shared ρ | snr | stakes ÷ upkeep R | h_c ÷ h_l | X_L (centre) | X_S (centre) | X_B (centre) | κ_L, κ_S | cheapest design | share of draws | joint value | sources |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| E. coli | gradient signal | 1.16 s | 0.039 s–0.3 s | 1 | 1 | 0.0043–0.103 | proxy 10^-0.26–10^1.89 | 1 | 6.53 | — | — | — | **off the map (proxy)** | proxy > 1 in 88% | — | plausibility proxy, not on the map: PR #110 `theory/measured/measured.json` (Mattingly et al. 2021, 10.1038/s41567-021-01380-3; Ni et al. 2019, PNAS, issued 23 Dec 2019, 10.1073/pnas.1910849117); the ratio is motility benefit ÷ signalling proteome share, not X_L; degree 2, outside B.11; do not merge before PR #110 |
+| immune system | innate | 1 h–10 h | 12 h–2 d | 100–1000 | 0.1–0.5 | 1–30 | 30–3e+03 | 3–100 | 131 | 0.000388 | 124 | 1.00, 0.00 | **local** | local 99% | none | lead as adaptive (Randolph et al. 2005); rest guess |
+| immune system | adaptive | 5 d–4.29 wk | 12 h–2 d | 100–1000 | 0.5–1 | 0.3–10 | 3–300 | 3–100 | 7.38 | 316 | 17.1 | 0.10, 0.62 | **shared** | shared 62%, both 38% | none | lead: dendritic-cell trafficking to lymph nodes, Randolph, Angeli & Swartz 2005 (10.1038/nri1670); rest guess |
+| immune system | memory | 10 y–100 y | 1 d–1 wk | 100–1000 | 0.7–1 | 10–1e+03 | 0.3–30 | 3–100 | 2.46 | 46 | 2.57 | 0.08, 0.10 | **shared** | shared 82%, both 15%, none 2%, local 1% | none | tau: antibody half-lives 11 y (tetanus) to >200 y (measles, mumps), Amanna, Carlson & Slifka 2007 (10.1056/NEJMoa066092); rest guess |
+| ant colony | patch | 20 min–3 h | 15 min–45 min | 100–1000 | 0.3–0.9 | 0.3–10 | 3–300 | 1–30 | 7.38 | 392 | 9.81 | 0.43, 0.38 | **both** | both 70%, shared 27%, local 2% | none | Lasius niger. Shared store = the pheromone trail; tau: trail lifetime ~47 min, Beckers, Deneubourg & Goss 1993 (10.1007/bf01201674; figure from secondary citations, full text not checked). Local store = private route memory, Grüter, Czaczkes & Ratnieks 2011 (10.1007/s00265-010-1020-2). rho 0.3–0.9: a trail marks one route, which serves only the foragers working that patch (guess); rest guess |
+| ant colony | food supply | 6 h–1 wk | 15 min–45 min | 100–1000 | 0.7–1 | 0.03–1 | 0.3–30 | 1–30 | 0.12 | 107 | 1.83 | 0.03, 0.94 | **shared** | shared 100% | none | Lasius niger. Hypothesized shared store = crop food passed by trophallaxis (the colony's stomach, which every worker's hunger reads); rho 0.7–1 because colony-wide hunger is common to all workers (guess); rest guess |
+| small team | tasks | 1 d–5 d | 2 h–12 h | 5–10 | 0.3–0.8 | 1–30 | 1–30 | 0.5–3 | 2.39 | 10.6 | 2.27 | 0.34, 0.15 | **shared** | shared 56%, both 26%, local 15%, none 2% | none | guess |
+| small team | goals | 1 mo–6 mo | 1 d–1 wk | 5–10 | 0.8–1 | 3–100 | 1–30 | 0.5–3 | 3.4 | 22.1 | 3.42 | 0.05, 0.16 | **shared** | shared 88%, both 10%, local 2% | none | guess |
+| firm | operations | 1 d–1 wk | 1 wk–1.15 mo | 10–300 | 0.1–0.5 | 1–30 | 30–3e+03 | 3–30 | 131 | 0.00322 | 112 | 1.00, 0.00 | **local** | local 99%, both 1% | none | guess |
+| firm | management | 1 mo–6 mo | 2 wk–1.84 mo | 10–300 | 0.5–0.9 | 1–30 | 3–300 | 3–30 | 13.1 | 50.4 | 12.2 | 0.42, 0.14 | **both** | both 59%, local 28%, shared 13% | none | guess |
+| firm | strategy | 2 y–10 y | 1 mo–3 mo | 10–300 | 0.7–1 | 1–30 | 1–100 | 3–30 | 4.36 | 40.9 | 6.2 | 0.05, 0.41 | **shared** | shared 81%, both 16%, none 2%, local 1% | none | guess |
+| city* | services | 6 h–3 d | 3 d–4.29 wk | 10–100 | 0–0.3 | 1–30 | 10–1e+03 | 3–30 | 43.6 | 1.27e-08 | 33.6 | 1.00, 0.00 | **local** | local 100% | none | guess |
+| city* | budget | 1 y–4 y | 1 mo–6 mo | 10–100 | 0.5–0.9 | 1–30 | 1–100 | 3–30 | 4.36 | 16.3 | 4.41 | 0.20, 0.28 | **shared** | shared 44%, both 39%, local 10%, none 6% | none | guess |
+| city* | land use | 10 y–50 y | 6 mo–2 y | 10–100 | 0.5–1 | 3–100 | 1–100 | 3–30 | 6.21 | 21.2 | 5.59 | 0.16, 0.17 | **shared** | shared 47%, both 39%, local 11%, none 2% | none | guess |
+| nation-state* | local | 1 d–4.29 wk | 1 mo–3 mo | 10–100 | 0–0.3 | 1–30 | 10–1e+03 | 3–100 | 43.6 | 1.02e-07 | 28.3 | 1.00, 0.00 | **local** | local 100% | none | guess |
+| nation-state* | business cycle | 2 y–8 y | 1 mo–3 mo | 10–100 | 0.5–0.9 | 1–30 | 1–300 | 3–100 | 7.55 | 17.7 | 6.98 | 0.16, 0.34 | **both** | both 48%, shared 38%, local 10%, none 4% | none | lead: data-release lags, Giannone, Reichlin & Small 2008 (10.1016/j.jmoneco.2008.05.010); rest guess |
+| nation-state* | institutions | 20 y–100 y | 3 mo–2 y | 10–100 | 0.7–1 | 3–100 | 1–100 | 3–100 | 6.21 | 14 | 5.15 | 0.06, 0.23 | **shared** | shared 63%, both 23%, local 11%, none 2% | none | guess |
+| global economy* | markets | 1 h–1 wk | 1 mo–6 mo | 50–200 | 0–0.5 | 1–30 | 10–1e+03 | 10–1e+03 | 43.6 | 3.76e-119 | 21.8 | 1.00, 0.00 | **local** | local 100% | none | guess |
+| global economy* | world cycle | 3 y–10 y | 1 mo–6 mo | 50–200 | 0.3–0.8 | 1–30 | 1–100 | 10–1e+03 | 4.36 | 4.59 | 2.94 | 0.30, 0.33 | **both** | local 30%, both 30%, shared 29%, none 10% | none | guess |
+| global economy* | climate | 30 y–300 y | 1 y–5 y | 50–200 | 0.8–1 | 1–100 | 0.3–30 | 10–1e+03 | 1.61 | 2.41 | 1.23 | 0.03, 0.35 | **shared** | shared 57%, none 24%, local 15%, both 3% | none | guess |
 <!-- /TABLE -->
 
 **Notes on individual placements.**
-- **E. coli: measured inputs (PR #110, not yet merged).**
-  - The world is one OU signal (τ_v = 1.16 s) read through its integral, McMillan degree 2. It is one component, so it gets 2 stores.
-  - X_L is the measured proxy of the fitness benefit of chemotaxis in poor carbon (Ni et al.) divided by the signalling machinery's proteome share:
-    - log₁₀ −0.26 to 1.89, centre 0.81;
-    - the benefit is the stakes the layers actually win, net of latency and reading, so it is X_L itself.
-  - Latency over the fast scale: log₁₀ −0.76 (−1.47 to −0.58). snr: 0.0043–0.103. Both are already inside the measured benefit.
-  - In glucose the benefit is about 0 and X_L < 1, and the map gives no layer. The cell does cut motility there (Ni et al.).
-  - **Caveat:** PR #110 found that the slow store's memory (9.9 s) is 8.5× the optimum under exogenous noise. The diagnosed cause is the store's own noise. This placement uses only benefit ÷ cost, so it does not test the memory time.
-- **Ant colony: not chosen to hit a region.**
-  - The inputs were set from the cited biology before the coordinates were computed, and were not tuned afterward. They were not preregistered either.
-  - The patch trail time is from *Lasius niger* (Beckers et al. 1993), not from the harvester ants of Prabhakar et al. 2012. Species are mixed.
-  - The v2.4 placement into "federation" was circular. There is no federation region now: federation is a local layer in every unit, and it pays for lost pooling through π.
-- **Order of dots.**
-  - Each chain is one system's own time scales, fast to slow. Systems are not placed by size.
-  - The side panel lists systems from small to large only for reading. No order is implied by the map.
+- **E. coli is a plausibility proxy, not a placement (PR #110 inputs; do not merge before PR #110).**
+  - The ratio is the fitness benefit of chemotaxis in poor carbon (Ni et al. 2019, PNAS, issued 23 Dec 2019) divided by the signalling machinery's proteome share: log₁₀ −0.26 to 1.89.
+  - It is **not X_L**, for three reasons:
+    - the benefit includes motility, while the denominator counts only signalling;
+    - a proteome share is not a fitness cost;
+    - the component is degree 2, which is outside B.11's one-store-per-layer setup.
+  - It is therefore drawn in its own strip beside the map, not on the "≈ 0" band.
+  - It says only that the benefit is plausibly larger than the signalling cost. In glucose the benefit is about 0, and the cell does cut motility there (Ni et al.).
+  - **Caveat:** PR #110 found that the slow store's memory (9.9 s) is 8.5× the optimum under exogenous noise. This proxy does not test the memory time.
+- **Ant colony: one species, *Lasius niger*, with named stores.**
+  - *Patch.*
+    - The shared store is the pheromone trail. Its lifetime is ~47 min (Beckers, Deneubourg & Goss 1993). That figure is taken from secondary citations; the full text was not checked.
+    - The local store is each forager's private route memory (Grüter, Czaczkes & Ratnieks 2011).
+    - ρ = 0.3–0.9 because a trail marks one route, which serves only the foragers working that patch.
+  - *Food supply.*
+    - The hypothesized shared store is crop food passed by trophallaxis (the colony's "social stomach"), which every worker's hunger reads.
+    - ρ = 0.7–1 because colony hunger is common to all workers. This is a guess.
+  - The v2.5 citation of Prabhakar et al. 2012 (a harvester ant) was dropped so that the species are no longer mixed.
+  - The inputs were set from the biology before the coordinates were computed. They were not tuned afterward, and they were not preregistered.
+- **Immune memory:** antibody half-lives run from 11 y (tetanus) and 19 y (diphtheria) to about 50 y (varicella-zoster) and >200 y (measles, mumps) (Amanna, Carlson & Slifka 2007, abstract checked).
+- **Order.** Systems are numbered 1–7 from small to large for reading only. Each dot's code (e.g. 2b) gives its system and scale, and no order is implied by position.
 
 ## 6. What is proved, what is only numerical, what is guessed
 
 | Item | Status |
 |---|---|
-| Quadrant edges X_L = 1, X_S = 1; the split rule inside the upper-right quadrant | **Proved** (algebra above), given 0 ≤ κ ≤ 1 and separate read channels |
-| κ ≤ 1 (subadditivity) | **Numerically verified only** (3000 + 15 worlds) |
+| Exact rule: cheapest = argmax(0, X_L − 1, (X_S − 1)/ν, (1 + 1/ν)(X_B − 1)) | **Proved** (identity; any model, any loss) |
+| Map theorem: quadrant edges decide outside the upper-right quadrant for all stakes and upkeeps iff G_B ≤ G_L + G_S | **Proved** (in-model; CT35) |
+| Joint value as a common-mode reference; fixed-rate excess formula | **Proved** (linear-Gaussian, fixed rates; CT36); prior art credited |
+| κ ≤ 1 in the separate-channel, independent-noise, unpriced OU class | **Numerical only** (CX6: 500 + 3000 worlds, 20 adversarial runs) |
+| κ ≤ 1 with priced reading, common read noise, or mixed-rate one stream | **False** (counterexamples A and B; counts above) |
 | OU closed forms for G_L, G_S; X_S = ν·π·e^(−2ℓ/τ)·X_L | **Proved** (Kalman–Bucy); numerically confirmed to 10⁻¹³ to 10⁻¹¹ |
-| Reading price moves dots, not edges | **Proved** (the same algebra on net worths); 1500 worlds confirm |
-| One stream: layer-by-layer marginal reading is exact | **Numerical only** (600/600 two-scale worlds, ≤ 2 stores per location) |
+| One stream: greedy store-by-store | **False in general** (counterexample B); 99.5–100% in samples; the pairwise look-ahead matched exhaustive search in 800/800 (numerical) |
 | CT33 on the map (spend never falls as stakes rise, ruin slack) | Follows from CT33; tested on 200 worlds |
-| Every dot's inputs | **Guessed**, except E. coli's measured proxy and the cited time scales and delays |
+| Every dot's inputs | **Guessed**, except the cited time scales and delays |
 
 ## 7. Referee's list (written by the author; not an independent review)
 
-1. **The dots are guesses.** Stakes ÷ upkeep (R) is unmeasured in every system except E. coli's proxy (GAPS G3). Shared-store upkeep h_c/h_l is a guess everywhere.
-2. **κ ≤ 1 is not proved.** A world where G_B > G_L + G_S would let "both" beat "local" in the local quadrant.
-3. **The model class is narrow.** Components are linear-Gaussian OU with first-order stores. Real worlds have saturation (E. coli's receptors), heavy tails and non-stationarity.
-4. **The one-stream rule is only sampled.** It is verified on two scales and small store counts.
-5. **9 of the 20 dots are near an edge** (no design wins ≥ 65% of draws). Their reading can flip within their input ranges.
-6. **The ellipses are not posteriors.** They come from independent log-uniform ranges.
-7. **Ruin is not drawn.** Systems near their reserve limit may sit off the design shown.
+1. **The dots are guesses.** Stakes ÷ upkeep (R) is unmeasured everywhere (GAPS G3). Shared-store upkeep h_c/h_l is a guess everywhere.
+2. **Subadditivity is sampled, not proved,** even in the class of the dots (CX6). Outside it, the shading is not the design. The markers still are.
+3. **The model class is narrow.** Components are linear-Gaussian OU with first-order stores. Real worlds have saturation, heavy tails and non-stationarity.
+4. **The one-stream rule is sampled** on two scales and ≤ 2 stores per location.
+5. **9 of the 19 mapped dots are hollow** (no design wins ≥ 65% of draws).
+6. **The ellipses are not posteriors.** They come from independent ranges.
+7. **Ruin is not drawn.**
 8. **The hierarchy above one shared level is not drawn.**
-9. **E. coli's X_L is a proxy.** The fitness benefit was measured in one medium. The memory-time test in PR #110 failed on its setup.
-10. **Species are mixed in the ant inputs.** City, nation-state and global economy are marked * because their selection is weak or unknown.
-11. **The counting rule is proposed, not yet preregistered per class.** Only E. coli has an observed count.
+9. **E. coli is a proxy off the map.** It depends on PR #110, which is not yet merged.
+10. **City, nation-state and global economy are starred** because their selection is weak or unknown.
+11. **The counting rule is proposed.** It has not been preregistered per class, and no system has been counted by it yet.
+12. **Beckers' 47 min** is not checked against the full text.
 
 ## 8. History
 
 - **The v2.4 figure** (one made-up 14-scale world, regions from assumed sensing and ruin knobs) was withdrawn in `bc9a1ec` after review 3.
-- **Corrections to its notes, for the record:**
-  - its federation boundary values 22, 105 and 376 (n = 3, 10, 30 at ℓ = 1) were **optimized-sensing** values; the fixed-sensing closed form gives 28.5, 128 and 414;
-  - its word for the sensing spend should have been "sensing cost".
-- **v2.5 replaces that figure** with the theorem above. Superseded and removed: `face_model.py`, `face_regions.py`, `face_tables.json`, `face_regions.json`, `tools/test_face_regions.py`.
+  - Its federation boundary values 22, 105 and 376 (n = 3, 10, 30 at ℓ = 1) were **optimized-sensing** values. The fixed-sensing closed form gives 28.5, 128 and 414.
+  - Its word for the sensing spend should have been "sensing cost".
+- **v2.5** introduced the map theorem.
+- **v2.5.1 answers review 26 (NOT READY):**
+  1. **False universality of the edges.**
+     - The theorem is now stated as an iff on subadditivity.
+     - The classes are measured (`face_subadd.py`).
+     - The mechanism is named, and prior art is credited.
+  2. **Reading price "moves dots, never edges".** Withdrawn. Counterexample A is a regression test, and v1b is relabelled as an identity check.
+  3. **Greedy one-stream rule.** Withdrawn as a rule.
+     - The old check used ρ = 1 and ≤ 2 stores.
+     - The new V3 draws ρ per component in half of its worlds.
+     - Counterexample B is a test.
+     - The stated rule is exhaustive search, with a pairwise look-ahead.
+  4. **"BOTH PAY" label.** Replaced: the regions now say which single layer pays on its own, and the shape gives the pick.
+  5. **Axis "net of reading" while the dots are gross.** The axes now say "at the stated read quality".
+  6. **E. coli as measured X_L.** Now a plausibility proxy, off the map. Do not merge before PR #110.
+  7. **B.11 in the claim index.** Added to THEORY Appendix C and CLAIM_MAP §O as CT35, CT36 and CX6.
+  8. **Tests.**
+     - The quadrant vs decide disagreement at κ > 1 is now tested.
+     - Counterexamples A and B are tests.
+     - The 100% greedy assertion is dropped.
+  9. **V2 crash.** Fixed. The "optimizer noise" wording is replaced by the tolerance statement.
+  10. **Missing systems in the side panel.** All 7 multi-unit systems are listed and numbered, and E. coli has its own strip.
+  11. **Clutter.**
+      - Dot codes replace the chains.
+      - Labels are placed deterministically.
+      - `face_all` is now dpi 120 with font ≥ 9.
+  12. **face_collapse titles.** Retitled; the clipped note is readable.
+  13. **Citations.**
+      - Ni et al. is dated 2019.
+      - Amanna's half-lives are corrected per the abstract.
+      - Beckers' 47 min is marked unchecked.
+  14. **Counting rule.** Made numeric:
+      - ΔBIC ≥ 10 and resolution factor 3;
+      - the I/O pair and band per class;
+      - a relay-only test;
+      - the miss rule.
+  15. **Ant stores.** The ant stores are named, ρ is justified, and the species are *Lasius* only.
+  16. **One-stream check and F1.**
+      - The one-stream check now states ρ and store limits.
+      - F1 now says ν and "at equal read quality".
 
 ## 9. Regenerate
 
 ```
-nice -n 19 python3 figures/face_collapse_v1.py 3000     # about 2 min: random worlds, map vs numerical optimum
-nice -n 19 python3 figures/face_collapse_v1b.py 1500    # about 3 min: reading priced
-nice -n 19 python3 figures/face_collapse_v23.py         # about 4 min: one read stream
+nice -n 19 python3 figures/face_collapse_v1.py 3000     # about 2 min: random worlds, exact rule vs brute force
+nice -n 19 python3 figures/face_collapse_v1b.py 1500    # about 3 min: reading priced (identity check)
+nice -n 19 python3 figures/face_collapse_v23.py 300 800 # about 8 min: one read stream (V2 300, V3 800 worlds)
+nice -n 19 python3 figures/face_subadd.py 1500          # about 4 min: which classes are subadditive
 nice -n 19 python3 figures/face_place.py                # about 1 min: placements -> face_dots.json
 nice -n 19 python3 figures/face_table.py                # the table above
 nice -n 19 python3 figures/face.py                      # face.png (1600x1000), face_square.png (1200x1200), face_all.png
