@@ -1,0 +1,68 @@
+{
+  "prereg_sha": "5d0c11a3c4ca5146d3a2e806a46524eb3dcba25f",
+  "pass": 1,
+  "window": [
+    "2011-01-01",
+    "2026-11-20"
+  ],
+  "pass2_not_started": true,
+  "grids": {
+    "GB": {
+      "S_sigma": 1,
+      "S_N": 1,
+      "S_red": 1,
+      "S_ruin": 2,
+      "S": 5,
+      "R_go_live": 7,
+      "status": "scored"
+    },
+    "AU_NEM": {
+      "S_sigma": 0,
+      "S_N": 1,
+      "S_red": 0,
+      "S_ruin": 0,
+      "S": 1,
+      "R_go_live": 2,
+      "status": "scored"
+    },
+    "ERCOT": {
+      "S_sigma": 1,
+      "S_N": 1,
+      "S_red": 0,
+      "S_ruin": 2,
+      "S": 4,
+      "R_go_live": 1,
+      "status": "scored"
+    },
+    "IE_NI": {
+      "S_sigma": 0,
+      "S_N": 1,
+      "S_red": 0,
+      "S_ruin": 0,
+      "S": 1,
+      "R_go_live": 0,
+      "status": "scored"
+    },
+    "Nordic": {
+      "S_sigma": 0,
+      "S_N": 1,
+      "S_red": 0,
+      "S_ruin": 0,
+      "S": 1,
+      "R_go_live": 0,
+      "status": "scored"
+    },
+    "Continental_Europe": {
+      "S_sigma": 0,
+      "S_N": 1,
+      "S_red": 0,
+      "S_ruin": 0,
+      "S": 1,
+      "R_go_live": 0,
+      "status": "scored"
+    },
+    "Hawaii": {
+      "status": "UNTESTED"
+    }
+  }
+}
