@@ -329,7 +329,7 @@ Setting: S with renewal checks (A3). A copy taken at age 0 is used by the Bayes 
 
 **S5 (the only currency-free exchange rate) [KNOWN].**
 - **The statement.** In multiplicative persistence, a cue is worth at most I(E; C) nats of growth per generation, with equality under proportional allocation (Kelly 1956; Donaldson-Matasci et al. 2010; re-checked: gain = I to 6 digits, `c5d`).
-- **The physical dual.** Measurement-based work extraction gives at most kT ln 2 per bit (Vinkler, Permuter & Merhav 2016).
+- **The physical dual.** Measurement-based work extraction gives at most kT ln 2 per bit (Vinkler, Permuter & Merhav 2016, doi 10.1088/1742-5468/2016/04/043403).
 - **Reading.** This is the one place where "same tradeoff, different currency" is literally exact: a bit buys ln 2 of log-growth or kT ln 2 of work.
 - **Limit.** It needs multiplicative dynamics (cells, populations, compounding capital). Additive-reserve organizations get problem-specific exchange rates, namely the slope of D(R).
 
