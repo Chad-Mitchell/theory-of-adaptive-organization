@@ -57,6 +57,11 @@ L₂/((s+p₁)(s+p₂)); when its poles are real (low SNR) that is **exactly** t
 G e^{−t/τ2}(1 − e^{−t/τ1}) with 1/τ2 = p₁ and 1/τ1 = p₂ − p₁ (at the Berg–Purcell floor in the lab the poles are complex,
 so the optimum would ring instead). The form is right; the times are not.
 
+**How costly is the miss? (post hoc, `ecoli/posthoc/flatness.out`; no verdict.)** A single store at the measured 9.9 s
+captures **36–37%** of the explained variance of u that the arm-B optimum captures, so under exogenous noise the
+miss is costly, not a flat optimum. Under arm C it captures **86–97%** (g = 0.1–0.4 mm⁻¹): near the minimum. Which of the
+two the cell lives in is exactly F2.
+
 ### E.3 Diagnosis of the miss (causal, before concluding anything)
 | Candidate cause | Evidence | Weight |
 |---|---|---|

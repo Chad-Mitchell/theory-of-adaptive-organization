@@ -1,0 +1,4 @@
+g=0.1 B fixed density: tau*=1.16 s; measured 9.9 s captures 0.37 of the optimum's explained variance
+g=0.1 C fixed variance: tau*=61.91 s; measured 9.9 s captures 0.86 of the optimum's explained variance
+g=0.4 B fixed density: tau*=1.11 s; measured 9.9 s captures 0.36 of the optimum's explained variance
+g=0.4 C fixed variance: tau*=15.89 s; measured 9.9 s captures 0.97 of the optimum's explained variance
