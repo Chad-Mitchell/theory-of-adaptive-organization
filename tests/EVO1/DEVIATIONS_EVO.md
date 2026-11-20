@@ -3,7 +3,7 @@
 Every departure from `PREREG_EVO.md` after the lock is recorded here with its time (America/New_York, ET), before the
 affected result is read where possible. None yet.
 
-## D1 (Fri 20 Nov 2026, 1:53 PM ET): diagnostics for W4b and W3, added after their runs finished; the locked verdicts stand
+## D1 (Fri 20 Nov 2026, about 1:51 PM ET; commit cf77048 is the record): diagnostics for W4b and W3, added after their runs finished; the locked verdicts stand
 
 Read before writing this entry: the locked scoring of the finished PC, W1, W3 and W4b seeds (W2, W4, S031, S07 still running).
 - **W4b:** all 8 seeds evolved one local store and no shared store (J gap 1.04%, the "no sharing" rival's gap), so W4b will
@@ -25,3 +25,13 @@ Read before writing this entry: the locked scoring of the finished PC, W1, W3 an
   near-optimal designs. **D1c:** rerun W3 with the buffer ×10 (seeds 0–7, otherwise locked), reported beside the locked
   INVALID, never in place of it; and evaluate the evolved consensus design as a fixed design with the locked ruin gate over
   40 worlds to measure its own death rate.
+
+## D2 (Fri 20 Nov 2026, about 2:25 PM ET; the commit adding this entry is the record): a reachability diagnostic for W4
+
+Read before writing: the locked scoring of all 8 W4 seeds. Three seeds (0, 4, 6, all one-store starts) stayed at one
+local store (J gap 8.1%), so W4 will score FAILED (3 misses) under §6. The four four-store starts (1, 3, 5, 7) and one
+one-store start (2) reached one local plus one shared store inside the band, so the predicted design is reachable and holds
+once reached. Suspected cause, as in W4b: a shared store created from nothing starts with read weight 0, so it costs hc
+(2.4% of J* in W4) before it can pay. **D2b:** D1b's change (a store created from nothing gets weight N(0, 0.3²)) applied to
+W4, seeds 0, 2, 4, 6 (one-store starts), otherwise locked. Fixed interpretation: ≥ 3 of 4 reaching the band means the
+weight-0 creation valley is the barrier. It cannot change the W4 verdict.

@@ -14,7 +14,7 @@ if which == 'D1c':
 json.dump(cfg, open(os.path.join(D, 'worlds.json'), 'w'), indent=1)
 for f in ('evo.py',): shutil.copy(os.path.join(HERE, f), D)
 evo.HERE = D                                       # the locked code, reading the diagnostic worlds file
-world = 'W3' if which == 'D1c' else 'W4b'
+world = 'W3' if which == 'D1c' else ('W4' if which == 'D2b' else 'W4b')
 if which == 'D1a':
     PR = json.load(open(os.path.join(HERE, 'PREDICTIONS_EVO.json')))['W4b']
     def init_at_prediction(p, E, P, start, rng):
@@ -23,7 +23,7 @@ if which == 'D1a':
         pop.nc[:] = 1; pop.bc[:, 0] = PR['bc'][0]; pop.gc[:, 0] = PR['gc'][0]
         return pop
     evo.init_pop = init_at_prediction
-if which == 'D1b':
+if which in ('D1b', 'D2b'):
     _mut = evo.mutate
     def mutate_new_store_weight(pop, p, E, rng):
         before_l, before_c = pop.nl.copy(), pop.nc.copy()
