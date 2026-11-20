@@ -1,4 +1,4 @@
-# Synthesis of the measured program so far (v2.61, Friday 20 November 2026; first written v2.60, about 11:50 AM ET)
+# Synthesis of the measured program so far (v2.62, Friday 20 November 2026; first written v2.60, about 11:50 AM ET)
 
 A self-check by one executor for Chad, not an independent review. Every verdict below was scored by a rule
 committed before its data were computed; deviations were committed before outcomes and are listed in each file.
@@ -11,7 +11,7 @@ the parent chain are the record. Analysis code was committed but not hash-locked
 ## Per-test verdicts
 | Test | Claim tested | Verdict | Source |
 |---|---|---|---|
-| E. coli memory (first placement) | Slow layer's memory = Model S optimum (1.09–1.17 s) | **FAIL on proxy** (measured 9.9 s, 8.5×); rival "set at" fails too; structure (degree 2 → two stores) weak pass. The FAIL reflects our objective (current u, lead 0, exogenous noise): Tjalma & ten Wolde 2024 find ≈10 s near-optimal for predicting concentration change (see below) | `README.md`, `ecoli/PREREG_NOTES.md` |
+| E. coli memory (first placement) | Slow layer's memory = Model S optimum (1.09–1.17 s) | **FAIL on proxy** (measured 9.9 s, 8.5×); rival "set at" fails too; structure (degree 2 → two stores) weak pass. The FAIL reflects our objective (current u, lead 0, exogenous noise): Tjalma & ten Wolde 2024, predicting concentration change, find ≈10 s close to optimal in performance for g ≲ 4 mm⁻¹ under RT = 8 (flagged uncertain); their optimum is longer than 10 s at lab gradients (see below) | `README.md`, `ecoli/PREREG_NOTES.md` |
 | F2 (store-noise exponent) | Store noise fixed vs scaling as sensing noise | **INCONCLUSIVE** (s = 0.31, CI 0.24–0.37: neither locked model); rerun optimum 1.9–3.6 s | `ecoli/RESULTS_F2.md` |
 | SN1 / SN1-F1 | λτ ≥ (1−s)/(2s) on new systems | 0/7 scorable; SN1-F1 **INVALID** (V. ordalii noise is not counting noise) | `SN1_RESULTS.md` |
 | Follow-up D (E. coli gap) | Drift objective / speed price / habitat mode | Drift does not explain the gap **in the linear, gain-bounded regime** (D1 DOES NOT EXPLAIN, D2 NEITHER; nonlinear-motor objective untested); speed price only at the box corner; habitat mode **open**; Y4 untested | `ecoli/RESULTS_D.md` |
@@ -31,9 +31,11 @@ the parent chain are the record. Analysis code was committed but not hash-locked
   objective is untested). A slow habitat mode or speed-priced upkeep could close it; neither is measured.
 - **Missed prior art (added v2.61, review 27 M2).** Tjalma & ten Wolde 2024 (Phys. Rev. Research 6, 033049, doi
   10.1103/PhysRevResearch.6.033049; read in full as arXiv:2402.05825v1) take the objective of predicting the future
-  concentration change, with methylation noise that does not average out. With their resource estimates, the measured
-  ≈10 s is close to optimal for gradients g ≲ 4 mm⁻¹, and the optimum scales approximately as 1/g. The ×8.5 FAIL stands as
-  preregistered, but it reflects **our choice of objective**. Their account may explain the remaining factor; I have not
+  concentration change, with methylation noise that does not average out. With their resource estimates (RT = 8, which
+  they flag as uncertain), the measured ≈10 s is close to optimal **in performance** for g ≲ 4 mm⁻¹. Performance is
+  near the bound there, and the optimum scales approximately as 1/g, so at lab gradients (0.1–0.4 mm⁻¹) it is longer
+  than 10 s. The ×8.5 FAIL stands as
+  preregistered, but it reflects **our choice of objective**. With that qualifier, their account may explain the remaining factor; I have not
   reproduced their calculation. They have priority on the 1/g scaling (F1's direction).
 - **GRID-1 (INVALID):** closed-loop grid data cannot show the pre-control world below the slowest loop's time
   scale without tie-line/ACE data. Any grid test needs a single synchronous area, or published area-control

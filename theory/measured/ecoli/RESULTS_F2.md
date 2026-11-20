@@ -17,6 +17,11 @@ not), and it is the only source with a wide τ range (×17 against ×4). **Neith
 The point estimate is in the gap; the CI touches both bands' edges (0.24 < 0.25; 0.37 > 0.35).
 
 ## Hostile notes on F2
+- **Added v2.62 (review 27 S-10): what s mixes and assumes.** Park's CheY-P noise is downstream of the kinase. It
+  carries noise from upstream (receptor/methylation) and from the readout itself, so s mixes the store's own noise
+  with noise passed through it. Not all of it is the store's own noise. Converting CheY-P variance into kinase-level
+  store noise also assumes the gain G between them does not depend on τ. Across CheR-induction conditions, G may
+  change with a0 and thus with τ. The direction of either bias is not known.
 - **Park's own fit hides this.** The paper fits a line through the origin (τ ≈ 257 s/µM² × variance, R² 0.9) and reads
   "D nearly constant", i.e. arm B. A free log-log slope over the same nine points gives Var ∝ τ^0.62, not τ^1. The linear
   fit's apparent support for arm B comes from the low-τ points (i, h, f) lying right of the line. I digitized by hand from

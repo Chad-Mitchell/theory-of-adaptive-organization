@@ -11,3 +11,11 @@ e6e7a39ee865f73fe6f2a7ad03a473ca73e1628817880bd2ebce1b52421df569  SRL_Soll_20260
 6a3979bfdfb9b84f22d041ef744d38b0bfdfa8c2ac25231c7a2c07939b417ee1  SRL_Soll_20260501_20260531.csv.zip
 e4374964e1fc73677b7d54010a8b0b7481673c2b969c242e591a7181f11eab95  SRL_Soll_20260601_20260630.csv.zip
 ```
+
+**URLs (added v2.62, review 27 S-6).** Landing pages (re-checked HTTP 200, 20 Nov 2026, about 12:25 PM ET):
+https://www.netztransparenz.de/de-de/Regelenergie/Daten-Regelreserve/Sek%C3%BCndliche-Daten (aFRR setpoint, SRL-Soll)
+and https://www.netztransparenz.de/de-de/Regelenergie/Daten-Regelreserve/Aktivierte-Regelleistung (activated aFRR/mFRR).
+The SRL-Soll monthly zips and the two CSV exports are produced through the page's date-range download form. No static
+link to them appears in the page source, so the per-file URLs and form parameters are **unknown**. The download times
+above are from Chad's report. They agree with the export names' stamp "16-55", read as German time (CET, UTC+1),
+which is 10:55 AM ET. That reading of the stamp is an inference.

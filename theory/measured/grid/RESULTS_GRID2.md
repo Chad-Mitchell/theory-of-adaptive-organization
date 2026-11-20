@@ -3,10 +3,13 @@
 Locks: GRID-2 prereg `36416d2` (`PREREG_GRID2.md`, 9:56:21 AM ET), GRID-S `8b0ef50` (10:03:29 AM ET),
 DV-GB1 `50502a0` (10:06:05 AM ET; its text says "about 10:15 AM", which was wrong: the commit time is the record).
 **Erratum (v2.61, review 27 M3):** an earlier version of this line said DV-GB1 came "before any GB series was
-downloaded". That was false. Correct statement: DV-GB1 came **before any GB value was inspected or computed**. The
-MFR holding workbooks (about 10:04 AM ET) and one day of Elexon BOALF/PN (format check, about 10:05 AM ET) were fetched
-before it, and dataset metadata (field names) was read. The frequency, inertia and EAC files were fetched right after it
-(10:06–10:07 AM ET), and the BM days from about 10:07 AM ET. Code `grid2_run.py`
+downloaded". That was false. Correct statement (refined v2.62, review 27 R2-3): DV-GB1 came **before any frequency value or outcome statistic was
+inspected or computed**. Some GB values had been seen, as DV-GB1's own "Seen" list says: the first 3 rows of the EAC
+results (April 2026 DRH volumes), the first 3 rows per month of the MFR workbook, and one day of BOALF/PN. The MFR holding
+workbooks (about 10:04 AM ET) and the BOALF/PN format day (about 10:05 AM ET) were fetched before it, and dataset
+metadata (field names) was read. The frequency, inertia and EAC files were fetched right after it (about 10:06–10:07 AM
+ET), and the BM days from about 10:07 AM ET. These fetch times are reconstructed from the session's command order,
+not logged. Code `grid2_run.py`
 (main sample, robustness, S1) and `grid2_fast12m` mode; outputs `grid2_results.json`, `grid2_fast12m.json`.
 Diagnosis after the verdicts: `grid2_diag.py`, `grid2_diag.json`. Implementation fixes during the run (no rule
 changes): duplicate inertia timestamps between the two yearly files; mixed date formats in the Aug–Oct
