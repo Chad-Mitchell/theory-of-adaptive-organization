@@ -1,44 +1,238 @@
-# Placements on the figure (`figures/face.png`, "Where adaptive systems should sit"): notes and sources
+# The map of designs (`figures/face.png`, "Where the cost of judgment puts layers"): theorem, placements and sources
 
-**Every position is a hypothesis.** No system has valid measured stakes (GAPS G3), so none has a measured R. The regions are those of one made-up model world (`figures/face_model.py`, `figures/face_regions.py`): 14 non-oscillating time scales from 1 to about 3×10⁶ fast units (two per decade, equal variance, so a spectrum of about 1/f), read by **n = 10 units** through white noise; sensing chosen optimally at a price C0/N with C0 = 0.003h; each layer costs h. A circle says "if this system's dimensionless coordinates were about here, this model world would call its design X". The circles are drawn about ±0.4–0.6 decades wide on purpose; they are probably too narrow.
+*v2.5, Friday 20 November 2026 (America/New_York). Branch `v2.5-map`. Written by a Grok Bot executor for Chad. It checks itself
+and has **not** been independently reviewed. The map replaces the v2.4 figure withdrawn in `bc9a1ec`.*
 
-## What is derived and what is illustrative
+**What this map is.**
+- **The regions are derived.** They are a theorem of the cost of judgment, J = upkeep + stakes × error + reading cost.
+- **The dots are hypotheses.** Every input behind a dot is a guess, except E. coli's, which uses a measured proxy from PR #110.
+- **A layer is a tracking store,** a memory with its own time constant. It is not an org-chart level.
 
-| Part of the figure | Status |
+Files:
+- Regions: `face_map.py`.
+- Store model: `face_hybrid.py`.
+- Placement inputs: `face_systems.py`.
+- Coordinates and uncertainty: `face_place.py`.
+- Drawing: `face.py`.
+- Data-collapse figure: `face_collapse.py`.
+- Checks: `face_collapse_v1.py`, `face_collapse_v1b.py`, `face_collapse_v23.py`.
+- Tests: `tools/test_face_map.py`.
+
+## 1. The map theorem (THEORY B.11)
+
+**Setup.**
+- A system has n units (n = 1 is allowed).
+- The world is a sum of independent components, one per time scale. Each component is read by the units through its own channel.
+- For one component, there are four designs:
+  - **Local:** a layer in each unit, using that unit's own reads, on time. Upkeep n·h_l; gain G_L per unit.
+  - **Shared:** one layer that pools all n units' reads, which reach it a delay ℓ late. Upkeep h_c; gain G_S per unit.
+  - **Both:** local layers plus a shared one. Gain G_B per unit.
+  - **None.**
+- "Gain" is the drop in expected loss that the layer buys per unit stake. The stake per unit is w_u.
+
+**Coordinates.** Each axis is "stakes the layer can win ÷ its upkeep":
+
+  X_L = w_u·G_L / h_l,    X_S = n·w_u·G_S / h_c.
+
+**Two more numbers.**
+- ν = n·h_l / h_c: how many local layers' upkeep one shared layer costs.
+- κ_S = (G_B − G_L)/G_S and κ_L = (G_B − G_S)/G_L: the share of each layer's gain that the other layer does not already supply.
+
+**Value of each design over none**, in units of n·h_l (each line is stakes won minus upkeep):
+- local = X_L − 1
+- shared = (X_S − 1)/ν
+- both = X_L − 1 + (κ_S·X_S − 1)/ν
+
+**Proof.** Divide each value by n·h_l. For "both", use G_B = G_L + κ_S·G_S. The identity (1 − κ_S)·G_S = (1 − κ_L)·G_L gives both − shared = κ_L·X_L − 1. With 0 ≤ κ ≤ 1:
+
+| Where | Best design | Which numbers decide |
+|---|---|---|
+| X_L ≤ 1 and X_S ≤ 1 | **none** | only X_L, X_S |
+| X_L > 1, X_S ≤ 1 | **local** (both − local = (κ_S X_S − 1)/ν ≤ 0) | only X_L, X_S |
+| X_S > 1, X_L ≤ 1 | **shared** (both − shared = κ_L X_L − 1 ≤ 0) | only X_L, X_S |
+| X_L > 1 and X_S > 1 | **both** iff κ_L X_L > 1 and κ_S X_S > 1; otherwise local iff ν(X_L − 1) > X_S − 1 | ν, κ_L, κ_S as well |
+
+**Assumptions behind the theorem.**
+- κ ≥ 0 because an added layer can be given zero gain.
+- κ ≤ 1 is subadditivity, G_B ≤ G_L + G_S. This is **verified numerically, not proved**:
+  - it held in every one of the 3000 + 15 random worlds tried;
+  - the largest κ_S found was 0.99, and the largest κ_L was 1 − 3×10⁻¹⁰.
+- Costs add across components when each component has its own read channel (the theory's 𝒜₁ class), so each component is placed on its own.
+
+**Closed forms for an Ornstein–Uhlenbeck component.** The component has rate a = 1/τ and variance v, and is read through white noise of density N per unit. A share ρ of its variance is common to all units. Then (Kalman–Bucy; THEORY L1):
+- G_L = v − P(v, a, N)
+- G_S = e^(−2ℓ/τ) · (v_m − P(v_m, a, N/n)), where v_m = v·(ρ + (1 − ρ)/n)
+- P(v, a, N) = N·a·(√(1 + 2v/(Na)) − 1)
+
+Hence **X_S = ν · π · e^(−2ℓ/τ) · X_L**, where π is the pooling gain. A shared layer's worth falls as e^(−2ℓ/τ), so fast scales go local and slow scales go shared. This is the theory's nesting (CT28, CT34), now drawn.
+
+## 2. What the axes absorb, and what a single 2-D map cannot show
+
+**Absorbed into the coordinates:**
+- **The world's spectrum.** Each component is its own dot. A rhythm or an integrated signal is one component of degree 2, so it gets 2 stores.
+- **Read noise.**
+- **Delay.** It enters only as e^(−2ℓ/τ).
+- **Number of units, and how much of the world they share.** These enter through π and ν.
+- **The reading price.**
+  - With reading priced at c/N per unit and N chosen per design, the coordinates become *net* worths. The same edges then decide.
+  - `face_collapse_v1b.py` checks this: 1500 random worlds, numerical optimum vs the map's reading, **100% agreement**.
+  - So the reading price that review 3 found driving the v2.4 figure (C0) moves dots. It never moves edges.
+- **The loss function.** Only gains in expected loss enter.
+
+**Not on one 2-D map, by the theorem itself.**
+- Inside the upper-right quadrant, the choice between local, shared and both also depends on ν, κ_L and κ_S.
+- No pair of axes can absorb these, because each dot has its own values.
+- So the map draws each dot with its own design (circle = local, square = shared, diamond = both).
+- Panel (c) of `face_collapse.png` shows that split: both iff κ_L X_L > 1 and κ_S X_S > 1.
+- **The edges X_L = 1 and X_S = 1 are universal. The split of the upper-right quadrant is per dot.**
+
+**Survival (ruin) is a gate, not a region.**
+- CT33 and the regions hold where the ruin constraint is slack.
+- Where ruin binds, the cheapest feasible design can differ.
+- Below the minimum reserve, no design survives.
+- The v2.4 "NOT VIABLE" region came from an assumed income (η = 1.5). It covered the zero-layer region, so it is gone.
+- **None** here means "react, don't model". It does not mean "not viable".
+
+**One read stream (many scales through one channel, as in a cell's receptors).** The per-component reading is not exact here, because one store can follow two components.
+- Place layers **one at a time by marginal worth.**
+- `face_collapse_v23.py` (V3) tested two-scale worlds with up to 2 local and 2 shared stores (600 worlds):
+  - the layer-by-layer reading matched the exact optimum in **600/600**, regret 0;
+  - reading each scale as if it had its own channel matched in only **51%** (regret median 0, 90th percentile 12%), because it overstates slow layers.
+- V2 (one stream, layer count): marginal worths fell layer by layer in 97% of 300 worlds, and in 99.7% within a 10⁻⁵ tolerance. The exceptions are optimizer noise.
+
+**Data collapse** (`face_collapse.png`):
+- (a) 3000 random worlds in raw inputs: the best designs overlap.
+- (b) The same worlds in (X_L, X_S): the edges at 1 separate them exactly (3000/3000; closed-form gains agree with numerics to 4×10⁻¹⁴ and 5×10⁻¹¹).
+- (c) The κ split.
+- (d) Reading priced.
+
+## 3. Layers are tracking stores, not management levels
+
+**What counts as a layer.**
+- A layer is a store: a state the system holds that follows the world with its own time constant.
+- An org-chart level counts only if it holds such a state, with a distinct measured time constant.
+- A level that only relays reads is not a layer. That is the "telling" of CT16.
+
+**One shared level per component.**
+- The map shows one shared level per component. Hierarchies arise by applying the same rule along the member axis:
+  - a shared level forms once enough members face a common driver (CT14);
+  - nested levels pay when their time scales separate (CT28, CT34);
+  - a team's optimized cost enters its parent's problem as upkeep (CT34).
+- So a firm's "management" component on the map is the firm-wide store. Its divisions would be the same map applied one level down.
+
+## 4. An operational rule for counting a real system's layers (proposed; to be preregistered per class)
+
+1. **Measure the response.** Measure the system's response kernel to the driving signal (impulse, step, or white-noise input) over the band of time scales in question, by a protocol fixed in advance.
+2. **Fit sums of exponentials.** Fit sums of exponentials, complex-conjugate pairs allowed, of order K = 1, …, K_max. Choose K by a preregistered criterion (for example BIC, or held-out prediction error with a stated threshold).
+   - Two poles closer than a preregistered resolution factor count as one.
+3. **Count by degree.** The layer count is the number of poles: a complex pair (a rhythm) counts 2, and an integrator-plus-filter like E. coli's counts 2.
+4. **Classify each pole.**
+   - *Local:* it appears in each unit's own response, measured on isolated units.
+   - *Shared:* it appears only in the pooled response, and disappears when units are isolated.
+5. **Compare.** Compare this count, and the local/shared split, with the map's prediction per component.
+
+| System | Observed by this rule | Map gives |
+|---|---|---|
+| E. coli | **2**, local. The kernel G·e^(−t/τ2)(1 − e^(−t/τ1)) was fitted to 442 cells (Mattingly et al. 2021; PR #110); the two-pole fit was not chosen by this rule's preregistered selection | 2 (one degree-2 component, local) |
+| every other system | not yet measured by the rule | see table |
+
+## 5. Placements (hypothesized positions, not measurements)
+
+**How the table is built.**
+- Times are given as ranges.
+- Each dot is the centre of its input ranges:
+  - log-uniform draws for every input except ρ, which is drawn uniformly;
+  - 400 draws per dot;
+  - the ellipses are the 1σ (main figure) or 2σ (`face_all.png`) covariance in log space.
+- "Share of draws" is how often each design wins across the input ranges. A dot is drawn hollow or dashed when its system's selection is weak or unknown (marked *).
+- A dot is called "near edge" when no design wins ≥ 65% of draws.
+- `figures/face_table.py` writes this table from `face_dots.json`. `tools/test_face_map.py` checks every "map gives" against the coordinates.
+
+<!-- TABLE -->
+| System | Scale | τ | delay ℓ | units n | shared ρ | snr | stakes ÷ upkeep R | h_c ÷ h_l | X_L (centre) | X_S (centre) | map gives | share of draws | sources |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| E. coli | gradient signal | 1.16 s | 0.039 s–0.3 s | 1 | 1 | 0.0043–0.103 | proxy 10^-0.26–10^1.89 | 1 | 6.53 | — | **local** | local 88%, none 12% | all inputs measured or proxy: PR #110 `theory/measured/measured.json` (Mattingly et al. 2021, 10.1038/s41567-021-01380-3; Ni et al. 2019, 10.1073/pnas.1910849117); X_L is a proxy (benefit / proteome share) |
+| immune system | innate | 1 h–10 h | 12 h–2 d | 100–1000 | 0.1–0.5 | 1–30 | 30–3e+03 | 3–100 | 131 | 0.000388 | **local** | local 99% | lead as adaptive (Randolph et al. 2005); rest guess |
+| immune system | adaptive | 5 d–4.29 wk | 12 h–2 d | 100–1000 | 0.5–1 | 0.3–10 | 3–300 | 3–100 | 7.38 | 316 | **shared** | shared 62%, both 38% | lead: dendritic-cell trafficking to lymph nodes, Randolph, Angeli & Swartz 2005 (10.1038/nri1670); rest guess |
+| immune system | memory | 10 y–100 y | 1 d–1 wk | 100–1000 | 0.7–1 | 10–1e+03 | 0.3–30 | 3–100 | 2.46 | 46 | **shared** | shared 82%, both 15%, none 2%, local 1% | tau: antibody half-lives 11 to >200 y, Amanna, Carlson & Slifka 2007 (10.1056/NEJMoa066092); rest guess |
+| ant colony | patch | 20 min–3 h | 15 min–45 min | 100–1000 | 0–0.3 | 0.3–10 | 3–300 | 1–30 | 7.38 | 89.4 | **both** | both 70%, local 16%, shared 13%, none 2% | tau: trail lifetime ~47 min (Lasius niger), Beckers, Deneubourg & Goss 1993 (10.1007/bf01201674); rest guess |
+| ant colony | food supply | 6 h–1 wk | 15 min–45 min | 100–1000 | 0.7–1 | 0.03–1 | 0.3–30 | 1–30 | 0.12 | 107 | **shared** | shared 100% | rho: foraging regulated by return rate with no spatial information, Prabhakar, Dektar & Gordon 2012 (10.1371/journal.pcbi.1002670); rest guess |
+| small team | tasks | 1 d–5 d | 2 h–12 h | 5–10 | 0.3–0.8 | 1–30 | 1–30 | 0.5–3 | 2.39 | 10.6 | **shared** | shared 56%, both 26%, local 15%, none 2% | guess |
+| small team | goals | 1 mo–6 mo | 1 d–1 wk | 5–10 | 0.8–1 | 3–100 | 1–30 | 0.5–3 | 3.4 | 22.1 | **shared** | shared 88%, both 10%, local 2% | guess |
+| firm | operations | 1 d–1 wk | 1 wk–1.15 mo | 10–300 | 0.1–0.5 | 1–30 | 30–3e+03 | 3–30 | 131 | 0.00322 | **local** | local 99%, both 1% | guess |
+| firm | management | 1 mo–6 mo | 2 wk–1.84 mo | 10–300 | 0.5–0.9 | 1–30 | 3–300 | 3–30 | 13.1 | 50.4 | **both** | both 59%, local 28%, shared 13% | guess |
+| firm | strategy | 2 y–10 y | 1 mo–3 mo | 10–300 | 0.7–1 | 1–30 | 1–100 | 3–30 | 4.36 | 40.9 | **shared** | shared 81%, both 16%, none 2%, local 1% | guess |
+| city* | services | 6 h–3 d | 3 d–4.29 wk | 10–100 | 0–0.3 | 1–30 | 10–1e+03 | 3–30 | 43.6 | 1.27e-08 | **local** | local 100% | guess |
+| city* | budget | 1 y–4 y | 1 mo–6 mo | 10–100 | 0.5–0.9 | 1–30 | 1–100 | 3–30 | 4.36 | 16.3 | **shared** | shared 44%, both 39%, local 10%, none 6% | guess |
+| city* | land use | 10 y–50 y | 6 mo–2 y | 10–100 | 0.5–1 | 3–100 | 1–100 | 3–30 | 6.21 | 21.2 | **shared** | shared 47%, both 39%, local 11%, none 2% | guess |
+| nation-state* | local | 1 d–4.29 wk | 1 mo–3 mo | 10–100 | 0–0.3 | 1–30 | 10–1e+03 | 3–100 | 43.6 | 1.02e-07 | **local** | local 100% | guess |
+| nation-state* | business cycle | 2 y–8 y | 1 mo–3 mo | 10–100 | 0.5–0.9 | 1–30 | 1–300 | 3–100 | 7.55 | 17.7 | **both** | both 48%, shared 38%, local 10%, none 4% | lead: data-release lags, Giannone, Reichlin & Small 2008 (10.1016/j.jmoneco.2008.05.010); rest guess |
+| nation-state* | institutions | 20 y–100 y | 3 mo–2 y | 10–100 | 0.7–1 | 3–100 | 1–100 | 3–100 | 6.21 | 14 | **shared** | shared 63%, both 23%, local 11%, none 2% | guess |
+| global economy* | markets | 1 h–1 wk | 1 mo–6 mo | 50–200 | 0–0.5 | 1–30 | 10–1e+03 | 10–1e+03 | 43.6 | 3.76e-119 | **local** | local 100% | guess |
+| global economy* | world cycle | 3 y–10 y | 1 mo–6 mo | 50–200 | 0.3–0.8 | 1–30 | 1–100 | 10–1e+03 | 4.36 | 4.59 | **both** | local 30%, both 30%, shared 29%, none 10% | guess |
+| global economy* | climate | 30 y–300 y | 1 y–5 y | 50–200 | 0.8–1 | 1–100 | 0.3–30 | 10–1e+03 | 1.61 | 2.41 | **shared** | shared 57%, none 24%, local 15%, both 3% | guess |
+<!-- /TABLE -->
+
+**Notes on individual placements.**
+- **E. coli: measured inputs (PR #110, not yet merged).**
+  - The world is one OU signal (τ_v = 1.16 s) read through its integral, McMillan degree 2. It is one component, so it gets 2 stores.
+  - X_L is the measured proxy of the fitness benefit of chemotaxis in poor carbon (Ni et al.) divided by the signalling machinery's proteome share:
+    - log₁₀ −0.26 to 1.89, centre 0.81;
+    - the benefit is the stakes the layers actually win, net of latency and reading, so it is X_L itself.
+  - Latency over the fast scale: log₁₀ −0.76 (−1.47 to −0.58). snr: 0.0043–0.103. Both are already inside the measured benefit.
+  - In glucose the benefit is about 0 and X_L < 1, and the map gives no layer. The cell does cut motility there (Ni et al.).
+  - **Caveat:** PR #110 found that the slow store's memory (9.9 s) is 8.5× the optimum under exogenous noise. The diagnosed cause is the store's own noise. This placement uses only benefit ÷ cost, so it does not test the memory time.
+- **Ant colony: not chosen to hit a region.**
+  - The inputs were set from the cited biology before the coordinates were computed, and were not tuned afterward. They were not preregistered either.
+  - The patch trail time is from *Lasius niger* (Beckers et al. 1993), not from the harvester ants of Prabhakar et al. 2012. Species are mixed.
+  - The v2.4 placement into "federation" was circular. There is no federation region now: federation is a local layer in every unit, and it pays for lost pooling through π.
+- **Order of dots.**
+  - Each chain is one system's own time scales, fast to slow. Systems are not placed by size.
+  - The side panel lists systems from small to large only for reading. No order is implied by the map.
+
+## 6. What is proved, what is only numerical, what is guessed
+
+| Item | Status |
 |---|---|
-| Region boundaries (0, 1, 2, … layers; central or federated; not viable) | **Computed from J** in the model world by exhaustive minimization over designs (`figures/face_regions.py`), with read effort optimized and the ruin constraint imposed on every design; rechecked independently by `tools/test_face_regions.py` (random points recomputed by brute force with the constraint; the federation boundary rechecked as a closed-form comparison of two costs linear in R at fixed sensing; every viable cell checked against the Lundberg inequality). Not hand-drawn. |
-| **Federation** | Derived as a cost comparison, not a fixed overhead. A central design pools the n units' reads: one tracker (upkeep K·h once), precision n times higher for the same sensing bill, but the reads travel (lead ℓ). A federated design is n semi-independent units, each tracking its own reads at lead 0: it pays **n times the upkeep and n times the sensing for the same precision** (the pooling of CT14, CT28 and CT34 (iv) is lost; this is the n^{a−1} saving of CT28 given up) and buys zero latency. Federation is therefore never chosen at zero latency (the same error for more cost) and wins where R × (error added by the lead) exceeds (n − 1)(K·h + sensing). The boundary at fixed sensing for each K is R_b = (n − 1)(K + C0/N)/(E_K(N, ℓ) − E_K(N, 0)), checked in the test; it scales as n − 1 (R_b at ℓ = 1: 22, 105, 376 for n = 3, 10, 30) and falls about as 1/ℓ across five decades of latency. |
-| **Ruin / not viable** | The master equation's constraint is imposed in its diffusion form: the system earns y = 1.5·w per unit time, holds a reserve B = 5·w, and its realized cost fluctuates with σ² = 2(wE)² per unit time; a design is allowed only if θ·B ≥ ln(1/ε) with θ = 2(y − J)/σ² and ε = 10⁻³, i.e. β(η − J/w) ≥ ln(1/ε)·E². These three numbers (η = 1.5, β = 5, ε = 10⁻³) are **assumptions**, scaled to the stake so that the constraint depends on R and E, not on size. **The grey "not viable" region follows from them**: it is where no design, however many layers, leaves a feasible margin, roughly where stakes are smaller than the upkeep of the one layer the ruin limit forces (R below about 0.8 at low latency, up to 1.4 at ℓ/τ = 100). With a more generous income (η = 2) the edge moves to R ≈ 0.6; with η ≥ 3 or β = 20 there is no grey region in the window at all. The ruin limit changes the best design (layer count or central/federated) in 1.7% of the viable cells of the plotted grid (421 of 24,274), all at R below about 15; blind (K = 0) is never allowed at these parameters (it needs β(η − 1) ≥ ln(1/ε)). Where ruin binds, CT33 can fail (B.10, `scope_checks.py` §1b). |
-| Central multi-layer regions | **They exist and show**: 10% of the viable area is central with two or more layers (two from R ≈ 7×10⁵, three from ≈ 10⁷, five from ≈ 6×10⁸ at ℓ/τ = 10⁻⁶) and another 25% is federated with two or more layers. They sit at **very small latency** (below about 10⁻³ of the fastest scale) and high R, because any lateness at high stakes pushes to federation. No placed system is in them. |
-| Layer counts and the numbers | **Illustrative**: they depend on the made-up spectrum (14 modes, 1/f), C0/h = 0.003, n = 10, and η, β, ε. Layers per unit can fall at the central → federated boundary (for example 3 → 2 at ℓ = 10⁻³, R = 10⁷), because a zero-lead unit needs fewer layers; that is why layers are not a monotone function of R in this map. More layers need more separated time scales in the world (14 here; five are reached by R ≈ 6×10⁸), not more size: stakes enter only through R. |
-| Layer counts for rhythms | The model has no rhythms. A resonant mode is a degree-2 object: counted by degree it needs two layers; counted as real first-order stores it needs ever more (`scope_checks.py` §4). |
-| Circles | **Hypotheses**: order-of-magnitude guesses. Time-scale sources where they exist, R a guess in every row. |
+| Quadrant edges X_L = 1, X_S = 1; the split rule inside the upper-right quadrant | **Proved** (algebra above), given 0 ≤ κ ≤ 1 and separate read channels |
+| κ ≤ 1 (subadditivity) | **Numerically verified only** (3000 + 15 worlds) |
+| OU closed forms for G_L, G_S; X_S = ν·π·e^(−2ℓ/τ)·X_L | **Proved** (Kalman–Bucy); numerically confirmed to 10⁻¹³ to 10⁻¹¹ |
+| Reading price moves dots, not edges | **Proved** (the same algebra on net worths); 1500 worlds confirm |
+| One stream: layer-by-layer marginal reading is exact | **Numerical only** (600/600 two-scale worlds, ≤ 2 stores per location) |
+| CT33 on the map (spend never falls as stakes rise, ruin slack) | Follows from CT33; tested on 200 worlds |
+| Every dot's inputs | **Guessed**, except E. coli's measured proxy and the cited time scales and delays |
 
-**Why the earlier versions were wrong.** The first figure had two time scales (at most two layers) and a "not viable" region from holding income fixed while stakes rose. The second (v2.4 draft) fixed those but gave federation lead 0, the same error as a central tracker, and a fixed overhead of 20h with no lost pooling, so federation won at every latency once stakes were high (70% of the map), and the multi-layer regions it showed were all federated; and it left the ruin constraint out, so "no not-viable region" meant "not represented". Both are replaced here.
+## 7. Referee's list (written by the author; not an independent review)
 
-**Axes.** x = R = w·Var/h (stakes over the upkeep of one tracker, any currency; **not** size): size enters through R and through latency, not directly. R is a ratio of stakes to upkeep, and the guesses below were made by asking how much one error exposes against the cost of keeping one tracker. Those guesses rise with the scale of what is at stake, so **the left-to-right order of the circles is in effect a size ordering. That is the guesser's assumption (an error exposes more in a larger system while one tracker's upkeep grows more slowly), not a finding**, and R is not measured for any of them. A measured R could reorder them. y = ℓ/τ_fast (how late a reading arrives, over the fastest time scale the system tracks). Colour and the number above the map: layers per unit of the best design **for this model world**; hatching: federate; grey: not viable.
+1. **The dots are guesses.** Stakes ÷ upkeep (R) is unmeasured in every system except E. coli's proxy (GAPS G3). Shared-store upkeep h_c/h_l is a guess everywhere.
+2. **κ ≤ 1 is not proved.** A world where G_B > G_L + G_S would let "both" beat "local" in the local quadrant.
+3. **The model class is narrow.** Components are linear-Gaussian OU with first-order stores. Real worlds have saturation (E. coli's receptors), heavy tails and non-stationarity.
+4. **The one-stream rule is only sampled.** It is verified on two scales and small store counts.
+5. **9 of the 20 dots are near an edge** (no design wins ≥ 65% of draws). Their reading can flip within their input ranges.
+6. **The ellipses are not posteriors.** They come from independent log-uniform ranges.
+7. **Ruin is not drawn.** Systems near their reserve limit may sit off the design shown.
+8. **The hierarchy above one shared level is not drawn.**
+9. **E. coli's X_L is a proxy.** The fitness benefit was measured in one medium. The memory-time test in PR #110 failed on its setup.
+10. **Species are mixed in the ant inputs.** City, nation-state and global economy are marked * because their selection is weak or unknown.
+11. **The counting rule is proposed, not yet preregistered per class.** Only E. coli has an observed count.
 
-**Which systems are placed.** The hypothesis is about *strongly selected* systems (THEORY §3), which needs a cost-to-fitness map and a population proxy. The biosphere is not a unit of selection and is **not placed**. Cities, nation-states and the global economy have no preregistered population proxy, so selection there is weak or unknown: they are drawn dashed with an asterisk, as positions the model would give *if* the hypothesis applied, not as evidence for it.
+## 8. History
 
-**What the dots do and do not say about structure.** The colour under a dot is this world's design (14 scales, 1/f), not the system's own. Real systems with two obvious scales are not in this world: the E. coli chemotaxis pathway (fast excitation, slow adaptation) and the immune system (innate in hours, adaptive in days to weeks) are each two-scale systems, which would have a two-layer region at a modest R in their own two-scale map (L2, CT21), whereas in this 1/f world a second layer pays only above R ≈ 7×10⁵. The dots for those two therefore read "1 layer" here without contradicting the notes: the map does not claim their layer count. Where a note says the system *is* a federation of local trackers (the ant colony), the dot is placed where the model also federates (R is a guess, so it was chosen to be there; that is stated, not hidden).
+- **The v2.4 figure** (one made-up 14-scale world, regions from assumed sensing and ruin knobs) was withdrawn in `bc9a1ec` after review 3.
+- **Corrections to its notes, for the record:**
+  - its federation boundary values 22, 105 and 376 (n = 3, 10, 30 at ℓ = 1) were **optimized-sensing** values; the fixed-sensing closed form gives 28.5, 128 and 414;
+  - its word for the sensing spend should have been "sensing cost".
+- **v2.5 replaces that figure** with the theorem above. Superseded and removed: `face_model.py`, `face_regions.py`, `face_tables.json`, `face_regions.json`, `tools/test_face_regions.py`.
 
-Where there is a source it is for a **time scale** or a cost, not for R. R is a guess in every row. "Model" is the model world's best design at the centre (`figures/face_dots.json`).
+## 9. Regenerate
 
-| System | Centre (R, ℓ/τ_fast) | Model design there | Basis | Source / "guess" |
-|---|---|---|---|---|
-| E. coli chemotaxis | R ≈ 10, ℓ/τ ≈ 0.3 | central, 1 layer | The signalling latency from stimulus to motor response is about 0.2 s; the fastest tracked scale is the 0.5–1 s of CheY-P turnover and runs, so ℓ/τ_fast is a few tenths. Adaptation (about 10–15 s) is the slow scale. The machinery visibly pays (sustaining it costs roughly 3×10⁴ kT/s, 5–10% of the energy to drive a flagellar motor), so R is above 1; its size is a guess. Two real scales: see above. | Latency: Segall, Manson & Berg 1982, Nature 296:855, doi:10.1038/296855a0. Adaptation time and energy: Lan, Sartori, Neumann, Sourjik & Tu 2012, Nature Physics 8:422, doi:10.1038/nphys2276. Cost of a step response about 10% of sustaining the pathway: Sartori, Granger, Lee & Horowitz 2014, PLoS Comput Biol 10:e1003974, doi:10.1371/journal.pcbi.1003974. **R: guess.** |
-| small team (5–10 people) | R ≈ 35, ℓ/τ ≈ 0.04 | central, 1 layer | Everyone is in one room or one chat, so reports arrive far faster than the fastest thing tracked (days); stakes over the upkeep of a shared tracker (a board, a standing meeting) are modest. | **Guess.** |
-| immune system | R ≈ 140, ℓ/τ ≈ 0.1 | central, 1 layer | Innate response (hours) and adaptive response (days to weeks) are two separated time scales (see above); cells and signals take a modest fraction of the fast scale to reach a site. Stakes (survival) over upkeep (a large standing repertoire) are high. | **Guess** on both axes; the two time scales are textbook knowledge, not looked up here. |
-| ant colony | R ≈ 160, ℓ/τ ≈ 9 | **federated**, 1 layer per unit | A foraging trail's pheromone lasts about 47 minutes (Lasius niger), against a fast scale of seconds to minutes for an ant's choices; foragers are spread over many metres, so a central reading would be late by many fast time scales, and the colony is a federation of local trackers (CT30). The 47 minutes is the evaporation scale, not R. | Trail lifetime: Beckers, Deneubourg & Goss 1993, J Insect Behav 6:751, doi:10.1007/bf01201674. **R and ℓ/τ: guess; R chosen to sit in the federated region the note describes.** |
-| firm | R ≈ 280, ℓ/τ ≈ 1.6 | federated, 1 layer per unit | Stakes are large against the upkeep of one more layer of management; reports take about as long to reach the top as the fastest thing the firm tracks (days to weeks of orders and incidents). "Layers" here are tracking stores, **not management layers**. | **Guess.** |
-| city* | R ≈ 800, ℓ/τ ≈ 14 | federated, 1 layer per unit | Large stakes, and the distance from a district to the centre is many fast time scales of what a district tracks (hours). Selection weak or unknown: dashed. | **Guess.** |
-| nation-state* | R ≈ 10⁵, ℓ/τ ≈ 20 | federated, 1 layer per unit | Fast scale about a week (prices, claims, incidents); official statistics and policy information reach the centre weeks to a quarter late, so ℓ/τ is of order 10 to 50. Stakes over the upkeep of one more administrative layer are far above a city's (general knowledge, not looked up). Selection weak or unknown. | **Guess** on both axes. |
-| global economy* | R ≈ 10⁷, ℓ/τ ≈ 60 | federated, 2 layers per unit | Fast scale about a day (orders, trades); the aggregates that a central bank or statistics agency sees arrive weeks to months later, so ℓ/τ is of order 10 to 100. Markets alone trade at far shorter scales with their own much smaller ℓ/τ; this circle is the macro economy read through official aggregates. Selection weak or unknown. | **Guess** on both axes. |
-
-What the figure does and does not say:
-
-- It says where one model world's optimal-design regions lie in dimensionless coordinates, given the stated federation cost and ruin assumptions. That much is a result in a model.
-- It does not say any real system sits where its circle is. The placements are hypotheses to be replaced by measurements (the first valid ones would be R from a measured stake, upkeep and variance, and ℓ/τ from a measured delay and fast time scale; GAPS G3).
-- **Derived vs assumed.** Derived from J: which design is cheapest at each point, the federation boundary as a comparison of costs, the dependence on n − 1. Assumed: the spectrum, C0, n, the fully shared driver (ρ = 1: units read the same world, the case where pooling gains are largest; with unit-specific drift the shared part alone enters R and the unit-specific part is tracked locally in every design), the ruin parameters η, β, ε, the form σ² = 2(wE)², one federation structure (n units, no coordination cost, no partial pooling), and the R and ℓ guesses.
-- Possibly still misleading: (1) one 1/f spectrum is imposed on every system, though cells, firms and nations have different spectra; (2) federation is all-or-nothing here, whereas real systems pool partially (regional levels, CT14–CT16); (3) a single y axis hides that a system has many fast scales; (4) the image invites reading each circle as a prediction, but only the placement of the *regions* is a computed result; (5) the model counts first-order stores only; (6) ruin is a single diffusion constraint with assumed income, so the grey region is as soft as those numbers; (7) latency here is a pure lead on the central tracker's estimate, not a delay in a loop.
-- Regenerate: `nice -n 19 python3 figures/face_model.py` (about 25 minutes on 6 cores, writes `face_tables.json`), then `nice -n 19 python3 figures/face.py` (about 30 seconds, writes `face.png`, `face_regions.json`, `face_dots.json`).
+```
+nice -n 19 python3 figures/face_collapse_v1.py 3000     # about 2 min: random worlds, map vs numerical optimum
+nice -n 19 python3 figures/face_collapse_v1b.py 1500    # about 3 min: reading priced
+nice -n 19 python3 figures/face_collapse_v23.py         # about 4 min: one read stream
+nice -n 19 python3 figures/face_place.py                # about 1 min: placements -> face_dots.json
+nice -n 19 python3 figures/face_table.py                # the table above
+nice -n 19 python3 figures/face.py                      # face.png (1600x1000), face_square.png (1200x1200), face_all.png
+nice -n 19 python3 figures/face_collapse.py             # face_collapse.png
+nice -n 19 python3 -m pytest -q tools/test_face_map.py
+```

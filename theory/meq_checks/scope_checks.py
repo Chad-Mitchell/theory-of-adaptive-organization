@@ -72,16 +72,18 @@ for w in (2, 4, 6, 8, 10, 11, 14, 16):
     o = ruin_opt(w); seq.append(o); print(f"       w={w:3d}: best feasible {o[1]}  S*={o[2]}  E*={o[3]}  J*={o[0]:.2f}")
 chk('ruin-binding counterexample: S falls and E rises', seq[-1][2] < max(o[2] for o in seq) and seq[-1][3] > min(o[3] for o in seq))
 print("       so CT33 and Master Theorem (ii) are statements for the ruin constraint slack at the stakes compared (B >= B_slack) or absent.")
-tabs = os.path.join(ROOT, 'figures', 'face_tables.json')
-if os.path.exists(tabs):
-    sys.path.insert(0, os.path.join(ROOT, 'figures')); import face_regions as fr
-    Rg = np.logspace(-1, 9, 121); allS = True; anyfall = False; fixmono = True; ruinS = False
-    for lat in (0.0, 1e-3, 0.1, 3.0, 100.0, 3000.0):
-        K, F, Jb, Sb = fr.unconstrained_design(Rg, lat); allS &= bool(np.all(np.diff(Sb) >= -1e-9)); anyfall |= bool(np.any(np.diff(K) < 0))
-        Kr, Fr, Jr, Sr, bd = fr.best_design(Rg, lat); v = Kr >= 0; ruinS |= bool(np.any(np.diff(Sr[v]) < -1e-9))
-    K0, *_ = fr.best_design(Rg, 0.0, 'fixed', ruin=False); fixmono = bool(np.all(np.diff(K0) >= 0))
-    print(f"  model world of the face figure (14 modes, sensing optimized, ruin constraint absent): spend nondecreasing at every latency tried: {allS}; layers per unit fall somewhere (central vs federated): {anyfall}; with sensing fixed, layers nondecreasing at lead 0: {fixmono}; with the ruin constraint imposed, spend fell somewhere: {ruinS}")
-    chk('face world: spend nondecreasing without ruin', allS); chk('face world: fixed-sensing layers monotone', fixmono)
+# (1c) the face map (figures/face_map.py): along rising stakes the chosen design's upkeep never falls and its error never rises
+sys.path.insert(0, os.path.join(ROOT, 'figures')); import face_map as fm
+okS = True; rng_ = np.random.default_rng(33)
+for _ in range(300):
+    GL_, GS_ = rng_.uniform(0.05, 1, 2); GB_ = rng_.uniform(max(GL_, GS_), GL_ + GS_); n_, hc_ = int(10 ** rng_.uniform(0, 3)), 10 ** rng_.uniform(-1, 2.5)
+    up_ = [0, n_, hc_, n_ + hc_]; er_ = [1, 1 - GL_, 1 - GS_, 1 - GB_]; last_ = None
+    for wu_ in np.logspace(-2, 5, 200):
+        d_ = int(fm.decide(wu_ * GL_, n_ * wu_ * GS_ / hc_, n_ / hc_, (GB_ - GS_) / GL_, (GB_ - GL_) / GS_))
+        if last_ is not None: okS &= up_[d_] >= up_[last_] - 1e-12 and er_[d_] <= er_[last_] + 1e-12
+        last_ = d_
+print(f"  face map (300 random worlds, ruin slack): upkeep of the chosen design never falls and its error never rises as stakes rise: {okS}")
+chk('face map: CT33 along stakes', okS)
 
 print("\n== 2. CT34: a team's optimized cost enters the parent's problem exactly as upkeep if (generically only if) the parent sees the team only through quantities fixed before the team optimizes")
 # (a) partial minimisation identity  min_{x,y} F(x)+G(y; theta(x)) = min_x [ F(x) + J*_T(theta(x)) ], exact; J*_T acts as a constant iff theta does not depend on x
