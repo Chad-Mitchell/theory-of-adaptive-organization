@@ -1,20 +1,34 @@
 {
-  "prereg_sha": "5d0c11a3c4ca5146d3a2e806a46524eb3dcba25f",
+  "prereg_sha_original": "5d0c11a3c4ca5146d3a2e806a46524eb3dcba25f",
+  "prereg_sha": "d70c54066e9f85e4e4e25b88ad58d1f9997178ab",
   "prereg_time_et": "2026-11-20 13:22:47 -0500",
   "definition_commit": "36416d2835f4afe5b6efca8e4b5eeda24620fca8",
+  "definition_commit_main_reachable": "b311a40a6590fbe2dc15d9dc4eaf1e8416c7aa34",
+  "definition_merged_to_main_as": "e1be66e4beb54aad1e3b50d68ff520b86f8c5337",
   "system": "GB balancing system (NESO / former National Grid ESO)",
+  "class": "synchronous-area balancing designs",
   "verdict": "NOT QUALIFIED",
-  "headline": "NOT APPLICABLE (system not qualified): a diagnosis of a patient, not a test of the law",
+  "headline": "NOT A TEST OF THE HYPOTHESIS (qualification not established)",
   "items": {
-    "a_cost_to_fitness_map": "failed",
+    "a_cost_to_fitness_map": "not established",
     "b_population_proxy": "failed",
     "c_resolvable_band": "failed",
     "d_power": "failed",
     "e_redesign_time_same_world": "failed",
     "protocol_recorded_before_measurement": "failed"
   },
+  "item_notes": {
+    "a_cost_to_fitness_map": "BSIS 2013-18 made sigma computable (NGET sharing factor); sigma was never computed. The post-miss 'incentive is not sigma' gloss is not used.",
+    "b_population_proxy": "N_e = 1 (one design-setting operator, no entry or exit).",
+    "c_resolvable_band": "With N_e = 1, epsilon = 10/sigma cannot exclude a rival for sigma <= 10.",
+    "d_power": "Fails with (c): the band cannot exclude a named rival.",
+    "e_redesign_time_same_world": "T_red never defined; same-world fails on measured outturn inertia 229 -> 168 GVA.s. Falling inertia requirement is a design choice, not world change. Go-live count is informational, not a test of 10 T_red.",
+    "protocol_recorded_before_measurement": "No pre-test qualification check was recorded at the GRID-2 lock."
+  },
   "R_go_live_2011_2026": 7,
   "R_with_cessations_upper": 9,
+  "R_is_informational_not_a_T_red_test": true,
   "g3b_used": false,
-  "locked_g1_arm_deleted": false
+  "locked_g1_arm_deleted": false,
+  "part_a_blinding": "none (sources gathered before prereg lock)"
 }

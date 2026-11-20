@@ -232,3 +232,21 @@ This test does not re-qualify GB under Part A. A low S for GB is consistent with
 - P24 (new): GRID-DX Part B, prescriptive GB layering, saving, and 2020–2024 direction. Status follows B.1–B.2 (INCONCLUSIVE if assumed terms decide the headline).
 - P25 (new): GRID-DX Part C, selection strength versus distance, rank test. Status follows C.5.
 - P19 / P21: retyped only under the A.4 map, and only if Part A is NOT QUALIFIED.
+
+---
+
+## Dated note (20 Nov 2026, about 1:42 PM ET; after independent review of PR #113, NOT READY)
+
+This note does not change the locked verdict rules, rubric, distance metrics, or rank-test allowance. It records wording and disclosure corrections required by that review and by Chad's decisions.
+
+- **Labels.** §A.4's mandated headline (`NOT APPLICABLE … not a test of the law`) is superseded for labels, JSON, tests, SYNTHESIS, README, and the CLAIM_MAP status column. The headline status is **NOT A TEST OF THE HYPOTHESIS (qualification not established)**. The word "law" is not used in those labels. "Patient" is used in prose only, glossed as "examined to prescribe; no inefficiency shown," and is not a CLAIM_MAP status.
+- **Symmetric mapping.** The qualification rule is applied to every field claim that lacked a recorded pre-test qualification check, passes included, not only to misses. Each original PROXY-PASS / PROXY-FAIL (and numbers) stays in the cell as history; nothing is deleted.
+- **§A.3 incentive gloss.** The sentence that a regulatory incentive scheme "is not σ unless a source gives the defined elasticity" is a gloss written after the GRID-2 miss; it is not in the definition at `b311a40` / `36416d2`. Item (a) is scored **not established** (Ofgem BSIS made σ computable; it was not computed), not as a substantive fail on that gloss.
+- **Definition cites.** The operational definition first entered a main-reachable commit at `b311a40` (20 Nov 2026, 2:06:58 AM ET). `36416d2` is PR #110's head (not on main), squash-merged to main as `e1be66e`.
+- **The definition qualifies a class**, not a single system (THEORY §3 at lock). The class used in Part A is synchronous-area balancing designs. No class-specific N_e, n_min, or coverage was preregistered.
+- **No blinding for Part A.** Official sources for the qualification audit were gathered before this lock. QUALIFICATION.md was first committed 2 minutes 26 seconds later (original `7ce323a`; rebased as `50350e0`). The two-pass protocol still blinds Part C Pass 1 to non-GB layer designs.
+- **S_N rubric ambiguity.** Score 0 ("a single system operator sets the product suite, and no class-specific N_e was preregistered") and score 1's second branch ("legally required competitive procurement … a single buyer still sets the suite") can both be read as covering the usual single-buyer ISO/TSO. Pass 1 applied the score-1 procurement branch, which is also the "usual single-buyer" sentence at the end of §C.3. Those locked Pass 1 numbers are not changed after Pass 2. The ambiguity is disclosed, not resolved by rescoring.
+- **Missing sources.** §C.3 says a missing official source scores 0. Where a cited URL returned HTTP 403 or was not found, that component is recorded as **MISSING** and the grid's S is a **lower bound**, not a demonstrated zero.
+- **Part B ruin-slack caveat** is a results interpretation, not a change to B1: the integer gap K* = 1 vs K_obs = 4 assumes ruin slack. GB ruin binds (FRCR DC sized for an 1,800 MW largest loss). The gap may be redundancy the cost's design space cannot represent; `theory/ROBUSTNESS.md` (separate draft PR in progress) is where that is to be resolved.
+- **B3 headline** is reported as **UNTESTED/INCONCLUSIVE** when B3a is untested and B3b is inconclusive.
+- **Rebase.** This prereg was originally `5d0c11a` (1:22:47 PM ET, 20 Nov 2026) and is `d70c540` after rebase onto main `45a70cf`.

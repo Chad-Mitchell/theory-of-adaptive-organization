@@ -13,9 +13,9 @@ Hawaii is **UNTESTED** in this pass: official pages were not retrieved in enough
 | Grid | S_σ | S_N | S_red | S_ruin | S | R (counted) | Notes |
 |---|---|---|---|---|---|---|---|
 | Great Britain (NESO / former NGESO) | 1 | 1 | 1 | 2 | **5** | 7 go-lives (≤ 9 with cessations) | From Part A sources plus Ofgem ESORI |
-| Australia NEM (AEMO) | 0 | 1 | 0 | 0 | **1** | 2 | VoLL / reliability-standard PDFs returned 403; not guessed |
+| Australia NEM (AEMO) | 0 | 1 | 0 | 0 | **1** (lower bound) | 2 | S_σ and S_ruin **MISSING** (AEMC reliability-settings PDF HTTP 403); S = 1 is a lower bound, not a demonstrated zero |
 | ERCOT (Texas) | 1 | 1 | 0 | 2 | **4** | 1 | ORDC/VOLL official; ECRS is the one counted product go-live |
-| Ireland and Northern Ireland (EirGrid / SONI) | 0 | 1 | 0 | 0 | **1** | 0 sourced go-lives | DS3 programme documented; product go-live PDFs not retrieved |
+| Ireland and Northern Ireland (EirGrid / SONI) | 0 | 1 | 0 | 0 | **1** (lower bound) | 0 sourced go-lives | S_red **MISSING** as a complete count (EirGrid System Services PDFs HTTP 403); S = 1 is a lower bound |
 | Nordic synchronous area | 0 | 1 | 0 | 0 | **1** | 0 | Shared aFRR capacity market is a procurement change |
 | Continental Europe (FCR / aFRR platforms) | 0 | 1 | 0 | 0 | **1** | 0 | FCR Cooperation and PICASSO are procurement platforms |
 | Hawaii (Hawaiian Electric) | — | — | — | — | **UNTESTED** | — | Insufficient official text retrieved this pass |
@@ -87,3 +87,13 @@ No official Hawaiian Electric or Hawaii PUC page was retrieved in this pass with
 ## What this pass does not do
 
 No K_obs, no delivery times, no d1 or d2, and no rank test. Those wait for a later Pass 2 commit, after this file is on the branch.
+
+## Dated note (20 Nov 2026, about 1:42 PM ET; after independent review of PR #113)
+
+Pass 1 numbers in the table are not changed after Pass 2. Two disclosures:
+
+**Missing sources as lower bounds, not zeros.** The locked rubric said a missing official source scores 0. Where a cited URL returned HTTP 403, that component is **MISSING** and the grid's S is a **lower bound**. Australia NEM: the AEMC "Schedule of reliability settings" PDF (https://www.aemc.gov.au/sites/default/files/2026-02/Schedule%20of%20reliability%20settings%20-%202026-27%20financial%20year.pdf) returned 403, so S_σ and S_ruin are MISSING and S = 1 is a lower bound. Ireland/NI: EirGrid System Services product go-live PDFs returned 403, so S_red is a lower bound on a complete count and S = 1 is a lower bound. Those 403s are not treated as demonstrated absence of an incentive or of a reliability standard.
+
+**S_N rubric ambiguity.** Score 0 ("a single system operator sets the product suite, and no class-specific N_e was preregistered") and score 1's second branch ("legally required competitive procurement of the services; a single buyer still sets the suite") can both be read as covering the usual single-buyer ISO/TSO, including GB. Pass 1 applied the score-1 procurement branch, which matches the "usual single-buyer" sentence at the end of §C.3. Scores are not rescored. The ambiguity is disclosed.
+
+S is not qualification. GB has the highest score in the set (S = 5) and is not qualified (Part A: N_e = 1). No grid in this set qualifies under the operational definition as scored. The Part C rank test therefore cannot test the hypothesis as scored. What would is a class with real competing design lineages, with qualification recorded before distances are measured.
