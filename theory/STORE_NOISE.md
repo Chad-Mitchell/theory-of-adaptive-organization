@@ -76,9 +76,29 @@ For any new system with s, λ and τ measured on the same store, E1+E2 predict �
 memory clearly faster than that (below a third of it, CI wholly below) refutes E1+E2 for that system. The full rule,
 rivals and candidate systems are locked in `theory/measured/PREREG_SN1.md`.
 
-## 6. Prior art
-Fluctuation–response coupling of noise and adaptation time in E. coli: Park et al. 2010 (doi 10.1038/nature09551);
-single-cell kinase noise from adaptation enzymes: Keegstra et al. 2017 (doi 10.7554/eLife.27455); energy–speed–accuracy:
-Lan et al. 2012 (doi 10.1038/nphys2276); noise averaging by copies is textbook. Mapping these into the theory's cost J and
-the Master Theorem is new here; the closed form λτ\* = (1−s)/s is derived here and not checked against literature for a
-prior statement (a search is owed before any novelty claim).
+## 6. Prior art (search done 20 Nov 2026; all DOIs resolved on Crossref, `measured/crossref_priorart.out`)
+**No novelty is claimed for E1 or E2.** The core idea is established: an optimal integration (memory) time arises from a
+trade-off between a dynamical error that grows with memory and a noise error that shrinks with it, and where that
+optimum sits depends on how the noise scales with the integration time, i.e. on which resource limits.
+- Optimal filtering of the E. coli response: Andrews, Yi & Iglesias 2006 (doi 10.1371/journal.pcbi.0020154); Wiener–
+  Kolmogorov filtering by signalling networks: Hinczewski & Thirumalai 2014 (doi 10.1103/PhysRevX.4.041017); prediction
+  and E. coli's integration time as a response-speed/noise trade-off: Becker, Mugler & ten Wolde 2015 (doi
+  10.1103/PhysRevLett.115.258103); trajectory information: Tostevin & ten Wolde 2009 (doi 10.1103/PhysRevLett.102.218101).
+- **Closest prior art for E1:** Malaguti & ten Wolde 2021 (doi 10.7554/eLife.62574) derive the optimal integration time
+  for time-varying signals in a push–pull network and show that it depends on which resource is limiting. It tends to
+  zero when readout copy number limits, equals the signal time when power limits, and is set by sampling vs dynamical
+  error when receptors limit. Govern & ten Wolde 2014 (doi 10.1073/pnas.1411524111; doi 10.1103/PhysRevLett.113.258102)
+  give the resource classes. E1's exponent s is a one-parameter summary of the same dependence. Their results concern the
+  fast receptor-integration time (tens to hundreds of ms), not the methylation memory tested here.
+- Adaptation's own noise growing with the adaptation time (σ² ∝ τ_m, the s = ½ case): Sartori & Tu 2011 (doi
+  10.1007/s10955-011-0169-z). The fluctuation–response coupling measured in E. coli: Park et al. 2010
+  (doi 10.1038/nature09551); single-cell kinase noise from adaptation enzymes: Keegstra et al. 2017 (doi 10.7554/eLife.27455).
+- E2: the energy–speed–accuracy relation is Lan et al. 2012 (doi 10.1038/nphys2276). Limits on suppressing intrinsic
+  noise and their cost: Lestas, Vinnicombe & Paulsson 2010 (doi 10.1038/nature09333). Noise can enhance drift (a nonlinear
+  effect outside Model S+): Flores et al. 2012 (doi 10.1103/PhysRevLett.109.148101).
+- Stochastic resonance (noise-aided detection in threshold systems) was checked and is a different effect; it does
+  not give an optimal memory. Bialek's *Biophysics: Searching for Principles* (Princeton UP, 2012) treats the
+  Berg–Purcell and filtering trade-offs in general; I did not find the power-law form there (book not read in full).
+- The closed form λτ\* = (1−s)/s was not found stated in this form in the sources checked. It is an elementary consequence
+  of minimizing a power-law noise term against a first-order lag, so it is credited to that literature as an instance
+  rather than claimed. What this repo adds is only the mapping into the theory's cost J and the Master Theorem's scope.

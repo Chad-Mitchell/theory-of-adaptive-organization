@@ -1,7 +1,7 @@
 # Measured placements: the first measured system on the map, and the first real test of a layer's memory
 
 *Branch `v2.5-measure` off `b8e8d5b`, Friday 20 November 2026 (America/New_York). Written by a Grok Bot executor for
-Chad. A self-check, **not** independently reviewed. THEORY.md is not edited except its CLAIM_MAP version pointer; CLAIM_MAP gains section P (v2.54; F2, Model S+ and SN1 added in v2.55).*
+Chad. A self-check, **not** independently reviewed. THEORY.md is not edited except its CLAIM_MAP version pointer; CLAIM_MAP gains section P (v2.54; F2, Model S+ and SN1 added in v2.55; prior art, SN1 run and follow-up D in v2.56).*
 
 **In one paragraph.** E. coli chemotaxis is the best-measured strongly selected sensing system, and every number the
 theory needs for its slow (methylation) layer has been published by one lab under one set of conditions
@@ -30,6 +30,21 @@ fixed density, and that upkeep priced by speed lengthens memory further. P1 stay
 cause: store noise (part, measured) plus an open remainder (×4, candidates: speed-priced upkeep, objective, habitat,
 strain); next tests: kinase noise vs τ at fixed a0, an estimate of the speed price, and SN1 on new systems, locked
 before their data (`PREREG_SN1.md`). Details: `ecoli/RESULTS_F2.md`.
+
+**Update (v2.56).** *Prior art:* the optimal-memory trade-off is known (Malaguti & ten Wolde 2021 and others,
+`../STORE_NOISE.md` §6); no novelty is claimed. *Out of sample:* SN1 could not be scored on any of its seven systems:
+no open source measures how a store's own noise scales with its memory outside E. coli (`SN1_RESULTS.md`). The
+discriminating follow-up on a counting-noise-limited relative was INVALID by its premise: V. ordalii's fitted noise is
+6.6× the counting bound. *E. coli's remaining factor of about 4* (`ecoli/RESULTS_D.md`):
+- a drift/uptake objective does not explain it (the noiseless maximin memory is 0.4–0.6 s, and with noise and a bounded
+  gain the drift optimum equals the tracking one);
+- a speed price from Lan et al.'s measured dissipation is consistent only at the corner of the input box (central
+  estimate 30–60× short);
+- a slow habitat mode of 20–30 s carrying 6–10% of the signal variance would do it, but no field data exist.
+
+The test that separates the last two (Y4, adaptation time across benefit levels) is preregistered but untested. **The
+keystone is therefore not yet in hand:** the extended model has no out-of-sample verdict, and the in-sample miss is
+reduced and diagnosed but not closed.
 
 ## 1. Which systems, and why
 | Candidate | Theory quantities measurable from published data? | Used |
@@ -84,7 +99,7 @@ two the cell lives in is exactly F2.
 | (iv) Selection condition | Lab strain historically selected in semisolid agar (Mattingly's caveat); tumble rate already off-optimum by 2×. | Possible contributor |
 | (v) The claim itself | Cannot be concluded: the decisive premise (how store noise scales with speed) is unmeasured. | Not concluded |
 
-**The theory gap this exposes (my contribution, not in the repo before).** Model S prices the sensing noise but has no
+**The theory gap this exposes (new to this repo; the underlying trade-off is prior art, see `../STORE_NOISE.md` §6).** Model S prices the sensing noise but has no
 noise that the memory itself generates. When the store is the noise source and its noise has a fixed stationary variance,
 longer memory is the way to buy precision, so the optimum memory exceeds the exogenous-noise optimum by a factor set by
 internal ÷ external noise. The same shape may explain the repo's human-scale post hoc pattern (SPF consensus forecasts
@@ -136,9 +151,10 @@ from the raw inputs above.
 6. Prior art covers most of the ingredients: optimal filtering in chemotaxis (Andrews, Yi & Iglesias 2006; Strong et al.
    1998; Celani & Vergassola 2010; Becker, Mugler & ten Wolde 2015), the information limit and the irrelevant-information
    cost of long memory (Mattingly et al. 2021), the noise sources (Colin et al. 2017), the energy–speed–accuracy cost
-   (Lan et al. 2012), the 1/g optimum (Vladimirov et al. 2008). **What is new here:** scoring the theory's general rule
-   against those measurements with a stated rival and verdict rules; the finding that the measured kernel's *form* is
-   the Kalman optimum's form for target u (real-pole case) while its *times* are not; and the internal-noise diagnosis as a gap in the
+   (Lan et al. 2012), the 1/g optimum (Vladimirov et al. 2008). **What this repo adds (no novelty claimed for the physics):** scoring the theory's general rule against those
+   measurements with a stated rival and verdict rules; the observation that the measured kernel's *form* matches the
+   Kalman optimum's form for target u while its *times* do not (likely implicit in Andrews et al. 2006 and Becker et al.
+   2015); and mapping the internal-noise trade-off (prior art: Sartori & Tu 2011; Malaguti & ten Wolde 2021) into the
    theory's cost.
 
 ## H. Human scale: untested

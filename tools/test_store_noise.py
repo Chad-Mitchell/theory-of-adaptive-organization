@@ -24,3 +24,12 @@ def test_f2_park_score_and_rerun():
     for k in ("s_lo", "s_point", "s_hi"):
         cf = q[k]["closed_form_low_snr_s"]; t = q[k]["tau_star_s"]
         assert all(abs(x / cf - 1) < 0.1 for x in t)
+
+
+def test_followup_d_reproduces():
+    D = os.path.join(ROOT, "theory", "measured", "ecoli", "d")
+    subprocess.run([sys.executable, os.path.join(D, "d_calc.py")], capture_output=True, text=True, check=True)
+    r = json.load(open(os.path.join(D, "d_results.json")))
+    assert r["D1_celani_vergassola"]["verdict"] == "DOES NOT EXPLAIN" and r["D1_celani_vergassola"]["U"] < 0.6
+    assert r["D2_gain_bounded_drift"]["verdict"] == "NEITHER"
+    assert r["E2_speed_price"]["verdict_k1"] == "CONSISTENT" and r["E2_speed_price"]["verdict_k2"] == "MARGINAL"
