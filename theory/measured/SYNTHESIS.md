@@ -1,4 +1,4 @@
-# Synthesis of the measured program so far (v2.62, Friday 20 November 2026; first written v2.60, about 11:50 AM ET)
+# Synthesis of the measured program so far (v2.65, Friday 20 November 2026; first written v2.60, about 11:50 AM ET; GRID-DX wording v2.65)
 
 A self-check by one executor for Chad, not an independent review. Every verdict below was scored by a rule
 committed before its data were computed; deviations were committed before outcomes and are listed in each file.
@@ -17,8 +17,8 @@ the parent chain are the record. Analysis code was committed but not hash-locked
 | Follow-up D (E. coli gap) | Drift objective / speed price / habitat mode | Drift does not explain the gap **in the linear, gain-bounded regime** (D1 DOES NOT EXPLAIN, D2 NEITHER; nonlinear-motor objective untested); speed price only at the box corner; habitat mode **open**; Y4 untested | `ecoli/RESULTS_D.md` |
 | GRID-1 (CE 2022) | Count by degree + interlacing | **INVALID** (premise: mFRR coverage 0.666); count and fast arms INVALID in advance (closed loop) | `grid/RESULTS_GRID1.md` |
 | GRID-1b (CE 2022) | Slowest world mode slower than the slowest layer, not set at it | **PASS on proxy** (65 min vs 15 min; rival fails); one low-risk arm | same |
-| GRID-2 (GB 2026) | Count by degree + interlacing | **G1 FAIL on proxy**: random-walk imbalance (γ = 2.09) ⇒ one layer; GB runs four. Interlacing not scored | `grid/RESULTS_GRID2.md` |
-| G3a (GB 2024) | Replication of GRID-2 | **Replicates the FAIL** (γ = 2.02; thin BIC margin) | `grid/RESULTS_GRID3_4.md` |
+| GRID-2 (GB 2026) | Count by degree + interlacing | **NOT APPLICABLE (system not qualified): a diagnosis of a patient, not a test of the law.** Measured mismatch, kept as a diagnosis (locked G1 arm score not deleted): random-walk imbalance (γ = 2.09) ⇒ one sensing-limited layer; GB runs four. Interlacing not scored. Qualification was not checked before scoring (`QUALIFICATION.md`) | `grid/RESULTS_GRID2.md`, `grid/RESULTS_GRIDDX.md` |
+| G3a (GB 2024) | Replication of GRID-2 | **NOT APPLICABLE** (same unqualified system). Measured 2024 mismatch, kept as a diagnosis (locked arm score not deleted): γ = 2.02; thin BIC margin | `grid/RESULTS_GRID3_4.md`, `grid/RESULTS_GRIDDX.md` |
 | GRID-4 (GB 2019/20 vs 2026) | Actuation-set vs world-set layer times | **INVALID** (verdict depends on an assumed, unsourced 2019 response holding) | same |
 | GRID-4b | GRID-4 with sourced holdings | **UNTESTED** (no open 2019/20 MFR holdings) | same |
 | GRID-S S1 (GB) | Market-step account predicts a 30-min mode | **M-S1 FAIL** (no corner in [1,300, 2,900] s) | `grid/RESULTS_GRID2.md` |
@@ -61,10 +61,7 @@ not applied retroactively: GRID-2's FAIL stands, and G3a, locked as a replicatio
 under that scope (P21 PROXY-FAIL). That grids fail criterion 1 is asserted, not measured (dated clarification in `grid/PREREG_GRID3.md`).
 
 ## Honest state of the hypothesis
-- **Layer count by degree, (iii):** **FAILED on proxy** (GRID-2, locked before G3b; replicated by G3a). Out of scope
-  for new tests under G3b. The
-  preregistered kill condition is **not met** (it also needs an open-loop CE seconds-level FAIL). Inside its premises
-  (sensing-limited, ruin slack) the count is **untested** by any qualifying test.
+- **Layer count by degree, (iii):** GRID-2 and G3a are **NOT APPLICABLE (system not qualified): a diagnosis of a patient, not a test of the law** (GRID-DX Part A, `QUALIFICATION.md`; the GB balancing system failed the operational definition in force at the GRID-2 lock; the check should have been done before scoring and was not). The measured mismatch (γ = 2.09 / 2.02; four operational layers against a one-layer sensing-limited prediction) is kept as a diagnosis; the locked arm scores are not deleted. Out of scope for new tests under G3b. The preregistered kill condition is **not met** (it also needs an open-loop CE seconds-level miss). Inside its premises (sensing-limited, ruin slack) the count is **untested** by any qualifying test.
 - **Layer timing: two different claims, kept apart (review 27 M5).**
   - *Each layer faster than its mode (Model S, L2 interlacing).* This holds with exogenous noise. In Model S+ it is
     **premise-dependent** (`STORE_NOISE.md` §4): with s < ½ the optimal store is **slower** than its mode. With the
@@ -78,6 +75,10 @@ under that scope (P21 PROXY-FAIL). That grids fail criterion 1 is asserted, not 
     the premise qualifier "with exogenous read noise and speed-free upkeep (in Model S+: iff s ≥ ½ at h1 = 0)".
 - **Overall:** not refuted; untested in scope; two proxy failures with specific diagnoses, one diagnosis
   (actuation-limited layers) itself untested.
+
+
+## GRID-DX (v2.65, 20 Nov 2026)
+Qualification of GB at the GRID-2 lock: **NOT QUALIFIED** (`QUALIFICATION.md`). Prescriptive diagnosis: B1 gap K_obs − K\* = 3; £ saving and 2020–2024 direction **INCONCLUSIVE** or B3a UNTESTED (`RESULTS_GRIDDX.md`). Cross-grid rank test **UNTESTED** (n = 1 complete d1 pair after Pass 1 scores GB 5, ERCOT 4, four grids at 1, Hawaii unscored).
 
 ## The single most decisive next test
 **A designed-world experiment inside the scope:** an agent (human, animal, or E. coli in microfluidics) tracking a
