@@ -1,7 +1,7 @@
 # Measured placements: the first measured system on the map, and the first real test of a layer's memory
 
 *Branch `v2.5-measure` off `b8e8d5b`, Friday 20 November 2026 (America/New_York). Written by a Grok Bot executor for
-Chad. A self-check, **not** independently reviewed. Nothing here edits THEORY.md; CLAIM_MAP gains section P.*
+Chad. A self-check, **not** independently reviewed. THEORY.md is not edited except its CLAIM_MAP version pointer; CLAIM_MAP gains section P (v2.54).*
 
 **In one paragraph.** E. coli chemotaxis is the best-measured strongly selected sensing system, and every number the
 theory needs for its slow (methylation) layer has been published by one lab under one set of conditions
@@ -52,8 +52,10 @@ and box corners not computed before lock.
 Cross-checks. The arm-A poles agree between the quartic and the Riccati solution to 10⁻¹³. A post hoc unit check of arm
 B's noise referral reproduces Mattingly's information rate to within 1.4× (0.16 vs 0.225 ± 0.03 bits/s/mm⁻²; theirs uses
 the OU-shaped noise spectrum, so a white referral should come out lower): `ecoli/posthoc/inforate_check.out`.
-One more thing the exact optimum shows: for target u read through x, the optimal kernel has **exactly** the
-phenomenological form Mattingly fitted, L₂/((s+p₁)(s+p₂)), i.e. G e^{−t/τ2}(1 − e^{−t/τ1}). The form is right; the times are not.
+One more thing the exact optimum shows: for target u read through x with white read noise, the optimal kernel from u is
+L₂/((s+p₁)(s+p₂)); when its poles are real (low SNR) that is **exactly** the form Mattingly fitted,
+G e^{−t/τ2}(1 − e^{−t/τ1}) with 1/τ2 = p₁ and 1/τ1 = p₂ − p₁ (at the Berg–Purcell floor in the lab the poles are complex,
+so the optimum would ring instead). The form is right; the times are not.
 
 ### E.3 Diagnosis of the miss (causal, before concluding anything)
 | Candidate cause | Evidence | Weight |
@@ -113,7 +115,7 @@ from the raw inputs above.
    cost of long memory (Mattingly et al. 2021), the noise sources (Colin et al. 2017), the energy–speed–accuracy cost
    (Lan et al. 2012), the 1/g optimum (Vladimirov et al. 2008). **What is new here:** scoring the theory's general rule
    against those measurements with a stated rival and verdict rules; the finding that the measured kernel's *form* is
-   exactly the Kalman optimum for target u while its *times* are not; and the internal-noise diagnosis as a gap in the
+   the Kalman optimum's form for target u (real-pole case) while its *times* are not; and the internal-noise diagnosis as a gap in the
    theory's cost.
 
 ## H. Human scale: untested

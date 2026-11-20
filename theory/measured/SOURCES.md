@@ -10,15 +10,15 @@ Read in open copies only (PMC / Europe PMC / authors' sites); no sign-ins.
 - Endres & Wingreen 2009, PRL 103:158101, 10.1103/PhysRevLett.103.158101 (cited for the prefactor range)
 - Lan, Sartori, Neumann, Sourjik & Tu 2012, Nat Phys 8:422, 10.1038/nphys2276
 - Sartori, Granger, Lee & Horowitz 2014, PLoS Comput Biol 10:e1003974, 10.1371/journal.pcbi.1003974
-- Segall, Manson & Berg 1982, Nature 296:855, 10.1038/296855a0 (abstract: latency ~0.2 s; 0.23 ± 0.07 s as quoted by Jasuja et al.'s group)
+- Segall, Manson & Berg 1982, Nature 296:855, 10.1038/296855a0 (abstract: latency ~0.2 s)
 - Segall, Block & Berg 1986, PNAS 83:8987, 10.1073/pnas.83.23.8987
-- Jasuja et al. 1999, Biophys J 76:1706, 10.1016/S0006-3495(99)77329-7 (0.07 ± 0.03 s, as quoted in a Biophys J paper by the same group)
+- Jasuja et al. 1999, Biophys J 76:1706, 10.1016/S0006-3495(99)77329-7 (abstract not opened; 0.07 ± 0.03 s and Segall's 0.23 ± 0.07 s as quoted in "On bacterial tactic response times and latencies", Biophys J, cell.com S0006-3495(00)76766-X)
 - Colin, Rosazza, Vaknin & Sourjik 2017, eLife 6:e26796, 10.7554/eLife.26796 (Europe PMC full text)
 - Keegstra et al. 2017, eLife 6:e27455, 10.7554/eLife.27455
 - Vladimirov, Løvdok, Lebiedz & Sourjik 2008, PLoS Comput Biol 4:e1000242, 10.1371/journal.pcbi.1000242
 - Frankel et al. 2014, eLife 3:e03526, 10.7554/eLife.03526
 - Dufour, Fu, Hernandez-Nunez & Emonet 2014, PLoS Comput Biol 10:e1003694, 10.1371/journal.pcbi.1003694
-- Waite et al. 2016, Mol Syst Biol 12:895, 10.15252/msb.20167044
+- Waite et al. 2016, Mol Syst Biol, 10.15252/msb.20167044
 - Ni, Colin, Link, Endres & Sourjik 2020 (online Dec 2019), PNAS 117:595, 10.1073/pnas.1910849117 (Europe PMC full text; numbers from text only)
 - Li & Hazelbauer 2004, J Bacteriol 186:3687, 10.1128/JB.186.12.3687-3694.2004 (abstract + BioNumbers 100182)
 - Lynch & Marinov 2015, PNAS, 10.1073/pnas.1514974112 (not used for a number)
