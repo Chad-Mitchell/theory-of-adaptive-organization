@@ -164,14 +164,15 @@ def square():
     fig.savefig(os.path.join(HERE, 'face_square.png'), dpi=100); plt.close(fig)
 
 def all_systems():
-    fig, axs = plt.subplots(2, 4, figsize=(24, 13), dpi=80); fs = 15
+    fig = plt.figure(figsize=(24, 14), dpi=80); fs = 11
     for k, name in enumerate(SYSTEMS):
-        ax = axs.flat[k]; pos = ax.get_position(); ax.set_position([pos.x0, pos.y0 + 0.06, pos.width, pos.height - 0.06])
-        st = fig.add_axes([pos.x0, pos.y0, pos.width, 0.05])
+        r, c = divmod(k, 4); x0 = 0.045 + c * 0.243; y0 = 0.53 - r * 0.45
+        st = fig.add_axes([x0, y0, 0.2, 0.04]); ax = fig.add_axes([x0, y0 + 0.045, 0.2, 0.27])
         lab = {(name, d['lab']): (8, 8) for _, _, d in comps(name)}
-        draw_map(ax, st, (-1.5, 3.5, -3.0, 3.5), fs * 0.8, [name], lab, ell_sigma=2.0, ell_alpha=0.12)
-        ax.set_title(name + ': ' + reading(name), fontsize=fs, weight='bold')
-    fig.suptitle('Every placement with 2\u03c3 ellipses from its input ranges (hypothesized positions, not measurements)', fontsize=22, weight='bold', color='#cc0000')
+        draw_map(ax, st, (-1.5, 3.5, -3.0, 3.5), fs, [name], lab, ell_sigma=2.0, ell_alpha=0.12)
+        st.set_xlabel('local: net stakes \u00f7 upkeep', fontsize=12); ax.set_ylabel('shared: net stakes \u00f7 upkeep' if c == 0 else '', fontsize=12)
+        ax.set_title(name + ('' if comps(name)[0][2]['strong'] else '*') + '\n' + reading(name, short=True), fontsize=15, weight='bold')
+    fig.suptitle('Every placement with 2\u03c3 ellipses from its input ranges (hypothesized positions, not measurements)', fontsize=22, weight='bold', color='#cc0000', y=0.985)
     fig.savefig(os.path.join(HERE, 'face_all.png'), dpi=80); plt.close(fig)
 
 if __name__ == '__main__':
