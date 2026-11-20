@@ -26,7 +26,7 @@ Read before writing this entry: the locked scoring of the finished PC, W1, W3 an
   INVALID, never in place of it; and evaluate the evolved consensus design as a fixed design with the locked ruin gate over
   40 worlds to measure its own death rate.
 
-## D2 (Fri 20 Nov 2026, about 2:25 PM ET; the commit adding this entry is the record): a reachability diagnostic for W4
+## D2 (Fri 20 Nov 2026, about 2:18 PM ET; the commit adding this entry is the record): a reachability diagnostic for W4
 
 Read before writing: the locked scoring of all 8 W4 seeds. Three seeds (0, 4, 6, all one-store starts) stayed at one
 local store (J gap 8.1%), so W4 will score FAILED (3 misses) under §6. The four four-store starts (1, 3, 5, 7) and one
@@ -35,3 +35,13 @@ once reached. Suspected cause, as in W4b: a shared store created from nothing st
 (2.4% of J* in W4) before it can pay. **D2b:** D1b's change (a store created from nothing gets weight N(0, 0.3²)) applied to
 W4, seeds 0, 2, 4, 6 (one-store starts), otherwise locked. Fixed interpretation: ≥ 3 of 4 reaching the band means the
 weight-0 creation valley is the barrier. It cannot change the W4 verdict.
+
+## D3 (Fri 20 Nov 2026, about 2:52 PM ET; the commit adding this entry is the record): S031 and S07 reported as PENDING, not INVALID
+
+Read before writing this entry: the locked scoring of PC, W1, W2, W3, W4, W4b, and all D1/D2 diagnostics. The store-noise
+arms are slow (about 6.7 s per generation, so roughly 67 min per run; 24 runs at 4 in parallel, about 6–7 hours from about
+2:40 PM ET). `analyze_evo.py` labels a world with no runs "INVALID (only 0 converged seeds)". That label describes
+missing data, not a failed gate, so `RESULTS_EVO.md` reports S031, S07, the store-noise threshold and the S031→S07 move as
+**PENDING**. The runs continue unchanged (locked code, `runall.sh`, seeds 0–7 and 100–103). When they finish, the locked
+`analyze_evo.py` will be rerun unchanged, and its S-arm verdicts will be added to `RESULTS_EVO.md` and `CLAIM_MAP` in a later
+commit with their own time. Nothing in the scoring changes.
