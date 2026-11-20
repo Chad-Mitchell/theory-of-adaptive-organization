@@ -15,7 +15,7 @@ holding memory, being wrong or late, and acquiring and sharing information, with
 **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
 
 Here *minimize* means: sit near the minimum of J, given their measured world. It is a bet, untested and not yet earned; THEORY §3 lists the tests that would make it a law or kill it.
- The world enters as a **measured input**. A wrong picture of the world means re-measuring and getting a new design; a wrong or missing cost kills the theory.
+The world enters as a **measured input**. A wrong picture of the world means re-measuring and getting a new design; a wrong or missing cost kills the theory.
 
 The theory is a definition (that cost), a principle (strongly selected systems sit near its minimum; untested, not refuted) and theorems (proved in-model): a best design exists; layers never fall as stakes rise relative to upkeep; one time scale needs one layer, even a random walk; J separated time scales need J layers once stakes clear a threshold; and survival is free above a buffer and decides the design below it. The parts are known and credited; the claim is new. What is established is a principle and in-model theorems, not a law. No field test has yet measured its quantities validly, so every field result is "passed / failed on proxy".
 
