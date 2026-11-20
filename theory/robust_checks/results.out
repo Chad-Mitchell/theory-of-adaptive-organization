@@ -1,0 +1,64 @@
+## r1_redundancy
+a_grid_cases = 324
+a_mismatches = 0
+a_monotone_w = True
+a_monotone_h = True
+a_slope_per_ln_w = 0.43429448190325176
+a_slope_theory = 0.43429448190325176
+a_p_profile_ends = (1, 298, 1)
+b_mismatches = 0
+b_example_p0.1_eps1e-3_N1e3 = 6
+b_nstar_mismatches = 0
+b_nR_vs_N = [3, 5, 7, 9, 11]
+c_floor_beta = 0.0001
+c_window_budget = 1.000499833092583e-06
+c_feasible_any_n = False
+d_A_nE = 3
+d_A_ntheta = 7
+d_A_n_by_B = {1.5: 7, 2: 5, 3: 3, 5: 3, 10: 3, 50: 3}
+d_grid_tested = 300
+d_viol_theta_below_nE = 0
+d_viol_nstar_formula = 0
+d_viol_monotone_in_B = 0
+d_mc_ruin_vs_bound = {1: (np.float64(0.08374999999999999), 0.1257185890535648), 3: (np.float64(0.0), 0.0004477033633105575)}
+## r2_ambiguity
+a_elasticity_on_foc = -a/(8*A*x + 3*a)
+a_elas_plus_third = 8*A*x/(3*(8*A*x + 3*a))
+a_nom_tau_decreasing = True
+a_nom_B_increasing = True
+a_nom_J_increasing = True
+a_nom_B_ratio_at_u=1 = 1.8263
+a_nom_ratio_in_[(1+u)^(2/3),(1+u)] = True
+a_wc_tau_decreasing = True
+a_wc_B_increasing = True
+a_wc_J_increasing = True
+a_wc_B_ratio_at_u=1 = 1.4584
+a_fitted_chance_of_robust_design_u=0.2,0.5 = [0.000104451328165862, 1.7846873995313278e-06]
+b_factor_vs_n = {5: np.float64(2.5428), 10: np.float64(1.4583), 20: np.float64(1.1869), 50: np.float64(1.0671), 200: np.float64(1.0159), 1000: np.float64(1.0031)}
+b_plugin_true_exceedance_n20 = 0.0035545814054022827
+b_plugin_mc_n20 = 0.003625
+b_factor_decreasing_in_n = True
+c_copies_(plugin_mle, plugin_postmean, predictive) = {(1, 10): (6, 8, 17), (5, 50): (6, 7, 8), (50, 500): (6, 7, 7), (500, 5000): (6, 7, 7), (2, 100): (4, 4, 5), (20, 1000): (4, 4, 4)}
+c_viol_predictive_below_postmean_plugin = 0
+d_t_unitvar_quantiles_eps1e-3 = {2.5: np.float64(6.181), 3: np.float64(5.897), 4: np.float64(5.072), 5: np.float64(4.565), 8: np.float64(3.898), 15: np.float64(3.475), 30: np.float64(3.27), 100: np.float64(3.142), 1000: np.float64(3.095)}
+d_gauss_quantile = 3.09
+d_cantelli_factor_eps1e-3 = 31.607
+## r3_lean
+Bmin,Bslack = (np.float64(0.4864), 0.5079)
+a_sigma_margin_by_B = {0.49: 0.0, 0.5: 0.0, 0.505: 0.0, 0.52: 0.026116, 0.6: 0.16158, 1.0: 0.490591, 5.0: 1.035064}
+a_bound_at_binding_sigma+1% = 1.0570266698446669
+b_ruin_floor_unmodeled_jump = 0.9999546000702375
+e_theta_decreasing_in_sigma_violations = 0
+e_robust_by_u = {0: {'Bmin': np.float64(0.4864), 'tau_at_B0p51': 0.31623, 'fitted_cost': 0.31623}, 0.005: {'Bmin': np.float64(0.4878), 'tau_at_B0p51': 0.31602, 'fitted_cost': 0.31623}, 0.01: {'Bmin': np.float64(0.4891), 'tau_at_B0p51': 0.31164, 'fitted_cost': 0.31626}, 0.015: {'Bmin': np.float64(0.4904), 'tau_at_B0p51': 0.30724, 'fitted_cost': 0.31636}, 0.02: {'Bmin': np.float64(0.4917), 'tau_at_B0p51': 0.30282, 'fitted_cost': 0.31652}}
+e_tau_nonincreasing_in_u = True
+e_cost_nondecreasing_in_u = True
+## r4_antifragile
+affine_in_a_at_fixed_design = True
+Jstar_nondecreasing = True
+Jstar_concave_max_second_diff = 1.7763568394002505e-15
+gap_vs_blind_nonneg = True
+gap_nondecreasing = True
+gap_convex_min_second_diff = -1.3322676295501878e-15
+regimes_Jstar(abar) = 1.631141
+regimes_fixed_design_cost = 1.631141
+regimes_redesign_cost = 1.335695
