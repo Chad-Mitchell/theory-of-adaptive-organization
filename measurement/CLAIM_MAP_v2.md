@@ -74,6 +74,8 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 **v2.40 note (18 Nov 2026, about 3:55 PM ET; repo consistency audit, branch `docs/consistency-audit-2026-11-18`; status-label and pointer fixes, no theory claim changes).** **M2 (validity gates MV1–MV10 and the admissibility rule): DECIDED → DECIDED; BINDING, treated as binding from 18 November 2026, on Chad's instruction to proceed without his sign-off (t1927).** On 18 Nov 2026 (t1927) Chad said his ideas are done and the remaining work is to flesh out, prove, validate and verify; `theory/SCALE_ENDS.md` records the same decision as "the MV gates stay binding". The gates are therefore treated as binding from 18 November 2026, on Chad's instruction to proceed without his sign-off (t1927), for every new prereg; this is a working decision, not a formal approval. MV9's externally timestamped lock is an outside act and still needs Chad's go for each lock (FRAMEWORK MV9), so no Tier-1 result can exist until that go is given or MV9 is met another way. Gate range in the header and in M2 corrected from MV1–MV9 to MV1–MV10 (MV10 was added in v2.20). No other row changes status. No row has FIELD-PASS or FIELD-FAIL; no Tier-1 test has run.
 
+**v2.60 note (20 Nov 2026, about 11:50 AM ET; branch `v2.5-measure`; one executor for Chad, a self-check, not independent).** G3a replicates the GB count FAIL in 2024 (P21 PROXY-FAIL). GRID-S S2: the German slow mode did not follow the market's move to 15-min products (P20 PROXY-PASS). GRID-4 INVALID and GRID-4b UNTESTED (P22 INCONCLUSIVE). `theory/measured/SYNTHESIS.md` states the program's state: not refuted; untested in scope; refuted on proxy outside the stated premises for the layer count. The tally moves OPEN 77 → 76, PROXY-FAIL 19 → 20, PROXY-PASS 9 → 10, INCONCLUSIVE 7 → 7; total 290 → 291.
+
 **v2.59 note (20 Nov 2026, about 10:50 AM ET; branch `v2.5-measure`; one executor for Chad, a self-check, not independent).** GRID-2 run on open NESO and Elexon data (four 2026 weeks with BM acceptances; 12 months for the fast band). P19 PROXY-FAIL: the reconstructed GB pre-control imbalance is a random walk across 2 s–4 h (γ = 2.09), so (iii) predicts one layer where GB runs four; diagnosed as a scope miss (actuator- and ruin-tiered layers, near-noiseless reads; (iii) assumes sensing-limited trackers with ruin slack), with the speed-price escape failing. The kill condition is not reached (no CE seconds-level open-loop data). P20 INCONCLUSIVE (GRID-S: market-step account fails in GB; German 2026 arm blocked by a form download). P21 OPEN (GRID-3: 2024 replication and a premise rule). The tally moves OPEN 77 → 77, PROXY-FAIL 18 → 19, INCONCLUSIVE 6 → 7; total 288 → 290.
 
 **v2.58 note (20 Nov 2026, about 10:00 AM ET; branch `v2.5-measure`; one executor for Chad, a self-check, not independent).** GRID-1 run on public 2022 German data downloaded by Chad (aFRR setpoint 1 s, quality-assured aFRR/mFRR 15 min). The second-wise NRV was not available, so deviation DV1 (`6636517`, before any outcome statistic) declared the count and fast/middle interlacing arms INVALID (pre-control imbalance below 30 min not reconstructable: no ACE/tie-line data; the setpoint is a controller output) and kept one slow arm. GRID-1 as adjusted: INVALID by premise (mFRR coverage 0.666). GRID-1b (`bef3b8c`, before any spectrum): P18 PROXY-PASS, slowest world mode 65 min, wholly above the slowest layer's 15 min and outside the 'set at' rival. P17 stays OPEN; P19 (GB, GRID-2) OPEN, preregistered. The tally moves OPEN 76 → 77, PROXY-PASS 8 → 9; total 286 → 288.
@@ -524,30 +526,31 @@ Preregistered tests on published measurements of E. coli chemotaxis (ECOLI-MEM, 
 | P17 | GRID-1: Continental Europe's reserve layers (FCR 30 s, aFRR 300 s, mFRR 900 s) match the open-loop imbalance by degree (three separated modes) and interlace it (θ ∈ (30,300), (300,900), >900 s) against the rival 'set at' (θ_j ∈ [τ_j/2, 2τ_j]) | new (v2.57) | **OPEN** | Locked `4820d91` (`theory/measured/grid/PREREG_GRID1.md`) before any outcome data; testbed ranking `theory/measured/TESTBEDS.md`. 2022 run (v2.58): INVALID by premise (mFRR coverage 0.666); count and fast/middle arms declared INVALID in advance (DV1 `6636517`: no ACE/tie-line data, aFRR setpoint is a controller output). `grid/RESULTS_GRID1.md` |
 | P18 | GRID-1b: the world's slowest mode in CE (German) imbalance is slower than the slowest reserve layer (mFRR 900 s), not set at it (rival θ ∈ [450, 1800] s) | new (v2.58) | **PROXY-PASS** | Locked `bef3b8c` before any spectrum. One mode, θ₁ = 3,898 s (CI 3,425–4,398 s), 82 % of band variance; rival does not pass. One low-risk arm (expected to pass, disclosed); corner may be partly the market's hourly schedule grid. `theory/measured/grid/RESULTS_GRID1.md` |
 | P19 | GRID-2: GB reserve layers (1, 10, 60, 900 s) interlace the reconstructed pre-control imbalance and match its count | new (v2.58) | **PROXY-FAIL** | G1 (count by degree) FAIL on proxy, by the locked rule. v2.59 run (DV-GB1 `50502a0` before any GB series): power law γ = 2.09 in 2 s–4 h (random walk ⇒ one layer, L1), robust to MFR, damping and lags; interlacing not scored. Post-hoc diagnosis (formulated after the miss; to be tested in GRID-4, not a rescue): grids are actuator- and ruin-tiered with near-noiseless reads, outside (iii)'s sensing-limited, ruin-slack premise; speed-price escape fails (DR dearer than DC). `theory/measured/grid/RESULTS_GRID2.md` |
-| P20 | GRID-S: the German 65-min mode is the world's (W), not the market's hourly schedule step (M) | new (v2.59) | **INCONCLUSIVE** | Locked `8b0ef50`. S1: M predicted a GB corner in [1,300, 2,900] s; none (corner 10,148 s, CI 4,939 s–bound): M-S1 FAIL, which disfavours M but cannot confirm W. S2 (Germany 2026, 15-min products) BLOCKED: form-only download |
-| P21 | GRID-3: replication of the GB random-walk imbalance in 2024; premise rule (read noise ≥ 10 %, ruin slack) for any future layer test | new (v2.59) | **OPEN** | `theory/measured/grid/PREREG_GRID3.md`, locked before any 2024 GB or 2026 DE data |
+| P20 | GRID-S: the German 65-min mode is the world's (W), not the market's hourly schedule step (M) | new (v2.59) | **PROXY-PASS** | Locked `8b0ef50`, DV-S2 `d5ccf03`. S1: M-S1 FAIL (GB has no 30-min mode). S2 (v2.60): W-S2 PASS: after 15-min day-ahead products, the dominant German mode is 2,956 s (CI 2,626–3,352 s), with no 16-min mode; thin margin. `grid/RESULTS_GRID_S.md` |
+| P21 | GRID-3: replication of the GB random-walk imbalance in 2024; premise rule G3b for any future layer test | new (v2.59) | **PROXY-FAIL** | G3a (v2.60): power law γ = 2.02 in 2024: the GRID-2 count FAIL replicates (thin BIC margin). G3b applies forward only. `grid/RESULTS_GRID3_4.md` |
+| P22 | GRID-4/4b: GB layer times follow actuation (technology), not the world (2019/20 vs 2026) | new (v2.60) | **INCONCLUSIVE** | GRID-4 INVALID (verdict depends on an assumed 2019 holding); GRID-4b UNTESTED (no open 2019/20 MFR holdings) |
 
 ## Counts
 
-**Current tally (v2.59, 20 Nov 2026).** Every row in sections A–O (alias rows in O excluded), counted by the first status word in its status column. `tools/check_consistency.py` recomputes this table and fails if it drifts.
+**Current tally (v2.60, 20 Nov 2026).** Every row in sections A–O (alias rows in O excluded), counted by the first status word in its status column. `tools/check_consistency.py` recomputes this table and fails if it drifts.
 
 <!-- tally:begin -->
 | Status now (all sections) | Rows |
 |---|---|
-| OPEN | 77 |
+| OPEN | 76 |
 | PROVED (in-model) | 82 |
 | PRIOR ART | 28 |
 | MATH-CORRECTED | 22 |
 | NOT EVIDENCE | 19 |
-| PROXY-FAIL | 19 |
+| PROXY-FAIL | 20 |
 | WITHDRAWN | 11 |
-| PROXY-PASS | 9 |
+| PROXY-PASS | 10 |
 | SIM-FAIL | 6 |
 | DECIDED | 4 |
 | SIM-INCONCLUSIVE | 3 |
 | SIM-PASS | 3 |
 | INCONCLUSIVE | 7 |
-| **Total** | **290** |
+| **Total** | **291** |
 <!-- tally:end -->
 
 A count is not a score: most OPEN rows are untested, not refuted, and PROVED means proved inside the model only.

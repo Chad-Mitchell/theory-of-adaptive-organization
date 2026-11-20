@@ -20,3 +20,12 @@ def test_grid2_verdicts():
     for k in ("mfr_0.5", "mfr_1.5", "L_0.5", "L_1.5", "lag_FAT"):
         assert r[k]["choice"] == "PL" and 1.7 <= r[k]["gamma"] <= 2.3            # not INVALID
     s1 = r["S1"]; assert all(lo > 2900 or hi < 1300 for lo, hi in s1["ci"])      # M-S1 FAIL
+
+def test_g3a_and_s2_verdicts():
+    g3 = json.loads((R.parent / "grid3a_results.json").read_text())
+    assert g3["main"]["choice"] == "PL" and 1.7 <= g3["main"]["gamma"] <= 2.3
+    s2 = json.loads((R.parent / "grid_s2_results.json").read_text())
+    m = s2["main_1min"]; i = max(range(len(m["sep"])), key=lambda k: m["sep"][k][1])
+    lo, hi = m["ci"][i]; assert 2600 <= lo and hi <= 5850
+    assert not any(650 <= a and b <= 1460 for a, b in m["ci"])
+    lo2, hi2 = s2["gridb_15min"]["ci"][0]; assert 2600 <= lo2 and hi2 <= 5850
