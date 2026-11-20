@@ -66,5 +66,5 @@ signal whose spectrum the experimenter sets, crossed with a read-noise level the
 - **Kill:** a two-store kernel for a single-mode world, or stores slower than their modes, across noise levels.
 - **What it would take:** a lab partner and ethics approval. For humans: a two-condition online tracking task, about
   100 participants, with an IRB and a recruitment account, which needs Chad and his collaborators (no account
-  creation here). For E. coli: the F2/Y4 measurements at the Emonet or Cluzel/Park lab (`OUTREACH_DRAFT.md`,
+  creation here). For E. coli: the F2/Y4 measurements at the Emonet or Cluzel/Park lab (an outreach draft kept outside the repository,
   not sent).
