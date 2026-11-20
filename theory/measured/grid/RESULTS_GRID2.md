@@ -48,4 +48,10 @@ Premise: frequency coverage 1.00, inertia 1.00 (28-day main sample); mean inerti
 - **S1:** GB shows no 30-min mode, as the market-step account required; this disfavours that account of the
   German 65-min mode but does not confirm the world account (which gave no GB window). S2 would decide it.
 
+**Candid note on timing (added 20 Nov 2026, 10:55 AM ET).** Both the reading of DC and DM as ruin tiers and the
+sensing-limited scope premise were formulated **after** the G1 miss was seen. Neither was in PREREG_GRID2.md or
+its deviation. They are a diagnosis to be tested (GRID-4, `PREREG_GRID4.md`), not a rescue: the GRID-2 G1 verdict
+is and stays **FAIL on proxy**, and the G3b premise rule applies only to tests preregistered after it, never
+retroactively to GRID-1 or GRID-2.
+
 **Next tests (preregistered before looking):** `PREREG_GRID3.md`.
