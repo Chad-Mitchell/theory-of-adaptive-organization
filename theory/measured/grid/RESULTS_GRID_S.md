@@ -22,3 +22,13 @@ world account of the mode passes its one discriminating arm.
   not read as a world mode.
 - W passes by a thin margin at the lower edge of its window.
 - This supports GRID-1b's reading of the slow mode. It does not test the layer count.
+- **Added v2.61 (review 27 S-3 to S-5).** The CI is conditional on the BIC-chosen K = 2; it does not include model
+  uncertainty over K. The day-block bootstrap resamples Welch segments that overlap by 50 % as if independent, so the
+  CI is likely too narrow. The 26-s margin (2,626 vs 2,600 s) is smaller than that understatement plausibly is, so the
+  PASS is indistinguishable from the window's edge. The verdict is as locked, but it should be read as weak.
+- The 246-s corner was declared closed-loop in DV1 for the 2022 data. The GRID-S lock does not restate that
+  exclusion for 2026. The verdict does not depend on it: the dominant corner decides W-S2, and 246 s is outside M's window.
+- The like-for-like ratio (2026 vs 2022, the GRID-1b method) is 3,319/3,900 ≈ 0.85. The two samples come from
+  different seasons and years, which confounds the ratio.
+- **What S2 shows:** it rejects one named rival (the hourly market-step account). It does not show that the mode
+  belongs to the world rather than to some other non-market cause.

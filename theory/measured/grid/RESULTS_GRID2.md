@@ -59,3 +59,12 @@ is and stays **FAIL on proxy**, and the G3b premise rule applies only to tests p
 retroactively to GRID-1 or GRID-2.
 
 **Next tests (preregistered before looking):** `PREREG_GRID3.md`.
+
+
+## Caveat on the GB reconstruction (added v2.61, review 27 S-11)
+The balancing-mechanism term B carries about 90 % of the reconstructed imbalance's variance. B is built from discrete
+acceptances (BOAL − PN), and a step-like input gives an f⁻² spectrum on its own. The γ ≈ 2 random-walk reading may
+therefore partly reflect how dispatch is represented rather than the world. There is no positive control (a synthetic
+two-mode world passed through the same reconstruction), so the proxy's power to detect separated modes is unknown.
+G3a's margin (ΔBIC 1.0 between the power law and a Lorentzian) is not decisive. The G1 FAIL stands as locked; this
+caveat limits what it says about GB's world.
