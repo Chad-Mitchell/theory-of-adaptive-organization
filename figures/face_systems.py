@@ -8,12 +8,15 @@ Per component (one Ornstein-Uhlenbeck time scale; times in hours):
   snr   what one unit's reads over one time scale tell it: Lambda = 2v/(N a)  (large = clean reads)
   R     stakes over upkeep for ONE unit's layer if its reads were perfect: w_u*v/h_l  (guess in every row)
   hc    upkeep of one shared layer over one unit's layer: h_c/h_l (guess)
-Coordinates (face_map.py): X_L = R*(1 - P/v), X_S = (n/hc)*R*G_S/v.  n = 1: no shared option (drawn in the bottom band)."""
+Coordinates (face_map.py): X_L = R*(1 - P/v), X_S = (n/hc)*R*G_S/v.  n = 1: no shared option (drawn in the bottom band).
+stream='one': the components reach the system through ONE read stream (E. coli's receptors), so they are not separate channels; the
+coordinates are then the MARGINAL worths of the 1st and 2nd layer, R*(E_0 - E_1) and R*(E_1 - E_2) (THEORY L2; V3 of
+face_collapse_v23.py shows the layer-by-layer reading is exact there), with N set by the fast component's snr and R the run row's."""
 H, D, W, MO, Y = 1.0, 24.0, 24.0 * 7, 24.0 * 30.4, 24.0 * 365.25
 SEC, MIN = 1 / 3600, 1 / 60
 
 SYSTEMS = [
- dict(name='E. coli', strong=True, comps=[
+ dict(name='E. coli', strong=True, stream='one', comps=[
    dict(lab='run', tau=(0.5 * SEC, 3 * SEC), lead=(0.1 * SEC, 0.3 * SEC), n=(1, 1), rho=(1, 1), snr=(1, 10), R=(3, 100), hc=(1, 1)),
    dict(lab='background', tau=(30 * SEC, 300 * SEC), lead=(0.1 * SEC, 0.3 * SEC), n=(1, 1), rho=(1, 1), snr=(30, 1000), R=(3, 100), hc=(1, 1))]),
  dict(name='immune system', strong=True, comps=[
