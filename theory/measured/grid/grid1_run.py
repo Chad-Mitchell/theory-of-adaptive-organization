@@ -159,8 +159,15 @@ if __name__ == "__main__":
                 var_A=float(np.nanvar(A)), var_M=float(np.nanvar(mq)))
     print(json.dumps(prem, indent=1))
     json.dump(dict(premise=prem), open(os.path.join(OUT, "grid1_premise.json"), "w"), indent=1)
-    if cov_A < 0.9 or cov_M < 0.9 or r_set < 0.9:
+    import sys
+    b = "--grid1b" in sys.argv
+    if not b and (cov_A < 0.9 or cov_M < 0.9 or r_set < 0.9):
         print("INVALID by premise"); raise SystemExit
+    if b:  # GRID-1b data rule
+        ratio = float(np.nanvar(mq) / np.nanvar(A)); prem["M_var_share"] = ratio
+        if cov_A < 0.9 or r_set < 0.9 or ratio >= 0.05:
+            print("GRID-1b INVALID by premise"); raise SystemExit
+        mq = np.where(np.isfinite(mq), mq, 0.0)
     slot = np.arange(n) % 96
     def desched(x):
         x = x.copy()
@@ -171,4 +178,10 @@ if __name__ == "__main__":
     for lab, mult in [("main", 1.0), ("M_dropped", 0.0), ("M_doubled", 2.0)]:
         runs[lab] = score(desched(A + mult*mq), lab, boot=(lab == "main"))
         print(json.dumps(runs[lab], indent=1, default=float))
-    json.dump(dict(premise=prem, runs=runs), open(os.path.join(OUT, "grid1_results.json"), "w"), indent=1, default=float)
+    if b:
+        h2 = np.array([s.startswith(tuple(f".{m:02d}.2022" for m in range(7, 13)), 3) for s in kq.to_numpy()])
+        x = desched(A + mq); x[~h2] = np.nan
+        runs["H2_only"] = score(x[h2], "H2_only", boot=False)
+        print(json.dumps(runs["H2_only"], indent=1, default=float))
+    name = "grid1b_results.json" if b else "grid1_results.json"
+    json.dump(dict(premise=prem, runs=runs), open(os.path.join(OUT, name), "w"), indent=1, default=float)

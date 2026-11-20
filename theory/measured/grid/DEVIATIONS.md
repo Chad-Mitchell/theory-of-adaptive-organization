@@ -3,3 +3,4 @@
   instead of second-wise NRV), circularity, arms G1, G2-fast and G2-mid declared INVALID in advance,
   G2-slow and R1-slow scorable at ≥ 30 min, adjusted INVALID rules. Full text appended to `PREREG_GRID1.md`.
 - **DV2** (before any spectrum): parsing fixes; Germany = sum of four TSO columns (identical where both exist).
+- **DV2 erratum**: TSO columns not complete; GRID-1 INVALID by premise (mFRR coverage 0.666). Follow-up GRID-1b locked in `PREREG_GRID1b.md`.

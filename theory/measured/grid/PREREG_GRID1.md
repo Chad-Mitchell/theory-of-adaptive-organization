@@ -174,3 +174,14 @@ so far: setpoint 15-min coverage 0.987 and its variance (7.8×10⁴ MW²); no sp
 90 % coverage rule as written; the four TSO columns are complete and their sum equals `Deutschland` exactly
 wherever both exist (max |difference| 2×10⁻¹³ MW, aFRR and mFRR, both signs), so M_15 and the QA aFRR check
 use the sum of the four TSO columns. This is the same quantity, not a new proxy; no rule changes.
+
+### DV2 erratum (before any spectrum)
+DV2's statement that "the four TSO columns are complete" was wrong: I had checked only TenneT. N.A. counts per
+TSO (each sign, both aFRR and mFRR files): 50Hertz 8,828, Amprion 2,880, TenneT 0, TransnetBW 2,016 quarters;
+`Deutschland` is N.A. exactly when any TSO is. The TSO sum therefore adds no coverage. Premise numbers from the
+third attempt (no spectrum computed): coverage A_15 0.987, coverage M_15 0.666, corr(A_15, QA aFRR) 0.998,
+var(M_15)/var(A_15) = 574/77,957 = 0.7 %.
+
+## GRID-1 verdict (as locked + DV1): INVALID by premise
+M_15 coverage is 0.666 < 0.90 (DV1.5). No arm is scored. A follow-up with a stated data rule is preregistered
+in `PREREG_GRID1b.md` before any spectrum is computed.

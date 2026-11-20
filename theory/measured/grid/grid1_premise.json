@@ -1,11 +1,11 @@
 {
  "premise": {
   "n_quarters": 35040,
-  "key_match": 0.0,
-  "coverage_A": 0.0,
-  "coverage_M": 0.0,
-  "corr_setpoint_vs_QA": NaN,
-  "var_A": NaN,
-  "var_M": NaN
+  "key_match": 0.9872716894977169,
+  "coverage_A": 0.9872716894977169,
+  "coverage_M": 0.6658675799086758,
+  "corr_setpoint_vs_QA": 0.9980093123970221,
+  "var_A": 77957.17554741082,
+  "var_M": 574.0683942740202
  }
 }
