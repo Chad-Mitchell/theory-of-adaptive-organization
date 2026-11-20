@@ -1,0 +1,21 @@
+Excess of K-store designs over the exact optimum, as % of the optimum, at lead k (time units: fastest tau = 1)
+
+-- cadence world, tau = 1, 30, 1000, equal variance --
+ k=   0: opt MSE=0.1304 (blind=1)  excess% K=1,2,3: [ 3.917  0.081 -0.   ]
+ k=   1: opt MSE=0.3747 (blind=1)  excess% K=1,2,3: [ 7.73   0.353 -0.   ]
+ k=  10: opt MSE=0.5649 (blind=1)  excess% K=1,2,3: [ 2.455  0.377 -0.   ]
+ k= 100: opt MSE=0.7940 (blind=1)  excess% K=1,2,3: [ 0.61   0.015 -0.   ]
+ k= 300: opt MSE=0.8652 (blind=1)  excess% K=1,2,3: [ 0.252  0.006 -0.   ]
+
+-- two modes tau=1 and 1000, equal variance --
+ k=   0: opt MSE=0.1809  excess% K=1,2: [ 5.199 -0.   ]
+ k=   1: opt MSE=0.4732  excess% K=1,2: [ 9.335 -0.   ]
+ k=   3: opt MSE=0.5303  excess% K=1,2: [ 0.351 -0.   ]
+ k=  10: opt MSE=0.5399  excess% K=1,2: [ 0.05 -0.  ]
+ k= 100: opt MSE=0.6157  excess% K=1,2: [ 0.036 -0.   ]
+
+-- scale-free band alpha=1, span 1e4 (33 modes), exact optimum = 33-state Kalman --
+ k=   0: opt MSE=0.1541  excess% K=1..4: [4.355 0.362 0.046 0.007]
+ k=   3: opt MSE=0.3452  excess% K=1..4: [4.829 0.551 0.079 0.012]
+ k=  30: opt MSE=0.5786  excess% K=1..4: [2.882 0.481 0.082 0.014]
+ k= 300: opt MSE=0.8067  excess% K=1..4: [1.156 0.194 0.036 0.007]

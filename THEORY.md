@@ -1,14 +1,8 @@
-# A Theory of Adaptive Organization: judgment under the second law — v2.0 draft (19 November 2026)
+# A Theory of Adaptive Organization: one cost, layered design — v2.1 draft (19 November 2026)
 
-Author: Chad Mitchell (X: [@torusflow](https://x.com/torusflow)). Public domain (CC0). Not peer reviewed, and not independently reviewed as a whole. **This file is the one canonical statement of the theory; where anything else in the repository disagrees, this file governs.** The main text (§0–§9) reads in about 20 minutes. Appendix A fixes the notation, Appendix B proves every numbered result, and Appendix C maps each result to its claim row and its derivation. Claim statuses: `measurement/CLAIM_MAP_v2.md` (v2.49). Earlier versions, the changelog and the full record of tests and reviews: `reference/` and the folders it indexes.
+Author: Chad Mitchell (X: [@torusflow](https://x.com/torusflow)). Public domain (CC0). Not peer reviewed, and not independently reviewed as a whole. **This file is the one canonical statement of the theory; where anything else in the repository disagrees, this file governs.** The main text (§1–§10) reads in about 15 minutes. Appendix A fixes the model and notation, Appendix B proves every numbered result, and Appendix C maps each result to its claim row and its derivation. Claim statuses: `measurement/CLAIM_MAP_v2.md` (v2.50). The previous core is frozen at `reference/THEORY_v2.0.md`; the changelog and the full record of tests and reviews are in `reference/` and the folders it indexes.
 
-**Status words.** *Proved in-model*: a theorem inside the model of §2.1, which says nothing by itself about nature. *Known*: a published result, credited. *Open*: untested, not refuted. *Passed/failed on proxy*: a locked prediction scored on an instrument that fails at least one validity gate, which is a result about that instrument, not about the theory.
-
-## 0. The claim
-
-Judgment means carrying a model of the world in order to act ahead of it. This theory's claim is that judgment costs **one bill in three parts: holding memory, being wrong or late, and the reads and effort that keep the memory fresh**, plus the risk of ruin, and that this bill is priced the same way at every scale. Only the currency changes: heat in a cell, attention in a person, money in a firm. Designs that last under strong selection sit near the balance point of the three parts. That one budget yields buildable rules (when to keep, check or let go of a fact; how often to look; when to share a model; who must be in charge; how far one tracker can reach) and, at every scale, tests that can kill it.
-
-Most of the pieces are known, and §8 credits them. What is new is the synthesis: one budget, one set of relations, and predictions across scales with inputs measured on each system. It is a theory, not a law, and not a theory of everything. It says what tracking a changing world costs, not what an organization wants. Its bet about real systems is untested, not refuted (§7).
+**Status words.** *Proved in-model*: a theorem inside the stated model, which says nothing by itself about nature. *Known*: a published result, credited. *Open*: untested, not refuted. *Passed/failed on proxy*: a locked prediction scored on an instrument that fails at least one validity gate, which is a result about that instrument, not about the theory.
 
 ## 1. The second law, and three ways to last
 
@@ -16,17 +10,149 @@ Total disorder rises; local order can grow only by exporting disorder somewhere 
 
 | Way to last | What it pays | Does a model of the world pay? | Examples |
 |---|---|---|---|
-| **Keep** (frozen) | Almost nothing: it sits in a state little can knock loose | No. Nothing it does changes whether it lasts, so a model would cost and buy nothing (Result E1, Appendix B) | Atoms, crystals, a virus particle; at the extreme, a black hole |
-| **Hold** (self-regulating) | A steady flow of energy | No. It **regulates itself** (in a star: self-regulating fusion, convection, magnetic dynamos, a layered composition that records its past) **but anticipates nothing outside** | Stars, flames, hurricanes |
+| **Keep** (frozen) | Almost nothing: it sits in a state little can knock loose | No. Nothing it does changes whether it lasts, so a model would cost and buy nothing (E1) | Atoms, crystals, a virus particle; at the extreme, a black hole |
+| **Hold** (self-regulating) | A steady flow of energy | No. It **regulates itself** but **anticipates nothing outside** | Stars, flames, hurricanes |
 | **Know** (tracks) | A flow of energy *and* the cost of staying matched to a world that changes and can ruin it | Yes, once acting late is costly | Cells, immune systems, colonies, people, firms, cities |
 
-The split itself is prior art in substance (Prigogine 1978; Pross 2011). A knower cannot wait for the world to arrive. Once acting late is costly, it can pay to carry a model and act ahead. **That is judgment: not a new physical principle, but a way of staying alive under the old one.** The rest of this document prices it.
+The split itself is prior art in substance (Prigogine 1978; Pross 2011). A knower cannot wait for the world to arrive. Once acting late is costly, it can pay to carry a model and act ahead. **That is judgment: not a new physical principle, but a way of staying alive under the old one.**
 
-## 2. The bill
+## 2. The claim
 
-### 2.1 The model
+**The claim is that one cost under the second law sets how adaptive systems should be built at every scale: layered, with the layers at the world's time scales.**
 
-Every result below is a theorem about this model, and each states which parts it uses.
+*At the world's time scales* means: one layer for each separated time scale the world changes on that the stakes can pay for, each with a memory set by that scale and the sensing noise (usually much shorter than the scale itself: in one worked case a 90-day mode gets a 6–12-day store). *Under the second law* means that physics supplies the reason upkeep exists and a floor under every price; above the cell those floors are slack (§9).
+
+## 3. The master equation
+
+A system that must act ahead of a world it does not control chooses its design 𝒟 to
+
+$$
+\min_{\mathcal D}\; J(\mathcal D) \;=\; \underbrace{\kappa\, I_{\text{mem}} + h\,K}_{\text{holding memory}} \;+\; \underbrace{w\,\mathbb E[\ell_{\mathcal D}]}_{\text{being wrong or late}} \;+\; \underbrace{A(\mathcal D) + L(\mathcal D)}_{\text{acquiring and sharing information}} \qquad \text{subject to}\quad P(\text{ruin}) \le \varepsilon_r .
+$$
+
+- **𝒟**, the design: the number of layers K, what each tracks, how and how often it senses, and what it shares.
+- **κ·I_mem + h·K**: the price κ per nat held per unit time, and the upkeep h of each layer, store or shared level.
+- **w·E[ℓ]**: the stake times the expected loss at the moment of use. Lateness counts as error, because a prediction that arrives after the moment to act buys nothing.
+- **A(𝒟)**: information-acquisition spend, priced per read (Σ c_k f_k, read price times read rate), per nat acquired (λ), or per unit of precision (c′·r^{−θ}).
+- **L(𝒟)**: link, telling and lookup costs: κ_b per member–level link, d per member told, u per lookup at use rate μ. This is what puts pooling and sharing inside J.
+- **Ruin**: a reserve that starts at buffer B, earns income y and pays J hits zero; ε_r is the tolerated chance.
+- **The world** is exogenous and enters only through its measured pattern of change: its spectrum or Markov kernel, the sensing noise N and the lead k at which actions meet it. The drift level q and spectral slope α are the scale-free special case.
+- **One currency per system** (heat, attention, money, compute). Physics sets floors on the prices (at least kT per nat acquired or erased), not exchange rates between systems.
+- **Open lever.** Effort g spent making the world drift less (homeostasis, buffers, contracts) belongs in the problem, but it makes the world depend on the design, so every theorem below holds the world fixed, g = 0; the coupled case is the open theorem of §9 (CX2, CL11).
+
+The equation is assembled from known parts; the repository already wrote it as Axiom 5 of `reviews/night1/formal/AXIOMS.md`. It is the theory's statement of the problem, not a theorem.
+
+**The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
+
+Here *minimize* means: sit near the minimum of J, given their measured world. This is a bet, untested and not yet earned. Tests that would make it a law: (1) in strongly selected systems at two or more scales, the layers (count, memories, read rates) match the minimum of J computed from each world's measured drift spectrum, sensing noise and prices, better than a named rival (N56, N13); (2) designs move with measured changes in their inputs as predicted, such as read rate with elasticity 1/α in drift (N51) and layers added as stakes rise relative to upkeep; (3) no level at any scale needs a cost J cannot book (J16). Any of these failing as preregistered kills it (§8). Until then, what is established is a principle (§4), theorems proved in-model (§5), and field results passed or failed on proxy.
+
+## 4. What kind of theory this is
+
+The theory has three parts. A **definition**: the cost J. A **principle**: strongly selected, persistent adaptive systems sit near the design that minimizes J, to within the tolerance ε their selection can resolve. That has the form of a variational principle, as least action does, with one difference that matters: least action has no free prices and J does, so the principle says something only through structure that holds for every price (§5 (ii)–(iii)) and through prices measured independently of the design they predict. Whether real systems obey it is untested, not refuted. If strongly selected systems across scales are found near the cost's minimum, that cross-system regularity would earn the hypothesis of §3 its name in the scientific sense; until then what is established is a principle. **Theorems**: what minimizing J implies, proved in stated classes (§5).
+
+The world's pattern of change is a **measured input**, not part of the theory, so there are two kinds of wrong. **A wrong picture of the world** means re-measuring and getting a new design; it costs little, because regret is second order in the picture error (CT23: misjudging drift 2× costs about 4–6%), except near cliffs such as the viability edge or the lookup cliff, where a small error can flip survival. **A wrong or missing cost kills the theory**: no regret bound covers a cost J cannot book.
+
+## 5. The theorem
+
+**Master Theorem** (proved in-model in the linear-Gaussian class 𝓜_LG, Appendix B.9: exogenous Gaussian world, stationary or with stationary increments, sensed through white noise or read exactly; layers are first-order stores with rates in a compact set; squared error at lead k; ruin imposed through the Lundberg bound. New, and not yet independently reviewed as a whole.)
+
+- **(i) Existence** (CT20). If any design survives, a best design exists, and its layer count is at most J(𝒟₁)/h for any surviving one-layer design 𝒟₁.
+- **(ii) Monotone in every world** (CT20). The best layer count never falls as stakes rise relative to upkeep (w/h), and a single layer's best read rate never falls as w/c rises. This part holds for every world and every loss.
+- **(iii) The world caps the layers** (CT21). The best layer count is at most the number of dimensions of the world's optimal predictor (its McMillan degree). A world with one time scale needs exactly one layer, **including the self-similar random walk** (L1). A world with J separated time scales needs at most J, exactly J (at zero lead) once R = w·E_∞/h is large enough, and layers beat one flat tracker iff R > R\* = min_K (K−1)/(Δ₁ − Δ_K), with Δ_K the relative excess error of K layers (L2). A continuum of time scales has no exact finite design (L3).
+- **(iv) The price of survival.** Below a minimum buffer B_min no design survives. Above B_slack the ruin constraint is slack and the expected-cost rules are exactly optimal. In between it binds with a multiplier μ_s > 0, the price of survival, which moves the design from the expected-cost optimum (μ_s = 0) toward Theorem L's survival-optimal design (the μ_s → ∞ end) (CT22).
+- **(v) Special cases.** Each named result is J under a stated restriction, and `theory/meq_checks/meq_derive.py` checks each derivation:
+
+| Result | J restricted to | Gives |
+|---|---|---|
+| Read-rate rule (CT12, CT13) | one layer, exact reset reads, A = c/T | J(T) = c/T + w·q·T^{α−1}/α: read rate ∝ (w·q/c)^{1/α}; a 2× input error costs ≈ 6% at α = 2 |
+| First bit must pay (CT4; Theorem P, CT1–CT3) | κ·I_mem + w·E only | carry a model iff κ < 2 ln 2·a²·Var (Gaussian); size grows with log stakes; when acting blind is not viable a model is necessary |
+| Layers (L1–L3, CT21) | J_K = h·K + w·E_K, sensing fixed by noise N | (iii) above |
+| Sharing (Result 4: B2, CT16, B12) | L = telling or link cost, pooled stakes | a shared level pays iff N > N\*(ρ) = (√(1+ρ)+1)²/ρ; telling pays iff d/c < 1/N\* − 1/N; with per-read broadcast, never unless ρ > 4t/(1−t)², t = c_b/c |
+| Freeze, hold or look up (T8, CT11) | L = μ·u | a fact is frozen, held or looked up by its drift; the band widens N² when shared |
+| One clock for many (CT17) | several parts, one A | one clock costs more unless c_i/(w_i·σ_i²) is equal |
+| Reach (LAT-1, CT19) | E at latency ℓ = L/v | error ≥ q·ℓ^{α−1}, so L_max = v·(D\*/q)^{1/(α−1)} |
+| Survival (CT22; Theorem L, CL2) | the ruin constraint | (iv) above |
+| Physics floor (CT7) | A priced at λ ≥ kT per nat | J\* ≥ σ√(2kT·w): **a floor on J, not a solution of it** |
+
+![Illustrative phase diagram](theory/meq_checks/phase.png)
+
+*Illustrative only:* the best design in one made-up model world (two time scales, `theory/meq_checks/phase.py`). As stakes over upkeep rise the regions run no model → one layer → two layers → not viable; at high latency, federation. The **order** follows from (ii) and Theorem P in every world; the **positions** are this world's. No real system has been placed: none has valid measured stakes.
+
+**Theorem L, stated correctly.** Theorem L maximizes the survival exponent. Its best interval does not depend on the buffer, and it reduces to the expected-cost rule when the reserve's own noise dominates, not when the buffer is large. The large-buffer statement is (iv).
+
+## 6. The spine
+
+1. Judgment has one total cost, holding memory plus being wrong or late plus acquiring and sharing information, with the risk of ruin as a constraint, and physics puts a price floor under each part at every scale.
+2. The theory is that cost and the design that minimizes it; how the world changes is an input, measured on each system, never assumed.
+3. A world that changes on one time scale is tracked best by one layer, even when that change is a self-similar random walk.
+4. A world with several separated time scales is tracked best by one layer per scale once the stakes outweigh a layer's upkeep (R > R\*), each layer's memory set by its scale and the sensing noise, and with a continuum of scales the count keeps rising with stakes over upkeep.
+5. The architecture inherits the world's scale structure: where change is scale-free the layers come out roughly log-spaced (exactly geometric for shared clocks, CL12), and where it has rhythms (days, quarters, seasons) there is one layer per rhythm.
+6. Across members the same cost decides: a shared level forms once enough members face a common driver (N > N\*(ρ)) and telling or broadcasting is cheap enough (CL17); levels are complements that accrete as upkeep falls, and cheap lookup dissolves levels that only hold facts.
+7. Unless keeping shared memory up is privately rewarded, expect someone in charge, through shared fate or enforcement, because a part that bears only Λ_i of the whole's loss watches at (Λ_i/Λ_whole)^{1/α} of the right rate.
+8. Lateness caps how far one layer can reach, so beyond L_max a system federates into separate trackers (when no faster shortcut exists).
+9. A wrong picture of the world costs second-order regret and is fixed by re-measuring, but the theory dies if strongly selected systems, with inputs measured, do not put their layers where the cost says, or if some level needs a cost that J cannot book.
+
+**Two axes, one rule.** Stores lie across time scales and levels lie across members; both come from the same comparison of a layer's saving with its upkeep, applied once to the world's spectrum and once to its shared-drift structure. The set of levels is a copy of the world's shared-drift structure, one level per shared driver whose pooled stakes pay (Axioms 5–6; CL13, CL14), as the stores are a copy of its time scales. In a nested tree, levels fill from the broadest scope down iff shared drift falls slowly enough with scope (χ < χ\* = (1−a)/(1−b), formal Theorem 7; CL15). A pooled level faces the same problem as a member (closure under coarse-graining, T7c), which is the precise sense of "every scale"; that the architecture inherits whatever scale structure the world has is T7 (CL16). Decoupled layers are nearly optimal only when their time scales separate, and lose to one flat tracker when the scales collapse (`theory/THEOREMS.md` T3c, numerical). The idea that loosely coupled parts give fast dynamics inside and slow dynamics between is Simon's (1962); that higher brain levels track slower causes is Kiebel, Daunizeau & Friston's (2008).
+
+**Sizes.** On the time axis a layer buys modest gains: 0.2–5% of the error cost in scale-free bands, about 20% at most in the scans, and at most 29% for one extra clock. The large gains come from pooling (about N reads saved for one), the lookup cliff and ruin margins.
+
+## 7. Uses: design and diagnosis
+
+**Design.** Measure the world's pattern of change, price the reads, upkeep and stakes, and solve J for the number of layers, their memories, the read rates and what to share. For monitors, caches, sensor fleets, inventory and forecasting this is a calculator today (worked example: `theory/MASTER_EQUATION.md` §2). The seven design rules of the 12 November post (act early; keep what pays and let the rest fade, recoverably; move a belief by the signal's reliability; keep prior versions until a correction proves out; act from the current model, not a copy; record whether each prediction was used; watch more as drift × stakes rises) are solutions of J in particular cases, each with the condition under which it fails (`reference/THEORY_v2.0.md` §5).
+
+**Diagnosis.** The same equation reads an existing organization (a firm, a team, a city, a cell) against its costs:
+- which layers the costs say should exist, given the time scales its world changes on;
+- layers that do not pay their upkeep;
+- layers that cheap lookup should have dissolved;
+- missing layers for time scales the stakes can afford;
+- reads that are mistimed for the drift and stakes they face, and parts that under-watch because they bear little of the whole's loss.
+
+Much of this works from signs and ratios, without exact stakes: the comparative statics of §5 (ii) hold in every world, and only price ratios (w/c, h/w) are identified. Prices can also be inferred backward from an observed design (revealed costs, as in Afriat and Varian's revealed preference and Kalman's inverse-optimality question). That is a test, not a circle, only when observed features outnumber the free price ratios: one system seen at several exogenous drift levels, several items under one clock, or one read technology across layers.
+
+**Applicability is general; the bottleneck is measurement.** Firms, teams and cities fall under the theory exactly as machines do. What differs is how hard stakes and upkeep are to measure, not whether the theory applies, within the scope of §9.
+
+## 8. Predictions, and how it dies
+
+**The killing test** (preregistrable): in a strongly selected system, measure the world's drift spectrum and the sensing noise, then compare the system's layers (count, memories, read rates) with argmin J. The theory dies if, in two or more such systems at different scales, the design misses its optimum by more than measurement error allows *and* a named rival (a fixed budget share; a universal exponent of ½) fits better; if design fails to move with a measured change in its inputs by the preregistered share; or if a level needs a cost J cannot book (CLAIM_MAP N13, J6, J16, N56; locks in `measurement/FRAMEWORK.md`).
+
+| Prediction | From | Status | Dies if |
+|---|---|---|---|
+| Layer count and memories match the measured spectrum where R is large | §5 (iii) | Open (N56) | Count does not rise with separated time scales or with stakes over upkeep |
+| Look rate at a drifting quantity has elasticity 1/α in stakes and drift (needs no stakes measure within one system) | CT12 | Open (N51; a lab test is specified) | Elasticities at α = 1.5 and 2.5 are not separated in the predicted direction |
+| Redesign runs 10–100× slower than the slowest tracked time scale, because the world's pattern must be learned first | Learning the world's pattern takes tens of its slowest time scale (B.9) | Open (N54) | Redesign cadence is comparable to the slowest layer's |
+| Design scatter across a population scales like 1/√(α−1): rough worlds give widely scattered cadences | curvature α − 1 of J, B.9 | Open (N55) | Scatter does not fall as α rises at fixed selection strength |
+| Watching effort rises with drift, then collapses once a bounded fallback exists | G3 | Proved in-model; known for web crawlers | Effort keeps rising through the top drift decile where a fallback exists |
+| A shared level appears once group size exceeds N\*(ρ); its onset exponent tracks the level's sensing technology, not α | Result 4 | Proved in-model; untested in the field | The onset does not move with ρ |
+| A tracker's central share falls with q·ℓ^{α−1} | LAT-1 | Open (N27) | At fixed q the central share does not depend on ℓ |
+| Cheap lookup removes layers that hold shared facts, not layers that enforce | T8, CT17 | Open (N52) | Enforcement layers shrink as fast as holding layers |
+
+**The first tests anyone can run:** the attention-exponent lab task (N51) and a same-system test of measured-input optimality (SAME-SYSTEM-AQN, designed, not yet run). Quantities must pass validity gates MV1–MV10, binding since 18 November 2026. A test on a mismatched proxy is invalid, not failed, and results are reported as passed or failed on proxy.
+
+## 9. Scope and caveats
+
+- **Worlds that respond: the most important open theorem.** A system that reshapes its world (a market that reacts, an adversary, a firm or city that changes its own demand) is the same structure one level up: the system and its world are coupled layers of a larger, nested system. That is inside the theory; what is open is the math. Every proof so far holds the outer level fixed (g = 0). Whether co-adapting levels settle at a joint minimum, cycle, or race (predator and prey, arms races) is the key open theorem (CX2); drift reduction g is one case of it (CL11).
+- **The layer results (L1–L3, CT21) are linear-Gaussian, squared-error, and not yet independently reviewed.** Nothing is proved for jump worlds, Bayes trackers or other losses. Whether layers must be separate *agents* or can be stores inside one agent is open.
+- **One currency per system.** "Every scale" means the same problem solved with each system's own measured inputs and prices, not one exchange rate. Physics sets only price floors (kT per nat); in a synapse the price is about 10⁵–10⁶ times the floor (Laughlin et al. 1998), and in a firm far more. Whether the second law does more than set floors above the cell is an open disagreement; Chad's position is that the physics is not decorative.
+- **"Should be built", not "are built",** until a same-system test exists. That selection holds designs near the optimum is assumed (Alchian 1950), and below the drift barrier misses are expected (Lynch et al. 2016).
+- **Theorem P** (when judgment pays) is proved for stationary worlds; most results use drifting ones (CX1, open).
+- **No valid measurement of a tracked world's drift spectrum exists yet** (GAPS G1). The NYC 311 data are scale-free across complaint categories, after post hoc dequantization; in time the hourly series breaks near 22 hours. The 10-year Treasury yield (DGS10) is a random walk on proxy (α = 2.00 ± 0.03), so it needs one layer.
+- **Change is not "fractal, period".** The theory does not say physical time is fractal; that framing is withdrawn (N46). What it says is about inputs: whether the world a system tracks changes self-similarly over a band is measured, and if it is, the layers come out roughly log-spaced. The literature shows broad scale-free bands broken by cycles and cadences, a mixed spectrum, which is what multi-layer design needs.
+- **Where it stands.** No field test has yet measured the theory's quantities validly, so the bet is untested, not refuted: 15 field rows failed on proxy and 7 passed on proxy, none support or refutation. The 12 November post's lead prediction got every sign right but failed on proxy in its τ-specific structure (K4). Of the locked predictions about the authors' own simulators, six failed, three passed and three were inconclusive. Each theorem has been refereed at most once, by the same bot family, and no human expert has read the theory.
+- **Ends of the scale.** Atoms are frozen because nothing they do changes whether they last (E1); stars regulate themselves and anticipate nothing outside; the cosmic horizon caps memory. The theory does not derive black holes, does not claim a torus universe, dark matter or energy, or that wormholes exist (`theory/REACH.md`).
+
+## 10. Known parts, new claim
+
+**Known and credited.** The cost-plus-information form is textbook: rational inattention (Sims 2003), information-theoretic bounded rationality (Ortega & Braun 2013), hierarchies that arise from information-processing costs (Genewein, Leibfried, Grau-Moya & Braun 2015), sensing cost inside LQG control (Meier, Peschon & Dressler 1967), Kalman filtering (Kalman 1960). The time-scale hierarchy is Simon's (1962) and Kiebel, Daunizeau & Friston's (2008); multiresolution estimation, Willsky (2002); geometric clocks, Roundy (1985). The physics: Landauer (1961), the thermodynamics of prediction (Still, Sivak, Bell & Crooks 2012), sensing costs (Barato, Hartich & Seifert 2014; Lan et al. 2012). Ruin and growth: Kelly (1956), chance constraints (Roy 1952; Charnes & Cooper 1959), first-passage default (Black & Cox 1976), Cramér–Lundberg. Two-time-scale learning: Borkar (1997). Switching under uncertainty and hysteresis: Dixit (1989). Monotone comparative statics: Topkis (1978); Milgrom & Shannon (1994). Pooling: Veldkamp & Wolfers (2007); Van Zandt & Radner (2001). The square-root rule: Harris (1913). DOIs were checked on Crossref in `theory/meq_checks/crossref.out` (Simon 1962 by its JSTOR record); the remaining credits are carried from v2.0, and the full list is in `litmap/`.
+
+**The theory's own, as far as anyone has found:** the package. A layer count priced inside one objective; the world's measured pattern of change as the only world input, with its predictive dimension capping the layers; a ruin constraint whose slack end recovers the expected-cost rules; one booking rule across substrates with a kill condition; and predictions across scales, posed so that they can fail. The parts are known and the claim built from them is new. Several elementary results also appear to be new (hold-or-fade for any Markov world; the freeze, hold and look-up band; the onset exponent fixed by the level's technology; the telling and broadcast thresholds; LAT-1's form; the temperature identity; L2's iff threshold R\*). The prior-art search is not exhaustive. If the bet holds when tested, its weight will come from what it explains, not from new ingredients.
+
+---
+
+## Appendix A. The model and notation
+
+### A.1 The model
+
+Every result in Appendix B is a theorem about this model (the Master Theorem's class 𝓜_LG, B.9, narrows it), and each states which parts it uses.
 
 - **World.** A state X_t that the agent does not change (exogenous). Two classes appear, and each result names its class. **(W-a)** stationary, ergodic Markov: the world fluctuates around a fixed law. **(W-b)** drifting: Gaussian with stationary increments, E(X_{t+τ} − X_t)² = q·τ^{α−1}, with **spectral slope** α = 1 + 2H between 1 and 3 (a random walk is α = 2) and **drift level** q.
 - **Agent.** A memory M_t updated from observations, and actions A_t = π(M_t) committed a lead time k before they meet the world.
@@ -35,157 +161,7 @@ Every result below is a theorem about this model, and each states which parts it
 - **Φ**, the **lifetime value of a fresh reading**: how much one exact reading lowers expected loss, summed over the time until the world has drifted away from it.
 - **Regime first.** Every number names its world class, its α and its premises. A result proved for α = 2 is not assumed at other α.
 
-### 2.2 The three parts, and where every cost books
-
-The bill has three parts, plus the risk of ruin:
-
-1. **Holding memory:** the price κ per nat held per unit time, and the upkeep h of a store or of a shared level.
-2. **Being wrong or late:** the stake-weighted loss w·ℓ. Lateness is counted as error at the moment of use, because a prediction that arrives after the moment to act buys nothing.
-3. **The reads and effort that keep the memory fresh:** the price c of a read (or a price per nat acquired, or c′·r_n^{−θ} for precision), the price d of telling a member, the link cost κ_b of a broadcast, the price u of looking something up, and the effort g(σ₀ → σ) spent making the world drift less.
-
-**Ruin** is not a fourth part: the failure hazard, weighted by what failure costs (Λ), enters as the persistence constraint the bill already names. **Drift reduction is a lever, not a fourth cost type.** Paying g to make the world drift less (homeostasis, buffers, contracts, niche construction) is effort spent keeping memory fresh, so it books in part 3. The optimum then chooses between watching and steadying by comparing their marginal costs. With this booking the cross-scale claim becomes checkable: **it fails at a level if that level's design needs a cost that cannot be booked as holding, error or lateness, or reads and effort (or ruin)** (CLAIM_MAP J16, open).
-
-### 2.3 What physics prices, and where it binds
-
-The three parts are priced by physics as floors at every scale. Erasing a bit costs at least kT ln 2 of heat (Landauer). For a driven system that meets their conditions, memory that does not predict the signal sets a floor on dissipation (Still, Sivak, Bell & Crooks 2012). Holding information is a continuing flow, not a one-time purchase (Result I5). Tracking has an exact floor with the economic form (Result O1): keeping a random walk of variance rate σ² to mean squared error D dissipates at least kT·σ²/(2D), so the cheapest total is **σ√(2kT·w)**, the same function as the inventory rule σ√(2c·w) with the read price c replaced by kT per nat. That is the precise sense of "only the currency changes": replace kT by what a nat actually costs the system, and the gap between the two is measurable.
-
-Which floor applies to which part matters. Erasure, and the measure-and-erase cycle, never become free. The price of *holding* information about very slow drift can approach zero for quasi-static passive coupling (`theory/SCALE_ENDS.md` E3). The floors bind in cells, where sensing is measurably dissipative (Lan et al. 2012). Above the cell they are literal but slack: a chemical synapse pays about 10⁵–10⁶ times kT ln 2 per bit (Laughlin, de Ruyter van Steveninck & Anderson 1998), and a firm pays far more in salaries and attention. There the exponents come from information theory and competition, not from heat. Whether the second law does more than this above the cell is an **open disagreement**. Chad's position is that the physics is not decorative. In the proofs, physics supplies only the floors and the reason upkeep exists. A cell in which the physical price per nat and the precision exponent are both measured would settle it.
-
-## 3. When judgment pays
-
-**Result 1 (Theorem P).** In a stationary world (W-a):
-- **(P0)** every agent's long-run mean loss is at least D(I_pred), the least loss any action can reach with I_pred nats of predictive information about the world it will meet. If income minus other costs falls below that, ruin is certain.
-- **(P1)** a model is necessary exactly when acting blind is not viable: when every blind policy's loss is at least its income minus its own other costs (equality counts as not viable when the reserve's increments are nondegenerate; Appendix B, CT2).
-- **(P2)** there is a horizon. Nothing in memory can predict the world at lead k better than the world's own present does, so beyond some lead no model makes acting ahead viable.
-- **(P3)** a model is carried only if its first bit pays: when κ is less than the loss that bit saves. In the Gaussian case, carry a model iff κ < 2 ln 2·a²·Var, and then its size is I\* = ½ log₂(2 ln 2·a²·Var/κ) bits. A model grows only with the logarithm of what is at stake.
-
-*Why.* An action is a function of memory, so it cannot carry more information about the future than memory does (data processing). Rate–distortion then bounds the loss, and the ergodic theorem turns a negative mean margin into certain ruin. P3 is a convex trade-off whose optimum leaves zero exactly when the first bit is not worth its price.
-
-*What it rules out.* "Every system pays for a model" is false as stated. A bet-hedging population can beat sensing in a world it never tracks (Kussell & Leibler 2005), and the claim then holds only with the population as the agent. **Open item:** P is proved for stationary worlds, but most results below use drifting worlds (W-b). Extending P to them is open (CLAIM_MAP CX1); the scalar Gaussian data-rate bound (Nair & Evans 2004; Tatikonda & Mitter 2004) is a known partial bridge.
-
-## 4. The bet
-
-**Where selection is strong and a choice depends on a drifting world, the designs that last sit near the cheapest way to pay the bill, and the same relations (not the same constants) hold from cells to cities once each system's inputs (α, q, sensing noise, stakes, prices) are measured on that system** (CLAIM_MAP N13 and J6, both open). The causal chain is short. The world's change destroys what the memory holds; re-buying it costs reads, precision or upkeep; error and lateness cost stakes; selection or design keeps the cheapest allocation that stays solvent.
-
-Two limits are fixed before any test. **Strong selection only:** below the drift barrier (Lynch et al. 2016), misses are expected, and a design difference smaller than the selection tolerance cannot be selected for at all (a level is invisible to selection when ρ ≲ ε/b; Appendix B, Lemma B6). The split between strong and weak selection is set in advance and never used to explain a miss afterward. **Measured inputs only:** "optimal for some cost" is empty unless the costs are measured independently of the design they predict, and nothing guarantees that real systems sit at an optimum (Alchian 1950 makes the classic case that selection rewards relative advantage, not maximization). That is why the bet is stated in measured inputs.
-
-## 5. How to build one
-
-Minimizing the bill gives seven rules for an efficient self-maintaining system, whether a team, a firm, a memory for an AI agent or a sensor network. Taken one by one each rule is prior art. They are listed because one budget produces all of them, and each has a stated condition under which it fails.
-
-| # | Rule | Follows from | Fails when |
-|---|---|---|---|
-| 1 | **Act early.** Return what matters while there is still time to act. Interrupt unasked only when stake × chance it matters, plus what the outcome would teach, beats the cost of interrupting | P2 (the horizon); value of information | Near-tautology; myopic interrupts are a counterexample |
-| 2 | **Keep what pays, let the rest fade, recoverably** | Result 2 (G2) | The world is not Markov in the coordinates kept |
-| 3 | **Move a belief by the reliability of the signal** | Known (Kalman 1960; Muth 1960) | Heavy-tailed noise (Cauchy) |
-| 4 | **Keep prior versions until a correction proves out** | Near-tautology (cheap frozen history) | — |
-| 5 | **Act from the current model, not a copy:** a copy's error grows with hops and with drift since the last check | Result G1 | Non-Markov observed variables (seasonality) |
-| 6 | **Record whether each prediction was used, ignored or late** | Weak (information has nonnegative value) | The mechanism does not follow from the budget (§5.4) |
-| 7 | **Watch more as drift × stakes rises**, and stop past a point when any cheaper fallback exists | Results 2–3, G3, G4 | The buffer sets what survival effort is worth, not the cost-optimal interval (Lemma B9) |
-
-The six results below are the ones the rules stand on. Each is proved in Appendix B.
-
-### 5.1 Keep, check or let it fade
-
-**Result 2 (hold or fade; Theorem G).** For any stationary Markov world and any loss, checking a fact periodically beats letting it fade **iff λ·c < Φ**: the world's drift speed λ times the price of a check is less than the lifetime value of a fresh reading.
-
-*Why.* Over a check cycle, the saving against acting blind is the integral of what a reading is still worth as it ages. That integral only grows with the cycle length, and its limit is Φ, so some cycle beats fading exactly when Φ exceeds the drift-scaled price of a check.
-
-Three consequences complete rule 2 and rule 7. A copy's value only falls with age and with hops (G1, by Blackwell's garbling theorem). Watching effort rises with stakes (G4) and with drift, then stops: with any bounded fallback, such as reading the source at use, it falls off a **cliff**, not a slope (G3). And with stakes W per user, a lookup price u, use rate μ, read price c, upkeep h and lifetime τ_life, a fact is **frozen** when drift is below q_f = 2c/(W·τ_life²), **looked up** when drift is above q_c = (μu − h)²/(2cW), and **held** in between. That holding band exists iff μu·τ_life > 2c + h·τ_life, and a store shared by N users widens it by a factor N² (Result T8). With no action whose payoff depends on the world, Φ = 0 and nothing is ever held (E1): this is why atoms are frozen. The statement is partly definitional.
-
-### 5.2 How often to look
-
-**Result 3 (the read-rate rule).** In a drifting world (W-b) with exact reads, holding the last value in between, under squared-error loss:
-
-  **read rate ∝ (w·q / c)^{1/α}**
-
-where w is the stake, q the drift level and c the price of a read. At α = 2 this is the familiar square-root rule (economic order quantity, Harris 1913; Kalman/Muth). Away from α = 2 the elasticity is 1/α, so the same rule gives different exponents in worlds with different spectra.
-
-*Why.* After a read at age s, the error is q·s^{α−1}. Averaging over a cycle of length T and adding the read price gives c/T + w·q·T^{α−1}/α, which is minimized at T\* ∝ (c/(w·q))^{1/α}.
-
-The rule is forgiving: misjudging an input by 2× costs 6% at α = 2, and by 10× costs 74% (Result T1c). It sits in a family of known results with the same structure (noisy-sensing error, memory time, a forgetting kernel that is exponential only at α = 2, precision effort, the number of stores), stated with credit in Appendix B (Lemma B2). The premises travel with every row: a Gaussian world or the best linear tracker (in a jump world the Bayes and linear optima differ, and jump rate and size enter separately); exact versus noisy reads; and the loss as an input (under absolute error at α = 2 the exponents are ⅔ and ⅓).
-
-### 5.3 When to share a model
-
-**Result 4 (when a shared level pays).** N members each track g + u_i: a driver g they share and a part u_i of their own, with ratio ρ = (shared drift)/(private drift). Compare all-local tracking with one shared tracker of g plus local trackers of each u_i, under the square-root rule and zero upkeep. Then:
-- **(onset)** the shared level is cheaper **iff N > N\*(ρ) = (√(1+ρ) + 1)²/ρ**, which is about 4/ρ when the shared part is small. Since a better joint design can only do better, this is a sufficient condition for sharing, not a cutoff.
-- **(telling price)** if telling a member costs d and a read costs c, sharing the common part pays **iff d/c < 1/N\*(ρ) − 1/N**. At d = 0 this is the onset.
-- **(the level's technology sets the exponent)** for any technology whose cost scales as stakes^a·drift^b, the onset at small ρ scales as ρ^{−(1−b)/(1−a)}. That exponent is **−1 for exact reset reads at every α**, and −(1+θ) when precision is priced as precision^θ. It is set by how the level senses, not by the world's spectrum.
-
-*Why.* Sharing turns N reads of the common driver into one, a saving that grows like N, while the shared tracker's cost grows only like N^a, because its stake is pooled. A convex gain that starts negative crosses zero once. The telling price adds N·d to the shared read and moves the crossing.
-
-The onset −1 is prior art in substance (Veldkamp & Wolfers 2007; Van Zandt & Radner 2001). The exact form, the telling-price rule, and the fact that the exponent is fixed by the level's technology independently of α appear to be new; they are elementary (CLAIM_MAP N12). Related results are stated in Appendix B: shared and private drift push the onset in opposite directions; a new level's vigilance at birth is at least 1 + (1+ρ)^{−1/2} (reset reads, α = 2); separate clocks for two components save at most 29%; pooled deposits on a drifting target fade as √N.
-
-### 5.4 Who must be in charge
-
-**Result 5 (one clock, and who under-watches).** One clock serving several parts costs at least what the parts would pay on their own clocks, with equality **iff c_i/(w_i·σ_i²) is the same for every part** (the analogue of Gorman's 1953 condition for a representative agent). If a part counts only Λ_i of the loss Λ_whole that the whole suffers when it fails, it watches at (Λ_i/Λ_whole)^{1/α} of the whole's optimal rate. That is √ at α = 2, so a worker whose stake in its colony's fate is its relatedness r_rel under-watches by about 13% even in the best case (r_rel = ¾, full sisters under single mating).
-
-*Why.* Cauchy–Schwarz gives the first part. The read-rate rule, applied to the stake each part actually bears, gives the second.
-
-**So:** no one *needs* to be in charge *when* keeping shared memory up is privately rewarded. Otherwise expect shared fate or enforcement, usually both (CLAIM_MAP J9, a hypothesis, open). Result 5 is the derivable half of that claim. This narrows the earlier "no one in charge"; rule 6's mechanism (use strengthens, disuse fades) does not follow from the budget.
-
-### 5.5 How far one tracker can reach
-
-**Result 6 (LAT-1).** A tracker that reads a target at distance L sees it late by ℓ = L/v, where v is the fastest signal path, and holds the last value. Its error is at least q·ℓ^{α−1}, however often it reads. So it can hold a target to tolerable error D\* only within
-
-  **L_max = v · (D\*/q)^{1/(α−1)}.**
-
-What that implies depends on shortcuts, and all three cases stand:
-- **No shortcut** (v is light speed): beyond L_max a system must **federate** into separate trackers with their own reads. On Earth this is a latency cost; across space it is a hard cap.
-- **A finite network of shortcuts**, each spanning at most Λ_hop at hop latency τ_hop: LAT-1 holds with v replaced by an effective speed of at most max(Λ_hop/τ_hop, light speed). Federation survives with a larger constant.
-- **Open shortcuts** (any point to any other at fixed latency): there is no distance limit, and the economics of §5.3 decide the design.
-
-The theory does not say which case holds in nature. That shortcuts exist is not claimed. The real-system form (the central share falls with q·ℓ^{α−1}) is open (CLAIM_MAP N27).
-
-### 5.6 Buffers and failure
-
-A system with buffer B, diffusive shocks of size σ and one fixing time scale τ has hazard F(z)/τ with **z = B/(σ√τ)**, for any fixing mechanism, by dimensional analysis. 1/z is the "temperature". The elasticities obey **ε_B = −ε_σ and ε_τ = ε_σ/2 − 1**, so slow fixing raises the hazard iff ε_σ > 2, and at a fixed observed spread ε_τ = −1 (Result R). z is the inventory safety factor, and the exact per-window ruin is Black & Cox's (1976) first-passage formula. Survival-optimal checking is faster than cost-optimal checking. The buffer does not change the best interval; it sets what extra effort to survive is worth, which peaks when the buffer is about one ruin length (Theorem L, Lemma B9). The 12 November post's lead prediction built on this index failed on proxy (§7).
-
-## 6. Predictions, and how it dies
-
-**The bet dies** if, in two or more strongly selected systems at different scales with inputs measured on each system, the design misses its measured-input optimum by more than measurement error allows *and* a named rival (a fixed budget share; a universal exponent of ½) fits better. It also dies if design fails to move with a measured change in its inputs by the preregistered share, or if a level needs a cost that cannot be booked in the bill (§2.2). The locks (loss, rival, adjustment lag) are in `measurement/FRAMEWORK.md`.
-
-**Sharper predictions**, each with its kill:
-
-| Prediction | From | Status | Dies if |
-|---|---|---|---|
-| Look rate at a drifting quantity has elasticity 1/α in stakes and drift | Result 3 | Open (CLAIM_MAP N51; a lab test is specified) | Elasticities at α = 1.5 and 2.5 are not separated in the predicted direction at the preregistered power |
-| Watching effort rises with drift, then collapses once a bounded fallback exists | G3 | Proved in-model; known for web crawlers; untested across domains | Effort keeps rising through the top drift decile where a fallback exists |
-| A shared level appears once group size exceeds N\*(ρ) | Result 4 | Proved in-model (sufficient); untested in the field | The size at which a shared layer appears does not move with ρ |
-| The onset exponent tracks the level's sensing technology, not α | Result 4 | Proved in-model | Onset exponents differ across α at a fixed technology |
-| A tracker's central share falls with q·ℓ^{α−1} | Result 6 | Open (CLAIM_MAP N27) | At fixed q the central share does not depend on ℓ |
-| Cheap lookup removes layers that hold shared facts, not layers that enforce | T8, Result 5 | Open (CLAIM_MAP N52) | Enforcement layers shrink as fast as holding layers |
-
-**The first tests anyone can run:** the attention-exponent lab task (N51) and a same-system test of measured-input optimality (SAME-SYSTEM-AQN, designed, not yet run). **The measurement rule:** quantities must pass validity gates MV1–MV10, fixed before any test and binding since 18 November 2026. A test on a mismatched proxy is invalid, not failed, and results are reported as passed or failed on proxy.
-
-## 7. Where it stands
-
-- **No field test has yet measured the theory's quantities validly, so the bet is untested, not refuted.** Every field result so far is proxy-labeled: 15 rows failed on proxy and 7 passed on proxy, and none is support or refutation (CLAIM_MAP sections H, K, N).
-- **The 12 November post's lead prediction** (slow fixers fail faster where shocks are large relative to buffers, risk ∝ shock × √(time to fix) ÷ buffer) got every sign right but failed on proxy in its τ-specific structure (CLAIM_MAP K4). The open-source test (C3) excludes only a deterministic, exogenous reset clock at that proxy; with heavy-tailed or endogenous fix intervals, a hazard ratio of 1.2–3 per doubling remains compatible.
-- **In-model simulations:** of the locked predictions about the authors' own simulators, six failed, three passed and three were inconclusive (CLAIM_MAP section G).
-- **Review:** each theorem has been refereed at most once, always by a reviewer from the same bot family as its author, and some (the internal-model results) only self-checked. No review covers the whole theory, and no human expert has read it. The reviews are listed in `reviews/README.md`.
-- **Open items of the core:** P for drifting worlds (CX1); stakes w never yet measured validly; the second-law disagreement (§2.3).
-
-## 8. What is new, and what is not
-
-**Known and credited:** the three ways to last (Prigogine; Pross); filtering and inattention (Kalman 1960; Muth 1960; Sims 2003; Reis 2006); the square-root rule (Harris 1913); team theory (Marschak & Radner 1972); information choice and pooling (Veldkamp & Wolfers 2007; Van Zandt & Radner 2001); cache freshness (Cho & Garcia-Molina 2003); near-decomposability (Simon 1962); thermodynamics of prediction and sensing (Landauer; Still et al. 2012; Barato, Hartich & Seifert 2014; Lan et al. 2012; Mora & Nemenman 2019; Lee, Flack & Krakauer 2024); first-passage default (Black & Cox 1976); monotone comparative statics (Topkis 1978); bet-hedging (Kussell & Leibler 2005). The full list is in `litmap/`.
-
-**The theory's own, as far as anyone has found:**
-1. **The synthesis**: one three-part bill, with ruin and a selection tolerance, priced the same way from cells to cities, with every cost term booked (§2.2). Most pieces exist; no one is known to have assembled them into one budget with one set of relations and tested it across scales with measured inputs.
-2. **The bet** posed so that it can fail at every scale, with measured inputs, a fixed rival, preregistered kills and validity gates.
-3. **Elementary results that appear to be new:** hold-or-fade for any Markov world and any loss (Result 2); the freeze, hold and look-up band with its N² widening (T8); the onset exponent fixed by the level's technology, independently of α, and the telling-price rule (Result 4); the vigilance floor; the exact form of LAT-1 (Result 6); the temperature identity (Result R); and the assembly of when judgment pays (Result 1).
-
-Each is new only "as far as we know": the prior-art search is not exhaustive, and none of these is claimed as deep. The structure is the point.
-
-## 9. Scope at the ends
-
-Atoms are frozen because no action of theirs changes whether they last (E1). Stars regulate themselves and anticipate nothing outside. A black hole is the extreme of the frozen class: the most memory physics allows for its size, almost none of it readable from outside in time (CLAIM_MAP N26, conditional on published physics). The cosmic horizon caps memory and sets a floor on the price of erasure. A *selected* model switches on only with heredity below the error threshold, an action that depends on the world, drift inside the holding band, and a first nat that pays (N28, open). The costs are priced as floors at every scale, which is the author's scope choice; what vanishes at the ends is the *value* of a model, not the bill.
-
-The theory does **not** derive black holes, the area law or the Page curve, and it does not claim a torus universe, dark matter or energy, that wormholes exist, or that time is fractal (N46, withdrawn as framing). Notes on viruses, the cosmic web, wormholes and a torus picture are reference material (`theory/REACH.md`).
-
----
-
-## Appendix A. Notation
+### A.2 Notation
 
 One symbol, one meaning, throughout this file. Files elsewhere in the repository use some symbols differently; where they do, this table governs, and the last column names the main collisions.
 
@@ -193,15 +169,15 @@ One symbol, one meaning, throughout this file. Files elsewhere in the repository
 |---|---|---|
 | X_t, M_t, A_t | world state; agent's memory; action | — |
 | k | lead time (an action meets the world k later) | Boltzmann's k in kT (written kT only) |
-| ℓ(a, x); w (or W for a pooled or per-user stake) | loss; stake weight on squared error | ℓ also latency in `theory/` files (here: ℓ = L/v only in §5.5 and CT19) |
+| ℓ(a, x); w (or W for a pooled or per-user stake) | loss; stake weight on squared error | ℓ also latency in `theory/` files (here: ℓ = L/v only in LAT-1, CT19) |
 | D(R), R(D) | distortion-rate and rate-distortion functions; D\* a tolerable error | — |
 | I_pred | long-run predictive information I(M_t; X_{t+k}) per step | — |
 | y, c̄, B | income rate; mean of the other costs (per policy); initial buffer | — |
 | α, H, q | spectral slope (S ∝ \|ω\|^{−α}), α = 1 + 2H; drift level in E(ΔX_τ)² = q·τ^{α−1} | α also an α-stable index or a Pareto exponent; q also the spectral level q in S = q\|ω\|^{−α}, which differs by an α-dependent constant |
 | σ² | variance rate at α = 2 (then q = σ²) | — |
 | c | price of one read | the speed of light (written "light speed" here) |
-| κ | price per nat held per unit time (per bit in CT4) | a sharing-decay exponent, κ_F, κ = λN/μ² (written out where used) |
-| κ_b, d, u, μ | broadcast link cost; price of telling one member; price of one lookup; use rate | — |
+| κ | price per nat held per unit time (per bit in CT4) | a sharing-decay exponent, κ_F, κ = λN/μ² (written out where used); formal Theorem 7's drift-sharing exponent is written **χ** here (χ\* = (1−a)/(1−b)) |
+| κ_b, d, u, μ | broadcast link cost; price of telling one member; price of one lookup; use rate | μ_s is the survival multiplier (CT22) |
 | h | upkeep of a store or a level | hops; hazard (here: hazard is ν) |
 | ν | failure hazard (per unit time) | — |
 | Λ, Λ_i | loss to the whole when it fails; the share part i counts | Λ also a throat's span (here: Λ_hop) |
@@ -214,7 +190,13 @@ One symbol, one meaning, throughout this file. Files elsewhere in the repository
 | B, σ, τ, z | buffer; shock scale; fixing time scale; **z = B/(σ√τ)** (temperature = 1/z) | `theory/GENERAL_THEOREM.md` §4 writes z = σ√τ/B |
 | L, v, τ_hop, Λ_hop | extent; fastest signal speed; hop latency; span of one shortcut | — |
 | τ_life | lifetime of a fact (T8) | — |
-| ε | selection tolerance | ε_X = ∂ ln ν/∂ ln X, an elasticity |
+| ε; ε_r | selection tolerance; tolerated ruin probability in the master equation | ε_X = ∂ ln ν/∂ ln X, an elasticity; ε_K in `theory/LAYERS.md` is Δ_K here |
+| 𝒟, J(𝒟) | a design; the master equation's total cost (§3) | J also a number of modes in CT21 (context makes it clear) |
+| K, I_mem | number of layers (stores or levels); nats held | K also a number of clocks (CL12) |
+| A(𝒟), L(𝒟), g | acquisition spend; link, telling and lookup costs; effort to reduce drift (set to 0 in every theorem) | — |
+| E_K, E_∞, Δ_K, R, R\* | least error with K layers; causal MMSE; Δ_K = E_K/E_∞ − 1; R = w·E_∞/h; R\* = min_K (K−1)/(Δ₁ − Δ_K) | R also a span in `theory/` files |
+| B_min, B_slack, μ_s | feasibility and slack edges of the buffer; the price of survival (CT22) | — |
+| χ | drift-sharing exponent of a nested tree, q_s ∝ n_s^{−χ} (formal Theorem 7, where it is written κ) | — |
 
 ---
 
@@ -222,7 +204,7 @@ One symbol, one meaning, throughout this file. Files elsewhere in the repository
 
 Each result gives its hypotheses, a statement, a proof and its known limits. **CT** marks the 19 core results, proved in full. **Lemma B*k*** marks smaller results, proved briefly or stated with a pointer. Closed forms are checked in `theory/core_checks/core_checks.py` (32 checks, a few seconds; run by the test suite), and each result names its fuller derivation and older checks. Status words follow CLAIM_MAP section O.
 
-**Names used in the main text.** Result 1 = CT1–CT4 (Theorem P); Result 2 = CT9 (G2); Result 3 = CT12; Result 4 = CT14–CT16; Result 5 = CT17; Result 6 = CT19 (LAT-1). E1 = CT5, I5 = CT6, O1 = CT7, G1 = CT8, G4 = CT10, T8 = CT11, T1c = CT13, R = CT18 (the temperature identity), G3 = Lemma B1, Theorem L = Lemma B9, Theorem S = Lemma B12.
+**Names used in the main text.** Result 1 = CT1–CT4 (Theorem P); Result 2 = CT9 (G2); Result 3 = CT12; Result 4 = CT14–CT16; Result 5 = CT17; Result 6 = CT19 (LAT-1); Master Theorem = CT20–CT22 with CT23; L1–L3 = CT21, L4 = CL12. E1 = CT5, I5 = CT6, O1 = CT7, G1 = CT8, G4 = CT10, T8 = CT11, T1c = CT13, R = CT18 (the temperature identity), G3 = Lemma B1, Theorem L = Lemma B9, Theorem S = Lemma B12.
 
 **Standing assumptions.** (A1) The world is exogenous: actions do not change it. (A2) In class W-a, (X, M) is jointly stationary and ergodic under the policy. (A3) A check returns a reading of fixed quality and resets the copy (renewal), unless a result says otherwise. (A4) Costs are additive in one currency. (A5) Reserve increments are bounded.
 
@@ -365,7 +347,7 @@ z is the inventory safety factor (SS = z·σ·√(lead time)). The index fails o
 
 **Lemma B8 (exact per-window ruin; known).** For periodic full resets and a one-sided barrier, the per-window ruin probability is P = erfc(z/√2) = 2Φ̄(z), the reflection-principle first-passage probability, which is Black & Cox's (1976) default probability at zero drift. Merton's (1974) terminal-default version is off by a factor of 2. The calendar hazard is ν = −ln(1 − P)/τ. Two-sided and biased cases have known series (`theory/GENERAL_THEOREM.md` R1–R2). DOIs: 10.1111/j.1540-6261.1976.tb01891.x; 10.1111/j.1540-6261.1974.tb03058.x.
 
-**Lemma B9 (Theorem L, survival versus cost).** *Reserve income y with noise s₀; a check costs c every τ; squared-error loss w·e² accrues between checks; diffusion approximation, ruin checked at cycle ends.* (L1) P_ruin ≤ e^{−ϑB}, with ϑ the Lundberg root of E e^{−ϑΔ} = 1 for the cycle increment Δ. (L2) The survival-optimal interval is shorter than the cost-optimal one, because the loss variance grows like τ³; they agree when the reserve's own noise dominates. (L3) The survival-optimal interval does not depend on B, and the marginal value of raising ϑ, ∝ B·e^{−ϑB}, peaks at **ϑB = 1**. So rule 7's "watch most where shocks are large relative to buffers" holds for the value of extra effort, not for the cost-optimal interval. Cramér–Lundberg is known (Asmussen & Albrecher 2010). `theory/GENERAL_THEOREM.md` §5, `c3c`.
+**Lemma B9 (Theorem L, survival versus cost).** *Reserve income y with noise s₀; a check costs c every τ; squared-error loss w·e² accrues between checks; diffusion approximation, ruin checked at cycle ends.* (L1) P_ruin ≤ e^{−ϑB}, with ϑ the Lundberg root of E e^{−ϑΔ} = 1 for the cycle increment Δ. (L2) The survival-optimal interval is shorter than the cost-optimal one, because the loss variance grows like τ³; they agree when the reserve's own noise dominates. (L3) The survival-optimal interval does not depend on B, and the marginal value of raising ϑ, ∝ B·e^{−ϑB}, peaks at **ϑB = 1**. So rule 7's "watch most where shocks are large relative to buffers" holds for the value of extra effort, not for the cost-optimal interval. **Correction (v2.1):** the survival-optimal interval reduces to the cost-optimal (EOQ) one when the reserve's own noise dominates (policy-insensitive variance; checked: 0.314 against 0.316), not when the buffer is large. That the expected-cost rules are exact for a large enough buffer is a different statement, CT22. Cramér–Lundberg is known (Asmussen & Albrecher 2010). `theory/GENERAL_THEOREM.md` §5, `c3c`.
 
 **Lemma B10 (finite horizon).** If a blind structure's reserve increments have conditional mean ≤ −δ < 0 and centred increments bounded by b, then P(it survives to T) ≤ exp(−(δT − B)²/(2b²T)) for T > B/δ (Azuma–Hoeffding). CLAIM_MAP N33.
 
@@ -383,6 +365,30 @@ z is the inventory safety factor (SS = z·σ·√(lead time)). The index fails o
 
 **Lemma B12 (Theorem S, covariance and its limits).** (S1) If the objective is homogeneous of degree 1 in one currency, rescaling every cost leaves the optimum unchanged; (S2) rescaling time rescales optimal frequencies. (S3) With loss w|e|^p and self-similar drift e ∼ σ·t^H, the optimal interval is T\* = [c(pH + 1)/(pH·m_p·w·σ^p)]^{1/(1+pH)}: its exponents depend only on (p, H), not on the currency. (S4) Covariance fails when two cost components scale differently with size or currency; the optimum then shows crossovers, not one power. Proofs: S1–S2 by substitution, S3 by the first-order condition, S4 by example (a fixed plus a size-proportional read cost slides the local exponent from −1 to −½). That real systems sit in the generic class (p = 2, H = ½, by Taylor expansion and the central limit theorem) is a conjecture. `theory/GENERAL_THEOREM.md` §6, `c5a`–`c5c`.
 
+### B.9 The master equation: the Master Theorem
+
+The derivations, checks and worked example are in `theory/MASTER_EQUATION.md`; the review that produced them (a separate executor, same bot family) is `reviews/master-equation_2026-11-19/REVIEW.md`. **New, proved here or in the cited notes; not yet independently reviewed as a whole.**
+
+*Setting 𝓜_LG.* World exogenous (g = 0): a zero-mean Gaussian process, stationary with spectral density S(ω) or with stationary increments, observed through white noise of density N > 0 or read exactly at price c. Design 𝒟 = (K; an LTI estimator realizable with K first-order stores whose rates lie in a compact set [b_min, b_max]; read rates f_k ∈ [0, F]; a sharing graph). Costs h > 0, c_k ≥ 0, κ ≥ 0, w > 0 in one currency; squared error at lead k ≥ 0. Ruin as in Lemma B9's diffusion reserve, imposed through the Lundberg bound θ(𝒟) ≥ ln(1/ε_r)/B, a sufficient condition.
+
+**CT20 (existence; monotone comparative statics).** (i) If any design is feasible, a minimizer exists, and K\* ≤ J(𝒟₁)/h for any feasible one-layer 𝒟₁. (ii) For every world and every loss, with E_K the least expected loss over nested design classes, K\* is nondecreasing in w/h; for one layer whose error grows with the age of its reading, f\* is nondecreasing in w/c.
+
+*Proof.* (i) J ≥ h·K, so only finitely many K can beat 𝒟₁; for each K, J is continuous on a compact parameter set (Weierstrass). Without the compact rate set the infimum may only be approached. (ii) −J = −h·K − w·E_K has increasing differences in (K, w/h) because E_K is nonincreasing in K; Topkis (1978) and Milgrom & Shannon (1994) apply. Likewise −J(f) = −c·f − w·Ē(1/f) with Ē(1/f) decreasing in f. ∎ Check: K\* = 1, 1, 1, 2, 2, 2 at R = 1 … 1000 (`meq_derive.py`).
+
+**CT21 (layers; L1–L3).** *Model S: s = Σ_j independent OU modes (rates a_j, variances v_j), the random walk as the a → 0 limit; noisy sensing; J_K = h·K + w·E_K; R = w·E_∞/h; Δ_K = E_K/E_∞ − 1.* (L1) One pole (one OU mode or a random walk): E_1 = E_∞ at every lead, so K\* = 1 at every w, h. (L2) J modes with distinct rates: the MMSE predictor has degree ≤ J at every lead, so K\* ≤ J; at k = 0 its degree is exactly J, so K\* = J for R large enough; layers beat flat iff R > R\* = min_K (K−1)/(Δ₁ − Δ_K). (L3) A non-rational spectrum (fBm with H ≠ ½, a continuous mixture of time scales) has E_K > E_∞ for every finite K; if also E_K → E_∞, K\*(R) → ∞.
+
+*Proof.* (L1) The Kalman–Bucy filter of a scalar first-order state is one exponential store. (L2) Factor S + N = N·Π(ω² + b_j²)/Π(ω² + a_j²); P(−a_k²) ≠ 0, so no b equals an a, and the Wiener filter H = 1 − √N/G⁺ has no pole–zero cancellation: degree exactly J; the causal MMSE estimator is unique. (L3) If H were rational, G⁺ and so S + N would be rational. Full proofs and numerics: `theory/LAYERS.md` §2. ∎ The content of L1 is KNOWN (Kalman–Bucy 1961); L3 restates "finitely many stores are exact iff the spectrum is rational" (KNOWN). Each layer's time constant is 1/b_j, set by its mode **and** the noise, and faster than the mode.
+
+**CL12 (L4, geometric clocks at every α).** Items with natural intervals log-uniform, K shared clocks over contiguous log-bands, penalty p(u) = [(α−1)e^{−u} + e^{(α−1)u}]/α − 1 (CT13): equal log-widths are optimal for every α in (1, 3). *Proof:* p is strictly convex, so a band's cost ψ(Δ) is strictly convex in its width (envelope theorem), and Jensen gives equal widths. `theory/LAYERS.md` Proposition L4; `theory/layers_checks/t7b_alpha.out`. Not the store model, where spacing is only roughly logarithmic.
+
+**CT22 (survival; the price of survival).** Let θ(𝒟) be the Lundberg exponent, B_min = ln(1/ε_r)/max_𝒟 θ and B_slack = ln(1/ε_r)/θ(𝒟_E), with 𝒟_E the expected-cost optimum. For B < B_min no design is feasible. For B ≥ B_slack the constraint is slack and 𝒟_E is optimal (multiplier μ_s = 0). In between the constraint binds with μ_s = −m′/θ′ > 0, the marginal expected cost of survival exponent, and the design lies between 𝒟_E and the survival-optimal design of Lemma B9 (the μ_s → ∞ end). *Proof:* the constraint set grows with B; KKT. Check (Lemma B9 setting, ε_r = 10⁻³): B_min = 0.486, B_slack = 0.508, and τ\* moves 0.267 → 0.299 → 0.310 → EOQ 0.316 as B goes 0.49 → 0.508; μ_s = 0.0052 per unit θ at B = 0.5. μ_s carries the system's own units. Risk-sensitive control has the same direction (Jacobson 1973).
+
+**CT23 (local regret).** If J is C² in log design variables with a nondegenerate minimum and the design is computed from a picture of the world off by δ in log parameters, the design error is O(δ) and the regret is ½δᵀHδ + o(δ²). For one layer, misjudging drift by a factor m costs exactly [(α−1)m^{−1/α} + m^{(α−1)/α}]/α − 1 ≈ (α−1)(ln m)²/(2α²): 3.8% at α = 1.3 and 6.1% at α = 2 for m = 2. *Proof:* implicit-function and envelope theorems. **Exceptions:** a wrong layered design can be worse than no layering (7.0% against 2.2%); fitting α far from the decision's scales (up to 29%); and near feasibility edges (B_min, the lookup cliff) regret is not smooth, so a picture error can flip survival. A missing cost term is not a perturbation and has no such bound.
+
+**Dynamics (elementary; predictions N54, N55).** Estimating the slowest rate a to relative precision δ needs a record of about 2/(aδ²) of that time scale (Monte Carlo: records of 10, 30, 100 slowest time constants give 0.55, 0.30, 0.15), so redesign runs on tens of the slowest tracked scale (two-time-scale learning, Borkar 1997). The relative curvature of J in ln T at the optimum is exactly α − 1, so under noisy selection balanced against it the spread of ln(read interval) scales as 1/√(α − 1); that premise is standard for stabilizing selection and not derived for a specific selection model. Rates re-tune smoothly; K changes only at thresholds, with hysteresis under switching costs (Dixit 1989).
+
+**Dimensionless groups.** Scaling time by T₀ = (c/(w·q))^{1/α} and cost by J₁ = c^{(α−1)/α}(w·q)^{1/α}, a parametric world's design is fixed by about 5–7 groups: the spectrum's shape, h/J₁, ℓ/T₀, μu/J₁, y/J₁, θB, and (N, ρ). Equal groups give the same design up to units (Theorem S); a general world's shape is a whole function. `theory/meq_checks/part2.out`.
+
 ---
 
 ## Appendix C. Claim index
@@ -391,36 +397,47 @@ Every numbered result, with its status (as in `measurement/CLAIM_MAP_v2.md` sect
 
 | ID | Result | In the main text | Status | Counted row | Derivation; checks |
 |---|---|---|---|---|---|
-| CT1 | P0 persistence bound | §3, Result 1 | PROVED (in-model) | CT1 | `theory/GENERAL_THEOREM.md` §2; `theory/theorem-v2-checks/c6_persistence_bound.py` |
-| CT2 | P1 when a model is necessary (strict) | §3, Result 1 | PROVED (in-model) | CT2 | GENERAL_THEOREM §2 and its 19 Nov erratum; `c7_rules_counterexamples.py` (c7d) |
-| CT3 | P2 lead-time cap | §3, Result 1 | PROVED (in-model) | CT3 | GENERAL_THEOREM §2; c6a |
-| CT4 | P3 the first bit must pay | §3, Result 1 | PROVED (in-model) | CT4 | GENERAL_THEOREM §2; c6d; `theory/core_checks/core_checks.py` |
-| CT5 | E1 no decision, no model | §1, §5.1 | PROVED (in-model) | N25 | `theory/SCALE_ENDS.md` E1 |
-| CT6 | I5 upkeep is a flow | §2.3 | PROVED (in-model) | CT6 | `theory/INTERNAL_MODEL.md` §2; `i2_maintenance_sdpi.py` |
-| CT7 | O1 tracking floor | §2.3 | PROVED (in-model) | CT7 | `theory/MATH_ATTACK.md` §1.2; `objective_checks.out`; core_checks |
-| CT8 | G1 staleness is monotone | §5 rule 5, §5.1 | PROVED (in-model) | K6 | GENERAL_THEOREM §3; c1a |
-| CT9 | G2 hold or fade | §5.1, Result 2 | PROVED (in-model) | CT9 | GENERAL_THEOREM §3; c1b, c1d; core_checks |
-| CT10 | G4 effort rises with stakes | §5.1 | PROVED (in-model) | CT10 | GENERAL_THEOREM §3; c1c |
-| CT11 | T8 freeze, hold or look up | §5.1 | PROVED (in-model) | F13 | `reviews/night1/formal/THEOREMS.md` Thm 8; `reviews/night1/formal/checks/s5_phase.py`; core_checks |
-| CT12 | Read-rate rule | §5.2, Result 3 | PROVED (in-model) | N7 | formal Lemma 1(i); `s1_classes.py`; core_checks |
-| CT13 | T1c robustness | §5.2 | PROVED (in-model) | M3 | `measurement/FRAMEWORK.md` §3.10; core_checks |
-| CT14 | Pooling onset | §5.3, Result 4 | PROVED (in-model) | B2 | formal Thm 1; `s2_onset.py`, `s9_attack.py`; core_checks |
-| CT15 | The level's technology sets the exponent | §5.3, Result 4 | MATH-CORRECTED (exponent stands; scope narrowed) | N12 | `reviews/night2/N12_REFEREE.md`; core_checks |
-| CT16 | Telling price | §5.3, Result 4 | PROVED (in-model) | CT16 | `theory/WORMHOLES.md` §2; `theory/reach_checks/independent_review_checks.py`; core_checks |
-| CT17 | One clock, and the externality | §5.4, Result 5 | PROVED (in-model) | CT17 | `theory/MATH_ATTACK.md` §3.4; core_checks |
-| CT18 | Temperature identity | §5.6 | PROVED (in-model) | CT18 | `theory/MATH_ATTACK.md` §2; GENERAL_THEOREM R0; core_checks |
-| CT19 | LAT-1 and the three shortcut cases | §5.5, Result 6 | PROVED (in-model) | CT19 | `theory/SCALE_ENDS.md` §5; `theory/WORMHOLES.md` §4b; core_checks |
-| CL1 | Lemma B1: G3 rise, then fall; the cliff | §5.1 | PROVED (in-model) | CL1 | GENERAL_THEOREM §3; c1e |
-| CL2 | Lemma B9: Theorem L | §5.6 | PROVED (in-model) | CL2 | GENERAL_THEOREM §5; c3c |
-| CL3 | Lemma B12: Theorem S | §2.3 | PROVED (in-model) | CL3 | GENERAL_THEOREM §6; c5a–c5c |
-| CL4 | Lemma B8: exact per-window ruin (Black & Cox) | §5.6 | PRIOR ART | CL4 | GENERAL_THEOREM R1–R2; core_checks (Monte Carlo) |
-| CL5 | Lemma B4: vigilance at birth | §5.3 | PROVED (in-model) | E7 | formal Thm 5 and its 19 Nov erratum; `s11_vclosed.py` |
-| CL6 | Lemma B5: clocks | §5.3 | PRIOR ART | F14 | formal Prop 9; `s7_misc.py` |
+| CT1 | P0 persistence bound | §5, Result 1 | PROVED (in-model) | CT1 | `theory/GENERAL_THEOREM.md` §2; `theory/theorem-v2-checks/c6_persistence_bound.py` |
+| CT2 | P1 when a model is necessary (strict) | §5, Result 1 | PROVED (in-model) | CT2 | GENERAL_THEOREM §2 and its 19 Nov erratum; `c7_rules_counterexamples.py` (c7d) |
+| CT3 | P2 lead-time cap | §5, Result 1 | PROVED (in-model) | CT3 | GENERAL_THEOREM §2; c6a |
+| CT4 | P3 the first bit must pay | §5, Result 1 | PROVED (in-model) | CT4 | GENERAL_THEOREM §2; c6d; `theory/core_checks/core_checks.py` |
+| CT5 | E1 no decision, no model | §1, §5 | PROVED (in-model) | N25 | `theory/SCALE_ENDS.md` E1 |
+| CT6 | I5 upkeep is a flow | §3 | PROVED (in-model) | CT6 | `theory/INTERNAL_MODEL.md` §2; `i2_maintenance_sdpi.py` |
+| CT7 | O1 tracking floor | §3 | PROVED (in-model) | CT7 | `theory/MATH_ATTACK.md` §1.2; `objective_checks.out`; core_checks |
+| CT8 | G1 staleness is monotone | §7 | PROVED (in-model) | K6 | GENERAL_THEOREM §3; c1a |
+| CT9 | G2 hold or fade | §5, Result 2 | PROVED (in-model) | CT9 | GENERAL_THEOREM §3; c1b, c1d; core_checks |
+| CT10 | G4 effort rises with stakes | §5 | PROVED (in-model) | CT10 | GENERAL_THEOREM §3; c1c |
+| CT11 | T8 freeze, hold or look up | §5 | PROVED (in-model) | F13 | `reviews/night1/formal/THEOREMS.md` Thm 8; `reviews/night1/formal/checks/s5_phase.py`; core_checks |
+| CT12 | Read-rate rule | §5, Result 3 | PROVED (in-model) | N7 | formal Lemma 1(i); `s1_classes.py`; core_checks |
+| CT13 | T1c robustness | §5 | PROVED (in-model) | M3 | `measurement/FRAMEWORK.md` §3.10; core_checks |
+| CT14 | Pooling onset | §6, Result 4 | PROVED (in-model) | B2 | formal Thm 1; `s2_onset.py`, `s9_attack.py`; core_checks |
+| CT15 | The level's technology sets the exponent | §6, Result 4 | MATH-CORRECTED (exponent stands; scope narrowed) | N12 | `reviews/night2/N12_REFEREE.md`; core_checks |
+| CT16 | Telling price | §6, Result 4 | PROVED (in-model) | CT16 | `theory/WORMHOLES.md` §2; `theory/reach_checks/independent_review_checks.py`; core_checks |
+| CT17 | One clock, and the externality | §6, Result 5 | PROVED (in-model) | CT17 | `theory/MATH_ATTACK.md` §3.4; core_checks |
+| CT18 | Temperature identity | §5 | PROVED (in-model) | CT18 | `theory/MATH_ATTACK.md` §2; GENERAL_THEOREM R0; core_checks |
+| CT19 | LAT-1 and the three shortcut cases | §6, Result 6 | PROVED (in-model) | CT19 | `theory/SCALE_ENDS.md` §5; `theory/WORMHOLES.md` §4b; core_checks |
+| CL1 | Lemma B1: G3 rise, then fall; the cliff | §5 | PROVED (in-model) | CL1 | GENERAL_THEOREM §3; c1e |
+| CL2 | Lemma B9: Theorem L | §5 | PROVED (in-model) | CL2 | GENERAL_THEOREM §5; c3c |
+| CL3 | Lemma B12: Theorem S | §3 | PROVED (in-model) | CL3 | GENERAL_THEOREM §6; c5a–c5c |
+| CL4 | Lemma B8: exact per-window ruin (Black & Cox) | §5 | PRIOR ART | CL4 | GENERAL_THEOREM R1–R2; core_checks (Monte Carlo) |
+| CL5 | Lemma B4: vigilance at birth | §6 | PROVED (in-model) | E7 | formal Thm 5 and its 19 Nov erratum; `s11_vclosed.py` |
+| CL6 | Lemma B5: clocks | §6 | PRIOR ART | F14 | formal Prop 9; `s7_misc.py` |
 | CL7 | Lemma B6: selection resolution | §4 | PROVED (in-model) | F15 | formal Prop 10; `s7_misc.py` |
-| CL8 | Lemma B7: √N fade | §5.3 | PRIOR ART | K9 | `theory/THEOREMS.md` T4 |
-| CL9 | Lemma B10: finite horizon | §3 | PROVED (in-model) | N33 | `theory/BOOKENDS.md`; `finite_horizon.py` |
-| CL10 | Lemma B11: the internal-model bound | §3 | PROVED (in-model) | CL10 | `theory/INTERNAL_MODEL.md` §2; `i1_internal_model.py` |
-| CL11 | Drift reduction as a lever | §2.2 | OPEN | K17 | `reference/THEORY_v1.4.29.md` §5 |
-| CX1 | Theorem P for drifting worlds | §3, §7 | OPEN | CX1 | `theory/INTERNAL_MODEL.md` §4 (partial bridge) |
+| CL8 | Lemma B7: √N fade | §6 | PRIOR ART | K9 | `theory/THEOREMS.md` T4 |
+| CL9 | Lemma B10: finite horizon | §5 | PROVED (in-model) | N33 | `theory/BOOKENDS.md`; `finite_horizon.py` |
+| CL10 | Lemma B11: the internal-model bound | §5 | PROVED (in-model) | CL10 | `theory/INTERNAL_MODEL.md` §2; `i1_internal_model.py` |
+| CL11 | Drift reduction as a lever | §3 | OPEN | K17 | `reference/THEORY_v1.4.29.md` §5 |
+| CX1 | Theorem P for drifting worlds | §5, §8 | OPEN | CX1 | `theory/INTERNAL_MODEL.md` §4 (partial bridge) |
+| CT20 | Master Theorem (i)–(ii): existence; K\* nondecreasing in w/h and f\* in w/c in every world | §5 | PROVED (in-model) | CT20 | B.9; `theory/MASTER_EQUATION.md` §1; `theory/meq_checks/meq_derive.py` |
+| CT21 | L1–L3: one pole ⇒ one layer; J modes ⇒ at most J, exactly J past R\*; no finite design for a continuum | §5, §6 | PROVED (in-model) | CT21 | `theory/LAYERS.md` §2; `theory/layers_checks/`; meq_derive |
+| CT22 | Survival lemma: B_min, B_slack, the price of survival μ_s | §5 | PROVED (in-model) | CT22 | B.9; `theory/meq_checks/meq_checks.py` S4; meq_derive |
+| CT23 | Local regret: picture errors cost second-order regret, except near cliffs | §4 | PROVED (in-model) | CT23 | B.9; `theory/meq_checks/part2.py` (k); meq_derive |
+| CL12 | L4: geometric clocks optimal at every α (shared-clock model) | §6 | PROVED (in-model) | CL12 | `theory/LAYERS.md` L4; `theory/layers_checks/t7b_alpha.py` |
+| CL13 | Formal Theorem 6: levels are complements, a lattice, accrete as upkeep falls | §6 | PROVED (in-model) | F1 | `reviews/night1/formal/THEOREMS.md` Thm 6; `s4_lattice.out` |
+| CL14 | Cheap lookup can dissolve levels (Theorem 6 counterexample) | §6 | PROVED (in-model) | F3 | formal Thm 6; `s4_lattice.out` |
+| CL15 | Formal Theorem 7: levels fill top-down iff χ < χ\* (h = 0) | §6 | PROVED (in-model) | F7 | formal Thm 7; `s6_depth.out` |
+| CL16 | T7: the architecture inherits the world's scale structure; the store count | §6 | MATH-CORRECTED | K12 | `theory/THEOREMS.md` T7; `reference/THEORY_v1.4.29.md` §2.2 |
+| CL17 | Broadcast threshold (formal Theorem 2) | §5, §6 | PROVED (in-model) | B12 | formal Thm 2; `s8_broadcast.out`; meq_derive |
+| CX2 | Coupled levels: when system and world co-adapt, do they settle at a joint minimum, cycle or race | §3, §9 | OPEN | CX2 | `reviews/master-equation_2026-11-19/REVIEW.md` §4 |
 
-Lemma B3 (opposite effects of shared and private drift) is CLAIM_MAP C1, Lemma B2 (the spectrum map) is the rows of `reference/THEORY_v1.4.29.md` §2.2, and the empirical claims of §4–§6 are CLAIM_MAP N13, J6, J9, J15, J16, N27, N51, N52 and K4.
+Lemma B3 (opposite effects of shared and private drift) is CLAIM_MAP C1, Lemma B2 (the spectrum map) is the rows of `reference/THEORY_v1.4.29.md` §2.2, and the empirical claims of §4 and §6–§8 are CLAIM_MAP N13, J6, J9, J15, J16, N27, N51, N52 and K4.

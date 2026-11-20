@@ -1,0 +1,58 @@
+== Exp0: single-pole worlds (OU at several rates): eps_2 should be ~0 ==
+ a=1.0: eps1=1.39e-06 eps2=1.39e-06
+ a=0.01: eps1=6.86e-07 eps2=6.86e-07
+
+== Exp1: cadence world, 3 OU modes at tau=1, 30, 1000 (equal variance) ==
+ K=1: excess=   3.917%  store taus=[0.27]
+ K=2: excess=   0.081%  store taus=[0.22 6.57]
+ K=3: excess=   0.000%  store taus=[  0.22   5.53 175.96]
+ K=4: excess=   0.000%  store taus=[  0.     0.22   5.53 175.96]
+  K* by R=w*Einf/h: {1: 1, 10: 1, 100: 2, 1000.0: 2, 10000.0: 3, 1000000.0: 3}
+
+== Exp1b: two modes, separation ratio r (tau=1 and r), equal variance ==
+ r=    1.5: flat excess eps1=  0.002%   (K=2 exact: eps2=1.3e-06)  layers pay iff R > 4.15e+04
+ r=      3: flat excess eps1=  0.097%   (K=2 exact: eps2=8.3e-07)  layers pay iff R > 1.03e+03
+ r=     10: flat excess eps1=  0.964%   (K=2 exact: eps2=3.6e-07)  layers pay iff R > 104
+ r=    100: flat excess eps1=  3.657%   (K=2 exact: eps2=1.1e-07)  layers pay iff R > 27.3
+ r=10000.0: flat excess eps1=  5.777%   (K=2 exact: eps2=7.4e-08)  layers pay iff R > 17.3
+
+== Exp2: scale-free band (Lorentzian mixture, S~f^-alpha inside span), noise crossing at the fast edge ==
+ alpha=0.5 span=   1e+01: excess% K1..4 = [0.279 0.002 0.    0.   ]  K*(R=10,1e2,1e3,1e4)=[1, 1, 2, 2]
+ alpha=0.5 span=   1e+02: excess% K1..4 = [1.236 0.052 0.002 0.   ]  K*(R=10,1e2,1e3,1e4)=[1, 2, 2, 3]
+ alpha=0.5 span=   1e+03: excess% K1..4 = [1.873e+00 1.450e-01 1.400e-02 1.000e-03]  K*(R=10,1e2,1e3,1e4)=[1, 2, 3, 4]
+ alpha=0.5 span=   1e+04: excess% K1..4 = [2.125 0.201 0.028 0.004]  K*(R=10,1e2,1e3,1e4)=[1, 2, 3, 4]
+ alpha=0.5 span=   1e+05: excess% K1..4 = [2.21  0.223 0.035 0.007]  K*(R=10,1e2,1e3,1e4)=[1, 2, 3, 4]
+ alpha=1.0 span=   1e+01: excess% K1..4 = [0.321 0.002 0.    0.   ]  K*(R=10,1e2,1e3,1e4)=[1, 1, 2, 2]
+ alpha=1.0 span=   1e+02: excess% K1..4 = [1.793 0.069 0.003 0.   ]  K*(R=10,1e2,1e3,1e4)=[1, 2, 2, 3]
+ alpha=1.0 span=   1e+03: excess% K1..4 = [3.322e+00 2.250e-01 2.100e-02 2.000e-03]  K*(R=10,1e2,1e3,1e4)=[1, 2, 3, 4]
+ alpha=1.0 span=   1e+04: excess% K1..4 = [4.355 0.362 0.046 0.007]  K*(R=10,1e2,1e3,1e4)=[1, 2, 3, 4]
+ alpha=1.0 span=   1e+05: excess% K1..4 = [5.009 0.449 0.064 0.012]  K*(R=10,1e2,1e3,1e4)=[1, 2, 3, 4]
+ alpha=1.5 span=   1e+01: excess% K1..4 = [0.277 0.002 0.    0.   ]  K*(R=10,1e2,1e3,1e4)=[1, 1, 2, 2]
+ alpha=1.5 span=   1e+02: excess% K1..4 = [1.262 0.051 0.002 0.   ]  K*(R=10,1e2,1e3,1e4)=[1, 2, 2, 3]
+ alpha=1.5 span=   1e+03: excess% K1..4 = [1.995e+00 1.450e-01 1.400e-02 1.000e-03]  K*(R=10,1e2,1e3,1e4)=[1, 2, 3, 4]
+ alpha=1.5 span=   1e+04: excess% K1..4 = [2.317 0.209 0.028 0.004]  K*(R=10,1e2,1e3,1e4)=[1, 2, 3, 4]
+ alpha=1.5 span=   1e+05: excess% K1..4 = [2.433 0.237 0.036 0.007]  K*(R=10,1e2,1e3,1e4)=[1, 2, 3, 4]
+ alpha=1.9 span=   1e+01: excess% K1..4 = [0.204 0.002 0.    0.   ]  K*(R=10,1e2,1e3,1e4)=[1, 1, 2, 2]
+ alpha=1.9 span=   1e+02: excess% K1..4 = [0.591 0.027 0.001 0.   ]  K*(R=10,1e2,1e3,1e4)=[1, 1, 2, 3]
+ alpha=1.9 span=   1e+03: excess% K1..4 = [0.582 0.053 0.005 0.001]  K*(R=10,1e2,1e3,1e4)=[1, 1, 2, 3]
+ alpha=1.9 span=   1e+04: excess% K1..4 = [0.441 0.052 0.008 0.001]  K*(R=10,1e2,1e3,1e4)=[1, 1, 2, 3]
+ alpha=1.9 span=   1e+05: excess% K1..4 = [0.332 0.04  0.007 0.002]  K*(R=10,1e2,1e3,1e4)=[1, 1, 2, 3]
+
+== Exp3 (B): spacing of optimal stores, scale-free band; log10 ratios of consecutive store taus ==
+ alpha=0.5 span=1e+03: taus=[  0.72   3.01  17.6  152.64] log10 ratios=[0.62 0.77 0.94]
+ alpha=0.5 span=1e+04: taus=[  0.73   3.48  25.07 327.08] log10 ratios=[0.68 0.86 1.12]
+ alpha=0.5 span=1e+05: taus=[  0.73   3.67  28.68 448.86] log10 ratios=[0.7  0.89 1.19]
+ alpha=1.0 span=1e+03: taus=[  0.77   2.96  16.32 131.95] log10 ratios=[0.58 0.74 0.91]
+ alpha=1.0 span=1e+04: taus=[  0.79   3.48  23.89 288.48] log10 ratios=[0.65 0.84 1.08]
+ alpha=1.0 span=1e+05: taus=[  0.79   3.76  28.76 440.17] log10 ratios=[0.68 0.88 1.18]
+ alpha=1.5 span=1e+03: taus=[  0.85   2.64  14.56 123.72] log10 ratios=[0.49 0.74 0.93]
+ alpha=1.5 span=1e+04: taus=[  0.87   3.    20.49 257.56] log10 ratios=[0.54 0.83 1.1 ]
+ alpha=1.5 span=1e+05: taus=[  0.87   3.17  23.66 361.4 ] log10 ratios=[0.56 0.87 1.18]
+ alpha=1.9 span=1e+03: taus=[  0.93   2.48  15.7  143.41] log10 ratios=[0.43 0.8  0.96]
+ alpha=1.9 span=1e+04: taus=[  0.95   2.82  23.18 346.35] log10 ratios=[0.47 0.92 1.17]
+ alpha=1.9 span=1e+05: taus=[  0.96   2.89  26.02 494.33] log10 ratios=[0.48 0.95 1.28]
+
+== Exp4: noise moves the effective span: alpha=1, span 1e4, noise crossover at tau_c ==
+ noise x1 of fast-edge S: excess% K1..3 = [4.355 0.362 0.046]  taus(K=3)=[ 0.8  5.4 78. ]
+ noise x30 of fast-edge S: excess% K1..3 = [5.016 0.657 0.1  ]  taus(K=3)=[  3.6  24.6 249.7]
+ noise x1000 of fast-edge S: excess% K1..3 = [1.802 0.276 0.048]  taus(K=3)=[  19.8  236.  1556.3]

@@ -36,9 +36,9 @@ CLEAN = [
 # (file, old text, new text, key): replacements that must be caught
 REPLACEMENTS = [
     ("measurement/CLAIM_MAP_v2.md", "| **Total** | **", "| **Total** | **1", "tally"),
-    ("THEORY.md", "| CX1 | Theorem P for drifting worlds | §3, §7 | OPEN |", "| CX1 | Theorem P for drifting worlds | §3, §7 | PROVED (in-model) |", "core-index"),
-    ("THEORY.md", "| CT15 | The level's technology sets the exponent | §5.3, Result 4 | MATH-CORRECTED (exponent stands; scope narrowed) | N12 |", "| CT15 | The level's technology sets the exponent | §5.3, Result 4 | MATH-CORRECTED (exponent stands; scope narrowed) | N13 |", "core-index"),
-    ("THEORY.md", "## Appendix A. Notation", "## Notation", "length"),
+    ("THEORY.md", "| CX1 | Theorem P for drifting worlds | §5, §8 | OPEN |", "| CX1 | Theorem P for drifting worlds | §5, §8 | PROVED (in-model) |", "core-index"),
+    ("THEORY.md", "| CT15 | The level's technology sets the exponent | §6, Result 4 | MATH-CORRECTED (exponent stands; scope narrowed) | N12 |", "| CT15 | The level's technology sets the exponent | §6, Result 4 | MATH-CORRECTED (exponent stands; scope narrowed) | N13 |", "core-index"),
+    ("THEORY.md", "## Appendix A. The model and notation", "## The model and notation", "length"),
 ]
 def run(d):
     r = subprocess.run([sys.executable, os.path.join(d, "tools", "check_consistency.py")], cwd=d, capture_output=True, text=True)
