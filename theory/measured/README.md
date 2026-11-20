@@ -1,7 +1,7 @@
 # Measured placements: the first measured system on the map, and the first real test of a layer's memory
 
 *Branch `v2.5-measure` off `b8e8d5b`, Friday 20 November 2026 (America/New_York). Written by a Grok Bot executor for
-Chad. A self-check, **not** independently reviewed. THEORY.md is not edited except its CLAIM_MAP version pointer; CLAIM_MAP gains section P (v2.54).*
+Chad. A self-check, **not** independently reviewed. THEORY.md is not edited except its CLAIM_MAP version pointer; CLAIM_MAP gains section P (v2.54; F2, Model S+ and SN1 added in v2.55).*
 
 **In one paragraph.** E. coli chemotaxis is the best-measured strongly selected sensing system, and every number the
 theory needs for its slow (methylation) layer has been published by one lab under one set of conditions
@@ -18,6 +18,18 @@ decides it. So: **failed on this proxy/setup; diagnosed cause: a missing interna
 next test: how kinase noise scales when the adaptation time is changed (F2).** No kill condition is met: this is not a
 qualifying test of the class (no closed cost list, no fitness map). The human-scale arm is **untested**: no dataset
 measures both judgment spend and the cost of being wrong.
+
+**Update (v2.55, after F2 was scored).** The decisive premise is now measured, and it splits the difference: E. coli's
+store noise grows with its memory as σ ∝ τ^0.31 (95% CI 0.24–0.37; Park et al. 2010, nine conditions; a single-cell
+FRET check from Keegstra et al. 2017 agrees but is weak), so **neither** locked noise model holds (F2: INCONCLUSIVE by
+its rule). Rerunning the test with the measured exponent puts the optimum at 1.9–3.6 s: the store's own noise closes
+about 37% of the log gap, and the cell's 9.9 s memory captures about 72% of the best store's explained variance
+(37% under exogenous noise). The term the miss exposed is now theory: **Model S+** (`../STORE_NOISE.md`), whose
+closed form λτ\* = (1−s)/s says a store runs slower than its mode exactly when its own noise grows more slowly than
+fixed density, and that upkeep priced by speed lengthens memory further. P1 stays **failed on this setup**; diagnosed
+cause: store noise (part, measured) plus an open remainder (×4, candidates: speed-priced upkeep, objective, habitat,
+strain); next tests: kinase noise vs τ at fixed a0, an estimate of the speed price, and SN1 on new systems, locked
+before their data (`PREREG_SN1.md`). Details: `ecoli/RESULTS_F2.md`.
 
 ## 1. Which systems, and why
 | Candidate | Theory quantities measurable from published data? | Used |
@@ -89,9 +101,15 @@ noise), not a result.
   in model; untested by measurement.** Hostile note: their mechanism is the motor's operating range, not noise, so the
   slope does not discriminate mechanisms.
 - **F2** (`ecoli/PREREG_F2.md`, commit `f18fdfd`): fixed-variance store noise (σn independent of τ, arm C) vs fixed-density
-  (σn ∝ τ^½, arm B). *Result:* **untested.** Colin et al. 2017 (doi 10.7554/eLife.26796) decompose the noise but do not
-  vary the adaptation time. **This is the next test:** FRET noise and step response in the same cells across CheR/CheB
-  induction levels (the strains and methods exist in that lab); slope s = d ln σn / d ln τ2 decides B vs C.
+  (σn ∝ τ^½, arm B). *Result (v2.55, `ecoli/RESULTS_F2.md`):* **neither arm.** Park et al. 2010 Fig. 4c (digitized; nine
+  CheR/CW-bias conditions, τ 0.9–15 s) gives s = 0.31 (CI 0.24–0.37); the paper's own line through the origin reads as
+  arm B, but a free log-log slope does not. Keegstra et al. 2017 source data (70 wild-type cells) give 0.28 (CI −0.28 to
+  0.88). Colin et al. 2017 (doi 10.7554/eLife.26796) decompose the noise but do not vary τ. Still owed: kinase-level noise
+  vs τ at fixed a0.
+- **Rerun with the measured s (diagnostic, `ecoli/f2/rerun_measured_s.py`):** optimum 2.4–2.6 s at s = 0.31 (1.9–3.6 s over
+  the CI); locked thresholds for reference: FAIL at the point, NEITHER over the CI. Cannot rescore P1.
+- **Model S+** (`../STORE_NOISE.md`, CLAIM_MAP P9): the extension found because this test failed; predictions for new
+  systems locked in `PREREG_SN1.md` (commit `d99eade`) before their data.
 
 ### E.5 E. coli's coordinates (`measured.json`, from `coords.py`; replaces the guess logR = 1.0, loglat = −0.5)
 | Coordinate | Value | How |

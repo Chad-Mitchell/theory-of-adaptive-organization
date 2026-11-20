@@ -24,3 +24,13 @@ Read in open copies only (PMC / Europe PMC / authors' sites); no sign-ins.
 - Lynch & Marinov 2015, PNAS, 10.1073/pnas.1514974112 (not used for a number)
 - Porat 1977, The Information Economy (US Dept of Commerce, OT Special Publication 77-12; ERIC ED142205; no DOI)
 - UniProt P07017, P02942, P07363, P0A964, P0AE67, P0A9H9, P07364, P07330 (protein lengths)
+
+## Added in v2.55 (F2 and Model S+; all resolved on Crossref, `crossref_f2.out`)
+- Park, Pontius, Guet, Marko, Emonet & Cluzel 2010, Nature 468:819, 10.1038/nature09551 (NIH author manuscript PMC3230254; Fig. 4c digitized from the open figure)
+- Keegstra, Kamino, Anquez, Lazova, Emonet & Shimizu 2017, eLife 6:e27455, 10.7554/eLife.27455 (CC BY; Figure 4 source data used)
+- Emonet & Cluzel 2008, PNAS 105:3304, 10.1073/pnas.0705463105 (abstract; model only)
+- Korobkova, Emonet, Vilar, Shimizu & Cluzel 2004, Nature 428:574, 10.1038/nature02404 (abstract only; no open full text read)
+- Dufour, Fu, Hernandez-Nunez & Emonet 2014, PLoS Comput Biol, 10.1371/journal.pcbi.1003694 (abstract; theory)
+- Dufour, Gillet, Frankel, Weibel & Emonet 2016, PLoS Comput Biol, 10.1371/journal.pcbi.1005041 (abstract; no noise-vs-τ data)
+- Frankel, Pontius, Dufour, Long, Hernandez-Nunez & Emonet 2014, eLife 3:e03526, 10.7554/eLife.03526 (Crossref metadata; already cited for F1)
+- Lan, Sartori, Neumann, Sourjik & Tu 2012, Nature Physics 8:422, 10.1038/nphys2276 (abstract; energy–speed–accuracy, cited for E2)
