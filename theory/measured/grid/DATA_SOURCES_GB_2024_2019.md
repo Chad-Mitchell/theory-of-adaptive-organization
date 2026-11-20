@@ -33,3 +33,12 @@ BM (2019/20) list hash: 249ac4398d9197a8471cb417d1da196bcd329c52feb8b55c6e5f468b
  "/workspace/gtao-gb-2024/mfr_280206.bin": "https://www.neso.energy/document/280206/download",
  "/workspace/gtao-gb-2024/mfr_318481.bin": "https://www.neso.energy/document/318481/download"
 }```
+
+**Fetch times and URLs (added v2.61, review 27 S-6).** The exact fetch times were not recorded. From the session's
+command order, the 2024 and 2019/20 files were fetched on 20 Nov 2026 between the G3 lock (`b7f69e8`, 10:52:50 AM ET)
+and the GRID-4 run, about 10:55–11:00 AM ET. The 2019/20 files came after the GRID-4 lock (`a3d52ca`, 10:55:00 AM ET);
+this ordering is inferred, not logged. Landing pages (re-checked HTTP 200 at about 12:15 PM ET):
+https://www.neso.energy/data-portal/system-frequency-data, https://www.neso.energy/data-portal/system-inertia,
+https://www.neso.energy/data-portal/eac-auction-results,
+https://www.neso.energy/industry-information/balancing-services/frequency-response-services/mandatory-frequency-response.
+The per-file resource URLs and the Elexon BMRS stream query URLs were not recorded: unknown.

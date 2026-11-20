@@ -45,3 +45,9 @@ page, "Frequency Response volumes"); the Monthly Balancing Services Summary give
 open 2019/20 MFR holding source was found. **Item 2:** FFR post-tender reports exist (e.g. TR118 Oct-19, TR121
 Jan-20), but the volume in force needs every earlier tender whose contracts span those months. Not attempted,
 because item 1 already decides the verdict. Raw GB data deleted (hashes in `DATA_SOURCES_GB_2024_2019.md`).
+
+**Where GRID-4b was searched (added v2.61, review 27 S-14).** NESO's Mandatory Frequency Response page
+(https://www.neso.energy/industry-information/balancing-services/frequency-response-services/mandatory-frequency-response,
+"Frequency Response volumes" documents) and the Monthly Balancing Services Summary (exact URL not recorded). The FFR
+post-tender reports (TR118, TR121) were found by search, but their URLs were not recorded. The search was not exhaustive:
+an FOI request to NESO or an archived copy of older MFR reports could still supply the holdings.
