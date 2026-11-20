@@ -6,7 +6,7 @@
  K=1: excess=   3.917%  store taus=[0.27]
  K=2: excess=   0.081%  store taus=[0.22 6.57]
  K=3: excess=   0.000%  store taus=[  0.22   5.53 175.96]
- K=4: excess=   0.000%  store taus=[  0.     0.22   5.53 175.96]
+ K=4: excess=   0.000%  store taus=[  0.22   0.51   5.53 175.96]
   K* by R=w*Einf/h: {1: 1, 10: 1, 100: 2, 1000.0: 2, 10000.0: 3, 1000000.0: 3}
 
 == Exp1b: two modes, separation ratio r (tau=1 and r), equal variance ==
@@ -50,7 +50,7 @@
  alpha=1.5 span=1e+05: taus=[  0.87   3.17  23.66 361.4 ] log10 ratios=[0.56 0.87 1.18]
  alpha=1.9 span=1e+03: taus=[  0.93   2.48  15.7  143.41] log10 ratios=[0.43 0.8  0.96]
  alpha=1.9 span=1e+04: taus=[  0.95   2.82  23.18 346.35] log10 ratios=[0.47 0.92 1.17]
- alpha=1.9 span=1e+05: taus=[  0.96   2.89  26.02 494.33] log10 ratios=[0.48 0.95 1.28]
+ alpha=1.9 span=1e+05: taus=[  0.96   2.89  26.01 494.18] log10 ratios=[0.48 0.95 1.28]
 
 == Exp4: noise moves the effective span: alpha=1, span 1e4, noise crossover at tau_c ==
  noise x1 of fast-edge S: excess% K1..3 = [4.355 0.362 0.046]  taus(K=3)=[ 0.8  5.4 78. ]
