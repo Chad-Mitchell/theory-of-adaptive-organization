@@ -1,0 +1,88 @@
+# GRID-1 preregistration: do Continental Europe's reserve layers interlace the open-loop imbalance spectrum?
+
+Written Friday 20 November 2026, **before downloading or inspecting any outcome data** (no frequency or NRV
+values from any year have been downloaded or viewed by me; only page link lists and dataset names). The commit
+time is the record. Any change after this commit is a deviation, logged in `grid/DEVIATIONS.md`, and may not
+alter a verdict.
+
+## Claim under test (THEORY.md (iii), CT21, L1–L2)
+In Model S, a world with J separated real time scales (sum of OU modes, rates a_1 < … < a_J) is best tracked
+by exactly J layers (once stakes are large), and the layer rates interlace the world's:
+a_1 < b_1 < a_2 < b_2 < … < a_J < b_J (each layer faster than its mode, slower than the next mode). A world
+with one real time scale, including a random walk, needs at most one layer (L1). A continuum (power law
+other than a random walk) has no exact finite design (L3).
+
+## System and layers (fixed now, from product rules, not from data)
+Continental Europe synchronous area, German LFC block (four TSOs, NRV = "Netzregelverbund"). Layers =
+reserve products with distinct full-activation times (FAT), as defined by the products in 2022:
+FCR 30 s, aFRR 5 min (300 s), mFRR 12.5 min (750 s) (mFRR was 15 min before MARI; in 2022 Germany still
+used 15 min; **primary mapping uses the 2022 German values: FCR 30 s, aFRR 300 s, mFRR 900 s**).
+Primary layer time constant τ_j = FAT_j; robustness mapping τ_j = FAT_j / 3 (first-order 95% rise). Layer
+rates b_j = 1/τ_j. Intraday and day-ahead markets are excluded (schedules, not feedback layers).
+
+## World (open-loop imbalance)
+Period: calendar year 2022 (the last year with an open second-wise frequency file). Signal:
+D(t) = NRV(t) + β·Δf(t), where NRV(t) is the German second-wise netted aFRR+mFRR activation (MW, sign as
+published, deficits positive) and β·Δf the German share of FCR plus load self-regulation,
+β = 3,450 MW/Hz (German FCR ≈ 570 MW per 200 mHz plus 1 %/Hz of ≈ 60 GW load). Inertia is ignored
+(corner M/λ ≈ 3 s, below the band). Band: 10 s to 4 h.
+Preprocessing (fixed): remove the daily and hourly deterministic schedule components by subtracting the
+mean profile per second-of-hour and per minute-of-day computed over the year (deterministic seasonality is
+not a stationary Gaussian mode, THEORY §5); gaps ≤ 60 s linearly filled, longer gaps split segments.
+Spectrum: Welch, 4-h Hann segments, 50 % overlap, log-binned (20 bins/decade) over 10 s–4 h.
+Fit: log-PSD fitted by (i) K Lorentzian modes Σ_k A_k/(1+(2πfθ_k)²) + white floor, K = 0…5, and (ii) a
+power law A f^{−γ} + white floor. Model choice by BIC on the log-binned points. Corner CIs by a day-block
+bootstrap (200 resamples).
+**Separated** modes: corners pairwise ≥ ×2.5 apart (the closest product ratio, 300 s / 750 s, is 2.5, and
+900/300 = 3) and each carrying ≥ 5 % of band variance; K_sep is the count of separated modes in the chosen
+model. The mode count of the world is K_sep.
+
+## Predictions (numeric, with ranges)
+- **G1 count (iii):** K_sep = 3 within the band.
+- **G2 interlacing (L2), primary mapping (τ = 30, 300, 900 s):** θ_3 ∈ (30, 300) s, θ_2 ∈ (300, 900) s,
+  θ_1 > 900 s (θ_1 ≤ 4 h, the band edge). Robustness mapping (τ = 10, 100, 300 s): θ_3 ∈ (10, 100) s,
+  θ_2 ∈ (100, 300) s, θ_1 > 300 s.
+- **Rival R1 ("set at the world's scale"):** θ_j ∈ [τ_j/2, 2τ_j]: [15, 60] s, [150, 600] s, [450, 1800] s.
+- **Rival R0 (engineering history; no relation):** no prediction on corners; GTAO is supported over R0 only
+  if G1 and G2 both pass.
+
+## Verdict rules
+- **G1 PASS** iff K_sep = 3. **G1 FAIL** iff K_sep ≤ 1 with the Lorentzian model chosen, or the power-law
+  model chosen with γ ∈ [1.7, 2.3] (a random walk in band: L1 caps the layers at one, CE runs three).
+  K_sep = 2 or 4–5: NEITHER. Power law chosen with γ outside [1.7, 2.3]: **OUT OF SCOPE** (L3, continuum).
+- **G2** (only if K_sep = 3): **PASS** iff each corner's bootstrap 95 % CI lies inside its interval under the
+  primary mapping, or under the robustness mapping (both mappings are reported; PASS requires that the
+  passing mapping also beats R1, i.e. at least one corner's CI is outside R1's interval). **FAIL** iff under
+  both mappings at least two of the three corners have CIs wholly outside their intervals. Otherwise NEITHER.
+- **R1** scored by the same rule (PASS iff every CI overlaps its R1 interval).
+- **INVALID (premise):** NRV second-wise coverage < 90 % of 2022; or the chosen model or any corner moves by
+  more than ×2 when β is changed by ±50 % (reconstruction not robust); or the residual of D(t) is dominated by
+  the ACE term (variance of β·Δf > variance of NRV in the 10–300 s band would mean the FCR term, not NRV,
+  carries the world, and the fixed β is the test).
+
+## Kill condition
+GTAO's layer-count claim (iii) is **refuted for engineered power grids** if G1 FAILs here **and** in the
+GB replication (same rule; layers DC/DM ≈ 1 s, DR ≈ 10 s, Quick Reserve ≈ 60 s, Slow Reserve ≈ 900 s; band
+2 s–4 h; open-loop GB imbalance = (2E/f0)·df/dt + response implied by procured DC/DM/DR volumes and their
+published droop curves; GB is scored only after the CE verdict is written), and the one preregistered
+diagnosis fails: that the extra layers are **actuator-cost tiers** (speed-priced upkeep, Model S+ E2,
+outside Model S's fixed upkeep). That diagnosis predicts capacity prices fall with product speed tier
+(FCR > aFRR > mFRR, €/MW/h, 2022 annual means of open regelleistung.net tender results); if FCR's price is not
+above aFRR's, the diagnosis fails and the kill holds.
+
+## What I already know (disclosed)
+- Product times and that CE runs three feedback layers (FCR, aFRR, mFRR); GB's product times as listed.
+- General literature: CE frequency shows deterministic jumps at hour boundaries (schedule steps) and
+  heavy-tailed increments (e.g. Gorjão et al. 2020, Nature Communications, which I know from abstracts); I
+  have not seen a spectrum of German NRV second-wise data and do not know whether it has corners.
+- TSOs dimension aFRR+mFRR jointly from probabilistic imbalance distributions; that is a size rule, not a
+  time-constant rule.
+- Earlier repo results: CAISO stakes tests (STAKES_EXOGENOUS, STAKES_SHIFT_CAISO) were inconclusive; they
+  did not touch layer timing.
+
+## Data and access (as found before this commit)
+- CE second-wise frequency 2012–2022: open static zips (GET) on netztransparenz.de.
+- German second-wise NRV: served only by an ASP.NET postback button (`btnHiddenNrvSecondlyValueFileDownload`)
+  on netztransparenz.de "Sekündliche Daten"; no static link. The netztransparenz API portal needs credentials;
+  ENTSO-E Transparency API needs a token (account). No sign-in or account will be used.
+- Capacity prices: regelleistung.net tender results (open download, to be checked).
