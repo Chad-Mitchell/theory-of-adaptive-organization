@@ -71,3 +71,7 @@ therefore partly reflect how dispatch is represented rather than the world. Ther
 two-mode world passed through the same reconstruction), so the proxy's power to detect separated modes is unknown.
 G3a's margin (ΔBIC 1.0 between the power law and a Lorentzian) is not decisive. The G1 FAIL stands as locked; this
 caveat limits what it says about GB's world.
+
+## Dated note (GRID-DX Part A, 20 Nov 2026, after prereg `5d0c11a`)
+
+A qualification audit against the operational definition in force at the GRID-2 lock (`36416d2`) found the GB balancing system **NOT QUALIFIED** as "strongly selected" (`QUALIFICATION.md`). The locked G1 arm score above, **FAIL on proxy**, is not deleted and is not rewritten. Under `PREREG_GRIDDX.md` §A.4 the headline label for this result, in SYNTHESIS, README and the CLAIM_MAP status column, is **NOT APPLICABLE (system not qualified): a diagnosis of a patient, not a test of the law**. The measured mismatch (γ = 2.09 random-walk imbalance; four operational layers) stands as that diagnosis. The qualification check required at lock should have been done before scoring and was not.

@@ -1,0 +1,20 @@
+{
+  "prereg_sha": "5d0c11a3c4ca5146d3a2e806a46524eb3dcba25f",
+  "prereg_time_et": "2026-11-20 13:22:47 -0500",
+  "definition_commit": "36416d2835f4afe5b6efca8e4b5eeda24620fca8",
+  "system": "GB balancing system (NESO / former National Grid ESO)",
+  "verdict": "NOT QUALIFIED",
+  "headline": "NOT APPLICABLE (system not qualified): a diagnosis of a patient, not a test of the law",
+  "items": {
+    "a_cost_to_fitness_map": "failed",
+    "b_population_proxy": "failed",
+    "c_resolvable_band": "failed",
+    "d_power": "failed",
+    "e_redesign_time_same_world": "failed",
+    "protocol_recorded_before_measurement": "failed"
+  },
+  "R_go_live_2011_2026": 7,
+  "R_with_cessations_upper": 9,
+  "g3b_used": false,
+  "locked_g1_arm_deleted": false
+}

@@ -51,3 +51,7 @@ because item 1 already decides the verdict. Raw GB data deleted (hashes in `DATA
 "Frequency Response volumes" documents) and the Monthly Balancing Services Summary (exact URL not recorded). The FFR
 post-tender reports (TR118, TR121) were found by search, but their URLs were not recorded. The search was not exhaustive:
 an FOI request to NESO or an archived copy of older MFR reports could still supply the holdings.
+
+## Dated note (GRID-DX Part A, 20 Nov 2026, after prereg `5d0c11a`)
+
+G3a was locked as a replication of GRID-2 under the same un-checked qualification. The audit in `QUALIFICATION.md` finds the GB balancing system **NOT QUALIFIED**. The locked G3a arm score (the GRID-2 G1 FAIL replicates) is not deleted. The headline label follows `PREREG_GRIDDX.md` §A.4: **NOT APPLICABLE (system not qualified): a diagnosis of a patient, not a test of the law**. The measured 2024 mismatch (γ = 2.02; four layers against a one-layer prediction) stands as a diagnosis of the same unqualified system.
