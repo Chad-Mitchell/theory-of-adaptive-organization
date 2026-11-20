@@ -89,7 +89,7 @@ def draw_map(ax, st, fs, show, with_labels=True, ell_sigma=0.0, names=False, fix
     ax.text(0.08, -0.25, 'ONLY A LAYER IN EACH\nUNIT PAYS ON ITS OWN', color=K_LOC, ha='left', va='top', **kw)
     ax.text(X0 + 0.08, 0.12, 'ONLY ONE SHARED\nLAYER PAYS\nON ITS OWN', color=K_SH, ha='left', va='bottom', **kw)
     ax.text(X1 - 0.08, 0.12, 'EACH PAYS ON ITS OWN:\nthe shape shows the pick', color='#4a4a3a', ha='right', va='bottom', **kw)
-    st.text(X0 + 0.06, 0.5, 'shared layer:\nstakes\u00f7upkeep < $10^{-3}$', color='#555555', ha='left', va='center', fontsize=fs * 0.62, zorder=2, linespacing=1.0)
+    st.text(X0 + 0.06, 0.5, 'shared layer:\nstakes / upkeep < $10^{-3}$', color='#555555', ha='left', va='center', fontsize=fs * 0.62, zorder=2, linespacing=1.0)
     pts = []; seen = {}
     for name in show:
         for d in comps(name):
@@ -120,8 +120,8 @@ def draw_map(ax, st, fs, show, with_labels=True, ell_sigma=0.0, names=False, fix
     ty = range(int(np.ceil(Y0)), int(np.floor(Y1)) + 1)
     ax.set_yticks(list(ty)); ax.set_yticklabels([tick_lab(t) for t in ty], fontsize=fs * 0.82); st.set_yticks([])
     for a in (ax, st): a.tick_params(length=5, width=1.3)
-    st.set_xlabel('A layer in each unit:  stakes it can win ÷ its upkeep  (at the stated read quality)', fontsize=fs * 0.9, labelpad=3)
-    ax.set_ylabel('One shared layer:  stakes it can win ÷ its upkeep', fontsize=fs * 0.9, labelpad=4)
+    st.set_xlabel('A layer in each unit:  stakes it can win / its upkeep  (at the stated read quality)', fontsize=fs * 0.9, labelpad=3)
+    ax.set_ylabel('One shared layer:  stakes it can win / its upkeep', fontsize=fs * 0.9, labelpad=4)
 
 def legend_rows(fig, x, y, fs, dy):
     items = [('o', K_LOC, False, 'cheapest: a layer in each unit'), ('s', K_SH, False, 'cheapest: one shared layer'),
@@ -143,15 +143,15 @@ def ecoli_axis(fig, rect, fs):
     ax.plot(q, [0.45, 0.45], color=K_LOC, lw=3, alpha=0.6); ax.plot(q, [0.45, 0.45], ls='none', marker='|', ms=fs * 0.8, mew=2.2, color=K_LOC)
     ax.plot([c], [0.45], marker='o', ms=fs * 0.7, mfc='white', mec=K_LOC, mew=2.2)
     ax.set_yticks([]); tk = range(-1, 4); ax.set_xticks(list(tk)); ax.set_xticklabels([tick_lab(t) for t in tk], fontsize=fs * 0.62)
-    ax.set_title('E. coli: one cell, no shared option (off the map)\nproxy: motility benefit ÷ signalling proteome share\n(not X_L; the map\u2019s edges do not apply)', fontsize=fs * 0.64, loc='left')
+    ax.set_title('E. coli: one cell, no shared option (off the map)\nproxy: motility benefit / signalling proteome share\n(not X_L; the map\u2019s edges do not apply)', fontsize=fs * 0.64, loc='left')
     return ax
 
 T = 'Where the cost of judgment puts layers'
 RED = 'Hypothesized positions, not measurements'
 SUB = 'Each dot: one time scale of a system, at the centre of its input ranges.  Shading: which layer would pay on its own.  Shape: the cheapest design.'
 SUB2 = 'Outside the top-right, shading = cheapest design when two layers are worth no more together than apart (B.11).  Layer = tracking store.'
-F1 = 'Shared layer\u2019s stakes\u00f7upkeep = \u03bd \u00d7 pooling gain \u00d7 e^(\u22122\u00b7delay \u00f7 time scale) \u00d7 local layer\u2019s stakes\u00f7upkeep   (OU model, same read quality;'
-F1b = '\u03bd = all local layers\u2019 upkeep \u00f7 the shared layer\u2019s upkeep).  So, other things equal, fast scales go local and slow ones shared.'
+F1 = r'Shared layer' + '\u2019' + r's stakes / upkeep = ν × pooling gain × $e^{-2\,\mathrm{delay}/\mathrm{time\ scale}}$ × local layer' + '\u2019' + r's stakes / upkeep   (OU model, same read quality;'
+F1b = '\u03bd = all local layers\u2019 upkeep / the shared layer\u2019s upkeep).  So, other things equal, fast scales go local and slow ones shared.'
 F2 = ('If two layers are worth more together than apart (e.g. a shared layer as a reference for the local ones\u2019 common noise), both can win outside the top-right;'
       ' no dot here has that in its model.')
 F3 = 'Survival is a separate gate.   * selection weak or unknown.   Inputs, sources, ellipses: figures/face_placements.md, face_all.png  \u00b7  CC0'
@@ -197,7 +197,7 @@ def all_systems():
         st = fig.add_axes([x0, y0, 0.2, 0.035]); ax = fig.add_axes([x0, y0 + 0.04, 0.2, 0.3])
         draw_map(ax, st, fs, [name], ell_sigma=2.0, names=True)
         for t in ax.texts: t.set_fontsize(10) if t.get_text().isupper() or '\n' in t.get_text() else None
-        st.set_xlabel('local layer: stakes ÷ upkeep', fontsize=11); ax.set_ylabel('shared layer: stakes ÷ upkeep' if c == 0 else '', fontsize=11)
+        st.set_xlabel('local layer: stakes / upkeep', fontsize=11); ax.set_ylabel('shared layer: stakes / upkeep' if c == 0 else '', fontsize=11)
         ax.set_title(f"{NUM[name]}  {name}{'' if comps(name)[0]['strong'] else '*'}\n{reading(name, short=True)}", fontsize=14, weight='bold')
     ax = fig.add_axes([0.785, 0.07, 0.19, 0.03]); fig.delaxes(ax)
     ecoli_axis(fig, [0.785, 0.12, 0.19, 0.025], 14)
