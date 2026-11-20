@@ -27,6 +27,8 @@ Pick the design \(\mathcal{D}\) (how many layers \(K\), what each one tracks, ho
 
 The independent review (`review-of-master-equation/REVIEW.md`) found that the equation is a **problem statement, not a theorem**. A constrained minimization cannot be proved; the theorems are its solutions in stated classes. The draft's sentence that Theorem L makes the expected-cost rules the large-buffer limit was **misstated**: Theorem L's optimal interval does not depend on the buffer; the large-buffer slackness claim is a different lemma (see REVIEW.md). Those fixes are pending. Do not put this equation at the top of the core until they are made.
 
+Part 2 of the review (dimensionless groups, the phase diagram, dynamics, robustness, compression) is included in `review-of-master-equation/` and is unreviewed.
+
 ## Three special cases
 
 - **One layer, how often to look.** \(J(T) = c/T + w\,q\,T^{\alpha-1}/\alpha\), which gives a read rate \(\propto (wq/c)^{1/\alpha}\).

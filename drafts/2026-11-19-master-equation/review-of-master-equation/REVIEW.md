@@ -215,3 +215,146 @@ Independent, read-only review. Written Thu 19 Nov 2026, about 10:30 PM ET, by a 
 >  J(D) = [κ·I_mem + h·K] + w·E[ℓ_D] + [information-acquisition spend + link, telling and lookup costs],  subject to P(ruin) ≤ ε,
 >
 > with the world entering only through its measured law. This is the theory's definition of the problem, not a theorem. The theorems are its solutions in stated classes (Appendix B): how often to look, when to share, how far one tracker reaches, and when layers pay. In every world, more layers pay as stakes rise relative to upkeep. No more layers pay than the world has predictive time scales. Survival is free when the buffer is large and decides the design when it is not. The bet, untested, is that strongly selected systems sit near these solutions once their inputs are measured.
+
+---
+
+# Part 2: dimensionless numbers, phase diagram, dynamics, robustness, compression
+
+Added Thu 19 Nov 2026, about 10:45 PM ET, under the same rules: read-only on the repo, nice 19, and only citations checked on Crossref (`checks/crossref.out`). New scripts: `checks/part2.py`, `checks/phase.py` (with `.out` files) and the figure `/workspace/gtao-meq/phase.png`. The equation used throughout is the corrected J: g = 0, with the read term widened to information-acquisition spend A(D), plus link, telling and lookup costs.
+
+## (h) Dimensionless numbers. PARTLY HOLDS: equal numbers give the same design only when the world's shape is also equal
+
+**The examples in the brief are not dimensionless.** E[ℓ] has units x², so w has units of cost per (x²·time). Then:
+- w·σ²/h has units 1/time;
+- w·q/c has units time^{−α};
+- buffer/σ mixes cost with x/√time.
+
+The correct groups come from scaling time by the natural read interval T₀ = (c/(wq))^{1/α} and cost by the one-tracker cost J₁ = c^{(α−1)/α}(wq)^{1/α}.
+
+**The fewest groups, for a scale-free world with one tracker or several:**
+
+| Group | Meaning | Decides |
+|---|---|---|
+| α (or the spectrum's **shape**) | how the world changes | everything; it is a function, not a number, for a general world |
+| Π_h = h/J₁ (equivalently 1/R, R = wE_∞/h) | upkeep relative to what tracking costs | how many layers (L2) |
+| Π_ℓ = ℓ/T₀ | latency relative to the natural read interval | reach and federation (LAT-1) |
+| Π_u = μu/J₁ | lookup relative to holding | hold or look up (T5b cliff) |
+| Π_y = y/J₁ | income relative to the cheapest tracking | viability (Theorem P0) |
+| Π_B = θB = 2mB/s² (with ε) | buffer in ruin lengths | whether survival binds (Lemma iv) |
+| N, ρ | members, shared share | shared layers (Result 4) |
+
+The noise share Nτ/Var counts as part of the world's shape when sensing is noise-priced.
+
+**Check** (`part2.out`). Rescaling time by s ∈ {1, 7, 0.01} and amplitude by A ∈ {1, 13, 10³}, with the groups held fixed, gives identical designs: ε₁ = 2.2302%, K\* = 2, and layer memories 0.215 and 5.600 in units of s. This is Buckingham π, i.e. Theorem S (S1–S2).
+
+**Counter-check.** With the same R and the same mode ratio but a different noise share (N = 0.005, 0.05, 0.5), R\* is 135, 45 and 21. So the shape carries extra groups.
+
+**Verdict.**
+- For a **parametric** world (a power law, or a few modes) the design is fixed by about 5–7 numbers, and systems with equal numbers get the same design up to units. That is the precise meaning of "the same design at every scale".
+- For a general world the shape is a whole function, so "few numbers" holds only after the world has been summarized.
+
+## (i) Phase diagram. HOLDS in a model world; cells, firms and cities can be placed only illustratively
+
+`phase.png` is computed exactly in one model world (`phase.py`).
+- **World:** two OU modes at τ = 1 and 100, equal variance, sensing noise 0.05.
+- **Costs:** upkeep h per layer, federation overhead 20h, income 200h.
+- **Axes:** x = R = w·Var/h; y = latency ℓ/τ_fast.
+- **Designs compared:**
+  - no model (loss w·Var);
+  - one or two central layers, with readings late by ℓ;
+  - federate (local trackers with zero latency, paying the overhead);
+  - not viable (the cheapest design costs more than income, so ruin is certain by P0).
+
+**Boundaries found** (`phase.out`):
+
+| Latency | Region boundaries along R |
+|---|---|
+| ℓ = 0.01 | no model to R ≈ 1.25, one layer to 142, two layers to about 1045, then not viable |
+| ℓ = 0.14 | one layer from 1.39, two layers from 72, federate from 247 |
+| ℓ = 2.2 | one layer from 2.5, federate from 50 |
+| ℓ = 30 | one layer from 4.5, federate from 35 |
+
+The two-layer region is closed at large latency: the fast mode can't be predicted that far ahead, so only the slow layer is worth keeping. Latency also shifts the no-model boundary right, because a late model is worth less.
+
+**What is and is not general.**
+- The region **order** along R (none → one → many → not viable) follows from Master Theorem (ii) and P0 in every world.
+- Region **positions** depend on the shape, h_f/h and y/h. The figure is a 2-D slice of a 5–7-dimensional space.
+
+**Placing real systems.**
+- **Atoms (w = 0) honestly:** R = 0 is the far-left edge by E1 (no decision, no model). This placement is definitional.
+- **Cells, firms and cities only illustratively.** No system in the repo has a valid measured R (stakes have never been measured, G3), latency ratio or shape. Putting them on the plot now would be invented placement.
+- **The first honest placement** would be a system where the same-system test of G2 measures all three. A cell's chemotaxis pathway, where sensing costs are physically measured (Lan et al. 2012), is the best candidate.
+
+## (j) Dynamics: selection or learning as descent on J. PARTLY HOLDS; two testable predictions, both elementary
+
+**Status of the setting.** Gradient descent on design traits is a standard limit of selection (adaptive dynamics: Dieckmann & Law 1996, 10.1007/bf02409751) and of learning. Discrete choices such as K follow replicator- or threshold-type dynamics instead.
+
+**What follows:**
+1. **The design layer is the slowest layer.**
+   - To redesign, a system must estimate the world's law, and estimating the slowest rate a to relative precision δ needs a record of about 2/(aδ²) of that time scale.
+   - Monte Carlo (`part2.out`): records of 10, 30 and 100 slowest time constants give relative errors of 0.55, 0.30 and 0.15, against the asymptotic √(2/(aT)) of 0.45, 0.26 and 0.14.
+   - So redesign must run on a cadence of **tens of the slowest tracked time scale**. It is itself a layer, inside J, which is the recursion of (e).
+   - Two-timescale learning is known in substance (Borkar 1997, 10.1016/s0167-6911(97)90015-3). The GTAO-specific prediction is the ratio: redesign cadence ≳ 10–100× the slowest tracked scale.
+2. **Designs scatter more in rough worlds.**
+   - The relative curvature of J in ln T at the optimum is exactly **α − 1** (from CT13).
+   - Under any noisy selection or learning that balances against this restoring force, the spread of ln(read interval) across a population scales as 1/√(α − 1). Rough worlds (α near 1) should show widely scattered cadences; smooth worlds should show tight ones.
+   - This is testable across populations at known α. Its premise (spread set by curvature) is standard for stabilizing selection and was not derived here for a specific selection model. I found no prior statement, but the search was not targeted.
+3. **Rates move before structure, with hysteresis.** Continuous parameters re-tune smoothly after a shift in q, with elasticity 1/α. K changes only at thresholds, and with a switching cost it shows hysteresis (entry and exit under uncertainty: Dixit 1989, 10.1086/261619). This is known in substance.
+
+**Verdict.** Treating dynamics as descent adds two testable predictions: the redesign/slowest-scale ratio and the 1/√(α−1) scatter. Both are elementary. "Redesign is the slowest layer" holds as a necessity (you cannot redesign faster than you can learn the law). It is not a theorem that real systems do it.
+
+## (k) Robustness: regret and flatness. HOLDS as the formal form of "re-measure, not a dead theory", with three named exceptions
+
+**Theorem (local regret; elementary).** Suppose J is C² in log design variables with a nondegenerate minimum, and the design is computed from a picture of the world that is off by δ in log parameters. Then:
+- the design error is O(δ) (implicit function theorem);
+- the regret is ½δᵀHδ + o(δ²) (envelope theorem): **second order in the picture error.**
+
+For one layer, mis-scaling drift by a factor m costs exactly [(α−1)m^{−1/α} + m^{(α−1)/α}]/α − 1 ≈ (α−1)(ln m)²/(2α²).
+
+**Checks** (`part2.out`):
+- **Drift misjudged by 2×:** costs 3.8% at α = 1.3, 6.1% at α = 2 and 6.0% at α = 2.7. By 10×, it costs 35–85%.
+- **Wrong slow time scale:** a two-layer design built for a slow mode at τ = 10 or 100 (true τ = 30) loses only **0.49% and 0.45%** of the error.
+- **α misjudged by ±0.3:**
+  - 0.05–7.7% when the structure function is matched near the read interval;
+  - **up to 29%** when it is matched 10× away (α = 1.5 → 1.2 at τ_ref = 0.1T\*).
+- **One mode believed instead of two:** costs the flat penalty, 2.2% here and at most about 20% in the earlier scans.
+
+**Exceptions:**
+1. **A wrong layered design can be worse than no layering.** Believing variance shares of 0.2/0.8 instead of 0.5/0.5 costs 7.0%, more than the 2.2% of a correct one-layer design.
+2. **Fitting α far from the scales that matter** (the 29% case). Measure the law at the scales of the decision.
+3. **Phase boundaries with cliffs.** Near the viability edge B_min (Lemma iv) or the lookup cliff (T5b), a small picture error can flip feasibility. Regret is not flat there, so a system near an edge can die of a picture error even though the theory does not.
+
+**Verdict.** The "two kinds of wrong" (t1970) now has a formal form:
+- **Picture errors cost second-order regret.** The fix is to re-measure. Exceptions 1–3 mark where that fails for the *system*.
+- **Cost errors are a different object.** A missing cost term (J16) is not a perturbation of the inputs. No regret bound covers it, and it is what kills the theory.
+
+## Compression: the fewest words that state it exactly
+
+> **Claim** (locked, verbatim): the claim is that one cost under the second law sets how adaptive systems should be built at every scale: layered, with the layers at the world's time scales.
+>
+> **Equation.** min_D J(D) = κ·I_mem + h·K + w·E[ℓ] + A(D) + L(D), subject to P(ruin) ≤ ε, with the world exogenous and entering only through its measured law.
+>
+> **Glossary.**
+> - D: design (layers K, what each tracks, how it senses, what it shares).
+> - κ·I_mem, h·K: holding memory.
+> - w·E[ℓ]: stakes times error, with lateness counted as error.
+> - A: information-acquisition spend (per read, per nat or per precision).
+> - L: link, telling and lookup costs.
+> - Ruin: the reserve hits zero.
+> - One currency per system. Physics sets floors on the prices (kT per nat).
+>
+> **Theorem** (linear-Gaussian, proved in-model).
+> - In every world, layers never decrease as stakes rise relative to upkeep.
+> - There are never more layers than the world's separated time scales, and there is exactly one per scale once the stakes ratio clears R\*.
+> - Survival is free when the buffer exceeds ln(1/ε) ruin lengths, and it decides the design below that.
+> - Picture errors cost only second-order regret.
+>
+> **Bet** (untested): strongly selected systems sit near argmin J once their inputs are measured.
+
+That is about 150 words. Nothing shorter is exact, because the equation without the glossary is ambiguous, and the claim without the theorem is unsupported.
+
+**Does "layers at the world's time scales" need a gloss? Yes.** The count matches: one layer per separated time scale, as far as the stakes pay. Each layer's memory length does not match the scale itself. It is set by that scale *and* the sensing noise, and it is usually much shorter (in the Part 1 example a 90-day mode gets a 6–12-day store). There are two options, and changing locked wording is Chad's call:
+- **(a)** Keep the sentence verbatim with a one-line gloss: "*at the world's time scales*: one layer for each separated time scale on which the world changes, each with a memory set by that scale and the sensing noise."
+- **(b)** A tighter variant: "layered, one layer for each time scale the world changes on that the stakes can pay for."
+
+"Under the second law" also needs its existing gloss. Physics supplies the reason upkeep exists and the price floors. Above the cell the floors are slack (THEORY l.52).

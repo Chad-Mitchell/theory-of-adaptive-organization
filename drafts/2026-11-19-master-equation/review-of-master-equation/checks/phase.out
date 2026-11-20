@@ -1,0 +1,4 @@
+latency 0.010: starts no model; changes at [(np.float64(1.25), 'one layer'), (np.float64(142.14), 'two layers'), (np.float64(1045.29), 'not viable')]
+latency 0.136: starts no model; changes at [(np.float64(1.39), 'one layer'), (np.float64(72.06), 'two layers'), (np.float64(246.82), 'federate'), (np.float64(980.81), 'not viable')]
+latency 2.213: starts no model; changes at [(np.float64(2.52), 'one layer'), (np.float64(50.23), 'federate'), (np.float64(980.81), 'not viable')]
+latency 30.000: starts no model; changes at [(np.float64(4.47), 'one layer'), (np.float64(35.02), 'federate'), (np.float64(980.81), 'not viable')]
