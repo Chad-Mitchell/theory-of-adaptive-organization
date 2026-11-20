@@ -218,3 +218,13 @@ Derivations are in THEORY B.9 (CT24) and B.6 (CT25); checks in `theory/meq_check
 - **Shadow prices.** For a system with a binding read budget B, the stake w is the reciprocal of the budget's multiplier; equal marginal values across trackers under one budget are testable equalities. That real internal prices equal multipliers is a conjecture (CX5).
 - **Not claimed.** One conserved energy across scales; firms or cities paying in joules; physics fixing prices above the cell; equal numbers across systems of different world shape.
 - **Temperature.** In the diffusive-reset class ruin ≤ ε is B ≥ z_ε·σ√τ (z_ε = 3.29 at ε = 10⁻³); the survivable shock is ∝ τ^{−1/2}. Monte Carlo of the closed form agrees within 5%.
+
+## 6. Rules, closure and the compete / collaborate / organize toy (THEORY CT18-H, CT26–CT29; added v2.3)
+
+Derivations are in THEORY B.6 (CT18-H), B.9 (CT24, general form) and B.10 (CT26–CT29); checks in `theory/meq_checks/rules_scaling_checks.py` (run by `tools/test_rules_scaling_checks.py`, output in `rules_scaling_checks.out`).
+
+- **Temperature, general form.** For error self-similar with exponent H (fBm; stable Lévy with H = 1/α_s) the group is z = B/(σ·τ^H); the √ is H = ½.
+- **Rule 4 (CT26).** Keep the superseded version until proof iff its upkeep rate k < p·ν·(L_f − L_r); the optimum is bang-bang.
+- **Rules 6 and 1 (CT27).** Outcome records are information about the model's own error; regret falls in the number of records, and the number worth buying falls in their price. The Hebbian form is a hypothesis.
+- **Closure (CT28).** J\*(nW) = n^{1/α}J\*(W); level-by-level solving equals the joint optimum iff levels interact through passed-up stakes, else regret O(κ²).
+- **Free-riding toy (CT29).** Price of anarchy ½(√(a/W) + √(W/a)); free-riders capture (√N+1)/(2√N) of the pooling gain; stake-proportional cost shares restore the joint optimum; adaptation settles iff step < 2/N. CX2 (general convergence) stays open.
