@@ -1,0 +1,6 @@
+world mode time constants (days): [ 3. 90.]
+Wiener-filter pole time constants 1/b_j (days): [1.45012068 6.92134239]
+ N=36.0: layer time constants [0.1609472  6.24034092]
+ N=360.0: layer time constants [0.50392644 6.30227812]
+ N=3600.0: layer time constants [1.45012068 6.92134239]
+ N=36000.0: layer time constants [ 2.64710883 11.91622652]

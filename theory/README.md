@@ -2,10 +2,12 @@
 
 Derivations that `THEORY.md` cites, and older working drafts. `THEORY.md` governs where they disagree. Files marked *Maintained* are kept consistent with THEORY by `tools/check_consistency.py`; the rest (`THEOREMS.md`, `GENERAL_THEOREM.md`, `INTERNAL_MODEL.md`, `MATH_ATTACK.md`) are frozen history cited by section. None of this is claimed as a new theorem. Each file labels what is already known, what is a calculation or a code check, and where the argument fails.
 
-None of these is the core. THEORY v2.0 states the core and proves its results in its own Appendix B; the notes below are the reference derivations it cites, including the reach notes (`REACH.md`, `COSMIC_WEB.md`, `WORMHOLES.md`, `TORUS.md`), which extend the core's scope and are not part of it. `core_checks/` holds the checks of v2.0's closed forms. The one-page SCALE_ENDS summary is now `../history/2026-11-18_SCALE_ENDS_SUMMARY_FOR_CHAD.md`.
+None of these is the core. THEORY v2.1 states the core and proves its results in its own Appendix B; the notes below are the reference derivations it cites, including the reach notes (`REACH.md`, `COSMIC_WEB.md`, `WORMHOLES.md`, `TORUS.md`), which extend the core's scope and are not part of it. `core_checks/` holds the checks of v2.0's closed forms. The one-page SCALE_ENDS summary is now `../history/2026-11-18_SCALE_ENDS_SUMMARY_FOR_CHAD.md`.
 
 | File | What it is |
 |---|---|
+| `MASTER_EQUATION.md`, `meq_checks/` | The master equation (THEORY v2.1 §3–§5, B.9): the Master Theorem, special-case derivations, worked example, phase diagram (`phase.png`, illustrative), dynamics and regret. `meq_checks/meq_derive.py` asserts each special case derives from the equation (run by the test suite). |
+| `LAYERS.md`, `layers_checks/` | When layers beat one flat tracker: L1–L4 with proofs and numerics (THEORY CT21, CL12). New, not yet independently reviewed. |
 | `THEOREMS.md` | The application-facing theorem note (copy of the public `adaptive-memory-levels` version), with steps labeled KNOWN / PROOF / NUMERIC / ANALOGY / FAILS. |
 | `theorems-checks/` | Symbolic and numeric checks for `THEOREMS.md`. |
 | `GENERAL_THEOREM.md` | Broader "general theorem" draft (solvency bound, when a checked copy beats fading, temperature as a first-passage form, scale-invariance limits, and listed failures). |

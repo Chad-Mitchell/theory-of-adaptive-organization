@@ -10,7 +10,8 @@ What it checks
   2. Banned wording in maintained docs:
        - "law" used of GTAO (any bare 'law' not in an allow-listed compound
          such as 'power law', 'area law', 'law firm', a named physical law,
-         or a negation such as 'not a law' / never 'law');
+         or a negation such as 'not a law' / never 'law'; a sentence that
+         labels itself a hypothesis may name the law: Chad t1979u, 19 Nov 2026);
        - "theory of everything" unless negated ('not a theory of everything');
        - a field-test name next to passed/failed/confirmed/refuted/killed in
          the same sentence without a proxy / in-model / gate / tier label;
@@ -141,7 +142,8 @@ def main(argv=None):
                 for mm in GTAO_LAW.finditer(s):
                     ctx = s[max(0, mm.start() - 20): mm.end() + 40]
                     lawword = s[max(0, mm.end() - 30): mm.end()]
-                    if LAW_OK.search(lawword) or NEG_LAW.search(s) or re.search(r"WITHDRAWN", ln):
+                    # Chad t1979u (19 Nov 2026): one explicit, labeled hypothesis statement may name the law
+                    if LAW_OK.search(lawword) or NEG_LAW.search(s) or re.search(r"WITHDRAWN", ln) or re.search(r"\bhypothes[ie]s\b", s, re.I):
                         continue
                     sink.append("%s %s:%d law: …%s…" % (tag, path, i, ctx.strip())); hits += 1
                 if TOE.search(s) and not TOE_NEG.search(s):
