@@ -1,5 +1,5 @@
 """The face figure: where the cost of judgment puts layers.   nice -n 19 python3 figures/face.py   (seconds; needs figures/face_dots.json)
-What is drawn (v2.5.1, after review 26):
+What is drawn (v2.5.3, after reviews 26 and 28):
   SHADING = which single layer would pay ON ITS OWN (X_L > 1: a layer in each unit; X_S > 1: one shared layer).  Exact by definition, any model.
   SHAPE   = the cheapest design for that dot, from all four costs (face_map.decide, with the dot's own nu and kappa: exact in its model).
   The two agree outside the top-right quadrant exactly when the layers' value is subadditive (THEORY B.11).  A ringed dot would mark joint
@@ -89,7 +89,9 @@ def draw_map(ax, st, fs, show, with_labels=True, ell_sigma=0.0, names=False, fix
     ax.text(0.08, -0.25, 'ONLY A LAYER IN EACH\nUNIT PAYS ON ITS OWN', color=K_LOC, ha='left', va='top', **kw)
     ax.text(X0 + 0.08, 0.12, 'ONLY ONE SHARED\nLAYER PAYS\nON ITS OWN', color=K_SH, ha='left', va='bottom', **kw)
     ax.text(X1 - 0.08, 0.12, 'EACH PAYS ON ITS OWN:\nthe shape shows the pick', color='#4a4a3a', ha='right', va='bottom', **kw)
-    st.text(X0 + 0.06, 0.5, 'shared layer:\nstakes / upkeep < $10^{-3}$', color='#555555', ha='left', va='center', fontsize=fs * 0.62, zorder=2, linespacing=1.0)
+    sfs = max(fs * 0.62, 9.0)
+    st.text(X0 + 0.06, 0.5, 'shared layer:\nstakes / upkeep < $10^{-3}$', color='#555555', ha='left', va='center', fontsize=sfs, zorder=3, linespacing=1.0,
+            bbox=dict(boxstyle='square,pad=0.15', facecolor=C_NONE, edgecolor='none') if names else None)
     pts = []; seen = {}
     for name in show:
         for d in comps(name):
@@ -133,7 +135,11 @@ def legend_rows(fig, x, y, fs, dy):
 def key_rows(fig, x, y, fs, dy, names):
     for i, name in enumerate(names):
         ds = comps(name); yy = y - i * dy; star = '' if ds[0]['strong'] else '*'
-        fig.text(x, yy, f'{NUM[name]}  {name}{star}', fontsize=fs * 0.8, weight='bold', va='center')
+        h = fig.text(x, yy, f'{NUM[name]}  {name}{star}', fontsize=fs * 0.8, weight='bold', va='center')
+        nb = sum(near(d) for d in ds)
+        if nb:
+            bb = h.get_window_extent(fig.canvas.get_renderer()).transformed(fig.transFigure.inverted())
+            fig.text(bb.x1 + 0.006, yy, f'({nb} hollow)', fontsize=fs * 0.62, va='center', color='#444444')
         fig.text(x + 0.012, yy - dy * 0.45, '  '.join(f"{'abc'[j]} {d['lab']}" for j, d in enumerate(ds)) + '   \u2192 ' + reading(name, short=True).split('  (')[0],
                  fontsize=fs * 0.56, va='center', color='#222222')
 
@@ -155,7 +161,8 @@ F1b = '\u03bd = all local layers\u2019 upkeep / the shared layer\u2019s upkeep).
 F2 = ('If two layers are worth more together than apart (e.g. a shared layer as a reference for the local ones\u2019 common noise), both can win outside the top-right;'
       ' no dot here has that in its model.')
 F3 = 'Survival is a separate gate.   * selection weak or unknown.   Inputs, sources, ellipses: figures/face_placements.md, face_all.png  \u00b7  CC0'
-FIX_MAIN = {}
+FIX_MAIN = {'5b': (0.0, -1.5), '6c': (0.0, -1.5), '6b': (1.7, 0.0)}   # review 28: keep 5b/6b/6c leaders off other markers
+FIX_SQ = {'6c': (0.0, -1.5), '6b': (1.7, 0.0)}
 
 def face():
     fig = plt.figure(figsize=(16, 10), dpi=100); fs = 19
@@ -168,7 +175,7 @@ def face():
     legend_rows(fig, 0.655, 0.79, 19, 0.03)
     key_rows(fig, 0.655, 0.66, 19, 0.058, MAPPED)
     ecoli_axis(fig, [0.672, 0.17, 0.30, 0.028], 19)
-    fig.text(0.5, 0.080, F1, ha='center', va='center', fontsize=11.2, color='#222222')
+    fig.text(0.5, 0.081, F1, ha='center', va='center', fontsize=12.5, color='#222222')
     fig.text(0.5, 0.059, F1b, ha='center', va='center', fontsize=11.2, color='#222222')
     fig.text(0.5, 0.036, F2, ha='center', va='center', fontsize=11.2, color='#222222')
     fig.text(0.5, 0.013, F3, ha='center', va='center', fontsize=11, color='#444444')
@@ -177,16 +184,16 @@ def face():
 def square():
     fig = plt.figure(figsize=(12, 12), dpi=100); fs = 17
     st = fig.add_axes([0.09, 0.39, 0.88, 0.045]); ax = fig.add_axes([0.09, 0.44, 0.88, 0.415])
-    draw_map(ax, st, fs, MAPPED, fixed=FIX_MAIN)
+    draw_map(ax, st, fs, MAPPED, fixed=FIX_SQ)
     fig.text(0.5, 0.969, T, ha='center', va='center', fontsize=34, weight='bold')
     fig.text(0.5, 0.932, RED, ha='center', va='center', fontsize=22, weight='bold', color='#cc0000')
     fig.text(0.5, 0.888, 'Each dot: one time scale of a system, at the centre of its input ranges.  Shading: which layer would pay on its own.\nShape: the cheapest design.  '
              'Outside the top-right, shading = cheapest design if together \u2264 apart (B.11).', ha='center', va='center', fontsize=13.5, color='#222222', linespacing=1.3)
     legend_rows(fig, 0.05, 0.31, 15, 0.024)
     ecoli_axis(fig, [0.55, 0.255, 0.42, 0.022], 16)
-    key_rows(fig, 0.05, 0.205, 17, 0.042, MAPPED[:4]); key_rows(fig, 0.55, 0.205, 17, 0.042, MAPPED[4:])
-    fig.text(0.5, 0.03, 'OU model, other things equal: fast scales go local, slow ones shared.  If two layers are worth more together than apart, both can win outside the top-right.',
-             ha='center', fontsize=11.5, color='#222222')
+    key_rows(fig, 0.05, 0.212, 17, 0.040, MAPPED[:4]); key_rows(fig, 0.55, 0.212, 17, 0.040, MAPPED[4:])
+    fig.text(0.5, 0.043, 'OU model, other things equal: fast scales go local, slow ones shared.', ha='center', fontsize=11.5, color='#222222')
+    fig.text(0.5, 0.025, 'If two layers are worth more together than apart, both can win outside the top-right.', ha='center', fontsize=11.5, color='#222222')
     fig.text(0.5, 0.01, 'Layer = tracking store, not org-chart level.  Survival is a separate gate.  * selection weak or unknown.  figures/face_placements.md \u00b7 CC0', ha='center', fontsize=10.5, color='#444444')
     fig.savefig(os.path.join(HERE, 'face_square.png'), dpi=100); plt.close(fig)
 
@@ -200,9 +207,9 @@ def all_systems():
         st.set_xlabel('local layer: stakes / upkeep', fontsize=11); ax.set_ylabel('shared layer: stakes / upkeep' if c == 0 else '', fontsize=11)
         ax.set_title(f"{NUM[name]}  {name}{'' if comps(name)[0]['strong'] else '*'}\n{reading(name, short=True)}", fontsize=14, weight='bold')
     ax = fig.add_axes([0.785, 0.07, 0.19, 0.03]); fig.delaxes(ax)
-    ecoli_axis(fig, [0.785, 0.12, 0.19, 0.025], 14)
+    ecoli_axis(fig, [0.785, 0.12, 0.19, 0.025], 15)
     legend_rows(fig, 0.785, 0.40, 15, 0.03)
-    fig.text(0.785, 0.25, 'Shading: which layer would pay on its own.\nShape: cheapest design (centre of ranges).\nOutside the top-right, shading = cheapest\ndesign if together \u2264 apart (B.11).', fontsize=11, va='center', linespacing=1.3)
+    fig.text(0.785, 0.25, 'Shading: which layer would pay on its own.\nShape: cheapest design (centre of ranges).\nOutside the top-right, shading = cheapest\ndesign if together \u2264 apart (B.11).\n* selection weak or unknown.', fontsize=11, va='center', linespacing=1.3)
     fig.suptitle('Every placement with 2\u03c3 ellipses from its input ranges (hypothesized positions, not measurements)', fontsize=20, weight='bold', color='#cc0000', y=0.985)
     fig.savefig(os.path.join(HERE, 'face_all.png'), dpi=120); plt.close(fig)
 

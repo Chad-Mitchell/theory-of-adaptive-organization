@@ -197,3 +197,17 @@ def test_conditioning_guard_review26_seed34():
     r = fh._rates(np.log(bl)); assert np.all(np.diff(np.log(r)) >= np.log(1.01) - 1e-12)
     e, xopt = fh.best_fast(a, v, 0.3, 8, rho, 1.0, 2, 1, starts=2)
     assert e >= fh.confirm(a, v, 0.3, 8, rho, 1.0, 2, 1, xopt) - 1e-12
+
+def test_review26_seed40_three_scale_greedy_miss():
+    """Review 26's three-scale world (figures/face_seed40.py): greedy and greedy + pairwise look-ahead both stop at 3 local + 2 shared
+    stores, while 2 local + 3 shared is cheaper (regret 2.8e-4 of total cost). The stored rates must reproduce the stored costs (Lyapunov)."""
+    sys.path.insert(0, FIG); import face_hybrid as fh, face_seed40 as s40
+    R = json.load(open(os.path.join(FIG, 'face_seed40.json'))); W = R['world']
+    a, v, rho = (np.array(W[k]) for k in ('a', 'v', 'rho'))
+    assert R['exact'] == [2, 3] and R['greedy'] == [3, 2] and R['lookahead'] == [3, 2] and 2e-4 < R['regret_greedy'] < 4e-4
+    for key in ('2,3', '3,2'):
+        d = R['designs'][key]; kl, kc = map(int, key.split(','))
+        E = fh.mse(a, v, W['N'], W['n'], rho, W['lead'], d['bl'], d['bc'])
+        assert abs(s40.cost(kl, kc, E) - d['cost']) < 0.01
+    C = {k: d['cost'] for k, d in R['designs'].items()}
+    assert C['2,3'] < C['3,2'] < C['3,1'] < C['3,0'] < C['2,0'] and C['2,1'] > C['2,0'] and C['3,3'] > C['3,2']

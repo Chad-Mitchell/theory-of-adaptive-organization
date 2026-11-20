@@ -4,7 +4,7 @@ import os, json, re
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 SEC, MIN, H, D, W, MO, Y = 1 / 3600, 1 / 60, 1.0, 24.0, 24.0 * 7, 24.0 * 30.4, 24.0 * 365.25
-SRC = {('E. coli', 'gradient signal'): 'plausibility proxy, not on the map: PR #110 `theory/measured/measured.json` (Mattingly et al. 2021, 10.1038/s41567-021-01380-3; Ni et al. 2019, PNAS, issued 23 Dec 2019, 10.1073/pnas.1910849117); the ratio is motility benefit ÷ signalling proteome share, not X_L; degree 2, outside B.11; do not merge before PR #110',
+SRC = {('E. coli', 'gradient signal'): 'plausibility proxy, not on the map: PR #110 (merged as e1be66e) `theory/measured/measured.json` (Mattingly et al. 2021, 10.1038/s41567-021-01380-3; Ni et al. 2019, PNAS, issued 23 Dec 2019, 10.1073/pnas.1910849117); the ratio is motility benefit ÷ signalling proteome share, not X_L; degree 2, outside B.11',
        ('immune system', 'adaptive'): 'lead: dendritic-cell trafficking to lymph nodes, Randolph, Angeli & Swartz 2005 (10.1038/nri1670); rest guess',
        ('immune system', 'memory'): 'tau: antibody half-lives 11 y (tetanus) to >200 y (measles, mumps), Amanna, Carlson & Slifka 2007 (10.1056/NEJMoa066092); rest guess',
        ('immune system', 'innate'): 'lead as adaptive (Randolph et al. 2005); rest guess',

@@ -1,6 +1,6 @@
 # The map of designs (`figures/face.png`, "Where the cost of judgment puts layers"): theorem, placements and sources
 
-*v2.5.2, Friday 20 November 2026 (America/New_York). Branch `v2.5-map`. Written by a Grok Bot executor for Chad. Revised after the
+*v2.5.3, Friday 20 November 2026 (America/New_York). Branch `v2.5-map`. Written by a Grok Bot executor for Chad. Revised after the
 independent review of PR #111 (review 26, verdict NOT READY); every blocker and should-fix is answered in §8.*
 
 **What this map is.**
@@ -67,7 +67,8 @@ value is subadditive**, G_B ≤ G_L + G_S.
   (G_B − G_L − G_S)/Var = r_LS·[(r_L² + r_S²)·r_LS − 2·r_L·r_S] / (1 − r_LS²)   (`face_map.excess_fixed`, tested).
 
 - With each estimate's sign chosen so that r_L, r_S ≥ 0 (no loss of generality), this is > 0 iff r_LS < 0 or r_LS > 2 r_L r_S/(r_L² + r_S²). Without that convention the condition is false (r_L = 0.6, r_S = −0.3, r_LS = −0.1 gives −0.032).
-- That is the case when the shared store is correlated with the local estimates' *errors* more than with the target. It then works as a **common-mode reference**: subtracting it cancels noise that the local layers share.
+- The condition is the statement. The intuition is only rough. A shared store whose link to the local estimate runs mostly through shared noise, rather than through the target, works as a **common-mode reference**: subtracting it cancels that noise.
+- Being correlated more with the local noise than with the target is not enough: r_L = r_S = 0.5 and r_LS = 0.8 give an excess of −0.22 (review 28).
 - When the estimates are independent given the target (r_LS = r_L r_S), the excess equals r_L²r_S²(r_L² + r_S² − 2)/(1 − r_L²r_S²) ≤ 0, so the value is subadditive.
 - **At optimized rates the formula is a necessary condition, not a classification.** CT35's gains are each at their own optimal rates. At the rates b* optimal for both, G_L(b*) ≤ G_L^opt and G_S(b*) ≤ G_S^opt, so G_B* − G_L^opt − G_S^opt ≤ the fixed-rate excess at b*. A positive fixed-rate excess at the joint optimum is necessary, not sufficient. Which classes are superadditive is measured below (CX6), not read off the formula.
 
@@ -139,7 +140,7 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
 | ρ drawn per component (400) | 99.5% (2 misses) | 2.2×10⁻⁵ of total cost | 100% | 47% |
 
 - **Outside the tested scope the look-ahead also misses.** Review 26 ran 92 three- and four-scale worlds with up to 3 local + 3 shared stores.
-  - Seed 40 is a real miss for greedy and for greedy + look-ahead. The optimum is 2 local + 3 shared stores (cost 4280.549). Greedy goes 1 → 2 → 3 local stores, then adds shared stores to 3 + 2 (4281.731) and stops. The regret is 2.8×10⁻⁴ of total cost. This was reproduced here with the guarded optimizer (12 starts per design): the same costs to 4 significant figures, and the same greedy path.
+  - Seed 40 is a real miss for greedy and for greedy + look-ahead. The optimum is 2 local + 3 shared stores (cost 4280.549). Greedy goes 1 → 2 → 3 local stores, then adds shared stores to 3 + 2 (4281.731) and stops. The regret is 2.8×10⁻⁴ of total cost. The world is committed as `figures/face_seed40.py` → `face_seed40.json`, with a regression test. The guarded optimizer (12 starts per design) reproduces the costs to 4 significant figures and the same greedy path: (0,0) → (1,0) → (2,0) → (3,0) → (3,1) → (3,2).
   - Additions cannot undo the third local store, so outside the tested scope only exhaustive search is the rule.
   - Its other miss (seed 34, regret 3.04) was the ill-conditioning artifact that the guard above removes.
 - V2 (one stream, layer count): marginal worths fell layer by layer in 97.3% of 300 worlds, and in 100% within a 10⁻⁵ tolerance. 0 of the 300 fits failed.
@@ -205,6 +206,7 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
    - The input ranges in `figures/face_systems.py` are the preregistered prediction, frozen on 20 Nov 2026 (ET) with SHA-256 `00f6f25d796bbd1862f6ad9f04ef53bd986185f1177052339632e20b15095377`.
    - `tools/test_face_map.py` fails if the file changes.
    - Any later change to a class's ranges voids the comparison for that class. A new prediction needs a new freeze date before any data.
+   - When this PR merges, its merge commit is the freeze commit (review 28). The SHA-256 above identifies the file whatever commit it is in.
 
 | System | Observed by this rule | Map gives |
 |---|---|---|
@@ -218,7 +220,7 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
 - Each dot is the centre of its input ranges:
   - log-uniform draws for every input except ρ, which is drawn uniformly;
   - 400 draws per dot;
-  - the ellipses are the 1σ (main figure) or 2σ (`face_all.png`) covariance in log space.
+  - the ellipses (drawn only in `face_all.png`) are the 2σ covariance of the draws in log space.
 - "Share of draws" is how often each design wins across the input ranges.
 - A dot is drawn **hollow** when no design wins ≥ 65% of its input draws. Solid dots can also change design within their ranges, just less often (the share column gives the numbers).
 - Systems whose selection is weak or unknown are starred (*).
@@ -228,7 +230,7 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
 <!-- TABLE -->
 | System | Scale | τ | delay ℓ | units n | shared ρ | snr | stakes ÷ upkeep R | h_c ÷ h_l | X_L (centre) | X_S (centre) | X_B (centre) | κ_L, κ_S | cheapest design | share of draws | joint value | sources |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| E. coli | gradient signal | 1.16 s | 0.039 s–0.3 s | 1 | 1 | 0.0043–0.103 | proxy 10^-0.26–10^1.89 | 1 | 6.53 | — | — | — | **off the map (proxy)** | proxy > 1 in 88% | — | plausibility proxy, not on the map: PR #110 `theory/measured/measured.json` (Mattingly et al. 2021, 10.1038/s41567-021-01380-3; Ni et al. 2019, PNAS, issued 23 Dec 2019, 10.1073/pnas.1910849117); the ratio is motility benefit ÷ signalling proteome share, not X_L; degree 2, outside B.11; do not merge before PR #110 |
+| E. coli | gradient signal | 1.16 s | 0.039 s–0.3 s | 1 | 1 | 0.0043–0.103 | proxy 10^-0.26–10^1.89 | 1 | 6.53 | — | — | — | **off the map (proxy)** | proxy > 1 in 88% | — | plausibility proxy, not on the map: PR #110 (merged as e1be66e) `theory/measured/measured.json` (Mattingly et al. 2021, 10.1038/s41567-021-01380-3; Ni et al. 2019, PNAS, issued 23 Dec 2019, 10.1073/pnas.1910849117); the ratio is motility benefit ÷ signalling proteome share, not X_L; degree 2, outside B.11 |
 | immune system | innate | 1 h–10 h | 12 h–2 d | 100–1000 | 0.1–0.5 | 1–30 | 30–3e+03 | 3–100 | 131 | 0.000388 | 124 | 1.00, 0.00 | **local** | local 99% | none | lead as adaptive (Randolph et al. 2005); rest guess |
 | immune system | adaptive | 5 d–4.29 wk | 12 h–2 d | 100–1000 | 0.5–1 | 0.3–10 | 3–300 | 3–100 | 7.38 | 316 | 17.1 | 0.10, 0.62 | **shared** | shared 62%, both 38% | none | lead: dendritic-cell trafficking to lymph nodes, Randolph, Angeli & Swartz 2005 (10.1038/nri1670); rest guess |
 | immune system | memory | 10 y–100 y | 1 d–1 wk | 100–1000 | 0.7–1 | 10–1e+03 | 0.3–30 | 3–100 | 2.46 | 46 | 2.57 | 0.08, 0.10 | **shared** | shared 82%, both 15%, none 2%, local 1% | none | tau: antibody half-lives 11 y (tetanus) to >200 y (measles, mumps), Amanna, Carlson & Slifka 2007 (10.1056/NEJMoa066092); rest guess |
@@ -251,7 +253,7 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
 <!-- /TABLE -->
 
 **Notes on individual placements.**
-- **E. coli is a plausibility proxy, not a placement (PR #110 inputs; do not merge before PR #110).**
+- **E. coli is a plausibility proxy, not a placement (inputs from PR #110, merged into main as `e1be66e`).**
   - The ratio is the fitness benefit of chemotaxis in poor carbon (Ni et al. 2019, PNAS, issued 23 Dec 2019) divided by the signalling machinery's proteome share: log₁₀ −0.26 to 1.89.
   - It is **not X_L**, for three reasons:
     - the benefit includes motility, while the denominator counts only signalling;
@@ -301,7 +303,7 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
 6. **The ellipses are not posteriors.** They come from independent ranges.
 7. **Ruin is not drawn.**
 8. **The hierarchy above one shared level is not drawn.**
-9. **E. coli is a proxy off the map.** It depends on PR #110, which is not yet merged.
+9. **E. coli is a proxy off the map.** Its inputs come from PR #110 (merged as `e1be66e`).
 10. **City, nation-state and global economy are starred** because their selection is weak or unknown.
 11. **The counting rule is proposed.** It has not been preregistered per class, and no system has been counted by it yet.
 12. **Beckers' 47 min** is not checked against the full text.
@@ -325,7 +327,7 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
      - The stated rule is exhaustive search, with a pairwise look-ahead.
   4. **"BOTH PAY" label.** Replaced: the regions now say which single layer pays on its own, and the shape gives the pick.
   5. **Axis "net of reading" while the dots are gross.** The axes now say "at the stated read quality".
-  6. **E. coli as measured X_L.** Now a plausibility proxy, off the map. Do not merge before PR #110.
+  6. **E. coli as measured X_L.** Now a plausibility proxy, off the map. (PR #110 has since merged, as `e1be66e`.)
   7. **B.11 in the claim index.** Added to THEORY Appendix C and CLAIM_MAP §O as CT35, CT36 and CX6.
   8. **Tests.**
      - The quadrant vs decide disagreement at κ > 1 is now tested.
@@ -378,6 +380,18 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
     - the clipping note was corrected;
     - `face_all.png` gained its own legend.
 
+- **v2.5.3 answers the final check, review 28 (READY-WITH-FIXES):**
+  - merged `origin/main` after PR #110 merged as `e1be66e`, and removed the "do not merge before PR #110" wording;
+  - the CLAIM_MAP map note is renumbered v2.63, and the tally is OPEN 77, PROVED 84, total 294;
+  - the `face_square.png` footer is split over two lines, so nothing is clipped;
+  - fixed label offsets keep the 5b/6b/6c leaders off other markers;
+  - the `face_all.png` strip note sits on a box, so the axis line no longer overstrikes it, and its fonts are ≥ 9 pt;
+  - `face_all.png` now explains "*";
+  - the CT36 gloss is marked as only an intuition, with the counterexample;
+  - the ellipse statement and version stamps are fixed;
+  - the seed-40 world is committed with a test;
+  - the key on `face.png` and `face_square.png` shows hollow counts.
+
 ## 9. Regenerate
 
 ```
@@ -385,6 +399,7 @@ nice -n 19 python3 figures/face_collapse_v1.py 3000     # about 2 min: random wo
 nice -n 19 python3 figures/face_collapse_v1b.py 1500    # about 3 min: reading priced (identity check)
 nice -n 19 python3 figures/face_collapse_v23.py 300 800 # about 8 min: one read stream (V2 300, V3 800 worlds)
 nice -n 19 python3 figures/face_subadd.py 1500          # about 4 min: which classes are subadditive
+nice -n 19 python3 figures/face_seed40.py               # about 3 min: the three-scale greedy miss
 nice -n 19 python3 figures/face_place.py                # about 1 min: placements -> face_dots.json
 nice -n 19 python3 figures/face_table.py                # the table above
 nice -n 19 python3 figures/face.py                      # face.png (1600x1000), face_square.png (1200x1200), face_all.png
