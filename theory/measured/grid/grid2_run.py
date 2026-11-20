@@ -9,14 +9,19 @@ DATA = os.environ.get("GB_DATA", "/workspace/gtao-gb-data")
 OUT = os.path.dirname(os.path.abspath(__file__))
 rng = np.random.default_rng(20262)
 F0 = 50.0
-WEEKS = ["2026-01-05", "2026-04-06", "2026-07-06", "2026-10-05"]
+CFG = json.loads(os.environ.get("GRID_CFG", "{}"))  # G3a / GRID-4 reuse this code with other weeks and inputs
+WEEKS = CFG.get("weeks", ["2026-01-05", "2026-04-06", "2026-07-06", "2026-10-05"])
+EAC_FILES = CFG.get("eac", ["eac_fy2025.csv", "eac_summary.csv"])
+MFR_FILES = CFG.get("mfr", ["mfr_360561.bin", "mfr_381851.bin"])
+FLAT_Q = CFG.get("flat_Q")  # GRID-4: no DC/DM/DR; one assumed holding Q (MW), linear 0.015-0.5 Hz, tau 10/3 s
+OUTNAME = CFG.get("out", "grid2_results.json")
 
 # ---------- inputs
 def freq(months):
     fs = []
     for y, m in months:
         d = pd.read_csv(os.path.join(DATA, f"f_{y}_{m:02d}.csv"))
-        fs.append(pd.Series(d["f"].to_numpy(float), index=pd.to_datetime(d["dtm"], format="mixed")))
+        fs.append(pd.Series(d["f"].to_numpy(float), index=pd.to_datetime(d["dtm"], format="mixed", utc=True).dt.tz_localize(None)))
     return pd.concat(fs)
 
 def inertia():
@@ -28,16 +33,16 @@ def inertia():
     return s[~s.index.duplicated(keep="last")]
 
 def eac():
-    d = pd.concat([pd.read_csv(os.path.join(DATA, f)) for f in ["eac_fy2025.csv", "eac_summary.csv"]])
+    d = pd.concat([pd.read_csv(os.path.join(DATA, f)) for f in EAC_FILES])
     d = d[d.auctionProduct.isin(["DCL", "DCH", "DML", "DMH", "DRL", "DRH"])]
     d["t"] = pd.to_datetime(d.deliveryStart)
     return {p: g.groupby("t").clearedVolume.sum().sort_index() for p, g in d.groupby("auctionProduct")}
 
 def mfr():
     sheets = {}
-    for f in ["mfr_360561.bin", "mfr_381851.bin"]:
+    for f in MFR_FILES:
         sheets.update(pd.read_excel(os.path.join(DATA, f), sheet_name=None, header=1))
-    d = pd.concat(sheets.values())
+    d = pd.concat([v.rename(columns=lambda c: str(c).strip().replace(" ", "_").replace("Date", "DATE").replace("BM_UNIT", "BM_UNIT")) for v in sheets.values()])
     d["DATE"] = pd.to_datetime(d["DATE"], errors="coerce")
     d = d.dropna(subset=["DATE"])
     g = d.groupby("DATE")[["Primary_Response_MWHrs", "High_Frequency_Response_MWHrs"]].sum() / 24.0
@@ -93,6 +98,10 @@ def reconstruct(f, idx, E, vol, M, B, mfr_x=1.0, L_x=1.0, fat=False):
     df = f - F0
     dfdt = np.gradient(f)
     R = np.zeros_like(f)
+    if FLAT_Q is not None:
+        q = FLAT_Q * mfr_x; tau = 10.0 if fat else 10 / 3
+        R = q * lag(curve(np.minimum(df, 0), "MFR") * (df < 0) - curve(np.maximum(df, 0), "MFR") * (df > 0), tau)
+        return R + B - 0.02 * 28000 * L_x * df - (2 * E * 1000 / F0) * dfdt
     for k, fatk in [("DC", 1.0), ("DM", 1.0), ("DR", 10.0)]:
         tau = fatk if fat else fatk / 3
         lo = curve(np.minimum(df, 0), k) * vol[k + "L"]; hi = curve(np.maximum(df, 0), k) * vol[k + "H"]
@@ -103,6 +112,7 @@ def reconstruct(f, idx, E, vol, M, B, mfr_x=1.0, L_x=1.0, fat=False):
 
 def align(idx, E, eacv, mf):
     E1 = E.reindex(E.index.union(idx)).ffill().reindex(idx).to_numpy()
+    if FLAT_Q is not None: return E1, {}, {}
     vol = {}
     for p in ["DCL", "DCH", "DML", "DMH", "DRL", "DRH"]:
         s = eacv[p]; vol[p] = s.reindex(s.index.union(idx)).ffill(limit=None).reindex(idx).fillna(0).to_numpy()
@@ -200,7 +210,8 @@ def desched(x, idx):
     return x
 
 if __name__ == "__main__":
-    E = inertia(); eacv = eac(); mf = mfr()
+    E = inertia()
+    eacv = eac() if FLAT_Q is None else None; mf = mfr() if FLAT_Q is None else None
     mode = sys.argv[1] if len(sys.argv) > 1 else "main"
     results = {}
     if mode == "main":
@@ -217,14 +228,16 @@ if __name__ == "__main__":
         cov_f = float(np.isfinite(f).mean()); E1, vol, M = align(idx, E, eacv, mf)
         cov_E = float(np.isfinite(E1).mean())
         prem = dict(coverage_freq=cov_f, coverage_inertia=cov_E, mean_E=float(np.nanmean(E1)),
-                    mean_DCL=float(vol["DCL"].mean()), mean_DRL=float(vol["DRL"].mean()), mean_MFR_lo=float(M["lo"].mean()),
+                    mean_DCL=float(vol["DCL"].mean()) if vol else None, mean_DRL=float(vol["DRL"].mean()) if vol else None,
+                    mean_MFR_lo=float(M["lo"].mean()) if M else None,
                     sd_B=float(np.nanstd(B)))
         print(json.dumps(prem)); results["premise"] = prem
         if cov_f < 0.9 or cov_E < 0.9:
-            print("INVALID coverage"); json.dump(results, open(os.path.join(OUT, "grid2_results.json"), "w"), indent=1); sys.exit()
+            print("INVALID coverage"); json.dump(results, open(os.path.join(OUT, OUTNAME), "w"), indent=1); sys.exit()
         fi = pd.Series(f).interpolate(limit=60, limit_area="inside").to_numpy()
         variants = {"main": {}, "mfr_0.5": dict(mfr_x=.5), "mfr_1.5": dict(mfr_x=1.5), "L_0.5": dict(L_x=.5),
                     "L_1.5": dict(L_x=1.5), "lag_FAT": dict(fat=True), "B_dropped": "B0"}
+        for x in CFG.get("q_variants", []): variants[f"Q_x{x}"] = dict(mfr_x=x)
         for lab, kw in variants.items():
             Bx = np.zeros_like(B) if kw == "B0" else B
             D = reconstruct(fi, idx, E1, vol, M, Bx, **({} if kw == "B0" else kw))
@@ -235,7 +248,7 @@ if __name__ == "__main__":
                 D15 = pd.Series(D, index=idx).resample("15min").mean().to_numpy()
                 results["S1"] = score(D15, 1/900, 96, 96, 1800, 12*3600, np.log(900), np.log(30*86400), boot=200)
                 print("S1", json.dumps(results["S1"])); sys.stdout.flush()
-        json.dump(results, open(os.path.join(OUT, "grid2_results.json"), "w"), indent=1)
+        json.dump(results, open(os.path.join(OUT, OUTNAME), "w"), indent=1)
     else:  # 12-month fast-band robustness, no B
         months = [(2025, 11), (2025, 12)] + [(2026, m) for m in range(1, 11)]
         out = []

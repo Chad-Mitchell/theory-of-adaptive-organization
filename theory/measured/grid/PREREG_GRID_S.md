@@ -34,3 +34,29 @@ first half of 2026, same reconstruction and code as GRID-1b (aFRR setpoint, 15-m
 
 **Disclosed risks:** schedule changes also happen at quarter hours in 2022 (intraday 15-min products existed),
 and GB's settlement-period ramps are well known; a corner near 30 min in GB was a plausible prior.
+
+---
+
+## Deviation DV-S2 (appended after the lock; before computing anything on the 2026 German files)
+Written Friday 20 November 2026, about 11:00 AM ET. Chad downloaded (browser, no login) to
+`/workspace/gtao-grid-data/de2026/`: six monthly 1-s aFRR setpoint files, Jan–Jun 2026; the **operational**
+("betrieblich") activated aFRR at 15 min; the quality-assured activated mFRR at 15 min. Seen: names, sizes,
+SHA-256, headers and the first one or two rows of each file.
+
+- **aFRR operational, not quality-assured.** It enters only the premise check corr(A₁₅, activated aFRR) ≥ 0.9
+  (as GRID-1b). The threshold is kept; operational data can only make this check harder to pass. Below 0.9:
+  INVALID.
+- **mFRR** enters only the robustness run (as locked). Gaps are treated as in GRID-1b (zero where missing, if its
+  variance share where present is < 5 %; else the robustness run is reported as not available).
+- **Method fixed here (the lock said "1-min means, periods 5 min–3.5 days" and "same rules"):** 1-min means of
+  the setpoint (≥ 54 of 60 s present); remove the mean per minute-of-day (1,440 slots) over Jan–Jun; Welch with
+  7-day Hann segments, 50 % overlap, gaps ≤ 10 min filled, longer gaps split segments; log-binned, periods
+  5 min–3.5 days; Lorentzian K = 0…5 + white vs power law + white by BIC; θ ∈ [60 s, 30 days] (the shortest
+  corner resolvable at 1-min sampling); separated ×2.5, ≥ 5 % of band variance; bootstrap of whole 7-day
+  segments, 200 resamples. Coverage ≥ 90 % of minutes, else INVALID.
+- **Comparability check (added, conservative):** the 2026 data are also scored with the exact GRID-1b method
+  (15-min means, periods 1 h–3.5 days, θ ≥ 900 s). That method cannot resolve the M window [650, 1,460] s, so it
+  can only test W's window. If the two methods disagree on W-S2, the result is NEITHER.
+- Verdicts as locked: W-S2 PASS iff the dominant separated corner's CI lies in [2,600, 5,850] s and no separated
+  corner's CI lies wholly in [650, 1,460] s; M-S2 PASS iff the dominant corner's CI lies wholly in
+  [650, 1,460] s; otherwise NEITHER.
