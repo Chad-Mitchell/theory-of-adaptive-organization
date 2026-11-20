@@ -112,3 +112,14 @@ commit `7c1dc22` first reached GitHub in one push (1:52:22 PM ET), so the lock-b
 **self-attested**, not independently timestamped. No data were involved. PREREG's references to CT37–CT40 point to
 a file (`theory/ROBUSTNESS.md`) that was committed after the lock, in the same push. This file is likewise
 self-attested, and is pushed on its own before the revision of the theory text.
+
+## D10 (Friday 20 November 2026, about 2:54 PM ET; branch `v2.7-robust`; one executor for Chad; no data opened)
+
+**D10. Compounding stakes with lumpy losses confound RS-1 (draft PR #117, `theory/DYNAMICS.md` §4).** *Why:* RS-1
+predicts reserves and copies above the plug-in ε-minimum. An independent dynamics check (draft PR #117, head
+`b9fb105`, CT43 (iv)) found that compounding stakes with lumpy losses predict extra copies with no uncertainty
+at all, so RS-1 alone cannot separate a robustness buffer from a time-average growth effect. RS-2 (the excess
+rises with the record's uncertainty) can. No data for this item have been opened, downloaded or looked at.
+*New rule.* Before data, record for each system whether its stakes are additive or compounding. For compounding
+stakes with lumpy losses, compute the plug-in minimum under time-average growth (DYNAMICS CT43) as well as under
+J. RS-1 counts only excess above the larger of the two.
