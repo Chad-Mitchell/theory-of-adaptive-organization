@@ -61,7 +61,7 @@ tracking at that gradient). E1-a alone would need s ≈ 0.10. Neither number is 
 ## 4. What changes in the Master Theorem (proposed; THEORY v2.5.4 takes up only the interlacing premise below, in §1, §6, (iii) and Appendix C; the copy-count reading of (iii) and many-mode interlacing under store noise are not yet taken up)
 - **Scope.** 𝓜_LG's premises "exogenous noise" and "fixed upkeep per layer" are now named as premises, not defaults.
 - **(iii) interlacing.** "At the full optimum every layer is faster than its mode" holds in 𝓜_LG. In Model S+ it holds
-  for a one-store layer iff s ≥ 1/2 at h1 = 0 (E1-a); with s < 1/2 or h1 > 0 the optimal store is **slower** than its mode.
+  for a one-store layer iff s > 1/2 at h1 = 0 (E1-a); at s = 1/2 and low SNR, λτ* = 1 (equal, not faster); with s < 1/2 the optimal store is slower than its mode at low SNR. Any h1 > 0 lengthens memory relative to E1-a.
   Interlacing is a property of exogenous noise and speed-free upkeep, not of layering. (E. coli: λτ2 = 8.5.)
 - **(iii) count.** "One real mode ⇒ K\* ∈ {0, 1}" must read "one distinct time constant": with independent store noise,
   copies of the one layer pay at high enough stakes (E1-c). That the distinct-time-constant count stays capped by the

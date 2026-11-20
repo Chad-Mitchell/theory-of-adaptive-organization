@@ -73,7 +73,7 @@ not applied retroactively: GRID-2's locked G1 FAIL on proxy is not deleted, and 
     (same unqualified class of synchronous-area balancing designs; qualification not established).
   - **Not refuted:** no test met the class's qualifying conditions (closed cost list, fitness map, recorded pre-test qualification).
   - **Owed text for THEORY.md on main (not changed in this PR):** THEORY's "every layer is faster than its mode" needs
-    the premise qualifier "with exogenous read noise and speed-free upkeep (in Model S+: iff s ≥ ½ at h1 = 0)".
+    the premise qualifier "with exogenous read noise and speed-free upkeep (in Model S+: iff s > ½ at h1 = 0; at s = ½ and low SNR, λτ* = 1, equal, not faster)".
 - **Overall:** not refuted; untested. The field scoreboard shrinks on both sides. Every field claim that was scored as PROXY-PASS or PROXY-FAIL lacked a recorded pre-test qualification check, so those 30 rows are compound **NOT A TEST** statuses (10 proxy: passed; 18 qualification not established / proxy: failed; 2 not qualified / proxy: failed). Original proxy results and numbers are kept in the cells as history; nothing is deleted. No qualifying test of the hypothesis has been run.
 
 
