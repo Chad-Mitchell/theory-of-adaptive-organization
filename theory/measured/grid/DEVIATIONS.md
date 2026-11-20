@@ -9,3 +9,4 @@
 - GRID-2 run; RESULTS_GRID2.md; follow-up PREREG_GRID3.md (before any 2024 GB or 2026 DE data).
 - GRID-4 (test of the GRID-2 diagnosis) preregistered before any 2019/20 or 2024 GB data; candid timing note added to RESULTS_GRID2.
 - **DV-S2** (before computing on 2026 German files): operational aFRR for the premise check only; method fixed; comparability check with the GRID-1b method.
+- G3a run (replicates G1 FAIL); GRID-4 INVALID (verdict depends on assumed Q); GRID-4b preregistered before any 2019/20 response source.

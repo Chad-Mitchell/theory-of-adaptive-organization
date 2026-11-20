@@ -51,6 +51,7 @@ def run(x, fs, seg, pmin, pmax, lo, boot=200):
     if ch == "PL": out.update(gamma=res["PL"]["p"][2], sep=[]); return out
     K = res[ch]["K"]; out["sep"] = g.separated(np.array(res[ch]["p"]), K, fb)
     B = []
+    if not boot: return out
     for _ in range(boot):
         ii = g.rng.integers(0, len(pers), len(pers)); fb2, Pb2 = g.logbin(f, pers[ii].mean(0), pmin, pmax)
         best = None
