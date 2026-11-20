@@ -40,16 +40,12 @@ def arm_a_poles(lam, sig_u2, r):
     return [-z for z in stable]  # as positive-real-part rates
 
 def arm_a_poles_riccati(lam, sig_u2, r):
-    """Independent check of arm_a_poles by solving the filter Riccati equation numerically."""
+    """Independent check of arm_a_poles: filter algebraic Riccati equation (scipy).
+    DEVIATION 1 (see DEVIATIONS.md): the locked explicit-Euler integration diverged (stiff at small r)."""
+    from scipy.linalg import solve_continuous_are
     A = np.array([[0, 1], [0, -lam]]); C = np.array([[1.0, 0]])
     Qm = np.array([[0, 0], [0, 2 * lam * sig_u2]])
-    P = np.eye(2)
-    dt = 1e-3 / max(lam, 1.0)
-    for _ in range(400000):
-        dP = A @ P + P @ A.T + Qm - P @ C.T @ C @ P / r
-        P = P + dt * dP
-        if np.max(np.abs(dP)) < 1e-13:
-            break
+    P = solve_continuous_are(A.T, C.T, Qm, np.array([[r]]))
     L = P @ C.T / r
     ev = np.linalg.eigvals(A - L @ C)
     return sorted([-e for e in ev], key=lambda z: z.real)
