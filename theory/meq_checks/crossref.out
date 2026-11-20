@@ -16,7 +16,7 @@
 10.1109/TAC.2004.831187 :: Control Under Communication Constraints | Tatikonda | 2004 | IEEE Transactions on Automatic Control
 10.1109/INFCOM.2012.6195689 :: Real-time status: How often should one update? | Kaul | 2012 | 2012 Proceedings IEEE INFOCOM
 10.1109/TSSC.1966.300074 :: Information Value Theory | Howard | 1966 | IEEE Transactions on Systems Science and
-10.1109/TAC.1967.1098685 :: Monte Carlo evaluation of methods for pulse transfer function estimation | Smith | 1967 | IEEE Transactions on Automatic Control
+10.1109/tac.1967.1098668 :: Optimal control of measurement subsystems | Meier, Peschon, Dressler | 1967 | IEEE Transactions on Automatic Control   [v2.4: corrected. The v2.3 entry 10.1109/TAC.1967.1098685 resolved to Smith 1967, "Monte Carlo evaluation of methods for pulse transfer function estimation", the wrong work]
 10.1088/1367-2630/16/10/103024 :: Efficiency of cellular information processing | Barato | 2014 | New Journal of Physics
 10.1115/1.3653115 :: When Is a Linear Control System Optimal? | Kalman | 1964 | Journal of Basic Engineering
 10.2307/2525382 :: The Construction of Utility Functions from Expenditure Data | Afriat | 1967 | International Economic Review
@@ -33,15 +33,15 @@
 10.2307/2951479 :: Monotone Comparative Statics | Milgrom | 1994 | Econometrica
 10.1287/opre.26.2.305 :: Minimizing a Submodular Function on a Lattice | Topkis | 1978 | Operations Research
 10.1103/PhysRevLett.63.105 :: Inferring statistical complexity | Crutchfield | 1989 | Physical Review Letters
-10.1103/PhysRevE.82.031116 :: Statistical properties of directed avalanches | Bunzarova | 2010 | Physical Review E
+REMOVED v2.4 :: 10.1103/PhysRevE.82.031116 resolves to Bunzarova 2010 "Statistical properties of directed avalanches", not the work it was listed for; the intended work was not recorded in this file and is not cited in THEORY.md
 10.1007/978-1-4419-1452-1_19 :: Information Theory of Decisions and Actions | Tishby | 2011 | Perception-Action Cycle
 10.1287/mnsc.31.11.1416 :: 98%-Effective Integer-Ratio Lot-Sizing for One-Warehouse Multi-Retailer Systems | Roundy | 1985 | Management Science
 10.1137/0119020 :: On the Calculation of Mutual Information | Duncan | 1970 | SIAM Journal on Applied Mathematics
-10.1016/0022-0531(82)90111-2 :: NOT FOUND
+REMOVED v2.4 :: 10.1016/0022-0531(82)90111-2 is not found on Crossref; the intended work was not recorded and is not cited in THEORY.md
 10.1093/restud/rdu022 :: Complementary Bidding Mechanisms and Startup Costs in Electricity Markets | Reguant | 2014 | The Review of Economic Studies
 10.1073/pnas.1207814109 :: Energetic costs of cellular computation | Mehta | 2012 | Proceedings of the National Academy of S
-10.1162/neco.2008.11-08-799 :: NOT FOUND
-10.1103/PhysRevLett.113.068101 :: Reentrant Melting of RNA with Quenched Sequence Randomness | Hayrapetyan | 2014 | Physical Review Letters
+REMOVED v2.4 :: 10.1162/neco.2008.11-08-799 is not found on Crossref; the intended work was not recorded and is not cited in THEORY.md
+REMOVED v2.4 :: 10.1103/PhysRevLett.113.068101 resolves to Hayrapetyan 2014 "Reentrant melting of RNA with quenched sequence randomness", not the work it was listed for; the intended work was not recorded and is not cited in THEORY.md
 10.2307/1912771 :: The Nonparametric Approach to Demand Analysis | Varian | 1982 | Econometrica
 10.1257/aer.20130047 :: Rational Inattention to Discrete Choices: A New Foundation for the Multinomial Logit Model | Matějka | 2015 | American Economic Review
 10.1146/annurev-conmatphys-031214-014803 :: Information Processing in Living Systems | Tkačik | 2016 | Annual Review of Condensed Matter Physic
@@ -70,3 +70,16 @@
 10.1038/296855a0 | Signal processing times in bacterial chemotaxis | Segall, Manson, Berg | 1982 | Nature 296, 855-857
 10.1038/nphys2276 | The energy-speed-accuracy trade-off in sensory adaptation | Lan, Sartori, Neumann, Sourjik, Tu | 2012 | Nature Physics 8, 422-428
 10.1371/journal.pcbi.1003974 | Thermodynamic Costs of Information Processing in Sensory Adaptation | Sartori, Granger, Lee, Horowitz | 2014 | PLoS Comput Biol 10, e1003974
+10.1016/0047-2727(86)90024-1 | On the private provision of public goods | Bergstrom, Blume, Varian | 1986 | Journal of Public Economics 29, 25-49
+10.1007/BF00141070 | From weakest-link to best-shot: the voluntary provision of public goods | Hirshleifer | 1983 | Public Choice 41, 371-386
+10.2307/2296135 | On the stability of the Cournot solution on the oligopoly problem | Theocharis | 1960 | Review of Economic Studies 27, 133-134
+10.1111/j.1468-0335.1937.tb00002.x | The nature of the firm | Coase | 1937 | Economica 4, 386-405
+10.1086/317671 | Hierarchies and the organization of knowledge in production | Garicano | 2000 | Journal of Political Economy 108, 874-904
+10.3386/w1334 | The architecture of economic systems: hierarchies and polyarchies | Sah, Stiglitz | 1984 | NBER Working Paper 1334 (the later journal version was not resolved here)
+10.1287/mnsc.25.5.498 | Effects of centralization on expected costs in a multi-location newsboy problem | Eppen | 1979 | Management Science 25, 498-501
+10.1006/jeth.2001.2960 | Another look at the Radner-Stiglitz nonconcavity in the value of information | Chade, Schlee | 2002 | Journal of Economic Theory 107, 421-452
+10.1086/254387 | Edgeworth's taxation paradox and the nature of demand and supply functions | Hotelling | 1932 | Journal of Political Economy 40, 577-616
+10.1287/opre.38.6.947 | How many parts to make at once (reprint of Harris 1913) | Harris | 1990 | Operations Research 38, 947-950
+10.2307/1909285 | Aggregation of variables in dynamic systems | Simon, Ando | 1961 | Econometrica 29, 111-138
+10.1287/opre.18.3.375 | Primal resource-directive approaches for optimizing nonlinear decomposable systems | Geoffrion | 1970 | Operations Research 18, 375-403
+10.1287/opre.8.1.101 | Decomposition principle for linear programs | Dantzig, Wolfe | 1960 | Operations Research 8, 101-111

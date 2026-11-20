@@ -1,0 +1,67 @@
+== 1. CT33: with read rates chosen, layers can FALL as stakes rise, but total judgment spend S* = h*K* + (read price)*(reads) cannot
+  w/h     K*   S*=hK+c*f   E*      J*
+       1  2       0.1224  0.94721  0.1697
+       2  2       0.1316  0.81623  0.2132
+       5  2       0.1500  0.70000  0.3250
+      10  2       0.1707  0.64142  0.4914
+      20  2       0.2000  0.60000  0.8000
+      50  2       0.2581  0.56325  1.6662
+     100  2       0.3236  0.54472  3.0472
+     200  2       0.4162  0.53162  5.7325
+     400  1       4.5221  0.22361  8.9943
+    1000  1       7.1211  0.14142  14.1921
+    4000  1      14.1921  0.07071  28.3343
+   20000  1      31.6728  0.03162  63.2956
+  layers fall (K: 222222221111) while spend rises and error falls: reads substitute for the second layer
+  300 random design menus (any size, any E, S): spend nondecreasing, error nonincreasing, J* slopes bracket E*: True
+  upkeep falling at fixed stake (E_K = 1/K, w = 100): spend h*K* = [10.   5.   2.5] falls, so the statement is about stakes at fixed prices (or w/h in units of h), not about h alone
+  model world of the face figure (14 modes, sensing optimized): spend nondecreasing at every latency tried: True; layers per unit fall somewhere (federation lowers the lead each layer must cover): True; with sensing fixed, layers nondecreasing at lead 0: True
+
+== 2. CT34: a team's optimized cost enters the parent's problem exactly as upkeep iff the parent sees the team only through quantities fixed before the team optimizes
+  parent+team joint min (grid over x, T) = 36.43222;  reduced problem F(x)+J*_T(theta(x)) at its argmin x=0.407: 36.43175
+  envelope: dJ*_T/dW = 0.134907 = q*T*^(alpha-1)/alpha = 0.134907 (the team's own error per unit stake)
+  (b) stake-passing exogenous: parent's argmin x* is the same with or without the team's problem; J*_T is the upkeep h (exact).
+      stake-passing endogenous: J*_T(theta(x)) is a value function of the parent's choice (still exact, no longer a constant).
+  (c) error bound when the team is frozen at its stand-alone optimum and the coupling eps*Phi is switched on:  0 <= m0(x) - m(x) <= (eps L)^2/(2 mu),  parent regret <= (eps L)^2/(2 mu)
+      eps=0.400: worst gap 1.46e-01  regret 1.06e-02  bound 2.50e-01
+      eps=0.200: worst gap 3.32e-02  regret 2.42e-04  bound 6.25e-02
+      eps=0.100: worst gap 7.59e-03  regret 1.94e-05  bound 1.56e-02
+      eps=0.050: worst gap 1.80e-03  regret 0.00e+00  bound 3.91e-03
+      eps=0.025: worst gap 4.36e-04  regret 0.00e+00  bound 9.77e-04
+      the worst gap scales as eps^2.10: second order in the coupling (the bound is eps^2 by construction)
+  (d) N=4 units, drift variance 0.02 per step split into shared share rho and own share (1-rho); per-unit steady error, local filters vs one pooled filter
+      rho=0.0: local 0.09050  pooled 0.09050  pooling gain 0.00000
+      rho=0.1: local 0.09050  pooled 0.09016  pooling gain 0.00034
+      rho=0.3: local 0.09050  pooled 0.08775  pooling gain 0.00274
+      rho=0.6: local 0.09050  pooled 0.07994  pooling gain 0.01056
+      rho=1.0: local 0.09050  pooled 0.04101  pooling gain 0.04949
+
+== 3. CT24: share = elasticity needs a price-free constraint set; with a BINDING ruin constraint it fails (Lemma B9 setting)
+  B=0.5 (binding): shares read 0.5279 error 0.4721; elasticities c 0.5837 w 0.5632; sum of elasticities 1.1469
+  B=5.0 (slack): shares read 0.5000 error 0.5000; elasticities c 0.5000 w 0.5000; sum of elasticities 1.0000
+  so the ruin constraint's feasible set depends on the prices (the reserve pays J) and on income y and buffer B: Euler runs over (c, w, y, B) jointly when it binds.
+
+== 4. CT21 (iii): a rhythm (lightly damped oscillator, complex poles) seen through noise
+  Wiener filter denominator s^2 + 0.3281 s + 1.0488: discriminant -4.088 < 0, so complex poles, McMillan degree 2; E_inf = 0.22805
+  real first-order stores K=1,2,3: excess over the degree-2 optimum ['68.2%', '44.5%', '39.1%'] (never zero: counted by degree a rhythm is 2 layers; counted as real stores it needs ever more)
+
+== 5. S1: look : wrong = alpha - 1 for exact reads of a power-law world; not with noisy reads
+  alpha=1.3: look/wrong = 0.300000 (alpha-1 = 0.3)
+  alpha=2.0: look/wrong = 1.000000 (alpha-1 = 1.0)
+  alpha=2.7: look/wrong = 1.700000 (alpha-1 = 1.7)
+  random walk read through noise (Kalman), c=1, w=100: look/wrong = [0.62  0.509 0.5  ] (exact-read value 1)
+
+== 6. S5: CT25 is per fixing window; over a horizon T_h the window count grows as tau falls
+  survivable-shock elasticity in tau over [0.01, 1] at horizon 100: -0.459 (per-window: -0.5)
+
+== 7. S6: CT29 best-response adaptation f <- f + lam (BR - f), reads clipped at 0
+  N=3 equal stakes, lam = 0.95*2/N: converged 100% of 30 random starts
+  N=3 equal stakes, lam = 1.05*2/N: converged 0% of 30 random starts
+  N=5 equal stakes, lam = 0.95*2/N: converged 100% of 30 random starts
+  N=5 equal stakes, lam = 1.05*2/N: converged 0% of 30 random starts
+  unequal stakes (1,2,4), clipped: lam=0.6: total 2.000; lam=0.9: total 2.000; lam=1.5: total 0.000; lam=1.9: total 0.000  (Nash total 2.000); threshold not derived
+
+== 8. S11: interlacing of the filter roots with the mode rates (proof: N + sum_j c_j/(x + a_j^2) changes sign between consecutive poles)
+  200 random worlds (J = 2..7 modes): roots b_j satisfy a_j < b_j < a_(j+1) and b_J > a_J: True
+
+RESULT: PASS

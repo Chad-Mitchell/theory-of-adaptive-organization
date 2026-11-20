@@ -1,7 +1,7 @@
 == S1 CT12: K=1, kappa=0, g=0, hold-last-value, exact reads ==
  mean error over cycle: T**(alpha - 1)*q/alpha
  T* = [(alpha*c/(q*w*(alpha - 1)))**(1/alpha)]
- matches CT12 T*: False
+ matches CT12 T*: True
   elasticity of read rate in w: 1/alpha
   elasticity of read rate in q: 1/alpha
   elasticity of read rate in c: -1/alpha

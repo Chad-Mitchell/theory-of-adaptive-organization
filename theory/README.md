@@ -6,7 +6,7 @@ None of these is the core. THEORY v2.4 states the core and proves its results in
 
 | File | What it is |
 |---|---|
-| `MASTER_EQUATION.md`, `meq_checks/` | The master equation (THEORY v2.4 §3–§6, B.6, B.9, B.10): the Master Theorem, special-case derivations, worked example, phase diagram (`phase.png`, illustrative), dynamics and regret, and (v2.2) the cost shares, floor multiplier and temperature checks (`meq_checks/scale_free_checks.py`). `meq_checks/meq_derive.py` asserts each special case derives from the equation (run by the test suite). |
+| `MASTER_EQUATION.md`, `meq_checks/` | The master equation (THEORY v2.4 §3–§6, B.6, B.9, B.10): the Master Theorem, special-case derivations, worked example, phase diagram (`phase.png`, illustrative), dynamics and regret, and (v2.2) the cost shares, floor multiplier and temperature checks (`meq_checks/scale_free_checks.py`). `meq_checks/meq_derive.py` asserts each special case derives from the equation (run by the test suite). v2.4 adds `meq_checks/ants_cx2_checks.py` (ant trail, CX2 classification) and `meq_checks/scope_checks.py` (judgment spend CT33, exact nesting CT34, and the scope fixes of the v2.3 review), and `../figures/face_model.py`, `face_regions.py` (the face figure's regions, computed from J). |
 | `LAYERS.md`, `layers_checks/` | When layers beat one flat tracker: L1–L4 with proofs and numerics (THEORY CT21, CL12). New, not yet independently reviewed. |
 | `THEOREMS.md` | The application-facing theorem note (copy of the public `adaptive-memory-levels` version), with steps labeled KNOWN / PROOF / NUMERIC / ANALOGY / FAILS. |
 | `theorems-checks/` | Symbolic and numeric checks for `THEOREMS.md`. |

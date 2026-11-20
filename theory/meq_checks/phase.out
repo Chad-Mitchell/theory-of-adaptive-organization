@@ -9,7 +9,7 @@ E2(l): [0.1913 0.1927 0.1943 0.1963 0.1986 0.2014 0.2048 0.2088 0.2136 0.2193
  0.5977 0.6066 0.6145 0.6221 0.6299 0.6386 0.6486 0.6602 0.6736 0.689
  0.7066 0.7265 0.7487 0.773 ]
 E(0): 0.1912331056721982 0.18454898782870535
-latency 0.010: starts no model; changes at [(np.float64(1.25), 'one layer'), (np.float64(142.14), 'two layers'), (np.float64(1045.29), 'not viable')]
-latency 0.136: starts no model; changes at [(np.float64(1.39), 'one layer'), (np.float64(72.06), 'two layers'), (np.float64(246.82), 'federate'), (np.float64(980.81), 'not viable')]
-latency 2.213: starts no model; changes at [(np.float64(2.52), 'one layer'), (np.float64(50.23), 'federate'), (np.float64(980.81), 'not viable')]
-latency 30.000: starts no model; changes at [(np.float64(4.47), 'one layer'), (np.float64(35.02), 'federate'), (np.float64(980.81), 'not viable')]
+latency 0.010: starts no model; changes at [(np.float64(1.25), 'one layer'), (np.float64(142.14), 'two layers'), (np.float64(1045.29), 'not viable\n(income fixed)')]
+latency 0.136: starts no model; changes at [(np.float64(1.39), 'one layer'), (np.float64(72.06), 'two layers'), (np.float64(246.82), 'federate'), (np.float64(980.81), 'not viable\n(income fixed)')]
+latency 2.213: starts no model; changes at [(np.float64(2.52), 'one layer'), (np.float64(50.23), 'federate'), (np.float64(980.81), 'not viable\n(income fixed)')]
+latency 30.000: starts no model; changes at [(np.float64(4.47), 'one layer'), (np.float64(35.02), 'federate'), (np.float64(980.81), 'not viable\n(income fixed)')]

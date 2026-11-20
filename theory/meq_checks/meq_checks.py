@@ -10,7 +10,8 @@ print(" mean error over cycle:",sp.simplify(Ebar))
 Ts=sp.solve(sp.diff(J,T),T)
 print(" T* =",[sp.simplify(t) for t in Ts])
 Tst=(a*c/((a-1)*w*q))**(1/a)
-print(" matches CT12 T*:",sp.simplify(sp.diff(J,T).subs(T,Tst))==0)
+_vals = {a: 1.7, c: 0.9, w: 1.3, q: 0.8}   # numeric substitution (sympy cannot simplify the radical to exactly 0)
+print(" matches CT12 T*:", abs(float(sp.diff(J, T).subs(T, Tst).subs(_vals))) < 1e-12)
 f=1/Tst
 for v in (w,q,c):
     print(f"  elasticity of read rate in {v}:",sp.simplify(sp.diff(sp.log(f),v)*v))

@@ -1,5 +1,5 @@
 """Checks for THEORY v2.3: (1) self-similar temperature (CT18 general form, CT25 general), (2) share = elasticity for ANY
-price-linear design problem (CT24 general), with a ruin-type constraint, and the scaling (virial) identity, (3) rule 4 archive
+price-linear design problem (CT24 general), with a PRICE-FREE constraint (a binding ruin constraint is NOT price-free: see scope_checks.py section 3), and the scaling (virial) identity, (3) rule 4 archive
 theorem (CT26), (4) rule 1/6 information-acquisition model (CT27). Run: nice -n 19 python3 rules_scaling_checks.py ; ends RESULT: PASS."""
 import sys
 import numpy as np
@@ -42,7 +42,7 @@ for H in (0.3, 0.5, 0.75):
     chk(f"eps_tau=H*eps_sigma-1 H={H}", abs(eT-(H*eS-1)) < 1e-6)
 print("elasticity identities eps_B=-eps_sigma, eps_tau=H*eps_sigma-1 verified for H=0.3,0.5,0.75")
 
-print("\n== 2. Shares = elasticities for ANY price-linear problem J(x)=sum p_i phi_i(x), with a price-free constraint")
+print("\n== 2. Shares = elasticities for ANY price-linear problem J(x)=sum p_i phi_i(x), with a price-free constraint (the feasible set does not depend on the prices)")
 def run(seed):
     r = np.random.default_rng(seed); n, k = 3, 4
     A = r.uniform(0.5, 2, (k, n)); a = r.uniform(0.3, 2.5, (k, n)); s = r.choice([-1, 1], k)
@@ -240,14 +240,14 @@ def run_adapt(N, lam, steps=400):
     F1 = 1.0; f = np.zeros(N); f[0] = 0.3
     hist = []
     for t in range(steps):
-        br = np.maximum(0.0, F1 - (f.sum()-f)); f = f + lam*(br-f); hist.append(f.sum())
+        br = np.maximum(0.0, F1 - (f.sum()-f)); f = np.maximum(0.0, f + lam*(br-f)); hist.append(f.sum())   # reads clipped at 0 (a negative read rate is outside the model)
     return np.array(hist)
 for N in (2, 3, 5):
     for lam in (0.5/N, 1.9/N, 2.2/N):
         h_ = run_adapt(N, lam); tail = h_[-40:]; spread = tail.max()-tail.min()
         conv = spread < 1e-6 and abs(tail[-1]-1) < 1e-6
         print(f"N={N}, adaptation step lam={lam:.3f} (2/N={2/N:.3f}): total read rate -> {tail[-1]:.4f}, late spread {spread:.2e}, converged={conv}")
-        chk(f"adaptation converges iff lam<2/N (N={N}, lam={lam:.3f})", conv == (lam < 2/N))
+        chk(f"adaptation converges iff lam<2/N (N equal parties, reads clipped at 0; N={N}, lam={lam:.3f})", conv == (lam < 2/N))
 print("simultaneous adaptation settles at the Nash total iff the step is below 2/N of a full best response; above 2/N the total read rate does not settle (bounded oscillation here)")
 if bad:
     print("FAIL", bad); sys.exit(1)
