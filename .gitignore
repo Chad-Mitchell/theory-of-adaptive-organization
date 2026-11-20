@@ -11,3 +11,4 @@ __pycache__/
 theory/measured/grid/data/
 /gtao-grid-data/
 *.csv.zip
+__pycache__/

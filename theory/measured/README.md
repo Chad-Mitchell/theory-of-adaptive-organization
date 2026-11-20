@@ -180,3 +180,5 @@ and a preregistered band before any period table is opened.
 `crossref.py`, `crossref.out` (all 22 DOIs resolved on Crossref, 20 Nov 2026).
 
 **Update (v2.57).** Testbed ranking with open data (`TESTBEDS.md`); GRID-1 (CE reserve layers vs open-loop imbalance spectrum) preregistered at `4820d91`, not yet run: the German second-wise NRV file is behind a form postback (`grid/RESULTS_GRID1.md`).
+
+**Update (v2.58).** GRID-1 on public 2022 German data: INVALID by premise (mFRR coverage); count and fast arms INVALID in advance (closed loop, no tie-line data). GRID-1b slow arm PROXY-PASS (slowest world mode 65 min vs slowest layer 15 min; 'set at' rival does not pass). GRID-2 (GB) preregistered. `grid/RESULTS_GRID1.md`.

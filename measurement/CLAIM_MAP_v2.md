@@ -74,6 +74,8 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 **v2.40 note (18 Nov 2026, about 3:55 PM ET; repo consistency audit, branch `docs/consistency-audit-2026-11-18`; status-label and pointer fixes, no theory claim changes).** **M2 (validity gates MV1–MV10 and the admissibility rule): DECIDED → DECIDED; BINDING, treated as binding from 18 November 2026, on Chad's instruction to proceed without his sign-off (t1927).** On 18 Nov 2026 (t1927) Chad said his ideas are done and the remaining work is to flesh out, prove, validate and verify; `theory/SCALE_ENDS.md` records the same decision as "the MV gates stay binding". The gates are therefore treated as binding from 18 November 2026, on Chad's instruction to proceed without his sign-off (t1927), for every new prereg; this is a working decision, not a formal approval. MV9's externally timestamped lock is an outside act and still needs Chad's go for each lock (FRAMEWORK MV9), so no Tier-1 result can exist until that go is given or MV9 is met another way. Gate range in the header and in M2 corrected from MV1–MV9 to MV1–MV10 (MV10 was added in v2.20). No other row changes status. No row has FIELD-PASS or FIELD-FAIL; no Tier-1 test has run.
 
+**v2.58 note (20 Nov 2026, about 10:00 AM ET; branch `v2.5-measure`; one executor for Chad, a self-check, not independent).** GRID-1 run on public 2022 German data downloaded by Chad (aFRR setpoint 1 s, quality-assured aFRR/mFRR 15 min). The second-wise NRV was not available, so deviation DV1 (`6636517`, before any outcome statistic) declared the count and fast/middle interlacing arms INVALID (pre-control imbalance below 30 min not reconstructable: no ACE/tie-line data; the setpoint is a controller output) and kept one slow arm. GRID-1 as adjusted: INVALID by premise (mFRR coverage 0.666). GRID-1b (`bef3b8c`, before any spectrum): P18 PROXY-PASS, slowest world mode 65 min, wholly above the slowest layer's 15 min and outside the 'set at' rival. P17 stays OPEN; P19 (GB, GRID-2) OPEN, preregistered. The tally moves OPEN 76 → 77, PROXY-PASS 8 → 9; total 286 → 288.
+
 **v2.57 note (20 Nov 2026, afternoon ET; branch `v2.5-measure`; one executor for Chad, a self-check, not independent).** Testbeds with open data ranked (`theory/measured/TESTBEDS.md`): grid frequency-control layers first (distinctive via interlacing and count by degree; open data; can plainly fail), then learning-rate-vs-volatility (distinctive only via store noise or CT33), central-bank meeting frequency, inventory (prior art), market microstructure (data gated). GRID-1 preregistered and locked at `4820d91` before any outcome data; not run (blocker: form-postback download of German second-wise NRV). New row P17 OPEN. The tally moves OPEN 75 → 76; total 285 → 286. Outreach email to the Emonet or Cluzel/Park lab drafted, not sent (`OUTREACH_DRAFT.md`).
 
 **v2.56 note (20 Nov 2026, about 11:00 AM ET; branch `v2.5-measure`; one executor for Chad, a self-check, not independent).** Prior-art search (`theory/STORE_NOISE.md` §6): the optimal-memory trade-off behind Model S+ is established (Malaguti & ten Wolde 2021; Govern & ten Wolde 2014; Sartori & Tu 2011; Becker, Mugler & ten Wolde 2015; Andrews, Yi & Iglesias 2006; Lan et al. 2012); novelty wording dropped and P9 credited (status word unchanged: the in-model derivation stands). SN1 run as locked (`theory/measured/SN1_RESULTS.md`): 0 of 7 systems scorable (5 UNTESTED for lack of a noise-vs-memory measurement, 1 INVALID by premise, 1 untested human); P11 stays OPEN. New rows: P12 NOT EVIDENCE (SN1-F1 INVALID: V. ordalii's noise is 6.6× the counting bound), P13 PROXY-FAIL (drift objective, noiseless maximin, 0.38–0.58 s), P14 INCONCLUSIVE (gain-bounded drift equals the tracking optimum), P15 INCONCLUSIVE (speed price from measured dissipation: CONSISTENT by the locked rule only at the box corner; MARGINAL for k = 2), P16 OPEN (slow habitat mode, needs 20–30 s with 6–10% of the variance; no field data; Y4 discriminator locked `1db68db`, UNTESTED). The tally moves OPEN 74 → 75, PROXY-FAIL 17 → 18, INCONCLUSIVE 4 → 6, NOT EVIDENCE 18 → 19; total 280 → 285. THEORY.md: only its CLAIM_MAP version pointer is updated.
@@ -517,29 +519,31 @@ Preregistered tests on published measurements of E. coli chemotaxis (ECOLI-MEM, 
 | P14 | Same, with drift as the objective under Model S+ noise and a bounded activity range | new (v2.56) | **INCONCLUSIVE** | Locked rule: NEITHER. Optimum identical to tracking (1.9–3.6 s): maximizing drift at fixed activity variance maximizes corr(a, u) |
 | P15 | Same, with upkeep priced by speed from measured dissipation (Lan et al. 2012: 10³ ATP/s at 10 s) | new (v2.56) | **INCONCLUSIVE** | Locked rule: CONSISTENT (k = 1; required 0.14–0.28 vs measured 5×10⁻⁵ to 0.21) only at the corner (×3 dissipation, slowest growth, 2% benefit); MARGINAL (k = 2). Central estimate 30–60× short |
 | P16 | Same, with a slow habitat mode in the world | new (v2.56) | **OPEN** | Diagnostic: needs a 20–30 s mode carrying 6–10% of u's variance. No field data on E. coli habitat time scales found. Discriminator vs P15 (Y4, adaptation time across benefit levels) locked `1db68db`, UNTESTED |
-| P17 | GRID-1: Continental Europe's reserve layers (FCR 30 s, aFRR 300 s, mFRR 900 s) match the open-loop imbalance by degree (three separated modes) and interlace it (θ ∈ (30,300), (300,900), >900 s) against the rival 'set at' (θ_j ∈ [τ_j/2, 2τ_j]) | new (v2.57) | **OPEN** | Locked `4820d91` (`theory/measured/grid/PREREG_GRID1.md`) before any outcome data; testbed ranking `theory/measured/TESTBEDS.md`. Not run: German second-wise NRV is served only by a form postback (needs Chad's approval); ENTSO-E/API portal need accounts (`grid/RESULTS_GRID1.md`) |
+| P17 | GRID-1: Continental Europe's reserve layers (FCR 30 s, aFRR 300 s, mFRR 900 s) match the open-loop imbalance by degree (three separated modes) and interlace it (θ ∈ (30,300), (300,900), >900 s) against the rival 'set at' (θ_j ∈ [τ_j/2, 2τ_j]) | new (v2.57) | **OPEN** | Locked `4820d91` (`theory/measured/grid/PREREG_GRID1.md`) before any outcome data; testbed ranking `theory/measured/TESTBEDS.md`. 2022 run (v2.58): INVALID by premise (mFRR coverage 0.666); count and fast/middle arms declared INVALID in advance (DV1 `6636517`: no ACE/tie-line data, aFRR setpoint is a controller output). `grid/RESULTS_GRID1.md` |
+| P18 | GRID-1b: the world's slowest mode in CE (German) imbalance is slower than the slowest reserve layer (mFRR 900 s), not set at it (rival θ ∈ [450, 1800] s) | new (v2.58) | **PROXY-PASS** | Locked `bef3b8c` before any spectrum. One mode, θ₁ = 3,898 s (CI 3,425–4,398 s), 82 % of band variance; rival does not pass. One low-risk arm (expected to pass, disclosed); corner may be partly the market's hourly schedule grid. `theory/measured/grid/RESULTS_GRID1.md` |
+| P19 | GRID-2: GB reserve layers (1, 10, 60, 900 s) interlace the reconstructed pre-control imbalance and match its count | new (v2.58) | **OPEN** | Locked in `theory/measured/grid/PREREG_GRID2.md` before any GB data; MFR volumes unpublished (premise risk) |
 
 ## Counts
 
-**Current tally (v2.57, 20 Nov 2026).** Every row in sections A–O (alias rows in O excluded), counted by the first status word in its status column. `tools/check_consistency.py` recomputes this table and fails if it drifts.
+**Current tally (v2.58, 20 Nov 2026).** Every row in sections A–O (alias rows in O excluded), counted by the first status word in its status column. `tools/check_consistency.py` recomputes this table and fails if it drifts.
 
 <!-- tally:begin -->
 | Status now (all sections) | Rows |
 |---|---|
-| OPEN | 76 |
+| OPEN | 77 |
 | PROVED (in-model) | 82 |
 | PRIOR ART | 28 |
 | MATH-CORRECTED | 22 |
 | NOT EVIDENCE | 19 |
 | PROXY-FAIL | 18 |
 | WITHDRAWN | 11 |
-| PROXY-PASS | 8 |
+| PROXY-PASS | 9 |
 | SIM-FAIL | 6 |
 | DECIDED | 4 |
 | SIM-INCONCLUSIVE | 3 |
 | SIM-PASS | 3 |
 | INCONCLUSIVE | 6 |
-| **Total** | **286** |
+| **Total** | **288** |
 <!-- tally:end -->
 
 A count is not a score: most OPEN rows are untested, not refuted, and PROVED means proved inside the model only.

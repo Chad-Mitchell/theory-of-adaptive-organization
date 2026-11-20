@@ -179,7 +179,7 @@ if __name__ == "__main__":
         runs[lab] = score(desched(A + mult*mq), lab, boot=(lab == "main"))
         print(json.dumps(runs[lab], indent=1, default=float))
     if b:
-        h2 = np.array([s.startswith(tuple(f".{m:02d}.2022" for m in range(7, 13)), 3) for s in kq.to_numpy()])
+        h2 = np.array([s.startswith(tuple(f".{m:02d}.2022" for m in range(7, 13)), 2) for s in kq.to_numpy()])
         x = desched(A + mq); x[~h2] = np.nan
         runs["H2_only"] = score(x[h2], "H2_only", boot=False)
         print(json.dumps(runs["H2_only"], indent=1, default=float))
