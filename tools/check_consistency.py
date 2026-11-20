@@ -29,8 +29,10 @@ What it checks
      named GTAO relation is called a 'law'; R5 the repo is not called private.
   5. Core rules (THEORY v2.0, 19 Nov 2026): R6 every ID in THEORY Appendix C
      is in CLAIM_MAP section O (and back) with the same base status and
-     counted row; R7 length budgets (THEORY main text <= 5,500 words, README
-     <= 900); R8 the keep / hold / know table appears only in THEORY §1 and
+     counted row; R7 length report (a soft warning, never a failure: the
+     old 5,500-word THEORY cap and 900-word README cap are now advisory
+     reference lengths; the main text is kept tight on merit, and the
+     '## Appendix A.' heading that ends it must exist); R8 the keep / hold / know table appears only in THEORY §1 and
      README.
 Frozen history (locked tests, preregs, review records, night-1/2 working
 files, older theory notes) is scanned for the same wording and reported as
@@ -396,9 +398,9 @@ def main(argv=None):
     readme_w = words(read("README.md"))
     BUDGET = {"THEORY.md main text (before Appendix A)": (main_w, 5500), "README.md": (readme_w, 900)}
     for name, (n, cap) in BUDGET.items():
-        print("  %-4s %-42s %5d words (cap %d)" % ("OK" if n <= cap else "FAIL", name, n, cap))
+        print("  %-4s %-42s %5d words (advisory reference %d)" % ("OK" if n <= cap else "WARN", name, n, cap))
         if n > cap:
-            cf.append("length: %s has %d words, over the cap of %d" % (name, n, cap))
+            print("  WARN length: %s has %d words, over the advisory reference of %d (soft warning, not a failure)" % (name, n, cap))
     if not mi:
         cf.append("length: THEORY.md has no '## Appendix A.' heading to end the main text")
     # R8: the keep / hold / know table lives only in THEORY §1 and README

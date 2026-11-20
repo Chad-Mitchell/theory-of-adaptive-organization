@@ -182,3 +182,29 @@ OK  10.1145/506147.506153 | 2002 | Roughgarden,Tardos | How bad is selfish routi
 OK  10.2307/1925895 | 1954 | Samuelson | The Pure Theory of Public Expenditure | The Review of Economics and Statistics | v36 p387
 OK  10.1016/s0167-6911(97)90015-3 | 1997 | Borkar | Stochastic approximation with two time scales | Systems & Control Letters | v29 p291-294
 OK  10.1093/oso/9780198502944.001.0001 | 1997 (OUP edition; first edition 1995) | Maynard Smith,Szathmary | The Major Transitions in Evolution | Oxford University Press | book
+OK  10.1109/3477.484436 | 1996 | Dorigo,Maniezzo,Colorni | Ant system: optimization by a colony of cooperating agents | IEEE Transactions on Systems, Man, and Cybernetics, Part B | v26 p29-41
+OK  10.1007/BF01417909 | 1990 | Deneubourg,Aron,Goss,Pasteels | The self-organizing exploratory pattern of the argentine ant | Journal of Insect Behavior | v3 p159-168
+OK  10.1007/bf01201674 | 1993 | Beckers,Deneubourg,Goss | Modulation of trail laying in the ant Lasius niger (Hymenoptera: Formicidae) and its role in the collective selection of a food source | Journal of Insect Behavior | v6 p751-759
+OK  10.1006/game.1996.0044 | 1996 | Monderer,Shapley | Potential Games | Games and Economic Behavior | v14 p124-143
+OK  10.1145/2806883 | 2015 | Roughgarden | Intrinsic Robustness of the Price of Anarchy | Journal of the ACM | v62 p1-42
+OK  10.2307/1914085 | 1973 | Groves | Incentives in Teams | Econometrica | v41 p617
+OK  10.1515/9781400882014-002 | 1964 | Shapley | Some Topics in Two-Person Games (chapter in Advances in Game Theory, Annals of Mathematics Studies 52) | Princeton University Press | book chapter
+OK  10.1038/296855a0 | 1982 | Segall,Manson,Berg | Signal processing times in bacterial chemotaxis | Nature | v296 p855-857
+OK  10.1038/nphys2276 | 2012 | Lan,Sartori,Neumann,Sourjik,Tu | The energy-speed-accuracy trade-off in sensory adaptation | Nature Physics | v8 p422-428
+OK  10.1371/journal.pcbi.1003974 | 2014 | Sartori,Granger,Lee,Horowitz | Thermodynamic Costs of Information Processing in Sensory Adaptation | PLoS Computational Biology | v10 e1003974
+OK  10.1016/0047-2727(86)90024-1 | 1986 | Bergstrom,Blume,Varian | On the private provision of public goods | Journal of Public Economics
+OK  10.1007/BF00141070 | 1983 | Hirshleifer | From weakest-link to best-shot | Public Choice
+OK  10.2307/2296135 | 1960 | Theocharis | On the Stability of the Cournot Solution on the Oligopoly Problem | Review of Economic Studies
+OK  10.1111/j.1468-0335.1937.tb00002.x | 1937 | Coase | The Nature of the Firm | Economica
+OK  10.1086/317671 | 2000 | Garicano | Hierarchies and the Organization of Knowledge in Production | Journal of Political Economy
+OK  10.3386/w1334 | 1984 | Sah,Stiglitz | The Architecture of Economic Systems: Hierarchies and Polyarchies | NBER Working Paper 1334
+OK  10.1287/mnsc.25.5.498 | 1979 | Eppen | Effects of Centralization on Expected Costs in a Multi-Location Newsboy Problem | Management Science
+OK  10.1006/jeth.2001.2960 | 2002 | Chade,Schlee | Another Look at the Radner-Stiglitz Nonconcavity in the Value of Information | Journal of Economic Theory
+OK  10.1086/254387 | 1932 | Hotelling | Edgeworth's Taxation Paradox and the Nature of Demand and Supply Functions | Journal of Political Economy
+OK  10.1287/opre.38.6.947 | 1990 | Harris | How Many Parts to Make at Once (reprint of the 1913 article) | Operations Research
+OK  10.2307/1909285 | 1961 | Simon,Ando | Aggregation of Variables in Dynamic Systems | Econometrica
+OK  10.1287/opre.18.3.375 | 1970 | Geoffrion | Primal Resource-Directive Approaches for Optimizing Nonlinear Decomposable Systems | Operations Research
+OK  10.1287/opre.8.1.101 | 1960 | Dantzig,Wolfe | Decomposition Principle for Linear Programs | Operations Research
+OK  10.1109/tac.1967.1098668 | 1967 | Meier,Peschon,Dressler | Optimal control of measurement subsystems | IEEE Transactions on Automatic Control
+OK  10.1080/01621459.1960.10482064 | 1960 | Muth | Optimal Properties of Exponentially Weighted Forecasts | Journal of the American Statistical Association | v55 p299-306
+OK  10.1007/bf00462870 | 1989 | Goss,Aron,Deneubourg,Pasteels | Self-organized shortcuts in the Argentine ant | Naturwissenschaften | v76 p579-581

@@ -3,6 +3,8 @@
 > **Repository copy (added 19 Nov 2026 with THEORY v2.1).** A dated working record, copied from the working directory with paths updated: `checks/` now means `theory/layers_checks/` (layer scripts) or `theory/meq_checks/` (master-equation scripts). Not edited otherwise. THEORY v2.1 governs where they disagree; its framing supersedes this file's on novelty (known parts, new claim), applicability (general; the bottleneck is measurement) and responsive worlds (an open theorem, CX2, not a scope limit). Message ids such as t1973u are the author's chat references.
 
 
+**v2.4 note:** L1 reads K\* ∈ {0, 1} (K\* = 0, acting blind, can win when stakes are small), layers are counted by degree (a rhythm is two layers), and the interlacing a_j < b_j < a_{j+1} is proved in THEORY B.9; this copy is otherwise not edited.
+
 Written 19 Nov 2026, about 10:30 PM ET, by a Grok Bot executor for Chad (via Ace). Read-only research: nothing in the theory repo was edited, committed or pushed. Repo read: a working clone at main `5b65c1e`. Scripts: `checks/` (run at nice 19). Status words follow the repo: **PROVED (in-model)**, **KNOWN**, **NUMERICAL**, **CONJECTURE**. Not reviewed by anyone else yet.
 
 ## 0. What the repo already proves, and what it does not

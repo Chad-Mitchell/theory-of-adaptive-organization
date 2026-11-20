@@ -1,0 +1,58 @@
+{
+ "E. coli": {
+  "logR": 1.0,
+  "loglat": -0.5,
+  "K": 1,
+  "federated": false,
+  "ruin_binds": false
+ },
+ "small team": {
+  "logR": 1.55,
+  "loglat": -1.4,
+  "K": 1,
+  "federated": false,
+  "ruin_binds": false
+ },
+ "immune system": {
+  "logR": 2.15,
+  "loglat": -0.9,
+  "K": 1,
+  "federated": false,
+  "ruin_binds": false
+ },
+ "ant colony": {
+  "logR": 2.2,
+  "loglat": 0.95,
+  "K": 1,
+  "federated": true,
+  "ruin_binds": false
+ },
+ "firm": {
+  "logR": 2.45,
+  "loglat": 0.2,
+  "K": 1,
+  "federated": true,
+  "ruin_binds": false
+ },
+ "city": {
+  "logR": 2.9,
+  "loglat": 1.15,
+  "K": 1,
+  "federated": true,
+  "ruin_binds": false
+ },
+ "nation-state": {
+  "logR": 5.0,
+  "loglat": 1.3,
+  "K": 1,
+  "federated": true,
+  "ruin_binds": false
+ },
+ "global economy": {
+  "logR": 7.0,
+  "loglat": 1.8,
+  "K": 2,
+  "federated": true,
+  "ruin_binds": false
+ }
+}

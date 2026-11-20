@@ -10,7 +10,7 @@ H=0.5: z_eps (eps=1e-2, MC) = 2.538  ->  B >= z_eps*sigma*tau^H ; survivable sho
 H=0.75: z_eps (eps=1e-2, MC) = 2.354  ->  B >= z_eps*sigma*tau^H ; survivable shock ~ tau^(-0.75); elasticity eps_tau = H*eps_sigma - 1
 elasticity identities eps_B=-eps_sigma, eps_tau=H*eps_sigma-1 verified for H=0.3,0.5,0.75
 
-== 2. Shares = elasticities for ANY price-linear problem J(x)=sum p_i phi_i(x), with a price-free constraint
+== 2. Shares = elasticities for ANY price-linear problem J(x)=sum p_i phi_i(x), with a price-free constraint (the feasible set does not depend on the prices)
 seed 1: shares [0.13271 0.13957 0.54438 0.18333] elasticities [0.13271 0.13957 0.54438 0.18333] sum shares 1.000000
 seed 2: shares [0.30886 0.42591 0.10423 0.16099] elasticities [0.30886 0.42591 0.10423 0.16099] sum shares 1.000000
 seed 3: shares [0.42469 0.22034 0.1029  0.25206] elasticities [0.42469 0.22034 0.1029  0.25206] sum shares 1.000000
@@ -64,7 +64,7 @@ equal parties: price of anarchy = (N+1)/(2 sqrt N): 1.06 at N=2, 2.1 at N=16, 5.
 cost shares proportional to stakes make every party want the joint total read rate (public-good pricing; needs the stakes to be revealed)
 N=2, adaptation step lam=0.250 (2/N=1.000): total read rate -> 1.0000, late spread 0.00e+00, converged=True
 N=2, adaptation step lam=0.950 (2/N=1.000): total read rate -> 1.0000, late spread 1.78e-15, converged=True
-N=2, adaptation step lam=1.100 (2/N=1.000): total read rate -> -0.2500, late spread 2.75e+00, converged=False
+N=2, adaptation step lam=1.100 (2/N=1.000): total read rate -> 0.0000, late spread 2.20e+00, converged=False
 N=3, adaptation step lam=0.167 (2/N=0.667): total read rate -> 1.0000, late spread 0.00e+00, converged=True
 N=3, adaptation step lam=0.633 (2/N=0.667): total read rate -> 1.0000, late spread 4.44e-15, converged=True
 N=3, adaptation step lam=0.733 (2/N=0.667): total read rate -> 0.4444, late spread 1.22e+00, converged=False

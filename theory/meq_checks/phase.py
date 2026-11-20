@@ -19,7 +19,7 @@ lab=np.zeros((len(lat),len(R)),int)
 for i in range(len(lat)):
     C=np.vstack([W*Var, h+W*E1[i], 2*h+W*E2[i], np.minimum(hf+h+W*E1_0, hf+2*h+W*E2_0)])
     best=C.min(0); k=C.argmin(0); k[best>y]=4; lab[i]=k
-names=['no model','one layer','two layers','federate','not viable']
+names=['no model','one layer','two layers','federate','not viable\n(income fixed)']
 cols=['#d9d9d9','#9ecae1','#3182bd','#fdae6b','#de2d26']
 fig,ax=plt.subplots(figsize=(7.2,5.2),dpi=150)
 X,Y=np.meshgrid(R,lat)
@@ -46,7 +46,7 @@ for k,nm in enumerate(names):
         ax.text(xx,yy,nm,ha='center',va='center',fontsize=9,weight='bold')
 ax.set_title('Optimal design in one model world (illustrative, not measured)',fontsize=10)
 ax.plot([],[],'k:',lw=0.8,label='dotted: upkeep share of the optimal cost (a measurable, currency-free number)'); ax.legend(loc='upper center',bbox_to_anchor=(0.5,-0.16),fontsize=6.5,frameon=False)
-fig.text(0.01,0.005,r'World: OU modes $\tau$=1, 100, equal variance, noise N=0.05. Upkeep h per layer, federation overhead 20h, income 200h.',fontsize=6.5)
+fig.text(0.01,0.005,r'World: OU modes $\tau$=1, 100, equal variance, noise N=0.05. Upkeep h per layer, federation overhead 20h, income fixed at 200h (the red region is an artifact of that; two time scales cap the layers at two).',fontsize=6.5)
 fig.tight_layout(rect=(0,0.04,1,1)); fig.savefig(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)),'phase.png'))
 # report boundaries
 for i in [0,14,29,43]:

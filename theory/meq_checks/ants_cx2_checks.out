@@ -1,0 +1,49 @@
+== 1a. Steady-state optimal tracker of a random walk seen through noise is exponential smoothing; gain lambda* from q/r
+q=0.01, r=1.0: Kalman gain 0.09512492; closed form 0.09512492; best EWMA gain 0.09512492; MSE 0.095125
+q=0.5, r=0.2: Kalman gain 0.76556444; closed form 0.76556444; best EWMA gain 0.76556444; MSE 0.153113
+q=3.0, r=0.1: Kalman gain 0.96871942; closed form 0.96871942; best EWMA gain 0.96871943; MSE 0.096872
+q=0.0001, r=2.0: Kalman gain 0.00704611; closed form 0.00704611; best EWMA gain 0.00704611; MSE 0.014092
+dt=0.01: lambda/dt = 0.60514 vs sqrt(q/r) = 0.60698
+dt=0.001: lambda/dt = 0.60679 vs sqrt(q/r) = 0.60698
+dt=0.0001: lambda/dt = 0.60696 vs sqrt(q/r) = 0.60698
+
+== 1b. Evaporation rate from J: the price terms enter through the read noise r*, the loss weight w drops out at fixed r
+w=0.5: r* = 2.94723 (formula 2.94723); evaporation rate sqrt(q/r*) = 0.36840
+w=2.0: r* = 1.16961 (formula 1.16961); evaporation rate sqrt(q/r*) = 0.58480
+w=8.0: r* = 0.46416 (formula 0.46416); evaporation rate sqrt(q/r*) = 0.92832
+evaporation rate = sqrt(q/r); r itself is set by w, c', theta, q when precision is priced (CT15's form)
+
+== 1c. Reinforce-by-use + evaporate-at-lambda IS the smoothing update; decentralized trails reach the centralized optimum
+after burn-in, max |local EWMA - central Kalman| over 12 trails = 7.11e-15
+MSE of local updates 0.06492; theory V = 0.06589
+shared driver (q_g=0.01, q_u=0.0005, r=0.5, 12 trails): local smoothing MSE 0.06740; joint pooled filter MSE 0.03031
+so local updates are the optimum exactly when the trails drift independently; a shared driver is what a shared level (CT14) buys
+
+== 1d. When use is endogenous (choice follows the trail) the trail is no longer a relevance estimate
+uniform choice (use exogenous): mean trail on A 0.357 = (share 0.51) x (relevance 0.7); on B 0.144 = 0.5 x 0.3
+positive feedback (choice probability proportional to trail squared), A is the better path (0.7 vs 0.3) but starts with the weaker trail: locked on the worse path in 19 of 20 runs
+
+== 2a. Free-riding on a shared driver is a weighted exact potential game (weights w_i), Nash = argmin of the potential
+max |ΔJ_i − w_i·ΔΦ| over 2000 random unilateral deviations (heterogeneous read prices): 9.33e-15
+argmin Phi: total reads 0.7125 (Nash formula 0.7125); largest-stake party reads 1.000 of it
+
+== 2b. Price of anarchy bound in the toy class: PoA = (1/2)(sqrt(x)+1/sqrt(x)) with x = W/a in [1, N]; so PoA <= (N+1)/(2 sqrt N), tight at equal stakes
+largest PoA seen at random stakes, by N: {2: 1.06, 3: 1.1305, 4: 1.2317, 5: 1.2796, 6: 1.3391, 7: 1.3802, 8: 1.4391}  bound: {2: np.float64(1.0607), 4: np.float64(1.25), 8: np.float64(1.591)}
+N-independent bound: none (the PoA grows as sqrt(N)/2 for equal parties)
+
+== 2c. Stake-proportional cost shares make every party's cost proportional to the joint cost: Nash = joint optimum (Groves/Lindahl-type alignment)
+max identity error 8.88e-16; every best response minimizes the joint cost, so Nash total reads = sqrt(Wq/2c) = the joint optimum; potential = joint cost (exact potential game)
+
+== 2d. No general convergence theorem: counterexamples
+zero-sum bilinear coupling, continuous-time gradient adaptation: x1^2+x2^2 from 1.000000 to 1.000000 after 200 time units (never converges)
+same coupling, discrete simultaneous gradient steps (eta = 0.1): radius after 300 steps = 4.448 (grows as (1+eta^2)^(t/2) = 4.448)
+Shapley-type game: distance of empirical play from the mixed Nash (1/3,1/3,1/3), sampled every 1000 steps: first 0.869, min over the last half 0.859, max over the last half 1.034
+slow player's adaptation speed eps=2.0: eigenvalues real parts [0.75 0.75]  -> cycles outward
+slow player's adaptation speed eps=1.0: eigenvalues real parts [0.25 0.25]  -> cycles outward
+slow player's adaptation speed eps=0.6: eigenvalues real parts [0.05 0.05]  -> cycles outward
+slow player's adaptation speed eps=0.3: eigenvalues real parts [-0.1 -0.1]  -> converges
+slow player's adaptation speed eps=0.1: eigenvalues real parts [-0.2 -0.2]  -> converges
+slow player's adaptation speed eps=0.02: eigenvalues real parts [-0.022 -0.458]  -> converges
+proof: trace = eps*m - b, det = eps*(1 - m*b); with m*b < 1 the determinant is positive, so the system is stable iff eps < b/m, i.e. the slow player must be slower than the fast one's damping rate.  CAUTION (review 24 B2): J1 is concave in x1 (m > 0), so the rest point reached is a stationary point of gradient play, not a Nash equilibrium; with convex own costs the speed ratio never changes stability (scope_checks.py sec. 9)
+
+RESULT: PASS
