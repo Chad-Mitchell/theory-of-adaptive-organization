@@ -37,3 +37,11 @@ Premise: coverage 1.00; mean inertia 229 GVA·s; BM delta s.d. 962 MW; response 
   the answer. The slow band agrees across 2019/20, 2024 and 2026 (γ 2.02–2.09), so the slow world did not change
   while the products changed. That fits A, but it is not GRID-4's locked criterion and is not scored.
 - **Next test:** `PREREG_GRID4b.md` (sourced 2019/20 holdings), locked before looking.
+
+## GRID-4b: UNTESTED
+Rule (locked `c2ecc13`): UNTESTED if item 1 (MFR holdings for Oct 2019 and Jan 2020) or item 2 (FFR in force)
+cannot be found in an open source. **Item 1:** NESO's published MFR holding volumes start with 2022-23 (MFR
+page, "Frequency Response volumes"); the Monthly Balancing Services Summary gives costs, not MW holdings. No
+open 2019/20 MFR holding source was found. **Item 2:** FFR post-tender reports exist (e.g. TR118 Oct-19, TR121
+Jan-20), but the volume in force needs every earlier tender whose contracts span those months. Not attempted,
+because item 1 already decides the verdict. Raw GB data deleted (hashes in `DATA_SOURCES_GB_2024_2019.md`).
