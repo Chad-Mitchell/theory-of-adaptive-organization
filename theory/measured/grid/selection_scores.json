@@ -1,0 +1,78 @@
+{
+  "prereg_sha": "5d0c11a3c4ca5146d3a2e806a46524eb3dcba25f",
+  "pass": 1,
+  "window": [
+    "2011-01-01",
+    "2026-11-20"
+  ],
+  "pass2_not_started": true,
+  "grids": {
+    "GB": {
+      "S_sigma": 1,
+      "S_N": 1,
+      "S_red": 1,
+      "S_ruin": 2,
+      "S": 5,
+      "R_go_live": 7,
+      "status": "scored"
+    },
+    "AU_NEM": {
+      "S_sigma": 0,
+      "S_N": 1,
+      "S_red": 0,
+      "S_ruin": 0,
+      "S": 1,
+      "R_go_live": 2,
+      "status": "scored",
+      "S_sigma_status": "MISSING",
+      "S_ruin_status": "MISSING",
+      "S_is_lower_bound": true,
+      "missing_urls": [
+        "https://www.aemc.gov.au/sites/default/files/2026-02/Schedule%20of%20reliability%20settings%20-%202026-27%20financial%20year.pdf"
+      ]
+    },
+    "ERCOT": {
+      "S_sigma": 1,
+      "S_N": 1,
+      "S_red": 0,
+      "S_ruin": 2,
+      "S": 4,
+      "R_go_live": 1,
+      "status": "scored"
+    },
+    "IE_NI": {
+      "S_sigma": 0,
+      "S_N": 1,
+      "S_red": 0,
+      "S_ruin": 0,
+      "S": 1,
+      "R_go_live": 0,
+      "status": "scored",
+      "S_red_status": "MISSING",
+      "S_is_lower_bound": true,
+      "missing_note": "EirGrid System Services product go-live PDFs returned HTTP 403; R and S_red are lower bounds on a complete count."
+    },
+    "Nordic": {
+      "S_sigma": 0,
+      "S_N": 1,
+      "S_red": 0,
+      "S_ruin": 0,
+      "S": 1,
+      "R_go_live": 0,
+      "status": "scored"
+    },
+    "Continental_Europe": {
+      "S_sigma": 0,
+      "S_N": 1,
+      "S_red": 0,
+      "S_ruin": 0,
+      "S": 1,
+      "R_go_live": 0,
+      "status": "scored"
+    },
+    "Hawaii": {
+      "status": "UNTESTED"
+    }
+  },
+  "missing_source_policy": "HTTP 403 or not-found sources are MISSING; affected S totals are lower bounds, not demonstrated zeros. Pass 1 component numbers are unchanged."
+}
