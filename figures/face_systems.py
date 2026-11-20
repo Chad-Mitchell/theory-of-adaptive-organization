@@ -9,16 +9,22 @@ Per component (one Ornstein-Uhlenbeck time scale; times in hours):
   R     stakes over upkeep for ONE unit's layer if its reads were perfect: w_u*v/h_l  (guess in every row)
   hc    upkeep of one shared layer over one unit's layer: h_c/h_l (guess)
 Coordinates (face_map.py): X_L = R*(1 - P/v), X_S = (n/hc)*R*G_S/v.  n = 1: no shared option (drawn in the bottom band).
-stream='one': the components reach the system through ONE read stream (E. coli's receptors), so they are not separate channels; the
-coordinates are then the MARGINAL worths of the 1st and 2nd layer, R*(E_0 - E_1) and R*(E_1 - E_2) (THEORY L2; V3 of
-face_collapse_v23.py shows the layer-by-layer reading is exact there), with N set by the fast component's snr and R the run row's."""
+degree: a component's McMillan degree (default 1); it is held by that many stores (a rhythm or an integrated signal counts 2).
+measured=True (E. coli only): X_L is taken from the measured benefit/upkeep proxy, not computed from guessed stakes."""
 H, D, W, MO, Y = 1.0, 24.0, 24.0 * 7, 24.0 * 30.4, 24.0 * 365.25
 SEC, MIN = 1 / 3600, 1 / 60
 
 SYSTEMS = [
- dict(name='E. coli', strong=True, stream='one', comps=[
-   dict(lab='run', tau=(0.5 * SEC, 3 * SEC), lead=(0.1 * SEC, 0.3 * SEC), n=(1, 1), rho=(1, 1), snr=(1, 10), R=(3, 100), hc=(1, 1)),
-   dict(lab='background', tau=(30 * SEC, 300 * SEC), lead=(0.1 * SEC, 0.3 * SEC), n=(1, 1), rho=(1, 1), snr=(30, 1000), R=(3, 100), hc=(1, 1))]),
+ dict(name='E. coli', strong=True, measured=True, comps=[
+   # MEASURED (PR #110, branch v2.5-measure, theory/measured/measured.json, Mattingly et al. 2021 conditions): the world is ONE OU signal
+   # (the swim's log-concentration gradient, tau_v = 1.16 s) read through its integral, McMillan degree 2, so it is ONE component of
+   # degree 2 and gets 2 stores (counted by degree; the measured kernel has 2 poles).  Its X_L is the measured PROXY benefit / upkeep
+   # (fitness benefit of chemotaxis in poor carbon, Ni 2020, over the signalling machinery's proteome share): log10 -0.26 .. 1.89,
+   # central 0.81.  The benefit is the stakes the layers actually win (net of reading and latency), so it is X_L itself, not w*Var/h.
+   # Latency l/tau_fast: log10 -0.76 (-1.47 .. -0.58), snr 0.0043-0.103 (arm B); both are already inside the measured benefit.
+   # n = 1: no shared option.  Not w*Var/h: a proxy (README of PR #110).
+   dict(lab='gradient signal', degree=2, logXL=(-0.263, 1.893), logXL_c=0.815, tau=(1.16 * SEC, 1.16 * SEC),
+        lead=(10 ** -1.468 * 1.16 * SEC, 10 ** -0.582 * 1.16 * SEC), n=(1, 1), rho=(1, 1), snr=(0.0043, 0.103), R=(10 ** -0.263, 10 ** 1.893), hc=(1, 1))]),
  dict(name='immune system', strong=True, comps=[
    dict(lab='innate', tau=(1 * H, 10 * H), lead=(12 * H, 48 * H), n=(100, 1000), rho=(0.1, 0.5), snr=(1, 30), R=(30, 3000), hc=(3, 100)),
    dict(lab='adaptive', tau=(5 * D, 30 * D), lead=(12 * H, 48 * H), n=(100, 1000), rho=(0.5, 1.0), snr=(0.3, 10), R=(3, 300), hc=(3, 100)),

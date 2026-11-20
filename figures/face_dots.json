@@ -2,15 +2,23 @@
  {
   "system": "E. coli",
   "strong": true,
-  "lab": "run",
+  "measured": true,
+  "degree": 2,
+  "lab": "gradient signal",
   "inputs": {
+   "degree": 2,
+   "logXL": [
+    -0.263,
+    1.893
+   ],
+   "logXL_c": 0.815,
    "tau": [
-    0.0001388888888888889,
-    0.0008333333333333333
+    0.0003222222222222222,
+    0.0003222222222222222
    ],
    "lead": [
-    2.777777777777778e-05,
-    8.333333333333333e-05
+    1.0968708334810029e-05,
+    8.436367470927842e-05
    ],
    "n": [
     1,
@@ -21,12 +29,12 @@
     1
    ],
    "snr": [
-    1,
-    10
+    0.0043,
+    0.103
    ],
    "R": [
-    3,
-    100
+    0.5457578610912709,
+    78.16278045883297
    ],
    "hc": [
     1,
@@ -34,7 +42,7 @@
    ]
   },
   "centre": {
-   "XL": 21.314737030234173,
+   "XL": 6.531305526474723,
    "XS": NaN,
    "nu": 1.0,
    "kL": 1.0,
@@ -44,80 +52,24 @@
    "pi": 1.0
   },
   "design_share": {
-   "none": 0.0,
-   "local": 1.0,
+   "none": 0.115,
+   "local": 0.885,
    "shared": 0.0,
    "both": 0.0
   },
-  "logXL_mean": 1.3298997213275,
-  "logXL_sd": 0.44884124346997417,
+  "logXL_mean": 0.8811613862045385,
+  "logXL_sd": 0.6356694864015355,
   "logXL_q": [
-   0.6388016968431577,
-   1.2971166956559919,
-   2.0273742930503755
-  ]
- },
- {
-  "system": "E. coli",
-  "strong": true,
-  "lab": "background",
-  "inputs": {
-   "tau": [
-    0.008333333333333333,
-    0.08333333333333333
-   ],
-   "lead": [
-    2.777777777777778e-05,
-    8.333333333333333e-05
-   ],
-   "n": [
-    1,
-    1
-   ],
-   "rho": [
-    1,
-    1
-   ],
-   "snr": [
-    30,
-    1000
-   ],
-   "R": [
-    3,
-    100
-   ],
-   "hc": [
-    1,
-    1
-   ]
-  },
-  "centre": {
-   "XL": 0.8999294352314525,
-   "XS": NaN,
-   "nu": 1.0,
-   "kL": 1.0,
-   "kS": 0.0,
-   "d": 0,
-   "ell_tau": NaN,
-   "pi": 1.0
-  },
-  "design_share": {
-   "none": 0.61,
-   "local": 0.39,
-   "shared": 0.0,
-   "both": 0.0
-  },
-  "logXL_mean": -0.16795512999223144,
-  "logXL_sd": 0.4461718763265786,
-  "logXL_q": [
-   -0.9258717240652279,
-   -0.1699442122080756,
-   0.5973979717386915
+   -0.13489189054018683,
+   0.9345782196209843,
+   1.8120484426427532
   ]
  },
  {
   "system": "immune system",
   "strong": true,
+  "measured": false,
+  "degree": 1,
   "lab": "innate",
   "inputs": {
    "tau": [
@@ -192,6 +144,8 @@
  {
   "system": "immune system",
   "strong": true,
+  "measured": false,
+  "degree": 1,
   "lab": "adaptive",
   "inputs": {
    "tau": [
@@ -266,6 +220,8 @@
  {
   "system": "immune system",
   "strong": true,
+  "measured": false,
+  "degree": 1,
   "lab": "memory",
   "inputs": {
    "tau": [
@@ -340,6 +296,8 @@
  {
   "system": "ant colony",
   "strong": true,
+  "measured": false,
+  "degree": 1,
   "lab": "patch",
   "inputs": {
    "tau": [
@@ -414,6 +372,8 @@
  {
   "system": "ant colony",
   "strong": true,
+  "measured": false,
+  "degree": 1,
   "lab": "food supply",
   "inputs": {
    "tau": [
@@ -488,6 +448,8 @@
  {
   "system": "small team",
   "strong": true,
+  "measured": false,
+  "degree": 1,
   "lab": "tasks",
   "inputs": {
    "tau": [
@@ -562,6 +524,8 @@
  {
   "system": "small team",
   "strong": true,
+  "measured": false,
+  "degree": 1,
   "lab": "goals",
   "inputs": {
    "tau": [
@@ -636,6 +600,8 @@
  {
   "system": "firm",
   "strong": true,
+  "measured": false,
+  "degree": 1,
   "lab": "operations",
   "inputs": {
    "tau": [
@@ -710,6 +676,8 @@
  {
   "system": "firm",
   "strong": true,
+  "measured": false,
+  "degree": 1,
   "lab": "management",
   "inputs": {
    "tau": [
@@ -784,6 +752,8 @@
  {
   "system": "firm",
   "strong": true,
+  "measured": false,
+  "degree": 1,
   "lab": "strategy",
   "inputs": {
    "tau": [
@@ -858,6 +828,8 @@
  {
   "system": "city",
   "strong": false,
+  "measured": false,
+  "degree": 1,
   "lab": "services",
   "inputs": {
    "tau": [
@@ -932,6 +904,8 @@
  {
   "system": "city",
   "strong": false,
+  "measured": false,
+  "degree": 1,
   "lab": "budget",
   "inputs": {
    "tau": [
@@ -1006,6 +980,8 @@
  {
   "system": "city",
   "strong": false,
+  "measured": false,
+  "degree": 1,
   "lab": "land use",
   "inputs": {
    "tau": [
@@ -1080,6 +1056,8 @@
  {
   "system": "nation-state",
   "strong": false,
+  "measured": false,
+  "degree": 1,
   "lab": "local",
   "inputs": {
    "tau": [
@@ -1154,6 +1132,8 @@
  {
   "system": "nation-state",
   "strong": false,
+  "measured": false,
+  "degree": 1,
   "lab": "business cycle",
   "inputs": {
    "tau": [
@@ -1228,6 +1208,8 @@
  {
   "system": "nation-state",
   "strong": false,
+  "measured": false,
+  "degree": 1,
   "lab": "institutions",
   "inputs": {
    "tau": [
@@ -1302,6 +1284,8 @@
  {
   "system": "global economy",
   "strong": false,
+  "measured": false,
+  "degree": 1,
   "lab": "markets",
   "inputs": {
    "tau": [
@@ -1376,6 +1360,8 @@
  {
   "system": "global economy",
   "strong": false,
+  "measured": false,
+  "degree": 1,
   "lab": "world cycle",
   "inputs": {
    "tau": [
@@ -1450,6 +1436,8 @@
  {
   "system": "global economy",
   "strong": false,
+  "measured": false,
+  "degree": 1,
   "lab": "climate",
   "inputs": {
    "tau": [

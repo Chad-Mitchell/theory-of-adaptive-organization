@@ -7,18 +7,11 @@ HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import face_map as fm
 from face_hybrid import best_fast
 from face_systems import SYSTEMS
-sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'theory', 'layers_checks'))
-from stores import E_K as storeE
-from lead import E_opt
 
-def one_stream(cs, u):
-    """Marginal worths of layers 1..J for a single unit reading the sum of the components through one stream."""
-    lg = lambda r, t: float(np.exp(np.log(r[0]) + t * (np.log(r[1]) - np.log(r[0]))))
-    taus = [lg(c['tau'], u[0 + 2 * j]) for j, c in enumerate(cs)]; a = 1 / np.array(taus); v = np.ones(len(cs))
-    snr = lg(cs[0]['snr'], u[1]); N = 2 * v[0] / (snr * a[0]); R = lg(cs[0]['R'], u[5])
-    E = [v.sum()] + [storeE(a, v, N, K, starts=4)[0] for K in range(1, len(cs))] + [E_opt(a, v, N, 0.0)]
-    E = np.minimum.accumulate(np.array(E)); X = R * -np.diff(E)
-    return [dict(XL=float(x), XS=float('nan'), nu=1.0, kL=1.0, kS=0.0, d=int(x > 1), ell_tau=float('nan'), pi=1.0) for x in X]
+def measured(c, t):
+    """E. coli: X_L from the measured proxy log-range (log-uniform), n = 1."""
+    XL = 10 ** (c['logXL'][0] + t * (c['logXL'][1] - c['logXL'][0])) if t is not None else 10 ** c['logXL_c']
+    return dict(XL=float(XL), XS=float('nan'), nu=1.0, kL=1.0, kS=0.0, d=int(XL > 1), ell_tau=float('nan'), pi=1.0)
 NDRAW = 400
 
 def coords(c, u):
@@ -37,14 +30,13 @@ def coords(c, u):
 
 def job(args):
     si, ci = args; S = SYSTEMS[si]; c = S['comps'][ci]; rng = np.random.default_rng(100 * si + ci)
-    if S.get('stream') == 'one':
-        centre = one_stream(S['comps'], np.full(7, 0.5))[ci]
-        draws = [one_stream(S['comps'], rng.uniform(size=7))[ci] for _ in range(NDRAW // 4)]
+    if S.get('measured'):
+        centre = measured(c, None); draws = [measured(c, t) for t in rng.uniform(size=NDRAW)]
     else:
         centre = coords(c, np.full(7, 0.5))
         draws = [coords(c, rng.uniform(size=7)) for _ in range(NDRAW)]
     lx = np.log10([d['XL'] for d in draws]); ly = np.log10([max(d['XS'], 1e-300) for d in draws]) if c['n'][1] > 1 else None
-    out = dict(system=SYSTEMS[si]['name'], strong=SYSTEMS[si]['strong'], lab=c['lab'], inputs={k: c[k] for k in c if k != 'lab'}, centre=centre,
+    out = dict(system=S['name'], strong=S['strong'], measured=bool(S.get('measured')), degree=c.get('degree', 1), lab=c['lab'], inputs={k: c[k] for k in c if k != 'lab'}, centre=centre,
                design_share={fm.VALUE_NAMES[k]: float(np.mean([d['d'] == k for d in draws])) for k in range(4)},
                logXL_mean=float(lx.mean()), logXL_sd=float(lx.std()))
     if ly is not None:

@@ -76,7 +76,7 @@ if __name__ == '__main__':
         res['v3'] = sorted(pool.map(v3_job, range(M3)), key=lambda x: x['seed']); print('v3 done', time.time() - t0, flush=True)
     v2c = np.mean([x['convex'] for x in res['v2']]); v2t = np.mean([x['convex_tol'] for x in res['v2']]); v3s = np.mean([x['same'] for x in res['v3']]); v3t = np.mean([x['same_total'] for x in res['v3']])
     reg = np.array([x['regret'] for x in res['v3']])
-    res['summary'] = dict(M2=M2, v2_convex=float(v2c), v2_convex_within_1e-5=float(v2t), M3=M3, v3_same=float(v3s), v3_same_total=float(v3t), v3_regret_median=float(np.median(reg)),
+    res['summary'] = dict(M2=M2, v2_convex=float(v2c), v2_convex_within_tol=float(v2t), M3=M3, v3_same=float(v3s), v3_same_total=float(v3t), v3_regret_median=float(np.median(reg)),
                           v3_regret_p90=float(np.quantile(reg, 0.9)), v3_regret_max=float(reg.max()), v3_greedy_same=float(np.mean([x['same_greedy'] for x in res['v3']])),
                           v3_greedy_regret_p90=float(np.quantile([x['regret_greedy'] for x in res['v3']], 0.9)), v3_greedy_regret_max=float(max(x['regret_greedy'] for x in res['v3'])), secs=time.time() - t0)
     print(res['summary'])

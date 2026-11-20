@@ -28,10 +28,11 @@ def comps(name):
 
 def reading(name, short=False):
     ds = [d['centre']['d'] for _, _, d in comps(name)]; n1 = all(not np.isfinite(d['centre']['XS']) for _, _, d in comps(name))
-    kl = sum(x in (1, 3) for x in ds); ks = sum(x in (2, 3) for x in ds)
+    dg = [d.get('degree', 1) for _, _, d in comps(name)]
+    kl = sum(g for x, g in zip(ds, dg) if x in (1, 3)); ks = sum(g for x, g in zip(ds, dg) if x in (2, 3))
     nb = sum(max(d['design_share'].values()) < 0.65 for _, _, d in comps(name))
     tail = '' if not nb else (f' ({nb} near edge)' if short else (' (1 borderline)' if nb == 1 else f' ({nb} borderline)'))
-    if n1: return (f'{kl} layer' + ('s' if kl != 1 else '')) + (' in the one cell' if name == 'E. coli' and not short else '') + tail
+    if n1: return (f'{kl} layer' + ('s' if kl != 1 else '')) + (' (by degree; measured proxy)' if name == 'E. coli' else '') + tail
     parts = []
     if kl: parts.append(f'{kl} local' if short else f'{kl} in each unit')
     if ks: parts.append(f'{ks} shared')
@@ -54,7 +55,7 @@ def draw_map(ax, st, lim, fs, show, lab, ell_sigma=1.0, ell_alpha=0.10, strip_ro
     ax.text(0.08, Y0 + 0.12, 'A LAYER IN\nEACH UNIT', color=K_LOC, ha='left', va='bottom', **kw)
     ax.text(X0 + 0.1, 0.1, 'ONE SHARED\nLAYER', color=K_SH, ha='left', va='bottom', **kw)
     ax.text(X1 - 0.08, 0.1, 'BOTH PAY', color=K_BOTH, ha='right', va='bottom', **kw)
-    st.text(X0 + 0.1, 0.5, 'shared layer worth ≈ 0', color='#555555', ha='left', va='center', fontsize=fs * 0.74, zorder=2, path_effects=OUT)
+    st.text(X0 + 0.06, 0.78, 'shared layer worth ≈ 0', color='#555555', ha='left', va='center', fontsize=fs * 0.74, zorder=2, path_effects=OUT)
     for k, name in enumerate(show):
         pts = comps(name); strong = pts[0][2]['strong']; ls = '-' if strong else (0, (3, 2))
         row = (strip_rows or {}).get(name, 0.5)
@@ -70,6 +71,9 @@ def draw_map(ax, st, lim, fs, show, lab, ell_sigma=1.0, ell_alpha=0.10, strip_ro
             if ell_sigma and a is ax and 'cov' in d:
                 C = np.array(d['cov']); w, V = np.linalg.eigh(C); ang = np.degrees(np.arctan2(V[1, 1], V[0, 1]))
                 a.add_patch(Ellipse((x, y), 2 * ell_sigma * np.sqrt(w[1]), 2 * ell_sigma * np.sqrt(max(w[0], 1e-8)), angle=ang, facecolor=col, edgecolor='none', alpha=ell_alpha, zorder=2.2))
+            if d.get('measured') and a is st:
+                q = d['inputs']['logXL']; a.plot(q, [yv, yv], color=col, lw=3, alpha=0.55, zorder=3.5, solid_capstyle='butt')
+                a.plot(q, [yv, yv], ls='none', marker='|', ms=fs * 0.9, mew=2.4, color=col, zorder=3.5)
             a.plot([x], [yv], marker=m, ms=fs * 0.85, mfc=col if strong else 'white', mec=col, mew=2.4, zorder=4, clip_on=False)
             if (name, d['lab']) in lab:
                 dx, dy = lab[(name, d['lab'])]
@@ -111,7 +115,7 @@ def legend_row(fig, x, y, fs, gap):
 
 LIM = (-1.3, 3.0, -3.0, 3.2)
 SHOW = ['E. coli', 'immune system', 'ant colony', 'firm', 'nation-state']
-LAB = {('E. coli', 'run'): (0, 13), ('E. coli', 'background'): (10, 0), ('E. coli', None): (0, -12, 0),
+LAB = {('E. coli', None): (0, 0, 15),
        ('immune system', 'innate'): (10, 0), ('immune system', 'adaptive'): (11, 0), ('immune system', 'memory'): (-11, 0), ('immune system', None): (1, 70, 14),
        ('ant colony', 'patch'): (-9, 13), ('ant colony', 'food supply'): (0, 15), ('ant colony', None): (1, 0, 34),
        ('firm', 'operations'): (11, -3), ('firm', 'management'): (12, 0), ('firm', 'strategy'): (-4, -18), ('firm', None): (0, 12, 18),
@@ -121,9 +125,9 @@ ROWS = {'E. coli': 0.3, 'nation-state': 0.7, 'immune system': 0.7}
 T = 'Where the cost of judgment puts layers'
 RED = 'Hypothesized positions, not measurements'
 SUB = 'For each time scale of its world, the cost picks no layer, a layer in each unit, one shared layer, or both.'
-SUB2 = 'Layer = tracking store, not org-chart level.  The edges hold for any world; every dot\u2019s inputs are guesses.'
+SUB2 = 'Layer = tracking store, not org-chart level.  Edges hold for any world.  Inputs are guesses (E. coli: measured proxy).'
 F1 = 'A shared layer\u2019s worth = upkeep shared \u00d7 pooling gain \u00d7 e^(\u22122 \u00d7 delay \u00f7 time scale) \u00d7 a local layer\u2019s worth, so fast scales go local and slow ones shared.'
-F2 = 'Survival is a separate gate: where ruin binds, the design shifts.   * hollow, dashed: selection weak or unknown.   Shading: input ranges (1\u03c3).   Details: figures/face_placements.md  \u00b7  CC0'
+F2 = 'Survival is a separate gate.   * hollow, dashed: selection weak or unknown.   Shading: input ranges; bar: measured range.   figures/face_placements.md  \u00b7  CC0'
 
 def face():
     fig = plt.figure(figsize=(16, 10), dpi=100); fs = 19
@@ -144,7 +148,7 @@ def square():
     draw_map(ax, st, LIM, fs, SHOW, LAB, strip_rows=ROWS)
     fig.text(0.5, 0.967, T, ha='center', va='center', fontsize=38, weight='bold')
     fig.text(0.5, 0.927, RED, ha='center', va='center', fontsize=23, weight='bold', color='#cc0000')
-    fig.text(0.5, 0.884, 'For each time scale of its world, the cost picks no layer, a layer in each unit, one shared layer,\nor both.  Layer = tracking store, not org-chart level.  Edges are exact; every dot\u2019s inputs are guesses.',
+    fig.text(0.5, 0.884, 'For each time scale of its world, the cost picks no layer, a layer in each unit, one shared layer,\nor both.  Layer = tracking store, not org-chart level.  Edges exact; inputs guessed (E. coli: proxy).',
              ha='center', va='center', fontsize=15, color='#222222', linespacing=1.25)
     legend_row(fig, 0.07, 0.222, 17, 0.17)
     fig.text(0.56, 0.222, 'both: if each still pays on what the other does not know', fontsize=12.5, color=K_BOTH, va='center')
