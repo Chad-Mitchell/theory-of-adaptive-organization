@@ -20,7 +20,7 @@ No new spectrum fit was run. From the already-recorded GRID-2 and G3a results, �
 
 NESO's Frequency Risk and Control Report 2025 sizes Dynamic Containment for post-fault risks against an 1,800 MW largest loss (https://www.neso.energy/document/356356/download). B1 assumes ruin slack; GB's ruin constraint binds (FRCR DC sized for an 1,800 MW largest loss). The gap may reflect costs or constraints the design space does not represent (e.g. ruin-binding reserve sizing, short-duration fast units, actuation limits); it is not shown to be excess, and no mechanism is established. That question is not resolved here; it is the subject of a robustness extension (`theory/ROBUSTNESS.md`, a separate draft PR in progress). Here, "diagnosis" means a reading under B1's premises only.
 
-A sterling saving under B1 requires a measured layer upkeep h and a measured stake w. Neither is in the repository as a measured GB figure. Under the locked rule the £ saving is **INCONCLUSIVE**. The integer gap is a diagnosis, not a demonstrated inefficiency in money.
+A sterling saving under B1 requires a measured layer upkeep h and a measured stake w. Neither is in the repository as a measured GB figure. Under the locked rule the £ saving is **INCONCLUSIVE**. The integer gap is a diagnosis, not a demonstrated inefficiency.
 
 ### B2. Extended J, ruin and actuation included
 
