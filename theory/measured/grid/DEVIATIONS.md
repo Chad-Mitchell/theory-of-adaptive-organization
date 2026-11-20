@@ -10,3 +10,4 @@
 - GRID-4 (test of the GRID-2 diagnosis) preregistered before any 2019/20 or 2024 GB data; candid timing note added to RESULTS_GRID2.
 - **DV-S2** (before computing on 2026 German files): operational aFRR for the premise check only; method fixed; comparability check with the GRID-1b method.
 - G3a run (replicates G1 FAIL); GRID-4 INVALID (verdict depends on assumed Q); GRID-4b preregistered before any 2019/20 response source.
+- **Erratum (v2.61, review 27 M3):** RESULTS_GRID2 and CLAIM_MAP P19 said DV-GB1 preceded any GB download. False: the MFR workbooks and one BOALF/PN day (format check) were fetched 10:04–10:05 AM ET, before DV-GB1 (10:06:05); the frequency, inertia, EAC and BM series after it. No GB value was inspected or computed before DV-GB1. Corrected in both places.
