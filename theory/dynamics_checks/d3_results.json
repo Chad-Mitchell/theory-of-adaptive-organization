@@ -1,0 +1,70 @@
+{
+ "D3a_time_avg_log_growth_vs_minus_J": [
+  -0.029983697225925997,
+  -0.03
+ ],
+ "D3b_P_factor_negative_gaussian": 1.5374597944280182e-12,
+ "D3c_scan_toy_nE_nG": [
+  3,
+  4
+ ],
+ "D3c_scan_toy_J3_J4_relgap": 0.005970149253731359,
+ "D3c_grid_counts": {
+  "same": 510,
+  "G_more": 90,
+  "G_fewer": 0
+ },
+ "D3c_grid_max_extra_copies": 1,
+ "D3c_small_X_pairs": [
+  [
+   2,
+   2
+  ],
+  [
+   2,
+   2
+  ],
+  [
+   2,
+   2
+  ]
+ ],
+ "D3c_large_X_pairs": [
+  [
+   2,
+   3
+  ],
+  [
+   3,
+   3
+  ],
+  [
+   4,
+   4
+  ]
+ ],
+ "D3d_coin_ens_tav_Pmin_below_0.01_T1000": [
+  1.05,
+  -0.05268025782891317,
+  1.0
+ ],
+ "D3d_two_designs_arith_geo_Pruin": {
+  "A_smooth": [
+   1.03,
+   0.02951167022473053,
+   0.0
+  ],
+  "B_lumpy": [
+   1.0310000000000001,
+   0.02580309771445674,
+   0.00125
+  ]
+ },
+ "D3d_threshold_eps_T": [
+  0.3,
+  0.01,
+  300
+ ],
+ "checks_passed": 7,
+ "checks_total": 7
+}

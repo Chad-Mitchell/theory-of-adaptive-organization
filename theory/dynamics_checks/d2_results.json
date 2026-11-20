@@ -1,0 +1,52 @@
+{
+ "D2a_q_star_numeric_vs_closed": [
+  0.2599999995266465,
+  0.26
+ ],
+ "D2a_G_pure_lean_pure_robust_mix": [
+  -Infinity,
+  0.041082630178069124,
+  0.1278957133947216
+ ],
+ "D2a_per_unit_expectation_linear_in_q": true,
+ "D2a_per_unit_expectation_argmax": 0.0,
+ "D2b_indep_argmax": 0.0,
+ "D2b_sim_indep_G_lean_vs_q026": [
+  0.2108107055150851,
+  0.1697374834208934
+ ],
+ "D2c_qstar_vs_shared_fraction": [
+  [
+   0.0,
+   0.0
+  ],
+  [
+   0.05,
+   0.0159
+  ],
+  [
+   0.2,
+   0.0614
+  ],
+  [
+   0.5,
+   0.144
+  ],
+  [
+   1.0,
+   0.26
+  ]
+ ],
+ "D2d_per_unit_ruin_pick_G": 0.041082630178069124,
+ "D2d_lineage_gain_over_best_pure": 3.1131335272442064,
+ "D2e_note": "the gain is a property of the lineage mean within a generation; no unit-level design attains it",
+ "compare_scan_C2": [
+  0.26,
+  0.1279,
+  0.0411,
+  1.235,
+  1.0425
+ ],
+ "checks_passed": 9,
+ "checks_total": 9
+}

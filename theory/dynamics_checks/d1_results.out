@@ -1,0 +1,17 @@
+D1a_f0_numeric_vs_closed [0.040016666666666645, 0.04001666666666666]
+D1a_bstar_closed_vs_grid [0.4949232003839765, 0.49489249999999996]
+D1a_min_avg_cost_equals_2_sqrt_kw_over_6 [0.08164965809277261, 0.08164965809277261]
+D1a_band_ratio_for_k_100x_smaller 3.1622776601683795
+D1a_mc_at_bstar (0.08126676071760293, 0.0006434775434139169)
+D1b_step_threshold_closed_vs_grid [0.01414213562373095, 0.0142]
+D1b_scaling step: D* ~ k^(1/2); Brownian band: b* ~ k^(1/4). The threshold depends on how the inputs move.
+D1c_crossing_wc_K1to2 1.0
+D1c_no_switch_cost_up_down [1.0002512446271397, 0.9910462270734435]
+D1c_with_switch_cost_up_down [1.107327709880738, 0.8952139581335031]
+D1d_aggregate_mean_gap_t0_t100_t399 [0.14847696011519296, -0.0012979599398947907, -0.0011248565078082163]
+D1d_single_unit_at_centre_moves_for_step_below_band False
+D1e_Tred_numeric_vs_sqrt_kappa_over_w [2.0100000000000002, 2.0]
+compare_scan_C5_theory_at_bstar 0.0816
+checks_passed 11
+checks_total 11
+ALL D1 CHECKS PASS
