@@ -1,0 +1,15 @@
+# Park, Pontius, Guet, Marko, Emonet & Cluzel 2010, Nature 468:819-823, doi 10.1038/nature09551, Fig. 4c (NIH author manuscript PMC3230254, figure nihms336953f4.jpg).
+# Hand-digitized marker centres by Grok Bot on 20 Nov 2026 from the 482x1050 px figure; axis calibration from tick marks
+# (x: 79 px per 0.02 signalling-noise units, 0 at px 134.5 of the panel crop; y: 55 px per 5 s, 0 at px 234).
+# Estimated digitization error: +-0.001 in signalling noise (variance of [CheY-P], uM^2 per the paper), +-0.3 s in correlation time.
+# Labels a-i are the paper's strain/condition labels (different CheR induction / CW bias). Error bars not digitized.
+label,signalling_noise_var,correlation_time_s
+a,0.0548,14.8
+b,0.0431,14.4
+c,0.0387,8.8
+d,0.0270,5.35
+e,0.0228,5.46
+g,0.0155,3.75
+f,0.0202,1.87
+h,0.0123,1.31
+i,0.0077,0.86

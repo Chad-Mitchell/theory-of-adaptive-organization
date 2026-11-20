@@ -1,0 +1,65 @@
+{
+ "system": "E. coli chemotaxis (lab strain RP437-type, MeAsp, Mattingly et al. 2021 conditions)",
+ "current_map": {
+  "loglat": {
+   "central": -0.763462738511306,
+   "lo": -1.4675004139053376,
+   "hi": -0.5823622603477703,
+   "definition": "l / tau_fast, l = stimulus-to-motor latency, tau_fast = 1/lambda_tot (signal correlation time)"
+  },
+  "logR_proxy": {
+   "lo": -0.26334579109598744,
+   "hi": 1.893130106341034,
+   "central_for_plotting": 0.8148921576225232,
+   "definition": "PROXY, not w*Var/h: fitness benefit of chemotaxis (Ni 2020, poor carbon) / proteome share of the signalling machinery",
+   "rich_medium": "benefit ~ 0 on glucose (Ni 2020): R_proxy < 1; the cell cuts motility investment there"
+  },
+  "guess_it_replaces": {
+   "logR": 1.0,
+   "loglat": -0.5
+  }
+ },
+ "raw_dimensionless": {
+  "lambda_tau2": {
+   "value": 8.5338,
+   "lo": 7.9236,
+   "hi": 9.156,
+   "meaning": "slow-layer memory / world signal correlation time"
+  },
+  "tau1_over_tau_v": {
+   "fit": 0.18964,
+   "kinase": 0.014654,
+   "meaning": "fast-layer time / world signal correlation time"
+  },
+  "taun_over_tau2": {
+   "value": 1.1868686868686869,
+   "meaning": "noise correlation time / memory: ~1 means the noise is the store's own"
+  },
+  "bp_share_of_noise": {
+   "lo": 1e-06,
+   "hi": 0.00022,
+   "meaning": "Berg-Purcell counting noise / measured kinase-noise variance (ecoli/results.json)"
+  },
+  "snr_armB": {
+   "lo": 0.0043,
+   "hi": 0.103,
+   "meaning": "2 sigma_u^2/(lambda N_s) at g = 0.1-0.4 /mm; scales as g^2"
+  },
+  "stores_measured": 2,
+  "world_degree": 2,
+  "upkeep_share_proteome": {
+   "lo": 0.012789980833333334,
+   "hi": 0.03667547833333333,
+   "meaning": "signalling-machinery amino acids / all protein amino acids (ASSUMED total)"
+  },
+  "adaptation_power": {
+   "value_kT_per_s": 30000.0,
+   "meaning": "Lan 2012: ~3x10^4 kT/s (~10^3 ATP/s), 5-10% of one flagellar motor's cost"
+  },
+  "benefit_fraction": {
+   "lo": 0.02,
+   "hi": 1.0,
+   "meaning": "relative fitness benefit of chemotaxis, poor carbon, Ni 2020 (read from text, not figures)"
+  }
+ }
+}
