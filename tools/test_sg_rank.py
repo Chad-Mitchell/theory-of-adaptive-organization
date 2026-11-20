@@ -71,7 +71,11 @@ def test_score_skips_outcome_missing_both_fields(tmp_path, capsys, monkeypatch):
 
 
 def test_real_ledger_no_longer_crashes_on_entry_156(capsys):
-    """The 20 Nov crash: entry 156 has claim_map_status_changed, not status_changed."""
+    """The 20 Nov crash: entry 156 has claim_map_status_changed, not status_changed.
+
+    This is a read-only smoke test of the crash, not the official Q0 / SG-SCORE
+    score. It does not assert an AUC, write the ledger, or add a rule_change.
+    """
     sg = load_sg()
     # Use the repository ledger (read-only).
     sg.cmd_score()

@@ -1,6 +1,6 @@
 # Final independent check of PR #111 (head 3ce9751, branch v2.5-map)
 
-Independent referee; I did not author any of it. Fresh clone `/workspace/gtao-review28` (checked out at 3ce9751; nothing pushed to the PR branch; `/workspace/looper` untouched; compute at nice 19). Written 20 Nov 2026, 12:20-12:55 PM ET. Prior reviews: `/workspace/gtao-review26/REVIEW.md` (NOT READY) and `REVIEW2.md` (READY-WITH-FIXES at dfe9d0b).
+Independent referee; I did not author any of it. Fresh clone `/workspace/gtao-review28` (checked out at 3ce9751; nothing pushed to the PR branch; compute at nice 19). Written 20 Nov 2026, 12:20-12:55 PM ET. Prior reviews: `/workspace/gtao-review26/REVIEW.md` (NOT READY) and `REVIEW2.md` (READY-WITH-FIXES at dfe9d0b).
 
 ## Verdict: READY-WITH-FIXES
 

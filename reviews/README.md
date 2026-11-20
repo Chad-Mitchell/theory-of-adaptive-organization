@@ -26,4 +26,6 @@ Reviews of the theory notes, the tests, and the AI-memory toy. Independence is s
 | `pr117_dynamics_2026-11-20/REVIEW.md` | Independent review of PR #117 (v2.9 dynamics): READY-WITH-FIXES | Stated as an independent pass in the file; same bot family. |
 | `core_2026-11-20/` | Reviews of the unmerged one-page core draft (`CORE.md` and the keystone note): `REVIEW.md`, `CONFIRM.md`, `RECONFIRM.md`. Those drafts are not in this repository yet (pending a CORE PR) | Stated as independent hostile passes that did not write the drafts; same bot family. |
 
+| `pr118_hygiene_2026-11-20/REVIEW.md` | Independent review of PR #118 (hygiene): READY-WITH-FIXES (B1–B3) | Stated as a separate executor that wrote none of the PR; same bot family. |
+
 Test-specific reviews (for example `tests/C3/REVIEW.md`) stay with those tests.

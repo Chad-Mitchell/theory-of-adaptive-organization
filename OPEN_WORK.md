@@ -29,8 +29,8 @@
 | H3 | No CHANGELOG entry for PR #113 (v2.6-griddx), though it changed THEORY §3 (qualification gate) and the status words | **DONE** in this hygiene PR | `reference/CHANGELOG.md` |
 | H4 | THEORY §8 "Where it stands" counted "15 field rows failed on proxy and 7 passed on proxy" | **DONE** in this hygiene PR: 30 NOT A TEST rows (10 passed on proxy, 20 failed on proxy), counted from CLAIM_MAP | `THEORY.md` §8 |
 | H5 | ~~Per-row qualification-prospect notes missing~~ **False alarm, closed 20 Nov ~3:20 PM ET:** all 30 NOT A TEST rows on `main` carry a "Qualification prospect (reviewer judgment, not a verdict)" note (merged with #113, `1597218`; `grep -c prospect` = 32). The 20 Nov audit, and the message to Chad that called it a mistake, were wrong | DONE (nothing to fix; correct the record to Chad) | `measurement/CLAIM_MAP_v2.md` |
-| H6 | `process/QUEUE.md` was listed as "live work" but its ledger stops at 19 Nov 12:57 AM ET; 62 of 117 items are not DONE and nothing since v2.1 went through it | **FROZEN** in this hygiene PR (banner added; content kept). The 62 not-DONE items are still in the frozen queue and have not been folded into this page line by line (S8 remainder) | `process/QUEUE.md`, `process/queue/items.json` |
-| H7 | Q0 / SG-SCORE: the queue rule's locked prediction is owed a score (≥ 15 post-protocol outcomes). `sg_rank.py score` crashed with `KeyError: 'status_changed'` because ledger entry 156 recorded `claim_map_status_changed` instead | **Crash fixed** in this hygiene PR (`tools/test_sg_rank.py`). The official score is still owed: applying the Ace re-read of entries 65 and 171 (logged false, to be read as true) needs a `rule_change` ledger entry before the first official score. A mechanical dry run on the logged booleans (alias accepted) is reported in the hygiene PR | `process/queue/sg_rank.py` |
+| H6 | `process/QUEUE.md` was listed as "live work" but its ledger stops at 19 Nov 12:57 AM ET; 62 of 117 `items.json` rows have no DONE status, and further not-DONE IDs sit only in `QUEUE.md` | **FROZEN** (banner added; content kept). Named rows now cover the six previously unledgered QUEUE.md items (N52-N53-SWEEP, MV9-DECISION, N51-LAB-PREREG, LOCK-V1.5, SENSE-CELL-EFFORT, CAUSAL-OVER-RESPONSE). Every other not-DONE ID is listed by token in §7. `SENSE-CELL` and `CAUSAL-KAPPA-LENIENCY-REVIEW` are already marked DONE in QUEUE.md itself; `items.json` was not edited. Enforced by `tools/check_open_work.py` | `process/QUEUE.md`, `process/queue/items.json`, §7 |
+| H7 | Q0 / `SG-SCORE` / `SURPRISE-GUIDED-SEARCH`: the queue rule's locked prediction is owed a score (≥ 15 post-protocol outcomes). `sg_rank.py score` crashed with `KeyError: 'status_changed'` because ledger entry 156 recorded `claim_map_status_changed` instead | **Crash fixed** in this hygiene PR (`tools/test_sg_rank.py`). The official score is still owed: applying the Ace re-read of entries 65 and 171 (logged false, to be read as true) needs a `rule_change` ledger entry before the first official score. A mechanical dry run on the logged booleans (alias accepted) is reported in the hygiene PR | `process/queue/sg_rank.py` |
 | H8 | README bullet: the s = ½ boundary wording (at s = ½, λτ\* = 1 at low SNR, equal, not faster); caption citation nit (both from review 29) | **Wording fixed** in this hygiene PR in README and in the matching THEORY sentence. The caption citation nit was not applied: review 29 was not found on the box (W6) | `README.md`, `THEORY.md` |
 | H9 | Stale remote branches (listed below). Live work branch is only `v2.6-evo` (PR #114). `v2.7-robust`, `v2.9-dynamics` and `v2.8-htindex` are merged (their remotes were deleted with the merges). **Delete nothing**; deleting branches needs Chad. The 62 not-DONE queue items are not absorbed yet (H6) | needs Chad (deletion only) | GitHub branches |
 
@@ -53,9 +53,13 @@
 | T13 | Other open conjectures: CX3–CX6; CX7 (robust layer count, diversity against common mode; in W1); CX8 ROBUST-SLACK; CX9–CX10 (in W4) | Open | follows W1, W4 | CLAIM_MAP |
 | T14 | K7 hormesis ("stress strengthens up to a ceiling"): the ceiling half has an in-model piece (CT25); "strengthens" needs an adaptation rule (W4's redesign-between-regimes result may supply it) | Open | in progress-able | CLAIM_MAP K7 |
 | T15 | Layer-counting rule for real systems (by degree, distinct memory time constants): still a placeholder to finalize before any N56 test | Open | in progress-able | THEORY §3 |
-| T16 | Whole-theory independent review, ideally by a human expert; every theorem has been refereed at most once, by the same bot family | Not started | needs Chad (who to ask) | THEORY §8 |
+| T16 | `WHOLE-THEORY-REVIEW`: whole-theory independent review, ideally by a human expert; every theorem has been refereed at most once, by the same bot family. This includes the earlier STATUS "Next" item, still open as a narrower owed review: independent review of the v2.4 delta (the v2.3 blockers as restated, CT30–CT34, the face figure, operational "strongly selected", then CT20–CT25 and the rest; scope in `reviews/audit_2026-11-19/AUDIT.md` §3) | Not started | needs Chad (who to ask) | THEORY §8 |
 | T17 | The 78 other OPEN rows of the claim map | Open; untested, not refuted | see map | `measurement/CLAIM_MAP_v2.md` (tally) |
 | T18 | Predictive rhythm rule: K* from the poles and the stakes, without first computing the whole ε_K curve | **OPEN.** The hull increment is the definition of K* (equals argmin J for any ε_K sequence), not a prediction from time scales. No pole-count or pair-count shortcut recovered K* on the 21-world grid (pair rule 66/189; odd K* in 123/189, including {3, 5} in 15; one light oscillator can have K* = 3 or 4; N60 adjacent misses 17/90 non-convex) | in progress-able now | pending CORE PR, `core/KEYSTONE_NOTE.md` §4, W9 |
+
+| CAUSAL-OVER-RESPONSE | Should an established share above 1/κ_F (design over-responds beyond the tolerated band, the mirror of the kill) be a kill in N6's causal form? Kill-rule question; author-only PR plus a separate reviewer (t1916). Was in `QUEUE.md` and not in `items.json` | open | in progress-able | `process/QUEUE.md` |
+| N52-N53-SWEEP | Literature sweep owed before any N52/N53 prereg: Kaplow 1992 §IV.C ("Changing Rules and Standards over Time") in full, plus the legal-obsolescence and temporary-legislation literature for N53; organizational economics for the memory-versus-enforcement contrast and the monitoring channel (Baker & Hubbard 2004) for N52. Was in `QUEUE.md` and not in `items.json` | not started | in progress-able now | `process/QUEUE.md`, CLAIM_MAP N52–N53 |
+| SENSE-CELL-EFFORT | E. coli adaptation/sensing effort vs input fluctuation level and benefit, with energy state, to test H4. Blocked on a dataset; contacting the authors needs Chad | blocked | needs data, needs Chad (author contact) | `process/QUEUE.md` |
 
 ## 4. Waiting on Chad (decisions and outside acts)
 
@@ -67,6 +71,9 @@
 | C4 | Explainer video | On hold (Chad) |
 | C5 | EVOSIM | Parked; EVO1 (W2) is the live in-silico test |
 | C6 | Branch cleanup (H9). The QUEUE freeze (H6) is done in this hygiene PR | Branch deletion still needs Chad |
+| MV9-DECISION | An external timestamp (OSF or Zenodo) for preregistrations. Without it, no test reaches Tier 1. No account is created without Chad. Was in `QUEUE.md` and not in `items.json` | Awaiting Chad |
+| N51-LAB-PREREG | Write the N51 attention test (LOOSE_ENDS §1) as a preregistration through MV1–MV10. It is the cheapest valid test of a §2.2 exponent in reach. Running it needs participants and a platform, which needs Chad's go. This is not T7 (T7 is the tracking / chemotaxis lab). Was in `QUEUE.md` and not in `items.json` | Awaiting Chad |
+| LOCK-V1.5 | Chad's call. Tag v1.5 after `WHOLE-THEORY-REVIEW`. With it: split THEORY.md into a short canonical file plus cited notes, rename THEORY §1 rows C1–C7, and sort the CLAIM_MAP notes (NARRATIVE §4; LOCK_AUDIT N3, N8). Was in `QUEUE.md` and not in `items.json` | Awaiting Chad |
 
 ## 5. Remaining should-fixes from the 20 Nov core review
 
@@ -82,7 +89,7 @@ The first review (`reviews/core_2026-11-20/REVIEW.md`) was READY-WITH-FIXES; blo
 | S9c | PLAN §0 "every sentence names a row ID or a file" — relaxed: load-bearing sentences, with pointers in §1–§2 | applied |
 | S9d | N58's 1.0 vs 2.0 distinction — "under head/tail breaks 1.0" added | applied |
 | S9e | Gerrard & Tsanakas 2011 booked mainly on CL18; CORE now says so | applied |
-| S8 remainder | The queue is frozen (H6), but the 62 not-DONE items are still only in `process/QUEUE.md` and have not been folded into this page line by line | residual | `process/QUEUE.md` |
+| S8 remainder | The queue is frozen (H6). The six unledgered QUEUE.md items now have rows; every not-DONE ID is listed by token in §7 (including two that QUEUE.md already marks DONE: `SENSE-CELL`, `CAUSAL-KAPPA-LENIENCY-REVIEW`) | residual, listed | §7, `process/QUEUE.md` |
 | S-plan | The pending CORE draft treats the predictive rhythm rule as OPEN and the hull increment as the definitional identity, not a candidate rule (B3). Piece 1 needs a re-confirm after these fixes, before a CORE PR merges | needs reviewer |
 
 ## 6. Stale remote branches (listed, not deleted)
@@ -108,3 +115,33 @@ Counted on Friday 20 November 2026 against `origin/main` at `a1a98aa`. Deleting 
 **Merged into `origin/main` and still on the remote (102, `main` itself omitted).** Their remotes can be deleted once Chad says so. `v2.7-robust`, `v2.9-dynamics` and `v2.8-htindex` are already absent (deleted with their merges).
 
 `audit-referee`, `audit-referee-fixes`, `bookends`, `checker-r6-r8`, `cold-read-fixes`, `core-claims-fixes`, `core-v2`, `core/v1.4.19-headline-scope`, `docs-eod-synthesis-2026-11-15`, `docs-v141-readme-status`, `docs/consistency-audit-2026-11-18`, `docs/public-scrub`, `docs/readme-author-line`, `final-should-fixes`, `front-door`, `github-times-fix`, `github-upstream-results`, `independent-review-2-2026-11-18`, `independent-review-lock`, `learnsim-prereg`, `learnsim-results-referee`, `lfk-spf-prereg`, `lock-pass-2026-11-18`, `lock-pass-date-fix`, `n12-referee-v2`, `n12-theory`, `night1-scoreboard`, `night2-audit-divergence`, `night2-measurement`, `night2-measurement-times`, `night2-referee`, `night2-self-prereg`, `prereg/vigil-ona`, `prereg/wikidata-band`, `q-pick-1150`, `q-pick10-aqn`, `q-pick12`, `q-pick13`, `q-pick14`, `q-pick15-merge`, `q-pick16`, `q-pick17`, `q-pick18`, `q-pick19`, `q-pick20-merge`, `q-pick21`, `q-pick22`, `q-pick22-merge`, `q-pick23`, `q-pick23-n16`, `q-pick23-n16-merge`, `q-pick23-n16-times`, `q-pick24`, `q-pick24-theory`, `q-pick25`, `q-pick26`, `q-pick26-theory`, `q-pick27`, `q-pick27-merge`, `q-pick28`, `q-pick28-theory`, `q-pick29`, `q-pick29-theory`, `q-pick30`, `q-pick31`, `q-pick32`, `q-pick32-theory`, `q-pick33`, `q-pick33-theory`, `q-pick34`, `q-pick35`, `q-pick35-theory`, `q-pick36`, `q-pick37`, `q-pick37-theory`, `q-pick38`, `q-pick38-theory`, `q-pick39`, `q-pick9-tlp`, `q-scale-ends`, `q-sensecell`, `q-sensecell-referee`, `queue-claim-q1q2`, `queue-pick4`, `queue-pick5`, `queue-pick6`, `reach-notes-2026-11-18`, `reach-open-items-2026-11-18`, `readme-post-arc`, `spectrum-map`, `spectrum-map-referee`, `spectrum-map-referee-timefix`, `spf-noise-proxy`, `telegraph-referee`, `telegraph-referee-times`, `theory-v1.4`, `v14-review`, `v141-fixes`, `v2.1-master-equation`, `v2.2-audit-fixes`, `v2.3-rules-centralize-phase`, `v2.4-ants-cx2-face`
+
+## 7. Frozen-queue not-DONE IDs
+
+Every not-DONE ID from `process/queue/items.json` (62 rows whose status is not `DONE`) and from `process/QUEUE.md` is listed below as a whole token, so none can drop silently (`tools/check_open_work.py`, `tools/test_check_open_work.py`). Named rows above already describe some of these; this list is the complete remainder check.
+
+`SENSE-CELL` and `CAUSAL-KAPPA-LENIENCY-REVIEW` are in `items.json` with no DONE status, but `QUEUE.md` already marks both DONE (18 Nov and ~8:19 PM ET respectively). The items file was not edited.
+
+`SPECTRUM-BRIDGE-SIM` `SELF-2` `SENSE-CELL` `IMMUNE`
+`VIX-KERNEL` `PRIORART-SCHOLAR` `SAME-SYSTEM-AQN` `FROZEN-DOC-POINTERS`
+`SPF-AQN-POWERED` `MIXED-ALPHA-ONSET` `SPF-NOTE-EDITS` `PRIORART-CREDIT-EDITS`
+`PRIORART-ENGINEERING-READ` `JUMP-WORLD-ONSET` `JUMP-STORES` `GITHUB-VARIOGRAM-CHECK`
+`KERNEL-INPUT-DISCRIMINATE` `WONHAM-PRIORART-FULLTEXT` `POISSON-SENSING-JUMP` `EDIT-MODULATION-SOURCE`
+`NEG-DELTA-BETA` `ALPHA-ESTIMATE-AUDIT` `PREMISE-TEST-WIDEN` `WIKIDATA-BAND-2`
+`STAKES-PRECISION` `ONA-INSTRUMENT-DRAFT` `CAUSAL-KILL-PRICE` `STAKES-SHIFT-MULTIYEAR`
+`CAUSAL-POWER-GATE-N6` `REGIME-C-DEPENDENT-MODES` `REGIME-C-HEAVY-TAIL-LOWBETA` `REGIME-C-DRIFT-NONGAUSS`
+`REGIME-C-PRIORART-USTAR` `REGIME-C-PREREG-CASE-N6` `SPF-RIGIDITY-LIVINGSTON` `AQN-EDITS-APPLY`
+`LOCK-SENSITIVITY-REPORT` `DISCRETE-TA-INTEGRATED` `DISCRETE-TA-SECOND-ORDER` `KERNEL-DECISIVE-RV`
+`AQN-R1-NOISE-BAND` `KERNEL-LONG-LAG` `ONSET-SLOPE-POINTWISE` `N2-CURVATURE-POWER`
+`C3B-STAGE4-DECIDE` `ONSET-ACROSS-ALPHA-PRICED` `KERNEL-OVERNIGHT-REFIT` `VIX-GAIN-SCALE`
+`STAKES-CAUSAL-CONTROLS` `STAKES-SETTLEMENT-PRICE` `STAKES-BIAS-TERM` `BAYES-LINEAR-LAB`
+`LIN01-RESPONSE-EXACT` `LAB-AKLMT-EXTRAPOLATION` `LAB-AKLMT-CURVATURE` `LAB-NOISY-READ-TAU`
+`SEPARABLE-LOSS-ONSET` `CAUSAL-KAPPA-LENIENCY-REVIEW` `RELATIVE-BAND-TOST` `HIT-ZERO-MISS-FLOOR`
+`LOSS-SENSITIVITY-REPORT` `THM4-H3-ALPHA` `SURPRISE-GUIDED-SEARCH` `SPF-NOISE-PROXY`
+`LAB-AKLMT-TAU` `D3-TWO-EXPONENT-OOS` `PRIORART-LFK-ALPHA` `D3-DISCRIMINATE`
+`AQN-ESTIMATORS` `TELEGRAPH-LINEAR-PREMISE` `TELEGRAPH-REFEREE` `TLP-EDITS-REVIEW`
+`CM-PUBLISHED-CHECK` `HEADLINE-PREMISE-SCOPE` `HEADLINE-PREMISE-APPLY` `STAKES-EXOGENOUS`
+`KG-FEASIBILITY-GATE` `STAKES-SHIFT-CAISO` `CAISO-PROXY-DEFS` `HEADLINE-PREMISE-REVIEW`
+`CAUSAL-KILL-INPUTS` `CAUSAL-POWER-GATE` `CAUSAL-KAPPA-LENIENCY` `CAUSAL-OVER-RESPONSE`
+`SENSE-CELL-MATCHED` `SENSE-CELL-EFFORT` `SG-SCORE` `WHOLE-THEORY-REVIEW`
+`N52-N53-SWEEP` `MV9-DECISION` `N51-LAB-PREREG` `LOCK-V1.5`
