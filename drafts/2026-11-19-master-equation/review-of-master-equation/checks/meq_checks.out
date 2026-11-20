@@ -1,0 +1,41 @@
+== S1 CT12: K=1, kappa=0, g=0, hold-last-value, exact reads ==
+ mean error over cycle: T**(alpha - 1)*q/alpha
+ T* = [(alpha*c/(q*w*(alpha - 1)))**(1/alpha)]
+ matches CT12 T*: False
+  elasticity of read rate in w: 1/alpha
+  elasticity of read rate in q: 1/alpha
+  elasticity of read rate in c: -1/alpha
+ second derivative >0 (alpha>1): (2*T**alpha*q*w + alpha*(T**alpha*alpha*q*w - 3*T**alpha*q*w + 2*c))/(T**3*alpha)
+ J* at alpha=2: sqrt(2)*sqrt(c)*sqrt(q)*sqrt(w)  (inventory sigma*sqrt(2cw) with q=sigma^2)
+ CT13 penalty J(kT*)/J*: (q*w*(k*(1/(q*w*(alpha - 1)))**(1/alpha))**alpha + 1)/(k*(q*w*((1/(q*w*(alpha - 1)))**(1/alpha))**alpha + 1)) -> at a=2: (k**2 + 1)/(2*k)
+
+== S2 CT7: read term re-priced per nat acquired (lam per nat), world sigma^2 random walk ==
+ D* = sqrt(2)*sqrt(lambda)*sigma/(2*sqrt(w))  J* = sqrt(2)*sqrt(lambda)*sigma*sqrt(w)
+ -> with lam=kT: sigma*sqrt(2 kT w). Note: this is a LOWER BOUND over trackers whose learning rate <= entropy production; it uses a per-nat price, not c_k*f_k per read.
+
+== S3 L1-L3: J_K = hK + w E_K (sensing priced by fixed noise density N; read rates not chosen) ==
+ two OU modes a=[1.0, 0.1], v=[0.5, 0.5], N=0.1: E_inf=0.265728 E_1=0.268816 E_2=0.265728  eps1=1.162%  R*=86.0
+ monotone comparative statics: K* over w/h grid:
+   R=    1: J1=2.012 J2=3.000 K*=1
+   R=   10: J1=11.116 J2=12.000 K*=1
+   R=   30: J1=31.349 J2=32.000 K*=1
+   R=  100: J1=102.162 J2=102.000 K*=2
+   R=  300: J1=304.487 J2=302.000 K*=2
+   R= 1000: J1=1012.622 J2=1002.000 K*=2
+
+== S4 Theorem L vs the chance constraint P(ruin)<=eps (diffusion approx, GENERAL_THEOREM s5 setting) ==
+ cost-optimal (EOQ) tau=0.3162; survival-optimal argmax theta tau=0.2362; theta(EOQ)=13.602, theta_max=14.201
+ constrained: min expected cost s.t. theta(tau) >= ln(1/eps)/B  (sufficient via Lundberg P<=e^-thetaB), eps=0.001
+   B=  0.5: binding, tau*=0.2990 (between 0.236 and EOQ 0.316); cost premium=0.00049; multiplier mu=0.00523 per unit theta; value of buffer dJ*/dB=-0.14454
+   B=  0.8: constraint slack, tau*=EOQ 0.3162, multiplier 0
+   B=  1.0: constraint slack, tau*=EOQ 0.3162, multiplier 0
+   B=  1.5: constraint slack, tau*=EOQ 0.3162, multiplier 0
+   B=    3: constraint slack, tau*=EOQ 0.3162, multiplier 0
+   B=   10: constraint slack, tau*=EOQ 0.3162, multiplier 0
+ Note: argmax theta does not depend on B (L3); in the CONSTRAINED form B enters through theta_min, and large B makes the constraint slack -> EOQ.
+ Policy-insensitive variance check (s0 large):
+   s0=3.0: argmax theta=0.3139 vs EOQ 0.3162
+
+== S5 recursion/closure: pooled tracker in power class phi = k p^(1-a) W^a q^b ==
+ R1(alpha=2) phi(W,q) = sqrt(2cWq): sqrt(2)*sqrt(W)*sqrt(c)*sqrt(q)
+ n identical members pooled into one level: phi(nW, q) / (n phi(W,q)) = n**(a - 1) -> n^(a-1): pooling gain grows with n since a<1

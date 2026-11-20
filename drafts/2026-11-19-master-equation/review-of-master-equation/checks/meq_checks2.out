@@ -1,0 +1,25 @@
+== CT12 numeric check of T* and CT13 penalty at several alpha ==
+ alpha=1.3: numeric T*=3.478249 formula 3.478249 | penalty at k=2: 1.062419 formula 1.062419
+ alpha=1.6: numeric T*=2.032695 formula 2.032695 | penalty at k=2: 1.134823 formula 1.134823
+ alpha=2.0: numeric T*=1.527525 formula 1.527525 | penalty at k=2: 1.250000 formula 1.250000
+ alpha=2.5: numeric T*=1.304723 formula 1.304723 | penalty at k=2: 1.431371 formula 1.431371
+ alpha=2.9: numeric T*=1.220143 formula 1.220143 | penalty at k=2: 1.614528 formula 1.614528
+
+== Chance constraint: finer B grid ==
+ B=0.45: infeasible
+ B=0.4864: infeasible
+ B=0.49: tau*=0.2674
+ B=0.5: tau*=0.2990
+ B=0.505: tau*=0.3104
+ B=0.508: slack -> EOQ
+ feasibility edge B_min=ln(1/eps)/theta_max=0.4864; slack edge B=ln(1/eps)/theta(EOQ)=0.5079
+
+== Engineer example: demand tracker, two modes (fast ~3 d, slow ~90 d) seen in daily noise ==
+ E_inf=1762.7 E_1=1796.3 (tau_1=[2.22469511]) E_2=1762.7 (taus=[6.92134103 1.45012061]) days; eps1=1.91%
+ second layer pays iff w > h/(E1-E2) = 1.1911 $/(unit^2 day)
+  w=0.005: saving w(E1-E2)=0.2 $/day vs h=40.0 -> K*=1
+  w=0.02: saving w(E1-E2)=0.7 $/day vs h=40.0 -> K*=1
+  w=0.1: saving w(E1-E2)=3.4 $/day vs h=40.0 -> K*=1
+ read interval for a hold-last-value dashboard of a fBm-like metric (CT12):
+  alpha=1.5, q=50.0, c=$25.0/read, w=0.02: T*=17.78 days; doubling w changes T* by x0.630
+  alpha=2.0, q=50.0, c=$25.0/read, w=0.02: T*=7.07 days; doubling w changes T* by x0.707

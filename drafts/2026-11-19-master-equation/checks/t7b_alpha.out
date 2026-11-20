@@ -1,0 +1,14 @@
+alpha=1.2 span=e^6.9 K=3: optimal widths/equal = [1. 1. 1.]  cost opt/equal = 1.000000
+alpha=1.2 span=e^11.5 K=5: optimal widths/equal = [1. 1. 1. 1. 1.]  cost opt/equal = 1.000000
+alpha=1.5 span=e^6.9 K=3: optimal widths/equal = [1. 1. 1.]  cost opt/equal = 1.000000
+alpha=1.5 span=e^11.5 K=5: optimal widths/equal = [1. 1. 1. 1. 1.]  cost opt/equal = 1.000000
+alpha=2.0 span=e^6.9 K=3: optimal widths/equal = [1. 1. 1.]  cost opt/equal = 1.000000
+alpha=2.0 span=e^11.5 K=5: optimal widths/equal = [1. 1. 1. 1. 1.]  cost opt/equal = 1.000000
+alpha=2.5 span=e^6.9 K=3: optimal widths/equal = [1. 1. 1.]  cost opt/equal = 1.000000
+alpha=2.5 span=e^11.5 K=5: optimal widths/equal = [1. 1. 1. 1. 1.]  cost opt/equal = 1.000000
+alpha=2.9 span=e^6.9 K=3: optimal widths/equal = [1. 1. 1.]  cost opt/equal = 1.000000
+alpha=2.9 span=e^11.5 K=5: optimal widths/equal = [1. 1. 1. 1. 1.]  cost opt/equal = 1.000000
+alpha=1.2: min second difference of psi on grid = 9.996e-05 (>=0 means convex)
+alpha=1.5: min second difference of psi on grid = 2.502e-04 (>=0 means convex)
+alpha=2.5: min second difference of psi on grid = 7.519e-04 (>=0 means convex)
+alpha=2.9: min second difference of psi on grid = 9.524e-04 (>=0 means convex)
