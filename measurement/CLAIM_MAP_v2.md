@@ -308,7 +308,7 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 |---|---|---|---|---|
 | J1 | Same constants (Π* ≈ 4, V ≈ 2, 29%) on every substrate | KILLED | **MATH-CORRECTED** | Constants are functions of (a, b) and H. Replacement: J6 (same *relations*, with measured classes) |
 | J2 | −1 onset is a universality class | KILLED | **MATH-CORRECTED** | It is a Buckingham-Π homogeneity identity |
-| J3 | GTAO is a law | OPEN | **WITHDRAWN** | **Withdrawn by decision** (Chad: never call it a law). GTAO is a general causal theory |
+| J3 | GTAO is a law | OPEN | **WITHDRAWN** | **Restated 20 Nov 2026** (Chad: no locked sentences; earlier decision "never call it a law" superseded). GTAO as a whole is a general causal theory and is not called a law; only its hypothesis sentence, "The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment" (THEORY §3), carries the word, and it earns the word without the qualifier only if the tests in THEORY §4 and §8 pass |
 | J4 | Cross-substrate recursive organization (qualitative) | PRIOR ART | **PRIOR ART** | Beer's VSM |
 | J5 | 'Nobody has stated them across substrates' | KILLED | **WITHDRAWN** | Should read 'not quantitatively' |
 | J6 | Same (a, b) exponent relation in each substrate, with independently measured classes | OPEN | **OPEN** | The theory's real cross-substrate content (FRAMEWORK §1.4, §3.11) |
@@ -459,7 +459,7 @@ The numbered results of `THEORY.md` v2.0 (Appendix B). **CT** = core theorem (pr
 | CL8 → K9 | √N fade of pooled deposits on a drifting target | — | **PRIOR ART** | Alias; counted as K9 (application K10 PROXY-FAIL) |
 | CL9 → N33 | Finite-horizon form of Theorem P | — | **PROVED (in-model)** | Alias; counted as N33 |
 | CL10 | Internal-model bound (I1–I3): the forecast miss equals the predictive information the memory fails to carry; with separation γ_L, P(model ≠ world's causal state) ≤ √(2δ)/γ_L | new (v2.49) | **PROVED (in-model)** | `theory/INTERNAL_MODEL.md` §2; checks i1. Probably folklore in parts (Shalizi & Crutchfield at δ = 0); novelty unconfirmed; self-checked only |
-| CL11 → K17 | Drift reduction substitutes for tracking (a lever booked in part 3 of the bill) | — | **OPEN** | Alias; counted as K17 |
+| CL11 → K17 | Drift reduction substitutes for tracking (a lever booked in part 3 of the cost) | — | **OPEN** | Alias; counted as K17 |
 | CX1 | Theorem P (CT1–CT4) extends to worlds with stationary increments (random walk, fBm), the setting of CT9–CT19 | new (v2.49) | **OPEN** | The scalar Gaussian data-rate bound (Nair & Evans 2004; Tatikonda & Mitter 2004; `theory/INTERNAL_MODEL.md` §4) is a known partial bridge; no general proof (LOAD_BEARING X3) |
 | CT20 | Master Theorem (i)–(ii), restated in v2.4: in 𝓜_LG a best design exists (K\* ≤ J(𝒟₁)/h); **with the sensing held fixed and the ruin constraint slack or absent**, for every world and every loss K\* is nondecreasing in w/h; one layer's read rate f\* is nondecreasing in w/c. With the read rates chosen, K\* can fall as stakes rise (the referee's counterexample), while judgment spend rises (CT33) | new (v2.50; restated v2.4) | **PROVED (in-model)** | Weierstrass; Topkis 1978 and Milgrom & Shannon 1994 (KNOWN tools). `THEORY.md` B.9; `theory/MASTER_EQUATION.md` §1; `theory/meq_checks/meq_derive.py`; counterexample in `scope_checks.py` §1. Not yet independently reviewed |
 | CT21 | Layers L1–L3 (linear-Gaussian, noisy sensing, squared error), counted by degree: one real pole ⇒ K\* ∈ {0, 1}; J separated real modes ⇒ at most J layers at every lead, exactly J at zero lead once R = wE_∞/h is large, layers beat flat iff R > R\* = min_K (K−1)/(Δ₁ − Δ_K); each layer's rate lies above its mode's (interlacing, proved in v2.4); a rhythm (complex poles) is two layers by degree and is not a finite set of real first-order stores; a non-rational spectrum has no exact finite design | new (v2.50; restated v2.4) | **PROVED (in-model)** | `theory/LAYERS.md` §2 (spectral factorization; L1 and L3's exactness KNOWN: Kalman–Bucy 1961, rational-spectrum realization); `theory/layers_checks/`; `scope_checks.py` §4, §8. **Not yet independently reviewed** (GAPS G4, G8) |
@@ -537,7 +537,7 @@ The table counts the 167 v2 rows only (section N and rows G23–G29 are not in i
 - Ten older field tests that had no row of their own are added as H11–H20 (the τ tests, BIO1, COLLAPSE1, MATCH1 D3, DRIFT1). Most are PROXY-FAIL, and the τ tests are out of scope for the structural core.
 - Proof-level kills are relabeled **MATH-CORRECTED**: E5 (V ≥ 2), B10, E2, F9, F11, J1, J2, K18 and others. Locked simulation fails are relabeled **SIM-FAIL**: G6, G9, G15–G17, G20.
 - Chad's decisions are recorded:
-  - J14 (keep the title) and J3 (never 'law') are **DECIDED** / **WITHDRAWN**.
+  - J14 (keep the title) and J3 (GTAO as a whole is not called a law; only the hypothesis sentence carries the word) are **DECIDED** / **WITHDRAWN**.
   - The physics claim is restated as J10′ (floors at every level, binding where β_phys ≈ 1).
   - The free-energy special case is K1′.
   - The 'same three costs' framing is J16 (definitional in the model; OPEN as an empirical claim since v2.4).
