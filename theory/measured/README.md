@@ -182,3 +182,5 @@ and a preregistered band before any period table is opened.
 **Update (v2.57).** Testbed ranking with open data (`TESTBEDS.md`); GRID-1 (CE reserve layers vs open-loop imbalance spectrum) preregistered at `4820d91`, not yet run: the German second-wise NRV file is behind a form postback (`grid/RESULTS_GRID1.md`).
 
 **Update (v2.58).** GRID-1 on public 2022 German data: INVALID by premise (mFRR coverage); count and fast arms INVALID in advance (closed loop, no tie-line data). GRID-1b slow arm PROXY-PASS (slowest world mode 65 min vs slowest layer 15 min; 'set at' rival does not pass). GRID-2 (GB) preregistered. `grid/RESULTS_GRID1.md`.
+
+**Update (v2.59).** GRID-2 (GB): count by degree FAILS on proxy (random-walk imbalance, γ = 2.09, one layer predicted, four run); diagnosed as outside (iii)'s premises (actuator/ruin-tiered layers, noiseless reads). GRID-S: the market-step account of the German 65-min mode fails in GB; the German 2026 arm is blocked. GRID-3 preregistered. `grid/RESULTS_GRID2.md`.
