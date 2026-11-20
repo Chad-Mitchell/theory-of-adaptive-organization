@@ -58,7 +58,7 @@ E1-a gives 1.9–3.6 s against the measured 9.9 s: the store's own noise closes 
 1.1 s and 9.9 s. Explaining the rest by E2 alone needs H/W ≈ 0.67–0.74 (speed price comparable to the whole value of
 tracking at that gradient). E1-a alone would need s ≈ 0.10. Neither number is measured; both are stated so they can be.
 
-## 4. What changes in the Master Theorem (proposed; THEORY.md is not edited by this note)
+## 4. What changes in the Master Theorem (proposed; THEORY v2.5.4 takes up only the interlacing premise below, in §1, §6, (iii) and Appendix C; the copy-count reading of (iii) and many-mode interlacing under store noise are not yet taken up)
 - **Scope.** 𝓜_LG's premises "exogenous noise" and "fixed upkeep per layer" are now named as premises, not defaults.
 - **(iii) interlacing.** "At the full optimum every layer is faster than its mode" holds in 𝓜_LG. In Model S+ it holds
   for a one-store layer iff s ≥ 1/2 at h1 = 0 (E1-a); with s < 1/2 or h1 > 0 the optimal store is **slower** than its mode.
