@@ -13,11 +13,13 @@ diagnosis is specific: the noise that binds the cell is produced by its own memo
 11.75 s ≈ memory 9.9 s; physical counting noise is at most 0.02% of it), and the theory's Model S has no term for a store's
 own noise. If a store's noise has a fixed stationary variance (a copy-number limit), the same cost puts the optimum at
 16–62 s in the lab's gradients and at 9.9 s for gradients of 0.65 mm⁻¹, and predicts the optimum shortens as 1/g; a
-published, data-calibrated simulation finds exactly that 1/g law, by a different mechanism, and no measurement yet
+published, data-calibrated simulation finds exactly that 1/g scaling, by a different mechanism, and no measurement yet
 decides it. So: **failed on this proxy/setup; diagnosed cause: a missing internal-noise term (the store's own noise);
 next test: how kinase noise scales when the adaptation time is changed (F2).** No kill condition is met: this is not a
 qualifying test of the class (no closed cost list, no fitness map). The human-scale arm is **untested**: no dataset
 measures both judgment spend and the cost of being wrong.
+
+**Dated note (v2.61, 20 Nov 2026, review 27 item M2).** Tjalma & ten Wolde 2024 (Phys. Rev. Research 6, 033049, doi 10.1103/PhysRevResearch.6.033049, CC BY; DOI verified on Crossref; read in full as arXiv:2402.05825v1, because the journal PDF returned 403 to curl, so the published text may differ in detail) study the same quantity with the same input statistics (Mattingly et al. 2021: τv = 1/0.86 s, σ²vx = 157 µm² s⁻²). Their objective differs from ours. The network predicts the future concentration change v(t0 + τ) (forecast interval τ = τv in their figures), and the error has two parts: a sampling error (readout counts, plus methylation noise in the receptor clusters, whose variance does not average out with τm, their Eq. 21) and a dynamical error. The optimal adaptation time comes from that trade-off. It shortens with more resources and scales approximately as 1/g with gradient steepness (their Eq. 29). With their MWC resource estimates (XT = 10⁴, RT = 8, Nr = 12), the measured τm ≈ 10 s (τm/τv ≈ 8) is "close to optimal for g ≲ 4 mm⁻¹" (their Fig. 3c). **Consequence here:** the ×8.5 F1/P1 FAIL stands as preregistered, but it reflects our choice of objective (estimate the current u at lead 0, with the measured noise treated as exogenous sensing noise). A published account, with a prediction objective and internal noise that does not average out, puts the optimum near the measured 10 s, so it may explain the remaining factor. I have not reproduced their calculation. Their 1/g scaling is an analytic statement of F1's predicted direction, by a mechanism different from Vladimirov et al. 2008. It is still not a measurement. The headline above ("failed on this proxy/setup") stands, read with this qualifier: the failure is conditional on our objective.
 
 **Update (v2.55, after F2 was scored).** The decisive premise is now measured, and it splits the difference: E. coli's
 store noise grows with its memory as σ ∝ τ^0.31 (95% CI 0.24–0.37; Park et al. 2010, nine conditions; a single-cell
@@ -143,7 +145,7 @@ from the raw inputs above.
 2. The decisive arm (B) is conditional on an unmeasured premise; I did not get to choose the noise model after the fact,
    but arm C was named as a diagnostic in advance, and it is the one that comes close. Arm C was **not** a scored prediction
    and must not be read as a pass.
-3. The 1/g law in F1 is shared with a rival mechanism, so its agreement is weak evidence even if measured.
+3. The 1/g scaling in F1 is shared with a rival mechanism, so its agreement is weak evidence even if measured.
 4. The R coordinate is a proxy spanning two decades, with an assumed total proteome; benefit numbers were read from text,
    not figures. The x-axis placement is the weakest number here.
 5. Lab strain, lab ligand (MeAsp, non-metabolizable), lab gradients: the selection condition (strongly selected in *this*

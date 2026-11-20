@@ -28,7 +28,7 @@ Friday 20 November 2026. Rules locked in `PREREG_D.md` (`fc83d62`) before `d/d_c
   direction). I found no measurement of chemoattractant time scales in E. coli's habitats.
 
 ## Status in the required form
-Remaining factor of about 4: **drift objective ruled out as the cause** (D1 opposite direction; D2 identical to tracking). Two
+Remaining factor of about 4: **drift objective ruled out as the cause within the linear, gain-bounded regime** (D1 DOES NOT EXPLAIN, opposite direction; D2 NEITHER, identical to tracking; a nonlinear-motor objective is untested). Two
 causes remain, both untested by direct measurement: **speed-priced upkeep** (consistent only at the cheap-benefit corner)
 and **slow habitat modes** (needs a 20–30 s mode with 6–10% of the variance). **Discriminating test (Y4, preregistered in `PREREG_Y4.md` before any data were looked for):** de-energization (Lan et al.)
 does not discriminate, because a starved cell slows mechanically under either cause. Benefit does discriminate. E2 says a
@@ -39,3 +39,6 @@ benefit. Ni et al. 2020 vary the benefit by carbon source, from near zero on glu
 No open source found that measures E. coli's adaptation time in ≥ 3 growth conditions with the same method (searched FRET
 and motor-assay literature; Ni et al. 2020 measure motility investment and benefit, not adaptation time). The
 measurement that would score Y4: FRET step responses in cells grown in Ni et al.'s carbon sources.
+
+
+**Dated note (v2.61, 20 Nov 2026, review 27 item M2): a candidate not considered in PREREG_D.** Tjalma & ten Wolde 2024 (Phys. Rev. Research 6, 033049, doi 10.1103/PhysRevResearch.6.033049, CC BY; DOI verified on Crossref; read in full as arXiv:2402.05825v1, because the journal PDF returned 403 to curl, so the published text may differ in detail) study the same quantity with the same input statistics (Mattingly et al. 2021: τv = 1/0.86 s, σ²vx = 157 µm² s⁻²). Their objective differs from ours. The network predicts the future concentration change v(t0 + τ) (forecast interval τ = τv in their figures), and the error has two parts: a sampling error (readout counts, plus methylation noise in the receptor clusters, whose variance does not average out with τm, their Eq. 21) and a dynamical error. The optimal adaptation time comes from that trade-off. It shortens with more resources and scales approximately as 1/g with gradient steepness (their Eq. 29). With their MWC resource estimates (XT = 10⁴, RT = 8, Nr = 12), the measured τm ≈ 10 s (τm/τv ≈ 8) is "close to optimal for g ≲ 4 mm⁻¹" (their Fig. 3c). **Consequence here:** the ×8.5 F1/P1 FAIL stands as preregistered, but it reflects our choice of objective (estimate the current u at lead 0, with the measured noise treated as exogenous sensing noise). A published account, with a prediction objective and internal noise that does not average out, puts the optimum near the measured 10 s, so it may explain the remaining factor. I have not reproduced their calculation. Their 1/g scaling is an analytic statement of F1's predicted direction, by a mechanism different from Vladimirov et al. 2008. It is still not a measurement.
