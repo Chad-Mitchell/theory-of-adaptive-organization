@@ -164,3 +164,13 @@ D(t) = A(t) + M(t) is an open-loop reading of the German imbalance. The frequenc
 - The "FCR term dominates" rule is moot in this band (β·Δf is not used) and is replaced by the setpoint
   check above.
 - The frequency file is not used by any valid arm; it is not opened for values.
+
+## Deviation DV2 (implementation; before any spectrum)
+Two attempted runs of `grid1_run.py` stopped at the premise step because of parsing bugs (the QA files use
+"." as a thousands separator and "N.A." entries; the setpoint quarters were first aligned by position). Printed
+so far: setpoint 15-min coverage 0.987 and its variance (7.8×10⁴ MW²); no spectrum, fit or corner. Fixes:
+(1) quarters are joined by (date, start time, occurrence) so missing quarters and the duplicated DST hour align;
+(2) the `Deutschland` column is N.A. for 1 Mar–30 Jun 2022 (11,708 quarters, 33 %), which would fail the
+90 % coverage rule as written; the four TSO columns are complete and their sum equals `Deutschland` exactly
+wherever both exist (max |difference| 2×10⁻¹³ MW, aFRR and mFRR, both signs), so M_15 and the QA aFRR check
+use the sum of the four TSO columns. This is the same quantity, not a new proxy; no rule changes.

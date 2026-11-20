@@ -1,0 +1,11 @@
+{
+ "premise": {
+  "n_quarters": 35040,
+  "key_match": 0.0,
+  "coverage_A": 0.0,
+  "coverage_M": 0.0,
+  "corr_setpoint_vs_QA": NaN,
+  "var_A": NaN,
+  "var_M": NaN
+ }
+}
