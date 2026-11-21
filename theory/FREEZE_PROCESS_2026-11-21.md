@@ -1,6 +1,6 @@
 # FREEZE_PROCESS: is freezing a continuous limit of holding under the cost equation?
 
-Saturday 21 November 2026, about 10:00 AM to 11:00 AM ET (America/New_York). Written by a Grok Bot executor for Chad Mitchell. Branch `freeze-process-2026-11-21`. Derivation file only: it does **not** edit `CORE.md`, `THEORY.md`, the claim map, or the hypothesis sentence. Not reviewed yet. Nothing was posted or sent.
+Saturday 21 November 2026, about 10:00 AM to 11:00 AM ET (America/New_York). Written by a Grok Bot executor for Chad Mitchell. Branch `freeze-process-2026-11-21`. Derivation file only: it does **not** edit `CORE.md`, `THEORY.md`, the claim map, or the hypothesis sentence. Independent review is in `reviews/freeze_2026-11-21/REVIEW.md` (READY-WITH-FIXES); S1–S3 are applied on this branch. Nothing was posted or sent.
 
 **Question (Chad, 21 Nov).** Protons and crystals were not always here. Frozen states may be held states that froze as their world cooled or slowed. Is freezing a *process* that the same cost equation describes over time, rather than only a static corner?
 
@@ -20,7 +20,7 @@ Saturday 21 November 2026, about 10:00 AM to 11:00 AM ET (America/New_York). Wri
 - **KNOWN:** prior art, with the citation checked.
 - **OPEN:** not done.
 
-None of the results is claimed as new. Each is elementary, and "UNCONFIRMED novelty" means only that the targeted grep and my knowledge found no prior statement.
+None of the results is claimed as new. Each is elementary. Labels that originally read "UNCONFIRMED novelty" were downgraded in review (S3) to KNOWN / novelty 0 or 0–1; see §8.
 
 **Checks.** `theory/freeze_process_checks/freeze_process.py`, with its output saved as `freeze_process.out` (numpy 2.5.5, scipy 1.18.1; about 2 s at nice 19). All checks pass. One first-run prediction failed and is kept as data (§6.4).
 
@@ -111,7 +111,7 @@ This reduces to q_f at h_m = 0. At q\*, the held optimum has T\* < H.
 - refresh effort jumps down by exactly **√(h_m/(cH))**;
 - J\* is continuous, but its slope jumps from WT\*/2 to WH/2.
 
-In Ehrenfest's language this is first order, with a "latent" jump that vanishes as √h_m. h_m = 0 is the continuous endpoint. **Checks (S2):** closed form against root-finding at h_m = 10⁻⁴ … 10⁻¹, matching to 10⁻⁸. For example, at h_m = 10⁻², q\* = 0.017325 and the effort jump is 0.03162.
+In Ehrenfest's language this is first order, with a "latent" jump that vanishes as √h_m. h_m = 0 is the continuous endpoint. **Checks (S2):** closed form against root-finding at h_m = 10⁻⁴ … 10⁻¹, matching to 10⁻⁸. For example, at h_m = 10⁻², q\* = 0.017325 and the effort jump is 0.03162. The closed form is elementary algebra (**novelty 0**).
 
 **Reading.** Whether a system freezes gradually or abruptly as its world slows is set by whether its tracking apparatus carries a fixed cost that freezing sheds. A cell that keeps a sensing pathway expressed, a firm that keeps a monitoring department, or a genome that keeps a repair system are the h_m > 0 cases. For those, the model predicts an abrupt shutdown at a drift above q_f, not a gradual fade. This prediction is OPEN (no test is designed).
 
@@ -195,7 +195,7 @@ dx/dt = −(x − x\*(t)) / τ_a(q(t)).
 
 This is a mathematical parallel only. There is no critical point here. The freeze happens where the rates go to zero, as in cosmological freeze-out.
 
-**Prediction (OPEN, not preregistered).** This extends CLAIM_MAP N35 (lines moved to a buffered medium invest less in sensing). Lines whose medium is buffered *abruptly* should keep more relic sensing or regulation investment than lines buffered *gradually* to the same end state. The relic should scale as a power of the ramp time. Loss of unused regulation under relaxed selection is already known (Lahti et al. 2009; litmap's Mitchell et al. 2009). The ramp-time dependence is the only possibly new part.
+**Prediction (OPEN, not preregistered).** This extends CLAIM_MAP N35 (lines moved to a buffered medium invest less in sensing). Lines whose medium is buffered *abruptly* should keep more relic sensing or regulation investment than lines buffered *gradually* to the same end state. The relic should scale as a power of the ramp time. Loss of unused regulation under relaxed selection is already known (Lahti et al. 2009; litmap's Mitchell et al. 2009). The power-law dependence on ramp time is the Kibble–Zurek / annealing analogue (**ANALOGY**). The GTAO-specific piece is the exponents (α, ζ) and the explicit γ_E prefactor in this ODE, and it is untested.
 
 ---
 
