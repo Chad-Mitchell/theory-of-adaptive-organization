@@ -8,10 +8,10 @@ pp.unicode.fun = true
 relaxedAutoImplicit = false
 maxSynthPendingDepth = 3
 # This is a small formalization, not a Mathlib contribution.
+# Style linters are off; unused-variable / unused-section-var linters stay on.
 linter.style.header = false
 linter.style.longLine = false
 linter.mathlibStandardSet = false
-linter.unusedSectionVars = false
 
 [[require]]
 name = "mathlib"

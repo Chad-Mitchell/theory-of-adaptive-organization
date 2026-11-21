@@ -83,11 +83,13 @@ def ParentOptimal (F : X → ℝ) (G : Y → Θ → ℝ) (θ : X → Θ) (x : X)
 noncomputable def parentReduced (F : X → ℝ) (G : Y → Θ → ℝ) (θ : X → Θ) (x : X) : ℝ :=
   F x + JstarT G (θ x)
 
+omit [Fintype X] [Nonempty X] in
 lemma parentReduced_le (F : X → ℝ) (G : Y → Θ → ℝ) (θ : X → Θ) (x : X) (y : Y) :
     parentReduced F G θ x ≤ parentTeamJ F G θ x y := by
   simp only [parentReduced, parentTeamJ]
   linarith [JstarT_le G (θ x) y]
 
+omit [Fintype X] [Nonempty X] in
 /-- CT34 (i), exactness: a joint minimizer is a parent minimizer of the reduced
 cost together with a team minimizer at the parameter the parent passed, and
 conversely. -/
@@ -116,6 +118,7 @@ theorem jointOptimal_iff (F : X → ℝ) (G : Y → Θ → ℝ) (θ : X → Θ) 
       _ ≤ parentReduced F G θ x' := hP x'
       _ ≤ parentTeamJ F G θ x' y' := parentReduced_le F G θ x' y'
 
+omit [Fintype X] [Nonempty X] in
 /-- CT34 (i), values: the joint minimum equals the reduced parent minimum. -/
 theorem exact_nesting_value (F : X → ℝ) (G : Y → Θ → ℝ) (θ : X → Θ) (x : X) (y : Y)
     (h : JointOptimal F G θ x y) :
@@ -123,6 +126,7 @@ theorem exact_nesting_value (F : X → ℝ) (G : Y → Θ → ℝ) (θ : X → �
   have hT : IsTeamMin G (θ x) y := ((jointOptimal_iff F G θ x y).mp h).2
   simp only [parentTeamJ, parentReduced, hT.JstarT_eq]
 
+omit [Fintype X] [Nonempty X] in
 /-- CT34 (ii): if the parent passes a parameter that does not depend on its
 own design, the team's optimized cost is a constant (an upkeep), and the
 parent's argmin is the argmin of `F` alone. -/
@@ -249,8 +253,10 @@ theorem weak_coupling_gap (F : X → ℝ) (G : Y → ℝ) (Φ : X → Y → ℝ)
   exact ⟨hU, by linarith⟩
 
 /-- Parent regret from optimizing the frozen cost: if `x₀` minimizes the
-frozen cost and `x*` minimizes the true `y`-minimum, the joint-cost regret
-is at most `(ε L) ^ 2 / (2 μ)`. -/
+frozen cost, the joint-cost gap to any comparison design `xStar` is at
+most `(ε L) ^ 2 / (2 μ)`.  The intended CT34 (iii) reading takes `xStar`
+to be a joint minimizer of the true cost; the same bound holds for an
+arbitrary comparison point, so that hypothesis is not required. -/
 theorem weak_coupling_parent_regret (F : X → ℝ) (G : Y → ℝ) (Φ : X → Y → ℝ)
     (ε μ L : ℝ) (y0 : Y) (dist : Y → ℝ) (hμ : 0 < μ) (hε : 0 ≤ ε)
     (hstrong : ∀ y : Y, G y0 + μ / 2 * (dist y) ^ 2 ≤ G y)
@@ -259,9 +265,7 @@ theorem weak_coupling_parent_regret (F : X → ℝ) (G : Y → ℝ) (Φ : X → 
     (hymin : ∀ x : X, ∀ y' : Y,
       coupledJ F G Φ ε x (ymin x) ≤ coupledJ F G Φ ε x y')
     (x0 xStar : X)
-    (hx0 : ∀ x' : X, frozenCost F G Φ ε y0 x0 ≤ frozenCost F G Φ ε y0 x')
-    (_hxStar : ∀ x' : X,
-      coupledJ F G Φ ε xStar (ymin xStar) ≤ coupledJ F G Φ ε x' (ymin x')) :
+    (hx0 : ∀ x' : X, frozenCost F G Φ ε y0 x0 ≤ frozenCost F G Φ ε y0 x') :
     coupledJ F G Φ ε x0 (ymin x0) - coupledJ F G Φ ε xStar (ymin xStar)
       ≤ (ε * L) ^ 2 / (2 * μ) := by
   have h_x0_le : coupledJ F G Φ ε x0 (ymin x0) ≤ frozenCost F G Φ ε y0 x0 :=

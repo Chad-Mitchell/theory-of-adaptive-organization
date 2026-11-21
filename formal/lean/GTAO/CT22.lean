@@ -23,10 +23,11 @@ From THEORY.md Appendix B.9 (CT22):
 THEORY is explicit that "no design is feasible below \(B_{\min}\)" means no
 design is *certified* by the Lundberg bound (a sufficient condition), not
 that every design ruins.  This file formalizes that certified-feasibility
-comparison, and the observation that once \(\mathcal D_E\) is certified it
-is also a constrained optimum (no KKT needed).  The in-between binding
-region, the multiplier \(\mu_s=-m'/\theta'\), and quasiconvexity hypotheses
-are **not** formalized.
+comparison, and composes it with certification at \(B_{\mathrm{slack}}\):
+for \(B\ge B_{\mathrm{slack}}\), the expected-cost optimum is certified
+and is therefore a constrained optimum.  The in-between binding region,
+the multiplier \(\mu_s=-m'/\theta'\), and quasiconvexity hypotheses are
+**not** formalized.
 -/
 
 @[expose] public section
@@ -57,9 +58,19 @@ lemma log_one_div_pos {ε : ℝ} (hε0 : 0 < ε) (hε1 : ε < 1) :
     0 < Real.log (1 / ε) :=
   Real.log_pos (one_lt_one_div hε0 hε1)
 
-/-- CT22: below `Bmin`, no design is Lundberg-certified. -/
+/-- Under the standing hypotheses `0 < ε < 1` and `0 < max θ`, `Bmin` is
+positive, so the range `0 ≤ B < Bmin` is nonempty. -/
+lemma Bmin_pos (θ : 𝒟 → ℝ) {ε : ℝ} (hε0 : 0 < ε) (hε1 : ε < 1)
+    (hθ : 0 < thetaMax θ) :
+    0 < Bmin θ ε :=
+  div_pos (log_one_div_pos hε0 hε1) hθ
+
+/-- CT22: below `Bmin`, no design is Lundberg-certified.  The comparison
+is algebraic in `log(1/ε)` and does not need `0 < ε < 1`; THEORY assumes
+that range so that `Bmin` is positive (`Bmin_pos`) and the interval
+`0 ≤ B < Bmin` is inhabited. -/
 theorem not_certified_below_Bmin (θ : 𝒟 → ℝ) {ε B : ℝ}
-    (_hε0 : 0 < ε) (_hε1 : ε < 1) (hθ : 0 < thetaMax θ)
+    (hθ : 0 < thetaMax θ)
     (hB0 : 0 ≤ B) (hB : B < Bmin θ ε) (d : 𝒟) :
     ¬ LundbergCertified θ ε B d := by
   intro hcert
@@ -73,6 +84,7 @@ theorem not_certified_below_Bmin (θ : 𝒟 → ℝ) {ε B : ℝ}
   have : θ d * B < Real.log (1 / ε) := by linarith [hprod, hstrict, hcancel]
   exact (not_le_of_gt this) hcert
 
+omit [Fintype 𝒟] [Nonempty 𝒟] in
 /-- CT22: at or above `Bslack`, the expected-cost optimum `dE` is certified,
 provided its own exponent is positive. -/
 theorem certified_at_Bslack (θ : 𝒟 → ℝ) (ε : ℝ) {dE : 𝒟} {B : ℝ}
@@ -85,19 +97,26 @@ theorem certified_at_Bslack (θ : 𝒟 → ℝ) (ε : ℝ) {dE : 𝒟} {B : ℝ}
   simp only [LundbergCertified]
   linarith
 
-/-- Once the unconstrained expected-cost optimum is certified, it is also
-optimal among certified designs: the ruin cap is slack. -/
-theorem expected_cost_opt_is_constrained_opt
-    (J : 𝒟 → ℝ) (θ : 𝒟 → ℝ) (ε B : ℝ) {dE : 𝒟}
+omit [Fintype 𝒟] [Nonempty 𝒟] in
+/-- CT22, slack case: for `B ≥ B_slack`, the expected-cost optimum `dE`
+is Lundberg-certified and is therefore optimal among certified designs.
+Composes `certified_at_Bslack` with the observation that an unconstrained
+minimizer is a constrained minimizer once it is feasible.  No KKT is
+used; the binding region is not formalized. -/
+theorem expected_cost_opt_at_or_above_Bslack
+    (J : 𝒟 → ℝ) (θ : 𝒟 → ℝ) (ε : ℝ) {dE : 𝒟} {B : ℝ}
     (hE : ∀ d : 𝒟, J dE ≤ J d)
-    (_hFeas : LundbergCertified θ ε B dE) :
-    ∀ d : 𝒟, LundbergCertified θ ε B d → J dE ≤ J d :=
-  fun d _ => hE d
+    (hθE : 0 < θ dE)
+    (hB : Bslack θ ε dE ≤ B) :
+    LundbergCertified θ ε B dE ∧
+      ∀ d : 𝒟, LundbergCertified θ ε B d → J dE ≤ J d :=
+  ⟨certified_at_Bslack θ ε hθE hB, fun d _ => hE d⟩
 
 /-- `Bmin ≤ Bslack` when `θ dE` attains (or is at most) the maximum exponent.
-In particular this holds for every `dE`. -/
+In particular this holds for every `dE`.  The positivity of `thetaMax`
+follows from `0 < θ dE`. -/
 theorem Bmin_le_Bslack (θ : 𝒟 → ℝ) (ε : ℝ) (dE : 𝒟)
-    (_hθ : 0 < thetaMax θ) (hθE : 0 < θ dE)
+    (hθE : 0 < θ dE)
     (hε0 : 0 < ε) (hε1 : ε < 1) :
     Bmin θ ε ≤ Bslack θ ε dE := by
   have hle : θ dE ≤ thetaMax θ := theta_le_max θ dE

@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 # Build the Lean 4 formalization of the GTAO core (OPEN_WORK T19).
 # Run from the repo root:  tools/check_lean.sh
-# Exit 0 = lake build succeeded and no `sorry` occurs in formal/lean/**/*.lean.
+# Exit 0 = lake build succeeded and no forbidden token occurs in project
+#          sources (GTAO.lean, GTAO/*.lean).
 # Exit 2 = Lean / lake is not installed.
-# Exit 1 = build failed or a `sorry` was found.
+# Exit 1 = build failed or a forbidden token was found.
+#
+# The scan is restricted to project sources.  It does not walk `.lake/`
+# or `lake-packages/`: after `lake exe cache get`, those trees contain
+# thousands of Mathlib files with `sorry` / `axiom` in tests and comments.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -22,14 +27,34 @@ if ! command -v lake >/dev/null 2>&1; then
   exit 2
 fi
 
-if ! command -v rg >/dev/null 2>&1; then
-  SORRY_HITS="$(grep -R -n --include='*.lean' -E '(^|[^A-Za-z_])sorry([^A-Za-z_]|$)' "$LEAN_DIR" || true)"
-else
-  SORRY_HITS="$(rg -n --glob '*.lean' '(^|[^A-Za-z_])sorry([^A-Za-z_]|$)' "$LEAN_DIR" || true)"
+# Project sources only.  Prefer an explicit path list so a warm cache
+# cannot be grepped even if exclude flags are ignored.
+shopt -s nullglob
+SOURCES=("$LEAN_DIR/GTAO.lean")
+SOURCES+=("$LEAN_DIR/GTAO"/*.lean)
+shopt -u nullglob
+if [[ ${#SOURCES[@]} -eq 0 || ! -f "$LEAN_DIR/GTAO.lean" ]]; then
+  echo "check_lean.sh: no project Lean sources under $LEAN_DIR" >&2
+  exit 1
 fi
-if [[ -n "${SORRY_HITS}" ]]; then
-  echo "check_lean.sh: \`sorry\` is present in the Lean sources:" >&2
-  echo "${SORRY_HITS}" >&2
+
+# Whole-token match: sorry, admit, axiom, native_decide, unsafe, implemented_by.
+TOKEN_RE='(^|[^A-Za-z_])(sorry|admit|axiom|native_decide|unsafe|implemented_by)([^A-Za-z_]|$)'
+
+scan_sources() {
+  if command -v rg >/dev/null 2>&1; then
+    # Still exclude the cache dirs if a caller points rg at LEAN_DIR later.
+    rg -n --glob '*.lean' -g '!.lake/**' -g '!lake-packages/**' -e "$TOKEN_RE" "${SOURCES[@]}" || true
+  else
+    grep -n --include='*.lean' -E "$TOKEN_RE" "${SOURCES[@]}" \
+      --exclude-dir=.lake --exclude-dir=lake-packages || true
+  fi
+}
+
+HITS="$(scan_sources)"
+if [[ -n "${HITS}" ]]; then
+  echo "check_lean.sh: forbidden token (sorry/admit/axiom/native_decide/unsafe/implemented_by) in project sources:" >&2
+  echo "${HITS}" >&2
   exit 1
 fi
 

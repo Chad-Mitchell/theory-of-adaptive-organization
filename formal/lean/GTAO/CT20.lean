@@ -34,6 +34,7 @@ namespace FiniteDesignMenu
 
 variable {𝒟 : Type*} [Fintype 𝒟] [Nonempty 𝒟] (M : FiniteDesignMenu 𝒟)
 
+omit [Nonempty 𝒟] in
 /-- The remaining terms of `J` besides layer upkeep are a nonnegative cost
 when `0 ≤ S - h K` and `0 ≤ w * E`.  Then `J ≥ h K`. -/
 lemma J_ge_hK {h w : ℝ} (K : 𝒟 → ℝ) (hS : ∀ d, h * K d ≤ M.S d)
@@ -43,6 +44,7 @@ lemma J_ge_hK {h w : ℝ} (K : 𝒟 → ℝ) (hS : ∀ d, h * K d ≤ M.S d)
   simp only [J]
   linarith [hWE d]
 
+omit [Nonempty 𝒟] in
 /-- CT20 (i), the layer-count bound: if `J ≥ h K` and `h > 0`, every design
 that beats or matches a feasible reference `d₁` at stake `w` satisfies
 `K ≤ J(d₁; w) / h`. -/
@@ -58,6 +60,7 @@ theorem layer_count_bound {h w : ℝ} (hh : 0 < h) (K : 𝒟 → ℝ)
 def spendIsLayerUpkeep (h : ℝ) (K : 𝒟 → ℝ) : Prop :=
   ∀ d, M.S d = h * K d
 
+omit [Nonempty 𝒟] in
 /-- CT20 (ii), sensing fixed: if spend is `h K` with `h > 0`, then for
 `0 ≤ w₁ < w₂` any optimal layer count at `w₂` is at least any optimal layer
 count at `w₁`.  This is CT33's spend comparison plus `S = h K`. -/

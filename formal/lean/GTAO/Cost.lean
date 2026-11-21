@@ -91,6 +91,7 @@ lemma Jstar_le_affine (d : 𝒟) (w' : ℝ) :
     M.Jstar w' ≤ M.S d + w' * M.E d :=
   M.Jstar_le w' d
 
+omit [Nonempty 𝒟] in
 /-- The cost is affine in the stake: a convex combination of stakes reassembles
 when the weights sum to one. -/
 lemma J_affine (d : 𝒟) {w1 w2 a b : ℝ} (hab : a + b = 1) :

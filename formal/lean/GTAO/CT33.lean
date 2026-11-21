@@ -35,6 +35,7 @@ namespace FiniteDesignMenu
 
 variable {𝒟 : Type*} [Fintype 𝒟] [Nonempty 𝒟] (M : FiniteDesignMenu 𝒟)
 
+omit [Nonempty 𝒟] in
 /-- Optimality at `w₁` and `w₂` gives the two revealed-preference inequalities. -/
 theorem optimality_inequalities {w1 w2 : ℝ} {d1 d2 : 𝒟}
     (h1 : M.IsOptimal w1 d1) (h2 : M.IsOptimal w2 d2) :
@@ -42,6 +43,7 @@ theorem optimality_inequalities {w1 w2 : ℝ} {d1 d2 : 𝒟}
       M.S d2 + w2 * M.E d2 ≤ M.S d1 + w2 * M.E d1 :=
   ⟨h1 d2, h2 d1⟩
 
+omit [Nonempty 𝒟] in
 /-- Adding the two optimality inequalities: `(w₂ - w₁)(E₂ - E₁) ≤ 0`. -/
 theorem error_diff_sign {w1 w2 : ℝ} {d1 d2 : 𝒟}
     (h1 : M.IsOptimal w1 d1) (h2 : M.IsOptimal w2 d2) :
@@ -49,6 +51,7 @@ theorem error_diff_sign {w1 w2 : ℝ} {d1 d2 : 𝒟}
   obtain ⟨i1, i2⟩ := M.optimality_inequalities h1 h2
   linarith
 
+omit [Nonempty 𝒟] in
 /-- CT33, error: `E*(w)` is nonincreasing.  The inequality is strict in the
 stakes: at a tie, two optima may share `J*` with different errors. -/
 theorem error_nonincreasing {w1 w2 : ℝ} (hw : w1 < w2) {d1 d2 : 𝒟}
@@ -59,6 +62,7 @@ theorem error_nonincreasing {w1 w2 : ℝ} (hw : w1 < w2) {d1 d2 : 𝒟}
   have : M.E d2 - M.E d1 ≤ 0 := nonpos_of_mul_nonpos_right h hwpos
   linarith
 
+omit [Nonempty 𝒟] in
 /-- From optimality at `w₁`: `S₂ - S₁ ≥ w₁ (E₁ - E₂)`. -/
 theorem spend_ge_stake_times_error_drop {w1 w2 : ℝ} {d1 d2 : 𝒟}
     (h1 : M.IsOptimal w1 d1) (_h2 : M.IsOptimal w2 d2) :
@@ -66,6 +70,7 @@ theorem spend_ge_stake_times_error_drop {w1 w2 : ℝ} {d1 d2 : 𝒟}
   have i1 : M.S d1 + w1 * M.E d1 ≤ M.S d2 + w1 * M.E d2 := h1 d2
   linarith
 
+omit [Nonempty 𝒟] in
 /-- CT33, spend: `S*(w)` is nondecreasing, for nonnegative stakes, with the
 ruin constraint slack or absent (the menu does not depend on `w`).  The
 stake comparison is strict, as at a tie two optima may differ in spend. -/
@@ -77,6 +82,7 @@ theorem spend_nondecreasing {w1 w2 : ℝ} (hw1 : 0 ≤ w1) (hw : w1 < w2)
   have : 0 ≤ w1 * (M.E d1 - M.E d2) := mul_nonneg hw1 (sub_nonneg.mpr hE)
   linarith
 
+omit [Nonempty 𝒟] in
 /-- CT33 in units of a positive upkeep `h`: `S*/h` is nondecreasing in
 `R = w/h`.  Raising `w/h` at fixed prices is the same problem as raising `w`. -/
 theorem spend_nondecreasing_in_R {h w1 w2 : ℝ} (hh : 0 < h)
