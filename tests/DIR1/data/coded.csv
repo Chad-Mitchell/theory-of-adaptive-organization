@@ -90,7 +90,7 @@ A2,A,D2,8,10.1006/anbe.1998.0782,0,,I2 vigilance not measured as such (fighting 
 A2,A,D2,9,10.1111/j.1469-7998.2008.00541.x,1,1,,"""Individuals were more vigilant under direct predation threat"""
 A2,A,D2,10,10.1093/beheco/ars060,1,1,,"""presence of lions would lead to an increase in intense vigilance... We found this to be the case for zebra"""
 A2,A,D2,11,10.1093/beheco/arl087,1,1,,"""their use of vigilance increases with distance from the cliff edge"" (refuge)"
-A2,A,D2,12,10.7557/2.17.2.1302,1,1,,"""Female caribou in Alaska [predators]... displayed a higher rate of vigilance"" than West Greenland [no predators]"
+A2,A,D2,12,10.7557/2.17.2.1302,1,1,,"""Female caribou in Alaska... displayed a higher rate of vigilance"" than West Greenland (Alaska = predators; West Greenland = no predators)"
 A2,A,D2,13,10.1111/j.1439-0310.2008.01485_1.x,0,,"QC5 input is group size (chosen by the animals), not an exogenous risk change",
 A2,A,D2,14,10.1093/beheco/arl066,1,0,,"""Adult female vigilance increased... with increasing predator encounter risk""; males: ""primary benefit of vigilance for male elk is to monitor conspecifics"" (mixed by sex)"
 A2,A,D2,15,10.1139/z02-097,0,,I2 input is colony/population size; no vigilance-vs-risk result,
@@ -99,7 +99,7 @@ A2,A,D2,17,10.1163/156853900502213,1,0,,"""non-significant (p < 0.06) trend for 
 A2,A,D2,18,10.1093/beheco/arr194,0,,I1 individual-based model,
 A2,A,D2,19,10.1006/anbe.2003.2217,0,,no abstract,
 A2,A,D2,20,10.1093/beheco/aru005,1,1,,"""adjust their vigilance behavior to small-scale spatial variation in perceived risk""; ""most vigilant near the ground"" (greater exposure)"
-A3,A,D3,1,10.1111/j.1558-5646.2009.00635.x,1,1,,"""Autotomic ease varied substantially among the study populations, in a pattern that is best explained by the presence of vipers""; under relaxed predation ""ease of autotomy declining faster"""
+A3,A,D3,1,10.1111/j.1558-5646.2009.00635.x,1,1,,"""in a pattern that is best explained by the presence of vipers""; under relaxed predation ""ease of autotomy declining faster"""
 A3,A,D3,2,10.1111/j.1439-0310.2006.01209.x,0,,I1 review/hypothesis,
 A3,A,D3,3,10.1111/j.1600-0706.2009.18039.x,0,,I1 conceptual framework,
 A3,A,D3,4,10.1371/journal.pone.0288826,1,0,,"""the defensive repertoire of island snakes has not been lost, but they display different frequencies of some antipredator behaviors"""
@@ -213,7 +213,7 @@ F5,F,D5,11,10.1257/app.20180752,0,,"I2 performance of decentralized firms in tur
 F5,F,D5,12,10.1257/089533002320951037,0,,I1 review; public-sector decentralization,
 F5,F,D5,13,,0,,I2,
 F5,F,D5,14,10.1002/sd.2473,0,,class: fiscal (government) decentralization,
-F5,F,D5,15,10.1300/j140v01n04_01,1,0,,"changes ""generally conformed to predictions in the uncertainty and contingency literatures""; but ""significant retention of the functional mindset, even when environmental and strategic conditions called for more decentralized arrangements"" (mixed)"
+F5,F,D5,15,10.1300/j140v01n04_01,1,0,,"changes ""generally conformed to predictions in the uncertainty and contingency literatures""; but ""significant retention of the functional mindset"" when conditions called for decentralization (mixed)"
 F5,F,D5,16,10.1355/ae23-1b,0,,class: government decentralization,
 F5,F,D5,17,,0,,I2,
 F5,F,D5,18,10.3390/en11082078,0,,I2 power-market design,

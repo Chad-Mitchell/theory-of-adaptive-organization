@@ -15,7 +15,7 @@ The FAIL condition was reachable and was not met: pooled agreement on the correc
 
 By prediction (reported, not gated except the ≤ 0.50 rule at n ≥ 5): D1 5/7, D2 7/9, D3 10/13, D4 7/11, D5 0/2. No prediction has rate ≤ 0.50 at n ≥ 5.
 
-By cell: C1 1/2, C3 2/3, C4 0; A1 0/1 (−1), A2 7/9, A3 8/10, A4 5/7 (one −1, one 0), A5 0; F1 4/4, F4 2/4, F5 0/2. Every code with its quote is in `data/coded.csv`; every included DOI matched its Crossref title (45/45; one record has no DOI, DEVIATIONS 3), in `data/crossref_check.json`.
+By cell: C1 1/2, C3 2/3, C4 0; A1 0/1 (−1), A2 7/9, A3 8/10, A4 5/7 (one −1, one 0), A5 0; F1 4/4, F4 2/4, F5 0/2. Every code with its quote is in `data/coded.csv`; every DOI still included matched its Crossref title (41/41; the pre-correction check was 45/45, and four of those DOI rows were later excluded under I2). One included record has no DOI (F4 rank 14, DEVIATIONS 3), in `data/crossref_check.json`.
 
 **Where the systems came from.** 220 records screened (20 per cell); 42 included after the coding corrections (46 at first scoring; four later excluded under I2). The locked OpenAlex strings worked for vigilance, island tameness, avian fat and price-change frequency, and badly for storage polymers (C4: 0 of 20 usable after the correction), sampling vs variability (A1: 1), social vs individual learning (A5: 0, all theory), and decentralization (F5: 2). Cells remain below n = 8. Firms reach n = 10 and fail.
 
