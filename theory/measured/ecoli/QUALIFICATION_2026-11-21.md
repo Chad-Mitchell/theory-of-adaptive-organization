@@ -7,6 +7,11 @@ re-score** of CLAIM_MAP rows P1, P3, P4 or P13. This file does not re-score thos
 rows, does not change their status, and does not open their locked calculations
 for a new verdict.
 
+Landing note (historical header unchanged): this file was written on branch
+`ecoli-qual-2026-11-21` off `main` at `4398bbd`, as recorded above. It was later
+rebased onto `1727734` and merged in PR #124 as `d63ac23` (confirm review READY).
+Current `main` at the time of this note is `fba2827`. No re-score.
+
 **Class under audit.** Substrate class: *E. coli* (cells and microbes), with the
 motility / chemotaxis machinery as the design variable named in the CLAIM_MAP
 qualification-prospect notes for P1, P3, P4 and P13. Qualification is of a class,

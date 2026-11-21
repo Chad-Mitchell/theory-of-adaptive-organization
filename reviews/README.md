@@ -37,4 +37,8 @@ Reviews of the theory notes, the tests, and the AI-memory toy. Independence is s
 
 | `lean_2026-11-21/REVIEW.md` | Independent review of PR #123 (Lean 4 formalization of a finite-menu core, T19): **READY-WITH-FIXES**. S1–S4 applied in this PR (checker `.lake/` exclusion; CT4 first-bit proved in right-slope form; CT22 slack-case theorem composed with `certified_at_Bslack`; not-formalized list completed). Official theory numbers unchanged | Stated as an independent pass that wrote none of the PR or the Lean sources; same bot family. |
 
+| `ecoli_qual_2026-11-21/REVIEW.md` | Independent review of PR #124 (E. coli qualification literature check): **READY-WITH-FIXES**. Overall verdict NOT ESTABLISHED stands; S1 and N1–N2 applied in that PR, with no re-score of P1, P3, P4 or P13. Confirm review READY | Stated as an independent pass that wrote none of the qualification file or the CLAIM_MAP pointer edits; same bot family. |
+
+| `sim1_2026-11-21/REVIEW.md` | Independent review of PR #125 (T28 SIM-1 rehearsal test): **READY-WITH-FIXES**. Official fail/pass gates stand (P1–P4 PASS 3/3, overall PASS, in-model). S1–S4 applied as post-result housekeeping in this PR, with no official number changed and no edit to the locked PREREG, predictions, runner, library, or official run | Stated as an independent pass that wrote none of the PR, package, prereg, predictions, runner, or results; same bot family. |
+
 Test-specific reviews (for example `tests/C3/REVIEW.md`) stay with those tests.

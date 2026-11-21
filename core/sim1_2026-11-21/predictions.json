@@ -1,0 +1,126 @@
+{
+  "test": "T28",
+  "title": "Simulation already inside J: comparative statics of m* and high-beta Moran search",
+  "parameters": {
+    "BASE_WORLD_SEED": 20261122000,
+    "N_CANDIDATES": 16,
+    "N_OFFICIAL": 3,
+    "h": 0.25,
+    "c": 0.05,
+    "kappa": 0.2,
+    "lam": 0.0,
+    "chi": 1.0,
+    "K_max": 3,
+    "m_max": 40,
+    "W_LADDER": [
+      0.02,
+      0.05,
+      0.1,
+      0.2,
+      0.5,
+      1.0,
+      2.0,
+      5.0,
+      10.0,
+      20.0
+    ],
+    "C_LADDER": [
+      0.01,
+      0.02,
+      0.05,
+      0.1,
+      0.2,
+      0.5,
+      1.0
+    ],
+    "LAM_LADDER": [
+      0.0,
+      0.5,
+      1.0,
+      2.0,
+      5.0,
+      10.0
+    ],
+    "W_LOW": 0.02,
+    "W_HIGH": 20.0,
+    "W_FOR_LAM": 1.0,
+    "P3_W": 5.0,
+    "P3_LAM": 0.0,
+    "P4_W": 20.0,
+    "P4_C": 0.05,
+    "P4_LAM": 0.0,
+    "P4_BETA": 40.0,
+    "P4_TOL_M": 1.5,
+    "N_POP": 201,
+    "N_CHAINS": 8,
+    "N_JUMPS": 150000,
+    "BURN_JUMPS": 15000,
+    "MIX_TV_MAX": 0.2,
+    "CHAIN_SEED_BASE": 20261122400,
+    "e_base_log10": [
+      -0.3,
+      0.3
+    ],
+    "gamma_log10": [
+      -0.3,
+      0.3
+    ],
+    "phi": [
+      0.35,
+      0.8
+    ],
+    "I0_log10": [
+      -1.0,
+      -0.3
+    ]
+  },
+  "candidate_rng_seeds": [
+    20261122000,
+    20261122001,
+    20261122002,
+    20261122003,
+    20261122004,
+    20261122005,
+    20261122006,
+    20261122007,
+    20261122008,
+    20261122009,
+    20261122010,
+    20261122011,
+    20261122012,
+    20261122013,
+    20261122014,
+    20261122015
+  ],
+  "pilot_rng_seeds": [
+    20261122800,
+    20261122801,
+    20261122802,
+    20261122803,
+    20261122804,
+    20261122805,
+    20261122806,
+    20261122807,
+    20261122808,
+    20261122809,
+    20261122810,
+    20261122811,
+    20261122812,
+    20261122813,
+    20261122814,
+    20261122815,
+    20261122816,
+    20261122817,
+    20261122818,
+    20261122819
+  ],
+  "world_generator": "draw_world in sim1_lib.py: e_base=10^U(-0.3,0.3), gamma=10^U(-0.3,0.3), phi=U(0.35,0.80), I0=10^U(-1.0,-0.3). Fresh seeds, checked non-colliding with S5 1000-1119, convexity_search 0-119, wide 5000-5119, named 20261120/2026112020, T27 official 2026112100-2115, and T27 chain block 20261121500-21999.",
+  "predictions": {
+    "P1": "At each locked K in {0,1,2,3}, discrete m*(w) (least argmin at that K) is nondecreasing on the locked W_LADDER, and discrete m*(lambda) is nondecreasing on the locked LAM_LADDER at W_FOR_LAM=1. Analytic: Topkis, increasing differences of -J in (m,w) and in (m, lambda) at fixed K, ruin cap slack (exposure is additive).",
+    "P2": "At each locked K, m*(W_LOW)=0, m*(W_HIGH)>=1, and the exact threshold W_th(K)=inf{w: m*_K(w)>=1} lies strictly between W_LOW and W_HIGH. Analytic: first model/rollout must pay (CT4-style fixed cost plus the FOC threshold).",
+    "P3": "At each locked K, at P3_W=5, P3_LAM=0, discrete m*(c) is nonincreasing on the locked C_LADDER. Analytic: Topkis in (m, -c).",
+    "P4": "At the locked P4 prices (w=20, c=0.05, lambda=0) and beta=40, the pooled Moran occupation satisfies: (i) the mode of the marginal on m equals the unique discrete m* of J; (ii) |mean m - m*| <= 1.5. Numerical, not a theorem about finite-sample Moran. Exact Boltzmann on the same cell is a validity screen, not an official pass bar."
+  },
+  "pass_rule": "OVERALL PASS iff there are 3 official-valid worlds and every official world passes P1, P2, P3 and P4. If fewer than 3 official-valid worlds, the test is INCONCLUSIVE, not a fail. A world that fails a uniqueness, m*-range, connectivity, exact-Boltzmann, or mixing validity check is not official; it does not count as a prediction fail.",
+  "notes": "Pilot design work used only seeds 20261122800-20261122819 and box-corner probes. Official candidate seeds were not evaluated before lock. Joint (K*,m*) monotonicity of m in w is a diagnostic only, not a gate: layers and rollouts are substitutes."
+}

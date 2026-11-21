@@ -1,0 +1,27 @@
+T28 lock record
+Timestamp: Saturday 21 November 2026, 12:54:44 AM EST (America/New_York)
+Working tree: /workspace/gtao-sim1 branch sim1-2026-11-21
+Beside commit: 17277348dd0f34924894 (main)
+No official candidate seed has been evaluated. No Moran chain has been run on an official seed.
+
+PREREG.md
+  sha256: f24d54271875a326947c7a17fc6114a0d8b0a7864c5ff17dc0eca2300260de8c
+  bytes:  11540
+  mtime:  2026-11-21 00:53:38 EST
+
+predictions.json
+  sha256: 40c14cb4f991bee864b8bf74ab7f4583766cfb2ccab6aaf712deb692d2f33b09
+  bytes:  3876
+  mtime:  2026-11-21 00:52:30 EST
+
+run_sim1.py
+  sha256: 9f3f41700aee9335f5f50f6612712fb87dee95b7a56fc732b418df917641181f
+  bytes:  11715
+  mtime:  2026-11-21 00:52:15 EST
+
+sim1_lib.py
+  sha256: 2f20672665503aa6b0d48ef907ae3f24edded5ac935d191474b42ee383846559
+  bytes:  15962
+  mtime:  2026-11-21 00:51:31 EST
+
+Locked files will not be edited after this record. A mid-run rewrite of the runner or the library is a protocol lapse (T27 standing rule).
