@@ -4,8 +4,10 @@
 Run from the repo root:
   nice -n 19 python3 theory/layerlife_checks/layerlife_checks.py
 
-Prints ALL PASS and writes layerlife_checks.out (and a copy of stdout).
-Labels match the note: PROVED identities are checked to tight tolerance;
+Prints ALL PASS, writes layerlife_checks.out (a copy of stdout), and writes
+layerlife_checks.json. Tautological comparisons are printed as [IDENTITY]
+and are not included in the pass count. Labels match the note: PROVED
+identities that can fail (e.g. a closed form against a grid) are checks;
 NUMERICAL comparisons and FALSE counterexamples are checked as stated.
 
 This is a self-check of the derivations in the note, not a field test.
@@ -35,6 +37,12 @@ def chk(name, cond, detail=""):
     flag = "PASS" if cond else "FAIL"
     rows.append((flag, name, detail))
     print(f"[{flag}] {name}" + (f"  {detail}" if detail else ""))
+
+
+def identity(name, detail=""):
+    """Record a tautology or domination argument; do not count it as a check."""
+    rows.append(("IDENTITY", name, detail))
+    print(f"[IDENTITY] {name}" + (f"  {detail}" if detail else ""))
 
 
 # ---------------------------------------------------------------------------
@@ -193,10 +201,10 @@ def main():
         f"max rel err={np.max(np.abs(Js_grid / Js_closed - 1)):.3e}",
     )
     J_sum_closed = float(Js_closed.sum())
-    # Joint 3-d random search would be wasteful: additivity is the claim.
-    chk(
-        "stack J* is the sum of the layer costs (separable)",
-        abs(J_sum_closed - float(np.sum([Jstar_barrier(k_i, w_stack, s) for k_i, s in zip(ks, sig2s)]))) < 1e-15,
+    # Additivity of the separable stack is the definition of J_sum_closed.
+    identity(
+        "stack J* is the sum of the layer costs (separable; identity)",
+        f"sum={J_sum_closed:.12g}",
     )
 
 
@@ -238,7 +246,10 @@ def main():
     # T_red = sqrt(kappa/w) is a decay time, not a re-formation interval; there is no T*.
     kappa = 4.0
     T_red = math.sqrt(kappa / wj)
-    chk("smooth adjustment has a decay time, not a lumpy lifetime", T_red == math.sqrt(kappa / wj))
+    identity(
+        "smooth adjustment: decay time T_red = sqrt(kappa/w) (identity; no lumpy T*)",
+        f"T_red={T_red:.12g}",
+    )
 
 
     # ---------------------------------------------------------------------------
@@ -248,7 +259,7 @@ def main():
     print("\n== 4. OU target (NUMERICAL): BM formula vs exact fixed-period optimum")
 
     # Short-time variance rate of OU: sig2 = 2 a v.
-    # Pick a case with T_bm << tau (good) and one with T_bm >> tau (bad).
+    # Pick a case with T_bm << tau (good) and one with T_bm comparable to tau (bad).
     def ou_case(k, w, v, a, tag, expect_close, tol):
         sig2 = 2.0 * a * v
         T_bm = Tstar_fixed(k, w, sig2)
@@ -276,13 +287,19 @@ def main():
 
     # Good regime: small k, so many refreshes per correlation time.
     ou_good = ou_case(k=1e-4, w=1.0, v=1.0, a=0.2, tag="T_bm << tau", expect_close=True, tol=0.05)
-    # Bad regime: large k, T_bm longer than the correlation time; MSE has already saturated.
-    ou_bad = ou_case(k=2.0, w=1.0, v=1.0, a=0.2, tag="T_bm >> tau", expect_close=False, tol=0.20)
-    # In the bad regime the tracker may not even pay (blind is better).
+    # Bad timing regime: T_bm / tau ≈ 0.63, not T_bm >> tau; MSE has begun to saturate.
+    # At k=2 < wv/(2a)=2.5, tracking still pays (J≈0.95 < 1).
+    ou_bad = ou_case(k=2.0, w=1.0, v=1.0, a=0.2, tag="T_bm comparable to tau", expect_close=False, tol=0.20)
+    # Need-not-pay: k=3 > wv/(2a)=2.5, a=0.2, v=w=1. The minimized fixed-period cost
+    # is not below wv.
+    k_nopay, w_nopay, v_nopay, a_nopay = 3.0, 1.0, 1.0, 0.2
+    _, J_nopay = best_T_ou(k_nopay, w_nopay, v_nopay, a_nopay)
+    J_blind_nopay = w_nopay * v_nopay
+    thresh_nopay = w_nopay * v_nopay / (2.0 * a_nopay)
     chk(
-        "OU T_bm >> tau: lumpy tracking need not pay versus staying blind",
-        True,  # informational; recorded
-        f"J_opt={ou_bad['J_opt']:.5g} J_blind={ou_bad['J_blind']:.5g} pays={ou_bad['pays']}",
+        "OU: lumpy fixed-period tracking does not beat staying blind when k > wv/(2a)",
+        k_nopay > thresh_nopay and J_nopay >= J_blind_nopay - 1e-12,
+        f"k=3 > wv/(2a)={thresh_nopay:g}; J_opt={J_nopay:.5g} J_blind={J_blind_nopay:.5g}",
     )
 
 
@@ -299,42 +316,37 @@ def main():
     v = rng.uniform(0.05, 2.0, size=8)
     D = 0.4
     must = int(np.sum(v > D))
-    # A feasible design: track exactly those, leave the rest. Residual if untracked
-    # components kept at full v: sum of untracked v's plus tracked residuals.
-    # The lower bound is only on the COUNT, not on residual after tracking.
-    chk(
-        "K >= number of components with v_i > D (specialized OU, hard accuracy D)",
-        must == int(np.sum(v > D)) and must >= 1,
+    # The lower bound is the covering count; comparing must to that same sum is
+    # an identity, not a test of the bound.
+    identity(
+        "K >= number of components with v_i > D is the covering count (identity)",
         f"D={D} must-track={must} v={np.round(v,3).tolist()}",
     )
 
-    # The bound is false if one layer may reset several components at once
-    # (their variances add, and a single tracker of the sum has total var sum v_i,
-    # which may still exceed D, but K=1 can be enough if it tracks all).
-    # For OU, one joint perfect-observation layer can hold the SUM, residual
-    # mse_ou_hold(sum(v), ...) can be driven below D with K=1.
+    # The bound is false if one layer may reset several components at once.
+    # Mean square of a Brownian sum over a short hold T is (sum sig2) T/2,
+    # which is below any D>0 for small enough T.
     V = float(np.sum(v))
-    # A short hold makes residual small regardless of how many modes (if a joint
-    # observation of the sum is allowed). For a mixture the sum is not a single
-    # OU, but residual after a perfect observation of the sum starts at 0 and
-    # grows at most to V, and for small T is O(T). So K=1 can meet any D>0.
+    sig2s_hold = np.array([1.0, 4.0, 0.25])
+    D_hold = 0.4
+    T_hold = D_hold / float(np.sum(sig2s_hold))  # then mse = D_hold/2 < D_hold
+    mse_hold = float(np.sum(sig2s_hold)) * T_hold / 2.0
     chk(
-        "FALSE without specialization: K=1 can meet any D>0 if a joint observation of the sum is allowed",
-        True,
-        "residual after a perfect joint observation starts at 0, so a short enough hold meets any D",
+        "FALSE without specialization: K=1 meets any D>0; BM-sum mean square over a short T is (sum sig2)T/2",
+        mse_hold < D_hold and T_hold > 0,
+        f"T={T_hold:.6g} mse={mse_hold:.6g} D={D_hold}",
     )
 
     # Lifetime rule does not itself force K to grow with the scale span of a
     # single process: one BM (or one fBm, fixed-period T* ~ k^{1/(2H+1)}) is
-    # optimally tracked by one lumpy layer. Checked: two layers on one BM, both
-    # able to fully reset it, the cheaper k is used and the other is idle.
+    # optimally tracked by one lumpy layer. A dearer full reset of the same
+    # Brownian motion is never used if a cheaper full reset exists (domination).
     k_cheap, k_dear = 0.01, 0.25
     J_one = Jstar_barrier(k_cheap, 1.0, 1.0)
-    J_two_same = Jstar_barrier(k_cheap, 1.0, 1.0) + Jstar_barrier(k_dear, 1.0, 1.0)
-    chk(
-        "two full-reset layers on one BM cannot beat the cheaper one alone",
-        J_one < J_two_same,
-        f"J_one={J_one:.8g} J_sum={J_two_same:.8g}",
+    J_dear = Jstar_barrier(k_dear, 1.0, 1.0)
+    identity(
+        "two full-reset layers on one BM: the dearer full reset is never used (domination, J_dear>0)",
+        f"J_cheap={J_one:.8g} J_dear={J_dear:.8g}",
     )
 
 
@@ -349,8 +361,12 @@ def main():
     # delayed by lag. Idiosyncratic parts are omitted (they always go local).
     N = 10
     k_L, k_S, w_u, lag = 0.02, 0.08, 1.0, 0.5
-    # Shared pays at zero latency iff k_S < N k_L.
-    chk("amortization: shared can win at zero latency iff k_S < N k_L", k_S < N * k_L, f"k_S={k_S} N k_L={N*k_L}")
+    # Shared can win at zero latency iff k_S < N k_L; that inequality is a
+    # premise at these chosen prices, not a derived check.
+    identity(
+        "premise at these prices: k_S < N k_L (so shared can win at zero latency)",
+        f"k_S={k_S} N k_L={N*k_L}",
+    )
 
     def J_local_common(sig2):
         return N * Jstar_fixed(k_L, w_u, sig2)
@@ -411,18 +427,12 @@ def main():
         and J_shared_common(sig2_lo, lag=0.0) < J_local_common(sig2_lo),
     )
 
-    # Rival signs: threat-rigidity and copy-when-uncertain predict the opposite
-    # direction (more shared / central as uncertainty rises). Recorded as a
-    # statement; the inequality above is the J-sign.
-    chk(
-        "rivals (threat-rigidity, copy-when-uncertain) have the opposite sign in sig2",
-        True,
-        "J says local as sig2 rises past sig2*; rivals say more central/social",
-    )
+    # Rivals are discussed in the note (Staw, Sandelands & Dutton 1981 does not
+    # state a sign in sig2). Not a numerical check.
 
 
     # OU version of the same sign (latency kills shared value as tau -> 0).
-    print("   OU-with-latency companion (NUMERICAL, same sign as CT35's e^{-2 lag/tau})")
+    print("   OU-with-latency companion (NUMERICAL, same sign as the B.11 factor e^{-2 lag/tau})")
     # Fix lag, vary the world's time scale tau = 1/a, equal variance v.
     # Shared observes the common OU with delay lag; local has lag 0.
     # Each of N locals would pay k_L; shared pays k_S once; stake is N w_u on the common part.
@@ -507,10 +517,10 @@ def main():
 
     # A single lumpy layer on the SUM cannot be compared as a K-floor in Model S:
     # Model S already has a numerical E_K; the lifetime formula does not compute it.
-    chk(
-        "lifetime rule does not compute E_K or the fewest-stores floor of Model S",
-        True,
-        "E_K comes from the existing optimizer; T* is a lumpy-reset interval",
+    # The existing layer-count converse is CT21 (L3). This is a statement, not a check.
+    identity(
+        "T* does not compute E_K or the fewest-stores floor of Model S (statement)",
+        "E_K comes from the existing optimizer; T* is a lumpy-reset interval; converse is CT21 (L3)",
     )
 
 
@@ -520,15 +530,18 @@ def main():
 
     n_pass = sum(ok)
     n = len(ok)
+    n_id = sum(1 for flag, _, _ in rows if flag == "IDENTITY")
     print("\n" + ("ALL PASS" if all(ok) else f"{n_pass}/{n} PASSED, {n-n_pass} FAILED"))
-    print(f"{n_pass}/{n} checks")
+    print(f"{n_pass}/{n} checks; {n_id} identities (not in the pass count)")
 
     payload = {
         "n": n,
         "n_pass": n_pass,
+        "n_identities": n_id,
         "all_pass": all(ok),
         "ou_good": ou_good,
         "ou_bad": ou_bad,
+        "ou_nopay": {"k": 3.0, "J_opt": J_nopay, "J_blind": J_blind_nopay, "threshold": thresh_nopay},
         "d5_sig2_star": sig2_star,
         "model_S": {"a": a.tolist(), "b": b_sorted.tolist(), "E2": E2, "ratio_stores": ratio_stores, "ratio_dixit": ratio_dixit},
     }
@@ -541,5 +554,25 @@ def main():
         sys.exit(1)
 
 
+class _Tee:
+    def __init__(self, *streams):
+        self.streams = streams
+
+    def write(self, data):
+        for s in self.streams:
+            s.write(data)
+        return len(data)
+
+    def flush(self):
+        for s in self.streams:
+            s.flush()
+
+
 if __name__ == '__main__':
-    main()
+    out_path = os.path.join(HERE, "layerlife_checks.out")
+    with open(out_path, "w") as fh:
+        sys.stdout = _Tee(sys.__stdout__, fh)
+        try:
+            main()
+        finally:
+            sys.stdout = sys.__stdout__

@@ -1,6 +1,7 @@
 {
-  "n": 33,
-  "n_pass": 33,
+  "n": 26,
+  "n_pass": 26,
+  "n_identities": 6,
   "all_pass": true,
   "ou_good": {
     "tag": "T_bm << tau",
@@ -14,7 +15,7 @@
     "J_blind": 1.0
   },
   "ou_bad": {
-    "tag": "T_bm >> tau",
+    "tag": "T_bm comparable to tau",
     "T_bm": 3.1622776601683795,
     "T_opt": 7.485770666529094,
     "tau": 5.0,
@@ -23,6 +24,12 @@
     "pays": true,
     "J_opt": 0.9499287529591682,
     "J_blind": 1.0
+  },
+  "ou_nopay": {
+    "k": 3.0,
+    "J_opt": 1.0000100000002894,
+    "J_blind": 1.0,
+    "threshold": 2.5
   },
   "d5_sig2_star": 0.021614229749223716,
   "model_S": {
