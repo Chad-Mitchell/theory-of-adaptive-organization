@@ -18,6 +18,8 @@ not change the lock, and it does not re-score P1, P3, P4 or P13.
 
 This is not a finding of **NOT QUALIFIED**. No item FAILS on substance. P1, P3, P4 and P13 are not re-scored.
 
+Post-computation clarification (Saturday 21 November 2026, about 2:13 AM ET, after the independent review of PR #127; disclosed as such, official verdict unchanged): as specified, P1 and P3 cannot discriminate against rival R3 (τ_v = 1.160 s inside the τ\* box [1.093, 1.171] s). So once σ and ε are established, (d) is expected to FAIL unless another scorable rival is excluded, which would make E. coli NOT QUALIFIED under this plan. The present overall verdict stays **NOT ESTABLISHED**. The locked plan’s §4.4 is not edited; the FAILS versus NOT ESTABLISHED collision for the case “R3 inside the box and no other rival scorable” is resolved in `DEVIATIONS_2026-11-21.md`.
+
 The objective remains per-cell *J* through σ, with per-cell values as the compared statistic (DV2), as locked in the plan.
 
 ## 0. What was retrieved, and what was not
@@ -98,6 +100,8 @@ Within-proxy range: minimum 1.7960 × 10^8, maximum 4.169 × 10^8, median of the
 The plan’s model-free screen, already disclosed at lock from `results.json`, still holds: the locked R3 rival τ_v = 1.160 s lies inside the locked Arm B prediction range τ\* ∈ [1.093, 1.171] s. R3 cannot be excluded at ε = 0, and a positive ε would only widen the band. *H* and *J*\* were not computed from the locked Model S files, because that would have required a new price or term not present in those files; none was invented. R1 and R2 remain not scorable (no locked mapping). The one-store rival for P4 remains not scorable without a *J*(one-store) versus *J*(two-store) comparison already in the locked files.
 
 Because no scorable rival can be shown to lie outside a constructed band, and because (c) is not established, (d) is **NOT ESTABLISHED**, not FAILS. A FAILS would require every scorable rival to have been tested and found inside the band; here the other rivals were not scorable, as the plan allowed.
+
+As specified, P1 and P3 cannot discriminate against rival R3 (τ_v = 1.160 s inside the τ\* box [1.093, 1.171] s). So once σ and ε are established, (d) is expected to FAIL unless another scorable rival is excluded, which would make E. coli NOT QUALIFIED under this plan. That is a consequence of the lock, not a change to the present verdict. The official verdict on (d) stays **NOT ESTABLISHED**. See `DEVIATIONS_2026-11-21.md` (a clarification made after this computation and disclosed as such; the locked plan’s §4.4 is not edited).
 
 **Verdict (d): NOT ESTABLISHED.** This is not a re-score of P1, P3 or P4.
 
