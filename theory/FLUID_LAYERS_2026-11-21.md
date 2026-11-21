@@ -1,0 +1,15 @@
+# Fluid layers: several memberships at once, and how long a shared layer lasts
+
+*Saturday 21 November 2026, about 1:55 PM ET (America/New_York). Requested by Chad (t2065). A dated prediction, not a lock. Labels as in THEORY.md.*
+
+**Several memberships (PROVED in-model, elementary).** CT14 decides one shared layer per common driver: a shared layer for driver j pays once its N_j members exceed N\*(ρ_j). If drivers are independent and costs are additive (A4), J separates over drivers, so a member joins every shared layer whose test it passes: one per shared driver, at that driver's time scale (self, family, team, community). Nothing in CT14, CT16 or CT34 makes membership exclusive. Where drivers are correlated or link costs are shared, the decisions couple and the count can differ (OPEN). `CORE.md` now says so in one sentence.
+
+**How long a shared layer lasts (corollary of CL19; the band is KNOWN, Dixit 1991).** Suppose the best grouping drifts (who should share a layer changes over time), so the gap between the current grouping and the best one moves like a Brownian motion with variance rate σ², costs w·x² per unit time while it persists, and re-forming costs a lump k. CL19 (a) gives the optimal policy: leave the group alone until the gap reaches b\* = (6kσ²/w)^{1/4}, then re-form. The expected time between re-formations is b\*²/σ², so
+
+**τ_layer = √(6k / (wσ²)).**
+
+A shared layer's lifetime grows as the square root of its re-forming cost. A cost 100× lower gives layers that last 10× shorter. As k → 0, groups re-form continuously and track the best grouping with no lasting identity (the swarm limit; ANALOGY to fission–fusion societies, Aureli et al. 2008, Current Anthropology 49:627, not re-resolved). With step changes instead of drift, the re-forming threshold is CL19 (b)'s √(k/(wT)), with the same k^{1/2} scaling of the threshold.
+
+**Is it more than a restatement?** The band and the exit time are CL19's, and τ_layer = b*²/σ² is that product, so the exponent ½ is not a new derivation. The step that is new is the identification: the drifting coordinate is who shares a layer. CT14's onset plus this lifetime is a dated prediction. A rival with no inaction band predicts no discrete re-formations; a fixed-period rival predicts no dependence on k.
+
+**Dated prediction (21 Nov 2026; OPEN, not locked).** In a class whose groups form and dissolve (project teams, chat channels, open-source working groups, fission–fusion animal groups), with the cost of re-forming a group measured independently and changed by an outside shift (a new coordination tool, a policy), the log of median group lifetime falls with the log of the re-forming cost with slope near ½, at fixed drift of who should work with whom. **Kill:** a measured slope outside a preregistered band around ½ (for example [0.25, 0.75]) in a class that qualifies under THEORY §3, or lifetimes that do not move when k moves by more than 10×. Needs: an independent measure of k and of the drift σ², both of which are the hard part.

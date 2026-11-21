@@ -1,0 +1,10 @@
+(a) rho=2.0: layer omegas [1.0255 1.291 ], rel errs [0.0255 0.3545], ratio err 0.3706
+(a) rho=3.0: layer omegas [1.1416 2.3606], rel errs [0.1416 0.2131], ratio err 0.3107
+(a) rho=1.5: layer omegas [0.3372 1.1965], rel errs [0.6628 0.2023], ratio err 1.3659
+(b) Kc=0.3: dist to p/q(q<=4) opt 0.0456 vs r0 0.0494; Diophantine opt 0.1375 vs r0 0.1125; golden share 0.093 (uniform 0.08); mean |shift| 0.043; share of frac grid with Red>0.5 0.125
+(b) Kc=0.6: dist to p/q(q<=4) opt 0.0338 vs r0 0.0494; Diophantine opt 0.1206 vs r0 0.1125; golden share 0.113 (uniform 0.08); mean |shift| 0.066; share of frac grid with Red>0.5 0.273
+(b) Kc=0.9: dist to p/q(q<=4) opt 0.0307 vs r0 0.0494; Diophantine opt 0.1542 vs r0 0.1125; golden share 0.000 (uniform 0.08); mean |shift| 0.085; share of frac grid with Red>0.5 0.460
+(b-linear) alpha=1.0: roughness near p/q / elsewhere = 1.090
+(b-linear) alpha=1.4: roughness near p/q / elsewhere = 1.053
+(c) mixed: resonant layer omega 0.6974; first-order rate [2.94742896788731]
+{'A1': 'FAIL', 'A2': 'FAIL', 'B1': 'FAIL', 'B2': 'FAIL', 'B3': 'FAIL', 'B4': 'PASS', 'D1': 'FAIL', 'D2': 'FAIL'}
