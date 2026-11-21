@@ -51,4 +51,6 @@ Reviews of the theory notes, the tests, and the AI-memory toy. Independence is s
 
 | `pricefree_2026-11-21/REVIEW.md` | Independent review of PR #131 (price-free classification, no lock): **READY-WITH-FIXES**. Not a lock, and not a re-score. S1 (S3 interval / *T*\* exponents, not refresh-rate exponents with the wrong signs), S2 (Stephens 1981 / Caraco, Martindale & Whittam 1980 and Dall & Johnstone 2002 credited; remainder is the comparative static in *w* of *S* + *w E*), and nits applied in this PR. Does not merge | Stated as an independent pass that wrote none of the PR, `theory/PRICE_FREE_2026-11-21.md`, or the OPEN_WORK §8 pointer; same bot family. |
 
+| `night_record_2026-11-21/REVIEW.md` | Independent review of PR #132 (night record of PRs #121–#131, and OPEN_WORK T30): **READY**. Docs-only, not a lock, not a re-score. Every merge SHA and time matches `git log`; official results and review labels match the merged files; four DOIs re-verified on Crossref. `CORE.md` and the law sentence unchanged. | Stated as an independent pass that wrote none of the PR, `history/2026-11-21_NIGHT.md`, or the OPEN_WORK T30 row; same bot family, later the same night, not a blind second executor. |
+
 Test-specific reviews (for example `tests/C3/REVIEW.md`) stay with those tests.
