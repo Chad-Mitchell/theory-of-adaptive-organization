@@ -1,0 +1,54 @@
+{
+  "g_ms": {
+    "n_match": 1882,
+    "n_det": 6440,
+    "n_cells": 6440,
+    "n_indet": 0,
+    "rate": 0.2922360248447205,
+    "hole_true": 70,
+    "hole_hit": 70,
+    "hole_rate": 1.0
+  },
+  "g_rm": {
+    "n_match": 87,
+    "n_det": 264,
+    "n_cells": 264,
+    "n_indet": 0,
+    "rate": 0.32954545454545453,
+    "hole_true": 17,
+    "hole_hit": 15,
+    "hole_rate": 0.8823529411764706
+  },
+  "g_rhythm": {
+    "n_match": 47,
+    "n_det": 132,
+    "n_cells": 132,
+    "n_indet": 0,
+    "rate": 0.3560606060606061,
+    "hole_true": 12,
+    "hole_hit": 10,
+    "hole_rate": 0.8333333333333334
+  },
+  "g_mixed": {
+    "n_match": 40,
+    "n_det": 132,
+    "n_cells": 132,
+    "n_indet": 0,
+    "rate": 0.30303030303030304,
+    "hole_true": 5,
+    "hole_hit": 5,
+    "hole_rate": 1.0
+  },
+  "taut_ok": true,
+  "taut_mism_n": 0,
+  "tautology_identity": false,
+  "n_ms_all_count_match": 0,
+  "n_ms": 40,
+  "dec_equal_worlds": 0,
+  "sanity_pass": true,
+  "ms_pass": false,
+  "rm_pass": false,
+  "hole_pass": true,
+  "not_a_test": false,
+  "n_mismatch": 4735
+}
