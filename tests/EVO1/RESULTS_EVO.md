@@ -9,7 +9,7 @@ minimizes J, where J comes from the repository's closed forms (`predict_evo.py`,
 - Declared diagnostics and record entries: D1 (`cf77048`), D2 (`610e87a`), D3 (reporting only, now closed) and D4 (S arms finished; scoring unchanged). All are in `DEVIATIONS_EVO.md`.
 - Scoring: the locked `analyze_evo.py` was run unchanged → `ANALYSIS_EVO.json`. Diagnostic seeds were scored with the same
   `score_seed` function → `diag/DIAG_SCORES.json`.
-- Selection: Wright–Fisher, P = 300, β = 30, so EPS_BAND = 1/(βP) = 0.00111. Each world has 8 seeds (even seeds start at
+- Selection: Wright–Fisher, P = 300, β = 30, so EPS_BAND = 10/(βP) = 1/900 = 0.001111…. Each world has 8 seeds (even seeds start at
   one store, odd seeds at four) and 4 null seeds (β = 0, no death).
 
 ## Verdicts (locked rules, §6–§7)
@@ -18,7 +18,7 @@ minimizes J, where J comes from the repository's closed forms (`predict_evo.py`,
 |---|---|---|---|---|
 | PC (positive control) | Kalman–Bucy store, b* = 0.04 | **PASSED** | 0/8 | evolved b 0.0394–0.0405; J gap ≤ 5e-5 |
 | W1 | one mode with a speed price | **PASSED** | 0/8 | b 0.0327–0.0343 vs 0.03356 predicted |
-| W2 | two separated modes → two layers | **PASSED** | 1/7 scored | seed 4 stuck at one store (gap 3.4%); seed 2 unscored (still improving) |
+| W2 | two separated modes → two layers | **PASSED** | 1/7 scored | seed 4 stuck at one store (gap 3.4%); seed 2 unscored (still improving; current gap 1.55e-3, outside the J band; slow pole |Δ ln b| = 0.305 > 0.225) |
 | W3 | random walk → one store | **INVALID** (ruin gate) | 0/8 (raw PASSED) | final-window deaths 10.6–15.2% > 10% |
 | W4 | two modes, group, common mode → 1 local + 1 shared | **FAILED** | 3/8 | seeds 0, 4, 6 (one-store starts) stayed at 1 local store, gap 8.1% |
 | W4b (CT36 case) | superadditive, below the edge → 1L1S | **FAILED** | 8/8 | all seeds at 1 local store, gap 1.04% (the "no sharing" rival) |
@@ -27,7 +27,8 @@ minimizes J, where J comes from the repository's closed forms (`predict_evo.py`,
 
 **Secondary verdicts:**
 - PC→W1 design move: Δ ln b observed −0.177 vs predicted −0.176 (tolerance 0.100). **PASSED.**
-- W2 interlacing (λ₁ < b₁ < λ₂ < b₂): 7/7 scored seeds. **PASSED.**
+- W2 interlacing (λ₁ < b₁ < λ₂ < b₂): 7 of 8 seeds interlace (including still-improving seed 2; seed 4, one store, does not). **PASSED** under §6's ≥ 7 of 8.
+- Rate band (§6): every converged seed with the predicted structure is inside it. The only seed outside is W2 seed 2, unscored because it is still improving.
 - Store-noise threshold (S031 slower than its mode, S07 faster, ≥ 7 of 8 each): S031 8/8, S07 8/8. **PASSED.**
 - S031→S07 design move: Δ ln b observed +1.470 vs predicted +1.376 (tolerance 0.311). **PASSED.**
 
@@ -90,7 +91,7 @@ Per-seed J gap (as a multiple of the band 1.11e-3), the evolved rate against the
 - S07: no such relation (median offset −1.4%; correlation 0.06). The gaps sit at 0.77–1.09 of the band whatever the offset,
   which looks like a floor near the band, not a rate error.
 - Diagnosis in the order of §8 for the S arms (declared as a diagnostic): (1) optimizer/discretization: a possible
-  contributor in S031 (above); (2) selection strength: the misses are 4–16% over the band edge with sNe ≥ 40 on the
+  contributor in S031 (above); (2) selection strength: the misses are 1.5–16% over the band edge (S07 seed 1 is 1.5% over; S031 seed 2 is 16% over) with sNe ≥ 40 on the
   rival, so this is drift-scale scatter at the band rather than a different design; (3) cost mismatch: no sign (structure,
   threshold and move all agree with J). No rerun was made to separate these, so the diagnosis is a reading, not a result.
   A larger population (smaller band) or more seeds would settle it; neither was preregistered.
@@ -102,7 +103,7 @@ Per-seed J gap (as a multiple of the band 1.11e-3), the evolved rate against the
 | D1a | W4b | start every agent at J's design | ≥ 3/4 stay in band → J's minimum is selection-stable | **4/4 stayed at 1L1S**, gap ≤ 1e-4 → stable |
 | D1b | W4b | a new store's weight drawn from N(0, 0.3²), not 0 | ≥ 3/4 reach band → the valley is the barrier | **2/4** (seeds 0, 1 reached 1L1S; 2, 3 stayed 1L0S) → **not shown** |
 | D1c | W3 | buffer ×10 | (reported beside INVALID) | 8/8 in band, deaths 5.6–8.2% (< 10%) |
-| D1c-ruin | W3 | the evolved consensus as a fixed design, locked gate, 40 worlds | — | consensus death rate **0/40** in all 8 seeds; mutants whose read-weight sum misses 1 by ≥ 0.02 die 22–36% |
+| D1c-ruin | W3 | the evolved consensus as a fixed design, locked gate, 40 worlds | — | consensus death rate **0/40** in all 8 seeds; mutants whose read-weight sum misses 1 by ≥ 0.02 die 20.7–36.3% |
 | D2b | W4 | a new store's weight drawn from N(0, 0.3²) (one-store starts 0, 2, 4, 6) | ≥ 3/4 reach band → the valley is the barrier | **4/4 reached 1L1S**, gap ≤ 5e-5 → shown |
 
 **§8 diagnosis, in order:**
@@ -148,7 +149,7 @@ gate misfire on mutants, not on the evolved design (its consensus never dies), b
 - W4b's structure is scored on the genome, because the counting rule cannot resolve it (declared before the lock, §4.3).
 - The S arms are inconclusive by the locked rule, and the evolved designs sit at the edge of the band, not far from it.
   S031's set-at rival gap is only 0.45% (sNe 40), so it separates from J's design by about four band widths.
-- The preregistered band (1/(βP)) is the scale of selection-drift itself. A result whose median sits at 0.75–0.91 of
+- The preregistered band (10/(βP) = 0.001111…) is the scale of selection-drift itself. A result whose median sits at 0.75–0.91 of
   the band (S arms) is close to the resolving limit of this design (P = 300), whichever way the verdict falls.
 - The merged `stores.py` differs from the locked bytes (see D4); the effect on scoring was checked and is nil.
 
