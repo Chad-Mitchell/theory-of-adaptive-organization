@@ -75,7 +75,7 @@ The gate is on \(C^*\) only: **58/189** cost matches, of which **51/189** also r
 
 ## 4. MUST: `seed2_two_light` at \(R=3\), FAIL
 
-Predicted \(C^*=4\) (both rhythms included, two resonators). Extended-library argmin is \(C^*=3\): one resonant layer plus one first-order store (`nr1_nf1`), \(E=0.041022\), \(J=6.2486\). Two resonators reach \(E=0.037956\) (essentially \(E_\infty=0.037883\)) at \(C=4\), \(J=7.006\), which loses to the hybrid. The old first-order-only argmin \(K=3\), \(J=8.105\), also loses to the hybrid — so kind-matching *helps*, but the isolated-mode count over-includes.
+Predicted \(C^*=4\) (both rhythms included, two resonators). Extended-library argmin is \(C^*=3\): one resonant layer plus one first-order store (`nr1_nf1`), \(E=0.041022\), \(J=6.2486\). Two resonators reach \(E=0.037956\) (essentially \(E_\infty=0.037883\)) at \(C=4\), \(J=7.006\), which loses to the hybrid. The old first-order-only argmin is \(K=3\), \(J=7.105\), which already agrees with the worked example in `core/KEYSTONE_NOTE.md` §2; it also loses to the hybrid — so kind-matching *helps*, but the isolated-mode count over-includes. (An earlier writeup, and the prior rhythm review, quoted \(J=8.105\) / \(8.10\), which is \(1+7.105\), the same off-by-one cost error class as D5a. The official MUST gate does not use that figure and does not flip. The prior review file is left unedited as a historical record.)
 
 This is the kill even if PRIMARY had passed. It did not.
 
@@ -143,7 +143,7 @@ The holographic analogy (Vidal 2007; Swingle 2012; Mehta & Schwab 2014) suggeste
 ## 9. What stands, and what is still open
 
 - N60, given convexity, still equals argmin \(J\) in Model S (19,320/19,320 from 0, including the hole; extended-library resonators do not change it). Convexity is numerical, unproved. The \(K^*=0\) hole of N60-as-written is unchanged (379/19,320).
-- A first-order-only increment count is false for rhythms (already shown; hybrid / resonant libraries change the argmin, e.g. MUST \(J=6.25\) vs first-order \(J=8.10\)).
+- A first-order-only increment count is false for rhythms (already shown; hybrid / resonant libraries change the argmin, e.g. MUST \(J=6.25\) vs first-order \(K=3\), \(J=7.105\)).
 - IMP-N60, the candidate predictive rule from poles and stakes, was misspecified as a generalization of N60 (isolated \(V_m\) vs joint increments) and **FAILED** its kill, primary, and Model-S regression gates (cost match 58/189; composition match 51/189). It is not tautological; it is simply not the right count. It stays failed; no rescue is registered.
 - Kind-matching (a resonant layer for a light rhythm) is a real library fact, not a counting rule. Cymatics jumps pass; locking passes only as an aggregate median (3 of 7 light worlds miss individually). The link from those jumps to CT41 is a loose analogy only.
 - The holographic / log-span equal-value picture **FAILED** in-model at \(N=0.05\) on the preregistered fractal worlds at the stated \(R\). That construction does not test a spatial or high-dimensional MERA picture.

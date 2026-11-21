@@ -24,7 +24,9 @@ Reviews of the theory notes, the tests, and the AI-memory toy. Independence is s
 | `pr115_robust_2026-11-20/REVIEW.md` | Independent review of PR #115 (v2.7 robustness), head 7c1dc22: READY-WITH-FIXES (round 1). A later re-review was not found on the box and is not in the repository | Stated as an independent executor (math, prior art, statistics); same bot family. |
 | `pr116_htindex_2026-11-20/REVIEW.md` | Independent review of PR #116 (ht-index / fractal structure) | Stated as an independent pass in the file; same bot family. |
 | `pr117_dynamics_2026-11-20/REVIEW.md` | Independent review of PR #117 (v2.9 dynamics): READY-WITH-FIXES | Stated as an independent pass in the file; same bot family. |
-| `core_2026-11-20/` | Reviews of the unmerged one-page core draft (`CORE.md` and the keystone note): `REVIEW.md`, `CONFIRM.md`, `RECONFIRM.md`. Those drafts are not in this repository yet (pending a CORE PR) | Stated as independent hostile passes that did not write the drafts; same bot family. |
+| `core_2026-11-20/` | Reviews of the one-page core (`CORE.md` and the keystone note), now in this repository: `REVIEW.md`, `CONFIRM.md`, `RECONFIRM.md`. This folder also holds the independent review of PR #119 (`rev119_REVIEW.md`, READY-WITH-FIXES) | Stated as independent hostile passes that did not write the drafts or the PR; same bot family. |
+| `rhythm_2026-11-20/REVIEW.md` | Independent review of the 20 Nov IMP-N60 / cymatics / holographic run: **SCORING CORRECT**. Official fail/pass gates stand; writeup label corrections were applied in PR #119 | Stated as an independent pass that wrote none of the test, code, prereg, or results; same bot family. |
+| `recovered/` | Recovered copies of older review reports, with `PROVENANCE.md`. Review 27's first report and review 28's original file were recovered; reviews 26 and 29 and a #115 re-review remain unrecoverable | Recovery notes only; these are not new reviews. See `PROVENANCE.md`. |
 
 | `pr118_hygiene_2026-11-20/REVIEW.md` | Independent review of PR #118 (hygiene): READY-WITH-FIXES (B1–B3) | Stated as a separate executor that wrote none of the PR; same bot family. |
 
