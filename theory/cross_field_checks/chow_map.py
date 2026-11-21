@@ -8,8 +8,8 @@ Boundary: s_0 = 1 (the reference unit), s_K = S fixed (the backing store holds e
 Prediction (closed form, derived in the note): interior ratios converge to
    ln r_s = -(1+gamma) ln(gamma*theta) / (1 - gamma*theta)
    ln r_t = -(1+theta) ln(gamma*theta) / (1 - gamma*theta)
-   adjacent cost ratio C_{k+1}/C_k = delay ratio D_{k+1}/D_k = 1/(gamma*theta)
-   delay share = gamma * cost share (Welch 1978 form: D_k / (lam C_k) = gamma)
+   adjacent cost ratio C_{k+1}/C_k = delay ratio D_{k+1}/D_k = 1/(gamma*theta)  (exact for all finite K, S)
+   delay share = gamma * cost share (Chow 1974 Eq. 36 / Welch 1978 form: D_k / (lam C_k) = gamma)
 """
 import numpy as np
 from scipy.optimize import minimize
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     worst = 0.0
     for theta, gamma in [(0.5, 0.5), (0.3, 1.0), (0.7, 0.8), (0.5, 1.5), (0.4, 0.4)]:
         for K in (9,):
-            # choose S so the interior can approach the fixed point
+            # choose S = exp(K * ln r_s) so every level sits at the fixed point (no boundary mismatch)
             lrs, lrt, q = predicted(theta, gamma)
             S = float(np.exp(lrs*K))
             r = solve(K, theta, gamma, S=S)
@@ -95,5 +95,35 @@ def recurrence_check():
         assert abs(devs[-1] - (theta*gamma)**7) < 1e-9
     print("recurrence contraction verified: deviation_k = (theta*gamma)^k * deviation_0")
 
-recurrence_check()
-print("RESULT: PASS")
+# ---- Part 3: direct convex GP solve with mismatched S != exp(K * ln r_s), plus theta*gamma = 1 and > 1
+def finite_k_boundary_check():
+    print("\nPart 3: direct GP solve with mismatched boundary S (one-sided decay and exact C_{k+1}/C_k = q)")
+    K = 6
+    worst_gp = 0.0
+    for theta, gamma in [(0.5, 0.5), (0.7, 0.8), (1.0, 1.0), (1.2, 1.2)]:
+        g = theta * gamma
+        if abs(g - 1.0) > 1e-9:
+            lrs, _, q = predicted(theta, gamma)
+            S = float(1e2 * np.exp(lrs * K))
+            x1_diff = (1.0 - g) / (1.0 - g**K) * (np.log(S) - K * lrs)
+            xs_exact = lrs + x1_diff * (g ** np.arange(K))
+        else:
+            q = 1.0
+            S = float(np.exp(10.0))
+            xs_exact = np.full(K, np.log(S) / K)
+        r = solve(K, theta, gamma, S=S)
+        _, _, _, ls, lt, _ = J(r.x, K, theta, gamma, 1.0, 1.0, S)
+        xs_num = np.diff(ls)
+        Ck = np.exp(-gamma*lt) * np.exp(ls[1:])
+        c_ratios = Ck[1:] / Ck[:-1]
+        x_err = float(np.max(np.abs(xs_num - xs_exact)))
+        q_err = float(np.max(np.abs(c_ratios - q) / q))
+        worst_gp = max(worst_gp, x_err, q_err)
+        print(f"theta={theta} gamma={gamma} theta*gamma={g:.2f} | max|x_num-x_exact|={x_err:.2e} | max|C_ratio/q - 1|={q_err:.2e}")
+        assert x_err < 1e-3 and q_err < 1e-3
+    print(f"WORST mismatched-S GP error {worst_gp:.2e}")
+
+if __name__ == "__main__":
+    recurrence_check()
+    finite_k_boundary_check()
+    print("RESULT: PASS")

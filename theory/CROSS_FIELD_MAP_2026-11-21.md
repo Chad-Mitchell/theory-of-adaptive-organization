@@ -39,7 +39,7 @@ With x_k = ln(s_k/s_{k-1}) and y_k = ln(t_{k+1}/t_k) and q = 1/(θγ), the two c
 |---|---|---|
 | adjacent capacity ratio r_s | ln r_s = −(1 + γ)·ln(θγ)/(1 − θγ) | θ, γ only |
 | adjacent access-time ratio r_t | ln r_t = −(1 + θ)·ln(θγ)/(1 − θγ) | θ, γ only |
-| adjacent cost ratio C_{k+1}/C_k (= delay ratio) | q = 1/(θγ) | θ, γ only |
+| adjacent cost ratio C_{k+1}/C_k (= delay ratio) | q = 1/(θγ) (exact for all finite K, S, even when θγ ≥ 1) | θ, γ only |
 | delay share = cost share, per level | exact at every level | none |
 | loss : upkeep over the design | γ | γ only |
 | levels per decade of range | 1/log₁₀ r_s | θ, γ only |
@@ -49,12 +49,12 @@ The prices (λ, a) and the stakes drop out of every ratio. They and the range se
 
 ### 2.4 Checks
 
-`theory/cross_field_checks/chow_map.py` (run by `tools/test_cross_field_map.py`; output in `chow_map.out`): (i) a direct convex solve of the K = 9 program from an even ladder (not the predicted one) recovers ln r_s, ln r_t, q and D_k/(λC_k) = γ at the middle level to ≤ 4.7×10⁻⁴ relative error in the four well-conditioned cases; (ii) the exact first-order recurrence, started 2× off the fixed point, decays as (θγ)^k. Where q > 4 the lowest levels carry less than q^{-K} of J, and the optimizer leaves them loose (shown as a diagnostic, not scored); the first-order recurrence is exact there.
+`theory/cross_field_checks/chow_map.py` (run by `tools/test_cross_field_map.py`; output in `chow_map.out`): (i) a direct convex solve of the K = 9 program from an even ladder (with S = exp(K·ln r_s) so every level sits on the fixed point) recovers ln r_s, ln r_t, q and D_k/(λC_k) = γ at the middle level to ≤ 4.7×10⁻⁴ relative error in the four well-conditioned cases; (ii) the exact first-order recurrence, started 2× off the fixed point, decays as (θγ)^k; (iii) a direct convex solve with mismatched S ≠ exp(K·ln r_s) (including θγ = 1 and θγ > 1) matches the exact finite-K formula x_k − x\* = (θγ)^{k−1}·(1 − θγ)/(1 − (θγ)^K)·(ln S − K x\*) and exact C_{k+1}/C_k = q to ≤ 3.1×10⁻⁵. Where q > 4 in Part 1, the lowest levels carry less than q^{-K} of J, and BFGS leaves them loose (shown as a diagnostic, not scored); Parts 2 and 3 are exact there.
 
 ### 2.5 Consequences that matter for any test
 
-1. **Boundary transient.** Deviations from the universal ratio decay as (θγ)^k from each edge. Real hierarchies have three to five levels. With θγ = 0.25 the second level is within 25% of the fixed point; with θγ = 0.7 it is still 70% off. A cross-field test must either predict the full finite-K solution with the edges or restrict to systems with θγ small enough. Comparing raw adjacent ratios across fields without this would be unfair to the theory and to the rival alike.
-2. **No universal ratio when θγ ≥ 1.** The fixed point repels, and the design is set by its edges. The map predicts no shared ratio there.
+1. **Boundary transient (one-sided).** Because x_{k+1} − x\* = θγ·(x_k − x\*) and Σ_{k=1}^K x_k = ln S, the exact finite-K solution is x_k − x\* = (θγ)^{k−1}·[(1 − θγ)/(1 − (θγ)^K)]·(ln S − K x\*). When θγ < 1, deviations decay **from the small-s (k = 1) edge only** by (θγ)^{k−1} per level, while x_K is closest to x\*. Real hierarchies have three to five levels: with θγ = 0.25, level 2 is within 25% of the level-1 deviation; with θγ = 0.7, level 2 retains 70% of it. (And if K is too large for S, ln S < K x\* − x\*·[1 − (θγ)^K]/(1 − θγ), the unconstrained GP gives x_1 < 0, i.e. s_1 < s_0.) A cross-field test must either predict the full finite-K solution with the edges or restrict to upper levels with θγ small enough. Comparing raw adjacent ratios across fields without this would be unfair to the theory and to the rival alike.
+2. **No universal ratio when θγ ≥ 1.** At θγ = 1, ln q = 0 gives x_k = (ln S)/K identically (set by S and K, not by (θ, γ)). When θγ > 1, the forward map repels and deviations decay backward from the large-s (k = K) edge, so the upper-level ratios are set by S and K. The map predicts no shared interior r_s or r_t there (only C_{k+1}/C_k = q).
 3. **Only the product θγ and γ enter.** Two fields match only if both agree, so a test needs both exponents in each field, not only the world's.
 
 ## 3. Prior-art verdict (hostile search, 21 Nov; four web searches plus Crossref, not exhaustive)
