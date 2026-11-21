@@ -97,7 +97,7 @@ Each of these is a window the rest of the page looks through. If it is wrong, he
 
 ## 8. What is next
 
-A proof that would derive closeness to the minimum from selection axioms — persistence costs energy, copying favors what persists, and the world drifts — with closeness a function of selection strength. The bet would then move from "systems minimize cost" to "the world satisfies these axioms," which is smaller, sharper, and easier to test. An in-model bridge already gives a typical fractional excess of about \(d/(2\sigma N_e)\) under weak mutation and fitness linear in \(J\). Its P3 failed and is not rescued. The proof still to write does not assume that bridge.
+A note on the stationary excess, under a log-linear fitness map and weak mutation, is in `theory/SELECTION_AXIOMS.md`. Copying that favors lower cost is not enough for the excess \(d/(2\beta)\). The fractional form \(\approx d/(2\sigma N_e)\) is the bridge's formula, and in that note \(N_e\) is Sella and Hirsh's \(\nu\). The bridge file still writes the Moran factor \(\alpha(N_e-1)\). T27's P3 failed and is not rescued. The drifting-world sum adds the CL19 lag only under the extra assumptions in that note (additive costs, zero discount, the lumpy coordinate outside the substitution chain, timescale separation). THEORY §4 still records near-minimization as an assumption. The Part 2 hypothesis sentence is unchanged.
 
 ## References
 
