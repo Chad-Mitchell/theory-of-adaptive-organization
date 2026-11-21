@@ -1,0 +1,29 @@
+LOCK ok: PREREG.md and predictions.json hashes match LOCK.txt
+
+==== candidate 0 rng_seed=2026112100 ====
+/workspace/gtao-thermo/core/bridge_2026-11-21/bridge_lib.py:180: RuntimeWarning: overflow encountered in scalar power
+  gN = gamma ** N_pop
+  VALID official #1  P1=True P2=True P3=False  42.4s
+
+==== candidate 1 rng_seed=2026112101 ====
+  VALID official #2  P1=True P2=True P3=False  42.2s
+
+==== candidate 2 rng_seed=2026112102 ====
+  VALID official #3  P1=True P2=True P3=False  42.6s
+
+==== SUMMARY ====
+{
+  "n_official": 3,
+  "inconclusive": false,
+  "official_seeds": [
+    2026112100,
+    2026112101,
+    2026112102
+  ],
+  "rejected": [],
+  "P1": true,
+  "P2": true,
+  "P3": false,
+  "OVERALL": false
+}
+wrote /workspace/gtao-thermo/core/bridge_2026-11-21/run_t27.json in 127.2s

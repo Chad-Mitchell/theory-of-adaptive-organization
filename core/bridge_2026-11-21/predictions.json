@@ -1,0 +1,40 @@
+{
+  "test": "T27",
+  "title": "Weak-mutation selection on Model S designs: mode, equipartition, low-beta spread",
+  "parameters": {
+    "BASE_WORLD_SEED": 2026112100,
+    "N_CANDIDATES": 16,
+    "N_OFFICIAL": 3,
+    "R": 100.0,
+    "K_MAX": 3,
+    "N_GRID": 21,
+    "LO_PAD": 2.0,
+    "HI_PAD": 5.0,
+    "N_POP": 201,
+    "BETA_HIGH": [8, 10, 12],
+    "BETA_LOW": 0.5,
+    "D": 2,
+    "P2_HALF": 3.5,
+    "P2_N_AXIS": 51,
+    "P2_REL_TOL": 0.20,
+    "MASS_K2_MIN": 0.95,
+    "HESS_EV_MIN": 0.0001,
+    "MIX_TV_MAX": 0.20,
+    "P3_MIN_K_MASS": 0.10,
+    "P3_EXCESS_RATIO": 2.0,
+    "N_JUMPS": 200000,
+    "N_JUMPS_LOW": 400000,
+    "BURN_JUMPS": 20000,
+    "N_CHAINS": 8,
+    "CHAIN_SEED_BASE": 20261121500
+  },
+  "candidate_rng_seeds": [2026112100, 2026112101, 2026112102, 2026112103, 2026112104, 2026112105, 2026112106, 2026112107, 2026112108, 2026112109, 2026112110, 2026112111, 2026112112, 2026112113, 2026112114, 2026112115],
+  "world_generator": "Same distribution as core/keystone_checks/s5_rerun.py world() / convexity_targeted.py, but rng = default_rng(BASE_WORLD_SEED+i), not 1000+seed. Fresh seeds, checked non-colliding with S5 1000-1119, convexity_search 0-119, wide 5000-5119, and named seeds 20261120 / 2026112020.",
+  "predictions": {
+    "P1": "At each locked high beta, on the coarse K=0..3 grid, the mode of the pooled Moran occupation equals the unique grid argmin of reduced J.",
+    "P2": "At each locked high beta, on the whitened K=2 lattice, beta times the mean excess cost approaches d/2 = 1 within 20% relative error.",
+    "P3": "At the locked low beta, on the coarse grid, the mean reduced J is strictly above J*, at least two layer counts K have occupation mass >= 0.10, and the excess is at least twice the mean high-beta coarse excess."
+  },
+  "pass_rule": "OVERALL PASS iff there are 3 official-valid worlds and every official world passes P1, P2 and P3. If fewer than 3 official-valid worlds, the test is INCONCLUSIVE, not a fail. A world that fails a mixing or interior-min validity check is not official; it does not count as a prediction fail.",
+  "notes": "Pilot design work used only the already-published S5 world rng seed 1000 (convexity_targeted seed 0). Official seeds were not evaluated before lock."
+}
