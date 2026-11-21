@@ -2,7 +2,7 @@
 
 *Scored Saturday 21 November 2026, 12:55:09 AM EST (America/New_York), after the lock at 12:54:44 AM EST. In-model. P1–P3 analytic (exact discrete argmin); P4 numerical. Not a field test. Predictions were not patched. Locked files were not edited.*
 
-**OVERALL: PASS.** Three official-valid worlds (the first three candidates; none rejected). P1 passed 3/3, P2 passed 3/3, P3 passed 3/3, P4 passed 3/3.
+**OVERALL: PASS.** Three official-valid worlds (the first three candidates; none rejected). P1 passed 3/3, P2 passed 3/3, P3 passed 3/3, P4 passed 3/3. Official P1–P3 PASS 3/3 are implementation-and-box checks of theorems on this model, not stochastic evidence (P1 and P3 could not have failed under the stated model; P2 was pre-verified on all 16 locked-box corners and the 20 published pilots); P4 is the only numerical test. Everything here is in-model only.
 
 Lock (unchanged, and matching `run_sim1.json`):
 
