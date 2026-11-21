@@ -4,14 +4,14 @@ C1,C,D1,2,10.1111/j.1420-9101.2008.01666.x,0,,"I2 input is social environment / 
 C1,C,D1,3,10.1098/rspb.2022.0834,1,1,,"""fluctuations in temperature on scales of 3–4 generations rapidly selected for populations with enhanced trait plasticity"""
 C1,C,D1,4,10.1002/evl3.306,1,0,,"""the direction of plasticity evolution did not match simple theoretical predictions"" (Dunaliella, >200 generations)"
 C1,C,D1,5,10.1007/s10955-012-0563-1,0,,I1 numerical simulation,
-C1,C,D1,6,10.1098/rspb.2014.1486,1,1,,"BORDERLINE ""fluctuating environments, which favour the evolution and maintenance of plasticity"""
+C1,C,D1,6,10.1098/rspb.2014.1486,0,,"I2 the fluctuation-to-plasticity clause cites Schaum et al. 2013; this experiment reports that plasticity predicts the extent of CO2 adaptation",
 C1,C,D1,7,10.1016/j.isci.2020.101678,0,,I2 homogeneous-environment selection only; no fluctuating comparison,
 C1,C,D1,8,10.1186/s12862-017-0918-y,0,,I1 simulation (virtual cells),
 C1,C,D1,9,10.1186/1471-2148-11-5,0,,I1 model,
 C1,C,D1,10,10.1186/1471-2148-10-11,0,,"I2 reports among-population divergence, not regulation or plasticity",
 C1,C,D1,11,10.1093/jhered/esv060,0,,I1 review,
 C1,C,D1,12,10.1093/evlett/qraf040,0,,I1 model,
-C1,C,D1,13,10.1111/jeb.14178,1,1,,"BORDERLINE ""clones were found to have evolved higher environmental variation in fluctuating environments than in constant environments"""
+C1,C,D1,13,10.1111/jeb.14178,0,,"I2 the reported outcome is higher environmental variance which hides genetic variation from selection, not a rise in regulation or plasticity",
 C1,C,D1,14,10.1111/jeb.12606,0,,"I2 tolerance, not sensing/regulation/plasticity",
 C1,C,D1,15,10.1155/2012/256017,0,,I1 review,
 C1,C,D1,16,10.1007/s12038-009-0072-9,0,,I1 theory and simulation,
@@ -25,7 +25,7 @@ C3,C,D3,3,10.1038/s42003-022-03912-w,1,0,,"""some prey environments promoted ret
 C3,C,D3,4,10.1093/gbe/evx064,0,,"I2 loss of unused functions only speculated (""likely favor""), not a reported result",
 C3,C,D3,5,10.1128/mbio.00189-19,0,,"cell definition: intrinsic antibiotic resistance is not a sensing, regulatory, motility or catabolic function",
 C3,C,D3,6,10.1038/ismej.2016.115,0,,"I2 selection for swarming, not relaxed selection",
-C3,C,D3,7,10.1371/journal.pbio.1001789,1,1,,"""declines in performance were much less widespread than suggested""; erosion ""due to the gradual accumulation of disabling mutations in unused portions of the genome"" (loss present but limited; mechanism = mutation accumulation, Rdrift)"
+C3,C,D3,7,10.1371/journal.pbio.1001789,1,1,,"""erosion due to the gradual accumulation of disabling mutations in unused portions of the genome"" (loss present but limited; mechanism = mutation accumulation, Rdrift)"
 C3,C,D3,8,10.1371/journal.pgen.1003972,1,1,,"""loss of signaling networks is the major adaptive strategy in a constant environment""; ""signaling network function carries a fitness cost"" (mechanism = selection on cost)"
 C3,C,D3,9,10.1101/gr.200931.115,0,,I2 genetic code,
 C3,C,D3,10,10.1186/1471-2148-9-121,0,,I2 promoter phylogeny,
@@ -45,7 +45,7 @@ C4,C,D4,3,10.21273/hortsci.35.3.455c,0,,class: plants,
 C4,C,D4,4,10.21273/hortsci.34.3.465c,0,,I1 crop model,
 C4,C,D4,5,10.1128/aem.00929-21,0,,I2 abstract has no result,
 C4,C,D4,6,,0,,I1 review,
-C4,C,D4,7,10.1111/1462-2920.16539,1,1,,"""The pulse-treated LNA bacteria... contained more proteins and polysaccharides... than the continuous-treated LNA, conferring endurance and rapid response to pulses"""
+C4,C,D4,7,10.1111/1462-2920.16539,0,,"I2 the pulse-versus-continuous difference is protein and polysaccharide content; polyphosphate is an LNA-versus-HNA path coefficient",
 C4,C,D4,8,10.3354/meps112169,0,,I1 conceptual/theory,
 C4,C,D4,9,10.3389/fgene.2021.586293,0,,I1 genome-scale model,
 C4,C,D4,10,10.1007/s40726-022-00230-x,0,,I1 review,
@@ -79,7 +79,7 @@ A1,A,D1,17,10.3354/meps12217,0,,I1 review,
 A1,A,D1,18,10.1038/s41598-019-42109-w,0,,I2,
 A1,A,D1,19,10.1098/rspb.2014.1016,0,,I2 personality,
 A1,A,D1,20,10.1186/s40462-015-0044-7,0,,I2 input is resource scarcity,
-A2,A,D2,1,10.2193/0022-541x(2004)068[0519:vprata]2.0.co;2,1,1,,"""big rams spent twice as much time vigilant as other age–sex classes"" (rams the most at-risk class)"
+A2,A,D2,1,10.2193/0022-541x(2004)068[0519:vprata]2.0.co;2,1,1,,"""big rams spent twice as much time vigilant as other age–sex classes"" (ram contrast carries the +1; group-size risk estimated by vigilance; lion kills biased toward rams ""partially"")"
 A2,A,D2,2,,0,,I1 theory/model paper,
 A2,A,D2,3,10.1016/s0022-5193(87)80118-2,0,,no abstract,
 A2,A,D2,4,10.1111/j.2006.0908-8857.03781.x,0,,"I2 input is background noise (read quality), not predation risk or stake",
@@ -129,8 +129,8 @@ A4,A,D4,7,10.1242/jeb.071043,1,-1,,"""birds in the variable feeding group lost m
 A4,A,D4,8,10.1038/377621a0,0,,no abstract,
 A4,A,D4,9,10.1046/j.1365-2656.2003.00754.x,0,,"I2 input is food abundance, not unpredictability",
 A4,A,D4,10,10.1006/anbe.1998.0739,0,,I2 input is predation risk,
-A4,A,D4,11,10.1016/j.anbehav.2018.06.015,1,1,,"BORDERLINE ""Both groups increased their dawn body mass over the period of the experiment, consistent with a response to unpredictable food deprivation""; no cue effect"
-A4,A,D4,12,10.2307/1939303,1,1,,"""only ground-feeders [unpredictable food] will have relatively high fat reserves... Both predictions were supported"""
+A4,A,D4,11,10.1016/j.anbehav.2018.06.015,1,0,,"no difference in dawn body mass or foraging between the predictable-cue and unpredictable-cue groups; both groups gained mass"
+A4,A,D4,12,10.2307/1939303,1,1,,"""only ground-feeders will have relatively high fat reserves... Both predictions were supported"" (ground-feeders = unpredictable food)"
 A4,A,D4,13,,0,,I2 no contrast in shock size (interpretive),
 A4,A,D4,14,10.1093/beheco/11.1.27,0,,I1 dynamic model,
 A4,A,D4,15,10.1046/j.1365-2435.1997.00041.x,0,,"I2 input is food availability (feeding time), not unpredictability",
@@ -162,7 +162,7 @@ A5,A,D5,20,10.1098/rsos.170489,0,,I2 no environmental-change input,
 F1,F,D1,1,10.1016/0304-4076(86)90061-8,1,1,,"""higher inflation leads to more frequent price adjustment"""
 F1,F,D1,2,10.1086/713192,0,,"I2 consumer expectations, not firm price-change frequency",
 F1,F,D1,3,10.2307/2554160,0,,I1 theory,
-F1,F,D1,4,10.1162/qjec.2009.124.3.1221,1,1,,"""When the annual rate of inflation is low... the frequency of price changes comoves weakly with inflation... When inflation rises beyond 10%–15%... both the frequency and average magnitude are important determinants of inflation"""
+F1,F,D1,4,10.1162/qjec.2009.124.3.1221,1,1,,"frequency ""comoves weakly with inflation"" when inflation is low; ""both the frequency and average magnitude are important"" when inflation exceeds 10%–15%"
 F1,F,D1,5,10.1016/j.jmoneco.2004.07.006,0,,no abstract,
 F1,F,D1,6,10.1111/j.1467-999x.1991.tb00369.x,0,,I1 theory,
 F1,F,D1,7,10.1016/j.jimonfin.2016.02.002,0,,I1 DSGE model,
@@ -180,7 +180,7 @@ F1,F,D1,18,,0,,I1 theory,
 F1,F,D1,19,10.1257/0002828041301533,0,,I2 stock prices,
 F1,F,D1,20,10.2307/2118517,1,1,,"""prices change more often during periods of high overall inflation"""
 F4,F,D4,1,,0,,no abstract,
-F4,F,D4,2,10.1111/j.1540-6261.2010.01558.x,1,1,,"""Lower cross-divisional correlations in investment opportunity and higher correlations between investment opportunity and cash flow correspond to lower cash holdings"" (diversification lowers net shock; less cash)"
+F4,F,D4,2,10.1111/j.1540-6261.2010.01558.x,0,,"I2 the reported contrast is cross-divisional investment-opportunity correlation and it holds after controlling for cash-flow volatility; the volatility coefficient is not reported",
 F4,F,D4,3,10.33844/ijol.2016.60263,0,,I2 cash-flow volatility listed as a regressor but its direction not reported,
 F4,F,D4,4,10.1016/j.jcorpfin.2006.05.002,0,,no abstract,
 F4,F,D4,5,10.7916/d8gf0rpx,0,,"I2 investment, not cash holdings vs volatility",
@@ -192,7 +192,7 @@ F4,F,D4,10,10.30738/ad.v9i2.19034,0,,"I2 qualitative; accounting regimes, no vol
 F4,F,D4,11,10.1016/j.jcorpfin.2016.01.008,0,,no abstract,
 F4,F,D4,12,,0,,I1 review,
 F4,F,D4,13,10.54784/1990-6587.1271,0,,I2 cash-flow volatility not reported,
-F4,F,D4,14,,1,1,,"""uncertainty of cash flow is the most important factor that explains why firms hold cash""; ""firms hold more (less) cash when their cash flows are more volatile at relatively better (poorer) earnings"""
+F4,F,D4,14,,1,0,,"sign flips: more cash when cash flow is more volatile at better earnings, less cash at poorer earnings (mixed)"
 F4,F,D4,15,10.24912/jpa.v4i4.21399,1,0,,"""Cash flow volatility has an insignificant effect on corporate cash holding"""
 F4,F,D4,16,10.1016/j.irfa.2015.09.007,0,,I1 review,
 F4,F,D4,17,10.22495/cocv15i3art5,1,1,,"""cash flow volatility, investment opportunity and dividend have a significantly positive relationship with cash holdings levels"""

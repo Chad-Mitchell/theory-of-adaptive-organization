@@ -1,13 +1,13 @@
 {
  "by_cell": {
   "C1": {
-   "n": 4,
-   "plus": 3,
+   "n": 2,
+   "plus": 1,
    "minus": 0,
    "zero": 1,
-   "rate": 0.75,
-   "p_primary": 0.3125,
-   "p_sign_vs_R0": 0.125
+   "rate": 0.5,
+   "p_primary": 0.75,
+   "p_sign_vs_R0": 0.5
   },
   "C3": {
    "n": 3,
@@ -19,13 +19,13 @@
    "p_sign_vs_R0": 0.25
   },
   "C4": {
-   "n": 1,
-   "plus": 1,
+   "n": 0,
+   "plus": 0,
    "minus": 0,
    "zero": 0,
-   "rate": 1.0,
-   "p_primary": 0.5,
-   "p_sign_vs_R0": 0.5
+   "rate": null,
+   "p_primary": 1.0,
+   "p_sign_vs_R0": null
   },
   "A1": {
    "n": 1,
@@ -56,12 +56,12 @@
   },
   "A4": {
    "n": 7,
-   "plus": 6,
+   "plus": 5,
    "minus": 1,
-   "zero": 0,
-   "rate": 0.8571428571428571,
-   "p_primary": 0.0625,
-   "p_sign_vs_R0": 0.0625
+   "zero": 1,
+   "rate": 0.7142857142857143,
+   "p_primary": 0.2265625,
+   "p_sign_vs_R0": 0.109375
   },
   "A5": {
    "n": 0,
@@ -82,13 +82,13 @@
    "p_sign_vs_R0": 0.0625
   },
   "F4": {
-   "n": 5,
-   "plus": 4,
+   "n": 4,
+   "plus": 2,
    "minus": 0,
-   "zero": 1,
-   "rate": 0.8,
-   "p_primary": 0.1875,
-   "p_sign_vs_R0": 0.0625
+   "zero": 2,
+   "rate": 0.5,
+   "p_primary": 0.6875,
+   "p_sign_vs_R0": 0.25
   },
   "F5": {
    "n": 2,
@@ -102,13 +102,13 @@
  },
  "by_prediction": {
   "D1": {
-   "n": 9,
-   "plus": 7,
+   "n": 7,
+   "plus": 5,
    "minus": 1,
    "zero": 1,
-   "rate": 0.7777777777777778,
-   "p_primary": 0.08984375,
-   "p_sign_vs_R0": 0.03515625
+   "rate": 0.7142857142857143,
+   "p_primary": 0.2265625,
+   "p_sign_vs_R0": 0.109375
   },
   "D2": {
    "n": 9,
@@ -129,13 +129,13 @@
    "p_sign_vs_R0": 0.0009765625
   },
   "D4": {
-   "n": 13,
-   "plus": 11,
+   "n": 11,
+   "plus": 7,
    "minus": 1,
-   "zero": 1,
-   "rate": 0.8461538461538461,
-   "p_primary": 0.01123046875,
-   "p_sign_vs_R0": 0.003173828125
+   "zero": 3,
+   "rate": 0.6363636363636364,
+   "p_primary": 0.2744140625,
+   "p_sign_vs_R0": 0.03515625
   },
   "D5": {
    "n": 2,
@@ -149,53 +149,53 @@
  },
  "by_class": {
   "C": {
-   "n": 8,
-   "plus": 6,
+   "n": 5,
+   "plus": 3,
    "minus": 0,
    "zero": 2,
-   "rate": 0.75,
-   "p_primary": 0.14453125,
-   "p_sign_vs_R0": 0.015625,
-   "qualifies_n": true,
+   "rate": 0.6,
+   "p_primary": 0.5,
+   "p_sign_vs_R0": 0.125,
+   "qualifies_n": false,
    "supports": false,
    "fails": false
   },
   "A": {
    "n": 27,
-   "plus": 21,
+   "plus": 20,
    "minus": 2,
-   "zero": 4,
-   "rate": 0.7777777777777778,
-   "p_primary": 0.0029623061418533325,
-   "p_sign_vs_R0": 3.3020973205566406e-05,
+   "zero": 5,
+   "rate": 0.7407407407407407,
+   "p_primary": 0.0095786452293396,
+   "p_sign_vs_R0": 6.0558319091796875e-05,
    "qualifies_n": true,
    "supports": true,
    "fails": false
   },
   "F": {
-   "n": 11,
-   "plus": 8,
+   "n": 10,
+   "plus": 6,
    "minus": 0,
-   "zero": 3,
-   "rate": 0.7272727272727273,
-   "p_primary": 0.11328125,
-   "p_sign_vs_R0": 0.00390625,
+   "zero": 4,
+   "rate": 0.6,
+   "p_primary": 0.376953125,
+   "p_sign_vs_R0": 0.015625,
    "qualifies_n": true,
    "supports": false,
-   "fails": false
+   "fails": true
   }
  },
  "pooled": {
-  "n": 46,
-  "plus": 35,
+  "n": 42,
+  "plus": 29,
   "minus": 2,
-  "zero": 9,
-  "rate": 0.7608695652173914,
-  "p_primary": 0.00026779253605013764,
-  "p_sign_vs_R0": 5.122274160385132e-09
+  "zero": 11,
+  "rate": 0.6904761904761905,
+  "p_primary": 0.009760236391230137,
+  "p_sign_vs_R0": 2.314336597919464e-07
  },
  "classes_supporting": 1,
- "classes_failing": 0,
+ "classes_failing": 1,
  "verdict": "INCONCLUSIVE",
  "note": "Verdict concerns the directional corollary under the coarse qualification tier QC only; it is not a test of the banded hypothesis of THEORY section 3."
 }

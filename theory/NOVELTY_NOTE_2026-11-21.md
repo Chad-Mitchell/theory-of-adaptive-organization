@@ -10,8 +10,8 @@
 
 ## What the repository already says
 
-- THEORY §10 (line 196): "**The parts are known and the claim built from them is new.**" The package is "a layer count priced inside one objective; the world's measured pattern of change as the only world input, with its predictive dimension capping the layers; a ruin constraint whose slack end recovers the expected-cost rules; one booking rule across substrates with a kill condition."
-- The independent review of the master equation (`reviews/master-equation_2026-11-19/REVIEW.md`, item 2): "**Modest synthesis, not a new result.** Every term and the Lagrangian form are textbook … What is distinctive is the package … I found no prior statement of exactly that package, but the search was not exhaustive." Its verdict: "a genuine but **elementary** contribution."
+- THEORY §10 (line 196): "**The parts are known and the claim built from them is new.**" The package is "a layer count priced inside one objective; the world's measured pattern of change as the only world input, with its predictive dimension capping the layers; a ruin constraint whose slack end recovers the expected-cost rules; one booking rule across substrates with a kill condition; and predictions across scales, posed so that they can fail."
+- The independent review of the master equation (`reviews/master-equation_2026-11-19/REVIEW.md`, item 2): "**Modest synthesis, not a new result.** Every term and the Lagrangian form are textbook … What is distinctive is the package … I found no prior statement of exactly that package, but the search was not exhaustive." The bottom line, item 2, is "Modest synthesis, not a new result." In the later paragraph that begins "What I did not find stated together," the same review calls the package "a genuine but elementary contribution."
 - `litmap/PRIOR_ART.md`: "**The Rosen + Still + lateness synthesis was not found stated anywhere**" (novelty 1–2), and "an explicit multi-scale, preregistered falsification program" is listed among what remains GTAO's own.
 
 ## The closest relatives, and what each one lacks
@@ -24,7 +24,7 @@
 | Hierarchy from information cost (Genewein et al. 2015, 10.3389/frobt.2015.00027) | Layers arise from information-processing cost | "Static, with no drifting world" (review) |
 | Predictive information / bottleneck (Bialek, Nemenman & Tishby 2001, 10.1162/089976601753195969) | Optimal compression of the past to predict the future (litmap: "ANTICIPATES the rule 2 / T6 core in information units") | No stakes, upkeep, lateness or ruin; a bound, not a design criterion |
 | Sensing cost inside LQG (Meier, Peschon & Dressler 1967, 10.1109/tac.1967.1098668) | Measurement cost plus control loss | One engineered system; no layer price or ruin cap |
-| Optimal memory in noisy niches (Lee, Flack & Krakauer 2024, 10.1098/rspb.2024.1606) | A cross-scale memory rule (PRIOR_ART: "in *exact form for memory duration*") | One term (memory duration), not the full objective |
+| Lee, Flack & Krakauer 2024, *Constructing stability: optimal learning in noisy ecological niches*, 10.1098/rspb.2024.1606 | A sublinear scaling of optimal memory with environmental persistence. PRIOR_ART's "in *exact form for memory duration*" is that scaling | One memory time-scale term, not the full objective |
 | **Resource-rational analysis** (Lieder & Griffiths 2019/2020, *Behav. Brain Sci.*, 10.1017/S0140525X1900061X) — **not in the litmap; a gap to add** | Cognition as "the optimal use of limited computational resources" | Human cognition only; no per-layer upkeep, no ruin cap, no drifting-world spectrum as the input |
 
 ## So what is GTAO's, in one line
