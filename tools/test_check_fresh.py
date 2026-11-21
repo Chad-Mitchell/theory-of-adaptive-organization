@@ -1,0 +1,106 @@
+#!/usr/bin/env python3
+"""Tests for tools/check_fresh.py.
+
+Run:  python3 -m pytest -q tools/test_check_fresh.py
+"""
+from __future__ import annotations
+
+import os
+import subprocess
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "tools"))
+import check_fresh as fresh
+
+
+def _git(repo, *args):
+    e = os.environ.copy()
+    e.update({
+        "GIT_AUTHOR_NAME": "Test",
+        "GIT_AUTHOR_EMAIL": "test@example.com",
+        "GIT_COMMITTER_NAME": "Test",
+        "GIT_COMMITTER_EMAIL": "test@example.com",
+        "GIT_AUTHOR_DATE": "2026-11-21T12:00:00-05:00",
+        "GIT_COMMITTER_DATE": "2026-11-21T12:00:00-05:00",
+    })
+    r = subprocess.run(["git", *args], cwd=repo, capture_output=True, text=True, env=e)
+    assert r.returncode == 0, r.stderr
+    return r.stdout.strip()
+
+
+def _repo_with_commits(dest, n_first_parent):
+    """Exactly n_first_parent first-parent commits on main (linear history)."""
+    os.makedirs(dest)
+    _git(dest, "init", "-b", "main")
+    _git(dest, "config", "user.name", "Test")
+    _git(dest, "config", "user.email", "test@example.com")
+    shas = []
+    for i in range(n_first_parent):
+        path = os.path.join(dest, "f%d.txt" % i)
+        open(path, "w", encoding="utf-8").write("c%d\n" % i)
+        _git(dest, "add", "f%d.txt" % i)
+        _git(dest, "commit", "-m", "c%d" % i)
+        shas.append(_git(dest, "rev-parse", "HEAD"))
+    return dest, shas
+
+
+def _write_status(repo, sha):
+    open(os.path.join(repo, "STATUS.md"), "w", encoding="utf-8").write(
+        "# STATUS\n\n**As of:** today. `main` is `%s` (PR #1).\n" % sha
+    )
+
+
+def test_real_repo_status_is_in_window_after_fix():
+    # After the STATUS.md fix this must pass on the working tree.
+    fails = fresh.check(ROOT)
+    assert fails == []
+
+
+def test_head_pointer_passes(tmp_path):
+    repo, shas = _repo_with_commits(tmp_path / "r", 6)
+    _write_status(repo, shas[-1][:7])
+    assert fresh.check(repo) == []
+
+
+def test_pointer_within_last_five_first_parent_passes(tmp_path):
+    repo, shas = _repo_with_commits(tmp_path / "r", 6)
+    # shas[-5] is the 5th first-parent commit counting HEAD as 1; still in window.
+    _write_status(repo, shas[-5][:7])
+    window = fresh.first_parent_window(repo, "HEAD", 5)
+    assert shas[-5] in window
+    assert fresh.check(repo) == []
+
+
+def test_pointer_sixth_first_parent_fails(tmp_path):
+    repo, shas = _repo_with_commits(tmp_path / "r", 6)
+    _write_status(repo, shas[-6][:7])
+    window = fresh.first_parent_window(repo, "HEAD", 5)
+    assert shas[-6] not in window
+    fails = fresh.check(repo)
+    assert fails and "freshness:" in fails[0]
+    assert shas[-6][:7] in fails[0] or shas[-6][:7] in " ".join(fails)
+
+
+def test_unknown_sha_fails(tmp_path):
+    repo, shas = _repo_with_commits(tmp_path / "r", 3)
+    _write_status(repo, "deadbee")
+    fails = fresh.check(repo)
+    assert fails and "not a commit" in fails[0]
+
+
+def test_missing_pointer_fails(tmp_path):
+    repo, shas = _repo_with_commits(tmp_path / "r", 2)
+    open(os.path.join(repo, "STATUS.md"), "w", encoding="utf-8").write("# STATUS\nNo pointer.\n")
+    fails = fresh.check(repo)
+    assert fails and "no 'main is SHA' pointer" in fails[0]
+
+
+def test_missing_git_is_skipped(tmp_path):
+    dest = tmp_path / "nogit"
+    dest.mkdir()
+    _write_status(dest, "a65b64e")
+    # check() returns no failures when git is absent, so consistency
+    # mutation copies without .git still pass.
+    assert fresh.is_git_repo(str(dest)) is False
+    assert fresh.check(str(dest)) == []

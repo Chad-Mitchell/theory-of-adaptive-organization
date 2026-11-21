@@ -426,6 +426,18 @@ def main(argv=None):
     print("  core-rule FAILs: %d" % len(cf))
     fails.extend("FAIL " + x for x in cf)
 
+    # Freshness of STATUS.md's stated main SHA (see tools/check_fresh.py).
+    # No-op on trees without .git, so mutation copies in test_check_consistency
+    # are unchanged.
+    try:
+        from check_fresh import check as _fresh_check
+    except ImportError:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from check_fresh import check as _fresh_check
+    for x in _fresh_check(ROOT):
+        print("  FAIL " + x)
+        fails.append("FAIL " + x)
+
     # ---------------------------------------------------------------- summary
     print("\n== Summary")
     print("FAIL: %d   INFO (frozen records): %d" % (len(fails), len(infos)))
