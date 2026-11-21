@@ -83,7 +83,7 @@ In Ehrenfest's language (ANALOGY), this is a second-order transition: a kink in 
 - the slopes are 10.000 and 9.990 at ±50 grid steps;
 - the excess effort is 4.999×10⁻⁵ against a predicted 5×10⁻⁵.
 
-**Contrast.** The lookup edge reproduces Theorem 8 item 5's cliff: effort is 1.25 just below q_c and 0 above it. **The two edges of the hold band differ in kind.** Slowing into frozen is smooth; speeding into lookup is a jump. Theorem 8 states the cliff, and the continuity of the freeze edge is implicit in its proof. Stating the asymmetry is the only addition here. UNCONFIRMED novelty, trivially derived.
+**Contrast.** The lookup edge reproduces Theorem 8 item 5's cliff: effort is 1.25 just below q_c and 0 above it. **The two edges of the hold band differ in kind.** Slowing into frozen is smooth; speeding into lookup is a jump. Theorem 8 states the cliff, and the continuity of the freeze edge is implicit in its proof. Stating the asymmetry explicitly is the only addition here; **novelty 0** (elementary corollary of Theorem 8 and Cho & Garcia-Molina 2003).
 
 **Infinite lifetime (G3).** With H = ∞, there is no corner. Effort goes to 0 as √(λ r′(0)/(2c)) (GENERAL_THEOREM G3). Re-checked in S4 for an OU world under quadratic loss: f\*/√λ is 0.9315, 0.9788, 0.9933, 0.9979 and 0.9993 at λ = 10⁻² … 10⁻⁶, against the limit 1. **The frozen state is the q → 0 limit of the held optimum.** G2's λ_c is the high-drift fade edge, not this one.
 
@@ -160,7 +160,9 @@ The onset sits at 0.46–0.70 × q_fo in the first five runs (and ~1.03 × q_fo 
 - **Dodson's closure temperature (1973).** In a cooling mineral, isotopic exchange stops (the "clock closes") when the diffusion time exceeds the cooling time constant. Closure temperature has the same log form as §7.
 - **Kibble–Zurek.** Zurek (1985) gives the adiabatic–impulse criterion: freeze when the relaxation time exceeds the time over which the control parameter changes. Kibble (1976) supplies the cosmological defect setting.
 
-**What is GTAO-specific.** Only that Γ is not a given physical rate but the *cost-optimal* read rate, f\* = √(Wq/(2c)). That makes q_fo and the relic error functions of the price ratio c/W. UNCONFIRMED novelty, and probably a special case of known results on optimal sampling of nonstationary sources. A targeted search of the age-of-information literature has not been done (OPEN).
+- **Optimal checking, nonstationary Wiener sampling, time-varying EOQ, and rational inattention (KNOWN in substance; targeted search done in review).** The square-root optimal checking density n(t) ∝ √h(t) for time-varying hazard is Keller (1974), extending Barlow, Hunter & Proschan (1963), with finite-horizon checking schedules in Viscolani (1991). Finite-horizon optimal sampling of Wiener/OU processes is Rabi, Moustakides & Baras (2012); signal-independent AoI–MSE equivalence and threshold sampling of Wiener sources are in Sun, Polyanskiy & Uysal (2020). Algebraically, cN + W Σ ∫_{t_k}^{t_{k+1}} (u(t) − u(t_k)) dt is the time-reversed deterministic continuous-time EOQ problem with exponentially declining demand (Hollier & Mak 1983). In economics, rational inattention / costly observation models give the same √(2c/(Wq)) interval (Reis 2006; Abel, Eberly & Panageas 2007, 2013; Alvarez, Lippi & Paciello 2011).
+
+**What is GTAO-specific (novelty 0–1).** The mathematical mechanics are **KNOWN in substance**. The narrow GTAO framing is expressing the freeze-out point q_fo = 2c/(Wτ_c²) and residual error in GTAO's (c, W) parameters and connecting them directly to CT11's q_f = 2c/(WH²) via H ↔ τ_c.
 
 ---
 
@@ -231,12 +233,12 @@ Suppose the error the store must fight is its own thermally activated decay, q_s
 | Item | Status | Credit |
 |---|---|---|
 | Frozen = q → 0 limit of held (G3 with H = ∞; corner at q_f with finite H) | PROVED (in-model) | G3 and Theorem 8 already contain it; this file states it. Value of information → 0 as drift → 0 is standard. |
-| The freeze edge is continuous (C¹ kink) while the lookup edge is a cliff | PROVED (in-model) | Implicit in Theorem 8's proof; the cliff is Cho & Garcia-Molina 2003. UNCONFIRMED novelty for stating the asymmetry. |
-| Fixed machinery cost → first-order switch, effort jump √(h_m/(cH)), q\* closed form | PROVED (in-model) | Elementary fixed-cost (non-convexity) algebra; UNCONFIRMED novelty of the form. |
-| Ruin cap forces a discontinuous melt at q_r | PROVED (in-model) | Elementary. |
-| Freeze-out when optimal update interval > cooling time; q_fo = 2c/(Wτ_c²) | PROVED (form); NUMERICAL (constant 0.46–0.70) | **KNOWN criterion:** Hayashi 1950; Lee & Weinberg 1977; Dodson 1973; Zurek 1985. New only in that the rate is cost-optimal. |
-| Relic design iff ∫dt/τ_a < ∞; f_∞ ∝ τ_c^{−1/(αζ)} | PROVED (in-model); NUMERICAL | Freeze-out-integral form KNOWN (cosmology); KZ-like power law is ANALOGY; ζ is assumed, not derived. |
-| No static hysteresis; Dixit band with switching costs; rate-dependent loop | PROVED / KNOWN / NUMERICAL | Dixit 1989; dynamic hysteresis standard; relaxed selection Lahti et al. 2009. |
+| The freeze edge is continuous (C¹ kink) while the lookup edge is a cliff | PROVED (in-model) | **KNOWN / novelty 0:** implicit in Theorem 8's proof; cliff is Cho & Garcia-Molina 2003. |
+| Fixed machinery cost → first-order switch, effort jump √(h_m/(cH)), q\* closed form | PROVED (in-model) | **KNOWN / novelty 0:** elementary fixed-cost non-convexity algebra. |
+| Ruin cap forces a discontinuous melt at q_r | PROVED (in-model) | **KNOWN / novelty 0:** elementary. |
+| Freeze-out when optimal update interval > cooling time; q_fo = 2c/(Wτ_c²) | PROVED (EL & form); NUMERICAL (0.46–1.03) | **KNOWN in substance (novelty 0–1):** Hayashi 1950; Lee & Weinberg 1977; Dodson 1973; Zurek 1985; optimal checking/sampling/EOQ/inattention: Barlow et al. 1963; Keller 1974; Hollier & Mak 1983; Viscolani 1991; Reis 2006; Alvarez et al. 2011; Rabi et al. 2012; Abel et al. 2007, 2013; Sun et al. 2020. |
+| Relic design iff ∫dt/τ_a < ∞; f_∞ ∝ τ_c^{−1/(αζ)} (exact γ_E prefactor) | PROVED (in-model); NUMERICAL | Freeze-out-integral form KNOWN (cosmology); KZ-like power law is ANALOGY; ζ is assumed, not derived. |
+| No static hysteresis; Dixit band with switching costs; rate-dependent loop | PROVED / KNOWN / NUMERICAL | Dixit 1989; dynamic hysteresis Jung et al. 1990, Chakrabarti & Acharyya 1999; relaxed selection Lahti et al. 2009. |
 | T_f with price inside a log | PROVED (in-model) | Néel/Brown blocking form; Dodson closure form; Kramers. |
 | Protons, nuclei and crystals "froze out" of held equilibria | ANALOGY (physics KNOWN) | Weak-interaction n/p freeze-out (Hayashi 1950); the QCD transition is a crossover (Aoki et al. 2006). GTAO's design predictions do not apply (E1). |
 
@@ -249,32 +251,43 @@ None is preregistered or qualified.
 **What would change the picture.**
 - A derivation of ζ from a specific selection model.
 - A non-renewal (filtering) version of §2's continuity.
-- A targeted search for "optimal sampling of a decelerating source" in the age-of-information and optimal-monitoring literature, which may already contain §4 (OPEN).
 
 ---
 
 ## 9. Proposed follow-ups (not started; nothing edited outside this file)
 
-1. An independent review of this file and its script.
-2. If it passes, a one-line pointer from `theory/SCALE_ENDS.md` §2 (E4) and `THEORY.md` CT11 to this file. That would be a separate PR and needs the usual review and confirm.
-3. A prior-art search targeted at the §4 schedule (age of information under nonstationary sources; optimal inspection under decreasing hazard).
+1. Independent review completed in `reviews/freeze_2026-11-21/REVIEW.md` (READY-WITH-FIXES; S1–S3 applied on branch).
+2. If confirm passes, a one-line pointer from `theory/SCALE_ENDS.md` §2 (E4) and `THEORY.md` CT11 to this file. That would be a separate PR and needs the usual review and confirm.
+3. Targeted prior-art search for §4 completed in review (see §4 and §8; downgraded to KNOWN in substance, novelty 0–1).
 
 ---
 
 ## References (each DOI resolved on Crossref, 21 Nov 2026)
 
+- Abel AB, Eberly JC, Panageas S 2007, "Optimal inattention to the stock market," *Am Econ Rev* 97:244–249, doi 10.1257/aer.97.2.244
+- Abel AB, Eberly JC, Panageas S 2013, "Optimal inattention to the stock market with information costs and transactions costs," *Econometrica* 81:1455–1481, doi 10.3982/ECTA7624
 - Alpher RA, Bethe H, Gamow G 1948, "The origin of chemical elements," *Phys Rev* 73:803–804, doi 10.1103/PhysRev.73.803 (background only)
+- Alvarez F, Lippi F, Paciello L 2011, "Optimal price setting with observation and menu costs," *Q J Econ* 126:1909–1960, doi 10.1093/qje/qjr043
 - Aoki Y, Endrődi G, Fodor Z, Katz SD, Szabó KK 2006, "The order of the quantum chromodynamics transition predicted by the standard model of particle physics," *Nature* 443:675–678, doi 10.1038/nature05120
+- Barlow RE, Hunter LC, Proschan F 1963, "Optimum checking procedures," *J Soc Ind Appl Math* 11:1078–1095, doi 10.1137/0111080
 - Brown WF Jr 1963, "Thermal fluctuations of a single-domain particle," *Phys Rev* 130:1677–1686, doi 10.1103/PhysRev.130.1677
+- Chakrabarti BK, Acharyya M 1999, "Dynamic transitions and hysteresis," *Rev Mod Phys* 71:847–859, doi 10.1103/RevModPhys.71.847
 - Cohen D 1966, "Optimizing reproduction in a randomly varying environment," *J Theor Biol* 12:119–129, doi 10.1016/0022-5193(66)90188-3
 - Dixit A 1989, "Entry and exit decisions under uncertainty," *J Polit Econ* 97:620–638, doi 10.1086/261619
 - Dodson MH 1973, "Closure temperature in cooling geochronological and petrological systems," *Contrib Mineral Petrol* 40:259–274, doi 10.1007/BF00373790
 - Hayashi C 1950, "Proton–neutron concentration ratio in the expanding universe at the stages preceding the formation of the elements," *Prog Theor Phys* 5:224–235, doi 10.1143/ptp/5.2.224
+- Hollier RH, Mak KL 1983, "Inventory replenishment policies for deteriorating items in a declining market," *Int J Prod Res* 21:813–836, doi 10.1080/00207548308942414
+- Jung P, Gray G, Roy R, Mandel P 1990, "Scaling law for dynamical hysteresis," *Phys Rev Lett* 65:1873–1876, doi 10.1103/PhysRevLett.65.1873
+- Keller JB 1974, "Optimum checking schedules for systems subject to random failure," *Manage Sci* 21:256–260, doi 10.1287/mnsc.21.3.256
 - Kibble TWB 1976, "Topology of cosmic domains and strings," *J Phys A* 9:1387–1398, doi 10.1088/0305-4470/9/8/029
 - Kirkpatrick S, Gelatt CD, Vecchi MP 1983, "Optimization by simulated annealing," *Science* 220:671–680, doi 10.1126/science.220.4598.671
 - Kramers HA 1940, "Brownian motion in a field of force and the diffusion model of chemical reactions," *Physica* 7:284–304, doi 10.1016/S0031-8914(40)90098-2
 - Lahti DC et al. 2009, "Relaxed selection in the wild," *Trends Ecol Evol* 24:487–496, doi 10.1016/j.tree.2009.03.010
 - Lee BW, Weinberg S 1977, "Cosmological lower bound on heavy-neutrino masses," *Phys Rev Lett* 39:165–168, doi 10.1103/PhysRevLett.39.165
+- Rabi M, Moustakides GV, Baras JS 2012, "Adaptive sampling for linear state estimation," *SIAM J Control Optim* 50:672–702, doi 10.1137/090757125
+- Reis R 2006, "Inattentive consumers," *J Monet Econ* 53:1761–1800, doi 10.1016/j.jmoneco.2006.03.001
+- Sun Y, Polyanskiy Y, Uysal E 2020, "Sampling of the Wiener process for remote estimation over a channel with random delay," *IEEE Trans Inf Theory* 66:1118–1135, doi 10.1109/TIT.2019.2937336
+- Viscolani B 1991, "A note on checking schedules with finite horizon," *RAIRO - Operations Research* 25:203–208, doi 10.1051/ro/1991250202031
 - Zurek WH 1985, "Cosmological experiments in superfluid helium?" *Nature* 317:505–508, doi 10.1038/317505a0
 - Not DOI-checked: Kolb EW & Turner MS 1990, *The Early Universe* (Addison-Wesley), textbook; Néel L 1949, *Ann Géophys* 5:99 (cited by form only).
 - Already in the repo: Cho & Garcia-Molina 2003 (Theorem 8); Mitchell et al. 2009 (litmap).
