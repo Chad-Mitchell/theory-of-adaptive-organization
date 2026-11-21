@@ -9,7 +9,7 @@ PASS Kalman s2=10.0: read rate equals R_seq(P) (achievability of the read term) 
 PASS Kalman s2=10.0: memory >= I_min(P) (converse on the memory term)  [I_mem=0.6063 I_min=0.4469 gap=0.1594]
 PASS Monte Carlo: filter error P matches steady state  [0.3591 vs 0.3605]
 PASS Monte Carlo: I(xhat; X^t) matches closed form  [1.4375 vs 1.4360]
-== 2. Floor vs best one-layer Kalman design across prices (efficiency J_floor / J_design)
+== 2. Information floor vs best one-layer Kalman design across prices (efficiency J_floor / J_design, h left out of both sides)
 PASS floor <= design (kappa=0.0, c=0.0, w=1.0)  [eff=1.0000]
 PASS floor <= design (kappa=0.0, c=0.0, w=10.0)  [eff=1.0000]
 PASS floor <= design (kappa=0.0, c=0.0, w=100.0)  [eff=1.0000]
@@ -25,40 +25,51 @@ PASS floor <= design (kappa=0.01, c=0.0, w=100.0)  [eff=1.0000]
 PASS floor <= design (kappa=0.01, c=0.1, w=1.0)  [eff=0.9999]
 PASS floor <= design (kappa=0.01, c=0.1, w=10.0)  [eff=1.0000]
 PASS floor <= design (kappa=0.01, c=0.1, w=100.0)  [eff=1.0000]
-PASS floor <= design (kappa=0.01, c=1.0, w=1.0)  [eff=0.9996]
+PASS floor <= design (kappa=0.01, c=1.0, w=1.0)  [eff=0.9995]
 PASS floor <= design (kappa=0.01, c=1.0, w=10.0)  [eff=1.0000]
 PASS floor <= design (kappa=0.01, c=1.0, w=100.0)  [eff=1.0000]
 PASS floor <= design (kappa=0.1, c=0.0, w=1.0)  [eff=1.0000]
 PASS floor <= design (kappa=0.1, c=0.0, w=10.0)  [eff=1.0000]
 PASS floor <= design (kappa=0.1, c=0.0, w=100.0)  [eff=1.0000]
-PASS floor <= design (kappa=0.1, c=0.1, w=1.0)  [eff=0.9979]
+PASS floor <= design (kappa=0.1, c=0.1, w=1.0)  [eff=0.9978]
 PASS floor <= design (kappa=0.1, c=0.1, w=10.0)  [eff=1.0000]
 PASS floor <= design (kappa=0.1, c=0.1, w=100.0)  [eff=1.0000]
-PASS floor <= design (kappa=0.1, c=1.0, w=1.0)  [eff=0.9956]
+PASS floor <= design (kappa=0.1, c=1.0, w=1.0)  [eff=0.9955]
 PASS floor <= design (kappa=0.1, c=1.0, w=10.0)  [eff=0.9999]
 PASS floor <= design (kappa=0.1, c=1.0, w=100.0)  [eff=1.0000]
 PASS floor <= design (kappa=1.0, c=0.0, w=1.0)  [eff=1.0000]
 PASS floor <= design (kappa=1.0, c=0.0, w=10.0)  [eff=1.0000]
 PASS floor <= design (kappa=1.0, c=0.0, w=100.0)  [eff=1.0000]
-PASS floor <= design (kappa=1.0, c=0.1, w=1.0)  [eff=0.9602]
+PASS floor <= design (kappa=1.0, c=0.1, w=1.0)  [eff=0.9590]
 PASS floor <= design (kappa=1.0, c=0.1, w=10.0)  [eff=0.9986]
 PASS floor <= design (kappa=1.0, c=0.1, w=100.0)  [eff=1.0000]
-PASS floor <= design (kappa=1.0, c=1.0, w=1.0)  [eff=0.9585]
+PASS floor <= design (kappa=1.0, c=1.0, w=1.0)  [eff=0.9574]
 PASS floor <= design (kappa=1.0, c=1.0, w=10.0)  [eff=0.9978]
 PASS floor <= design (kappa=1.0, c=1.0, w=100.0)  [eff=1.0000]
-   efficiency of best one-layer Kalman vs floor: min 0.9585, median 1.0000
-PASS kappa = 0: Kalman with tuned read noise attains the floor (to grid accuracy)
-== 3. Duality: J*(prices) is concave in the prices (support function of the frontier)
+   efficiency of best one-layer Kalman vs information floor: min 0.9574, median 1.0000
+   12 of 36 prices have c=0 and set J_design = J_floor rather than simulating the store; 18 have both kappa>0 and c>0; median 1.0000 reflects the free-memory and free-read edges
+PASS worst both-priced (or c>0) efficiency is within 4.3% of the information floor (0.9574 at kappa=c=w=1)  [min eff=0.9574 at kappa=1.0, c=1.0, w=1.0]
+PASS w >= 10: every c>0 point is within 0.3% of the information floor  [worst such 0.9978]
+PASS kappa = 0, c > 0: Kalman with tuned read noise attains the information floor (to grid accuracy)
+== 3. Duality: J_floor is concave in the prices; envelope slope in w equals optimal loss
 PASS J_floor concave in w (second differences <= 0)  [max -2.89e-05]
+PASS envelope: dJ_floor/dw equals optimal lead-k loss (central differences within 2%)  [worst relative error 1.33e-03]
 == 4. Price-free first-nat value of the world (CT4 at the floor)
 PASS first-nat loss saving equals 2 a^{2k} Var  [6.9063 vs 6.9063]
-== 5. Farrell decomposition: cost efficiency = technical x allocative (one example)
-PASS eta_C = eta_T * eta_A  [eta_C=0.9854 eta_T=0.9910 eta_A=0.9943 theta=0.6979]
-PASS technical inefficiency detected (theta < 1) and allocative part < 1  [theta=0.6979]
+== 5. Farrell identity holds for input cost C = kappa I + c r, not for J_floor/J
+PASS J_floor/J is not theta times the cost-ratio allocative factor (retracted Farrell-on-J identity)  [theta=0.6979 Jf/J=0.9854 theta*(Jf/J_tech)=0.6939]
+PASS worked J numbers match the review (0.698, 0.985, 0.694 != 0.985)  [theta=0.6979 Jf/J=0.9854 product=0.6939]
+PASS input-cost Farrell: C_min/C = theta * eta_A  [C_min/C=0.6852 theta=0.6979 eta_A=0.9818 C_act=0.5680 C_min=0.3892]
+PASS worked input-cost numbers match the review (C_act=0.5680, C_min=0.3892, alloc=0.9818, product=0.6852)  [C_act=0.5680 C_min=0.3892 eta_A=0.9818 eta_C=0.6852]
 PASS technical efficiency is the same at other prices (price-free)
-== 6. Price-free switch-on edge at the floor: a model pays (h = 0) iff kappa + c(1-a^2) < 2 w a^{2k} Var
+== 6. Price-free switch-on edge at the floor: a model pays iff kappa + c(1-a^2) < 2 w a^{2k} Var
 PASS switch-on edge kappa=1.0, c=2.0: no model at 0.97 w_crit, model at 1.03 w_crit  [w_crit=0.1998]
 PASS switch-on edge kappa=3.0, c=0.5: no model at 0.97 w_crit, model at 1.03 w_crit  [w_crit=0.4481]
 PASS switch-on edge kappa=0.2, c=10.0: no model at 0.97 w_crit, model at 1.03 w_crit  [w_crit=0.3041]
+== 7. Reviewer K=0 memoryless counterexample: undercuts the retracted layer-charged floor; sits at or above the corrected floor
+PASS memoryless resources match the review (P=0.193, I=1.654 nats, r=0.950 nats, D=1.936)  [P=0.193 I=1.654 r=0.950 D=1.936]
+PASS memoryless J = 2.197 undercuts the retracted floor 3.187  [J=2.197 J_old=3.187]
+PASS corrected information floor sits at or below the memoryless design  [J_floor=2.187 J=2.197]
+PASS lead-0 memoryless J = 0.453 undercuts retracted floor 1.417 and sits at or above the corrected floor  [J0=0.453 J0_old=1.417 J0_floor=0.417]
 
 ALL PASS

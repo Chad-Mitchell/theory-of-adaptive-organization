@@ -55,4 +55,6 @@ Reviews of the theory notes, the tests, and the AI-memory toy. Independence is s
 
 | `cache_prior_art_2026-11-21/REVIEW.md` | Independent review of PR #134 (cache-hierarchy prior art, no lock): **READY-WITH-FIXES**. Not a lock, and not a scored result. S1 (T20 part A is K* vs log R with span fixed, not log scale range / Chow's log capacity), S2 (Przybylski is an interaction, not CT34's composition theorem), and nits applied in this PR. Does not merge | Stated as an independent pass that wrote none of the PR, `theory/CACHE_HIERARCHY_PRIOR_ART_2026-11-21.md`, or the `litmap/PRIOR_ART.md` row; same bot family. |
 
+| `shannon_2026-11-21/REVIEW.md` | Independent review of PR #139 (Shannon-style core: S1–S3, CORE restructure, LOCK1, fluid layers): **NOT READY**. Three labeled proofs did not hold as written (S1 layer charge, S2 support-function naming and hull recovery, S3 Farrell identity as defined); thermodynamic double charge on κ and c. Blockers and should-fixes applied on this branch; not yet re-reviewed. Does not merge | Stated as an independent hostile pass that wrote none of `CORE.md`, `theory/SHANNON_2026-11-21.md`, `theory/FLUID_LAYERS_2026-11-21.md`, or `tests/LOCK1/`; same bot family. |
+
 Test-specific reviews (for example `tests/C3/REVIEW.md`) stay with those tests.

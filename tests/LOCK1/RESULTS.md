@@ -4,13 +4,13 @@
 
 | Row | Verdict | Numbers |
 |---|---|---|
-| A1, A2 (rational-ratio rhythm worlds: layers at the world's frequencies and ratio) | **FAIL** | layer frequencies off by 3–66%; ratio errors 0.31–1.37 (N = 0.01) |
+| A1, A2 (rational-ratio rhythm worlds: layers at the world's frequencies and ratio) | **FAIL** | layer frequencies off by 2.6–66% (smallest relative error 0.0255); ratio errors 0.31–1.37 (N = 0.01) |
 | B1 (phase layers: optimal ratios farther from p/q, q ≤ 4, than r0) | **FAIL** | mean distance 0.046 / 0.034 / 0.031 vs 0.049 for r0 at Kc = 0.3 / 0.6 / 0.9: the optimum moves *closer* to low-order rationals |
 | B2 (≥ 10% more badly approximable) | **FAIL** | +22%, +7%, +37%; fails at Kc = 0.6 |
 | B3 (golden/noble selected) | **FAIL** (expected before the run) | golden share 0.093 / 0.113 / 0.000 vs 0.24 needed |
 | B4 (linear class: no rational structure) | **PASS** | roughness ratio 1.09, 1.05 |
 | D1 (mixed world: resonant layer at the rhythm) | **FAIL** | layer frequency 0.70 vs world 1.00 |
-| D2 | **FAIL** | scored as B1 at Kc = 0.6 |
+| D2 | **FAIL** | scored as B1 at Kc = 0.6 (same statistic by the prereg; not an independent fail) |
 
 No rescue; the rows stay as scored.
 
