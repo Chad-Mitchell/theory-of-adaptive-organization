@@ -62,7 +62,11 @@ def green_function_identities(b=2.0, sigma2=1.0, tol=1e-12):
     # ∫_{-b}^b g dx = b²/σ², the mean exit time (trapezoid on a fine grid)
     mean_exit = b * b / sigma2
     grid = np.linspace(-b, b, 20001)
-    integ = float(np.trapezoid((b - np.abs(grid)) / sigma2, grid))
+    # numpy 2 names this trapezoid; numpy 1.26 has trapz.
+    trap = getattr(np, "trapezoid", None)
+    if trap is None:
+        trap = np.trapz
+    integ = float(trap((b - np.abs(grid)) / sigma2, grid))
     rec("Green integral is mean exit b²/σ²", abs(integ - mean_exit) < 1e-8, "integ=%.12f want=%.12f" % (integ, mean_exit))
     # ρ = g / ∫g
     xs = np.linspace(-b, b, 9)
