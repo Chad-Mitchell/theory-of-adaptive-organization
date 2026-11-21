@@ -6,7 +6,7 @@ minimize the cost of judgment.* Here that means: agents whose banks of leaky-int
 minimizes J, where J comes from the repository's closed forms (`predict_evo.py`, SHA-256 `803922a1…`). Fitness never sees J.
 
 - Preregistration lock: commit `70fcbad`, Fri 20 Nov 2026, 1:39:31 PM ET. The hashes in `PREREG_EVO.sha256` verify, with one disclosed exception: the dependency `theory/layers_checks/stores.py` was changed on `main` by the v2.67 numerical-guard fix (PR #116) and merged here after scoring; the locked analysis gives the same result with either version (D4).
-- Declared diagnostics and record entries: D1 (`cf77048`), D2 (`610e87a`), D3 (reporting only, now closed) and D4 (S arms finished; scoring unchanged). All are in `DEVIATIONS_EVO.md`.
+- Declared diagnostics and record entries: D1 (`cf77048`), D2 (`610e87a`), D3 (reporting only, now closed), D4 (S arms finished; scoring unchanged) and D5 (PREREG §5 W3 "none" cell disagrees with the locked prediction). All are in `DEVIATIONS_EVO.md`.
 - Scoring: the locked `analyze_evo.py` was run unchanged → `ANALYSIS_EVO.json`. Diagnostic seeds were scored with the same
   `score_seed` function → `diag/DIAG_SCORES.json`.
 - Selection: Wright–Fisher, P = 300, β = 30, so EPS_BAND = 10/(βP) = 1/900 = 0.001111…. Each world has 8 seeds (even seeds start at

@@ -56,4 +56,4 @@ See `BRIDGE.md` for the distinction between this selection temperature \(1/\beta
 
 - The ruin cap \(P(\mathrm{ruin})\le\varepsilon\) is not built into \(\pi\propto e^{-\beta J}\). Feasibility is a hard constraint on the design set; a large-deviation rate function for lifetime ruin is listed as missing math, not as a derived identification with \(\beta\).
 - Strong mutation, standing polymorphism, frequency dependence, and a nonlinear map \(m(J)\) are outside the theorem as stated.
-- EVO1’s reachability failures (fitness valleys, W4/W4b) are compatible: the Boltzmann law assumes the mutation graph can traverse the space. A disconnected, or valley-blocked, graph is a different process.
+- EVO1’s reachability failures (fitness valleys, W4/W4b; W4's creation valley met the D2b bar (4/4); W4b's D1b bar was not met (2/4)) are compatible: the Boltzmann law assumes the mutation graph can traverse the space. A disconnected, or valley-blocked, graph is a different process.
