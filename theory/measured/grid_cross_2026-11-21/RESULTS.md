@@ -30,3 +30,12 @@ Also missing for a *hypothesis* test, independently of spectra: a class with rea
 Pass 1 (selection-pressure scores from the institutional sources that were fetched, including the now-reachable AEMC reliability-settings PDF and EirGrid System Services PDFs) can be completed after this file, without opening evaluation distances, and must be committed before any Pass 2. That would not, by itself, make the rank test scorable.
 
 No numbers in this file are official S or d scores.
+
+## Limits of the locked test (disclosed before any official score)
+
+Independent review of this lock (`reviews/grid_cross_2026-11-21/REVIEW.md`, READY-WITH-FIXES) found two properties of the locked gates that should be stated before any official ρ is computed. Dated deviations for typo and robustness-wording issues (S1–S3) are in `DEVIATIONS_2026-11-21.md`. The official comparison is still not run. The locked bars are not relaxed.
+
+**Leave-one-out cannot bite at n = n_min = 5 (review S4).** Dropping any one complete grid leaves n = 4, which is UNTESTED. UNTESTED is excluded from the scored-label flip set, so a 5-point PASS / FAIL / NEITHER is never flipped to INCONCLUSIVE by leave-one-out. That is a property of the locked clause at n_min. The clause is not changed after seeing official ρ. At n ≥ 6, leave-one-out can change a scored label; tests now assert such a flip.
+
+**The locked test is underpowered for its own effect-size bar at small n (review S5).** Exact enumeration of mid-rank Spearman on distinct ranks gives a minimum detectable no-tie ρ, at α = 0.10, of −0.80 / −0.66 / −0.52 at n = 5, 6, 8. At n = 5 the p-bar is already far stricter than ρ ≤ −0.5; at n = 8 a no-tie ρ of exactly −0.5 has p = 0.108 > 0.10. Simulated P(PASS | true ρ = −0.5) under a Gaussian latent-rank model is about 0.23, 0.34, and 0.47 at n = 5, 6, 8 (independent review, 5,000 draws). A later NEITHER at small n should not be misread as evidence against a true effect of size −0.5. The locked bars (ρ ≤ −0.5, α = 0.10, n_min = 5) are not relaxed.
+

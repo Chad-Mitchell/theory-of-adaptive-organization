@@ -1,4 +1,6 @@
 """GRID-CROSS: locked gates, permutation p-values, and verdict rules."""
+import hashlib
+import itertools
 import json
 import math
 import sys
@@ -12,6 +14,9 @@ from grid_cross_lib import (  # noqa: E402
     ALPHA, EFFECT_SIZE_BAR, N_MIN, NO_TIE_CRIT_RHO, d1_from_spectrum,
     diagnostic_verdict, midranks, permutation_p, robustness_tables,
     spearman_rho, validate_score,
+)
+from grid_cross_robustness_dev_20261121 import (  # noqa: E402
+    robustness_tables_prereg,
 )
 
 
@@ -38,6 +43,12 @@ def test_reachability_log_does_not_invent_annual_aemo_series():
     assert "data.fingrid.fi/files/339" in text
     assert "Schedule of reliability settings" in text or "reliability settings" in text
     assert "DS3-SS-Protocol-v4.1-October-2024.pdf" in text
+    # Independent-review S6 addendum (post-lock; not a d1 rescue).
+    assert "nemweb.com.au/Reports/Current" in text
+    assert "data.fingrid.fi/en/datasets/397" in text
+    assert "ACE open loop" in text
+    assert "www.ercot.com/mp/data-products" in text
+    assert "not a missed ready d1 series" in text or "not a missed ready d1" in text
 
 
 def test_midrank_spearman_known_values():
@@ -50,23 +61,76 @@ def test_midrank_spearman_known_values():
     assert spearman_rho([1, 1, 1], [3, 2, 1]) == 0.0
 
 
+def _enumerate_no_tie_critical(n):
+    """Max attainable no-tie Spearman rho with exact one-sided p <= ALPHA.
+
+    Enumerates all n! assignments of distinct ranks 1..n. One-sided p at a
+    value rho is (# permutations with mid-rank Spearman <= rho) / n!.
+    Returns (rho_crit, p_crit, n_hits_crit, rho_next, p_next, n_hits_next).
+    """
+    s = list(range(1, n + 1))
+    nfac = math.factorial(n)
+    # Round to 12 decimals so identical algebraic values group together.
+    counts = {}
+    for perm in itertools.permutations(s):
+        rho = round(spearman_rho(s, list(perm)), 12)
+        counts[rho] = counts.get(rho, 0) + 1
+    cum = 0
+    crit = None
+    nxt = None
+    for rho in sorted(counts):
+        cum += counts[rho]
+        p = cum / nfac
+        if p <= ALPHA:
+            crit = (rho, p, cum)
+        elif nxt is None:
+            nxt = (rho, p, cum)
+            break
+    assert crit is not None and nxt is not None
+    return crit + nxt
+
+
 def test_no_tie_critical_values_match_locked_table():
-    # n=5, anti-aligned enough: rho = -0.8 should have exact p = 8/120.
-    s = [1, 2, 3, 4, 5]
-    # A permutation with Spearman rho exactly -0.8 (Spearman footrule).
-    # ranks vs [2,1,5,4,3] is not -0.8. Use [5,4,3,1,2] etc. Compute from table construction:
-    # The locked table says max rho with p<=0.10 is -0.8 at 8/120.
-    # Perfect anti-alignment rho=-1 has p = 1/120 < 0.10.
-    p = permutation_p(s, [5, 4, 3, 2, 1], spearman_rho(s, [5, 4, 3, 2, 1]), direction="le")
-    assert p["method"] == "exact"
-    assert p["n_perm"] == 120
-    assert p["n_hits"] == 1
-    assert abs(p["p"] - 1 / 120) < 1e-15
-    # rho = 0 should not pass the one-sided 10% bar for n=5.
-    z = [1, 2, 3, 4, 5]
-    # A mild negative but above -0.8: [2,1,4,5,3] — just check the locked constant.
-    assert NO_TIE_CRIT_RHO[5] == -0.8
-    assert NO_TIE_CRIT_RHO[7] == -0.571429 or abs(NO_TIE_CRIT_RHO[7] + 0.571429) < 1e-6
+    # Exact enumeration, not a lookup of the locked constant. This is the
+    # check that would have failed on the n=9 typo (review S1).
+    expected = {
+        5: (-0.800000, 8, 120, -0.700000, 14),
+        6: (-0.657143, 63, 720, -0.600000, 87),
+        7: (-0.571429, 504, 5040, -0.535714, 594),
+        8: (-0.523810, 3964, 40320, -0.500000, 4358),
+        9: (-0.483333, 35163, 362880, -0.466667, 38560),
+    }
+    for n, (rho_c, hits_c, nfac, rho_n, hits_n) in expected.items():
+        crit_rho, crit_p, crit_hits, next_rho, next_p, next_hits = (
+            _enumerate_no_tie_critical(n)
+        )
+        assert crit_hits == hits_c
+        assert next_hits == hits_n
+        assert abs(crit_rho - rho_c) < 5e-7
+        assert abs(next_rho - rho_n) < 5e-7
+        assert abs(crit_p - hits_c / nfac) < 1e-15
+        assert abs(next_p - hits_n / nfac) < 1e-15
+        assert crit_p <= ALPHA < next_p
+
+    # Locked informational table is correct at n=5-8 and wrong at n=9.
+    assert abs(NO_TIE_CRIT_RHO[5] + 0.800000) < 1e-9
+    assert abs(NO_TIE_CRIT_RHO[6] + 0.657143) < 5e-7
+    assert abs(NO_TIE_CRIT_RHO[7] + 0.571429) < 5e-7
+    assert abs(NO_TIE_CRIT_RHO[8] + 0.523810) < 5e-7
+    # The typo: locked constant stores the next (non-critical) rho, -0.466667,
+    # whose exact p is 38560/362880 = 0.106261, above alpha. The official
+    # permutation p is computed by permutation_p, not by this table, and is
+    # unchanged (D1 in DEVIATIONS_2026-11-21.md).
+    assert abs(NO_TIE_CRIT_RHO[9] + 0.466667) < 5e-7
+    assert abs(NO_TIE_CRIT_RHO[9] + 0.483333) > 1e-4
+    s = list(range(1, 10))
+    # A representative permutation is not required here; official p on a
+    # fully anti-aligned pair uses the locked exact enumerator.
+    pval = permutation_p(s, list(reversed(s)), spearman_rho(s, list(reversed(s))), direction="le")
+    assert pval["method"] == "exact"
+    assert pval["n_perm"] == 362880
+    assert pval["n_hits"] == 1
+    assert abs(pval["p"] - 1 / 362880) < 1e-18
 
 
 def test_d1_rule():
@@ -172,26 +236,55 @@ def test_lower_bound_scores_are_not_official_complete():
 
 
 def test_robustness_inconclusive_when_leave_one_out_flips():
-    # Four strongly anti-aligned, one outlier that is needed for n=5.
-    # Dropping the outlier leaves n=4, which is UNTESTED, not a scored flip.
-    # Need a scored flip: five anti-aligned plus a sixth that, if used to
-    # change composition... official n=5 all anti-aligned is robust LOO
-    # (n=4 UNTESTED is not a scored-label change). So build n=6 with one
-    # concordant point that, when kept and a strong point dropped, can flip?
-    # Simpler: n=5 nearly tied around zero except one point that creates
-    # a FAIL; dropping it yields NEITHER. Use a clear FAIL (rho=+1) and
-    # check LOO stays FAIL for n=5 (each LOO of a +1 has rho=1 still).
-    # Instead: official PASS, but filling untested extremes flips.
+    # n=6 is the smallest n at which leave-one-out can change a scored label.
+    # Five perfectly anti-aligned grids (S=1..5, d=5..1) would PASS on their
+    # own (rho=-1, p=1/120). A sixth complete concordant point (S=6, d=6)
+    # makes the official six-point verdict NEITHER; dropping that sixth
+    # point flips the scored label to PASS, so the headline is INCONCLUSIVE.
     pairs = [_pair(f"g{s}", s, 6 - s) for s in range(1, 6)]
-    pairs.append(_pair("U", 8, None, untested=True))
+    pairs.append(_pair("x", 6, 6))
     headline, official, loo, extremes, bounds, binding = robustness_tables(pairs)
-    assert official["verdict"] == "PASS on diagnostic"
-    # Filling the untested grid with d=0 (min extreme of {0,3} wait max observed is 5, min 1)
-    # S=8 with d=min=1 is still anti-aligned-ish; with d=max=5 is mixed.
-    assert extremes  # untested extreme sweep ran
-    # Headline may be PASS or INCONCLUSIVE depending on the fill; just ensure
-    # it is one of the locked labels.
-    assert headline in {"PASS on diagnostic", "INCONCLUSIVE"}
+    assert official["n"] == 6
+    assert official["verdict"] == "NEITHER"
+    dropped_x = [row for row in loo if row["dropped"] == "x"]
+    assert len(dropped_x) == 1
+    assert dropped_x[0]["n"] == 5
+    assert dropped_x[0]["verdict"] == "PASS on diagnostic"
+    assert abs(dropped_x[0]["rho"] + 1.0) < 1e-12
+    assert headline == "INCONCLUSIVE"
+
+
+def test_robustness_fill_zero_vs_min_can_disagree():
+    # Review S2: when every complete d1 is >= 1, {0, max} and {min, max}
+    # can disagree. Five anti-aligned complete pairs with d in {2..6}
+    # plus an UNTESTED grid at S=2: official is PASS. Locked {min, max}
+    # fills (2 and 6) both stay PASS, so the locked headline stays PASS.
+    # The governing {0, max} fill is INCONCLUSIVE, because fill d=0 is NEITHER.
+    pairs = [_pair(f"g{s}", s, 7 - s) for s in range(1, 6)]  # d=6,5,4,3,2
+    pairs.append(_pair("U", 2, None, untested=True))
+    locked_h, locked_off, _loo, locked_ext, _b, _bind = robustness_tables(pairs)
+    gov_h, gov_off, _loo2, gov_ext, _b2, _bind2 = robustness_tables_prereg(pairs)
+    assert locked_off["verdict"] == gov_off["verdict"] == "PASS on diagnostic"
+    assert {row["fill_d"] for row in locked_ext} == {2, 6}
+    assert all(row["verdict"] == "PASS on diagnostic" for row in locked_ext)
+    assert locked_h == "PASS on diagnostic"
+    assert {row["fill_d"] for row in gov_ext} == {0, 6}
+    fill0 = [row for row in gov_ext if row["fill_d"] == 0]
+    assert len(fill0) == 1
+    assert fill0[0]["verdict"] == "NEITHER"
+    assert gov_h == "INCONCLUSIVE"
+
+
+def test_deviation_helper_hash_is_recorded():
+    dev = (GC / "grid_cross_robustness_dev_20261121.py").read_bytes()
+    digest = hashlib.sha256(dev).hexdigest()
+    note = (GC / "DEVIATIONS_2026-11-21.md").read_text()
+    assert digest in note
+    assert "f189de0e6d53deb42ab9c850c7e9a37e1f25e136bbb455d7981349e4c3f01a57" == digest
+    # Locked files still match LOCK.txt (this PR must not edit them).
+    lock = (GC / "LOCK.txt").read_text()
+    for name in ("PREREG.md", "run_grid_cross.py", "grid_cross_lib.py"):
+        assert hashlib.sha256((GC / name).read_bytes()).hexdigest() in lock
 
 
 def test_n_min_and_alpha_constants():
