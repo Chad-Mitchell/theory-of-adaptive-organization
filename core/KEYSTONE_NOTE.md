@@ -49,7 +49,7 @@ That is not a refutation of N60 as written: N60 is scoped to Model S. It is a re
 
 **The informal keystone does not hold by paying for a rhythm as a pair.** A pair rule predicts even K* (0, 2 or 4 in this example). The independently confirmed argmin is 3, not 2 or 4. "Counted by degree" remains the right convention for a mode in CT21; it is not a block-count rule that recovers this K*. A predictive rhythm rule (K* from the poles and the stakes, without first computing the whole ε_K curve) is OPEN. §4 records the definitional identity and the sweep's empirical findings.
 
-The same non-convexity is the fitness valley EVO1 found when layers are complements (W4, W4b; CT36, CL13): a step that adds only half of a pair can fail to pay. That diagnosis still fits the non-monotone decrement; it does not restore a pair-count rule, because the argmin here is not a completed pair.
+The same non-convexity is the fitness valley EVO1 found when layers are complements (W4, W4b; CT36, CL13; W4's creation valley met the D2b bar (4/4); W4b's D1b bar was not met (2/4)): a step that adds only half of a pair can fail to pay. That diagnosis still fits the non-monotone decrement; it does not restore a pair-count rule, because the argmin here is not a completed pair.
 
 ## 3. Honest status
 

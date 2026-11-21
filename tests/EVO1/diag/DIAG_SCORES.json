@@ -1,0 +1,760 @@
+{
+ "D1a": {
+  "world": "W4b",
+  "seeds": [
+   {
+    "seed": 0,
+    "start": "low",
+    "structure_genome": "1L1S",
+    "structure_frac": 0.9453333333333334,
+    "counted": null,
+    "structure_scored": "1L1S",
+    "predicted_structure": "1L1S",
+    "J_gap": 6.594063765241742e-06,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.04842007401074677
+    ],
+    "gl": [
+     0.6769319648699497
+    ],
+    "bc": [
+     0.0635973118991333
+    ],
+    "gc": [
+     -0.37991194981105536
+    ],
+    "improving_at_end": false,
+    "final_dead_frac": 0.0,
+    "miss": false,
+    "rate_dlog": [
+     0.006461037151759607,
+     0.014925996240858188
+    ],
+    "rate_band": [
+     0.07528892502125432,
+     0.15868619483912685
+    ],
+    "rates_in_band": true
+   },
+   {
+    "seed": 1,
+    "start": "high",
+    "structure_genome": "1L1S",
+    "structure_frac": 0.9498333333333333,
+    "counted": null,
+    "structure_scored": "1L1S",
+    "predicted_structure": "1L1S",
+    "J_gap": 3.9796892690180385e-06,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.04794209785189535
+    ],
+    "gl": [
+     0.6670669378096706
+    ],
+    "bc": [
+     0.06284452971693442
+    ],
+    "gc": [
+     -0.37219591169091215
+    ],
+    "improving_at_end": false,
+    "final_dead_frac": 0.0,
+    "miss": false,
+    "rate_dlog": [
+     -0.0034594548764728707,
+     0.003018686652036612
+    ],
+    "rate_band": [
+     0.07528892502125432,
+     0.15868619483912685
+    ],
+    "rates_in_band": true
+   },
+   {
+    "seed": 2,
+    "start": "low",
+    "structure_genome": "1L1S",
+    "structure_frac": 0.9473333333333334,
+    "counted": null,
+    "structure_scored": "1L1S",
+    "predicted_structure": "1L1S",
+    "J_gap": 6.052572837478287e-05,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.04841984693631983
+    ],
+    "gl": [
+     0.662712523257764
+    ],
+    "bc": [
+     0.061003807466285205
+    ],
+    "gc": [
+     -0.3707529107862199
+    ],
+    "improving_at_end": false,
+    "final_dead_frac": 0.0,
+    "miss": false,
+    "rate_dlog": [
+     0.006456347465425176,
+     -0.026708927769592408
+    ],
+    "rate_band": [
+     0.07528892502125432,
+     0.15868619483912685
+    ],
+    "rates_in_band": true
+   },
+   {
+    "seed": 3,
+    "start": "high",
+    "structure_genome": "1L1S",
+    "structure_frac": 0.9489444444444445,
+    "counted": null,
+    "structure_scored": "1L1S",
+    "predicted_structure": "1L1S",
+    "J_gap": 9.766941999056478e-05,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.04945621957850001
+    ],
+    "gl": [
+     0.6605340133772604
+    ],
+    "bc": [
+     0.06591078137225892
+    ],
+    "gc": [
+     -0.3665894848106008
+    ],
+    "improving_at_end": false,
+    "final_dead_frac": 0.0,
+    "miss": false,
+    "rate_dlog": [
+     0.027634382382726627,
+     0.05065682265897749
+    ],
+    "rate_band": [
+     0.07528892502125432,
+     0.15868619483912685
+    ],
+    "rates_in_band": true
+   }
+  ]
+ },
+ "D1b": {
+  "world": "W4b",
+  "seeds": [
+   {
+    "seed": 0,
+    "start": "low",
+    "structure_genome": "1L1S",
+    "structure_frac": 0.9497777777777778,
+    "counted": null,
+    "structure_scored": "1L1S",
+    "predicted_structure": "1L1S",
+    "J_gap": 1.618506916845064e-05,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.047714778845438705
+    ],
+    "gl": [
+     0.667910400640817
+    ],
+    "bc": [
+     0.06111794898602772
+    ],
+    "gc": [
+     -0.38082488484739807
+    ],
+    "improving_at_end": false,
+    "final_dead_frac": 0.0,
+    "miss": false,
+    "rate_dlog": [
+     -0.008212263921001786,
+     -0.024839620345665094
+    ],
+    "rate_band": [
+     0.07528892502125432,
+     0.15868619483912685
+    ],
+    "rates_in_band": true
+   },
+   {
+    "seed": 1,
+    "start": "high",
+    "structure_genome": "1L1S",
+    "structure_frac": 0.9467777777777778,
+    "counted": null,
+    "structure_scored": "1L1S",
+    "predicted_structure": "1L1S",
+    "J_gap": 9.161393257506312e-05,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.049438383520344305
+    ],
+    "gl": [
+     0.6631291736927635
+    ],
+    "bc": [
+     0.06431476076692778
+    ],
+    "gc": [
+     -0.37445060370814587
+    ],
+    "improving_at_end": false,
+    "final_dead_frac": 0.0,
+    "miss": false,
+    "rate_dlog": [
+     0.027273673955973386,
+     0.026143958339850018
+    ],
+    "rate_band": [
+     0.07528892502125432,
+     0.15868619483912685
+    ],
+    "rates_in_band": true
+   },
+   {
+    "seed": 2,
+    "start": "low",
+    "structure_genome": "1L0S",
+    "structure_frac": 0.9597576566060808,
+    "counted": null,
+    "structure_scored": "1L0S",
+    "predicted_structure": "1L1S",
+    "J_gap": 0.010442313923708868,
+    "miss_A": true,
+    "miss_B": true,
+    "bl": [
+     0.039115223585998976
+    ],
+    "gl": [
+     0.5000908892521891
+    ],
+    "bc": [],
+    "gc": [],
+    "improving_at_end": false,
+    "final_dead_frac": 0.0005,
+    "miss": true
+   },
+   {
+    "seed": 3,
+    "start": "high",
+    "structure_genome": "1L0S",
+    "structure_frac": 0.9648771812826498,
+    "counted": null,
+    "structure_scored": "1L0S",
+    "predicted_structure": "1L1S",
+    "J_gap": 0.010421210649147472,
+    "miss_A": true,
+    "miss_B": true,
+    "bl": [
+     0.039785378632816185
+    ],
+    "gl": [
+     0.4971210333547412
+    ],
+    "bc": [],
+    "gc": [],
+    "improving_at_end": false,
+    "final_dead_frac": 0.0003333333333333334,
+    "miss": true
+   }
+  ]
+ },
+ "D1c": {
+  "world": "W3",
+  "seeds": [
+   {
+    "seed": 0,
+    "start": "low",
+    "structure_genome": "1L0S",
+    "structure_frac": 0.9787509565012655,
+    "counted": {
+     "local": [
+      0.031237449504366563
+     ],
+     "shared": [],
+     "structure": "1L0S",
+     "K": 1
+    },
+    "structure_scored": "1L0S",
+    "predicted_structure": "1L0S",
+    "J_gap": 4.370132123132642e-05,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.031306218653400254
+    ],
+    "gl": [
+     0.9980725636563172
+    ],
+    "bc": [],
+    "gc": [],
+    "improving_at_end": false,
+    "final_dead_frac": 0.05616666666666667,
+    "miss": false,
+    "rate_dlog": [
+     -0.010055657935339489
+    ],
+    "rate_band": [
+     0.05073052524637745
+    ],
+    "rates_in_band": true
+   },
+   {
+    "seed": 1,
+    "start": "high",
+    "structure_genome": "1L0S",
+    "structure_frac": 0.9805714285714285,
+    "counted": {
+     "local": [
+      0.03131879914698859
+     ],
+     "shared": [],
+     "structure": "1L0S",
+     "K": 1
+    },
+    "structure_scored": "1L0S",
+    "predicted_structure": "1L0S",
+    "J_gap": 2.4018226993494096e-05,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.03138779087720086
+    ],
+    "gl": [
+     0.9992431939326883
+    ],
+    "bc": [],
+    "gc": [],
+    "improving_at_end": false,
+    "final_dead_frac": 0.0763888888888889,
+    "miss": false,
+    "rate_dlog": [
+     -0.007454808612282535
+    ],
+    "rate_band": [
+     0.05073052524637745
+    ],
+    "rates_in_band": true
+   },
+   {
+    "seed": 2,
+    "start": "low",
+    "structure_genome": "1L0S",
+    "structure_frac": 0.9814009661835749,
+    "counted": {
+     "local": [
+      0.03150660367998654
+     ],
+     "shared": [],
+     "structure": "1L0S",
+     "K": 1
+    },
+    "structure_scored": "1L0S",
+    "predicted_structure": "1L0S",
+    "J_gap": 9.417363540098478e-07,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.031576106946530055
+    ],
+    "gl": [
+     0.9988923764353126
+    ],
+    "bc": [],
+    "gc": [],
+    "improving_at_end": false,
+    "final_dead_frac": 0.08,
+    "miss": false,
+    "rate_dlog": [
+     -0.0014761730936774192
+    ],
+    "rate_band": [
+     0.05073052524637745
+    ],
+    "rates_in_band": true
+   },
+   {
+    "seed": 3,
+    "start": "high",
+    "structure_genome": "1L0S",
+    "structure_frac": 0.9767111111111111,
+    "counted": {
+     "local": [
+      0.031463022781755966
+     ],
+     "shared": [],
+     "structure": "1L0S",
+     "K": 1
+    },
+    "structure_scored": "1L0S",
+    "predicted_structure": "1L0S",
+    "J_gap": 3.5359065775342202e-06,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.031532407578394345
+    ],
+    "gl": [
+     0.9986889334731157
+    ],
+    "bc": [],
+    "gc": [],
+    "improving_at_end": false,
+    "final_dead_frac": 0.0625,
+    "miss": false,
+    "rate_dlog": [
+     -0.002860361237635454
+    ],
+    "rate_band": [
+     0.05073052524637745
+    ],
+    "rates_in_band": true
+   },
+   {
+    "seed": 4,
+    "start": "low",
+    "structure_genome": "1L0S",
+    "structure_frac": 0.9799834182162739,
+    "counted": {
+     "local": [
+      0.03181178879751392
+     ],
+     "shared": [],
+     "structure": "1L0S",
+     "K": 1
+    },
+    "structure_scored": "1L0S",
+    "predicted_structure": "1L0S",
+    "J_gap": 2.8800867126310692e-05,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.03188211509064803
+    ],
+    "gl": [
+     0.9978459645049593
+    ],
+    "bc": [],
+    "gc": [],
+    "improving_at_end": false,
+    "final_dead_frac": 0.06188888888888889,
+    "miss": false,
+    "rate_dlog": [
+     0.008163600402320411
+    ],
+    "rate_band": [
+     0.05073052524637745
+    ],
+    "rates_in_band": true
+   },
+   {
+    "seed": 5,
+    "start": "high",
+    "structure_genome": "1L0S",
+    "structure_frac": 0.9788827936058515,
+    "counted": {
+     "local": [
+      0.03140676331597706
+     ],
+     "shared": [],
+     "structure": "1L0S",
+     "K": 1
+    },
+    "structure_scored": "1L0S",
+    "predicted_structure": "1L0S",
+    "J_gap": 9.345098015645092e-06,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.031475994772888795
+    ],
+    "gl": [
+     0.9984067940549266
+    ],
+    "bc": [],
+    "gc": [],
+    "improving_at_end": false,
+    "final_dead_frac": 0.058166666666666665,
+    "miss": false,
+    "rate_dlog": [
+     -0.00465007563903009
+    ],
+    "rate_band": [
+     0.05073052524637745
+    ],
+    "rates_in_band": true
+   },
+   {
+    "seed": 6,
+    "start": "low",
+    "structure_genome": "1L0S",
+    "structure_frac": 0.979371494058749,
+    "counted": {
+     "local": [
+      0.03136181350789706
+     ],
+     "shared": [],
+     "structure": "1L0S",
+     "K": 1
+    },
+    "structure_scored": "1L0S",
+    "predicted_structure": "1L0S",
+    "J_gap": 1.598829488735909e-05,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.03143092286025557
+    ],
+    "gl": [
+     0.9988935129367942
+    ],
+    "bc": [],
+    "gc": [],
+    "improving_at_end": false,
+    "final_dead_frac": 0.07894444444444444,
+    "miss": false,
+    "rate_dlog": [
+     -0.006082315082341405
+    ],
+    "rate_band": [
+     0.05073052524637745
+    ],
+    "rates_in_band": true
+   },
+   {
+    "seed": 7,
+    "start": "high",
+    "structure_genome": "1L0S",
+    "structure_frac": 0.9777185759263745,
+    "counted": {
+     "local": [
+      0.031627287139918595
+     ],
+     "shared": [],
+     "structure": "1L0S",
+     "K": 1
+    },
+    "structure_scored": "1L0S",
+    "predicted_structure": "1L0S",
+    "J_gap": 2.380402672308435e-06,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.0316971171446508
+    ],
+    "gl": [
+     0.9984864215226565
+    ],
+    "bc": [],
+    "gc": [],
+    "improving_at_end": false,
+    "final_dead_frac": 0.08244444444444445,
+    "miss": false,
+    "rate_dlog": [
+     0.0023469274742795826
+    ],
+    "rate_band": [
+     0.05073052524637745
+    ],
+    "rates_in_band": true
+   }
+  ]
+ },
+ "D2b": {
+  "world": "W4",
+  "seeds": [
+   {
+    "seed": 0,
+    "start": "low",
+    "structure_genome": "1L1S",
+    "structure_frac": 0.9370555555555555,
+    "counted": {
+     "local": [
+      0.07056970261642176
+     ],
+     "shared": [
+      0.009272597516589659
+     ],
+     "structure": "1L1S",
+     "K": 2
+    },
+    "structure_scored": "1L1S",
+    "predicted_structure": "1L1S",
+    "J_gap": 1.4191405627972387e-05,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.07031645865436054
+    ],
+    "gl": [
+     0.39019123396116095
+    ],
+    "bc": [
+     0.009647995080966977
+    ],
+    "gc": [
+     0.5250580973576492
+    ],
+    "improving_at_end": false,
+    "final_dead_frac": 0.0,
+    "miss": false,
+    "rate_dlog": [
+     -0.008857372832815071,
+     0.012943515978418023
+    ],
+    "rate_band": [
+     0.13400037302229226,
+     0.18348089055376324
+    ],
+    "rates_in_band": true
+   },
+   {
+    "seed": 2,
+    "start": "low",
+    "structure_genome": "1L1S",
+    "structure_frac": 0.9360555555555555,
+    "counted": {
+     "local": [
+      0.06918339878140879
+     ],
+     "shared": [
+      0.009107931145741158
+     ],
+     "structure": "1L1S",
+     "K": 2
+    },
+    "structure_scored": "1L1S",
+    "predicted_structure": "1L1S",
+    "J_gap": 4.5905992954509145e-05,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.06895950596612854
+    ],
+    "gl": [
+     0.39755811184663686
+    ],
+    "bc": [
+     0.009468476551426868
+    ],
+    "gc": [
+     0.5202665660640855
+    ],
+    "improving_at_end": false,
+    "final_dead_frac": 0.0,
+    "miss": false,
+    "rate_dlog": [
+     -0.02869735197425519,
+     -0.004974442683829816
+    ],
+    "rate_band": [
+     0.13400037302229226,
+     0.18348089055376324
+    ],
+    "rates_in_band": true
+   },
+   {
+    "seed": 4,
+    "start": "low",
+    "structure_genome": "1L1S",
+    "structure_frac": 0.9365555555555556,
+    "counted": {
+     "local": [
+      0.06969881843293849
+     ],
+     "shared": [
+      0.009257994653023589
+     ],
+     "structure": "1L1S",
+     "K": 2
+    },
+    "structure_scored": "1L1S",
+    "predicted_structure": "1L1S",
+    "J_gap": 3.9023386170455865e-05,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.0694650778845156
+    ],
+    "gl": [
+     0.39429398956348005
+    ],
+    "bc": [
+     0.009636126670975312
+    ],
+    "gc": [
+     0.5177999630578629
+    ],
+    "improving_at_end": false,
+    "final_dead_frac": 0.0,
+    "miss": false,
+    "rate_dlog": [
+     -0.02127491837289619,
+     0.01136743395629572
+    ],
+    "rate_band": [
+     0.13400037302229226,
+     0.18348089055376324
+    ],
+    "rates_in_band": true
+   },
+   {
+    "seed": 6,
+    "start": "low",
+    "structure_genome": "1L1S",
+    "structure_frac": 0.9398333333333333,
+    "counted": {
+     "local": [
+      0.07100792157012081
+     ],
+     "shared": [
+      0.00908233230823209
+     ],
+     "structure": "1L1S",
+     "K": 2
+    },
+    "structure_scored": "1L1S",
+    "predicted_structure": "1L1S",
+    "J_gap": 2.907831437193309e-06,
+    "miss_A": false,
+    "miss_B": false,
+    "bl": [
+     0.07074756401865911
+    ],
+    "gl": [
+     0.39095360498186155
+    ],
+    "bc": [
+     0.009421454700934133
+    ],
+    "gc": [
+     0.5221710203340684
+    ],
+    "improving_at_end": false,
+    "final_dead_frac": 0.0,
+    "miss": false,
+    "rate_dlog": [
+     -0.002666841586186424,
+     -0.007789009330748378
+    ],
+    "rate_band": [
+     0.13400037302229226,
+     0.18348089055376324
+    ],
+    "rates_in_band": true
+   }
+  ]
+ }
+}

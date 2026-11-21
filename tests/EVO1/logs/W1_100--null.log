@@ -1,0 +1,13 @@
+W1 seed 100 NULL g0 med 0.70710 dead 0 modal 1L0S (1.00) 0s
+W1 seed 100 NULL g50 med 1.02182 dead 0 modal 1L0S (0.38) 3s
+W1 seed 100 NULL g100 med 1.01132 dead 0 modal 1L0S (0.33) 4s
+W1 seed 100 NULL g150 med 0.96964 dead 0 modal 1L0S (0.36) 6s
+W1 seed 100 NULL g200 med 1.00931 dead 0 modal 0L0S (0.31) 8s
+W1 seed 100 NULL g250 med 0.93510 dead 0 modal 0L0S (0.28) 10s
+W1 seed 100 NULL g300 med 1.06281 dead 0 modal 0L0S (0.29) 11s
+W1 seed 100 NULL g350 med 1.09253 dead 0 modal 3L0S (0.25) 13s
+W1 seed 100 NULL g400 med 1.21942 dead 0 modal 4L0S (0.44) 15s
+W1 seed 100 NULL g450 med 1.00584 dead 0 modal 3L0S (0.41) 17s
+W1 seed 100 NULL g500 med 0.98930 dead 0 modal 0L0S (0.23) 19s
+W1 seed 100 NULL g550 med 1.09721 dead 0 modal 3L0S (0.33) 21s
+W1 seed 100 NULL g599 med 1.00242 dead 0 modal 4L0S (0.29) 23s

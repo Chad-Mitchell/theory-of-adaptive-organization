@@ -1,0 +1,13 @@
+S07 seed 2 g0 med 1.00000 dead 300 modal 1L0S (1.00) 1s
+S07 seed 2 g50 med 0.93663 dead 0 modal 3L0S (0.54) 110s
+S07 seed 2 g100 med 0.95362 dead 0 modal 4L0S (0.98) 591s
+S07 seed 2 g150 med 0.92411 dead 0 modal 4L0S (0.98) 1105s
+S07 seed 2 g200 med 0.90609 dead 0 modal 4L0S (0.95) 1596s
+S07 seed 2 g250 med 0.90651 dead 0 modal 4L0S (0.98) 2084s
+S07 seed 2 g300 med 0.91317 dead 0 modal 4L0S (0.98) 2634s
+S07 seed 2 g350 med 0.91260 dead 0 modal 4L0S (0.94) 3324s
+S07 seed 2 g400 med 0.91340 dead 0 modal 4L0S (0.97) 3992s
+S07 seed 2 g450 med 0.91755 dead 0 modal 4L0S (0.98) 4738s
+S07 seed 2 g500 med 0.89124 dead 0 modal 4L0S (0.96) 5134s
+S07 seed 2 g550 med 0.90680 dead 0 modal 4L0S (0.97) 5455s
+S07 seed 2 g599 med 0.94113 dead 0 modal 4L0S (0.99) 5774s
