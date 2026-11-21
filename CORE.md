@@ -4,11 +4,11 @@
 
 *Status words and caveats: see the end of this page.*
 
-The theory has two parts, and they are different kinds of claim. **Part 1 is mathematics:** limits that any system acting ahead of a world it does not control must obey, and the structure of the cheapest design. These hold by proof, like Shannon's limits, and need no experiment. **Part 2 is a hypothesis about nature:** that strongly selected systems come close to those limits. Only Part 2 has odds.
+The theory has two parts, and they are different kinds of claim. **Part 1 is mathematics:** limits that any system acting ahead of a world it does not control must obey, and the structure of the cheapest design. Proved limits hold by proof, like Shannon's limits, and need no experiment. Gaps without a derivation are marked **OPEN**. **Part 2 is a hypothesis about nature:** that strongly selected systems come close to those limits. Only Part 2 has odds.
 
 **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
 
-**In five sentences.** A system that must act ahead of a world it does not control pays one cost of judgment — memory, layer upkeep, error (including lateness), reads and links — subject to a ruin cap. The limits on that cost are mathematics and need no experiment; that strongly selected systems come close to them is the hypothesis. A stack of layers is the cheapest design only when a layer cannot, or cannot afford to, reset the whole state. A lumpy layer's expected lifetime is \(T^*=\sqrt{6k/(w\sigma^2)}\) (**KNOWN**, exact at zero discounting); that falling re-form cost makes layers re-form faster and structures behave more like swarms is a **HYPOTHESIS**. Fast-local / slow-shared tracking needs delay on the shared channel only, and a shared lump cheaper than \(N\) local ones.
+**In five sentences.** A system that must act ahead of a world it does not control pays one cost of judgment — memory, layer upkeep, error (including lateness), reads and sharing — subject to a ruin cap. The limits on that cost are mathematics and need no experiment; that strongly selected systems come close to them is the hypothesis. A stack of layers is the cheapest design only when a layer cannot, or cannot afford to, reset the whole state (**PROVED** in that specialized model). A lumpy layer's expected lifetime is \(T^*=\sqrt{6k/(w\sigma^2)}\) (**KNOWN**, exact at zero discounting), so a lower re-form cost shortens it; that structures then behave more like swarms is a **HYPOTHESIS**. Fast-local / slow-shared tracking needs delay on the shared channel only, and a shared lump cheaper than \(N\) local ones (**PROVED** for a Brownian driver with fixed-period refreshes; **NUMERICAL** for Ornstein–Uhlenbeck).
 
 ## 1. The cost
 
@@ -39,7 +39,7 @@ No information argument forces a layer. A memoryless rule can still carry inform
 
 A stack is the cheapest design only when a layer cannot, or cannot afford to, reset the whole state (**PROVED** in that specialized model). One lumpy tracker is already optimal for a single process, including a fractal one (**PROVED**). For increment variance proportional to \(\tau^{2H}\) the refresh scales as \((k/(wC))^{1/(2H+1)}\); the square-root lifetime below is the Brownian case \(H=\tfrac12\). One layer beats two when a joint reset costs about as little as one part (**PROVED**). A joint reset that costs the sum of the part costs does not: the specialized stack is then never more expensive.
 
-The existing layer-count converse is CT21, linear-Gaussian, squared-error, counted by degree. For finitely many real modes, layers are at most the world's predictive degree (L2). On a non-rational spectrum, \(E_K>E_\infty\) for every finite \(K\), and \(K^*\to\infty\) only if also \(E_K\to E_\infty\) (L3). In Model S the fewest-stores floor remains the existing numerical \(E_K\); \(T^*\) does not compute \(E_K\). There is still no formula for "the fewest layers that reach accuracy \(D\) in this world." That floor stays **OPEN**.
+The existing layer-count converse is CT21, linear-Gaussian, squared-error, counted by degree. For finitely many real modes, layers are at most the world's predictive degree (L2). On a non-rational spectrum, \(E_K>E_\infty\) for every finite \(K\), and \(K^*\to\infty\) if also \(E_K\to E_\infty\) (L3; that limit is conditional). In Model S the fewest-stores floor remains the existing numerical \(E_K\); \(T^*\) does not compute \(E_K\). There is still no formula for "the fewest layers that reach accuracy \(D\) in this world." That floor stays **OPEN**.
 
 ## 3. How long a layer lasts
 
@@ -59,17 +59,17 @@ $$T_i^*/T_j^*=\sqrt{(k_i/k_j)\,(\sigma_j^2/\sigma_i^2)}$$
 
 The same cost decides whether a fact is tracked locally or shared. The fast-local / slow-shared crossing needs latency on the shared channel only, and a shared lump cheaper than \(N\) local lumps (\(k_S<N k_L\)). It is **PROVED** for a Brownian common driver with fixed-period refreshes, and **NUMERICAL** for an Ornstein–Uhlenbeck driver. Under that same shared-only delay, the optimal barrier keeps the sign, and the variance rate where the two costs cross is the fixed-period crossing divided by 3. If local updates carry the same observation delay, the delay floors cancel. Which side is cheaper then does not depend on the drift variance, so speed does not flip the choice. \(\tau>\ell\) is not sufficient: at the prices in the checks, the OU crossing is about \(183\ell\), so shared still lost at \(\tau=40\ell\) and won at \(\tau=400\ell\).
 
-The older nesting factor in the repository (at equal read quality, a shared layer's worth falls as \(e^{-2\ell/\tau}\)) is the smooth companion of this result (CT28, CT34).
+The older nesting factor in the repository (at equal read quality, a shared layer's worth falls as \(e^{-2\ell/\tau}\)) is the Ornstein–Uhlenbeck companion of this result (CT28, CT34).
 
 ## 5. Every adaptive organization
 
 The same cost is the theory's definition for systems that must act ahead of a changing world. THEORY §1 names cells, colonies, people, firms and cities. Firms are one class, not the point. The hypothesis is that *strongly selected* systems in a class that qualifies sit near the minimum, not that every organization already does. Cities, nation-states, global economies and the biosphere do not qualify until a class-specific population proxy is preregistered (THEORY §3).
 
-When the cost \(k\) of re-forming a layer falls, \(T^*\) shrinks as \(\sqrt{k}\). That scaling is **KNOWN** from the formula. As \(k \to 0\), groups re-form continuously and keep no lasting identity: the swarm limit (an **ANALOGY**, not a field result).
+When the cost \(k\) of re-forming a layer falls, \(T^*\) shrinks as \(\sqrt{k}\). That scaling is **KNOWN** from the formula. P1 is the untested field check of that exponent. As \(k \to 0\), groups re-form continuously and keep no lasting identity: the swarm limit (an **ANALOGY**, not a field result).
 
-The checked qualitative precedent is Malone, Yates & Benjamin 1987 (*Communications of the ACM* 30(6):484–497, doi 10.1145/214762.214766): lower coordination costs shift activity toward markets rather than hierarchies, and toward new forms of coordination. That is not the square-root lifetime and not the swarm limit (see also Malone 2004, *The Future of Work*, not used as evidence here).
+The checked qualitative precedent is Malone, Yates & Benjamin 1987 (*Communications of the ACM* 30(6):484–497, doi 10.1145/214762.214766): lower coordination costs shift activity toward markets rather than hierarchies. That is not the square-root lifetime and not the swarm limit (see also Malone 2004, *The Future of Work*, not used as evidence here).
 
-Since \(T^*\) scales as \(\sqrt{k}\), anything that lowers the re-form cost \(k\), including AI, shortens layer lifetimes, so structures should re-form more often and behave more like swarms (**HYPOTHESIS**; the \(\sqrt{k}\) scaling is P1, and that AI lowers \(k\) is unmeasured).
+It is a **HYPOTHESIS** that AI lowers \(k\) and that structures then behave more like swarms (that AI lowers \(k\) is unmeasured).
 
 ## 6. Assumptions (scrub these)
 
@@ -97,7 +97,7 @@ Each of these is a window the rest of the page looks through. If it is wrong, he
 
 ## 8. What is next
 
-A proof that would derive closeness to the minimum from selection axioms — persistence costs energy, copying favors what persists, and the world drifts — with closeness a function of selection strength. The bet would then move from "systems minimize cost" to "the world satisfies these axioms," which is smaller, sharper, and easier to test. An in-model bridge already gives expected excess \(d/(2\sigma N_e)\) under weak mutation and fitness linear in \(J\). Its P3 failed and is not rescued. The proof still to write does not assume that bridge.
+A proof that would derive closeness to the minimum from selection axioms — persistence costs energy, copying favors what persists, and the world drifts — with closeness a function of selection strength. The bet would then move from "systems minimize cost" to "the world satisfies these axioms," which is smaller, sharper, and easier to test. An in-model bridge already gives a typical fractional excess of about \(d/(2\sigma N_e)\) under weak mutation and fitness linear in \(J\). Its P3 failed and is not rescued. The proof still to write does not assume that bridge.
 
 ## References
 
@@ -112,4 +112,4 @@ A proof that would derive closeness to the minimum from selection axioms — per
 
 The operational kill rule stays in force in THEORY §3. There is no Model S counterexample to N60. The rhythms counterexample (two oscillators, \(R=3\), formula 2, argmin 3) and the failed IMP-N60 rule stay in force in `core/KEYSTONE_NOTE.md`. Convexity inside Model S is numerical (120/120), not proved.
 
-Omissions from this page are compressions, not withdrawals. The previous text is frozen at `history/2026-11-21_CORE_before_onepage.md`. The information limits (S1–S3) are in `theory/SHANNON_2026-11-21.md`; the layer-lifetime results are in `theory/LAYER_LIFETIME_2026-11-21.md`. This page was revised after the independent review of PR #142 (`reviews/core_onepage_2026-11-21/REVIEW.md`, verdict NOT READY). IDs: `measurement/CLAIM_MAP_v2.md`. `main` is `d34df95` (PR #140 live brief; also #141 layer lifetime as `a97887e`, #139 Shannon-style core as `0726423`, and #138 DIR1 as `1cb1ac2`).
+Omissions from this page are compressions, not withdrawals. The previous text is frozen at `history/2026-11-21_CORE_before_onepage.md`. The information limits (S1–S3) are in `theory/SHANNON_2026-11-21.md`; the layer-lifetime results are in `theory/LAYER_LIFETIME_2026-11-21.md`. This page was revised after the independent review of PR #142 (`reviews/core_onepage_2026-11-21/REVIEW.md`, verdict NOT READY) and the blind confirm (`reviews/core_onepage_2026-11-21/CONFIRM.md`). IDs: `measurement/CLAIM_MAP_v2.md`. `main` is `d34df95` (PR #140 live brief; also #141 layer lifetime as `a97887e`, #139 Shannon-style core as `0726423`, and #138 DIR1 as `1cb1ac2`).
