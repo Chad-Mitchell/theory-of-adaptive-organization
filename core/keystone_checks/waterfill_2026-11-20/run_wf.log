@@ -1,0 +1,102 @@
+/workspace/gtao-wf/waterfill/run_wf.py:483: SyntaxWarning: invalid escape sequence '\('
+  lines.append("**Rule:** \(K^*_{\\mathrm{WF}}=\\#\{i:R\\delta_i>1\}\), \(\\delta_i\) the \(H_2\) split of the unique Kalman–Bucy estimate (innovations form). Count only; not a process-band placement prediction.")
+/workspace/gtao-wf/waterfill/run_wf.py:493: SyntaxWarning: invalid escape sequence '\('
+  lines.append(f"| TAUTOLOGY (test validity) | §3 items 1–4; item 5 not triggered | re-apply {'OK' if taut_ok else 'FAIL'} ({len(taut_mism)} mismatches); identity diagnostic {'TRIGGERED' if tautology_identity else 'not triggered'} ({n_ms_all_count_match}/{n_ms} Model S worlds match N60-from-0 at every R; {dec_equal_worlds}/{n_ms} have \(\\delta=\) joint decrements to \(10^{{-8}}\)) | **{taut_verdict}** |")
+/workspace/gtao-wf/waterfill/run_wf.py:493: SyntaxWarning: invalid escape sequence '\)'
+  lines.append(f"| TAUTOLOGY (test validity) | §3 items 1–4; item 5 not triggered | re-apply {'OK' if taut_ok else 'FAIL'} ({len(taut_mism)} mismatches); identity diagnostic {'TRIGGERED' if tautology_identity else 'not triggered'} ({n_ms_all_count_match}/{n_ms} Model S worlds match N60-from-0 at every R; {dec_equal_worlds}/{n_ms} have \(\\delta=\) joint decrements to \(10^{{-8}}\)) | **{taut_verdict}** |")
+/workspace/gtao-wf/waterfill/run_wf.py:494: SyntaxWarning: invalid escape sequence '\('
+  lines.append(f"| SANITY (implementation) | 9 one-OU cells match L1; both \(K^*=0\) and \(1\) occur | {sum(1 for x in sanity_rows if x['ok'])}/9; K* seen {sorted(ks_seen)} | **{'PASS' if sanity_pass else 'FAIL'}** |")
+/workspace/gtao-wf/waterfill/run_wf.py:498: SyntaxWarning: invalid escape sequence '\('
+  lines.append(f"| PRIMARY Model S | \(\\ge 95\%\) of determinate cells | **{g_ms['n_match']}/{g_ms['n_det']} = {pct(g_ms['rate'])}** ({g_ms['n_indet']} INDETERMINATE of {g_ms['n_cells']}) | **{ms_ver}** |")
+/workspace/gtao-wf/waterfill/run_wf.py:499: SyntaxWarning: invalid escape sequence '\('
+  lines.append(f"| PRIMARY rhythmic+mixed | \(\\ge 90\%\) of determinate cells | **{g_rm['n_match']}/{g_rm['n_det']} = {pct(g_rm['rate'])}** (rhythm {g_all_r['n_match']}/{g_all_r['n_det']}, mixed {g_all_m['n_match']}/{g_all_m['n_det']}; {g_rm['n_indet']} INDETERMINATE of {g_rm['n_cells']}) | **{rm_ver}** |")
+/workspace/gtao-wf/waterfill/run_wf.py:500: SyntaxWarning: invalid escape sequence '\('
+  lines.append(f"| HOLE | \(\\ge 95\%\) of Model S cells with true argmin \(0\) predicted \(0\) | **{g_ms['hole_hit']}/{g_ms['hole_true']} = {pct(g_ms['hole_rate'])}** | **{hole_ver}** |")
+/workspace/gtao-wf/waterfill/run_wf.py:512: SyntaxWarning: invalid escape sequence '\('
+  lines.append("The derived count rule passed both primary gates. The mapping of the keystone to reverse water-filling holds in the translated form of MATH.md §7 (discrete water-filling on the joint Kalman estimate's \(H_2\) energies), as a *count*, in-model and numerical, on these fresh worlds. It is not a process-band placement rule, and it is not a proof.")
+/workspace/gtao-wf/waterfill/run_wf.py:522: SyntaxWarning: invalid escape sequence '\('
+  lines.append(f"Worlds in which \(K^*_{{WF}}=\) N60-from-0 at every R: {n_ms_all_count_match}/{n_ms}.")
+/workspace/gtao-wf/waterfill/run_wf.py:522: SyntaxWarning: invalid escape sequence '\)'
+  lines.append(f"Worlds in which \(K^*_{{WF}}=\) N60-from-0 at every R: {n_ms_all_count_match}/{n_ms}.")
+/workspace/gtao-wf/waterfill/run_wf.py:523: SyntaxWarning: invalid escape sequence '\('
+  lines.append(f"Worlds in which sorted \(\\delta_i\) equal the optimised joint decrements to \(10^{{-8}}\) relative: {dec_equal_worlds}/{n_ms}.")
+/workspace/gtao-wf/waterfill/run_wf.py:523: SyntaxWarning: invalid escape sequence '\)'
+  lines.append(f"Worlds in which sorted \(\\delta_i\) equal the optimised joint decrements to \(10^{{-8}}\) relative: {dec_equal_worlds}/{n_ms}.")
+/workspace/gtao-wf/waterfill/run_wf.py:527: SyntaxWarning: invalid escape sequence '\('
+  lines.append(f"Max relative discrepancy between \(\\delta\) and joint decrements, over worlds: {max(rels):.4g} (median {float(np.median(rels)):.4g}).")
+/workspace/gtao-wf/waterfill/run_wf.py:554: SyntaxWarning: invalid escape sequence '\('
+  lines.append("Related, not confirmation: the T20 fair fractal test found \(K^*\) growing roughly linearly in \(\\log R\) and store rates on the *observer* (fast) side, not on process bands. This test did not score those worlds and did not predict placement.")
+Model S todo 40 / 40
+done ms_0002 elapsed=2.23514723777771 flags=[]
+done ms_0001 elapsed=3.8634300231933594 flags=[]
+done ms_0000 elapsed=4.29673433303833 flags=[]
+done ms_0003 elapsed=5.517394781112671 flags=[]
+done ms_0006 elapsed=2.5606465339660645 flags=[]
+done ms_0004 elapsed=5.51539158821106 flags=[]
+done ms_0005 elapsed=4.795562267303467 flags=[]
+done ms_0007 elapsed=4.080883979797363 flags=[]
+done ms_0009 elapsed=3.248769998550415 flags=[]
+done ms_0010 elapsed=3.2208194732666016 flags=[]
+done ms_0011 elapsed=3.2867965698242188 flags=[]
+done ms_0008 elapsed=7.4964282512664795 flags=[]
+done ms_0012 elapsed=3.495372772216797 flags=[]
+done ms_0013 elapsed=4.062439441680908 flags=[]
+done ms_0015 elapsed=3.209930658340454 flags=[]
+done ms_0014 elapsed=6.795485973358154 flags=[]
+done ms_0016 elapsed=6.235382795333862 flags=[]
+done ms_0017 elapsed=5.204741716384888 flags=[]
+done ms_0019 elapsed=2.0722668170928955 flags=[]
+done ms_0020 elapsed=2.6626367568969727 flags=[]
+done ms_0021 elapsed=2.6773393154144287 flags=[]
+done ms_0018 elapsed=7.160271883010864 flags=[]
+done ms_0022 elapsed=3.7764036655426025 flags=[]
+done ms_0023 elapsed=4.7433435916900635 flags=[]
+done ms_0024 elapsed=4.94319224357605 flags=[]
+done ms_0026 elapsed=3.2798821926116943 flags=[]
+done ms_0025 elapsed=5.170560598373413 flags=[]
+done ms_0027 elapsed=3.8835110664367676 flags=[]
+done ms_0029 elapsed=4.295236349105835 flags=[]
+done ms_0030 elapsed=3.5676779747009277 flags=[]
+done ms_0028 elapsed=5.387597560882568 flags=[]
+done ms_0031 elapsed=2.308232545852661 flags=[]
+done ms_0032 elapsed=3.1042826175689697 flags=[]
+done ms_0033 elapsed=3.2197442054748535 flags=[]
+done ms_0035 elapsed=3.7834625244140625 flags=[]
+done ms_0034 elapsed=4.635535001754761 flags=[]
+done ms_0037 elapsed=3.207221269607544 flags=[]
+done ms_0038 elapsed=1.9545059204101562 flags=[]
+done ms_0036 elapsed=4.615971326828003 flags=[]
+done ms_0039 elapsed=3.7118680477142334 flags=[]
+rhythm todo 12 / 12; mixed todo 12 / 12
+/home/box/.local/lib/python3.13/site-packages/scipy/_lib/_util.py:1138: RuntimeWarning: Input "a" has an eigenvalue pair whose sum is very close to or exactly zero. The solution is obtained via perturbing the coefficients.
+  return f(*arrays, *other_args, **kwargs)
+/home/box/.local/lib/python3.13/site-packages/scipy/_lib/_util.py:1138: RuntimeWarning: Input "a" has an eigenvalue pair whose sum is very close to or exactly zero. The solution is obtained via perturbing the coefficients.
+  return f(*arrays, *other_args, **kwargs)
+done rh_0003 elapsed=40.159226417541504 flags=[]
+done rh_0002 elapsed=49.73876738548279 flags=[]
+done rh_0001 elapsed=60.5992751121521 flags=[]
+done rh_0000 elapsed=60.617464780807495 flags=[]
+done rh_0007 elapsed=284.1437335014343 flags=[]
+done rh_0005 elapsed=303.50399589538574 flags=[]
+done rh_0006 elapsed=333.16659688949585 flags=[]
+done rh_0004 elapsed=370.25693011283875 flags=[]
+done rh_0011 elapsed=1221.6629359722137 flags=[]
+done rh_0009 elapsed=1319.1128973960876 flags=[]
+done mx_0000 elapsed=94.11595487594604 flags=[]
+done mx_0001 elapsed=85.18030118942261 flags=[]
+done rh_0010 elapsed=1423.6054983139038 flags=[]
+done rh_0008 elapsed=1481.6221578121185 flags=[]
+done mx_0004 elapsed=76.08330249786377 flags=[]
+done mx_0003 elapsed=655.1332495212555 flags=[]
+done mx_0002 elapsed=746.7698683738708 flags=[]
+done mx_0005 elapsed=666.3891925811768 flags=[]
+done mx_0009 elapsed=187.5328619480133 flags=[]
+/home/box/.local/lib/python3.13/site-packages/scipy/_lib/_util.py:1138: RuntimeWarning: Input "a" has an eigenvalue pair whose sum is very close to or exactly zero. The solution is obtained via perturbing the coefficients.
+  return f(*arrays, *other_args, **kwargs)
+done mx_0006 elapsed=994.2523279190063 flags=[]
+done mx_0008 elapsed=523.2116377353668 flags=[]
+done mx_0010 elapsed=454.7161452770233 flags=[]
+done mx_0007 elapsed=2017.1473352909088 flags=[]
+done mx_0011 elapsed=1906.4607181549072 flags=[]
+completed 64/64 worlds; scoring…
+wrote /workspace/gtao-wf/RESULTS.md
