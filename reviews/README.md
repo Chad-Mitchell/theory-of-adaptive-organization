@@ -47,4 +47,6 @@ Reviews of the theory notes, the tests, and the AI-memory toy. Independence is s
 
 | `discrim_2026-11-21/REVIEW.md` | Independent review of PR #129 (discriminating-candidate shortlist): **READY-WITH-FIXES**. Not a lock, and not a re-score. M1 (rebase onto `ecf6e77`, keep GRID-CROSS OPEN_WORK rows, add T29, describe #128 as merged), M2, and S1–S6 applied in this PR. Ranking unchanged: candidate 1 remains first as a Pass 1 attempt, not as a shown discriminator | Stated as an independent pass that wrote none of the PR, `theory/DISCRIMINATING_CANDIDATES_2026-11-21.md`, the OPEN_WORK T29 row, or the VIS-1F outline; same bot family. |
 
+| `vis1f_2026-11-21/REVIEW.md` | Independent review of PR #130 (VIS-1F drop under the written pre-Pass-1 rule): **READY-WITH-FIXES**. The drop stands (both sides of the written rule fire; no lock; no official Pass 1 fit; no re-score). S1–S3 and nits applied in this PR. Does not merge | Stated as an independent pass that wrote none of the PR, `theory/VIS1F_DROP_2026-11-21.md`, or the OPEN_WORK T29 rewrite; same bot family. |
+
 Test-specific reviews (for example `tests/C3/REVIEW.md`) stay with those tests.
