@@ -137,7 +137,8 @@ def dp_schedule(tau, cr, Hor, Wt=1.0, q0=1.0, k=25):
         reads.append(t[j]); j = prev[j]
     return np.array(reads[::-1]), n
 summary = []
-for tau, cr, Hor in [(10, 5e-3, 300), (20, 5e-3, 600), (40, 5e-3, 1200), (20, 2e-2, 600), (20, 5e-3, 1500)]:
+el_errs = []
+for tau, cr, Hor in [(10, 5e-3, 300), (20, 5e-3, 600), (40, 5e-3, 1200), (20, 2e-2, 600), (20, 5e-3, 1500), (20, 5e-3, 5000)]:
     r, n = dp_schedule(tau, cr, Hor)
     gaps = np.diff(r)
     mid = r[:-1] + gaps/2
@@ -150,13 +151,21 @@ for tau, cr, Hor in [(10, 5e-3, 300), (20, 5e-3, 600), (40, 5e-3, 1200), (20, 2e
     q_at = np.exp(-r[k_fo]/tau) if k_fo is not None else np.nan
     after = len(r) - 1 - k_fo if k_fo is not None else 0
     q_last = np.exp(-r[-1]/tau)
-    summary.append((tau, cr, Hor, q_at/q_fo, q_last, r[-1], after))
+    q_prev = np.exp(-r[-2]/tau)
+    u_r = tau*(1 - np.exp(-r/tau))
+    el_lhs = u_r[-1] - u_r[-2]
+    el_rhs = q_last*(Hor - r[-1])
+    el_errs.append(abs(el_lhs/el_rhs - 1))
+    q_tail_pred = tau*q_prev/(Hor - r[-1])
+    summary.append((tau, cr, Hor, q_at/q_fo, q_last, r[-1], after, len(r)))
     print(f"  tau_c={tau:<3} c={cr:<6g} Hor={Hor:<5}: grid {n}, reads {len(r)}; early gaps vs sqrt(2c/Wq(t)): median rel dev {rel:.3f}")
-    print(f"     first gap > tau_c starts at q={q_at:.3g}; q_fo=2c/(W tau_c^2)={q_fo:.3g}; ratio {q_at/q_fo:.2f}; reads after that: {after}; last read at t={r[-1]:.1f}, q={q_last:.3g} (c/(W tau_c Hor)={cr/(tau*Hor):.3g})")
+    print(f"     first gap > tau_c starts at q={q_at:.3g}; q_fo=2c/(W tau_c^2)={q_fo:.3g}; ratio {q_at/q_fo:.2f}; reads after that: {after}; last read at t={r[-1]:.1f}, q={q_last:.3g} (EL tail pred {q_tail_pred:.3g}, EL ratio {el_lhs/el_rhs:.4f})")
 ratios = [s[3] for s in summary]
 check(f"freeze-out onset tracks q_fo=2c/(W tau_c^2) within a factor 3 across runs (ratios {np.round(ratios,2)})", all(1/3 < x < 3 for x in ratios))
 check("reads stop well before the horizon (frozen afterwards) in every run", all(s_[5] < 0.8*s_[2] for s_ in summary))
 check("after the first gap > tau_c the schedule makes only O(1) further reads (<=3)", all(s_[6] <= 3 for s_ in summary))
+check(f"Euler-Lagrange last-read condition u_N-u_{{N-1}}=q_N(Hor-t_N) holds (max rel err {max(el_errs):.3f})", max(el_errs) < 0.05)
+check("read count saturates between Hor=1500 and Hor=5000 (both N=403)", summary[-2][7] == summary[-1][7])
 
 # ---------------------------------------------------------------- S6
 print("\nS6  design freeze-out: d x/dt = -(x - x*(t))/tau_a(q), x = ln f, x* = (1/alpha) ln q (alpha=2)")

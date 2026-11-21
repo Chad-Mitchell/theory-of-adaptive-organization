@@ -35,7 +35,7 @@ None of the results is claimed as new. Each is elementary, and "UNCONFIRMED nove
    - **(b) A binding ruin cap**, which makes the frozen design infeasible above q_r = Q_ε/H. Melting is then forced there and J\* jumps. **PROVED (in-model).**
 
    With neither condition, the transition is continuous.
-4. **Freezing as a process over time is the known freeze-out criterion.** In a world whose drift decays with an e-folding time τ_c, the exactly optimal read schedule tracks the static optimum, √(Wq/2c) reads per unit time, while reads are frequent. Tracking breaks down where the optimal read interval reaches the cooling time, at q_fo ≈ 2c/(Wτ_c²). That is Theorem 8's freeze edge with the lifetime replaced by the cooling time. After that point, only O(1) more reads happen before reading stops for good. **PROVED (in-model) for the criterion's form; NUMERICAL for the onset constant (0.46–0.70 × q_fo) and the "2 more reads".**
+4. **Freezing as a process over time is the known freeze-out criterion.** In a world whose drift decays with an e-folding time τ_c, the exactly optimal read schedule tracks the static optimum, √(Wq/2c) reads per unit time, while reads are frequent. Tracking breaks down where the optimal read interval reaches the cooling time, at q_fo ≈ 2c/(Wτ_c²). That is Theorem 8's freeze edge with the lifetime replaced by the cooling time. After that point, the read count N saturates with only O(1) more reads (2–3 across tested horizons up to 20,000), governed by the exact Euler–Lagrange condition u(t_k) − u(t_{k−1}) = q(t_k)(t_{k+1} − t_k). **PROVED (in-model) for the Euler–Lagrange optimality and freeze-out form; NUMERICAL for the onset constant (0.46–0.70 × q_fo in the table, up to ~1.03 × q_fo at Hor = 5000) and O(1) post-onset count.**
 
    The criterion "update rate falls below the rate at which the world changes" is **KNOWN**. It is cosmological freeze-out (interaction rate Γ below the expansion rate H; Hayashi 1950; Lee & Weinberg 1977), Dodson's 1973 closure temperature in geochronology, and Zurek's adiabatic–impulse rule in Kibble–Zurek. **We reinvented that criterion; credit is theirs.** The GTAO-specific part is narrow: the update rate is the *cost-optimal* rate, so the freeze-out point and the relic error are set by the price ratio c/W and the cooling time.
 5. **The design itself freezes out too, leaving a relic.** If selection or learning needs longer to re-tune a design as the world slows (τ_a ∝ q^{−ζ}), a cooling world leaves a permanent relic design. That relic spends more on upkeep than the current world warrants. A finite relic occurs iff ∫dt/τ_a < ∞: always under exponential cooling, and iff pζ > 1 under power-law cooling q ∝ t^{−p}. The relic effort scales as τ_c^{−1/(αζ)}. **PROVED (in-model), NUMERICAL to 4 digits.** This is structurally Kibble–Zurek-like (a power law in the quench time), but the freeze is at the q → 0 end, not at a critical point. That makes it the cosmological-freeze-out type. **ANALOGY.**
@@ -136,17 +136,22 @@ Heating from frozen, melting is forced at q_r. The constraint, not the cost, dec
 
 **q_fo = 2c/(W τ_c²)**, which is Theorem 8's q_f with H → τ_c.
 
-| τ_c | c | Hor | onset q / q_fo | reads after onset | last read: q | 0.6·c/(Wτ_c·Hor) |
+**Exact optimality condition (PROVED, in-model).** Differentiating cN + W Σ_{k=0}^N ∫_{t_k}^{t_{k+1}} (u(t) − u(t_k)) dt (with t₀ = 0, t_{N+1} = Hor) with respect to each read time t_k gives:
+- interior reads (1 ≤ k ≤ N − 1): u(t_k) − u(t_{k−1}) = q(t_k)(t_{k+1} − t_k);
+- last read: **u(t_N) − u(t_{N−1}) = q(t_N)(Hor − t_N)**.
+
+| τ_c | c | Hor | onset q / q_fo | reads after onset | last read: q | τ_c·q(t_{N−1})/(Hor − t_N) |
 |---|---|---|---|---|---|---|
-| 10 | 0.005 | 300 | 0.68 | 2 | 1.0×10⁻⁶ | 1.0×10⁻⁶ |
-| 20 | 0.005 | 600 | 0.69 | 2 | 2.9×10⁻⁷ | 2.5×10⁻⁷ |
-| 40 | 0.005 | 1200 | 0.70 | 2 | 8.0×10⁻⁸ | 6.3×10⁻⁸ |
-| 20 | 0.02 | 600 | 0.68 | 2 | 1.0×10⁻⁶ | 1.0×10⁻⁶ |
-| 20 | 0.005 | 1500 | 0.46 | 2 | 3.8×10⁻⁸ | 1.0×10⁻⁷ |
+| 10 | 0.005 | 300 | 0.68 | 2 | 1.02×10⁻⁶ | 1.07×10⁻⁶ |
+| 20 | 0.005 | 600 | 0.69 | 2 | 2.91×10⁻⁷ | 3.07×10⁻⁷ |
+| 40 | 0.005 | 1200 | 0.70 | 2 | 7.98×10⁻⁸ | 8.53×10⁻⁸ |
+| 20 | 0.02 | 600 | 0.68 | 2 | 1.02×10⁻⁶ | 1.07×10⁻⁶ |
+| 20 | 0.005 | 1500 | 0.46 | 2 | 3.78×10⁻⁸ | 3.86×10⁻⁸ |
+| 20 | 0.005 | 5000 | 1.03 | 3 | 6.00×10⁻⁹ | 5.99×10⁻⁹ |
 
-"Onset" is the first gap longer than τ_c. In every run, the optimal schedule makes exactly two more reads after onset and then stops for good, long before the horizon. The world's remaining drift is then too small for another read to pay back c over the rest of the lifetime.
+"Onset" is the first gap longer than τ_c. Across these runs the optimal schedule makes O(1) more reads after onset (2 in the first five runs, 3 at Hor = 5000 and 20,000) and then stops well before the horizon.
 
-The onset sits at 0.46–0.70 × q_fo. The last read's q scales roughly as c/(Wτ_c·Hor), but that scaling is a fit, not a derivation (the last row misses it by a factor 2.6). The frozen record then carries the world as it was at the last read, with residual error ≈ q_last·τ_c. That residual is a "relic" fixed by the price ratio, the cooling time and the horizon.
+The onset sits at 0.46–0.70 × q_fo in the first five runs (and ~1.03 × q_fo at Hor = 5000 as the late reads adjust slightly). For t_N − t_{N−1} ≫ τ_c, u(t_N) − u(t_{N−1}) ≈ τ_c q(t_{N−1}), so the exact tail condition gives **q_last ≈ τ_c q(t_{N−1})/(Hor − t_N)** (matching every row to within ~7%, and exact u(t_N) − u(t_{N−1}) = q(t_N)(Hor − t_N) holds within 1.0%). As Hor → ∞, the total read count N **saturates** (N = 403 throughout Hor ∈ [1500, 10⁶] at τ_c = 20, c = 0.005): the remaining-horizon cost after t_N is W τ_c q_last (Hor − t_N) ≈ W τ_c² q(t_{N−1}), which is independent of Hor and stays below ~c once q(t_{N−1}) ≲ c/(W τ_c²) = q_fo/2, so no further read pays back c. Meanwhile, the single last read t_N shifts logarithmically rightward as τ_c ln(Hor/τ_c), causing q(t_{N−1}) and q_last·Hor to decrease slowly as 1/ln(Hor/τ_c) rather than scaling as a fixed multiple of c/(W τ_c Hor). The frozen record then carries the world as it was at the last read, with residual error ≈ q_last·τ_c.
 
 **Is the passage continuous?** The read *rate* falls smoothly through the adiabatic regime and crosses over to zero over about one cooling time. It is a crossover, not a sharp transition. That is the same status that cosmological freeze-out has. The count of remaining reads is discrete, so "continuous" here means the rate has no jump before onset, followed by O(1) discrete reads.
 

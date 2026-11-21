@@ -40,18 +40,22 @@ S4  G2/G3 small-drift limit: OU world, quadratic loss, r(u)=1-exp(-2u), r'(0)=2
 
 S5  cooling world q(t)=q0 exp(-t/tau_c): exact optimal read times by DP (horizon Hor)
   tau_c=10  c=0.005  Hor=300  : grid 5474, reads 202; early gaps vs sqrt(2c/Wq(t)): median rel dev 0.000
-     first gap > tau_c starts at q=6.78e-05; q_fo=2c/(W tau_c^2)=0.0001; ratio 0.68; reads after that: 2; last read at t=138.0, q=1.02e-06 (c/(W tau_c Hor)=1.67e-06)
+     first gap > tau_c starts at q=6.78e-05; q_fo=2c/(W tau_c^2)=0.0001; ratio 0.68; reads after that: 2; last read at t=138.0, q=1.02e-06 (EL tail pred 1.07e-06, EL ratio 0.9947)
   tau_c=20  c=0.005  Hor=600  : grid 10439, reads 402; early gaps vs sqrt(2c/Wq(t)): median rel dev 0.000
-     first gap > tau_c starts at q=1.72e-05; q_fo=2c/(W tau_c^2)=2.5e-05; ratio 0.69; reads after that: 2; last read at t=301.0, q=2.91e-07 (c/(W tau_c Hor)=4.17e-07)
+     first gap > tau_c starts at q=1.72e-05; q_fo=2c/(W tau_c^2)=2.5e-05; ratio 0.69; reads after that: 2; last read at t=301.0, q=2.91e-07 (EL tail pred 3.07e-07, EL ratio 0.9900)
   tau_c=40  c=0.005  Hor=1200 : grid 20405, reads 802; early gaps vs sqrt(2c/Wq(t)): median rel dev 0.000
-     first gap > tau_c starts at q=4.36e-06; q_fo=2c/(W tau_c^2)=6.25e-06; ratio 0.70; reads after that: 2; last read at t=653.7, q=7.98e-08 (c/(W tau_c Hor)=1.04e-07)
+     first gap > tau_c starts at q=4.36e-06; q_fo=2c/(W tau_c^2)=6.25e-06; ratio 0.70; reads after that: 2; last read at t=653.7, q=7.98e-08 (EL tail pred 8.53e-08, EL ratio 0.9948)
   tau_c=20  c=0.02   Hor=600  : grid 5474, reads 202; early gaps vs sqrt(2c/Wq(t)): median rel dev 0.000
-     first gap > tau_c starts at q=6.78e-05; q_fo=2c/(W tau_c^2)=0.0001; ratio 0.68; reads after that: 2; last read at t=276.0, q=1.02e-06 (c/(W tau_c Hor)=1.67e-06)
+     first gap > tau_c starts at q=6.78e-05; q_fo=2c/(W tau_c^2)=0.0001; ratio 0.68; reads after that: 2; last read at t=276.0, q=1.02e-06 (EL tail pred 1.07e-06, EL ratio 0.9947)
   tau_c=20  c=0.005  Hor=1500 : grid 11564, reads 403; early gaps vs sqrt(2c/Wq(t)): median rel dev 0.000
-     first gap > tau_c starts at q=1.15e-05; q_fo=2c/(W tau_c^2)=2.5e-05; ratio 0.46; reads after that: 2; last read at t=341.8, q=3.78e-08 (c/(W tau_c Hor)=1.67e-07)
-  [PASS] freeze-out onset tracks q_fo=2c/(W tau_c^2) within a factor 3 across runs (ratios [0.68 0.69 0.7  0.68 0.46])
+     first gap > tau_c starts at q=1.15e-05; q_fo=2c/(W tau_c^2)=2.5e-05; ratio 0.46; reads after that: 2; last read at t=341.8, q=3.78e-08 (EL tail pred 3.86e-08, EL ratio 1.0041)
+  tau_c=20  c=0.005  Hor=5000 : grid 15939, reads 403; early gaps vs sqrt(2c/Wq(t)): median rel dev 0.000
+     first gap > tau_c starts at q=2.56e-05; q_fo=2c/(W tau_c^2)=2.5e-05; ratio 1.03; reads after that: 3; last read at t=378.6, q=6e-09 (EL tail pred 5.99e-09, EL ratio 0.9930)
+  [PASS] freeze-out onset tracks q_fo=2c/(W tau_c^2) within a factor 3 across runs (ratios [0.68 0.69 0.7  0.68 0.46 1.03])
   [PASS] reads stop well before the horizon (frozen afterwards) in every run
   [PASS] after the first gap > tau_c the schedule makes only O(1) further reads (<=3)
+  [PASS] Euler-Lagrange last-read condition u_N-u_{N-1}=q_N(Hor-t_N) holds (max rel err 0.010)
+  [PASS] read count saturates between Hor=1500 and Hor=5000 (both N=403)
 
 S6  design freeze-out: d x/dt = -(x - x*(t))/tau_a(q), x = ln f, x* = (1/alpha) ln q (alpha=2)
   zeta=0.5: relic ln f_inf at tau_c=[  10   30  100  300 1000]: [-3.5729 -4.6716 -5.8755 -6.9741 -8.1781]; slope d ln f_inf / d ln tau_c = -1.0000 (pred -1/(alpha zeta) = -1.0000)
