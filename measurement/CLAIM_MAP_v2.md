@@ -83,6 +83,8 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 **v2.69 note (EVO1; 21 Nov 2026, about 10:15 AM ET; branch `v2.6-evo`, draft PR #114, merged with `main` at `cd84095`; written by one executor for Chad via Ace; the results and writeup were independently reviewed by a separate agent, READY-WITH-FIXES, no blockers; fixes applied; `reviews/evo1_2026-11-21/REVIEW.md`).** **No existing row changes status.** New section **Q** (EVO1, `tests/EVO1/`): nine counted rows Q1–Q9 for the designed-world in-silico evolution test, preregistered and locked at `70fcbad` (20 Nov 2026, 1:39:31 PM ET), all 96 locked runs scored by the unchanged `analyze_evo.py`. Q1 (PC), Q2 (W1), Q3 (W2) and Q9 (design moves, store-noise threshold, interlacing) SIM-PASS; Q4 (W3) NOT EVIDENCE (INVALID by the locked ruin gate; the raw rule passed 0/8); Q5 (W4, 3/8) and Q6 (W4b, 8/8) SIM-FAIL; Q7 (S031) and Q8 (S07) SIM-INCONCLUSIVE (2/8 misses each, both on criterion A, by 1.5–16% over the band (closest miss: S07 seed 1, 1.5%)). All are in-model results about the authors' own simulator on the proxy: they show what selection finds in designed worlds priced with J's costs, nothing about nature. The two FAILs are a reachability qualifier on the principle, not a rescue: W4's creation valley met the D2b bar (4/4); W4b's D1b bar was not met (2/4); D1a shows the minimum is selection-stable once reached (4/4). See `tests/EVO1/RESULTS_EVO.md` and `DEVIATIONS_EVO.md` D1–D5 (D4 discloses that `stores.py` changed on `main` after scoring and that the analysis is unchanged under it). Tally: SIM-PASS 7 (+4), SIM-FAIL 8 (+2), SIM-INCONCLUSIVE 5 (+2), NOT EVIDENCE 21 (+1), total 327 (+9). **Numbering:** This note is v2.69, the next free number after v2.68 (PR #116); `main` had not bumped it since. The tally is recomputed by `tools/check_consistency.py`.
 
+**v2.70 note (selection axioms; 21 Nov 2026, evening ET; branch `selection-axioms-2026-11-21`, draft PR; written by one executor for Chad; a self-check, not independent).** **No existing row changes status.** New section **R** (`theory/SELECTION_AXIOMS.md`): three counted rows. R1 (Theorem SA1 / SA1b / Corollary SA1c: Boltzmann π∝e^{−βJ} and typical excess d/(2β) ≈ d/(2σ N_e) under A1, A2-L, weak mutation, connected reversible graph, quadratic minimum) is **PRIOR ART** (Sella & Hirsh 2005 applied to J, plus equipartition; already derived in `core/bridge_2026-11-21/SELECTION.md`). R2 (Theorem SA2: long-run operational excess √(kwσ²/6)+d/(2β) and total rate including lumps 2√(kwσ²/6)+d/(2β) under additive costs and timescale separation) is **PROVED (in-model)**; each term is prior art (CL19/Dixit and R1), and the sum is linearity of expectation, not a new mechanism. R3 (SA-P1, lag-corrected fractional excess within a factor of three of d/(2σ N_e), with kill conditions) is **OPEN**, not locked. T27's official P3 remains failed and is not rescued; the Part 2 hypothesis sentence is unchanged. Tally: PRIOR ART 32→33, PROVED (in-model) 94→95, OPEN 84→85, total 327→330. **Numbering:** This note is v2.70, the next free number after v2.69. The tally is recomputed by `tools/check_consistency.py`. Text: `theory/SELECTION_AXIOMS.md`; checks: `tools/selection_axioms_checks.py`, `tools/test_selection_axioms_checks.py`.
+
 **v2.64 note (premise; 20 Nov 2026, committed 1:07 PM ET, revised 1:20 PM ET after independent review 29 READY-WITH-FIXES; THEORY v2.5.4, branch `v2.5.4-premise`, PR #112; written by one executor on Chad's instruction; the revisions are a self-check).** **No row changes status; tally unchanged (OPEN 77, PROVED (in-model) 84, total 294).** CT21's interlacing ("each layer faster than its mode") now names its premise in THEORY.md §1, §6 item 4, (iii) and Appendix C, and in the README opening and bullet: exogenous noise and speed-free upkeep. From Model S+ (`theory/STORE_NOISE.md` E1-a): when a store's own noise dominates, the best one-store memory is λτ\* = (1 − s)/s at low SNR (below 1 iff s > 1/2) and shorter at every positive SNR, so s ≥ 1/2 gives a store faster than its mode at any positive SNR. Re-derived symbolically (including the first-order identity behind the any-SNR bound, as review 29 found) and checked on a 37 × 13 grid in `theory/store_noise/threshold_check.py`, run by `tools/test_store_noise.py`; E2 stays in `checks.py` §4. E. coli s = 0.31 gives λτ\* ≈ 2.2 (post hoc). Prior art credited (ten Wolde line; Tjalma & ten Wolde 2024). The map captions now say the map was revised after independent map reviews 26 (NOT READY, then READY-WITH-FIXES) and 28 (READY-WITH-FIXES, fixes confirmed READY by the same reviewer).
 
 **v2.63 note (map; 20 Nov 2026, about 11:30 AM ET, renumbered about 1:00 PM ET after PR #110 merged as v2.54–v2.62; THEORY v2.5.1, PR #111, branch `v2.5-map`; written by one executor on Chad's instructions after independent review 26 returned NOT READY; a self-check, not independent; first numbered v2.54-map; renumbered v2.63 because PR #110 merged first).** **No existing row changes status.** New counted rows: CT35 (the map theorem, exact iff subadditive) and CT36 (joint value as a common-mode reference), both PROVED (in-model); CX6 (subadditivity in the separate-channel class), OPEN, numerical only. The v2.5 claims that the map's edges hold for any world and any reading price, and that greedy store placement is exact on one stream, are withdrawn. The tally moves OPEN 76 → 77, PROVED (in-model) 82 → 84, total 291 → 294 (on top of v2.62).
@@ -590,19 +592,29 @@ Preregistered (lock `70fcbad`) and scored by the unchanged locked analysis. In-m
 | Q8 | EVO1 S07: store noise s = 0.7 → 4 copies, faster than the mode | new (v2.69) | **SIM-INCONCLUSIVE** | 2/8 misses (seeds 1, 2; criterion A only; gaps 1.13e-3 and 1.21e-3); structure 8/8; set-at rival excluded (sNe 175); null 0/4 |
 | Q9 | EVO1 secondary tests: design moves with inputs (PC→W1, S031→S07), store-noise threshold, W2 interlacing | new (v2.69) | **SIM-PASS** | PC→W1 Δ ln b −0.177 vs −0.176 (tol 0.100); S031→S07 +1.470 vs +1.376 (tol 0.311); threshold 8/8 and 8/8; interlacing 7 of 8 (seed 2 still improving and outside the band; seed 4 does not interlace) |
 
+## R. Selection axioms (v2.70, 21 Nov 2026; `theory/SELECTION_AXIOMS.md`)
+
+Closeness to the cost minimum as a derived remainder, from axioms A1–A3. Builds on the 21 November 2026 bridge; does not change the Part 2 hypothesis sentence, the locked factor of 10, or T27's official FAIL on P3. A self-check, not independently reviewed.
+
+| # | Claim | v1 status | **v2.70 status** | Why |
+|---|---|---|---|---|
+| R1 | Static world, A1 + A2-L, weak mutation, connected reversible graph, quadratic minimum: π ∝ e^{−βJ} with β = α(N−1) (Moran haploid) and E[J]−J* = d/(2β) ≈ d/(2σ N_e) as a fraction of J* | new (v2.70) | **PRIOR ART** | Sella & Hirsh 2005 (doi 10.1073/pnas.0501865102) applied to J, plus equipartition; already in `core/bridge_2026-11-21/SELECTION.md`. Packaging only: closeness is a derived function of selection strength. Not a new theorem |
+| R2 | Drifting world, lumpy redesign, additive costs and timescale separation: operational excess √(kwσ²/6)+d/(2β); total rate including lumps 2√(kwσ²/6)+d/(2β) | new (v2.70) | **PROVED (in-model)** | Each term is prior art (CL19 / Dixit 1991 and R1). The sum is linearity of expectation under stated assumptions, not a new mechanism. Distinguish operational excess from the J_R rate. `theory/SELECTION_AXIOMS.md` §4; checks in `tools/selection_axioms_checks.py` |
+| R3 | SA-P1: in a qualifying class, lag-corrected fractional excess within a factor of three of d/(2σ N_e); log–log slope of that excess on σ N_e inside [−1.5, −0.5] | new (v2.70) | **OPEN** | Dated sketch, not locked, not a test until a class and the inputs are preregistered. Kill conditions in `theory/SELECTION_AXIOMS.md` §9. Being much closer than predicted is a warning, not a locked kill |
+
 ## Counts
 
-**Current tally (v2.69, 21 Nov 2026).** Every row in sections A–Q (alias rows in O excluded), counted by the first status word in its status column. `tools/check_consistency.py` recomputes this table and fails if it drifts.
+**Current tally (v2.70, 21 Nov 2026).** Every row in sections A–R (alias rows in O excluded), counted by the first status word in its status column. `tools/check_consistency.py` recomputes this table and fails if it drifts.
 
 <!-- tally:begin -->
 | Status now (all sections) | Rows |
 |---|---|
-| OPEN | 84 |
-| PROVED (in-model) | 94 |
+| OPEN | 85 |
+| PROVED (in-model) | 95 |
 | NOT A TEST (qualification not established; proxy: passed) | 10 |
 | NOT A TEST (qualification not established; proxy: failed) | 18 |
 | NOT A TEST (not qualified; proxy: failed) | 2 |
-| PRIOR ART | 32 |
+| PRIOR ART | 33 |
 | MATH-CORRECTED | 23 |
 | NOT EVIDENCE | 21 |
 | WITHDRAWN | 11 |
@@ -611,7 +623,7 @@ Preregistered (lock `70fcbad`) and scored by the unchanged locked analysis. In-m
 | DECIDED | 5 |
 | SIM-INCONCLUSIVE | 5 |
 | SIM-PASS | 7 |
-| **Total** | **327** |
+| **Total** | **330** |
 <!-- tally:end -->
 
 A count is not a score: most OPEN rows are untested, not refuted, and PROVED means proved inside the model only. The 30 compound **NOT A TEST** rows are the former 10 PROXY-PASS and 20 PROXY-FAIL field claims (including P19 and P21). The status column keeps the proxy result visible: 10 passed, 18 failed with qualification not established, and 2 (P19, P21) not qualified with proxy failed. Validity-gate reasons stay in the cells. Each of those rows has a qualification-prospect note (reviewer judgment, not a verdict). P20's historical PROXY-PASS was a nuisance-account test: it rejects the hourly market-step rival and does not test the theory against its own alternatives.
