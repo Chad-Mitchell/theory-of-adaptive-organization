@@ -49,4 +49,6 @@ Reviews of the theory notes, the tests, and the AI-memory toy. Independence is s
 
 | `vis1f_2026-11-21/REVIEW.md` | Independent review of PR #130 (VIS-1F drop under the written pre-Pass-1 rule): **READY-WITH-FIXES**. The drop stands (both sides of the written rule fire; no lock; no official Pass 1 fit; no re-score). S1–S3 and nits applied in this PR. Does not merge | Stated as an independent pass that wrote none of the PR, `theory/VIS1F_DROP_2026-11-21.md`, or the OPEN_WORK T29 rewrite; same bot family. |
 
+| `pricefree_2026-11-21/REVIEW.md` | Independent review of PR #131 (price-free classification, no lock): **READY-WITH-FIXES**. Not a lock, and not a re-score. S1 (S3 interval / *T*\* exponents, not refresh-rate exponents with the wrong signs), S2 (Stephens 1981 / Caraco, Martindale & Whittam 1980 and Dall & Johnstone 2002 credited; remainder is the comparative static in *w* of *S* + *w E*), and nits applied in this PR. Does not merge | Stated as an independent pass that wrote none of the PR, `theory/PRICE_FREE_2026-11-21.md`, or the OPEN_WORK §8 pointer; same bot family. |
+
 Test-specific reviews (for example `tests/C3/REVIEW.md`) stay with those tests.
