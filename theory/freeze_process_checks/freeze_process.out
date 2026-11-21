@@ -65,9 +65,14 @@ S6  design freeze-out: d x/dt = -(x - x*(t))/tau_a(q), x = ln f, x* = (1/alpha) 
   zeta=2.0: relic ln f_inf at tau_c=[  10   30  100  300 1000]: [-0.547  -0.8213 -1.1223 -1.397  -1.698 ]; slope d ln f_inf / d ln tau_c = -0.2500 (pred -1/(alpha zeta) = -0.2500)
   [PASS] zeta=2.0: relic exponent matches -1/(alpha zeta) within 0.02
   [PASS] exponential cooling: x converges (finite relic; |x(80 tau_c)-x(40 tau_c)|=2.75e-11)
+  [PASS] zeta=0.5: exact Euler-Mascheroni relic formula matches tau_c=1000 (-8.178118 vs -8.178118)
+  [PASS] zeta=1.0: exact Euler-Mascheroni relic formula matches tau_c=1000 (-3.742485 vs -3.742485)
+  [PASS] zeta=2.0: exact Euler-Mascheroni relic formula matches tau_c=1000 (-1.697956 vs -1.697956)
   power-law cooling q=(1+t)^-p, tau_a = q^-zeta: lag y = x - x* at late times
     p*zeta=0.5: lag at t=[100.0, 1000.0, 10000.0, 100000.0]: [0.0525 0.0161 0.005  0.0016]   x(t)=[-2.255  -3.4383 -4.6002 -5.7549]
   [PASS] p*zeta<1: lag stays bounded and shrinks (keeps tracking, no freeze)
+    p*zeta=1.0: lag at t=[100.0, 1000.0, 10000.0, 100000.0]: [0.495  0.4995 0.5    0.5   ]   x(t)=[-1.8125 -2.9549 -4.1053 -5.2565]
+  [PASS] p*zeta=1: critical boundary converges to constant nonzero lag p/alpha
     p*zeta=2.0: lag at t=[100.0, 1000.0, 10000.0, 100000.0]: [1.9332 3.0596 4.2074 5.3582]   x(t)=[-0.3743 -0.3947 -0.3978 -0.3982]
   [PASS] p*zeta>1: x converges while x* -> -inf (frozen relic)
   cooling-then-reheating loop: q from 1 down to 1e-3 and back, at rate 1/tau_c, zeta=1

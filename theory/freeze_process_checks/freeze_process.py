@@ -183,8 +183,13 @@ for zeta in [0.5, 1.0, 2.0]:
     check(f"zeta={zeta}: relic exponent matches -1/(alpha zeta) within 0.02", abs(slope + 1/(alpha*zeta)) < 0.02)
 x1, xm = relic_exp(100., 1.0)
 check(f"exponential cooling: x converges (finite relic; |x(80 tau_c)-x(40 tau_c)|={abs(x1-xm):.2e})", abs(x1-xm) < 1e-6)
+gamma_E = 0.5772156649015329
+for zeta in [0.5, 1.0, 2.0]:
+    x_num, _ = relic_exp(1000., zeta)
+    x_asymp = -(np.log(1000./zeta) + gamma_E)/(alpha*zeta)
+    check(f"zeta={zeta}: exact Euler-Mascheroni relic formula matches tau_c=1000 ({x_num:.6f} vs {x_asymp:.6f})", abs(x_num - x_asymp) < 1e-8)
 print("  power-law cooling q=(1+t)^-p, tau_a = q^-zeta: lag y = x - x* at late times")
-for p, zeta in [(1.0, 0.5), (1.0, 2.0)]:
+for p, zeta in [(1.0, 0.5), (1.0, 1.0), (1.0, 2.0)]:
     rhs = lambda t, x: [-(x[0] + p*np.log1p(t)/alpha)/((1+t)**(p*zeta))]
     ts = [1e2, 1e3, 1e4, 1e5]
     sol = solve_ivp(rhs, [0, ts[-1]], [0.0], t_eval=ts, rtol=1e-10, atol=1e-12, method='LSODA')
@@ -192,6 +197,8 @@ for p, zeta in [(1.0, 0.5), (1.0, 2.0)]:
     print(f"    p*zeta={p*zeta}: lag at t={ts}: {np.round(lag,4)}   x(t)={np.round(sol.y[0],4)}")
     if p*zeta < 1:
         check("p*zeta<1: lag stays bounded and shrinks (keeps tracking, no freeze)", lag[-1] < lag[0] and lag[-1] < 0.1)
+    elif p*zeta == 1:
+        check("p*zeta=1: critical boundary converges to constant nonzero lag p/alpha", abs(lag[-1] - p/alpha) < 1e-4)
     else:
         check("p*zeta>1: x converges while x* -> -inf (frozen relic)", abs(sol.y[0][-1]-sol.y[0][-2]) < 1e-3 and lag[-1] > lag[0])
 print("  cooling-then-reheating loop: q from 1 down to 1e-3 and back, at rate 1/tau_c, zeta=1")

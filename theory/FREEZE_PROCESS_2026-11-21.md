@@ -174,17 +174,18 @@ dx/dt = −(x − x\*(t)) / τ_a(q(t)).
 
 **Claim 5.1 (finite relic iff the total relaxation is finite).** The solution is x(t) = x(0)e^{−S(t)} + ∫₀ᵗ x\*(s)e^{−(S(t)−S(s))}dS(s), with S(t) = ∫₀ᵗ ds/τ_a. If S(∞) < ∞, x converges to a finite x_∞ while x\* → −∞. The design freezes with a relic effort that the current world does not justify. If S(∞) = ∞ and x\* changes slowly in S, the lag stays bounded and the design keeps tracking.
 - **Exponential cooling:** S(∞) < ∞ always.
-- **Power-law cooling q ∝ t^{−p}:** S(∞) < ∞ iff pζ > 1.
+- **Power-law cooling q ∝ (1 + t)^{−p}:** S(∞) < ∞ iff pζ > 1. At the boundary pζ = 1, S(t) = ln(1 + t)/τ₁ → ∞ (no frozen relic), yet the lag x − x\* approaches a nonzero constant pτ₁/α (in S6 with τ₁ = 1, p/α = 0.5) rather than shrinking to zero.
 
 **PROVED (in-model)**; this is linear ODE algebra. The convergence-of-∫Γdt form of the freeze-out condition is KNOWN from cosmology.
 
 **Checks (S6).**
 - Exponential cooling: x changes by 2.8×10⁻¹¹ between 40τ_c/ζ and 80τ_c/ζ.
 - Power-law cooling, pζ = 0.5: the lag falls 0.053 → 0.0016 over t = 10² → 10⁵, so the design keeps tracking.
+- Power-law cooling, pζ = 1.0: the lag converges to the nonzero constant 0.5000 (no frozen relic, constant lag).
 - Power-law cooling, pζ = 2: x is stuck at −0.398 while x\* → −∞, so the design freezes.
 
-**Claim 5.2 (relic scaling).** Under exponential cooling, the design freezes out where τ_a(q_fo) = τ_c, so q_fo ∝ τ_c^{−1/ζ} and **f_∞ ∝ τ_c^{−1/(αζ)}**: the slower the world cools, the smaller the relic.
-- **Checks (S6):** fitted slopes −1.0000, −0.5000 and −0.2500 at ζ = 0.5, 1 and 2 (predicted −1, −½, −¼), over τ_c = 10–1000.
+**Claim 5.2 (relic scaling; exact asymptotic form).** Under exponential cooling q(t) = q₀e^{−t/τ_c}, writing S_∞ = τ_c/(ζτ₁) and u = e^{−ζt/τ_c}, exact integration gives x_∞ − x\*(0) = (1/(αζ)) ∫₀¹ S_∞ e^{−S_∞ u} ln u du = −[ln(τ_c/(ζτ₁)) + γ_E]/(αζ) + O(e^{−S_∞}), where γ_E ≈ 0.577216 is the Euler–Mascheroni constant. Thus **f_∞ = f\*(0)·(e^{−γ_E} ζτ₁/τ_c)^{1/(αζ)}** asymptotically, matching the τ_a(q_fo) = τ_c scale (q_fo ∝ τ_c^{−1/ζ}) up to an explicit O(1) constant: the slower the world cools, the smaller the relic.
+- **Checks (S6):** fitted slopes −1.0000, −0.5000 and −0.2500 at ζ = 0.5, 1 and 2 (predicted −1, −½, −¼), over τ_c = 10–1000; exact Euler–Mascheroni formula matches numerical x_∞ at τ_c = 1000 to < 10⁻¹⁰.
 
 **ANALOGY.**
 - **Kibble–Zurek:** defect density ∝ τ_Q^{−dν/(1+zν)}, a power law in quench time with exponents from the critical point. Here the exponent comes from the world's roughness α and the learning exponent ζ.
@@ -206,8 +207,8 @@ This is a mathematical parallel only. There is no critical point here. The freez
 3. **Irreversible loss (OPEN; prior art in biology).** If freezing lets the machinery decay (relaxed selection; Lahti et al. 2009), re-melting needs the machinery to be rebuilt, perhaps by re-evolution. C_b can then be very large or effectively infinite (Dollo-type irreversibility). The model gives strong hysteresis, but the size of C_b is not derived.
 4. **Adaptation lag: rate-dependent hysteresis (NUMERICAL).** Cool q from 1 to 10⁻³ and reheat at the same rate 1/τ_c, with ζ = 1. The loop area in (ln q, ln f) at τ_c = 0.3, 3, 10, 30, 100, 300, 10³ and 10⁴ is 0.50, 1.93, 2.10, 1.93, 1.53, 1.06, 0.57 and 0.09.
    - **First-run prediction FAILED and is kept as data:** I predicted the area would shrink monotonically as cooling slows. It does not. It is small when cooling far outpaces adaptation (the design never moves), largest at intermediate rates, and → 0 only quasi-statically.
-   - This is the standard dynamic-hysteresis shape (ANALOGY; physics literature on loop area against sweep rate, not cited here because I did not verify a specific source).
-   - Under cooling all the way to q → 0, the relic of §5 is permanent. On reheating it re-melts only once τ_a(q) falls below the heating e-folding time, which is above the q at which it froze.
+   - This is the standard dynamic-hysteresis dispersion shape (ANALOGY; Jung, Gray, Roy & Mandel 1990; Chakrabarti & Acharyya 1999: loop area peaks at intermediate drive rate and decays at fast rates).
+   - Under cooling all the way to q → 0, the relic of §5 is permanent, with effective scale q_eff = q_fo e^{−γ_E/ζ} < q_fo (where f\*(q_eff) = f_∞). On reheating at e-folding time τ_h, adaptation resumes near τ_a(q) ~ τ_h, i.e. q_melt ~ τ_h^{−1/ζ}. That exceeds q_fo only when reheating is faster than cooling (τ_h < τ_c), and exceeds q_eff only when τ_h ≲ τ_c e^{γ_E}; slower heating unfreezes below q_eff and briefly lowers f toward f\*(q) before climbing back.
 
 ---
 
@@ -217,7 +218,7 @@ Suppose the error the store must fight is its own thermally activated decay, q_s
 
 **T_f = E_a / (k · ln(ν₀ · W H² / (2c))).**
 
-- **This is the Néel/Brown blocking-temperature form**, T_B = E_a / (k ln(ν₀ t_obs)) (Brown 1963 for the thermal-fluctuation theory), and it matches Dodson's log form. Here H plays t_obs, and the price ratio W·H/(2c) sits inside the logarithm.
+- **This is the Néel/Brown blocking-temperature form**, T_B = E_a / (k ln(ν₀ t_obs)) (Brown 1963 for the thermal-fluctuation theory), and it matches Dodson's log form. Here H plays t_obs, and the dimensionless lifetime-stake-to-two-reads ratio W·H/(2c) (where W/c is the price ratio) sits inside the logarithm.
 - **Consequence:** the elasticity of T_f with respect to c/W is 1/ln(…) ≈ 0.01–0.016 at E_a = 1 eV and ν₀ = 10¹³ s⁻¹ (S8). A 1000× change in prices moves T_f by about 10% (−9.8% in S8).
 - Upkeep goes smoothly to zero as T falls: repair effort is ∝ √q_s ∝ e^{−E_a/(2kT)}, and the corner is reached continuously at T_f, with h_m = 0.
 
