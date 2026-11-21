@@ -1,62 +1,115 @@
 # The core: the cost of judgment on one page
 
-*Restructured Saturday 21 November 2026, about 2:00 PM ET (America/New_York), first written beside `main` `2c32ade`, after Chad's point (t2061) that Shannon proved limits without experiments; revised the same afternoon after the independent review of PR #139 (`reviews/shannon_2026-11-21/REVIEW.md`, verdict NOT READY) and the confirm review (`reviews/shannon_2026-11-21/CONFIRM.md`); current to `main` `a97887e` (PR #139 merged as `0726423`; also #138 DIR1 as `1cb1ac2` and #141 layer lifetime as `a97887e`). The previous text is frozen at `history/2026-11-21_CORE_before_shannon.md`. Omissions from this page are compressions, not withdrawals; the operational kill rule and the Model S counterexample stay in force in the files cited below. The new results (S1–S3) are in `theory/SHANNON_2026-11-21.md`. Status words: **proved** means proved inside the stated model, which says nothing by itself about nature; **open** means untested, not refuted. IDs: `measurement/CLAIM_MAP_v2.md`.*
+*Saturday 21 November 2026, afternoon ET (America/New_York). `main` is `d34df95`.*
 
-The theory has two parts, and they are different kinds of claim. **Part 1 is mathematics:** limits that any system acting ahead of a world it does not control must obey, and the structure of the cheapest design. These hold by proof, like Shannon's limits, and need no experiment. **Part 2 is a hypothesis about nature:** that strongly selected systems come close to those limits. Only Part 2 has odds.
+*Status words and caveats: see the end of this page.*
 
-## 1. Definition
-
-A system that must act ahead of a world it does not control chooses its design 𝒟 (layers, what each tracks, how often it reads, what it shares) to minimize
-
-$$J(\mathcal D)=\kappa I_{\text{mem}}+hK+w\,\mathbb E[\ell_{\mathcal D}]+A(\mathcal D)+L(\mathcal D)\quad\text{subject to}\quad P(\text{ruin})\le\varepsilon .$$
-
-- κI_mem + hK: memory held at price κ per nat, plus upkeep h per layer (a tracking store, not an org-chart level).
-- w·E[ℓ]: stake times expected loss at the moment of use; lateness counts as error.
-- A, L: the cost of reading the world, and of linking, telling and lookup.
-- P(ruin) ≤ ε: a reserve paying J must not hit zero more often than ε. A hard cap, not a cost to average away.
-
-The world is a measured input: its statistics (spectrum or Markov kernel), the read noise and the lead time. One currency per system. The equation is a definition, assembled from known parts (THEORY §3).
-
-## 2. Part 1: the limits (proved in-model)
-
-**The floor (S1).** In a stationary world the system does not affect (drifting, random-walk worlds are open, CX1), every design pays at least J_floor, computed from the world's statistics and the prices alone: memory pays for the predictive information it holds (CT1, CT4), and reads pay for at least the sequential rate–distortion rate of the accuracy reached. A layer price h is not part of that floor: a memoryless read has K = 0 and still carries information. Landauer floors the erasure part of κ. Sagawa & Ueda 2009 floor the sum of measurement and erasure work, not a separate read price stacked on that floor. In a scalar Gauss–Markov world the information floor is reached exactly when memory or reads are free. On one scalar Gauss–Markov world (a = 0.9, Q = 1, lead 2), the best one-layer Kalman design on a 36-point price grid has efficiency J_floor/J = 0.9574 (gap 1 − J_floor/J = 4.26%; the design costs 4.45% more than the floor) at the worst point (κ = c = w = 1, layer price left out of both sides; numerical). That is not a bound over worlds.
-
-**The frontier and efficiency (S2, S3).** The world defines a frontier: every combination of memory, reads, layers and accuracy that some design can reach. It contains no prices. The inner-product dual J*(p) = inf ⟨p, z⟩ equals −σ(−p), where σ is the support function of the frontier. It equals the operational least cost only when some minimizer has read cost A = c·r and linking cost L = 0. The frontier is the theory's analogue of Shannon's capacity: a curve, as for rate–distortion, not a single number. Knowing J* on the positive orthant recovers the free-disposal hull of the Pareto face, not the whole convex hull. A system's **technical efficiency** is how far its resources could shrink and still give its accuracy; it needs no prices. For the input cost C = κI + c·r, cost efficiency C_min/C splits into technical × allocative (Farrell 1957); that product is not true of J_floor/J. Minimizing the linear cost at strictly positive prices implies radial technical efficiency 1 on the feasible set. Under a binding ruin cap that set is the ruin-feasible set, and the cap need not preserve convexity.
-
-**The structure of the cheapest design.**
-
-| ID | Result |
-|---|---|
-| CT20, CT33 | A best design exists. With ruin slack, more at stake never means less spent on judgment and never more error. Reads can replace layers. |
-| CT21 (L1–L3) | Layers ≤ the world's predictive degree. At most one layer for one real scale (K\* ∈ {0, 1}). Layers beat one tracker iff R > R\*. |
-| N60 | In Model S, if ε_K is convex, K\* = 1 + #{k ≥ 2 : R(ε_{k−1} − ε_k) > 1}: layers equal the world's time scales whose stakes pay for them, counted by degree. Convexity is numerical (120/120 Model S worlds), not proved. With rhythms the formula is false and no predictive rule exists (`core/KEYSTONE_NOTE.md`; IMP-N60 failed its gates; the holographic count failed in-model). Worked rhythms counterexample: two oscillators at R = 3, argmin 3, formula 2; paying for a rhythm as a pair does not restore K\* (`core/KEYSTONE_NOTE.md`). The formula cannot return the K\* = 0 that CT21 allows. The 120/120 convexity count excludes 24 wide-search worlds still on the pre-#116 solver. IMP-N60 failed its gates (PRIMARY 58/189 cost, 51/189 composition) and is not rescued. Cymatics: discrete jumps pass; frequency locking passes on the aggregate statistic, but 3 of 7 worlds fail it individually (`core/KEYSTONE_NOTE.md`). |
-| CT22, CT25 | Nothing survives below B_min; above B_slack the expected-cost rules are exact. Buffer grows as shock × τ^H. |
-| CT14, CT16, CT35, CT36 | A shared layer pays once N > N\*(ρ). At equal read quality, with shared upkeep measured in local layers, a shared layer's worth falls as e^{−2ℓ/τ}, so fast scales go local and slow ones shared (CT28, CT34). Joint value can be superadditive. A member belongs to every shared layer whose test it passes, one per shared driver, and layers form and dissolve as the best grouping moves past the redesign band (`theory/FLUID_LAYERS_2026-11-21.md`). |
-| Freeze limit (#137) | Frozen is the slow-world limit of held: optimal tracking falls smoothly to zero and the design reads once, then persists blind. Over time this is the known freeze-out rule, with the cost-optimal read rate in place of an interaction rate. |
-| CT37–CT43 | Robustness from cost plus the ruin cap; redesign cost gives an inaction band; J is already the time average (`THEORY.md` B.10–B.11; `theory/DYNAMICS.md`). |
-| CT23, J16 | A wrong picture of the world costs second-order regret. A needed cost missing from the closed list is a miss. |
-
-**The selection bridge.** Under weak mutation and fitness linear in J, selection is a thermal search: designs are distributed as π ∝ exp(−βJ), with β set by population size times the fitness scale (Sella & Hirsh 2005, applied to J; `core/bridge_2026-11-21/SELECTION.md`). Near a quadratic minimum the expected excess is d/(2β), so the expected fractional distance from the floor's minimizer falls as d/(2σN_e). Strong selection is low temperature. In T27, P1 and P2 passed in-model; P3 failed and is not rescued.
-
-## 3. Part 2: the hypothesis
+The theory has two parts, and they are different kinds of claim. **Part 1 is mathematics:** limits that any system acting ahead of a world it does not control must obey, and the structure of the cheapest design. Proved limits hold by proof, like Shannon's limits, and need no experiment. Gaps without a derivation are marked **OPEN**. **Part 2 is a hypothesis about nature:** that strongly selected systems come close to those limits. Only Part 2 has odds.
 
 **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
 
-By S3 it has two halves. The **technical** half, which needs no prices: such systems sit near their world's frontier. The **allocative** half, which needs price ratios or only signs: they sit at the frontier point their prices select, so their designs move in the directions Part 1 proves when stakes, drift or prices change.
+**In five sentences.** A system that must act ahead of a world it does not control pays one cost of judgment — memory, layer upkeep, error (including lateness), reads and sharing — subject to a ruin cap. The limits on that cost are mathematics and need no experiment; that strongly selected systems come close to them is the hypothesis. A stack of layers is the cheapest design only when a layer cannot, or cannot afford to, reset the whole state (**PROVED** in that specialized model). A lumpy layer's expected lifetime is \(T^*=\sqrt{6k/(w\sigma^2)}\) (**KNOWN**, exact at zero discounting), so a lower re-form cost shortens it; that structures then behave more like swarms is a **HYPOTHESIS**. Fast-local / slow-shared tracking needs delay on the shared channel only, and a shared lump cheaper than \(N\) local ones (**PROVED** for a Brownian driver with fixed-period refreshes; **NUMERICAL** for Ornstein–Uhlenbeck).
 
-"Strongly selected" is operational (THEORY §3): a cost-to-fitness map σ, a population N_e, a band ε = 10/(σN_e) that excludes a named rival, and at least 10 redesign times in one world. Earned when qualifying systems in two classes at different scales fall inside their preregistered bands and beat a named rival. Killed by misses beyond the class's preregistered binomial allowance (for a small class, one). A needed cost missing from the closed list is a miss (J16). So is a design that does not move when its inputs change: a non-move is consistent only if the post-change gap g < Δ_R(k_lo); a miss if g > max(the static band, Δ_R(k_hi)); INDETERMINATE between; and if the predicted gap of a non-mover is at most Δ_R(k_hi), the move test is NOT A TEST (CT41). The revealed-prices amendment to the "independently measured prices" requirement is proposed, not applied (`theory/REVEALED_PRICES_2026-11-21.md`).
+## 1. The cost
 
-## 4. Evidence so far
+A system that must act ahead of a world it does not control chooses its design \(\mathcal{D}\) (layers, what each tracks, how often it reads, what it shares) to minimize
 
-- **Mechanism, in silico (EVO1, #114).** Blind selection found the cost minimum where small steps lead to it: PC, W1 and W2 passed; S031 and S07 were inconclusive (2/8 misses each, just over the band); W4 and W4b failed, W4 on a creation valley that met the diagnostic's bar (D2b, 4/4), W4b's valley diagnostic missing its bar (D1b, 2/4). In-model only.
-- **Outside evidence for the technical half (context, not tests).** Retinal ganglion cells carry predictive information close to the limit set by their input (Palmer et al. 2015); E. coli climbs gradients within a factor of two of the bound set by the information it acquires (Mattingly et al. 2021). These test the efficient-coding programme (Barlow; Bialek), are consistent with the hypothesis, and were not preregistered or qualified here.
-- **Field tests of the hypothesis.** None valid yet. The 30 earlier field rows are NOT A TEST (10 passed and 20 failed on proxy). The directional field test (allocative half, signs only) is in progress; its predictions are locked before any data are scored. Every theorem has been refereed at most once, by one bot family, and no human expert has read the theory. No system has yet been shown to qualify. E. coli is the best candidate, and its σ, N_e and T_red are to be sourced before any rescoring.
+$$J(\mathcal D)=\kappa I_{\text{mem}}+hK+w\,\mathbb E[\ell_{\mathcal D}]+A(\mathcal D)+L(\mathcal D)\quad\text{subject to}\quad P(\text{ruin})\le\varepsilon .$$
 
-## 5. What is open
+- \(\kappa I_{\text{mem}} + hK\): memory held at price \(\kappa\) per nat, plus upkeep \(h\) per layer (a tracking store, not an org-chart level).
+- \(w\cdot\mathbb E[\ell]\): stake times expected loss at the moment of use; lateness counts as error.
+- \(A\), \(L\): the cost of reading the world, and of linking, telling and lookup.
+- \(P(\text{ruin})\le\varepsilon\): a reserve paying \(J\) must not hit zero more often than \(\varepsilon\). A hard cap, not a cost to average away.
 
-- **A limit for the layer term.** The part of J that is the theory's own, the price per layer, has no formula for its floor: "the fewest layers that reach accuracy D in this world." In Model S it is computable numerically (E_K); with rhythms it is not predicted. Without it, efficiency can be measured for the information part but not for the layer part.
-- Achievability when memory and reads are both priced; the floor under a binding ruin cap; convexity in Model S; a predictive rhythm rule; the selection law under strong mutation or nonlinear fitness.
+The world is a measured input: its statistics, the read noise and the lead time. One currency per system. The equation is a definition, assembled from known parts (THEORY §3).
 
-## 6. Credit
+**Part 1, the limits.**
 
-The parts are known: Shannon (rate–distortion and its converse), sequential rate–distortion (Tatikonda, Sahai & Mitter; Tanaka et al.), predictive information and its bottleneck (Bialek, Nemenman & Tishby; Still et al.), rational inattention (Sims), Farrell efficiency, Wiener–Kalman, Lundberg, Harris, Landauer, Samuelson, Coase, Topkis, Lynch, Kettelle, Dixit, Cohen, Jiang, Taleb & Douady, Sella & Hirsh (`litmap/`, THEORY §10). Friston's free energy is the nearest single-objective rival; J differs by explicit free prices, a price per layer and a ruin cap. What is claimed as new is the package: one priced objective under a ruin cap, the world's frontier as its only input, the structure of its minimizer, and a kill rule across scales.
+**The floor (S1, PROVED for the information terms in a stationary world the system does not affect; drifting and random-walk worlds are open, CX1).** Every design pays at least \(J_{\text{floor}}\), computed from the world's statistics and the prices alone: memory pays for the predictive information it holds (CT1, CT4), and reads pay for at least the sequential rate–distortion rate of the accuracy reached. A layer price \(h\) is not part of that floor: a memoryless read has \(K = 0\) and still carries information. Landauer floors the erasure part of \(\kappa\). Sagawa & Ueda 2009 floor the sum of measurement and erasure work, not a separate read price stacked on that floor. In a scalar Gauss–Markov world the information floor is reached exactly when memory or reads are free (**PROVED** at those edges; the edge results are **KNOWN**). On one such world (\(a = 0.9\), \(Q = 1\), lead 2), the best one-layer Kalman design on a 36-point price grid has efficiency \(J_{\text{floor}}/J = 0.9574\) (gap \(1 - J_{\text{floor}}/J = 4.26\%\); the design costs 4.45% more than the floor) at the worst point (\(\kappa = c = w = 1\), layer price left out of both sides; **NUMERICAL**). That is not a bound over worlds. Whether the true least cost equals the information floor when memory and reads are both priced, or sits strictly between the floor and this Kalman design, is **OPEN**.
+
+**The frontier and efficiency (S2, S3, PROVED).** The world defines a price-free frontier of reachable (memory, reads, layers, accuracy). The frontier is a set, not a single number like capacity. Its dual \(J^*(p) = \inf\langle p, z\rangle\) equals \(-\sigma(-p)\), where \(\sigma\) is the support function of the frontier, and equals the operational least cost only when some minimizer has \(A = c\cdot r\) and \(L = 0\). Knowing \(J^*\) on the positive orthant recovers the free-disposal hull of the Pareto face, not the whole convex hull. **Technical efficiency** — how far resources could shrink and still give the same accuracy — needs no prices. For the input cost \(C = \kappa I + c\cdot r\), \(C_{\min}/C\) splits into technical \(\times\) allocative (Farrell 1957); that product is not true of \(J_{\text{floor}}/J\). A linear-cost minimizer at strictly positive prices has technical efficiency 1 on its feasible set. A binding ruin cap restricts that set and need not preserve convexity. A binding ruin cap can raise the information floor; no formula for that rise is derived (**OPEN**).
+
+**Part 2 (HYPOTHESIS).** Strongly selected systems sit near the world's frontier (the technical half, which needs no prices) and at the point their prices select (the allocative half, which needs price ratios or only signs). "Strongly selected" is operational in THEORY §3. No system has yet been shown to qualify.
+
+What is claimed as new is the package: one priced objective under a ruin cap, the world's frontier as its input, and a kill rule across scales (THEORY §10).
+
+## 2. Why layers exist
+
+No information argument forces a layer. A memoryless rule can still carry information, and S1's floor does not charge \(h\). A store pays upkeep \(h\). Whether it beats a memoryless rule is the comparison of that upkeep with the drop in the other terms. There is no numbered theorem in these words (the hold-or-fade results are CT4, CT9, CT11).
+
+A stack is the cheapest design only when a layer cannot, or cannot afford to, reset the whole state (**PROVED** in that specialized model). One lumpy tracker is already optimal for a single process, including a fractal one (**PROVED**). For increment variance proportional to \(\tau^{2H}\) the refresh scales as \((k/(wC))^{1/(2H+1)}\); the square-root lifetime below is the Brownian case \(H=\tfrac12\). One layer beats two when a joint reset costs about as little as one part (**PROVED**). A joint reset that costs the sum of the part costs does not: the specialized stack is then never more expensive.
+
+The existing layer-count converse is CT21, linear-Gaussian, squared-error, counted by degree. For finitely many real modes, layers are at most the world's predictive degree (L2). On a non-rational spectrum, \(E_K>E_\infty\) for every finite \(K\), and \(K^*\to\infty\) if also \(E_K\to E_\infty\) (L3; that limit is conditional). In Model S the fewest-stores floor remains the existing numerical \(E_K\); \(T^*\) does not compute \(E_K\). There is still no formula for "the fewest layers that reach accuracy \(D\) in this world." That floor stays **OPEN**.
+
+## 3. How long a layer lasts
+
+For a gap that drifts as Brownian motion with variance rate \(\sigma^2\), costs \(w\,x^2\) per unit time, and is reset at lump cost \(k\), the expected time between resets is
+
+$$T^*=\sqrt{6k/(w\sigma^2)}.$$
+
+This formula is **KNOWN** as an exact result at zero discounting (Chalkley 1997). Dixit 1991 is the approximation that case makes exact. It is the right refresh rule for a lumpy layer. A layer's lifetime grows as the square root of its re-forming cost: a cost 100 times lower gives layers that last 10 times shorter. If adjustment is smooth rather than lumpy, there is no discrete lifetime, only a decay time (CL19 (c)). If the gap mean-reverts on the scale of \(T^*\), the Brownian formula is quantitatively false (**NUMERICAL**: a check at \(T^*/\tau\approx 0.63\) missed by 137%).
+
+In a specialized stack (each layer can reset only its own component; quadratic loss in the total error; equal stakes), the lifetimes stand in the exact ratio
+
+$$T_i^*/T_j^*=\sqrt{(k_i/k_j)\,(\sigma_j^2/\sigma_i^2)}$$
+
+(**PROVED** in that model). That is a spacing rule, not a universal geometric series: the ratios are set by the costs and the drifts, and they collapse or invert when those inputs do.
+
+## 4. Local vs shared under delay
+
+The same cost decides whether a fact is tracked locally or shared. The fast-local / slow-shared crossing needs latency on the shared channel only, and a shared lump cheaper than \(N\) local lumps (\(k_S<N k_L\)). It is **PROVED** for a Brownian common driver with fixed-period refreshes, and **NUMERICAL** for an Ornstein–Uhlenbeck driver. Under that same shared-only delay, the optimal barrier keeps the sign, and the variance rate where the two costs cross is the fixed-period crossing divided by 3. If local updates carry the same observation delay, the delay floors cancel. Which side is cheaper then does not depend on the drift variance, so speed does not flip the choice. \(\tau>\ell\) is not sufficient: at the prices in the checks, the OU crossing is about \(183\ell\), so shared still lost at \(\tau=40\ell\) and won at \(\tau=400\ell\).
+
+The older nesting factor in the repository (at equal read quality, a shared layer's worth falls as \(e^{-2\ell/\tau}\)) is the Ornstein–Uhlenbeck companion of this result (CT28, CT34).
+
+## 5. Every adaptive organization
+
+The same cost is the theory's definition for systems that must act ahead of a changing world. THEORY §1 names cells, colonies, people, firms and cities. Firms are one class, not the point. The hypothesis is that *strongly selected* systems in a class that qualifies sit near the minimum, not that every organization already does. Cities, nation-states, global economies and the biosphere do not qualify until a class-specific population proxy is preregistered (THEORY §3).
+
+When the cost \(k\) of re-forming a layer falls, \(T^*\) shrinks as \(\sqrt{k}\). That scaling is **KNOWN** from the formula. P1 is the untested field check of that exponent. As \(k \to 0\), groups re-form continuously and keep no lasting identity: the swarm limit (an **ANALOGY**, not a field result).
+
+The checked qualitative precedent is Malone, Yates & Benjamin 1987 (*Communications of the ACM* 30(6):484–497, doi 10.1145/214762.214766): lower coordination costs shift activity toward markets rather than hierarchies. That is not the square-root lifetime and not the swarm limit (see also Malone 2004, *The Future of Work*, not used as evidence here).
+
+It is a **HYPOTHESIS** that AI lowers \(k\) and that structures then behave more like swarms (that AI lowers \(k\) is unmeasured).
+
+## 6. Assumptions (scrub these)
+
+Each of these is a window the rest of the page looks through. If it is wrong, here is what breaks.
+
+| Assumption | What breaks if it is wrong |
+|---|---|
+| Strong selection | Part 2 does not apply. Designs need not sit near the minimum. |
+| Cost-covered persistence | If a system can last without covering its costs, low-\(J\) designs need not be the ones that persist, and selection need not climb toward the minimum. |
+| Shared-only delay | If the same latency sits on local updates, the delay floors cancel and speed does not flip the choice. |
+| Shared lump below \(N\) local lumps (\(k_S<N k_L\)) | If the shared re-forming cost is not cheaper than \(N\) local ones, the slow-shared side of the crossing is absent. |
+| Equal read quality | If a shared read is systematically better or worse than a local one, fast scales need not go local. The factor \(e^{-2\ell/\tau}\) stays positive. |
+| Exogenous world, stationary for the information floor | If the system shapes the world it tracks (CX2), or the world has no stationary law (CX1), S1 as proved does not apply. |
+| Read cost at least linear in the directed-information rate (S-A) | The assembled information floor can fail as a bound on operational \(J\). S-A is an assumption, not a sensor law. |
+| Re-forming is lumpy | If adjustment is smooth, there is no discrete lifetime \(T^*\). |
+| A layer cannot cheaply reset the whole state | If one action can rewrite the sum at little extra cost, a stack is the wrong design and the spacing rule does not apply. |
+
+## 7. Evidence so far
+
+- **DIR1 (TESTED: INCONCLUSIVE).** A directional, price-free test on the published record, not a test of the banded hypothesis, and not a qualification under THEORY §3. Pooled agreement is 29/42. Animals support (20/27). Firms fail the locked class gate (6/10 = 0.60; four zeros, no −1). Cells do not count (\(n = 5\)). The kill needed two class fails; it was not met. Predictions D1–D4 do not separate this cost from any other cost-benefit optimizer. D5, the local-versus-shared sign, went unscored (\(n = 2\)).
+- **Karim, Carroll & Long 2016 and Girod & Whittington 2017 do not identify P2 or P3.** They measure neither the variance rate of a tracked gap, nor a re-forming cost \(k\), nor latency on a shared channel, nor a local-versus-shared contrast. They cannot count against those predictions, and they cannot support them.
+- **No system has yet been shown to qualify as strongly selected.** The 30 earlier field rows are NOT A TEST (10 passed and 20 failed on proxy). In-model selection tests are mixed (EVO1). Palmer, Marre, Berry & Bialek 2015 test efficient coding of predictive information in the retina. Mattingly, Kamino, Machta & Emonet 2021 test an *E. coli* chemotaxis bound. Both are consistent with the technical half. Neither was preregistered here, and neither qualifies under THEORY §3.
+- **Layer-lifetime predictions, not T27's P1–P3 and not the *E. coli* discrimination checks (OPEN, not locked; no outcome data retrieved).** T27's P3 failed in-model and is not rescued (`core/bridge_2026-11-21/`). **P1:** in a class of groups that form and dissolve, with an independent measure of re-forming cost \(k\) moved by an outside shift, the log of median lifetime against \(\log k\) has slope near \(1/2\) at fixed drift. **P2:** where a system has at least two lumpy layers with independently measured \((k_i,\sigma_i^2,w_i)\) and the stakes are equal, the lifetime ratio matches the §3 formula inside a preregistered factor. That formula is not the prediction when the stakes differ. **P3:** when a shared update has measurable latency, faster drift of the common driver shifts weight from shared to local (respecting the mid-scale warning of §4). Each needs a class that qualifies under THEORY §3.
+- Every theorem has been refereed at most once, by one bot family, and no human expert has read the theory.
+
+## 8. What is next
+
+A proof that would derive closeness to the minimum from selection axioms — persistence costs energy, copying favors what persists, and the world drifts — with closeness a function of selection strength. The bet would then move from "systems minimize cost" to "the world satisfies these axioms," which is smaller, sharper, and easier to test. An in-model bridge already gives a typical fractional excess of about \(d/(2\sigma N_e)\) under weak mutation and fitness linear in \(J\). Its P3 failed and is not rescued. The proof still to write does not assume that bridge.
+
+## References
+
+- Chalkley 1997, *Economics Letters* 57:189, doi 10.1016/s0165-1765(97)00222-x.
+- Dixit 1991, *Review of Economic Studies* 58:141, doi 10.2307/2298051, title "Analytical Approximations in Models of Hysteresis"; *JEDC* 15:657, doi 10.1016/0165-1889(91)90037-2.
+- Palmer, Marre, Berry & Bialek 2015, doi 10.1073/pnas.1506855112.
+- Mattingly, Kamino, Machta & Emonet 2021, doi 10.1038/s41567-021-01380-3.
+
+## Status words and standing caveats
+
+**PROVED** means proved inside the stated model, which says nothing by itself about nature; **NUMERICAL** means computed, not proved; **HYPOTHESIS** means a claim about the world; **TESTED** is reported with its result; **KNOWN** means published and credited; **OPEN** means untested or not derived, not refuted; **ANALOGY** means a likeness, not a proof and not a field result.
+
+The operational kill rule stays in force in THEORY §3. There is no Model S counterexample to N60. The rhythms counterexample (two oscillators, \(R=3\), formula 2, argmin 3) and the failed IMP-N60 rule stay in force in `core/KEYSTONE_NOTE.md`. Convexity inside Model S is numerical (120/120), not proved.
+
+Omissions from this page are compressions, not withdrawals. The previous text is frozen at `history/2026-11-21_CORE_before_onepage.md`. The information limits (S1–S3) are in `theory/SHANNON_2026-11-21.md`; the layer-lifetime results are in `theory/LAYER_LIFETIME_2026-11-21.md`. This page was revised after the independent review of PR #142 (`reviews/core_onepage_2026-11-21/REVIEW.md`, verdict NOT READY) and the blind confirm (`reviews/core_onepage_2026-11-21/CONFIRM.md`). IDs: `measurement/CLAIM_MAP_v2.md`. `main` is `d34df95` (PR #140 live brief; also #141 layer lifetime as `a97887e`, #139 Shannon-style core as `0726423`, and #138 DIR1 as `1cb1ac2`).
