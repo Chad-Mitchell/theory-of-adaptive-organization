@@ -2,6 +2,8 @@
 
 *Chad Mitchell ([@torusflow](https://x.com/torusflow)). Public working draft, CC0. Not peer reviewed; the new math is not yet independently reviewed.*
 
+The theory on one page: [`CORE.md`](CORE.md).
+
 Anything that must stay alive in a changing world has to act before the world arrives, and that judgment has a price: memory to hold, errors and lateness to absorb, information to buy and share. **The claim is that one cost sets how adaptive systems should be built at every scale: in layers matched to the time scales of the world, as many as the stakes can pay for and faster looking cannot replace.** Matched is not equal: a rhythm counts two layers by degree, and at the full optimum (one layer per separated scale, L2), with each store's own noise small next to the sensing noise, each layer runs faster than the scale it tracks, by a factor the sensing noise sets (7–15× in the worked case), never past the next scale; a store whose own noise dominates can be slower than its scale (Model S+, `theory/STORE_NOISE.md`). Faster looking can stand in for a layer (reads substitute for layers, CT33), so stakes buy more layers only where looking faster does not do the job. Physics enters only as a floor under the prices.
 
 **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
