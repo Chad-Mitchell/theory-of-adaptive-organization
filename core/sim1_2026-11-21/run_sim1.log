@@ -1,0 +1,5 @@
+T28 official run overall=PASS
+official_seeds=[20261122000, 20261122001, 20261122002]
+P1=True P2=True P3=True P4=True n_official=3/3
+seconds=11.996
+lock={'PREREG.md': 'f24d54271875a326947c7a17fc6114a0d8b0a7864c5ff17dc0eca2300260de8c', 'predictions.json': '40c14cb4f991bee864b8bf74ab7f4583766cfb2ccab6aaf712deb692d2f33b09', 'run_sim1.py': '9f3f41700aee9335f5f50f6612712fb87dee95b7a56fc732b418df917641181f', 'sim1_lib.py': '2f20672665503aa6b0d48ef907ae3f24edded5ac935d191474b42ee383846559'}
