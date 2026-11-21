@@ -1,6 +1,6 @@
 # Selection as a thermal search: the stationary law and the spread
 
-*21 November 2026 (America/New_York). Package `core/bridge_2026-11-21/`. This is the part of the package that is actually new. It does not change `CORE.md`, the hypothesis sentence, or the locked qualification rule of THEORY §3 / FRAMEWORK §9.*
+*21 November 2026 (America/New_York). Package `core/bridge_2026-11-21/`. This is the part of the package that is actually new. It does not change the hypothesis sentence, or the locked qualification rule of THEORY §3 / FRAMEWORK §9. Evening of the same day, branch `selection-fold-2026-11-21`: the general factor \(\beta=\alpha(N_e-1)\) is withdrawn. The exponents are now stated per population model, consistent with `theory/SELECTION_AXIOMS.md`. The official T27 Moran run, \(N=201\) and \(\beta=\alpha(N-1)\), is unchanged. No locked prereg or hash file is edited.*
 
 ## Already in the repository (not new)
 
@@ -16,7 +16,7 @@ Under that map, \(\sigma=\lvert\mathrm{d}\log r/\mathrm{d}\log J\rvert=\alpha J\
 
 ## Theorem (standard population genetics, applied to \(J\))
 
-In the weak-mutation regime the population is typically monomorphic, and substitution is an origination–fixation chain on the design graph (Sella & Hirsh 2005, doi 10.1073/pnas.0501865102; they also write a free-fitness Lyapunov function \(G=\langle\ln f\rangle+(1/v)S\), following Iwasa 1988, doi 10.1016/s0022-5193(88)80243-1).
+In the weak-mutation regime \(N\mu\ll 1\) the population is typically monomorphic, and substitution is an origination–fixation chain on the design graph (Sella & Hirsh 2005, doi 10.1073/pnas.0501865102; they also write a free-fitness Lyapunov function \(G=\langle\ln f\rangle+(1/v)S\), following Iwasa 1988, doi 10.1016/s0022-5193(88)80243-1).
 
 For a haploid Moran process of size \(N\), with *equal mutation clocks on each undirected edge* (so that there is no degree bias), detailed balance gives
 
@@ -26,7 +26,7 @@ Substituting \(r=\exp(-\alpha J)\) yields the Boltzmann law
 
 $$\pi(\mathcal D)\;\propto\;\exp\bigl(-\beta J(\mathcal D)\bigr),\qquad \beta=\alpha(N-1).$$
 
-For a diploid Wright–Fisher process the same argument gives \(\beta=\alpha(2N-1)\) in Sella & Hirsh’s leading-order form (their stationary weight \(f^{2N-1}\), large \(N\)). In all these cases \(\beta\) is set by selection strength: population size times the fitness scale \(\alpha\). The official T27 simulation uses the haploid Moran case with \(N=201\) and \(\beta=\alpha(N-1)\).
+For diploid Wright–Fisher with multiplicative fitness within a locus, Sella and Hirsh's approximation gives \(\beta=\alpha(2N-1)\) (their weight \(f^{2N-1}\)). Haploid Wright–Fisher in the same table is \(2(N-1)\), which this note does not use. The official T27 simulation uses the haploid Moran case with \(N=201\) and \(\beta=\alpha(N-1)\). That Moran factor, and the official run results, were not changed.
 
 This is not a new mathematical theorem. What is new is the application to the reduced cost \(J\) and the consequences below.
 
@@ -40,11 +40,11 @@ This is not a new mathematical theorem. What is new is the application to the re
    $$\mathbb{E}[J]-J^\star \;=\; \frac{d}{2\beta}.$$
 
    Distance from the minimum scales as \(1/\)selection strength. “Real systems lag” is then a predicted, measurable spread, not by itself a refutation, provided the lag is of this order and the fitness map is as assumed.
-3. **Consistency with the existing qualification band.** Under the linear map, \(\beta=\alpha(N_e-1)\approx \sigma N_e/J^\star\), so the typical *fractional* excess is
+3. **Consistency with the existing qualification band.** The absolute excess is the equipartition quantity \(\mathbb{E}[J]-J^\star=d/(2\beta)\). The fractional excess is a separate statement. Under the linear map, \(\beta=\alpha\nu\) with \(\nu\) the Sella–Hirsh exponent of the process just named (haploid Moran \(N-1\); diploid Wright–Fisher \(2N-1\), an approximation). The \(N_e\) in THEORY §3's drift barrier is this \(\nu\) (\(s N_e\approx 1\) matches their scale \(\nu s\approx 1\)), so \(\beta=\alpha N_e=\sigma N_e/J^\star\) at leading order when \(J^\star>0\) and \(\sigma\) is evaluated at \(J^\star\). Then the typical *fractional* excess is
 
    $$\frac{\mathbb{E}[J]-J^\star}{J^\star}\;\approx\;\frac{d}{2\sigma N_e}.$$
 
-   The FRAMEWORK §9 band is \(\varepsilon=10/(\sigma N_e)\), a *fractional* difference in \(J\) used to exclude a named rival (a one-dimensional comparison). The ratio of typical excess to that band is \(d/20\). For a few soft design coordinates the expected scatter sits well inside the conservative band; for large \(d\) it need not. These uses are different, and this package does **not** change the locked factor of 10. A later refinement, if one is wanted, would be to size a “contains most of the stationary mass” band by a chi-squared quantile, which scales as \(d/(\sigma N_e)\). That is a note, not a patch.
+   The form \(\alpha(N_e-1)\) is the haploid Moran exponent when \(N_e\) is census size. It is not the diploid exponent. The FRAMEWORK §9 band is \(\varepsilon=10/(\sigma N_e)\), a *fractional* difference in \(J\) used to exclude a named rival (a one-dimensional comparison). The ratio of the typical fractional excess to that band is \(d/20\). For a few soft design coordinates the expected scatter sits well inside the conservative band; for large \(d\) it need not. These uses are different, and this package does **not** change the locked factor of 10. A later refinement, if one is wanted, would be to size a “contains most of the stationary mass” band by a chi-squared quantile, which scales as \(d/(\sigma N_e)\). That is a note, not a patch.
 
 The official T27 test (preregistered in `PREREG.md` before any official run) checks (1) and (2) in Model S, plus the low-\(\beta\) statement that the mass spreads and the mean stays above \(J^\star\). Official numbers are in `RESULTS.md`.
 

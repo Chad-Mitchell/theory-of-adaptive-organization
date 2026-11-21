@@ -111,3 +111,7 @@ Those cuts are about 310 words, from 4,988 to about 4,680. They do not make the 
 - `core/bridge_2026-11-21/SELECTION.md` still says the diploid line follows by the same argument and that \(\beta\) is population size times \(\alpha\), and it still writes \(\beta=\alpha(N_e-1)\). T27’s Moran run, \(N=201\) and \(\beta=\alpha(N-1)\), is the right Moran factor and was not touched. This note now disagrees with the bridge’s general sentence on purpose, and says so. Editing the bridge was left for a later pass.
 - The reset-process moment sits 2.2% above \(b^2/6\), inside a 3% band. A histogram of \(\rho\) is not part of the check.
 - The holdability cuts above are not applied.
+
+## Dated note (21 November 2026, evening ET, America/New_York; branch `selection-fold-2026-11-21`)
+
+The first open item is addressed in this later pass: `core/bridge_2026-11-21/SELECTION.md` now states the population model explicitly (haploid Moran \(eta=lpha(N-1)\); diploid Wright–Fisher \(eta=lpha(2N-1)\), an approximation; haploid Wright–Fisher \(2(N-1)\) unused). The official T27 Moran run, \(N=201\) and \(eta=lpha(N-1)\), was not touched, and no locked prereg or hash file was edited. The holdability cuts named in §3 were applied in the same pass. The reset-process histogram remains open.
