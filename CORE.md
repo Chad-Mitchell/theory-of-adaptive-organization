@@ -1,10 +1,14 @@
 # The core: the cost of judgment on one page
 
-*Rewritten Saturday 21 November 2026, about 3:15 PM ET (America/New_York), current to `main` `d34df95` (PR #140 live brief; also #141 layer lifetime as `a97887e`, #139 Shannon-style core as `0726423`, and #138 DIR1 as `1cb1ac2`), and revised the same afternoon after the independent review of PR #142 (`reviews/core_onepage_2026-11-21/REVIEW.md`, verdict NOT READY). The previous text is frozen at `history/2026-11-21_CORE_before_onepage.md`. Omissions from this page are compressions, not withdrawals; the operational kill rule stays in force in THEORY §3. There is no Model S counterexample to N60. The rhythms counterexample (two oscillators, \(R=3\), formula 2, argmin 3) and the failed IMP-N60 rule stay in force in `core/KEYSTONE_NOTE.md`. Convexity inside Model S is numerical (120/120), not proved. The information limits (S1–S3) are in `theory/SHANNON_2026-11-21.md`; the layer-lifetime results are in `theory/LAYER_LIFETIME_2026-11-21.md`. Status words: **PROVED** means proved inside the stated model, which says nothing by itself about nature; **NUMERICAL** means computed, not proved; **HYPOTHESIS** means a claim about the world; **TESTED** is reported with its result; **KNOWN** means published and credited; **OPEN** means untested or not derived, not refuted; **ANALOGY** means a likeness, not a proof and not a field result. IDs: `measurement/CLAIM_MAP_v2.md`.*
+*Saturday 21 November 2026, afternoon ET (America/New_York). `main` is `d34df95`.*
+
+*Status words and caveats: see the end of this page.*
 
 The theory has two parts, and they are different kinds of claim. **Part 1 is mathematics:** limits that any system acting ahead of a world it does not control must obey, and the structure of the cheapest design. These hold by proof, like Shannon's limits, and need no experiment. **Part 2 is a hypothesis about nature:** that strongly selected systems come close to those limits. Only Part 2 has odds.
 
 **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
+
+**In five sentences.** A system that must act ahead of a world it does not control pays one cost of judgment — memory, layer upkeep, error (including lateness), reads and links — subject to a ruin cap. The limits on that cost are mathematics and need no experiment; that strongly selected systems come close to them is the hypothesis. A stack of layers is the cheapest design only when a layer cannot, or cannot afford to, reset the whole state. A lumpy layer's expected lifetime is \(T^*=\sqrt{6k/(w\sigma^2)}\) (**KNOWN**, exact at zero discounting); that falling re-form cost makes layers re-form faster and structures behave more like swarms is a **HYPOTHESIS**. Fast-local / slow-shared tracking needs delay on the shared channel only, and a shared lump cheaper than \(N\) local ones.
 
 ## 1. The cost
 
@@ -43,7 +47,7 @@ For a gap that drifts as Brownian motion with variance rate \(\sigma^2\), costs 
 
 $$T^*=\sqrt{6k/(w\sigma^2)}.$$
 
-This formula is **KNOWN** as an exact result at zero discounting (Chalkley 1997, *Economics Letters* 57:189, doi 10.1016/s0165-1765(97)00222-x). Dixit 1991 is the approximation that case makes exact (*Review of Economic Studies* 58:141, doi 10.2307/2298051, title "Analytical Approximations in Models of Hysteresis"; *JEDC* 15:657, doi 10.1016/0165-1889(91)90037-2). It is the right refresh rule for a lumpy layer. A layer's lifetime grows as the square root of its re-forming cost: a cost 100 times lower gives layers that last 10 times shorter. If adjustment is smooth rather than lumpy, there is no discrete lifetime, only a decay time (CL19 (c)). If the gap mean-reverts on the scale of \(T^*\), the Brownian formula is quantitatively false (**NUMERICAL**: a check at \(T^*/\tau\approx 0.63\) missed by 137%).
+This formula is **KNOWN** as an exact result at zero discounting (Chalkley 1997). Dixit 1991 is the approximation that case makes exact. It is the right refresh rule for a lumpy layer. A layer's lifetime grows as the square root of its re-forming cost: a cost 100 times lower gives layers that last 10 times shorter. If adjustment is smooth rather than lumpy, there is no discrete lifetime, only a decay time (CL19 (c)). If the gap mean-reverts on the scale of \(T^*\), the Brownian formula is quantitatively false (**NUMERICAL**: a check at \(T^*/\tau\approx 0.63\) missed by 137%).
 
 In a specialized stack (each layer can reset only its own component; quadratic loss in the total error; equal stakes), the lifetimes stand in the exact ratio
 
@@ -63,7 +67,7 @@ The same cost is the theory's definition for systems that must act ahead of a ch
 
 When the cost \(k\) of re-forming a layer falls, \(T^*\) shrinks as \(\sqrt{k}\). That scaling is **KNOWN** from the formula. As \(k \to 0\), groups re-form continuously and keep no lasting identity: the swarm limit (an **ANALOGY**, not a field result).
 
-The checked qualitative precedent is Malone, Yates & Benjamin 1987 (*Communications of the ACM* 30(6):484–497, doi 10.1145/214762.214766): lower coordination costs shift activity toward markets rather than hierarchies, and toward new forms of coordination. That is not the square-root lifetime and not the swarm limit. Malone 2004 (*The Future of Work*, Harvard Business School Press, ISBN 978-1-59139-125-8) has no Crossref DOI; the ISBN filters returned no works. Publisher copy describes decentralized forms under falling communication costs. It was not read for this page and is not evidence for \(T^*\) or the swarm limit.
+The checked qualitative precedent is Malone, Yates & Benjamin 1987 (*Communications of the ACM* 30(6):484–497, doi 10.1145/214762.214766): lower coordination costs shift activity toward markets rather than hierarchies, and toward new forms of coordination. That is not the square-root lifetime and not the swarm limit (see also Malone 2004, *The Future of Work*, not used as evidence here).
 
 Since \(T^*\) scales as \(\sqrt{k}\), anything that lowers the re-form cost \(k\), including AI, shortens layer lifetimes, so structures should re-form more often and behave more like swarms (**HYPOTHESIS**; the \(\sqrt{k}\) scaling is P1, and that AI lowers \(k\) is unmeasured).
 
@@ -87,10 +91,25 @@ Each of these is a window the rest of the page looks through. If it is wrong, he
 
 - **DIR1 (TESTED: INCONCLUSIVE).** A directional, price-free test on the published record, not a test of the banded hypothesis, and not a qualification under THEORY §3. Pooled agreement is 29/42. Animals support (20/27). Firms fail the locked class gate (6/10 = 0.60; four zeros, no −1). Cells do not count (\(n = 5\)). The kill needed two class fails; it was not met. Predictions D1–D4 do not separate this cost from any other cost-benefit optimizer. D5, the local-versus-shared sign, went unscored (\(n = 2\)).
 - **Karim, Carroll & Long 2016 and Girod & Whittington 2017 do not identify P2 or P3.** They measure neither the variance rate of a tracked gap, nor a re-forming cost \(k\), nor latency on a shared channel, nor a local-versus-shared contrast. They cannot count against those predictions, and they cannot support them.
-- **No system has yet been shown to qualify as strongly selected.** The 30 earlier field rows are NOT A TEST (10 passed and 20 failed on proxy). In-model selection tests are mixed (EVO1). Palmer, Marre, Berry & Bialek 2015 (doi 10.1073/pnas.1506855112) test efficient coding of predictive information in the retina. Mattingly, Kamino, Machta & Emonet 2021 (doi 10.1038/s41567-021-01380-3) test an *E. coli* chemotaxis bound. Both are consistent with the technical half. Neither was preregistered here, and neither qualifies under THEORY §3.
+- **No system has yet been shown to qualify as strongly selected.** The 30 earlier field rows are NOT A TEST (10 passed and 20 failed on proxy). In-model selection tests are mixed (EVO1). Palmer, Marre, Berry & Bialek 2015 test efficient coding of predictive information in the retina. Mattingly, Kamino, Machta & Emonet 2021 test an *E. coli* chemotaxis bound. Both are consistent with the technical half. Neither was preregistered here, and neither qualifies under THEORY §3.
 - **Layer-lifetime predictions, not T27's P1–P3 and not the *E. coli* discrimination checks (OPEN, not locked; no outcome data retrieved).** T27's P3 failed in-model and is not rescued (`core/bridge_2026-11-21/`). **P1:** in a class of groups that form and dissolve, with an independent measure of re-forming cost \(k\) moved by an outside shift, the log of median lifetime against \(\log k\) has slope near \(1/2\) at fixed drift. **P2:** where a system has at least two lumpy layers with independently measured \((k_i,\sigma_i^2,w_i)\) and the stakes are equal, the lifetime ratio matches the §3 formula inside a preregistered factor. That formula is not the prediction when the stakes differ. **P3:** when a shared update has measurable latency, faster drift of the common driver shifts weight from shared to local (respecting the mid-scale warning of §4). Each needs a class that qualifies under THEORY §3.
 - Every theorem has been refereed at most once, by one bot family, and no human expert has read the theory.
 
 ## 8. What is next
 
 A proof that would derive closeness to the minimum from selection axioms — persistence costs energy, copying favors what persists, and the world drifts — with closeness a function of selection strength. The bet would then move from "systems minimize cost" to "the world satisfies these axioms," which is smaller, sharper, and easier to test. An in-model bridge already gives expected excess \(d/(2\sigma N_e)\) under weak mutation and fitness linear in \(J\). Its P3 failed and is not rescued. The proof still to write does not assume that bridge.
+
+## References
+
+- Chalkley 1997, *Economics Letters* 57:189, doi 10.1016/s0165-1765(97)00222-x.
+- Dixit 1991, *Review of Economic Studies* 58:141, doi 10.2307/2298051, title "Analytical Approximations in Models of Hysteresis"; *JEDC* 15:657, doi 10.1016/0165-1889(91)90037-2.
+- Palmer, Marre, Berry & Bialek 2015, doi 10.1073/pnas.1506855112.
+- Mattingly, Kamino, Machta & Emonet 2021, doi 10.1038/s41567-021-01380-3.
+
+## Status words and standing caveats
+
+**PROVED** means proved inside the stated model, which says nothing by itself about nature; **NUMERICAL** means computed, not proved; **HYPOTHESIS** means a claim about the world; **TESTED** is reported with its result; **KNOWN** means published and credited; **OPEN** means untested or not derived, not refuted; **ANALOGY** means a likeness, not a proof and not a field result.
+
+The operational kill rule stays in force in THEORY §3. There is no Model S counterexample to N60. The rhythms counterexample (two oscillators, \(R=3\), formula 2, argmin 3) and the failed IMP-N60 rule stay in force in `core/KEYSTONE_NOTE.md`. Convexity inside Model S is numerical (120/120), not proved.
+
+Omissions from this page are compressions, not withdrawals. The previous text is frozen at `history/2026-11-21_CORE_before_onepage.md`. The information limits (S1–S3) are in `theory/SHANNON_2026-11-21.md`; the layer-lifetime results are in `theory/LAYER_LIFETIME_2026-11-21.md`. This page was revised after the independent review of PR #142 (`reviews/core_onepage_2026-11-21/REVIEW.md`, verdict NOT READY). IDs: `measurement/CLAIM_MAP_v2.md`. `main` is `d34df95` (PR #140 live brief; also #141 layer lifetime as `a97887e`, #139 Shannon-style core as `0726423`, and #138 DIR1 as `1cb1ac2`).
