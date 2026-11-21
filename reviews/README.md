@@ -35,4 +35,6 @@ Reviews of the theory notes, the tests, and the AI-memory toy. Independence is s
 
 | `thermo_2026-11-21/REVIEW.md` | Independent review of PR #122 (thermodynamic / selection bridge, T27): **READY-WITH-FIXES**. Official fail/pass gates stand (P1 and P2 pass 3/3, P3 fails 0/3, overall FAIL). S1–S5 applied as post-result housekeeping in this PR, with no official number changed and no edit to the locked PREREG or predictions | Stated as an independent pass that wrote none of the PR, package, prereg, predictions, runner, or results; same bot family. |
 
+| `lean_2026-11-21/REVIEW.md` | Independent review of PR #123 (Lean 4 formalization of a finite-menu core, T19): **READY-WITH-FIXES**. S1–S4 applied in this PR (checker `.lake/` exclusion; CT4 first-bit proved in right-slope form; CT22 slack-case theorem composed with `certified_at_Bslack`; not-formalized list completed). Official theory numbers unchanged | Stated as an independent pass that wrote none of the PR or the Lean sources; same bot family. |
+
 Test-specific reviews (for example `tests/C3/REVIEW.md`) stay with those tests.

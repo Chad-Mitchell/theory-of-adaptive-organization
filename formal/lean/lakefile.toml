@@ -1,0 +1,22 @@
+name = "gtao"
+version = "0.1.0"
+keywords = ["math"]
+defaultTargets = ["GTAO"]
+
+[leanOptions]
+pp.unicode.fun = true
+relaxedAutoImplicit = false
+maxSynthPendingDepth = 3
+# This is a small formalization, not a Mathlib contribution.
+# Style linters are off; unused-variable / unused-section-var linters stay on.
+linter.style.header = false
+linter.style.longLine = false
+linter.mathlibStandardSet = false
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.37.0-rc1"
+
+[[lean_lib]]
+name = "GTAO"
