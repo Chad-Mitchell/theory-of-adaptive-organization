@@ -1,0 +1,14 @@
+T20 lock record
+Timestamp: Friday 20 November 2026, 09:19:44 PM EST (America/New_York)
+Working tree: /workspace/gtao-t20 branch t20-holographic-2026-11-20
+Beside commit: aa6ab2925b83b17390ac669426a0eb556a9930a7
+No optimize_K / E_K has been run on these worlds.
+
+PREREG.md
+  sha256: 6eda4c82f06711fe1d5b282aa12124a1be2aa6048c4d117ece7e54dee552b1f8
+  bytes:  20465
+  mtime:  2026-11-20 21:19:00 EST
+predictions.json
+  sha256: 0d877908b190cdcd287a960e87c2658c489a730d7124c964d7b45dbb106b8791
+  bytes:  32155
+  mtime:  2026-11-20 21:19:35 EST
