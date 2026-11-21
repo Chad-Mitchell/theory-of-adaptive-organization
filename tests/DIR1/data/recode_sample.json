@@ -1,0 +1,185 @@
+{
+ "drawn_with": "random.seed(20261121); random.sample(included_rows_in_coded.csv_order, 20)",
+ "items": [
+  {
+   "cell": "A4",
+   "rank": 11,
+   "doi": "10.1016/j.anbehav.2018.06.015",
+   "openalex": "https://openalex.org/W2883402964",
+   "title": "Can starlings use a reliable cue of future food deprivation to adaptively modify foraging and fat reserves?",
+   "prediction": "D4",
+   "plus_means": "larger fat or energy reserves (or more hoarding) when food supply is more unpredictable"
+  },
+  {
+   "cell": "A2",
+   "rank": 9,
+   "doi": "10.1111/j.1469-7998.2008.00541.x",
+   "openalex": "https://openalex.org/W2037852086",
+   "title": "Vigilance in Przewalski's gazelle: effects of sex, predation risk and group size",
+   "prediction": "D2",
+   "plus_means": "vigilance higher when predation risk is higher"
+  },
+  {
+   "cell": "A2",
+   "rank": 20,
+   "doi": "10.1093/beheco/aru005",
+   "openalex": "https://openalex.org/W2170129792",
+   "title": "Spatial ecology of perceived predation risk and vigilance behavior in white-faced capuchins",
+   "prediction": "D2",
+   "plus_means": "vigilance higher when predation risk is higher"
+  },
+  {
+   "cell": "A3",
+   "rank": 8,
+   "doi": "10.1111/1365-2435.12593",
+   "openalex": "https://openalex.org/W1883686950",
+   "title": "Ecology drives natural variation in an extreme antipredator trait: a cost\u2013benefit analysis integrating modelling and field data",
+   "prediction": "D3",
+   "plus_means": "antipredator behaviour or predator recognition reduced in populations with relaxed or absent predation"
+  },
+  {
+   "cell": "F1",
+   "rank": 20,
+   "doi": "10.2307/2118517",
+   "openalex": "https://openalex.org/W2106045992",
+   "title": "Sticky Prices: New Evidence from Retail Catalogs",
+   "prediction": "D1",
+   "plus_means": "firms change prices more often when inflation or cost volatility is higher"
+  },
+  {
+   "cell": "C3",
+   "rank": 7,
+   "doi": "10.1371/journal.pbio.1001789",
+   "openalex": "https://openalex.org/W2135331392",
+   "title": "Metabolic Erosion Primarily Through Mutation Accumulation, and Not Tradeoffs, Drives Limited Evolution of Substrate Specificity in Escherichia coli",
+   "prediction": "D3",
+   "plus_means": "an unused sensing, regulatory, motility or catabolic function declines or is lost when it is not needed"
+  },
+  {
+   "cell": "A3",
+   "rank": 7,
+   "doi": "10.1111/j.1095-8312.2012.01933.x",
+   "openalex": "https://openalex.org/W2129804003",
+   "title": "Historical influence of predation pressure on escape by Podarcis lizards in the Balearic Islands",
+   "prediction": "D3",
+   "plus_means": "antipredator behaviour or predator recognition reduced in populations with relaxed or absent predation"
+  },
+  {
+   "cell": "C3",
+   "rank": 3,
+   "doi": "10.1038/s42003-022-03912-w",
+   "openalex": "https://openalex.org/W4295988851",
+   "title": "Hidden paths to endless forms most wonderful: ecology latently shapes evolution of multicellular development in predatory bacteria",
+   "prediction": "D3",
+   "plus_means": "an unused sensing, regulatory, motility or catabolic function declines or is lost when it is not needed"
+  },
+  {
+   "cell": "C1",
+   "rank": 3,
+   "doi": "10.1098/rspb.2022.0834",
+   "openalex": "https://openalex.org/W4289517654",
+   "title": "Evolution of thermal tolerance and phenotypic plasticity under rapid and slow temperature fluctuations",
+   "prediction": "D1",
+   "plus_means": "lines evolved or populations living under fluctuating conditions show more regulation, sensing, plasticity, switching or faster response than constant-environment lines"
+  },
+  {
+   "cell": "F5",
+   "rank": 2,
+   "doi": "10.1287/isre.1090.0269",
+   "openalex": "https://openalex.org/W2059712865",
+   "title": "Environmental Uncertainty and IT Infrastructure Governance: A Curvilinear Relationship",
+   "prediction": "D5",
+   "plus_means": "more decentralization (decision rights delegated to local units) under higher environmental uncertainty or volatility"
+  },
+  {
+   "cell": "A2",
+   "rank": 6,
+   "doi": "10.1093/beheco/aru050",
+   "openalex": "https://openalex.org/W2106228428",
+   "title": "Effects of predation risk on group size, vigilance, and foraging behavior in an African ungulate community",
+   "prediction": "D2",
+   "plus_means": "vigilance higher when predation risk is higher"
+  },
+  {
+   "cell": "A3",
+   "rank": 9,
+   "doi": "10.1111/eth.12173",
+   "openalex": "https://openalex.org/W2035013165",
+   "title": "Interpopulation Comparisons of Antipredator Defense Behavior of the Thorn\u2010Tailed Rayadito (Aphrastura spinicauda)",
+   "prediction": "D3",
+   "plus_means": "antipredator behaviour or predator recognition reduced in populations with relaxed or absent predation"
+  },
+  {
+   "cell": "F4",
+   "rank": 15,
+   "doi": "10.24912/jpa.v4i4.21399",
+   "openalex": "https://openalex.org/W4315695969",
+   "title": "FAKTOR-FAKTOR YANG MEMPENGARUHI KEBIJAKAN CASH HOLDING PADA PERUSAHAAN MANUFAKTUR",
+   "prediction": "D4",
+   "plus_means": "firms with more volatile cash flows (or higher cash-flow risk) hold more cash"
+  },
+  {
+   "cell": "F1",
+   "rank": 1,
+   "doi": "10.1016/0304-4076(86)90061-8",
+   "openalex": "https://openalex.org/W1565905637",
+   "title": "The frequency of price adjustment",
+   "prediction": "D1",
+   "plus_means": "firms change prices more often when inflation or cost volatility is higher"
+  },
+  {
+   "cell": "A4",
+   "rank": 7,
+   "doi": "10.1242/jeb.071043",
+   "openalex": "https://openalex.org/W2315791685",
+   "title": "Unpredictable food availability induces metabolic and hormonal changes independent of food intake in a sedentary songbird",
+   "prediction": "D4",
+   "plus_means": "larger fat or energy reserves (or more hoarding) when food supply is more unpredictable"
+  },
+  {
+   "cell": "A3",
+   "rank": 4,
+   "doi": "10.1371/journal.pone.0288826",
+   "openalex": "https://openalex.org/W4387909438",
+   "title": "Overcoming the phantoms of the past: Influence of predatory stimuli on the antipredator behavior of island pitvipers",
+   "prediction": "D3",
+   "plus_means": "antipredator behaviour or predator recognition reduced in populations with relaxed or absent predation"
+  },
+  {
+   "cell": "F1",
+   "rank": 4,
+   "doi": "10.1162/qjec.2009.124.3.1221",
+   "openalex": "https://openalex.org/W2150859583",
+   "title": "Price Setting During Low and High Inflation: Evidence from Mexico*",
+   "prediction": "D1",
+   "plus_means": "firms change prices more often when inflation or cost volatility is higher"
+  },
+  {
+   "cell": "A2",
+   "rank": 10,
+   "doi": "10.1093/beheco/ars060",
+   "openalex": "https://openalex.org/W2115150872",
+   "title": "Influence of immediate predation risk by lions on the vigilance of prey of different body size",
+   "prediction": "D2",
+   "plus_means": "vigilance higher when predation risk is higher"
+  },
+  {
+   "cell": "A4",
+   "rank": 2,
+   "doi": "10.2307/2390009",
+   "openalex": "https://openalex.org/W1987745340",
+   "title": "Great Tit Fat Reserves: Effects of Changing and Unpredictable Feeding Day Length",
+   "prediction": "D4",
+   "plus_means": "larger fat or energy reserves (or more hoarding) when food supply is more unpredictable"
+  },
+  {
+   "cell": "A3",
+   "rank": 16,
+   "doi": "10.1007/s10531-025-03172-0",
+   "openalex": "https://openalex.org/W4415412773",
+   "title": "Rapid ecological release of anti-predator behaviour after island-wide predator control",
+   "prediction": "D3",
+   "plus_means": "antipredator behaviour or predator recognition reduced in populations with relaxed or absent predation"
+  }
+ ]
+}
