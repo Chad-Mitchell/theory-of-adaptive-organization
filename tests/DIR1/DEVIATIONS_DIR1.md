@@ -1,0 +1,10 @@
+# DIR1 deviations and clarifications (America/New_York, ET)
+
+Lock commit `47c8594` (2026-11-21 13:16:55 −05:00), pushed before retrieval. `sha256sum -c PREREG_DIR1.sha256` passes after scoring; no locked file was edited.
+
+1. **Non-significant trends (clarification, first applied at A2 rank 17, then uniformly).** PREREG §5 codes "+1 the predicted direction is reported" and "0 no effect". Where an abstract reports a trend in the predicted direction that its authors call non-significant (A2 rank 17, "non-significant (p < 0.06) trend"), it was coded **0**. The authors' own significance call decides. This works against agreement.
+2. **Screening display.** For reading, abstracts over 1,300 characters were shown as the first 450 and last 850 characters; whenever inclusion or the code depended on the middle, the full abstract was read (C1 ranks 1, 4, 6; A3 ranks 1, 7; A4 ranks 1, 12). Codes always come from the full abstract text in the pool.
+3. **One included record has no DOI** (F4 rank 14, "Cash Holdings and Cash Flow Uncertainty", *Journal of Applied Finance and Banking* 2017, OpenAlex W2761342761). The prereg requires a Crossref check of every included DOI; this record has none, and a Crossref bibliographic search returned a different paper. It stays included as the prereg's inclusion rule does not require a DOI; the post-hoc sensitivity in RESULTS drops it.
+4. **Retrieval time.** `search_dir1.py` ran 2026-11-21 about 13:17–13:22 ET (POOL_SHA256.json records the finish time); abstracts are kept off-repo at `/workspace/gtao-dir-data/DIR1/` on the executor's box, hashed in `data/POOL_SHA256.json`.
+5. **`crossref_check_dir1.py` and `recode_packet_dir1.py`** were written after the lock. They read DOIs and titles only and do not affect codes or scores.
+6. **Coding was done by the lead executor, not blind** (as the prereg states). The blind recode of 20 systems by the independent reviewer (PREREG §5 reliability gate) is owed; until it is done the verdict carries "reliability gate pending".

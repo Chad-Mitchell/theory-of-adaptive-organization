@@ -1,0 +1,17 @@
+{
+ "retrieved": "2026-11-21 13:21:43 EST",
+ "files": {
+  "openalex_A1.json": "f381a0b1f454a3a4d2d03e2209a9ee3e59c77ca06a403c3d941273ec0e6ce747",
+  "openalex_A2.json": "74e7cc1000dfacc352de0d47d7b2632c9846017d92561319dbce6b680b746d8d",
+  "openalex_A3.json": "cc85f5eb00389d756ddc69bc2442af0b52d485da02750da21637c71fe3ec8f40",
+  "openalex_A4.json": "4782fe4a135236901086d3d3a367e6d872b18e6355b931fbf0f2f1fd74ba3c55",
+  "openalex_A5.json": "825955fe52ce34d93f7e6473ec4c2438ac5680ed62c85e9b1735c9070f05f374",
+  "openalex_C1.json": "9162523cbd9a65f2190345baa0237310e891d6124736d22fde249fbdf0219d60",
+  "openalex_C3.json": "5a372cb790c89031ad504de9d22c48f28a7d66d55a7bd809d4b2e7a2e28191a3",
+  "openalex_C4.json": "50611d2ddeac177f3e71514643f98ac32330d9d2f085dd1e0a467ab06223e13b",
+  "openalex_F1.json": "9261333edd17ac459a07a9c59de6967f0fb999e3a29ace1497bde87ce03cd58e",
+  "openalex_F4.json": "9a4cf5123bcea909a70a5ff7a9d50d12d1e1fd1c9ac66dfe2d430d7efc898b43",
+  "openalex_F5.json": "fe74d76d36703c852d4aa406322966f158c766af665f6702294e483db8e2cbba",
+  "pool.json": "fbe9c9881cc9e49d81c7f2e50ec1df5cb2fbd40f08a764691660fd07872d273e"
+ }
+}

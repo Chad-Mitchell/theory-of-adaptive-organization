@@ -1,0 +1,671 @@
+[
+ {
+  "cell": "C1",
+  "rank": 3,
+  "doi": "10.1098/rspb.2022.0834",
+  "openalex_title": "Evolution of thermal tolerance and phenotypic plasticity under rapid and slow temperature fluctuations",
+  "crossref_title": "Evolution of thermal tolerance and phenotypic plasticity under rapid and slow temperature fluctuations",
+  "issued": [
+   2022,
+   8,
+   3
+  ],
+  "container": "Proceedings of the Royal Society B: Biological Sciences",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "C1",
+  "rank": 4,
+  "doi": "10.1002/evl3.306",
+  "openalex_title": "Experimental evolution of environmental tolerance, acclimation, and physiological plasticity in a randomly fluctuating environment",
+  "crossref_title": "Experimental evolution of environmental tolerance, acclimation, and physiological plasticity in a randomly fluctuating environment",
+  "issued": [
+   2022,
+   12,
+   1
+  ],
+  "container": "Evolution Letters",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "C1",
+  "rank": 6,
+  "doi": "10.1098/rspb.2014.1486",
+  "openalex_title": "Plasticity predicts evolution in a marine alga",
+  "crossref_title": "Plasticity predicts evolution in a marine alga",
+  "issued": [
+   2014,
+   10,
+   22
+  ],
+  "container": "Proceedings of the Royal Society B: Biological Sciences",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "C1",
+  "rank": 13,
+  "doi": "10.1111/jeb.14178",
+  "openalex_title": "Experimental evolution of evolutionary potential in fluctuating environments",
+  "crossref_title": "Experimental evolution of evolutionary potential in fluctuating environments",
+  "issued": [
+   2023,
+   6,
+   1
+  ],
+  "container": "Journal of Evolutionary Biology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "C3",
+  "rank": 3,
+  "doi": "10.1038/s42003-022-03912-w",
+  "openalex_title": "Hidden paths to endless forms most wonderful: ecology latently shapes evolution of multicellular development in predatory bacteria",
+  "crossref_title": "Hidden paths to endless forms most wonderful: ecology latently shapes evolution of multicellular development in predatory bacteria",
+  "issued": [
+   2022,
+   9,
+   16
+  ],
+  "container": "Communications Biology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "C3",
+  "rank": 7,
+  "doi": "10.1371/journal.pbio.1001789",
+  "openalex_title": "Metabolic Erosion Primarily Through Mutation Accumulation, and Not Tradeoffs, Drives Limited Evolution of Substrate Specificity in Escherichia coli",
+  "crossref_title": "Metabolic Erosion Primarily Through Mutation Accumulation, and Not Tradeoffs, Drives Limited Evolution of Substrate Specificity in Escherichia coli",
+  "issued": [
+   2014,
+   2,
+   18
+  ],
+  "container": "PLoS Biology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "C3",
+  "rank": 8,
+  "doi": "10.1371/journal.pgen.1003972",
+  "openalex_title": "Whole Genome, Whole Population Sequencing Reveals That Loss of Signaling Networks Is the Major Adaptive Strategy in a Constant Environment",
+  "crossref_title": "Whole Genome, Whole Population Sequencing Reveals That Loss of Signaling Networks Is the Major Adaptive Strategy in a Constant Environment",
+  "issued": [
+   2013,
+   11,
+   21
+  ],
+  "container": "PLoS Genetics",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "C4",
+  "rank": 7,
+  "doi": "10.1111/1462-2920.16539",
+  "openalex_title": "Low and high nucleic acid content bacteria play discrepant roles in response to various carbon supply modes",
+  "crossref_title": "Low and high nucleic acid content bacteria play discrepant roles in response to various carbon supply modes",
+  "issued": [
+   2023,
+   11,
+   14
+  ],
+  "container": "Environmental Microbiology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A1",
+  "rank": 10,
+  "doi": "10.1371/journal.pone.0120888",
+  "openalex_title": "Return Customers: Foraging Site Fidelity and the Effect of Environmental Variability in Wide-Ranging Antarctic Fur Seals",
+  "crossref_title": "Return Customers: Foraging Site Fidelity and the Effect of Environmental Variability in Wide-Ranging Antarctic Fur Seals",
+  "issued": [
+   2015,
+   3,
+   25
+  ],
+  "container": "PLOS ONE",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A2",
+  "rank": 1,
+  "doi": "10.2193/0022-541x(2004)068[0519:vprata]2.0.co;2",
+  "openalex_title": "VIGILANCE, PREDATION RISK, AND THE ALLEE EFFECT IN DESERT BIGHORN SHEEP",
+  "crossref_title": "VIGILANCE, PREDATION RISK, AND THE ALLEE EFFECT IN DESERT BIGHORN SHEEP",
+  "issued": [
+   2004,
+   7
+  ],
+  "container": "Journal of Wildlife Management",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A2",
+  "rank": 6,
+  "doi": "10.1093/beheco/aru050",
+  "openalex_title": "Effects of predation risk on group size, vigilance, and foraging behavior in an African ungulate community",
+  "crossref_title": "Effects of predation risk on group size, vigilance, and foraging behavior in an African ungulate community",
+  "issued": [
+   2014,
+   4,
+   6
+  ],
+  "container": "Behavioral Ecology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A2",
+  "rank": 9,
+  "doi": "10.1111/j.1469-7998.2008.00541.x",
+  "openalex_title": "Vigilance in Przewalski's gazelle: effects of sex, predation risk and group size",
+  "crossref_title": "Vigilance in Przewalski's gazelle: effects of sex, predation risk and group size",
+  "issued": [
+   2009,
+   3,
+   18
+  ],
+  "container": "Journal of Zoology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A2",
+  "rank": 10,
+  "doi": "10.1093/beheco/ars060",
+  "openalex_title": "Influence of immediate predation risk by lions on the vigilance of prey of different body size",
+  "crossref_title": "Influence of immediate predation risk by lions on the vigilance of prey of different body size",
+  "issued": [
+   2012
+  ],
+  "container": "Behavioral Ecology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A2",
+  "rank": 11,
+  "doi": "10.1093/beheco/arl087",
+  "openalex_title": "Patch use, apprehension, and vigilance behavior of Nubian Ibex under perceived risk of predation",
+  "crossref_title": "Patch use, apprehension, and vigilance behavior of Nubian Ibex under perceived risk of predation",
+  "issued": [
+   2006,
+   12,
+   14
+  ],
+  "container": "Behavioral Ecology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A2",
+  "rank": 12,
+  "doi": "10.7557/2.17.2.1302",
+  "openalex_title": "Vigilance and foraging behaviour of female caribou in relation to predation risk",
+  "crossref_title": "Vigilance and foraging behaviour of female caribou in relation to predation risk",
+  "issued": [
+   1997,
+   2,
+   1
+  ],
+  "container": "Rangifer",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A2",
+  "rank": 14,
+  "doi": "10.1093/beheco/arl066",
+  "openalex_title": "The influence of conspecifics and predation risk on the vigilance of elk (Cervus elaphus) in Yellowstone National Park",
+  "crossref_title": "The influence of conspecifics and predation risk on the vigilance of elk (Cervus elaphus) in Yellowstone National Park",
+  "issued": [
+   2006,
+   9,
+   29
+  ],
+  "container": "Behavioral Ecology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A2",
+  "rank": 17,
+  "doi": "10.1163/156853900502213",
+  "openalex_title": "VIGILANCE IN BRONZE MANNIKIN GROUPS: THE CONTRIBUTIONS OF PREDATION RISK AND INTRA-GROUP COMPETITION",
+  "crossref_title": "VIGILANCE IN BRONZE MANNIKIN GROUPS: THE CONTRIBUTIONS OF PREDATION RISK AND INTRA-GROUP COMPETITION",
+  "issued": [
+   2000
+  ],
+  "container": "Behaviour",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A2",
+  "rank": 20,
+  "doi": "10.1093/beheco/aru005",
+  "openalex_title": "Spatial ecology of perceived predation risk and vigilance behavior in white-faced capuchins",
+  "crossref_title": "Spatial ecology of perceived predation risk and vigilance behavior in white-faced capuchins",
+  "issued": [
+   2014
+  ],
+  "container": "Behavioral Ecology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A3",
+  "rank": 1,
+  "doi": "10.1111/j.1558-5646.2009.00635.x",
+  "openalex_title": "TAIL SHEDDING IN ISLAND LIZARDS [LACERTIDAE, REPTILIA]: DECLINE OF ANTIPREDATOR DEFENSES IN RELAXED PREDATION ENVIRONMENTS",
+  "crossref_title": "TAIL SHEDDING IN ISLAND LIZARDS [LACERTIDAE, REPTILIA]: DECLINE OF ANTIPREDATOR DEFENSES IN RELAXED PREDATION ENVIRONMENTS",
+  "issued": [
+   2009,
+   5
+  ],
+  "container": "Evolution",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A3",
+  "rank": 4,
+  "doi": "10.1371/journal.pone.0288826",
+  "openalex_title": "Overcoming the phantoms of the past: Influence of predatory stimuli on the antipredator behavior of island pitvipers",
+  "crossref_title": "Overcoming the phantoms of the past: Influence of predatory stimuli on the antipredator behavior of island pitvipers",
+  "issued": [
+   2023,
+   10,
+   24
+  ],
+  "container": "PLOS ONE",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A3",
+  "rank": 5,
+  "doi": "10.1111/jeb.12421",
+  "openalex_title": "Does relaxed predation drive phenotypic divergence among insular populations?",
+  "crossref_title": "Does relaxed predation drive phenotypic divergence among insular populations?",
+  "issued": [
+   2014,
+   5,
+   30
+  ],
+  "container": "Journal of Evolutionary Biology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A3",
+  "rank": 7,
+  "doi": "10.1111/j.1095-8312.2012.01933.x",
+  "openalex_title": "Historical influence of predation pressure on escape by Podarcis lizards in the Balearic Islands",
+  "crossref_title": "Historical influence of predation pressure on escape by Podarcis lizards in the Balearic Islands",
+  "issued": [
+   2012,
+   5,
+   23
+  ],
+  "container": "Biological Journal of the Linnean Society",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A3",
+  "rank": 8,
+  "doi": "10.1111/1365-2435.12593",
+  "openalex_title": "Ecology drives natural variation in an extreme antipredator trait: a cost–benefit analysis integrating modelling and field data",
+  "crossref_title": "Ecology drives natural variation in an extreme antipredator trait: a cost–benefit analysis integrating modelling and field data",
+  "issued": [
+   2015,
+   11,
+   24
+  ],
+  "container": "Functional Ecology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A3",
+  "rank": 9,
+  "doi": "10.1111/eth.12173",
+  "openalex_title": "Interpopulation Comparisons of Antipredator Defense Behavior of the Thorn‐Tailed Rayadito (Aphrastura spinicauda)",
+  "crossref_title": "Interpopulation Comparisons of Antipredator Defense Behavior of the Thorn‐Tailed Rayadito (<i>Aphrastura spinicauda</i>)",
+  "issued": [
+   2013,
+   10,
+   7
+  ],
+  "container": "Ethology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A3",
+  "rank": 13,
+  "doi": "10.1098/rspb.2017.1126",
+  "openalex_title": "How predation shapes the social interaction rules of shoaling fish",
+  "crossref_title": "How predation shapes the social interaction rules of shoaling fish",
+  "issued": [
+   2017,
+   8,
+   30
+  ],
+  "container": "Proceedings of the Royal Society B: Biological Sciences",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A3",
+  "rank": 14,
+  "doi": "10.1098/rspb.2013.3019",
+  "openalex_title": "Island tameness: living on islands reduces flight initiation distance",
+  "crossref_title": "Island tameness: living on islands reduces flight initiation distance",
+  "issued": [
+   2014,
+   2,
+   22
+  ],
+  "container": "Proceedings of the Royal Society B: Biological Sciences",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A3",
+  "rank": 15,
+  "doi": "10.1002/ece3.11668",
+  "openalex_title": "Sustained predation pressure may prevent the loss of anti‐predator traits from havened populations",
+  "crossref_title": "Sustained predation pressure may prevent the loss of anti‐predator traits from havened populations",
+  "issued": [
+   2024,
+   7
+  ],
+  "container": "Ecology and Evolution",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A3",
+  "rank": 16,
+  "doi": "10.1007/s10531-025-03172-0",
+  "openalex_title": "Rapid ecological release of anti-predator behaviour after island-wide predator control",
+  "crossref_title": "Rapid ecological release of anti-predator behaviour after island-wide predator control",
+  "issued": [
+   2025,
+   10,
+   22
+  ],
+  "container": "Biodiversity and Conservation",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A4",
+  "rank": 1,
+  "doi": "10.1093/beheco/8.3.332",
+  "openalex_title": "Management of fat reserves and food caches in tufted titmice (Parus bicolor) in relation to unpredictable food supply",
+  "crossref_title": "Management of fat reserves and food caches in tufted titmice (<i>Parus bicolor</i>) in relation to unpredictable food supply",
+  "issued": [
+   1997
+  ],
+  "container": "Behavioral Ecology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A4",
+  "rank": 2,
+  "doi": "10.2307/2390009",
+  "openalex_title": "Great Tit Fat Reserves: Effects of Changing and Unpredictable Feeding Day Length",
+  "crossref_title": "Great Tit Fat Reserves: Effects of Changing and Unpredictable Feeding Day Length",
+  "issued": [
+   1995,
+   6
+  ],
+  "container": "Functional Ecology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A4",
+  "rank": 5,
+  "doi": "10.1093/beheco/1.1.62",
+  "openalex_title": "Monitoring starvation risk: adjustments of body reserves in greenfinches (Carduelis Chloris L.) during periods of unpredictable foraging success",
+  "crossref_title": "Monitoring starvation risk: adjustments of body reserves in greenfinches (<i>Carduelis Chloris L.</i>) during periods of unpredictable foraging success",
+  "issued": [
+   1990
+  ],
+  "container": "Behavioral Ecology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A4",
+  "rank": 6,
+  "doi": "10.1086/689913",
+  "openalex_title": "Chickadees Faced with Unpredictable Food Increase Fat Reserves but Certain Components of Their Immune Function Decline",
+  "crossref_title": "Chickadees Faced with Unpredictable Food Increase Fat Reserves but Certain Components of Their Immune Function Decline",
+  "issued": [
+   2017,
+   3,
+   1
+  ],
+  "container": "Physiological and Biochemical Zoology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A4",
+  "rank": 7,
+  "doi": "10.1242/jeb.071043",
+  "openalex_title": "Unpredictable food availability induces metabolic and hormonal changes independent of food intake in a sedentary songbird",
+  "crossref_title": "Unpredictable food availability induces metabolic and hormonal changes independent of food intake in a sedentary songbird",
+  "issued": [
+   2012,
+   8,
+   15
+  ],
+  "container": "Journal of Experimental Biology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A4",
+  "rank": 11,
+  "doi": "10.1016/j.anbehav.2018.06.015",
+  "openalex_title": "Can starlings use a reliable cue of future food deprivation to adaptively modify foraging and fat reserves?",
+  "crossref_title": "Can starlings use a reliable cue of future food deprivation to adaptively modify foraging and fat reserves?",
+  "issued": [
+   2018,
+   8
+  ],
+  "container": "Animal Behaviour",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "A4",
+  "rank": 12,
+  "doi": "10.2307/1939303",
+  "openalex_title": "Life‐History Theory in the Nonbreeding Period: Trade‐Offs in Avian Fat Reserves?",
+  "crossref_title": "Life‐History Theory in the Nonbreeding Period: Trade‐Offs in Avian Fat Reserves?",
+  "issued": [
+   1993,
+   3
+  ],
+  "container": "Ecology",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "F1",
+  "rank": 1,
+  "doi": "10.1016/0304-4076(86)90061-8",
+  "openalex_title": "The frequency of price adjustment",
+  "crossref_title": "The frequency of price adjustment",
+  "issued": [
+   1986,
+   4
+  ],
+  "container": "Journal of Econometrics",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "F1",
+  "rank": 4,
+  "doi": "10.1162/qjec.2009.124.3.1221",
+  "openalex_title": "Price Setting During Low and High Inflation: Evidence from Mexico*",
+  "crossref_title": "Price Setting During Low and High Inflation: Evidence from Mexico<sup>*</sup>",
+  "issued": [
+   2009,
+   8
+  ],
+  "container": "Quarterly Journal of Economics",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "F1",
+  "rank": 9,
+  "doi": "10.1257/mac.20140095",
+  "openalex_title": "Inflation and Price Adjustments: Micro Evidence from Norwegian Consumer Prices 1975–2004",
+  "crossref_title": "Inflation and Price Adjustments: Micro Evidence from Norwegian Consumer Prices 1975–2004",
+  "issued": [
+   2016,
+   7,
+   1
+  ],
+  "container": "American Economic Journal: Macroeconomics",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "F1",
+  "rank": 20,
+  "doi": "10.2307/2118517",
+  "openalex_title": "Sticky Prices: New Evidence from Retail Catalogs",
+  "crossref_title": "Sticky Prices: New Evidence from Retail Catalogs",
+  "issued": [
+   1995,
+   2,
+   1
+  ],
+  "container": "The Quarterly Journal of Economics",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "F4",
+  "rank": 2,
+  "doi": "10.1111/j.1540-6261.2010.01558.x",
+  "openalex_title": "Cash Holdings and Corporate Diversification",
+  "crossref_title": "Cash Holdings and Corporate Diversification",
+  "issued": [
+   2010,
+   5,
+   7
+  ],
+  "container": "The Journal of Finance",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "F4",
+  "rank": 7,
+  "doi": "10.5430/ijfr.v8n1p143",
+  "openalex_title": "The Determinants of Corporate Cash Holdings: The Case of a Small Emerging Market",
+  "crossref_title": "The Determinants of Corporate Cash Holdings: The Case of a Small Emerging Market",
+  "issued": [
+   2016,
+   12,
+   8
+  ],
+  "container": "International Journal of Financial Research",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "F4",
+  "rank": 14,
+  "doi": "",
+  "openalex_title": "Cash Holdings and Cash Flow Uncertainty",
+  "doi_found_by_search": "10.30738/ad.v9i2.19034",
+  "crossref_title": "INVESTIGATING CASH FLOW VOLATILITY AND CASH HOLDINGS ACROSS ACCOUNTING REGIMES",
+  "issued": [
+   2025,
+   10,
+   31
+  ],
+  "container": "AKUNTANSI DEWANTARA",
+  "similarity": 0.393,
+  "match": false
+ },
+ {
+  "cell": "F4",
+  "rank": 15,
+  "doi": "10.24912/jpa.v4i4.21399",
+  "openalex_title": "FAKTOR-FAKTOR YANG MEMPENGARUHI KEBIJAKAN CASH HOLDING PADA PERUSAHAAN MANUFAKTUR",
+  "crossref_title": "FAKTOR-FAKTOR YANG MEMPENGARUHI KEBIJAKAN  CASH HOLDING PADA PERUSAHAAN MANUFAKTUR",
+  "issued": [
+   2022,
+   10,
+   18
+  ],
+  "container": "Jurnal Paradigma Akuntansi",
+  "similarity": 0.994,
+  "match": true
+ },
+ {
+  "cell": "F4",
+  "rank": 17,
+  "doi": "10.22495/cocv15i3art5",
+  "openalex_title": "Determinants of corporate cash holdings: An empirical study of Chinese listed firms",
+  "crossref_title": "Determinants of corporate cash holdings: An empirical study of Chinese listed firms",
+  "issued": [
+   2018
+  ],
+  "container": "Corporate Ownership and Control",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "F5",
+  "rank": 2,
+  "doi": "10.1287/isre.1090.0269",
+  "openalex_title": "Environmental Uncertainty and IT Infrastructure Governance: A Curvilinear Relationship",
+  "crossref_title": "Environmental Uncertainty and IT Infrastructure Governance: A Curvilinear Relationship",
+  "issued": [
+   2011,
+   6
+  ],
+  "container": "Information Systems Research",
+  "similarity": 1.0,
+  "match": true
+ },
+ {
+  "cell": "F5",
+  "rank": 15,
+  "doi": "10.1300/j140v01n04_01",
+  "openalex_title": "Strategic and Organizational Responses of Mexican Managers to Environmental Uncertainty",
+  "crossref_title": "Strategic and Organizational Responses of Mexican Managers to Environmental Uncertainty",
+  "issued": [
+   2000,
+   12
+  ],
+  "container": "Latin American Business Review",
+  "similarity": 1.0,
+  "match": true
+ }
+]
