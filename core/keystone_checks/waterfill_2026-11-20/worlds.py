@@ -12,8 +12,14 @@ from pathlib import Path
 
 import numpy as np
 
-REPO = Path("/workspace/gtao-wf/repo")
-RHYTHM_JSON = REPO / "core/keystone_checks/rhythm_rule.json"
+# Public-clone root: this file lives at core/keystone_checks/waterfill_2026-11-20/.
+# Do not hardcode a private workdir.
+REPO = Path(__file__).resolve().parents[3]
+CHECKS = REPO / "core" / "keystone_checks"
+RHYTHM_JSON = CHECKS / "rhythm_rule.json"
+S5_JSON = CHECKS / "s5_rerun.json"
+T20_JSON = CHECKS / "holographic_2026-11-20" / "predictions.json"
+FRAC_JSON = CHECKS / "imp_n60_predictions.json"
 
 R_GRID_S = np.logspace(-1, 7, 161).tolist()
 R_GRID_R = [0.5, 1.0, 2.0, 3.0, 5.0, 10.0, 20.0, 50.0, 100.0, 300.0, 1000.0]
@@ -29,23 +35,64 @@ EXCLUDED_IDS = [
 ]
 
 
+def _parse_av(raw_a, raw_v):
+    # poles / variances may be real lists or [re, im] pairs
+    if raw_a and isinstance(raw_a[0], (list, tuple)):
+        a = np.array([complex(x[0], x[1]) for x in raw_a], complex)
+    else:
+        a = np.asarray(raw_a, complex)
+    if raw_v and isinstance(raw_v[0], (list, tuple)):
+        v = np.array([complex(x[0], x[1]) for x in raw_v], complex)
+    else:
+        v = np.asarray(raw_v, complex)
+    return a, v
+
+
+def _scalefree_av(alpha, span, per_decade=1, tau_min=1.0):
+    """Same construction as stores.scalefree_world (geometric rates, v ∝ τ^{α-1})."""
+    J = max(2, int(round(per_decade * np.log10(span))) + 1)
+    tau = tau_min * np.logspace(0, np.log10(span), J)
+    v = tau ** (alpha - 1)
+    v = v / v.sum()
+    return 1.0 / tau, v
+
+
 def _load_excluded():
+    """Full prereg §4 exclusion set, for later use.
+
+    The official 20 Nov 2026 confirmation set was built with a narrower
+    loader (rhythm_rule.json only; Model S never called _too_close). That
+    gap is recorded as post-result deviation D2. The official 64 worlds
+    were independently checked and are clean; this function is not a
+    rescoring of that run.
+    """
     rows = []
     if RHYTHM_JSON.is_file():
         data = json.loads(RHYTHM_JSON.read_text())
         for w in data.get("results", []):
-            raw_a, raw_v = w["a"], w["v"]
-            # rhythm_rule.json stores poles as [re, im] pairs; v may be real or pairs
-            if raw_a and isinstance(raw_a[0], (list, tuple)):
-                a = np.array([complex(x[0], x[1]) for x in raw_a], complex)
-            else:
-                a = np.asarray(raw_a, complex)
-            if raw_v and isinstance(raw_v[0], (list, tuple)):
-                v = np.array([complex(x[0], x[1]) for x in raw_v], complex)
-            else:
-                v = np.asarray(raw_v, complex)
-            N = float(w["N"])
-            rows.append((w.get("id"), a, v, N))
+            a, v = _parse_av(w["a"], w["v"])
+            rows.append((w.get("id"), a, v, float(w["N"])))
+    if S5_JSON.is_file():
+        data = json.loads(S5_JSON.read_text())
+        for w in data.get("worlds", []):
+            seed = w.get("seed")
+            if seed is None:
+                continue
+            seed = int(seed)
+            if seed < 0 or seed > 119:
+                continue
+            a, v = _parse_av(w["a"], w["v"])
+            rows.append((f"s5_seed_{seed}", a, v, float(w["N"])))
+    if T20_JSON.is_file():
+        data = json.loads(T20_JSON.read_text())
+        for w in data.get("worlds", []):
+            a, v = _parse_av(w["a"], w["v"])
+            rows.append((w.get("id"), a, v, float(w["N"])))
+    if FRAC_JSON.is_file():
+        data = json.loads(FRAC_JSON.read_text())
+        for w in data.get("fractal", []):
+            a, v = _scalefree_av(float(w["alpha"]), float(w["Gamma"]), int(w["per_decade"]))
+            rows.append((w.get("id"), np.asarray(a, complex), np.asarray(v, complex), float(w["N"])))
     return rows
 
 
@@ -87,20 +134,29 @@ def pack_oscillators(omegas, betas, vpoles):
     return np.asarray(a, complex), np.asarray(v, complex)
 
 
-def model_s_world(i):
-    rng = np.random.default_rng(20261120 + 17 * i)
-    J = int(rng.integers(3, 5))
-    sep = 10 ** rng.uniform(0.5, 2.0, J - 1)
-    taus = np.cumprod(np.r_[10 ** rng.uniform(0, 1), sep])
-    v = 10 ** rng.uniform(-1.5, 1.5, J)
-    N = 10 ** rng.uniform(-2, 1)
-    a = 1.0 / taus
-    return dict(
-        id=f"ms_{i:04d}", cls="model_s", i=int(i),
-        a=a.astype(float).tolist(), v=v.astype(float).tolist(),
-        N=float(N), J=int(J), degree=int(J),
-        taus=taus.astype(float).tolist(),
-    )
+def model_s_world(i, max_bumps=32):
+    # bump=0 keeps the official stream 20261120 + 17*i. The official Model S
+    # worlds never ran this check; D2 records the gap. All official draws
+    # were later found clean, so bump stays 0 on a regeneration.
+    last_eid = None
+    for b in range(max_bumps):
+        rng = np.random.default_rng(20261120 + 17 * i + 7919 * b)
+        J = int(rng.integers(3, 5))
+        sep = 10 ** rng.uniform(0.5, 2.0, J - 1)
+        taus = np.cumprod(np.r_[10 ** rng.uniform(0, 1), sep])
+        v = 10 ** rng.uniform(-1.5, 1.5, J)
+        N = 10 ** rng.uniform(-2, 1)
+        a = 1.0 / taus
+        close, eid = _too_close(a, v, N)
+        if not close:
+            return dict(
+                id=f"ms_{i:04d}", cls="model_s", i=int(i),
+                a=a.astype(float).tolist(), v=v.astype(float).tolist(),
+                N=float(N), J=int(J), degree=int(J),
+                taus=taus.astype(float).tolist(), bumps=int(b),
+            )
+        last_eid = eid
+    raise RuntimeError(f"model S world {i} collided {max_bumps} times (last {last_eid})")
 
 
 def _draw_oscs(rng, n_osc):

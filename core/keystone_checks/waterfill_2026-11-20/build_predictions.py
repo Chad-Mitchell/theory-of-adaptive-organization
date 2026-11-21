@@ -15,7 +15,7 @@ from wf_rule import predict
 from worlds import all_worlds, restore_av, sanity_worlds, R_GRID_S, R_GRID_R, model_s_world
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent
+ROOT = HERE
 
 
 def sha256(path: Path) -> str:

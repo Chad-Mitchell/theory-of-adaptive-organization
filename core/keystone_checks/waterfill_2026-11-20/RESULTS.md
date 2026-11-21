@@ -1,7 +1,7 @@
 # WF-HSV results
 
 **Scored:** Friday 20 November 2026, 11:17 PM ET (America/New_York), strictly against `PREREG.md` locked 20 November 2026, 9:54:48 PM ET.
-**Integrity:** prereg SHA-256 `9592042bc2932acec025315c5f34d401ad896a76f16940ee12c43d4be5a7bb05` (re-hashed at scoring; matches the lock). Predictions SHA-256 `ba66cef743bec29d0c2292f9b4d25c0596726623d52a05b8d881d3420fe612d1`, written before official start 9:57:06 PM ET (`START.txt`), re-hashed and matched. Deviation D1 (exclusion parser, before start) in `DEVIATIONS_2026-11-20.md`. The run finished 11:17:54 PM ET, 64/64 worlds, no restart. T20 holographic worlds and the 21 rhythm-test worlds were not scored. No push of results was made from the workdir; this file is the official writeup.
+**Integrity:** prereg SHA-256 `9592042bc2932acec025315c5f34d401ad896a76f16940ee12c43d4be5a7bb05` (re-hashed at scoring; matches the lock). Predictions SHA-256 `ba66cef743bec29d0c2292f9b4d25c0596726623d52a05b8d881d3420fe612d1`, written before official start 9:57:06 PM ET (`START.txt`), re-hashed and matched. Deviation D1 (exclusion parser, before start) and post-result housekeeping D2 in `DEVIATIONS_2026-11-20.md`. The run finished 11:17:54 PM ET, 64/64 worlds, no restart. T20 holographic worlds and the 21 rhythm-test worlds were not scored. No push of results was made from the workdir; this file is the official writeup.
 **Rule:** \(K^*_{\mathrm{WF}}=\#\{i:R\delta_i>1\}\), with \(\delta_i\) the \(H_2\) split of the unique Kalman–Bucy estimate (innovations form). A *count* only; not a process-band placement prediction.
 **Run:** `wf_run.json`. Official start 9:57:06 PM ET, finished 11:17:54 PM ET, 4 workers at nice 19. All 40 Model S, 12 rhythmic, and 12 mixed worlds completed; 0 errors; 0 \(E_\infty\) floor flags; 0 INDETERMINATE predictions.
 
@@ -64,6 +64,8 @@ Max relative discrepancy: \(2.066\times 10^{7}\); median \(1.404\times 10^{4}\);
 
 **D1** (9:56 PM ET, before official start, before any reduced-order \(E_K\)): exclusion parser in `worlds.py` was updated to read `rhythm_rule.json` poles stored as \([\mathrm{re},\mathrm{im}]\) pairs. Generator streams, the inclusion rule, grids, and `PREREG.md` were not changed. Details in `DEVIATIONS_2026-11-20.md`.
 
+**D2** (after the official result, about 11:55 PM ET): post-result housekeeping from the independent review of this PR (READY-WITH-FIXES, `reviews/wf_2026-11-20/REVIEW.md`). No official count, gate, or locked file was changed. Details in `DEVIATIONS_2026-11-20.md`.
+
 No in-run deviation of the solver, the rule, or the gates.
 
 ---
@@ -71,7 +73,7 @@ No in-run deviation of the solver, the rule, or the gates.
 ## Suspicious points
 
 - The qualitative miss (late states over-weighted relative to joint decrements) is close in spirit to IMP-N60, despite using a joint object. That is a reason not to treat a mild re-weighting of \(\delta_i\) as a new result of this test.
-- Two `RuntimeWarning`s from SciPy's Lyapunov solver appeared early in the rhythm phase ("eigenvalue pair whose sum is very close to or exactly zero"). No world was flagged, no \(E\) fell below the floor, and all 64 worlds have empty `flags`. Still a numerical caveat, not a gate change.
+- Three `RuntimeWarning`s from SciPy's Lyapunov solver ("eigenvalue pair whose sum is very close to or exactly zero"): two early in the rhythm phase, and a third later in the mixed phase, just before `mx_0006` completed. No world was flagged, no \(E\) fell below the floor, and all 64 worlds have empty `flags`. Still a numerical caveat, not a gate change.
 - No INDETERMINATE predictions and no \(E_{\infty}\) floor flags. That is unusually clean and is reported, not hidden.
 
 Related, not confirmation: the T20 fair fractal test (`core/keystone_checks/holographic_2026-11-20/RESULTS.md`) found \(K^*\) growing roughly linearly in \(\log R\) and store rates on the *observer* (fast) side, not on process bands. Those worlds were not scored here, and this rule did not predict placement.

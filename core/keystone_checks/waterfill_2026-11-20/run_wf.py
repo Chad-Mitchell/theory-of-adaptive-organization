@@ -21,8 +21,7 @@ import numpy as np
 from scipy.optimize import differential_evolution, minimize
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent
-REPO = ROOT / "repo"
+REPO = HERE.parents[3]
 MERGED_STORES = REPO / "theory" / "layers_checks" / "stores.py"
 RL_PATH = REPO / "core" / "keystone_checks" / "resonant_layers.py"
 
@@ -36,7 +35,7 @@ N_WORKERS = 4
 TIE_J = 1e-8
 PRED = HERE / "wf_predictions.json"
 RUN = HERE / "wf_run.json"
-LOG = ROOT / "logs" / "run_wf.log"
+LOG = HERE / "run_wf.log"
 
 
 def sha256(path: Path) -> str:
@@ -555,10 +554,10 @@ def write_results(pred, run, results, taut_ok, taut_mism, start_ts, pred_sha):
     lines.append("")
     lines.append("## Files")
     lines.append("")
-    lines.append("- `PREREG.md`, `MATH.md`, `RESULTS.md` (this file) in `/workspace/gtao-wf`.")
+    lines.append("- `PREREG.md`, `MATH.md`, `RESULTS.md` (this file) in `core/keystone_checks/waterfill_2026-11-20/`.")
     lines.append("- `waterfill/wf_predictions.json`, `PREDICTIONS.sha256`, `LOCK.txt`, `START.txt`, `wf_run.json`, `DEVIATIONS_2026-11-20.md`.")
     lines.append("")
-    Path(ROOT / "RESULTS.md").write_text("\n".join(lines) + "\n")
+    Path(HERE / "RESULTS.md").write_text("\n".join(lines) + "\n")
     # also dump score json
     (HERE / "wf_score.json").write_text(json.dumps(dict(
         g_ms=g_ms, g_rm=g_rm, g_rhythm=g_all_r, g_mixed=g_all_m,
@@ -570,7 +569,7 @@ def write_results(pred, run, results, taut_ok, taut_mism, start_ts, pred_sha):
         not_a_test=not_a_test,
         n_mismatch=len(miss),
     ), indent=2, default=str))
-    return ROOT / "RESULTS.md"
+    return HERE / "RESULTS.md"
 
 
 def main():
