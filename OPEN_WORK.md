@@ -1,6 +1,6 @@
 # OPEN_WORK: every open item, one line each (rewritten, not appended)
 
-**As of:** Saturday 21 November 2026 (America/New_York), on `main` `2c32ade` (PR #114 merged: EVO1, CLAIM_MAP v2.69). PRs #121–#137 and #114 are on main; the list of PRs #121–#131 with merge SHAs, official results and reviews is `history/2026-11-21_NIGHT.md`. W16 (DIR1) is on main. W15 (revealed prices, PR #133) and C7 are on main; W15 still needs confirm review. For a live snapshot, run `python3 tools/brief.py`.
+**As of:** Saturday 21 November 2026 (America/New_York), on `main` `2c32ade` (PR #114 merged: EVO1, CLAIM_MAP v2.69). PRs #121–#137 and #114 are on main; the list of PRs #121–#131 with merge SHAs, official results and reviews is `history/2026-11-21_NIGHT.md`. W16 (DIR1) is on main. W15 (revealed prices, PR #133, `cda9c41`) is on main and its confirm review is READY (`reviews/revealed_prices_2026-11-21/CONFIRM.md`); C7 still needs Chad. For a live snapshot, run `python3 tools/brief.py`.
 
 **Rule:** an item leaves this page only when it is DONE (with a link to where it landed) or explicitly DROPPED (with the reason and who decided). Anything in flight that is not on this page is a bug in this page. `STATUS.md` says where the theory stands; this page says what is still open. Claim statuses stay in `measurement/CLAIM_MAP_v2.md`; this page links to rows and does not restate them.
 
@@ -89,7 +89,7 @@
 | C2 | Outreach to a chemotaxis lab for T7 | Draft kept outside the repo, unsent; needs Chad's go |
 | C3 | "Proposed law" label for the hypothesis sentence (now "The law of adaptive organization (hypothesis)"; CLAIM_MAP J3) | Awaiting Chad's decision |
 | C4 | Explainer video | On hold (Chad) |
-| C5 | EVOSIM | Parked; EVO1 (W2) is the live in-silico test |
+| C5 | EVOSIM | Parked. EVO1 (W2) merged as `2c32ade`; it is not the live test |
 | C7 | Adopt or reject the dated kill-rule amendment proposed in `theory/REVEALED_PRICES_2026-11-21.md` §8 (THEORY lines 53, 111, 159; FRAMEWORK §9 items 2–3; CORE §2; plus Option A strict §3 gate vs Option B symmetric ordinal class test for §4). The hypothesis sentence is untouched | Proposed, not applied; reviewed, needs confirm + Chad's call |
 | C6 | Branch cleanup (H9). The QUEUE freeze (H6) is done in this hygiene PR | Branch deletion still needs Chad |
 | MV9-DECISION | An external timestamp (OSF or Zenodo) for preregistrations. Without it, no test reaches Tier 1. No account is created without Chad. Was in `QUEUE.md` and not in `items.json` | Awaiting Chad |

@@ -224,3 +224,17 @@ def test_historical_beside_main_in_a_table_row_is_not_a_pointer(tmp_path):
     out = brief.render(repo)
     assert "STALE:" not in out
     assert "Pointers: OK" in out
+
+
+def test_unquoted_main_is_feedback_is_not_a_pointer():
+    assert list(brief.pointer_hits("The word main is feedback in prose.")) == []
+    hits = list(brief.pointer_hits("main is deadbeef"))
+    assert len(hits) == 1 and hits[0][0] == "deadbeef"
+
+
+def test_unbackticked_current_to_main_is_a_pointer():
+    hits = list(brief.pointer_hits("current to main deadbeef"))
+    assert len(hits) == 1 and hits[0][0] == "deadbeef"
+    hits = list(brief.pointer_hits("current to `main` `deadbeef`"))
+    assert len(hits) == 1 and hits[0][0] == "deadbeef"
+

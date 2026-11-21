@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-"""Fail if STATUS.md's stated main SHA has drifted too far from HEAD.
+"""Fail if STATUS.md's stated main SHA has drifted too far from main.
 
 The stated SHA is the current-pointer form (`main` is `abc1234`). It must
-be one of the last 5 first-parent commits of HEAD (HEAD itself counts).
-That window is wide enough for a short PR branch or a couple of merges
-before the pointer is rewritten, and tight enough to catch the failure
-mode where STATUS still said a65b64e after five later first-parent
-merges.
+be one of the last 5 first-parent commits of main (origin/main if that
+ref exists, else local main, else HEAD). The width is wide enough for a
+few merges before the pointer is rewritten, and tight enough that a65b64e
+fails once the six later first-parent merges through #114 are on main.
 
 Run from the repo root:  python3 tools/check_fresh.py
 Exit 0 = the pointer is in the window (or the tree is not a git repo
@@ -23,7 +22,8 @@ import sys
 # Same current-pointer family as tools/brief.py, but this check only
 # cares about the "main is SHA" form in STATUS.md.
 STATUS_MAIN_RE = re.compile(
-    r"`main`\s+is\s+`([0-9a-f]{7,40})`|main\s+is\s+`?([0-9a-f]{7,40})`?",
+    r"`main`\s+is\s+`([0-9a-f]{7,40})`|"
+    r"main\s+is\s+(?:`([0-9a-f]{7,40})`|([0-9a-f]{7,40})\b)",
     re.I,
 )
 
@@ -66,8 +66,27 @@ def expand_sha(root, short):
 
 
 def is_git_repo(root):
+    # A nested copy has no .git of its own. git would walk up to the
+    # parent repo and grade that copy against the parent HEAD.
+    if not os.path.exists(os.path.join(root, ".git")):
+        return False
     r = git(root, "rev-parse", "--is-inside-work-tree")
     return r.returncode == 0 and r.stdout.strip() == "true"
+
+
+def history_tip(root):
+    """Ref whose first-parent history the STATUS pointer is judged against.
+
+    Prefer origin/main, then local main, then HEAD. Commits that exist
+    only on a feature branch are not main moving. Five of them push a
+    correct main SHA out of a HEAD window. PRs #114 and #133–#137 were
+    7–10 first-parent commits.
+    """
+    for ref in ("refs/remotes/origin/main", "refs/heads/main"):
+        r = git(root, "rev-parse", "--verify", ref)
+        if r.returncode == 0:
+            return r.stdout.strip()
+    return "HEAD"
 
 
 def check(root=None, window=WINDOW):
@@ -87,15 +106,16 @@ def check(root=None, window=WINDOW):
     full = expand_sha(root, stated)
     if not full:
         return ["freshness: STATUS.md main SHA %s is not a commit in this repo" % stated]
+    tip = history_tip(root)
     try:
-        window_shas = first_parent_window(root, "HEAD", window)
+        window_shas = first_parent_window(root, tip, window)
     except RuntimeError as e:
         return ["freshness: %s" % e]
     if full not in window_shas:
         return [
             "freshness: STATUS.md main is %s, which is not among the last %d "
-            "first-parent commits of HEAD (%s)"
-            % (stated, window, " ".join(s[:7] for s in window_shas))
+            "first-parent commits of %s (%s)"
+            % (stated, window, tip[:7], " ".join(s[:7] for s in window_shas))
         ]
     return []
 
@@ -114,7 +134,7 @@ def main(argv=None):
         print("RESULT: FAIL")
         return 1
     stated = stated_main_sha(open(os.path.join(root, "STATUS.md"), encoding="utf-8").read())
-    window_shas = first_parent_window(root, "HEAD", WINDOW)
+    window_shas = first_parent_window(root, history_tip(root), WINDOW)
     print("STATUS.md main is %s; window: %s" % (stated, " ".join(s[:7] for s in window_shas)))
     print("RESULT: PASS")
     return 0

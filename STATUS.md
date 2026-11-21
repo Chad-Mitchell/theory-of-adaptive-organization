@@ -14,7 +14,7 @@ The current statement is THEORY v2.9 (a draft; v2.5.x, v2.7, v2.8 and v2.9 are d
 - `OPEN_WORK.md` — every open item. This is the live list.
 - `process/QUEUE.md` + `process/queue/` — frozen 20 November 2026; superseded by `OPEN_WORK.md`. The items and ledger remain as a historical record.
 - `tools/brief.py` — live state snapshot (HEAD, recent merges, open PRs, versions, open work). Run `python3 tools/brief.py` before answering from memory; do not trust a hand-written SHA on this page.
-- `tools/check_consistency.py` — run before and after any doc change; it must print RESULT: PASS. It also runs `tools/check_fresh.py`, which fails if this page's stated `main` SHA is not among the last 5 first-parent commits of HEAD.
+- `tools/check_consistency.py` — run before and after any doc change; it must print RESULT: PASS. It also runs `tools/check_fresh.py`, which fails if this page's stated `main` SHA is not among the last 5 first-parent commits of main (`origin/main` if that ref exists, otherwise local `main`).
 
 ## Next
 Open work is listed in [`OPEN_WORK.md`](OPEN_WORK.md). This section does not keep a second list.

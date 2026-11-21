@@ -40,8 +40,13 @@ def git(root, *args, check=True):
 
 
 def resolve_main(root):
-    """Return (ref, full SHA) for main, falling back to origin/main then HEAD."""
-    for ref in ("refs/heads/main", "refs/remotes/origin/main", "HEAD"):
+    """Return (ref, full SHA) for main.
+
+    origin/main wins when it exists. A local main left behind after a
+    fetch is the stale pointer this brief exists to catch, and
+    allowed_pointer_shas() would otherwise treat that SHA as fresh.
+    """
+    for ref in ("refs/remotes/origin/main", "refs/heads/main", "HEAD"):
         r = git(root, "rev-parse", "--verify", ref, check=False)
         if r.returncode == 0:
             return ref, r.stdout.strip()
@@ -259,8 +264,8 @@ def hypothesis(text):
 # Patterns that always count as a current pointer, wherever they appear.
 ALWAYS_POINTER_RE = re.compile(
     r"(?:`main`\s+is\s+`([0-9a-f]{7,40})`"
-    r"|main\s+is\s+`?([0-9a-f]{7,40})`?"
-    r"|current to\s+`main`\s+`([0-9a-f]{7,40})`)",
+    r"|main\s+is\s+(?:`([0-9a-f]{7,40})`|([0-9a-f]{7,40})\b)"
+    r"|current to\s+`?main`?\s+(?:`([0-9a-f]{7,40})`|([0-9a-f]{7,40})\b))",
     re.I,
 )
 # "on/beside main SHA" is a current pointer only in an As-of header.

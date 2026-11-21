@@ -104,3 +104,39 @@ def test_missing_git_is_skipped(tmp_path):
     # mutation copies without .git still pass.
     assert fresh.is_git_repo(str(dest)) is False
     assert fresh.check(str(dest)) == []
+
+
+def test_branch_six_commits_ahead_of_main_passes(tmp_path):
+    # A correct main-SHA pointer must still pass when HEAD is six
+    # commits ahead of main. Judging the window from HEAD would fail.
+    repo, shas = _repo_with_commits(tmp_path / "r", 3)
+    main_sha = shas[-1]
+    _write_status(repo, main_sha[:7])
+    _git(repo, "checkout", "-b", "feat")
+    for i in range(6):
+        path = os.path.join(repo, "b%d.txt" % i)
+        open(path, "w", encoding="utf-8").write("b%d\n" % i)
+        _git(repo, "add", "b%d.txt" % i)
+        _git(repo, "commit", "-m", "b%d" % i)
+    head = _git(repo, "rev-parse", "HEAD")
+    assert head != main_sha
+    assert fresh.check(repo) == []
+
+
+def test_nested_copy_without_git_is_skipped(tmp_path):
+    repo, shas = _repo_with_commits(tmp_path / "r", 3)
+    _write_status(repo, shas[-1][:7])
+    nested = os.path.join(repo, "copy")
+    os.makedirs(nested)
+    # A SHA that would fail if this copy were graded against the parent.
+    _write_status(nested, "deadbee")
+    assert not os.path.exists(os.path.join(nested, ".git"))
+    assert fresh.is_git_repo(nested) is False
+    assert fresh.check(nested) == []
+
+
+def test_unquoted_main_is_feedback_is_not_a_sha():
+    assert fresh.stated_main_sha("main is feedback") is None
+    assert fresh.stated_main_sha("main is deadbeef") == "deadbeef"
+    assert fresh.stated_main_sha("`main` is `2c32ade`") == "2c32ade"
+
