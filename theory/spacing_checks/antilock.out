@@ -1,0 +1,17 @@
+== Part A: linear stores in a scale-free world
+alpha=0.8 K=2: E_K=0.06374 adjacent rate ratios=[53.36]
+alpha=0.8 K=3: E_K=0.06370 adjacent rate ratios=[15.82 24.05]
+alpha=0.8 K=4: E_K=0.06370 adjacent rate ratios=[13.21  7.3  16.67]
+   2-store scan: second-difference near simple rationals / elsewhere (r<7) = 1.096 (1 = no feature)
+alpha=1.2 K=2: E_K=0.02896 adjacent rate ratios=[25.05]
+alpha=1.2 K=3: E_K=0.02892 adjacent rate ratios=[14.8 11.5]
+alpha=1.2 K=4: E_K=0.02892 adjacent rate ratios=[12.6   6.99  7.98]
+   2-store scan: second-difference near simple rationals / elsewhere (r<7) = 1.077 (1 = no feature)
+alpha=1.6 K=2: E_K=0.00915 adjacent rate ratios=[9.54]
+alpha=1.6 K=3: E_K=0.00914 adjacent rate ratios=[14.9   4.55]
+alpha=1.6 K=4: E_K=0.00914 adjacent rate ratios=[13.08  7.01  3.2 ]
+   2-store scan: second-difference near simple rationals / elsewhere (r<7) = 1.035 (1 = no feature)
+== Part B: circle-map locking robustness of a clock ratio
+   Kc=0.5: locked fraction (q<=12) 0.205; widest unlocked gap centre Omega=0.0998 (margin 0.0203); margin at golden 0.618: 0.0032; rank of golden margin among grid: 2080 points larger
+   Kc=0.8: locked fraction (q<=12) 0.392; widest unlocked gap centre Omega=0.5360 (margin 0.0118); margin at golden 0.618: 0.0018; rank of golden margin among grid: 1790 points larger
+   Kc=0.95: locked fraction (q<=12) 0.548; widest unlocked gap centre Omega=0.1610 (margin 0.0100); margin at golden 0.618: 0.0030; rank of golden margin among grid: 768 points larger
