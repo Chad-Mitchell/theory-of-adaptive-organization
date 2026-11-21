@@ -1,4 +1,4 @@
-# Synthesis of the measured program so far (v2.62, Friday 20 November 2026; first written v2.60, about 11:50 AM ET)
+# Synthesis of the measured program so far (v2.65, Friday 20 November 2026; first written v2.60, about 11:50 AM ET; GRID-DX wording v2.65, revised after independent review of PR #113)
 
 A self-check by one executor for Chad, not an independent review. Every verdict below was scored by a rule
 committed before its data were computed; deviations were committed before outcomes and are listed in each file.
@@ -11,18 +11,18 @@ the parent chain are the record. Analysis code was committed but not hash-locked
 ## Per-test verdicts
 | Test | Claim tested | Verdict | Source |
 |---|---|---|---|
-| E. coli memory (first placement) | Slow layer's memory = Model S optimum (1.09–1.17 s) | **FAIL on proxy** (measured 9.9 s, 8.5×); rival "set at" fails too; structure (degree 2 → two stores) weak pass. The FAIL reflects our objective (current u, lead 0, exogenous noise): Tjalma & ten Wolde 2024, predicting concentration change, find ≈10 s close to optimal in performance for g ≲ 4 mm⁻¹ under RT = 8 (flagged uncertain); their optimum is longer than 10 s at lab gradients (see below) | `README.md`, `ecoli/PREREG_NOTES.md` |
+| E. coli memory (first placement) | Slow layer's memory = Model S optimum (1.09–1.17 s) | **NOT A TEST (qualification not established; proxy: failed).** Historical record, not deleted: **FAIL on proxy** (measured 9.9 s, 8.5×); rival "set at" fails too; structure (degree 2 → two stores) weak pass. The FAIL reflects our objective (current u, lead 0, exogenous noise): Tjalma & ten Wolde 2024, predicting concentration change, find ≈10 s close to optimal in performance for g ≲ 4 mm⁻¹ under RT = 8 (flagged uncertain); their optimum is longer than 10 s at lab gradients (see below). No recorded pre-test qualification check. | `README.md`, `ecoli/PREREG_NOTES.md` |
 | F2 (store-noise exponent) | Store noise fixed vs scaling as sensing noise | **INCONCLUSIVE** (s = 0.31, CI 0.24–0.37: neither locked model); rerun optimum 1.9–3.6 s | `ecoli/RESULTS_F2.md` |
 | SN1 / SN1-F1 | λτ ≥ (1−s)/(2s) on new systems | 0/7 scorable; SN1-F1 **INVALID** (V. ordalii noise is not counting noise) | `SN1_RESULTS.md` |
 | Follow-up D (E. coli gap) | Drift objective / speed price / habitat mode | Drift does not explain the gap **in the linear, gain-bounded regime** (D1 DOES NOT EXPLAIN, D2 NEITHER; nonlinear-motor objective untested); speed price only at the box corner; habitat mode **open**; Y4 untested | `ecoli/RESULTS_D.md` |
 | GRID-1 (CE 2022) | Count by degree + interlacing | **INVALID** (premise: mFRR coverage 0.666); count and fast arms INVALID in advance (closed loop) | `grid/RESULTS_GRID1.md` |
-| GRID-1b (CE 2022) | Slowest world mode slower than the slowest layer, not set at it | **PASS on proxy** (65 min vs 15 min; rival fails); one low-risk arm | same |
-| GRID-2 (GB 2026) | Count by degree + interlacing | **G1 FAIL on proxy**: random-walk imbalance (γ = 2.09) ⇒ one layer; GB runs four. Interlacing not scored | `grid/RESULTS_GRID2.md` |
-| G3a (GB 2024) | Replication of GRID-2 | **Replicates the FAIL** (γ = 2.02; thin BIC margin) | `grid/RESULTS_GRID3_4.md` |
+| GRID-1b (CE 2022) | Slowest world mode slower than the slowest layer, not set at it | **NOT A TEST (qualification not established; proxy: passed).** Historical record, not deleted: **PASS on proxy** (65 min vs 15 min; rival fails); one low-risk arm. Same unqualified class (synchronous-area balancing designs). | same |
+| GRID-2 (GB 2026) | Count by degree + interlacing | **NOT A TEST (not qualified; proxy: failed).** GB is **not qualified** (N_e = 1, so the band cannot exclude a rival; T_red never defined; outturn inertia 229 → 168 GVA·s; (a) not established). Historical record, not deleted: **FAIL on proxy** — random-walk imbalance (γ = 2.09) ⇒ one sensing-limited layer under ruin slack; GB runs four. B1 assumes ruin slack; GB's ruin constraint binds (FRCR DC sized for an 1,800 MW largest loss). The gap may reflect costs or constraints the design space does not represent (e.g. ruin-binding reserve sizing, short-duration fast units, actuation limits); it is not shown to be excess, and no mechanism is established. See `theory/ROBUSTNESS.md` (separate draft PR in progress). Interlacing not scored. Examined to prescribe; no inefficiency shown. | `grid/RESULTS_GRID2.md`, `grid/RESULTS_GRIDDX.md` |
+| G3a (GB 2024) | Replication of GRID-2 | **NOT A TEST (not qualified; proxy: failed)** (same system, not qualified). Historical record, not deleted: γ = 2.02; thin BIC margin; the GRID-2 G1 FAIL on proxy replicates, still under B1's ruin-slack premise. | `grid/RESULTS_GRID3_4.md`, `grid/RESULTS_GRIDDX.md` |
 | GRID-4 (GB 2019/20 vs 2026) | Actuation-set vs world-set layer times | **INVALID** (verdict depends on an assumed, unsourced 2019 response holding) | same |
 | GRID-4b | GRID-4 with sourced holdings | **UNTESTED** (no open 2019/20 MFR holdings) | same |
 | GRID-S S1 (GB) | Market-step account predicts a 30-min mode | **M-S1 FAIL** (no corner in [1,300, 2,900] s) | `grid/RESULTS_GRID2.md` |
-| GRID-S S2 (DE 2026, 15-min products) | World vs market account of the German slow mode | **W-S2 PASS** (dominant mode 2,956 s, CI 2,626–3,352 s; no 16-min mode); thin margin | `grid/RESULTS_GRID_S.md` |
+| GRID-S S2 (DE 2026, 15-min products) | World vs market account of the German slow mode | **NOT A TEST (qualification not established; proxy: passed).** Historical record, not deleted: **W-S2 PASS** (dominant mode 2,956 s, CI 2,626–3,352 s; no 16-min mode); thin margin. Same unqualified class. | `grid/RESULTS_GRID_S.md` |
 
 ## What each failure taught (causal, not rescue)
 - **E. coli memory (8.5× too long):** Model S lacks a term for a store's own noise. The binding noise is
@@ -40,7 +40,7 @@ the parent chain are the record. Analysis code was committed but not hash-locked
 - **GRID-1 (INVALID):** closed-loop grid data cannot show the pre-control world below the slowest loop's time
   scale without tie-line/ACE data. Any grid test needs a single synchronous area, or published area-control
   error.
-- **GRID-2 / G3a (count FAIL, replicated):** on the open-loop reconstruction, GB's imbalance shows no separated
+- **GRID-2 / G3a (count FAIL on proxy, replicated; not a test of the hypothesis):** on the open-loop reconstruction, GB's imbalance shows no separated
   time scales. Caveat: the BM term carries about 90 % of the variance, step-like dispatch alone gives f⁻², there is no
   positive control (proxy power unknown), and G3a's margin is thin (ΔBIC 1.0). Post-hoc diagnosis (stated after the miss, candidly): grid layers are tiered by
   actuation (delivery speed, energy duration) and by deviation size (ruin products such as DC). Frequency is
@@ -57,27 +57,28 @@ the parent chain are the record. Analysis code was committed but not hash-locked
 A system qualifies for Master Theorem (iii) only if (1) read noise is non-negligible (≥ 10 % of the tracked
 signal's variance at the layer's time scale), and (2) ruin is slack (no layer triggered only by a deviation
 threshold; such layers are excluded from the count before scoring). G3b was written after the GRID-2 miss. It is
-not applied retroactively: GRID-2's FAIL stands, and G3a, locked as a replication under the old scope, is scored
-under that scope (P21 PROXY-FAIL). That grids fail criterion 1 is asserted, not measured (dated clarification in `grid/PREREG_GRID3.md`).
+not applied retroactively: GRID-2's locked G1 FAIL on proxy is not deleted, and G3a, locked as a replication under the old scope, keeps that historical arm score. P19 and P21 are **NOT A TEST (not qualified; proxy: failed)** (GB not qualified; see `QUALIFICATION.md`). That grids fail criterion 1 is asserted, not measured (dated clarification in `grid/PREREG_GRID3.md`).
 
 ## Honest state of the hypothesis
-- **Layer count by degree, (iii):** **FAILED on proxy** (GRID-2, locked before G3b; replicated by G3a). Out of scope
-  for new tests under G3b. The
-  preregistered kill condition is **not met** (it also needs an open-loop CE seconds-level FAIL). Inside its premises
-  (sensing-limited, ruin slack) the count is **untested** by any qualifying test.
+- **Layer count by degree, (iii):** GRID-2 and G3a are **NOT A TEST (not qualified; proxy: failed)** (GRID-DX Part A, `QUALIFICATION.md`). GB is **not qualified**: N_e = 1, so the band cannot exclude a rival; T_red was never defined; measured outturn inertia changed from 229 to 168 GVA·s; (a) is not established (Ofgem BSIS made σ computable; it was not computed). The check should have been done before scoring and was not. The measured mismatch (γ = 2.09 / 2.02; four operational layers against a one-layer sensing-limited prediction) is kept as a diagnosis of a system examined to prescribe; no inefficiency is shown; the locked arm scores are not deleted. B1 assumes ruin slack; GB's ruin constraint binds (FRCR DC sized for an 1,800 MW largest loss). The gap may reflect costs or constraints the design space does not represent (e.g. ruin-binding reserve sizing, short-duration fast units, actuation limits); it is not shown to be excess, and no mechanism is established. See `theory/ROBUSTNESS.md` (separate draft PR in progress). Out of scope for new tests under G3b. The preregistered kill condition is **not met** (it also needs an open-loop CE seconds-level miss). Inside its premises (sensing-limited, ruin slack) the count is **untested** by any qualifying test.
 - **Layer timing: two different claims, kept apart (review 27 M5).**
   - *Each layer faster than its mode (Model S, L2 interlacing).* This holds with exogenous noise. In Model S+ it is
     **premise-dependent** (`STORE_NOISE.md` §4): with s < ½ the optimal store is **slower** than its mode. With the
     measured s = 0.31, Model S+ predicts λτ\* = (1−s)/s ≈ 2.2. E. coli's λτ = 8.5 therefore **FAILED on proxy** against
     the locked Model S claim, but lies in the direction Model S+ predicts (still ×3–5 slower; see the prior-art note above).
-  - *The world's slowest mode is slower than the slowest layer, which is not set at it (GRID-1b).* **PASS on proxy**
+    That proxy result is kept as history. The row is **not a test of the hypothesis** (qualification was not established before scoring).
+  - *The world's slowest mode is slower than the slowest layer, which is not set at it (GRID-1b).* Historical record: **PASS on proxy**
     (CE 2022; S2 rejects the market-step rival). This compares a world mode with a layer. It is not a test of each
-    layer being faster than its own mode, so it is not grouped with the E. coli result.
-  - **Not refuted:** no test met the class's qualifying conditions (closed cost list, fitness map).
+    layer being faster than its own mode, so it is not grouped with the E. coli result. It is also **not a test of the hypothesis**
+    (same unqualified class of synchronous-area balancing designs; qualification not established).
+  - **Not refuted:** no test met the class's qualifying conditions (closed cost list, fitness map, recorded pre-test qualification).
   - **Owed text for THEORY.md on main (not changed in this PR):** THEORY's "every layer is faster than its mode" needs
-    the premise qualifier "with exogenous read noise and speed-free upkeep (in Model S+: iff s ≥ ½ at h1 = 0)".
-- **Overall:** not refuted; untested in scope; two proxy failures with specific diagnoses, one diagnosis
-  (actuation-limited layers) itself untested.
+    the premise qualifier "with exogenous read noise and speed-free upkeep (in Model S+: iff s > ½ at h1 = 0; at s = ½ and low SNR, λτ* = 1, equal, not faster)".
+- **Overall:** not refuted; untested. The field scoreboard shrinks on both sides. Every field claim that was scored as PROXY-PASS or PROXY-FAIL lacked a recorded pre-test qualification check, so those 30 rows are compound **NOT A TEST** statuses (10 proxy: passed; 18 qualification not established / proxy: failed; 2 not qualified / proxy: failed). Original proxy results and numbers are kept in the cells as history; nothing is deleted. No qualifying test of the hypothesis has been run.
+
+
+## GRID-DX (v2.65, 20 Nov 2026; revised after independent review of PR #113)
+Qualification of GB at the GRID-2 lock: **NOT QUALIFIED** (`QUALIFICATION.md`); headline **NOT A TEST (not qualified; proxy: failed)**. The same mapping is applied symmetrically to every field claim that lacked a recorded pre-test qualification check, passes included. Prescriptive diagnosis: B1 gap K_obs − K* = 3. B1 assumes ruin slack; GB's ruin constraint binds (FRCR DC sized for an 1,800 MW largest loss). The gap may reflect costs or constraints the design space does not represent (e.g. ruin-binding reserve sizing, short-duration fast units, actuation limits); it is not shown to be excess, and no mechanism is established. See `theory/ROBUSTNESS.md` (separate draft PR in progress). £ saving **INCONCLUSIVE**. Headline 2020–2024 direction **UNTESTED/INCONCLUSIVE** (`RESULTS_GRIDDX.md`). Cross-grid rank test **UNTESTED** (n = 1 complete d1 pair after Pass 1 scores GB 5, ERCOT 4, four grids at 1, Hawaii unscored; 403s marked MISSING, those S totals lower bounds). Independently, no grid in the set qualifies, so the rank test cannot test the hypothesis as scored; what would is a class with real competing design lineages. Part A had no blinding (sources gathered before the prereg lock).
 
 ## The single most decisive next test
 **A designed-world experiment inside the scope:** an agent (human, animal, or E. coli in microfluidics) tracking a

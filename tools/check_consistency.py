@@ -50,13 +50,13 @@ def main(argv=None):
     os.chdir(ROOT)
 
     MAINTAINED = [
-        "README.md", "STATUS.md", "THEORY.md", "process/QUEUE.md",
+        "README.md", "STATUS.md", "THEORY.md", "CORE.md", "process/QUEUE.md",
         "measurement/FRAMEWORK.md", "measurement/CLAIM_MAP_v2.md",
         "theory/README.md", "theory/SCALE_ENDS.md",
         "applications/README.md", "tests/README.md", "reviews/README.md",
         "litmap/LITMAP.md", "litmap/PRIOR_ART.md", "litmap/THREATS.md",
         "litmap/LEFT_ON_THE_TABLE.md", "theory/BOOKENDS.md",
-        "theory/REACH.md", "theory/COSMIC_WEB.md", "theory/WORMHOLES.md", "theory/TORUS.md",
+        "theory/REACH.md", "theory/HT_INDEX.md", "theory/COSMIC_WEB.md", "theory/WORMHOLES.md", "theory/TORUS.md",
         "theory/GENERAL_THEOREM.md", "theory/INTERNAL_MODEL.md", "theory/MATH_ATTACK.md", "reference/CHANGELOG.md",
         "reviews/night1/formal/AXIOMS.md", "reviews/night1/formal/THEOREMS.md", "reviews/night1/formal/checks/README.md",
     ]
@@ -180,7 +180,7 @@ def main(argv=None):
         if mm:
             cells = [c.strip() for c in re.split(r"(?<!\\)\|", ln)]
             rows[mm.group(1)] = cells[4] if len(cells) > 4 else ""
-    BASES = ["PROXY-PASS", "PROXY-FAIL", "MATH-CORRECTED", "NOT EVIDENCE", "PRIOR ART", "INCONCLUSIVE", "WITHDRAWN", "DECIDED", "PROVED", "OPEN", "SIM-FAIL", "SIM-PASS", "BINDING"]
+    BASES = ["NOT A TEST", "PROXY-PASS", "PROXY-FAIL", "MATH-CORRECTED", "NOT EVIDENCE", "NOT APPLICABLE", "PRIOR ART", "INCONCLUSIVE", "WITHDRAWN", "DECIDED", "PROVED", "OPEN", "SIM-FAIL", "SIM-PASS", "BINDING"]
     def base(s):
         s = s.replace("*", "")
         for b in BASES:
@@ -189,7 +189,7 @@ def main(argv=None):
         return None
     print("  rows in CLAIM_MAP section N: %d (%s..%s)" % (len(rows), min(rows, key=lambda k: int(k[1:])), max(rows, key=lambda k: int(k[1:]))))
     cm_ctx = re.compile(r"(CLAIM_MAP|CM)\s*(v2\.\d+\s*)?(rows?\s*)?$")
-    nref = re.compile(r"\b(N(\d{1,2}))\b(?:\s*(?:/|,|and|–|-)\s*N\d{1,2})*\s*(?:\(|is |stays |now |moved to |→ |=|:)?\s*\**\s*(PROXY-PASS|PROXY-FAIL|MATH-CORRECTED|NOT EVIDENCE|PRIOR ART|INCONCLUSIVE|WITHDRAWN|DECIDED|PROVED|OPEN|SIM-FAIL)\b")
+    nref = re.compile(r"\b(N(\d{1,2}))\b(?:\s*(?:/|,|and|–|-)\s*N\d{1,2})*\s*(?:\(|is |stays |now |moved to |→ |=|:)?\s*\**\s*(NOT A TEST|PROXY-PASS|PROXY-FAIL|MATH-CORRECTED|NOT EVIDENCE|PRIOR ART|INCONCLUSIVE|WITHDRAWN|DECIDED|PROVED|OPEN|SIM-FAIL)\b")
     nchecked, nfail = 0, 0
     for p in MAINTAINED:
         if p == "measurement/CLAIM_MAP_v2.md":
@@ -208,7 +208,7 @@ def main(argv=None):
                 if mm.group(2) not in rows:
                     fails.append("N-ref: %s:%d cites CLAIM_MAP %s, which has no row" % (p, i, mm.group(2))); nfail += 1
             # explicit "N<k> STATUS" statements, including grouped forms like N25/N26 PROVED
-            for mm in re.finditer(r"\b((?:N\d{1,2}\s*(?:/|,|and)\s*)*N\d{1,2})\s*(?:stays |is |now |\(|:)?\s*\**(PROXY-PASS|PROXY-FAIL|MATH-CORRECTED|NOT EVIDENCE|PRIOR ART|INCONCLUSIVE|WITHDRAWN|DECIDED|PROVED|OPEN|SIM-FAIL)\b", ln):
+            for mm in re.finditer(r"\b((?:N\d{1,2}\s*(?:/|,|and)\s*)*N\d{1,2})\s*(?:stays |is |now |\(|:)?\s*\**(NOT A TEST|PROXY-PASS|PROXY-FAIL|MATH-CORRECTED|NOT EVIDENCE|PRIOR ART|INCONCLUSIVE|WITHDRAWN|DECIDED|PROVED|OPEN|SIM-FAIL)\b", ln):
                 pre = ln[max(0, mm.start() - 4):mm.start()]
                 post = ln[mm.end():mm.end() + 40]
                 if "§1 " in pre or "§1" == pre.strip():
@@ -279,7 +279,7 @@ def main(argv=None):
     print("  self-reviews found by header: %d" % len(self_reviews))
 
     # R2: the CLAIM_MAP current tally must equal the rows.
-    TB = ["PROXY-PASS", "PROXY-FAIL", "MATH-CORRECTED", "NOT EVIDENCE", "PRIOR ART", "SIM-INCONCLUSIVE", "INCONCLUSIVE", "WITHDRAWN", "DECIDED", "PROVED", "OPEN", "SIM-FAIL", "SIM-PASS"]
+    TB = ["NOT A TEST (not qualified; proxy: failed)", "NOT A TEST (qualification not established; proxy: passed)", "NOT A TEST (qualification not established; proxy: failed)", "NOT A TEST (qualification not established; proxy: INVALID)", "NOT A TEST", "PROXY-PASS", "PROXY-FAIL", "MATH-CORRECTED", "NOT EVIDENCE", "NOT APPLICABLE", "PRIOR ART", "SIM-INCONCLUSIVE", "INCONCLUSIVE", "WITHDRAWN", "DECIDED", "PROVED", "OPEN", "SIM-FAIL", "SIM-PASS"]
     counted, sec, unknown = {}, None, []
     for ln in cm.split("\n"):
         mm = re.match(r"^## ([A-Z])\.", ln)

@@ -1,0 +1,345 @@
+{
+ "started_et": "2026-11-20 18:25:42 EST",
+ "prereg_sha256": "e0b4f2b6f31743fdffe05f0f3eeedfb3d169824136a5671bfdce28ee11fd50ce",
+ "predictions_sha256": "b625a8ad57c3d861d5f0202b36125c4fa405b34260b9c46fdf72a9279d135bb3",
+ "deadline_s": 7920,
+ "sanity": {
+  "done": true,
+  "kill": true,
+  "rows": [
+   {
+    "id": "1osc_z0.02_N0.04",
+    "E": 0.05251211529771371,
+    "E_inf": 0.05251210793111958,
+    "eps": 1.4028372552488122e-07,
+    "below_Einf": false,
+    "pass_": true,
+    "resonants": [
+     [
+      0.6764014499269757,
+      0.9783245832194175
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "elapsed": 3.455625534057617,
+    "matched_pole_E": 0.5005992806083908,
+    "matched_pole_eps": 8.533025816922635
+   },
+   {
+    "id": "1osc_z0.08_N0.2",
+    "E": 0.21371818427354605,
+    "E_inf": 0.2137181526376101,
+    "eps": 1.4802643377720415e-07,
+    "below_Einf": false,
+    "pass_": true,
+    "resonants": [
+     [
+      0.6142954444609878,
+      0.985372476777765
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "elapsed": 3.7372939586639404,
+    "matched_pole_E": 0.5124603288974922,
+    "matched_pole_eps": 1.397832484386305
+   },
+   {
+    "id": "1osc_z0.25_N0.2",
+    "E": 0.32502214549683495,
+    "E_inf": 0.32502207774328484,
+    "eps": 2.0845830106530627e-07,
+    "below_Einf": false,
+    "pass_": true,
+    "resonants": [
+     [
+      1.0625553943185837,
+      0.903617032658898
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "elapsed": 4.072835445404053,
+    "matched_pole_E": 0.5212999560825646,
+    "matched_pole_eps": 0.6038909101255199
+   },
+   {
+    "id": "1osc_z0.02_N0.2",
+    "E": 0.11729861215857418,
+    "E_inf": 0.1172986023654047,
+    "eps": 8.348922575507345e-08,
+    "below_Einf": false,
+    "pass_": true,
+    "resonants": [
+     [
+      0.31324652924258867,
+      0.9988610525785893
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "elapsed": 4.237043142318726,
+    "matched_pole_E": 0.5037700778229526,
+    "matched_pole_eps": 3.2947662432807583
+   },
+   {
+    "id": "1osc_z0.08_N0.04",
+    "E": 0.09559681845081291,
+    "E_inf": 0.09559680129659759,
+    "eps": 1.7944340280351412e-07,
+    "below_Einf": false,
+    "pass_": true,
+    "resonants": [
+     [
+      1.2749601973776465,
+      0.7868439985670171
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "elapsed": 11.368850231170654,
+    "matched_pole_E": 0.5000596500387922,
+    "matched_pole_eps": 4.230924500154692
+   },
+   {
+    "id": "1osc_z0.25_N0.04",
+    "E": 0.15087227136709036,
+    "E_inf": 0.1507261494405295,
+    "eps": 0.0009694530584323235,
+    "below_Einf": false,
+    "pass_": true,
+    "resonants": [
+     [
+      2.089613036538706,
+      3.008606694961428e-05
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "elapsed": 80.73685812950134,
+    "matched_pole_E": 0.4839507674838296,
+    "matched_pole_eps": 2.2107950032570636
+   },
+   {
+    "id": "1osc_z1.0_N0.2",
+    "E": 0.48989822633293145,
+    "E_inf": 0.48989780935269406,
+    "eps": 8.511575873004773e-07,
+    "below_Einf": false,
+    "pass_": true,
+    "resonants": [
+     [
+      2.2294349003374387,
+      1.732162762559151e-05
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "elapsed": 86.2483389377594,
+    "matched_pole_E": 0.5386904761904763,
+    "matched_pole_eps": 0.09959764241904323
+   },
+   {
+    "id": "1osc_z1.0_N0.04",
+    "E": 0.25588713473469915,
+    "E_inf": 0.2556094329172316,
+    "eps": 0.0010864302396753622,
+    "below_Einf": false,
+    "pass_": false,
+    "resonants": [
+     [
+      4.76706626389536,
+      1.1220444016333469e-05
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "elapsed": 103.70644879341125,
+    "matched_pole_E": 0.4168447293447294,
+    "matched_pole_eps": 0.6307877396672879
+   }
+  ]
+ },
+ "part_a": {
+  "opts": [
+   {
+    "E": 0.0654220104554879,
+    "first": [],
+    "resonants": [
+     [
+      0.9319523313475515,
+      1.5143803914947944
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "n_inits": 28,
+    "elapsed": 15.153097152709961,
+    "C": 2,
+    "n_first": 0,
+    "n_res": 1,
+    "id": "seed2_two_light",
+    "tag": "seed2_two_light::nr1_nf0"
+   },
+   {
+    "E": 0.05251211529771371,
+    "first": [],
+    "resonants": [
+     [
+      0.6764014499269757,
+      0.9783245832194175
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "n_inits": 28,
+    "elapsed": 3.278974771499634,
+    "C": 2,
+    "n_first": 0,
+    "n_res": 1,
+    "id": "1osc_z0.02_N0.04",
+    "tag": "1osc_z0.02_N0.04::nr1_nf0"
+   },
+   {
+    "E": 0.04102221379904658,
+    "first": [
+     0.6315743921080899
+    ],
+    "resonants": [
+     [
+      0.25427594590329705,
+      0.7718289711322521
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "n_inits": 28,
+    "elapsed": 22.089180946350098,
+    "C": 3,
+    "n_first": 1,
+    "n_res": 1,
+    "id": "seed2_two_light",
+    "tag": "seed2_two_light::nr1_nf1"
+   },
+   {
+    "E": 0.0006886401780549223,
+    "first": [],
+    "resonants": [
+     [
+      3370.02889347944,
+      3.939711343610572e-05
+     ],
+     [
+      0.7039467707338725,
+      0.890845495651744
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "n_inits": 28,
+    "elapsed": 76.92077445983887,
+    "C": 4,
+    "n_first": 0,
+    "n_res": 2,
+    "id": "1osc_z0.02_N0.04",
+    "tag": "1osc_z0.02_N0.04::nr2_nf0"
+   },
+   {
+    "E": 0.037882820113061655,
+    "first": [
+     0.0606393113774215,
+     0.264213047697074
+    ],
+    "resonants": [
+     [
+      0.3300228060856766,
+      0.8084595565131657
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "n_inits": 28,
+    "elapsed": 122.57551097869873,
+    "C": 4,
+    "n_first": 2,
+    "n_res": 1,
+    "id": "seed2_two_light",
+    "tag": "seed2_two_light::nr1_nf2"
+   },
+   {
+    "E": 0.001851980526352659,
+    "first": [
+     0.6485627422372462
+    ],
+    "resonants": [
+     [
+      1893585186478.756,
+      712707590932433.4
+     ],
+     [
+      0.6425298466440105,
+      0.9538398809999267
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "n_inits": 28,
+    "elapsed": 192.53399968147278,
+    "C": 5,
+    "n_first": 1,
+    "n_res": 2,
+    "id": "seed2_two_light",
+    "tag": "seed2_two_light::nr2_nf1"
+   },
+   {
+    "E": 0.00033251061632910694,
+    "first": [],
+    "resonants": [
+     [
+      0.6693798865728245,
+      1.5750204084764262e-12
+     ],
+     [
+      0.3315279067075028,
+      0.9662537459363845
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "n_inits": 28,
+    "elapsed": 201.8005805015564,
+    "C": 4,
+    "n_first": 0,
+    "n_res": 2,
+    "id": "seed2_two_light",
+    "tag": "seed2_two_light::nr2_nf0"
+   },
+   {
+    "E": 0.002178395246501208,
+    "first": [],
+    "resonants": [
+     [
+      0.3006413983705231,
+      0.8019940611868251
+     ],
+     [
+      0.12565836977468142,
+      1.0911165584985612e-12
+     ],
+     [
+      1.190967789868175,
+      0.25856199989264256
+     ]
+    ],
+    "method": "Nelder-Mead",
+    "n_inits": 28,
+    "elapsed": 556.0840489864349,
+    "C": 6,
+    "n_first": 0,
+    "n_res": 3,
+    "id": "seed2_two_light",
+    "tag": "seed2_two_light::nr3_nf0"
+   }
+  ],
+  "done_tags": [
+   "seed2_two_light::nr1_nf0",
+   "1osc_z0.02_N0.04::nr1_nf0",
+   "seed2_two_light::nr1_nf1",
+   "1osc_z0.02_N0.04::nr2_nf0",
+   "seed2_two_light::nr1_nf2",
+   "seed2_two_light::nr2_nf1",
+   "seed2_two_light::nr2_nf0",
+   "seed2_two_light::nr3_nf0"
+  ]
+ },
+ "cymatics": {},
+ "fractal": {},
+ "s5_regression": {},
+ "s5_extended": {}
+}

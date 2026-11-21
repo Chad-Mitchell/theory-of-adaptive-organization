@@ -1,3 +1,7 @@
+# GTAO work queue — FROZEN
+
+**Frozen 20 November 2026 (America/New_York).** This file is a historical record and is superseded by [`OPEN_WORK.md`](../OPEN_WORK.md). The items, protocol, and ledger below are not deleted. Live open work is listed only in `OPEN_WORK.md`.
+
 # GTAO work queue (live; executable)
 
 *Moved from the repository root to `process/` on 19 November 2026. Paths in `queue/` below are relative to this folder; run the commands from `process/`. Section numbers of THEORY cited below (§2.2, §2.5, …) are those of the frozen `reference/THEORY_v1.4.29.md`, unless they name v2.0.*
@@ -201,7 +205,7 @@ Q0 is always on and sits above the ranking because it is the rule itself (Chad, 
 **Pick 11 done (ledger 61). Next pick (12) is the uniform slot: log a fresh unaided order, run the rule, take the top of the new entry's stored uniform permutation that is open and not active.**
 
 ### NEW (15 Nov ~1:55 PM ET, from WIKIDATA-BAND; surprises read per rule 4)
-- **WIKIDATA-BAND** — DONE (pre-existing locked test, out of cycle, unscored; ledger 65): `prereg/WIKIDATA-BAND/RESULTS.md`, lock `7cffd93` (THEORY v1.2-era T8 signs), addendum `28a0f21`. Full locked sample collected (2,693 pages, 0 AMBIG); analysis code unchanged; rerun from committed data byte-identical. **KG FAIL** (instrument does not count; Tier 3). P1 drift gradient INCONCLUSIVE (β_q 0.58 [0.21, 0.99]; ΔAUC vs item type 0.024 [−0.005, 0.058]); P2 INCONCLUSIVE; P3 INCONCLUSIVE (n = 83); **P4 passed on proxy** (4/4 wikis, k = 4). Item-level stability gate: 4 STABLE / 3 UNSTABLE / 19 not assessable; sensitivity refits not run. Optimum compared: reset-read cost optimum, premise-invariant (N16). Data event-like: scheduled series H < ½, leadership replacements rate-unstable (cf. N17). CLAIM_MAP N19 (OPEN), N20 (PROXY-PASS), v2.13. THEORY not edited (RESULTS §5).
+- **WIKIDATA-BAND** — DONE (pre-existing locked test, out of cycle, unscored; ledger 65): `prereg/WIKIDATA-BAND/RESULTS.md`, lock `7cffd93` (THEORY v1.2-era T8 signs), addendum `28a0f21`. Full locked sample collected (2,693 pages, 0 AMBIG); analysis code unchanged; rerun from committed data byte-identical. **KG FAIL** (instrument does not count; Tier 3). P1 drift gradient INCONCLUSIVE (β_q 0.58 [0.21, 0.99]; ΔAUC vs item type 0.024 [−0.005, 0.058]); P2 INCONCLUSIVE; P3 INCONCLUSIVE (n = 83); **P4 passed on proxy** (4/4 wikis, k = 4). Item-level stability gate: 4 STABLE / 3 UNSTABLE / 19 not assessable; sensitivity refits not run. Optimum compared: reset-read cost optimum, premise-invariant (N16). Data event-like: scheduled series H < ½, leadership replacements rate-unstable (cf. N17). CLAIM_MAP N19 (OPEN), N20 (PROXY-PASS → NOT A TEST (qualification not established; proxy: passed)), v2.13; retyped 20 Nov 2026. THEORY not edited (RESULTS §5).
 - **KG-FEASIBILITY-GATE** (w 1, c 0.5). Known-groups / moot bounds must be shown attainable at the planned n before lock (WIKIDATA-BAND's KG(a) was unattainable at n = 40).
 - **WIKIDATA-BAND-2** (w 1, c 2.5). Rerun with correction-filtered drift, n ≥ 63 per slow property, more properties, wiki template policy as a rival.
 

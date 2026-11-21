@@ -1,0 +1,16 @@
+T27 lock record
+Timestamp: Saturday 21 November 2026, 12:05:31 AM EST (America/New_York)
+Working tree: /workspace/gtao-thermo branch thermo-bridge-2026-11-21
+Beside commit: 7275c4bc8461e62a38e95e4e4b47b770e6a636fc (thermo-bridge-2026-11-21)
+No reduced J, Hessian, or Moran chain has been run on the official candidate seeds.
+
+PREREG.md
+  sha256: 25955df4ffb825254100568c9b9d1e751b9d5e0e533146a5d438414c8d5ba994
+  bytes:  10047
+  mtime:  2026-11-21 00:05:22 EST
+
+predictions.json
+  sha256: 6715777ca45d02ad443a3e5003f19849331a9e60dba900aa6f6c68c93e7adfe3
+  bytes:  2246
+  mtime:  2026-11-21 00:04:49 EST
+

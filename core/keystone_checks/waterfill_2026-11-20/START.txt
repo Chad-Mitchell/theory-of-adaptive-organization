@@ -1,0 +1,4 @@
+Official start: 2026-11-20 21:57:06 EST (America/New_York)
+predictions sha256 ba66cef743bec29d0c2292f9b4d25c0596726623d52a05b8d881d3420fe612d1
+prereg sha256 9592042bc2932acec025315c5f34d401ad896a76f16940ee12c43d4be5a7bb05
+No E_K work before this start.

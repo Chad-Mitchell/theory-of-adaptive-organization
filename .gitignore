@@ -12,3 +12,8 @@ theory/measured/grid/data/
 /gtao-grid-data/
 *.csv.zip
 __pycache__/
+
+# Lean 4 / Mathlib build artifacts (T19)
+formal/lean/.lake/
+formal/lean/lake-packages/
+**/.lake/

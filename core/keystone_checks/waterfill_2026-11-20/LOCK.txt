@@ -1,0 +1,9 @@
+WF-HSV prereg lock
+time: 2026-11-20 21:54:48 EST (America/New_York)
+PREREG.md  sha256 9592042bc2932acec025315c5f34d401ad896a76f16940ee12c43d4be5a7bb05
+MATH.md    sha256 e8ea856a6d888671d2004ba82f80186f01073910bfc3f1978849c295c029e148
+waterfill/wf_rule.py sha256 f9960cd49b9d01c427a6289fd91253fff70137d7352ee5b5afaed9161dbbe7d2
+waterfill/worlds.py  sha256 c1e13a3a4f11ecd2954cd689610f39d253a97cd20907fc68f8b9dabd2ea9242d
+No reduced-order E_K confirmation run had been started at this lock.
+SANITY (one-OU L1 identity, 9 cells) was run as an implementation unit test and passed, including K*=0 and K*=1, before lock.
+T20 holographic worlds are excluded from confirmation.

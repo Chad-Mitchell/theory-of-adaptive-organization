@@ -71,3 +71,9 @@ therefore partly reflect how dispatch is represented rather than the world. Ther
 two-mode world passed through the same reconstruction), so the proxy's power to detect separated modes is unknown.
 G3a's margin (ΔBIC 1.0 between the power law and a Lorentzian) is not decisive. The G1 FAIL stands as locked; this
 caveat limits what it says about GB's world.
+
+## Dated note (GRID-DX Part A, 20 Nov 2026, after prereg `5d0c11a`, rebased as `d70c540`)
+
+A qualification audit against the operational definition in force at the GRID-2 lock (first on main at `b311a40`; also on PR #110 head `36416d2`, squash-merged as `e1be66e`) found the GB balancing system **NOT QUALIFIED** as "strongly selected" (`QUALIFICATION.md`). The locked G1 arm score above, **FAIL on proxy**, is not deleted and is not rewritten. The headline status, after the independent review of PR #113, is **NOT A TEST (not qualified; proxy: failed)**. GB is not qualified: N_e = 1, so the band cannot exclude a rival, and measured outturn inertia changed from 229 GVA·s (2019/20) to 168 GVA·s (2026); T_red was never defined. Item (a) is not established (Ofgem BSIS made σ computable; it was not computed). The measured mismatch (γ = 2.09 random-walk imbalance; four operational layers) stands as a diagnosis of a system examined to prescribe; no inefficiency is shown. The qualification check required at lock should have been done before scoring and was not.
+
+**Sample note (pre-existing GRID-2 issue).** Slow Reserve went live on 31 March 2026 (https://www.neso.energy/document/378736/download), partway through this file's November 2025–October 2026 sample, so the locked four-layer count includes a product that was not in force for the whole sample.

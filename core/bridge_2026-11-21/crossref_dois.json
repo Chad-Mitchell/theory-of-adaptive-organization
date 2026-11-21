@@ -1,0 +1,194 @@
+{
+  "checked": "2026-11-21",
+  "source": "https://api.crossref.org/works/{doi}",
+  "works": [
+    {
+      "doi": "10.1147/rd.53.0183",
+      "title": "Irreversibility and Heat Generation in the Computing Process",
+      "container": "IBM Journal of Research and Development",
+      "issued": [
+        [
+          1961,
+          7
+        ]
+      ],
+      "author": [
+        "Landauer, R."
+      ],
+      "volume": "5",
+      "issue": "3",
+      "page": "183-191",
+      "type": "journal-article",
+      "status": "ok"
+    },
+    {
+      "doi": "10.1103/physrevlett.109.120604",
+      "title": "Thermodynamics of Prediction",
+      "container": "Physical Review Letters",
+      "issued": [
+        [
+          2012,
+          9,
+          19
+        ]
+      ],
+      "author": [
+        "Still, Susanne",
+        "Sivak, David A.",
+        "Bell, Anthony J.",
+        "Crooks, Gavin E."
+      ],
+      "volume": "109",
+      "issue": "12",
+      "page": null,
+      "type": "journal-article",
+      "status": "ok"
+    },
+    {
+      "doi": "10.1103/physrevlett.124.050601",
+      "title": "Thermodynamic Cost and Benefit of Memory",
+      "container": "Physical Review Letters",
+      "issued": [
+        [
+          2020,
+          2,
+          6
+        ]
+      ],
+      "author": [
+        "Still, Susanne"
+      ],
+      "volume": "124",
+      "issue": "5",
+      "page": null,
+      "type": "journal-article",
+      "status": "ok"
+    },
+    {
+      "doi": "10.1162/089976601753195969",
+      "title": "Predictability, Complexity, and Learning",
+      "container": "Neural Computation",
+      "issued": [
+        [
+          2001,
+          11,
+          1
+        ]
+      ],
+      "author": [
+        "Bialek, William",
+        "Nemenman, Ilya",
+        "Tishby, Naftali"
+      ],
+      "volume": "13",
+      "issue": "11",
+      "page": "2409-2463",
+      "type": "journal-article",
+      "status": "ok"
+    },
+    {
+      "doi": "10.1073/pnas.0501865102",
+      "title": "The application of statistical physics to evolutionary biology",
+      "container": "Proceedings of the National Academy of Sciences",
+      "issued": [
+        [
+          2005,
+          6,
+          24
+        ]
+      ],
+      "author": [
+        "Sella, Guy",
+        "Hirsh, Aaron E."
+      ],
+      "volume": "102",
+      "issue": "27",
+      "page": "9541-9546",
+      "type": "journal-article",
+      "status": "ok"
+    },
+    {
+      "doi": "10.1016/s0022-5193(88)80243-1",
+      "title": "Free fitness that always increases in evolution",
+      "container": "Journal of Theoretical Biology",
+      "issued": [
+        [
+          1988,
+          12
+        ]
+      ],
+      "author": [
+        "Iwasa, Yoh"
+      ],
+      "volume": "135",
+      "issue": "3",
+      "page": "265-281",
+      "type": "journal-article",
+      "status": "ok"
+    },
+    {
+      "doi": "10.1090/memo/0211",
+      "title": "A new mathematical framework for the study of linkage and selection",
+      "container": "Memoirs of the American Mathematical Society",
+      "issued": [
+        [
+          1979
+        ]
+      ],
+      "author": [
+        "Shahshahani, S."
+      ],
+      "volume": "17",
+      "issue": "211",
+      "page": null,
+      "type": "journal-article",
+      "status": "ok"
+    },
+    {
+      "doi": "10.1038/nrg.2016.104",
+      "title": "Genetic drift, selection and the evolution of the mutation rate",
+      "container": "Nature Reviews Genetics",
+      "issued": [
+        [
+          2016,
+          10,
+          14
+        ]
+      ],
+      "author": [
+        "Lynch, Michael",
+        "Ackerman, Matthew S.",
+        "Gout, Jean-Francois",
+        "Long, Hongan",
+        "Sung, Way",
+        "Thomas, W. Kelley",
+        "Foster, Patricia L."
+      ],
+      "volume": "17",
+      "issue": "11",
+      "page": "704-714",
+      "type": "journal-article",
+      "status": "ok"
+    },
+    {
+      "doi": "10.1007/s100510070114",
+      "title": "Statistical mechanics of money",
+      "container": "The European Physical Journal B",
+      "issued": [
+        [
+          2000,
+          10
+        ]
+      ],
+      "author": [
+        "Dragulescu, A.",
+        "Yakovenko, V.M."
+      ],
+      "volume": "17",
+      "issue": "4",
+      "page": "723-729",
+      "type": "journal-article",
+      "status": "ok"
+    }
+  ]
+}

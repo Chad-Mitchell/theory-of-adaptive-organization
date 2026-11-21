@@ -31,7 +31,7 @@ the same); pick 4 -> top of the stored uniform permutation; repeat.
 Scoring (locked): predictor = each item's FIRST-SEEN post-protocol score (rule index, unaided rank, uniform rank)
 from the first rule_rank entry that contains it. Population = items with an outcome record; unpicked items are
 counted and reported, not imputed. Outcome = any CLAIM_MAP_v2 status changed (proxy; useful work that leaves a row
-OPEN scores 0). AUC with 2,000 item-bootstrap resamples (seed 20261115). PASS: rule AUC > 0.5 with CI excluding 0.5
+OPEN scores 0). An outcome entry may record this as `status_changed` or, in one logged case, `claim_map_status_changed`; `score` accepts either and does not crash if both are missing (that entry is reported and skipped). AUC with 2,000 item-bootstrap resamples (seed 20261115). PASS: rule AUC > 0.5 with CI excluding 0.5
 and rule AUC >= unaided AUC. KILL: rule AUC <= 0.5, or below unaided by > 0.1. Else INCONCLUSIVE. A pass tests this
 operational rule including the judgment factors w, v, L, c, not the bare SG clock; the clock is scored separately on
 items whose P was not flat (n reported; no verdict if n < 8).
@@ -97,6 +97,14 @@ def auc(scores, y):
         return float("nan")
     return sum((p > n) + 0.5 * (p == n) for p in pos for n in neg) / (len(pos) * len(neg))
 
+def outcome_status_changed(e):
+    """Return (found, value). Prefer status_changed; accept claim_map_status_changed."""
+    if "status_changed" in e:
+        return True, bool(e["status_changed"])
+    if "claim_map_status_changed" in e:
+        return True, bool(e["claim_map_status_changed"])
+    return False, None
+
 def cmd_score():
     led = read_ledger()
     start = min(e["entry"] for e in led if e["kind"] == "protocol")
@@ -108,8 +116,25 @@ def cmd_score():
                     n = len(e["order"])
                     first[k] = (e["index"][k], n + 1 - e["unaided_rank"][k],
                                 n - e["uniform_perm"].index(k), e["P"][k] != 0.5)
-    outs = {e["item"]: bool(e["status_changed"]) for e in led
-            if e["entry"] > start and e["kind"] == "outcome" and e["item"] in first}
+    outs = {}
+    missing = []
+    aliased = []
+    for e in led:
+        if e["entry"] > start and e["kind"] == "outcome" and e.get("item") in first:
+            found, val = outcome_status_changed(e)
+            if not found:
+                missing.append(e.get("entry"))
+                continue
+            if "status_changed" not in e:
+                aliased.append(e.get("entry"))
+            outs[e["item"]] = val
+    if aliased:
+        print("outcome entries using claim_map_status_changed (accepted): " +
+              ", ".join(str(x) for x in aliased))
+    if missing:
+        print("warning: outcome entries missing status_changed and "
+              "claim_map_status_changed (skipped): " +
+              ", ".join(str(x) for x in missing))
     ids = sorted(outs)
     print(f"post-protocol items ranked: {len(first)}; with outcomes: {len(ids)}; unpicked: {len(first) - len(ids)}")
     if len(ids) < 15:
