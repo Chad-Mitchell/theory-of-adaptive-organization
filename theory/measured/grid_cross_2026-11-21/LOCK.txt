@@ -1,0 +1,21 @@
+GRID-CROSS lock record
+Timestamp: Saturday 21 November 2026, 01:55:05 AM EST (America/New_York)
+Local stamp: 2026-11-21 01:55:05 EST
+Working tree: theory/measured/grid_cross_2026-11-21/ on branch grid-cross-2026-11-21
+Beside commit: 54a45629280edc9dfe0275d04eaf19626aa4523d (main)
+No new official selection-pressure score has been recorded. No non-GB distance, layer count, or spectrum has been computed.
+Reachability checks (HTTP status, type, size) were made before this record and are in DATA_SOURCES_REACHABILITY.md. Newly reachable PDFs were not opened for numbers before this record.
+
+PREREG.md
+  sha256: 1cd856331b968e369b9b97f8ac675186140b040ae2c14e1792147489a3d4d763
+  bytes:  28105
+
+run_grid_cross.py
+  sha256: eb4bf7d42e71db961fc73d778547bcd9dde548be6babdf939917c35825d8bd89
+  bytes:  4795
+
+grid_cross_lib.py
+  sha256: d9086f8a09a91e8bb7133bdd012c3adcc94f7726800f04409439a119279dc9b4
+  bytes:  12732
+
+Locked files will not be edited after this record. A mid-run rewrite of the runner or the library is a protocol lapse (T27 standing rule).
