@@ -1,0 +1,133 @@
+# Revealed prices: what a fair test of the law actually requires (21 November 2026)
+
+*Saturday 21 November 2026, written about 9:00–10:00 AM ET (America/New_York), beside `main` `a65b64e` (through PR #132). Not a lock, not a prereg, not a result, and not a change to the kill rule: §8 **proposes** a dated amendment and leaves the canonical wording untouched until it is reviewed and adopted. The hypothesis sentence is unchanged: "The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment." Line numbers cite `THEORY.md` at `a65b64e` unless another file is named. "Proved" means proved in a model, which is not a claim about nature.*
+
+## 0. What is already in the repository (not presented as new)
+
+- **Revealed costs are already allowed in one sentence.** THEORY line 153: "Prices can also be inferred from an observed design (revealed costs), a test and not a circle only when observed features outnumber the free price ratios: several exogenous drift levels, several items under one clock, or one technology across layers."
+- **Only price ratios matter.** CT24 (optimal cost shares are currency-free); THEORY line 36 ("only dimensionless ratios matter"); `theory/PRICE_FREE_2026-11-21.md` §1 (price-free, price-ratio-only and absolute-price bins).
+- **Layers are linked.** CT34 (line 472): a team's optimized cost enters the parent exactly as upkeep when the parent sees it only through quantities fixed before the team optimizes, with a second-order error bound when coupling is weak and a counterexample when the driver is shared.
+- **Selection band.** §3 (c), line 48: ε = 10/(σN_e), crediting the drift barrier (Lynch et al. 2016). PF17 in `PRICE_FREE` and `core/bridge_2026-11-21/SELECTION.md`: typical fractional excess ≈ d/(2σN_e) (Sella & Hirsh 2005 applied to J). Its official in-model test T27 **FAILED** on P3 (PR #122; an ill-posed gate, see `history/2026-11-21_NIGHT.md`).
+- **Overidentification has been used once.** `tests/SPF_NOISE_PROXY/PREREG.md` item 3 (a horizon-overidentification statistic).
+- **The holographic reading tested so far** is T20 (`reviews/t20_2026-11-20/REVIEW.md`): the "layer count grows with the log of the scale range" part (A) passed 12/12 primary gates; the "where each layer's rate sits" part (B) failed 0/12. That was the surface analogy, not the boundary argument in §5 below.
+- **The obstacle.** `OPEN_WORK.md` §8: sourcing fitness-unit prices (h, w) independently may be the binding obstacle for most field tests. T30 (`history/2026-11-21_NIGHT.md`) proposed experimenter-set prices as a way round it.
+
+What this note adds is narrower than a new idea: it says that the requirement behind the obstacle is not needed for a fair test, states what is needed instead, gives a counting rule that uses CT34 to cut the number of free prices, and proposes the wording change. The method is standard (§6).
+
+## 1. Diagnosis: which requirement stalled the field tests
+
+Several field attempts from 18 to 21 November stalled at or alongside the same gate: prices measured **independently of the design, in fitness units** (VIS-1F could not source `(h, w)` alongside L3; *E. coli* lacked `σ` and `T_red` alongside failing R3 on P1/P3; GRID-CROSS was separately blocked by missing pre-control `d1` data). The gate is written in four places: THEORY line 53 item (1), line 111 (Rule 7), line 159 (the killing test), and `measurement/FRAMEWORK.md` §9 item 2 ("price each independently of the design predicted (no price fitted to the design)"); `CORE.md` §2 says the principle "predicts only through price-free structure or independently measured prices". Line 153 permits the opposite, and nothing reconciles the two.
+
+Two facts show the gate asks for more than the comparison needs.
+
+1. **Units drop out of the comparison when ruin is absent or slack.** For any c > 0, argmin_𝒟 c·J(𝒟) = argmin_𝒟 J(𝒟) over a price-independent feasible set. When the ruin constraint is absent or slack, the design the law predicts depends on price *ratios* only (CT24). Fitness units, a common currency across scales and an absolute scale for prices therefore play no part in locating argmin J in that regime. **When ruin binds** (`THEORY.md` line 101, CT24; `scope_checks.py` §1b), the feasible set `{𝒟 : P(ruin) ≤ ε}` depends on `J(𝒟)/B`, `y/B` and `w/B` (via loss variance `σ² ∝ w²`): if `B` and `y` are observed in the system's currency while prices are fitted only up to an unknown scale, rescaling `J` alone changes the feasible set and one overall scale ratio (e.g. `w/B`) remains free.
+2. **Fitness units enter in one place only:** the absolute qualification band ε = 10/(σN_e), where σ maps a fractional change in J to a fractional change in fitness. That is a statement about *how close* selection can push a design, not about *where* the optimum is. §4 offers an ordinal substitute.
+
+So the absolute-price demand came from merging two different jobs (locating the optimum; saying how close selection should get) into one gate.
+
+## 2. The four requirements of a fair test
+
+A test of the law in a system is fair when all four hold, each fixed in writing before the scored data are seen.
+
+| | Requirement | Why it is needed | How it is checked |
+|---|---|---|---|
+| R1 | **Locked first.** The prediction, the fitting procedure, the split, the scoring rule and the pass and fail thresholds are hash-locked before the scored data are opened. | Otherwise the test can be steered. | Existing practice: prereg, hash-lock of runner and library, exact gate values computed on pilots before locking (T27 lesson), DEVIATIONS files, no patching. |
+| R2 | **Can fail.** Some outcome that the data could show is excluded by the prediction at every admissible price. | Otherwise any data fit. | The **reachable-set check** (§3.3), computed before data. |
+| R3 | **Differs from a named rival.** The prediction and a preregistered rival, each fitted the same way on the same fit set, give different held-out predictions by more than the error budget. | Otherwise a pass supports the rival as much as the law. Generic cost-benefit optimizers (for example Dekel & Alon's) are rivals of this kind when the law's prediction is the same as theirs. | Rival list fixed before data, at least one of FRAMEWORK §9 item 6 (R1 fixed share; R2 exponent ½; R3 set-at) plus the most specific prior-art model for the system. Separation computed on pilots. |
+| R4 | **Prices fitted off the scored data.** Any price ratio that is not measured is fitted on data disjoint from the data that score the prediction. | Fitting and scoring on the same numbers is the circle line 153 warns about. | The split is part of the lock; fitted values are written down before the held-out data are opened. |
+
+**Dropped, as not required for a fair test:** prices in fitness units; a common currency across scales; independent measurement of every price; costs set by an experimenter (Avida and similar platforms are one way to meet R4, not a requirement); absolute qualification as a precondition for *support* (it remains a precondition for a *kill*; §8). Independent measurement of a price is still welcome: a measured price simply removes one free ratio from the count in §3.
+
+## 3. Identification: the counting rule
+
+### 3.1 The count
+
+Before data, the prereg states:
+
+- **n_fit**: the number of independent design observables in the fit set (one observable = one design feature, such as a read interval, a memory, a layer count, in one exogenous condition or one item);
+- **n_score**: the number in the scored (held-out) set;
+- **p**: the number of free quantities fitted from design data: price ratios **after** CT34 linking (§3.2, when its single-currency and coupling premises hold) and after removing any ratio measured independently, plus an overall scale ratio (e.g. `w/B`) if a ruin constraint binds against fixed observed `(B, y)`, plus every nuisance quantity (noise, exponent, offset) that is fitted from design data rather than measured from the world.
+
+The test is valid only if **n_fit ≥ p** (the order condition), the fit-set design equations have full rank `p` in the fitted parameters (exogenous conditions actually vary enough to identify them), and **n_score ≥ 1**; its overidentifying degrees of freedom are **n_fit + n_score − p**, and only the n_score held-out observables are scored. A quantity added after data is opened counts as a miss, as an unlisted cost already does (line 53). This is the overidentification logic of instrumental-variable and moment estimation (Sargan 1958; Hansen 1982) applied to argmin J; a held-out split is used instead of a pooled J-statistic so that R4 is visible.
+
+### 3.2 Linking cuts p (CT34)
+
+Unlinked, a design with K layers has up to two free ratios per layer (an upkeep and a stake), so p grows with K. CT34 (i)–(ii) removes most of them where it applies: the parent's problem is F(x) + J\*_T(θ(x)), so the upkeep of a child layer is the child's own optimized cost, and the child's stake and noise are what the parent passes down. Composing partial minimization level by level (by induction on CT34 (i)), the per-layer upkeeps and the interior stakes are no longer free. In a **single common currency** (`THEORY.md` line 472, where `F` and `G` add directly), what stays free is each layer's own primitive unit prices (read, hold, link: each level's direct `F_k` part), the stake at the top (set by what ruin or selection costs the whole), and the world's spectrum, which is measured, not fitted. Where every layer uses **one technology** (line 153's case) with `r` primitive prices (`r − 1` internal ratios), the primitive prices are one set, and `p = (r − 1) + 1 = r`, whatever `K` is; with `t` distinct technologies in the same currency, each with `r_j` primitive prices, there are `Σ r_j + 1` absolute prices and `Σ(r_j − 1) + t` independent ratios (the sum of the within-technology ratios plus `t`, accounting for the `t − 1` cross-technology scale ratios; e.g. two read technologies with `r_1 = r_2 = 1` give `p = 2`, as in §3.4). Either way, once `t` is fixed, `p` no longer grows as `2K`. If layers genuinely use separate currencies with unmeasured cross-layer exchange rates `e_k`, then each boundary adds a free exchange rate and `p` grows with `K`.
+
+This holds only where CT34's single-currency and exactness or weak-coupling premises hold. A shared driver breaks it (CT34 (iv)); layers with their own interests break it (CX2); in both cases the prereg must count the unlinked prices. Whether a real nest satisfies CT34 is not shown (CT34, "Not shown").
+
+### 3.3 Reachable-set check (R2) and rival separation (R3), before data
+
+On a pilot or on the design's admissible ranges, compute the set of held-out outcomes the law can produce for **any** admissible value of the fitted quantities (fitted on any admissible fit-set outcome). The test is valid only if that set excludes a preregistered share of the outcome range, and the rival's best-fit held-out prediction lies outside the law's prediction interval (and the reverse). If prices can go to a degenerate value (for example w → 0, which rationalizes doing nothing), the admissible set must exclude it in advance; this is the inverse-reinforcement-learning degeneracy (Ng & Russell 2000), and the reason R2 is a computed check, not a promise.
+
+### 3.4 A worked count (CT12)
+
+For exact reset reads of a self-similar world (CT12; PF7), T\* = [α c / ((α − 1) w q)]^{1/α}. One reader with one read technology looking at m items with independently measured drift q_i and common α has p = 1 (the ratio c/w). Fit c/w on one item; predict ln T\*\_j for the other m − 1 items, level and slope: ln T\*\_j − ln T\*\_i = −(1/α)·ln(q_j/q_i). Overidentifying degrees of freedom m − 1. Rival R2 (exponent ½) has the same p = 1 and differs only when α ≠ 2, so R3 requires a world with α measured away from 2 by more than its error. With two read technologies `p = 2`, and with items read at different stakes under one technology `p` stays 1 if the relative stakes are measured, or equals the number of distinct unmeasured stake levels (e.g. 2 when there are two stake groups) if not.
+
+The worked count shows the general point: the revealed-price route does not create distinctiveness. It turns a distinctive price-free relation (PF2, PF7, PF10, PF6; `PRICE_FREE` §4) into a sharper test, because the *level* is predicted as well as the slope. Where the law's prediction coincides with generic optimization, revealed prices make the test fair but not discriminating.
+
+## 4. The selection-gradient test (an ordinal substitute for the absolute band)
+
+PF17 says the typical fractional excess of J over its minimum is about d/(2σN_e). Its testable, unit-free content is ordinal: **among members of one class in comparable worlds, the held-out gap from the fitted optimum falls as selection strength rises.**
+
+Protocol: before data, fix (a) the members, (b) an ordinal ranking of selection strength from a source independent of the design (for example N_e from neutral diversity, competitors per niche, generations or redesign cycles under the same world), (c) the gap measure (held-out |ln design − ln predicted design|, or the J-excess where J is computable), with prices fitted under §3 on data disjoint from the scored gap, and (d) a one-sided trend test with its threshold. Ranks are never reassigned after a miss. A power check is part of the lock: if the ranked members span too little selection strength for the predicted trend to exceed noise, the test is NOT A TEST.
+
+Three cautions. (1) The ordinal logic is the drift-barrier and nearly-neutral argument (Ohta 1973; Lynch et al. 2016; for mutation rate, Sung et al. 2012), and the Boltzmann form is Sella & Hirsh 2005; what is specific to this repository is only that the quantity is J. A gradient found in a trait that is not a judgment design is evidence for those theories, not for this one. (2) T27 P3 failed in-model, so the constant in d/(2σN_e) is not relied on; only the direction is. (3) Stronger selection can correlate with a different world; the gap must be measured against each member's own fitted optimum, not a shared one.
+
+## 5. The recursion and the boundary ("holographic") reading
+
+In `THEORY.md` line 472, CT34 is proved for a single cooperative objective `J(x, y) = F(x) + G(y; θ(x))` in one currency: partial minimization puts the child's optimized cost `J*_T(θ(x))` inside the parent's objective (acting as a constant upkeep `h` when `θ` does not depend on `x`, and as a value function when it does), while the parent passes down stakes and noise `θ(x)`. Reading that recursion across levels gives:
+
+- **Each scale has its own currency; inside one nested system a single currency (or known unit conversion) is required for §3.2.** Across systems, each system's `J` is in its own units (heat for a cell, attention for an animal, money for a firm). Energy enters only at the physical bottom floor (Landauer and Still), and above the cell that floor is slack (line 11), so carrying thermodynamics through every layer adds no predictive content where it is slack. Inside one nested system, CT34 adds `F` and `G` in a common currency; if child and parent had separate units with an unknown conversion factor, that conversion factor would be an extra free parameter at each boundary.
+- **Boundary inputs determine interior value functions.** In an exactly nested cooperative system in one currency, the interior value functions `J*_k` and passed-down stakes are determined recursively (§3.2): given each layer's primitive unit prices (one set where technology is shared across layers), the top stake and the side input (the world's spectrum) determine every layer's optimum by dynamic programming. Strictly, the outer edges alone fix the interior only where the technology is shared across layers and cross-layer conversion is fixed; otherwise each technology's prices (and any unmeasured unit conversions) are extra inputs.
+- **What this is not.** The holographic principle in physics ('t Hooft 1993, arXiv gr-qc/9310026, no DOI; Susskind 1995) bounds the degrees of freedom of a region by its boundary area. The statement here is the ordinary one that partial minimization composes (Bellman; Dantzig & Wolfe 1960; Geoffrion 1970, already credited at CT34). It is an analogy to holography, useful because it says where to look for free parameters, not a physical claim. West, Brown & Enquist (1997) is a prior example of the same shape in biology: an invariant terminal unit (bottom edge) plus network optimization fixes interior scaling.
+- **Where it breaks.** When layers have their own interests (CX2) or share a driver (CT34 (iv)), the interior is not fixed by the edges and the count reverts to unlinked prices. This is also where the theory says ants and firms differ.
+
+## 6. Prior art (DOIs checked on Crossref this session unless noted)
+
+- Revealed preference: Samuelson 1938, *Economica* 5:61, doi 10.2307/2548836; Samuelson 1948, *Economica* 15:243, doi 10.2307/2549561; Afriat 1967, *Int. Econ. Rev.* 8:67, doi 10.2307/2525382; Varian 1982, *Econometrica* 50:945, doi 10.2307/1912771 (nonparametric tests that a choice set can be rationalized at all: the R2 of revealed preference).
+- Inverse optimization and inverse optimal control: Ahuja & Orlin 2001, *Oper. Res.* 49:771, doi 10.1287/opre.49.5.771.10607; Kalman 1964, *J. Basic Eng.* 86:51, doi 10.1115/1.3653115. Inverse reinforcement learning: Ng & Russell 2000, *"Algorithms for Inverse Reinforcement Learning"*, ICML 2000, pp. 663–670 (no Crossref DOI; verified via DBLP/proceedings record).
+- Structural estimation: Rust 1987, *Econometrica* 55:999, doi 10.2307/1911259. Overidentification tests: Sargan 1958, *Econometrica* 26:393, doi 10.2307/1907619; Hansen 1982, *Econometrica* 50:1029, doi 10.2307/1912775.
+- Selection gradient: Ohta 1973, *Nature* 246:96, doi 10.1038/246096a0; Sung et al. 2012, *PNAS* 109:18488, doi 10.1073/pnas.1216223109; Lynch et al. 2016, *Nat. Rev. Genet.*, doi 10.1038/nrg.2016.104; Sella & Hirsh 2005, *PNAS* 102:9541, doi 10.1073/pnas.0501865102.
+- Cross-level structure: West, Brown & Enquist 1997, *Science* 276:122, doi 10.1126/science.276.5309.122. Holography: Susskind 1995, *J. Math. Phys.* 36:6377, doi 10.1063/1.531249.
+
+None of the statistical or optimization methods is new; using dynamic programming / partial minimization so downstream value functions do not add free parameters per stage is likewise standard in structural estimation (Rust 1987; Bellman 1957). Only the specific application to `J`, the mapping onto CT34's shared-driver and weak-coupling exclusions (§3.2), and the ordinal selection-gradient gate (§4) are repository-specific; whether those applications are new was not surveyed beyond the items above.
+
+## 7. What this cannot show
+
+- A pass shows that **some** admissible prices rationalize the design and predict held-out designs; it does not show those prices are the system's true ones.
+- A pass where the law's prediction equals a generic optimizer's (Dekel & Alon-type cost-benefit, the classic sampling model, Kalman–Wiener) supports optimization in general, not this theory (R3).
+- It does not establish qualification. A held-out miss in a system not shown to be strongly selected is not a kill (§8).
+- Linked counting (§3.2) is only as good as CT34's premises in the system; nothing here shows real nests satisfy them.
+- It does not supply data. §9 records that no public dataset found today meets R1–R4 with a distinctive prediction.
+
+## 8. Proposed amendment (dated 21 November 2026; not applied)
+
+Hypothesis sentence untouched. Proposed replacements, to be applied only after review and Chad's decision (C7):
+
+1. THEORY line 53, item (1): "… and the prices, each measured independently of the design they predict, …" → "… and the prices, each either measured independently of the design they predict or revealed from a disjoint part of the observed design under the fair-test and counting rules of `theory/REVEALED_PRICES_2026-11-21.md` (`n_fit ≥ p` with full-rank identification, `n_score ≥ 1`, overidentifying degrees of freedom `n_fit + n_score − p ≥ 1` counting all free price ratios, any binding-ruin scale ratio, and nuisance parameters; CT34 linking claimed only where its single-currency and coupling premises are verified before data; R2 reachable-set exclusion and R3 rival separation computed before data), …". The same change at line 111 ("with inputs measured independently of the design" → "… measured independently of the design, or with prices revealed under that rule") and line 159 ("measure … the prices, independently of the design" → "… the prices, independently of the design or revealed under that rule").
+2. `measurement/FRAMEWORK.md` §9 item 2: "(no price fitted to the design)" → "(no price fitted to the **scored** design; prices revealed from a disjoint fit set are allowed under the fair-test and counting rules of `theory/REVEALED_PRICES_2026-11-21.md`, with estimation uncertainty included in the error budget)". Item 3 ("the world's drift spectrum and sensing noise, the prices, and the stakes … from data independent of the design; re-measure once if a validity gate fails"): allow prices revealed on the disjoint fit set under the same rule, keeping the single pre-comparison re-measurement rule strictly for independently measured non-price inputs (fitted prices are locked on the fit set and never re-fitted after scoring).
+3. `CORE.md` §2: "predicts only through price-free structure or independently measured prices" → "… price-free structure, independently measured prices, or prices revealed on held-out-disjoint data and overidentified under R1–R4".
+4. Qualification (decision C7 for Chad; symmetric rule required): a preregistered ordinal selection-gradient test (§4) **without** §3 absolute qualification (`σ`, `N_e`, `ε`) must not create an asymmetric "support without kill" rule (`THEORY.md` line 51: an unqualified class is *"not evidence either way"*). Two symmetric options for C7:
+   - **Option A (strict CORE §3 gate, recommended):** keep §4 ordinal selection-gradient tests as standalone tests of the PF17 corollary only; they neither earn `CORE.md` §3 support nor kill the main hypothesis, leaving §3 absolute qualification unchanged.
+   - **Option B (symmetric ordinal class test):** admit a preregistered, power-checked selection-gradient test across a class as a test of the hypothesis **only if** its pass and fail outcomes carry symmetric weight (passing supports; failing the preregistered trend test with wrong sign or losing to a named rival after clearing the power gate counts as a class miss, while a single miss at the weak-selection end does not kill by itself). Absolute §3 qualification remains required for single-design or band-miss kills.
+
+## 9. Dataset search (task B) and decision (task C)
+
+Searched this session for public, no-account data in which one system class shows its design under several exogenous conditions, ideally with a selection ranking. Assessed against R1–R4, the count, and distinctiveness (`PRICE_FREE` §4).
+
+| Candidate | Data | Count | R3 (distinctive?) | Verdict |
+|---|---|---|---|---|
+| Bumblebee sampling under 4 persistence × 3 error-cost levels (Dunlap, Papaj & Dornhaus 2017, *Interface Focus*, doi 10.1098/rsfs.2016.0149; data figshare doi 10.6084/m9.figshare.4769539, DataCite, resolves) | Open | 12 cells, ≤ 2 free ratios (error costs are set in sugar units) | **No.** A two-state switching world, where the law's optimum is the classic sampling model the authors already tested; their finding (sampling rises with change rate; tracking often suboptimal) would be reproduced, not discriminated. A lab task outside the bees' evolved world; no selection ranking | Best-formed, not discriminating |
+| Mutation rate against N_e (Sung et al. 2012; Lynch et al. 2016 tables) | Open (PMC supplements) | Many species | **No.** It is the drift-barrier hypothesis itself; N_e is estimated as π_s / (k·u), which shares u with the design (Sung et al. discuss the induced correlation), so R4 is weak too | Prior art for §4, not a test |
+| Tetrahymena genotypes across thermal-fluctuation periods (Dryad doi 10.5061/dryad.z612jm6k7) | Open | 15 genotypes × periods | **No.** Observes growth (an outcome), not a design feature per condition | Not a test |
+| Chipmunks sampling renewing patches (Hall, Humphries & Kramer 2007, *Can. J. Zool.*, doi 10.1139/Z07-030) | No public deposit found in this search | — | Renewal frequency/magnitude were experimentally manipulated on artificial patches (sampling did not track renewal rate, a potential miss), but natural world spectrum was not measured and no public data were found | Not usable |
+| Wolf territory revisits (Dryad doi 10.5061/dryad.2j125) | Open | 6 animals | World's drift spectrum (scent decay, prey) not measured; p exceeds n_fit | Not identified |
+
+Earlier candidates (E. coli, grids, VIS-1F, SPF, InventoryBench, Beekman and Dornhaus) are assessed in `PRICE_FREE` §3 and `DISCRIMINATING_CANDIDATES`; the change of rule does not rescue them, because their blocker was distinctiveness or an unmeasured world, not only absolute prices (see `theory/VIS1F_DROP_2026-11-21.md` for VIS-1F's second blocker, L3).
+
+**Decision: no candidate qualifies, so nothing is locked or run.** The binding constraint is now R3 together with a measured world, not prices. **The single dataset that would qualify:** one strongly selected reader (or a set of readers ranked by selection strength in advance) whose read intervals are observed on at least three items or conditions whose drift is measured independently and is self-similar with α measured away from 2 (ideally two distinct α); one read technology across items (p = 1); a second design feature on the same items (a memory or smoothing time) for a cross-feature overidentifying check. Fit c/w on one item, predict the rest, rivals R2 (½) and R3 (set-at). Plausible sources: pollinator trapline revisit intervals to plants with measured nectar-secretion autocorrelation; animal patrol or scent-mark renewal intervals with measured decay; or the N51 lab task, which meets R1–R4 but not qualification.
+
+## 10. Effect on the odds
+
+None. This note removes an assumed requirement and states a fair-test standard; it adds no evidence. It also makes two things clearer that cut against novelty, not truth: the revealed-price method is standard, and the selection-gradient test is the drift-barrier argument applied to J.
