@@ -123,7 +123,7 @@ def last_merges(root, ref, n):
 
 def last_merged_prs(root, ref, n=10):
     """Last n first-parent merges that look like GitHub PR merges."""
-    found, seen = [], 0
+    found = []
     # Pull a wider window so non-PR merges can be skipped.
     for item in last_merges(root, ref, max(n * 3, n)):
         if item["number"] is None:
@@ -207,15 +207,13 @@ def claim_map_tally(text):
         if c[0] == "Total":
             total = int(c[1])
         elif c[0] not in ("Status now (all sections) Rows", "Status now (all sections)"):
-            if c[0] == "Status now (all sections)":
-                continue
             rows.append((c[0], int(c[1])))
     return total, rows
 
 
 def is_done_gate(gate):
     s = re.sub(r"[*_`]", "", gate or "").strip()
-    return bool(re.match(r"^DONE(\b|\.|$)", s))
+    return bool(re.match(r"^DONE(?!-)(\b|$)", s))
 
 
 def open_work_undone(text):
@@ -264,8 +262,8 @@ def hypothesis(text):
 # Patterns that always count as a current pointer, wherever they appear.
 ALWAYS_POINTER_RE = re.compile(
     r"(?:`main`\s+is\s+`([0-9a-f]{7,40})`"
-    r"|main\s+is\s+(?:`([0-9a-f]{7,40})`|([0-9a-f]{7,40})\b)"
-    r"|current to\s+`?main`?\s+(?:`([0-9a-f]{7,40})`|([0-9a-f]{7,40})\b))",
+    r"|\bmain\s+is\s+(?:`([0-9a-f]{7,40})`|([0-9a-f]{7,40})\b)"
+    r"|current to\s+`?\bmain\b`?\s+(?:`([0-9a-f]{7,40})`|([0-9a-f]{7,40})\b))",
     re.I,
 )
 # "on/beside main SHA" is a current pointer only in an As-of header.

@@ -139,4 +139,7 @@ def test_unquoted_main_is_feedback_is_not_a_sha():
     assert fresh.stated_main_sha("main is feedback") is None
     assert fresh.stated_main_sha("main is deadbeef") == "deadbeef"
     assert fresh.stated_main_sha("`main` is `2c32ade`") == "2c32ade"
+    assert fresh.stated_main_sha("domain is deadbeef") is None
+    assert fresh.stated_main_sha("remain is deadbeef") is None
+    assert fresh.stated_main_sha("domain is deadbeef. `main` is `2c32ade`.") == "2c32ade"
 

@@ -23,7 +23,7 @@ import sys
 # cares about the "main is SHA" form in STATUS.md.
 STATUS_MAIN_RE = re.compile(
     r"`main`\s+is\s+`([0-9a-f]{7,40})`|"
-    r"main\s+is\s+(?:`([0-9a-f]{7,40})`|([0-9a-f]{7,40})\b)",
+    r"\bmain\s+is\s+(?:`([0-9a-f]{7,40})`|([0-9a-f]{7,40})\b)",
     re.I,
 )
 

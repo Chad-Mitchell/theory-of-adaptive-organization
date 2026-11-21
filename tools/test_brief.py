@@ -237,4 +237,8 @@ def test_unbackticked_current_to_main_is_a_pointer():
     assert len(hits) == 1 and hits[0][0] == "deadbeef"
     hits = list(brief.pointer_hits("current to `main` `deadbeef`"))
     assert len(hits) == 1 and hits[0][0] == "deadbeef"
+    assert list(brief.pointer_hits("domain is deadbeef")) == []
+    assert list(brief.pointer_hits("remain is deadbeef")) == []
+    hits = list(brief.pointer_hits("domain is deadbeef. `main` is `2c32ade`."))
+    assert len(hits) == 1 and hits[0][0] == "2c32ade"
 
