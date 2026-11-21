@@ -50,7 +50,7 @@ The official T27 test (preregistered in `PREREG.md` before any official run) che
 
 ## Two temperatures, not one
 
-See `BRIDGE.md` for the distinction between this selection temperature \(1/\beta\) and the existing ruin-constraint “temperature” \(z=B/(\sigma\tau^H)\) of THEORY (iv), CT18/CT25. They are different quantities. No identification in kelvin is claimed for either, beyond the Landauer floor on the *prices* in \(J\).
+See `BRIDGE.md` for the distinction between this selection temperature \(1/\beta\) and the existing ruin-constraint “temperature” \(z=B/(\sigma\tau^H)\) of THEORY (iv), CT18/CT25. They are different quantities. The \(\sigma\) in \(z\) is the **CT18 shock scale**, not the cost-to-fitness map \(\sigma\) of THEORY §3 / FRAMEWORK §9 used in the band and the consistency note above. No identification in kelvin is claimed for either, beyond the Landauer floor on the *prices* in \(J\).
 
 ## What is not shown
 

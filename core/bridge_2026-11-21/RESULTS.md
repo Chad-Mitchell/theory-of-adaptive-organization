@@ -53,6 +53,14 @@ The locked operationalization of “designs spread” was the two-\(K\) mass flo
 
 ---
 
+## Lesson (not a rescue)
+
+The P3 two-\(K\) mass floor was ill-posed at lock time. The only pre-lock published scan used S5 rng seed 1000 (and a short 1000–1019 scan). At the locked low inverse temperature \(\beta=0.5\), the exact Boltzmann weights on that pilot grid already fail the two-\(K\) floor: mass on \(K=3\) is 0.908 and mass on \(K=2\) is 0.090, under the locked 0.10 threshold. The same pilot at \(\beta=1.5\) would have passed that floor (\(K=2\) mass about 0.166), but \(\beta=1.5\) was not the locked value. Pre-lock pilots never printed \(K\)-masses at \(\beta=0.5\). The official 0/3 is the same pattern the exact Boltzmann already showed on the published pilot, not a surprise about the sampler.
+
+This paragraph does not change the official FAIL, and it is not a rescue of P3. A different spread statistic would be a new prereg. The lesson for future preregs is procedural: compute the exact-Boltzmann value of every gate on the published pilot worlds (and, where the gate is an analytic property of \(\pi\propto e^{-\beta J}\), on the locked grid) *before* locking, and do not lock a floor that the exact weights already miss.
+
+---
+
 ## What this does and does not establish
 
 Established in-model, in these three Model S worlds, under the locked linear map \(m=-\alpha J\) and haploid Moran search: at high \(\beta\), the modal design is the grid minimum (P1), and the mean excess on a local quadratic chart is consistent with equipartition at \(d=2\) to well inside 20% (P2). Those two gates support the quantitative “low-temperature / predicted lag” reading in `SELECTION.md`.
@@ -61,4 +69,6 @@ Not established: the particular low-\(\beta\) spread gate as written (P3). The b
 
 Nothing here is a field result, and nothing is proved about nature. The official record is FAIL.
 
-World parameters, Hessians, occupation, and exact Boltzmann diagnostics are in `run_t27.json`. No DEVIATIONS file was required: the run followed the prereg.
+World parameters, Hessians, occupation, and exact Boltzmann diagnostics are in `run_t27.json`.
+
+A dated deviations file, `DEVIATIONS_2026-11-21.md`, records two post-result housekeeping items that do not change any official number: a mid-run rewrite of `moran_fixation` in `bridge_lib.py` while the official process was already running (a protocol lapse; the in-memory official run used the pre-rewrite formula, which is numerically equivalent to the committed rewrite, and a later committed-code re-run reproduced `run_t27.json` exactly except wall-clock `seconds`); and a day mismatch in the locked `PREREG.md` header, which says “Friday 20 November 2026, late evening ET” while `LOCK.txt` is Saturday 21 November 2026, 12:05:31 AM EST. That file also records the committed SHA-256 hashes of `run_t27.py` and `bridge_lib.py`, and the standing rule that future tests hash-lock the runner and the library at lock time, the same way the prereg and the predictions are locked. The locked PREREG, predictions, and official numbers are not edited.

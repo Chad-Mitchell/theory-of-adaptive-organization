@@ -33,4 +33,6 @@ Reviews of the theory notes, the tests, and the AI-memory toy. Independence is s
 
 | `wf_2026-11-20/REVIEW.md` | Independent review of PR #121 (WF-HSV water-filling count test, T25): **READY-WITH-FIXES**. Official fail/pass gates stand (both PRIMARY gates fail; TAUTOLOGY, SANITY, and HOLE pass). S1–S3 applied as post-result housekeeping in this PR, with no gate change | Stated as an independent pass that wrote none of the PR, MATH.md, prereg, predictions, run, RESULTS, or WF-HSV code; same bot family. |
 
+| `thermo_2026-11-21/REVIEW.md` | Independent review of PR #122 (thermodynamic / selection bridge, T27): **READY-WITH-FIXES**. Official fail/pass gates stand (P1 and P2 pass 3/3, P3 fails 0/3, overall FAIL). S1–S5 applied as post-result housekeeping in this PR, with no official number changed and no edit to the locked PREREG or predictions | Stated as an independent pass that wrote none of the PR, package, prereg, predictions, runner, or results; same bot family. |
+
 Test-specific reviews (for example `tests/C3/REVIEW.md`) stay with those tests.
