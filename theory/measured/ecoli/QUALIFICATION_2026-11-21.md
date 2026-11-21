@@ -402,6 +402,11 @@ These are not verdicts and do not qualify the class. They summarise a reviewer's
 recommended path to later establish each item, if the evidence supports it. All
 of them must be locked before any re-score of P1, P3, P4 or P13.
 
+Landing note (21 November 2026, later the same day; no change to any verdict in
+this file): the path below is now locked as a preregistered measurement plan in
+`theory/measured/ecoli/MEASURE_PLAN_2026-11-21.md`, committed before any
+computation or re-score under that plan.
+
 1. **σ (item a).** Preregister (i) the units and terms of J for this class, (ii)
    the perturbation whose growth-rate (or competition-fitness) change will be
    used, and (iii) how ΔJ/J is measured for that same perturbation. Then retrieve
