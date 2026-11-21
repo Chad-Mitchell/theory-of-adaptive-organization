@@ -27,7 +27,7 @@ def _lake_on_path() -> str | None:
     if found:
         return found
     elan_lake = os.path.expanduser("~/.elan/bin/lake")
-    if os.path.isfile(elan_lake) and os.path.access(elan_lake, os.X_OK):
+    if os.path.isfile(elan_lake) and os.access(elan_lake, os.X_OK):
         return elan_lake
     return None
 

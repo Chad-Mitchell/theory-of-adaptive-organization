@@ -26,8 +26,10 @@ this record.
 
 **Selection-temperature extension.** The σ and N_e values recorded below would
 also feed a selection-temperature extension (stationary weight exp(−β J), spread
-of order 1/(σ·N_e)) being developed on branch `thermo-bridge-2026-11-21`. That
-extension is not used in any verdict here.
+of order 1/(σ·N_e)). At the time this file was written that work was in
+development on branch `thermo-bridge-2026-11-21`; it is now on `main` via
+PR #122 (T27, official in-model FAILED). That extension is not used in any
+verdict here.
 
 **Overall verdict: NOT ESTABLISHED.** All five items must hold, with the evidence
 recorded, for the class to qualify. Items (a)–(e) are each **NOT ESTABLISHED** as
@@ -385,7 +387,8 @@ THEORY §3 / FRAMEWORK §9. That does not re-score P1, P3, P4 or P13 and does
 not convert their historical proxy results into evidence either way.
 
 What is now on record, and can be used later (including by the
-selection-temperature extension on `thermo-bridge-2026-11-21`), is the
+selection-temperature extension now on `main` via PR #122, formerly developed
+on `thermo-bridge-2026-11-21`), is the
 literature itself: a measured growth-rate cost of the motility regulon of up
 to 18% in one study (condition-wise values still unread); species-wide N_e
 estimates near 10^8–10^9 alongside a within-host estimate of ≈500–1,700 and a
