@@ -1,0 +1,50 @@
+== 1. Single-layer Dixit / CL19 identities (KNOWN; re-derived)
+[PASS] Tstar equals bstar^2 / sig2  T=0.244948974278 b^2/sig2=0.244948974278
+[PASS] Jstar equals average cost at bstar  0.0816496580928
+[PASS] bstar matches grid minimizer  closed=0.4949232 grid=0.49494125
+[PASS] barrier lifetime is sqrt(3) times fixed-period lifetime  T_bar/T_fix=1.73205080757 sqrt(3)=1.73205080757
+[PASS] barrier cost is lower than fixed-period cost  J_bar=0.081649658 J_fix=0.14142136
+[PASS] T* scales as sqrt(k / (w sig2))
+
+== 2. Specialized separable stack (PROVED in-model when layers cannot reset each other's components)
+[PASS] spacing T_i/T_j = sqrt((k_i/k_j)*(sig2_j/sig2_i))  12: 0.25 vs 0.25; 23: 0.33333333 vs 0.33333333
+[PASS] brute-force per-layer J matches closed J*  max rel err=1.028e-07
+[PASS] stack J* is the sum of the layer costs (separable)
+
+== 3. Counterexamples: when the recursive stack rule is false
+[PASS] FALSE without specialization: one cheap joint reset of the sum beats two layers  J_joint(min k)=0.25819889 J_sep=0.48061843
+[PASS] joint reset costing k1+k2 is never cheaper than specialized (equality iff k/sig2 equal)  sqrt((k1+k2)(s1+s2))-sum=0.0029730266
+[PASS] equality when k_i / sig2_i are equal  gap=0.000e+00
+[PASS] smooth adjustment has a decay time, not a lumpy lifetime
+
+== 4. OU target (NUMERICAL): BM formula vs exact fixed-period optimum
+[PASS] OU T_bm << tau: BM T* within 5% of exact fixed-period T*  T_bm=0.022361 T_opt=0.022428 T_bm/tau=0.00447 relT=0.00299 relJ=0.00149 pays=True
+[PASS] OU T_bm >> tau: BM T* is NOT within 20% (formula false in this regime)  T_bm=3.1623 T_opt=7.4858 T_bm/tau=0.632 relT=1.37 relJ=0.249 pays=True
+[PASS] OU T_bm >> tau: lumpy tracking need not pay versus staying blind  J_opt=0.94993 J_blind=1 pays=True
+
+== 5. Layer-count bound in the specialized OU class
+[PASS] K >= number of components with v_i > D (specialized OU, hard accuracy D)  D=0.4 must-track=6 v=[1.573, 1.231, 1.434, 0.224, 1.28, 1.963, 0.876, 0.269]
+[PASS] FALSE without specialization: K=1 can meet any D>0 if a joint observation of the sum is allowed  residual after a perfect joint observation starts at 0, so a short enough hold meets any D
+[PASS] two full-reset layers on one BM cannot beat the cheaper one alone  J_one=0.081649658 J_sum=0.48989795
+
+== 6. Local vs shared (D5): sign condition with latency
+[PASS] amortization: shared can win at zero latency iff k_S < N k_L  k_S=0.08 N k_L=0.2
+[PASS] critical sig2 is positive when k_S < N k_L and lag>0  sig2*=0.02161423
+[PASS] shared cheaper at low drift  J_S=0.12 J_L=0.147018
+[PASS] local cheaper at high drift (D5 sign)  J_S=0.804213 J_L=0.588071
+[PASS] exactly one crossing in a 10^4-wide window around sig2*  n_cross=1
+[PASS] numerical crossing matches closed sig2*  num=0.02161423 closed=0.02161423
+[PASS] without latency there is no drift-driven local/shared switch
+[PASS] rivals (threat-rigidity, copy-when-uncertain) have the opposite sign in sig2  J says local as sig2 rises past sig2*; rivals say more central/social
+   OU-with-latency companion (NUMERICAL, same sign as CT35's e^{-2 lag/tau})
+[PASS] OU: local cheaper when the world is fast vs the latency  tau=0.05 lag=0.5  J_L=9.4993 J_S=10
+[PASS] OU: tau > lag is not enough, at these prices shared still loses at tau=40*lag  tau=20 lag=0.5  J_L=0.62575 J_S=0.87515
+[PASS] OU: shared cheaper when the world is slow enough that amortization beats the delay floor  tau=200 lag=0.5  J_L=0.19933 J_S=0.17578
+
+== 7. Model S store optimizer (existing layers_checks): not the same object as T*
+[PASS] Model S two-store rates interlace the world rates (L2, already in the repo)  a=[1.0, 0.01] b=[0.09765893981033093, 4.603320922036105] E2=0.184549
+[PASS] Dixit lifetime ratio is not the Model S store-time-constant ratio (different design class)  T*_slow/T*_fast=10 tau_store_slow/fast=47.14
+[PASS] lifetime rule does not compute E_K or the fewest-stores floor of Model S  E_K comes from the existing optimizer; T* is a lumpy-reset interval
+
+ALL PASS
+33/33 checks
