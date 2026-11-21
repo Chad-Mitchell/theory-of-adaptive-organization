@@ -50,7 +50,7 @@ def main(argv=None):
     os.chdir(ROOT)
 
     MAINTAINED = [
-        "README.md", "STATUS.md", "THEORY.md", "process/QUEUE.md",
+        "README.md", "STATUS.md", "THEORY.md", "CORE.md", "process/QUEUE.md",
         "measurement/FRAMEWORK.md", "measurement/CLAIM_MAP_v2.md",
         "theory/README.md", "theory/SCALE_ENDS.md",
         "applications/README.md", "tests/README.md", "reviews/README.md",

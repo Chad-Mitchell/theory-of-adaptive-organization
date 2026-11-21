@@ -1,0 +1,18 @@
+diff --git a/theory/store_noise/threshold_check.json b/theory/store_noise/threshold_check.json
+index a026a60..32ce042 100644
+--- a/theory/store_noise/threshold_check.json
++++ b/theory/store_noise/threshold_check.json
+@@ -34,10 +34,11 @@
+   "1.0": {
+    "0.2": 1.422,
+    "0.31": 1.161,
+    "0.45": 0.8199,
+    "0.5": 0.7071,
+    "0.55": 0.6019,
+    "0.7": 0.3354
+   }
+- }
++ },
++ "grid_37x13_max_ratio_to_closed_form": 0.99997
+ }
+\ No newline at end of file
