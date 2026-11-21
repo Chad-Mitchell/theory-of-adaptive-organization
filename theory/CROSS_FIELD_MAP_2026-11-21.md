@@ -4,7 +4,7 @@
 
 ## 0. The idea, and what is already here
 
-Agreed with Chad (t2050): each field found its own local optimum (Chow in caches, Benna & Fusi in synapses, Roundy in inventory, Jaques in firms). That part is prior art, novelty 0. What only a single law would predict is the **cross-field** part: systems in different substrates whose worlds share the same reuse exponent θ and whose technologies share the same cost exponent γ should share the same dimensionless design numbers, whatever they are made of. **Rival (R0):** each field's numbers are set locally, with no shared dependence on (θ, γ).
+Agreed with Chad (t2050): each field found its own local ladder pattern (Chow in caches and Roundy in inventory via optimization; Benna & Fusi in synapses by cascade design; Jaques empirically in firms). That part is prior art, novelty 0. What only a single law would predict is the **cross-field** part: systems in different substrates whose worlds share the same reuse exponent θ and whose technologies share the same cost exponent γ should share the same dimensionless design numbers, whatever they are made of. **Rival (R0):** each field's numbers are set locally, with no shared dependence on (θ, γ).
 
 Already in the repository (grep of THEORY, CORE, FRAMEWORK, `history/2026-11-12_X_POST.md`, litmap): CT24 (cost shares equal price elasticities, currency-free); T7b and L4 (geometric clocks for items log-uniform in rate, every α in (1, 3), "Roundy-type, known in substance"); CT21 (a single drifting signal, including a self-similar random walk, needs at most one layer); N4 (store count, prior art in form); T20 part A (K\* grows roughly linearly in log stakes R with scale range held fixed, official (A) gates 12/12 in-model; T20 overall not supported because (B) failed); PR #134 (Chow 1974/76, Welch 1978, Jacob et al. 1996 hold the cache versions of all three). "Only dimensionless ratios matter" (THEORY line 36) already says that the same problem has the same answer at every scale. What this note adds is the explicit map, its scope, and the inventory of what would test it.
 
@@ -26,9 +26,9 @@ J is a posynomial in (s, t), so in log variables it is convex: this is a geometr
 
 ### 2.2 First-order conditions
 
-Write D_k = m(s_{k-1})·t_k (level k's share of delay) and C_k = a·t_k^{-γ}·s_k.
+Write D_k = m(s_{k-1})·t_k (level k's delay contribution; its share of delay is D_k/T) and C_k = a·t_k^{-γ}·s_k.
 
-- ∂J/∂ ln t_k = 0 gives **D_k = γ·λC_k at every level.** Summing, delay shares equal cost shares level by level (Welch 1978's result), and over the whole design **T : λC = γ**, so the loss share of J is γ/(1 + γ). This is CT24's elasticity reading for this J (for one tracker CT24 gives reads : error = α − 1).
+- ∂J/∂ ln t_k = 0 gives **D_k = γ·λC_k at every level.** Summing gives **T : λC = γ**, so D_k/T = C_k/C level by level (Chow 1974 Eq. 36; Welch 1978), and the loss share of J is γ/(1 + γ). This is CT24's elasticity reading for this J (for one tracker CT24 gives reads : error = α − 1).
 - ∂J/∂ ln s_k = 0 (interior k) gives **λC_k = θ·D_{k+1}.**
 
 ### 2.3 The map
@@ -43,7 +43,7 @@ With x_k = ln(s_k/s_{k-1}) and y_k = ln(t_{k+1}/t_k) and q = 1/(θγ), the two c
 | delay share = cost share, per level | exact at every level | none |
 | loss : upkeep over the design | γ | γ only |
 | levels per decade of range | 1/log₁₀ r_s | θ, γ only |
-| number of levels | ≈ ln(S/s_1)/ln r_s | range (the edges) |
+| number of levels | ≈ ln(S/s_1)/ln r_s (once s_1 is pinned, or K is optimized against per-level upkeep h) | range (the edges) |
 
 The prices (λ, a) and the stakes drop out of every ratio. They and the range set only where the ladder starts and stops. This is the precise sense of the boundary ("holographic") reading in PR #133 §5: **the interior is fixed by two exponents; the edges are fixed by prices and range.** Example with made-up exponents θ = γ = 0.5: r_s = r_t = 16, q = 4, about 0.83 levels per decade.
 
@@ -84,7 +84,7 @@ What could be distinctive, if anything: not the map, but the bet that it is the 
 | Field (substrate) | World exponent θ | Technology exponent γ | Design numbers (ratios, count) | n | Status |
 |---|---|---|---|---|---|
 | CPU caches and storage (silicon, magnetic) | **Measured, independent**: Hartstein et al. 2006 (doi 10.1145/1128022.1128064), θ ≈ 0.3–0.7; Cantin & Hill SPEC CPU2000 miss-rate tables (public, research.cs.wisc.edu). | **Obtainable, not compiled**: cost per byte and latency per tier (DRAM, flash, disk) in the five-minute-rule papers, Gray & Graefe 1997 (doi 10.1145/271074.271094) and Appuswamy et al. 2019 (doi 10.1145/3318163). SRAM vs. DRAM per-bit cost in public form not yet located. | **Measured**: per-chip capacities and latencies (7-cpu.com, vendor sheets). | Many chips, but a handful of independent technology generations; level count nearly collinear with time (PR #134). | **Closest to complete (1 field).** Engineers optimize with Chow-type models, so this field is an anchor, not independent support. |
-| Web and CDN caching (silicon) | Measured: Breslau et al. 1999 (doi 10.1109/infcom.1999.749260), Zipf-like popularity. | Same technology as above. | Tier sizes mostly operator-private. | — | Same substrate as caches; does not add a field. |
+| Web and CDN caching (silicon) | **Popularity only (not m(s) = s^{-θ})**: Breslau et al. 1999 (doi 10.1109/infcom.1999.749260) measure Zipf-like rank popularity α ∈ [0.64, 0.83] < 1, which gives hit ratio ∼ (s/N)^{1−α} and finite-catalog miss rate 1 − (s/N)^{1−α}, not scale-free s^{-θ} (which requires α > 1 with θ = α − 1). | Same technology as above. | Tier sizes mostly operator-private. | — | Same substrate as caches; does not add a field. |
 | Synapses (biochemistry) | Need-probability curves measured for human memory's environment (Anderson & Schooler 1991, doi 10.1111/j.1467-9280.1991.tb00174.x), but these are behavioral, not synaptic; Benna & Fusi's 1/t, 1/√t are model choices. | **Missing.** No measured law for how the cost of holding a molecular state scales with its speed. | **Missing as data**: Benna & Fusi's ratio n² is chosen; no measured ratio of successive consolidation time constants located. | 0 | Missing γ and the design number. |
 | Multi-echelon inventory (logistics) | Demand-popularity skew measured in retail generally; not tied to echelon data. | **Missing** (holding cost vs. replenishment speed is firm-specific, unpublished). | Roundy 1985 (doi 10.1287/mnsc.31.11.1416) power-of-two intervals are a policy rule, not a field measurement. | 0 | Missing all three as independent field data. |
 | Firm strata (Jaques 1990) | **Missing.** | **Missing** (pay vs. time-span is in Jaques' data, but that's an output, not a technology law). | Time-span boundaries roughly geometric, reported by Jaques from his own practice. | Not public as data | Missing both exponents. |
