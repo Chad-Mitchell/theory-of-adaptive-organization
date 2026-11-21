@@ -114,4 +114,8 @@ Those cuts are about 310 words, from 4,988 to about 4,680. They do not make the 
 
 ## Dated note (21 November 2026, evening ET, America/New_York; branch `selection-fold-2026-11-21`)
 
-The first open item is addressed in this later pass: `core/bridge_2026-11-21/SELECTION.md` now states the population model explicitly (haploid Moran \(eta=lpha(N-1)\); diploid Wright–Fisher \(eta=lpha(2N-1)\), an approximation; haploid Wright–Fisher \(2(N-1)\) unused). The official T27 Moran run, \(N=201\) and \(eta=lpha(N-1)\), was not touched, and no locked prereg or hash file was edited. The holdability cuts named in §3 were applied in the same pass. The reset-process histogram remains open.
+The first open item is addressed in this later pass: `core/bridge_2026-11-21/SELECTION.md` now states the population model explicitly (haploid Moran \(\beta=\alpha(N-1)\); diploid Wright–Fisher \(\beta=\alpha(2N-1)\), an approximation; haploid Wright–Fisher \(2(N-1)\) unused). The official T27 Moran run, \(N=201\) and \(\beta=\alpha(N-1)\), was not touched, and no locked prereg or hash file was edited. The holdability cuts named in §3 were applied in the same pass. THEORY §4 and Appendix A.1 were edited in this pass. The reset-process histogram remains open.
+
+## Dated note (21 November 2026, later evening ET, America/New_York; after the independent review of PR #144)
+
+The fold's CORE §8 and THEORY §4 wording was tightened after that review (NOT READY). The stationary excess is attributed to A1, A2-L, \(N\mu\ll 1\), and SA1–SA1b; the lag term stays under its SA2 conditions; nearness also needs \(\sigma N_e\gg d\). THEORY §4 and Appendix A.1 now state the note's formula without reusing that file's \(d\), \(\nu\), or \(N\). The broken escape sequences in the previous dated note are restored.

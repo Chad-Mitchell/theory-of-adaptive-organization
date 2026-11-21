@@ -185,7 +185,7 @@ The sentence stays byte-identical, including the word "law" in a sentence that l
 
 ## 11. Relation to the existing bridge and to T27
 
-This note **builds on** `core/bridge_2026-11-21/`, rather than replacing it. Theorem SA1 is the bridge's Moran theorem, restated. Corollary SA1c keeps the bridge's fractional form, with \(\beta=\alpha\nu\). The bridge file now states the same per-model exponents (haploid Moran \(\alpha(N-1)\); diploid Wright–Fisher \(\alpha(2N-1)\), an approximation). The official T27 test of that package (locked `PREREG.md`, hashes unchanged) remains: P1 passed (3/3), P2 passed (3/3), P3 failed (0/3) and is not rescued. P3's operationalization (a two-\(K\) mass floor at low \(\beta\)) was already missed by the exact Boltzmann measure on the pilot; the failure is about that operationalization, not a refutation of SA1. Nothing in SA2 repairs P3.
+This note **builds on** `core/bridge_2026-11-21/`, rather than replacing it. Theorem SA1 is the bridge's Moran theorem, restated. Corollary SA1c keeps the bridge's fractional form, with \(\beta=\alpha\nu\). The bridge file now states the same per-model exponents (haploid Moran \(\beta=\alpha(N-1)\); diploid Wright–Fisher \(\beta=\alpha(2N-1)\), an approximation). The official T27 test of that package (locked `PREREG.md`, hashes unchanged) remains: P1 passed (3/3), P2 passed (3/3), P3 failed (0/3) and is not rescued. P3's operationalization (a two-\(K\) mass floor at low \(\beta\)) was already missed by the exact Boltzmann measure on the pilot; the failure is about that operationalization, not a refutation of SA1. Nothing in SA2 repairs P3.
 
 ## 12. Numerical checks
 
