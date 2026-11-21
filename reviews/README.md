@@ -53,4 +53,6 @@ Reviews of the theory notes, the tests, and the AI-memory toy. Independence is s
 
 | `night_record_2026-11-21/REVIEW.md` | Independent review of PR #132 (night record of PRs #121–#131, and OPEN_WORK T30): **READY**. Docs-only, not a lock, not a re-score. Every merge SHA and time matches `git log`; official results and review labels match the merged files; four DOIs re-verified on Crossref. `CORE.md` and the law sentence unchanged. | Stated as an independent pass that wrote none of the PR, `history/2026-11-21_NIGHT.md`, or the OPEN_WORK T30 row; same bot family, later the same night, not a blind second executor. |
 
+| `cache_prior_art_2026-11-21/REVIEW.md` | Independent review of PR #134 (cache-hierarchy prior art, no lock): **READY-WITH-FIXES**. Not a lock, and not a scored result. S1 (T20 part A is K* vs log R with span fixed, not log scale range / Chow's log capacity), S2 (Przybylski is an interaction, not CT34's composition theorem), and nits applied in this PR. Does not merge | Stated as an independent pass that wrote none of the PR, `theory/CACHE_HIERARCHY_PRIOR_ART_2026-11-21.md`, or the `litmap/PRIOR_ART.md` row; same bot family. |
+
 Test-specific reviews (for example `tests/C3/REVIEW.md`) stay with those tests.
