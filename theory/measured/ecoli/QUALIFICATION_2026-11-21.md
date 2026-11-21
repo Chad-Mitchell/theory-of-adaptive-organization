@@ -33,8 +33,8 @@ established; …)** as already written. No status is changed.
 
 ## 1. What the definition required
 
-Quoted from THEORY.md §3 at `4398bbd` (the same wording is the protocol in
-FRAMEWORK.md §9 item 1, about line 705). Every item had to be recorded before any
+Quoted from THEORY.md §3 at `4398bbd`. FRAMEWORK.md §9 item 1 (about line 705)
+is the same protocol, not the same wording. Every item had to be recorded before any
 measurement, and here before any re-score:
 
 > (a) *a cost-to-fitness map:* σ, the fractional change in the class's growth,
@@ -287,12 +287,15 @@ above the drift barrier is “a conservative choice made here, not Lynch's”
 10.1038/nrg.2016.104, was Crossref-verified but is not open access and was not
 retrieved; no sentence from that paper is quoted here.
 
-For orientation only, **not as a qualification value:** if one combined Honda's
-upper growth-rate cost 0.18 with a species-wide N_e of order 10^8, ε would be of
-order 10^−6; if one combined the same 0.18 with a within-host N_e of order 10^3,
-ε would be of order 0.06. If the unread lower end of Honda's SI Fig. S2E is
-substantially smaller than 18% and N_e is ~500, ε can be of order 1. Those
-illustrations are not a band.
+For orientation only, **not as a qualification value, and not by taking Honda's
+0.18 growth-rate effect as σ:** if one inserted 0.18 in place of σ in
+ε = 10/(σ·N_e) purely to sketch the scale (which would be the identification
+ΔJ/J = 1 for a complete motility knockout, which this file does not adopt) with
+a species-wide N_e of order 10^8, the arithmetic would be of order 10^−6; with
+a within-host N_e of order 10^3, of order 0.06. If the unread lower end of
+Honda's SI Fig. S2E is substantially smaller than 18% and N_e is ~500, that
+same illustration can be of order 1. Those illustrations are not a band, and
+0.18 is not used as σ.
 
 **Verdict (c): NOT ESTABLISHED.**
 
@@ -385,7 +388,60 @@ published 10^5–10^8 range; and generation times of 20 min (rich laboratory
 medium), 15 ± 7.7 h (Gibson wild estimate), and 40–80 min in mucus in one
 mouse model (luminal cells static).
 
-## 8. Sources (DOIs verified on Crossref, 21 November 2026)
+## 8. Path to establish (recommendations only; to be locked before any re-score)
+
+These are not verdicts and do not qualify the class. They summarise a reviewer's
+recommended path to later establish each item, if the evidence supports it. All
+of them must be locked before any re-score of P1, P3, P4 or P13.
+
+1. **σ (item a).** Preregister (i) the units and terms of J for this class, (ii)
+   the perturbation whose growth-rate (or competition-fitness) change will be
+   used, and (iii) how ΔJ/J is measured for that same perturbation. Then retrieve
+   Honda SI Fig. S2E for the condition-wise Δr/r of the *flhD* deletion, and/or
+   Ni Datasets S1–S4 to convert 72 h coculture fractions into a selection
+   coefficient per generation. The honest estimator is a slope near the wild-type
+   design (a titration of *flhDC* or of flagellar investment), not a single
+   knockout treated as ΔJ/J = 1 unless that identification is locked in advance.
+   Do not use Schavemaker energy shares or proteome fractions as σ. Record one
+   map, with error, and its source.
+
+2. **N_e (item b).** Preregister, before choosing a number, which operational
+   meaning of “independent lineages competing in the same world per redesign
+   time” will be used, and name that world. Three live options, which are not
+   interchangeable (Berg 1996): (i) species-wide silent-site / dN/dS N_e (Sung,
+   Bobay, Lapierre/Hartl: order 10^8–10^9) if the world is the species’ shared
+   environment over T_red; (ii) within-host N_e of a colonizing clone, after
+   retrieving Ghalayini’s full text to confirm the ≈500–1,700 method, if the
+   relevant competition is inside one host; (iii) a new census: the number of
+   independently founded, co-circulating lineages in a named habitat over one
+   T_red. Lock one proxy, and report the others only as sensitivity. The N_e
+   world and the T_red world must be the same world.
+
+3. **ε (item c).** Once unique σ and N_e are locked, compute ε = 10/(σ·N_e). If
+   a range remains, take the largest ε (the FRAMEWORK rule that a worse
+   measurement cannot make qualification easier). That number is then the
+   minimum width of the prediction band.
+
+4. **Power (item d).** Preregister the map from a fractional J-gap to a
+   design-unit band, {𝒟 : J(𝒟) ≤ (1 + ε + δ_meas)·J*}, with H from this class’s
+   own J (THEORY §3, “From a cost band to a design band”). Name at least one
+   rival among R1–R3 (ECOLI-MEM already named memory = τ_v, which is R3). Show
+   that the band plus δ_meas excludes that rival’s design. Any use of the locked
+   ECOLI-MEM numbers for this comparison is a separately preregistered re-score,
+   not an addendum to the present file.
+
+5. **T_red and 10 T_red (item e).** Either measure the 1 − 1/e closing time of
+   the motility / chemotaxis design after a documented step change in prices or
+   in the world’s statistics (for example, experimental evolution of flagellar
+   investment after a change in nutrient regime, fitted to the new argmin), or
+   preregister a turnover proxy T_red = k × (a named generation time), with k
+   fixed in advance. Name which generation time — laboratory 20 min, Gibson’s
+   wild 15 (s.e. 7.7) h, Poulsen’s 40–80 min in mucus, or a new measurement in
+   the habitat used for N_e — and then show that the lineage faced that same
+   world for at least 10 T_red. Do not use the methylation-layer adaptation time
+   (~10 s) as T_red.
+
+## 9. Sources (DOIs verified on Crossref, 21 November 2026)
 
 | Source | Crossref record | Retrieved here as |
 |---|---|---|
