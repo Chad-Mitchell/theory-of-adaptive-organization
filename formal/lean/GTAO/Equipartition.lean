@@ -1,7 +1,7 @@
 /-
 Copyright (c) 2026 Chad Mitchell. Public domain (CC0).
 Lean 4 formalization of the selection-axioms stationary excess
-(CORE §3, THEORY §4: `E[J] - J* = d/(2β)`), for OPEN_WORK T19.
+(CORE §8, THEORY §4: `E[J] - J* = d/(2β)`), for OPEN_WORK T19.
 -/
 module
 
@@ -16,7 +16,7 @@ public import Mathlib.Topology.Instances.Matrix
 /-!
 # Equipartition: the Gibbs excess `d/(pβ)`
 
-`theory/SELECTION_AXIOMS.md` SA1b / Corollary SA1c (CORE §3, THEORY §4):
+`theory/SELECTION_AXIOMS.md` SA1b / Corollary SA1c (CORE §8, THEORY §4):
 under the Sella–Hirsh stationary weight `π ∝ exp(-β J)` on a quadratic,
 positive definite cost well in `d` soft coordinates, the absolute
 stationary excess is `E_π[J] - J* = d/(2β)`.

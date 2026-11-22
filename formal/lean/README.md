@@ -8,7 +8,7 @@ minimizer of the repository's zero-discount average cost, the
 local-vs-shared crossing (D5), the selection-axioms stationary excess
 `E_π[J] − J* = d/(2β)` (equipartition, SA1b), and the lower-hull increment
 test equals argmin for an arbitrary `ε` (KEYSTONE_NOTE §4).
-Formalization cannot establish the hypothesis in CORE §3, which is a claim
+Formalization cannot establish the hypothesis at the top of CORE.md, which is a claim
 about the real world.
 
 - Toolchain: `lean-toolchain` pins `leanprover/lean4:v4.37.0-rc1`.
@@ -94,7 +94,7 @@ wherever `FiniteDesignMenu` is used.
 | `LocalShared.equal_delay_no_switch`, `barrier_crossing_eq_fixed_div_three` | LAYER_LIFETIME §5 | As above | An equal delay floor on both sides cancels (comparison is the `ℓ = 0` one at every drift); the barrier crossing is the fixed-period crossing divided by exactly 3 |
 | `Equipartition.HomogCost`, `Z_scale`, `Nm_scale`, `Nm_one`, `gibbs_mean_homog` | SA1b, general form | `E` a finite-dimensional real normed space of dimension `d ≥ 1`, `μ` any additive Haar measure (Lebesgue); `q` continuous, `q ≥ 0`, `q(x) > 0` for `x ≠ 0`, `q(r x) = r^p q(x)` for `r > 0`, `p > 0`; `β > 0` | `e^{−βq}` and `q e^{−βq}` are integrable, `Z(β) = β^{−d/p} Z(1)`, and `∫ q e^{−βq} / ∫ e^{−βq} = d/(pβ)` (proof: scaling plus Fubini on `β ∈ [1,2]`) |
 | `Equipartition.gibbs_excess` | SA1b, `E[J] − J* = d/(pβ)` | As above, with `J(x) = J* + q(x − x*)` | For `π ∝ e^{−βJ}`, `E_π[J] − J* = d/(pβ)` exactly |
-| `Equipartition.homogCost_quadratic`, `gibbs_excess_quadratic` | SA1b / Corollary SA1c, `d/(2β)`; CORE §3, THEORY §4 | `J(x) = J* + ½(x − x*)ᵀH(x − x*)` on `ℝ^d` (`Fin d → ℝ`, Lebesgue), `d ≥ 1`, `H` positive definite (Mathlib `Matrix.PosDef`, so symmetric), `β > 0`; π is the Gibbs/Boltzmann law `∝ e^{−βJ}` on all of `ℝ^d` | `E_π[J] − J* = d/(2β)` exactly.  SA1 (that the stationary law of the origination–fixation chain is this Boltzmann weight, Sella–Hirsh), SA1b's "treat the measure as supported on the quadratic well", and the per-model `β` (Moran `α(N−1)`, Wright–Fisher `α(2N−1)`) are **not** formalized; they are the inputs that make this identity the selection result |
+| `Equipartition.homogCost_quadratic`, `gibbs_excess_quadratic` | SA1b / Corollary SA1c, `d/(2β)`; CORE §8, THEORY §4 | `J(x) = J* + ½(x − x*)ᵀH(x − x*)` on `ℝ^d` (`Fin d → ℝ`, Lebesgue), `d ≥ 1`, `H` positive definite (Mathlib `Matrix.PosDef`, so symmetric), `β > 0`; π is the Gibbs/Boltzmann law `∝ e^{−βJ}` on all of `ℝ^d` | `E_π[J] − J* = d/(2β)` exactly.  SA1 (that the stationary law of the origination–fixation chain is this Boltzmann weight, Sella–Hirsh), SA1b's "treat the measure as supported on the quadratic well", and the per-model `β` (Moran `α(N−1)`, Wright–Fisher `α(2N−1)`) are **not** formalized; they are the inputs that make this identity the selection result |
 | `HullWalk.HullVertices`, `IsLowerHull`, `Pays`, `hull_walk_stop_exists`, `hull_walk_leftmost_argmin` | KEYSTONE_NOTE §4, the hull-vertex walk (edges may skip integers) | `R ≥ 0`; `ε : ℕ → ℝ` arbitrary (no convexity); vertex data `v 0 = 0 < v 1 < ⋯ < v m = n` with every point on or above its hull edge and nondecreasing edge slopes | The walk that jumps from `v i` to `v(i+1)` iff `R(ε(v i) − ε(v(i+1))) > v(i+1) − v i` stops, and the stopping vertex is a minimizer of `φ(K) = K + R(1+ε_K)` on `{0,…,n}`, strictly below `φ` at every `K` to its left (leftmost minimizer) |
 | `HullWalk.greedy`, `greedy_isLowerHull`, `hull_increment_test_eq_argmin` | KEYSTONE_NOTE §4 Proposition, unconditional | `R ≥ 0`; `ε` arbitrary | Every `ε` has lower-hull vertex data (greedy minimum-slope chords), so the hull increment test returns the leftmost argmin of `φ` for **every** `ε`, with no convexity hypothesis |
 
@@ -102,7 +102,7 @@ wherever `FiniteDesignMenu` is used.
 
 None of the following is claimed as proved in Lean.
 
-- The hypothesis in CORE §3 (a claim about the real world).
+- The hypothesis at the top of CORE.md (a claim about the real world).
 - Convexity of `ε_K` in Model S, still unproved on paper (CORE §4, KEYSTONE_NOTE).  The increment *formula* in N60 is formalized only as a consequence of discrete convexity, which is an assumption here.
 - The stochastic derivations behind the layer-lifetime and local-vs-shared cost expressions (Brownian exit times, the time-average square gap `b²/6`, the delay floor `N w σ² ℓ`, and Chalkley's exactness at zero discount).  The optimization and comparison on those expressions are formalized; the expressions are inputs.
 - The OU (mean-reverting) version of D5 and the `T*`-versus-correlation-time failure regime (NUMERICAL in the repository).
