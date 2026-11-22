@@ -1,0 +1,5 @@
+GMREAD lock manifest. Timestamp of record = git commit time of this file on branch prereg-interiority-2026-11-22.
+Simulated series only. No deposit asset was opened. nice 19 for the run that wrote sim_outcomes.json.
+50b5230184c87f0dd10fefeb66ef4b0e15d70801b856f5656e3ad42795b4f09b  PREREG.md
+a61990f5d674cd49123e0c275bc0db453adb69a1d89e9bbbc8e37e3e84c3e036  gmread.py
+d63c10da3c7f2eb6a3448003d80d072c8056f2ecda3823adc9a0afc7ba41aa01  run_sim.py

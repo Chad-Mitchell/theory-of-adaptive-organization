@@ -1,0 +1,83 @@
+{
+  "resolved_on": "2026-11-22",
+  "source": "https://api.crossref.org/works/{doi}",
+  "works": [
+    {
+      "doi": "10.1371/journal.pbio.0050116",
+      "http": 200,
+      "title": "Fly Photoreceptors Demonstrate Energy-Information Trade-Offs in Neural Coding",
+      "year": 2007,
+      "container": "PLoS Biology"
+    },
+    {
+      "doi": "10.1126/science.1114383",
+      "http": 200,
+      "title": "Phenotypic Diversity, Population Growth, and Information in Fluctuating Environments",
+      "year": 2005,
+      "container": "Science"
+    },
+    {
+      "doi": "10.1147/rd.183.0194",
+      "http": 200,
+      "title": "On Optimization of Storage Hierarchies",
+      "year": 1974,
+      "container": "IBM Journal of Research and Development"
+    },
+    {
+      "doi": "10.1109/tc.1976.5009230",
+      "http": 200,
+      "title": "Determination of Cache's Capacity and its Matching Storage Hierarchy",
+      "year": 1976,
+      "container": "IEEE Transactions on Computers"
+    },
+    {
+      "doi": "10.1109/TAC.2004.834430",
+      "http": 200,
+      "title": "Stochastic Linear Control Over a Communication Channel",
+      "year": 2004,
+      "container": "IEEE Transactions on Automatic Control"
+    },
+    {
+      "doi": "10.1109/TAC.2016.2601148",
+      "http": 200,
+      "title": "Semidefinite Programming Approach to Gaussian Sequential Rate-Distortion Trade-Offs",
+      "year": 2017,
+      "container": "IEEE Transactions on Automatic Control"
+    },
+    {
+      "doi": "10.1534/g3.116.030890",
+      "http": 200,
+      "title": "Evolution of the Insertion-Deletion Mutation Rate Across the Tree of Life",
+      "year": 2016,
+      "container": "G3 Genes|Genomes|Genetics"
+    },
+    {
+      "doi": "10.1038/nrg.2016.104",
+      "http": 200,
+      "title": "Genetic drift, selection and the evolution of the mutation rate",
+      "year": 2016,
+      "container": "Nature Reviews Genetics"
+    },
+    {
+      "doi": "10.1126/science.1217405",
+      "http": 200,
+      "title": "Evolutionary Trade-Offs, Pareto Optimality, and the Geometry of Phenotype Space",
+      "year": 2012,
+      "container": "Science"
+    },
+    {
+      "doi": "10.2307/2343100",
+      "http": 200,
+      "title": "The Measurement of Productive Efficiency",
+      "year": 1957,
+      "container": "Journal of the Royal Statistical Society. Series A (General)"
+    },
+    {
+      "doi": "10.2307/1906814",
+      "http": 200,
+      "title": "The Coefficient of Resource Utilization",
+      "year": 1951,
+      "container": "Econometrica"
+    }
+  ]
+}
