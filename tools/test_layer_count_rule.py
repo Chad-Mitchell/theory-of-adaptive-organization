@@ -86,6 +86,22 @@ def test_l1_bare_iff_counterexample():
         assert p["K_star"] == 0
 
 
+def test_l1_converse_not_only_positive_decrements():
+    """The exclusivity 'only for positive pairwise-distinct decrements' is false.
+    d = (1, 2, -1), so ε = (2, 1, -1, 0): the decrements are not all positive
+    and not non-increasing. At R = 0.75, J = (2.25, 2.5, 2, 3.75), the from-0
+    count is 1 and the argmin is 2. At R = 0.6 the count is 1 and the argmin is 0.
+    Distinctness with the threshold decrement positive is enough (L1)."""
+    eps = [2.0, 1.0, -1.0, 0.0]
+    assert list(L.decrements(eps)) == [1.0, 2.0, -1.0]
+    assert not L.is_convex(eps)
+    assert L.n60_from(eps, 0.75, 0) == 1
+    assert L.argmin_J(eps, 0.75) == 2
+    assert [L.J_of_K(eps, 0.75, K) for K in range(4)] == [2.25, 2.5, 2.0, 3.75]
+    assert L.n60_from(eps, 0.6, 0) == 1
+    assert L.argmin_J(eps, 0.6) == 0
+
+
 def test_cost_band_contains_argmin_and_near_ties():
     J = {0: 2.0, 1: 1.0, 2: 1.005, 3: 1.2}
     assert L.cost_band(J, 0.01) == [1, 2]
@@ -268,3 +284,97 @@ def test_relay_exact_factor_boundary_and_count_layers_bypass():
     r_layer = L.count_layers(t, y_base, L.BAND, k_max=4, bypass=(t, y_bypass_only))
     assert r_layer["relay_classification"] == "layer"
     assert r_layer["K_obs"] == 2
+
+
+def _real(tau):
+    return dict(kind="real", degree=1, tau=float(tau), period=None)
+
+
+def _pair(tau, period):
+    return dict(kind="pair", degree=2, tau=float(tau), period=float(period))
+
+
+def test_matching_equal_ratios_prefers_smaller_pooled_tau():
+    """Reviewer case 1. Pooled poles at 10 and 40, one unit pole at 20: both
+    ratios are exactly 2, so nearest-first followed list order. A maximum-
+    cardinality matching under the factor has size 1; the remaining tie is
+    broken by the smaller pooled time constant, so 10 is local and 40 is
+    shared, in either list order. They are different classes, so K = 2."""
+    unit = [_real(20)]
+    for pooled in ([_real(10), _real(40)], [_real(40), _real(10)]):
+        c = L.classify_local_shared([unit], pooled, factor=3.0)
+        by = {round(s["tau"], 5): s["class"] for s in c}
+        assert by[10.0] == "local" and by[40.0] == "shared"
+        merged = L.merge_classified(c, factor=3.0)
+        assert sum(s["degree"] for s in merged) == 2
+
+
+def test_matching_is_maximum_cardinality_10_and_25():
+    """Reviewer case 2. Pooled poles at 10 and 25, one unit with poles at 7
+    and 12. Nearest-first takes 10↔12 (ratio 1.2) and leaves 25 shared, so
+    the class split keeps K = 2. The unique size-2 matching 10↔7 (ratio
+    ≈1.429) and 25↔12 (ratio ≈2.083) is inside the factor, both poles are
+    then local, and the within-class merge (ratio 2.5) returns K = 1."""
+    pooled = [_real(10), _real(25)]
+    unit = [_real(7), _real(12)]
+    c = L.classify_local_shared([unit], pooled, factor=3.0)
+    assert all(s["class"] == "local" for s in c)
+    merged = L.merge_classified(c, factor=3.0)
+    assert sum(s["degree"] for s in merged) == 1
+    assert len(merged) == 1
+
+
+def test_units_that_disagree_keep_poles_unmerged():
+    """Reviewer case 3. Pooled poles at 10 and 25. A unit at 16 has a better
+    ratio to 25 (25/16 = 1.5625) than to 10 (1.6), so among size-1 maximum
+    matchings the min-log-ratio choice pairs it with 25; a unit at 10 pairs
+    with 10. Both poles are then shared, and a within-class merge would
+    collapse them (ratio 2.5). They stay unmerged because the unit records
+    matched them to different partners, so K_obs = 2. Both units at 10 make
+    10 local and 25 shared, which also returns K_obs = 2."""
+    pooled = [_real(10), _real(25)]
+    c = L.classify_local_shared([[_real(10)], [_real(16)]], pooled, factor=3.0)
+    by = {round(s["tau"], 5): s for s in c}
+    assert by[10.0]["class"] == "shared" and by[25.0]["class"] == "shared"
+    assert by[10.0]["matched_units"] != by[25.0]["matched_units"]
+    merged = L.merge_classified(c, factor=3.0)
+    assert sum(s["degree"] for s in merged) == 2
+    assert {round(s["tau"], 5) for s in merged} == {10.0, 25.0}
+
+    c2 = L.classify_local_shared([[_real(10)], [_real(10)]], pooled, factor=3.0)
+    by2 = {round(s["tau"], 5): s["class"] for s in c2}
+    assert by2[10.0] == "local" and by2[25.0] == "shared"
+    merged2 = L.merge_classified(c2, factor=3.0)
+    assert sum(s["degree"] for s in merged2) == 2
+
+
+def test_pair_merge_and_match_require_both_time_constants():
+    """A complex pair merges or matches only when both the decay time and the
+    period lie within the factor. (tau 10, period 10) and (tau 12, period 200)
+    have decay ratio 1.2 but period ratio 20, so they must not merge or match."""
+    a, b = _pair(10, 10), _pair(12, 200)
+    assert not L._within_factor(a, b, 3.0)
+    m = L.merge_close_states([a, b], factor=3.0)
+    assert len(m) == 2
+    assert {round(s["tau"], 5) for s in m} == {10.0, 12.0}
+    assert L.max_cardinality_match([a], [b], factor=3.0) == set()
+    # Control: close on both constants does merge.
+    c = _pair(10, 10)
+    d = _pair(12, 15)
+    assert L._within_factor(c, d, 3.0)
+    assert len(L.merge_close_states([c, d], factor=3.0)) == 1
+
+
+def test_bootstrap_uses_classify_then_merge_count():
+    """The interval on K_obs must percentile the same classify-then-merge
+    count, including the unit records, not detect's merged degree. On the
+    zero-noise 10-and-25 case with two isolated records at 10, K_obs = 2
+    and a short bootstrap at residual scale ~0 stays at 2."""
+    t = L.T_GRID
+    y_pool = L.eval_fit(t, _kernel([(10.0, 1.0), (25.0, 1.0)]))
+    y_unit = L.eval_fit(t, _kernel([(10.0, 1.0)]))
+    r = L.count_layers(t, y_pool, L.BAND, k_max=4, n_boot=4, seed=0,
+                       unit_records=[(t, y_unit), (t, y_unit)])
+    assert r["K_obs"] == 2
+    assert r["boot"] == [2, 2, 2, 2]
+    assert r["interval"] == [2, 2]

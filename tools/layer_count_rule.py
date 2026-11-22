@@ -12,8 +12,10 @@ Two sides, kept separate:
   which equals the lower-convex-hull increment test (KEYSTONE_NOTE §4).  On a
   finite domain, the from-0 count K*_0(R) = #{K >= 1 : R d_K > 1} equals the
   leftmost argmin for all R >= 0 if the decrements of ε_K are non-increasing
-  (Fox 1966; L1 / N64 in PR #145); the converse holds only for positive,
-  pairwise distinct decrements (d = (-2, -1) is a counterexample to a bare iff).
+  (Fox 1966; L1 / N64 in PR #145); the converse holds under positive,
+  pairwise distinct decrements (distinctness with the threshold decrement
+  positive is enough; see theory/LAYER_CONVEXITY.md; d = (-2, -1) is a
+  counterexample to a bare iff).
   When S/N has a peak, convexity can fail: use the hull, not the adjacent count.
 
   Comparison (for a later N56 test).  A raw K_obs ≠ K* is not by itself a miss.
@@ -25,7 +27,7 @@ Run a short synthetic check:  nice -n 19 python3 tools/layer_count_rule.py
 """
 from __future__ import annotations
 
-import json, os, sys, time
+import json, math, os, sys, time
 for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
     os.environ.setdefault(_v, "1")
 import numpy as np
@@ -95,7 +97,11 @@ def _pencil_poles(t, y, K, max_pts=PENCIL_MAX_PTS):
 
 
 def _theta_from_poles(p, T, dt):
-    """Split pencil poles into reals and pairs; return (nr, npair, theta)."""
+    """Split pencil poles into reals and pairs; return (nr, npair, theta).
+
+    The pencil rate clip [a/T, b/Δt] is applied to both nonlinear parameters:
+    the decay and, for a complex pair, the angular frequency.
+    """
     rmin, rmax = PENCIL_RATE_BOUNDS[0] / T, PENCIL_RATE_BOUNDS[1] / dt
     reals, pairs, used = [], [], np.zeros(len(p), bool)
     for i, pi in enumerate(p):
@@ -120,6 +126,8 @@ def _theta_from_poles(p, T, dt):
 
 def fit_structure(t, y, nr, npair, theta0):
     dt = t[1] - t[0]; T = t[-1] - t[0] + dt
+    # The same variable-projection bounds [a/T, b/Δt] apply to both nonlinear
+    # parameters (log decay and, for a pair, log angular frequency).
     lo = np.full(max(len(theta0), 1), np.log(VARPRO_RATE_BOUNDS[0] / T))[:len(theta0)]
     hi = np.full(max(len(theta0), 1), np.log(VARPRO_RATE_BOUNDS[1] / dt))[:len(theta0)]
     if len(theta0) == 0:
@@ -255,11 +263,83 @@ def detect(t, y, band, k_max=K_MAX, seed=0, merge_factor=RESOLUTION):
                 states_merged=st_merged, bic=bic.tolist(), sigma_hat=float(sigma_hat))
 
 
+def _within_factor(a, b, factor):
+    """True if same-kind states lie within `factor` on every time constant
+    the rule uses: tau for a real pole; both tau and period for a pair.
+
+    The comparison is strict (`ratio < factor`), so a ratio of exactly `factor`
+    is not a match or a merge (it counts as a move of at least the factor).
+    """
+    if a["kind"] != b["kind"]:
+        return False
+    tau_ratio = max(a["tau"] / b["tau"], b["tau"] / a["tau"])
+    if tau_ratio >= factor:
+        return False
+    if a["kind"] == "pair":
+        pa, pb = a.get("period"), b.get("period")
+        if pa is None or pb is None:
+            return False
+        if max(pa / pb, pb / pa) >= factor:
+            return False
+    return True
+
+
+def _log_ratio_cost(a, b):
+    """Sum of log time-constant ratios (tau, and period for a pair)."""
+    cost = math.log(max(a["tau"] / b["tau"], b["tau"] / a["tau"]))
+    if a["kind"] == "pair" and a.get("period") and b.get("period"):
+        cost += math.log(max(a["period"] / b["period"], b["period"] / a["period"]))
+    return cost
+
+
+def max_cardinality_match(pooled, unit, factor=RESOLUTION):
+    """Maximum-cardinality matching of same-kind poles under the factor.
+
+    An edge exists only when `_within_factor` holds (for a complex pair, both
+    the decay time and the period must lie within the factor). Among maximum-
+    cardinality matchings, the rule takes the one with the smallest sum of
+    log-ratios; remaining ties are broken by the lexicographically smaller
+    tuple of matched pooled time constants (so an equal-ratio choice prefers
+    the smaller pooled time constant).
+
+    Returns the set of matched pooled indices. The graphs are tiny (degree at
+    most K_max), so the matchings are enumerated.
+    """
+    n = len(pooled)
+    m = len(unit)
+
+    def rec(ia, used_b, chosen):
+        if ia == n:
+            return [list(chosen)]
+        opts = rec(ia + 1, used_b, chosen)
+        for ib in range(m):
+            if ib in used_b:
+                continue
+            if not _within_factor(pooled[ia], unit[ib], factor):
+                continue
+            opts.extend(rec(ia + 1, used_b | {ib},
+                            chosen + [(ia, ib, _log_ratio_cost(pooled[ia], unit[ib]))]))
+        return opts
+
+    matchings = rec(0, set(), [])
+
+    def key(matching):
+        card = len(matching)
+        sum_log = sum(c for _, _, c in matching)
+        taus = tuple(sorted(pooled[ia]["tau"] for ia, _, _ in matching))
+        return (-card, sum_log, taus)
+
+    best = min(matchings, key=key)
+    return {ia for ia, _, _ in best}
+
+
 def merge_close_states(state_list, factor=RESOLUTION):
     """Merge same-kind states whose time constants differ by less than `factor`.
-    Two close real poles count as one (degree 1); two close pairs count as one rhythm (degree 2).
-    States of different kinds are never merged.  Local vs shared is applied by the caller
-    before this function (pass one class at a time).
+    Two close real poles count as one (degree 1); two close pairs count as one
+    rhythm (degree 2) only when both the decay time and the period lie within
+    the factor.  States of different kinds are never merged.  Local vs shared
+    is applied by the caller before this function (pass one class at a time,
+    and only poles the unit records matched to the same partners).
     """
     if factor <= 1 or len(state_list) <= 1:
         return list(state_list)
@@ -270,11 +350,11 @@ def merge_close_states(state_list, factor=RESOLUTION):
             continue
         cur = dict(group[0])
         for s in group[1:]:
-            if s["tau"] / cur["tau"] < factor:
+            if _within_factor(s, cur, factor):
                 # geometric mid-point; keep the kind and degree of one representative
                 cur = dict(cur)
                 cur["tau"] = np.sqrt(cur["tau"] * s["tau"])
-                if cur["period"] is not None and s["period"] is not None:
+                if cur.get("period") is not None and s.get("period") is not None:
                     cur["period"] = np.sqrt(cur["period"] * s["period"])
             else:
                 out.append(cur); cur = dict(s)
@@ -286,52 +366,60 @@ def merge_close_states(state_list, factor=RESOLUTION):
     return out
 
 
+def merge_classified(classified, factor=RESOLUTION):
+    """Merge only within a class, and only among poles that the unit records
+    matched to the same partners (the same set of matching unit indices).
+    Two pooled poles stay unmerged when different units match them to
+    different partners, even if both are labelled shared and their time
+    constants lie within the factor.
+    """
+    groups = {}
+    for s in classified:
+        key = (s.get("class"), tuple(s.get("matched_units") or []))
+        groups.setdefault(key, []).append(s)
+    merged = []
+    for group in groups.values():
+        merged.extend(merge_close_states(group, factor))
+    return merged
+
+
 def classify_local_shared(unit_states, pooled_states, factor=RESOLUTION):
     """Classify poles as local (present in isolated-unit responses) or shared
     (present only in the pooled response).  `unit_states` is a list of state-lists,
     one per isolated unit (or per-unit response to a unit-specific drive).
-    Within each unit, poles are matched one-to-one with same-kind pooled poles
-    whose time-constant ratio is strictly less than `factor` (nearest ratio first),
-    so one isolated-unit pole cannot claim two distinct pooled poles.
-    A pooled pole is local iff it matches in every unit; otherwise it is shared.
-    """
-    def match_indices(pool_a, pool_b):
-        pairs = []
-        for ia, sa in enumerate(pool_a):
-            for ib, sb in enumerate(pool_b):
-                if sa["kind"] != sb["kind"]:
-                    continue
-                ratio = max(sa["tau"] / sb["tau"], sb["tau"] / sa["tau"])
-                if ratio < factor:
-                    pairs.append((ratio, ia, ib))
-        pairs.sort(key=lambda x: x[0])
-        used_a, used_b = set(), set()
-        for _ratio, ia, ib in pairs:
-            if ia not in used_a and ib not in used_b:
-                used_a.add(ia)
-                used_b.add(ib)
-        return used_a
 
-    matched_per_unit = [match_indices(pooled_states, u) for u in unit_states]
+    Within each unit, same-kind poles are matched by `max_cardinality_match`
+    (maximum cardinality under the factor; then minimum total log-ratio; then
+    the smaller pooled time constant). A pooled pole is local iff it matches
+    in every unit; otherwise it is shared. The set of matching unit indices is
+    stored as `matched_units` so a later within-class merge can keep poles
+    unmerged when different units match them to different partners.
+    """
+    matched_per_unit = [max_cardinality_match(pooled_states, u, factor) for u in unit_states]
     out = []
     for i, s in enumerate(pooled_states):
-        local = all(i in m for m in matched_per_unit) if unit_states else False
-        d = dict(s); d["class"] = "local" if local else "shared"
+        units_hit = [u for u, m in enumerate(matched_per_unit) if i in m]
+        local = bool(unit_states) and len(units_hit) == len(unit_states)
+        d = dict(s)
+        d["class"] = "local" if local else "shared"
+        d["matched_units"] = units_hit
         out.append(d)
     return out
 
 
 def _matched(s, pool, factor):
-    return any(b["kind"] == s["kind"] and max(b["tau"] / s["tau"], s["tau"] / b["tau"]) < factor
-               for b in pool)
+    """True if `s` has a same-kind partner in `pool` within the factor
+    (for a pair, both decay time and period). Ratio >= factor is a move."""
+    return any(_within_factor(s, b, factor) for b in pool)
 
 
 def relay_class(baseline_states, bypass_states, factor=RESOLUTION):
     """Intervene on one candidate level (bypass it, or replace it with a pure delay).
 
     The candidate is a layer iff the in-band pole set changes: some pole disappears
-    or moves by more than `factor`.  If the pole set is unchanged (only a delay
-    disappeared), it is a relay (CT16).  The caller passes in-band states only.
+    or moves by at least `factor` (ratio >= factor).  If the pole set is unchanged
+    (only a delay disappeared), it is a relay (CT16).  The caller passes in-band
+    states only.
     """
     disappeared = [s for s in baseline_states if not _matched(s, bypass_states, factor)]
     appeared = [s for s in bypass_states if not _matched(s, baseline_states, factor)]
@@ -364,24 +452,28 @@ def count_layers(t, y, band, n_boot=0, seed=0, k_max=K_MAX, merge_factor=RESOLUT
     """The observation rule.  K_obs is the in-band, within-class-merged degree.
 
     unit_records: optional list of (t, y) isolated-unit records, used to classify
-    in-band poles as local vs shared *before* merging, then merge only within a class.
+    in-band poles as local vs shared *before* merging, then merge only within a
+    class and only among poles the unit records matched to the same partners.
     bypass: optional (t, y) record after bypassing a candidate level or replacing it
     with a pure delay; classifies the candidate level as 'layer' or 'relay' without
     changing K_obs (a relay holds no pole of its own).
+
+    A parametric bootstrap, when requested, resamples the pooled record and each
+    unit record and percentiles the same classify-then-merge count (not detect's
+    merged degree).
     """
     d = detect(t, y, band, k_max=k_max, seed=seed, merge_factor=merge_factor)
     k_hsv, _sv, _thr = hankel_rank(y if len(y) <= 4000 else y[::max(1, len(y)//2000)], d["sigma_hat"])
     classified = None
+    unit_detects = []
     if unit_records:
         unit_states = []
         for tu, yu in unit_records:
             du = detect(tu, yu, band, k_max=k_max, seed=seed, merge_factor=merge_factor)
+            unit_detects.append((tu, du))
             unit_states.append(du["states_in_band"])
         classified = classify_local_shared(unit_states, d["states_in_band"], merge_factor)
-        # merge only within a class
-        locals_ = merge_close_states([s for s in classified if s["class"] == "local"], merge_factor)
-        shared = merge_close_states([s for s in classified if s["class"] == "shared"], merge_factor)
-        merged = locals_ + shared
+        merged = merge_classified(classified, merge_factor)
     else:
         merged = d["states_merged"]
     roles = None
@@ -402,12 +494,20 @@ def count_layers(t, y, band, n_boot=0, seed=0, k_max=K_MAX, merge_factor=RESOLUT
     if n_boot:
         rng = np.random.default_rng(seed + 1)
         g = eval_fit(t, d["fit"])
-        # bootstrap on the same time grid as the input; residual scale from the fit
         ks = []
         for b in range(n_boot):
             yb = g + rng.normal(0, d["sigma_hat"], len(t))
-            ks.append(detect(t, yb, band, k_max=k_max, seed=seed + 100 + b,
-                             merge_factor=merge_factor)["K_det"])
+            boot_units = None
+            if unit_records:
+                boot_units = []
+                for tu, du in unit_detects:
+                    gu = eval_fit(tu, du["fit"])
+                    yub = gu + rng.normal(0, du["sigma_hat"], len(tu))
+                    boot_units.append((tu, yub))
+            ks.append(count_layers(
+                t, yb, band, n_boot=0, seed=seed + 100 + b, k_max=k_max,
+                merge_factor=merge_factor, unit_records=boot_units, bypass=None,
+            )["K_obs"])
         ks = np.array(ks)
         lo = int(np.percentile(ks, 5, method="lower"))
         hi = int(np.percentile(ks, 95, method="higher"))
@@ -692,6 +792,14 @@ def _prediction_selfcheck():
     out["l1_bare_iff_counterexample"] = (
         not is_convex(cex)
         and all(n60_from(cex, R, 0) == argmin_J(cex, R) == 0 for R in (0.0, 0.5, 2.0, 10.0))
+    )
+    # Exclusivity of the converse is false: d = (1, 2, -1), seq = (2, 1, -1, 0).
+    # At R = 0.75 the from-0 count is 1 and the argmin is 2.
+    excl = [2.0, 1.0, -1.0, 0.0]
+    out["l1_converse_not_only_positive"] = (
+        not is_convex(excl)
+        and n60_from(excl, 0.75, 0) == 1 and argmin_J(excl, 0.75) == 2
+        and n60_from(excl, 0.6, 0) == 1 and argmin_J(excl, 0.6) == 0
     )
     return out
 
