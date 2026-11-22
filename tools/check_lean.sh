@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 # Build the Lean 4 formalization of the GTAO core (OPEN_WORK T19).
 # Run from the repo root:  tools/check_lean.sh
-# Exit 0 = lake build succeeded and no forbidden token occurs in project
-#          sources (GTAO.lean, GTAO/*.lean).
+# Exit 0 = lake build succeeded, no forbidden token occurs in project
+#          sources (GTAO.lean, GTAO/*.lean), and the axiom audit
+#          (formal/lean/scripts/AxiomAudit.lean) finds that every GTAO
+#          declaration depends only on propext, Classical.choice and
+#          Quot.sound (so no sorryAx).
 # Exit 2 = Lean / lake is not installed.
 # Exit 1 = build failed or a forbidden token was found.
 #
@@ -63,4 +66,6 @@ echo "check_lean.sh: lake exe cache get"
 nice -n 19 lake exe cache get
 echo "check_lean.sh: lake build"
 nice -n 19 lake build
+echo "check_lean.sh: AxiomAudit"
+nice -n 19 lake env lean scripts/AxiomAudit.lean
 echo "check_lean.sh: OK"
