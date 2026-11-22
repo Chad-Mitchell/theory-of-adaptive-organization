@@ -1,0 +1,99 @@
+numpy 2.5.5
+
+== product springs, lambda = 1e6 ==
+a=1.0 v=1.0 eps=0.2  heat=4.000020001316  raw=0.200000000000  cond=0.199999999999  L=4.000000000020  floor=4.000000000000  sig2=1.599990400010e-01  prior_err=4.441e-16
+a=4.0 v=0.5 eps=0.1  heat=16.000320006162  raw=0.100000000000  cond=0.099999999994  L=16.000000001280  floor=16.000000000000  sig2=7.999808000768e-02  prior_err=1.110e-16
+sum heat 20.000340007478  sum floor 20.000000000000
+moment formula 4.000020000100  16.000320006400
+fractions 800000/199999 = 4.000020000100000   1600000/99998 = 16.000320006400127
+tr(D S^{-1}) diagonal 8.333333333333  off-diagonal entry 0.1 -> 9.090909090909  correlation coefficient 0.1 (entry 0.034641) -> 8.417508417508
+Schur (S^{-1})_11=3.636364 > 1/0.3=3.333333   (S^{-1})_22=2.727273 > 1/0.4=2.500000
+
+== joint vs product at marginal targets 0.2 and 0.1 ==
+best rank-one static channel on the grid meeting both marginals: None
+product floor 20
+
+== per-mode frontier, a=(1,10,100), v=1 ==
+w=0.5 tracked=0 J=1.500000000000 parts=[(1.0, 0.0, 0.5), (1.0, 0.0, 0.5), (1.0, 0.0, 0.5)]
+w=2 tracked=1 J=5.828427124746 parts=[(0.7071067811865476, 0.414213562373095, 1.82842712474619), (1.0, 0.0, 2.0), (1.0, 0.0, 2.0)]
+w=20 tracked=2 J=46.228543157461 parts=[(0.22360679774997896, 3.4721359549995796, 7.944271909999159), (0.7071067811865476, 4.14213562373095, 18.284271247461902), (1.0, 0.0, 20.0)]
+w=200 tracked=3 J=289.569702822072 parts=[(0.07071067811865475, 13.142135623730951, 27.284271247461902), (0.22360679774997896, 34.721359549995796, 79.44271909999159), (0.7071067811865476, 41.421356237309496, 182.84271247461902)]
+geometric count, rho=10, a0=1, v=1, by comparing a*rho^(k-1) to w
+  w=0.5 K_hard=0
+  w=1 K_hard=1
+  w=2 K_hard=1
+  w=10 K_hard=2
+  w=100 K_hard=3
+  w=1000 K_hard=4
+
+== sum loss, rates 1 and 100, sum-error 0.5 ==
+mu exact 103.887732673339855  bisection 103.887732673339855  disc 11401.0
+back-substitution sum a v/(a+mu) = 0.500000000000000
+gains 0.009534003401 0.004904659966  sig2 2.403042298455e-05
+lambda 1e6  heat 103.877719377168  L 103.856919702138  sum-error 0.500076936208  mu 103.887732673340
+floor at the realized sum-error 103.856919445098  heat minus that floor 2.079993e-02
+separate heat 141.000000000000  errors 0.045454545455 0.454545454545  ratio 1.357234356470
+exact separate errors 0.045454545454545 0.454545454545455 heat 141.000000000000000
+unweighted-sum channel learning rate at sum-error 0.5: 151.500000
+unweighted check eps 0.500000000000 rate 151.500000000000
+
+== identical modes ==
+K=2 eps=0.800 scalar=1.500000000000 mu=1.500000000000 separate=3.000000000000 ratio=2.0
+K=3 eps=1.100 scalar=1.727272727273 mu=1.727272727273 separate=5.181818181818 ratio=3.0
+K=4 eps=0.500 scalar=7.000000000000 mu=7.000000000000 separate=28.000000000000 ratio=4.0
+rates (1,1) variances (1,4) eps 2: mu 1.500000000000 (scalar of variance 5 is 1.500000000000) separate 2.500000000000 s=[0.66666667 1.33333333]
+
+== random covariances against the sum-loss floor ==
+undercuts 0  smallest rate-minus-mu 1.393610e-01
+
+== sum frontier, K=3 identical ==
+w=0.2 mu=0.000000000000 (formula 0.000000000000) eps=3.000000000000 J=0.600000000000 (formula 0.600000000000) sep=0.600000000000
+w=0.5 mu=0.224744871392 (formula 0.224744871392) eps=2.449489742783 J=1.449489742783 (formula 1.449489742783) sep=1.500000000000
+w=2 mu=1.449489742783 (formula 1.449489742783) eps=1.224744871392 J=3.898979485566 (formula 3.898979485566) sep=5.485281374239
+w=8 mu=3.898979485566 (formula 3.898979485566) eps=0.612372435696 J=8.797958971133 (formula 8.797958971133) sep=13.970562748477
+at w=1e6 separate/joint 1.731685  sqrt(3)=1.732051
+
+== four-mode ladder ==
+w0 from sum(v/a)=0.900090009000900  exact 1000/1111=0.900090009000900  three-mode 100/111=0.900900900900901
+w=0.5 mu=0.000000 half=0 hard=0 eps=4.000000
+w=2 mu=0.581523 half=0 hard=1 eps=3.570983
+w=8 mu=3.185140 half=1 hard=1 eps=2.963327
+w=40 mu=17.051184 half=2 hard=2 eps=2.262629
+w=200 mu=85.244498 half=2 hard=3 eps=1.577866
+w=2000 mu=729.261921 half=3 hard=4 eps=0.713767
+
+infinite ladder w(500)/w(50) = 9.999999999999998   w(10*mu)/w(mu) at mu=50: 9.999999999999998
+count of k in [-30,30] with rho^k <= 50, and <= 500: 32 33
+
+== coupled spring ==
+signal Lyapunov residual max 5.551e-17
+signal bath E[x A x] - tr = -4.441e-16
+heat 7.999912968022  L 7.999489966733  static 8.000000000000  heat-L 4.230013e-04
+
+== reference two-mode gap ==
+heat 3.214285714286  L 1.262924667651  gap 1.951361046634
+
+== path rate, weighted spring, lambda 500 ==
+path 14.831794136218  L 1.972390477464  heat 1.990067484080  sum-error 1.006178519916
+scalar Duncan identity on one shrunk spring
+P 0.000999497128  a(v-P)/P 999.503125010117  gamma^2 P/(4D) 999.503125010117
+two copies at eps 0.2: path 1999.006250020234  floor 8  ratio floor/path 0.004001988488
+
+== confirm 661abc8 ==
+digits 9000900090009000
+w0 fraction 1000/1111 rounded to 12 decimals: 0.900090009001
+w0 float 0.9000900090009001  formatted 0.900090009001
+float matches 1000/1111 within 1e-15: True
+three-mode 100/111 formatted 0.900900900901
+diag 8.333333333333334
+entry 0.1 9.090909090909090
+coeff of entry 0.1 0.288675134594813
+entry at coeff 0.1 0.034641016151378
+trace at coeff 0.1 8.417508417508417
+geometric floor count, rho=10, a=v=kT=1
+  w=0.5 count_by_rate=0 floor(log)=None raw_log=nan
+  w=1 count_by_rate=1 floor(log)=1 raw_log=0.0000000000000000
+  w=2 count_by_rate=1 floor(log)=1 raw_log=0.3010299956639811
+  w=10 count_by_rate=2 floor(log)=2 raw_log=1.0000000000000000
+  w=100 count_by_rate=3 floor(log)=3 raw_log=2.0000000000000000
+  w=1000 count_by_rate=4 floor(log)=3 raw_log=2.9999999999999996
