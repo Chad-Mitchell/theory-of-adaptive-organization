@@ -4,7 +4,7 @@
 
 ## 0. Order of work (agreed)
 
-1. Finish the classical math now in review: the representation boundary and frontier form (PR #154), the chain-to-diffusion limit for DS1 (PR #153), and Lean batch 2 (PR #155). Lean is insurance on the load-bearing chain only, not a growing count.
+1. On main: the representation boundary and frontier form (PR #154, merged as `fb6c17f`; confirm #157 `797b14b`), the chain-to-diffusion limit for DS1 (PR #153, merged as `f84997c`; confirm #159 `37794bb`), and Lean batch 2 (PR #155, merged as `886d69b`; confirm #160 `eddf64e`). Lean is insurance on the load-bearing chain only, not a growing count.
 2. Write one derivation chain in one document: axioms, then the frontier form (with additive J as the special case), then the principle, then the theorems, then the four rules (hold, estimate, watch, learn).
 3. Freeze the core text and tag a snapshot release.
 4. Re-read past field attempts under the frontier form (§1.3), then run one preregistered, hash-locked real-data test on a qualifying system.
@@ -13,11 +13,11 @@
 7. **Next direction B:** the dynamics of how systems reach the frontier (§3).
 8. **Parked:** a quantum extension of the floors (§4).
 
-## 1. The frontier form (status: hypothesis F, CLAIM_MAP V5 OPEN, under review in PR #154)
+## 1. The frontier form (status: hypothesis F, CLAIM_MAP V5 OPEN, PR #154 merged)
 
 **1.1 The idea.** The additive master equation J = κI_mem + hK + wE[ℓ] + A + L is likely a special case, in the way the ideal gas law is a special case of thermodynamics. The candidate general form is price-free. A system's design yields a vector of goods it must spend or bads it must suffer: memory held, information bought, error, attention spent and ruin risk. Strongly selected systems sit on the efficient (Pareto) frontier of that vector, given the world's pattern of change. Physics and information theory (Landauer, Still, the single-letter floors) cut the feasible set. Prices only pick *which* frontier point a system lands on.
 
-**1.2 What is known so far (first draft plus hostile review, not yet fixed or merged).**
+**1.2 What is known so far (first draft plus hostile review; PR #154 is merged).**
 - **Additivity.** J is additive only under named axioms. PR #154's R1 needs an extra monotonicity axiom for nonnegative prices, and care with the discrete layer count (review `reviews/representation_2026-11-21/REVIEW.md`).
 - **The scalarization converse.** The general form gives back the additive one when the feasible set is convex: every Pareto point then minimizes some nonnegative weighted sum. Without convexity it fails (three-point dent). Per the review, a plain coordinate cap ρ ≤ ε on ruin does **not** break convexity, so the earlier statement that it does was wrong.
 - **Survives with no prices.** The antitone shape of the front; the information floors as limits on what is feasible; the layer cap only as dominance.

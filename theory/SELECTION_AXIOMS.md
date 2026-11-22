@@ -1,6 +1,6 @@
 # Selection axioms: closeness to the cost minimum as a derived result
 
-*Saturday 21 November 2026, evening, America/New_York. Holdability cuts and the THEORY §4 fold are on branch `selection-fold-2026-11-21`, after the independent review of PR #143 (`reviews/selection_axioms_2026-11-21/REVIEW.md`, verdict NOT READY) and the confirm (`CONFIRM.md`). This note builds on the existing bridge (`core/bridge_2026-11-21/SELECTION.md`) and on the redesign lag already recorded as CL19 (`theory/DYNAMICS.md`). It does not change the Part 2 hypothesis sentence, the locked qualification band of THEORY §3 / FRAMEWORK §9, or any locked preregistration or hash file. T27's P3 remains a failed official test and is not rescued.*
+*Saturday 21 November 2026, evening, America/New_York. Holdability cuts and the THEORY §4 fold merged with PR #144, after the independent review of PR #143 (`reviews/selection_axioms_2026-11-21/REVIEW.md`, verdict NOT READY) and the confirm (`CONFIRM.md`). This note builds on the existing bridge (`core/bridge_2026-11-21/SELECTION.md`) and on the redesign lag already recorded as CL19 (`theory/DYNAMICS.md`). It does not change the Part 2 hypothesis sentence, the locked qualification band of THEORY §3 / FRAMEWORK §9, or any locked preregistration or hash file. T27's P3 remains a failed official test and is not rescued.*
 
 ## 0. Bottom line
 
