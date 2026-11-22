@@ -148,3 +148,37 @@ On head `0c9422b`, from `/tmp/pr178`:
 | `nice -n 19 python3 -m pytest -q tools` | 254 passed, 1 skipped, 308.95 s, exit 0. The skip is `tools/test_lean.py` (lake not installed). No lake build |
 
 On this review branch, which is `origin/main` plus this directory: `check_consistency.py` PASS (rows 388, tally 388, claim map v2.84), `check_open_work.py` PASS, and `nice -n 19 python3 -m pytest -q tools` is 253 passed, 1 skipped, 304.42 s, exit 0. The extra pass on the draft head is `tools/test_attainability_checks.py`. NumPy for `recompute.out` is 1.26.4. SymPy 1.13.3 was used for the algebra; the recomputation does not import SciPy. Pytest was run after upgrading to NumPy 2.2.6 and SciPy 1.15.3, because the repository calls `np.trapezoid`, which NumPy 1.26 does not provide. A first pytest on NumPy 1.26 stopped in `np.trapezoid` and is an environment failure, not a result about this draft.
+
+## Confirm
+
+Checked head `bd53b5929c97b8c18654642c6d87e3df93c3e3fc` on `attainability-2026-11-22`. The recomputation is the same `recompute.py`, re-run at nice 19, and it still imports nothing from the author's checks. The draft branch was not edited. Nothing was merged. The hypothesis sentence is byte-identical to `origin/main`.
+
+**The required fixes are in. One sentence remains.**
+
+1. **Correction record.** `theory/INFO_PHYSICS_CORRECTION_2026-11-22.md` is dated 22 November 2026. It keeps the centered spring \(dM=-\lambda(M-X)\,dt\), scored by \(\mathbb{E}[(M-X)^2]\), as the family the reviews of PR #175 scored, including the blind heat objective at stake 2. It names the four passages that stated no coupling attains the Kalman rate at finite heat, and supersedes them for an exogenous equilibrium OU signal when the loss is the mean squared error of an action of the current memory state. Pointers with that scope sit at the top of `theory/INFO_PHYSICS.md`, under the opening answer, under the §8a spring paragraph, at the close of §8a, and on the §11 attainment bullet. The superseded sentences are kept in the file.
+
+2. **Decision loss.** Section 0 defines \(\varepsilon=\mathbb{E}[(g(M)-X)^2]\), with the minimum at \(g(M)=\mathbb{E}[X\mid M]\), and says every \(\varepsilon\) is that decision error unless the sentence says raw coordinate error. A-R defines regular: a positive smooth density, finite Fisher information, and \(\int x\,\partial_x p\,dx=-1\). A hard bin is outside it. A-L is that decision error.
+
+3. **Centered readout.** The same script gives, at \(a=v=1\), \(\lambda=10^6\), raw coordinate error held at \(0.25\): conditional variance \(0.200000319999\), heat \(4.00001200004\), gain \(0.80000048\). The printed \(0.20000032\) and \(4.00001200\) are those values. The shrunk spring at decision error \(0.2\) has heat \(800000/199999=4.000020000100\).
+
+4. **The learning-rate proof.** The displays give \(L=-\langle(j_X/p)\,u\rangle=a(v\,\mathbb{E}[F]-1)\). The marginal contraction is \(-a+a=0\). Fisher and Jensen give \(L\ge R(\varepsilon_{\mathrm{MMSE}})\), and \(R\) decreasing gives \(L\ge R(\varepsilon_{\mathrm{MMSE}})\ge R(\varepsilon)\). Duncan is stated as the path rate \(R(P)\), equal to the learning rate only when \(P=s\). The signal-bath check now evaluates the power at \(a=1.7\), \(v=0.4\), which is \(0\) to \(10^{-15}\).
+
+5. **Capacity.** On the shrunk spring the script gives path rate \(999.503125\) and capacity \(0.00400199\) at \(\lambda=10^6\), and the sequence \(0.774194\), \(0.841240\), \(0.407408\), \(0.128116\), \(0.040188\), \(0.004002\). The note's four-decimal capacities match. The centered readout at the same rate has path rate \(999.502125\) and capacity \(0.00400198\). Both limits sit at capacity \(0.004\).
+
+6. **Citations.** Crossref on this run returned HTTP 200 for 10.1007/s10955-004-8781-9 (2005, J. Stat. Phys., Mitter and Newton) and 10.1103/PhysRevE.90.042119 (2014, Physical Review E, Sandberg, Delvenne, Newton, and Mitter). In the journal text, equation (46) is \(\dot W_{\mathrm{impl}}=2kT\,\dot I_c\). The note's description of Mitter and Newton as the analogy, and of Sandberg's equation (46) as that implementation cost, matches those sources. The new-claims list in §9 is the five items in this review: the Fisher bound, the shrunk spring and the centered readout, the scoring gap \(kT\,a\), the frontier including the stake interval, and the numerics with the \(K\)-bin figures labeled as learning rates.
+
+7. **\(K\)-bin and the rows.** Section 6 is headed "NUMERICAL, learning rates" and says the bath heat of the channel is not computed. T37 scopes the blind stake-2 objective to the centered spring at raw coordinate error and points the decision loss at T38. T38 uses the decision error, the heat \(4.000020\), the readout figures \(0.20000032\) and \(4.000012\), path rate \(999.503\), capacity \(0.004\), and the learning-rate label. IP9's status is unchanged and its note says the row is the centered raw-coordinate spring. IP11 states the decision loss, both heats, the path rate, the capacity, Sandberg's factor, the frontier, and the learning-rate label, still PROVED (in-model). Tally stays 389. No new row.
+
+The quartic disclaimer is unchanged: the check locks the sign, and the printed Fisher is the coarse grid.
+
+**The sentence that remains.** Proposition AT-learn, lines 75 and 107, says the Horowitz–Esposito information flow of the signal current and the learning rate are the same number. The displays define
+
+\[
+\dot I_X=\Big\langle\frac{j_X}{p}\,(u+x/v)\Big\rangle,\qquad L=-\Big\langle\frac{j_X}{p}\,u\Big\rangle.
+\]
+
+The marginal contraction vanishes, so \(\dot I_X=-L\). The learning rate is minus the signal-current flow. In steady state the memory's own flow supplies \(L\), which the next sentence already says. Lines 75 and 107 should say that. The inequality \(L\ge R(\varepsilon)\) is the one the expansion proves, and it is unaffected.
+
+On head `bd53b59`: `check_consistency.py` PASS (rows 389, tally 389, claim map v2.86), `check_fresh.py` PASS (STATUS names `c9f02df`, inside the window that contains `origin/main` `12febaf`), `check_open_work.py` PASS, `attainability_checks.py` PASS 31, FAIL 0. No lake build.
+
+`nice -n 19 python3 -m pytest -q tools` on this head: 254 passed, 1 skipped, 308.05 s, exit 0. The skip is `tools/test_lean.py`.
