@@ -15,6 +15,31 @@ public import Mathlib.Topology.Instances.Matrix
 
 /-!
 # Equipartition: the Gibbs excess `d/(pβ)`
+
+`theory/SELECTION_AXIOMS.md` SA1b / Corollary SA1c (CORE §3, THEORY §4):
+under the Sella–Hirsh stationary weight `π ∝ exp(-β J)` on a quadratic,
+positive definite cost well in `d` soft coordinates, the absolute
+stationary excess is `E_π[J] - J* = d/(2β)`.
+
+Machine-checked here, as pure mathematics:
+
+* `gibbs_mean_homog`: on a finite-dimensional real normed space `E` of
+  dimension `d ≥ 1` with an additive Haar measure `μ` (Lebesgue), for any
+  continuous `q ≥ 0` that is positive off `0` and positively homogeneous of
+  degree `p > 0`, `∫ q e^{-βq} dμ / ∫ e^{-βq} dμ = d/(pβ)` for `β > 0`;
+* `gibbs_excess`: the same for `J = J* + q(· - x*)`, as `E_π[J] - J* = d/(pβ)`;
+* `gibbs_excess_quadratic`: `E_π[J] - J* = d/(2β)` for
+  `J(x) = J* + ½ (x - x*)ᵀ H (x - x*)` on `ℝ^d` with `H` positive definite.
+
+Proof route: scaling `x ↦ β^{1/p} x` gives `Z(β) = β^{-d/p} Z(1)` and
+`N(β) = β^{-1-d/p} N(1)`; Fubini on `β ∈ [1,2]` with
+`e^{-q} - e^{-2q} = ∫_1^2 q e^{-sq} ds` gives `N(1) = (d/p) Z(1)`.
+Integrability comes from coercivity `q ≥ m‖x‖^p` (compact unit sphere).
+
+Not formalized: SA1 itself (that the origination–fixation chain's stationary
+law is this Boltzmann weight), the per-process `β` (`α(N-1)` Moran,
+`α(2N-1)` diploid Wright–Fisher), and SA1b's approximation that the weight
+is supported on the quadratic well.
 -/
 
 @[expose] public section
@@ -32,7 +57,9 @@ noncomputable def Z (q : E → ℝ) (β : ℝ) : ℝ := ∫ x, exp (-(β * q x))
 /-- Unnormalized first moment `N(β) = ∫ q exp(-β q)`. -/
 noncomputable def Nm (q : E → ℝ) (β : ℝ) : ℝ := ∫ x, q x * exp (-(β * q x)) ∂μ
 
-/-- Standing hypotheses on the cost excess `q`: continuous, nonnegative... -/
+/-- Standing hypotheses on the cost excess `q`: continuous, nonnegative,
+strictly positive away from `0`, and positively homogeneous of degree
+`p > 0`. -/
 structure HomogCost (q : E → ℝ) (p : ℝ) : Prop where
   p_pos : 0 < p
   cont : Continuous q
