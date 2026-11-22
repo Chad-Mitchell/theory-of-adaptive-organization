@@ -162,7 +162,9 @@ A centered Gaussian has \(\mathbb{E}[X^4]=3v^2\), which is strictly increasing i
 
 ## 5. The preregistered comparison
 
-The protocol, the tolerance, and the miss rule are `theory/acting_derivation_checks/PREREG.md`. They are not restated as a result here until that file has been hashed and the run has been done. The prediction is an ordering of two grid gains on a cubic drift. Lemma LG does not determine that ordering. The linear plant appears only as a gate on the path estimator.
+The protocol is `theory/acting_derivation_checks/PREREG.md`, commit `1271eb0`, sha256 `7f3b0034de4bea307c4510ade0edde7ccae94ef413d397b52cd9976edb6084a2`, locked by `977810f` before any trajectory. The prediction is an ordering of two grid gains on the cubic drift. Lemma LG does not determine that ordering. The linear plant is only the gate on the path estimator.
+
+The gate held: the path estimate of the linear bath rate was \(1.973637317765\) against the lemma's \(2\), relative difference \(0.013181\). On the cubic grid, \(K_E=0.25\) and \(K_H=0\), so the difference is \(0.25\), which meets the preregistered threshold. The prediction was met. \(J_E\) at \(0.25\) is \(0.456944514863\), against \(0.475917241617\) at \(0\) and \(0.459180113427\) at \(0.50\). \(J_H\) at \(0\) is \(0.770617916951\), against \(1.045686797043\) at \(0.25\). The recorded path estimate of \(\mathrm{Sr}_X\) at zero gain is \(0.050189309209\). The means are in `theory/acting_derivation_checks/results.out`.
 
 ## References
 
