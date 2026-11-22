@@ -5,8 +5,8 @@ These checks are NUMERICAL companions to the proofs in the note. They do not
 re-run S5, do not touch locked prereg or hash files, and do not change any
 Model S result. Sections:
 
-  L1  N60 count = argmin J for every R  <=>  non-increasing decrements
-      (random sequences; the converse uses distinct positive decrements).
+  L1  from-0 count K*_0(R) = leftmost argmin J for all R >= 0 if decrements
+      are non-increasing; converse holds under positive, distinct decrements.
   L2  halving / log-convexity are sufficient for convexity (random sequences).
   T3  Ky Fan class: top-K eigenvalue sums are concave in K (random PSD).
   T4  Monge class: exact K-link DP on random Monge (convex-of-gap) costs is
@@ -19,7 +19,7 @@ Model S result. Sections:
       non-convex; rhythmic spectra (resonance peak) give non-convex band
       curves; a submodular set value need not give concave best-K value.
   S5  Model S evidence (read-only, from core/keystone_checks/s5_rerun.json):
-      halving eps_{K+1} <= eps_K / 2 on every world; max ratios.
+      halving eps_{K+1} <= eps_K / 2 (screened at eps_K > 1e-4) on every world; max ratios.
 
 Run from the repo root:
 
@@ -178,7 +178,7 @@ def run(quick=False):
     ok, detail, res = [], [], {}
     rng = np.random.default_rng(20261121)
 
-    # ---- L1: N60 = argmin for all R iff decrements non-increasing ----------
+    # ---- L1: from-0 count = leftmost argmin for R >= 0 (converse: >0 distinct d) ----
     n_seq = 300 if quick else 3000
     Rgrid = np.logspace(-2, 4, 241)
     conv_mis, nonconv_hit, n_nonconv = 0, 0, 0
