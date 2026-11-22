@@ -26,7 +26,7 @@ On the sum loss, one memory coordinate is enough. Its heat infimum at error \(\v
 
 The layer-count rule in `measurement/LAYER_COUNT_RULE.md` (N65, T15) is a different object. It counts poles of a measured kernel, and it predicts \(K^\star=\arg\min(K+R(1+\varepsilon_K))\) with \(R=w E_\infty/h\). Section 7 states where the two counts agree and where the formulas differ. N65 is unchanged.
 
-Past this class, the learning-rate lower bound survives for a non-Gaussian conditional of an equilibrium Ornstein–Uhlenbeck signal, and equality does not. The memory-bath reading does not survive when another bath pays. The telegraph floor stays the one already proved. A non-quadratic loss, a memory that moves its world, and equality for a signal that is not an equilibrium diffusion stay open.
+Past this class, the quartic conditional has a learning rate strictly above \(R\) of its error, and the heat infimum on an equilibrium OU signal remains the Gaussian rate. A general rule for which bath pays is open. The case in which the signal's own bath pays is already recorded. The telegraph floor stays the one already proved. A non-quadratic loss, a memory that moves its world, and a signal that is not an equilibrium diffusion stay open.
 
 ## 1. Scope
 
@@ -52,7 +52,10 @@ Nothing in this list is claimed as new.
 - **Horowitz and Sandberg (2014)**, *New J. Phys.* 16:125007, doi 10.1088/1367-2630/16/12/125007. Second-law inequalities with an information flow.
 - **Kolmogorov (1956)**, *IRE Trans. Inf. Theory* 2:102, doi 10.1109/TIT.1956.1056823. The rate-distortion function of a stationary Gaussian source is reverse water-filling on the spectrum: a water level on \(\tfrac12\log(S(f)/\theta)\). The rate in that theorem is \(\tfrac12\log\), not \(a(v-\varepsilon)/\varepsilon\).
 - **Sims (2003)**, *J. Monet. Econ.* 50:665, doi 10.1016/S0304-3932(03)00029-1. The same reverse water-filling under a mutual-information price. Already the prior-art side of the repository's water-filling note.
-- **Tanaka, Kim, Parrilo, and Mitter (2017)**, *IEEE Trans. Automat. Control* 62:1896, doi 10.1109/TAC.2016.2601148. The sequential rate-distortion function of a vector Gauss–Markov source is a semidefinite program in the directed information. This note does not re-solve that program. The scalar causal rate used below is Duncan's, as already booked.
+- **Tanaka, Kim, Parrilo, and Mitter (2017)**, *IEEE Trans. Automat. Control* 62:1896, doi 10.1109/TAC.2016.2601148. The discrete-time sequential rate-distortion function of a vector Gauss–Markov source, in directed information, is a semidefinite program. This note does not re-solve that program. The scalar causal rate used below is Duncan's, as already booked.
+- **Tanaka, Skoglund, and Ugrinovskii (2017)**, *56th IEEE CDC*, pp. 3992–3997, doi 10.1109/CDC.2017.8264246. They minimize the Duncan mutual-information rate of a continuous-time vector Gauss–Markov source under \(\operatorname{tr}(P)\le D\). The minimum is a semidefinite program. The constraint is the sum of the marginal mean squares. It is not \(1^\top P 1\), and the paper contains no bath heat.
+- **Gorbunov and Pinsker (1973, 1974)**, *Problems of Information Transmission* 9:184 and 10:93. The nonanticipative epsilon-entropy. Crossref returned no work record for either translation on 22 November 2026. Both volumes and pages are cited in the reference lists of doi 10.1109/CDC.2018.8619725 and doi 10.1109/TIT.2021.3124888.
+- **Stavrou, Charalambous, Charalambous, Loyka, and Skoglund (2018)**, *57th IEEE CDC*, pp. 14–20, doi 10.1109/CDC.2018.8619725. An asymptotic \(\tfrac12\log\) reverse water-fill for the nonanticipative rate-distortion function of a vector Gauss–Markov source under mean squared error, on the eigenvalues of a prediction-error covariance.
 - **Tatikonda, Sahai, and Mitter (2004)**, doi 10.1109/TAC.2004.834430. Causal rate constraints for linear control. Already PD1b's prior art.
 - **Fox (1966)**, *Manage. Sci.* 13:210, doi 10.1287/mnsc.13.3.210. Marginal analysis for a discrete convex allocation. N64's exactness argument. Used here only as that citation, already on the layer-count page.
 - **The attainability note**, for one mode. **INFO_PHYSICS** for the telegraph floor, the centered raw-error spring, and the bookkeeping that separate baths add their heats. **`core/keystone_checks/waterfill_2026-11-20/MATH.md`** for the recorded distinction between a price per nat, a constant \(h\) per state, and a count of frequency peaks. That test stays a recorded failure. This note does not rescore it.
@@ -142,7 +145,7 @@ The path rate does not follow this limit down. On two fast shrunk springs, each 
 
 The infimum equals \(kT\) times the steady Kalman–Bucy information rate of the product filter at those error variances. It is approached at finite heat by a product of shrunk springs, one per mode, each built as in the scalar note.
 
-*Proof.* Proposition G-learn gives \(L\ge\sum R_k(s_k)\), hence \(\dot Q\ge kT L\) is at least the display wherever Horowitz and Esposito apply. On the product of scalar shrunk springs the baths are separate, the heats add, and each heat tends to \(kT R_k(s_k)\) by the scalar attainability theorem. The Kalman–Bucy identification is the Riccati trace in §3, applied to a block-diagonal observation. A joint conditional with the same marginal variances has \((S^{-1})_{kk}\ge 1/S_{kk}\), so its learning-rate bound is at least as large, and strictly larger when some off-diagonal entry of \(S\) is nonzero. At marginal variances \(0.3\) and \(0.4\), with \(D=\operatorname{diag}(1,2)\), the diagonal value of \(\operatorname{tr}(D S^{-1})\) is \(8.333333\) and the value at correlation \(0.1\) is \(9.090909\). ∎
+*Proof.* Proposition G-learn gives \(L\ge\sum R_k(s_k)\), hence \(\dot Q\ge kT L\) is at least the display wherever Horowitz and Esposito apply. On the product of scalar shrunk springs the baths are separate, the heats add, and each heat tends to \(kT R_k(s_k)\) by the scalar attainability theorem. The Kalman–Bucy identification is the Riccati trace in §3, applied to a block-diagonal observation. A joint conditional with the same marginal variances has \((S^{-1})_{kk}\ge 1/S_{kk}\), so its learning-rate bound is at least as large, and strictly larger when some off-diagonal entry of \(S\) is nonzero. At marginal variances \(0.3\) and \(0.4\), with \(D=\operatorname{diag}(1,2)\), the diagonal value of \(\operatorname{tr}(D S^{-1})\) is \(8.333333333333\). The same trace with off-diagonal entry \(0.1\) is \(9.090909090909\). That entry is a correlation coefficient of \(0.1/\sqrt{0.12}=0.288675134595\). At correlation coefficient \(0.1\), the covariance entry is \(0.034641016151\) and the trace is \(8.417508417508\). Both sit above the diagonal value. ∎
 
 At \(\lambda=10^6\), a shrunk spring at \((a,v,\varepsilon)=(1,1,0.2)\) has heat \(4.000020\), and one at \((4,0.5,0.1)\) has heat \(16.000320\). The floors are \(4\) and \(16\).
 
@@ -162,7 +165,13 @@ For rates \(a_k=a\rho^{k-1}\) and equal variances \(v\), with \(\rho>1\), the tr
 K_{\mathrm{hard}}(w)=\#\{k:a\rho^{k-1}\le wv/(kT)\}.
 \]
 
-Once \(w\ge kT a/v\), this is \(\lfloor\log(wv/(kT a))/\log\rho\rfloor+1\), until the ladder runs out. It is \(0\) below the slowest threshold. Multiplying the stake by \(\rho\) adds one mode. Multiplying the timescale ratio by a constant, at fixed stake, removes the modes that the higher ratio pushes over the threshold. The count scales as \(\log(w)/\log\rho\).
+Once \(w\ge kT a/v\), and until the ladder runs out, the count is exactly
+
+\[
+\left\lfloor\frac{\log(wv/(kT a))}{\log\rho}\right\rfloor+1.
+\]
+
+It is \(0\) below the slowest threshold. Multiplying the stake by \(\rho\) adds one mode.
 
 Three modes, \(a=(1,10,100)\), \(v=1\), \(kT=1\):
 
@@ -242,7 +251,7 @@ One coordinate implements the sum-loss floor. Extra coordinates do not lower the
 
 *Proof.* The general term at \((\mu,k)\) and the term at \((\rho\mu,\,k+1)\) differ by the factor \(1/\rho\). The whole sum scales by \(1/\rho\), so the stake, which is proportional to the reciprocal of the sum, scales by \(\rho\). The set \(\{a_k\le\mu\}\) gains the single index that crosses the new level. On the truncated ladder \(k\in[-30,30]\), \(\rho=10\), \(\mu=50\), the computed ratio is \(10.000000000000\). ∎
 
-A finite ladder has a blind threshold \(w_0>0\), because \(\sum v_k/a_k\) is finite, and it has edge effects when \(\mu\) sits near the slowest or the fastest rate. The bulk of a long ladder is the infinite scaling. Four modes at rates \(1,10,100,1000\), equal variance, \(kT=1\), \(w_0=0.900900900901\):
+A finite ladder has a blind threshold \(w_0>0\), because \(\sum v_k/a_k\) is finite, and it has edge effects when \(\mu\) sits near the slowest or the fastest rate. The bulk of a long ladder is the infinite scaling. Four modes at rates \(1,10,100,1000\), equal variance, \(kT=1\), \(w_0=1000/1111=0.900090009001\):
 
 | Stake \(w\) | \(\mu\) | Half-tracked count | Hard per-mode count |
 |---|---|---|---|
@@ -273,19 +282,19 @@ They agree on four points.
 They differ on four points.
 
 - The price of a tracked mode here is the heat \(kT a_k(v_k-s_k)/s_k\), which is zero at \(s_k=v_k\) and whose derivative there is \(kT a_k/v_k\). N65 prices the \(K\)-th degree at \(h\), whatever the rate of the pole. A fast mode and a slow mode of equal variance have different heat thresholds and the same \(h\).
-- The timescale ratio enters the per-mode count as \(1/\log\rho\) in \(K_{\mathrm{hard}}\sim\log(w)/\log\rho\). It enters N65 only by shaping the measured curve \(\varepsilon_K\). There is no formula in N65 that multiplies the stake by \(\rho\) and adds one layer, and T18 says no such shortcut is on the books.
+- The timescale ratio enters the per-mode count as \(\lfloor\log(wv/(kT a))/\log\rho\rfloor+1\) once the slowest mode pays. It enters N65 only by shaping the measured curve \(\varepsilon_K\). There is no formula in N65 that multiplies the stake by \(\rho\) and adds one layer, and T18 says no such shortcut is on the books.
 - On the sum loss the heat-optimal memory has one coordinate at every stake above \(w_0\). Its degree does not grow with \(w\). The half-tracked mode count does. N65's \(K^\star\) is a degree, and for a store library on one scalar observation that degree grows with \(R\), up to the degree of the world. Those are different design sets: a mode-resolved gain \(g_k=1/(a_k+\mu)\) on the vector, against a degree-\(K\) filter of the single series \(Z\).
 - When the rates are identical, \(Z\) is one mode. The heat floor is one spring. A degree count of \(Z\) is \(0\) or \(1\). Separate per-mode memories use \(K\) coordinates and \(K\) times the heat, which neither the heat floor nor the degree of \(Z\) selects.
 
-Kolmogorov's reverse water-filling and Sims's mutual-information price are the \(\tfrac12\log\) allocation. The allocation in §5 is the separable minimum of the Kalman rates \(a(v-s)/s\). The repository's water-filling note already says that a price per nat and a constant \(h\) per state are different regularizers, and that a count of frequency peaks of \(S(\omega)\) is the wrong object for a sum of Ornstein–Uhlenbeck spectra, which are unimodal at \(\omega=0\). Nothing here revises that. The mode count in §5 is a count of rates below \(wv/(kT)\), not a count of peaks of \(S(\omega)\).
+Kolmogorov's reverse water-filling and Sims's mutual-information price are the \(\tfrac12\log\) allocation. Gorbunov and Pinsker (1973, 1974) and Stavrou, Charalambous, Charalambous, Loyka, and Skoglund (2018) are the nonanticipative rate of that same shape, a \(\tfrac12\log\) reverse water-fill on the eigenvalues of a prediction-error covariance. Tanaka, Kim, Parrilo, and Mitter (2017) is the discrete-time sequential rate-distortion program in directed information. Tanaka, Skoglund, and Ugrinovskii (2017) minimize the Duncan mutual-information rate of a continuous-time vector Gauss–Markov source under the trace constraint \(\operatorname{tr}(P)\le D\). That minimum is a semidefinite program. Their constraint is the sum of the marginal mean squares. It is not \(1^\top P 1\), and the paper contains no bath heat. The allocation in §5 minimizes \(\sum a_k(v_k-s_k)/s_k\), and the sum-loss allocation in §6 is the single level \(\mu\). Those functionals agree with \(\tfrac12\log\) only at isolated errors. The repository's water-filling note already says that a price per nat and a constant \(h\) per state are different regularizers, and that a count of frequency peaks of \(S(\omega)\) is the wrong object for a sum of Ornstein–Uhlenbeck spectra, which are unimodal at \(\omega=0\). Nothing here revises that. The mode count in §5 is \(\lfloor\log(wv/(kT a))/\log\rho\rfloor+1\) on a geometric ladder of equal variances, once the slowest mode pays. It is a count of rates below \(wv/(kT)\), not a count of peaks of \(S(\omega)\).
 
 ## 8. What survives past this class
 
-**A non-Gaussian conditional of an equilibrium Ornstein–Uhlenbeck signal.** Proposition G-learn still gives \(L\ge\sum R_k(s_k)\) for independent modes, and the inequality is strict unless the conditional is Gaussian with constant diagonal covariance. The quartic example in the attainability note is the scalar case of that excess: the learning rate sits above \(R\) of the conditional error. The heat infimum remains \(kT\) times the Gaussian rate, because the shrunk springs attain it, and every regular memory sits at or above it. Equality for a nonlinear potential is not attained. **The lower bound survives. Equality in that potential is open,** as the scalar note left it.
+**A non-Gaussian conditional of an equilibrium Ornstein–Uhlenbeck signal.** The quartic conditional in the attainability note has a learning rate strictly above \(R\) of its error. The heat infimum remains \(kT\) times the Gaussian rate, because the shrunk springs attain it and G-learn puts every regular memory at or above it. The attainability note does not leave a separate open row for the heat of a nonlinear potential.
 
 **The telegraph.** INFO_PHYSICS §4 already proves the floor \(kT\,\gamma(1-2\varepsilon)\ln((1-\varepsilon)/\varepsilon)\) and the attainment in the fast-affinity limit. That floor is not \(R(\varepsilon)\). Separate telegraphs add their heats, which is the separate-bath bookkeeping already there. Whether one joint jump memory of a sum of telegraphs beats \(K\) separate telegraphs by a factor \(K\), the way identical Ornstein–Uhlenbeck modes do, is **OPEN**. The factor \(K\) used the linear structure of \(Z\).
 
-**A driven signal.** If the signal's own bath pays, the memory-bath heat can sit below \(kT L\) while the memory holds information. SE3 and the Barato–Hartich–Seifert receptor are that case. Horowitz and Esposito still bound the bath that their balance assigns. They do not force the memory bath to be that bath. **The subsystem inequality survives. The memory-bath reading of the floor does not.**
+**A driven signal.** The case in which the signal's own bath pays is already recorded, in SE3 and in the Barato–Hartich–Seifert receptor. This page does not add a new counterexample. A general rule for which bath pays is **OPEN**.
 
 **A coupled equilibrium diffusion that is not a product of scalar modes.** The learning-rate bound \(\operatorname{tr}(D(\bar S^{-1}-\Sigma^{-1}))\) is Proposition G-learn, and the signal bath still cancels. **NUMERICAL.** One coupled pair, covariance \(\Sigma=\bigl(\begin{smallmatrix}1&0.3\\0.3&1\end{smallmatrix}\bigr)\) and diffusion \(D=\bigl(\begin{smallmatrix}0.8&0.1\\0.1&1.2\end{smallmatrix}\bigr)\), with a fast spring of rate \(10^5\) and noise level \(0.25\) on each coordinate, has heat \(7.999913\) and learning rate \(7.999490\), against the static value \(8\). That is one design approaching its own static rate. It is not a proof that every error covariance of a coupled diffusion is attainable at finite heat.
 
@@ -293,15 +302,15 @@ Kolmogorov's reverse water-filling and Sims's mutual-information price are the \
 
 ## 9. What this note adds
 
-The memory-bath inequality \(\dot Q\ge kT L\) is Horowitz and Esposito. The scalar floor and the shrunk spring are the attainability note. Duncan is the path rate. The Kalman–Bucy filter is Kalman and Bucy. Kolmogorov and Sims are reverse water-filling for \(\tfrac12\log\). Tanaka, Kim, Parrilo, and Mitter are the sequential rate-distortion program for a vector Gauss–Markov source. Fox is the marginal count already cited for N64. None of those is redone.
+The memory-bath inequality \(\dot Q\ge kT L\) is Horowitz and Esposito. The scalar floor and the shrunk spring are the attainability note. Duncan is the path rate. The Kalman–Bucy filter is Kalman and Bucy. Kolmogorov and Sims, Gorbunov and Pinsker, and Stavrou, Charalambous, Charalambous, Loyka, and Skoglund minimize a \(\tfrac12\log\) rate. Tanaka, Kim, Parrilo, and Mitter are the discrete-time sequential program in directed information. Tanaka, Skoglund, and Ugrinovskii are the continuous-time vector Duncan minimization under a trace constraint, with no bath heat. Fox is the marginal count already cited for N64. None of those is redone.
 
 What this note adds:
 
-- The learning-rate identity for a regular conditional of an exogenous equilibrium vector diffusion, and \(L\ge\operatorname{tr}(D(\bar S^{-1}-\Sigma^{-1}))\). For independent modes this is at least \(\sum R_k(s_k)\).
-- The Sekimoto heat of one linear memory of independent modes, the nonnegative gap, and the fast limit in which that heat meets the learning rate of the static channel.
-- The per-mode frontier, the hard tracked set \(\{k:w\ge kT a_k/v_k\}\), and the geometric count \(\log(w)/\log\rho\).
-- The sum-loss channel \(g_k=1/(a_k+\mu)\), the floor \(kT\mu(\varepsilon)\), the factor \(K\) for identical modes, and the scaling \(w(\rho\mu)=\rho\,w(\mu)\) on an infinite equal-variance ladder.
-- The comparison in §7 with N65, T15, and N60. The two counts are different functions. N65 is not amended.
+- For independent equilibrium OU modes, the learning-rate lower bound of one joint memory at per-mode decision errors \(s_k\) is the sum of the scalar Kalman rates, and an off-diagonal error covariance raises it. The product of fast shrunk springs approaches the sum at finite heat. The heats \(4.000020\) and \(16.000320\) are the scalar construction, repeated.
+- The per-mode frontier is the sum of the scalar frontiers. The threshold is \(kT a_k/v_k\). On a geometric ladder the tracked count is \(\lfloor\log(wv/(kT a))/\log\rho\rfloor+1\).
+- Under the sum loss, the minimum of the covariance bound is the unique \(\mu\) with \(\varepsilon=\sum a_k v_k/(a_k+\mu)\), the minimizing channel has gains \(g_k=1/(a_k+\mu)\) and rank one, and one fast memory approaches heat \(kT\mu\). For \(K\) identical modes the sum is one OU and \(K\) separate memories cost \(K\) times that heat at every matched error. At rates \((1,100)\) and sum-error \(0.5\) the separate heat is \(141\) and \(\mu=103.887732673340\). On the infinite equal-variance ladder, multiplying the stake by \(\rho\) adds one half-tracked mode.
+- The comparison in §7. N65 and L2 count degree under a constant \(h\), on a filter of the scalar series. This floor has no \(h\). On the sum loss, inside the mode-resolved design, the heat-optimal degree is \(1\). The note does not change N65.
+- The coupled numerical design, heat \(7.999913\) against its static rate \(8\).
 
 **Proved on this page.** G-learn, G-signal, the heat formula, G-gap, G-fast, G-trace, G-front-trace, G-sum, the identical-mode factor \(K\), G-front-sum, and G-scale.
 
@@ -309,9 +318,8 @@ What this note adds:
 
 **Open.**
 
-- Equality for a nonlinear potential. The lower bound is G-learn.
 - A joint jump memory of several telegraphs, against \(K\) separate telegraph floors.
-- The memory bath, when the signal is driven and another bath can pay.
+- A general rule for which bath pays. The case in which the signal's own bath pays is already recorded, in SE3 and in the Barato–Hartich–Seifert receptor. This page does not add a counterexample.
 - Attainment for every error covariance of a coupled equilibrium diffusion. One numerical design approaches its static rate.
 - A loss that is not a mean square of an action of the current state.
 - A memory that changes \(X\).
@@ -349,3 +357,9 @@ Sandberg, H., Delvenne, J.-C., Newton, N. J., and Mitter, S. K. 2014. Maximum wo
 Hartich, D., Barato, A. C., and Seifert, U. 2016. Sensory capacity: an information theoretical measure of the performance of a sensor. *Phys. Rev. E* 93:022116. doi 10.1103/PhysRevE.93.022116.
 
 Tanaka, T., Kim, K. K. K., Parrilo, P. A., and Mitter, S. K. 2017. Semidefinite programming approach to Gaussian sequential rate-distortion trade-offs. *IEEE Trans. Automat. Control* 62:1896. doi 10.1109/TAC.2016.2601148.
+
+Tanaka, T., Skoglund, M., and Ugrinovskii, V. 2017. Optimal sensor design and zero-delay source coding for continuous-time vector Gauss–Markov processes. *56th IEEE Conference on Decision and Control*, pp. 3992–3997. doi 10.1109/CDC.2017.8264246.
+
+Gorbunov, A. K., and Pinsker, M. S. 1973. *Problems of Information Transmission* 9:184. Gorbunov, A. K., and Pinsker, M. S. 1974. *Problems of Information Transmission* 10:93. Crossref returned no work record for either translation on 22 November 2026. The volumes and pages are the ones cited by doi 10.1109/CDC.2018.8619725 and doi 10.1109/TIT.2021.3124888.
+
+Stavrou, P. A., Charalambous, T., Charalambous, C. D., Loyka, S., and Skoglund, M. 2018. Asymptotic reverse-waterfilling characterization of the nonanticipative rate distortion function of vector-valued Gauss–Markov processes with MSE distortion. *57th IEEE Conference on Decision and Control*, pp. 14–20. doi 10.1109/CDC.2018.8619725.

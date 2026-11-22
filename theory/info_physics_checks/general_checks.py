@@ -335,16 +335,26 @@ def main():
         "heats %.6f + %.6f against floor %.6f" % (h1, h2, r1 + r2),
     )
 
-    # Trace loss: an off-diagonal error covariance costs more at the same marginals.
+    # Trace loss: an off-diagonal covariance entry raises the trace.
+    # Entry 0.1 is correlation coefficient 0.1/sqrt(0.12). Coefficient 0.1 is a smaller entry.
     Ddiff = np.diag([1.0 * 1.0, 4.0 * 0.5])
     Sdiag = np.diag([0.3, 0.4])
-    Scorr = np.array([[0.3, 0.1], [0.1, 0.4]])
+    Sentry = np.array([[0.3, 0.1], [0.1, 0.4]])
+    c_rho = 0.1 * math.sqrt(0.3 * 0.4)
+    Srho = np.array([[0.3, c_rho], [c_rho, 0.4]])
     td = float(np.trace(Ddiff @ np.linalg.inv(Sdiag)))
-    tc = float(np.trace(Ddiff @ np.linalg.inv(Scorr)))
+    tentry = float(np.trace(Ddiff @ np.linalg.inv(Sentry)))
+    trho = float(np.trace(Ddiff @ np.linalg.inv(Srho)))
+    rho_of_entry = 0.1 / math.sqrt(0.12)
     check(
-        "correlated errors raise tr(D S^{-1}) at fixed marginal variances",
-        tc > td and near(td, 1.0 / 0.3 + 2.0 / 0.4),
-        "diag=%.6f corr=%.6f" % (td, tc),
+        "off-diagonal entry 0.1 and correlation coefficient 0.1 both raise the trace",
+        near(td, 8.333333333333, 1e-12)
+        and near(tentry, 9.090909090909, 1e-12)
+        and near(trho, 8.417508417508, 1e-12)
+        and near(rho_of_entry, 0.288675134595, 1e-12)
+        and near(c_rho, 0.034641016151, 1e-12)
+        and tentry > trho > td,
+        "diag=%.12f entry=%.12f rho=%.12f coeff=%.12f" % (td, tentry, trho, rho_of_entry),
     )
 
     # --- frontiers ---
@@ -531,13 +541,16 @@ def main():
         "path=%.6f L=%.6f Q=%.6f eps=%.6f" % (Tpath, L, Qh, eps),
     )
 
-    # Blind threshold formula.
-    a = np.array([1.0, 10.0, 100.0])
-    v = np.array([1.0, 1.0, 1.0])
-    w0 = 1.0 / float(np.sum(v / a))
+    # Blind threshold. The four-mode ladder in the note is 1000/1111, not the three-mode 100/111.
+    a4 = np.array([1.0, 10.0, 100.0, 1000.0])
+    v4 = np.ones(4)
+    w0 = 1.0 / float(np.sum(v4 / a4))
     check(
-        "sum-loss blind threshold is kT over sum(v/a)",
-        near(w0, 1.0 / (1.0 + 0.1 + 0.01)) and sum_mu_star(a, v, 0.5 * w0) == 0.0 and sum_mu_star(a, v, 2.0 * w0) > 0.0,
+        "four-mode sum-loss blind threshold is 1000/1111",
+        near(w0, 1000.0 / 1111.0, 1e-15)
+        and ("%.12f" % w0) == "0.900090009001"
+        and sum_mu_star(a4, v4, 0.5 * w0) == 0.0
+        and sum_mu_star(a4, v4, 2.0 * w0) > 0.0,
         "w0=%.12f" % w0,
     )
 

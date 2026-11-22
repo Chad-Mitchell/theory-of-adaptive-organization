@@ -15,3 +15,10 @@ HTTP 200 | 10.1016/S0304-3932(03)00029-1 | 2003 | Journal of Monetary Economics 
 HTTP 200 | 10.1287/mnsc.13.3.210 | 1966 | Management Science | Discrete Optimization Via Marginal Analysis | vol 13 p 210-216 | Fox
 
 Horowitz and Sandberg 2014 and Sandberg, Delvenne, Newton, and Mitter 2014 also returned HTTP 200 on the earlier pass the same day, recorded in theory/info_physics_checks/attainability_crossref.out. The lines above are this session's resolutions, including those two.
+
+Added after the review of draft PR #180, same day:
+
+HTTP 200 | 10.1109/CDC.2017.8264246 | 2017 | 2017 IEEE 56th Annual Conference on Decision and Control (CDC) | Optimal sensor design and zero-delay source coding for continuous-time vector Gauss-Markov processes | p 3992-3997 | Tanaka; Skoglund; Ugrinovskii
+HTTP 200 | 10.1109/CDC.2018.8619725 | 2018 | 2018 IEEE Conference on Decision and Control (CDC) | Asymptotic Reverse-Waterfilling Characterization of Nonanticipative Rate Distortion Function of Vector-Valued Gauss-Markov Processes with MSE Distortion | p 14-20 | Stavrou; Charalambous; Charalambous; Loyka; Skoglund
+
+Gorbunov and Pinsker, Problems of Information Transmission 9 (1973) 184 and 10 (1974) 93: a Crossref bibliographic query on 22 November 2026 returned no work record for either translation. The volumes and pages are the ones cited in the reference lists of doi 10.1109/CDC.2018.8619725 and doi 10.1109/TIT.2021.3124888. The query that did return HTTP 200 listed later papers that name Gorbunov and Pinsker, including doi 10.1109/tit.2021.3124888.
