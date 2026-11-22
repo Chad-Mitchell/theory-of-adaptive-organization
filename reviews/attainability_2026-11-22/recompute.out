@@ -1,0 +1,79 @@
+PASS  symbolic heat minus learning rate equals the factored expression  0
+PASS  Sekimoto expectation E[f^2]/D - beta equals a v gamma^2 / (D(a+beta))  
+PASS  shrunk spring raw error is exactly eps  
+PASS  shrunk spring heat is a(v-eps) rho / (rho(v+eps)-v)  
+PASS  heat over the Kalman rate is rho eps / (rho(v+eps)-v)  
+PASS  equilibrium signal bath Stratonovich power is identically 0  
+PASS  learning rate equals -I_X, Hartich's signal contraction, and the memory contraction  worst abs 3.109e-15
+PASS  reference raw error 29/60  raw=0.483333333333
+PASS  reference Sekimoto heat 40/9  heat=4.444444444444 learn=1.194029850746
+  shrunk spring, raw error held at 0.2, R=4
+      lambda             heat            learn                s             gain        C=L/T
+           6  24.000000000000   4.645161290323   0.177142857143   1.200000000000     0.774194
+          20   5.333333333333   4.050632911392   0.197994987469   1.052631578947     0.841240
+         100   4.210526315789   4.002001000500   0.199919991999   1.010101010101     0.407408
+       1e+03   4.020100502513   4.000020000100   0.199999199999   1.001001001001     0.128116
+       1e+04   4.002001000500   4.000000200000   0.199999992000   1.000100010001     0.040188
+       1e+06   4.000020000100   4.000000000020   0.199999999999   1.000001000001     0.004002
+PASS  at lambda=1e6 the heat is 800000/199999 = 4.000020000100  heat=4.000020000100004 exact=4.000020000100000
+PASS  conditional variance at lambda=1e6 is within 1e-11 of 0.2  s=0.199999999999200 gain=1.000001000001000
+PASS  at lambda=1e6 sensory capacity stays strictly below 1  C=0.004002 T=999.503125 L=4.000000
+PASS  centered fast raw error 0.2 has heat near 5 and conditional error near 1/6  raw=0.20000000 heat=5.00002000 s=0.16666694 learn=4.99999000
+PASS  centered spring plus the conditional-mean readout meets decision error 0.2 at heat near 4  raw=0.25000000 s=0.20000032 heat=4.00001200 gain=0.80000048
+PASS  capacity-1 centered spring matches Hartich (52)-(54) and heat is twice the learning rate  
+PASS  nu=9 capacity-1 conditional error is 0.2 and heat is 8  s=0.200000 heat=8.000000
+PASS  centered spring matches Hartich off capacity 1, and eta stays at most nu/(1+nu)  
+  frontier a=v=kT=1
+       w              eps             heat             cost
+     0.5   1.000000000000   0.000000000000   0.500000000000
+       1   1.000000000000   0.000000000000   1.000000000000
+       2   0.707106781187   0.414213562373   1.828427124746
+       3   0.577350269190   0.732050807569   2.464101615138
+       8   0.353553390593   1.828427124746   4.656854249492
+      20   0.223606797750   3.472135955000   7.944271909999
+      50   0.141421356237   6.071067811865  13.142135623731
+PASS  frontier values and local minima match 2 sqrt(kT a v w) - kT a above the threshold  
+PASS  centered raw-error objective is above the blind cost at stakes 2 and 3  costs 2.828427 and 3.464102 against blind 2 and 3
+PASS  parent channel MMSE is 0.2  
+  K-bin, fine grid (xmax=12, n=12001), equal-probability edges by Newton ppf
+     K         MMSE            L            R          L/R
+     2     0.490704     1.260226     1.037888     1.214222
+     4     0.311553     2.553477     2.209725     1.155563
+     8     0.243973     3.340681     3.098821     1.078049
+    16     0.217780     3.712231     3.591792     1.033532
+    32     0.207369     3.874752     3.822318     1.013718
+    64     0.203125     3.944930     3.923088     1.005568
+PASS  fine 64-bin learning rate is within 1% of R(MMSE) and the ratio falls with K  
+  retuned so the bin MMSE is 0.2, same fine grid
+  K=8 sigma=0.425785 mmse=0.200000 L=4.471197
+  K=16 sigma=0.471401 mmse=0.200000 L=4.157908
+  K=32 sigma=0.488350 mmse=0.200000 L=4.058752
+  K=64 sigma=0.495094 mmse=0.200000 L=4.022937
+  absolute gaps versus the draft's four heats: 0.000133 0.000038 0.000006 0.000000
+PASS  retuned fine-grid learning rates agree with the draft heats to 0.002  max gap 0.000133
+  quartic coarse: MMSE=0.120383 Fisher=11.019370 1/MMSE=8.306810 L=10.019370 R=7.306810 excess=2.712561 weight=1.0000
+  quartic fine: MMSE=0.120383 Fisher=11.016660 1/MMSE=8.306810 L=10.016660 R=7.306810 excess=2.709851 weight=1.0000
+PASS  quartic conditional Fisher exceeds 1/MMSE on both grids  coarse excess 2.7126 fine excess 2.7099
+PASS  30-draw seed 19: stable systems stay above the learning rate  stable=30 closest heat/R(s)=1.615570
+PASS  equilibrium second coordinate adds no heat  heat=4.0020010005 one=4.0020010005
+  Crossref
+  HTTP 200 | 10.1103/PhysRevX.4.031015 | 2014 | Physical Review X | Thermodynamics with Continuous Information Flow | Horowitz; Esposito
+PASS  Crossref 10.1103/PhysRevX.4.031015 matches Horowitz 2014  year=2014 authors=Horowitz, Esposito
+  HTTP 200 | 10.1088/1367-2630/16/10/103024 | 2014 | New Journal of Physics | Efficiency of cellular information processing | Barato; Hartich; Seifert
+PASS  Crossref 10.1088/1367-2630/16/10/103024 matches Barato 2014  year=2014 authors=Barato, Hartich, Seifert
+  HTTP 200 | 10.1103/PhysRevE.93.022116 | 2016 | Physical Review E | Sensory capacity: An information theoretical measure of the performance of a sensor | Hartich; Barato; Seifert
+PASS  Crossref 10.1103/PhysRevE.93.022116 matches Hartich 2016  year=2016 authors=Hartich, Barato, Seifert
+  HTTP 200 | 10.1088/1367-2630/16/12/125007 | 2014 | New Journal of Physics | Second-law-like inequalities with information and their interpretations | Horowitz; Sandberg
+PASS  Crossref 10.1088/1367-2630/16/12/125007 matches Horowitz 2014  year=2014 authors=Horowitz, Sandberg
+  HTTP 200 | 10.1137/0119020 | 1970 | SIAM Journal on Applied Mathematics | On the Calculation of Mutual Information | Duncan
+PASS  Crossref 10.1137/0119020 matches Duncan 1970  year=1970 authors=Duncan
+  HTTP 200 | 10.1088/1742-5468/2015/01/P01014 | 2015 | Journal of Statistical Mechanics: Theory and Experiment | Thermodynamic limits to information harvesting by sensory systems | Bo; Giudice; Celani
+PASS  Crossref 10.1088/1742-5468/2015/01/P01014 matches Bo 2015  year=2015 authors=Bo, Giudice, Celani
+  HTTP 200 | 10.1007/s10955-004-8781-9 | 2005 | Journal of Statistical Physics | Information and Entropy Flow in the Kalman?Bucy Filter | Mitter; Newton
+PASS  Crossref 10.1007/s10955-004-8781-9 matches Mitter 2005  year=2005 authors=Mitter, Newton
+  HTTP 200 | 10.1103/PhysRevE.90.042119 | 2014 | Physical Review E | Maximum work extraction and implementation costs for nonequilibrium Maxwell's demons | Sandberg; Delvenne; Newton; Mitter
+PASS  Crossref 10.1103/PhysRevE.90.042119 matches Sandberg 2014  year=2014 authors=Sandberg, Delvenne, Newton, Mitter
+  HTTP 200 | 10.1109/ALLERTON.2014.7028503 | 2014 | 2014 52nd Annual Allerton Conference on Communication, Control, and Computing (Allerton) | Thermodynamic costs in implementing Kalman-Bucy filters | Sandberg; Delvenne; Newton; Mitter
+PASS  Crossref 10.1109/ALLERTON.2014.7028503 matches Sandberg 2014  year=2014 authors=Sandberg, Delvenne, Newton, Mitter
+PASS 34  FAIL 0
+ALL INDEPENDENT CHECKS PASS
