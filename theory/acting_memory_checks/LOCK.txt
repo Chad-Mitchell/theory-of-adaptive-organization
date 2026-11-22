@@ -1,0 +1,5 @@
+Acting-memory lock. The preregistration commit is 06976862d850363c4f2fc5690c8fc4f20e3c984d.
+This file records the sha256 of theory/acting_memory_checks/PREREG.md at that commit.
+The preregistration is not edited after this line. A dated deviation would be a new file.
+
+bdf86e0379297c84f59856261419e66286c8c3b3f48ce24e8e22fd7812ddd4b8  PREREG.md
