@@ -92,8 +92,8 @@ Checks: `theory/meq_checks/` (run at nice 19; a few seconds each). **`meq_derive
 - This is Afriat/Varian revealed preference and Kalman's 1964 inverse-optimality question applied to design. It is a real way around the w bottleneck.
 - **Over-identification count (v2.2).** One system observed at m exogenous drift levels gives m − 1 equalities of the implied w/c. n items under one clock give n − 1 equalities of c_i/(w_iσ_i²). A K-way allocation under one binding budget gives K − 1 equalities of marginal value per currency unit (the shadow price of THEORY CT24). A test needs at least one such equality beyond the free ratios.
 
-**(d) The ruin multiplier as a price of survival. HOLDS (diffusion approximation, Lundberg sufficient bound).**
-- μ = −m′/θ′ at the binding constraint. It is the marginal expected cost of extra survival exponent.
+**(d) The ruin multiplier as a price of survival. HOLDS (diffusion approximation, Lundberg sufficient bound, scalar path).**
+- The binding multiplier is proved in THEORY B.9 (CT22): strict convexity of J, convexity of the variance rate (so θ is strictly unimodal and the feasible set is an interval), and constraint qualification θ′ ≠ 0 off the survival endpoint. μ = −m′/θ′ at the binding point. It is the marginal expected cost of extra survival exponent. The check is `theory/representation_checks/binding_multiplier.py`.
   - It is 0 for B ≥ B_slack, where the expected-cost rules hold exactly.
   - It rises toward the feasibility edge B_min, below which no design survives. This is the constructive face of Theorem P's "not viable".
   - At B = 0.5 it is μ = 0.0052 per unit θ, and the buffer is worth dJ\*/dB = −0.145.

@@ -1,0 +1,28 @@
+Crossref API, 22 November 2026. User-Agent gtao-representation/1.0. A line is OK only when the returned title matches the work cited in theory/REPRESENTATION.md.
+
+OK  10.1017/ccol052123736x.010 | Debreu | year field empty | Topological methods in cardinal utility theory
+OK  10.1515/9781400829460 | von Neumann, Morgenstern 2007 | Theory of Games and Economic Behavior (60th Anniversary Commemorative Edition)
+OK  10.2307/1426210 | Aczél, Forte, Ng 1974 | Why the Shannon and Hartley entropies are ‘natural’
+OK  10.3390/e10030261 | Csiszár 2008 | Axiomatic Characterizations of Information Measures
+OK  10.1109/9780470544242.ch1 | author list empty 2009 | A Mathematical Theory of Communication
+OK  10.1103/PhysRevLett.109.120604 | Still, Sivak, Bell, Crooks 2012 | Thermodynamics of Prediction
+OK  10.1147/rd.53.0183 | Landauer 1961 | Irreversibility and Heat Generation in the Computing Process
+OK  10.1103/PhysRevLett.84.1156 | Touchette, Lloyd 2000 | Information-Theoretic Limits of Control
+OK  10.1111/j.1600-0706.2009.17781.x | Donaldson‐Matasci, Bergstrom, Lachmann 2010 | The fitness value of information
+OK  10.1002/j.1538-7305.1956.tb03809.x | Kelly 1956 | A New Interpretation of Information Rate
+OK  10.1016/S0304-3932(03)00029-1 | Sims 2003 | Implications of rational inattention
+OK  10.1109/tac.2004.831187 | Tatikonda, Mitter 2004 | Control Under Communication Constraints
+OK  10.1109/TAC.2004.834430 | Tatikonda, Sahai, Mitter 2004 | Stochastic Linear Control Over a Communication Channel
+OK  10.1103/PhysRevLett.102.250602 | Sagawa, Ueda 2009 | Minimal Energy Cost for Thermodynamic Information Processing: Measurement and Information Erasure
+OK  10.1103/PhysRevLett.106.189901 | Sagawa, Ueda 2011 | Erratum: Minimal Energy Cost for Thermodynamic Information Processing: Measurement and Information Erasure
+OK  10.1088/1367-2630/16/10/103024 | Barato, Hartich, Seifert 2014 | Efficiency of cellular information processing
+OK  10.1073/pnas.0501865102 | Sella, Hirsh 2005 | The application of statistical physics to evolutionary biology
+OK  10.1287/opre.26.2.305 | Topkis 1978 | Minimizing a Submodular Function on a Lattice
+OK  10.2307/2951479 | Milgrom, Shannon 1994 | Monotone Comparative Statics
+OK  10.1214/aoms/1177729032 | Blackwell 1953 | Equivalent Comparisons of Experiments
+OK  10.2307/2343100 | Farrell 1957 | The Measurement of Productive Efficiency
+OK  10.2307/1906814 | Debreu 1951 | The Coefficient of Resource Utilization | Econometrica 19:273
+OK  10.1126/science.1217405 | Shoval, Sheftel, Shinar, Hart, Ramote, Mayo, Dekel, Kavanagh, Alon 2012 | Evolutionary Trade-Offs, Pareto Optimality, and the Geometry of Phenotype Space
+OK  10.1016/0022-247X(68)90201-1 | Geoffrion 1968 | Proper efficiency and the theory of vector maximization
+
+Not cited, because Crossref did not return a DOI for the work itself: Khinchin, Mathematical Foundations of Information Theory (a review record exists; the book does not, in the lookup used here); Faddeev 1956 (the axiom is cited only as stated by Aczél, Forte and Ng).

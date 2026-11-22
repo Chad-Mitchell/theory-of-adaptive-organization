@@ -21,7 +21,7 @@ $$J(\mathcal D)=\kappa I_{\text{mem}}+hK+w\,\mathbb E[\ell_{\mathcal D}]+A(\math
 - \(A\), \(L\): the cost of reading the world, and of linking, telling and lookup.
 - \(P(\text{ruin})\le\varepsilon\): a reserve paying \(J\) must not hit zero more often than \(\varepsilon\). A hard cap, not a cost to average away.
 
-The world is a measured input: its statistics, the read noise and the lead time. One currency per system. The equation is a definition, assembled from known parts (THEORY §3).
+The world is a measured input: its statistics, the read noise and the lead time. One currency per system. The equation is a definition, assembled from known parts (THEORY §3). It is forced, up to a positive affine transformation, only under the axioms in `theory/REPRESENTATION.md`. Storing, predicting, acting and staying solvent do not force it.
 
 **Part 1, the limits.**
 
