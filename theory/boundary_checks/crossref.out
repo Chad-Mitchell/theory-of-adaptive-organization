@@ -1,0 +1,101 @@
+Crossref API, 22 November 2026. User-Agent gtao-boundary/0.1. HTTP 200 unless noted.
+Abstracts are the record's abstract field, truncated. A missing abstract is recorded as none.
+
+DOI 10.1214/aos/1176349846
+title: Gaussian Markov Distributions over Finite Graphs
+authors: Speed, Kiiveri
+issued: 1986-03-01
+container: The Annals of Statistics
+volume: 14
+page: 138-150
+type: journal-article
+abstract: Gaussian Markov distributions are characterised by zeros in the inverse of their covariance matrix and we describe the conditional independencies which follow from a given pattern of zeros.
+
+DOI 10.1111/j.2517-6161.1974.tb00999.x
+title: Spatial Interaction and the Statistical Analysis of Lattice Systems
+authors: Besag
+issued: 1974-01-01
+container: Journal of the Royal Statistical Society Series B: Statistical Methodology
+volume: 36
+page: 192-225
+type: journal-article
+abstract: A simple alternative proof of the Hammersley–Clifford theorem is presented and the theorem is then used to construct specific spatial schemes on and off the lattice. Particular emphasis is placed upon practical applications of the models in plant ecology when the variates are binary or Gaussian.
+
+DOI 10.2307/2528966
+title: Covariance Selection
+authors: Dempster
+issued: 1972-03
+container: Biometrics
+volume: 28
+page: 157
+type: journal-article
+abstract: none
+
+DOI 10.1093/oso/9780198522195.001.0001
+title: Graphical Models
+authors: Lauritzen
+issued: 1996-05-02
+type: book
+abstract: The idea of modelling systems using graph theory has its origin in several scientific areas: in statistical physics (the study of large particle systems), in genetics (studying inheritable properties of natural species), and in interactions in contingency tables. The use of graphical models in statistics has increased considerably over recent years and the theory has been greatly developed and extended. This book provides the first comprehensive account of the theory of graphical models.
+
+DOI 10.1201/9780203492024
+title: Gaussian Markov Random Fields
+authors: Rue, Held
+issued: 2005-02-18
+type: monograph
+abstract: none
+
+DOI 10.1007/978-0-387-30164-8_509
+title: Markov Blanket
+issued: 2011
+page: 639-639
+abstract: none
+authors: none in the record
+
+DOI 10.1103/PhysRevD.7.2333
+title: Black Holes and Entropy
+authors: Bekenstein
+issued: 1973-04-15
+container: Physical Review D
+volume: 7
+page: 2333-2346
+abstract: none
+
+DOI 10.1007/BF02345020
+title: Particle creation by black holes
+authors: Hawking
+issued: 1975-08
+container: Communications In Mathematical Physics
+volume: 43
+page: 199-220
+abstract: none
+
+DOI 10.1103/PhysRevLett.100.070502
+title: Area Laws in Quantum Systems: Mutual Information and Correlations
+authors: Wolf, Verstraete, Hastings, Cirac
+issued: 2008-02-20
+container: Physical Review Letters
+volume: 100
+abstract: none in this fetch
+
+DOI 10.1023/A:1026654312961
+title: The Large-N Limit of Superconformal Field Theories and Supergravity
+authors: Maldacena
+issued: 1999-04
+volume: 38
+page: 1113-1133
+abstract: none in this fetch
+
+DOI 10.1103/RevModPhys.74.825
+title: The holographic principle
+authors: Bousso
+issued: 2002-08-05
+volume: 74
+page: 825-874
+abstract: none in this fetch
+
+Bibliographic query "Hammersley Clifford 1971 Markov fields finite graphs lattices":
+total-results reported 1515788. First page did not contain a work record for the 1971 manuscript.
+First-page DOIs included 10.1090/conm/001/03, 10.1016/j.ffa.2014.10.004, 10.1016/j.ffa.2014.01.007, 10.1093/oso/9780198505709.003.0005, 10.11606/t.45.2018.tde-02022018-151123.
+
+One DOI lookup returned HTTP 429 before a later retry succeeded (10.1093/oso/9780198522195.001.0001, 10.1007/BF02345020). The records above are the successful responses.

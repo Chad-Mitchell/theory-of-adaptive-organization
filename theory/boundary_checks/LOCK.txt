@@ -1,0 +1,4 @@
+prereg_commit 93084b06da8b6b9b8cb66f671c19368ff3255a48
+prereg_sha256 58ba0ebaa19d126d8c47293bc82d598f4416832b1bf767c64c73e9d175de943c
+prereg_path theory/boundary_checks/PREREG.md
+note The preregistration file is not edited after this lock. Checks were run after the commit.
