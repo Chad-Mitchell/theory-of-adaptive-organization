@@ -2,7 +2,7 @@
 
 The core (`THEORY.md`) carries no changelog from v2.0 on; changes are recorded here. Entries before v2.0 are copied unchanged from §13 of the frozen [`THEORY_v1.4.29.md`](THEORY_v1.4.29.md). Times are America/New_York.
 
-- **CLAIM_MAP v2.72 (21 Nov 2026, about 7:45 PM ET; branch `coadaptation-2026-11-21`, draft PR).** New section S (`theory/COADAPTATION.md`, T12): CA1–CA4 and failure classes F1–F5, six PROVED (in-model) rows and one OPEN; CX2 stays OPEN; one-line pointer in THEORY §9.
+- **CLAIM_MAP v2.72 (21 Nov 2026, evening ET; branch `coadaptation-2026-11-21`, draft PR #148; updated after review).** New section S (`theory/COADAPTATION.md`, T12): CA1–CA7, P1–P4, failure classes F1–F6, and refutation of the finite-γ single-basin bracket; eleven PROVED (in-model) rows (S1–S6, S8–S12; P2 explicit loose constants) and one OPEN (S7); CX1 and CX2 stay OPEN; restated pointer in THEORY §9.
 
 - **CLAIM_MAP v2.71 (21 Nov 2026, evening ET; branch `selection-fold-2026-11-21`, draft PR).** Bridge exponents stated per population model (haploid Moran α(N−1); diploid Wright–Fisher α(2N−1), an approximation); official T27 Moran run and locked prereg/hash files untouched. Holdability cuts from the PR #143 confirm applied to `theory/SELECTION_AXIOMS.md`. Near-minimization folded into THEORY §4 as an in-model derivation under A1, A2-L, Nμ≪1, and SA1–SA1b; the empirical bet is whether real systems meet those assumptions, tested by SA-P1 (not locked). Appendix A.1 Selection bullet and CORE §8 updated only where they were stale. No existing row changes status; tally remains 330. The Part 2 hypothesis sentence is unchanged; the 'principle not law' framing is kept. A self-check, not independently reviewed.
 

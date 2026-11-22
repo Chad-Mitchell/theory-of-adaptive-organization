@@ -17,6 +17,14 @@ Sections (numbering follows COADAPTATION.md):
       virial identity), team with mismatched strengths (CA3 bound),
       cyclic chase (Hopf), world gain g > 1 (saddle), delay (Hayes bound),
       nonlinear virial check, CT34 lift (free energy and factorisation)
+  s6  nonlinear strictly monotone non-potential games (CA5 Hodge split,
+      per-party regret bound, CA5' translation drift)
+  s7  discrete mismatched strengths (CA6 perturbative tree bound, low-T limit,
+      single-basin bracket counterexample + unbounded entropic family,
+      P1 local a_i criterion, P2 PL flux bound, P3 exact tree graph)
+  s8  LQ drift + co-adaptation (CA7 potential excess, per-party virial,
+      mismatch bracket, negative finding on naive per-party regret)
+  s9  F6 / P4 strong-selection resistance trees and speed independence
 """
 from __future__ import annotations
 
@@ -465,6 +473,480 @@ def s5h_ct34_lift():
     return out
 
 
+
+
+# ---------------------------------------------------------------- overflow-safe helpers for strong selection
+def moran_fix_stable(alpha, dJ, N):
+    """Overflow-safe haploid Moran fixation probability for cost change dJ."""
+    x = alpha * dJ
+    if abs(x) < 1e-12:
+        return 1.0 / N
+    if x > 0:
+        return math.exp(-(N - 1) * x) * (-math.expm1(-x)) / (-math.expm1(-N * x))
+    return math.expm1(x) / math.expm1(N * x)
+
+
+def joint_generator_stable(J, sizes, alphas, Ns, us):
+    """Overflow-safe weak-mutation substitution chain generator."""
+    n = len(sizes)
+    states = list(np.ndindex(*sizes))
+    idx = {s: k for k, s in enumerate(states)}
+    S = len(states)
+    Q = np.zeros((S, S))
+    for k, s in enumerate(states):
+        for i in range(n):
+            for st in (-1, 1):
+                t = list(s)
+                t[i] += st
+                if 0 <= t[i] < sizes[i]:
+                    t = tuple(t)
+                    Q[k, idx[t]] += us[i] * moran_fix_stable(alphas[i], J[i][t] - J[i][s], Ns[i])
+        Q[k, k] = -Q[k].sum()
+    return Q, states
+
+
+def gth(Q):
+    """Grassmann-Taksar-Heyman stationary vector (accurate across huge rate ratios)."""
+    P = Q.copy()
+    n = P.shape[0]
+    np.fill_diagonal(P, 0.0)
+    for k in range(n - 1, 0, -1):
+        s = P[k, :k].sum()
+        P[:k, :k] += np.outer(P[:k, k], P[k, :k]) / s
+        P[:k, k] /= s
+    pi = np.zeros(n)
+    pi[0] = 1.0
+    for k in range(1, n):
+        pi[k] = pi[:k] @ P[:k, k]
+    return pi / pi.sum()
+
+
+def _n_local_min(J):
+    cnt = 0
+    for s in np.ndindex(*J.shape):
+        ok = True
+        for i in range(J.ndim):
+            for st in (-1, 1):
+                t = list(s)
+                t[i] += st
+                if 0 <= t[i] < J.shape[i] and J[tuple(t)] <= J[s]:
+                    ok = False
+        cnt += ok
+    return cnt
+
+
+def _gibbs_E(J, gamma):
+    w = np.exp(-gamma * (J - J.min()))
+    w /= w.sum()
+    return float((w * J).sum())
+
+
+# ---------------------------------------------------------------- s6: CA5, CA5'
+def _ca5_field(x, S, b, a):
+    gP = x @ S.T
+    R = np.stack([-a * x[:, 1] + b * np.tanh(x[:, 1]),
+                  a * x[:, 0] - b * np.tanh(x[:, 0])], axis=1)
+    return gP + R, gP, R
+
+
+def _ca5_moduli(S, b, a, L=6.0, n=601):
+    g = np.linspace(-L, L, n)
+    X1, X2 = np.meshgrid(g, g, indexing="ij")
+    s1, s2 = 1.0 / np.cosh(X2) ** 2, 1.0 / np.cosh(X1) ** 2
+    off = S[0, 1] + b * (s1 - s2) / 2.0
+    tr, det = S[0, 0] + S[1, 1], S[0, 0] * S[1, 1] - off ** 2
+    lam_min = tr / 2.0 - np.sqrt((tr / 2.0) ** 2 - det)
+    m = float(lam_min.min())
+    r2 = X1 ** 2 + X2 ** 2
+    xR = b * (X1 * np.tanh(X2) - X2 * np.tanh(X1))
+    mask = r2 > 1e-8
+    rho_in = float(max(0.0, np.max(-xR[mask] / r2[mask])))
+    rho_out = float(max(0.0, np.max(xR[mask] / r2[mask])))
+    return m, rho_in, rho_out
+
+
+def s6a_nonlinear_monotone_hodge(seed=11):
+    """CA5: F = grad Psi + R m-strongly monotone; radius, Hodge two-sided bound, regret."""
+    rng = np.random.default_rng(seed)
+    S = np.array([[2.0, 0.3], [0.3, 1.0]])
+    out = {}
+    cases = [
+        (0.0, 0.0, (1.0, 1.0)),
+        (2.0, 0.0, (1.0, 0.3)),
+        (1.0, 0.9, (1.0, 1.0)),
+        (1.0, 0.9, (1.0, 0.2)),
+        (3.0, 0.9, (0.3, 1.0)),
+    ]
+    for a, b, speeds in cases:
+        m, rin, rout = _ca5_moduli(S, b, a)
+        V = np.array(speeds)
+        dt, steps, burn, chains = 2e-3, 40000, 8000, 400
+        x = np.zeros((chains, 2))
+        acc = []
+        for k in range(steps):
+            F, _, _ = _ca5_field(x, S, b, a)
+            x = x - dt * V * F + np.sqrt(2 * V * dt) * rng.normal(size=x.shape)
+            if k >= burn and k % 10 == 0:
+                acc.append(x.copy())
+        xs = np.concatenate(acc)
+        F, _, _ = _ca5_field(xs, S, b, a)
+        Psi = 0.5 * np.einsum("ij,jk,ik->i", xs, S, xs)
+        r2 = (xs ** 2).sum(axis=1)
+        # beta_i = 1, J_i quadratic in x_i with curvature S[i,i], F_i = grad_i J_i
+        mu = [S[0, 0], S[1, 1]]
+        L_lip = [
+            math.hypot(S[0, 0], max(abs(S[0, 1] - a - b), abs(S[0, 1] - a + b))),
+            math.hypot(S[1, 1], max(abs(S[0, 1] + a - b), abs(S[0, 1] + a + b))),
+        ]
+        regret = [float(np.mean(0.5 * (F[:, i] ** 2) / mu[i])) for i in range(2)]
+        regret_bound = [float((L_lip[i] ** 2) * 2.0 / (2.0 * mu[i] * m)) for i in range(2)]
+        out[f"a={a},b={b},v={speeds}"] = {
+            "m": m,
+            "rho_in": rin,
+            "rho_out": rout,
+            "virial_sum": float(np.mean((xs * F).sum(axis=1))),
+            "E_r2": float(r2.mean()),
+            "bound_r2": 2.0 / m,
+            "E_Psi": float(Psi.mean()),
+            "bound_Psi_lo": 1.0 * (1.0 - rout / m),
+            "bound_Psi_hi": 1.0 * (1.0 + rin / m),
+            "regret": regret,
+            "regret_bound": regret_bound,
+        }
+    return out
+
+
+def s6b_nonlinear_monotone_drift(seed=16):
+    """CA5': nonlinear monotone game under exogenous Brownian translation drift."""
+    rng = np.random.default_rng(seed)
+    S = np.array([[2.0, 0.3], [0.3, 1.0]])
+    a, b = 1.0, 0.9
+    m, rin, rout = _ca5_moduli(S, b, a)
+    V = np.array([1.0, 0.5])
+    Qd = np.array([0.4, 0.2])
+    dt, steps, burn, chains = 2e-3, 50000, 10000, 400
+    z = np.zeros((chains, 2))
+    acc = []
+    for k in range(steps):
+        F, _, _ = _ca5_field(z, S, b, a)
+        z = (z - dt * V * F
+             + np.sqrt(2 * V * dt) * rng.normal(size=z.shape)
+             - np.sqrt(2 * Qd * dt) * rng.normal(size=z.shape))
+        if k >= burn and k % 10 == 0:
+            acc.append(z.copy())
+    zs = np.concatenate(acc)
+    F, _, _ = _ca5_field(zs, S, b, a)
+    dtot = 2.0 + float((Qd / V).sum())
+    Psi = 0.5 * np.einsum("ij,jk,ik->i", zs, S, zs)
+    return {
+        "m": m,
+        "virial": float(np.mean((zs * F).sum(axis=1))),
+        "pred_virial": dtot,
+        "E_r2": float((zs ** 2).sum(axis=1).mean()),
+        "bound_r2": dtot / m,
+        "E_Psi": float(Psi.mean()),
+        "bound_Psi_lo": 0.5 * dtot * (1.0 - rout / m),
+        "bound_Psi_hi": 0.5 * dtot * (1.0 + rin / m),
+    }
+
+
+# ---------------------------------------------------------------- s7: CA6, P1-P3, bracket FALSE
+def s7a_perturbative_tree_bound(trials=100, seed=21):
+    """CA6(a): Markov-chain-tree perturbative bound around matched strength."""
+    rng = np.random.default_rng(seed)
+    viol = 0
+    biggest_tv_ratio = 0.0
+    for _ in range(trials):
+        JT = rng.uniform(0, 1, (3, 3))
+        g = 2.0
+        c = g + rng.uniform(-0.05, 0.05, 2)
+        Q0, _ = joint_generator_stable([JT, JT], JT.shape, [g / 9.0] * 2, (10, 10), (1.0, 1.0))
+        Q1, _ = joint_generator_stable([JT, JT], JT.shape, [v / 9.0 for v in c], (10, 10), (1.0, 1.0))
+        mask = (Q0 > 0) & ~np.eye(9, dtype=bool)
+        eta = float(np.max(np.abs(np.log(Q1[mask] / Q0[mask]))))
+        a = 8.0 * eta
+        pi, p0 = gth(Q1), gth(Q0)
+        tv = float(0.5 * np.abs(pi - p0).sum())
+        jf = JT.ravel()
+        jm = float(jf.min())
+        ex1, ex0 = float(pi @ (jf - jm)), float(p0 @ (jf - jm))
+        rat = pi / p0
+        if (tv > math.tanh(a / 2.0) + 1e-12
+                or ex1 > math.exp(2.0 * a) * ex0 + 1e-12
+                or rat.min() < math.exp(-2.0 * a) - 1e-12
+                or rat.max() > math.exp(2.0 * a) + 1e-12):
+            viol += 1
+        biggest_tv_ratio = max(biggest_tv_ratio, tv / math.tanh(a / 2.0))
+    return {"trials": trials, "violations": viol, "max_tv_to_tanh_half_a": biggest_tv_ratio}
+
+
+def s7b_single_basin_low_temp():
+    """CA6(b): single unilateral basin concentrates on argmin J under mismatched strengths."""
+    g = np.linspace(-1, 1, 6)
+    X1, X2 = np.meshgrid(g, g, indexing="ij")
+    JT = 0.5 * (2 * X1 ** 2 + 1.6 * X1 * X2 + X2 ** 2) + 0.1 * X1
+    k = int(np.argmin(JT.ravel()))
+    out = {}
+    for lam in (2, 8, 32, 128):
+        Q, _ = joint_generator_stable([JT, JT], JT.shape, [lam / 9.0, 8.0 * lam / 9.0], (10, 10), (1.0, 1.0))
+        pi = gth(Q)
+        out[lam] = float(pi[k])
+    return out
+
+
+def _party_gens_matched(J, gamma, us, N=10):
+    n = J.ndim
+    out = []
+    for i in range(n):
+        u = [0.0] * n
+        u[i] = us[i]
+        Q, _ = joint_generator_stable([J] * n, J.shape, [gamma / (N - 1)] * n, (N,) * n, tuple(u))
+        out.append(Q)
+    return out
+
+
+def _p1_a_coeffs(J, gamma, us, N=10):
+    Ls = [-Q for Q in _party_gens_matched(J, gamma, us, N=N)]
+    L = sum(Ls)
+    pi = np.exp(-gamma * (J - J.min())).ravel()
+    pi /= pi.sum()
+    jf = J.ravel()
+    jt = jf - pi @ jf
+    A = np.vstack([L, pi])
+    b = np.concatenate([jt, [0.0]])
+    h = np.linalg.lstsq(A, b, rcond=None)[0]
+    var = float(pi @ (jt ** 2))
+    a = [float(pi @ ((Li @ jf) * h)) for Li in Ls]
+    return a, var
+
+
+def s7c_single_basin_bracket_false():
+    """Refutation of the single-basin bracket + P1 local criterion check."""
+    # 1. Local a_2 < 0 example
+    J_loc = np.array([[0.867, 0.2], [0.063, 0.058]])
+    assert _n_local_min(J_loc) == 1
+    g = 12.946561340217954
+    us_loc = (3.9406248608293835, 10.771274476091913)
+    a_vals, var = _p1_a_coeffs(J_loc, g, us_loc)
+    local_eps = []
+    for eps in (0.01, 0.1, 0.5):
+        Q, _ = joint_generator_stable([J_loc, J_loc], J_loc.shape, [g / 9.0, (g + eps) / 9.0], (10, 10), us_loc)
+        E = float(gth(Q) @ J_loc.ravel())
+        lo, hi = _gibbs_E(J_loc, g + eps), _gibbs_E(J_loc, g)
+        local_eps.append({"eps": eps, "E": E, "lo": lo, "hi": hi, "excess": E - hi})
+
+    # 2. Adversarial 2x2 single-basin counterexample
+    J_adv = np.array([[0.2487, 1.0], [0.0, 0.0161]])
+    assert _n_local_min(J_adv) == 1
+    c_adv = (6.23, 60.0)
+    us_adv = (1.0, 105.142)
+    Q_adv, _ = joint_generator_stable([J_adv, J_adv], J_adv.shape, [c_adv[0] / 9.0, c_adv[1] / 9.0], (10, 10), us_adv)
+    E_adv = float(gth(Q_adv) @ J_adv.ravel())
+    lo_adv, hi_adv = _gibbs_E(J_adv, max(c_adv)), _gibbs_E(J_adv, min(c_adv))
+
+    # 3. Unbounded 2 x m entropic family
+    entropic = []
+    eps_e, Delta, c1, c2 = 1e-5, 0.5, 1.0, 1e6
+    for m in (2, 4, 8, 16, 32, 64):
+        J_ent = np.full((2, m), 10.0)
+        J_ent[1, :] = eps_e * np.arange(m)
+        J_ent[0, 0] = Delta
+        assert _n_local_min(J_ent) == 1
+        Q_ent, _ = joint_generator_stable([J_ent, J_ent], J_ent.shape, [c1 / 9.0, c2 / 9.0], (10, 10), (1.0, 1.0))
+        E_ent = float(gth(Q_ent) @ J_ent.ravel())
+        gmin_E = _gibbs_E(J_ent, c1)
+        pred_lim = (m + math.exp(-c1 * Delta)) / (1.0 + math.exp(-c1 * Delta))
+        entropic.append({"m": m, "E": E_ent, "gibbs_gmin": gmin_E, "ratio": E_ent / gmin_E, "pred_limit": pred_lim})
+
+    return {
+        "local_a": a_vals,
+        "local_var": var,
+        "local_eps": local_eps,
+        "adv": {"E": E_adv, "lo": lo_adv, "hi": hi_adv, "rel_violation": (E_adv - hi_adv) / (hi_adv - lo_adv)},
+        "entropic": entropic,
+    }
+
+
+def s7d_pl_flux_bound(trials=400, seed=81):
+    """P2: discrete PL flux bound E[J - J*] <= N_max * max U / (u_min * theta)."""
+    rng = np.random.default_rng(seed)
+    N = 10
+    viol = 0
+    tight = []
+    n_ok = 0
+    while n_ok < trials:
+        shape = tuple(int(v) for v in rng.integers(2, 5, size=int(rng.integers(2, 4))))
+        if math.prod(shape) > 40:
+            continue
+        J = rng.uniform(0, 1, shape)
+        if _n_local_min(J) != 1:
+            continue
+        n = J.ndim
+        c = rng.uniform(0.5, 40.0, n)
+        us = rng.uniform(0.1, 10.0, n)
+        Q, _ = joint_generator_stable([J] * n, shape, [c[i] / (N - 1) for i in range(n)], (N,) * n, tuple(us))
+        E = float(gth(Q) @ J.ravel())
+        Jm = float(J.min())
+        ex = E - Jm
+        theta = float("inf")
+        Umax = 0.0
+        for s in np.ndindex(*shape):
+            best = 0.0
+            U = 0.0
+            for i in range(n):
+                for st in (-1, 1):
+                    t = list(s)
+                    t[i] += st
+                    if 0 <= t[i] < shape[i]:
+                        dJ = float(J[tuple(t)] - J[s])
+                        if dJ > 0:
+                            U += us[i] * moran_fix_stable(c[i] / (N - 1), dJ, N) * dJ
+                        else:
+                            best = max(best, -dJ)
+            Umax = max(Umax, U)
+            if J[s] > Jm:
+                theta = min(theta, best / (float(J[s]) - Jm))
+        bound = N * Umax / (float(us.min()) * theta)
+        n_ok += 1
+        if ex > bound * (1.0 + 1e-9):
+            viol += 1
+        tight.append(ex / bound)
+    return {"trials": n_ok, "violations": viol, "median_tightness": float(np.median(tight)), "max_tightness": float(max(tight))}
+
+
+def s7e_tree_graph_exact():
+    """P3: on a tree-shaped state graph, chain is reversible with pi proportional to exp(-Psi_c)."""
+    # 6-node tree: 0-1 (p0), 1-2 (p1), 1-3 (p0), 3-4 (p1), 3-5 (p0)
+    edges = [(0, 1, 0), (1, 2, 1), (1, 3, 0), (3, 4, 1), (3, 5, 0)]
+    J = np.array([0.8, 0.3, 1.1, 0.1, 0.9, 0.5])
+    c = (2.5, 14.0)
+    us = (1.3, 7.9)
+    N = 10
+    S = len(J)
+    Q = np.zeros((S, S))
+    Psi = np.zeros(S)
+    for u, v, p in edges:
+        Psi[v] = Psi[u] + c[p] * (J[v] - J[u])
+        Q[u, v] = us[p] * moran_fix_stable(c[p] / (N - 1), J[v] - J[u], N)
+        Q[v, u] = us[p] * moran_fix_stable(c[p] / (N - 1), J[u] - J[v], N)
+    for k in range(S):
+        Q[k, k] = -Q[k].sum()
+    pi = gth(Q)
+    pred = np.exp(-(Psi - Psi.min()))
+    pred /= pred.sum()
+    db_err = max(abs(pi[u] * Q[u, v] - pi[v] * Q[v, u]) for u, v, _ in edges)
+    return {"tv_err": float(0.5 * np.abs(pi - pred).sum()), "detailed_balance_err": float(db_err)}
+
+
+# ---------------------------------------------------------------- s8: CA7 LQ drift + co-adaptation
+def s8a_lq_drift_coadapt(trials=2000, seed=14):
+    """CA7: exact potential excess, per-party virial, and mismatch bracket under translation drift."""
+    rng = np.random.default_rng(seed)
+    err_pot, err_vir, viol_br = 0.0, 0.0, 0
+    d = 3
+    for _ in range(trials):
+        A = rng.normal(size=(d, d))
+        S = A @ A.T + 0.3 * np.eye(d)
+        W = rng.normal(size=(d, d))
+        Anti = 0.8 * (W - W.T)
+        K = S + Anti
+        V = np.diag(rng.uniform(0.1, 3.0, d))
+        Bq = rng.normal(size=(d, d))
+        Qw = 0.5 * Bq @ Bq.T
+        P = solve_continuous_lyapunov(V @ K, 2.0 * V + 2.0 * Qw)
+        pot = 0.5 * float(np.trace(S @ P))
+        pred = 0.5 * (d + float(np.trace(np.linalg.solve(V, Qw))))
+        err_pot = max(err_pot, abs(pot - pred) / pred)
+        vir = np.diag(K @ P)
+        pv = 1.0 + np.diag(Qw) / np.diag(V)
+        err_vir = max(err_vir, float(np.max(np.abs(vir - pv))))
+        gam = rng.uniform(0.3, 6.0, d)
+        P2 = solve_continuous_lyapunov(V @ np.diag(gam) @ S, 2.0 * V + 2.0 * Qw)
+        ex = 0.5 * float(np.trace(S @ P2))
+        Vhalf = np.diag(np.diag(V) ** -0.5)
+        q = np.linalg.eigvalsh(Vhalf @ Qw @ Vhalf)
+        lo = d * (1.0 + float(q.min())) / (2.0 * float(gam.max()))
+        hi = d * (1.0 + float(q.max())) / (2.0 * float(gam.min()))
+        if ex < lo * (1.0 - 1e-9) or ex > hi * (1.0 + 1e-9):
+            viol_br += 1
+    return {"trials": trials, "pot_rel_err": err_pot, "virial_err": err_vir, "bracket_violations": viol_br}
+
+
+def s8b_lq_drift_regret_negative():
+    """CA7 negative finding: per-party regret under coupling + drift != naive d_i/(2 beta_i)(1 + D_i/v_i)."""
+    S = np.array([[2.0, 0.9], [0.9, 1.0]])
+    w = np.array([1.0, 2.0])
+    gamma = 5.0
+    beta = gamma / w
+    M = (S / gamma) * w[:, None]
+    V = np.diag([1.0, 0.4])
+    Qw = np.diag([0.3, 0.3])
+    P = solve_continuous_lyapunov(V @ S, 2.0 * V + 2.0 * Qw)
+    P0 = solve_continuous_lyapunov(V @ S, 2.0 * V)
+    out = {}
+    for i in range(2):
+        gi = M[i]
+        out[f"regret_{i + 1}"] = float(0.5 * (gi @ P @ gi) / M[i, i])
+        out[f"naive_{i + 1}"] = float(1.0 / (2.0 * beta[i]) * (1.0 + Qw[i, i] / V[i, i]))
+        out[f"static_regret_{i + 1}"] = float(0.5 * (gi @ P0 @ gi) / M[i, i])
+        out[f"static_pred_{i + 1}"] = float(1.0 / (2.0 * beta[i]))
+    return out
+
+
+# ---------------------------------------------------------------- s9: F6 / P4 resistance trees
+def s9_f6_resistance_trees():
+    """P4 / F6: stochastic potential via spanning trees, clock independence, and two-basin threshold."""
+    import itertools
+    JT = np.array([[0.0, 10.0], [1.0, 0.3]])
+    jf = JT.ravel()
+    c_ref = (1.0, 3.0)
+    states = list(np.ndindex(2, 2))
+    idx = {s: i for i, s in enumerate(states)}
+    r = {}
+    for i, s in enumerate(states):
+        for party in range(2):
+            t = list(s)
+            t[party] = 1 - t[party]
+            j = idx[tuple(t)]
+            r[i, j] = c_ref[party] * max(float(jf[j] - jf[i]), 0.0)
+    sp = {}
+    for root in range(4):
+        ns = [i for i in range(4) if i != root]
+        cands = [[j for (i, j) in r if i == n] for n in ns]
+        best = float("inf")
+        for dest in itertools.product(*cands):
+            links = dict(zip(ns, dest))
+            ok = True
+            for start in ns:
+                seen = set()
+                x = start
+                while x != root:
+                    if x in seen:
+                        ok = False
+                        break
+                    seen.add(x)
+                    x = links[x]
+                if not ok:
+                    break
+            if ok:
+                best = min(best, sum(r[i, j] for i, j in links.items()))
+        sp[str(states[root])] = best
+
+    slopes = []
+    for us in ((1.0, 1.0), (1.0, 50.0), (50.0, 1.0)):
+        for lam in (20.0, 40.0):
+            Q, _ = joint_generator_stable([JT, JT], JT.shape, [lam * 1.0 / 9.0, lam * 3.0 / 9.0], (10, 10), us)
+            pi = gth(Q)
+            slopes.append({"us": us, "lam": lam, "slope": float((math.log(pi[3]) - math.log(pi[0])) / lam)})
+
+    thresh = []
+    for ratio in (1.3, 1.4, 1.46, 1.6):
+        Q, _ = joint_generator_stable([JT, JT], JT.shape, [40.0 / 9.0, 40.0 * ratio / 9.0], (10, 10), (1.0, 1.0))
+        pi = gth(Q)
+        thresh.append({"c2_over_c1": ratio, "pi_B": float(pi[3])})
+    return {"stochastic_potentials": sp, "slopes": slopes, "threshold_scan": thresh}
+
+
 def run_all():
     return {
         "s1": s1_gibbs_two_parties(),
@@ -480,6 +962,16 @@ def run_all():
         "s5f": s5f_delay(),
         "s5g": s5g_nonlinear_virial(),
         "s5h": s5h_ct34_lift(),
+        "s6a": s6a_nonlinear_monotone_hodge(),
+        "s6b": s6b_nonlinear_monotone_drift(),
+        "s7a": s7a_perturbative_tree_bound(),
+        "s7b": s7b_single_basin_low_temp(),
+        "s7c": s7c_single_basin_bracket_false(),
+        "s7d": s7d_pl_flux_bound(),
+        "s7e": s7e_tree_graph_exact(),
+        "s8a": s8a_lq_drift_coadapt(),
+        "s8b": s8b_lq_drift_regret_negative(),
+        "s9": s9_f6_resistance_trees(),
     }
 
 

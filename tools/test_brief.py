@@ -142,7 +142,7 @@ def test_brief_from_real_repo_runs():
     assert "America/New_York" in out
     assert "THEORY.md v2.9" in out
     assert "CLAIM_MAP v2.72" in out
-    assert "tally: total 337" in out
+    assert "tally: total 342" in out
     assert "strongly selected systems minimize the cost of judgment" in out
     head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     # On a side branch the brief still reports main; on main it is HEAD.
