@@ -180,7 +180,7 @@ def main(argv=None):
         if mm:
             cells = [c.strip() for c in re.split(r"(?<!\\)\|", ln)]
             rows[mm.group(1)] = cells[4] if len(cells) > 4 else ""
-    BASES = ["NOT A TEST", "PROXY-PASS", "PROXY-FAIL", "MATH-CORRECTED", "NOT EVIDENCE", "NOT APPLICABLE", "PRIOR ART", "INCONCLUSIVE", "WITHDRAWN", "DECIDED", "PROVED", "OPEN", "SIM-FAIL", "SIM-PASS", "BINDING"]
+    BASES = ["NOT A TEST", "PROXY-PASS", "PROXY-FAIL", "MATH-CORRECTED", "NOT EVIDENCE", "NOT APPLICABLE", "PRIOR ART", "INCONCLUSIVE", "WITHDRAWN", "DECIDED", "PROVED", "OPEN", "FALSE", "SIM-FAIL", "SIM-PASS", "BINDING"]
     def base(s):
         s = s.replace("*", "")
         for b in BASES:
@@ -279,7 +279,7 @@ def main(argv=None):
     print("  self-reviews found by header: %d" % len(self_reviews))
 
     # R2: the CLAIM_MAP current tally must equal the rows.
-    TB = ["NOT A TEST (not qualified; proxy: failed)", "NOT A TEST (qualification not established; proxy: passed)", "NOT A TEST (qualification not established; proxy: failed)", "NOT A TEST (qualification not established; proxy: INVALID)", "NOT A TEST", "PROXY-PASS", "PROXY-FAIL", "MATH-CORRECTED", "NOT EVIDENCE", "NOT APPLICABLE", "PRIOR ART", "SIM-INCONCLUSIVE", "INCONCLUSIVE", "WITHDRAWN", "DECIDED", "PROVED", "OPEN", "SIM-FAIL", "SIM-PASS"]
+    TB = ["NOT A TEST (not qualified; proxy: failed)", "NOT A TEST (qualification not established; proxy: passed)", "NOT A TEST (qualification not established; proxy: failed)", "NOT A TEST (qualification not established; proxy: INVALID)", "NOT A TEST", "PROXY-PASS", "PROXY-FAIL", "MATH-CORRECTED", "NOT EVIDENCE", "NOT APPLICABLE", "PRIOR ART", "SIM-INCONCLUSIVE", "INCONCLUSIVE", "WITHDRAWN", "DECIDED", "PROVED", "OPEN", "FALSE", "SIM-FAIL", "SIM-PASS"]
     counted, sec, unknown = {}, None, []
     for ln in cm.split("\n"):
         mm = re.match(r"^## ([A-Z])\.", ln)
