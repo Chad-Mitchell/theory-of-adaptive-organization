@@ -3,14 +3,15 @@
   "convex_n60_equals_argmin": true,
   "k0_hole_as_written": true,
   "peaked_not_convex": true,
-  "peaked_R3": {
+  "peaked_wh_3": {
    "K_star": 2,
    "method": "lower-convex-hull",
    "K_n60": 1,
    "K_argmin": 2
   },
   "peaked_hull_recovers_argmin": true,
-  "l1_converse": true
+  "l1_converse": true,
+  "l1_bare_iff_counterexample": true
  },
  "tautology": {
   "eps0.01": [
@@ -180,5 +181,5 @@
    }
   ]
  },
- "runtime_s": 3.8
+ "runtime_s": 9.3
 }

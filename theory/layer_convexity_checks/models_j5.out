@@ -1,0 +1,8 @@
+{
+ "worlds": 24,
+ "convex_0J": 24,
+ "convex_1J": 24,
+ "halving": 24,
+ "max_ratio_K1to3": 0.43799213552260213,
+ "below_causal": 0
+}

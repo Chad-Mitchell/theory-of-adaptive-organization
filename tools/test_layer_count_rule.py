@@ -53,10 +53,11 @@ def test_hull_increment_is_an_identity():
 
 
 def test_peaked_world_uses_hull_not_adjacent_n60():
-    """Draft PR #145 minimal example: W = (0,1,0), weights (2,1,1); decrements 1/3 then 2/3."""
-    peaked = [1.0, 2.0 / 3.0, 0.0]
-    assert not L.is_convex(peaked)
-    p = L.predict_count(peaked, 3.0)
+    """PR #145 minimal example: W = (0,1,0), weights (2,1,1); E_inf = 0, so excess
+    E_K - E_inf = (1, 2/3, 0) with decrements 1/3 then 2/3 and multiplier w/h = 3."""
+    peaked_excess = [1.0, 2.0 / 3.0, 0.0]
+    assert not L.is_convex(peaked_excess)
+    p = L.predict_count(peaked_excess, 3.0)
     assert p["method"] == "lower-convex-hull"
     assert p["K_argmin"] == p["K_hull"] == 2
     assert p["K_n60"] == 1
@@ -64,11 +65,25 @@ def test_peaked_world_uses_hull_not_adjacent_n60():
 
 
 def test_l1_converse_distinct_ascent():
-    """If a decrement later increases, the adjacent count differs from argmin on an open interval of R."""
-    peaked = [1.0, 2.0 / 3.0, 0.0]          # d = (1/3, 2/3)
-    misses = [R for R in np.linspace(1.1, 5.0, 80)
-              if L.n60_from(peaked, R, 0) != L.argmin_J(peaked, R)]
+    """Under positive, pairwise distinct decrements, a later increase makes the
+    adjacent count differ from argmin on an open interval of the multiplier."""
+    peaked_excess = [1.0, 2.0 / 3.0, 0.0]   # d = (1/3, 2/3); w/h in (3/2, 3)
+    misses = [wh for wh in np.linspace(1.1, 5.0, 80)
+              if L.n60_from(peaked_excess, wh, 0) != L.argmin_J(peaked_excess, wh)]
     assert len(misses) > 10
+
+
+def test_l1_bare_iff_counterexample():
+    """N64 / L1: without positivity and distinctness the bare iff is false.
+    d = (-2, -1), seq = (-3, -1, 0), is not convex yet K*_0(R) = argmin = 0 for all R >= 0."""
+    seq = [-3.0, -1.0, 0.0]
+    assert not L.is_convex(seq)
+    for R in (0.0, 0.25, 0.5, 1.0, 2.0, 10.0, 100.0):
+        assert L.n60_from(seq, R, 0) == 0
+        assert L.argmin_J(seq, R) == 0
+        p = L.predict_count(seq, R)
+        assert p["method"] == "lower-convex-hull"
+        assert p["K_star"] == 0
 
 
 def test_cost_band_contains_argmin_and_near_ties():
@@ -193,3 +208,63 @@ def test_rule_can_disagree_with_argmin(taut):
     assert rows[("at_K2", 0.01)]["in_band"] is True
     for r in taut:
         assert r["K_obs"] == r["K_true"]
+
+
+def test_bic_gate_paths_and_degree_zero():
+    """Canonical BIC gate: degree 0 always eligible; accept K > 0 iff it lowers
+    BIC by >= 10 against every j < K; select largest such K."""
+    assert L.select_bic_degree([100.0, 89.0, 80.0, 75.0]) == 1
+    assert L.select_bic_degree([100.0, 95.0, 80.0]) == 2
+    assert L.select_bic_degree([100.0, 95.0, 92.0]) == 0
+    assert L.select_bic_degree([100.0, 90.0, 85.0]) == 1
+    # Flat zero record selects degree 0.
+    d0 = L.detect(L.T_GRID, np.zeros_like(L.T_GRID), L.BAND, k_max=3)
+    assert d0["K_total"] == 0
+    assert d0["K_det"] == 0
+
+
+def test_classify_before_merge_10_and_25():
+    """Regression test (blocker 2): zero-noise pooled record with tau = 10 and 25
+    (ratio 2.5 < 3) and two isolated unit records at tau = 10.
+    Single-record detect merges 10 and 25 to ~15.811 (K_det = 1), whereas
+    count_layers classifies before merging and keeps 1 local + 1 shared (K_obs = 2)."""
+    t = L.T_GRID
+    f_pool = _kernel([(10.0, 1.0), (25.0, 1.0)])
+    f_unit = _kernel([(10.0, 1.0)])
+    y_pool = L.eval_fit(t, f_pool)
+    y_unit = L.eval_fit(t, f_unit)
+
+    d_single = L.detect(t, y_pool, L.BAND, k_max=4)
+    assert len(d_single["states_in_band"]) == 2
+    assert d_single["K_det"] == 1
+    assert abs(d_single["states_merged"][0]["tau"] - np.sqrt(250.0)) < 0.5
+
+    r = L.count_layers(t, y_pool, L.BAND, k_max=4, unit_records=[(t, y_unit), (t, y_unit)])
+    assert r["K_obs"] == 2
+    by_class = {s["class"]: s["tau"] for s in r["states"]}
+    assert set(by_class) == {"local", "shared"}
+    assert abs(by_class["local"] - 10.0) < 0.2
+    assert abs(by_class["shared"] - 25.0) < 0.5
+
+
+def test_in_band_pair_requires_both_tau_and_period():
+    assert L.in_band(dict(kind="pair", degree=2, tau=8.0, period=12.0), L.BAND)
+    assert not L.in_band(dict(kind="pair", degree=2, tau=0.01, period=10.0), L.BAND)
+    assert not L.in_band(dict(kind="pair", degree=2, tau=100.0, period=1e-4), L.BAND)
+
+
+def test_relay_exact_factor_boundary_and_count_layers_bypass():
+    s1 = dict(kind="real", degree=1, tau=10.0, period=None)
+    s2 = dict(kind="real", degree=1, tau=30.0, period=None)
+    assert len(L.merge_close_states([s1, s2], factor=3.0)) == 2
+    assert L.relay_class([s1], [s2], factor=3.0) == "layer"
+
+    t = L.T_GRID
+    y_base = L.eval_fit(t, _kernel([(10.0, 1.0), (60.0, 1.0)]))
+    y_bypass_only = L.eval_fit(t, _kernel([(10.0, 1.0)]))
+    r_relay = L.count_layers(t, y_base, L.BAND, k_max=4, bypass=(t, y_base))
+    assert r_relay["relay_classification"] == "relay"
+    assert r_relay["K_obs"] == 2
+    r_layer = L.count_layers(t, y_base, L.BAND, k_max=4, bypass=(t, y_bypass_only))
+    assert r_layer["relay_classification"] == "layer"
+    assert r_layer["K_obs"] == 2

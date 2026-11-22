@@ -9,10 +9,12 @@ Two sides, kept separate:
 
   Prediction (K*).  From a measured (or modelled) excess-error curve ε_K and the
   stake ratio R, return the cheapest layer count.  This is always argmin_K J,
-  which equals the lower-convex-hull increment test (KEYSTONE_NOTE §4).  The
-  adjacent N60-from-0 count is exact for every R iff the decrements of ε_K are
-  non-increasing (Fox 1966; exactness proved as L1 in draft PR #145).  When
-  S/N has a peak, that premise can fail: use the hull, not the adjacent count.
+  which equals the lower-convex-hull increment test (KEYSTONE_NOTE §4).  On a
+  finite domain, the from-0 count K*_0(R) = #{K >= 1 : R d_K > 1} equals the
+  leftmost argmin for all R >= 0 if the decrements of ε_K are non-increasing
+  (Fox 1966; L1 / N64 in PR #145); the converse holds only for positive,
+  pairwise distinct decrements (d = (-2, -1) is a counterexample to a bare iff).
+  When S/N has a peak, convexity can fail: use the hull, not the adjacent count.
 
   Comparison (for a later N56 test).  A raw K_obs ≠ K* is not by itself a miss.
   The observed design lies in the predicted band iff J_obs ≤ (1+ε+δ_meas) J*
@@ -29,10 +31,15 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
 import numpy as np
 from scipy.optimize import least_squares
 
-BIC_GATE = 10.0          # Kass & Raftery 1995: "very strong"; face_placements.md §4
-K_MAX = 5
-RESOLUTION = 3.0         # default merge / relay factor (face_placements; see Istratov & Vyvenko 1999)
-MAX_FIT_PTS = 800
+BIC_GATE = 10.0          # precommitted penalty choice (numerical scale from Kass & Raftery 1995)
+K_MAX = 5                # default max degree fitted
+RESOLUTION = 3.0         # precommitted default merge / relay factor
+MAX_FIT_PTS = 800        # decimation cap for variable projection and BIC
+PENCIL_MAX_PTS = 1500    # decimation cap for matrix pencil
+PENCIL_RATE_BOUNDS = (0.05, 3.0)   # (a/T, b/dt) pencil rate clip
+VARPRO_RATE_BOUNDS = (0.02, 4.0)   # (a/T, b/dt) variable-projection rate bounds
+PAIR_SEED_DECAY_MULT = 3.0         # default decay rate 3/T for one-pair candidate seed
+PAIR_SEED_PERIOD_DIV = 5.0         # default period T/5 for one-pair candidate seed
 
 
 # --------------------------------------------------------------------------------------
@@ -69,7 +76,7 @@ def _downsample(t, y, max_pts=MAX_FIT_PTS):
     return t[::step], y[::step]
 
 
-def _pencil_poles(t, y, K, max_pts=1500):
+def _pencil_poles(t, y, K, max_pts=PENCIL_MAX_PTS):
     """Continuous-time poles of a degree-K matrix-pencil fit (Hua & Sarkar 1990)."""
     dt0 = t[1] - t[0]
     step = max(1, int(np.ceil(len(t) / max_pts)))
@@ -89,7 +96,7 @@ def _pencil_poles(t, y, K, max_pts=1500):
 
 def _theta_from_poles(p, T, dt):
     """Split pencil poles into reals and pairs; return (nr, npair, theta)."""
-    rmin, rmax = 0.05 / T, 3.0 / dt
+    rmin, rmax = PENCIL_RATE_BOUNDS[0] / T, PENCIL_RATE_BOUNDS[1] / dt
     reals, pairs, used = [], [], np.zeros(len(p), bool)
     for i, pi in enumerate(p):
         if used[i]:
@@ -113,8 +120,8 @@ def _theta_from_poles(p, T, dt):
 
 def fit_structure(t, y, nr, npair, theta0):
     dt = t[1] - t[0]; T = t[-1] - t[0] + dt
-    lo = np.full(max(len(theta0), 1), np.log(0.02 / T))[:len(theta0)]
-    hi = np.full(max(len(theta0), 1), np.log(4.0 / dt))[:len(theta0)]
+    lo = np.full(max(len(theta0), 1), np.log(VARPRO_RATE_BOUNDS[0] / T))[:len(theta0)]
+    hi = np.full(max(len(theta0), 1), np.log(VARPRO_RATE_BOUNDS[1] / dt))[:len(theta0)]
     if len(theta0) == 0:
         c, r = _lin(np.zeros((len(t), 0)), y)
         return dict(nr=0, npair=0, theta=theta0, c=c, rss=float(r @ r))
@@ -130,8 +137,8 @@ def fit_structure(t, y, nr, npair, theta0):
     return dict(nr=nr, npair=npair, theta=th, c=c, rss=float(r @ r))
 
 
-def fit_degree(t, y, K, rng):
-    """Best degree-K fit: matrix-pencil start, plus an all-real grid and one pair start."""
+def fit_degree(t, y, K):
+    """Deterministic best degree-K fit: matrix-pencil start, plus an all-real grid and one pair start."""
     dt = t[1] - t[0]; T = t[-1] - t[0] + dt
     if K == 0:
         return fit_structure(t, y, 0, 0, np.zeros(0))
@@ -145,7 +152,10 @@ def fit_degree(t, y, K, rng):
     cands.append((K, 0, grid.copy()))
     if K >= 2:
         g1 = np.linspace(np.log(1.0 / T), np.log(1.0 / dt), K + 1)[1:-1]
-        th = np.concatenate([g1[: K - 2], [np.log(3.0 / T), np.log(2 * np.pi * 5 / T)]])
+        th = np.concatenate([
+            g1[: K - 2],
+            [np.log(PAIR_SEED_DECAY_MULT / T), np.log(2 * np.pi * PAIR_SEED_PERIOD_DIV / T)],
+        ])
         cands.append((K - 2, 1, th))
     best = None
     for nr, npair, th in cands:
@@ -168,10 +178,11 @@ def states(fit):
 
 
 def in_band(s, band):
+    """Real pole: tau in [lo, hi]. Complex pair: both decay time tau and period in [lo, hi]."""
     lo, hi = band
-    if lo <= s["tau"] <= hi:
-        return True
-    return s["period"] is not None and lo <= s["period"] <= hi
+    if s["period"] is None:
+        return lo <= s["tau"] <= hi
+    return (lo <= s["tau"] <= hi) and (lo <= s["period"] <= hi)
 
 
 def eval_fit(t, fit):
@@ -179,7 +190,7 @@ def eval_fit(t, fit):
     return _basis(t, fit["theta"], fit["nr"], fit["npair"]) @ c if len(c) else np.zeros_like(t)
 
 
-def hankel_rank(y, sigma, max_pts=1500):
+def hankel_rank(y, sigma, max_pts=PENCIL_MAX_PTS):
     """Cross-check: Hankel singular values above the Gavish–Donoho 2014 hard threshold,
     applied heuristically (Hankel noise entries are not independent).  Not used as K_obs."""
     step = max(1, int(np.ceil(len(y) / max_pts)))
@@ -198,30 +209,42 @@ def bic_score(rss, n, n_params):
     return n * np.log(max(rss, 1e-300) / n) + n_params * np.log(n)
 
 
+def select_bic_degree(bic, gate=BIC_GATE):
+    """Fit degrees 0..K_max. Degree 0 is always eligible. Accept degree K > 0
+    only if it lowers BIC by at least `gate` against every lower degree j < K,
+    and select the largest such degree (a rhythm may enter as a jump of 2).
+    """
+    bic = np.asarray(bic, float)
+    ksel = 0
+    for K in range(1, len(bic)):
+        if np.all(bic[K] <= bic[:K] - gate):
+            ksel = K
+    return int(ksel)
+
+
 def detect(t, y, band, k_max=K_MAX, seed=0, merge_factor=RESOLUTION):
-    """Observation step 1.  Fits degrees 0..k_max on a (possibly downsampled) record,
-    accepts a higher degree only if it lowers BIC by at least BIC_GATE, drops out-of-band
-    poles, and merges same-kind in-band time constants closer than merge_factor.
+    """Observation step 1.  Fits degrees 0..k_max on a (possibly downsampled) record;
+    degree 0 is always eligible, degree K > 0 is accepted only if it lowers BIC by
+    at least BIC_GATE against every lower degree, and the largest such degree is
+    selected.  Drops out-of-band poles and merges same-kind in-band time constants
+    closer than merge_factor (used only for single-record detection; `count_layers`
+    classifies `states_in_band` before merging when `unit_records` are supplied).
+    `seed` is accepted for API compatibility (fitting is deterministic).
 
     Returns the selected fit, K_det (in-band degree after the merge), and the BIC path.
     Takes only the record, the band and fit settings: no prices, no argmin J, no spectrum.
     """
     t = np.asarray(t, float); y = np.asarray(y, float)
     tf, yf = _downsample(t, y)
-    rng = np.random.default_rng(seed)
     n = len(yf)
     fits, bic = [], []
     for K in range(k_max + 1):
-        f = fit_degree(tf, yf, K, rng)
+        f = fit_degree(tf, yf, K)
         # Re-evaluate RSS on the (downsampled) record used for the BIC, already in f["rss"].
         fits.append(f)
         bic.append(bic_score(f["rss"], n, 2 * K))
     bic = np.array(bic)
-    # Smallest K that no higher degree beats by >= BIC_GATE (a rhythm can enter as a block of 2).
-    Ksel = k_max
-    for K in range(k_max + 1):
-        if np.all(bic[K + 1:] > bic[K] - BIC_GATE):
-            Ksel = K; break
+    Ksel = select_bic_degree(bic, BIC_GATE)
     f = fits[Ksel]
     st = states(f)
     st_in = [s for s in st if in_band(s, band)]
@@ -267,23 +290,39 @@ def classify_local_shared(unit_states, pooled_states, factor=RESOLUTION):
     """Classify poles as local (present in isolated-unit responses) or shared
     (present only in the pooled response).  `unit_states` is a list of state-lists,
     one per isolated unit (or per-unit response to a unit-specific drive).
-    A pole of the pooled response is local if every unit has a same-kind pole
-    within the resolution factor; otherwise it is shared.
+    Within each unit, poles are matched one-to-one with same-kind pooled poles
+    whose time-constant ratio is strictly less than `factor` (nearest ratio first),
+    so one isolated-unit pole cannot claim two distinct pooled poles.
+    A pooled pole is local iff it matches in every unit; otherwise it is shared.
     """
-    def has_match(s, pool):
-        return any(u["kind"] == s["kind"] and max(u["tau"] / s["tau"], s["tau"] / u["tau"]) < factor
-                   for u in pool)
+    def match_indices(pool_a, pool_b):
+        pairs = []
+        for ia, sa in enumerate(pool_a):
+            for ib, sb in enumerate(pool_b):
+                if sa["kind"] != sb["kind"]:
+                    continue
+                ratio = max(sa["tau"] / sb["tau"], sb["tau"] / sa["tau"])
+                if ratio < factor:
+                    pairs.append((ratio, ia, ib))
+        pairs.sort(key=lambda x: x[0])
+        used_a, used_b = set(), set()
+        for _ratio, ia, ib in pairs:
+            if ia not in used_a and ib not in used_b:
+                used_a.add(ia)
+                used_b.add(ib)
+        return used_a
 
+    matched_per_unit = [match_indices(pooled_states, u) for u in unit_states]
     out = []
-    for s in pooled_states:
-        local = all(has_match(s, u) for u in unit_states) if unit_states else False
+    for i, s in enumerate(pooled_states):
+        local = all(i in m for m in matched_per_unit) if unit_states else False
         d = dict(s); d["class"] = "local" if local else "shared"
         out.append(d)
     return out
 
 
 def _matched(s, pool, factor):
-    return any(b["kind"] == s["kind"] and max(b["tau"] / s["tau"], s["tau"] / b["tau"]) <= factor
+    return any(b["kind"] == s["kind"] and max(b["tau"] / s["tau"], s["tau"] / b["tau"]) < factor
                for b in pool)
 
 
@@ -322,11 +361,13 @@ def relay_test(baseline_states, bypass_states, factor=RESOLUTION):
 
 def count_layers(t, y, band, n_boot=0, seed=0, k_max=K_MAX, merge_factor=RESOLUTION,
                  unit_records=None, bypass=None):
-    """The observation rule.  K_obs is the in-band, merged, relay-filtered degree.
+    """The observation rule.  K_obs is the in-band, within-class-merged degree.
 
-    unit_records: optional list of (t, y) isolated-unit records, used only to
-    classify local vs shared and to merge within a class.  bypass: optional (t, y)
-    record after bypassing a candidate level or replacing it with a pure delay.
+    unit_records: optional list of (t, y) isolated-unit records, used to classify
+    in-band poles as local vs shared *before* merging, then merge only within a class.
+    bypass: optional (t, y) record after bypassing a candidate level or replacing it
+    with a pure delay; classifies the candidate level as 'layer' or 'relay' without
+    changing K_obs (a relay holds no pole of its own).
     """
     d = detect(t, y, band, k_max=k_max, seed=seed, merge_factor=merge_factor)
     k_hsv, _sv, _thr = hankel_rank(y if len(y) <= 4000 else y[::max(1, len(y)//2000)], d["sigma_hat"])
@@ -335,8 +376,8 @@ def count_layers(t, y, band, n_boot=0, seed=0, k_max=K_MAX, merge_factor=RESOLUT
         unit_states = []
         for tu, yu in unit_records:
             du = detect(tu, yu, band, k_max=k_max, seed=seed, merge_factor=merge_factor)
-            unit_states.append(du["states_merged"])
-        classified = classify_local_shared(unit_states, d["states_merged"], merge_factor)
+            unit_states.append(du["states_in_band"])
+        classified = classify_local_shared(unit_states, d["states_in_band"], merge_factor)
         # merge only within a class
         locals_ = merge_close_states([s for s in classified if s["class"] == "local"], merge_factor)
         shared = merge_close_states([s for s in classified if s["class"] == "shared"], merge_factor)
@@ -344,19 +385,19 @@ def count_layers(t, y, band, n_boot=0, seed=0, k_max=K_MAX, merge_factor=RESOLUT
     else:
         merged = d["states_merged"]
     roles = None
+    relay_classification = None
     if bypass is not None:
         tb, yb = bypass
         db = detect(tb, yb, band, k_max=k_max, seed=seed, merge_factor=merge_factor)
-        roles, relay_meta = relay_test(merged, db["states_merged"], merge_factor)
-        if relay_meta["classification"] == "relay":
-            merged = [s for s in roles if s["role"] == "layer"]
-        # If the intervention shows a layer: keep the baseline in-band poles (they are the layers).
+        roles, relay_meta = relay_test(merged, db["states_in_band"], merge_factor)
+        relay_classification = relay_meta["classification"]
     k_obs = sum(s["degree"] for s in merged)
     out = dict(K_obs=k_obs, K_det=k_obs, K_hsv=k_hsv, K_total=d["K_total"],
                sigma_hat=d["sigma_hat"], bic=d["bic"],
                states=[{k: (float(v) if isinstance(v, (float, np.floating)) else v)
                         for k, v in s.items()} for s in merged],
-               classified=classified, roles=roles)
+               classified=classified, roles=roles,
+               relay_classification=relay_classification)
     lo = hi = k_obs
     if n_boot:
         rng = np.random.default_rng(seed + 1)
@@ -634,17 +675,24 @@ def _prediction_selfcheck():
     # At R = 0.5, d_1 = 0.6, R d_1 = 0.3 < 1, true argmin is 0; as-written returns 1.
     out["k0_hole_as_written"] = (n60_as_written(eps, 0.5) == 1 and n60_from(eps, 0.5, 0) == 0
                                  and argmin_J(eps, 0.5) == 0)
-    # Peaked example of draft PR #145 (W = (0,1,0), weights (2,1,1)): decrements 1/3 then 2/3.
-    peaked = [1.0, 2.0 / 3.0, 0.0]
-    out["peaked_not_convex"] = (not is_convex(peaked))
-    p = predict_count(peaked, 3.0)
-    out["peaked_R3"] = dict(K_star=p["K_star"], method=p["method"],
-                            K_n60=p["K_n60"], K_argmin=p["K_argmin"])
+    # Peaked example of PR #145 (W = (0,1,0), weights (2,1,1)): E_inf = 0, so
+    # excess E_K - E_inf = (1, 2/3, 0) with decrements 1/3 then 2/3 and multiplier w/h = 3.
+    peaked_excess = [1.0, 2.0 / 3.0, 0.0]
+    out["peaked_not_convex"] = (not is_convex(peaked_excess))
+    p = predict_count(peaked_excess, 3.0)
+    out["peaked_wh_3"] = dict(K_star=p["K_star"], method=p["method"],
+                              K_n60=p["K_n60"], K_argmin=p["K_argmin"])
     out["peaked_hull_recovers_argmin"] = (p["K_star"] == 2 and p["K_n60"] == 1
                                           and p["method"] == "lower-convex-hull")
-    # Converse of L1: a single ascent in the decrements makes the adjacent count
-    # miss the argmin on an open interval of R.
+    # Converse of L1 (positive, pairwise distinct decrements): an ascent makes the
+    # adjacent count miss the argmin on an open interval of the multiplier.
     out["l1_converse"] = (p["K_n60"] != p["K_argmin"])
+    # Counterexample to a bare iff (N64 / L1): d = (-2, -1), seq = (-3, -1, 0).
+    cex = [-3.0, -1.0, 0.0]
+    out["l1_bare_iff_counterexample"] = (
+        not is_convex(cex)
+        and all(n60_from(cex, R, 0) == argmin_J(cex, R) == 0 for R in (0.0, 0.5, 2.0, 10.0))
+    )
     return out
 
 
