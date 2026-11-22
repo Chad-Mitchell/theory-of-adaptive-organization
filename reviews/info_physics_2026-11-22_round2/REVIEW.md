@@ -135,3 +135,21 @@ On head `433ab1b`:
 On this review branch, which is `origin/main` plus this directory: `check_consistency.py` PASS (rows 378, tally 378), `check_fresh.py` PASS, `check_open_work.py` PASS, and `nice -n 19 python3 -m pytest -q tools` is 252 passed, 1 skipped, 301.09 s, exit 0. The extra pass on the draft head is `tools/test_info_physics_checks.py`.
 
 The author's script count is 57. The note's count is 37. NumPy for `recompute.out` is 1.26.4. SciPy 1.18.1 and SymPy 1.14.0 were installed in this environment before pytest; they are not part of the draft.
+
+## Round-2 confirm
+
+**CONFIRMED.** Draft head `d44c26c` on `info-physics-2026-11-22`. Checked against `recompute.py` in this directory, which was not changed and does not import the author's code. The draft branch was not edited. Nothing was merged.
+
+The four fixes are in the note, the claim map, and OPEN_WORK T37.
+
+1. **Spring.** Section 8a now says \(kT\,av/\varepsilon\) is the heat floor and the top of the flow, the envelopes differ by \(kT\,a\), the flow reaches the Kalman rate only where the heat diverges, and \(kT\,\dot I\) is not the tangent in general. The heat decreases in the memory rate only for error below the signal variance; at equal variance the spring heat is \(a\), and above it the heat rises. The table matches the recomputation: heat objective blind at stake 2, cost 2; flow objective tracks, error \(1/\sqrt{2}\), cost \(2\sqrt{2}-1=1.82842712475\); heats \(2.82842712475\), \(4.47213595500\), \(7.07106781187\) at stakes 8, 20, and 50, which are the six-digit values 2.828427, 4.472136, and 7.071068. At the slow end \(\lambda=4(1+10^{-6})\), \(\varepsilon=0.2\), the recomputed flow is \(4+8\times 10^{-13}\) and the heat is \(5.000005\times 10^{6}\). At \(\lambda=10^{4}\) the heat is \(5.00200080032\) and the flow is \(4.99900039988\). The cancellation \(\dot Q-\dot I-\sigma\) is \(4\times 10^{-16}\) at the reference, \(1\times 10^{-11}\) at the fast end, and \(9\times 10^{-10}\) at the slow end, inside the note's \(10^{-9}\).
+
+2. **Cycle.** The generator is one 4-cycle. The corrective affinity is \(2\ln(\alpha_c/\alpha_e)=\ln 64\) at the reference rates. The note and IP3 place that example inside Barato and Seifert 2015 and keep Gingrich et al. 2016 as the general theorem.
+
+3. **Count.** The note says 61 checks. `nice -n 19 python3 theory/info_physics_checks/info_physics_checks.py` on this head prints PASS 61, FAIL 0.
+
+4. **IP1.** The row names \(I(M;X_{\le t}\mid X_{>t})\) and the noisy-future XOR, joint \(h(0.2)=0.500402423538\), marginals 0. It no longer calls that object nonpredictive information.
+
+OPEN_WORK T37 says the proposed cost is the medium heat plus \(w\,\mathbb{E}[\ell]\), the flow is a lower bound and not the price, the bound is tight on the telegraph and not on the spring, and the equation in THEORY is unchanged. The hypothesis sentence is byte-identical to `origin/main`. The new prior-art sentences match the papers already read: Horowitz and Esposito supply the bound, not a finite-heat coupling at the Kalman rate, which the note leaves open; Lan et al. are quoted as \((c_0\sigma_a^2)\,\omega_m\ln(\varepsilon_0/\varepsilon)\), a different formula; Bo, Del Giudice, and Celani bound extra memory about the sensory past. The new DOI 10.1088/1742-5468/2015/01/P01014 returned Crossref HTTP 200, year 2015, that title, families Bo, Giudice, and Celani.
+
+On head `d44c26c`, after `git fetch origin main`: consistency PASS (rows 388, tally 388, claim map v2.84), fresh PASS, open-work PASS, pytest 253 passed and 1 skipped, 301.62 s. No lake build. No remaining fix.
