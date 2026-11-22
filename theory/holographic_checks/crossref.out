@@ -1,0 +1,39 @@
+Crossref API and arXiv API, 22 November 2026. User-Agent sent. Each Crossref line is an HTTP 200 from this session. Abstracts used in the note were read from the arXiv API the same day; the arXiv id is on the following line. A Crossref query for the 1993 essay returned no work record for that essay.
+
+HTTP 200 | 10.1103/PhysRevX.4.031015 | 2014 | Physical Review X | Thermodynamics with Continuous Information Flow | vol 4 | Horowitz; Esposito
+HTTP 200 | 10.1103/PhysRevE.93.022116 | 2016 | Physical Review E | Sensory capacity: An information theoretical measure of the performance of a sensor | vol 93 | Hartich; Barato; Seifert
+HTTP 200 | 10.1063/1.531249 | 1995 | Journal of Mathematical Physics | The world as a hologram | vol 36 p 6377-6396 | Susskind
+arXiv hep-th/9409089
+HTTP 200 | 10.1103/RevModPhys.74.825 | 2002 | Reviews of Modern Physics | The holographic principle | vol 74 p 825-874 | Bousso
+arXiv hep-th/0203101
+HTTP 200 | 10.1023/A:1026654312961 | 1999 | International Journal of Theoretical Physics | The Large-N Limit of Superconformal Field Theories and Supergravity | vol 38 p 1113-1133 | Maldacena
+arXiv hep-th/9711200
+HTTP 200 | 10.1103/PhysRevLett.96.181602 | 2006 | Physical Review Letters | Holographic Derivation of Entanglement Entropy from the anti-de Sitter Space/Conformal Field Theory Correspondence | vol 96 | Ryu; Takayanagi
+arXiv hep-th/0603001
+HTTP 200 | 10.1007/JHEP04(2015)163 | 2015 | Journal of High Energy Physics | Bulk locality and quantum error correction in AdS/CFT | vol 2015 | Almheiri; Dong; Harlow
+arXiv 1411.7041
+HTTP 200 | 10.1007/JHEP06(2015)149 | 2015 | Journal of High Energy Physics | Holographic quantum error-correcting codes: toy models for the bulk/boundary correspondence | vol 2015 | Pastawski; Yoshida; Harlow; Preskill
+arXiv 1503.06237
+HTTP 200 | 10.1007/JHEP11(2016)009 | 2016 | Journal of High Energy Physics | Holographic duality from random tensor networks | vol 2016 | Hayden; Nezami; Qi; Thomas; Walter; Yang
+arXiv 1601.01694
+HTTP 200 | 10.1103/PhysRevLett.99.220405 | 2007 | Physical Review Letters | Entanglement Renormalization | vol 99 | Vidal
+arXiv cond-mat/0512165
+HTTP 200 | 10.1103/PhysRevLett.101.110501 | 2008 | Physical Review Letters | Class of Quantum Many-Body States That Can Be Efficiently Simulated | vol 101 | Vidal
+arXiv quant-ph/0610099
+HTTP 200 | 10.1103/PhysRevD.86.065007 | 2012 | Physical Review D | Entanglement renormalization and holography | vol 86 | Swingle
+arXiv 0905.1317
+HTTP 200 | 10.1103/PhysRevLett.115.180405 | 2015 | Physical Review Letters | Tensor Network Renormalization | vol 115 | Evenbly; Vidal
+arXiv 1412.0732
+HTTP 200 | 10.1103/PhysRevLett.100.070502 | 2008 | Physical Review Letters | Area Laws in Quantum Systems: Mutual Information and Correlations | vol 100 | Wolf; Verstraete; Hastings; Cirac
+arXiv 0704.3906
+HTTP 200 | 10.1103/RevModPhys.82.277 | 2010 | Reviews of Modern Physics | Colloquium: Area laws for the entanglement entropy | vol 82 p 277-306 | Eisert; Cramer; Plenio
+arXiv 0808.3773
+HTTP 200 | 10.1103/RevModPhys.90.035007 | 2018 | Reviews of Modern Physics | Entanglement entropy: Holography and renormalization group | vol 90 | Nishioka
+arXiv 1801.10352
+HTTP 200 | 10.1088/2058-9565/aaba1a | 2018 | Quantum Science and Technology | Learning relevant features of data with multi-scale tensor networks | vol 3 p 034003 | Stoudenmire
+arXiv 1801.00315
+HTTP 200 | 10.1109/ACCESS.2020.2986279 | 2020 | IEEE Access | From Probabilistic Graphical Models to Generalized Tensor Networks for Supervised Learning | vol 8 p 68169-68182 | Glasser; Pancotti; Cirac
+arXiv 1806.05964
+
+arXiv HTTP 200 | gr-qc/9310026 | 1993 | Dimensional Reduction in Quantum Gravity | 't Hooft
+Crossref query on that title and author, 22 November 2026: no work record for the 1993 essay. The same absence of a DOI is already recorded in theory/REVEALED_PRICES_2026-11-21.md.
