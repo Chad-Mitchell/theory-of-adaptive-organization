@@ -137,23 +137,53 @@ Under this law the time average of \(J-J^\star\) converges almost surely to the 
 
 *Proof.* The bulk is the set where \(|Nx_\pm|\le 1\). Its radius is \(L_B\asymp 1/(\beta h\delta)\), which grows like \(1/\delta\). CD2 controls \(R\) on that growing set. The parameters \(\beta,h,D_m,D,N\) stay fixed while \(\delta\) shrinks, so constants may depend on them.
 
-**Drift inside the bulk.** The instantaneous drift is \(\mu(L)=\delta(r_+-r_-)\). The linear lemma gives \(\mu_{\mathrm{lin}}=-a L\). The error \(\mu+a L\) is built from \(\varphi-\varphi_{\mathrm{lin}}\) by the same differences of \(z_\pm\) as in CD2, multiplied by \(\delta\rho\) rather than by the weights \(2\delta L+\delta^2\). Those differences are \(O(\delta^3(1+|L|^3))\) on \(|Nx_\pm|\le 1\), and \(\delta\rho=O(1/\delta)\), so
-\[
-|\mu+a L|\le K_N D_m\delta^2\bigl(\beta h+(\beta h)^2(1+L^2)+(\beta h)^3(1+L^4)\bigr)(1+|L|)
-\]
-with a constant \(K_N\) of the same origin as the coefficients in CD2. On \(|L|\ge 1\) and \(|\beta h\delta L|\le\eta\),
-\[
-|\mu+a L|\le a|L|\bigl(C_1\delta+C_2\eta+C_3\eta^2\bigr),
-\]
-with \(C_i\) depending only on \(N\). Choose \(\eta>0\) small and then \(\delta_0\) small so that the parenthesis is at most \(1/2\). Then, for \(\delta<\delta_0\) and \(1\le|L|\le L_B\), \(\mu\) has the sign of \(-L\) and \(|\mu|\ge(a/2)|L|\).
+**Drift on the whole bulk, from the fixation map.** The \(\eta\)-Cauchy estimate on \(\varphi-\varphi_{\mathrm{lin}}\) gives \(|\mu+a L|\le(a/2)|L|\) only while \(|\beta h\delta L|\le\eta\). The bulk continues out to \(|Nx_\pm|=1\), a radius \(L_B\asymp 1/(\beta h\delta)\), of order \(1/\delta\). At that edge \(|\beta h\delta L|\) is of order \(1\), so the Cauchy constants do not carry the factor \(1/2\) there. The fixation map does.
 
-**Outside the bulk.** Take \(L>L_B\) (the other side is the same). Then \(x_-<0<x_+\) for small \(\delta\). A fitter mutant fixes at rate at least the neutral rate, so \(\varphi(x_-)\ge 1/N\). And \(\sinh(Nt)\ge N\sinh t\) for \(t\ge 0\), because \(\cosh(Nt)-\cosh t\ge 0\), hence \(\varphi(x)\le N^{-1}\exp(-(N-1)x/2)\) for \(x>0\). The uphill step satisfies \((N-1)x_+/2\ge\eta/2\). Therefore \(\varphi(x_-)-\varphi(x_+)\ge(1-e^{-\eta/2})/N\), and the restoring speed is at least
+Let \(L>0\), \(u=\alpha h\delta L\), \(c=\alpha h\delta^2/2\) and \(s=(N-1)u=\beta h\delta L\). Then \(\delta\rho=N D_m/\delta\), \(a L=D_m s/\delta\), and \(\mu=\delta\rho\bigl(\varphi(u+c)-\varphi(-u+c)\bigr)\).
+
+First take the symmetric steps, \(c=0\). The identity \(\varphi(-u)=e^{s}\varphi(u)\) and \(\varphi(x)=e^{-(N-1)x/2}\sinh(x/2)/\sinh(Nx/2)\) give
 \[
-v_{\mathrm{rest}}=\frac{D_m}{\delta}\bigl(1-e^{-\eta/2}\bigr).
+\frac{-\mu}{a L}=\rho_N(s)=\frac{\sinh(s/2)}{s/2}\cdot\frac{N\sinh(v)}{\sinh(Nv)},\qquad v=\frac{s}{2(N-1)}.
+\]
+For \(N=2\), \(v=s/2\) and \(\sinh(s)=2\sinh(s/2)\cosh(s/2)\), so \(\rho_2(s)=\tanh(s/2)/(s/2)\). Here \(s=\beta h\delta L\). On the bulk, \(S=|Nx|\le 1\), and for \(N=2\) one has \(s=S/2\), so the same ratio is \(\tanh(S/4)/(S/4)\). At the edge \(S=1\) this is \(\tanh(1/4)/(1/4)>0.979\).
+
+For every \(N\ge 2\),
+\[
+\sinh(Nv)\le N\sinh(v)\cosh((N-1)v).
+\]
+This holds with equality at \(N=2\), because \(\sinh(2v)=2\sinh v\cosh v\). If it holds at \(N\), then
+\[
+\sinh((N+1)v)=\sinh(Nv)\cosh v+\cosh(Nv)\sinh v\le N\sinh(v)\cosh((N-1)v)\cosh v+\cosh(Nv)\sinh v,
+\]
+and \(\cosh(Nv)=\cosh((N-1)v)\cosh v+\sinh((N-1)v)\sinh v\ge\cosh((N-1)v)\cosh v\), so the right-hand side is at most \((N+1)\sinh(v)\cosh(Nv)\). Therefore \(N\sinh(v)/\sinh(Nv)\ge 1/\cosh((N-1)v)=1/\cosh(s/2)\), and
+\[
+\rho_N(s)\ge\frac{\tanh(s/2)}{s/2}.
+\]
+On the bulk, \(|Nu|\le 1\), so \(0<s\le(N-1)/N\le 1\). The function \(\tanh\theta/\theta\) decreases on \((0,\infty)\), hence \(\rho_N(s)\ge\tanh(1/2)/(1/2)>0.92\). The symmetric deficit is at most \(0.08\,a|L|\) all the way to radius \(L_B\), not only on \(|s|\le\eta\).
+
+The curvature \(c\) shifts both steps. On \(|Nx|\le 1\), Cauchy's estimate on the circle \(|z|=2\) gives \(|f'|\le 3.4\) for \(f(z)=N\varphi(z/N)\), so \(|\varphi'|\le 3.4\). Both arguments \(u\pm c\) and \(-u+c\) lie in that interval when \(|Nx_\pm|\le 1\), and
+\[
+\bigl|\bigl(\varphi(u+c)-\varphi(-u+c)\bigr)-\bigl(\varphi(u)-\varphi(-u)\bigr)\bigr|\le 6.8\,|c|.
+\]
+Now \(|c|=\beta h\delta^2/(2(N-1))\), so the change in \(\mu\) is at most
+\[
+\frac{N D_m}{\delta}\cdot 6.8\cdot\frac{\beta h\delta^2}{2(N-1)}=\frac{3.4 N}{(N-1)}\,a\,\delta\le 6.8\,a\delta.
+\]
+For \(|L|\ge 1\) this is at most \(6.8\,\delta\cdot a|L|\). Take \(\delta\le 1/20\). Then \(|\mu+a L|\le(0.08+0.34)a|L|<(a/2)|L|\). Thus, for every \(\delta\le 1/20\) and every \(1\le|L|\le L_B\), \(\mu\) has the sign of \(-L\) and \(|\mu|\ge(a/2)|L|\).
+
+That drift comparison is what controls \(G(L^2)\). For \(L>0\) in this range, \(2L\mu\le -a L^2\), and \(\delta^2(r_++r_-)\le 2N D_m\), so
+\[
+G(L^2)\le -a L^2+2N D_m+2D.
+\]
+CD2's quartic piece is not this bound. The quartic term in CD2 exceeds \((a/2)L^2\) once \(|\beta h\delta L|>1/\sqrt{2000}\), which is still inside the bulk. The comparison above does not use that quartic.
+
+**Outside the bulk.** Take \(L>L_B\). Then \(x_-<0<x_+\) for small \(\delta\), and the downhill step satisfies \((N-1)|x_-|/2\ge 1/8\): at the edge itself \((N-1)/(2N)\ge 1/4\), and shrinking \(\delta\) moves a point just past \(L_B\) by \(O(\delta)\) in the fitness coordinate. A fitter mutant fixes at rate at least the neutral rate, so \(\varphi(x_-)\ge 1/N\), while \(\varphi(x)\le N^{-1}\exp(-(N-1)x/2)\) for \(x>0\). Therefore \(\varphi(x_-)-\varphi(x_+)\ge(1-e^{-1/8})/N\), and the restoring speed is at least
+\[
+v_{\mathrm{rest}}=\frac{D_m}{\delta}\bigl(1-e^{-1/8}\bigr).
 \]
 So \(G(L^2)\le -2 v_{\mathrm{rest}} L+2N D_m+2D\).
 
-**Uniform second moment.** On the bulk, CD2 and the choice of \(\eta\) give \(R\le(a/2)L^2+K_0\) for \(|L|\ge 1\), with \(K_0\) independent of \(\delta\) (the pieces without an \(L^2\) are \(O(\delta^2)\) or, when an edge factor \(1/(\beta h)\) appears, a constant fixed by \(\beta\) and \(h\)). Thus \(G(L^2)\le -a L^2+2(D_m+D)+K_0\) on \(1\le|L|\le L_B\). Off the bulk the restoring speed is stronger. On the fixed interval \(|L|\le 1\), pairing the jumps gives \(G(L^2)\le K_1\) with \(K_1\) independent of small \(\delta\): the crude product \(\rho\cdot\delta\) is \(O(1/\delta)\), but \(r_+-r_-=\mu/\delta=O(1)\) and \(\delta^2(r_++r_-)\le 2N D_m\). Choose \(L_0\ge 1\) so that \(a L_0^2\) beats \(2(D_m+D)+K_0+1\). Then \(G(L^2)\le -L^2+K\) on the whole line, with \(K\) independent of small \(\delta\).
+**Uniform second moment.** On \(1\le|L|\le L_B\) the drift comparison gives \(G(L^2)\le -a L^2+2N D_m+2D\). Off the bulk the restoring speed is stronger. On the fixed interval \(|L|\le 1\), pairing the jumps gives \(G(L^2)\le K_1\) with \(K_1\) independent of small \(\delta\): \(r_+-r_-=\mu/\delta=O(1)\) and \(\delta^2(r_++r_-)\le 2N D_m\). Choose \(L_0\ge 1\) so that \(a L_0^2\) beats \(2N D_m+2D+1\). Then \(G(L^2)\le -L^2+K\) on the whole line, with \(K\) independent of small \(\delta\).
 
 Existence and uniqueness for each fixed \(\delta\), when \(D>0\), do not need this uniformity. The jump rate is finite, \(G(L^2)\le -v_{\mathrm{rest}}|L|+C_\delta\) for large \(|L|\), and the Brownian piece is strong Feller and irreducible on \(\mathbb{R}\). That is one stationary law for each \(\delta\). The uniformity is the next sentence. Cut \(L^2\) off outside \(|L|<n\), use \(\int G(\phi_n)\,d\pi=0\) for the cutoff (it is in the domain), and pass to the limit by Fatou. The negative drift produces \(\mathbb{E}[L^2]\le K\), uniformly in small \(\delta\).
 
@@ -189,7 +219,7 @@ The topology is Skorokhod's. The citation is Ethier and Kurtz, *Markov Processes
 
 2. **Compact containment.** Fix \(T\) and \(R\). For small \(\delta\), the interval \(|L|\le R\) lies inside the bulk, so the drift comparison of CD3 gives \(G(L^2)\le -a L^2+C_R\) there, with \(C_R\) independent of small \(\delta\). Stop at \(\tau_R=\inf\{t:|L_t|\ge R\}\). Dynkin's formula yields \(\mathbb{E}[L_{t\wedge\tau_R}^2]\le\mathbb{E}[L_0^2]+C_R t\). Hence \(\mathbb{P}(\tau_R\le T)\le(\sup\mathbb{E}[L_0^2]+C_R T)/R^2\), uniformly in small \(\delta\). That is compact containment on \([0,T]\). The \(1/\delta\) tail is not needed: the process is stopped at a fixed \(R\) that sits inside the bulk.
 
-3. **Well-posedness.** The limit is a linear stochastic differential equation with Lipschitz coefficients. It has a unique strong solution, so its martingale problem on \(D([0,\infty),\mathbb{R})\) has one solution for each initial law.
+3. **Well-posedness, and the core Theorem 8.2 uses.** The limit is a linear stochastic differential equation with Lipschitz coefficients. It has a unique strong solution, so its martingale problem on \(D([0,\infty),\mathbb{R})\) has one solution for each initial law. Unique strong existence is the hypothesis of Theorem 8.10. It is not the hypothesis of Theorem 8.2. Theorem 8.2 asks that the closure of the limit operator generate a strongly continuous contraction semigroup, on a domain that contains an algebra separating points. The limit semigroup is Feller on \(C_0(\mathbb{R})\): the transition law is Gaussian, so it maps \(C_0\) into itself and is strongly continuous. \(C_c^\infty\) is a core for that generator. It is an algebra that separates points, and the closure of the Langevin operator on \(C_c^\infty\) is the generator. That is the hypothesis Theorem 8.2 places on the limit before Corollary 8.7 applies. Compact containment is condition (7.9) of their Chapter 3. Condition (f) of Corollary 8.7 holds with \(f_n=f\) and \(g_n=Gf\), because the generator convergence above is uniform on \(\mathbb{R}\) for each compactly supported \(f\).
 
 Corollary 8.7 then gives the weak convergence. Finite-horizon convergence does not by itself give convergence of stationary means. That is CD3.
 

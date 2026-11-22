@@ -136,6 +136,8 @@ def best_two_polish(a, v, N, starts, seed):
 
 
 def curve(a, v, N, n2, polish_starts=0, seed=0):
+    # Sort rates only. Variances stay in input order, so a vector built as
+    # v_j proportional to sqrt(a_j) before this sort is not that pairing after it.
     a = np.sort(np.asarray(a, float))
     v = np.asarray(v, float)
     cs = spectral_cs(a, v, N)
@@ -173,7 +175,9 @@ def screen(full):
     # comparable three
     worlds.append((np.array([1.0, 10.0, 100.0]), np.ones(3), 0.05))
     worlds.append((np.array([1.0, 1e3, 1e6]), np.array([1.0, 1.0, 1.0]), 1.0))
-    # low SNR, the shape where halving fails for J=4; here J=3
+    # Three-mode draw written as v proportional to sqrt(a) on this input order.
+    # curve sorts the rates and does not reorder v, so the scored world is not
+    # that pairing. The halving miss remains the four-mode example, not this row.
     a = np.array([1.0, 1e-3, 1e-6])
     worlds.append((a, (10 ** -6.5) * np.sqrt(a), 1.0))
     if full:
