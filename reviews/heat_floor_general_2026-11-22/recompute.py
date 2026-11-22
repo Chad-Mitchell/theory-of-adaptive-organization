@@ -559,6 +559,63 @@ def main():
         % (2 * T1, 8.0 / (2 * T1))
     )
 
+    # Confirm block for the repair at 661abc8. Own arithmetic only.
+    print()
+    print("== confirm 661abc8 ==")
+    from fractions import Fraction
+
+    w0_frac = Fraction(1000, 1111)
+    # Round half away from zero at the 13th decimal, which is the digit after 12 places.
+    # 1000/1111 = 0.9000900090009... with digit 13 equal to 9, so the 12-place value rounds up.
+    scaled = (w0_frac * 10**13 + Fraction(1, 2)) // 1  # not used; print the expansion
+    digits = []
+    rem = 1000
+    for _ in range(16):
+        rem *= 10
+        digits.append(rem // 1111)
+        rem %= 1111
+    twelve = "".join(str(d) for d in digits[:12])
+    # round using digit 13
+    if digits[12] >= 5:
+        twelve = str(int(twelve) + 1).zfill(12)
+    w0_12 = "0." + twelve
+    a4 = np.array([1.0, 10.0, 100.0, 1000.0])
+    v4 = np.ones(4)
+    w0_float = 1.0 / float(np.sum(v4 / a4))
+    print("digits", "".join(str(d) for d in digits))
+    print("w0 fraction 1000/1111 rounded to 12 decimals:", w0_12)
+    print("w0 float %.16f  formatted %.12f" % (w0_float, w0_float))
+    print("float matches 1000/1111 within 1e-15:", abs(w0_float - 1000.0 / 1111.0) < 1e-15)
+    print("three-mode 100/111 formatted %.12f" % (100.0 / 111.0))
+
+    Ddiff = np.diag([1.0, 2.0])
+    Sdiag = np.diag([0.3, 0.4])
+    Sentry = np.array([[0.3, 0.1], [0.1, 0.4]])
+    coeff = 0.1
+    entry_at_coeff = coeff * math.sqrt(0.3 * 0.4)
+    Srho = np.array([[0.3, entry_at_coeff], [entry_at_coeff, 0.4]])
+    td = float(np.trace(Ddiff @ np.linalg.inv(Sdiag)))
+    tentry = float(np.trace(Ddiff @ np.linalg.inv(Sentry)))
+    trho = float(np.trace(Ddiff @ np.linalg.inv(Srho)))
+    rho_of_entry = 0.1 / math.sqrt(0.12)
+    print("diag %.15f" % td)
+    print("entry 0.1 %.15f" % tentry)
+    print("coeff of entry 0.1 %.15f" % rho_of_entry)
+    print("entry at coeff 0.1 %.15f" % entry_at_coeff)
+    print("trace at coeff 0.1 %.15f" % trho)
+
+    print("geometric floor count, rho=10, a=v=kT=1")
+    for w in (0.5, 1.0, 2.0, 10.0, 100.0, 1000.0):
+        if w < 1.0:
+            Kh = 0
+            formula = None
+        else:
+            raw = math.log(w / 1.0) / math.log(10.0)
+            formula = math.floor(raw) + 1
+            rates = [10 ** (k - 1) for k in range(1, 8)]
+            Kh = sum(1 for r in rates if r <= w)
+        print("  w=%g count_by_rate=%d floor(log)=%s raw_log=%.16f" % (w, Kh, formula, raw if w >= 1 else float("nan")))
+
 
 if __name__ == "__main__":
     main()

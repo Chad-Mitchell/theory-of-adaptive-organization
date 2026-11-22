@@ -1,4 +1,4 @@
-numpy 1.26.4
+numpy 2.5.5
 
 == product springs, lambda = 1e6 ==
 a=1.0 v=1.0 eps=0.2  heat=4.000020001316  raw=0.200000000000  cond=0.199999999999  L=4.000000000020  floor=4.000000000000  sig2=1.599990400010e-01  prior_err=4.441e-16
@@ -30,7 +30,7 @@ geometric count, rho=10, a0=1, v=1, by comparing a*rho^(k-1) to w
 mu exact 103.887732673339855  bisection 103.887732673339855  disc 11401.0
 back-substitution sum a v/(a+mu) = 0.500000000000000
 gains 0.009534003401 0.004904659966  sig2 2.403042298455e-05
-lambda 1e6  heat 103.877719378448  L 103.856919702138  sum-error 0.500076936208  mu 103.887732673340
+lambda 1e6  heat 103.877719377168  L 103.856919702138  sum-error 0.500076936208  mu 103.887732673340
 floor at the realized sum-error 103.856919445098  heat minus that floor 2.079993e-02
 separate heat 141.000000000000  errors 0.045454545455 0.454545454545  ratio 1.357234356470
 exact separate errors 0.045454545454545 0.454545454545455 heat 141.000000000000000
@@ -66,9 +66,9 @@ infinite ladder w(500)/w(50) = 9.999999999999998   w(10*mu)/w(mu) at mu=50: 9.99
 count of k in [-30,30] with rho^k <= 50, and <= 500: 32 33
 
 == coupled spring ==
-signal Lyapunov residual max 2.220e-16
+signal Lyapunov residual max 5.551e-17
 signal bath E[x A x] - tr = -4.441e-16
-heat 7.999912967993  L 7.999489966733  static 8.000000000000  heat-L 4.230013e-04
+heat 7.999912968022  L 7.999489966733  static 8.000000000000  heat-L 4.230013e-04
 
 == reference two-mode gap ==
 heat 3.214285714286  L 1.262924667651  gap 1.951361046634
@@ -78,3 +78,22 @@ path 14.831794136218  L 1.972390477464  heat 1.990067484080  sum-error 1.0061785
 scalar Duncan identity on one shrunk spring
 P 0.000999497128  a(v-P)/P 999.503125010117  gamma^2 P/(4D) 999.503125010117
 two copies at eps 0.2: path 1999.006250020234  floor 8  ratio floor/path 0.004001988488
+
+== confirm 661abc8 ==
+digits 9000900090009000
+w0 fraction 1000/1111 rounded to 12 decimals: 0.900090009001
+w0 float 0.9000900090009001  formatted 0.900090009001
+float matches 1000/1111 within 1e-15: True
+three-mode 100/111 formatted 0.900900900901
+diag 8.333333333333334
+entry 0.1 9.090909090909090
+coeff of entry 0.1 0.288675134594813
+entry at coeff 0.1 0.034641016151378
+trace at coeff 0.1 8.417508417508417
+geometric floor count, rho=10, a=v=kT=1
+  w=0.5 count_by_rate=0 floor(log)=None raw_log=nan
+  w=1 count_by_rate=1 floor(log)=1 raw_log=0.0000000000000000
+  w=2 count_by_rate=1 floor(log)=1 raw_log=0.3010299956639811
+  w=10 count_by_rate=2 floor(log)=2 raw_log=1.0000000000000000
+  w=100 count_by_rate=3 floor(log)=3 raw_log=2.0000000000000000
+  w=1000 count_by_rate=4 floor(log)=3 raw_log=2.9999999999999996

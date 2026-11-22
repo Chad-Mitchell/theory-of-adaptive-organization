@@ -148,3 +148,37 @@ On head `9053216`, in a detached worktree, nice 19:
 Pytest was run after installing pytest 9.2.0, SciPy 1.18.1, and SymPy 1.14.0. That install pulled NumPy 2.5.5. The recomputation above was already finished on NumPy 1.26.4 and was not rerun. No `lake build`.
 
 On this review branch, which is `origin/main` plus this directory, `check_consistency.py` reports rows 389 and tally 389, and `check_open_work.py` passes. The 392-row tally is the draft's.
+
+## Confirm
+
+**CONFIRMED.** Repair commit `661abc88f6ec32204f7df512abbcf5b9b3d327b5` on `heat-floor-general-2026-11-22`. This confirm does not edit that branch and does not merge. `origin/main` is still `954fc2f`. The recomputation was rerun from `reviews/heat_floor_general_2026-11-22/recompute.py`, which still imports nothing from `theory/info_physics_checks/`. NumPy for this rerun is 2.5.5. The printed heats, the ratio \(1.357234\), and the coupled heat \(7.999913\) are unchanged. No `lake build`.
+
+The five repairs are in the note, the claim map, and OPEN_WORK T39.
+
+1. **Four-mode blind stake.** The long division of \(1000/1111\) begins \(9000900090009000\). Rounding at the thirteenth digit, which is \(9\), gives \(0.900090009001\). The float \(1/(1+0.1+0.01+0.001)\) formats to the same twelve decimals and matches \(1000/1111\) within \(10^{-15}\). The three-mode value \(100/111\) still formats as \(0.900900900901\), and that number is no longer printed as the four-mode stake. Section 6, T39, the v2.88 note, and the changelog all say \(1000/1111\).
+
+2. **Covariance and correlation.** At marginals \(0.3\) and \(0.4\) with \(D=\operatorname{diag}(1,2)\), the diagonal trace is \(8.333333333333\), the trace at off-diagonal entry \(0.1\) is \(9.090909090909\), and that entry has correlation coefficient \(0.1/\sqrt{0.12}=0.288675134595\). At correlation coefficient \(0.1\) the covariance entry is \(0.034641016151\) and the trace is \(8.417508417508\). Both sit above the diagonal. The proof in §5 and IP12 say this.
+
+3. **Nonlinear potential.** Section 8 now has the three sentences. The quartic conditional has a learning rate strictly above \(R\) of its error. The heat infimum on an equilibrium OU signal remains \(kT\) times the Gaussian rate, because the shrunk springs attain it and G-learn puts every regular memory at or above it. The attainability note does not leave a separate open row for the heat of a nonlinear potential. The old pair of sentences, "not attained" and "open", is gone, and that item is gone from the open list.
+
+4. **Driven signal.** Section 8 and IP14 say the same thing, and the status word is OPEN. The case in which the signal's own bath pays is already recorded, in SE3 and in the Barato–Hartich–Seifert receptor. This page does not add a counterexample. A general rule for which bath pays is open. The opening paragraph of the note says the same.
+
+5. **Citations.** Tanaka, Skoglund, and Ugrinovskii, doi 10.1109/CDC.2017.8264246, returned Crossref HTTP 200 on 22 November 2026: 2017, 56th IEEE CDC, pp. 3992–3997, title "Optimal sensor design and zero-delay source coding for continuous-time vector Gauss-Markov processes", families Tanaka, Skoglund, Ugrinovskii. Stavrou, Charalambous, Charalambous, Loyka, and Skoglund, doi 10.1109/CDC.2018.8619725, returned HTTP 200: 2018, pp. 14–20, the asymptotic reverse-waterfilling title, those five families. The Crossref event string is "2018 IEEE Conference on Decision and Control (CDC)". The 2017 record is explicitly the 56th. Gorbunov and Pinsker are cited as Problems of Information Transmission 9:184 and 10:93, with no DOI. A Crossref title query on this date did not return a work record for either translation. Those opening pages are the ones in the reference list of the 2018 CDC paper (English translation, vol. 9, pp. 184–191, 1973, and vol. 10, pp. 93–109, 1974) and in doi 10.1109/TIT.2021.3124888. The note says the constraint in the 2017 CDC paper is \(\operatorname{tr}(P)\le D\), that the minimum is a semidefinite program, and that the paper contains no bath heat. The \(\tfrac12\log\) papers are placed next to Kolmogorov and Sims. The sum-loss allocation is still described as the level \(\mu\).
+
+**Geometric count.** The note defines \(K_{\mathrm{hard}}\) as the cardinality of \(\{k:a\rho^{k-1}\le wv/(kT)\}\), and states that once \(w\ge kT a/v\), and until the ladder runs out, that cardinality is \(\lfloor\log(wv/(kT a))/\log\rho\rfloor+1\). Comparing rates \(10^{k-1}\) with \(w\) gives \(0,1,1,2,3,4\) at stakes \(0.5,1,2,10,100,1000\). The exact logarithm at stake \(1000\) is \(3\). The floating-point ratio \(\log(1000)/\log(10)\) is \(2.9999999999999996\), so a bare floor of that ratio plus one prints \(3\). The page states the exact expression, and the count it defines is the cardinality, which is \(4\). T39, IP12, §7, and the v2.88 note use the floor expression, with the clause that it applies once the slowest mode pays.
+
+**New-claims list.** Section 9's five bullets are the five items in "What is new" above: the joint per-mode bound and the off-diagonal increase, with the heats identified as the scalar construction repeated; the sum of the scalar frontiers, the threshold \(kT a_k/v_k\), and the floor count; the sum-loss level \(\mu\), rank one, the factor \(K\), separate heat \(141\) against \(\mu=103.887732673340\), and the half-tracked ladder; the N65 and L2 comparison, with N65 unchanged; the coupled design at \(7.999913\) against \(8\). No sixth claim was added. The vector learning-rate identity stays in the proved list and is no longer listed as a separate addition.
+
+**Nothing new overclaims.** No row changes status. IP12 and IP13 stay PROVED (in-model). IP14 stays OPEN. The tally stays \(392\). The hypothesis sentence is byte-identical to `origin/main`. The diff in `THEORY.md` is the claim-map version, v2.87 to v2.88. N65 is unchanged. `theory/README.md` still says the tracked-mode count scales as \(\log(w)/\log\rho\). That is the growth of the floor count.
+
+On head `661abc8`, detached worktree, nice 19:
+
+| Command | Result |
+|---|---|
+| `python3 theory/info_physics_checks/general_checks.py` | PASS 33, FAIL 0 |
+| `python3 tools/check_consistency.py` | RESULT: PASS. CLAIM_MAP latest note v2.88. README, STATUS, and THEORY point at v2.88. Rows counted 392, tally total 392 |
+| `python3 tools/check_fresh.py` | RESULT: PASS. STATUS.md main is `74e02e7`; window `954fc2f 74e02e7 b46bf9f 12febaf c9f02df` |
+| `python3 tools/check_open_work.py` | RESULT: PASS. Union missing from OPEN_WORK.md: 0 |
+| `python3 -m pytest -q tools` | 255 passed, 1 skipped, 313.67 s, exit 0. The skip is `tools/test_lean.py` |
+
+No remaining fixes.
