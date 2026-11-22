@@ -99,6 +99,8 @@ Each of these is a window the rest of the page looks through. If it is wrong, he
 
 A note on the stationary excess, under a log-linear fitness map and weak mutation, is in `theory/SELECTION_AXIOMS.md`. Copying that favors lower cost is not enough for the excess \(d/(2\beta)\). The fractional form \(\approx d/(2\sigma N_e)\) is the bridge's formula, with \(N_e\) equal to Sella and Hirsh's \(\nu\) (haploid Moran \(\beta=\alpha(N-1)\); diploid Wright–Fisher \(\beta=\alpha(2N-1)\), an approximation). T27's P3 failed and is not rescued. The drifting-world sum adds the CL19 lag only under the extra assumptions in that note (additive costs, zero discount, the lumpy coordinate outside the substitution chain, timescale separation). The excess \(d/(2\beta)\) is derived in-model under A1, A2-L, \(N\mu\ll 1\), and SA1–SA1b, and that excess is small only when \(\sigma N_e\gg d\) (THEORY §4; `theory/SELECTION_AXIOMS.md` §10). The empirical bet is whether real systems meet those assumptions with parameters that make the remainder small, tested by SA-P1, which is not locked. The Part 2 hypothesis sentence is unchanged.
 
+For an optimum that moves in the soft coordinates, see `theory/DRIFT_SELECTION.md` (CLAIM_MAP section S; a self-check, not reviewed).
+
 ## References
 
 - Chalkley 1997, *Economics Letters* 57:189, doi 10.1016/s0165-1765(97)00222-x.
