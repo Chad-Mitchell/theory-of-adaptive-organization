@@ -1,5 +1,7 @@
 # Changelog of THEORY.md
 
+- **CLAIM_MAP v2.85 (22 Nov 2026; branch `attainability-2026-11-22`).** For an exogenous equilibrium OU signal the memory-bath heat infimum at mean squared error \(\varepsilon\) is the Kalman rate, approached at finite heat. New row IP11 PROVED (in-model). IP1–IP10 keep their status words. Tally 388 → 389. The master equation and the hypothesis sentence are unchanged. A self-check, not an independent review.
+
 - **CLAIM_MAP v2.84 (22 Nov 2026; branch `info-physics-2026-11-22`, after the second review of draft PR #175).** The spring heat floor is not the flow floor. The reference sensor is unicyclic, affinity \(\ln 64\). No row changes status. Tally stays 388. The master equation and the hypothesis sentence are unchanged.
 
 - **CLAIM_MAP v2.83 (22 Nov 2026; branch `info-physics-2026-11-22`, after the review of draft PR #175).** The heat floor at error 0.2 is \(0.6\ln 4\). The tangent witness is the stake table. \(J_{\mathrm{phys}}\) is stated for the telegraph and the linear spring. New rows IP8 and IP9 PROVED (in-model), IP10 OPEN. IP3, IP5, and IP6 keep their status words and change their wording. Tally 385 → 388. The master equation and the hypothesis sentence are unchanged.

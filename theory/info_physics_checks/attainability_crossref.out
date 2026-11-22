@@ -1,0 +1,9 @@
+Crossref API, 22 November 2026, this session. User-Agent sent. HTTP 429 on a later retry is recorded and is not treated as a resolution.
+
+HTTP 200 | 10.1103/PhysRevE.93.022116 | 2016 | Physical Review E | Sensory capacity: An information theoretical measure of the performance of a sensor | vol 93 | Hartich, David; Barato, Andre C.; Seifert, Udo
+HTTP 200 | 10.1088/1367-2630/16/12/125007 | 2014 | New Journal of Physics | Second-law-like inequalities with information and their interpretations | vol 16 p 125007 | Horowitz, Jordan M; Sandberg, Henrik
+HTTP 200 | 10.1103/PhysRevX.4.031015 | 2014 | Physical Review X | Thermodynamics with Continuous Information Flow | vol 4 | Horowitz, Jordan M.; Esposito, Massimiliano
+HTTP 200 | 10.1088/1367-2630/16/10/103024 | 2014 | New Journal of Physics | Efficiency of cellular information processing | vol 16 p 103024 | Barato, Andre C; Hartich, David; Seifert, Udo
+HTTP 200 | 10.1088/1742-5468/2015/01/P01014 | 2015 | Journal of Statistical Mechanics: Theory and Experiment | Thermodynamic limits to information harvesting by sensory systems | vol 2015 p P01014 | Bo, Stefano; Giudice, Marco Del; Celani, Antonio
+
+Duncan 1970, doi 10.1137/0119020, and Still et al. 2012, doi 10.1103/PhysRevLett.109.120604, were resolved HTTP 200 for theory/INFO_PHYSICS.md the same day (theory/info_physics_checks/crossref.out, and the round-2 review). This session's retries of those two DOIs returned HTTP 429 and are not a second resolution.
