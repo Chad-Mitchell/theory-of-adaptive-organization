@@ -192,6 +192,13 @@ def test_heat_unbounded_at_fixed_error():
     check("mutual information is fixed when the error is fixed",
           near(q_lo["info"], q_hi["info"], 1e-8),
           "I=%.8f" % q_hi["info"])
+    # At fixed error the heat is exactly gamma*(1-2*err)*ln(rho), so the
+    # infimum is the minimal affinity, not the first grid point.
+    floor = gamma * (1.0 - 2.0 * target) * math.log((1.0 - target) / target)
+    check("fixed-error heat floor is the closed form 0.6 ln 4",
+          near(floor, 0.6 * math.log(4.0), 1e-15) and q_min > floor,
+          "floor=%.15f grid_min=%.15f" % (floor, q_min))
+    record("Qfloor_err02", floor)
     record("Qmin_err02", q_min)
     record("Q_large_err02", q_hi["heat"])
     record("I_err02", q_hi["info"])
@@ -766,6 +773,198 @@ def test_ou_family():
 
 
 # ---------------------------------------------------------------- Lagrangian is not J
+def cmi_triples(triples):
+    """I(A;B|C) from (a, b, c, p)."""
+    pabc, pac, pbc, pc = {}, {}, {}, {}
+    for a, b, c, p in triples:
+        if p <= 0.0:
+            continue
+        pabc[(a, b, c)] = pabc.get((a, b, c), 0.0) + p
+        pac[(a, c)] = pac.get((a, c), 0.0) + p
+        pbc[(b, c)] = pbc.get((b, c), 0.0) + p
+        pc[c] = pc.get(c, 0.0) + p
+    out = 0.0
+    for (a, b, c), p in pabc.items():
+        out += p * math.log((p * pc[c]) / (pac[(a, c)] * pbc[(b, c)]))
+    return out
+
+
+def test_xor_future():
+    """Drop trajectory conditional independence and the lemma reverses, future included."""
+    joint, one, two = [], [], []
+    for m1 in (0, 1):
+        for z in (0, 1):
+            m2 = m1 ^ z
+            for y, py in ((z, 0.8), (1 - z, 0.2)):
+                p = 0.25 * py
+                joint.append((m1 * 2 + m2, z, y, p))
+                one.append((m1, z, y, p))
+                two.append((m2, z, y, p))
+    cj, c1, c2 = cmi_triples(joint), cmi_triples(one), cmi_triples(two)
+    check("XOR with a noisy future: joint conditional information exceeds the sum",
+          near(cj, hbin(0.2), 1e-12) and near(c1, 0.0, 1e-12) and near(c2, 0.0, 1e-12),
+          "joint=%.12f h(0.2)=%.12f" % (cj, hbin(0.2)))
+    record("xor_future_joint", cj)
+    record("xor_future_sum", c1 + c2)
+
+
+def frontier_error(w):
+    """Root of d/dε[(1-2ε)ln((1-ε)/ε)] + w = 0."""
+    lo, hi = 1e-8, 0.499
+    for _ in range(80):
+        mid = 0.5 * (lo + hi)
+        L = math.log((1.0 - mid) / mid)
+        g = -2.0 * L - (1.0 - 2.0 * mid) / (mid * (1.0 - mid)) + w
+        if g > 0.0:
+            hi = mid
+        else:
+            lo = mid
+    return 0.5 * (lo + hi)
+
+
+def test_stake_table():
+    """The flow objective is the efficient frontier. A fixed stock price is not."""
+    gamma = 1.0
+    Fs = np.linspace(0.3, 6.0, 40)
+    rs = np.exp(np.linspace(math.log(0.05), math.log(30.0), 40))
+    rows = []
+    for F in Fs:
+        for r in rs:
+            ac = float(r * math.exp(0.5 * F))
+            ae = float(r * math.exp(-0.5 * F))
+            s = sensor(ac, ae, gamma)
+            rows.append((s["heat"], s["err"], s["info"], s["flow"]))
+    rows = np.array(rows)
+    w = 8.0
+    ip = int(np.argmin(rows[:, 0] + w * rows[:, 1]))
+    iff = int(np.argmin(rows[:, 3] + w * rows[:, 1]))
+    gap = abs(float(rows[ip, 1] - rows[iff, 1]))
+    check("on the r≤30 grid the heat and flow argmins differ by 0.00636",
+          near(gap, 0.006357068124, 1e-6),
+          "gap=%.12f heat_err=%.12f flow_err=%.12f" % (gap, rows[ip, 1], rows[iff, 1]))
+    # constant upkeep does not move the stock argmin
+    errs = []
+    for h in (0.0, 10.0):
+        k = int(np.argmin(1.0 * rows[:, 2] + h + w * rows[:, 1]))
+        errs.append(float(rows[k, 1]))
+    check("a constant upkeep does not move the stock argmin",
+          near(errs[0], errs[1], 1e-12) and near(errs[0], 0.004114465901, 1e-9),
+          "err=%.12f" % errs[0])
+    e_phys = float(rows[ip, 1])
+    kappa = w / math.log((1.0 - e_phys) / e_phys)
+    check("kappa matched to the stake-8 grid point is 5.134646, not kT",
+          near(kappa, 5.1346464562, 1e-8) and abs(kappa - 1.0) > 1.0,
+          "kappa=%.10f" % kappa)
+    kmatch = int(np.argmin(kappa * rows[:, 2] + w * rows[:, 1]))
+    check("that kappa selects the heat argmin at stake 8",
+          kmatch == ip)
+    # continuous frontier vs the same kappa at other stakes
+    misses = []
+    for wstake, e_front_ref, e_stock_ref in (
+            (2.0, 0.379876, 0.403835),
+            (8.0, 0.167031, 0.173928),
+            (20.0, 0.063722, 0.019936),
+            (50.0, 0.022976, 0.000059),
+    ):
+        e_front = frontier_error(wstake)
+        e_stock = 1.0 / (1.0 + math.exp(wstake / kappa))
+        misses.append(abs(e_front - e_stock))
+        check("frontier and stock errors at stake %g" % wstake,
+              near(e_front, e_front_ref, 2e-5) and near(e_stock, e_stock_ref, 2e-5),
+              "front=%.6f stock=%.6f" % (e_front, e_stock))
+        record("front_w%g" % wstake, e_front)
+        record("stock_w%g" % wstake, e_stock)
+    check("the stake-8 kappa misses the frontier at stake 20",
+          misses[2] > 0.04)
+    # no affine function of the stock reproduces the floor
+    es = np.linspace(0.02, 0.45, 400)
+    Q = (1.0 - 2.0 * es) * np.log((1.0 - es) / es)
+    I = np.array([math.log(2.0) - hbin(float(e)) for e in es])
+    A = np.column_stack([I, np.ones_like(I)])
+    coef, *_ = np.linalg.lstsq(A, Q, rcond=None)
+    resid = float(np.max(np.abs(Q - A @ coef)))
+    check("no fixed stock price plus constant upkeep fits the floor",
+          resid > 0.6,
+          "max residual=%.6f" % resid)
+    record("stock_fit_resid", resid)
+    record("grid_err_gap", gap)
+    record("kappa_match", kappa)
+
+
+def ou_fixed_error(a, lam, v, eps):
+    """Spring tracker at a prescribed error. Returns heat, flow, achieved error."""
+    slack = eps - (a * v) / (a + lam)
+    if slack <= 0.0:
+        return None
+    D = lam * slack
+    # covariance
+    Cxx = v
+    Cxm = lam * v / (a + lam)
+    Cmm = Cxm + D / lam
+    C = np.array([[Cxx, Cxm], [Cxm, Cmm]])
+    Cinv = np.linalg.inv(C)
+    alpha = np.array([lam, -lam]) + D * Cinv[:, 1]
+    beta = -Cinv[:, 1].copy()
+    beta[1] += 1.0 / Cmm
+    flow = float(alpha @ C @ beta)
+    err = Cxx + Cmm - 2.0 * Cxm
+    heat = (lam ** 2 / D) * err - lam
+    return heat, flow, err
+
+
+def test_ou_jphys():
+    """Fast spring: Sekimoto heat and the information flow share the floor a v / ε."""
+    a, lam, v, D = 1.0, 2.0, 1.0, 0.3
+    Cxx, Cxm = v, lam * v / (a + lam)
+    Cmm = Cxm + D / lam
+    C = np.array([[Cxx, Cxm], [Cxm, Cmm]])
+    Cinv = np.linalg.inv(C)
+    alpha = np.array([lam, -lam]) + D * Cinv[:, 1]
+    beta = -Cinv[:, 1].copy()
+    beta[1] += 1.0 / Cmm
+    flow_ref = float(alpha @ C @ beta)
+    err = Cxx + Cmm - 2 * Cxm
+    seki_ref = (lam ** 2 / D) * err - lam
+    check("at the reference OU point the memory-bath heat exceeds the flow",
+          near(seki_ref, 4.444444444444, 1e-9) and near(flow_ref, 1.194029850746, 1e-9),
+          "seki=%.6f flow=%.6f" % (seki_ref, flow_ref))
+    record("ou_ref_seki", seki_ref)
+    record("ou_ref_flow", flow_ref)
+    a, v, eps = 1.0, 1.0, 0.2
+    got = ou_fixed_error(a, 10000.0, v, eps)
+    check("OU heat and flow both approach a v / error",
+          got is not None and near(got[0], a * v / eps, 1e-3) and near(got[1], a * v / eps, 1e-2),
+          "heat=%.6f flow=%.6f floor=%.6f" % (got[0], got[1], a * v / eps))
+    # analytic heat at this lambda
+    heat_formula = a * 10000.0 * v / (eps * (a + 10000.0) - a * v)
+    check("OU heat matches lambda / the fixed-error denominator",
+          near(got[0], heat_formula, 1e-8))
+    # stake table: floor objective and heat floor select the same error,
+    # including the blind corner Q=0, error=v, when that is cheaper.
+    for w, e_ref in ((2.0, 1.0), (8.0, 0.353553390593), (20.0, 0.223606797750), (50.0, 0.141421356237)):
+        e_star = math.sqrt(a * v / w)
+        if e_star >= v or (a * v / e_star + w * e_star) >= w * v:
+            e_pick, q_pick = v, 0.0
+        else:
+            e_pick, q_pick = e_star, a * v / e_star
+        check("OU J_phys and the heat floor agree at stake %g" % w,
+              near(e_pick, e_ref, 1e-9),
+              "err=%.6f Q=%.6f" % (e_pick, q_pick))
+        record("ou_front_w%g" % w, e_pick)
+    # K independent modes add. Each mode is spring-or-off.
+    modes = [(0.5, 1.0), (1.5, 0.8), (4.0, 1.2)]
+    w = 20.0
+    total = 0.0
+    for aa, vv in modes:
+        e_star = math.sqrt(aa * vv / w)
+        blind = w * vv
+        track = aa * vv / e_star + w * e_star
+        total += min(blind, track)
+    check("three OU modes add their own floors at stake 20",
+          total > 0.0)
+    record("ou_K3_J_w20", total)
+
+
 def test_lagrangian():
     gamma = 1.0
     # grid of drives
@@ -847,6 +1046,9 @@ def main():
     test_joint_versus_stack()
     test_past_stock()
     test_ou_family()
+    test_xor_future()
+    test_stake_table()
+    test_ou_jphys()
     test_lagrangian()
     test_ct7_shape()
     print("--- numbers ---")
