@@ -17,3 +17,7 @@ public import GTAO.N60Exact
 public import GTAO.BandCounterexample
 public import GTAO.BandMonge
 public import GTAO.Coadaptation
+public import GTAO.DriftSpeed
+public import GTAO.CoadaptationUnique
+public import GTAO.CoadaptationExcess
+public import GTAO.CoadaptationDrift

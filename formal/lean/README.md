@@ -10,8 +10,11 @@ repository's zero-discount average cost, the local-vs-shared crossing
 for an arbitrary `ε` (KEYSTONE_NOTE §4).  This branch adds the
 from-0 layer-count exactness lemma (L1 / N64), the finite-cell band-model
 convexity theorems (M, Z, X, B) with the `W ≥ 0` necessity check, a
-finite-state CA1 / CA1a statement, and the Lyapunov-trace identity for
-the drift-selection excess DS1, including `d/(2β)(1+D/D_m)`.
+finite-state CA1 / CA1a statement, the Lyapunov-trace identity for
+the drift-selection excess DS1, including `d/(2β)(1+D/D_m)`, and
+(this branch, batch 2) the DS2 lag and cost bounds, uniqueness of
+the CA1 stationary law, CA1b/CA1c (U2), and CA7 (U11) on the
+load-bearing chain.
 Formalization cannot establish the hypothesis at the top of CORE.md, which is a claim
 about the real world.
 
@@ -35,7 +38,8 @@ about the real world.
   after the build) checks that every declaration in a `GTAO.*` module
   depends only on `propext`, `Classical.choice` and `Quot.sound`.  A
   `sorry` anywhere would show up as `sorryAx` and fail the check.  Last
-  run (21 November 2026, this branch, after review should-fixes): 635 declarations, OK.
+  run (21 November 2026, branch `lean-batch2-2026-11-21`): 712 declarations, OK
+  (635 after the lean-layer-drift review should-fixes, plus batch 2).
 
 ## How to build
 
@@ -112,8 +116,15 @@ wherever `FiniteDesignMenu` is used.
 | `DriftSelection.bm_excess`, `bm_excess_isotropic`, `bm_excess_static` | DS1(b) and the `Q=0` case of DS1(d) | Brownian lag-covariance equation (`γ = 0`); same `H`, `D_m, β > 0` | `½ Tr(H P) = d/(2β) + Tr(Q)/(2β D_m)`; with `Q = D I` this is `d/(2β)(1+D/D_m)`; with `Q = 0` this is the SA1b excess `d/(2β)` |
 | `DriftSelection.velocity_mean_excess` | DS1(c), the mean-lag term | `A μ = −v` with `A = D_m β H`; `H` positive definite, `D_m, β > 0` | `½ μᵀ H μ = vᵀ H⁻¹ v / (2 β² D_m²)`.  The fluctuation contribution `d/(2β)` is SA1b / `Equipartition` and is added outside this identity |
 | `DriftSelection.ou_excess_fast_remainder` | DS1(d), exact remainder to the fast-`γ` floor | `γ > 0`, `H` positive definite | `½ Tr[H (A+γI)⁻¹ Q] − ½ Tr[H (Q/γ)] = −½ Tr[H (A+γI)⁻¹ A (Q/γ)]` (the topological limit `γ→∞` is not formalized) |
-| `Coadaptation.LogLinearChain`, `detailedBalance_of_potential`, `potential_of_detailedBalance`, `ca1_iff`, `stationary_of_detailedBalance` | `theory/COADAPTATION.md` (PR #148) CA1 | One party moves at a time; symmetric move graphs, each party's graph connected; positive rates with `q(x→y)/q(y→x) = e^{−β_i ΔJ_i}`.  Finiteness of the product state space is used only by `stationary_of_detailedBalance` | Some positive `π` satisfies detailed balance ⇔ the `β`-scaled game has an exact potential `Ψ`; then `π x = exp(-Ψ x)` (`detailedBalance_of_potential`) and `Ψ = -log π` (`potential_of_detailedBalance`).  Uniqueness of the stationary law is not formalized.  Global balance (`stationary_of_detailedBalance`) is on a finite product |
+| `Coadaptation.LogLinearChain`, `detailedBalance_of_potential`, `potential_of_detailedBalance`, `ca1_iff`, `stationary_of_detailedBalance` | `theory/COADAPTATION.md` (PR #148) CA1 | One party moves at a time; symmetric move graphs, each party's graph connected; positive rates with `q(x→y)/q(y→x) = e^{−β_i ΔJ_i}`.  Finiteness of the product state space is used only by `stationary_of_detailedBalance` | Some positive `π` satisfies detailed balance ⇔ the `β`-scaled game has an exact potential `Ψ`; then `π x = exp(-Ψ x)` (`detailedBalance_of_potential`) and `Ψ = -log π` (`potential_of_detailedBalance`).  Global balance (`stationary_of_detailedBalance`) is on a finite product |
 | `Coadaptation.ca1a_weighted`, `ca1a_square` | CA1a | Weighted potential `Δ_i J_i = ω_i Δ_i Φ` | If `β_iω_i = γ` for all `i`, `γΦ` is an exact potential; if a potential exists, `(β_iω_i − β_jω_j)` times every mixed difference of `Φ` is `0` (so unequal `β_iω_i` with a nonzero mixed difference rules out detailed balance) |
+| `DriftSpeed.meanLag_abs`, `ds2_excess`, `halfWindow_diverges` | CLAIM_MAP S2 / DS2 | Mean-speed bound `|E[θ(t)−θ(0)]| < v_max t` as input (jump-process construction not formalized); for the cost bound, `E[|L|] ≥ |E[L]|`, `E[L²] ≥ (E[|L|])²`, and a Rayleigh lower bound `λ_min` as inputs; equality `|v_k|=v_max` excluded | Lag `|E[L]| ≥ (|v_k|−v_max)t − |L(0)|` once `t` is large enough; excess `≥ ½ λ_min B²`; the half-window lower bound `(c/2)(αT/2−β)²` diverges.  Faithful with disclosed inputs |
+| `Coadaptation.unique_stationary_prob`, `unique_global_balance`, `joint_connected`, `unique_gibbs_stationary` | CA1 uniqueness (U1) | Finite joint state space; irreducibility of the move graph, which follows from connectedness of each party's graph; uniformization rate strictly larger than every exit rate.  Mathlib has no spectral Perron–Frobenius theorem; uniqueness is the elementary max-ratio argument | At most one stationary probability; when an exact potential `Ψ` exists it is the normalized Gibbs law `exp(−Ψ)/∑exp(−Ψ)`, independent of the clocks.  Faithful |
+| `Coadaptation.potential_shift_independent`, `conditional_boltzmann`, `ca1b_potential_excess`, `ca1b_team_split` | CLAIM_MAP U2 / CA1b | Exact potential; for the quadratic means, covariance `H P = I` and the trace identities `E[Ψ]−Ψ* = ½ Tr(H P)`, `E[J_T] = J_T(x^Ψ)+½ Tr(H_T P)` as inputs (the Gaussian/Haar integral is Equipartition in the single-system case and is an input here) | `Ψ−β_i J_i` is independent of party `i`'s design, so the Gibbs law is conditionally Boltzmann; `E[Ψ]−Ψ* = d/2`; team excess = potential-to-team gap + scatter.  Faithful with disclosed moment inputs |
+| `Coadaptation.ca1c_potential`, `ca1c_gap_zero`, `ca1c_fraction` | CLAIM_MAP U2 / CA1c | `J_i = s_i J_T + h_i(x_{-i})`; `β_i s_i = γ`; gap-zero uses `h_i=0` and `∑ s_i=1`; the fractional form takes `γ = σ N_e / J_T*` from A2-L as input | `γ J_T` is an exact potential; the potential-to-team gap vanishes when shares add to 1 and `h_i=0`; `(E[J_T]−J_T*)/J_T* = d/(2σ N_e)`.  Faithful with A2-L disclosed |
+| `CoadaptationDrift.virial_trace`, `ca7_potential_excess` | CLAIM_MAP U11 / CA7 (1) | Lyapunov equation `V K Σ + Σ Kᵀ V = 2V+2Q` as input; `V` invertible, `Σ` and `S` symmetric, `Aᵀ=−A`, `K=S+A`; excess identified with `½ Tr(S Σ)` | `E[Ψ]−Ψ* = ½(d + Tr(V⁻¹ Q))`.  Faithful with the Lyapunov equation as input |
+| `CoadaptationDrift.cex_party1_factor`, `cex_party2_factor`, `ca7_regret_not_naive` | CLAIM_MAP U11 / CA7 (4) | The 2×2 covariance `Σ=[[5/4,−1/2],[−1/2,3/4]]` of the note's example (Lyapunov verification of that datum is the 2×2 arithmetic in the note; Matrix application is not exposed in Lean 4.37) | `β₁ E[R₁]=15/16 ≠ 1` and `β₂ E[R₂]=9/16 ≠ 1/2`.  Faithful for the negative finding on the stated covariance |
+
 
 ## What is not formalized
 
@@ -139,9 +150,9 @@ None of the following is claimed as proved in Lean.
 - CT5, CT6, CT7, CT8, CT9 (Blackwell/garbling, hold-or-fade, and the neighbouring short CTs).
 - CT11–CT19, CT23, CT24, CT25, CT26–CT32, CT35–CT43, and the Master Theorem in the class `𝓜_LG`.
 - Any information-theoretic construction of `D` or `IB`; they enter CT4 as functions with the stated convexity and monotonicity.
-- LAYER_CONVEXITY: N60 started from `k_0 > 0` (the from-1 formula); Theorem B for a continuous frequency measure (only finitely many cells with positive weights are formalized); the identification of the finite-cell minimum `bandE` with the staircase cost `BandCounterexample.cost`; the corollary that `K*_0` equals the leftmost argmin in 𝓑; the Wiener-gain reading `W = 1/(1+N/S)` and Model S convexity for `J≥3`.
-- DRIFT_SELECTION: the generator expansion from the origination–fixation chain to the Langevin equation (L), existence and uniqueness of the stationary law and the ergodic theorem (time average = stationary mean); DS1(b) for a general mutation matrix `M` (`d/(2β) + Tr(M^{-1} Q)/(2β)`); DS1(c) as the single excess `d/(2β) + vᵀH⁻¹v/(2 β² D_m²)` (only the mean-lag term is formalized; the fluctuation `d/(2β)` is not supplied here by `Equipartition`); DS2 (the exact-chain speed limit); DS3; Corollary DS1c (the fractional form with `β = σ N_e / J*`); the topological limit `γ→∞` in DS1(d).
-- COADAPTATION: uniqueness of the stationary law (irreducibility / Perron–Frobenius), the origination–fixation derivation of the log-linear rate ratio, CA1b–CA4, and the §6 counterexamples.
+- LAYER_CONVEXITY: N60 started from `k_0 > 0` (the from-1 formula); Theorem B for a continuous frequency measure (only finitely many cells with positive weights are formalized); the identification of the finite-cell minimum `bandE` with the staircase cost `BandCounterexample.cost`; the corollary that `K*_0` equals the leftmost argmin in 𝓑; the Wiener-gain reading `W = 1/(1+N/S)`; Model S convexity for `J≥3`; Model S convexity for `J≤2` (N64(iii); Kalman/Wiener, not formalized in this batch).
+- DRIFT_SELECTION: the generator expansion from the origination–fixation chain to the Langevin equation (L), existence and uniqueness of the stationary law and the ergodic theorem (time average = stationary mean); DS1(b) for a general mutation matrix `M` (`d/(2β) + Tr(M^{-1} Q)/(2β)`); DS1(c) as the single excess `d/(2β) + vᵀH⁻¹v/(2 β² D_m²)` (only the mean-lag term is formalized; the fluctuation `d/(2β)` is not supplied here by `Equipartition`); the jump-process construction behind the DS2 mean-speed bound (the lag, cost, and half-window divergence from that bound are formalized); DS3; Corollary DS1c (the fractional form with `β = σ N_e / J*`); the topological limit `γ→∞` in DS1(d).
+- COADAPTATION: the origination–fixation derivation of the log-linear rate ratio; CA2–CA4 and CA5–CA6; CA7 (2) the blockwise virial and CA7 (3) the team mismatch bracket (order-preserving Lyapunov inverse from CA3); the §6 counterexamples.  CA1 uniqueness, CA1b/CA1c, and CA7 (1) and (4) are formalized in this batch, with inputs disclosed in the table above.
 
 ## Layout
 
@@ -168,6 +179,10 @@ formal/lean/
   GTAO/BandCounterexample.lean  # W=(0,1,0), μ=(2,1,1): E=(1,2/3,0)
   GTAO/BandMonge.lean       # Lemmas M, Z, X; Theorem B (finite cells, 2E_{k+1}≤E_k+E_{k+2}); Z needs W≥0
   GTAO/Coadaptation.lean    # CA1 (finite state), CA1a
+  GTAO/DriftSpeed.lean      # DS2 lag, cost, half-window divergence
+  GTAO/CoadaptationUnique.lean  # CA1 uniqueness (max-ratio + uniformization)
+  GTAO/CoadaptationExcess.lean  # CA1b / CA1c (U2)
+  GTAO/CoadaptationDrift.lean   # CA7 (U11): potential excess and regret counterexample
   scripts/AxiomAudit.lean   # every GTAO declaration uses only standard axioms
 ```
 
