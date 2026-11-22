@@ -2,11 +2,11 @@
 
 *Sunday 22 November 2026, America/New_York. Branch `growth-bridge-2026-11-22`. Written by one executor for Chad Mitchell. A self-check, not an independent review. It does not edit a locked preregistration, a hash, or a LOCK file. It does not change the Part 2 hypothesis sentence. THEORY.md remains the canonical statement. The equation there stays the statement of the problem.*
 
-*The general form is on `main` (PR #161, merged; confirm PR #164). The independent review is PR #163, `reviews/general_form_2026-11-22/REVIEW.md` on `review-pr161-2026-11-22`. This note starts from Lemma LY as merged. It asks whether the master equation is a limit of that lemma. The limit does not produce the equation. The counterexamples are below.*
+*The general form is on `main` (PR #161, merged; confirm PR #164). The independent review of that note is PR #163. This note starts from Lemma LY as merged. Revised after the READY-WITH-FIXES review of draft PR #166 (PR #167, `reviews/growth_bridge_2026-11-22/REVIEW.md` on `review-pr166-2026-11-22`). The repairs below are a self-check of those fixes, not an independent review of the repair.*
 
 ## 0. The result, in one statement
 
-**The master equation is still assumed.** Weak selection on a finite menu, with one design ahead by a fixed gap in expected offspring, makes growth selection and expected-offspring selection pick the same design. The next term is a second-moment penalty. A diffusion scaling keeps that penalty at the same order as the drift, so the limiting criterion is \(\mu-\sigma^2/2\). A ruin level set is a half-space in the Lundberg exponent and a bounded interval of refresh time on the published path of Lemma B9. None of the five coordinates makes offspring strictly decreasing without an extra map. The term list and the cap remain assumptions.
+**On a gapped finite menu, weak selection recovers the ranking only.** The diffusion limit keeps \(\mu-\sigma^2/2\). An interior stake separates the argmaxes. The term list and the cap are inputs, so the master equation remains an assumption outside that scoped ranking. The common design minimizes a linear cost only when that cost is already the form of the offspring mean. A ruin level set is a half-space in an exponent coordinate, after a linear approximation in the Galton–Watson plane, and a bounded interval of refresh time on the published path of Lemma B9. H3, read as a partial with the other bads held fixed, holds for memory, acquisition, and attention only under a budget map with a positive price. Expected task loss fails by LY-1. A scalar ruin probability is not a pathwise coordinate. "From first principles" stays false.
 
 **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
 
@@ -64,7 +64,7 @@ The third derivative of \(\log(1+x)\) is \(2/(1+x)^3\), so the remainder after t
 W=1+\mu\,\Delta t+\sigma\sqrt{\Delta t}\,Z,
 \]
 
-with \(\Delta t>0\) small enough that \(|W-1|\le 1/2\). Then \(\mathbb{E}[W-1]=\mu\,\Delta t\), \(\mathrm{Var}(W)=\sigma^2\Delta t+O((\Delta t)^2)\), and \((\mathbb{E}[W-1])^2=O((\Delta t)^2)\). The third-moment remainder is \(O((\Delta t)^{3/2})\), which absorbs the squared-mean term. Hence
+with \(\Delta t>0\) small enough that \(|W-1|\le 1/2\). Then \(\mathbb{E}[W-1]=\mu\,\Delta t\). Because \(\mathbb{E}[Z]=0\) and \(\mathbb{E}[Z^2]=1\), \(\mathrm{Var}(W)=\sigma^2\Delta t\) exactly, and \((\mathbb{E}[W-1])^2=(\mu\,\Delta t)^2\). The third-moment remainder is \(O((\Delta t)^{3/2})\), which absorbs the squared-mean term. Hence
 
 \[
 \mathbb{E}[\log W]
@@ -77,7 +77,7 @@ and the growth rate per unit time converges to the diffusion value
 \frac{\mathbb{E}[\log W]}{\Delta t}\to\mu-\frac{\sigma^2}{2}.
 \]
 
-*Proof.* Expand \(\mathbb{E}[X^2]=(\mu\Delta t)^2+\sigma^2\Delta t\). The Lagrange bound gives \(|\mathbb{E}[R_2]|\le(8/3)\mathbb{E}[|X|^3]\). Each of \(|\mu\Delta t|\) and \(\sigma\sqrt{\Delta t}\) is \(O(\sqrt{\Delta t})\), so \(\mathbb{E}[|X|^3]=O((\Delta t)^{3/2})\). Dividing by \(\Delta t\) sends the remainder to zero and leaves \(\mu-\sigma^2/2\). □
+*Proof.* Expand \(\mathbb{E}[X^2]=(\mu\Delta t)^2+\sigma^2\Delta t\). Then \(\mathrm{Var}(W)=\mathbb{E}[X^2]-(\mathbb{E}[X])^2=\sigma^2\Delta t\). The Lagrange bound gives \(|\mathbb{E}[R_2]|\le(8/3)\mathbb{E}[|X|^3]\). Each of \(|\mu\Delta t|\) and \(\sigma\sqrt{\Delta t}\) is \(O(\sqrt{\Delta t})\), so \(\mathbb{E}[|X|^3]=O((\Delta t)^{3/2})\). Dividing by \(\Delta t\) sends the remainder to zero and leaves \(\mu-\sigma^2/2\). □
 
 **This scaling keeps the variance penalty at leading order.** Take \(\mu=0.2\) and \(\sigma^2=0.5\). The drift is positive. The limiting growth rate is \(0.2-0.25=-0.05\). At \(\Delta t=10^{-4}\) the realized rate is \(-0.049998\). Doing nothing, \(\mu=\sigma=0\), has growth rate \(0\) and drift \(0\). Expected offspring selects the risky design. Growth selects doing nothing. Sending the step to zero does not remove the disagreement: both the drift and the variance penalty are order \(\Delta t\) per step, and order \(1\) per unit time.
 
@@ -95,17 +95,17 @@ The expansion used in the proof is
 |R_i|\le\frac{8}{3}\varepsilon^3 M.
 \]
 
-*Proof.* The difference is at least \(\varepsilon\gamma-(\varepsilon^2/2)(\mathbb{E}[X_1^2]+\mathbb{E}[X_j^2])-(16/3)\varepsilon^3 M\). Divide by \(\varepsilon>0\). The quantity in parentheses tends to \(\gamma\) as \(\varepsilon\to 0\). □
+*Proof.* Lyapunov's inequality gives \(\mathbb{E}[X_i^2]\le(\mathbb{E}|X_i|^3)^{2/3}\le M^{2/3}\), a bound independent of \(\varepsilon\). The difference of growth rates is at least \(\varepsilon\gamma-\varepsilon^2 M^{2/3}-(16/3)\varepsilon^3 M\). Divide by \(\varepsilon>0\). What remains is \(\gamma-\varepsilon M^{2/3}-(16/3)\varepsilon^2 M\), which tends to \(\gamma\) as \(\varepsilon\to 0\). □
 
 The leading correction on this menu is \(-\frac12\mathbb{E}[(W-1)^2]=-\frac12\mathrm{Var}(W)-\frac12(\mathbb{E}[W-1])^2\), of order \(\varepsilon^2\). It does not flip a gap of order \(\varepsilon\). It does flip a tie, and it flips a gap once \(\varepsilon\) is large enough that the second-moment gap exceeds the mean gap.
 
-**Counterexample, equal means (PROVED in-model).** \(\varepsilon=0.2\). Design A has \(X=0\). Design B has \(X=\pm 1\) with probabilities \(0.525\) and \(0.475\), so \(\mathbb{E}[X]=0.05\) and \(\mathbb{E}[X^2]=1\). Then \(\mathbb{E}[W_B-1]=0.01>0=\mathbb{E}[W_A-1]\), while
+**Counterexample, a mean gap the second moment flips (PROVED in-model).** \(\varepsilon=0.2\). Design A has \(X=0\). Design B has \(X=\pm 1\) with probabilities \(0.525\) and \(0.475\), so \(\mathbb{E}[X]=0.05\), not \(0\), and \(\mathbb{E}[X^2]=1\). Then \(\mathbb{E}[W_B-1]=0.01>0=\mathbb{E}[W_A-1]\), while
 
 \[
 \lambda_B=0.525\log 1.2+0.475\log 0.8=-0.010274369557<0=\lambda_A.
 \]
 
-Expected offspring selects B. Growth selects A.
+Expected offspring selects B. Growth selects A. The means differ: \(\mathbb{E}[X_B]=0.05\). The equal-mean case, \(X=\pm 1\) with equal probability at the same \(\varepsilon\), has growth \(\frac12\log 0.96=-0.020411\), and the mean ties. That ranking is Gillespie's 1977 principle. The first-order truncation ties that equal-mean pair and the third-moment pair below, and it ranks the mean-gap pair by the mean. The second-order truncation separates the equal-mean pair, whose second moments differ, and it ties the third-moment pair. The weak-selection menu of Theorem GB-menu is a different limit: there the gap stays fixed while \(\varepsilon\to 0\), and the second-moment term cannot flip it.
 
 **Counterexample, equal means and equal second moments (PROVED in-model).** \(\varepsilon=0.05\). The symmetric law \(X=\pm 1\) with equal probability has mean \(0\), second moment \(1\), third moment \(0\). The law with masses \(4/9,4/9,1/9\) on \(-1,1/2,2\) has the same mean, the same second moment, and third moment \(1/2\). The growth rates differ by \(1.905984\times 10^{-5}\). The cubic prediction \((\varepsilon^3/3)\cdot(1/2)=2.083333\times 10^{-5}\) matches that difference within \(2\times 10^{-6}\). Expected offspring ties the two laws. The variance penalty ties them. Growth ranks the skewed law higher. So "expected currency plus a variance penalty" is itself only the truncation of the series.
 
@@ -139,7 +139,25 @@ Three classical calculations, each proved here from its generator or its probabi
 1-\eta\sim\frac{2(m-1)}{\beta_2}.
 \]
 
-*Proof of the asymptotic.* Set \(s=1-\eta\). Taylor expansion of \(f(1-s)\) about \(1\) gives \(s=(m-1)s+\beta_2 s^2/2+O(s^3)\) after rearranging \(s=1-f(1-s)\), hence \(s(m-1)=\beta_2 s^2/2+O(s^3)\). The positive root that tends to zero is \(s\sim 2(m-1)/\beta_2\). At criticality, \(\beta_2=\mathrm{Var}(W)\). □
+*Proof of the asymptotic.* Set \(s=1-\eta\). Taylor expansion of \(f(1-s)\) about \(1\) gives
+
+\[
+f(1-s)=1-ms+\frac{\beta_2}{2}s^2+O(s^3).
+\]
+
+The fixed-point equation \(s=1-f(1-s)\) is therefore
+
+\[
+s=ms-\frac{\beta_2}{2}s^2+O(s^3),
+\]
+
+and rearranging gives the identity
+
+\[
+s(m-1)=\frac{\beta_2}{2}s^2+O(s^3).
+\]
+
+For a positive root that tends to zero as \(m\downarrow 1\), divide by \(s\): \(m-1=(\beta_2/2)s+O(s^2)\), so \(s\sim 2(m-1)/\beta_2\). At criticality \(\beta_2=\mathrm{Var}(W)\), because \(f''(1)=\mathrm{Var}(W)+m^2-m\). □
 
 For a Poisson law, \(f''(1)=m^2\to 1\), so the limit form is \(2(m-1)\). The script's survival ratios against \(2(m-1)\) are \(0.9987\), \(0.9868\), and \(0.9370\) at \(m=1.001\), \(1.01\), and \(1.05\). The ratio moves toward \(1\) as \(m\) moves toward \(1\). The object delivered is a smooth penalty in the mean, proportional to the mean excess when the variance is held at its critical value. A threshold \(1-\eta\ge s_0\) is a half-line in the single coordinate \(m\). It becomes a half-space in the plane of \((m-1,\beta_2)\) only after the linear approximation is imposed, and that half-space is \((m-1)-c\beta_2\ge 0\).
 
@@ -218,19 +236,19 @@ A bounded interval of the real line is the intersection of two half-lines. It is
 
 ## 5. (c) H3 on the five coordinates
 
-H3, from Lemma LY: for almost every environment, offspring is strictly decreasing in each coordinate of the chosen bad vector, and \(W>0\). The five coordinates in the task are memory, acquisition rate, task loss, ruin, and attention. A floor that mentions a slot is not H3. GF2 already says so. This section gives a model and a counterexample for each coordinate. The counterexamples are the reason none of the five carries H3 from the copying process alone.
+H3, from Lemma LY, is a partial. For almost every environment, offspring is strictly decreasing in each coordinate of the chosen bad vector, the other coordinates held fixed, and \(W>0\). The five coordinates in the task are memory, acquisition rate, task loss, ruin, and attention. A floor that mentions a slot is not H3. GF2 already says so.
 
-The coordinate for which a decrease is immediate is the state-contingent logarithm of offspring, because that is the summand of \(\lambda\). Renaming that coordinate "task loss" does not make the master equation's expected loss into H3. LY-1, recomputed: resource and error \((1,0)\) with offspring \(4\) and \(0.05\) has \(\lambda=\frac12\log 0.2=-0.804718956\); resource and error \((2,0.4)\) with offspring \(1.1\) has \(\lambda=\log 1.1=0.095310180\). The smaller expected-bad vector has the smaller growth rate. Both offspring numbers are positive.
+A budget map with a positive price supplies that partial for memory, acquisition, and attention, read as resources spent at fixed task loss. Copying does not supply the map. A zero price makes the partial only weak, so H3's strictness fails for a free resource. A side benefit that is not among the coordinates held fixed can reverse the total derivative. That reversal leaves the partial untouched.
 
-| Coordinate | Decreasing model, and the assumption it adds | Counterexample, H3 fails |
+| Coordinate | Partial, other bads held fixed | Total derivative, a different question |
 |---|---|---|
-| Memory | \(W=\exp(-\kappa I)\) at fixed behavior. Extra memory is pure waste. A free memory coordinate is weakly, not strictly, decreasing | \(W=\exp(-e^{-2I})\). At \(I=0\), \(W=0.367879441171\). At \(I=1\), \(W=0.873423018493\). Offspring rises with memory because the memory cuts the error. PD6 separately removes the raw stock as a viability coordinate when the world's variance diverges |
-| Acquisition rate | \(W=\exp(-c r)\) at fixed error. The read buys nothing | \(\log W=-r-4e^{-r}\). The derivative \(-1+4e^{-r}\) is positive on \([0,\log 4)\). From \(r=0\) to \(r=1\), \(W\) rises from \(0.018315638889\) to \(0.084456576466\) |
-| Task loss | \(W=\exp(-w\,\ell(\omega))\), pathwise, with no return from the loss. The loss is defined to be the argument of the logarithm | Expected loss: LY-1, above. Pathwise loss with a later return: loss \(0\) gives offspring \(1.1\), loss \(1\) gives offspring \(3\). The loss buys information. Offspring rises with the loss |
-| Ruin | No model with \(W>0\) and a strict decrease in a scalar \(P(\mathrm{ruin})\). That scalar is a functional of the law, not a coordinate of \(W(\omega)\) | \(W\equiv 1.2\) at ruin probabilities \(0.01\) and \(0.20\). Offspring is the same. If instead \(W=0\) on the ruin event, H3's requirement \(W>0\) fails, and \(\mathbb{E}[\log W]=-\infty\) at every positive probability |
-| Attention | \(W=\exp(-a)\), pure waste. If memory and acquisition are already paid in attention, this repeats the currency and the vector collapses toward a scalar, as GF2(5) says | \(\log W=-4e^{-a}\). From \(a=0\) to \(a=1\), \(W\) rises from \(0.018315638889\) to \(0.229576777100\). Attention spent on a starved task raises offspring |
+| Memory | At a fixed loss path, \(\log W=-\kappa I-\ell\) has partial \(-\kappa\). The partial is strict when \(\kappa>0\). The map is an assumption. A free memory slot has partial \(0\) | \(W=\exp(-e^{-2I})\) rises from \(0.367879441171\) at \(I=0\) to \(0.873423018493\) at \(I=1\). The total derivative is \(2e^{-2I}>0\) because the loss falls. Holding that loss fixed, the formula has no separate memory price, and the partial in a memory slot is \(0\) |
+| Acquisition rate | At fixed task loss, \(\log W=-c r-\ell\) has partial \(-c\), strict when \(c>0\) | \(\log W=-r-4e^{-r}\) has total derivative \(-1+4e^{-r}\), positive on \([0,\log 4)\). From \(r=0\) to \(r=1\), \(W\) rises from \(0.018315638889\) to \(0.084456576466\). The partial at fixed loss is \(-1\) |
+| Task loss | This coordinate is the performance bad, so holding task loss fixed is not the question about it. Pathwise \(W=\exp(-w\,\ell)\) decreases in \(\ell\) by the map that was put in. Expected loss fails H3 | LY-1: resource and error \((1,0)\) with offspring \(4\) and \(0.05\) has \(\lambda=\frac12\log 0.2=-0.804718956\); \((2,0.4)\) with offspring \(1.1\) has \(\lambda=\log 1.1=0.095310180\). The smaller expected-bad vector has the smaller growth rate. Both offspring numbers are positive. The learning pair, loss \(0\) with offspring \(1.1\) against loss \(1\) with offspring \(3\), lets the loss buy a later return. It is a total derivative |
+| Ruin | A scalar \(P(\mathrm{ruin})\) is a functional of the law, not a coordinate of \(W(\omega)\). Holding the ruin event fixed leaves no separate probability to differentiate. No budget model creates a pathwise strict decrease in that scalar | \(W\equiv 1.2\) at probabilities \(0.01\) and \(0.20\) does not move offspring. \(W=0\) on the ruin event sends \(\mathbb{E}[\log W]\) to \(-\infty\) and breaks \(W>0\). This witness stands. GF2 already says the cap is a modelling choice and is not H3 |
+| Attention | If attention is a resource at fixed task loss, the budget partial is \(-c_a\), strict when \(c_a>0\). If attention is the currency of THEORY §3, a fifth peer repeats that currency, as GF2 says, and H3 on a peer coordinate is the wrong question | \(\log W=-4e^{-a}\) rises from \(0.018315638889\) at \(a=0\) to \(0.229576777100\) at \(a=1\). The total derivative is \(4e^{-a}>0\) through a falling loss. It does not refute the budget partial |
 
-**FALSE.** "H3 holds for these five coordinates from first principles." Each decreasing model adds a pure-waste map or an exponential map. Each counterexample is inside an exogenous environment, with positive offspring, so H1 can hold and H2 can hold while H3 fails for that coordinate.
+**FALSE.** "H3 holds for these five coordinates from first principles." The partial for memory, acquisition, and attention is the budget assumption, and it is strict only at a positive price. Expected task loss fails by LY-1. A scalar ruin probability is not a pathwise coordinate. Copying does not supply the budget map.
 
 ## 6. (d) The cleanest true theorem
 
@@ -242,7 +260,7 @@ That is the whole of what these two limits derive. The agreement on a gapped fin
 
 - The term list is an input. The exponential map and Corollary LY-c produce a linear expected cost only after the cost, or the score, has been put into \(\log W\). The selection note already refuses to reopen the term list from A1–A3. This note does not reopen it either.
 - The cap is an input. Section 4 produces smooth penalties, a half-space in the Lundberg exponent, and a bounded interval of \(\tau\). The published path has \(\tau_S=0.236207526722\), \(\tau_G=0.302668099260\), \(\tau_{\mathrm{cap}}=0.299049733488\), and \(\tau_E=0.316227766017\). The split-cap point \(\tau_J=0.309679835108\) separates expected cost from diffusion growth inside a binding constraint. Thresholding the penalty at a free \(\varepsilon\in(0,1)\) is GF3(R-b).
-- H3 on the five coordinates is an input. Section 5.
+- H3 is an input. As a partial with the other bads held fixed, it holds for memory, acquisition, and attention only under a budget map with a positive price. Expected task loss fails by LY-1. A scalar ruin probability is not a pathwise coordinate. "From first principles" stays false. Section 5.
 
 **FALSE, as a package.** "Maximizing \(\lambda\) in a small-noise limit yields \(J=\kappa I_{\mathrm{mem}}+hK+w\mathbb{E}[\ell]+A+L\) subject to \(P(\mathrm{ruin})\le\varepsilon\)." The stake counterexample, the diffusion sign flip at \(\mu=0.2\) and \(\sigma^2=0.5\), the third-moment tie, and the four B9 points are the counterexamples. Each one is enough.
 
@@ -269,7 +287,7 @@ Known, and not claimed as new:
 
 Already in this repository, and not presented as new: Lemma LY and GF3; V2's Kelly and Lundberg numbers; CT42; CT43, including the coin and the pair \(A,B\); PD6; A2-L's refusal to derive the term list; SA3's weak-selection caveat.
 
-**What this note adds.** The scoped expansion, with the squared-mean term kept and the diffusion scaling separated from weak selection. The menu theorem and the three counterexamples that stop it from being the master equation: the interior stake, the second-moment tie, and the third-moment tie. The extinction and hitting formulas proved from the generating function and the generators, the identification of which coordinates make the level set a half-space, and the fourth point \(\tau_G\) together with the split cap on the B9 path. The five coordinate counterexamples. The package sentence in §6, marked false.
+**What this note adds.** The separation of the two limits as answers about this equation. On a gapped finite menu, weak selection recovers the ranking only. The diffusion limit keeps \(\mu-\sigma^2/2\). The squared-mean obstruction to the unscoped identity. The point \(\tau_G\) and the split cap on the published path, which separate diffusion growth from expected cost inside one model. The coordinate audit in §5: the partial, the budget map, and which witnesses are total derivatives. The package sentence in §6, marked false. The Kelly stake, the Taylor expansion, and the extinction and hitting formulas are the prior art in §7.
 
 ## 8. What this does not show
 
@@ -282,6 +300,6 @@ Already in this repository, and not presented as new: Lemma LY and GF3; V2's Kel
 
 ## 9. Checks
 
-`tools/growth_bridge_checks.py`, run by `tools/test_growth_bridge_checks.py`. **NUMERICAL** as a check of algebra that is proved in the text: the Lagrange bound, the diffusion rates, the menu gap, the stake derivative, the coin, the third-moment gap, the B9 points \(\tau_S\), \(\tau_E\), \(\tau_G\), \(\tau_{\mathrm{lo}}\), \(\tau_{\mathrm{cap}}\), \(\tau_J\), the Poisson ratios, the birth-death threshold, the Feller generator residual, the Brownian kernel, and the five coordinate counterexamples. Crossref output, when refreshed with `--crossref`, is `theory/growth_bridge_checks/crossref.out`. The committed copy is the resolution of 22 November 2026.
+`tools/growth_bridge_checks.py`, run by `tools/test_growth_bridge_checks.py`. **NUMERICAL** as a check of algebra that is proved in the text: the Lagrange bound, the diffusion rates, the menu gap, the mean-gap flip at \(\mathbb{E}[X]=0.05\), the equal-mean growth \(\frac12\log 0.96\), the stake derivative, the coin, the third-moment gap, the B9 points \(\tau_S\), \(\tau_E\), \(\tau_G\), \(\tau_{\mathrm{lo}}\), \(\tau_{\mathrm{cap}}\), \(\tau_J\), the Poisson ratios, the birth-death threshold, the Feller generator residual, the Brownian kernel, the budget partials, and the total derivatives. Crossref output, when refreshed with `--crossref`, is `theory/growth_bridge_checks/crossref.out`. The committed copy is the resolution of 22 November 2026.
 
 The Part 2 hypothesis sentence is the sentence in §0. It is byte-identical to the sentence in THEORY §3 and in CORE.

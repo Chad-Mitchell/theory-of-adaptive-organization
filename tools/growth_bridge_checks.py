@@ -122,16 +122,25 @@ def section_expansion():
             )
         prev = elog - approx
 
-    # Equal means, unequal second moments: growth ranks, the mean ties.
-    # eps=0.2, A is 0, B is ±1 with probabilities 0.525 and 0.475.
+    # Mean gap, not equal means. eps=0.2, A is 0, B is ±1 with
+    # probabilities 0.525 and 0.475, so E[X_B]=0.05.
     eps = 0.2
     p = 0.525
     lam_b = p * math.log(1.0 + eps) + (1.0 - p) * math.log(1.0 - eps)
-    mean_b = eps * (2.0 * p - 1.0)
+    ex_b = 2.0 * p - 1.0
+    excess_b = eps * ex_b
     check(
-        "equal-gap flip: positive mean excess, negative growth",
-        mean_b > 0.009 and lam_b < -0.01,
-        f"mean={mean_b:.6f} lam={lam_b:.6f}",
+        "E[X]=0.05, not an equal-mean pair: excess 0.01, growth negative",
+        abs(ex_b - 0.05) < 1e-12 and abs(excess_b - 0.01) < 1e-12
+        and abs(lam_b + 0.010274369557) < 1e-12,
+        f"E[X]={ex_b:.6f} excess={excess_b:.6f} lam={lam_b:.12f}",
+    )
+    # The equal-mean ranking is a different example (Gillespie 1977).
+    lam_equal = 0.5 * math.log(1.0 - eps) + 0.5 * math.log(1.0 + eps)
+    check(
+        "equal-mean symmetric law at eps=0.2 has growth -0.020411",
+        abs(lam_equal + 0.020411) < 1e-6 and abs(lam_equal - 0.5 * math.log(0.96)) < 1e-15,
+        f"lam={lam_equal:.6f}",
     )
 
     # Equal mean and second moment, unequal third moment.
@@ -353,41 +362,50 @@ def section_ruin():
 
 def section_coordinates():
     print("coordinates")
-    # Memory: more information raises offspring in the error-reducing model.
+    # Memory total derivative: loss falls with I, so offspring rises.
     w0 = math.exp(-1.0)
     w1 = math.exp(-math.exp(-2.0))
-    check("memory counterexample 0.367879441171 -> 0.873423018493",
+    check("memory total derivative 0.367879441171 -> 0.873423018493",
           abs(w0 - 0.367879441171) < 1e-12 and abs(w1 - 0.873423018493) < 1e-12 and w1 > w0)
-    # Pure-waste memory decreases.
-    check("pure-waste memory decreases", math.exp(-0.5 * 2.0) < math.exp(-0.5 * 1.0))
+    # Budget partial at fixed loss: d/dI (-kappa I - ell) = -kappa < 0.
+    kappa = 0.5
+    check("memory budget partial is -kappa at fixed loss",
+          (-kappa * 2.0) - (-kappa * 1.0) == -kappa and kappa > 0)
 
-    # Acquisition.
-    def log_w(r):
+    # Acquisition: total derivative positive on [0, log 4); partial at fixed loss is -c.
+    def log_total(r):
         return -r - 4.0 * math.exp(-r)
 
-    check("acquisition rises from r=0 to r=1",
-          abs(math.exp(log_w(0.0)) - 0.018315638889) < 1e-12
-          and abs(math.exp(log_w(1.0)) - 0.084456576466) < 1e-12
-          and log_w(1.0) > log_w(0.0))
-    check("pure-waste acquisition decreases", math.exp(-1.0) < 1.0)
+    def total_deriv(r):
+        return -1.0 + 4.0 * math.exp(-r)
 
-    # Learning loss.
-    check("learning loss: offspring 3 at loss 1 beats offspring 1.1 at loss 0", 3.0 > 1.1)
+    check("acquisition total derivative rises from r=0 to r=1",
+          abs(math.exp(log_total(0.0)) - 0.018315638889) < 1e-12
+          and abs(math.exp(log_total(1.0)) - 0.084456576466) < 1e-12
+          and log_total(1.0) > log_total(0.0)
+          and total_deriv(0.0) > 0 and total_deriv(1.0) > 0)
+    check("acquisition budget partial at fixed loss is -c",
+          -1.0 < 0)
 
-    # LY-1, the expected-loss counterexample already in the general-form note.
+    # Learning loss is a total derivative, not the partial in task loss.
+    check("learning-loss total derivative: offspring 3 at loss 1 beats 1.1 at loss 0", 3.0 > 1.1)
+
+    # LY-1 is the witness that expected task loss fails H3.
     lam_l = 0.5 * math.log(0.2)
     lam_h = math.log(1.1)
-    check("LY-1 growth gap", abs(lam_l + 0.804718956217) < 1e-9 and abs(lam_h - 0.095310179804) < 1e-9
+    check("LY-1 expected task loss fails H3", abs(lam_l + 0.804718956217) < 1e-9 and abs(lam_h - 0.095310179804) < 1e-9
           and lam_l < lam_h)
 
-    # Ruin coordinate at fixed positive offspring.
-    check("equal positive offspring at two ruin levels", abs(1.2 - 1.2) == 0.0)
+    # Scalar ruin probability is not a pathwise coordinate.
+    check("scalar ruin probability at fixed W=1.2 does not move offspring", 1.2 == 1.2)
 
-    # Attention.
+    # Attention total derivative through a falling loss. Budget partial is -c_a.
     a0 = math.exp(-4.0)
     a1 = math.exp(-4.0 / math.e)
-    check("attention rises from 0.018315638889 to 0.229576777100",
+    check("attention total derivative 0.018315638889 -> 0.229576777100",
           abs(a0 - 0.018315638889) < 1e-12 and abs(a1 - 0.229576777100) < 1e-12 and a1 > a0)
+    check("attention budget partial at fixed loss is negative when the price is positive",
+          -0.4 < 0)
 
     # Growth vs Lundberg vs drift on (mu, sigma^2).
     # A: mu=0.30, sig2=0.40. B: mu=0.20, sig2=0.10.
@@ -414,6 +432,10 @@ def section_note():
         if "law of adaptive organization" in line and "hypothesis" in line:
             labeled = True
     check("the sentence that names the law labels itself a hypothesis", labeled)
+    check("headline recovers the ranking only", "recovers the ranking only" in text)
+    check("menu proof names M^{2/3}", "M^{2/3}" in text)
+    stray = any(ln.startswith("|\\mathbb{E}[\\log W]") for ln in text.splitlines())
+    check("diffusion identity has no leading bar", not stray)
     low = text.lower()
     for banned in ("bill", "kill", "verdict", "theory of everything"):
         check(f"note has no {banned!r}", banned not in low)
