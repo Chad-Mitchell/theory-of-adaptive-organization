@@ -57,7 +57,7 @@ def main(argv=None):
         "litmap/LITMAP.md", "litmap/PRIOR_ART.md", "litmap/THREATS.md",
         "litmap/LEFT_ON_THE_TABLE.md", "theory/BOOKENDS.md",
         "theory/REACH.md", "theory/HT_INDEX.md", "theory/COSMIC_WEB.md", "theory/WORMHOLES.md", "theory/TORUS.md",
-        "theory/GENERAL_THEOREM.md", "theory/INTERNAL_MODEL.md", "theory/MATH_ATTACK.md", "reference/CHANGELOG.md",
+        "theory/GENERAL_THEOREM.md", "theory/INTERNAL_MODEL.md", "theory/COADAPTATION.md", "theory/MATH_ATTACK.md", "reference/CHANGELOG.md",
         "reviews/night1/formal/AXIOMS.md", "reviews/night1/formal/THEOREMS.md", "reviews/night1/formal/checks/README.md",
     ]
     MAINTAINED = [f for f in MAINTAINED if os.path.exists(f)]
