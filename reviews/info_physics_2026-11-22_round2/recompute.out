@@ -1,0 +1,188 @@
+random_identity_max_gap	5.3290705182e-15
+ref_err	0.230769230769
+ref_heat	1.11969929167
+ref_flow	0.648293048483
+ref_info	0.152943038171
+ref_signal_ep	0
+cycle_dimension	1
+cycle_affinity	4.15888308336
+edge_log_ratio	2.07944154168
+ln64	4.15888308336
+ln8	2.07944154168
+floor_exact	0.831776616672
+floor_0.6_ln4	0.831776616672
+floor_rounded_12dp	0.831776616672
+excess_identity_max_gap	3.44169137634e-15
+heat_lnrho_40	24
+info_err_0.2	0.192744757022
+grid_min_closed_form	0.831836613672
+grid_min_600_from_generator	0.831836613674
+grid_min_minus_floor	5.99970017242e-05
+eta_slow	0.999915852256
+eta_fast	0.236831127602
+grid_heat_err	0.173927642272
+grid_flow_err	0.167570574149
+grid_argmin_gap	0.00635706812355
+grid_heat_at_argmin	1.05346454035
+grid_flow_at_heat_argmin	1.0160695129
+grid_r_at_heat_argmin	30
+kappa	5.1346464562
+kappa_selects_heat_argmin	1
+front_w2	0.379876354741
+stock_w2	0.403835082858
+front_w8	0.16703142093
+stock_w8	0.173927642272
+front_w20	0.0637215496818
+stock_w20	0.0199356721015
+front_w50	0.0229761424166
+stock_w50	5.90085742358e-05
+stock_fit_max_resid	0.617160010554
+stock_fit_kappa	5.44393416799
+stock_fit_h	-0.120741665483
+upkeep_err_h0	0.00411446590128
+upkeep_err_h10	0.00411446590128
+ou_err	0.483333333333
+ou_Cxm	0.666666666667
+ou_heat	4.44444444444
+ou_flow	1.19402985075
+ou_sigma	3.2504145937
+ou_info	0.392869983694
+ou_heat_minus_flow_minus_sigma	-4.4408920985e-16
+spring_identity_max_gap	2.38742359215e-12
+spring_cloud_n	108
+spring_sigma_below_flow_count	17
+spring_heat_below_flow_count	0
+spring_lam_10_heat	8.33333333333
+spring_lam_10_flow	4.31034482759
+spring_lam_10_formula_gap	1.42108547152e-14
+spring_lam_10_Q_minus_I	4.02298850575
+spring_lam_10_I_minus_floor	-0.689655172414
+spring_lam_10_kalman	4
+spring_lam_100_heat	5.20833333333
+spring_lam_100_flow	4.90388387603
+spring_lam_100_formula_gap	3.5527136788e-15
+spring_lam_100_Q_minus_I	0.304449457304
+spring_lam_100_I_minus_floor	-0.0961161239702
+spring_lam_100_kalman	4
+spring_lam_1000_heat	5.02008032129
+spring_lam_1000_flow	4.9900398804
+spring_lam_1000_formula_gap	8.05577826668e-13
+spring_lam_1000_Q_minus_I	0.0300404408877
+spring_lam_1000_I_minus_floor	-0.00996011960173
+spring_lam_1000_kalman	4
+spring_lam_10000_heat	5.00200080031
+spring_lam_10000_flow	4.99900039988
+spring_lam_10000_formula_gap	1.34958710873e-11
+spring_lam_10000_Q_minus_I	0.00300040043009
+spring_lam_10000_I_minus_floor	-0.000999600123462
+spring_lam_10000_kalman	4
+spring_lam_100000_heat	5.00020000809
+spring_lam_100000_flow	4.99990000397
+spring_lam_100000_formula_gap	8.54925019667e-11
+spring_lam_100000_Q_minus_I	0.000300004116723
+spring_lam_100000_I_minus_floor	-9.99960309107e-05
+spring_lam_100000_kalman	4
+spring_eps_0.2_heat_decreases_in_lam	1
+floor_av_over_eps	5
+kalman_rate	4
+floor_minus_kalman	1
+spring_eq_v_lam_0.05_heat	1
+spring_eq_v_lam_0.2_heat	1
+spring_eq_v_lam_1_heat	1
+spring_eq_v_lam_10_heat	1
+spring_eq_v_lam_1000_heat	1
+spring_eq_v_min_heat_on_sample	1
+spring_eq_v_av_over_eps	1
+spring_eq_v_dQ_sign_factor	0
+spring_above_v_lam_0.05_heat	0.0869565217391
+spring_above_v_lam_0.2_heat	0.25
+spring_above_v_lam_1_heat	0.5
+spring_above_v_lam_10_heat	0.645161290323
+spring_above_v_lam_1000_heat	0.666444518494
+spring_above_v_min_heat_on_sample	0.0869565217391
+spring_above_v_av_over_eps	0.666666666667
+spring_above_v_dQ_sign_factor	0.5
+dQ_sign_factor_eps0.2	-0.8
+track_samples	96
+flow_below_av_over_eps	96
+flow_below_kalman	0
+worst_flow_minus_floor	-0.999990196175
+ou_design_w2_err	1
+ou_design_w2_heat	0
+ou_design_w2_kind	blind
+ou_design_w8_err	0.353553390593
+ou_design_w8_heat	2.82842712475
+ou_design_w8_kind	track
+ou_design_w20_err	0.22360679775
+ou_design_w20_heat	4.472135955
+ou_design_w20_kind	track
+ou_design_w50_err	0.141421356237
+ou_design_w50_heat	7.07106781187
+ou_design_w50_kind	track
+ou_tie_w4_err	1
+ou_tie_w4_heat	0
+ou_tie_w4_kind	blind
+ou_tie_w4_cost	4
+blind_cost_w4	4
+slow_edge_flow	4
+slow_edge_heat	5000005.00031
+slow_edge_flow_minus_kalman	8.0024875615e-13
+flow_obj_w2_err	0.707106781187
+flow_obj_w2_I	0.414213562373
+flow_obj_w2_cost	1.82842712475
+flow_obj_w2_kind	track
+heat_obj_w2_kind	blind
+objectives_same_kind_w2	0
+flow_obj_w8_err	0.353553390593
+flow_obj_w8_I	1.82842712475
+flow_obj_w8_cost	4.65685424949
+flow_obj_w8_kind	track
+heat_obj_w8_kind	track
+objectives_same_kind_w8	1
+flow_obj_w20_err	0.22360679775
+flow_obj_w20_I	3.472135955
+flow_obj_w20_cost	7.94427191
+flow_obj_w20_kind	track
+heat_obj_w20_kind	track
+objectives_same_kind_w20	1
+flow_obj_w50_err	0.141421356237
+flow_obj_w50_I	6.07106781187
+flow_obj_w50_cost	13.1421356237
+flow_obj_w50_kind	track
+heat_obj_w50_kind	track
+objectives_same_kind_w50	1
+path_heat_seed7	4.43261155339
+numpy	2.5.5
+xor_joint	0.500402423538
+xor_m1	0
+xor_m2	0
+h_0.2	0.500402423538
+sticky_past	0.152224143034
+sticky_now	0.112651473425
+sticky_next	0.0395308423436
+sticky_past_excess	0.112693300691
+sticky_still_gap	0.0731206310816
+DOI	10.1147/rd.53.0183	200	1961	Landauer	IBM Journal of Research and Development	Irreversibility and Heat Generation in the Computing Process
+DOI	10.1103/RevModPhys.48.571	200	1976	Schnakenberg	Reviews of Modern Physics	Network theory of microscopic and macroscopic behavior of master equation systems
+DOI	10.1137/0119020	200	1970	Duncan	SIAM Journal on Applied Mathematics	On the Calculation of Mutual Information
+DOI	10.1103/PhysRevLett.102.250602	200	2009	Sagawa|Ueda	Physical Review Letters	Minimal Energy Cost for Thermodynamic Information Processing: Measurement and Information Erasure
+DOI	10.1103/PhysRevLett.106.189901	200	2011	Sagawa|Ueda	Physical Review Letters	Erratum: Minimal Energy Cost for Thermodynamic Information Processing: Measurement and Information Erasure [Phys. Rev. Lett.<b>102</b>, 250602 (2009)]
+DOI	10.1209/0295-5075/95/40004	200	2011	Esposito|Van den Broeck	EPL (Europhysics Letters)	Second law and Landauer principle far from equilibrium
+DOI	10.1103/PhysRevLett.109.120604	200	2012	Still|Sivak|Bell|Crooks	Physical Review Letters	Thermodynamics of Prediction
+DOI	10.1103/PhysRevLett.109.180602	200	2012	Sagawa|Ueda	Physical Review Letters	Fluctuation Theorem with Information Exchange: Role of Correlations in Stochastic Thermodynamics
+DOI	10.1038/nphys2276	200	2012	Lan|Sartori|Neumann|Sourjik|Tu	Nature Physics	The energy–speed–accuracy trade-off in sensory adaptation
+DOI	10.1073/pnas.1207814109	200	2012	Mehta|Schwab	Proceedings of the National Academy of Sciences	Energetic costs of cellular computation
+DOI	10.1088/0034-4885/75/12/126001	200	2012	Seifert	Reports on Progress in Physics	Stochastic thermodynamics, fluctuation theorems and molecular machines
+DOI	10.1103/PhysRevLett.111.180603	200	2013	Ito|Sagawa	Physical Review Letters	Information Thermodynamics on Causal Networks
+DOI	10.1088/1367-2630/16/10/103024	200	2014	Barato|Hartich|Seifert	New Journal of Physics	Efficiency of cellular information processing
+DOI	10.1103/PhysRevLett.113.258102	200	2014	Govern|ten Wolde	Physical Review Letters	Energy Dissipation and Noise Correlations in Biochemical Sensing
+DOI	10.1103/PhysRevX.4.031015	200	2014	Horowitz|Esposito	Physical Review X	Thermodynamics with Continuous Information Flow
+DOI	10.1371/journal.pcbi.1003974	200	2014	Sartori|Granger|Lee|Horowitz	PLoS Computational Biology	Thermodynamic Costs of Information Processing in Sensory Adaptation
+DOI	10.1109/TAC.2004.834430	200	2004	Tatikonda|Sahai|Mitter	IEEE Transactions on Automatic Control	Stochastic Linear Control Over a Communication Channel
+DOI	10.1103/PhysRevLett.114.158101	200	2015	Barato|Seifert	Physical Review Letters	Thermodynamic Uncertainty Relation for Biomolecular Processes
+DOI	10.1038/nphys3230	200	2015	Parrondo|Horowitz|Sagawa	Nature Physics	Thermodynamics of information
+DOI	10.1103/PhysRevLett.116.120601	200	2016	Gingrich|Horowitz|Perunov|England	Physical Review Letters	Dissipation Bounds All Steady-State Current Fluctuations
+DOI	10.1103/PhysRevX.7.021004	200	2017	Ouldridge|Govern|ten Wolde	Physical Review X	Thermodynamics of Computational Copying in Biochemical Systems
+DOI	10.1103/PhysRevLett.118.158103	200	2017	Ouldridge|Rein ten Wolde	Physical Review Letters	Fundamental Costs in the Production and Destruction of Persistent Polymer Copies
+DOI	10.1103/PhysRevLett.124.050601	200	2020	Still	Physical Review Letters	Thermodynamic Cost and Benefit of Memory
+LINES 187
