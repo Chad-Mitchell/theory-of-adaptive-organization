@@ -245,6 +245,22 @@ def section_lyapunov():
     check("a strict cycle is not three real numbers", not cycle_possible())
     check("unweighted Chebyshev is weakly monotone",
           max(0.6, 0.6) == max(0.6, 0.5) == 0.6)
+    A, B, C = (0.0, 1.0), (1.0, 0.0), (0.6, 0.6)
+    dent = [A, B, C]
+    ranking = {A: -1.0, B: -1.0, C: 0.0}
+
+    def dominates(p, q):
+        return all(a <= b for a, b in zip(p, q)) and any(a < b for a, b in zip(p, q))
+
+    ordered = any(dominates(p, q) or dominates(q, p)
+                  for i, p in enumerate(dent) for q in dent[i + 1:])
+    sm_plus = all(ranking[q] > ranking[p]
+                  for p in dent for q in dent if dominates(q, p))
+    check("dent has no product-order pair, so S-M+ holds for the ranking",
+          (not ordered) and sm_plus)
+    check("r(C)=0, r(A)=r(B)=-1 selects C",
+          ranking[C] == 0.0 and ranking[A] == ranking[B] == -1.0
+          and ranking[C] > ranking[A] and ranking[C] > ranking[B])
 
 
 def section_q5():
