@@ -3,13 +3,15 @@
 
 NUMERICAL: these checks are not the proofs. They (1) check the closed-form
 trace formula of DS1 against a direct Lyapunov solve, and (2) simulate the
-exact weak-mutation (origination-fixation) chain of a haploid Moran
-population on a uniform integer lattice, with exact Moran fixation
-probabilities under the log-linear map r = exp(-alpha J), against an
-optimum that moves (Brownian, Ornstein-Uhlenbeck, or constant speed), and
-compare the measured time-averaged excess with the DS1 formula. They also
-check the DS2 speed limit (an optimum faster than v_max = N mu delta/(2d)
-outruns the chain) and record where the DS1 formula stops matching (DS3).
+weak-mutation (origination-fixation) chain of a haploid Moran population
+on a uniform integer lattice, with exact Moran fixation probabilities and
+exact quadratic Delta J under the log-linear map r = exp(-alpha J), against
+an optimum that moves (Brownian, Ornstein-Uhlenbeck, or constant speed),
+and compare the measured time-averaged excess with the DS1 formula. The
+time step is tau-leaping: at most one substitution per dt, with probability
+1 - exp(-R dt). They also check the DS2 speed limit (an optimum faster
+than v_max = N mu delta/(2d) outruns the chain) and record where the DS1
+formula stops matching (DS3).
 
 Units: lattice spacing delta = 1, mutation probability per birth mu = 1 per
 unit time (time is measured in units of 1/mu generations), so the neutral
@@ -100,9 +102,12 @@ def moran_phi(x, N):
 
 def simulate(N, alpha, H, mode, D=0.0, gamma=0.0, v=None, reps=400, T=2000.0,
              burn=400.0, dt=0.05, seed=0, record_lag=False):
-    """Exact weak-mutation chain on Z^d (delta = 1, mu = 1) with a moving optimum.
-    Returns time- and replicate-averaged J after burn (J* = 0), its standard
-    error over replicates, and optionally the mean lag path."""
+    """Weak-mutation origination-fixation chain on Z^d (delta = 1, mu = 1)
+    with a moving optimum. The fixation probability and the quadratic Delta J
+    are exact Moran; the time step is tau-leaping (at most one substitution
+    per dt, with probability 1 - exp(-R dt)). Returns time- and
+    replicate-averaged J after burn (J* = 0), its standard error over
+    replicates, and optionally the mean lag path."""
     rng = np.random.default_rng(seed)
     H = np.atleast_2d(np.asarray(H, float))
     d = H.shape[0]
