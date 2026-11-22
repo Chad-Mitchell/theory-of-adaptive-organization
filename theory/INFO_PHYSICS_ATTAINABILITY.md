@@ -72,7 +72,7 @@ The telegraph equality, the stake table, and the proposal \(J_{\mathrm{phys}}=\d
 
 ## 3. The learning rate is at least the Kalman rate
 
-**Proposition AT-learn (PROVED, under A-X, A-E, A-R).** Let the memory state \(M\) carry regular conditionals in the sense A-R. Write \(u=\partial_x\ln p(x\mid m)\) and \(F(X\mid m)=\int u^2\,p(x\mid m)\,dx\). For this equilibrium signal the Horowitz–Esposito information flow of the signal current and the Hartich–Barato–Seifert learning rate are the same number, because the contraction against the marginal score cancels. That number is
+**Proposition AT-learn (PROVED, under A-X, A-E, A-R).** Let the memory state \(M\) carry regular conditionals in the sense A-R. Write \(u=\partial_x\ln p(x\mid m)\) and \(F(X\mid m)=\int u^2\,p(x\mid m)\,dx\). For this equilibrium signal the Hartich–Barato–Seifert learning rate is minus the Horowitz–Esposito information flow of the signal current, \(L=-\dot I_X\), because the contraction against the marginal score cancels. The learning rate is
 
 \[
 L=a\big(v\,\mathbb{E}[F(X\mid M)]-1\big).
@@ -104,7 +104,7 @@ The two differ by the marginal contraction
 \Big\langle\frac{j_X}{p}\,\frac{x}{v}\Big\rangle=\big\langle(-ax-av\,u)(x/v)\big\rangle=-(a/v)\langle x^2\rangle-a\langle xu\rangle.
 \]
 
-Regularity gives \(\langle xu\rangle=-1\), and \(\langle x^2\rangle=v\), so the contraction is \(-a+a=0\). The information flow and the learning rate are the same number. Expanding the learning rate,
+Regularity gives \(\langle xu\rangle=-1\), and \(\langle x^2\rangle=v\), so the contraction is \(-a+a=0\), and \(\dot I_X=-L\): the learning rate is minus the signal-current information flow. Expanding the learning rate,
 
 \[
 \Big\langle\frac{j_X}{p}\,u\Big\rangle=\langle(-ax-av\,u)\,u\rangle=-a\langle xu\rangle-av\,\mathbb{E}[u^2]=a-av\,\mathbb{E}[F],
