@@ -82,7 +82,7 @@ Each of these is a window the rest of the page looks through. If it is wrong, he
 | Shared-only delay | If the same latency sits on local updates, the delay floors cancel and speed does not flip the choice. |
 | Shared lump below \(N\) local lumps (\(k_S<N k_L\)) | If the shared re-forming cost is not cheaper than \(N\) local ones, the slow-shared side of the crossing is absent. |
 | Equal read quality | If a shared read is systematically better or worse than a local one, fast scales need not go local. The factor \(e^{-2\ell/\tau}\) stays positive. |
-| Exogenous world, stationary for the information floor | If the system shapes the world it tracks (CX2), or the world has no stationary law (CX1), S1 as proved does not apply. For drifting worlds, the flow form of the floor is in `theory/THEOREM_P_DRIFT.md` (CLAIM_MAP section T; a self-check, not reviewed). |
+| Exogenous world, stationary for the information floor | If the system shapes the world it tracks (CX2), or the world has no stationary law (CX1), S1 as proved does not apply. For drifting worlds, the flow form of the floor is in `theory/THEOREM_P_DRIFT.md` (CLAIM_MAP section T; reviewed, fixes pending confirm). |
 | Read cost at least linear in the directed-information rate (S-A) | The assembled information floor can fail as a bound on operational \(J\). S-A is an assumption, not a sensor law. |
 | Re-forming is lumpy | If adjustment is smooth, there is no discrete lifetime \(T^*\). |
 | A layer cannot cheaply reset the whole state | If one action can rewrite the sum at little extra cost, a stack is the wrong design and the spacing rule does not apply. |

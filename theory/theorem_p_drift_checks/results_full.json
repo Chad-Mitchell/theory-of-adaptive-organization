@@ -42,14 +42,14 @@
   {
    "H": 0.3,
    "s": 0.05,
-   "min_ratio_D_over_floor": 1.0275641413663608,
-   "innovation_var_last": 0.9131935346427191
+   "min_ratio_D_over_floor": 1.0275641413663648,
+   "innovation_var_last": 0.9131935346427156
   },
   {
    "H": 0.3,
    "s": 0.5,
    "min_ratio_D_over_floor": 1.2033740790976382,
-   "innovation_var_last": 0.9131935346427191
+   "innovation_var_last": 0.9131935346427156
   },
   {
    "H": 0.5,
@@ -66,14 +66,14 @@
   {
    "H": 0.7,
    "s": 0.05,
-   "min_ratio_D_over_floor": 1.0877703119758868,
-   "innovation_var_last": 0.8754404362261994
+   "min_ratio_D_over_floor": 1.08777031197591,
+   "innovation_var_last": 0.875440436225972
   },
   {
    "H": 0.7,
    "s": 0.5,
-   "min_ratio_D_over_floor": 1.6242468253849884,
-   "innovation_var_last": 0.8754404362261994
+   "min_ratio_D_over_floor": 1.624246825384891,
+   "innovation_var_last": 0.875440436225972
   }
  ],
  "ce1_stock": [
@@ -96,5 +96,17 @@
    0.7745466713931408
   ],
   "target": 0.7745966692414834
+ },
+ "ce7": {
+  "T": 65536,
+  "n_looks": 17,
+  "max_mse": 6.999999993015081,
+  "total_r": 16.779373369810095,
+  "mean_r": 0.00025603291885086205,
+  "blind_mse": 4294967297.0,
+  "var_X_given_mu": 0.9999999998690328,
+  "stock_I": 11.090354889141024,
+  "var_X_given_Y": 0.8749999998908606,
+  "stock_I_record": 11.157120585450167
  }
 }

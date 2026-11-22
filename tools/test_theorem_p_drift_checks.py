@@ -47,13 +47,30 @@ def test_price_optimum_first_order_condition():
 
 
 def test_ce7_sparse_look_counterexample():
+    import numpy as np
     m = _load()
     ce7 = m.sparse_look_counterexample(16)
-    assert ce7["T"] == 2 ** 16
+    T = 2 ** 16
+    assert ce7["T"] == T
     assert ce7["n_looks"] == 17
     assert ce7["max_mse"] <= 7.00 + 1e-9
     assert abs(ce7["total_r"] - 16.8) < 0.05
     assert abs(ce7["mean_r"] - 2.56e-4) < 5e-7
     assert abs(ce7["blind_mse"] - 4.29e9) / 4.29e9 < 0.005
-    assert abs(ce7["stock_I"] - 10.63) < 0.005
+    assert abs(ce7["stock_I"] - 0.5 * math.log(T * T + 1.0)) < 1e-9
+    assert abs(ce7["stock_I"] - 11.090354889) < 1e-6
+    assert abs(ce7["stock_I_record"] - 11.157120585) < 1e-6
+
+    # Direct full-covariance Schur-complement verification
+    ts = np.array([float(2 ** k) for k in range(17)])
+    Sig_Y = np.outer(ts, ts) + 2.0 * np.eye(17)
+    cov_XY = float(T) * ts
+    cov_XY[-1] += 1.0
+    var_X_Y = (T * T + 1.0) - cov_XY @ np.linalg.solve(Sig_Y, cov_XY)
+    w_mu = np.linalg.solve(Sig_Y, ts)
+    var_X_mu = (T * T + 1.0) - (cov_XY @ w_mu) ** 2 / (w_mu @ Sig_Y @ w_mu)
+    assert abs(ce7["var_X_given_mu"] - var_X_mu) < 1e-9
+    assert abs(ce7["var_X_given_Y"] - var_X_Y) < 1e-9
+    assert abs(ce7["stock_I"] - 0.5 * math.log((T * T + 1.0) / var_X_mu)) < 1e-9
+    assert abs(ce7["stock_I_record"] - 0.5 * math.log((T * T + 1.0) / var_X_Y)) < 1e-9
 

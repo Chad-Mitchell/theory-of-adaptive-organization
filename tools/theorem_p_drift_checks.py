@@ -72,25 +72,39 @@ def price_optimum_rw(q, w, c):
 
 
 def sparse_look_counterexample(K=16):
-    """CE7: X_t = t Z + G_t, Z, G_t ~ N(0,1), observe Y = X + N(0,1) at t = 2^k.
+    """CE7: X_t = t Z + G_t, Z, G_t ~ N(0,1), observe Y_t = X_t + N_t, N_t ~ N(0,1) at t = 2^k.
 
-    Memory is the posterior of Z. Between looks, A_t = t E[Z | looks so far].
+    Memory is the posterior mean of Z, M_t = mu_t = E[Z | looks so far] (posterior
+    variance v_t is deterministic); between looks, A_t = t mu_t.
     Inflow is I(X_t; Y_t | previous looks) at look times and 0 otherwise.
-    Stock I(M_T; X_T) uses the Z-posterior after the last look,
-    I = (1/2) log(Var(X_T) / (T^2 Var(Z | looks) + 1)).
+    Because Y_T = T Z + G_T + N_T enters mu_T, G_T correlates with Z - mu_T
+    (Cov(Z - mu_T, G_T) = -T v_post / 2), giving E[(X_T - T mu_T)^2] = 1 identically
+    and Var(X_T | mu_T) = 1 - (T v_post / 2)^2 / (1 - v_post).
+    If memory instead keeps the full look record Y = (Y_{2^0}, ..., Y_{2^K}), the
+    Schur complement gives Var(X_T | Y) = (T^2 v_pre + 1) / (T^2 v_pre + 2).
 
-    Returns a dict: T, n_looks, max_mse, total_r, mean_r, blind_mse, stock_I.
+    Returns a dict: T, n_looks, max_mse, total_r, mean_r, blind_mse,
+    var_X_given_mu, stock_I, var_X_given_Y, stock_I_record.
     """
     T = 2 ** K
     v = 1.0
+    v_pre = 1.0
     total_r = 0.0
     max_mse = 0.0
     for k in range(0, K + 1):
         t = 2 ** k
+        v_pre = v
         max_mse = max(max_mse, t * t * v + 1.0)
         total_r += 0.5 * math.log(t * t * v + 2.0)
         v = v * 2.0 / (t * t * v + 2.0)
     varX = T * T + 1.0
+    # Posterior-mean memory M_T = mu_T:
+    var_X_given_mu = 1.0 - (0.5 * T * v) ** 2 / (1.0 - v)
+    stock_I = 0.5 * math.log(varX / var_X_given_mu)
+    # Full look-record memory M_T = (Y_1, ..., Y_T):
+    u_pre = T * T * v_pre
+    var_X_given_Y = (u_pre + 1.0) / (u_pre + 2.0)
+    stock_I_record = 0.5 * math.log(varX / var_X_given_Y)
     return {
         "T": T,
         "n_looks": K + 1,
@@ -98,7 +112,10 @@ def sparse_look_counterexample(K=16):
         "total_r": total_r,
         "mean_r": total_r / T,
         "blind_mse": varX,
-        "stock_I": 0.5 * math.log(varX / (T * T * v + 1.0)),
+        "var_X_given_mu": var_X_given_mu,
+        "stock_I": stock_I,
+        "var_X_given_Y": var_X_given_Y,
+        "stock_I_record": stock_I_record,
     }
 
 
@@ -281,6 +298,20 @@ def run(full):
 
     # 12. CE7: vanishing mean inflow outside the linear class (exact Gaussians, T = 2^16)
     ce7 = sparse_look_counterexample(16)
+    # Independent full-covariance check on the 17-look joint Gaussian distribution
+    K_ce7 = 16
+    ts_ce7 = np.array([float(2 ** k) for k in range(K_ce7 + 1)])
+    T_ce7 = float(2 ** K_ce7)
+    Sig_Y = np.outer(ts_ce7, ts_ce7) + 2.0 * np.eye(K_ce7 + 1)
+    cov_XY = T_ce7 * ts_ce7
+    cov_XY[-1] += 1.0
+    var_X_Y_exact = (T_ce7 * T_ce7 + 1.0) - cov_XY @ np.linalg.solve(Sig_Y, cov_XY)
+    I_Y_exact = 0.5 * math.log((T_ce7 * T_ce7 + 1.0) / var_X_Y_exact)
+    w_mu = np.linalg.solve(Sig_Y, ts_ce7)  # mu_T = E[Z | Y] = w_mu^T Y
+    var_mu_exact = float(w_mu @ Sig_Y @ w_mu)
+    cov_X_mu_exact = float(cov_XY @ w_mu)
+    var_X_mu_exact = (T_ce7 * T_ce7 + 1.0) - (cov_X_mu_exact ** 2) / var_mu_exact
+    I_mu_exact = 0.5 * math.log((T_ce7 * T_ce7 + 1.0) / var_X_mu_exact)
     check(
         ok, lines,
         "CE7: sparse looks keep MSE <= 7 with mean inflow 2.56e-4 through T=2^16 (rbar=0)",
@@ -289,11 +320,15 @@ def run(full):
         and ce7["n_looks"] == 17
         and abs(ce7["mean_r"] - 2.56e-4) < 5e-7
         and abs(ce7["blind_mse"] - 4.29e9) / 4.29e9 < 0.005
-        and abs(ce7["stock_I"] - 10.63) < 0.005,
+        and abs(ce7["stock_I"] - I_mu_exact) < 1e-9
+        and abs(ce7["stock_I"] - 0.5 * math.log(T_ce7 * T_ce7 + 1.0)) < 1e-9
+        and abs(ce7["stock_I"] - 11.090354889) < 1e-6
+        and abs(ce7["stock_I_record"] - I_Y_exact) < 1e-9
+        and abs(ce7["stock_I_record"] - 11.157120585) < 1e-6,
         "MSE <= %.2f; total inflow %.1f nats over %d looks; mean inflow %.2e; "
-        "blind MSE %.2e; I(M_T;X_T)=%.2f nats"
+        "blind MSE %.2e; I(mu_T;X_T)=%.3f nats (I(Y;X_T)=%.3f nats)"
         % (ce7["max_mse"], ce7["total_r"], ce7["n_looks"], ce7["mean_r"],
-           ce7["blind_mse"], ce7["stock_I"]),
+           ce7["blind_mse"], ce7["stock_I"], ce7["stock_I_record"]),
     )
     res["ce7"] = ce7
 
