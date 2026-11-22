@@ -299,8 +299,8 @@ def max_cardinality_match(pooled, unit, factor=RESOLUTION):
     the decay time and the period must lie within the factor). Among maximum-
     cardinality matchings, the rule takes the one with the smallest sum of
     log-ratios; remaining ties are broken by the lexicographically smaller
-    tuple of matched pooled time constants (so an equal-ratio choice prefers
-    the smaller pooled time constant).
+    tuple of matched pooled decay times, then by the sorted periods (a real
+    pole has no period and sorts before any positive period).
 
     Returns the set of matched pooled indices. The graphs are tiny (degree at
     most K_max), so the matchings are enumerated.
@@ -323,11 +323,17 @@ def max_cardinality_match(pooled, unit, factor=RESOLUTION):
 
     matchings = rec(0, set(), [])
 
+    def _period_sort_value(state):
+        # A real pole has no period and sorts before any positive period.
+        p = state.get("period")
+        return (0,) if p is None else (1, float(p))
+
     def key(matching):
         card = len(matching)
         sum_log = sum(c for _, _, c in matching)
         taus = tuple(sorted(pooled[ia]["tau"] for ia, _, _ in matching))
-        return (-card, sum_log, taus)
+        periods = tuple(sorted(_period_sort_value(pooled[ia]) for ia, _, _ in matching))
+        return (-card, sum_log, taus, periods)
 
     best = min(matchings, key=key)
     return {ia for ia, _, _ in best}
@@ -390,8 +396,9 @@ def classify_local_shared(unit_states, pooled_states, factor=RESOLUTION):
 
     Within each unit, same-kind poles are matched by `max_cardinality_match`
     (maximum cardinality under the factor; then minimum total log-ratio; then
-    the smaller pooled time constant). A pooled pole is local iff it matches
-    in every unit; otherwise it is shared. The set of matching unit indices is
+    the sorted pooled decay times, then the sorted periods). A pooled pole is
+    local iff it matches in every unit; otherwise it is shared. The set of
+    matching unit indices is
     stored as `matched_units` so a later within-class merge can keep poles
     unmerged when different units match them to different partners.
     """

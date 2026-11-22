@@ -378,3 +378,48 @@ def test_bootstrap_uses_classify_then_merge_count():
     assert r["K_obs"] == 2
     assert r["boot"] == [2, 2, 2, 2]
     assert r["interval"] == [2, 2]
+
+
+def test_matching_min_log_ratio_before_tau_tiebreak():
+    """Face-placement case (CONFIRM2 should-fix 2). Pooled poles at 10, 14,
+    and 30, one unit pole at 13, factor 3. All three ratios are below 3.
+    The minimum-sum-of-log-ratios matching pairs 14 with 13 and leaves 10
+    and 30 unmatched. Their ratio is exactly 3, so they stay unmerged, and
+    K = 3. A 'smaller pooled time constant' first would match 10 and then
+    merge 14 with 30, giving K = 2."""
+    unit = [_real(13)]
+    for pooled in ([_real(10), _real(14), _real(30)],
+                   [_real(30), _real(14), _real(10)],
+                   [_real(14), _real(10), _real(30)],
+                   [_real(30), _real(10), _real(14)]):
+        c = L.classify_local_shared([unit], pooled, factor=3.0)
+        by = {round(s["tau"], 5): s["class"] for s in c}
+        assert by[14.0] == "local" and by[10.0] == "shared" and by[30.0] == "shared"
+        merged = L.merge_classified(c, factor=3.0)
+        assert sum(s["degree"] for s in merged) == 3
+        assert {round(s["tau"], 5) for s in merged} == {10.0, 14.0, 30.0}
+
+
+def test_matching_period_tiebreak_is_order_invariant():
+    """CONFIRM2 should-fix 3. Pairs (tau, period) = (10, 8), (10, 32),
+    (10, 64) and one unit pair (10, 16), factor 3. The first two have
+    log-ratio cost log 2 against the unit; the third has period ratio 4
+    and no edge. After the sorted decay times, the remaining tie is broken
+    by the sorted periods, so the period-8 pair is matched in every list
+    order. The unmatched periods 32 and 64 merge (ratio 2), and K = 4."""
+    from itertools import permutations
+    unit_src = [_pair(10, 16)]
+    pooled_src = [_pair(10, 8), _pair(10, 32), _pair(10, 64)]
+    ks = []
+    for pooled in permutations(pooled_src):
+        for unit in permutations(unit_src):
+            c = L.classify_local_shared([list(unit)], list(pooled), factor=3.0)
+            merged = L.merge_classified(c, factor=3.0)
+            k = sum(s["degree"] for s in merged)
+            ks.append(k)
+            by_period = {round(s["period"], 5): s for s in c}
+            assert by_period[8.0]["class"] == "local"
+            assert by_period[32.0]["class"] == "shared"
+            assert by_period[64.0]["class"] == "shared"
+    assert ks and all(k == 4 for k in ks)
+    assert len(ks) == 6
