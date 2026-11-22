@@ -1,0 +1,63 @@
+HTTP 200
+DOI 10.1080/14697688.2013.800219
+YEAR 2013
+AUTHORS N. N. Taleb; R. Douady
+TITLE Mathematical definition, mapping, and detection of (anti)fragility
+CONTAINER Quantitative Finance
+ABSTRACT (none)
+
+HTTP 200
+DOI 10.1103/PhysRevX.4.031015
+YEAR 2014
+AUTHORS Jordan M. Horowitz; Massimiliano Esposito
+TITLE Thermodynamics with Continuous Information Flow
+CONTAINER Physical Review X
+ABSTRACT (none)
+
+HTTP 200
+DOI 10.1162/NECO_a_00912
+YEAR 2017
+AUTHORS Karl Friston; Thomas FitzGerald; Francesco Rigoli; Philipp Schwartenbeck; Giovanni Pezzulo
+TITLE Active Inference: A Process Theory
+CONTAINER Neural Computation
+ABSTRACT This article describes a process theory based on active inference and belief propagation. Starting from the premise that all neuronal processing (and action selection) can be explained by maximizing Bayesian model evidence—or minimizing variational free energy—we ask whether neuronal responses can be described as a gradient descent on variational free energy. Using a standard (Markov decision process) generative model, we derive the neuronal dynamics implicit in this description and reproduce a remarkable range of well-characterized neuronal phenomena. These include repetition suppression, mismatch negativity, violation responses, place-cell activity, phase precession, theta sequences, theta-gamma coupling, evidence accumulation, race-to-bound dynamics, and transfer of dopamine responses. Furthermore, the (approximately Bayes’ optimal) behavior prescribed by these dynamics has a degree of face validity, providing a formal explanation for reward seeking, context learning, and epistemic foraging. Technically, the fact that a gradient descent appears to be a valid description of neuronal activity means that variational free energy is a Lyapunov function for neuronal dynamics, which therefore conform to Hamilton’s principle of least action.
+
+HTTP 200
+DOI 10.1287/opre.2017.1663
+YEAR 2018
+AUTHORS Daniel Russo; Benjamin Van Roy
+TITLE Learning to Optimize via Information-Directed Sampling
+CONTAINER Operations Research
+ABSTRACT We propose information-directed sampling—a new approach to online optimization problems in which a decision maker must balance between exploration and exploitation while learning from partial feedback. Each action is sampled in a manner that minimizes the ratio between squared expected single-period regret and a measure of information gain: the mutual information between the optimal action and the next observation. We establish an expected regret bound for information-directed sampling that applies across a very general class of models and scales with the entropy of the optimal action distribution. We illustrate through simple analytic examples how information-directed sampling accounts for kinds of information that alternative approaches do not adequately address and that this can lead to dramatic performance gains. For the widely studied Bernoulli, Gaussian, and linear bandit problems, we demonstrate state-of-the-art simulation performance. The electronic companion is available at https://doi.org/10.1287/opre.2017.1663 .
+
+HTTP 200
+DOI 10.1214/ss/1177009939
+YEAR 1995
+AUTHORS Kathryn Chaloner; Isabella Verdinelli
+TITLE Bayesian Experimental Design: A Review
+CONTAINER Statistical Science
+ABSTRACT This paper reviews the literature on Bayesian experimental design. A unified view of this topic is presented, based on a decision-theoretic approach. This framework casts criteria from the Bayesian literature of design as part of a single coherent approach. The decision-theoretic structure incorporates both linear and nonlinear design problems and it suggests possible new directions to the experimental design problem, motivated by the use of new utility functions. We show that, in some special cases of linear design problems, Bayesian solutions change in a sensible way when the prior distribution and the utility function are modified to allow for the specific structure of the experiment. The decision-theoretic approach also gives a mathematical justification for selecting the appropriate optimality criterion.
+
+HTTP 200
+DOI 10.1162/neco.1992.4.4.590
+YEAR 1992
+AUTHORS David J. C. MacKay
+TITLE Information-Based Objective Functions for Active Data Selection
+CONTAINER Neural Computation
+ABSTRACT Learning can be made more efficient if we can actively select particularly salient data points. Within a Bayesian learning framework, objective functions are discussed that measure the expected informativeness of candidate measurements. Three alternative specifications of what we want to gain information about lead to three different criteria for data selection. All these criteria depend on the assumption that the hypothesis space is correct, which may prove to be their main weakness.
+
+HTTP 200
+DOI 10.1214/aoms/1177728069
+YEAR 1956
+AUTHORS D. V. Lindley
+TITLE On a Measure of the Information Provided by an Experiment
+CONTAINER The Annals of Mathematical Statistics
+ABSTRACT (none)
+
+HTTP 200
+DOI 10.1109/TAC.1974.1100635
+YEAR 1974
+AUTHORS Y. Bar-Shalom; E. Tse
+TITLE Dual effect, certainty equivalence, and separation in stochastic control
+CONTAINER IEEE Transactions on Automatic Control
+ABSTRACT (none)
