@@ -1,6 +1,6 @@
 # The core: the cost of judgment on one page
 
-*Saturday 21 November 2026, afternoon ET (America/New_York). `main` is `d34df95`.*
+*Saturday 21 November 2026, afternoon ET (America/New_York). `main` is `5fa4b8c`.*
 
 *Status words and caveats: see the end of this page.*
 
@@ -112,6 +112,6 @@ For an optimum that moves in the soft coordinates, see `theory/DRIFT_SELECTION.m
 
 **PROVED** means proved inside the stated model, which says nothing by itself about nature; **NUMERICAL** means computed, not proved; **HYPOTHESIS** means a claim about the world; **TESTED** is reported with its result; **KNOWN** means published and credited; **OPEN** means untested or not derived, not refuted; **ANALOGY** means a likeness, not a proof and not a field result.
 
-The operational kill rule stays in force in THEORY §3. There is no Model S counterexample to N60. The rhythms counterexample (two oscillators, \(R=3\), formula 2, argmin 3) and the failed IMP-N60 rule stay in force in `core/KEYSTONE_NOTE.md`. Convexity inside Model S is numerical (120/120), not proved.
+The operational kill rule stays in force in THEORY §3. There is no Model S counterexample to N60. The rhythms counterexample (two oscillators, \(R=3\), formula 2, argmin 3) and the failed IMP-N60 rule stay in force in `core/KEYSTONE_NOTE.md`. N67 is proved for a weak third mode, and N68 stays open.
 
-Omissions from this page are compressions, not withdrawals. The previous text is frozen at `history/2026-11-21_CORE_before_onepage.md`. The information limits (S1–S3) are in `theory/SHANNON_2026-11-21.md`; the layer-lifetime results are in `theory/LAYER_LIFETIME_2026-11-21.md`. This page was revised after the independent review of PR #142 (`reviews/core_onepage_2026-11-21/REVIEW.md`, verdict NOT READY) and the blind confirm (`reviews/core_onepage_2026-11-21/CONFIRM.md`). IDs: `measurement/CLAIM_MAP_v2.md`. `main` is `d34df95` (PR #140 live brief; also #141 layer lifetime as `a97887e`, #139 Shannon-style core as `0726423`, and #138 DIR1 as `1cb1ac2`).
+Omissions from this page are compressions, not withdrawals. The previous text is frozen at `history/2026-11-21_CORE_before_onepage.md`. The information limits (S1–S3) are in `theory/SHANNON_2026-11-21.md`; the layer-lifetime results are in `theory/LAYER_LIFETIME_2026-11-21.md`. This page was revised after the independent review of PR #142 (`reviews/core_onepage_2026-11-21/REVIEW.md`, verdict NOT READY) and the blind confirm (`reviews/core_onepage_2026-11-21/CONFIRM.md`). IDs: `measurement/CLAIM_MAP_v2.md`. `main` is `5fa4b8c` (PR #168). Earlier merges still on that main include #141 layer lifetime `a97887e`, #139 Shannon-style core `0726423`, and #138 DIR1 `1cb1ac2`.

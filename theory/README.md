@@ -2,7 +2,7 @@
 
 Derivations that `THEORY.md` cites, and older working drafts. `THEORY.md` governs where they disagree. Files marked *Maintained* are kept consistent with THEORY by `tools/check_consistency.py`; the rest (`THEOREMS.md`, `GENERAL_THEOREM.md`, `INTERNAL_MODEL.md`, `MATH_ATTACK.md`) are frozen history cited by section. None of this is claimed as a new theorem. Each file labels what is already known, what is a calculation or a code check, and where the argument fails.
 
-None of these is the core. THEORY v2.4 states the core and proves its results in its own Appendix B; the notes below are the reference derivations it cites, including the reach notes (`REACH.md`, `COSMIC_WEB.md`, `WORMHOLES.md`, `TORUS.md`), which extend the core's scope and are not part of it. `core_checks/` holds the checks of v2.0's closed forms. The one-page SCALE_ENDS summary is now `../history/2026-11-18_SCALE_ENDS_SUMMARY_FOR_CHAD.md`.
+None of these is the core. THEORY v2.9 draft states the core and proves its results in its own Appendix B; the notes below are the reference derivations it cites, including the reach notes (`REACH.md`, `COSMIC_WEB.md`, `WORMHOLES.md`, `TORUS.md`), which extend the core's scope and are not part of it. `core_checks/` holds the checks of v2.0's closed forms. The one-page SCALE_ENDS summary is now `../history/2026-11-18_SCALE_ENDS_SUMMARY_FOR_CHAD.md`.
 
 | File | What it is |
 |---|---|
