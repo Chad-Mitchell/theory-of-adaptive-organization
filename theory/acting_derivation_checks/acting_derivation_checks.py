@@ -81,6 +81,37 @@ def learning_rate_b0(a, g, c, D, Dm):
     return (D * c ** 2 * g ** 3) / (D * c ** 2 * g ** 2 + Dm * (a + g) ** 2)
 
 
+def symbolic_identity():
+    """Polynomial identity behind Lemma LG. A zero residual is the reduction.
+    The five numerical points below are checks of this identity, not the proof."""
+    import sympy as sp
+
+    a, g, c, D, Dm = sp.symbols("a gamma c D Dm", positive=True)
+    b, K = sp.symbols("b K", real=True)
+    den = g * (a + g) * (K * b * c + a)
+    v = (D * K * b * c * g + D * a * g + D * g ** 2 + Dm * K ** 2 * b ** 2) / den
+    s = (D * c * g ** 2 - Dm * K * a * b) / den
+    m = (D * c ** 2 * g ** 2 + Dm * K * b * c * g + Dm * a ** 2 + Dm * a * g) / den
+    lyap = [
+        sp.simplify(a * v + b * K * s - D),
+        sp.simplify(g * c * v - (a + g) * s - b * K * m),
+        sp.simplify(g * c * s - g * m + Dm),
+    ]
+    srx = sp.simplify((a ** 2 * v + 2 * a * b * K * s + (b * K) ** 2 * m - a * D) / D)
+    srm = sp.simplify(((g * c) ** 2 * v + g ** 2 * m - 2 * g ** 2 * c * s - g * Dm) / Dm)
+    srx_display = b * K * (D * c * g + Dm * b * K) / (D * (a + g))
+    srm_display = c * g * (D * c * g + Dm * b * K) / (Dm * (a + g))
+    heat = sp.factor(sp.simplify(D * srx + Dm * srm))
+    heat_display = (D * c * g + Dm * b * K) * (c * g + b * K) / (a + g)
+    residuals = lyap + [
+        sp.simplify(srx - srx_display),
+        sp.simplify(srm - srm_display),
+        sp.simplify(heat - heat_display),
+        sp.simplify(b * K * (a * s + b * K * m) - D * srx_display),
+    ]
+    return all(r == 0 for r in residuals)
+
+
 def variance_minimizer(a, b, g, c, D, Dm):
     # Numerator of v' is proportional to A K^2 + B K + C with C < 0 < A.
     aa = Dm * b * b * c
@@ -128,6 +159,8 @@ def main() -> int:
         (1.2, 1.0, 2.0, 0.6, 1.4, 0.3, 1.5),
         (2.0, -0.5, 0.8, 1.5, 0.4, 1.1, 0.2),
     ]
+    check("symbolic reduction is identically zero", symbolic_identity())
+    print("five-point comparisons are checks, not the proof")
     worst = 0.0
     for p in points:
         a, b, K, g, c, D, Dm = p
@@ -148,7 +181,7 @@ def main() -> int:
         worst = max(worst, abs(fx + fm))
         worst = max(worst, abs(fm - i_m))
         worst = max(worst, abs(sr_x_def - sr_x), abs(sr_m_def - sr_m))
-    check("Lyapunov, flow, and bath rates agree", worst < 1e-8, f"worst {worst}")
+    check("five float comparisons agree", worst < 1e-8, f"worst {worst}")
 
     a = g = c = D = Dm = 1.0
     v0, _, _ = closed_moments(a, 0.0, 3.0, g, c, D, Dm)

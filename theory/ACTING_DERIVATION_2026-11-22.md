@@ -1,6 +1,6 @@
 # The cost when the action enters the drift
 
-*Sunday 22 November 2026. A derivation, not an adoption. `THEORY.md` is not edited. The hypothesis sentence is not edited. This note does not touch the acting-loop draft or its review.*
+*Sunday 22 November 2026. A representation theorem, not a derivation from the drift, and not an adoption. `THEORY.md` is not edited. The hypothesis sentence is not edited. This note does not touch the acting-loop draft or its review.*
 
 The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.
 
@@ -12,7 +12,7 @@ Labels: **PROVED HERE** (the argument is on this page), **STANDARD** (a cited th
 
 **A7 is replaced by A7′.** A1–A6 and A8 are unchanged as statements. A3 is applied to the product A7′ names.
 
-**Theorem R1′** is the additive cost under A1–A6 and A7′. At feedback strength \(b=0\) it is Theorem R1's cost. With A8 and the same extra separability assumption on the integer layer count, that cost is the five-term master equation of THEORY §3, each term kept, before any minimization.
+**Theorem R1′** is a representation theorem. The additive form rests on Debreu's theorem, applied to the product A7′ names. The step proved here is the \(b=0\) reduction: the effort coordinate drops out and the cost is Theorem R1's cost. With A8 and the same extra separability assumption on the integer layer count, that cost is the five-term master equation of THEORY §3, each term kept, before any minimization.
 
 **In the linear bipartite diffusion LG-b,** the bath heats and the information flows are computed from the Fokker–Planck current. At \(b=0\) the world's bath heat is 0 and the memory's information flow equals the exogenous Gaussian learning rate. For \(b\neq 0\) both heats depend on the gain. The uncontrolled spring heat is not the heat of the controlled loop.
 
@@ -20,15 +20,15 @@ The ordering of two gains on a cubic plant is a **CONJECTURE**. It is the prereg
 
 ## 1. Axiom A7′
 
-**A7′ (the action may enter the drift).** A design \(\mathcal{D}\) includes a feedback rule \(u\). The world \(X\) and the memory \(M\) are one bipartite process. There is a strength \(b\) such that the drift of \(X\) is \(F_0(X)+b\,u\), and the diffusion coefficient of \(X\) does not depend on \(u\). The design induces one law \(P^{b,u}\). The resource coordinates and the loss lottery are computed under that law. When \(b\neq 0\), the effort of the feedback is a coordinate \(z_u\) of the product to which A3 and A5 apply.
+**A7′ (the action may enter the drift).** A design \(\mathcal{D}\) includes a feedback rule \(u\). The world \(X\) and the memory \(M\) are one bipartite process. The feedback rule enters the joint generator only as the additive drift \(b\,u\) of \(X\). The drift \(F_0\), both diffusion coefficients, and the memory drift do not depend on \(u\). The design induces one law \(P^{b,u}\). The resource coordinates and the loss lottery are computed under that law. When \(b\neq 0\), the effort of the feedback is a coordinate \(z_u\) of the product to which A3 and A5 apply.
 
-**The case \(b=0\) is A7.** The drift of \(X\) does not depend on the design, so \(P^{0,u}\) does not depend on \(u\). The effort of changing the drift is not a coordinate. Both clauses of A7 in `theory/REPRESENTATION.md` are this case, and neither is weakened inside it.
+**The case \(b=0\) is A7.** The additive term \(b\,u\) vanishes, so the joint law does not depend on \(u\). The law of \(X\) does not depend on the design. The effort of changing the drift is not a coordinate. Both clauses of A7 in `theory/REPRESENTATION.md` are this case, and neither is weakened inside it.
 
 A1–A6 and A8 keep the wording in that note. What changes is the product A3 sees: it includes \(z_u\) if and only if \(b\neq 0\). Preferential independence of \(z_u\) is that axiom applied to the new factor. It is not derived from the dynamics. If effort is disliked only because it changes the loss, it is not a separate coordinate, and Theorem R1′ does not add a price for it.
 
 ## 2. Theorem R1′
 
-**Theorem R1′ (PROVED HERE, from A1–A6 and A7′, by the steps marked).** Restrict Debreu's step to a product of at least three essential intervals, with closed contour sets. A continuous cost representing the preorder has the form
+**Theorem R1′ (a representation theorem).** The additive form is Theorem R1 applied to the product A7′ names. Debreu's theorem, the von Neumann–Morgenstern index, and the Cauchy lemmas carry that form. They are **STANDARD**. The step **PROVED HERE** is the \(b=0\) reduction: the effort coordinate drops out and the world law is the exogenous law, so the cost is Theorem R1's cost. The drift does not produce the sum. Restrict Debreu's step to a product of at least three essential intervals, with closed contour sets. A continuous cost representing the preorder has the form
 
 \[
 C=a\Bigl(\sum_i p_i z_i\Bigr)+c,\qquad a>0,
@@ -50,7 +50,7 @@ subject to \(P(\mathrm{ruin})\le\varepsilon_r\). This is the master equation in 
 
 *Proof.*
 
-1. **PROVED HERE.** By A7′ the design induces one law \(P^{b,u}\), hence one loss lottery and one resource vector. At \(b=0\) the law does not depend on \(u\).
+1. **PROVED HERE**, once the generator is stated. The feedback rule \(u\) enters the joint generator only as the additive drift \(b\,u\). The drift \(F_0\), both diffusion coefficients, and the memory drift do not depend on \(u\). The design induces one law \(P^{b,u}\). At \(b=0\) that law does not depend on \(u\), the law of \(X\) does not depend on the design, and the effort coordinate is absent. Those are the two clauses of A7, and neither is weakened inside this case.
 
 2. **STANDARD.** Von Neumann and Morgenstern, *Theory of Games and Economic Behavior*, 60th Anniversary edition, doi 10.1515/9781400829460 (Crossref: 2007, that edition). Risk neutrality, as in A2 and in step 1 of Theorem R1, makes the ranking the expected currency cost. The freedom at this step is one positive affine regraduation. The controlled law changes which lottery a design induces. It does not change the theorem that ranks lotteries.
 
@@ -60,7 +60,7 @@ subject to \(P(\mathrm{ruin})\le\varepsilon_r\). This is the master equation in 
 
 5. **STANDARD.** A6, in the scope the representation note states. Finite-law Shannon mutual information is covered. A differential mutual information of a Gaussian plant is the extension that note already names. It is not a new theorem. A6 still does not choose among stock, predictive information, and directed information. This note keeps the coordinate \(I_{\mathrm{mem}}\) the master equation writes. It does not derive that choice.
 
-6. **PROVED HERE.** The currency scale and Debreu's scale are the same \(a\), for the same reason as step 6 of Theorem R1: the cost is already the von Neumann–Morgenstern index. At \(b=0\), step 1 removes \(z_u\) and freezes the law, so the sum is Theorem R1's sum. A8 signs \(\kappa,h,w\) and the acquisition and link prices. The extra separability assumption puts \(hK\) in the sum. The display is the five-term equation. No derivative and no minimization is used. ∎
+6. **STANDARD** for the common scale, which is step 6 of Theorem R1: the cost is already the von Neumann–Morgenstern index. **PROVED HERE** for the reduction: at \(b=0\), step 1 removes \(z_u\) and the law is the exogenous law, so the sum is Theorem R1's sum. A8 signs \(\kappa,h,w\) and the acquisition and link prices. The extra separability assumption puts \(hK\) in the sum. The display is the five-term equation. No derivative and no minimization is used. ∎
 
 Storing, predicting, acting, and staying solvent still do not force the sum. That negative statement is Theorem R2, **STANDARD**, and A7′ does not withdraw it.
 
@@ -130,7 +130,17 @@ The second integral splits into \(\dot I_X\) plus \(\int j_X\partial_X\ln p_X=-d
 \end{aligned}
 \]
 
-and \(\dot I_X=-\dot I_M\). The algebra is the Gaussian evaluation of Lemma D. The check script compares these expressions with a direct solve of the Lyapunov system and with the expectation in Lemma D.
+and \(\dot I_X=-\dot I_M\).
+
+*Proof.* The stationary second moments satisfy
+\[
+av+bKs=D,\qquad \gamma c v-(a+\gamma)s-bKm=0,\qquad \gamma c s-\gamma m+D_M=0.
+\]
+With \(F_X=-aX-bKM\) and \(\partial_X F_X=-a\),
+\[
+D\,\mathrm{Sr}_X=a^2v+2abKs+b^2K^2m-aD=bK(as+bKm).
+\]
+The second and third identities give \(as+bKm=(Dc\gamma+D_M bK)/(a+\gamma)\), which is the display for \(\mathrm{Sr}_X\). The same substitution, with \(F_M=-\gamma M+\gamma c X\) and \(\partial_M F_M=-\gamma\), gives \(\mathrm{Sr}_M\). The conditional score in Lemma D then gives \(\dot I_M\), and steady state gives \(\dot I_X=-\dot I_M\). Each display is that polynomial identity, the Gaussian evaluation of Lemma D. It reduces identically to the Lyapunov solution and to \(\mathbb{E}[F^2+D\,\partial F]/D\). The check script compares floating-point values at five points, and it checks that the symbolic difference simplifies to zero. Those comparisons are checks. They are not the proof.
 
 **Corollary LG-0 (PROVED HERE).** Set \(b=0\). Then \(\mathbb{E}[X^2]=D/a\), \(\mathrm{Sr}_X=0\), and
 
@@ -143,10 +153,10 @@ which is the Gaussian learning rate of the exogenous equilibrium Ornstein–Uhle
 **Corollary LG-K (PROVED HERE).** For \(b>0\) and \(K\ge 0\),
 
 \[
-\mathrm{Sr}_X+\mathrm{Sr}_M=\frac{(Dc\gamma+D_M bK)^2}{DD_M(a+\gamma)}
+\mathrm{Sr}_X+\mathrm{Sr}_M=\frac{(Dc\gamma+D_M bK)^2}{DD_M(a+\gamma)}.
 \]
 
-is strictly increasing in \(K\). The state variance \(v(K)\) has exactly one critical point on \([0,\infty)\), and it is a minimum at a point \(K_E>0\), because \(v'(0)<0\), \(v(K)\to\infty\) as \(K\to\infty\), and the numerator of \(v'\) is a quadratic in \(K\) with negative constant term and positive leading coefficient. Let the loss be \(\varphi(v)\) with \(\varphi\) strictly increasing and \(C^1\). Let \(J_E=\varphi(v)\) and \(J_H=\varphi(v)+D\,\mathrm{Sr}_X+D_M\,\mathrm{Sr}_M\), one currency, the energy flows of the two baths. Then \(J_E'(K_E)=0\) and \(J_H'(K_E)>0\). For every \(K>K_E\), \(v'(K)>0\), so \(J_H'(K)>0\). Every minimizer of \(J_H\) on \([0,\infty)\) is strictly less than \(K_E\).
+\(\mathrm{Sr}_X+\mathrm{Sr}_M\) is strictly increasing in \(K\). The heat in \(J_H\) is \(D\,\mathrm{Sr}_X+D_M\,\mathrm{Sr}_M=(Dc\gamma+D_M bK)(c\gamma+bK)/(a+\gamma)\), and that sum is strictly increasing for \(b>0\) and \(K\ge 0\). The state variance \(v(K)\) has exactly one critical point on \([0,\infty)\), and it is a minimum at a point \(K_E>0\), because \(v'(0)<0\), \(v(K)\to\infty\) as \(K\to\infty\), and the numerator of \(v'\) is a quadratic in \(K\) with negative constant term and positive leading coefficient. Let the loss be \(\varphi(v)\) with \(\varphi\) strictly increasing and \(C^1\). Let \(J_E=\varphi(v)\) and \(J_H=\varphi(v)+D\,\mathrm{Sr}_X+D_M\,\mathrm{Sr}_M\), one currency, the energy flows of the two baths. Then \(J_E'(K_E)=0\) and \(J_H'(K_E)>0\). For every \(K>K_E\), \(v'(K)>0\), so \(J_H'(K)>0\). Every minimizer of \(J_H\) on \([0,\infty)\) is strictly less than \(K_E\).
 
 The exogenous learning rate of Corollary LG-0 does not depend on \(K\). Using it as the heat at \(b\neq 0\) deletes \(\mathrm{Sr}_X\) and the \(K\)-dependence of \(\mathrm{Sr}_M\) and of \(\dot I_M\). There are parameters in LG-b with \(\dot I_M<0\) while the \(b=0\) learning rate is positive: the memory's jumps can destroy correlation once the feedback is strong. The uncontrolled spring formula does not have that sign.
 
@@ -164,7 +174,7 @@ A centered Gaussian has \(\mathbb{E}[X^4]=3v^2\), which is strictly increasing i
 
 The protocol is `theory/acting_derivation_checks/PREREG.md`, commit `1271eb0`, sha256 `7f3b0034de4bea307c4510ade0edde7ccae94ef413d397b52cd9976edb6084a2`, locked by `977810f` before any trajectory. The prediction is an ordering of two grid gains on the cubic drift. Lemma LG does not determine that ordering. The linear plant is only the gate on the path estimator.
 
-The gate held: the path estimate of the linear bath rate was \(1.973637317765\) against the lemma's \(2\), relative difference \(0.013181\). On the cubic grid, \(K_E=0.25\) and \(K_H=0\), so the difference is \(0.25\), which meets the preregistered threshold. The prediction was met. \(J_E\) at \(0.25\) is \(0.456944514863\), against \(0.475917241617\) at \(0\) and \(0.459180113427\) at \(0.50\). \(J_H\) at \(0\) is \(0.770617916951\), against \(1.045686797043\) at \(0.25\). The recorded path estimate of \(\mathrm{Sr}_X\) at zero gain is \(0.050189309209\). The means are in `theory/acting_derivation_checks/results.out`.
+The locked grid scores \(K_E=0.25\) and \(K_H=0\), so the difference is \(0.25\). On the protocol's own rule the prediction was met, by one step. The fine spacing of the grid is \(0.25\), and every pair of distinct grid gains differs by at least \(0.25\), so \(K_E-K_H\ge 0.25\) on this grid is the same statement as \(K_E>K_H\). A stationary solve of the same costs, left out of the preregistration, gives continuous gains \(K_E=0.2327\) and \(K_H=0\) at \(N=200\), \(L=4\), with a heat-aware slope of \(+0.60\) at zero gain. Widening the box moves \(K_E\) to \(0.2324\). The continuous difference is below \(0.25\). The gate's path estimate \(1.973637317765\) against \(2\) has relative difference \(0.013181\), about one fifth of the estimator's standard error on a record of length \(800\). That standard error is \(0.12\) to \(0.14\) (relative \(0.058\) to \(0.071\)). Eight of twenty-four equal-length trajectories miss the \(0.05\) gate. The gate was underpowered, so meeting it is weak evidence. The recorded \(\mathrm{Sr}_X\) at zero gain, \(0.050189309209\), estimates a stationary value of \(0\). The grid means are in `theory/acting_derivation_checks/results.out`.
 
 ## References
 
