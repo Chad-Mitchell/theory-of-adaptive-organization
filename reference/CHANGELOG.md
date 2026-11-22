@@ -1,5 +1,7 @@
 # Changelog of THEORY.md
 
+- **CLAIM_MAP v2.84 (22 Nov 2026; branch `info-physics-2026-11-22`, after the second review of draft PR #175).** The spring heat floor is not the flow floor. The reference sensor is unicyclic, affinity \(\ln 64\). No row changes status. Tally stays 388. The master equation and the hypothesis sentence are unchanged.
+
 - **CLAIM_MAP v2.83 (22 Nov 2026; branch `info-physics-2026-11-22`, after the review of draft PR #175).** The heat floor at error 0.2 is \(0.6\ln 4\). The tangent witness is the stake table. \(J_{\mathrm{phys}}\) is stated for the telegraph and the linear spring. New rows IP8 and IP9 PROVED (in-model), IP10 OPEN. IP3, IP5, and IP6 keep their status words and change their wording. Tally 385 → 388. The master equation and the hypothesis sentence are unchanged.
 
 - **CLAIM_MAP v2.82 (22 Nov 2026; branch `info-physics-2026-11-22`).** Information physics: new section Y (IP1–IP7) and `theory/INFO_PHYSICS.md`. A free-energy rate is bounded below by an information flow and by the uncertainty bound on a current. The bound is not the cost. Gross memory, a constant layer upkeep, a stacked read price, a universal linking term, and the ruin cap are not forced. IP1, IP3, IP4, and IP6 PROVED (in-model); IP2 PRIOR ART; IP5 FALSE; IP7 OPEN. No existing row changes status. Tally 378 → 385. The Part 2 hypothesis sentence is unchanged. A self-check, not an independent review.

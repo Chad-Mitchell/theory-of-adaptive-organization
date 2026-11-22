@@ -926,31 +926,58 @@ def test_ou_jphys():
     err = Cxx + Cmm - 2 * Cxm
     seki_ref = (lam ** 2 / D) * err - lam
     check("at the reference OU point the memory-bath heat exceeds the flow",
-          near(seki_ref, 4.444444444444, 1e-9) and near(flow_ref, 1.194029850746, 1e-9),
+          near(seki_ref, 4.444444444444, 1e-9) and near(flow_ref, 1.194029850746, 1e-9)
+          and near(seki_ref - flow_ref - float(alpha @ C @ alpha) / D, 0.0, 1e-9),
           "seki=%.6f flow=%.6f" % (seki_ref, flow_ref))
     record("ou_ref_seki", seki_ref)
     record("ou_ref_flow", flow_ref)
+    # Fixed error below the signal variance: heat falls, flow rises.
     a, v, eps = 1.0, 1.0, 0.2
-    got = ou_fixed_error(a, 10000.0, v, eps)
-    check("OU heat and flow both approach a v / error",
-          got is not None and near(got[0], a * v / eps, 1e-3) and near(got[1], a * v / eps, 1e-2),
-          "heat=%.6f flow=%.6f floor=%.6f" % (got[0], got[1], a * v / eps))
-    # analytic heat at this lambda
+    lam_min = a * (v / eps - 1.0)
+    slow = ou_fixed_error(a, lam_min * (1.0 + 1e-6), v, eps)
+    fast = ou_fixed_error(a, 10000.0, v, eps)
+    kalman = a * (v - eps) / eps
+    check("slow spring: flow is the Kalman rate and the heat is large",
+          slow is not None and near(slow[1], kalman, 1e-4) and slow[0] > 1e5,
+          "heat=%.6g flow=%.8f kalman=%.6f" % (slow[0], slow[1], kalman))
+    check("fast spring: heat and flow meet at a v / error from below",
+          fast is not None and near(fast[0], a * v / eps, 1e-3)
+          and fast[1] < a * v / eps and near(fast[1], a * v / eps, 1e-2)
+          and near(fast[0] - fast[1], 0.003000400441, 1e-4),
+          "heat=%.8f flow=%.8f" % (fast[0], fast[1]))
     heat_formula = a * 10000.0 * v / (eps * (a + 10000.0) - a * v)
     check("OU heat matches lambda / the fixed-error denominator",
-          near(got[0], heat_formula, 1e-8))
-    # stake table: floor objective and heat floor select the same error,
-    # including the blind corner Q=0, error=v, when that is cheaper.
-    for w, e_ref in ((2.0, 1.0), (8.0, 0.353553390593), (20.0, 0.223606797750), (50.0, 0.141421356237)):
-        e_star = math.sqrt(a * v / w)
-        if e_star >= v or (a * v / e_star + w * e_star) >= w * v:
-            e_pick, q_pick = v, 0.0
-        else:
-            e_pick, q_pick = e_star, a * v / e_star
-        check("OU J_phys and the heat floor agree at stake %g" % w,
-              near(e_pick, e_ref, 1e-9),
-              "err=%.6f Q=%.6f" % (e_pick, q_pick))
-        record("ou_front_w%g" % w, e_pick)
+          near(fast[0], heat_formula, 1e-8))
+    # Above the signal variance the heat rises with lambda.
+    wide_lo = ou_fixed_error(1.0, 0.05, 1.0, 1.5)
+    wide_hi = ou_fixed_error(1.0, 20.0, 1.0, 1.5)
+    check("for error above the signal variance the heat rises with the memory rate",
+          wide_lo is not None and wide_hi[0] > wide_lo[0] and wide_lo[0] < (1.0 / 1.5),
+          "slow=%.6f fast=%.6f" % (wide_lo[0], wide_hi[0]))
+    # Heat objective versus flow objective. The flow floor is the Kalman rate.
+    for w, heat_err, flow_err, flow_cost in (
+            (2.0, 1.0, 1.0 / math.sqrt(2.0), 2.0 * math.sqrt(2.0) - 1.0),
+            (8.0, 1.0 / math.sqrt(8.0), 1.0 / math.sqrt(8.0), None),
+            (20.0, 1.0 / math.sqrt(20.0), 1.0 / math.sqrt(20.0), None),
+            (50.0, 1.0 / math.sqrt(50.0), 1.0 / math.sqrt(50.0), None),
+    ):
+        e_heat = math.sqrt(a * v / w)
+        heat_cost = a * v / e_heat + w * e_heat
+        if heat_cost >= w * v:
+            e_heat, heat_cost = v, w * v
+        e_flow = math.sqrt(a * v / w)
+        # flow cost = a(v-e)/e + w e = heat_cost - a, compared with blind w*v
+        flow_track = a * (v - e_flow) / e_flow + w * e_flow
+        if flow_track >= w * v:
+            e_flow = v
+        check("heat and flow objectives at stake %g" % w,
+              near(e_heat, heat_err, 1e-9) and near(e_flow, flow_err, 1e-9),
+              "heat_err=%.6f flow_err=%.6f" % (e_heat, e_flow))
+        record("ou_heat_w%g" % w, e_heat)
+        record("ou_flow_w%g" % w, e_flow)
+    check("at stake 2 the flow objective tracks and the heat objective is blind",
+          near(2.0 * math.sqrt(2.0) - 1.0, 1.82842712475, 1e-9))
+    record("ou_flow_cost_w2", 2.0 * math.sqrt(2.0) - 1.0)
     # K independent modes add. Each mode is spring-or-off.
     modes = [(0.5, 1.0), (1.5, 0.8), (4.0, 1.2)]
     w = 20.0
@@ -963,6 +990,17 @@ def test_ou_jphys():
     check("three OU modes add their own floors at stake 20",
           total > 0.0)
     record("ou_K3_J_w20", total)
+
+
+def test_unicyclic():
+    """Four states, four undirected edges, one cycle, affinity 2 ln(alpha_c/alpha_e)."""
+    ac, ae = 4.0, 0.5
+    # edges of the square 00-01-11-10
+    affinity = 2.0 * math.log(ac / ae)
+    check("the reference sensor is one cycle with affinity ln 64",
+          near(affinity, math.log(64.0), 1e-12),
+          "affinity=%.12f" % affinity)
+    record("cycle_affinity", affinity)
 
 
 def test_lagrangian():
@@ -1049,6 +1087,7 @@ def main():
     test_xor_future()
     test_stake_table()
     test_ou_jphys()
+    test_unicyclic()
     test_lagrangian()
     test_ct7_shape()
     print("--- numbers ---")

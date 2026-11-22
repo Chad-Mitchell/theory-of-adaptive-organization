@@ -1,6 +1,6 @@
 # Dissipation bounds the cost of a model, and does not produce the master equation
 
-*Sunday 22 November 2026. Draft. A self-check, not an independent review. The hypothesis sentence is unchanged. No locked preregistration file is edited. Checks: `theory/info_physics_checks/info_physics_checks.py`, run at `nice -n 19` (37 checks, FAILS 0). DOIs below were resolved on the Crossref API on 22 November 2026 (`theory/info_physics_checks/crossref.out`).*
+*Sunday 22 November 2026. Draft. A self-check, not an independent review. The hypothesis sentence is unchanged. No locked preregistration file is edited. Checks: `theory/info_physics_checks/info_physics_checks.py`, run at `nice -n 19` (61 checks, FAILS 0). DOIs below were resolved on the Crossref API on 22 November 2026 (`theory/info_physics_checks/crossref.out`).*
 
 Labels: **PROVED** (a proof is on this page, under the assumptions named with it), **PROVED (in-model)** (the same, inside a stated model; it says nothing by itself about nature), **PRIOR ART** (published, credited, not claimed here), **CONJECTURE**, **OPEN**. A lower bound is not a derivation of the cost.
 
@@ -14,16 +14,16 @@ J=\kappa I_{\mathrm{mem}}+hK+w\,\mathbb{E}[\ell]+A+L\qquad\text{subject to}\quad
 
 Selection does not produce that list, the cap, or the linear prices. Lemma LY gives Pareto in a bad vector that is handed to it. The growth bridge keeps a variance penalty and still takes the term list as an input. The question here is whether the physics of a system that stores a model and acts on it forces the terms instead.
 
-**Answer.** Physics forces a lower bound on the free-energy rate, in coordinates that are not the master equation's coordinates. In the telegraph solved below, the bound is the information flow, tight when the memory is fast at the minimal affinity, and missable by an arbitrarily large factor at fixed task error. The proposed cost is the medium heat, with that floor, plus \(w\) times the loss. Ruin and linking stay outside. The master equation is not that cost. Section 8a states the five conditions under which the floor is the tangent, and which of them are proved.
+**Answer.** The physical cost in these models is the medium heat of the memory's bath plus \(w\) times the loss. The information flow is a lower bound on that heat. The bound is tight on the telegraph's efficient frontier. It is not tight on the linear spring: there the heat floor and the top of the flow meet at \(kT\,av/\varepsilon\), while the flow's own lower envelope is the Kalman rate \(kT\,a(v-\varepsilon)/\varepsilon\), and the two differ by the constant \(kT\,a\). So \(kT\) times the flow is not, in general, the tangent of the physical frontier. Ruin and linking stay outside. The master equation is not this cost.
 
 What is forced, and what is not:
 
 | Object | Status | Price, where one exists |
 |---|---|---|
 | Nonpredictive information \(I(s_t;x_t)-I(s_t;x_{t+1})\), per signal update | **PRIOR ART** (Still, Sivak, Bell and Crooks 2012). One-step equality in their accounting; the sum over a protocol is a lower bound | \(kT\) per nat of that difference, per update |
-| Information-flow rate of a driven memory | **PROVED (in-model)** for the two-state sensor below. The shape, a subsystem entropy balance modified by a mutual-information rate, is **PRIOR ART** (Horowitz and Esposito 2014) | \(kT\) per nat per unit time of the flow. A rental \(\kappa\) on a stock needs a turnover time, the accounting step already in `core/bridge_2026-11-21/FLOOR.md` |
+| Information-flow rate of a driven memory | **PROVED (in-model)** for the two-state sensor below. The shape, a subsystem entropy balance modified by a mutual-information rate, is **PRIOR ART** (Horowitz and Esposito 2014) | \(kT\) per nat per unit time is a lower bound on the heat. On the telegraph frontier the heat meets it. On the linear spring the cheap heat is \(kT\,a\) above the Kalman rate. A rental \(\kappa\) on a stock needs a turnover time, the accounting step already in `core/bridge_2026-11-21/FLOOR.md` |
 | Measurement work and erasure work | **PRIOR ART** (Sagawa and Ueda 2009, erratum 2011). They bound the sum | one floor on the sum, not two stacked prices |
-| Precision of a steady current | **PRIOR ART**. Barato and Seifert 2015 proved it inside linear response and for unicyclic networks. This sensor is multicyclic with affinity \(\ln 8\), so the relation used on it is Gingrich, Horowitz, Perunov and England 2016 | total entropy production at least \(2kT/\varepsilon_{\mathrm{rel}}^2\) over the window. A lower bound on the same heat, not a constant per layer |
+| Precision of a steady current | **PRIOR ART**. Barato and Seifert 2015 proved it inside linear response and for a unicyclic network. This sensor is one 4-cycle, affinity \(2\ln(\alpha_c/\alpha_e)\). Gingrich, Horowitz, Perunov and England 2016 is the general jump-process theorem | total entropy production at least \(2kT/\varepsilon_{\mathrm{rel}}^2\) over the window. A lower bound on the same heat, not a constant per layer |
 | Task error against predictive information | **PRIOR ART** already in the repository (CT4, Theorem S1, PD1, CT7) | the stake \(w\) converts error into the energy currency. \(kT\) does not set \(w\) |
 | Gross stock \(I(M_t;X_{\le t})\), constant upkeep \(h\) per layer, a separate read price stacked on erasure, a linking term in every design, the ruin cap | not forced | none of these is a theorem of the bounds above |
 
@@ -96,10 +96,11 @@ Resolved on Crossref, 22 November 2026. Nothing in this list is claimed as new, 
 - **Parrondo, Horowitz and Sagawa (2015)**, *Nat. Phys.* 11:131, doi 10.1038/nphys3230. The review that puts Landauer, measurement, erasure, and feedback in one frame. This note does not add an inequality from the review.
 - **Esposito and Van den Broeck (2011)**, *EPL* 95:40004, doi 10.1209/0295-5075/95/40004. Landauer far from equilibrium. Still's 2012 result is already stated far from equilibrium; this citation is the same caution, not a new floor.
 - **Horowitz and Esposito (2014)**, *Phys. Rev. X* 4:031015, doi 10.1103/PhysRevX.4.031015, arXiv:1402.3276. For a bipartite Markov process the joint system obeys the second law, and the entropy balance of one subsystem is modified by a mutual-information rate. CT7 already excludes the feedback case by citing this paper. The two-state inequality in §4 is that shape, proved from the rates of that sensor.
-- **Barato and Seifert (2015)**, *Phys. Rev. Lett.* 114:158101, doi 10.1103/PhysRevLett.114.158101. They prove that a relative uncertainty \(\varepsilon_{\mathrm{rel}}\) costs at least \(2k_BT/\varepsilon_{\mathrm{rel}}^2\) inside linear response for any network, and for a unicyclic network beyond linear response. The constant \(2\) is theirs. The reference sensor has several cycles and affinity \(\ln(\alpha_c/\alpha_e)=\ln 8\), outside that proved set.
-- **Gingrich, Horowitz, Perunov and England (2016)**, *Phys. Rev. Lett.* 116:120601, doi 10.1103/PhysRevLett.116.120601. The uncertainty relation for a general steady-state Markov jump process, as the small-fluctuation corollary of their large-deviation bound. The numerical check below is a check of that corollary. It is not a re-proof.
+- **Barato and Seifert (2015)**, *Phys. Rev. Lett.* 114:158101, doi 10.1103/PhysRevLett.114.158101. They prove that a relative uncertainty \(\varepsilon_{\mathrm{rel}}\) costs at least \(2k_BT/\varepsilon_{\mathrm{rel}}^2\) inside linear response for any network, and for a unicyclic network beyond linear response. The constant \(2\) is theirs. The reference sensor is one 4-cycle. One corrective pass has rate product \(\alpha_c\gamma\alpha_c\gamma\) and the reverse has \(\alpha_e\gamma\alpha_e\gamma\), so the cycle affinity is \(2\ln(\alpha_c/\alpha_e)\). At \((4,0.5)\) that is \(\ln 64\). The edge ratio \(\ln 8\) is one memory edge, not the cycle. This example is inside the 2015 unicyclic theorem. Their multicyclic statement beyond linear response is a conjecture in that paper.
+- **Gingrich, Horowitz, Perunov and England (2016)**, *Phys. Rev. Lett.* 116:120601, doi 10.1103/PhysRevLett.116.120601. The uncertainty relation for a general steady-state Markov jump process, as the small-fluctuation corollary of their large-deviation bound. They cover this sensor. They are not the first theorem that covers it. The numerical check is a check of the relation, not a re-proof.
 - **Barato, Hartich and Seifert (2014)**, *New J. Phys.* 16:103024, doi 10.1088/1367-2630/16/10/103024. The learning-rate bound behind CT7. CT7 is **PRIOR ART** in this note: holding mean squared error \(D\) on a random walk of variance rate \(\sigma^2\) dissipates at least \(kT\,\sigma^2/(2D)\), and with stake \(w\) the sum is at least \(\sigma\sqrt{2kTw}\). The square root is rechecked as arithmetic (\(3.80131557\) against \(3.80131556\) at \(\sigma=1.7\), \(w=2.5\), \(kT=1\)). It is not re-derived.
-- **Lan, Sartori, Neumann, Sourjik and Tu (2012)**, *Nat. Phys.* 8:422, doi 10.1038/nphys2276. An energy-speed-accuracy tradeoff in sensory adaptation. The prefactor is not copied. The shape is the same fact the uncertainty relation makes quantitative: precision and speed cost dissipation. It is not a constant \(h\).
+- **Lan, Sartori, Neumann, Sourjik and Tu (2012)**, *Nat. Phys.* 8:422, doi 10.1038/nphys2276. In their coarse-grained adaptation model the dissipation is about \((c_0\sigma_a^2)\,\omega_m\ln(\varepsilon_0/\varepsilon)\): a logarithmic accuracy cost at fixed adaptation speed. That formula is theirs. It is not \(\gamma(1-2\varepsilon)\ln((1-\varepsilon)/\varepsilon)\), and it is not a constant \(h\). This note does not re-derive the prefactor. Precision and speed cost dissipation in both formulas. The formulas are not the same.
+- **Bo, Del Giudice and Celani (2015)**, *J. Stat. Mech.* P01014, doi 10.1088/1742-5468/2015/01/P01014. Crossref lists the families as Bo, Giudice, and Celani. They bound the information a memory holds about the past of a sensory layer, beyond the present reading, by the extra entropy production of the whole device over the sensory layer. In steady state they recover a learning-rate bound of the Horowitz–Esposito type. They do not derive this telegraph excess, this stake table, or a replacement for the master equation.
 - **Sartori, Granger, Lee and Horowitz (2014)**, *PLoS Comput. Biol.* 10:e1003974, doi 10.1371/journal.pcbi.1003974, arXiv:1404.1027. Adaptation costs tracked by the information the sensor holds about its environment. Same family. Not re-derived.
 - **Mehta and Schwab (2012)**, *PNAS* 109:17978, doi 10.1073/pnas.1207814109, arXiv:1203.5426. For a two-component Berg–Purcell network, learning a concentration requires breaking detailed balance, and more learning costs more energy. The abstract's qualitative statement is what is used. No formula is taken from the paper.
 - **Govern and ten Wolde (2014)**, *Phys. Rev. Lett.* 113:258102, doi 10.1103/PhysRevLett.113.258102. Energy dissipation and noise correlations in biochemical sensing.
@@ -109,7 +110,7 @@ Resolved on Crossref, 22 November 2026. Nothing in this list is claimed as new, 
 - **Tatikonda, Sahai and Mitter (2004)**, doi 10.1109/TAC.2004.834430, and the rate-distortion line already in Theorem S1 and PD1. Causal reading of the world. Not re-derived.
 - **Ito and Sagawa (2013)**, *Phys. Rev. Lett.* 111:180603, doi 10.1103/PhysRevLett.111.180603. Information thermodynamics on causal networks. The joint-versus-marginal caution: a bound on a part is not a bound on the sum. Used only at that level.
 
-CT4, CT7, Theorem S1, PD1–PD7, and FLOOR.md stay as they are. The two-state closed forms in §4, the stake table in §8, and the linear-spring floor in §8a are the calculations made here. The refusals are older, and this note points at them:
+CT4, CT7, Theorem S1, PD1–PD7, and FLOOR.md stay as they are. What is calculated here, and is not those papers, is listed at the end of §8a. The refusals are older, and this note points at them:
 
 - Still's equality and the protocol inequality: `core/bridge_2026-11-21/FLOOR.md`.
 - Heat at least \(kT\) times an information flow, for the Kalman–Bucy filter, with the random-walk limit \(\sigma^2/(2D)\): `theory/INTERNAL_MODEL.md` (Mitter and Newton 2005; Horowitz and Sandberg 2014) and CT7. The two-state formula is not in those notes.
@@ -245,7 +246,7 @@ The same split on a linear diffusion, three coordinates \((X,M_1,M_2)\) with a c
 - A constant \(h\) is not the heat of a layer. One and the same \(K=1\) device moves from \(0.0083\) to \(1.90\) with the drive.
 - Separate mechanisms add. A joint mechanism that can write the statistic the loss actually depends on pays once. That is CORE's sentence, read on this generator: one tracker is the right object for a single process; a second mechanism pays when it carries a component the first cannot write. LAYER_LIFETIME's joint-reset inequality is about lump costs \(k_i\) and is not re-derived. Lemma IP-joint bounds \(I(M;X_{\le t}\mid X_{>t})\), not Still's gap. The heat comparison is the numerical point above, not a general dominance theorem.
 
-**What replaces \(hK\), if anything.** Not a constant. The bookkeeping is in §8a: separate baths add their heats, one bath has one flow, and a TUR bounds a bath's heat without becoming a second term.
+**What replaces \(hK\), if anything.** Not a constant. The bookkeeping is in §8a: separate baths add their heats, one bath has one heat, and a TUR bounds that heat without becoming a second term.
 
 ## 8. The tangent, and why the master equation is not it
 
@@ -264,7 +265,7 @@ The efficient frontier, rates diverging at the minimal affinity, minimizes \(\do
 
 At stake 20 the frontier sits at \(0.063722\) and the stock price matched to stake 8 sits at \(0.019936\).
 
-The corrected objective \(kT\,\dot I+w\varepsilon\) equals \(\dot Q_{\min}+w\varepsilon\) on this family, because the flow is the floor. It is the Lagrangian of the efficient frontier. On the printed grid, which stops at speed 30, the flow objective selects error \(0.167570574149\) and the heat objective selects \(0.173927642272\). The gap is \(0.006357\). The heat objective charges the excess over the floor. The flow objective does not. Reaching the floor, which §4 already proves is available, makes them the same objective.
+The corrected objective \(kT\,\dot I+w\varepsilon\) equals \(\dot Q_{\min}+w\varepsilon\) on this telegraph, because here the flow is the heat floor. It is the Lagrangian of this telegraph's efficient frontier. It is not a general tangent: §8a shows the spring's flow is not its heat floor. On the printed grid, which stops at speed 30, the flow objective selects error \(0.167570574149\) and the heat objective selects \(0.173927642272\). The gap is \(0.006357\). The heat objective charges the excess over the floor. The flow objective does not. Reaching the floor, which §4 already proves is available, makes them the same objective on this chain.
 
 **FALSE**, as a claim about the master equation: it is the Lagrangian of the physical frontier. The witness is the residual \(0.617\) and the stake table, not the single pair of errors at \((\kappa,h)=(1.5,0.4)\). That pair only shows that one price vector is not the supporting price. The pair is still computed: at \(w=8\), \(\kappa=1.5\), \(h=0.4\), the stock objective selects error \(0.004749003213\).
 
@@ -273,63 +274,90 @@ The corrected objective \(kT\,\dot I+w\varepsilon\) equals \(\dot Q_{\min}+w\var
 Define, with ruin and linking left outside,
 
 \[
-J_{\mathrm{phys}}=\dot Q+w\,\mathbb{E}[\ell],\qquad \dot Q\ge kT\,\dot I,
+J_{\mathrm{phys}}=\dot Q+w\,\mathbb{E}[\ell],
 \]
 
-where \(\dot Q\) is the medium heat rate of the memory's bath and \(\dot I\) is the information flow into that memory. The floor objective \(kT\,\dot I+w\,\mathbb{E}[\ell]\) is a tangent of the physical frontier only under the five conditions below. Each is labeled with what is proved.
+where \(\dot Q\) is the medium heat rate of the memory's bath. The information flow \(\dot I\) is a lower bound, \(\dot Q\ge kT\,\dot I\), not the price. The bound is tight on the telegraph frontier below. It is not tight on the linear spring. \(kT\,\dot I+w\,\mathbb{E}[\ell]\) is therefore not, in general, the tangent of the physical frontier. The physical tangent uses the heat.
 
-**Condition 1, equality at the operating design (PROVED for two families; the excess is named).** The support function of the achievable set uses \(\dot Q\). It equals \(kT\,\dot I+wD\) only on the boundary where \(\dot Q=kT\,\dot I\). Off that boundary the excess is a free coordinate, and §4 shows it can be arbitrarily large at fixed error and fixed mutual information.
+**Condition 1, when the bound is tight.** The support function of the achievable set uses \(\dot Q\). It equals \(kT\,\dot I+wD\) only on the designs where \(\dot Q=kT\,\dot I\).
 
-*Telegraph.* At fixed error, \(\dot Q=kT\,\gamma(1-2\varepsilon)\ln\rho\) for every \(\rho>(1-\varepsilon)/\varepsilon\), so the infimum is the flow, attained as the rates diverge at the minimal affinity. Every minimizer of \(\dot Q+w\varepsilon\), in that closure, sits on the boundary. A finite-speed design pays the excess \(kT\,\gamma(1-2\varepsilon)\ln(\rho/\rho_\star)\).
+*Telegraph (PROVED (in-model)).* At fixed error, \(\dot Q=kT\,\gamma(1-2\varepsilon)\ln\rho\) and \(\dot I=\gamma(1-2\varepsilon)\ln((1-\varepsilon)/\varepsilon)\), for every \(\rho>(1-\varepsilon)/\varepsilon\). The infimum of the heat is the flow, attained as the rates diverge at the minimal affinity. Every minimizer of \(\dot Q+w\varepsilon\), in that closure, sits on that boundary. A finite-speed design pays the excess \(kT\,\gamma(1-2\varepsilon)\ln(\rho/\rho_\star)\). Here the mean squared error fixes the flow, because the flow depends only on \(\varepsilon\) and \(\gamma\).
 
-*Linear spring on an Ornstein–Uhlenbeck world (PROVED (in-model)).* \(dX=-a X\,dt+\sqrt{2av}\,dW\), \(dM=-\lambda(M-X)\,dt+\sqrt{2D}\,dB\), \(kT=1\). The force on the memory is \(F=-(\lambda/D)(M-X)\). The Stratonovich heat rate into the memory's bath is
+*Linear spring on an Ornstein–Uhlenbeck world (PROVED (in-model) for the heat; the flow envelopes are the same calculation).* \(dX=-a X\,dt+\sqrt{2av}\,dW\), \(dM=-\lambda(M-X)\,dt+\sqrt{2D}\,dB\), \(kT=1\). The force on the memory is \(F=-(\lambda/D)(M-X)\). The Stratonovich heat rate into the memory's bath is
 
 \[
 \dot Q=\frac{\lambda^2}{D}\mathbb{E}[(M-X)^2]-\lambda.
 \]
 
-*Proof of the expectation.* The Ito drift contributes \(\lambda(\lambda/D)\mathbb{E}[(M-X)^2]\). The quadratic covariation of the force with \(dM\) contributes \(-\lambda\). At the reference \((a,\lambda,v,D)=(1,2,1,0.3)\) this is \(4.444444444444\). The path at seed 7 gives \(4.43261155\). The information flow at that point is \(1.194029850746\). The Fokker–Planck partial entropy production, \(3.25041459370\), is a third functional and can fall below the flow; it is not the heat used here.
+*Proof of the expectation.* The Ito drift contributes \(\lambda(\lambda/D)\mathbb{E}[(M-X)^2]\). The quadratic covariation of the force with \(dM\) contributes \(-\lambda\). At the reference \((a,\lambda,v,D)=(1,2,1,0.3)\) this is \(4.444444444444\). The path at seed 7 gives \(4.43261155\). The information flow there is \(1.194029850746\). The Fokker–Planck partial entropy production is \(3.25041459370\). On this Gaussian family the three numbers satisfy \(\dot Q-\dot I-\sigma=0\) to \(10^{-9}\) at the reference and at the fast and slow ends checked below. That cancellation is a numerical identity of these covariances. It is not written out as an algebraic proof. It is why \(\sigma\) can sit below the flow while the heat stays above it: near the fast limit \(\sigma\to 0\) and \(\dot I\) stays positive.
 
-At fixed error \(\varepsilon\), eliminate \(D\). The heat is \(\lambda\, a v/(\varepsilon(a+\lambda)-av)\), which decreases in \(\lambda\) and tends to \(av/\varepsilon\). The information flow of the same design has the same limit (the covariance calculation; the gap at \(\lambda=10^4\), \(a=v=1\), \(\varepsilon=0.2\), is \(0.003\)). So the fast-memory boundary is again \(\dot Q=kT\,\dot I\), and the floor is \(kT\,av/\varepsilon\), not the Kalman rate. PD7 and `theory/INTERNAL_MODEL.md` give the Kalman–Bucy inflow \(a(v-\varepsilon)/\varepsilon\) in these units. The difference is \(kT\,a\). This spring cannot reach that inflow. Equality is relative to the implementation.
+At fixed error \(\varepsilon\), eliminate \(D\). The heat is \(\lambda\, av/(\varepsilon(a+\lambda)-av)\). Its derivative in \(\lambda\) has the sign of \(\varepsilon-v\). Three cases:
 
-Switching the spring off, \(M\) independent of \(X\), has heat \(0\) and error \(v\). That corner beats the spring when \(w\le 4a/v\). Both the heat floor and the flow floor see the same corner, so they still select the same design.
+- If \(\varepsilon<v\), the heat falls as \(\lambda\) rises, from infinity at \(\lambda\downarrow a(v/\varepsilon-1)\) down to \(av/\varepsilon\).
+- If \(\varepsilon=v\), every spring in the family has heat \(a\). The blind corner, \(M\) independent of \(X\), has heat \(0\).
+- If \(\varepsilon>v\), the heat rises with \(\lambda\). At \(\varepsilon=1.5\), \(a=v=1\), \(\lambda=0.05\), the heat is \(0.086956521739\), below \(av/\varepsilon=2/3\).
 
-| Stake \(w\) | Ornstein–Uhlenbeck error, \(a=v=1\) | Heat floor |
-|---|---|---|
-| 2 | 1, the blind corner | 0 |
-| 8 | 0.353553 | 2.828427 |
-| 20 | 0.223607 | 4.472136 |
-| 50 | 0.141421 | 7.071068 |
-
-Minimizing \(kT\,(av/\varepsilon)+w\varepsilon\) and minimizing the heat floor plus \(w\varepsilon\) are the same arithmetic on this table. That is the numerical check the linear-Gaussian case adds: the two objectives trace one frontier, including the decision not to track.
-
-**Condition 2, one stake (PROVED for these scalar errors; OPEN for a vector loss).** On the telegraph the flow is a function of \(\varepsilon\) alone, at fixed \(\gamma\). On the spring the floor \(av/\varepsilon\) is a function of \(\varepsilon\) alone. One \(w\) supports that curve. For \(K\) independent scalar errors and a loss that is their sum, the Lagrangian separates and the same \(w\) prices every mode. A loss that is not a function of the statistics that fix the flows is not covered. That case is **OPEN**.
-
-**Condition 3, the memory's bath pays (PROVED for these two implementations; not for every coupling).** On the telegraph the signal edges have equal forward and backward rates, so the whole medium entropy production is on the memory edges. On the spring the Sekimoto integral is the memory bath, and it is at least the flow, with equality in the fast limit. SE3 and the Barato–Hartich–Seifert receptor are the other case: information can be held while this subsystem's dissipation falls toward zero, because another bath pays. A memory price equal to \(kT\,\dot I\) needs the memory's bath to be the one in the balance. That is an assumption about the wiring, discharged here only for the two models.
-
-**Condition 4, layers (PROVED for the bookkeeping; the general coupling is OPEN).** Separate baths add their heats. On the efficient boundary,
+On the curve \(\varepsilon<v\), the information flow runs the other way. As \(\lambda\) increases, the flow rises from the Kalman rate \(a(v-\varepsilon)/\varepsilon\) to \(av/\varepsilon\). The two envelopes differ by the constant
 
 \[
-J_{\mathrm{phys}}=\sum_{i=1}^{K}\Big(kT\,\dot I_i(D_i)+w D_i\Big),
+\frac{av}{\varepsilon}-a\frac{v-\varepsilon}{\varepsilon}=a,
 \]
 
-with the blind corner available in each term, as in the table. One joint mechanism has one heat and one joint flow, and Lemma IP-joint does not turn that flow into a sum of Still gaps. No constant per layer survives. A TUR on a nonzero current of one bath is another lower bound on that bath's heat (Gingrich et al. for a jump process; the reference sensor is the check). It does not add a second price on top of the flow, and it is not \(h\). For \(K\) independent jump-process sensors the bound on the total is the sum of the per-sensor bounds, because the heats add. For one shared bath the same currents give only a maximum, not a sum. A theorem that a joint frontier lies below the sum of the marginal frontiers, past the additive case and the one sum-tracker comparison in §7, is **OPEN**.
+which is \(kT\,a\) with the temperature restored. At \(a=v=1\), \(\varepsilon=0.2\), and \(\lambda\) just above \(4\), the flow is \(4\) and the heat is about \(5\times 10^{6}\). At \(\lambda=10^{4}\) the heat is \(5.00200080032\) and the flow is \(4.99900039988\), so the flow is \(0.000999600\) below \(av/\varepsilon=5\), not above it. The fast boundary is where heat and flow meet, at \(av/\varepsilon\). That value is the heat floor and the top of the flow. It is not the flow floor. The flow floor on this curve is the Kalman rate, and the heat diverges there. The spring does reach that inflow. It does not reach it at finite heat.
+
+PD7 and `theory/INTERNAL_MODEL.md` already give the Kalman–Bucy rate. In these units, with noise intensity \(2av\) and relaxation \(a\), that rate is \(a(v-\varepsilon)/\varepsilon\). Nothing here reverses it.
+
+The constant \(kT\,a\) is the gap between those two envelopes. It is the extra heat this continuous linear coupling dissipates, in the cheap-heat limit, above the information rate of an optimal causal filter at the same error. It is independent of the error and it is not charged at the blind corner. It is not a universal upkeep, and it is not \(h\). Horowitz and Esposito bound a learning bath by \(kT\,\dot I\). They do not exhibit a coupling that attains the Kalman rate at finite heat equal to that bound. This note does not construct one either. Whether a nonlinear potential, or a different bath, closes the gap is **OPEN**. Bo, Del Giudice and Celani bound extra memory about the past by extra entropy production. They do not close it.
+
+The heat objective and the flow objective, the latter using \(\inf\dot I=a(v-\varepsilon)/\varepsilon\), do not select the same design. The printed numbers are the heat objective. The flow objective is the other column.
+
+| Stake \(w\) | Heat objective, \(a=v=1\) | Flow objective |
+|---|---|---|
+| 2 | blind, cost \(2\) | track, error \(1/\sqrt{2}\), flow \(\sqrt{2}-1\), cost \(2\sqrt{2}-1=1.82842712475\) |
+| 8 | error \(0.353553390593\), heat \(2.82842712475\), fast edge | same error, flow lower by \(1\), low-noise edge, where the heat diverges |
+| 20 | error \(0.223606797750\), heat \(4.47213595500\), fast edge | same error, low-noise edge |
+| 50 | error \(0.141421356237\), heat \(7.07106781187\), fast edge | same error, low-noise edge |
+
+Where both track, the error agrees only because the envelopes differ by the constant \(kT\,a\), which does not move an interior argmin. The mechanisms do not agree. At stake 2 they do not agree on whether to track. The blind corner beats the fast spring when \(w\le 4a/v\), with equality of the two heat costs at \(w=4a/v\). The flow objective still tracks at stake 2, because its cost is lower by \(kT\,a\).
+
+Mean squared error does not fix the flow on the spring. At one error the flow still depends on \(\lambda\).
+
+**Condition 2, one stake (PROVED for the telegraph; not for the spring; OPEN for a vector loss).** On the telegraph the flow is a function of \(\varepsilon\) alone, at fixed \(\gamma\), so one \(w\) supports that curve. On the spring the heat floor \(av/\varepsilon\) is a function of \(\varepsilon\), and the flow is not. One \(w\) supports the heat frontier of one spring. It does not make \(kT\,\dot I\) that frontier. A loss that is not a function of the statistic that fixes the heat is **OPEN**.
+
+**Condition 3, the memory's bath pays (PROVED for these two implementations; not for every coupling).** On the telegraph the signal edges have equal forward and backward rates, so the whole medium entropy production is on the memory edges. On the spring the Sekimoto integral is the memory bath, and on the checked designs it is at least the flow, with equality only as \(\lambda\to\infty\). SE3 and the Barato–Hartich–Seifert receptor are the other case: information can be held while this subsystem's dissipation falls toward zero, because another bath pays. A memory price equal to \(kT\,\dot I\) needs the memory's bath to be the one in the balance, and it needs the equality case. The wiring is discharged here only for the two models. The equality is discharged only for the telegraph frontier and the fast edge of the spring, and at that spring edge the common value is not the Kalman rate.
+
+**Condition 4, layers (PROVED for the bookkeeping of the heat; the general coupling is OPEN).** Separate baths add their heats. The physical cost is
+
+\[
+J_{\mathrm{phys}}=\sum_{i=1}^{K}\big(\dot Q_i+w D_i\big),
+\]
+
+each \(\dot Q_i\) at least \(kT\,\dot I_i\), with equality only in the cases condition 1 names. One joint mechanism has one heat. Lemma IP-joint bounds \(I(M;X_{\le t}\mid X_{>t})\). It does not turn a joint Still gap into a sum, and it does not turn the heat into \(kT\) times a sum of flows. No constant per layer survives. A TUR on a nonzero current of one bath is another lower bound on that same heat. On the telegraph the flow bound and the uncertainty bound do not add. The reference sensor is the 2015 unicyclic case. Gingrich et al. remain the general jump-process theorem. For one shared bath those currents give a maximum, not a sum. A theorem that a joint frontier lies below the sum of the marginal frontiers, past the additive case and the one sum-tracker comparison in §7, is **OPEN**.
 
 **Condition 5, ruin and linking stay outside (a scope, not a derived cost).** \(J_{\mathrm{phys}}\) has no reserve and no copy. Ouldridge, Govern and ten Wolde, and Ouldridge and ten Wolde, bound the dissipation of a copy that is actually made. A design that does not copy does not pay them, and neither paper supplies a linear linking price on every design. The ruin cap is not a statement about this heat. Both stay out until a reserve, or a real copy, is in the model.
 
-**How the master equation sits on \(J_{\mathrm{phys}}\).** This is a proposed replacement, recorded in OPEN_WORK. It is not a change to the equation in THEORY.
+**How the master equation sits on \(J_{\mathrm{phys}}\).** This is a proposed replacement, recorded in OPEN_WORK. It is not a change to the equation in THEORY. The price is the heat. The flow is a floor.
 
 | Master-equation term | What physics puts in its place |
 |---|---|
-| \(\kappa I_{\mathrm{mem}}\) | \(kT\,\dot I\) on the efficient boundary: \(\gamma(1-2\varepsilon)\ln((1-\varepsilon)/\varepsilon)\) for the telegraph, \(av/\varepsilon\) for the spring. Still's \(I(s_t;x_t)-I(s_t;x_{t+1})\) is the per-update functional, not this rate. The gross past stock is not the coordinate |
-| \(hK\) | No constant. \(K\) separate baths contribute the sum above. One bath contributes one flow. A TUR precision cost, where the 2016 theorem applies, bounds that heat and does not survive as a second term |
+| \(\kappa I_{\mathrm{mem}}\) | The heat. On the telegraph frontier that heat equals \(kT\,\dot I=kT\,\gamma(1-2\varepsilon)\ln((1-\varepsilon)/\varepsilon)\). On the spring the cheap heat is \(kT\,av/\varepsilon\), which is the top of the flow and is \(kT\,a\) above the Kalman rate. The gross past stock is not the coordinate. Still's per-update difference is a different functional |
+| \(hK\) | No constant. \(K\) separate baths contribute the sum of their heats. One bath contributes one heat. A TUR, where it applies, bounds that heat and does not survive as a second term. The spring's \(kT\,a\) is a gap between envelopes, not an upkeep charged at every design |
 | Read price inside \(A\) | Folded into the same heat for the continuously coupled sensor. A separate measurement-and-erasure operation is the Sagawa–Ueda sum, once, not a second price on the same nats |
 | \(w\,\mathbb{E}[\ell]\) | Unchanged. \(w\) is still an input. \(kT\) does not set it |
 | \(L\), and \(P(\mathrm{ruin})\le\varepsilon\) | Outside \(J_{\mathrm{phys}}\) |
 
-**What physics plus Lemma LY now gives.** The frontier in \((\dot Q, \mathbb{E}[\ell])\), and at equality the scalarization \(kT\,\dot I+w\,\mathbb{E}[\ell]\). If H3 holds for those two coordinates, a growth-maximizing lineage sits on the non-dominated part of that frontier. That is \(J_{\mathrm{phys}}\) at equality. It is not \(\kappa I_{\mathrm{mem}}+hK+A+L\) under a ruin cap.
+**What is calculated here.** The shape \(\dot Q\ge kT\,\dot I\) is Horowitz and Esposito. The learning-rate form on a sensor is Barato, Hartich and Seifert 2014. Still's equality is a different functional. Sagawa and Ueda bound one measurement-and-erasure sum. The uncertainty relation is Barato and Seifert 2015 for this unicyclic sensor, and Gingrich et al. 2016 for a general jump process. Lan et al. have a different logarithmic accuracy cost. Bo, Del Giudice and Celani bound extra memory about the past. The Kalman rate is Duncan, as already booked in PD7. None of those is redone.
 
-**What is still assumed.** H3. The stake \(w\). That the implementation in use is the efficient boundary, or that the books carry the excess rather than the floor. That the memory's bath is the one that pays, outside the two models. Risk-neutral expected currency rather than growth (V2). Ruin and linking, until they are modeled. The master equation's coordinates.
+What this note adds:
+
+- The telegraph closed form, and the excess \(kT\,\gamma(1-2\varepsilon)\ln(\rho/\rho_\star)\), including the infimum \(0.6\ln 4\). That is the solution of this four-state chain.
+- The telegraph stake table, the residual \(0.617160\), and the grid gap \(0.006357\). One stock price matched at one stake is not the efficient frontier at the other stakes.
+- The spring heat \((\lambda^2/D)\mathbb{E}[(M-X)^2]-\lambda\), its fast limit \(av/\varepsilon\), and the constant gap \(kT\,a\) between that limit and the Kalman rate. At fixed error below the signal variance the heat falls toward the fast limit and the flow rises from the Kalman rate up to the same value.
+- The proposal that the cost is the heat plus \(w\,\mathbb{E}[\ell]\), with the flow as a floor. The negative half, that \(\kappa I_{\mathrm{mem}}\), a constant \(h\), and a second read price are not forced by these balances, is the content carried from the first review. It is not a derivation of the master equation.
+
+**What physics plus Lemma LY now gives.** A frontier in \((\dot Q,\mathbb{E}[\ell])\). If H3 holds for those two coordinates, a growth-maximizing lineage sits on its non-dominated part. The scalarization is \(J_{\mathrm{phys}}\) only when the books use the heat. Replacing the heat by \(kT\,\dot I\) is valid on the telegraph frontier and not on the spring. It is not \(\kappa I_{\mathrm{mem}}+hK+A+L\) under a ruin cap.
+
+**What is still assumed.** H3. The stake \(w\). Which implementation is in use, and therefore which point on a fixed-error curve is paid. That the memory's bath is the one that pays, outside the two models. Risk-neutral expected currency rather than growth (V2). Ruin and linking, until they are modeled. The master equation's coordinates. Whether any other coupling attains the Kalman rate at finite heat.
 
 ## 9. Selection, and what is still assumed
 
@@ -344,11 +372,11 @@ The combination that yields the master equation is exactly this, and no shorter:
 
 **The derivation chain's weakest links are not removed.** Link 1 is the master equation, and \(J_{\mathrm{phys}}\) is a proposed replacement, not that equation. The proposal is in OPEN_WORK. Links 2 through 7 are untouched. H3 is untouched. The exogenous-world link is the hypothesis P-X this whole note sits inside. Joint achievability of the information floor (Shannon §3, efficiency \(0.9574\) on one Gauss–Markov world) is a different gap. It is not the thermodynamic efficiency of §4.
 
-A selected lineage that minimizes dissipation plus weighted error, at equality in conditions 1 and 3, on the coordinates of §8a, with H3 true for those coordinates and with no ruin cap, would sit on the physical tangent. That sentence assumes the wiring, the efficiency, the weight, and H3. It is \(J_{\mathrm{phys}}\). It is not the master equation.
+A selected lineage that minimizes the heat plus weighted error, on the coordinates of §8a, with H3 true for those coordinates and with no ruin cap, would sit on the physical frontier of the heat. Replacing the heat by \(kT\,\dot I\) keeps that design on the telegraph and moves it on the spring. The sentence assumes the wiring, the weight, and H3. It is not the master equation.
 
 ## 10. Checks
 
-`theory/info_physics_checks/info_physics_checks.py`. Thirty-seven checks, FAILS 0. The numbers in §§2–8 are the numbers the script prints.
+`theory/info_physics_checks/info_physics_checks.py`. 61 checks, FAILS 0. The numbers in §§2–8a are the numbers it prints.
 
 Ornstein–Uhlenbeck, one mode, \(a=1\), \(\lambda=2\), signal variance \(1\), memory diffusion \(0.3\), \(kT=1\):
 
@@ -364,14 +392,14 @@ The Gaussian mutual information \({\textstyle\frac12}\ln(C_{xx}C_{mm}/\det C)\) 
 ## 11. Open, and what was not proved
 
 - **IP7, OPEN.** Whether any system that qualifies under THEORY §3 has a binding ratio near 1, so that these floors rather than niche prices set the design. FRAMEWORK §3.11 and OPEN_WORK T10 already own that measurement. This row is not a preregistration and not a lock.
-- Condition 2 for a loss that is not a function of the statistics that fix the flows. **OPEN.**
+- On the spring the error does not fix the flow. A vector loss that does not fix the heat is **OPEN.** Whether any coupling attains the Kalman rate at finite heat equal to \(kT\) times that rate is **OPEN.** The spring does not.
 - Condition 4 past the additive case and the one sum-tracker comparison. **OPEN.**
 - A diffusion uncertainty relation as a per-layer price. The 2016 theorem is for jump processes. It is not applied to the spring.
 - The two-state family and the linear diffusion are the models. A general bipartite chain has the Horowitz–Esposito shape; the closed form is not claimed past the sensor, the sum-tracker, and the Gaussian.
 - Equality of Sekimoto heat and the partial entropy production for an exogenous diffusion is not proved.
 - No theorem here covers a system that changes its world.
 - The ruin cap, \(L\) as a universal summand, a constant \(h\), and a stacked read price remain assumptions. Calling them open problems would overstate how close the physics came. They are absent from the bound, not half-derived.
-- **CONJECTURE, not used.** A turnover time measured from the memory's correlation might turn the flow floor into a rental on Still's instantaneous memory, inside a factor that stays bounded for efficient sensors. The ray proposition says the factor is not bounded for inefficient ones. The conjecture is only about the minimizing branch. It is not a theorem, and \(J\) would still need the coordinate identification of §8.
+- **CONJECTURE, not used.** A turnover time measured from the memory's correlation might turn the information-flow bound into a rental on Still's instantaneous memory, inside a factor that stays bounded for efficient sensors. The ray proposition says the factor is not bounded for inefficient ones. The conjecture is only about the minimizing branch. It is not a theorem, and \(J\) would still need the coordinate identification of §8.
 
 ## 12. References
 
@@ -400,6 +428,8 @@ Seifert, U. 2012. Stochastic thermodynamics, fluctuation theorems and molecular 
 Ito, S., and Sagawa, T. 2013. Information thermodynamics on causal networks. *Phys. Rev. Lett.* 111:180603. doi 10.1103/PhysRevLett.111.180603.
 
 Barato, A. C., Hartich, D., and Seifert, U. 2014. Efficiency of cellular information processing. *New J. Phys.* 16:103024. doi 10.1088/1367-2630/16/10/103024.
+
+Bo, S., Del Giudice, M., and Celani, A. 2015. Thermodynamic limits to information harvesting by sensory systems. *J. Stat. Mech.* P01014. doi 10.1088/1742-5468/2015/01/P01014. Crossref lists the families as Bo, Giudice, and Celani.
 
 Govern, C. C., and ten Wolde, P. R. 2014. Energy dissipation and noise correlations in biochemical sensing. *Phys. Rev. Lett.* 113:258102. doi 10.1103/PhysRevLett.113.258102.
 
