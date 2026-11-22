@@ -272,9 +272,14 @@ def test_identity_and_signal_bath():
     check("Sekimoto heat minus learning rate matches the factored square on 40 designs",
           worst < 1e-9, "rel=%.3e" % worst)
     check("on those designs the path transfer entropy is at least the learning rate", True)
-    # signal bath: equilibrium OU force F = -X/v, diffusion a v, Stratonovich power cancels
-    # E[F * drift] + D_x dF/dX = (a v) E[X^2]/v^2 + (a v)(-1/v) = a - a
-    check("the equilibrium signal bath has medium heat 0", near(1.0 - 1.0, 0.0))
+    # signal bath: equilibrium OU force F = -X/v, diffusion a*v, Stratonovich power
+    # D_x * E[X^2] / v^2 + D_x * (-1/v), with E[X^2] = v
+    a_s, v_s = 1.7, 0.4
+    diffusion = a_s * v_s
+    power = diffusion * v_s / (v_s ** 2) + diffusion * (-1.0 / v_s)
+    check("the equilibrium signal bath has medium heat 0",
+          near(power, 0.0, 1e-15),
+          "a=1.7 v=0.4 power=%.3e" % power)
 
 
 def test_shrunk_attains():
@@ -290,6 +295,12 @@ def test_shrunk_attains():
             check("shrunk spring holds the error and stays above the Kalman rate", False,
                   "lam=%.1f err=%.6e Q=%.6e L=%.6e" % (lam, row["err"], row["Q"], row["L"]))
             return
+    early = shrunk_at_rate(a, v, eps, 6.0)
+    check("at lambda=6 the shrunk coordinate is not yet the conditional mean",
+          near(early["Q"], 24.0, 1e-9)
+          and near(early["Cxm"] / early["Cmm"], 1.2, 1e-12)
+          and abs(early["s"] - 0.177142857143) < 1e-12,
+          "Q=%.6f s=%.12f gain=%.6f" % (early["Q"], early["s"], early["Cxm"] / early["Cmm"]))
     check("shrunk spring at eps=0.2 holds E[(M-X)^2] and Q >= Kalman rate",
           True, "ratios " + " ".join("%.6f" % r for r in ratios))
     check("at lambda=1e6 the heat is within 2e-5 of the Kalman rate 4",
@@ -311,6 +322,29 @@ def test_shrunk_attains():
           abs(cen["Q"] - kalman_rate(a, v, cen["s"])) < 1e-4
           and abs((cen["Q"] - kalman_rate(a, v, eps)) - a) < 1e-3,
           "s=%.8f Q-R(raw)=%.8f" % (cen["s"], cen["Q"] - R))
+    # Same centered family, raw coordinate error held at 0.25 so the conditional mean has decision error 0.2.
+    raw = v * eps / (v - eps)
+    D_dec = lam * (raw - a * v / (a + lam))
+    dec = linear_memory(a, lam, lam, D_dec, v)
+    gain = dec["Cxm"] / dec["Cmm"]
+    check("centered spring at raw error 0.25 has decision error 0.2 and heat 4.000012",
+          near(dec["err"], 0.25, 1e-9)
+          and abs(dec["s"] - 0.20000032) < 5e-8
+          and abs(dec["Q"] - 4.00001200) < 5e-8
+          and abs(gain - 0.80000048) < 5e-8,
+          "raw=%.8f s=%.8f Q=%.8f gain=%.8f" % (dec["err"], dec["s"], dec["Q"], gain))
+    caps = []
+    for lam_c in (6.0, 20.0, 100.0, 1.0e3, 1.0e4, 1.0e6):
+        row_c = shrunk_at_rate(a, v, eps, lam_c)
+        caps.append(row_c["L"] / row_c["T"])
+    fast = shrunk_at_rate(a, v, eps, 1.0e6)
+    check("the floor limit sends sensory capacity to 0",
+          abs(fast["T"] - 999.503125) < 1e-3
+          and abs(fast["L"] / fast["T"] - 0.004002) < 1e-5
+          and abs(caps[0] - 0.774) < 0.002
+          and abs(caps[1] - 0.841) < 0.002
+          and abs(caps[-1] - 0.004) < 0.0005,
+          "T=%.6f C=%s" % (fast["T"], " ".join("%.4f" % c for c in caps)))
 
 
 def test_capacity_one():
@@ -364,7 +398,7 @@ def test_quantizer():
     sigma = 0.5  # unquantized MMSE = v sigma^2 / (sigma^2 + v) = 0.2
     s_parent = v * sigma ** 2 / (sigma ** 2 + v)
     check("parent Gaussian channel has MMSE 0.2", near(s_parent, 0.2, 1e-12))
-    print("  K-bin quantization of that channel (fast-limit heat = a(v E[F]-1)):")
+    print("  K-bin quantization of that channel (learning rate a(v E[F]-1); bath heat not computed):")
     print("  %4s %12s %12s %12s %12s" % ("K", "MMSE", "L", "R(MMSE)", "L/R"))
     ratios = []
     for K in (2, 4, 8, 16, 32, 64):
@@ -434,7 +468,7 @@ def test_quantizer():
         if L + 1e-4 < R:
             check("retuned quantizer stays above the Kalman rate", False, "K=%d" % K)
             return
-    check("at MMSE 0.2, 64 bins dissipate within 1% of the Kalman rate 4",
+    check("at MMSE 0.2 the 64-bin learning rate is within 1% of the Kalman rate 4",
           abs(tuned[-1][3] - 4.0) < 0.04 and abs(tuned[-1][2] - 0.2) < 2e-3,
           "L=%.6f mmse=%.6f" % (tuned[-1][3], tuned[-1][2]))
 

@@ -141,7 +141,7 @@ def test_brief_from_real_repo_runs():
     assert "GTAO live brief" in out
     assert "America/New_York" in out
     assert "THEORY.md v2.9" in out
-    assert "CLAIM_MAP v2.85" in out
+    assert "CLAIM_MAP v2.86" in out
     assert "tally: total 389" in out
     assert "strongly selected systems minimize the cost of judgment" in out
     head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()

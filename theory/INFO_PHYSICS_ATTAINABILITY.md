@@ -1,6 +1,6 @@
 # The Kalman rate is a heat floor, and a linear spring attains it
 
-*Sunday 22 November 2026. Draft. A self-check, not an independent review. The hypothesis sentence is unchanged. The master equation in THEORY is unchanged. No locked preregistration file is edited. Checks: `theory/info_physics_checks/attainability_checks.py`, run at `nice -n 19` (28 checks, FAILS 0). DOIs resolved on the Crossref API on 22 November 2026 are listed in `theory/info_physics_checks/attainability_crossref.out`.*
+*Sunday 22 November 2026. Draft. A self-check, not an independent review. Repaired after the review of draft PR #178 (`reviews/attainability_2026-11-22/REVIEW.md`). The hypothesis sentence is unchanged. The master equation in THEORY is unchanged. No locked preregistration file is edited. Checks: `theory/info_physics_checks/attainability_checks.py`, run at `nice -n 19` (31 checks, FAILS 0). DOIs resolved on the Crossref API on 22 November 2026 are listed in `theory/info_physics_checks/attainability_crossref.out`. The dated correction of the merged note is `theory/INFO_PHYSICS_CORRECTION_2026-11-22.md`.*
 
 Labels: **PROVED** (a proof is on this page, under the assumptions named with it), **PROVED (in-model)** (the same, inside a stated model), **PRIOR ART** (published, credited, not claimed here), **NUMERICAL**, **OPEN**. A lower bound is not a derivation of the cost.
 
@@ -14,17 +14,29 @@ The signal is the equilibrium Ornstein–Uhlenbeck process
 dX=-a X\,dt+\sqrt{2av}\,dW,
 \]
 
-variance \(v\), temperature of the memory bath \(T\). The error \(\varepsilon\in(0,v)\) is a mean squared error of an action that is a function of the current memory state. The Kalman–Bucy information rate at that error, in these units, is
+variance \(v\), temperature of the memory bath \(T\).
+
+**The loss.** The action \(g\) is a function of the current memory state \(M\), which is A-B. The decision error is the mean square of that action,
+
+\[
+\varepsilon=\mathbb{E}[(g(M)-X)^2].
+\]
+
+The smallest such error, over choices of \(g\), is the conditional error \(\varepsilon_{\mathrm{MMSE}}=\mathbb{E}[\mathrm{Var}(X\mid M)]\), attained at \(g(M)=\mathbb{E}[X\mid M]\). Every \(\varepsilon\) in this note is that decision error, unless the sentence says raw coordinate error. The raw coordinate error \(\mathbb{E}[(M-X)^2]\) is the decision error of the particular action \(g(M)=M\). It equals \(\varepsilon_{\mathrm{MMSE}}+\mathbb{E}[(M-\mathbb{E}[X\mid M])^2]\). Scoring the centered coordinate's raw error, when the decision is the conditional mean, charges an error the action is not using.
+
+The Kalman rate at a decision error \(\varepsilon\in(0,v)\), in these units, is
 
 \[
 R(\varepsilon)=a\frac{v-\varepsilon}{\varepsilon}.
 \]
 
-Duncan's theorem identifies \(R(\varepsilon)\) as the mutual-information rate of the causal filter that holds error \(\varepsilon\). PD7 already books that rate. This note proves it is also the greatest lower bound on the learning rate of any regular memory of this signal, and that the memory-bath heat can meet \(kT\,R(\varepsilon)\) in a limit where the heat stays finite.
+Duncan's theorem is the mutual-information rate of a path observation. It equals \(R(\varepsilon)\) when the filter state is a sufficient statistic of that path and holds error \(\varepsilon\). PD7 already books the filter rate. Section 3 proves that the learning rate of any regular memory is at least \(R(\varepsilon)\) at the decision error, and §4 shows that the memory-bath heat meets \(kT\,R(\varepsilon)\) in a limit where the heat stays finite. On that limit the path rate is larger than \(R(\varepsilon)\).
 
-**Answer.** Over bipartite memories of this signal, the infimum of the memory-bath heat at fixed error \(\varepsilon\) is \(kT\,R(\varepsilon)\). A one-dimensional linear spring whose rest point is \(cX\), with \(c=1-\varepsilon/v\), approaches that infimum as its rate goes to infinity. At rate \(10^{6}\), error \(0.2\), \(a=v=kT=1\), the heat is \(4.000020\), against \(R=4\). The centered spring of INFO_PHYSICS, rest point \(X\), has heat floor \(kT\,av/\varepsilon\). At the same raw error that floor exceeds \(R(\varepsilon)\) by \(kT\,a\). The excess is the gap between \(R\) at the conditional error and \(R\) at the raw error. Continuity, a single degree of freedom, and causality do not force it.
+**Answer.** Over bipartite memories of this signal, the infimum of the memory-bath heat at fixed decision error \(\varepsilon\) is \(kT\,R(\varepsilon)\). Two linear designs approach it. One is a spring whose rest point is \(cX\), with \(c=1-\varepsilon/v\), so the coordinate itself is the estimate. At rate \(10^{6}\), decision error \(0.2\), \(a=v=kT=1\), its Sekimoto heat is \(4.000020\), against \(R=4\). The other is the centered spring of INFO_PHYSICS, rest point \(X\), read out by \(g(M)=\mathbb{E}[X\mid M]\). Holding its raw coordinate error at \(v\varepsilon/(v-\varepsilon)=0.25\) holds the decision error at \(0.2\). At the same rate its heat is \(4.000012\), the conditional variance is \(0.20000032\), and the regression gain is \(0.80000048\). The two designs meet in the limit: one puts the gain in the force, the other puts it in the action. Both spend the memory-bath heat on the error \(R\) prices.
 
-Demanding sensory capacity \(1\), in the sense of Hartich, Barato, and Seifert, is a stronger requirement than the error. Their theorem then puts the heat at least twice the learning rate. The centered spring meets the factor \(2\) at their tuned noise. At conditional error \(0.2\) that design costs \(8\), and the floor for the error is \(4\).
+The constant \(kT\,a\) is what appears when the centered coordinate is scored by its raw error. At raw error \(0.2\) the fast centered heat is \(5.000020\), the conditional error is \(0.16666694\), and \(5-R(0.2)=1\). That is \(R(s)-R(\varepsilon_{\mathrm{raw}})\) with \(s=v\varepsilon_{\mathrm{raw}}/(v+\varepsilon_{\mathrm{raw}})\). Continuity, a single degree of freedom, and causality do not force it. The loss has to be the decision.
+
+Sensory capacity \(1\), in the sense of Hartich, Barato, and Seifert, asks for a state that keeps the path information. Their factor \(2\) is that demand. The centered spring meets it at their tuned noise and costs \(8\) at decision error \(0.2\). The designs that meet the floor do not. At rate \(10^{6}\) the shrunk spring has path rate \(999.503125\) and capacity \(0.004002\). The limit sends the capacity to \(0\). Hartich's factor \(2\) does not apply there. Sandberg, Delvenne, Newton, and Mitter (2014) give \(2kT\) times the transfer-entropy rate as the implementation cost of a Kalman–Bucy demon that keeps that path information. That is the capacity-1 cost.
 
 The resulting frontier, ruin and linking left outside, is
 
@@ -39,8 +51,8 @@ It equals \(wv\) when \(w\le kT a/v\), and \(2\sqrt{kT\,a\,v\,w}-kT a\) when \(w
 - **A-X.** \(X\) is exogenous. Its drift and diffusion do not depend on the memory. This is P-X of INFO_PHYSICS. A memory that moves its world is outside this note.
 - **A-E.** The signal is the equilibrium OU above. Its own medium heat is zero (proved in §3). A driven signal, whose bath can pay, is the case SE3 and Barato, Hartich, and Seifert already separate, and is outside.
 - **A-B.** The memory is a bipartite Markov process on the same probability space: a diffusion, a jump process, or a mixture, with one or more degrees of freedom, coupled to baths at temperature \(T\). The action is a function of the current memory state. The checks set \(kT=1\).
-- **A-R.** Conditionals \(p(x\mid m)\) are positive smooth densities with finite Fisher information, so the integrations by parts in §3 apply. A hard bin of \(X\), whose conditional drops discontinuously at a finite edge, is outside A-R. Section 6 says what the soft \(K\)-state channel does instead.
-- **A-L.** The loss is a mean square. A loss that does not fix a mean square is the vector-loss question INFO_PHYSICS left open, and it stays open.
+- **A-R.** A conditional \(p(x\mid m)\) is regular when it is a positive smooth density on the line, its Fisher information is finite, and the boundary terms in \(\int x\,\partial_x p(x\mid m)\,dx\) vanish, so that integral equals \(-1\). A hard bin of \(X\), zero outside a finite interval and discontinuous at the edge, is not regular. Section 6 uses soft bins, whose posteriors are regular.
+- **A-L.** The loss is the decision error of §0, a mean square of an action of the current state. A loss that does not fix a mean square is the vector-loss question INFO_PHYSICS left open, and it stays open.
 
 ## 2. What is already proved, or already published
 
@@ -50,7 +62,9 @@ Nothing in this list is claimed as new.
 - **Barato, Hartich, and Seifert (2014)**, *New J. Phys.* 16:103024, doi 10.1088/1367-2630/16/10/103024. The learning rate is at most the entropy production of the learning subsystem. CT7 is the random-walk case, already in the repository: holding error \(D\) on a walk of variance rate \(\sigma^2\) dissipates at least \(kT\,\sigma^2/(2D)\). With \(q=2av\) held fixed and \(a\to 0\), \(R(\varepsilon)\to q/(2\varepsilon)\). The \(-a\) in \(R\) is the OU correction and vanishes in that limit. CT7 is not re-derived.
 - **Hartich, Barato, and Seifert (2016)**, *Phys. Rev. E* 93:022116, doi 10.1103/PhysRevE.93.022116. Sensory capacity is the learning rate divided by the transfer-entropy rate, \(C=l/\mathcal T\in(0,1]\). If \(C=1\), their equations (63)–(64) give efficiency \(\eta=l/\sigma\le 1/2\), with equality available for a bare sensor. Their bare sensor, equation (47) without the memory coordinate, is the centered spring. Their equations (52), (53), and (54) are the learning rate, the transfer entropy, and the entropy production of that spring. This note recomputes those three from the Lyapunov equation and the Riccati, on and off their capacity-1 locus, and does not re-prove the tradeoff.
 - **Horowitz and Sandberg (2014)**, *New J. Phys.* 16:125007, doi 10.1088/1367-2630/16/12/125007. Second-law inequalities with an information flow. Hartich, Barato, and Seifert attribute the linear-Langevin transfer entropy to this paper. The Riccati calculation in §5 reproduces the number Hartich, Barato, and Seifert print.
-- **Duncan (1970)**, *SIAM J. Appl. Math.* 19:215, doi 10.1137/0119020, as booked in PD7 and `theory/INTERNAL_MODEL.md`. The information rate of the Kalman–Bucy filter at error \(\varepsilon\) is \(R(\varepsilon)\). This note does not re-prove Duncan, and it does not re-prove the Gaussian causal rate-distortion theorem. The heat bounds the learning rate. The identification of the minimum learning rate with \(R(\varepsilon)\) is the argument in §3.
+- **Duncan (1970)**, *SIAM J. Appl. Math.* 19:215, doi 10.1137/0119020, as booked in PD7 and `theory/INTERNAL_MODEL.md`. Duncan's theorem is the path mutual information. For the linear memory it equals \(R(P)\) at the path error \(P\), and it equals the learning rate only when the state is a sufficient statistic of the path. This note does not re-prove Duncan.
+- **Mitter and Newton (2005)**, *J. Stat. Phys.* 118:145, doi 10.1007/s10955-004-8781-9. Information supply, storage, and dissipation in the Kalman–Bucy filter, and a statistical-mechanical analogy in which the filter returns signal energy to the bath without an entropy increase, because of the information supply. The analogy is not a lower bound on the bath heat of a physical memory, and it is not a spring that meets \(kT\,R(\varepsilon)\). Already named, with Horowitz and Sandberg, in `theory/INTERNAL_MODEL.md`. Used here only as that analogy.
+- **Sandberg, Delvenne, Newton, and Mitter (2014)**, *Phys. Rev. E* 90:042119, doi 10.1103/PhysRevE.90.042119. Their equation (46) sets the nonequilibrium implementation cost of a Kalman–Bucy demon at \(2kT\) times the transfer-entropy rate. That is the capacity-1 cost: a state that keeps the path information. It is not the infimum of the learning-rate heat over memories whose state is not a sufficient statistic.
 - **Bo, Del Giudice, and Celani (2015)**, *J. Stat. Mech.* P01014, doi 10.1088/1742-5468/2015/01/P01014. Crossref lists the families as Bo, Giudice, and Celani. They bound the information a memory holds about the past of a sensory layer, beyond the present reading, by the extra entropy production of the whole device over the sensory layer. That extra is the gap \(C<1\) measures: the trajectory carries information the instantaneous state does not. They do not derive \(R(\varepsilon)\), the shrunk spring, or this frontier.
 - **INFO_PHYSICS §8a**, centered spring. At fixed raw error \(\varepsilon<v\), the heat falls toward \(kT\,av/\varepsilon\) as the memory rate rises, and the information flow rises from \(R(\varepsilon)\) to the same value. The flow meets \(R(\varepsilon)\) where the heat diverges. Those sentences stand. They describe the spring whose rest point is \(X\), with the loss \(\mathbb{E}[(M-X)^2]\). Section 4 puts the same formulas next to the conditional error.
 
@@ -58,41 +72,55 @@ The telegraph equality, the stake table, and the proposal \(J_{\mathrm{phys}}=\d
 
 ## 3. The learning rate is at least the Kalman rate
 
-**Proposition AT-learn (PROVED, under A-X, A-E, A-R).** Let the memory state \(M\) be anything on which the conditional densities \(p(x\mid m)\) exist and are regular in the sense A-R. In steady state the learning rate the memory must supply is
+**Proposition AT-learn (PROVED, under A-X, A-E, A-R).** Let the memory state \(M\) carry regular conditionals in the sense A-R. Write \(u=\partial_x\ln p(x\mid m)\) and \(F(X\mid m)=\int u^2\,p(x\mid m)\,dx\). For this equilibrium signal the Horowitz–Esposito information flow of the signal current and the Hartich–Barato–Seifert learning rate are the same number, because the contraction against the marginal score cancels. That number is
 
 \[
-L=a\big(v\,\mathbb{E}[F(X\mid M)]-1\big),
+L=a\big(v\,\mathbb{E}[F(X\mid M)]-1\big).
 \]
 
-where \(F(X\mid m)=\int(\partial_x\ln p(x\mid m))^2\,p(x\mid m)\,dx\) is the Fisher information of the conditional. Hence
+Fisher's inequality and Jensen's inequality then give \(L\ge R(\varepsilon_{\mathrm{MMSE}})\), and a decision error \(\varepsilon\) gives \(L\ge R(\varepsilon_{\mathrm{MMSE}})\ge R(\varepsilon)\).
+
+*Proof.* The signal is exogenous, so its marginal is the equilibrium Gaussian of variance \(v\), score \(-x/v\), and its probability current is
 
 \[
-L\ge a\Big(\frac{v}{\varepsilon_{\mathrm{MMSE}}}-1\Big)=R(\varepsilon_{\mathrm{MMSE}}),
+\frac{j_X}{p}=-ax-av\,u.
 \]
 
-with \(\varepsilon_{\mathrm{MMSE}}=\mathbb{E}[\mathrm{Var}(X\mid M)]\). Equality holds when every conditional is Gaussian and the conditional variance is almost surely constant. If an action \(g(M)\) has mean squared error \(\varepsilon\), then \(\varepsilon_{\mathrm{MMSE}}\le\varepsilon\), so \(L\ge R(\varepsilon)\). The same bound holds when the loss is the raw coordinate error \(\mathbb{E}[(M-X)^2]=\varepsilon\), because that error is the MMSE plus \(\mathbb{E}[(\mathbb{E}[X\mid M]-M)^2]\).
-
-*Proof.* The signal is exogenous, so its marginal is the equilibrium Gaussian of variance \(v\), and its probability current is
+Horowitz and Esposito contract that current against \(\partial_x\ln(p/(p_X p_M))=u+x/v\):
 
 \[
-\frac{j_X}{p}=-ax-av\,\partial_x\ln p(x\mid m).
+\dot I_X=\Big\langle\frac{j_X}{p}\,(u+x/v)\Big\rangle.
 \]
 
-The information flow carried by that current is the Horowitz–Esposito contraction
+Hartich, Barato, and Seifert's learning rate, the rate at which the signal current raises the conditional entropy, is
 
 \[
-\dot I_X=\Big\langle\frac{j_X}{p}\,\partial_x\ln\frac{p}{p_X p_M}\Big\rangle.
+L=-\Big\langle\frac{j_X}{p}\,u\Big\rangle.
 \]
 
-The score of the equilibrium marginal is \(-x/v\), so the second factor is \(\partial_x\ln p(x\mid m)+x/v\). Write \(u=\partial_x\ln p(x\mid m)\). Then
+The two differ by the marginal contraction
 
 \[
-\dot I_X=\big\langle(-ax-av\,u)(u+x/v)\big\rangle=-2a\langle xu\rangle-(a/v)\langle x^2\rangle-av\,\mathbb{E}[u^2].
+\Big\langle\frac{j_X}{p}\,\frac{x}{v}\Big\rangle=\big\langle(-ax-av\,u)(x/v)\big\rangle=-(a/v)\langle x^2\rangle-a\langle xu\rangle.
 \]
 
-For each regular conditional, \(\int x\,\partial_x p(x\mid m)\,dx=-1\), so \(\langle xu\rangle=-1\). Also \(\langle x^2\rangle=v\) and \(\mathbb{E}[u^2]=\mathbb{E}[F]\). Therefore \(\dot I_X=a-av\,\mathbb{E}[F]\). In steady state the learning rate is \(L=-\dot I_X\).
+Regularity gives \(\langle xu\rangle=-1\), and \(\langle x^2\rangle=v\), so the contraction is \(-a+a=0\). The information flow and the learning rate are the same number. Expanding the learning rate,
 
-Fisher's inequality gives \(F(X\mid m)\ge 1/\mathrm{Var}(X\mid m)\), with equality exactly for a Gaussian. Jensen's inequality on \(1/s\), which is convex for \(s>0\), gives \(\mathbb{E}[1/\mathrm{Var}]\ge 1/\varepsilon_{\mathrm{MMSE}}\), with equality when the conditional variance is constant. The mean squared error of any action \(g(M)\) is at least \(\varepsilon_{\mathrm{MMSE}}\), with equality when \(g(M)=\mathbb{E}[X\mid M]\). \(R\) decreases in its argument on \((0,v]\). ∎
+\[
+\Big\langle\frac{j_X}{p}\,u\Big\rangle=\langle(-ax-av\,u)\,u\rangle=-a\langle xu\rangle-av\,\mathbb{E}[u^2]=a-av\,\mathbb{E}[F],
+\]
+
+and \(L=a(v\,\mathbb{E}[F]-1)\). In steady state the memory's own transitions supply this \(L\), because the mutual information is constant.
+
+Fisher's inequality gives \(F(X\mid m)\ge 1/\mathrm{Var}(X\mid m)\), with equality exactly for a Gaussian. Jensen's inequality on \(1/s\), convex for \(s>0\), gives \(\mathbb{E}[1/\mathrm{Var}]\ge 1/\varepsilon_{\mathrm{MMSE}}\), with equality when the conditional variance is constant. Therefore
+
+\[
+L\ge a\Big(\frac{v}{\varepsilon_{\mathrm{MMSE}}}-1\Big)=R(\varepsilon_{\mathrm{MMSE}}).
+\]
+
+Any action \(g(M)\) has decision error at least \(\varepsilon_{\mathrm{MMSE}}\), with equality at \(g(M)=\mathbb{E}[X\mid M]\). \(R\) decreases on \((0,v]\), so a decision error \(\varepsilon\) implies \(L\ge R(\varepsilon_{\mathrm{MMSE}})\ge R(\varepsilon)\). The raw coordinate error is \(\varepsilon_{\mathrm{MMSE}}+\mathbb{E}[(M-\mathbb{E}[X\mid M])^2]\), so the same chain covers a loss that scores the coordinate. Charging \(R\) at that larger number, when the decision error is \(\varepsilon_{\mathrm{MMSE}}\), is the scoring gap of §4. ∎
+
+Duncan's theorem is not this bound. It is the mutual-information rate between the signal path and an observation path. For the linear memory of §4, after the known \(-\beta M\,dt\) is removed from \(dM\), that path rate is \(\gamma^2 P/(4D)\). The Riccati \(\gamma^2 P^2=4aD(v-P)\) converts it into \(R(P)\). The path error \(P\) is at most the error \(s\) given \(M_t\) alone, so the path rate is at least the learning rate. The two agree only when \(P=s\), that is when \(M_t\) is a sufficient statistic of the path of \(M\). The inequality proved here is the learning-rate bound. On the designs that attain the heat floor, the path rate is the larger number.
 
 **Proposition AT-signal (PROVED, under A-X and A-E).** The medium heat of the signal bath is identically zero. The signal does not pay \(L\).
 
@@ -160,7 +188,9 @@ At \(a=v=1\), \(\varepsilon=0.2\), \(R=4\), the ratio is exactly \(6\) at \(\lam
 
 which is \(kT\,a\) with the temperature restored. At \(a=v=1\), \(\varepsilon=0.2\), \(\lambda=10^6\), the raw error is \(0.20000000\), the heat is \(5.00002000\), the conditional variance is \(0.16666694\), and the heat exceeds \(R(0.2)=4\) by \(1.00002000\).
 
-The constant \(kT\,a\) is that difference. It is the excess of charging \(R\) at \(\mathbb{E}[(M-X)^2]\) when the conditional error is the smaller number \(s\). The fast centered spring is thermodynamically tight against \(R(s)\). Shrinking the readout to \(\mathbb{E}[X\mid M]\), or moving the rest point to \(cX\) as above, spends the same physical heat on the error \(R\) prices. The centered family with an unshrunk coordinate does not.
+The constant \(kT\,a\) is that difference. It is a scoring gap: the loss was charged at the raw coordinate error, and the decision the conditional mean would have made is the smaller error \(s\). The fast centered spring is thermodynamically tight against \(R(s)\).
+
+**The same spring, scored on the decision (PROVED (in-model)).** Hold the raw coordinate error at \(v\varepsilon/(v-\varepsilon)\). For \(\varepsilon=0.2\) and \(v=1\) that raw error is \(0.25\). At \(\lambda=10^6\) the conditional variance is \(0.20000032\), the Sekimoto heat is \(4.00001200\), and the regression gain \(C_{XM}/C_{MM}\) is \(0.80000048\). The action \(g(M)=\mathbb{E}[X\mid M]\) is a function of the current state, which A-B already allows, and its decision error is \(0.20000032\) at that heat. The shrunk spring at decision error \(0.2\) and the same rate has heat \(4.000020\). The two meet as \(\lambda\to\infty\): moving the rest point to \(cX\) with \(c=1-\varepsilon/v\) puts the gain into the force, so the coordinate itself becomes the estimate. Comparing them at the same raw \(\mathbb{E}[(M-X)^2]\) charges the centered coordinate for an estimate it is not using.
 
 ## 5. Causality, sensory capacity, and the factor two
 
@@ -182,11 +212,11 @@ L=a\frac{\nu^3}{\nu^2+B(1+\nu)^2},\qquad
 
 Checked to \(10^{-9}\) at the capacity-1 noises \(B=\nu^2/(\nu^2-1)\) for \(\nu=2,4,10\), and off that locus at \((\nu,B)=(10,0.3)\), \((3,1.5)\), \((20,2)\), and \((1.5,0.4)\). At \(B=\nu^2/(\nu^2-1)\) one has \(P=s\), \(C=1\), and \(\dot Q=2L\). For \(\nu=9\), \(a=v=1\), the conditional error is \(0.2\) and the heat is \(8\), which is \(2R(0.2)\).
 
-The factor \(2\) is their tradeoff, attained by this sensor: a state that carries the whole trajectory pays at least twice the learning rate, and this parameter choice pays exactly twice. It is a real excess, and it sits above the error floor. At conditional error \(0.2\) the capacity-1 design costs \(8\) and the shrunk spring approaches \(4\).
+The factor \(2\) is their tradeoff, attained by this sensor: a state that carries the whole trajectory pays at least twice the learning rate, and this parameter choice pays exactly twice. Sandberg, Delvenne, Newton, and Mitter (2014), equation (46), write the same factor as an implementation cost, \(\dot W_{\mathrm{impl}}=2kT\,\dot I_c\), for a Kalman–Bucy demon whose state keeps the path information. Mitter and Newton (2005) is the analogy in which that filter returns signal energy without an entropy increase. It is not this heat bound, and it is not the shrunk spring. At decision error \(0.2\) the capacity-1 design costs \(8\) and the shrunk spring approaches \(4\).
 
-The error constraint does not ask for \(C=1\). The action reads the current state. Information that is only in the path, and not in the state, is not available to the action. The fast shrunk spring delivers conditional error \(\varepsilon\) at heat approaching \(kT\,R(\varepsilon)\), with \(C<1\): the path is the more informed object, and the state is the object the loss scores. Bo, Del Giudice, and Celani bound that unused past information by extra entropy production. Raising \(C\) to \(1\) is where the factor \(2\) enters. Leaving \(C\) below \(1\) is how the heat stays at one times \(R(\varepsilon)\).
+The decision loss does not ask for \(C=1\). The action reads the current state. On the shrunk spring at \(a=v=1\), \(\varepsilon=0.2\), the capacity \(L/\mathcal T\) is \(0.7742\) at \(\lambda=6\), \(0.8412\) at \(\lambda=20\), then \(0.4074\), \(0.1281\), \(0.0402\), and \(0.0040\) at \(\lambda=10^2,10^3,10^4,10^6\). At \(\lambda=10^6\) the learning rate is \(4.000000000020\) and the path rate is \(999.503125\). The limit that brings the heat to \(R(\varepsilon)\) sends the capacity to \(0\). Hartich's factor \(2\) covers the sufficient statistic. It does not apply to this design. The state that attains the floor keeps almost none of the path information.
 
-Causality in the sense "the action is a causal function of the memory" is already the hypothesis A-B, and the floor \(kT\,R(\varepsilon)\) includes it. Causality in the stronger sense "the state is a sufficient statistic of its own path" is the capacity-1 constraint, and it prices a second copy of the learning rate. The gap \(kT\,a\) is neither of those. It is the raw-versus-conditional gap of the centered spring.
+Bo, Del Giudice, and Celani bound that unused past information by extra entropy production. Raising \(C\) to \(1\) is where the factor \(2\) enters. The gap \(kT\,a\) is neither that factor nor a cost of continuity. It is the scoring gap of the unshrunk coordinate.
 
 ## 6. Other implementations
 
@@ -194,7 +224,7 @@ Causality in the sense "the action is a causal function of the memory" is alread
 
 **Several degrees of freedom.** The Fisher bound uses the conditional of \(X\) given the whole memory state. Extra coordinates can lower the conditional variance, which raises \(R\), or they can sit at equilibrium and add nothing. They do not open a heat below \(kT\,R(\varepsilon)\). **NUMERICAL.** Embedding the shrunk spring at \(\lambda=10^4\), \(\varepsilon=0.2\), next to an equilibrium second coordinate, gives total heat \(4.00200100\), equal to the one-coordinate heat. Thirty other stable two-memory linear systems, drawn from the box in the checks, all sit above their own learning rate. The closest heat in that draw is \(1.615570\) times the Kalman rate of its conditional error. The draw is not a minimization. The minimizing design is the one coordinate of §4.
 
-**A \(K\)-state channel.** **NUMERICAL.** Quantize the Gaussian channel \(Y=X+\sigma\xi\), which has MMSE \(v\sigma^2/(\sigma^2+v)\), into \(K\) equal-probability bins. The bin index is a \(K\)-state memory. In the fast-equilibrium limit the heat equals the learning rate of the posterior of \(X\) given the bin. For the parent channel with \(\sigma=1/2\) and \(v=1\), whose own MMSE is \(0.2\) and whose Kalman rate is \(4\):
+**A \(K\)-state channel.** **NUMERICAL, learning rates.** Quantize the Gaussian channel \(Y=X+\sigma\xi\), which has MMSE \(v\sigma^2/(\sigma^2+v)\), into \(K\) equal-probability bins. The checks compute \(a(v\,\mathbb{E}[F]-1)\) for the posterior of \(X\) given the bin. They do not integrate a bath heat for a \(K\)-state memory. The fast-equilibrium identification of that learning rate with the heat is proved for the telegraph and, by the rational gap in §4, for the linear spring. It is not derived for this channel. The attainment of the floor is the shrunk spring's Sekimoto heat, and the centered spring's Sekimoto heat at the matched decision error. The numbers below are learning rates. For the parent channel with \(\sigma=1/2\) and \(v=1\), whose own MMSE is \(0.2\) and whose Kalman rate is \(4\):
 
 | \(K\) | MMSE | learning rate | \(R(\mathrm{MMSE})\) | ratio |
 |---|---|---|---|---|
@@ -205,7 +235,7 @@ Causality in the sense "the action is a causal function of the memory" is alread
 | 32 | 0.207370 | 3.874749 | 3.822309 | 1.013719 |
 | 64 | 0.203125 | 3.944925 | 3.923079 | 1.005569 |
 
-Retuning \(\sigma\) so the bin index has MMSE \(0.2\), the fast-limit heat is \(4.471064\) at \(K=8\), \(4.157870\) at \(K=16\), \(4.058746\) at \(K=32\), and \(4.022937\) at \(K=64\), against \(R(0.2)=4\). The ratio falls with \(K\). The heat stays finite. A hard partition, with a conditional that vanishes outside a bin and jumps at the edge, is outside A-R: the Fisher integral of a discontinuous density is not the finite integral used in §3, and a bipartite process cannot keep \(M\) a deterministic function of \(X\) at finite rates. The soft bins are the discretization that approaches the floor.
+Retuning \(\sigma\) so the bin index has decision error \(0.2\), the learning rate is \(4.471064\) at \(K=8\), \(4.157870\) at \(K=16\), \(4.058746\) at \(K=32\), and \(4.022937\) at \(K=64\), against \(R(0.2)=4\). The ratio falls with \(K\). A hard partition is outside A-R. Whether a physical \(K\)-state bath meets these learning rates remains open. The soft-bin calculation is a numerical approach of the learning rate to \(R\), not a second proof that the heat meets \(R\).
 
 **Non-equilibrium cycles and feedback onto the memory.** A futile cycle adds a nonnegative term to the entropy production. The telegraph ray in INFO_PHYSICS §4 is that term at fixed error: the heat rises with the excess affinity and the error does not. Feedback of \(X\) into the memory drift is already allowed. The learning rate in §3 depends on the conditional law of \(X\), not on the form of the memory drift. A drive that changes \(X\) leaves A-X, and then Proposition AT-signal need not hold.
 
@@ -223,7 +253,7 @@ At the threshold \(w=kT a/v\) the two expressions agree, both equal to \(kT a\).
 
 At \(a=v=kT=1\):
 
-| Stake \(w\) | Error | Heat | Cost | Centered-spring heat at the same error |
+| Stake \(w\) | Decision error | Heat | Cost | Centered spring, raw coordinate held at this error |
 |---|---|---|---|---|
 | 2 | 0.707106781187 | 0.414213562373 | 1.828427124746 | 1.414213562373 |
 | 8 | 0.353553390593 | 1.828427124746 | 4.656854249492 | 2.828427124746 |
@@ -232,7 +262,7 @@ At \(a=v=kT=1\):
 
 The errors at stakes \(8\), \(20\), and \(50\) are the errors INFO_PHYSICS prints for the centered heat objective, \(1/\sqrt{w}\). The heats are lower by \(kT a=1\). The costs are lower by the same constant. At stake \(2\) the attainable frontier tracks. The centered heat objective is blind, because \(2\sqrt{2}>2\), while \(2\sqrt{2}-1<2\). Where both objectives track, the constant \(kT a\) does not move the minimizing error. It does move the decision between tracking and the blind memory, on the stake interval between \(kT a/v\) and \(4kT a/v\).
 
-The design that attains the heat column is the fast shrunk spring of §4, at finite heat. It is the same error the flow objective of INFO_PHYSICS selects, including the decision to track at stake \(2\). On the centered family that flow objective is reached only where the heat diverges. Once the rest point may sit at \(cX\), the heat objective reaches the same error at the finite heat \(kT\,R(\varepsilon)\).
+The design that attains the heat column is the fast shrunk spring of §4, and, at the same decision error, the centered spring read out by the conditional mean. Both have finite heat. The column "centered spring, raw coordinate held at this error" is the higher floor \(kT\,av/\varepsilon\), which is the table INFO_PHYSICS prints for that coordinate. At a matched decision error the centered heat meets \(kT\,R\): at decision error \(0.2\) it is \(4.000012\), not the \(5\) of the raw-error column. On the centered family scored by the raw coordinate, the flow objective of INFO_PHYSICS is reached only where the heat diverges. Scored on the decision, the heat objective reaches the same error at the finite heat \(kT\,R(\varepsilon)\).
 
 ## 8. What the frontier depends on
 
@@ -250,42 +280,43 @@ The shape is the one a Carnot quantity has inside its class: a floor fixed by th
 
 \(w\) is still an input. \(kT\) does not set it. Ruin and linking stay outside \(J_{\mathrm{phys}}\), as INFO_PHYSICS condition 5 says. If H3 holds for the heat and the error, Lemma LY puts a growth-maximizing lineage on the non-dominated part of that front. H3 is still an assumption. This frontier is not the master equation, and this note does not edit that equation.
 
-## 9. Proved, numerical, open
+## 9. What this note adds
 
-**Proved on this page.**
+The memory-bath inequality \(\dot Q\ge kT\,L\) is Horowitz and Esposito. The learning-rate form on a sensor is Barato, Hartich, and Seifert (2014). The capacity-1 tradeoff is Hartich, Barato, and Seifert (2016). Duncan is the path mutual information. Bo, Del Giudice, and Celani bound information about the sensory past beyond the present. Mitter and Newton (2005) is the analogy in §2. Sandberg, Delvenne, Newton, and Mitter (2014) are the \(2kT\) transfer-entropy cost of a state that keeps the path. None of those is redone.
 
-- The learning rate of a regular memory of an exogenous equilibrium OU signal is at least \(R(\varepsilon_{\mathrm{MMSE}})\), hence at least \(R(\varepsilon)\) at decision error \(\varepsilon\).
-- The signal bath has medium heat \(0\).
-- On the linear family, the Sekimoto heat exceeds the learning rate by the displayed rational function, and the shrunk spring approaches \(kT\,R(\varepsilon)\) at finite heat with the raw error held at \(\varepsilon\).
-- On the centered spring the fast heat equals \(R(s)\) at \(s=v\varepsilon/(v+\varepsilon)\), and exceeds \(R(\varepsilon)\) by \(kT a\).
-- The path information rate of the linear memory is \(R(P)\), and it meets the Hartich–Barato–Seifert bare-sensor formulas. At their capacity-1 noise the heat is twice the learning rate.
-- The frontier and the stake table.
+What this note adds:
 
-**Numerical, in the checks.**
+- The identity \(L=a(v\,\mathbb{E}[F]-1)\) for every regular conditional of this exogenous equilibrium OU signal, and the consequence \(L\ge R(\varepsilon)\) at the decision error of any action of the current state. Each piece is prior art or textbook. The combination, as a lower bound on the learning rate of every regular memory of this signal, is the argument in §3.
+- The shrunk spring, with the decision error held at \(\varepsilon\) and the Sekimoto heat approaching \(kT\,R(\varepsilon)\) at finite values, and the centered spring plus the conditional-mean readout, which meets the same pair. Hartich's centered family, scored on its own coordinate, does not.
+- The reading of the constant \(kT\,a\) as \(R(s)-R(\varepsilon)\) on the unshrunk coordinate. Continuity, one degree of freedom, and causality do not force it. The capacity-1 constraint forces a factor \(2\) on a different design.
+- The frontier \(wv\) below \(w=kT a/v\) and \(2\sqrt{kT\,a\,v\,w}-kT a\) above it, including the stake interval between \(kT a/v\) and \(4kT a/v\), where the raw-coordinate heat objective is blind and this frontier tracks.
+- The \(K\)-bin learning rates, the quartic Fisher excess, and the two-memory draw, as numerics. The \(K\)-bin figures are learning rates. The bath heat of that channel is not computed.
 
-- The factored heat gap on 40 random linear designs, relative residual \(1.676\times 10^{-15}\).
-- The reference centered spring: error \(0.483333333333\), Sekimoto heat \(4.444444444444\).
-- The \(K\)-bin table and the retuned heats \(4.471064\), \(4.157870\), \(4.058746\), \(4.022937\).
-- The quartic conditional, excess Fisher \(2.712561\).
-- Thirty two-memory systems, and the equilibrium embedding at heat \(4.00200100\).
+**Proved on this page, inside that list.** The learning-rate identity and \(L\ge R(\varepsilon_{\mathrm{MMSE}})\ge R(\varepsilon)\). The signal bath's medium heat is \(0\), evaluated in the checks at \(a=1.7\), \(v=0.4\). The linear-family gap \(\dot Q-L\) and the shrunk spring. The centered spring at raw error \(0.25\), decision error \(0.20000032\), heat \(4.00001200\). The path rate \(R(P)\), the capacity sequence, and the frontier.
+
+**Numerical.** The factored gap on 40 designs, relative residual \(1.676\times 10^{-15}\). The reference spring, raw error \(0.483333333333\), Sekimoto heat \(4.444444444444\). The \(K\)-bin learning rates \(4.471064\), \(4.157870\), \(4.058746\), \(4.022937\). The quartic excess Fisher \(2.712561\). Thirty two-memory systems, and the equilibrium embedding at heat \(4.00200100\).
 
 **Open.**
 
 - A signal that is not an equilibrium OU, including a signal whose own bath pays.
-- A loss that is not a mean square.
-- A memory that changes \(X\). Proposition AT-signal uses A-X.
-- A coupling outside the bipartite Markov class. The learning-rate floor is proved for regular conditionals; the heat inequality for a general memory is the Horowitz–Esposito theorem, applied here and not re-proved.
-- Equality at finite memory rate. The infimum is a limit, as on the telegraph.
+- A loss that is not a mean square of an action of the current state.
+- A memory that changes \(X\).
+- The bath heat of the \(K\)-state channel. The learning rates are computed. The heat equality is not.
+- Equality at finite memory rate. The infimum is a limit, as on the telegraph. At finite rate the shrunk coordinate is not yet the conditional mean: at \(\lambda=6\) the gain is \(1.2\).
 - Whether a capacity-1 design can pay less than twice the learning rate. Hartich, Barato, and Seifert prove it cannot for a bipartite process, under the fictitious-memory step in their §V. This note does not extend that theorem.
 - Ruin, linking, the stake \(w\), and H3. The master equation remains the equation in THEORY.
 
 ## 10. Checks
 
-`theory/info_physics_checks/attainability_checks.py`. 28 checks, FAILS 0. The numbers in §§4–7 are the numbers it prints.
+`theory/info_physics_checks/attainability_checks.py`. 31 checks, FAILS 0. The numbers in §§4–7 are the numbers it prints.
 
 ## 11. References
 
 Duncan, T. E. 1970. On the calculation of mutual information. *SIAM J. Appl. Math.* 19:215. doi 10.1137/0119020.
+
+Mitter, S. K., and Newton, N. J. 2005. Information and entropy flow in the Kalman–Bucy filter. *J. Stat. Phys.* 118:145. doi 10.1007/s10955-004-8781-9.
+
+Sandberg, H., Delvenne, J.-C., Newton, N. J., and Mitter, S. K. 2014. Maximum work extraction and implementation costs for nonequilibrium Maxwell's demons. *Phys. Rev. E* 90:042119. doi 10.1103/PhysRevE.90.042119.
 
 Horowitz, J. M., and Esposito, M. 2014. Thermodynamics with continuous information flow. *Phys. Rev. X* 4:031015. doi 10.1103/PhysRevX.4.031015.
 
