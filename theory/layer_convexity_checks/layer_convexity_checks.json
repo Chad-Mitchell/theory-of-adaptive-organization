@@ -1,0 +1,103 @@
+{
+ "summary": {
+  "L1": {
+   "sequences": 3000,
+   "convex_mismatches": 0,
+   "nonconvex": 1399,
+   "nonconvex_with_mismatch": 1399
+  },
+  "L2": {
+   "n": 20000,
+   "halving_nonconvex": 0,
+   "logconvex_nonconvex": 0
+  },
+  "T3": {
+   "n": 2000,
+   "nonconvex": 0
+  },
+  "T4": {
+   "n": 600,
+   "monge_nonconvex": 0,
+   "nonmonge_nonconvex": 599
+  },
+  "T5": {
+   "n": 400,
+   "grid": 320,
+   "Kmax": 8,
+   "monotone": 400,
+   "monotone_nonconvex": 0,
+   "max_ratio": 0.8043950665741648
+  },
+  "T5_quadrangle": {
+   "n": 20000,
+   "sse_violations": 0,
+   "mixed_violations": 0
+  },
+  "P6_bump": {
+   "mu": [
+    2,
+    1,
+    1
+   ],
+   "W": [
+    0,
+    1,
+    0
+   ],
+   "E": [
+    1.0,
+    0.6666666666666667,
+    0.0
+   ]
+  },
+  "P6_rhythm": {
+   "n": 240,
+   "nonconvex": 51,
+   "nonconvex_but_monotone": 0,
+   "nonmonotone": 239
+  },
+  "P6_counterexample_world": {
+   "W_nonmonotone": true,
+   "band_eps": [
+    36.45622974953685,
+    0.24698983031396501,
+    0.1690016071039194,
+    0.14371770616597285,
+    0.06576332688558541,
+    0.043903659799779886,
+    0.033923512898753824
+   ],
+   "band_convex": false,
+   "W_max_rise": 0.0530300252837419
+  },
+  "P6_submodular": {
+   "best_k": [
+    0,
+    6,
+    8,
+    12
+   ]
+  },
+  "T6": {
+   "n": 1000,
+   "interlacing_fail": 0,
+   "residue_nonpositive": 0,
+   "bound_fail": 0,
+   "yj_mismatch": 0,
+   "J2_max_excess_share": 0.304367886287124,
+   "min_one_store_share": 0.6727158857042197
+  },
+  "S5": {
+   "worlds": 120,
+   "halving_holds": 120,
+   "max_ratio": {
+    "J3_K0": 0.0670951076417683,
+    "J3_K1": 0.3147463444885675,
+    "J4_K0": 0.029393111749389966,
+    "J4_K1": 0.3374628622762908,
+    "J4_K2": 0.2409156369301748
+   }
+  }
+ },
+ "all_pass": true
+}
