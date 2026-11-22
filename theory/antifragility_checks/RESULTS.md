@@ -1,6 +1,6 @@
 # Turnover, heat, and a positive level of stress
 
-*Sunday 22 November 2026. In-model. A self-check, not an independent review. The preregistration is commit `74e9b197e26a2b70d72503a3c1693f78ec7380c8`. The addendum is commit `5418177ecab32c43b143c519f6e82b84715d4d97`. Both are parents of the computation. `PREREG.md` and `ADDENDUM.md` are not edited. `THEORY.md`, `CORE.md`, and `README.md` are not edited. The hypothesis sentence is unchanged.*
+*Sunday 22 November 2026. In-model. A self-check, not an independent review. Rebased onto `main` `13eec9a`. The preregistration is commit `4041018f8ec127b5b686f202858d7944d57b962d`. The addendum is commit `271842a26ad391419b2b2d219160bb8d581d7ecc`. Both are parents of the computation. `PREREG.md` and `ADDENDUM.md` are not edited. `THEORY.md`, `CORE.md`, and `README.md` are not edited. The hypothesis sentence is unchanged. Revised after the hostile review of draft PR #191: the admissible comparison leads, and the row is T43.*
 
 Checks: `theory/antifragility_checks/turnover_checks.py`, run at `nice -n 19`. Machinery FAILS 0. The numbers below are the numbers it prints. DOIs are in `crossref.out`.
 
@@ -8,15 +8,13 @@ Labels: **PROVED** (this class, algebra, code-checked), **KNOWN** (a fetched sou
 
 ## 0. The answer
 
-Some stress lowers the long-run cost when the units are alike, the world drifts, and replacement is not free. The mean-field minimum is at shock rate \(0.2646371727\), cost \(13.3545082433\), against \(16\) at no shock. The official expected loss agrees: on the frozen grid the minimum is at rate \(0.3\), cost \(13.7488993918\). That bowl is convex. A spread of the shock around the minimum raises the mean-field cost by \(0.2232577182\). A positive level of stress and a Jensen gain are different statements. This minimum is the first and not the second.
+Under the ruin cap, identical units at rate \(1\) cost \(15.473978\) with ruin probability \(0.020940\), against the inadmissible zero at cost \(16\), a margin of \(0.526022\). The unconstrained minimum of the cost that P1–P7 score is at rate \(0.2646371727\), cost \(13.3545082433\). The official grid point of that bowl, rate \(0.3\), cost \(13.7488993918\), has ruin probability \(0.473560\). The informative admissible point costs \(15.566427\) and the uninformative admissible point costs \(22.311716\), both above their zero-shock cost \(13\). The quality-observed admissible point costs \(15.471038\) against its own zero at \(13\). Those numbered predictions were scored on the unconstrained cost, which the preregistration required.
 
-The heat inside that cost does not fall. Continuous heat is \(8\), constant in the shock. The stock paid at each rebuild rises with the shock. What falls is the loss, because replacement re-aligns units that had gone stale.
+The heat inside the cost does not fall. Continuous heat is \(8\), constant in the shock. The stock paid at each rebuild rises with the shock. What falls, inside the unconstrained bowl, is the loss, because replacement re-aligns units that had gone stale. That bowl is convex. A spread of the shock around the mean-field minimum raises the cost by \(0.2232577182\). A positive level of stress and a Jensen gain are different statements. The admissible point above is a positive level. The spread is the second statement, and it raises the cost.
 
-The region named in the hypothesis does not do this, at the frozen cap. Heterogeneous quality, failure faster for the weaker units, and replacement that copies survivors: the minimum on the grid is at no shock, cost \(13\). Selection keeps the more precise units, and heat is proportional to precision. At this cap those units are past the heat that the stake will pay for, so the cost jumps up as soon as the shock is turned on. A local bowl on the selected branch, at rate \(0.25\), cost \(13.1627010412\), stays above \(13\).
+The heterogeneous arm, at the frozen cap, is a puzzle. Quality varies, weaker units fail faster, and replacement copies survivors. The minimum on the grid is at no shock, cost \(13\). Selection keeps the more precise units, and heat is proportional to precision, so the cost jumps as soon as the shock is turned on. A local bowl on the selected branch, at rate \(0.25\), cost \(13.1627010412\), stays above \(13\). P1 stays **FAILS** at this cap. The diagnosis is that coupling, not a claim about every cap.
 
-A quality-blind schedule at a chosen rate matches the identical-unit shock and beats the informative shock. Where the gain exists, it is a maintenance rate. The shock is a substitute for a schedule the designer was not allowed to run. It is not a gain on top of that schedule.
-
-The unconstrained minima sit above the ruin cap. That comparison is in §4. It does not move the scores above.
+A quality-blind schedule at a chosen rate matches the identical-unit shock and beats the informative shock on the unconstrained cost. Where that unconstrained gain exists, it is a maintenance rate. The shock is a substitute for a schedule the designer was not allowed to run.
 
 ## 1. The locked class, in one paragraph
 
@@ -48,7 +46,7 @@ and it is a minimum: \(J(\sigma^\star) = 13.3545082433 < J(0) = 16\). The exact 
 
 Stationary count of high-quality units, informative failure, copy-with-mutation: \(\mathbb{E}[k] = 3.7899088603\), against \(n\pi = 2\) for the prior and for uninformative replacement. The ordering was predicted and holds. Continuous heat on that selected law is \(7.6848632904\). Continuous heat on the prior is \(5\). At matched mean failure rate the informative arm pays the higher heat, as predicted, because heat is proportional to quality.
 
-**P1. FAILS** under the locked definition. Official \(J\) and the mean-field cost on the grid are both minimized at rate \(0\), cost \(13\). Turning the shock on jumps the cost to \(15.6848198582\) at rate \(10^{-6}\), because the type law jumps to the selected one and the alignment has not yet moved, so the loss is still \(4\) while the heat has risen from \(5\) to \(7.6848632904\). On the selected branch the fine grid has a lowest point at rate \(0.25\), cost \(13.1627010412\), which is above \(13\). A local bowl that does not beat no shock is not an interior minimum of the grid.
+**P1. FAILS** under the locked definition. Official \(J\) and the mean-field cost on the grid are both minimized at rate \(0\), cost \(13\). Turning the shock on jumps the cost to \(15.6848198582\) at rate \(10^{-6}\), because the type law jumps to the selected one and the alignment has not yet moved, so the loss is still \(4\) while the heat has risen from \(5\) to \(7.6848632904\). On the selected branch the fine grid has a lowest point at rate \(0.25\), cost \(13.1627010412\), which is above \(13\). A local bowl that does not beat no shock is not an interior minimum of the grid. P1 stays **FAILS** at this frozen cap. The miss is a puzzle. The diagnosis is the coupling written before the search: installed precision is \(c q\), and the heat is that precision, so keeping the stronger units raises the heat before alignment has moved.
 
 **P2 on uninformative failure. FAILS.** Uninformative replacement with drift is not monotone. The mean-field cost is minimized at rate \(0.3\), cost \(10.8369375047\), and the brackets hold (left \(11.7110816668\), right \(11.1894029598\)). Official \(J\) is minimized at rate \(0.4\), cost \(11.262060\). The same curve is the quality-blind schedule: replacement that keeps each unit's quality and only resets its age. The two policies are the same object when failure does not depend on quality and the type law is the prior.
 
@@ -62,16 +60,16 @@ At shock rate \(1\), matched to the same mean failure rate, the mean-field gap (
 
 ## 4. The ruin cap
 
-The cap is \(P(\varepsilon > 1.5) \le 0.05\). It is a constraint, not a term in \(J\). A minimum that exists only because rate \(0\) is inadmissible is not an interior minimum of the cost. Rate \(0\) with drift has error \(4\), so every such arm has ruin probability \(1\).
+Under the cap \(P(\varepsilon > 1.5) \le 0.05\), identical units at rate \(1\) cost \(15.473978\) with ruin probability \(0.020940\), against the inadmissible zero at cost \(16\). The informative admissible point costs \(15.566427\) and the A4 uninformative admissible point costs \(22.311716\), both above their zero-shock cost \(13\). The quality-observed admissible point costs \(15.471038\) against its own zero at \(13\). The unconstrained minimum that P1–P7 score has ruin probability \(0.473560\) at the official grid point, rate \(0.3\). The cap is a constraint, not a term in \(J\). A minimum that exists only because rate \(0\) is inadmissible is not an interior minimum of the cost. Rate \(0\) with drift has error \(4\), so every such arm has ruin probability \(1\). The numbered predictions were scored on the unconstrained cost, which the preregistration required.
 
 | arm | unconstrained grid min | ruin probability there | admissible grid min |
 |---|---|---|---|
 | identical units, official | rate \(0.3\), cost \(13.748899\) | \(0.473560\) | rate \(1\), cost \(15.473978\), probability \(0.020940\) |
 | informative, official | rate \(0\), cost \(13\) | \(1\) | rate \(1\), cost \(15.566427\), probability \(0.027440\) |
-| uninformative / blind schedule | rate \(0.4\), cost \(11.262060\) | \(0.638600\) | rate \(4\), cost \(22.311716\), probability \(0.040260\) |
+| A4 uninformative | rate \(0.4\), cost \(11.262060\) | \(0.638600\) | rate \(4\), cost \(22.311716\), probability \(0.040260\) |
 | quality observed | rate \(0\), cost \(13\) | \(1\) | rate \(1\), cost \(15.471038\), probability \(0.019980\) |
 
-The identical-unit admissible point still costs less than the inadmissible zero (\(15.473978 < 16\)). The blind-schedule admissible point costs more than its inadmissible zero (\(22.311716 > 13\)): meeting the cap requires enough turnover that the build rate overshoots the loss it saves. The cap and the unconstrained bowl are different designs.
+A4 and the quality-blind schedule A8 share a mean-field curve. A8's own admissible point costs \(22.311377\) with probability \(0.041580\). Both admissible costs exceed \(13\). Meeting the cap on that arm takes enough turnover that the build rate overshoots the loss it saves. The cap and the unconstrained bowl are different designs.
 
 ## 5. Heat, convexity, and the names
 
@@ -114,15 +112,15 @@ Taleb and Douady, title fetched, DOI `10.1080/14697688.2013.800219`. **KNOWN** a
 
 Calabrese and Baldwin, DOI `10.1146/annurev.pharmtox.43.100901.140223`. **KNOWN**: hormesis, as they state it, is low-dose stimulation and high-dose inhibition. The identical-unit cost falls and then rises. That shape is what their sentence describes. Calling this cost hormesis adds no comparison the curve does not already make. **METAPHOR** for the name, inside this class.
 
-Paolicelli and coauthors, DOI `10.1126/science.1202529`. **KNOWN**: microglia engulf synaptic material during postnatal pruning in mice. Kerr, Wyllie, and Currie, DOI `10.1038/bjc.1972.33`. **KNOWN**: apoptosis, as they propose it, is controlled deletion, complementary to mitosis. The quality-observed schedule is deliberate deletion of the weak units. At this cap it does not lower the cost. The biological names are **METAPHOR** here.
+Paolicelli and coauthors, DOI `10.1126/science.1202529`. **KNOWN**: microglia engulf synaptic material during postnatal pruning in mice. Kerr, Wyllie, and Currie, DOI `10.1038/bjc.1972.33`. **KNOWN**: apoptosis, as they propose it, is controlled deletion, a complementary but opposite role to mitosis. The quality-observed schedule is deliberate deletion of the weak units. At this cap it does not lower the cost. The biological names are **METAPHOR** here.
 
 Perunov, Marsland, and England, DOI `10.1103/PhysRevX.6.021036`. **KNOWN** for the fetched abstract: a finite-time free energy for driven matter, and an argument that driven systems tend toward states which reliably absorb and dissipate work. The hazard in this class is an assumption. It is not that free energy. The statement that their driving is why \(J\) has the shape it has is **METAPHOR**. The statement that some generator in that literature induces both this hazard and this heat floor is **CONJECTURE**, and this check does not test it. The computed consequence of "reward the stronger units" at the frozen cap is a higher cost, by \(2.702254\) at rate \(1\).
 
 ## 6. What this does not settle
 
-The identical-unit minimum is real and the informative-selection minimum is not, at one frozen cap. The cap was taken from the holographic note (\(c = 1/2\), below the one-unit copy threshold \(5/3\)) and was not re-optimized. Arm A14 says the stake would install about \(0.09\), not \(1/2\). A next check, as a new preregistration, would let the installed precision be chosen with the turnover rate, and would separate two notions of weakness: a unit that is weak because its installed precision is small, which is cheap, and a unit that is weak because it is mis-aimed at a fixed heat, which is not. The second notion is the one in which failure correlated with weakness can cut the loss without raising the heat. It was not this run.
+P1 stays **FAILS** at the frozen cap. That miss is a puzzle. The diagnosis is the locked coupling: a weak unit is weak because its installed precision is small, and that precision is what the heat charges, so selection keeps units past the heat this stake pays for. The cap was taken from the holographic note (\(c = 1/2\), below the one-unit copy threshold \(5/3\)) and was not re-optimized in the scored arms. Arm A14, which ignores the cap, installs at most \(0.093750\). Four fully aligned units at that precision pool to \(0.375\), short of \(5/12\).
 
-The blind reference \(6\) is below every identical-unit cost on the grid. A design that can switch the memory off will do that before it will buy this cap. The turnover result is conditional on the cap being installed.
+Under the cap, the blank design has error \(4\) and ruin probability \(1\). The unconstrained comparison of the identical-unit minimum with the blind cost \(6\) is a comparison of two designs the cap rejects. The turnover result is conditional on the cap being installed.
 
 No parameter was moved after the preregistration. The informative arm was not rescued.
 
