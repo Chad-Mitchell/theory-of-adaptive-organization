@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Numerical checks for theory/THEOREM_P_DRIFT.md (PD1-PD7, CE1-CE5).
+"""Numerical checks for theory/THEOREM_P_DRIFT.md (PD1-PD7, CE1-CE7).
 
 NUMERICAL: checks of the statements, not the proofs. Units: nats unless a
 line says bits. Run from the repo root:
@@ -69,6 +69,37 @@ def price_optimum_rw(q, w, c):
     z = 1.0 + x + math.sqrt(x * x + 2.0 * x)
     r = 0.5 * math.log(z)
     return r, w * q / (z - 1.0) + c * r
+
+
+def sparse_look_counterexample(K=16):
+    """CE7: X_t = t Z + G_t, Z, G_t ~ N(0,1), observe Y = X + N(0,1) at t = 2^k.
+
+    Memory is the posterior of Z. Between looks, A_t = t E[Z | looks so far].
+    Inflow is I(X_t; Y_t | previous looks) at look times and 0 otherwise.
+    Stock I(M_T; X_T) uses the Z-posterior after the last look,
+    I = (1/2) log(Var(X_T) / (T^2 Var(Z | looks) + 1)).
+
+    Returns a dict: T, n_looks, max_mse, total_r, mean_r, blind_mse, stock_I.
+    """
+    T = 2 ** K
+    v = 1.0
+    total_r = 0.0
+    max_mse = 0.0
+    for k in range(0, K + 1):
+        t = 2 ** k
+        max_mse = max(max_mse, t * t * v + 1.0)
+        total_r += 0.5 * math.log(t * t * v + 2.0)
+        v = v * 2.0 / (t * t * v + 2.0)
+    varX = T * T + 1.0
+    return {
+        "T": T,
+        "n_looks": K + 1,
+        "max_mse": max_mse,
+        "total_r": total_r,
+        "mean_r": total_r / T,
+        "blind_mse": varX,
+        "stock_I": 0.5 * math.log(varX / (T * T * v + 1.0)),
+    }
 
 
 # ------------------------------------------------------------------ helpers
@@ -247,6 +278,24 @@ def run(full):
     # 11. PD3: blind action in a random walk has mean squared loss growing without bound
     check(ok, lines, "PD3: blind loss Var(X_t) = t q grows without bound; floor(r -> 0+) -> inf",
           floor_sharp(1e-9, 1.0, 1.0) > 1e8 and floor_sharp(0.0, 1.0, 1.0) == math.inf)
+
+    # 12. CE7: vanishing mean inflow outside the linear class (exact Gaussians, T = 2^16)
+    ce7 = sparse_look_counterexample(16)
+    check(
+        ok, lines,
+        "CE7: sparse looks keep MSE <= 7 with mean inflow 2.56e-4 through T=2^16 (rbar=0)",
+        ce7["max_mse"] <= 7.00 + 1e-9
+        and abs(ce7["total_r"] - 16.8) < 0.05
+        and ce7["n_looks"] == 17
+        and abs(ce7["mean_r"] - 2.56e-4) < 5e-7
+        and abs(ce7["blind_mse"] - 4.29e9) / 4.29e9 < 0.005
+        and abs(ce7["stock_I"] - 10.63) < 0.005,
+        "MSE <= %.2f; total inflow %.1f nats over %d looks; mean inflow %.2e; "
+        "blind MSE %.2e; I(M_T;X_T)=%.2f nats"
+        % (ce7["max_mse"], ce7["total_r"], ce7["n_looks"], ce7["mean_r"],
+           ce7["blind_mse"], ce7["stock_I"]),
+    )
+    res["ce7"] = ce7
 
     return ok, lines, res
 

@@ -44,3 +44,16 @@ def test_price_optimum_first_order_condition():
     r, J = m.price_optimum_rw(q, w, c)
     z = math.exp(2 * r)
     assert abs(2 * w * q * z - c * (z - 1) ** 2) < 1e-9
+
+
+def test_ce7_sparse_look_counterexample():
+    m = _load()
+    ce7 = m.sparse_look_counterexample(16)
+    assert ce7["T"] == 2 ** 16
+    assert ce7["n_looks"] == 17
+    assert ce7["max_mse"] <= 7.00 + 1e-9
+    assert abs(ce7["total_r"] - 16.8) < 0.05
+    assert abs(ce7["mean_r"] - 2.56e-4) < 5e-7
+    assert abs(ce7["blind_mse"] - 4.29e9) / 4.29e9 < 0.005
+    assert abs(ce7["stock_I"] - 10.63) < 0.005
+
