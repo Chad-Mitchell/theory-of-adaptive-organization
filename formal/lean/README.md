@@ -97,6 +97,14 @@ wherever `FiniteDesignMenu` is used.
 | `Equipartition.homogCost_quadratic`, `gibbs_excess_quadratic` | SA1b / Corollary SA1c, `d/(2β)`; CORE §8, THEORY §4 | `J(x) = J* + ½(x − x*)ᵀH(x − x*)` on `ℝ^d` (`Fin d → ℝ`, Lebesgue), `d ≥ 1`, `H` positive definite (Mathlib `Matrix.PosDef`, so symmetric), `β > 0`; π is the Gibbs/Boltzmann law `∝ e^{−βJ}` on all of `ℝ^d` | `E_π[J] − J* = d/(2β)` exactly.  SA1 (that the stationary law of the origination–fixation chain is this Boltzmann weight, Sella–Hirsh), SA1b's "treat the measure as supported on the quadratic well", and the per-model `β` (Moran `α(N−1)`, Wright–Fisher `α(2N−1)`) are **not** formalized; they are the inputs that make this identity the selection result |
 | `HullWalk.HullVertices`, `IsLowerHull`, `Pays`, `hull_walk_stop_exists`, `hull_walk_leftmost_argmin` | KEYSTONE_NOTE §4, the hull-vertex walk (edges may skip integers) | `R ≥ 0`; `ε : ℕ → ℝ` arbitrary (no convexity); vertex data `v 0 = 0 < v 1 < ⋯ < v m = n` with every point on or above its hull edge and nondecreasing edge slopes | The walk that jumps from `v i` to `v(i+1)` iff `R(ε(v i) − ε(v(i+1))) > v(i+1) − v i` stops, and the stopping vertex is a minimizer of `φ(K) = K + R(1+ε_K)` on `{0,…,n}`, strictly below `φ` at every `K` to its left (leftmost minimizer) |
 | `HullWalk.greedy`, `greedy_isLowerHull`, `hull_increment_test_eq_argmin` | KEYSTONE_NOTE §4 Proposition, unconditional | `R ≥ 0`; `ε` arbitrary | Every `ε` has lower-hull vertex data (greedy minimum-slope chords), so the hull increment test returns the leftmost argmin of `φ` for **every** `ε`, with no convexity hypothesis |
+| `N60Exact.count`, `count_isLeftmostArgmin` | `theory/LAYER_CONVEXITY.md` (draft PR #145) L1, "if" | Finite domain `{0,…,n}`; `R ≥ 0`; `ε` discrete-convex (decrements non-increasing) | The count `#{k < n : R(ε_k − ε_{k+1}) > 1}` is the leftmost minimizer of `K + R(1+ε_K)` |
+| `N60Exact.not_min_of_rise`, `exists_threshold`, `exists_R_count_not_argmin`, `count_exact_iff_convex` | L1, "only if" and the iff | Decrements positive and pairwise distinct on `{0,…,n−1}`; for `not_min_of_rise`, `R > 0` | If some `d_m < d_{m+1}`, some `R > 0` makes the count differ from every minimizer; hence (count = leftmost argmin for all `R > 0`) ⇔ discrete convexity |
+| `BandCounterexample.clusterE_values`, `bandE0`, `bandE1_lower`, `bandE1_attained`, `bandE2_attained`, `not_convex` | LAYER_CONVEXITY minimal counterexample | `W = (0,1,0)`, weights `(2,1,1)`; bands of a non-monotone profile with a terminal zero band | Optimal band costs `E = (1, 2/3, 0)` (exact ℚ check by kernel `decide`, and over all real cutoffs and levels), so `E_0 − E_1 < E_1 − E_2`: not convex |
+| `BandMonge.merge_gain`, `quadrangle_core`, `terminal_core` | LAYER_CONVEXITY §3, the algebra behind Lemmas M and Z | Positive block masses; non-increasing block means; for Z also `m_B ≥ 0` | Merge-gain identity `f(X)+f(Y)−f(X∪Y) = M_XM_Y/(M_X+M_Y)·(m_X−m_Y)²`, the three-block quadrangle, and the terminal bound |
+| `BandMonge.quadrangle`, `terminal`, `linkCost_monge` | Lemma M, Lemma Z | Finitely many cells `0,…,n−1`, weights `μ > 0`, `W` non-increasing; Lemma Z also needs `W ≥ 0` | `w(a,c)+w(b,d) ≤ w(a,d)+w(b,c)` for `a ≤ b ≤ c ≤ d ≤ n` (`w` = weighted within-band variance); `w(a,c)+z(b) ≤ z(a)+w(b,c)`; the combined cost on `0,…,n+1` is Monge |
+| `BandMonge.exchange`, `convex_of_monge`, `exists_optimal`, `band_convex` | Lemma X; Theorem B (finite-cell form) | Any Monge link cost; `k ≥ 1` links | Tail swap at the first crossing turns a `k`- and a `(k+2)`-link path into two `(k+1)`-link paths of no larger total cost; optimal paths exist; `2E_{K} ≤ E_{K−1}+E_{K+1}` for the band model |
+| `Coadaptation.LogLinearChain`, `detailedBalance_of_potential`, `potential_of_detailedBalance`, `ca1_iff`, `gibbs_form`, `stationary_of_detailedBalance` | `theory/COADAPTATION.md` (draft PR #148) CA1, finite state | Finite product state space; one party moves at a time; symmetric move graphs, each party's graph connected; positive rates with `q(x→y)/q(y→x) = e^{−β_i ΔJ_i}` | Some positive `π` satisfies detailed balance ⇔ the `β`-scaled game has an exact potential `Ψ`; then `π ∝ e^{−Ψ}` (`Ψ = −log π` up to a constant) and `π` is stationary |
+| `Coadaptation.ca1a_weighted`, `ca1a_square` | CA1a | Weighted potential `Δ_i J_i = ω_i Δ_i Φ` | If `β_iω_i = γ` for all `i`, `γΦ` is an exact potential; if a potential exists, `(β_iω_i − β_jω_j)` times every mixed difference of `Φ` is `0` (so unequal `β_iω_i` with a nonzero mixed difference rules out detailed balance) |
 
 ## What is not formalized
 
@@ -122,6 +130,8 @@ None of the following is claimed as proved in Lean.
 - CT5, CT6, CT7, CT8, CT9 (Blackwell/garbling, hold-or-fade, and the neighbouring short CTs).
 - CT11–CT19, CT23, CT24, CT25, CT26–CT32, CT35–CT43, and the Master Theorem in the class `𝓜_LG`.
 - Any information-theoretic construction of `D` or `IB`; they enter CT4 as functions with the stated convexity and monotonicity.
+- LAYER_CONVEXITY: N60 started from `k_0 > 0`; Theorem B for a continuous frequency measure (only finitely many cells with positive weights are formalized); the Wiener-gain reading `W = 1/(1+N/S)` and Model S.
+- COADAPTATION: uniqueness of the stationary law (irreducibility / Perron–Frobenius), the origination–fixation derivation of the log-linear rate ratio, CA1b–CA4, and the §6 counterexamples.
 
 ## Layout
 
@@ -143,6 +153,10 @@ formal/lean/
   GTAO/LocalShared.lean     # D5 crossing; switch iff ℓ > 0 and k_S < N k_L
   GTAO/Equipartition.lean   # E_π[J] − J* = d/(pβ); d/(2β) for PD quadratics
   GTAO/HullWalk.lean        # hull increment test = leftmost argmin, any ε
+  GTAO/N60Exact.lean        # L1: count = argmin for all R ⇔ convex
+  GTAO/BandCounterexample.lean  # W=(0,1,0), μ=(2,1,1): E=(1,2/3,0)
+  GTAO/BandMonge.lean       # Lemmas M, Z, X; Theorem B (finite cells)
+  GTAO/Coadaptation.lean    # CA1 (finite state), CA1a
   scripts/AxiomAudit.lean   # every GTAO declaration uses only standard axioms
 ```
 
