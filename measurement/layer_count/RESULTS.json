@@ -11,7 +11,8 @@
   },
   "peaked_hull_recovers_argmin": true,
   "l1_converse": true,
-  "l1_bare_iff_counterexample": true
+  "l1_bare_iff_counterexample": true,
+  "l1_converse_not_only_positive": true
  },
  "tautology": {
   "eps0.01": [
