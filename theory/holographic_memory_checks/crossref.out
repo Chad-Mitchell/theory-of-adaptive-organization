@@ -1,0 +1,94 @@
+Crossref and abstract fetches for theory/HOLOGRAPHIC_MEMORY_2026-11-22.md
+Date: 22 November 2026
+Crossref API: https://api.crossref.org/works/<doi>
+Abstracts: Europe PMC search API where a record was returned; arXiv API for 2209.10652.
+A DOI line is cited in the note only if this file shows Crossref HTTP 200.
+10.48550/arXiv.2209.10652 returned HTTP 404. The Elhage note is cited as arXiv:2209.10652, not as that DOI.
+
+CROSSREF 200  10.1364/ao.2.000393  1963  Applied Optics
+  van Heerden, P. J.  Theory of Optical Information Storage in Solids.
+  Crossref abstract: none. No formula from this paper is used.
+
+CROSSREF 200  10.1109/72.377968  1995  IEEE Transactions on Neural Networks
+  Plate, T. A.  Holographic reduced representations.
+  Europe PMC abstract: associative memories usually store pairs of vectors; circular convolution represents bindings, sequences, and frames in a fixed-width vector; noisy reconstructions can be cleaned by a separate associative memory.
+
+CROSSREF 200  10.1007/s12559-009-9009-8  2009  Cognitive Computation
+  Kanerva, P.  Hyperdimensional Computing: An Introduction to Computing in Distributed Representation with High-Dimensional Random Vectors.
+  Crossref abstract: none. Cited for the title's distributed representation with high-dimensional random vectors. No capacity formula is taken from the paper.
+
+CROSSREF 200  10.1073/pnas.79.8.2554  1982  PNAS
+  Hopfield, J. J.  Neural networks and physical systems with emergent collective computational abilities.
+  Crossref abstract: a content-addressable memory that yields an entire memory from a sufficient subpart; collective properties only weakly sensitive to the failure of individual devices.
+
+CROSSREF 200  10.1103/physrevlett.55.1530  1985  Physical Review Letters
+  Amit, D. J.; Gutfreund, H.; Sompolinsky, H.  Storing Infinite Numbers of Patterns in a Spin-Glass Model of Neural Networks.
+  Crossref abstract: none. Not cited. The title does not state the often-quoted 0.14N capacity, and that number is not used.
+
+CROSSREF 404  10.48550/arXiv.2209.10652
+  arXiv API http://export.arxiv.org/api/query?id_list=2209.10652
+  Toy Models of Superposition.  arXiv:2209.10652
+  Authors from the arXiv API (16): Nelson Elhage; Tristan Hume; Catherine Olsson; Nicholas Schiefer; Tom Henighan; Shauna Kravec; Zac Hatfield-Dodds; Robert Lasenby; Dawn Drain; Carol Chen; Roger Grosse; Sam McCandlish; Jared Kaplan; Dario Amodei; Martin Wattenberg; Christopher Olah.
+  Abstract (fetched): polysemanticity from storing additional sparse features in superposition; a phase change; a connection to uniform polytopes; a link to adversarial examples.
+
+CROSSREF 200  10.1109/tit.2006.885507  2006  IEEE Transactions on Information Theory
+  Candès, E. J.; Tao, T.  Near-Optimal Signal Recovery From Random Projections: Universal Encoding Strategies?
+  Crossref abstract: none. Cited for the title. Their recovery bound is not restated.
+
+CROSSREF 200  10.1109/tit.2006.871582  2006  IEEE Transactions on Information Theory
+  Donoho, D. L.  Compressed sensing.
+  Crossref abstract: none. Cited for the title. The measurement count is not restated.
+
+CROSSREF 200  10.1038/nature12063  2013  Nature
+  Caron, S. J. C.; Ruta, V.; Abbott, L. F.; Axel, R.  Random convergence of olfactory inputs in the Drosophila mushroom body.
+  Europe PMC abstract: Kenyon cells encode odours as sparse distributed patterns; each of 200 traced cells integrates a different and apparently random combination of glomeruli, with no discernible organization by odour tuning, anatomy, or developmental origin.
+
+CROSSREF 200  10.1126/science.aam9868  2017  Science
+  Dasgupta, S.; Stevens, C. F.; Navlakha, S.  A neural algorithm for a fundamental computing problem.
+  Europe PMC abstract: the fruit-fly olfactory circuit solves similarity search by a variant of locality-sensitive hashing, with three strategies that depart from traditional approaches. The abstract does not list the three strategies.
+
+CROSSREF 200  10.1038/nature03721  2005  Nature
+  Hafting, T.; Fyhn, M.; Molden, S.; Moser, M.-B.; Moser, E. I.  Microstructure of a spatial map in the entorhinal cortex.
+  Europe PMC abstract: grid cells fire at vertices of a regular triangular lattice; neighbours share orientation and spacing and differ in phase; the map persists without landmarks.
+
+CROSSREF 200  10.1016/0006-8993(71)90358-1  1971  Brain Research
+  O'Keefe, J.; Dostrovsky, J.  The hippocampus as a spatial map. Preliminary evidence from unit activity in the freely-moving rat.
+  No abstract in the Crossref record, and Europe PMC returned no result for this DOI. Cited for the title only.
+
+CROSSREF 200  10.1038/nn.2901  2011  Nature Neuroscience
+  Sreenivasan, S.; Fiete, I.  Grid cells generate an analog error-correcting code for singularly precise neural computation.
+  Europe PMC abstract: the nonlocal periodic code lets an ideal observer estimate location with a robustness to noise outside the class of observed sensory and motor population codes; a simple network can correct it.
+
+CROSSREF 200  10.1371/journal.pcbi.1000291  2009  PLoS Computational Biology
+  Burak, Y.; Fiete, I. R.  Accurate Path Integration in Continuous Attractor Network Models of Grid Cells.
+  Europe PMC abstract: continuous attractor models can integrate velocity and heading; with spike variability the simulated networks integrate on the order of 10–100 m and 1–10 min. Not used as a heat result.
+
+CROSSREF 200  10.1162/neco_a_00319  2012  Neural Computation
+  Mathis, A.; Herz, A. V. M.; Stemmler, M.  Optimal Population Codes for Space: Grid Cells Outperform Place Cells.
+  Europe PMC abstract: place cells spike at one location, grid cells at the sites of a hexagonal lattice; under Fisher information and at low spike counts, optimized grid codes beat place codes for spatial resolution, with a tradeoff against spatial range. Nested modules, more short spacings than long ones, and a self-similar field-to-period ratio are predicted.
+
+CROSSREF 200  10.1038/381607a0  1996  Nature
+  Olshausen, B. A.; Field, D. J.  Emergence of simple-cell receptive field properties by learning a sparse code for natural images.
+  Europe PMC abstract: a learning rule that maximizes sparseness produces localized, oriented, bandpass fields and a representation with more statistical independence among its outputs.
+
+CROSSREF 200  10.1126/science.265.5173.749  1994  Science
+  Heanue, J. F.; Bashaw, M. C.; Hesselink, L.  Volume Holographic Storage and Retrieval of Digital Data.
+  Europe PMC abstract: a digital holographic store in a photorefractive crystal, with error-correcting encoding for bit-error rate. No heat floor.
+
+CROSSREF 200  10.1109/tit.1956.1056823  1956  IRE Transactions on Information Theory
+  Kolmogorov, A.  On the Shannon theory of information transmission in the case of continuous signals.
+  Crossref abstract: none. The reverse-water-filling reading is the one already booked in theory/INFO_PHYSICS_GENERAL.md. No new extraction.
+
+CROSSREF 200  10.1016/s0304-3932(03)00029-1  2003  Journal of Monetary Economics
+  Sims, C. A.  Implications of rational inattention.
+  Crossref abstract: none. Same booking as Kolmogorov. No new extraction.
+
+CROSSREF 200  10.1103/PhysRevX.4.031015  2014  Physical Review X
+  Horowitz, J. M.; Esposito, M.  Thermodynamics with Continuous Information Flow.
+  First fetch HTTP 200. A later retry returned HTTP 429. Authors and title from the 200 record. The inequality Q-dot >= kT times the learning rate is theirs, already used in the heat notes. Not re-proved.
+
+CROSSREF 200  10.1038/161777a0  1948  Nature
+  Gabor, D.  A New Microscopic Principle.
+  Crossref abstract: none. Not used. The title is a microscopic principle, not a memory theorem.
+
+Europe PMC bibliographic search, 22 November 2026, query "ant colony distributed memory", top titles were not a statement of colony memory (landmark use by desert ants; unrelated routing and optimization papers). No ant paper is cited.
