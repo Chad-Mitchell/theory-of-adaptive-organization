@@ -61,7 +61,7 @@ CROSSREF 200  10.1038/nn.2901  2011  Nature Neuroscience
 
 CROSSREF 200  10.1371/journal.pcbi.1000291  2009  PLoS Computational Biology
   Burak, Y.; Fiete, I. R.  Accurate Path Integration in Continuous Attractor Network Models of Grid Cells.
-  Europe PMC abstract: continuous attractor models can integrate velocity and heading; with spike variability the simulated networks integrate on the order of 10–100 m and 1–10 min. Not used as a heat result.
+  Europe PMC abstract: continuous attractor models can integrate velocity and heading; with spike variability the simulated networks integrate on the order of 10–100 m and 1–10 min. Fetched. Not cited. The note does not use the path-integration bound.
 
 CROSSREF 200  10.1162/neco_a_00319  2012  Neural Computation
   Mathis, A.; Herz, A. V. M.; Stemmler, M.  Optimal Population Codes for Space: Grid Cells Outperform Place Cells.

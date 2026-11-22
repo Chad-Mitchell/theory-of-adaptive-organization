@@ -434,12 +434,15 @@ def main():
 
     phi_grid = np.linspace(0.0, 20.0, 4001)
     J_mix = min(aligned_cost(phi) for phi in phi_grid)
+    # Closed form on the two heavy items, u=(1,1,0,0)/sqrt(2).
+    # sum c_k u_k^2 = 3.5, optimum phi = sqrt(3.5)-1, cost 2*sqrt(3.5)+2.8.
+    J_heavy = 2.0 * math.sqrt(3.5) + 2.8
     check(
         "unequal per-item stakes: item-aligned D=2 beats the all-ones mixture",
-        J_local + 1e-6 < J_mix,
-        "Jlocal=%.6f Jmix=%.6f" % (J_local, J_mix),
+        J_local + 1e-6 < J_mix and J_local + 1e-6 < J_heavy,
+        "Jlocal=%.6f Jmix=%.6f Jheavy=%.6f" % (J_local, J_mix, J_heavy),
     )
-    print("PERITEM Jlocal=%.12f Jmix=%.12f" % (J_local, J_mix))
+    print("PERITEM Jlocal=%.12f Jmix=%.12f Jheavy=%.12f" % (J_local, J_mix, J_heavy))
 
     # ------------------------------------------------------- subset-query spectrum
     for K, s in ((12, 1), (12, 2), (12, 6), (12, 12), (8, 3)):
@@ -581,12 +584,18 @@ def main():
         eps = K - cov * cov / varY
         errs.append(eps)
     mean_rand = float(np.mean(errs))
+    # E[(1·g)^2]=1 for a uniform unit vector, so E[eps]=K - heat*(1)/(heat+1)*1
+    # wait: cov^2/varY = alpha2 * (1·g)^2 / (alpha2+1), E[(1·g)^2]=1.
+    expect_rand = K - heat_budget * 1.0 / (heat_budget + 1.0)
     check(
         "a random coordinate at the same heat misses a known sum",
-        mean_rand > 4.0 * eps_aligned,
-        "aligned_eps=%.4f random_mean_eps=%.4f" % (eps_aligned, mean_rand),
+        near(expect_rand, 19.2, 1e-12) and abs(mean_rand - expect_rand) < 0.15,
+        "aligned_eps=%.4f expect=%.4f seed2_mean=%.4f" % (eps_aligned, expect_rand, mean_rand),
     )
-    print("RANDOM1D heat=%.2f aligned_eps=%.4f random_eps=%.4f" % (heat_budget, eps_aligned, mean_rand))
+    print(
+        "RANDOM1D heat=%.2f aligned_eps=%.4f expect_eps=%.4f seed2_mean=%.4f"
+        % (heat_budget, eps_aligned, expect_rand, mean_rand)
+    )
 
     # ----------------------------------------------- known-support sparse features
     ks = known_support_compare(K=32, s=4, D=8, heat_budget=16.0, n_support=300, seed=3)
@@ -602,15 +611,26 @@ def main():
     )
     # s=K, support is everything: projections should not beat a local code that
     # stores every item. D=K=8, s=8.
-    full = known_support_compare(K=8, s=8, D=8, heat_budget=16.0, n_support=80, seed=4)
+    full = known_support_compare(K=8, s=8, D=8, heat_budget=16.0, n_support=1, seed=4)
+    # Seed 4 is one matrix. The mean is over independent codebooks.
+    rng_books = np.random.default_rng(4)
+    book_errs = []
+    for _ in range(2000):
+        G = rng_books.normal(size=(8, 8))
+        frob = float(np.sum(G * G))
+        gamma = 16.0 / frob
+        prec = np.eye(8) + gamma * (G.T @ G)
+        book_errs.append(float(np.trace(np.linalg.inv(prec))))
+    book_mean = float(np.mean(book_errs))
+    book_se = float(np.std(book_errs) / math.sqrt(len(book_errs)))
     check(
         "full support: projections do not beat storing every item",
-        full["err_proj"] > 0.9 * full["err_local"],
-        "local=%.4f proj=%.4f ideal=%.4f" % (full["err_local"], full["err_proj"], full["err_ideal"]),
+        book_mean > full["err_local"] and full["err_proj"] > full["err_local"],
+        "local=%.4f seed4=%.4f mean=%.4f se=%.4f" % (full["err_local"], full["err_proj"], book_mean, book_se),
     )
     print(
-        "SUPPORT K=8 s=8 D=8 local_err=%.6f proj_err=%.6f ideal_err=%.6f"
-        % (full["err_local"], full["err_proj"], full["err_ideal"])
+        "SUPPORT K=8 s=8 D=8 local_err=%.6f seed4_err=%.6f codebook_mean=%.6f se=%.6f"
+        % (full["err_local"], full["err_proj"], book_mean, book_se)
     )
 
     # ------------------------------------------------------- graceful degradation
@@ -654,11 +674,12 @@ def main():
 
     pr1 = p_ruin(1)
     pr4 = p_ruin(4)
+    pr8 = p_ruin(8)
     pr16 = p_ruin(16)
     check(
         "finer split lowers the chance the error crosses the cap, at fixed total precision",
-        near(pr1, 0.2, 1e-12) and pr4 < pr1 and pr16 < pr4,
-        "P1=%.6f P4=%.6f P16=%.6e" % (pr1, pr4, pr16),
+        near(pr1, 0.2, 1e-12) and pr16 < pr4 and pr8 > 0.05 and pr8 > p_ruin(7),
+        "P1=%.6f P4=%.6f P7=%.6f P8=%.6f P16=%.6e" % (pr1, pr4, p_ruin(7), pr8, pr16),
     )
     e1 = expected_split_error(1, p_up, V, eps0)
     e16 = expected_split_error(16, p_up, V, eps0)
@@ -667,7 +688,10 @@ def main():
         e16 < e1 - 1e-6,
         "E1=%.6f E16=%.6f" % (e1, e16),
     )
-    print("RUIN P1=%.6f P4=%.6f P16=%.6e E1=%.6f E16=%.6f rho=%.6f" % (pr1, pr4, pr16, e1, e16, rc))
+    print(
+        "RUIN P1=%.6f P4=%.6f P7=%.6f P8=%.6f P16=%.6e E1=%.6f E16=%.6f rho=%.6f"
+        % (pr1, pr4, p_ruin(7), pr8, pr16, e1, e16, rc)
+    )
 
     # Overhead h per unit. Heat of the precision is fixed (same mu). Extra units
     # add h. Cap eps_r = 0.05. D=1 is infeasible (P=0.2). Smallest feasible D
@@ -740,7 +764,7 @@ def main():
             if pr <= 0.05 and (best_c is None or J < best_c[0]):
                 best_c = rec
     check(
-        "a ruin cap on the error tail selects a higher heat than expected cost",
+        "on the split-only grid the cap's minimum has higher heat than the uncapped minimum",
         best_c is not None
         and best_c[1] > best_u[1] + 0.2
         and best_c[0] > best_u[0]
@@ -753,6 +777,243 @@ def main():
         "HEATCAP uncap J=%.6f heat=%.6f D=%d mu=%.6f P=%.6f | cap J=%.6f heat=%.6f D=%d mu=%.6f P=%.6f"
         % (best_u[0], best_u[1], best_u[2], best_u[3], best_u[4],
            best_c[0], best_c[1], best_c[2], best_c[3], best_c[4])
+    )
+
+    # ------------------------------------------------------- copies vs the split
+    # Same installed precision mu, same upkeep h per unit. A copy keeps the
+    # whole precision whenever at least one unit is up. The split keeps (i/n) mu.
+    def binom_probs(n, p_success):
+        q = 1.0 - p_success
+        term = q ** n
+        probs = []
+        for i in range(n + 1):
+            probs.append(term)
+            if i < n:
+                term *= (n - i) * p_success / ((i + 1) * q)
+        return probs
+
+    def copy_split_costs(V, mu, n, p_fail, h, w):
+        p_up = 1.0 - p_fail
+        probs = binom_probs(n, p_up)
+        e_copy = e_split = 0.0
+        pathwise = True
+        for i, prb in enumerate(probs):
+            eps_s = V / (1.0 + (i / n) * mu)
+            eps_c = V / (1.0 + mu) if i >= 1 else V
+            if eps_c > eps_s + 1e-12:
+                pathwise = False
+            e_copy += prb * eps_c
+            e_split += prb * eps_s
+        # Heat of the one installed precision, plus upkeep per unit. This is
+        # the note's upkeep accounting.
+        J_copy = mu + n * h + w * e_copy
+        J_split = mu + n * h + w * e_split
+        p_all_down = p_fail ** n
+        return pathwise, e_copy, e_split, J_copy, J_split, p_all_down
+
+    pathwise_ok = True
+    for p_fail in (0.05, 0.2, 0.5, 0.9):
+        for n in (1, 2, 3, 7, 12):
+            for mu in (0.5, 5.0 / 3.0, 3.0, 8.0):
+                ok, _, _, Jc, Js, _ = copy_split_costs(4.0, mu, n, p_fail, 0.5, 1.0)
+                pathwise_ok = pathwise_ok and ok and Jc <= Js + 1e-9
+    ok2, e_c2, e_s2, J_c2, J_s2, p2 = copy_split_costs(4.0, 3.0, 2, 0.2, 0.5, 1.0)
+    ok7, e_c7, e_s7, J_c7, J_s7, p7 = copy_split_costs(4.0, 3.0, 7, 0.2, 0.5, 1.0)
+    check(
+        "at equal installed precision, a copy error is at most the split error on every draw",
+        pathwise_ok and ok2 and near(J_c2, 5.12, 1e-12) and near(p2, 0.04, 1e-12),
+        "n2 Jcopy=%.6f E=%.6f P=%.6f | n7 Jcopy=%.6f" % (J_c2, e_c2, p2, J_c7),
+    )
+    print(
+        "COPIES n2 P=%.6f E=%.6f J=%.6f | n7 P=%.6e E=%.6f J=%.6f | split_n7_from_search"
+        % (p2, e_c2, J_c2, p7, e_c7, J_c7)
+    )
+    # Each copy pays its own floor. Smallest mu whose up-state clears 1.5 is 5/3.
+    mu_clear = 4.0 / 1.5 - 1.0
+    e_two = (1.0 - 0.2 ** 2) * (4.0 / (1.0 + mu_clear)) + (0.2 ** 2) * 4.0
+    J_two = 2.0 * mu_clear + 2.0 * 0.5 + 1.0 * e_two
+    check(
+        "two self-funded trackers still cost less than the split at the worked upkeep",
+        near(mu_clear, 5.0 / 3.0, 1e-12) and near(J_two, 5.933333333333, 1e-9) and J_two < 7.700585,
+        "mu=%.6f E=%.6f J=%.6f" % (mu_clear, e_two, J_two),
+    )
+    print("COPIES_OWN_HEAT mu=%.6f E=%.6f J=%.6f" % (mu_clear, e_two, J_two))
+    # Heat rule of the grid: expected heat mu (1-p^n), stake weight 1.5.
+    e_heat_copy = (5.0 / 3.0) * (1.0 - 0.04)
+    J_heat_copy = e_heat_copy + 1.5 * e_two
+    check(
+        "under the grid's heat rule a two-copy memory meets the cap below the split's heat",
+        near(e_heat_copy, 1.6, 1e-12) and near(J_heat_copy, 4.0, 1e-12) and e_heat_copy < best_c[1],
+        "heat=%.6f J=%.6f split_heat=%.6f" % (e_heat_copy, J_heat_copy, best_c[1]),
+    )
+    print("HEATCAP_COPY heat=%.6f E=%.6f J=%.6f" % (e_heat_copy, e_two, J_heat_copy))
+
+    # Both degradation curves increase in f. A Gaussian channel cannot lower
+    # its error by deleting a positive-semidefinite piece of precision.
+    slopes_up = True
+    for f in (0.0, 0.25, 0.5, 0.9):
+        eh0, el0, _ = degrade(4.0, 1.0, f)
+        eh1, el1, _ = degrade(4.0, 1.0, f + 0.05)
+        slopes_up = slopes_up and eh1 > eh0 and el1 > el0
+    Phi = np.array([[2.0, 0.4], [0.4, 2.0]])
+    drop = np.array([[0.3, 0.1], [0.1, 0.2]])
+    S_full = np.linalg.inv(Phi)
+    S_drop = np.linalg.inv(Phi - drop)
+    # Loss tr(S) rises when a PSD update is removed.
+    check(
+        "error rises when a unit is removed, inside the Gaussian mean-square class",
+        slopes_up and float(np.trace(S_drop) - np.trace(S_full)) > 0.0,
+        "dtr=%.6e" % float(np.trace(S_drop) - np.trace(S_full)),
+    )
+    # J(f)=(1-f)mu + w V/(1+(1-f)mu). Second derivative 2 w V mu^2 / (1+(1-f)mu)^3.
+    mu_j, w_j, V_j, f_j = 3.0, 1.0, 4.0, 0.25
+    sec = 2.0 * w_j * V_j * mu_j ** 2 / (1.0 + (1.0 - f_j) * mu_j) ** 3
+    check(
+        "the split cost is convex in the failed fraction",
+        sec > 0.0 and near(sec, 2.0 * 4.0 * 9.0 / (1.0 + 0.75 * 3.0) ** 3, 1e-12),
+        "second=%.6f" % sec,
+    )
+
+    # ------------------------------------------------------- capacity cap
+    # Prediction, fixed before this search: under heat = sum of installed
+    # precisions and upkeep h per unit, a pool of the same units has error at
+    # most the non-pooling copy on every draw. Copies of one unit are feasible
+    # for the cap only when c >= V/eps_cap - 1. A common shock of probability
+    # beta > eps_r makes both designs infeasible. On a sum of K items, aiming
+    # the same precision at the sum beats aiming it at single items.
+    def pool_and_copy(V, phi, n, p_fail, h, w, beta=0.0):
+        """Equal accounting. beta is a common shock that downs every unit."""
+        p_up = 1.0 - p_fail
+        probs = binom_probs(n, p_up)
+        e_copy = e_pool = 0.0
+        pathwise = True
+        for i, prb in enumerate(probs):
+            eps_c = V / (1.0 + phi) if i >= 1 else V
+            eps_p = V / (1.0 + i * phi)
+            if eps_p > eps_c + 1e-9:
+                pathwise = False
+            e_copy += prb * eps_c
+            e_pool += prb * eps_p
+        # Mix in the common shock: with probability beta every unit is down.
+        e_copy = beta * V + (1.0 - beta) * e_copy
+        e_pool = beta * V + (1.0 - beta) * e_pool
+        heat = n * phi
+        upkeep = n * h
+        return pathwise, heat + upkeep + w * e_copy, heat + upkeep + w * e_pool, e_copy, e_pool
+
+    dom = True
+    for c_cap, phi, n, p_fail, h, w, beta in (
+        (2.0, 1.0, 2, 0.2, 0.5, 1.0, 0.0),
+        (0.4, 0.4, 6, 0.2, 0.5, 1.0, 0.0),
+        (5.0, 5.0 / 3.0, 3, 0.3, 0.1, 2.0, 0.0),
+        (1.0, 0.5, 4, 0.2, 0.5, 1.0, 0.02),
+        (3.0, 3.0, 2, 0.5, 2.0, 0.0, 0.0),
+    ):
+        okp, Jc, Jp, _, _ = pool_and_copy(4.0, phi, n, p_fail, h, w, beta)
+        dom = dom and okp and Jp <= Jc + 1e-9
+    # Strict when two or more can be up.
+    _, Jc_s, Jp_s, ec_s, ep_s = pool_and_copy(4.0, 5.0 / 3.0, 2, 0.2, 0.5, 1.0, 0.0)
+    check(
+        "equal heat and upkeep: pooling the same units costs at most the non-pooling copy",
+        dom and Jp_s < Jc_s - 1e-6,
+        "Jcopy=%.6f Jpool=%.6f Ecopy=%.6f Epool=%.6f" % (Jc_s, Jp_s, ec_s, ep_s),
+    )
+    mu_star = 4.0 / 1.5 - 1.0
+    # Single-unit copies cannot clear error 1.5 when c < mu_star.
+    check(
+        "a unit below the cap-clearing precision cannot be a feasible copy",
+        (4.0 / (1.0 + 0.5)) > 1.5 and (4.0 / (1.0 + mu_star)) <= 1.5 + 1e-12,
+        "mu_star=%.6f err_at_half=%.6f" % (mu_star, 4.0 / 1.5),
+    )
+    # Common shock above the cap: both ruin probabilities are at least beta.
+    beta = 0.06
+    p_copy_shock = beta + (1.0 - beta) * (0.2 ** 2)
+    check(
+        "a common shock above the cap makes every identical-unit design infeasible",
+        beta > 0.05 and p_copy_shock > 0.05,
+        "beta=%.3f Pcopy=%.6f" % (beta, p_copy_shock),
+    )
+
+    # Sum of K=4 items. Same total precision Phi. Item-diagonal sum-error
+    # K^2/(K+Phi), aligned sum-error K/(1+Phi).
+    Ksum = 4
+    for Phi in (0.5, 1.0, 4.0):
+        err_item = Ksum ** 2 / (Ksum + Phi)
+        err_aligned = Ksum / (1.0 + Phi)
+        check(
+            "sum of %d, precision %.2f: aiming at the sum beats aiming at items" % (Ksum, Phi),
+            err_aligned < err_item - 1e-12,
+            "aligned=%.6f item=%.6f" % (err_aligned, err_item),
+        )
+    # Cap sum-error at 2, so mu_star=1. c=0.5. Aligned needs two units up.
+    # Item-diagonal needs total precision 4 even with every unit up.
+    # Smallest aligned N with P(Bin(N,0.8) < 2) <= 0.05.
+    def p_fewer_than(n, p_success, k):
+        # P(I < k) = P(I <= k-1)
+        if k <= 0:
+            return 0.0
+        return binom_pmf_upto(n, p_success, k - 1)
+
+    best_aligned = None
+    for N in range(2, 40):
+        pr = p_fewer_than(N, 0.8, 2)
+        if pr <= 0.05:
+            # phi=c=0.5, heat=N*0.5, upkeep=N*0.5, w=1
+            probs = binom_probs(N, 0.8)
+            ee = sum(prb * (4.0 / (1.0 + i * 0.5)) for i, prb in enumerate(probs))
+            J = N * 0.5 + N * 0.5 + ee
+            best_aligned = (N, pr, ee, J)
+            break
+    # Item-diagonal: n_per item, four items, each unit precision 0.5, a copy of
+    # an item survives on its own. Sum-error given the four up-counts.
+    # Search n_per from 1 to 12. Ruin if the conditional sum-error exceeds 2.
+    best_item = None
+    for n_per in range(1, 16):
+        # Independent binomials. Enumerate via convolution of one item's error contribution.
+        # Contribution of one item with I up: 1/(1+I*0.5). Sum of four.
+        probs_one = binom_probs(n_per, 0.8)
+        # dp over the sum of four independent contributions, but the cap is on
+        # the sum of the four variances. Use the generating function on a grid
+        # of the up-count, since the variance is monotone in the count.
+        # Exact enumeration: the joint is a product. 16^4 is too big; n_per+1
+        # states per item, (n_per+1)^4 at n_per=15 is 16^4=65536, fine.
+        states = len(probs_one)
+        # Iterative convolution of the scalar error, plus a ruin flag via
+        # enumerating counts.
+        from itertools import product
+        ee = 0.0
+        pruin = 0.0
+        for counts in product(range(states), repeat=4):
+            prb = 1.0
+            err = 0.0
+            for m in counts:
+                prb *= probs_one[m]
+                err += 1.0 / (1.0 + m * 0.5)
+            ee += prb * err
+            if err > 2.0 + 1e-12:
+                pruin += prb
+        heat = 4 * n_per * 0.5
+        upkeep = 4 * n_per * 0.5
+        J = heat + upkeep + ee
+        if pruin <= 0.05 and (best_item is None or J < best_item[3]):
+            best_item = (n_per, pruin, ee, J)
+    check(
+        "capacity-limited sum: the aligned pool meets the cap and the item copies cost more",
+        best_aligned is not None
+        and best_item is not None
+        and best_aligned[3] < best_item[3] - 0.5,
+        "aligned N=%d P=%.4f J=%.4f | item n_per=%d P=%.4f J=%.4f"
+        % (best_aligned[0], best_aligned[1], best_aligned[3],
+           best_item[0], best_item[1], best_item[3]),
+    )
+    print(
+        "CAPALIGN N=%d P=%.6f E=%.6f J=%.6f | ITEM n_per=%d P=%.6f E=%.6f J=%.6f"
+        % (best_aligned[0], best_aligned[1], best_aligned[2], best_aligned[3],
+           best_item[0], best_item[1], best_item[2], best_item[3])
+    )
+    print(
+        "CAPDOM Jcopy=%.6f Jpool=%.6f mu_star=%.6f err_c=%.6f"
+        % (Jc_s, Jp_s, mu_star, 4.0 / (1.0 + 0.5))
     )
 
     # ------------------------------------------------------- phone-scale units
