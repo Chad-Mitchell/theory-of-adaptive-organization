@@ -4,7 +4,7 @@
 
 ## 0. Order of work (agreed)
 
-1. Finish the classical math now in review: the representation boundary and frontier form (PR #154, merged as `fb6c17f`; confirm #157 `797b14b`), the chain-to-diffusion limit for DS1 (PR #153), and Lean batch 2 (PR #155). Lean is insurance on the load-bearing chain only, not a growing count.
+1. On main: the representation boundary and frontier form (PR #154, merged as `fb6c17f`; confirm #157 `797b14b`), the chain-to-diffusion limit for DS1 (PR #153, merged as `f84997c`; confirm #159 `37794bb`), and Lean batch 2 (PR #155, merged as `886d69b`; confirm #160 `eddf64e`). Lean is insurance on the load-bearing chain only, not a growing count.
 2. Write one derivation chain in one document: axioms, then the frontier form (with additive J as the special case), then the principle, then the theorems, then the four rules (hold, estimate, watch, learn).
 3. Freeze the core text and tag a snapshot release.
 4. Re-read past field attempts under the frontier form (§1.3), then run one preregistered, hash-locked real-data test on a qualifying system.
