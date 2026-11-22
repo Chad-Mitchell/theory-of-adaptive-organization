@@ -10,7 +10,7 @@ The current statement is THEORY v2.9 (a draft; v2.5.x, v2.7, v2.8 and v2.9 are d
 ## Canonical files
 - `CORE.md` — the theory on one page. The predictive keystone is scoped in §4.
 - `THEORY.md` — the theory (v2.9). A draft; v2.5.x, v2.7, v2.8 and v2.9 are deltas on v2.4; v2.8 is the ht-index work, merged. The earlier v2.0 and v1.4.29 are frozen at `reference/THEORY_v2.0.md` and `reference/THEORY_v1.4.29.md`; the changelog is `reference/CHANGELOG.md`.
-- `measurement/CLAIM_MAP_v2.md` (v2.77; one status per claim) and `measurement/FRAMEWORK.md` (validity gates MV1–MV10, tiers, anti-rescue rule).
+- `measurement/CLAIM_MAP_v2.md` (v2.78; one status per claim) and `measurement/FRAMEWORK.md` (validity gates MV1–MV10, tiers, anti-rescue rule).
 - `OPEN_WORK.md` — every open item. This is the live list.
 - `process/QUEUE.md` + `process/queue/` — frozen 20 November 2026; superseded by `OPEN_WORK.md`. The items and ledger remain as a historical record.
 - `tools/brief.py` — live state snapshot (HEAD, recent merges, open PRs, versions, open work). Run `python3 tools/brief.py` before answering from memory; do not trust a hand-written SHA on this page.
