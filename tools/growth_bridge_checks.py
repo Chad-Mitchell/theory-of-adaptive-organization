@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import math
 import os
+import re
 import sys
 import time
 import urllib.parse
@@ -161,10 +162,46 @@ def section_expansion():
         f"diff={lam_skew - lam_sym:.6e} cubic={cubic:.6e}",
     )
 
-    # Menu agreement at small eps, disagreement is not claimed there.
+    # Finite menu. The mean gap is fixed in X. Small epsilon keeps the
+    # growth argmax on the mean leader. A larger epsilon flips it.
+    menu = {
+        "risky": ((0.7, 0.3), (1.0, -1.0)),
+        "lean": ((1.0,), (0.3,)),
+        "weak": ((1.0,), (0.0,)),
+    }
+
+    def menu_mean(name):
+        ps, xs = menu[name]
+        return sum(p * x for p, x in zip(ps, xs))
+
+    def menu_lam(name, eps):
+        ps, xs = menu[name]
+        return sum(p * math.log(1.0 + eps * x) for p, x in zip(ps, xs))
+
+    means = {name: menu_mean(name) for name in menu}
+    gap = means["risky"] - means["lean"]
     check(
-        "gapped menu at eps=0.01: log(1.01) > 0",
-        math.log(1.01) > 0.009 and math.log(1.01) < 0.01,
+        "finite menu has three designs and a fixed mean gap of 0.1",
+        len(menu) == 3 and abs(means["risky"] - 0.4) < 1e-12
+        and abs(means["lean"] - 0.3) < 1e-12 and abs(means["weak"]) < 1e-15
+        and abs(gap - 0.1) < 1e-12
+        and max(means, key=means.get) == "risky",
+    )
+    for eps in (0.01, 0.02, 0.05):
+        lams = {name: menu_lam(name, eps) for name in menu}
+        check(
+            f"small eps={eps}: argmax E[log W] equals argmax E[X]",
+            max(lams, key=lams.get) == "risky" and max(means, key=means.get) == "risky",
+            f"lams={{{', '.join(f'{k}:{v:.6f}' for k, v in lams.items())}}}",
+        )
+    flip = 0.5
+    lams_flip = {name: menu_lam(name, flip) for name in menu}
+    check(
+        "larger eps=0.5 flips the growth argmax off the mean leader",
+        max(means, key=means.get) == "risky"
+        and max(lams_flip, key=lams_flip.get) == "lean"
+        and lams_flip["lean"] > lams_flip["risky"] > lams_flip["weak"],
+        f"lams={{{', '.join(f'{k}:{v:.6f}' for k, v in lams_flip.items())}}}",
     )
 
 
@@ -362,15 +399,48 @@ def section_ruin():
 
 def section_coordinates():
     print("coordinates")
-    # Memory total derivative: loss falls with I, so offspring rises.
+    note = open(NOTE, encoding="utf-8").read()
+
+    def budget(price, resource, loss):
+        """log W = -price * resource - loss, the note's budget map."""
+        return -price * resource - loss
+
+    def partial_resource(price, loss):
+        # Centered difference at fixed loss. The map is linear, so this is exact.
+        h = 1e-6
+        return (budget(price, 1.0 + h, loss) - budget(price, 1.0 - h, loss)) / (2.0 * h)
+
+    kappa, c_price, c_a, loss = 0.7, 1.3, 0.4, 0.2
+    check(
+        "note states the three budget partials -kappa, -c, and -c_a",
+        r"\log W=-\kappa I-\ell" in note and r"has partial \(-\kappa\)" in note
+        and r"\log W=-c r-\ell" in note and r"has partial \(-c\)" in note
+        and r"budget partial is \(-c_a\)" in note and r"strict when \(c_a>0\)" in note,
+    )
+    check(
+        "budget partial in the resource equals -kappa at fixed loss",
+        abs(partial_resource(kappa, loss) + kappa) < 1e-9 and kappa > 0,
+        f"partial={partial_resource(kappa, loss)}",
+    )
+    check(
+        "budget partial in the read rate equals -c at fixed loss",
+        abs(partial_resource(c_price, loss) + c_price) < 1e-9 and c_price > 0,
+        f"partial={partial_resource(c_price, loss)}",
+    )
+    check(
+        "budget partial in attention equals -c_a at fixed loss",
+        abs(partial_resource(c_a, loss) + c_a) < 1e-9 and c_a > 0,
+        f"partial={partial_resource(c_a, loss)}",
+    )
+    # A zero price makes the same partial zero, so H3's strictness fails.
+    check("a free resource has partial 0", abs(partial_resource(0.0, loss)) < 1e-12)
+
+    # Memory total derivative, compared with the digits printed in the note.
     w0 = math.exp(-1.0)
     w1 = math.exp(-math.exp(-2.0))
-    check("memory total derivative 0.367879441171 -> 0.873423018493",
-          abs(w0 - 0.367879441171) < 1e-12 and abs(w1 - 0.873423018493) < 1e-12 and w1 > w0)
-    # Budget partial at fixed loss: d/dI (-kappa I - ell) = -kappa < 0.
-    kappa = 0.5
-    check("memory budget partial is -kappa at fixed loss",
-          (-kappa * 2.0) - (-kappa * 1.0) == -kappa and kappa > 0)
+    check("memory total derivative matches the note 0.367879441171 -> 0.873423018493",
+          abs(w0 - 0.367879441171) < 1e-12 and abs(w1 - 0.873423018493) < 1e-12
+          and w1 > w0 and "0.367879441171" in note and "0.873423018493" in note)
 
     # Acquisition: total derivative positive on [0, log 4); partial at fixed loss is -c.
     def log_total(r):
@@ -379,33 +449,46 @@ def section_coordinates():
     def total_deriv(r):
         return -1.0 + 4.0 * math.exp(-r)
 
-    check("acquisition total derivative rises from r=0 to r=1",
+    check("acquisition total derivative matches the note and rises from r=0 to r=1",
           abs(math.exp(log_total(0.0)) - 0.018315638889) < 1e-12
           and abs(math.exp(log_total(1.0)) - 0.084456576466) < 1e-12
+          and "0.018315638889" in note and "0.084456576466" in note
           and log_total(1.0) > log_total(0.0)
-          and total_deriv(0.0) > 0 and total_deriv(1.0) > 0)
-    check("acquisition budget partial at fixed loss is -c",
-          -1.0 < 0)
+          and total_deriv(0.0) > 0 and total_deriv(1.0) > 0
+          and "partial at fixed loss is \\(-1\\)" in note)
 
-    # Learning loss is a total derivative, not the partial in task loss.
-    check("learning-loss total derivative: offspring 3 at loss 1 beats 1.1 at loss 0", 3.0 > 1.1)
+    # Learning pair: parse the two offspring numbers the note prints.
+    learn = note.split("The learning pair", 1)[1].split("It is a total derivative", 1)[0]
+    offs = [float(x) for x in re.findall(r"offspring \\\(([0-9.]+)\\\)", learn)]
+    check(
+        "learning pair in the note is offspring 1.1 against offspring 3",
+        offs == [1.1, 3.0] and offs[1] > offs[0],
+        f"parsed={offs}",
+    )
 
     # LY-1 is the witness that expected task loss fails H3.
     lam_l = 0.5 * math.log(0.2)
     lam_h = math.log(1.1)
-    check("LY-1 expected task loss fails H3", abs(lam_l + 0.804718956217) < 1e-9 and abs(lam_h - 0.095310179804) < 1e-9
-          and lam_l < lam_h)
+    check("LY-1 expected task loss fails H3 and the note prints both values",
+          abs(lam_l + 0.804718956217) < 1e-9 and abs(lam_h - 0.095310179804) < 1e-9
+          and lam_l < lam_h and "-0.804718956" in note and "0.095310180" in note)
 
-    # Scalar ruin probability is not a pathwise coordinate.
-    check("scalar ruin probability at fixed W=1.2 does not move offspring", 1.2 == 1.2)
+    # Scalar ruin probability is not a pathwise coordinate. One offspring number, two probabilities.
+    ruin = [ln for ln in note.splitlines() if r"W\equiv 1.2" in ln][0]
+    probs = [float(x) for x in re.findall(r"0\.[0-9]+", ruin)]
+    offspring = [float(x) for x in re.findall(r"W\\equiv ([0-9.]+)", ruin)]
+    check(
+        "note's two ruin probabilities share one offspring value 1.2",
+        offspring == [1.2] and probs[:2] == [0.01, 0.20],
+        f"offspring={offspring} probs={probs[:2]}",
+    )
 
-    # Attention total derivative through a falling loss. Budget partial is -c_a.
+    # Attention total derivative through a falling loss.
     a0 = math.exp(-4.0)
     a1 = math.exp(-4.0 / math.e)
-    check("attention total derivative 0.018315638889 -> 0.229576777100",
-          abs(a0 - 0.018315638889) < 1e-12 and abs(a1 - 0.229576777100) < 1e-12 and a1 > a0)
-    check("attention budget partial at fixed loss is negative when the price is positive",
-          -0.4 < 0)
+    check("attention total derivative matches the note 0.018315638889 -> 0.229576777100",
+          abs(a0 - 0.018315638889) < 1e-12 and abs(a1 - 0.229576777100) < 1e-12
+          and a1 > a0 and "0.229576777100" in note)
 
     # Growth vs Lundberg vs drift on (mu, sigma^2).
     # A: mu=0.30, sig2=0.40. B: mu=0.20, sig2=0.10.
