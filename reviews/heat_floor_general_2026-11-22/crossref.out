@@ -1,0 +1,23 @@
+Crossref API, 22 November 2026. User-Agent sent. Each line is an HTTP 200 from this session.
+The thirteen DOIs in theory/INFO_PHYSICS_GENERAL.md §11 are the first thirteen lines.
+The last four are papers read for the prior-art comparison and are not in the note.
+
+HTTP 200 | 10.1115/1.3658902 | 1961 | Journal of Basic Engineering | New Results in Linear Filtering and Prediction Theory | vol 83 p 95-108 | Kalman; Bucy
+HTTP 200 | 10.1137/0119020 | 1970 | SIAM Journal on Applied Mathematics | On the Calculation of Mutual Information | vol 19 p 215-220 | Duncan
+HTTP 200 | 10.1103/PhysRevX.4.031015 | 2014 | Physical Review X | Thermodynamics with Continuous Information Flow | vol 4 | Horowitz; Esposito
+HTTP 200 | 10.1103/PhysRevE.93.022116 | 2016 | Physical Review E | Sensory capacity: An information theoretical measure of the performance of a sensor | vol 93 | Hartich; Barato; Seifert
+HTTP 200 | 10.1103/PhysRevE.90.042119 | 2014 | Physical Review E | Maximum work extraction and implementation costs for nonequilibrium Maxwell's demons | vol 90 | Sandberg; Delvenne; Newton; Mitter
+HTTP 200 | 10.1088/1367-2630/16/10/103024 | 2014 | New Journal of Physics | Efficiency of cellular information processing | vol 16 p 103024 | Barato; Hartich; Seifert
+HTTP 200 | 10.1088/1367-2630/16/12/125007 | 2014 | New Journal of Physics | Second-law-like inequalities with information and their interpretations | vol 16 p 125007 | Horowitz; Sandberg
+HTTP 200 | 10.1007/s10955-004-8781-9 | 2005 | Journal of Statistical Physics | Information and Entropy Flow in the Kalman-Bucy Filter | vol 118 p 145-176 | Mitter; Newton
+HTTP 200 | 10.1109/TAC.2004.834430 | 2004 | IEEE Transactions on Automatic Control | Stochastic Linear Control Over a Communication Channel | vol 49 p 1549-1561 | Tatikonda; Sahai; Mitter
+HTTP 200 | 10.1109/TAC.2016.2601148 | 2017 | IEEE Transactions on Automatic Control | Semidefinite Programming Approach to Gaussian Sequential Rate-Distortion Trade-Offs | vol 62 p 1896-1910 | Tanaka; Kim; Parrilo; Mitter
+HTTP 200 | 10.1109/TIT.1956.1056823 | 1956 | IRE Transactions on Information Theory | On the Shannon theory of information transmission in the case of continuous signals | vol 2 p 102-108 | Kolmogorov
+HTTP 200 | 10.1016/S0304-3932(03)00029-1 | 2003 | Journal of Monetary Economics | Implications of rational inattention | vol 50 p 665-690 | Sims
+HTTP 200 | 10.1287/mnsc.13.3.210 | 1966 | Management Science | Discrete Optimization Via Marginal Analysis | vol 13 p 210-216 | Fox
+HTTP 200 | 10.1109/cdc.2017.8264246 | 2017 | 2017 IEEE 56th Annual Conference on Decision and Control (CDC) | Optimal sensor design and zero-delay source coding for continuous-time vector Gauss-Markov processes | p 3992-3997 | Tanaka; Skoglund; Ugrinovskii
+HTTP 200 | 10.1109/cdc.2018.8619725 | 2018 | 2018 IEEE Conference on Decision and Control (CDC) | Asymptotic Reverse-Waterfilling Characterization of Nonanticipative Rate Distortion Function of Vector-Valued Gauss-Markov Processes with MSE Distortion | p 14-20 | Stavrou; Charalambous; Charalambous; Loyka; Skoglund
+HTTP 200 | 10.1109/tit.2021.3124888 | 2022 | IEEE Transactions on Information Theory | Complete Characterization of Gorbunov and Pinsker Nonanticipatory Epsilon Entropy of Multivariate Gaussian Sources: Structural Properties | vol 68 p 1440-1464 | Charalambous; Charalambous; Kourtellaris; van Schuppen
+HTTP 200 | 10.1109/allerton.2014.7028503 | 2014 | 2014 52nd Annual Allerton Conference on Communication, Control, and Computing (Allerton) | Thermodynamic costs in implementing Kalman-Bucy filters | p 550-555 | Sandberg; Delvenne; Newton; Mitter
+
+Gorbunov and Pinsker, Problems of Information Transmission 9 (1973) 184, "Nonanticipatory and prognostic epsilon entropies and message generation rates", and 10 (1974) 93, "Prognostic epsilon entropy of a Gaussian message and a Gaussian source", are the citations carried in the reference lists of the 2018 CDC paper and of 10.1109/tit.2021.3124888. This session did not find a Crossref work record, and so no DOI, for either translation.
