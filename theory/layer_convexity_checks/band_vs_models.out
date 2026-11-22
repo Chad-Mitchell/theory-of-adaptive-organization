@@ -1,0 +1,10 @@
+{
+ "worlds": 120,
+ "band_convex": 120,
+ "spearman_log_eps": 0.7873281209428464,
+ "n_pairs": 275,
+ "spearman_ratio21": -0.1807684814698257,
+ "n_ratio": 117,
+ "band_max_ratio21": 0.48670576327511594,
+ "models_max_ratio21": 0.3374628622762908
+}

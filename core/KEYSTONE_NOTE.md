@@ -2,6 +2,8 @@
 
 *20 Nov 2026, first written about 4:10 PM ET, revised after independent review (READY-WITH-FIXES) beginning 4:35 PM ET, results filled about 5:15 PM ET, revised again after the confirm review (B3) about 5:25 PM ET, revised after the S5 Model-S rerun about 5:31 PM ET, and revised after the IMP-N60 / cymatics / fractal scoring about 8:49 PM ET (America/New_York). Beside `main` at `ff14a87` (PR #117 merged as v2.67, PR #116 merged as v2.68, PR #118 hygiene as `ff14a87`). The first review is at `reviews/core_2026-11-20/REVIEW.md`; the confirm review is at `reviews/core_2026-11-20/CONFIRM.md`; the re-confirm is at `reviews/core_2026-11-20/RECONFIRM.md`. Independent review of the IMP-N60 run: `reviews/rhythm_2026-11-20/REVIEW.md` (SCORING CORRECT). Code: `core/keystone_checks/`. Rhythm test: `RHYTHM_PREREG.md`, `RHYTHM_RESULTS.md`.*
 
+**Pointer (21 Nov 2026):** `theory/LAYER_CONVEXITY.md` (CLAIM_MAP N64) proves convexity for Model S with J ≤ 2 and for every monotone-SNR world in the band model 𝓑; Model S with J ≥ 3 is still numerical.
+
 N60 (PR #116, CLAIM_MAP: **PROVED (in-model) given convexity, which is numerical only**) states, in Model S,
 
 $$K^*=\arg\min_K\bigl[K+R(1+\varepsilon_K)\bigr],$$

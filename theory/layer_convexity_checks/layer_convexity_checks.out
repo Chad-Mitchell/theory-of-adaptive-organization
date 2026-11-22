@@ -1,0 +1,22 @@
+L1 convex => N60 == argmin (all R): OK  mismatches 0
+L1 non-convex => some R disagrees: OK  1399/1399
+L2 halving => convex: OK
+L2 log-convex => convex: OK
+L2 ratio > 1/2 on (1, r, 0) is non-convex: OK
+T3 Ky Fan / Eckart-Young residual convex: OK
+T4 Monge K-link optimum convex in K: OK
+T4 non-Monge costs can be non-convex: OK  599/600
+T5 band model, monotone SNR => convex (K=0..8): OK  monotone 400/400, non-convex 0
+T5 SSE quadrangle (monotone W): OK
+T5 mixed terminal-band inequality (monotone W): OK
+P6 minimal bump (0,1,0; weights 2,1,1) non-convex: OK  E = [1.0, 0.666667, 0.0]
+P6 rhythmic band curves can be non-convex: OK  51/240 non-convex
+P6 every non-convex rhythmic case has non-monotone W: OK
+P6 the two-oscillator counterexample world has non-monotone W: OK  band curve convex: False; band eps K=0..6 [36.4562, 0.247, 0.169, 0.1437, 0.0658, 0.0439, 0.0339]
+P6 coverage (submodular) best-K value not concave: OK  g = [0, 6, 8, 12]
+T6 Model S poles interlace a_1<c_1<a_2<...<a_J<c_J: OK
+T6 Model S optimal-filter residues all positive: OK
+T6 E_J at Kalman rates == Yovits-Jackson E_inf: OK
+T6 J=2: one Kalman-rate store gives E_1 <= (E_0+E_inf)/2 (=> convex on 0..2); J>2: share >= 1/J: OK  J=2 worst (E1-Einf)/(E0-Einf) = 0.3044; min one-store share 0.6727
+S5 Model S halving eps_{K+1} <= eps_K/2 (K=0..J): OK  120/120; max ratios {'J3_K0': 0.0671, 'J3_K1': 0.3147, 'J4_K0': 0.0294, 'J4_K1': 0.3375, 'J4_K2': 0.2409}
+ALL LAYER CONVEXITY CHECKS PASS
