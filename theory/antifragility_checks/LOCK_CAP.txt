@@ -1,0 +1,12 @@
+CAP lock record
+Timestamp: Sunday 22 November 2026, 20:45 UTC
+Branch: antifragility-turnover-2026-11-22
+Beside commit: 44c5f9978dc00a03f432c04e2b609e899cd46852
+No pair (c, sigma) on the grid in PREREG_CAP.md has been evaluated.
+No output file for this preregistration exists.
+
+PREREG_CAP.md
+  sha256: e4adc02987a0afe27cdfe80e8b8545cc6eba14e1858b8af1e655df41e49c49ef
+  bytes:  6018
+
+This file is not edited after the computation starts. PREREG_CAP.md is not edited after this record. A point outside the frozen menus is not a score.

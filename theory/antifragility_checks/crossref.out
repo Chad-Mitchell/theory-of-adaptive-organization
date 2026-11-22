@@ -1,0 +1,31 @@
+Crossref and abstract fetches for theory/antifragility_checks/RESULTS.md
+Date: 22 November 2026
+Crossref API: https://api.crossref.org/works/<doi>
+A DOI is cited only if this file shows Crossref HTTP 200.
+Abstracts: Europe PMC where a record was returned; arXiv API for 1412.1875.
+No formula from these papers is used. None of them is a premise of the algebra.
+
+CROSSREF 200  10.1080/14697688.2013.800219  2013  Quantitative Finance
+  Taleb, N. N.; Douady, R.  Mathematical definition, mapping, and detection of (anti)fragility.
+  Crossref abstract: none. Europe PMC: no hit. Cited for the title.
+  The concavity reading used in the results note is the one already stated in theory/ROBUSTNESS.md §6, not a new extraction from this paper.
+
+CROSSREF 200  10.1146/annurev.pharmtox.43.100901.140223  2003  Annual Review of Pharmacology and Toxicology
+  Calabrese, Edward J.; Baldwin, Linda A.  Hormesis: The Dose-Response Revolution.
+  Europe PMC abstract: hormesis is a dose-response with low-dose stimulation and high-dose inhibition, reported across agents, models, and endpoints.
+
+CROSSREF 200  10.1126/science.1202529  2011  Science
+  Paolicelli, Rosa C.; Bolasco, Giulia; Pagani, Francesca; Maggi, Laura; Scianni, Maria; Panzanelli, Patrizia; Giustetto, Maurizio; Ferreira, Tiago Alves; Guiducci, Eva; Dumas, Laura; Ragozzino, Davide; Gross, Cornelius T.
+  Synaptic Pruning by Microglia Is Necessary for Normal Brain Development.
+  Europe PMC abstract: microglia engulf synaptic material and play a major role in synaptic pruning during postnatal development in mice.
+
+CROSSREF 200  10.1038/bjc.1972.33  1972  British Journal of Cancer
+  Kerr, J. F. R.; Wyllie, A. H.; Currie, A. R.  Apoptosis: A Basic Biological Phenomenon with Wide-ranging Implications in Tissue Kinetics.
+  Europe PMC abstract: apoptosis is proposed as controlled cell deletion, complementary and opposite to mitosis, able to be initiated or inhibited by environmental stimuli.
+
+CROSSREF 200  10.1103/PhysRevX.6.021036  2016  Physical Review X
+  Perunov, Nikolay; Marsland, Robert A.; England, Jeremy L.  Statistical Physics of Adaptation.
+  Crossref abstract: none. Europe PMC: no hit.
+  arXiv API http://export.arxiv.org/api/query , id 1412.1875, journal ref Phys. Rev. X 6, 021036 (2016).
+  Abstract (fetched): a finite-time generalization of the Helmholtz free energy for driven Newtonian matter; a tendency, argued from that expression, toward states that reliably absorb and dissipate work from the environment; illustrated by random hopping in driven energy landscapes.
+  The arXiv record spells the first author Nikolai. The citation uses the Crossref spelling.
