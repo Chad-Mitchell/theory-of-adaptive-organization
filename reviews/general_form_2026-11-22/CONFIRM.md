@@ -59,3 +59,17 @@ One non-blocking gap: §4 states the heats \(4.000020\) and \(16.000320\) withou
 No lake build was run. The check counts 61, 31, and 33 match §11.
 
 CONFIRM: NOT READY (blocking: §4 says the telegraph flow equals \(0.831776616672\) only because \(kT=1\); the flow is \(0.6\ln 4\) at every temperature, and the heat floor equals that number only because \(kT=1\)).
+
+## Addendum, 22 November 2026, head `e233a3f`
+
+Re-read at `e233a3f9e57fe3cae3f8ab92d9b0f8d51374928e` on `general-form-physics-2026-11-22`. That commit's parent is `26961e8`. `git diff --stat 26961e8..e233a3f` is one line in `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` and nothing else. `git diff origin/main e233a3f -- THEORY.md CORE.md README.md` is empty. The proposal branch was not edited from this confirm.
+
+§4 now reads: the flow is \(0.6\ln 4\) nats per unit time at every temperature; the heat infimum equals that number only because \(kT=1\). At \(\varepsilon=0.2\) and \(\gamma=1\), the flow \(\gamma(1-2\varepsilon)\ln((1-\varepsilon)/\varepsilon)\) is \(0.6\ln 4=0.831776616671934\) with no factor of \(kT\). The heat infimum is \(kT\) times that flow, so it equals the printed number only at \(kT=1\). The sentence matches the formulas on the same line and `theory/INFO_PHYSICS.md` line 290. The earlier blocking reading is closed. The non-blocking gap on the unnamed second design \((a,v,\varepsilon)=(4,0.5,0.1)\) is unchanged.
+
+| Command, run on the tree at `e233a3f` | Result |
+|---|---|
+| `python3 tools/check_consistency.py` | PASS, 0 FAIL |
+| `python3 tools/check_open_work.py` | PASS, 0 missing |
+| `python3 tools/check_fresh.py` | PASS. STATUS pointer `fbf03b7`; window `6ca6b45 fbf03b7 d1d6ea5 954fc2f 74e02e7` |
+
+CONFIRM: READY
