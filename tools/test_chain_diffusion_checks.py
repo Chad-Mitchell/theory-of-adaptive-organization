@@ -13,5 +13,7 @@ def test_chain_diffusion_checks_quick_pass():
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL CHAIN DIFFUSION CHECKS PASS" in r.stdout
-    assert "CD1 static" in r.stdout
-    assert "identity gap" in r.stdout
+    assert "CD1 float" in r.stdout
+    assert "CD1 decimal" in r.stdout
+    assert "density stationary for L^2" in r.stdout
+    assert "linear defect" in r.stdout

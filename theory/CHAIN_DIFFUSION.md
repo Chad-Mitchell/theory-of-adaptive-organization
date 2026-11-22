@@ -1,6 +1,6 @@
 # From the substitution chain to the diffusion limit
 
-*Sunday 22 November 2026. Branch `diffusion-convexity-2026-11-21`, draft PR. Written by one executor for Chad Mitchell; a self-check, not an independent review. Closes the passage that `theory/DRIFT_SELECTION.md` §3 left open for a quadratic cost: the exact weak-mutation chain's stationary excess converges to the excess of the Langevin limit (L), including the factor \(1+D/D_m\). It does not change the Part 2 hypothesis sentence, and it does not edit a locked preregistration or hash file.*
+*Sunday 22 November 2026. Branch `diffusion-convexity-2026-11-21`, draft PR. Written by one executor for Chad Mitchell; a self-check, not an independent review. Revised after the independent review of PR #153 (`reviews/diffusion_convexity_2026-11-21/REVIEW.md`, verdict NOT-READY). The revision is a self-check of those fixes, not a second independent review. It does not change the Part 2 hypothesis sentence, and it does not edit a locked preregistration or hash file.*
 
 ## 0. Bottom line
 
@@ -20,12 +20,12 @@ DS1's excess \(\frac{d}{2\beta}\bigl(1+\frac{D}{D_m}\bigr)\) is an identity for 
 | | Statement | Status |
 |---|---|---|
 | CD1 | Static quadratic chain, diagonal \(H\): the stationary law is exactly Gibbs, and \(0<\frac{d}{2\beta}-\mathbb{E}[J-J^\star]\le\sum_k\frac{8\pi^2}{\beta a_k}\exp(-2\pi^2/a_k)\) whenever each \(a_k=\beta\lambda_k\delta^2\le 1\) | **PROVED** |
-| CD2 | Generator of the chain on a quadratic cost equals the Langevin generator plus a defect \(R\) controlled by the nonlinearity of the Moran fixation map | **PROVED** |
-| CD3 | One coordinate, quadratic, Brownian centre: the lag has a unique stationary law, and its excess is the DS1 value plus an error \(O(\delta^2)=O(\varepsilon_{\mathrm{lat}}/\beta)\) | **PROVED** |
-| CD3d | The same limit and the same order, summed over coordinates, when \(H\) and the world's noise are diagonal in the lattice basis (curvature still cancels in the limit). OU and constant velocity: the world's generator is exact, and the same defect \(R\) is the only error | **PROVED** |
-| CD4 | In that scaling the lag converges weakly in Skorokhod space on \([0,\infty)\) to the Langevin diffusion, in the sense of Ethier and Kurtz, Chapter 4, §8 | **PROVED**, by the generator theorem once CD2 and the Lyapunov compact-containment are granted |
+| CD2 | On \(\lvert Nx_\pm\rvert\le 1\), \(\lvert R(L)\rvert\le D_m\delta^2\bigl(500\,\beta h+200(\beta h)^2(1+L^2)+1000(\beta h)^3(1+L^4)\bigr)\). The linear Moran map alone leaves \(R=-a\delta^2/2\), so the constant depends on \(\beta h\) | **PROVED** |
+| CD3 | One coordinate, quadratic cost, Brownian centre, \(D>0\): for each small \(\delta\) there is one stationary law; its excess equals the DS1 value plus \(O(\delta^2)\) as \(\delta\to 0\) with \(\beta,h,D_m,D\) fixed. The \(O(\delta^2)\) uses a uniform exponential moment, proved in §4 | **PROVED** |
+| CD4 | The same one-dimensional Brownian lag. If the initial laws converge weakly and have a uniform second moment, the path measures converge weakly in Skorokhod space to the Langevin lag | **PROVED** |
+| — | Ornstein–Uhlenbeck centre, constant velocity, non-diagonal \(H\), several coordinates | **SKETCH** |
 
-**What stays open.** A non-quadratic cost (several basins, SA4). A moving Hessian. The weak-mutation limit from the full Moran population down to the monomorphic chain. A numerical value of the \(O(\delta^2)\) constant that does not depend on the Lyapunov moment (the proof shows the constant is finite; the runs below measure it). Anisotropic mutation that is not diagonal in the lattice basis is the same argument with \(D_m I\) replaced by \(M\), and is not written out.
+**What stays open.** The sketches just named (the cross moment \(L\theta^\star\) is a different defect from \(R(L)\)). A non-quadratic cost. The weak-mutation limit from the full Moran population. A numerical \(C\) in CD3 with the Lyapunov moment eliminated; the runs measure the ratio, they are not that constant.
 
 ## 1. The chain, and the defect
 
@@ -91,86 +91,118 @@ The diffusion's static excess is exactly \(d/(2\beta)\). CD1 is therefore the st
 
 ## 3. Theorem CD2 (the defect)
 
-The fixation map extends to an entire function of \(z=Nx\) by the removable definition
+The fixation map extends by removing the singularity at \(0\),
 \[
-N\varphi(x)=\frac{N\sinh(x/2)}{\sinh(Nx/2)}\exp\bigl(-(N-1)x/2\bigr).
+f(z)=N\varphi(z/N)=\frac{N\sinh(z/(2N))}{\sinh(z/2)}\exp\bigl(-(N-1)z/(2N)\bigr).
 \]
-Call this \(f(z)\). Its poles are at \(z=2\pi i k\), \(k\neq 0\).
+Poles sit at \(z=2\pi i k\), \(k\neq 0\). Write \(f_{\mathrm{lin}}(z)=1-((N-1)/(2N))z\) and \(\varphi_{\mathrm{lin}}(x)=f_{\mathrm{lin}}(Nx)/N\).
 
 **Lemma (Cauchy bound).** For \(N\ge 2\) and \(|z|\le 1\),
 \[
-\bigl|f(z)-\bigl(1+f'(0)z\bigr)\bigr|\le \tfrac1{12}z^2+3.4\,|z|^3.
+\bigl|f(z)-f_{\mathrm{lin}}(z)\bigr|\le \tfrac1{12}z^2+3.4\,|z|^3,
 \]
-*Proof.* The power series of \(\sinh\) has positive coefficients, so \(|\sinh(u)|\le\sinh(|u|)\). Thus for \(|u|\le 1/2\), \(|\sinh(u)/u|\le\sinh(|u|)/|u|\le\sinh(1/2)/(1/2)<1.043\), since \(t\mapsto\sinh t/t\) increases on \((0,\infty)\). On \(|z|=2\) and \(N\ge 2\), \(|z/(2N)|\le 1/2\), so \(|N\sinh(z/(2N))|\le 1.043\). Also \(|\sinh(z/2)|\ge\sin 1>0.841\) (the only zero of \(\sinh\) near the origin is the origin, inside the circle), and \(|\exp(-(N-1)z/(2N))|\le e\). Hence \(|f|<3.4\) on \(|z|=2\). For \(|z|\le 1\) the circle of radius 1 about \(z\) stays inside \(|w|\le 2\), so \(|f'''|\le 6\cdot 3.4\). The remainder after the quadratic Taylor polynomial is at most \(3.4|z|^3\). The quadratic coefficient satisfies \(|f''(0)/2|=(N-1)(N-2)/(12N^2)\le 1/12\), and \(f_{\mathrm{lin}}\) drops that quadratic piece, so \(|f-f_{\mathrm{lin}}|\le\tfrac1{12}z^2+3.4|z|^3\). ∎
+and the remainder \(r(z)\) after the quadratic Taylor polynomial of \(f\) satisfies \(|r(z)|\le 3.4|z|^3\) and \(|r'(z)|\le 10.2\, z^2\).
+*Proof.* The series of \(\sinh\) has positive coefficients, so \(|\sinh(u)|\le\sinh(|u|)\). For \(|u|\le 1/2\), \(|\sinh(u)/u|\le\sinh(1/2)/(1/2)<1.043\). On \(|z|=2\) and \(N\ge 2\), \(|N\sinh(z/(2N))|\le 1.043\), \(|\sinh(z/2)|\ge\sin 1>0.841\), and the exponential factor is at most \(e\). Hence \(|f|<3.4\) on \(|z|=2\). For \(|z|\le 1\) a circle of radius \(1\) stays inside \(|w|\le 2\), so \(|f'''|\le 6\cdot 3.4=20.4\). The integral remainder after order \(2\) is at most \(20.4|z|^3/6=3.4|z|^3\), and its derivative is at most \(20.4\, z^2/2=10.2\, z^2\). The quadratic coefficient is \((N-1)(N-2)/(12N^2)\le 1/12\). ∎
 
-The linear piece \(f_{\mathrm{lin}}(z)=1-((N-1)/(2N))z\) is exactly the first order used in the drift note. Substituting it for \(\varphi\) produces, after pairing \(+\) with \(-\), the Langevin drift \(-a L\) and the neutral diffusion \(2D_m\) on \(L^2\), with no remainder: the algebra is the one in `theory/DRIFT_SELECTION.md` §3, and every \(N\) cancels into \(\beta=\alpha(N-1)\) and \(D_m=\mu\delta^2/2\). The defect \(R\) is what the lemma bounds.
+**Lemma (linear defect).** Replace \(\varphi\) by \(\varphi_{\mathrm{lin}}\). Then \(R(L)=-a\delta^2/2\) for every \(L\), with \(a=D_m\beta h\).
+*Proof.* Let \(u=\alpha h\delta L\) and \(c=\alpha h\delta^2/2\), so \(x_+=u+c\) and \(x_-=-u+c\). Then \(\varphi_{\mathrm{lin}}(x_+)-\varphi_{\mathrm{lin}}(x_-)=-((N-1)/N)u\) and \(\varphi_{\mathrm{lin}}(x_+)+\varphi_{\mathrm{lin}}(x_-)=2/N-((N-1)/N)c\). Multiplying by \(\rho=N D_m/\delta^2\) and by the jumps in \(L^2\) gives drift \(-a L\) exactly, because \((N-1)\alpha=\beta\), and second-moment weight \(2 D_m-a\delta^2/2\). Those are the Langevin drift \(-a L\) and the Langevin noise \(2 D_m\), except for the constant \(-a\delta^2/2\). It does not cancel. ∎
 
-**Theorem CD2.** On the event \(|Nx_\pm|\le 1\),
+The linear piece is the first order in the drift note. It does not reproduce the Langevin generator on \(L^2\). The missing piece is \(-a\delta^2/2\), which depends on \(\beta h\).
+
+**Theorem CD2.** Let \(N\ge 2\). On \(|Nx_\pm|\le 1\),
 \[
-|R(L)|\le C_N D_m\,(\beta h\delta)^2\bigl(1+(\beta h) L^2\bigr)\bigl(1+L^2\bigr)
+|R(L)|\le D_m\delta^2\Bigl(500\,\beta h+200(\beta h)^2(1+L^2)+1000(\beta h)^3(1+L^4)\Bigr).
 \]
-for a constant \(C_N\) that depends only on \(N\) (the lemma gives a value; any larger constant is allowed). Off that event, \(|\varphi|\le 1\), so \(|R(L)|\le (2N D_m h/\delta)|L|+2N D_m+2a L^2+2D_m\).
+Off that event, \(|\varphi|\le 1\), so
+\[
+|R(L)|\le \frac{2N D_m}{\delta}|L|+2N D_m+2a L^2+2 D_m.
+\]
+There is no factor \(h\) in the first term of the tail bound: \(|r_+-r_-|\le\rho\), and \(\delta\rho=N D_m/\delta\).
 
-The first bound is \(O(\delta^2(1+L^4))\) on any region \(|L|\le \eta/(\beta h\delta)\) with \(\eta\) fixed. The second bound is large, and is only used on a far tail.
+*Proof of the bulk bound.* Let \(\kappa=N/(N-1)\le 2\), \(\Delta z=z_+-z_-=2\kappa\beta h\delta L\) and \(\Sigma z=z_++z_-=\kappa\beta h\delta^2\). Split \(f-f_{\mathrm{lin}}=b_2 z^2+r\) with \(|b_2|\le 1/12\) and \(|r'|\le 10.2 z^2\). Then \(|z_+^2-z_-^2|=|\Delta z|\,|\Sigma z|\) and \(|r(z_+)-r(z_-)|\le 10.2 z_{\max}^2|\Delta z|\), with \(z_{\max}\le\kappa\beta h\delta(|L|+\delta/2)\). Multiplying by \(2(D_m/\delta)|L|\) (the prefactor of a difference of \(\psi=(f-f_{\mathrm{lin}})/N\)) produces at most
+\[
+\tfrac43 D_m(\beta h)^2\delta^2 L^2+653\, D_m(\beta h)^3\delta^2 L^4+164\, D_m(\beta h)^3\delta^4 L^2.
+\]
+The sum \(\psi_++\psi_-\), multiplied by \(D_m\), is at most \(80\, D_m(\beta h)^2\delta^2(1+L^2)\) on the same region. The term in \(\delta^4 L^2\) is at most \(200\, D_m\beta h\delta^2\), because \(\beta h\delta|L|\le 1\). Adding the linear defect \(\tfrac12 D_m\beta h\delta^2\) keeps the three coefficients under \(500\), \(200\) and \(1000\). ∎
+
+The shape matters. A bound \(C_N D_m(\beta h\delta)^2\) with \(C_N\) depending only on \(N\) is false. At \(L=0\) the linear lemma gives \(|R|=a\delta^2/2=D_m\beta h\delta^2/2\), and \((\beta h\delta)^2\) is smaller than \(\beta h\delta^2\) by the factor \(\beta h\). Shrinking \(\beta h\) makes any \(N\)-only constant fail. The displayed bound keeps the factor \(\beta h\).
 
 ## 4. Theorem CD3 (stationary excess)
 
-**Theorem CD3.** Fix \(N\ge 2\), \(\beta>0\), \(h>0\), \(D_m>0\), \(D>0\). There exist \(\delta_0>0\) and a finite \(C\), depending only on those parameters, such that for every \(\delta\in(0,\delta_0)\) the lag has a unique stationary law and
+**Theorem CD3.** Fix \(N\ge 2\), \(\beta>0\), \(h>0\), \(D_m>0\) and \(D>0\). There exist \(\delta_0>0\) and a finite \(C\), depending only on those five numbers, such that for every \(\delta\in(0,\delta_0)\) the lag has a unique stationary law and
 \[
 \Biggl|\mathbb{E}[J-J^\star]-\frac1{2\beta}\Bigl(1+\frac{D}{D_m}\Bigr)\Biggr|\le C\delta^2.
 \]
-Equivalently the error is \(O(\varepsilon_{\mathrm{lat}}/\beta)\), since \(\varepsilon_{\mathrm{lat}}=\delta^2\beta h(1+D/D_m)\) with \(h\) and \(D/D_m\) fixed. Under this law the time average of \(J-J^\star\) converges almost surely to the stationary mean, because the lag is positive recurrent.
+Under this law the time average of \(J-J^\star\) converges almost surely to the stationary mean.
 
-*Proof.* Choose \(\eta\in(0,1)\) small enough that the bulk bound of CD2 satisfies \(|R(L)|\le (a/2) L^2\) whenever \(|\beta h\delta L|\le\eta\) and \(|L|\ge 1\). Such an \(\eta\) exists because the prefactor of CD2 carries \((\beta h\delta L)^2\le\eta^2\), and \(\eta^2\) can be made smaller than any fixed multiple of \(a\). Let \(L_B=\eta/(\beta h\delta)\). Call \(|L|\le L_B\) the bulk.
+*Proof.* The bulk is the set where \(|Nx_\pm|\le 1\). Its radius is \(L_B\asymp 1/(\beta h\delta)\), which grows like \(1/\delta\). CD2 controls \(R\) on that growing set. The parameters \(\beta,h,D_m,D,N\) stay fixed while \(\delta\) shrinks, so constants may depend on them.
 
-On the bulk, \(G(L^2)=\mathcal{L}(L^2)+R\le -2a L^2+2(D_m+D)+(a/2)L^2\le -(a/2)L^2+2(D_m+D)\) once \(|L|\ge 1\), up to adjusting \(\eta\) to absorb the compact piece \(|L|<1\) into the constant. Off the bulk, take \(L>L_B\) (the negative side is the same). Write \(y=\alpha h\delta L\) and \(c=\alpha h\delta^2/2\), so \(x_+=y+c\) and \(x_-=-y+c\). For \(\delta\) small, \(L_B>\delta\) and \(y>c\), hence \(x_-<0<x_+\). A fitter mutant fixes with probability at least the neutral value, so \(\varphi(x_-)\ge 1/N\). For the uphill step, \(\sinh(Nt)\ge N\sinh t\) for \(t\ge 0\) because \(t\mapsto\cosh(Nt)-\cosh t\) is nonnegative (\(Nt\ge t\) and \(\cosh\) increases on \([0,\infty)\)), so \(\varphi(x)\le N^{-1}\exp(-(N-1)x/2)\) for \(x>0\). And \((N-1)x_+/2=\beta h\delta L/2+\beta h\delta^2/4\ge\eta/2\), the quadratic piece only adding. Therefore
+**Drift inside the bulk.** The instantaneous drift is \(\mu(L)=\delta(r_+-r_-)\). The linear lemma gives \(\mu_{\mathrm{lin}}=-a L\). The error \(\mu+a L\) is built from \(\varphi-\varphi_{\mathrm{lin}}\) by the same differences of \(z_\pm\) as in CD2, multiplied by \(\delta\rho\) rather than by the weights \(2\delta L+\delta^2\). Those differences are \(O(\delta^3(1+|L|^3))\) on \(|Nx_\pm|\le 1\), and \(\delta\rho=O(1/\delta)\), so
 \[
-\varphi(x_-)-\varphi(x_+)\ge\frac{1-e^{-\eta/2}}{N},
+|\mu+a L|\le K_N D_m\delta^2\bigl(\beta h+(\beta h)^2(1+L^2)+(\beta h)^3(1+L^4)\bigr)(1+|L|)
 \]
-and the restoring speed is at least
+with a constant \(K_N\) of the same origin as the coefficients in CD2. On \(|L|\ge 1\) and \(|\beta h\delta L|\le\eta\),
 \[
-v_{\mathrm{rest}}=\delta\cdot\rho\cdot\frac{1-e^{-\eta/2}}{N}=\frac{D_m}{\delta}\bigl(1-e^{-\eta/2}\bigr).
+|\mu+a L|\le a|L|\bigl(C_1\delta+C_2\eta+C_3\eta^2\bigr),
 \]
-Hence \(G(L^2)\le -2 v_{\mathrm{rest}} L+2N D_m+2D\), and in particular \(G(L^2)\le -v_{\mathrm{rest}} L+C_1\) off the bulk.
+with \(C_i\) depending only on \(N\). Choose \(\eta>0\) small and then \(\delta_0\) small so that the parenthesis is at most \(1/2\). Then, for \(\delta<\delta_0\) and \(1\le|L|\le L_B\), \(\mu\) has the sign of \(-L\) and \(|\mu|\ge(a/2)|L|\).
 
-The same drift beats a multiple of \(\cosh(\lambda L)\) for \(\lambda>0\) fixed and \(\delta\) small: the jump variance rate is at most \(2N D_m\) and the world's variance rate is \(2D\), while \(v_{\mathrm{rest}}\to\infty\), so the first-derivative term dominates the second-derivative term outside a fixed compact. Foster's criterion gives a unique stationary law (the Brownian piece makes the process strong Feller and irreducible on \(\mathbb{R}\)) and a uniform exponential moment: \(\mathbb{E}[\cosh(\lambda L)]\le M\) for some \(M<\infty\) and all small \(\delta\). Every polynomial moment is therefore bounded uniformly in small \(\delta\). In particular \(\mathbb{E}[L^4]\le M_4<\infty\).
+**Outside the bulk.** Take \(L>L_B\) (the other side is the same). Then \(x_-<0<x_+\) for small \(\delta\). A fitter mutant fixes at rate at least the neutral rate, so \(\varphi(x_-)\ge 1/N\). And \(\sinh(Nt)\ge N\sinh t\) for \(t\ge 0\), because \(\cosh(Nt)-\cosh t\ge 0\), hence \(\varphi(x)\le N^{-1}\exp(-(N-1)x/2)\) for \(x>0\). The uphill step satisfies \((N-1)x_+/2\ge\eta/2\). Therefore \(\varphi(x_-)-\varphi(x_+)\ge(1-e^{-\eta/2})/N\), and the restoring speed is at least
+\[
+v_{\mathrm{rest}}=\frac{D_m}{\delta}\bigl(1-e^{-\eta/2}\bigr).
+\]
+So \(G(L^2)\le -2 v_{\mathrm{rest}} L+2N D_m+2D\).
 
-Split \(\mathbb{E}[R]=\mathbb{E}[R\,1_{\mathrm{bulk}}]+\mathbb{E}[R\,1_{\mathrm{tail}}]\). The bulk bound and \(\mathbb{E}[L^4]\le M_4\) give \(|\mathbb{E}[R\,1_{\mathrm{bulk}}]|\le C_b\delta^2\). On the tail, \(|R|\le (2N D_m h/\delta)|L|+C_2(1+L^2)\) and \(\mathbb{E}[|L|1_{|L|>L_B}]\) is \(O(\exp(-c/\delta))\) by the exponential moment, since \(L_B\propto 1/\delta\). That product is \(o(\delta^2)\). Hence \(|\mathbb{E}[R]|\le C'\delta^2\) for small \(\delta\), and (I) is the claim.
+**Uniform second moment.** On the bulk, CD2 and the choice of \(\eta\) give \(R\le(a/2)L^2+K_0\) for \(|L|\ge 1\), with \(K_0\) independent of \(\delta\) (the pieces without an \(L^2\) are \(O(\delta^2)\) or, when an edge factor \(1/(\beta h)\) appears, a constant fixed by \(\beta\) and \(h\)). Thus \(G(L^2)\le -a L^2+2(D_m+D)+K_0\) on \(1\le|L|\le L_B\). Off the bulk the restoring speed is stronger. On the fixed interval \(|L|\le 1\), pairing the jumps gives \(G(L^2)\le K_1\) with \(K_1\) independent of small \(\delta\): the crude product \(\rho\cdot\delta\) is \(O(1/\delta)\), but \(r_+-r_-=\mu/\delta=O(1)\) and \(\delta^2(r_++r_-)\le 2N D_m\). Choose \(L_0\ge 1\) so that \(a L_0^2\) beats \(2(D_m+D)+K_0+1\). Then \(G(L^2)\le -L^2+K\) on the whole line, with \(K\) independent of small \(\delta\).
 
-Positive recurrence gives the almost-sure convergence of time averages of \(J-J^\star\), which is integrable. ∎
+Existence and uniqueness for each fixed \(\delta\), when \(D>0\), do not need this uniformity. The jump rate is finite, \(G(L^2)\le -v_{\mathrm{rest}}|L|+C_\delta\) for large \(|L|\), and the Brownian piece is strong Feller and irreducible on \(\mathbb{R}\). That is one stationary law for each \(\delta\). The uniformity is the next sentence. Cut \(L^2\) off outside \(|L|<n\), use \(\int G(\phi_n)\,d\pi=0\) for the cutoff (it is in the domain), and pass to the limit by Fatou. The negative drift produces \(\mathbb{E}[L^2]\le K\), uniformly in small \(\delta\).
 
-The original gap in the drift note was uniform integrability of the stationary excess. For this quadratic Brownian lag it is the exponential moment above: \(\mathbb{E}[L^2]\) stays bounded as \(\delta\to 0\), so the family is uniformly integrable, and the means converge.
+**Uniform exponential moment.** Let \(V=\cosh(\lambda L)\) with \(\lambda>0\) small, fixed, to be chosen. On \(L_0\le|L|\le L_B\),
+\[
+GV=(r_++r_-)\cosh(\lambda L)(\cosh(\lambda\delta)-1)+(r_+-r_-)\sinh(\lambda L)\sinh(\lambda\delta)+D\lambda^2\cosh(\lambda L).
+\]
+Here \(\cosh u-1\le u^2\) for \(|u|\le 1\), so the first term is at most \(2N D_m\lambda^2\cosh(\lambda L)\) for small \(\delta\). And \(\sinh(\lambda\delta)\ge\lambda\delta\), while \(r_+-r_-=\mu/\delta\le-(a/(2\delta))L\) for \(L>0\). The middle term is then at most \(-(a\lambda/2) L\sinh(\lambda L)\). Choose \(L_0\) large enough that \((a\lambda/2) L\tanh(\lambda L)\) beats \(2N D_m\lambda^2+D\lambda^2+1\) for \(|L|\ge L_0\). Then \(GV\le -\cosh(\lambda L)\) on that range. Off the bulk, \(v_{\mathrm{rest}}\asymp 1/\delta\) makes the same middle term more negative still. On \(|L|<L_0\) the paired expansion bounds \(GV\) by \(K_V\cosh(\lambda L)\), with \(K_V\) independent of small \(\delta\). Hence \(GV\le -V+K_V' 1_{|L|<L_0}\). Approximating \(V\) by compactly supported functions and using the uniform second moment to pass to the limit gives \(\mathbb{E}[V]\le M\), uniformly in small \(\delta\).
 
-**Diagonal coordinates (CD3d).** If \(H=\mathrm{diag}(h_1,\ldots,h_d)\) and the centre is Brownian with independent coordinates of variance rates \(2D_k\), a step along axis \(k\) changes only coordinate \(k\), and the coordinates of the lag are independent copies of the one-dimensional process. CD3 applies to each, and the errors add. With \(D_k=D\) the limit is \(\frac{d}{2\beta}(1+D/D_m)\), independent of the \(h_k\). Curvature cancels in the limit. It does not cancel in the rate: coordinate \(k\) contributes \(O(\delta^2 h_k)\).
+**The excess.** Split \(\mathbb{E}[R]\) into the bulk and the tail \(|L|>L_B\). On the bulk, CD2 and \(\mathbb{E}[L^4]\le M_4\) (which follows from the exponential moment) give an \(O(\delta^2)\) contribution. On the tail, CD2's second bound is \(O(|L|/\delta+L^2)\), and \(\mathbb{E}[|L|1_{|L|>L_B}]\le e^{-\lambda L_B/2}M'\). Since \(L_B\asymp 1/\delta\), the product with \(1/\delta\) is \(o(\delta^2)\). Thus \(|\mathbb{E}[R]|=O(\delta^2)\), and (I) is the claim. Positive recurrence gives the almost-sure time average. ∎
 
-**OU and constant velocity.** The world is exogenous, so its generator is exact. For an OU centre the state is the pair \((L,\theta^\star)\), the world's piece of the generator of \(L^2\), \(L\theta^\star\) and \(\theta^{\star 2}\) has no \(\varphi\) in it, and the only defect is the same \(R(L)\) from the jumps. The Lyapunov algebra of DS1(a) therefore holds with an extra \(\mathbb{E}[R]\), and the same bulk/tail bound gives an \(O(\delta^2)\) error on the DS1 trace. For a constant velocity the same is true of the test functions \(L\) and \(L^2\): the mean lag is \(-v/a\) plus \(O(\delta^2)\), and the excess is DS1(c) plus \(O(\delta^2)\), provided \(|v|\) is small enough that a stationary lag exists, which is DS2's regime \(|v|<v_{\max}\) and, for the linearisation, the drift note's \(|v|\ll D_m/\delta\). The condition \(|v|\ll D_m/\delta\) becomes automatic as \(\delta\to 0\) with \(v\) fixed. The equality case \(|v|=v_{\max}\) stays outside, as in DS2.
+The bulk grows like \(1/\delta\). The comparison that keeps the moment finite is the drift inequality inside that bulk, \(\lvert\mu+a L\rvert\le(a/2)\lvert L\rvert\) for \(1\le|L|\le L_B\), not the restoring speed outside it. The outside speed is used only for the far tail.
 
-**Non-diagonal \(H\).** The same pairing along each lattice axis produces the drift \(-D_m\beta H L\) and diffusion \(2D_m I\), and the defect on the quadratic form \(\tfrac12 L^\top H L\) is a sum of one-dimensional defects of the kind bounded in CD2, with \(|HL|\) in place of \(h|L|\). The Lyapunov function \(L^\top H L\) gives the same uniform moments. The limit is DS1(b), with an \(O(\delta^2)\) error. This is the same proof; the bookkeeping is the matrix trace already written in the drift note.
+**Sketches, not theorems.** Three extensions are not proved.
+
+- *Ornstein–Uhlenbeck centre.* The state is the pair \((L,\theta^\star)\). The world's generator on \(L^2\), \(L\theta^\star\) and \(\theta^{\star 2}\) is exact. The jump defect of \(L^2\) is still \(R(L)\). The jump defect of the cross moment is not: a jump changes \(L\theta^\star\) by \(\delta\theta^\star\), so the defect relative to the Langevin drift \(-a L\) is \(\bigl(\delta(r_+-r_-)+a L\bigr)\theta^\star\). That is a different function of \((L,\theta^\star)\). Calling it \(R(L)\) is wrong. The estimate is not written.
+- *Constant velocity.* The same cross-term issue does not arise, because the world's drift \(-v\) is a function of \(L\) alone in the moving frame. The moment identity for \(L\) and \(L^2\) has the same shape as (I), but the Lyapunov is a piecewise-deterministic process with no Brownian piece, and the strong-Feller step used above does not apply. Not written.
+- *Non-diagonal \(H\), or several coordinates.* A step on one axis changes the quadratic form through the whole row of \(H\). The defect is a sum of axis contributions, not the scalar \(R\). Not written.
 
 ## 5. Theorem CD4 (path measure)
 
-**Theorem CD4.** Under the scaling of §0, with \(N,\beta,H,D_m,D\) fixed and \(H\) positive definite, the law of the lag on \(D([0,\infty),\mathbb{R}^d)\) converges weakly to the law of the Langevin lag, for any tight sequence of initial conditions with a uniform second moment.
+**Theorem CD4.** Same scaling and same one-dimensional Brownian quadratic lag as CD3. Let the initial laws \(\nu_\delta\) converge weakly to a probability \(\nu\), and suppose \(\sup_\delta\int L^2\,d\nu_\delta<\infty\). Then the law of the lag in \(D([0,\infty),\mathbb{R})\) converges weakly to the law of the Langevin lag started from \(\nu\).
 
-The topology is the Skorokhod topology. The argument is the generator-convergence theorem in Ethier and Kurtz, *Markov Processes: Characterization and Convergence*, Wiley 1986, doi 10.1002/9780470316658, Chapter 4, §8: Theorem 8.2, and Corollary 8.7 for processes with paths in \(D([0,\infty))\). (The audit's "Theorem 4.8.2" is this theorem. The section number was read from the book's contents and from the text of §8; the hypotheses used below are the ones the corollary states: generator convergence on a core, compact containment, and well-posedness of the limit.)
+Tightness of the initials is not enough. Point masses at \(0\) and at \(1\), alternating in \(\delta\), are tight and have a uniform second moment, and the path laws alternate between two different Langevin laws. Convergence of the initial laws is the hypothesis.
 
-Three inputs, each checked:
+The topology is Skorokhod's. The citation is Ethier and Kurtz, *Markov Processes: Characterization and Convergence*, Wiley 1986, doi 10.1002/9780470316658, Chapter 4, §8, Theorem 8.2 and Corollary 8.7 (cadlag paths; the proof of the corollary stops the martingale and calls Theorem 8.2). "Theorem 4.8.2" in the audit is this statement. Three hypotheses are checked, for this one-dimensional Brownian lag only.
 
-1. **Generator convergence on a core.** On any fixed compact, \(\varepsilon_{\mathrm{lat}}\to 0\) forces \(|Nx_e|\to 0\) uniformly, so CD2 gives \(\|G_\delta f-\mathcal{L}f\|_\infty\to 0\) for every \(f\in C_c^\infty\). Linear growth of the coefficients is cut off by the compact, which is what the corollary's stopped convergence uses.
-2. **Compact containment.** The Lyapunov function of CD3 bounds \(\mathbb{E}[\sup_{t\le T}|L_t|^2]\) uniformly in small \(\delta\), by the same drift inequality integrated up to time \(T\).
-3. **Well-posedness.** The limit is a linear stochastic differential equation with Lipschitz coefficients. It has a unique strong solution, so its martingale problem is well-posed.
+1. **Generator convergence on \(C_c^\infty\).** Let \(f\) vanish outside a fixed compact. For small \(\delta\), \(Gf(L)=0\) whenever \(L\) is more than \(\delta\) from that compact, and the Langevin generator vanishes there too. On the remaining fixed compact, \(|Nx_\pm|=O(\delta)\to 0\). Taylor's theorem with remainder gives
+   \[
+   f(L\pm\delta)-f(L)=\pm\delta f'+\tfrac12\delta^2 f''+O(\delta^3),
+   \]
+   uniformly in \(L\). Pairing and substituting the linear lemma, the drift coefficient is \(-a L+o(1)\) and the second-moment weight is \(2 D_m-a\delta^2/2+o(1)\), uniformly on that compact. The Brownian piece \(D f''\) is exact. Therefore \(\|Gf-\mathcal{L}f\|_\infty\to 0\). This is an expansion of a general test function. It is not the bound CD2, which is only for \(L^2\).
 
-Finite-horizon convergence does not by itself give convergence of stationary means. That is CD3, and it uses the identity (I) rather than an extra tightness argument on path space. The two theorems meet: every weak limit point of the stationary laws is invariant for (L), and (L) has one invariant law, the Gaussian whose excess is DS1.
+2. **Compact containment.** Fix \(T\) and \(R\). For small \(\delta\), the interval \(|L|\le R\) lies inside the bulk, so the drift comparison of CD3 gives \(G(L^2)\le -a L^2+C_R\) there, with \(C_R\) independent of small \(\delta\). Stop at \(\tau_R=\inf\{t:|L_t|\ge R\}\). Dynkin's formula yields \(\mathbb{E}[L_{t\wedge\tau_R}^2]\le\mathbb{E}[L_0^2]+C_R t\). Hence \(\mathbb{P}(\tau_R\le T)\le(\sup\mathbb{E}[L_0^2]+C_R T)/R^2\), uniformly in small \(\delta\). That is compact containment on \([0,T]\). The \(1/\delta\) tail is not needed: the process is stopped at a fixed \(R\) that sits inside the bulk.
+
+3. **Well-posedness.** The limit is a linear stochastic differential equation with Lipschitz coefficients. It has a unique strong solution, so its martingale problem on \(D([0,\infty),\mathbb{R})\) has one solution for each initial law.
+
+Corollary 8.7 then gives the weak convergence. Finite-horizon convergence does not by itself give convergence of stationary means. That is CD3.
 
 ## 6. What remains open
 
-- The weak-mutation limit \(N\mu_{\mathrm{gen}}\to 0\) from the full Moran process to the monomorphic chain. Standard, and not re-proved.
-- A non-quadratic \(J\). Several basins bring metastability on a time scale the diffusion approximation does not see. SA4 stays as it was.
-- A moving Hessian, frequency dependence, clonal interference, and a world the lineage moves (CX2).
-- A fully numerical \(C\) in CD3 with no moment left inside it. The runs give the ratio \(|\mathrm{rel.\ error}|/\varepsilon_{\mathrm{lat}}\) directly.
+- Ornstein–Uhlenbeck centre, constant velocity, and a non-diagonal or multi-coordinate Hessian. Sketches in §4. The cross-moment defect is not \(R(L)\).
+- The weak-mutation limit \(N\mu_{\mathrm{gen}}\to 0\) from the full Moran process to the monomorphic chain.
+- A non-quadratic \(J\). Several basins bring a time scale the diffusion approximation does not see.
+- A numerical value of \(C\) in CD3 with the Lyapunov moment removed. Section 7 measures the ratio for one Brownian family.
 
 ## 7. Numerical check
 
-`tools/chain_diffusion_checks.py`, quick mode under pytest, `--full` written to `theory/chain_diffusion_checks/results_full.json`. The static rows test CD1's bound and its leading term. The moving rows solve the exact forward equation of the lag and compare with DS1.
+`tools/chain_diffusion_checks.py`, quick mode under pytest, `--full` written to `theory/chain_diffusion_checks/results_full.json`. The static rows with a visible gap test CD1 against the leading term. Rows whose gap sits below float precision are computed in `decimal` at 40 places, so a \(10^{-14}\) tolerance cannot pass a bound of size \(10^{-20}\). The moving rows solve the exact forward equation. The identity check asks whether that density is stationary for \(L^2\). The comparison of the same excess to \(\frac1{2\beta}(1+D/D_m)\) is the check of the limit formula. A separate grid checks the linear defect \(-a\delta^2/2\) and the CD2 bound, including the point where a constant depending only on \(N\) fails.
 
 The full run is 10 stationary solves. The relative error divided by \(\varepsilon_{\mathrm{lat}}\) is at most \(0.094\) (that row is \(N=5\), \(\delta=0.25\), \(D/D_m=1\)). At \(N=20\) and \(D/D_m=1\) the ratio is \(0.069\) across \(\delta\in\{0.50,0.35,0.25,0.18\}\). It is \(0.064\) at \(N=100\), and \(0.043\) and \(0.050\) at \(D/D_m=0.25\) and \(4\). The chain sits above the diffusion value. The identity (I) matches the solver's excess gap on every row. These ratios measure \(C\). They are not a substitute for CD3.
 

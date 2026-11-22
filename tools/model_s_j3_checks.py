@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
-"""Numerical checks for theory/MODEL_S_J3.md (N67).
+"""Numerical checks for theory/MODEL_S_J3.md (N67, N68).
 
 NUMERICAL, not the proof of the weak-third-mode subclass. They check:
   (1) a nondegenerate two-mode world has a strict convexity gap, and a
       sufficiently weak third mode keeps the decrements non-increasing;
-  (2) the known low-SNR halving miss stays convex;
-  (3) a certified screen of three-mode worlds. E1 is a fine one-dimensional
-      minimum. E2 from a log-rate grid is pessimistic (too high), which makes
-      the second-difference E1 - 2 E2 + E_inf too small. A positive value is
-      therefore a certificate. A negative value is re-optimised with
-      multi-start Nelder-Mead before it can count as a counterexample.
+  (2) a low-SNR three-mode world stays convex (the known halving miss is the
+      four-mode example in LAYER_CONVEXITY.md, not this draw);
+  (3) a screen of three-mode worlds. The certificate is one-sided: a positive
+      value of E1 - 2 E2 + E_inf, after replacing a grid value E2 > E1 by E1
+      (two stores can copy one store), certifies d2 >= d3. It does not certify
+      d1 >= d2, because a high grid E2 inflates E0 - 2 E1 + E2. A negative
+      one-sided value is re-optimised before it can count as a counterexample.
+      Clipping E2 up to E_inf when a value undercuts the floor makes the
+      one-sided gap smaller, not larger.
 
     nice -n 19 python3 tools/model_s_j3_checks.py
     nice -n 19 python3 tools/model_s_j3_checks.py --full
@@ -144,9 +147,13 @@ def curve(a, v, N, n2, polish_starts=0, seed=0):
     E2 = best_two_grid(a, v, N, n2)
     if polish_starts:
         E2 = min(E2, best_two_polish(a, v, N, polish_starts, seed))
-    E1 = min(max(E1, Einf), E0)
-    E2 = min(max(min(E2, E1), Einf), E1)
-    Es = np.array([E0, E1, E2, Einf], float)
+    # One-sided certificate for d2 >= d3. Copying the one-store rate shows
+    # E2 <= E1, so a grid value above E1 may be replaced by E1. Raising a
+    # value that undercuts E_inf makes E1 - 2 E2 + E_inf smaller.
+    E2_cert = min(E2, E1)
+    if E2_cert < Einf:
+        E2_cert = Einf
+    Es = np.array([E0, E1, E2_cert, Einf], float)
     dec = Es[:-1] - Es[1:]
     sd = dec[:-1] - dec[1:]
     return {"E": Es, "dec": dec, "sd": sd, "slack": float(sd.min()),

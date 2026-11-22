@@ -2,12 +2,17 @@
 """Numerical checks for theory/CHAIN_DIFFUSION.md (N66).
 
 NUMERICAL, not the proofs. They check:
-  (1) the static discrete-Gaussian excess against the Poisson bound of CD1;
-  (2) the stationary excess of the exact one-dimensional lag jump-diffusion
-      (Brownian centre) against DS1's (1/(2 beta))(1+D/D_m), at several
-      lattice spacings, population sizes, and drift ratios;
-  (3) the exact identity excess error = E[R] / (4 D_m beta), where R is the
-      generator defect on L^2.
+  (1) the static discrete-Gaussian excess against the Poisson bound of CD1.
+      Gaps below float precision are computed in decimal; a 1e-14 tolerance
+      is not used to pass a smaller bound.
+  (2) the stationary excess of the exact one-dimensional Brownian lag against
+      DS1's (1/(2 beta))(1+D/D_m). This is the check of the limit formula.
+  (3) the identity excess gap = E[R] / (4 D_m beta) on that same density.
+      This asks whether the density is stationary for L^2. It is not, by
+      itself, a check of the closed form.
+  (4) the linear Moran map leaves R = -a delta^2 / 2, and the CD2 bulk bound
+      holds on a grid that includes a small beta*h, where a constant
+      depending only on N fails.
 
 The stationary density is the null vector of the forward operator on a grid
 aligned with the jump. Quick mode is what pytest runs. --full writes
@@ -22,6 +27,7 @@ import json
 import math
 import os
 import sys
+from decimal import Decimal, localcontext
 
 import numpy as np
 from scipy.sparse import csr_matrix
@@ -149,30 +155,106 @@ def check(ok, lines, name, cond, msg=""):
     lines.append("%s: %s%s" % (name, "OK" if cond else "FAIL", ("  " + msg) if msg else ""))
 
 
+def static_gap_decimal(a, beta, prec=40):
+    """1/(2 beta) - E[J] for the static chain, in decimal arithmetic."""
+    with localcontext() as ctx:
+        ctx.prec = prec
+        aa = Decimal(str(a))
+        bb = Decimal(str(beta))
+        nmax = int(math.sqrt(2 * prec * math.log(10) / float(aa))) + 8
+        weights = []
+        for n in range(-nmax, nmax + 1):
+            weights.append((-(aa * n * n) / 2).exp())
+        Z = sum(weights, Decimal(0))
+        moment = sum((Decimal(n * n) * w for n, w in zip(range(-nmax, nmax + 1), weights)), Decimal(0))
+        excess = (aa / (2 * bb)) * (moment / Z)
+        return Decimal(1) / (2 * bb) - excess
+
+
 def static_checks(ok, lines, full):
-    betas = (1.0, 2.5) if full else (1.0,)
-    deltas = (0.9, 0.6, 0.4, 0.25) if full else (0.8, 0.5)
-    for beta in betas:
-        for delta in deltas:
-            excess, formula, a = static_excess(beta, 1.0, delta)
-            gap = formula - excess  # positive: lattice sits slightly below
-            bound = poisson_gap_bound(beta, a)
-            # Below ~1e-15 the excess is an order-1 float and the gap is roundoff.
-            tol = 1e-14
-            check(ok, lines, "CD1 static a=%.3f beta=%.1f gap>=0" % (a, beta), gap >= -tol,
-                  "gap %.3e" % gap)
-            check(ok, lines, "CD1 static a=%.3f beta=%.1f gap<=bound" % (a, beta),
-                  gap <= bound * (1 + 1e-9) + tol,
-                  "gap %.3e bound %.3e" % (gap, bound))
-            q = math.exp(-2.0 * math.pi ** 2 / a)
-            lead = (4.0 * math.pi ** 2 / (beta * a)) * q
-            if lead >= tol:
-                check(ok, lines, "CD1 static a=%.3f lead within 1e-3 rel" % a,
-                      abs(gap - lead) <= 1e-3 * lead + tol,
-                      "gap %.6e lead %.6e" % (gap, lead))
-            else:
-                check(ok, lines, "CD1 static a=%.3f gap at roundoff" % a, abs(gap) <= tol,
-                      "gap %.3e lead %.3e" % (gap, lead))
+    # Float sums only where the gap is well above an ulp of an O(1) number.
+    float_cases = [(1.0, 0.9)] if not full else [(1.0, 0.9), (1.0, 0.95)]
+    for beta, delta in float_cases:
+        excess, formula, a = static_excess(beta, 1.0, delta)
+        gap = formula - excess
+        bound = poisson_gap_bound(beta, a)
+        q = math.exp(-2.0 * math.pi ** 2 / a)
+        lead = (4.0 * math.pi ** 2 / (beta * a)) * q
+        check(ok, lines, "CD1 float a=%.3f gap visible" % a, lead > 1e-12, "lead %.3e" % lead)
+        check(ok, lines, "CD1 float a=%.3f gap>=0" % a, gap > 0, "gap %.6e" % gap)
+        check(ok, lines, "CD1 float a=%.3f gap<=bound" % a, gap <= bound * (1 + 1e-6),
+              "gap %.6e bound %.6e" % (gap, bound))
+        check(ok, lines, "CD1 float a=%.3f lead within 1e-3 rel" % a,
+              abs(gap - lead) <= 1e-3 * lead, "gap %.6e lead %.6e" % (gap, lead))
+    # a=0.4 is below float resolution of the direct sum. decimal checks the bound.
+    hp_cases = [(0.4, 1.0)] if not full else [(0.4, 1.0), (0.4, 2.5)]
+    for a, beta in hp_cases:
+        gap = static_gap_decimal(a, beta)
+        q = Decimal(-2 * Decimal(str(math.pi)) ** 2 / Decimal(str(a))).exp()
+        bound = (8 * Decimal(str(math.pi)) ** 2 / (Decimal(str(beta)) * Decimal(str(a)))) * q
+        check(ok, lines, "CD1 decimal a=%.1f beta=%.1f gap>0" % (a, beta), gap > 0, "gap %s" % gap)
+        check(ok, lines, "CD1 decimal a=%.1f beta=%.1f gap<=bound" % (a, beta), gap <= bound,
+              "gap %s bound %s" % (gap, bound))
+
+
+def linear_and_cd2_checks(ok, lines):
+    # Linear map: R = -a delta^2 / 2, including the review's numbers.
+    def R_linear(L, N, beta, h, Dm, delta):
+        a = Dm * beta * h
+        alpha = beta / (N - 1.0)
+        rho = N * Dm / delta ** 2
+        u = alpha * h * delta * L
+        c = 0.5 * alpha * h * delta ** 2
+
+        def phi_lin(x):
+            return 1.0 / N - ((N - 1.0) / (2.0 * N)) * x
+
+        rp = rho * phi_lin(u + c)
+        rm = rho * phi_lin(-u + c)
+        return rp * (2 * delta * L + delta ** 2) + rm * (-2 * delta * L + delta ** 2) + 2 * a * L * L - 2 * Dm
+
+    for L in (0.0, 0.5, 3.0):
+        got = R_linear(L, 2, 1.0, 1.0, 1.0, 0.1)
+        check(ok, lines, "linear defect L=%.1f is -a delta^2/2" % L, abs(got + 5e-3) < 1e-12,
+              "got %.6e" % got)
+
+    def R_exact(L, N, beta, h, Dm, delta):
+        a = Dm * beta * h
+        alpha = beta / (N - 1.0)
+        rho = N * Dm / delta ** 2
+        xp = alpha * h * (delta * L + 0.5 * delta ** 2)
+        xm = alpha * h * (-delta * L + 0.5 * delta ** 2)
+        rp = rho * float(moran_phi(np.array([xp]), N)[0])
+        rm = rho * float(moran_phi(np.array([xm]), N)[0])
+        return rp * (2 * delta * L + delta ** 2) + rm * (-2 * delta * L + delta ** 2) + 2 * a * L * L - 2 * Dm
+
+    # Review point: a constant depending only on N cannot cover L=0.
+    N, beta, h, Dm, delta = 5, 1e-4, 0.1, 1.0, 0.02
+    R0 = R_exact(0.0, N, beta, h, Dm, delta)
+    a = Dm * beta * h
+    old = Dm * (beta * h * delta) ** 2
+    check(ok, lines, "N-only shape fails at small beta h", abs(R0) > 1000 * old,
+          "|R|=%.3e old shape %.3e" % (abs(R0), old))
+    cases = [
+        (5, 1e-4, 0.1, 1.0, 0.02, [0.0, 1.0, 10.0]),
+        (20, 1.0, 1.0, 1.0, 0.05, [0.0, 0.5, 2.0]),
+        (2, 1.0, 1.0, 1.0, 0.1, [0.0, 1.0]),
+    ]
+    for N, beta, h, Dm, delta, Ls in cases:
+        for L in Ls:
+            alpha = beta / (N - 1.0)
+            xp = alpha * h * (delta * L + 0.5 * delta ** 2)
+            xm = alpha * h * (-delta * L + 0.5 * delta ** 2)
+            if max(abs(N * xp), abs(N * xm)) > 1:
+                continue
+            Rv = R_exact(L, N, beta, h, Dm, delta)
+            bound = Dm * delta ** 2 * (
+                500 * beta * h
+                + 200 * (beta * h) ** 2 * (1 + L * L)
+                + 1000 * (beta * h) ** 3 * (1 + L ** 4)
+            )
+            check(ok, lines, "CD2 bound N=%d L=%.1f" % (N, L), abs(Rv) <= bound * (1 + 1e-9),
+                  "|R|=%.3e bound %.3e" % (abs(Rv), bound))
 
 
 def moving_checks(ok, lines, results, full):
@@ -201,10 +283,10 @@ def moving_checks(ok, lines, results, full):
             N, D / Dm, delta, r["eps"], r["rel"], rel_over)
         check(ok, lines, "mass " + tag, abs(r["mass"] - 1.0) < 1e-6, "mass %.6f" % r["mass"])
         check(ok, lines, "density >= -1e-8 " + tag, r["minp"] >= -1e-8, "minp %.2e" % r["minp"])
-        # observed envelope on this grid; the proof is O(eps), this is the check
-        check(ok, lines, "rel error <= 0.15*eps " + tag, abs(r["rel"]) <= 0.15 * r["eps"] + 1e-6,
+        # comparison to the closed form, separate from the stationarity identity
+        check(ok, lines, "excess vs DS1 formula " + tag, abs(r["rel"]) <= 0.15 * r["eps"] + 1e-6,
               tag)
-        check(ok, lines, "identity gap= E[R]/(4 Dm beta) " + tag,
+        check(ok, lines, "density stationary for L^2 (identity) " + tag,
               abs(r["gap"] - r["predicted_gap"]) <= 1e-4 * max(1.0, abs(r["formula"])),
               "gap %.6e pred %.6e" % (r["gap"], r["predicted_gap"]))
         results.append({
@@ -220,6 +302,7 @@ def main(argv=None):
     full = "--full" in argv
     ok, lines, results = [], [], []
     static_checks(ok, lines, full)
+    linear_and_cd2_checks(ok, lines)
     moving_checks(ok, lines, results, full)
     nfail = sum(1 for _, c in ok if not c)
     lines.append("%d checks, %d failed" % (len(ok), nfail))
