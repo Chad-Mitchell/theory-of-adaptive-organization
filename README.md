@@ -1,43 +1,76 @@
 # A Theory of Adaptive Organization
 
-*Chad Mitchell ([@torusflow](https://x.com/torusflow)). Public working draft, CC0. Not peer reviewed; the new math is not yet independently reviewed.*
-
-The theory on one page: [`CORE.md`](CORE.md). The predictive keystone is scoped there (§4): it is numerically supported only in Model S, given convexity, which remains unproved; a rhythm is a two-state mode by degree, but a pair-count does not recover the cheapest design.
-
-Anything that must stay alive in a changing world has to act before the world arrives, and that judgment has a price: memory to hold, errors and lateness to absorb, information to buy and share. **The claim is that one cost sets how adaptive systems should be built at every scale: in layers matched to the time scales of the world, as many as the stakes can pay for and faster looking cannot replace.** Matched is not equal: a rhythm is a two-state mode by degree (that convention is not a shortcut that recovers the cheapest design; CORE §4), and at the full optimum (one layer per separated scale, L2), with each store's own noise small next to the sensing noise, each layer runs faster than the scale it tracks, by a factor the sensing noise sets (7–15× in the worked case), never past the next scale; a store whose own noise dominates can be slower than its scale (Model S+, `theory/STORE_NOISE.md`). Faster looking can stand in for a layer (reads substitute for layers, CT33), so stakes buy more layers only where looking faster does not do the job. Physics enters only as a floor under the prices.
+*Chad Mitchell ([@torusflow](https://x.com/torusflow)). Public working draft, CC0. Not peer reviewed.*
 
 **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
 
-$$
-\min_{\mathcal D}\; \kappa\, I_{\text{mem}} + h\,K \;+\; w\,\mathbb E[\ell_{\mathcal D}] \;+\; A(\mathcal D) + L(\mathcal D) \quad \text{subject to}\quad P(\text{ruin}) \le \varepsilon_r
-$$
+Until a qualifying system is measured, read that sentence as a principle: one cost of judgment, and the design is what the cost selects. Inside the Gaussian and linear class the mathematical core is effectively complete. Evidence from real systems is thin, and it is open. The one-page statement is [`CORE.md`](CORE.md).
 
-Choose the design (layers, what each tracks, how it senses, what it shares) that makes holding memory, being wrong or late, and acquiring and sharing information cheapest without going broke. The world is a measured input.
+![One cost, five yields](figures/derivation_map.png)
 
-**What follows** (proved in a model; the layer results are linear-Gaussian):
-- One real time scale needs one layer (or none, when stakes are small), even a self-similar random walk; J separated real time scales need J layers once stakes outweigh upkeep, each layer faster than its scale (by a factor the sensing noise sets) when a store's own noise is small next to the sensing noise; a store whose own noise dominates is faster than its scale when that noise's exponent s > 1/2 (at s = 1/2, λτ\* = 1 at low signal-to-noise, equal, not faster), and at low signal-to-noise only then (λτ\* = (1 − s)/s; E. coli's s = 0.31 gives about 2.2, slower; known from the ten Wolde line of work, incl. Tjalma & ten Wolde 2024; `theory/STORE_NOISE.md`); a rhythm is a two-state mode by degree, but that is not a pair-count rule for K* (CORE §4).
-- With sensing fixed and ruin not binding, layers never fall as stakes rise relative to upkeep. With reads chosen they can (reads substitute for layers); what never falls is total judgment spend, **provided the ruin constraint is slack at the stakes compared or absent** (a two-line proof; when ruin binds, spend can fall and error rise: counterexample in `scope_checks.py` §1b).
-- A shared layer forms once enough members face a common driver; cheap lookup dissolves layers that only hold facts.
-- Lateness caps how far one tracker reaches, so systems whose reports arrive late federate.
-- Survival is free above a buffer and decides the design below it. The buffer a unit needs grows as shock × τ^H, with H = ½ (√time to fix) for a random-walk error, so faster correction raises the shock it survives.
-- For a tracker with negligible read noise of a power-law world, the optimum spends α − 1 on looking for every 1 it loses to being wrong, in any currency (it fails with read noise or when the world has its own time scale, and when a ruin constraint binds the shares and price elasticities differ). In a system's own units the equation is the same problem at every scale, though not with the same numbers.
+*One cost, five yields* (`figures/derivation_map.png`, from `figures/derivation_map.py`). The cost is at the top. The five rows are what its minimum spends it on, each proved in its own class. The join of the five is a synthesis. **IN REVIEW** is [PR #203](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/203) and is not merged. **OPEN** is not derived, or not yet measured.
 
-- Whether to centralize is an output of the same cost: a shared level pays above a group size, lateness caps its reach, and merging pays when the gain over competing exceeds the cost of linking (a definition of the comparison, not a theorem); free-riding parties capture only about half the pooling gain (proved in a toy). Shared-driver coupling is a potential game: sequential best response converges, and damped simultaneous response converges only below a step of 2/N for N equal parties (above it, it oscillates). No general convergence theorem is true; whether separating the parties' speeds helps inside the theory's class, and which real couplings are potential games, are open.
+## The cost
 
-![Where the cost of judgment puts layers](figures/face.png)
+In the class where the learning rate has been worked out, the cost of judgment is the heat of the memory's bath plus a stake on the decision loss. The chance of ruin is a cap beside the sum.
 
-*Where the cost of judgment puts layers* (`figures/face.png`; v2.5.3, revised after independent map reviews 26 (NOT READY, then READY-WITH-FIXES) and 28 (READY-WITH-FIXES, fixes confirmed READY by the same reviewer)). Each time scale of a system's world is a point: stakes a layer in each unit can win ÷ its upkeep (across) and stakes one shared layer can win ÷ its upkeep (up), at the stated read quality. Shading shows which single layer pays on its own; each marker's shape is the cheapest design. Outside the top-right the two agree, with edges at 1, exactly when the layers are worth no more together than apart (THEORY B.11). When a shared store pays as a reference for the local ones, both can win below the edges. Fast scales go local and slow ones shared. A layer is a tracking store, not an org-chart level. The dots are hypothesized positions from stated guesses; E. coli is a proxy shown beside the map. See `figures/face_placements.md`.
+$$J = \dot Q + w\,\mathbb{E}[\ell] \qquad\text{subject to}\qquad P(\text{ruin})\le\varepsilon.$$
 
-**How it dies.** "Strongly selected" is defined operationally and preregistered: a cost-to-fitness map, a population proxy (cities, nations and the biosphere are excluded until one exists), a band that selection can resolve and that excludes a named rival, and a defined redesign time with at least 10 of them in the same world. For each substrate class, fix before measuring a closed list of cost terms, the world's spectrum and noise, and the prices. Misses in qualifying systems, outside the preregistered band around the minimum, refute the hypothesis for that class once they exceed a binomial allowance fixed in advance from the class's preregistered coverage and minimum number of systems (for a small class, one miss); misses in two classes at different scales refute it across scales; a needed cost not on the list is a miss, and so is a design that does not move with a measured change in its inputs, unless the post-change gap is inside the redesign band at the lower bound of the class's preregistered redesign cost (CT41, `theory/DYNAMICS.md` §2). A band exists only where adjustment is lumpy, and only if the class preregisters, before data, the redesign cost on the closed term list (point estimate and error budget, measured independently of the design), the curvature w, the input-process type (step or drift) and T or σ_d. A gap between the bands at the cost's lower and upper bounds is INDETERMINATE. If the band at the upper bound covers the predicted move, the move test is NOT A TEST. Without these preregistered quantities the band is zero and the rule is unchanged. How a real system's layers are counted (distinct measured memory time constants, by degree) is the draft method in [`measurement/LAYER_COUNT_RULE.md`](measurement/LAYER_COUNT_RULE.md); a class must still preregister that method before a test (THEORY §3). Re-measuring is allowed once, before the comparison. The bet is untested, not refuted. Field results are first gated on qualification under the pre-written definition, then reported as passed or failed on proxy. No field claim so far had a recorded pre-test qualification check, so those results are not tests of the hypothesis (status: NOT A TEST, with the proxy result kept in the label). The parts are known and credited; the claim is new. Open: what happens when a system and the world it reshapes co-adapt as coupled levels.
+When the prices are linear, that cost is the five-term sum still printed as the canonical equation:
 
-**[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v2.9 draft, 20 November 2026, America/New_York; v2.5.x, v2.7, v2.8 and v2.9 are deltas on v2.4; v2.8 is the ht-index work, merged).** Claim statuses: `measurement/CLAIM_MAP_v2.md` (v2.88). Where the work stands: [`STATUS.md`](STATUS.md). What is still open: [`OPEN_WORK.md`](OPEN_WORK.md).
+$$\kappa I_{\mathrm{mem}} + hK + w\,\mathbb{E}[\ell] + A + L.$$
+
+\(\kappa I_{\mathrm{mem}}\) is the bath heat. Its floor is \(kT\) times the learning rate (Horowitz and Esposito 2014, doi 10.1103/PhysRevX.4.031015, checked on Crossref 22 November 2026). \(hK\) sits outside that floor. \(w\,\mathbb{E}[\ell]\) survives, and temperature does not set the stake \(w\). A continuous sensor's read is already inside the heat; a separate read price \(A\), the link price \(L\), and the ruin cap stay assumed.
+
+[`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v2.9 draft). Where this page and that file disagree, that file governs. Adopting the physics display into §3 is open work, T40, proposed in `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` §9.
+
+The worked class is an exogenous equilibrium Ornstein–Uhlenbeck signal, independent signals of that kind, or the two-state telegraph. The memory does not move the signal. The loss is a mean square, or Hamming error on the telegraph. Inside that class the floor on one OU signal is \(kT\,a(v-\varepsilon)/\varepsilon\), approached in a limit; the minimizing cost above the blind stake is \(2\sqrt{kT\,a\,v\,w}-kT\,a\); a geometric ladder tracks \(\lfloor\log(wv/(kT a))/\log\rho\rfloor+1\) modes, with no free constant per layer; a sum of modes is carried by one rank-one memory; the telegraph heat approaches \(kT\) times its information flow.
+
+## Five yields of one minimum
+
+Each line below is proved in the class named with it. The sentence that the five are one minimum is a synthesis. `theory/ACTING_LOOP_2026-11-22.md` §8 states that limit.
+
+**Layers, along time.** One real time scale needs one store, or none when the stake is small. On the geometric ladder the count is the formula above. [`figures/face.png`](figures/face.png) is the placement: for each time scale, local, shared, both, or neither.
+
+**Spread, across items.** One memory carries a sum. \(K\) separate memories of \(K\) identical modes cost \(K\) times the heat at the same error. A shared memory costs less when the decision is a combination of items, and it ties or costs more when every item is read on its own (`theory/HOLOGRAPHIC_MEMORY_2026-11-22.md`). The heat floor on a per-site error scales with the volume. Holding a named cut scales with the cut (`theory/HOLOGRAPHIC_2026-11-22.md`). The name "holographic" adds no prediction those equations do not already make.
+
+**Boundary.** For a decision outside a region of an equilibrium Gaussian field, the conditional law given the region and the Markov blanket equals the law given the blanket. The interior is not sufficient for that decision. The matching blanket channel costs at most the Schur trace more than the channel it matches (`theory/BOUNDARY_SUFFICIENCY_2026-11-22.md`).
+
+**Rebuild.** Under the ruin cap, replacement of identical capacity-limited units can lower the long-run cost: rate 1 costs 15.473978 with ruin probability 0.020940, against an inadmissible zero-shock point at cost 16 (`theory/antifragility_checks/RESULTS.md`). The heterogeneous arm's grid minimum stays at no shock. That comparison is a puzzle at this cap. Heat is proportional to precision, and the admissible grid kept the more precise units.
+
+**Acting.** With the channel unpriced, closed-loop regulation is cheaper than sensing alone by the factor 0.171572875254 at unit stake and unit drift. With the heat and the probe charged, the gap is negative at every fraction at stake 1, and equals 0.033889928154 at stake 4. Feedback shrinks the information stock and leaves the learning-rate heat fixed (`theory/ACTING_LOOP_2026-11-22.md`). A probe can make the minimized cost fall as volatility rises. The drop is the price of a fraction falling as \(1/\theta\) (`theory/ACTING_MEMORY_2026-11-22.md`).
+
+## Options, and the learning heat
+
+A payoff convex in a shock gains from a spread of that shock. Antifragility is that convexity. Optionality is a convex payoff bought with a capped premium. Both are standard mathematics (Taleb and Douady 2013, doi 10.1080/14697688.2013.800219, checked on Crossref 22 November 2026), and `theory/ROBUSTNESS.md` already uses that reading. A search of this repository finds the two routes written side by side in the acting-memory note, and finds no theorem that makes them one object. The synthesis is that the learning heat and the option sit under this one cost. That sentence is the hypothesis in another shape. It is not a proof.
+
+## In review
+
+The acting derivation is in review: [PR #203](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/203), branch `cursor/acting-derivation-2d99`, head `a79d7b6`. Theorem R1′ is a representation theorem. The step proved on that branch is the \(b=0\) reduction, which returns the five-term cost. The risky prediction was met by one grid step. A stationary solve gives continuous gains 0.23 against 0. The gate was underpowered, so meeting it is weak evidence. This page does not adopt that derivation, and it does not treat the pull request as merged.
+
+## What remains
+
+- The non-Gaussian case, and a loss other than the mean square or the telegraph mismatch. A memory that changes the world it tracks.
+- A real-data test: a system qualified before the measurement, then scored against the cost. No such test is on this page.
+- The fractal draft, [PR #192](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/192). This page uses no result from it.
+- Adopting the acting derivation into `THEORY.md` once #203 has been reviewed. The master equation is unchanged.
+- The integer \(5\%\) radius. It is 2 at both \(\tau=1/2\) and \(\tau=1\), ratio 1, because both crossings of the level 0.05 fall in the bin \((1,2)\). A longer path, the next test the preregistration named, returned 2 and 2. The smooth crossing is a separate statistic, ratio 2.067863694520, inside \([1.7,2.3]\).
+- \(J^*(8)\) against 5. The grid value is 4.998066177768. The number 5 is the heat plus the sign loss at the frozen fraction, above a floor of 4.966383544211. The crossing is near \(\theta=7.5267\). The next test is a new preregistration scored against that floor.
+
+## How a miss is read
+
+"Strongly selected" is the definition in [THEORY §3](THEORY.md). No system has been shown to qualify. Before measuring, a class fixes a cost-to-fitness map, a population proxy, a band that excludes a named rival, and a redesign time with at least ten of those times in the same world. Cities, nation-states, global economies, and the biosphere wait for a proxy. A design outside the band fixed in advance is a puzzle for that class. The diagnosis and the next test are written down beforehand. A field result with no recorded qualification check is not a test of the hypothesis. Counting layers is the draft method in [`measurement/LAYER_COUNT_RULE.md`](measurement/LAYER_COUNT_RULE.md).
+
+## Where to read
+
+Claim statuses: `measurement/CLAIM_MAP_v2.md` (v2.88). Where the work stands: [`STATUS.md`](STATUS.md). What is still open: [`OPEN_WORK.md`](OPEN_WORK.md). The previous front page and the previous one-pager are `history/2026-11-22_README_before_front.md` and `history/2026-11-22_CORE_before_front.md`.
 
 ```
-THEORY.md         The theory, v2.9 draft (start here; §5 the theorem, §7 uses, §8 tests)
-theory/           Derivations and code checks (MASTER_EQUATION.md, LAYERS.md)
-measurement/      Validity gates and one status per claim
-tests/, reviews/  Preregistered tests and reviews
-reference/        Earlier versions and the changelog
+THEORY.md         The theory, v2.9 draft (canonical statement; §3 is still the five-term cost)
+CORE.md           The same argument on one page
+theory/           The heat, the five yields, and the checks
+measurement/      One status per claim
+figures/          derivation_map.png, the one cost; face.png, the layer placement
 ```
 
-AI agents helped draft, compute and review these files under the author's direction. License: [CC0 1.0](LICENSE.md).
+AI agents helped draft, compute, and review these files under the author's direction. License: [CC0 1.0](LICENSE.md).
