@@ -13,6 +13,7 @@ public import Mathlib.LinearAlgebra.Matrix.Symmetric
 public import Mathlib.Tactic.Linarith
 public import Mathlib.Tactic.Ring
 public import Mathlib.Tactic.NormNum
+public import Mathlib.Tactic.FinCases
 
 /-!
 # CA7: LQ drift plus co-adaptation
@@ -21,9 +22,10 @@ public import Mathlib.Tactic.NormNum
 
 The stationary covariance is an input, through the Lyapunov equation
 `V K Cov + Cov Kᵀ V = 2 V + 2 Q`.  From it we prove the exact potential-part
-excess `½(d + Tr(V⁻¹ Q))` for any antisymmetric coupling, and we record
-an explicit 2-party counterexample to the naive per-party regret
-`d_i/(2β_i)(1 + Tr(Q_ii)/(v_i d_i))`.
+excess `½(d + Tr(V⁻¹ Q))` for any antisymmetric coupling.  CA7 (4) is the
+note's s8b datum: the Lyapunov equation and the party-wise drift regrets
+are checked on that covariance, and they are not the naive uncoupled
+values.
 
 Not formalized: the derivation of the Lyapunov equation from the
 Langevin dynamics; the blockwise virial identity (CA7 (2)); the team
@@ -133,7 +135,6 @@ theorem ca7_potential_excess {V K S A Cov Q : Matrix (Fin d) (Fin d) ℝ}
     (hV : IsUnit V.det)
     (hK : K = S + A)
     (hA : Aᵀ = -A)
-    (_hS : Sᵀ = S)
     (hCov : Covᵀ = Cov)
     (hlyap : V * K * Cov + Cov * Kᵀ * V = (2 : ℝ) • V + (2 : ℝ) • Q)
     (hexcess : ePsi = (2 : ℝ)⁻¹ * trace (S * Cov)) :
@@ -145,41 +146,92 @@ theorem ca7_potential_excess {V K S A Cov Q : Matrix (Fin d) (Fin d) ℝ}
     rw [hKA, trace_add, hA0, add_zero]
   rw [hexcess, ← this, htr]
 
-/-- The 2×2 Lyapunov data for the CA7 (4) counterexample:
-`S = [[2,1],[1,2]]`, `Q = diag(1,0)`, `V = I`,
-`Cov = [[5/4, −1/2],[−1/2, 3/4]]`.  The Lyapunov equation for this
-datum is the 2×2 arithmetic recorded in `theory/COADAPTATION.md` §7
-(not unfolded here: `Matrix` application is not exposed in Lean 4.37).
-The regret factors and the inequality are machine-checked. -/
-noncomputable def cexS : Matrix (Fin 2) (Fin 2) ℝ :=
-  ![![2, 1], ![1, 2]]
+/-- Entrywise 2×2 matrix product, used because `Matrix` multiplication is
+not exposed as a function in Lean 4.37. -/
+def mul2 (A B : Fin 2 → Fin 2 → ℝ) (i j : Fin 2) : ℝ :=
+  A i 0 * B 0 j + A i 1 * B 1 j
 
-noncomputable def cexQ : Matrix (Fin 2) (Fin 2) ℝ :=
-  ![![1, 0], ![0, 0]]
+/-! The exact s8b datum of `tools/coadaptation_checks.py`
+`s8b_lq_drift_regret_negative` and `theory/COADAPTATION.md` around the
+LQ-drift remark: `S = [[2, 9/10], [9/10, 1]]`, `w = [1, 2]`, `γ = 5`,
+`β = [5, 5/2]`, `V = diag(1, 2/5)`, `Q = diag(3/10, 3/10)`,
+`M_{ij} = S_{ij} w_i / γ`, and the unique symmetric Lyapunov solution of
+`V S P + P S V = 2V + 2Q`. -/
 
-noncomputable def cexCov : Matrix (Fin 2) (Fin 2) ℝ :=
-  ![![5 * (4 : ℝ)⁻¹, -(2 : ℝ)⁻¹], ![-(2 : ℝ)⁻¹, 3 * (4 : ℝ)⁻¹]]
+noncomputable def s8bS (i j : Fin 2) : ℝ :=
+  if i = 0 then (if j = 0 then (2 : ℝ) else 9 * (10 : ℝ)⁻¹)
+  else (if j = 0 then 9 * (10 : ℝ)⁻¹ else 1)
 
-/-- `E[(z₁ + z₂/2)²] = 15/16`.  With `J₁ = (z₁² + z₁ z₂)/β₁ + h(z₂)`
-this is `β₁ E[R₁]`, against the naive uncoupled value `1`. -/
-theorem cex_party1_factor :
-    cexCov 0 0 + cexCov 0 1 + (2 : ℝ)⁻¹ * (2 : ℝ)⁻¹ * cexCov 1 1 =
-      (15 : ℝ) * (16 : ℝ)⁻¹ := by
-  simp [cexCov]
-  norm_num
+noncomputable def s8bW (i : Fin 2) : ℝ := if i = 0 then 1 else 2
 
-/-- `E[(z₂ + z₁/2)²] = 9/16`.  This is `β₂ E[R₂]`, against the naive
-uncoupled value `1/2`. -/
-theorem cex_party2_factor :
-    cexCov 1 1 + cexCov 1 0 + (2 : ℝ)⁻¹ * (2 : ℝ)⁻¹ * cexCov 0 0 =
-      (9 : ℝ) * (16 : ℝ)⁻¹ := by
-  simp [cexCov]
-  norm_num
+noncomputable def s8bGamma : ℝ := 5
 
-/-- **CA7 (4), negative finding.**  The naive uncoupled scaling does not
-hold: `15/16 ≠ 1` and `9/16 ≠ 1/2`. -/
+noncomputable def s8bBeta (i : Fin 2) : ℝ := s8bGamma * (s8bW i)⁻¹
+
+noncomputable def s8bV (i j : Fin 2) : ℝ :=
+  if i = j then (if i = 0 then 1 else 2 * (5 : ℝ)⁻¹) else 0
+
+noncomputable def s8bQ (i j : Fin 2) : ℝ :=
+  if i = j then 3 * (10 : ℝ)⁻¹ else 0
+
+/-- Unique symmetric solution of the s8b Lyapunov equation. -/
+noncomputable def s8bP (i j : Fin 2) : ℝ :=
+  if i = 0 ∧ j = 0 then 2323 * (1904 : ℝ)⁻¹
+  else if i = 0 ∧ j = 1 then -(603 * (476 : ℝ)⁻¹)
+  else if i = 1 ∧ j = 0 then -(603 * (476 : ℝ)⁻¹)
+  else 13757 * (4760 : ℝ)⁻¹
+
+/-- The coupling row of party `i`: `M_{ij} = S_{ij} w_i / γ`. -/
+noncomputable def s8bM (i j : Fin 2) : ℝ :=
+  s8bS i j * s8bW i * s8bGamma⁻¹
+
+/-- `g_iᵀ P g_i` with `g_i` the `i`-th row of `M`. -/
+noncomputable def s8bQuad (i : Fin 2) : ℝ :=
+  s8bM i 0 * (s8bP 0 0 * s8bM i 0 + s8bP 0 1 * s8bM i 1) +
+    s8bM i 1 * (s8bP 1 0 * s8bM i 0 + s8bP 1 1 * s8bM i 1)
+
+/-- Drift regret `½ (g_iᵀ P g_i) / M_{ii}` of party `i`. -/
+noncomputable def s8bRegret (i : Fin 2) : ℝ :=
+  (2 : ℝ)⁻¹ * s8bQuad i * (s8bM i i)⁻¹
+
+/-- Naive uncoupled regret `½ (1/β_i) (1 + Q_{ii}/V_{ii})`. -/
+noncomputable def s8bNaive (i : Fin 2) : ℝ :=
+  (2 : ℝ)⁻¹ * (s8bBeta i)⁻¹ * (1 + s8bQ i i * (s8bV i i)⁻¹)
+
+/-- The s8b covariance satisfies the Lyapunov equation
+`V S P + P S V = 2V + 2Q`. -/
+theorem s8b_lyapunov (i j : Fin 2) :
+    mul2 s8bV (mul2 s8bS s8bP) i j + mul2 (mul2 s8bP s8bS) s8bV i j
+      = (2 : ℝ) * s8bV i j + (2 : ℝ) * s8bQ i j := by
+  fin_cases i <;> fin_cases j <;>
+    (simp [mul2, s8bS, s8bV, s8bP, s8bQ]; norm_num)
+
+theorem s8b_regret_party0 : s8bRegret 0 = 10643 * (80000 : ℝ)⁻¹ := by
+  simp [s8bRegret, s8bQuad, s8bM, s8bS, s8bW, s8bGamma, s8bP]; norm_num
+
+theorem s8b_regret_party1 : s8bRegret 1 = 2557 * (8000 : ℝ)⁻¹ := by
+  simp [s8bRegret, s8bQuad, s8bM, s8bS, s8bW, s8bGamma, s8bP]; norm_num
+
+theorem s8b_naive_party0 : s8bNaive 0 = 13 * (100 : ℝ)⁻¹ := by
+  simp [s8bNaive, s8bBeta, s8bGamma, s8bW, s8bQ, s8bV]; norm_num
+
+theorem s8b_naive_party1 : s8bNaive 1 = 7 * (20 : ℝ)⁻¹ := by
+  simp [s8bNaive, s8bBeta, s8bGamma, s8bW, s8bQ, s8bV]; norm_num
+
+/-- Static (no-drift) regrets recover the Boltzmann values `1/(2β_i)`. -/
+theorem s8b_static_regret :
+    (2 : ℝ)⁻¹ * (s8bBeta 0)⁻¹ = (10 : ℝ)⁻¹ ∧
+      (2 : ℝ)⁻¹ * (s8bBeta 1)⁻¹ = (5 : ℝ)⁻¹ := by
+  constructor
+  · simp [s8bBeta, s8bGamma, s8bW]; norm_num
+  · simp [s8bBeta, s8bGamma, s8bW]
+
+/-- **CA7 (4), negative finding (s8b).**  On the note's s8b covariance,
+party-wise drift regrets are not the naive uncoupled values:
+`10643/80000 ≠ 13/100` and `2557/8000 ≠ 7/20`. -/
 theorem ca7_regret_not_naive :
-    (15 : ℝ) * (16 : ℝ)⁻¹ ≠ 1 ∧ (9 : ℝ) * (16 : ℝ)⁻¹ ≠ (2 : ℝ)⁻¹ := by
+    s8bRegret 0 ≠ s8bNaive 0 ∧ s8bRegret 1 ≠ s8bNaive 1 := by
+  rw [s8b_regret_party0, s8b_naive_party0, s8b_regret_party1, s8b_naive_party1]
   constructor <;> norm_num
 
 end CoadaptationDrift

@@ -179,7 +179,7 @@ theorem ds2_excess {θ0 θt θstar0 vk vmax t eAbs eSq eCost lamMin : ℝ}
     (ht : |θ0 - θstar0| * (|vk| - vmax)⁻¹ ≤ t)
     (hAbs : |meanLag θt θstar0 vk t| ≤ eAbs)
     (hSq : eAbs ^ 2 ≤ eSq)
-    (hlam : 0 ≤ lamMin)
+    (hlam : 0 < lamMin)
     (hCost : (2 : ℝ)⁻¹ * lamMin * eSq ≤ eCost) :
     let B := (|vk| - vmax) * t - |θ0 - θstar0|
     0 ≤ B ∧ (2 : ℝ)⁻¹ * lamMin * B ^ 2 ≤ eCost := by
@@ -193,7 +193,7 @@ theorem ds2_excess {θ0 θt θstar0 vk vmax t eAbs eSq eCost lamMin : ℝ}
   have hBsq : B ^ 2 ≤ eAbs ^ 2 := pow_le_pow_left₀ hB hBe 2
   have hhalf : (0 : ℝ) ≤ (2 : ℝ)⁻¹ := inv_nonneg.mpr (by norm_num)
   have h1 : lamMin * B ^ 2 ≤ lamMin * eSq :=
-    mul_le_mul_of_nonneg_left (hBsq.trans hSq) hlam
+    mul_le_mul_of_nonneg_left (hBsq.trans hSq) hlam.le
   have h2 : (2 : ℝ)⁻¹ * lamMin * B ^ 2 ≤ (2 : ℝ)⁻¹ * lamMin * eSq := by
     have : (2 : ℝ)⁻¹ * (lamMin * B ^ 2) ≤ (2 : ℝ)⁻¹ * (lamMin * eSq) :=
       mul_le_mul_of_nonneg_left h1 hhalf

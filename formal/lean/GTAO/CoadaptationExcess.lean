@@ -6,9 +6,13 @@ For OPEN_WORK T19.
 module
 
 public import GTAO.Coadaptation
+public import GTAO.Equipartition
 public import Mathlib.Algebra.Order.Star.Real
 public import Mathlib.LinearAlgebra.Matrix.Trace
 public import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+public import Mathlib.LinearAlgebra.Matrix.PosDef
+public import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
+public import Mathlib.Tactic.NormNum
 public import Mathlib.Tactic.Linarith
 public import Mathlib.Tactic.Ring
 
@@ -18,22 +22,20 @@ public import Mathlib.Tactic.Ring
 `theory/COADAPTATION.md` Theorem CA1b and Corollary CA1c, CLAIM_MAP U2.
 
 From an exact potential, `Ψ - β_i J_i` is independent of party `i`'s
-design, so the Gibbs law is conditionally Boltzmann in `J_i`.  The
-quadratic mean identities (CA1b (2) and the team split) are proved from
-a covariance input, in the same style as DS1: if the (centred) second
-moment is `(∇²Ψ)⁻¹` and the mean excess is the corresponding trace, then
-`E[Ψ]−Ψ* = d/2` and the team excess is the absolute potential-to-team
-gap plus `½ Tr(H_T (∇²Ψ)⁻¹)`.
+design, so the Gibbs law is conditionally Boltzmann in `J_i`.  For a
+quadratic potential the Gibbs excess at strength `1` is `d/2`
+(`ca1b_potential_excess`, wrapping `Equipartition.gibbs_excess_quadratic`).
+The team split takes the entrywise second-moment sum of the quadratic
+`½ δᵀ H_T δ` and the covariance identity `HΨ P = I`, and identifies the
+excess with the potential-to-team gap plus `½ Tr(H_T (∇²Ψ)⁻¹)`.
 
 CA1c: aligned shares `J_i = s_i J_T + h_i(x_{-i})` give exact potential
-`γ J_T` when `β_i s_i = γ`; with `h_i = 0` and `∑ s_i = 1` the
-potential-to-team gap vanishes.  The fractional form
-`(E[J_T]−J_T*)/J_T* = d/(2σ N_e)` takes `γ = σ N_e / J_T*` from A2-L as
-an input (A2-L itself is not formalized).
-
-Not formalized: the integral against a Gaussian (or Haar) measure that
-supplies the covariance; that step is `Equipartition` in the
-single-system case and is an input here.
+`γ J_T` when `β_i s_i = γ`; with `h_i = 0` and `∑ s_i = 1` one has
+`∑_i J_i = J_T` at every state, so the potential-to-team gap vanishes
+when the potential minimizer is a minimizer of `J_T`.  The fractional
+form `(E[J_T]−J_T*)/J_T* = d/(2σ N_e)` is the cancellation of `J_T*`
+between the two inputs `E[J_T]−J_T* = d/(2γ)` and `γ = σ N_e / J_T*`
+(A2-L itself is not formalized).
 -/
 
 @[expose] public section
@@ -42,7 +44,7 @@ set_option linter.unusedSectionVars false
 set_option linter.unusedVariables false
 
 open scoped BigOperators
-open Finset Function Real Matrix
+open Finset Function Real Matrix MeasureTheory
 
 namespace Coadaptation
 
@@ -69,32 +71,41 @@ theorem conditional_boltzmann {Ψ : (∀ i, S i) → ℝ}
     linarith
   rw [this, exp_add]
 
-/-- Trace of the identity on `Fin d` is `d`. -/
-lemma trace_one_fin {d : ℕ} :
-    trace (1 : Matrix (Fin d) (Fin d) ℝ) = (d : ℝ) := by
-  rw [trace_one, Fintype.card_fin]
+/-- The entrywise second-moment sum that is `Tr(H P)`. -/
+lemma trace_mul_eq_sum {d : ℕ} (H P : Matrix (Fin d) (Fin d) ℝ) :
+    trace (H * P) = ∑ i, ∑ j, H i j * P j i := by
+  simp [Matrix.trace, Matrix.mul_apply]
 
-/-- **CA1b (2).**  Granted the mean potential excess equals
-`½ Tr(H P)` and the covariance identity `H P = I`, one has
-`E[Ψ]−Ψ* = d/2`. -/
-theorem ca1b_potential_excess {d : ℕ}
-    (H P : Matrix (Fin d) (Fin d) ℝ) {ePsi : ℝ}
-    (hcov : H * P = 1)
-    (hexcess : ePsi = (2 : ℝ)⁻¹ * trace (H * P)) :
-    ePsi = (2 : ℝ)⁻¹ * d := by
-  rw [hexcess, hcov, trace_one_fin]
+/-- **CA1b (2).**  For a confining quadratic potential, the Gibbs excess
+at strength `1` is `d/2`.  This is `Equipartition.gibbs_excess_quadratic`
+(SA1b) at `β = 1`, which is the proof route in
+`theory/COADAPTATION.md` CA1b (2). -/
+theorem ca1b_potential_excess {d : ℕ} [NeZero d]
+    (H : Matrix (Fin d) (Fin d) ℝ) (hH : H.PosDef)
+    (PsiStar : ℝ) (xStar : Fin d → ℝ) :
+    let Ψ : (Fin d → ℝ) → ℝ := fun x =>
+      PsiStar + (1 / 2) * ((x - xStar) ⬝ᵥ (H *ᵥ (x - xStar)))
+    (∫ x, Ψ x * exp (-((1 : ℝ) * Ψ x))) / (∫ x, exp (-((1 : ℝ) * Ψ x))) - PsiStar
+      = (d : ℝ) / (2 * 1) :=
+  Equipartition.gibbs_excess_quadratic H hH PsiStar (1 : ℝ) xStar (by norm_num)
 
-/-- **CA1b (3), team split.**  Granted the quadratic identity
-`E[J_T] = J_T(x^Ψ) + ½ Tr(H_T P)` and `P = HΨ⁻¹` (as `HΨ P = I`),
-the team excess is the absolute potential-to-team gap plus the scatter
+/-- **CA1b (3), team split.**  If the mean of the quadratic `½ δᵀ H_T δ`
+is the second-moment entry sum against `P`, and `HΨ P = I` (so
+`P = (∇²Ψ)⁻¹`), the team excess is the potential-to-team gap plus
 `½ Tr(H_T (∇²Ψ)⁻¹)`. -/
 theorem ca1b_team_split {d : ℕ}
-    (HT HΨ P : Matrix (Fin d) (Fin d) ℝ) {eJT jTpsi jTmin scatter : ℝ}
-    (hquad : eJT = jTpsi + (2 : ℝ)⁻¹ * trace (HT * P))
-    (_hcov : HΨ * P = 1)
-    (hsc : scatter = (2 : ℝ)⁻¹ * trace (HT * P)) :
-    eJT - jTmin = (jTpsi - jTmin) + scatter := by
-  rw [hquad, hsc]
+    (HT HΨ P : Matrix (Fin d) (Fin d) ℝ) {eJT jTpsi jTmin : ℝ}
+    (hquad : eJT = jTpsi + (2 : ℝ)⁻¹ * ∑ i, ∑ j, HT i j * P j i)
+    (hcov : HΨ * P = 1) :
+    P = HΨ⁻¹ ∧
+      eJT - jTmin = (jTpsi - jTmin) + (2 : ℝ)⁻¹ * trace (HT * HΨ⁻¹) := by
+  have hP : P = HΨ⁻¹ := (Matrix.inv_eq_right_inv hcov).symm
+  have htr : (∑ i, ∑ j, HT i j * P j i) = trace (HT * P) :=
+    (trace_mul_eq_sum HT P).symm
+  refine ⟨hP, ?_⟩
+  have : eJT = jTpsi + (2 : ℝ)⁻¹ * trace (HT * HΨ⁻¹) := by
+    rw [hquad, htr, hP]
+  rw [this]
   ring
 
 /-- **CA1c, exact potential.**  If `J_i = s_i J_T + h_i` with `h_i` independent
@@ -114,9 +125,19 @@ theorem ca1c_potential {s : ι → ℝ} {JT : (∀ i, S i) → ℝ}
   rw [hJΔ, ← mul_assoc, hγ]
   ring
 
-/-- **CA1c, gap vanishes.**  If `h_i = 0` and `∑ s_i = 1`, the parties'
-summed cost is `J_T`, so the potential-to-team gap is zero once the
-potential minimizer is a minimizer of `J_T`. -/
+/-- **CA1c, summed cost.**  If `h_i = 0` and `∑ s_i = 1`, then
+`∑_i J_i = J_T` at every state. -/
+theorem ca1c_summed_cost {s : ι → ℝ} {JT : (∀ i, S i) → ℝ}
+    (hJ : ∀ x i, J i x = s i * JT x)
+    [Fintype ι] (hsum : (∑ i, s i) = 1) (x : ∀ i, S i) :
+    (∑ i, J i x) = JT x := by
+  have : (∑ i, J i x) = (∑ i, s i) * JT x := by
+    simp_rw [hJ, ← sum_mul]
+  rw [this, hsum, one_mul]
+
+/-- **CA1c, gap vanishes.**  Under `ca1c_summed_cost`, if the potential
+minimizer is a minimizer of `J_T` (input `hmin`), the potential-to-team
+gap at that state is zero. -/
 theorem ca1c_gap_zero {s : ι → ℝ} {JT : (∀ i, S i) → ℝ} {xPsi : ∀ i, S i}
     {jTmin : ℝ}
     (hJ : ∀ x i, J i x = s i * JT x)
@@ -124,15 +145,12 @@ theorem ca1c_gap_zero {s : ι → ℝ} {JT : (∀ i, S i) → ℝ} {xPsi : ∀ i
     (hsum : (∑ i, s i) = 1)
     (hmin : JT xPsi = jTmin) :
     (∑ i, J i xPsi) - jTmin = 0 := by
-  have : (∑ i, J i xPsi) = JT xPsi := by
-    have : (∑ i, J i xPsi) = (∑ i, s i) * JT xPsi := by
-      simp_rw [hJ, ← sum_mul]
-    rw [this, hsum, one_mul]
-  rw [this, hmin, sub_self]
+  rw [ca1c_summed_cost hJ hsum xPsi, hmin, sub_self]
 
-/-- **CA1c, fractional excess.**  Given the potential excess `d/(2γ)`
-and the A2-L identification `γ = σ N_e / J_T*` as inputs,
-`(E[J_T]−J_T*)/J_T* = d/(2σ N_e)`. -/
+/-- **CA1c, fractional excess.**  This is the cancellation of `J_T*`
+between the two inputs `E[J_T]−J_T* = d/(2γ)` and `γ = σ N_e / J_T*`.
+The A2-L identification of `γ` and the potential excess itself are not
+proved here. -/
 theorem ca1c_fraction {d eJT jTstar γ σNe : ℝ}
     (hj : 0 < jTstar) (_hσ : 0 < σNe)
     (hexcess : eJT - jTstar = d * (2 : ℝ)⁻¹ * γ⁻¹)
