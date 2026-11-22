@@ -22,8 +22,9 @@ each coordinate is strictly inside `(-v_max, v_max)` with
 construction of the chain is not formalized).  From it we prove the lag
 lower bound, the quadratic cost bound once a Rayleigh lower bound
 `λ_min` and the moment inequalities `E[|L|] ≥ |E[L]|` and
-`E[L²] ≥ (E[|L|])²` are granted, and that a half-window lower bound on
-the time-averaged excess diverges.
+`E[L²] ≥ (E[|L|])²` are granted, and that the scalar
+`(c/2)(α T/2 − β)²` diverges as `T → ∞` (`halfWindow_diverges`; this is
+the limit of that scalar, not a time-averaged excess).
 
 The equality case `|v_k| = v_max` is excluded, as in the note.
 -/

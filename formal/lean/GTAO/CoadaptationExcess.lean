@@ -152,7 +152,7 @@ between the two inputs `E[J_T]−J_T* = d/(2γ)` and `γ = σ N_e / J_T*`.
 The A2-L identification of `γ` and the potential excess itself are not
 proved here. -/
 theorem ca1c_fraction {d eJT jTstar γ σNe : ℝ}
-    (hj : 0 < jTstar) (_hσ : 0 < σNe)
+    (hj : 0 < jTstar)
     (hexcess : eJT - jTstar = d * (2 : ℝ)⁻¹ * γ⁻¹)
     (hγ : γ = σNe * jTstar⁻¹) :
     (eJT - jTstar) * jTstar⁻¹ = d * (2 : ℝ)⁻¹ * σNe⁻¹ := by

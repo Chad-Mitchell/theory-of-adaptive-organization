@@ -146,8 +146,10 @@ theorem ca7_potential_excess {V K S A Cov Q : Matrix (Fin d) (Fin d) ℝ}
     rw [hKA, trace_add, hA0, add_zero]
   rw [hexcess, ← this, htr]
 
-/-- Entrywise 2×2 matrix product, used because `Matrix` multiplication is
-not exposed as a function in Lean 4.37. -/
+/-- Entrywise 2×2 matrix product on functions `Fin 2 → Fin 2 → ℝ`.
+This is the same product `virial_trace` writes as `Matrix` multiplication;
+the s8b block is encoded entrywise so the four Lyapunov entries can be
+checked by `norm_num`. -/
 def mul2 (A B : Fin 2 → Fin 2 → ℝ) (i j : Fin 2) : ℝ :=
   A i 0 * B 0 j + A i 1 * B 1 j
 
@@ -155,8 +157,10 @@ def mul2 (A B : Fin 2 → Fin 2 → ℝ) (i j : Fin 2) : ℝ :=
 `s8b_lq_drift_regret_negative` and `theory/COADAPTATION.md` around the
 LQ-drift remark: `S = [[2, 9/10], [9/10, 1]]`, `w = [1, 2]`, `γ = 5`,
 `β = [5, 5/2]`, `V = diag(1, 2/5)`, `Q = diag(3/10, 3/10)`,
-`M_{ij} = S_{ij} w_i / γ`, and the unique symmetric Lyapunov solution of
-`V S P + P S V = 2V + 2Q`. -/
+`M_{ij} = S_{ij} w_i / γ`, and a symmetric solution of
+`V S P + P S V = 2V + 2Q`.  Uniqueness of that symmetric solution is
+outside this formalization (the 3×3 system on the independent entries
+is nonsingular). -/
 
 noncomputable def s8bS (i j : Fin 2) : ℝ :=
   if i = 0 then (if j = 0 then (2 : ℝ) else 9 * (10 : ℝ)⁻¹)
@@ -174,7 +178,8 @@ noncomputable def s8bV (i j : Fin 2) : ℝ :=
 noncomputable def s8bQ (i j : Fin 2) : ℝ :=
   if i = j then 3 * (10 : ℝ)⁻¹ else 0
 
-/-- Unique symmetric solution of the s8b Lyapunov equation. -/
+/-- A symmetric solution of the s8b Lyapunov equation.  Uniqueness of
+the symmetric solution is outside this formalization. -/
 noncomputable def s8bP (i j : Fin 2) : ℝ :=
   if i = 0 ∧ j = 0 then 2323 * (1904 : ℝ)⁻¹
   else if i = 0 ∧ j = 1 then -(603 * (476 : ℝ)⁻¹)
@@ -218,13 +223,54 @@ theorem s8b_naive_party0 : s8bNaive 0 = 13 * (100 : ℝ)⁻¹ := by
 theorem s8b_naive_party1 : s8bNaive 1 = 7 * (20 : ℝ)⁻¹ := by
   simp [s8bNaive, s8bBeta, s8bGamma, s8bW, s8bQ, s8bV]; norm_num
 
-/-- Static (no-drift) regrets recover the Boltzmann values `1/(2β_i)`. -/
+/-- The Q = 0 covariance `P₀ = S⁻¹`. -/
+noncomputable def s8bP0 (i j : Fin 2) : ℝ :=
+  if i = 0 ∧ j = 0 then 100 * (119 : ℝ)⁻¹
+  else if i = 0 ∧ j = 1 then -(90 * (119 : ℝ)⁻¹)
+  else if i = 1 ∧ j = 0 then -(90 * (119 : ℝ)⁻¹)
+  else 200 * (119 : ℝ)⁻¹
+
+/-- `P₀` is a right inverse of `S`. -/
+theorem s8bP0_right_inv (i j : Fin 2) :
+    mul2 s8bS s8bP0 i j = if i = j then (1 : ℝ) else 0 := by
+  fin_cases i <;> fin_cases j <;>
+    (simp [mul2, s8bS, s8bP0]; norm_num)
+
+/-- At `Q = 0`, `P₀` satisfies the Lyapunov equation `V S P₀ + P₀ S V = 2V`. -/
+theorem s8bP0_lyapunov (i j : Fin 2) :
+    mul2 s8bV (mul2 s8bS s8bP0) i j + mul2 (mul2 s8bP0 s8bS) s8bV i j
+      = (2 : ℝ) * s8bV i j := by
+  fin_cases i <;> fin_cases j <;>
+    (simp [mul2, s8bS, s8bV, s8bP0]; norm_num)
+
+/-- `g_iᵀ P₀ g_i` with `g_i` the `i`-th row of `M`. -/
+noncomputable def s8bQuad0 (i : Fin 2) : ℝ :=
+  s8bM i 0 * (s8bP0 0 0 * s8bM i 0 + s8bP0 0 1 * s8bM i 1) +
+    s8bM i 1 * (s8bP0 1 0 * s8bM i 0 + s8bP0 1 1 * s8bM i 1)
+
+/-- Static (no-drift) regret `½ (g_iᵀ P₀ g_i) / M_{ii}` of party `i`. -/
+noncomputable def s8bStaticRegret (i : Fin 2) : ℝ :=
+  (2 : ℝ)⁻¹ * s8bQuad0 i * (s8bM i i)⁻¹
+
+/-- **Static regrets at `Q = 0`.**  The quadratic form on
+`P₀ = S⁻¹ = [[100/119, −90/119], [−90/119, 200/119]]` equals
+`1/10` and `1/5`, which are `1/(2β_i)`. -/
 theorem s8b_static_regret :
-    (2 : ℝ)⁻¹ * (s8bBeta 0)⁻¹ = (10 : ℝ)⁻¹ ∧
-      (2 : ℝ)⁻¹ * (s8bBeta 1)⁻¹ = (5 : ℝ)⁻¹ := by
-  constructor
-  · simp [s8bBeta, s8bGamma, s8bW]; norm_num
-  · simp [s8bBeta, s8bGamma, s8bW]
+    s8bStaticRegret 0 = (10 : ℝ)⁻¹ ∧
+      s8bStaticRegret 1 = (5 : ℝ)⁻¹ ∧
+      s8bStaticRegret 0 = (2 : ℝ)⁻¹ * (s8bBeta 0)⁻¹ ∧
+      s8bStaticRegret 1 = (2 : ℝ)⁻¹ * (s8bBeta 1)⁻¹ := by
+  have h0 : s8bStaticRegret 0 = (10 : ℝ)⁻¹ := by
+    simp [s8bStaticRegret, s8bQuad0, s8bM, s8bS, s8bW, s8bGamma, s8bP0]
+    norm_num
+  have h1 : s8bStaticRegret 1 = (5 : ℝ)⁻¹ := by
+    simp [s8bStaticRegret, s8bQuad0, s8bM, s8bS, s8bW, s8bGamma, s8bP0]
+    norm_num
+  have b0 : (2 : ℝ)⁻¹ * (s8bBeta 0)⁻¹ = (10 : ℝ)⁻¹ := by
+    simp [s8bBeta, s8bGamma, s8bW]; norm_num
+  have b1 : (2 : ℝ)⁻¹ * (s8bBeta 1)⁻¹ = (5 : ℝ)⁻¹ := by
+    simp [s8bBeta, s8bGamma, s8bW]
+  exact ⟨h0, h1, h0.trans b0.symm, h1.trans b1.symm⟩
 
 /-- **CA7 (4), negative finding (s8b).**  On the note's s8b covariance,
 party-wise drift regrets are not the naive uncoupled values:
