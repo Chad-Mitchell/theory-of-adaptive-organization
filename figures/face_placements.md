@@ -167,7 +167,9 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
   - a team's optimized cost enters its parent's problem as upkeep (CT34).
 - So a firm's "management" component is the firm-wide store. Its divisions would be the same map applied one level down.
 
-## 4. An operational rule for counting a real system's layers (proposed; preregister per class before use)
+## 4. An operational rule for counting a real system's layers (v2.5.4; finalized in `measurement/LAYER_COUNT_RULE.md`; preregister per class before use)
+
+The observation steps below are unchanged from the v2.5.2 placeholder and are now implemented and tested. The prediction side (K* from a measured world) and the cost-band comparison used in a later N56 test are stated in `measurement/LAYER_COUNT_RULE.md`: K* is always argmin J, equal to the lower-convex-hull increment; the adjacent N60-from-0 count is used only when the decrements of ε_K are non-increasing, and is not used in peaked (rhythmic) worlds, where that premise can fail (draft PR #145). A raw count difference is not by itself a miss.
 
 1. **Fix the pair and the band.** Before any data, fix per class the input/output pair and the band of time scales:
 
@@ -305,7 +307,7 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
 8. **The hierarchy above one shared level is not drawn.**
 9. **E. coli is a proxy off the map.** Its inputs come from PR #110 (merged as `e1be66e`).
 10. **City, nation-state and global economy are starred** because their selection is weak or unknown.
-11. **The counting rule is proposed.** It has not been preregistered per class, and no system has been counted by it yet.
+11. **The counting rule is finalized** in `measurement/LAYER_COUNT_RULE.md` (T15, draft). It has not been preregistered per class, and no system has been counted by it yet.
 12. **Beckers' 47 min** is not checked against the full text.
 
 ## 8. History
