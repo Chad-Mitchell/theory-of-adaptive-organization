@@ -435,4 +435,48 @@ theorem band_convex {μ W : ℕ → ℝ} {n : ℕ} (hμ : ∀ x < n, 0 < μ x)
     (fun a b c' d h1 h2 h3 => linkCost_monge (a := a) (b := b) (c := c') (d := d) hμ hW hW0 h1 h2 h3)
     hk hP hQ hRopt
 
+/-! ## Necessity of `W ≥ 0` in Lemma Z -/
+
+/-- The hypothesis `W ≥ 0` in Lemma Z is necessary.  With two cells,
+`W = (0, -1)` and equal weights, `w(0,2) + z(1) = 3/2` while
+`z(0) + w(1,2) = 1`, so the terminal-band inequality fails. -/
+theorem terminal_needs_nonneg :
+    let μ : ℕ → ℝ := fun _ => 1
+    let W : ℕ → ℝ := fun x => if x = 0 then (0 : ℝ) else -1
+    w μ W 0 2 + z μ W 2 1 = (3 / 2 : ℝ) ∧
+      z μ W 2 0 + w μ W 1 2 = 1 ∧
+      ¬ (w μ W 0 2 + z μ W 2 1 ≤ z μ W 2 0 + w μ W 1 2) := by
+  intro μ W
+  have hμ : ∀ x, μ x = 1 := fun _ => rfl
+  have hW0 : W 0 = 0 := rfl
+  have hW1 : W 1 = -1 := rfl
+  have h01 : Ico (0 : ℕ) 1 = {0} := by
+    ext x
+    simp only [mem_Ico, mem_singleton]
+    constructor <;> omega
+  have h12 : Ico (1 : ℕ) 2 = {1} := by
+    ext x
+    simp only [mem_Ico, mem_singleton]
+    constructor <;> omega
+  have h02 : Ico (0 : ℕ) 2 = {0, 1} := by
+    ext x
+    simp only [mem_Ico, mem_insert, mem_singleton]
+    constructor <;> omega
+  have hM02 : M μ 0 2 = 2 := by simp [M, h02, hμ]
+  have hS02 : S μ W 0 2 = -1 := by simp [S, h02, hμ, hW0, hW1]
+  have hQ02 : Q μ W 0 2 = 1 := by simp [Q, h02, hμ, hW0, hW1]
+  have hM12 : M μ 1 2 = 1 := by simp [M, h12, hμ]
+  have hS12 : S μ W 1 2 = -1 := by simp [S, h12, hμ, hW1]
+  have hQ12 : Q μ W 1 2 = 1 := by simp [Q, h12, hμ, hW1]
+  have hw02 : w μ W 0 2 = (1 / 2 : ℝ) := by
+    simp [w, f, hQ02, hS02, hM02]; norm_num
+  have hw12 : w μ W 1 2 = 0 := by
+    simp [w, f, hQ12, hS12, hM12]
+  have hz0 : z μ W 2 0 = 1 := by simp [z, hQ02]
+  have hz1 : z μ W 2 1 = 1 := by simp [z, hQ12]
+  refine ⟨?_, ?_, ?_⟩
+  · rw [hw02, hz1]; norm_num
+  · rw [hz0, hw12]; norm_num
+  · rw [hw02, hz1, hz0, hw12]; norm_num
+
 end BandMonge

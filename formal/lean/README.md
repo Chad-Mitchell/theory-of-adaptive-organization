@@ -2,12 +2,16 @@
 
 This directory is a Lean 4 + Mathlib project.  It machine-checks a
 finite-menu fragment of the core in `THEORY.md` (canonical) and `CORE.md`,
-and (since 21 November 2026, branch `lean-core-2026-11-21`) four further
-core results: the layer-lifetime optimum `T* = √(6k/(wσ²))` as the
-minimizer of the repository's zero-discount average cost, the
-local-vs-shared crossing (D5), the selection-axioms stationary excess
-`E_π[J] − J* = d/(2β)` (equipartition, SA1b), and the lower-hull increment
-test equals argmin for an arbitrary `ε` (KEYSTONE_NOTE §4).
+and (since 21 November 2026, PR #147) four further core results: the
+layer-lifetime optimum `T* = √(6k/(wσ²))` as the minimizer of the
+repository's zero-discount average cost, the local-vs-shared crossing
+(D5), the selection-axioms stationary excess `E_π[J] − J* = d/(2β)`
+(equipartition, SA1b), and the lower-hull increment test equals argmin
+for an arbitrary `ε` (KEYSTONE_NOTE §4).  This branch adds the
+from-0 layer-count exactness lemma (L1 / N64), the finite-cell band-model
+convexity theorems (M, Z, X, B) with the `W ≥ 0` necessity check, a
+finite-state CA1 / CA1a statement, and the Lyapunov-trace identity for
+the drift-selection excess DS1, including `d/(2β)(1+D/D_m)`.
 Formalization cannot establish the hypothesis at the top of CORE.md, which is a claim
 about the real world.
 
@@ -31,7 +35,7 @@ about the real world.
   after the build) checks that every declaration in a `GTAO.*` module
   depends only on `propext`, `Classical.choice` and `Quot.sound`.  A
   `sorry` anywhere would show up as `sorryAx` and fail the check.  Last
-  run (21 November 2026): 312 declarations, OK.
+  run (21 November 2026, this branch): 622 declarations, OK.
 
 ## How to build
 
@@ -97,13 +101,18 @@ wherever `FiniteDesignMenu` is used.
 | `Equipartition.homogCost_quadratic`, `gibbs_excess_quadratic` | SA1b / Corollary SA1c, `d/(2β)`; CORE §8, THEORY §4 | `J(x) = J* + ½(x − x*)ᵀH(x − x*)` on `ℝ^d` (`Fin d → ℝ`, Lebesgue), `d ≥ 1`, `H` positive definite (Mathlib `Matrix.PosDef`, so symmetric), `β > 0`; π is the Gibbs/Boltzmann law `∝ e^{−βJ}` on all of `ℝ^d` | `E_π[J] − J* = d/(2β)` exactly.  SA1 (that the stationary law of the origination–fixation chain is this Boltzmann weight, Sella–Hirsh), SA1b's "treat the measure as supported on the quadratic well", and the per-model `β` (Moran `α(N−1)`, Wright–Fisher `α(2N−1)`) are **not** formalized; they are the inputs that make this identity the selection result |
 | `HullWalk.HullVertices`, `IsLowerHull`, `Pays`, `hull_walk_stop_exists`, `hull_walk_leftmost_argmin` | KEYSTONE_NOTE §4, the hull-vertex walk (edges may skip integers) | `R ≥ 0`; `ε : ℕ → ℝ` arbitrary (no convexity); vertex data `v 0 = 0 < v 1 < ⋯ < v m = n` with every point on or above its hull edge and nondecreasing edge slopes | The walk that jumps from `v i` to `v(i+1)` iff `R(ε(v i) − ε(v(i+1))) > v(i+1) − v i` stops, and the stopping vertex is a minimizer of `φ(K) = K + R(1+ε_K)` on `{0,…,n}`, strictly below `φ` at every `K` to its left (leftmost minimizer) |
 | `HullWalk.greedy`, `greedy_isLowerHull`, `hull_increment_test_eq_argmin` | KEYSTONE_NOTE §4 Proposition, unconditional | `R ≥ 0`; `ε` arbitrary | Every `ε` has lower-hull vertex data (greedy minimum-slope chords), so the hull increment test returns the leftmost argmin of `φ` for **every** `ε`, with no convexity hypothesis |
-| `N60Exact.count`, `count_isLeftmostArgmin` | `theory/LAYER_CONVEXITY.md` (draft PR #145) L1, "if" | Finite domain `{0,…,n}`; `R ≥ 0`; `ε` discrete-convex (decrements non-increasing) | The count `#{k < n : R(ε_k − ε_{k+1}) > 1}` is the leftmost minimizer of `K + R(1+ε_K)` |
-| `N60Exact.not_min_of_rise`, `exists_threshold`, `exists_R_count_not_argmin`, `count_exact_iff_convex` | L1, "only if" and the iff | Decrements positive and pairwise distinct on `{0,…,n−1}`; for `not_min_of_rise`, `R > 0` | If some `d_m < d_{m+1}`, some `R > 0` makes the count differ from every minimizer; hence (count = leftmost argmin for all `R > 0`) ⇔ discrete convexity |
+| `N60Exact.count`, `count_isLeftmostArgmin` | `theory/LAYER_CONVEXITY.md` L1 / CLAIM_MAP N64, "if" | Finite domain `{0,…,n}`; `R ≥ 0`; `ε` discrete-convex (decrements non-increasing) | The from-0 count `K*_0(R) = #{K≥1 : R d_K > 1}` is the leftmost minimizer of `K + R(1+ε_K)` |
+| `N60Exact.not_min_of_rise`, `exists_threshold`, `threshold_pos`, `exists_R_count_not_argmin`, `exists_R_count_not_argmin_of_pos`, `count_exact_iff_convex` | L1, converse and the iff | Pairwise distinct decrements; the threshold decrement `d_{(m)}` positive (equivalently at least `m` positive decrements) suffices; all-positive is the special case used by the iff | If some `d_m < d_{m+1}`, some `R > 0` makes the count differ from every minimizer; hence with positive distinct decrements, (count = leftmost argmin for all `R > 0`) ⇔ discrete convexity |
+| `N60Exact.exists_nonconvex_count_exact` | L1, counterexample to a bare iff | `d = (−2, −1)`, i.e. `ε = (−3, −1, 0)` on `{0,1,2}` | The sequence is not discrete-convex, yet `K*_0(R) = 0` equals the unique minimizer for every `R ≥ 0` |
 | `BandCounterexample.clusterE_values`, `bandE0`, `bandE1_lower`, `bandE1_attained`, `bandE2_attained`, `not_convex` | LAYER_CONVEXITY minimal counterexample | `W = (0,1,0)`, weights `(2,1,1)`; bands of a non-monotone profile with a terminal zero band | Optimal band costs `E = (1, 2/3, 0)` (exact ℚ check by kernel `decide`, and over all real cutoffs and levels), so `E_0 − E_1 < E_1 − E_2`: not convex |
 | `BandMonge.merge_gain`, `quadrangle_core`, `terminal_core` | LAYER_CONVEXITY §3, the algebra behind Lemmas M and Z | Positive block masses; non-increasing block means; for Z also `m_B ≥ 0` | Merge-gain identity `f(X)+f(Y)−f(X∪Y) = M_XM_Y/(M_X+M_Y)·(m_X−m_Y)²`, the three-block quadrangle, and the terminal bound |
-| `BandMonge.quadrangle`, `terminal`, `linkCost_monge` | Lemma M, Lemma Z | Finitely many cells `0,…,n−1`, weights `μ > 0`, `W` non-increasing; Lemma Z also needs `W ≥ 0` | `w(a,c)+w(b,d) ≤ w(a,d)+w(b,c)` for `a ≤ b ≤ c ≤ d ≤ n` (`w` = weighted within-band variance); `w(a,c)+z(b) ≤ z(a)+w(b,c)`; the combined cost on `0,…,n+1` is Monge |
+| `BandMonge.quadrangle`, `terminal`, `linkCost_monge`, `terminal_needs_nonneg` | Lemma M, Lemma Z | Finitely many cells `0,…,n−1`, weights `μ > 0`, `W` non-increasing; Lemma Z also needs `W ≥ 0` | `w(a,c)+w(b,d) ≤ w(a,d)+w(b,c)` for `a ≤ b ≤ c ≤ d ≤ n` (`w` = weighted within-band variance); `w(a,c)+z(b) ≤ z(a)+w(b,c)`; the combined cost on `0,…,n+1` is Monge.  `W ≥ 0` is necessary: `W = (0,−1)` with equal weights gives `w(0,2)+z(1)=3/2 ≰ 1 = z(0)+w(1,2)` |
 | `BandMonge.exchange`, `convex_of_monge`, `exists_optimal`, `band_convex` | Lemma X; Theorem B (finite-cell form) | Any Monge link cost; `k ≥ 1` links | Tail swap at the first crossing turns a `k`- and a `(k+2)`-link path into two `(k+1)`-link paths of no larger total cost; optimal paths exist; `2E_{K} ≤ E_{K−1}+E_{K+1}` for the band model |
-| `Coadaptation.LogLinearChain`, `detailedBalance_of_potential`, `potential_of_detailedBalance`, `ca1_iff`, `gibbs_form`, `stationary_of_detailedBalance` | `theory/COADAPTATION.md` (draft PR #148) CA1, finite state | Finite product state space; one party moves at a time; symmetric move graphs, each party's graph connected; positive rates with `q(x→y)/q(y→x) = e^{−β_i ΔJ_i}` | Some positive `π` satisfies detailed balance ⇔ the `β`-scaled game has an exact potential `Ψ`; then `π ∝ e^{−Ψ}` (`Ψ = −log π` up to a constant) and `π` is stationary |
+| `DriftSelection.ou_excess` | `theory/DRIFT_SELECTION.md` DS1(a); CLAIM_MAP section S | The OU stationary moment equations of (L) (Itô at stationarity) as inputs; `H` positive definite, `Q` Hermitian, `D_m, β, γ > 0` | `½ Tr(H P) = d/(2β) + ½ Tr[H (A+γI)⁻¹ Q]` with `A = D_m β H`.  The derivation of (L) from the origination–fixation chain, and existence/ergodicity of the stationary law, are **not** formalized |
+| `DriftSelection.bm_excess`, `bm_excess_isotropic`, `bm_excess_static` | DS1(b) and the `Q=0` case of DS1(d) | Brownian lag-covariance equation (`γ = 0`); same `H`, `D_m, β > 0` | `½ Tr(H P) = d/(2β) + Tr(Q)/(2β D_m)`; with `Q = D I` this is `d/(2β)(1+D/D_m)`; with `Q = 0` this is the SA1b excess `d/(2β)` |
+| `DriftSelection.velocity_mean_excess` | DS1(c), the mean-lag term | `A μ = −v` with `A = D_m β H`; `H` positive definite, `D_m, β > 0` | `½ μᵀ H μ = vᵀ H⁻¹ v / (2 β² D_m²)`.  The fluctuation contribution `d/(2β)` is SA1b / `Equipartition` and is added outside this identity |
+| `DriftSelection.ou_excess_fast_remainder` | DS1(d), exact remainder to the fast-`γ` floor | `γ > 0`, `H` positive definite | `½ Tr[H (A+γI)⁻¹ Q] − ½ Tr[H (Q/γ)] = −½ Tr[H (A+γI)⁻¹ A (Q/γ)]` (the topological limit `γ→∞` is not formalized) |
+| `Coadaptation.LogLinearChain`, `detailedBalance_of_potential`, `potential_of_detailedBalance`, `ca1_iff`, `gibbs_form`, `stationary_of_detailedBalance` | `theory/COADAPTATION.md` (PR #148) CA1, finite state | Finite product state space; one party moves at a time; symmetric move graphs, each party's graph connected; positive rates with `q(x→y)/q(y→x) = e^{−β_i ΔJ_i}` | Some positive `π` satisfies detailed balance ⇔ the `β`-scaled game has an exact potential `Ψ`; then `π ∝ e^{−Ψ}` (`Ψ = −log π` up to a constant) and `π` is stationary |
 | `Coadaptation.ca1a_weighted`, `ca1a_square` | CA1a | Weighted potential `Δ_i J_i = ω_i Δ_i Φ` | If `β_iω_i = γ` for all `i`, `γΦ` is an exact potential; if a potential exists, `(β_iω_i − β_jω_j)` times every mixed difference of `Φ` is `0` (so unequal `β_iω_i` with a nonzero mixed difference rules out detailed balance) |
 
 ## What is not formalized
@@ -130,7 +139,8 @@ None of the following is claimed as proved in Lean.
 - CT5, CT6, CT7, CT8, CT9 (Blackwell/garbling, hold-or-fade, and the neighbouring short CTs).
 - CT11–CT19, CT23, CT24, CT25, CT26–CT32, CT35–CT43, and the Master Theorem in the class `𝓜_LG`.
 - Any information-theoretic construction of `D` or `IB`; they enter CT4 as functions with the stated convexity and monotonicity.
-- LAYER_CONVEXITY: N60 started from `k_0 > 0`; Theorem B for a continuous frequency measure (only finitely many cells with positive weights are formalized); the Wiener-gain reading `W = 1/(1+N/S)` and Model S.
+- LAYER_CONVEXITY: N60 started from `k_0 > 0` (the from-1 formula); Theorem B for a continuous frequency measure (only finitely many cells with positive weights are formalized); the Wiener-gain reading `W = 1/(1+N/S)` and Model S convexity for `J≥3`.
+- DRIFT_SELECTION: the generator expansion from the origination–fixation chain to the Langevin equation (L), existence and uniqueness of the stationary law and the ergodic theorem (time average = stationary mean); DS2 (the exact-chain speed limit); DS3; Corollary DS1c (the fractional form with `β = σ N_e / J*`); the topological limit `γ→∞` in DS1(d).
 - COADAPTATION: uniqueness of the stationary law (irreducibility / Perron–Frobenius), the origination–fixation derivation of the log-linear rate ratio, CA1b–CA4, and the §6 counterexamples.
 
 ## Layout
@@ -152,10 +162,11 @@ formal/lean/
   GTAO/LayerLifetime.lean   # T* = √(6k/(wσ²)) and the fixed-period cousin
   GTAO/LocalShared.lean     # D5 crossing; switch iff ℓ > 0 and k_S < N k_L
   GTAO/Equipartition.lean   # E_π[J] − J* = d/(pβ); d/(2β) for PD quadratics
+  GTAO/DriftSelection.lean  # DS1 Lyapunov identity, including d/(2β)(1+D/D_m)
   GTAO/HullWalk.lean        # hull increment test = leftmost argmin, any ε
-  GTAO/N60Exact.lean        # L1: count = argmin for all R ⇔ convex
+  GTAO/N60Exact.lean        # L1: from-0 count = argmin for all R ⇔ convex
   GTAO/BandCounterexample.lean  # W=(0,1,0), μ=(2,1,1): E=(1,2/3,0)
-  GTAO/BandMonge.lean       # Lemmas M, Z, X; Theorem B (finite cells)
+  GTAO/BandMonge.lean       # Lemmas M, Z, X; Theorem B (finite cells); Z needs W≥0
   GTAO/Coadaptation.lean    # CA1 (finite state), CA1a
   scripts/AxiomAudit.lean   # every GTAO declaration uses only standard axioms
 ```

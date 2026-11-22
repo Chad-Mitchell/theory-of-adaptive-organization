@@ -11,6 +11,7 @@ public import GTAO.Hull
 public import GTAO.LayerLifetime
 public import GTAO.LocalShared
 public import GTAO.Equipartition
+public import GTAO.DriftSelection
 public import GTAO.HullWalk
 public import GTAO.N60Exact
 public import GTAO.BandCounterexample
