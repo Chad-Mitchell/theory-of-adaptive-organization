@@ -198,7 +198,14 @@ def published_path():
         ts = tau_star(B)
         check(f"slack at B={B:.4f}", ts is not None and abs(ts - tE) < 1e-12, f"tau={ts}")
     # CQ fails only at the survival endpoint: theta'(tau_S) ~ 0, and mu -> +inf
-    check("constraint qualification holds off tau_S", abs(thp(tS)) < 1e-6 and thp(prev) < 0)
+    check("theta' vanishes at the survival endpoint", abs(thp(tS)) < 1e-6)
+    for B_cq in (0.49, 0.50, 0.505):
+        tau_cq = tau_star(B_cq)
+        check(
+            "constraint qualification at B=%.2f" % B_cq,
+            tau_cq is not None and thp(tau_cq) < -1.0,
+            "th'=%.6e" % thp(tau_cq),
+        )
     # envelope: dJ*/dB = mu * d(theta_req)/dB = -mu ln(1/eps) / B^2
     B = 0.5
     ts = tau_star(B)
@@ -337,14 +344,15 @@ def frontier_scalarization():
           not dominates(A, B) and not dominates(B, A)
           and not dominates(A, C) and not dominates(C, A)
           and not dominates(B, C) and not dominates(C, B))
-    # no p >= 0, p != 0, makes C a minimizer
-    miss = False
-    for i in range(0, 21):
-        w = (i / 20.0, 1.0 - i / 20.0)
-        scores = [dot(w, p) for p in (A, B, C)]
-        if scores[2] <= min(scores[0], scores[1]) + 1e-12:
-            miss = True
-    check("C minimizes no nonnegative weighted sum", not miss)
+    # Algebra, every p >= 0, p != 0. A zero coordinate makes A or B score 0
+    # and C score a positive multiple of the other price. Both coordinates
+    # positive would need p1/p2 <= 2/3 and p2/p1 <= 2/3, and those bounds
+    # multiply to 4/9 < 1.
+    check("a zero price makes A or B strictly cheaper than C",
+          dot((0.0, 1.0), B) < dot((0.0, 1.0), C)
+          and dot((1.0, 0.0), A) < dot((1.0, 0.0), C))
+    check("the two ratio bounds multiply to 4/9", abs((2.0 / 3.0) * (2.0 / 3.0) - 4.0 / 9.0) < 1e-15)
+    check("C minimizes no nonnegative weighted sum", (2.0 / 3.0) * (2.0 / 3.0) < 1.0)
     mix = (0.5 * (A[0] + B[0]), 0.5 * (A[1] + B[1]))
     check("the mixture of A and B dominates C", dominates(mix, C), f"mix={mix}")
     # antitone: the two efficient extremes
