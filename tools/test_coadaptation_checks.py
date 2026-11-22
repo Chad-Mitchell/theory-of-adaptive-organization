@@ -129,11 +129,15 @@ def test_s7c_single_basin_bracket_false():
     r = C.s7c_single_basin_bracket_false()
     assert abs(sum(r["local_a"]) - r["local_var"]) < 1e-12
     assert r["local_a"][1] < 0
+    assert round(r["local_a2_over_var"], 5) == -0.01130
     assert all(x["excess"] > 0 for x in r["local_eps"])
     assert r["adv"]["E"] > r["adv"]["hi"]
     assert r["adv"]["rel_violation"] > 0.15
     ratios = [row["ratio"] for row in r["entropic"]]
     assert ratios == sorted(ratios) and ratios[-1] > 30.0
+    m64 = next(row for row in r["entropic"] if row["m"] == 64)
+    assert round(m64["ratio"], 2) == 34.64
+    assert round(r["entropic_ratio_m_inf_barrier_held"], 1) == 415.8
 
 
 def test_s7d_pl_flux_bound():

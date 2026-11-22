@@ -20,7 +20,7 @@ Sections (numbering follows COADAPTATION.md):
   s6  nonlinear strictly monotone non-potential games (CA5 Hodge split,
       per-party regret bound, CA5' translation drift)
   s7  discrete mismatched strengths (CA6 perturbative tree bound, low-T limit,
-      single-basin bracket counterexample + unbounded entropic family,
+      single-basin bracket counterexample + scale-separated entropic family,
       P1 local a_i criterion, P2 PL flux bound, P3 exact tree graph)
   s8  LQ drift + co-adaptation (CA7 potential excess, per-party virial,
       mismatch bracket, negative finding on naive per-party regret)
@@ -744,26 +744,52 @@ def s7c_single_basin_bracket_false():
     E_adv = float(gth(Q_adv) @ J_adv.ravel())
     lo_adv, hi_adv = _gibbs_E(J_adv, max(c_adv)), _gibbs_E(J_adv, min(c_adv))
 
-    # 3. Unbounded 2 x m entropic family
+    # 3. Scale-separated 2 x m entropic family, barrier held at B=10.
+    # With eps -> 0 and gamma_2 -> inf at fixed gamma_1, Delta, and B,
+    # E_pi -> Delta e^{-gamma_1 Delta} / (1 + e^{-gamma_1 Delta}), while
+    # E_Gibbs still includes the (0, j>0) barrier states. The ratio of
+    # those limits tends to a finite value as m -> inf (415.8 at the
+    # printed parameters). The deleted-barrier / B -> inf expression
+    # (m + e^{-gamma_1 Delta}) / (1 + e^{-gamma_1 Delta}) is recorded
+    # separately; it is not the B=10 limit.
     entropic = []
-    eps_e, Delta, c1, c2 = 1e-5, 0.5, 1.0, 1e6
+    eps_e, Delta, c1, c2, B = 1e-5, 0.5, 1.0, 1e6, 10.0
+    e_pi_lim = Delta * math.exp(-c1 * Delta) / (1.0 + math.exp(-c1 * Delta))
+    e_gibbs_inf = B * math.exp(-B * c1) / (1.0 + math.exp(-B * c1))
+    ratio_inf = e_pi_lim / e_gibbs_inf
+
+    def _e_gibbs_barrier(m, g=c1, D=Delta, barrier=B):
+        num = D * math.exp(-g * D) + barrier * (m - 1) * math.exp(-barrier * g)
+        den = m + math.exp(-g * D) + (m - 1) * math.exp(-barrier * g)
+        return num / den
+
     for m in (2, 4, 8, 16, 32, 64):
-        J_ent = np.full((2, m), 10.0)
+        J_ent = np.full((2, m), B)
         J_ent[1, :] = eps_e * np.arange(m)
         J_ent[0, 0] = Delta
         assert _n_local_min(J_ent) == 1
         Q_ent, _ = joint_generator_stable([J_ent, J_ent], J_ent.shape, [c1 / 9.0, c2 / 9.0], (10, 10), (1.0, 1.0))
         E_ent = float(gth(Q_ent) @ J_ent.ravel())
         gmin_E = _gibbs_E(J_ent, c1)
-        pred_lim = (m + math.exp(-c1 * Delta)) / (1.0 + math.exp(-c1 * Delta))
-        entropic.append({"m": m, "E": E_ent, "gibbs_gmin": gmin_E, "ratio": E_ent / gmin_E, "pred_limit": pred_lim})
+        deleted_barrier = (m + math.exp(-c1 * Delta)) / (1.0 + math.exp(-c1 * Delta))
+        entropic.append({
+            "m": m,
+            "E": E_ent,
+            "gibbs_gmin": gmin_E,
+            "ratio": E_ent / gmin_E,
+            "barrier_aware_ratio": e_pi_lim / _e_gibbs_barrier(m),
+            "deleted_barrier_limit": deleted_barrier,
+        })
 
     return {
         "local_a": a_vals,
         "local_var": var,
+        "local_a2_over_var": a_vals[1] / var,
         "local_eps": local_eps,
         "adv": {"E": E_adv, "lo": lo_adv, "hi": hi_adv, "rel_violation": (E_adv - hi_adv) / (hi_adv - lo_adv)},
         "entropic": entropic,
+        "entropic_E_pi_limit": e_pi_lim,
+        "entropic_ratio_m_inf_barrier_held": ratio_inf,
     }
 
 
