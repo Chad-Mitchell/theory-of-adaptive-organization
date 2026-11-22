@@ -33,8 +33,12 @@ Machine-checked:
   `(β_i J_i)` (on every unilateral change, not only on edges), and
   `π = exp(-Ψ)`;
 * `ca1_iff`: hence detailed balance with a positive `π` iff an exact
-  β-scaled potential exists;
-* `stationary_of_detailedBalance`: detailed balance implies stationarity;
+  β-scaled potential exists; then the correspondence is
+  `π x = exp(-Ψ x)` from `detailedBalance_of_potential`, and
+  `Ψ = -log π` from `potential_of_detailedBalance` (so `π x = exp(-Ψ x)`
+  with constant `1`);
+* `stationary_of_detailedBalance`: detailed balance implies stationarity
+  (finite product state space);
 * `ca1a_weighted` and `ca1a_square`: Corollary CA1a, both halves.
 
 Not formalized: irreducibility implies uniqueness of the stationary law
@@ -144,7 +148,9 @@ theorem ca1_iff (hC : LogLinearChain G β J q)
     exact ⟨_, fun x => exp_pos _, detailedBalance_of_potential hC hΨ⟩
 
 omit [DecidableEq ι] in
-/-- The Gibbs form: the reversible `π` is exactly `exp(-Ψ)` with `Ψ = -log π`. -/
+/-- `exp_log` rewritten for a positive function.  This is not the CA1 Gibbs
+correspondence; that correspondence is `detailedBalance_of_potential`
+(`π = exp(-Ψ)`) and `potential_of_detailedBalance` (`Ψ = -log π`). -/
 lemma gibbs_form {π : (∀ i, S i) → ℝ} (hπ : ∀ x, 0 < π x) (x : ∀ i, S i) :
     π x = exp (-(-log (π x))) := by
   rw [neg_neg, exp_log (hπ x)]

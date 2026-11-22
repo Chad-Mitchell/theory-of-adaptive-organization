@@ -413,6 +413,20 @@ theorem exists_optimal {k : ℕ} (hne : ∃ x, IsPath T k x) :
   rw [pathCost_congr (hagree x hx)]
   exact hgmin _ (by simpa [C] using isPath_congr (hagree x hx) hx)
 
+/-- A feasible `k`-link path for every `k ≥ 1`: jump from `0` to `T` on
+the first link and stay there. -/
+lemma trivial_path {k : ℕ} (hk : 1 ≤ k) :
+    IsPath T k (fun i => if i = 0 then 0 else T) := by
+  refine ⟨rfl, ?_, fun i hi => ?_⟩
+  · simp [show k ≠ 0 by omega]
+  · rcases Nat.eq_zero_or_pos i with hi0 | hi0
+    · rw [hi0]; exact Nat.zero_le _
+    · simp [hi0.ne']
+
+/-- Paths exist for every `k ≥ 1`. -/
+lemma exists_path {k : ℕ} (hk : 1 ≤ k) : ∃ x, IsPath T k x :=
+  ⟨_, trivial_path hk⟩
+
 end Exchange
 
 /-! ## Theorem B for the band model -/
@@ -434,6 +448,55 @@ theorem band_convex {μ W : ℕ → ℝ} {n : ℕ} (hμ : ∀ x < n, 0 < μ x)
   convex_of_monge (c := linkCost μ W n)
     (fun a b c' d h1 h2 h3 => linkCost_monge (a := a) (b := b) (c := c') (d := d) hμ hW hW0 h1 h2 h3)
     hk hP hQ hRopt
+
+/-- Optimal `k`-link clustering cost `E_k` in the finite-cell band model.
+For `k = 0` the value is the unused placeholder `0` (Theorem B's
+second difference starts at `k ≥ 1`). -/
+noncomputable def bandE (μ W : ℕ → ℝ) (n k : ℕ) : ℝ :=
+  if h : 1 ≤ k then
+    pathCost (linkCost μ W n) k
+      (Classical.choose
+        (exists_optimal (c := linkCost μ W n) (T := n + 1) (exists_path (T := n + 1) h)))
+  else 0
+
+/-- `bandE` is the minimum `k`-link path cost when `k ≥ 1`. -/
+theorem bandE_is_min {μ W : ℕ → ℝ} {n k : ℕ} (hk : 1 ≤ k) :
+    (∃ r, IsPath (n + 1) k r ∧
+      bandE μ W n k = pathCost (linkCost μ W n) k r ∧
+      ∀ x, IsPath (n + 1) k x →
+        pathCost (linkCost μ W n) k r ≤ pathCost (linkCost μ W n) k x) := by
+  have hch := Classical.choose_spec
+    (exists_optimal (c := linkCost μ W n) (T := n + 1) (exists_path (T := n + 1) hk))
+  refine ⟨Classical.choose
+    (exists_optimal (c := linkCost μ W n) (T := n + 1) (exists_path (T := n + 1) hk)),
+    hch.1, ?_, hch.2⟩
+  simp [bandE, hk]
+
+/-- If `r` is an optimal `k`-link path, its cost is `bandE`. -/
+theorem bandE_eq {μ W : ℕ → ℝ} {n k : ℕ} (hk : 1 ≤ k) {r : ℕ → ℕ}
+    (hr : IsPath (n + 1) k r)
+    (hopt : ∀ x, IsPath (n + 1) k x →
+      pathCost (linkCost μ W n) k r ≤ pathCost (linkCost μ W n) k x) :
+    bandE μ W n k = pathCost (linkCost μ W n) k r := by
+  obtain ⟨r', hr', hEq, hopt'⟩ := bandE_is_min (μ := μ) (W := W) (n := n) hk
+  linarith [hopt r' hr', hopt' r hr]
+
+/-- **Theorem B, second difference.**  For `k ≥ 1`, the optimal link costs
+satisfy `2 E_{k+1} ≤ E_k + E_{k+2}`. -/
+theorem bandE_second_difference {μ W : ℕ → ℝ} {n k : ℕ}
+    (hμ : ∀ x < n, 0 < μ x)
+    (hW : ∀ x y, x ≤ y → y < n → W y ≤ W x) (hW0 : ∀ x < n, 0 ≤ W x)
+    (hk : 1 ≤ k) :
+    2 * bandE μ W n (k + 1) ≤ bandE μ W n k + bandE μ W n (k + 2) := by
+  obtain ⟨p, hP, hEp, hPopt⟩ := bandE_is_min (μ := μ) (W := W) (n := n) hk
+  obtain ⟨q, hQ, hEq, hQopt⟩ :=
+    bandE_is_min (μ := μ) (W := W) (n := n) (k := k + 2) (by omega)
+  obtain ⟨r, hR, hEr, hRopt⟩ :=
+    bandE_is_min (μ := μ) (W := W) (n := n) (k := k + 1) (by omega)
+  have hconv := band_convex (μ := μ) (W := W) (n := n) hμ hW hW0 hk hP hQ
+    (r := r) (fun x hx => hRopt x hx)
+  rw [hEp, hEq, hEr]
+  exact hconv
 
 /-! ## Necessity of `W ≥ 0` in Lemma Z -/
 

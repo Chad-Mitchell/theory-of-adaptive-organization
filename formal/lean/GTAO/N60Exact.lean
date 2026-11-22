@@ -31,9 +31,12 @@ number of paying adjacent steps,
   All-positive decrements are a special case.
 * `count_exact_iff_convex`: with positive, distinct decrements, the count is
   the leftmost argmin for every `R > 0` iff the decrements are non-increasing.
+* `exists_R_interval_count_not_argmin`: the converse supplies an open
+  interval of `R > 0` on which the from-0 count equals `j+1` and is not
+  a minimizer (L1's `K*_0(R) = m` on that interval).
 * `exists_nonconvex_count_exact`: without positivity, the bare iff is false:
   `d = (-2, -1)` (`ε = (-3, -1, 0)`) is not convex, yet the count equals
-  the unique minimizer for every `R ≥ 0`.
+  the unique minimizer for every `R ≥ 0` (`φ(0) < φ(j)` for `j = 1, 2`).
 -/
 
 @[expose] public section
@@ -150,17 +153,16 @@ lemma threshold_pos {n : ℕ} {g : ℕ → ℝ} {i0 c : ℕ} (_hi0 : i0 < n)
   have := card_le_card hsub
   omega
 
-/-- **L1 (⇐), general form.**  If the step decrements
-`g i = ε_i - ε_{i+1}` (`i < n`) are pairwise distinct, some decrement
-rises (`g j < g (j+1)`, `j + 2 ≤ n`), and the threshold decrement
-`d_{(m)}` with `m = j+1` is positive (equivalently, at least `m`
-decrements are positive), then for some `R > 0` the from-0 count is not
-a minimizer of `φ`. -/
-theorem exists_R_count_not_argmin {n : ℕ} {ε : ℕ → ℝ}
+/-- **L1 (⇐), interval form.**  Under the same hypotheses as the single-`R`
+converse, there is an open interval of `R > 0` on which the from-0 count
+equals `j+1` (`K*_0(R) = m` with `m = j+1`) and is not a minimizer of
+`φ`. -/
+theorem exists_R_interval_count_not_argmin {n : ℕ} {ε : ℕ → ℝ}
     (hdist : ∀ i < n, ∀ i' < n, i ≠ i' → ε i - ε (i + 1) ≠ ε i' - ε (i' + 1))
     {j : ℕ} (hj : j + 2 ≤ n) (hrise : ε j - ε (j + 1) < ε (j + 1) - ε (j + 2))
     (hthresh : j + 1 ≤ ((range n).filter (fun k => 0 < ε k - ε (k + 1))).card) :
-    ∃ R, 0 < R ∧ ∃ k ≤ n, phi R ε k < phi R ε (count R ε n) := by
+    ∃ R₀ > 0, ∃ δ > 0, ∀ R, |R - R₀| < δ →
+      0 < R ∧ count R ε n = j + 1 ∧ ∃ k ≤ n, phi R ε k < phi R ε (count R ε n) := by
   classical
   set g : ℕ → ℝ := fun i => ε i - ε (i + 1)
   obtain ⟨i0, hi0, hcard0⟩ := exists_threshold g hdist (c := j) (by omega)
@@ -245,21 +247,103 @@ theorem exists_R_count_not_argmin {n : ℕ} {ε : ℕ → ℝ}
       rcases this with htk | rfl
       · exact hrinv_lt.trans htk.2
       · exact hrinv_lt
-  refine ⟨1 / rinv, by positivity, ?_⟩
-  have hcount : count (1 / rinv) ε n = j + 1 := by
+  set R0 := rinv⁻¹
+  have hR0pos : 0 < R0 := inv_pos.mpr hrinvpos
+  have hlo : t⁻¹ < R0 := (inv_lt_inv₀ ht hrinvpos).mpr hrinv_lt
+  have hhi : 0 < u → R0 < u⁻¹ := fun hu =>
+    (inv_lt_inv₀ hrinvpos hu).mpr hu_lt_rinv
+  set δ := min (R0 - t⁻¹) (if 0 < u then u⁻¹ - R0 else R0)
+  have hδ : 0 < δ := by
+    have h1 : 0 < R0 - t⁻¹ := sub_pos.mpr hlo
+    by_cases hu : 0 < u
+    · simp only [δ, hu, ↓reduceIte]
+      exact lt_min h1 (sub_pos.mpr (hhi hu))
+    · simp only [δ, hu, ↓reduceIte]
+      exact lt_min h1 hR0pos
+  refine ⟨R0, hR0pos, δ, hδ, fun R hRδ => ?_⟩
+  have hRgt : t⁻¹ < R := by
+    have habs := abs_lt.mp hRδ
+    have hδle : δ ≤ R0 - t⁻¹ := min_le_left _ _
+    linarith [habs.1]
+  have hRpos : 0 < R := lt_trans (inv_pos.mpr ht) hRgt
+  have hRlt : R⁻¹ < t := by
+    have h1 : t * t⁻¹ < t * R := mul_lt_mul_of_pos_left hRgt ht
+    rw [mul_inv_cancel₀ ht.ne'] at h1
+    have h2 : R⁻¹ * 1 < R⁻¹ * (t * R) :=
+      mul_lt_mul_of_pos_left h1 (inv_pos.mpr hRpos)
+    rw [mul_one, mul_comm t R, ← mul_assoc, inv_mul_cancel₀ hRpos.ne', one_mul] at h2
+    exact h2
+  have hRgtu : u < R⁻¹ := by
+    by_cases hu : 0 < u
+    · have habs := abs_lt.mp hRδ
+      have hδle : δ ≤ u⁻¹ - R0 := by
+        simp only [δ, hu, ↓reduceIte]
+        exact min_le_right _ _
+      have hRu : R < u⁻¹ := by linarith [habs.2]
+      have h1 : u * R < u * u⁻¹ := mul_lt_mul_of_pos_left hRu hu
+      rw [mul_inv_cancel₀ hu.ne'] at h1
+      have h2 : R⁻¹ * (u * R) < R⁻¹ * 1 :=
+        mul_lt_mul_of_pos_left h1 (inv_pos.mpr hRpos)
+      rw [mul_one, mul_comm u R, ← mul_assoc, inv_mul_cancel₀ hRpos.ne', one_mul] at h2
+      exact h2
+    · have : 0 < R⁻¹ := inv_pos.mpr hRpos
+      linarith [le_of_not_gt hu]
+  have hiffR : ∀ k < n, R⁻¹ < g k ↔ u < g k := by
+    intro k hk
+    constructor
+    · intro h; exact hRgtu.trans h
+    · intro huk
+      have : k ∈ (range n).filter (fun k => t < g k) ∪ {i0} := by
+        rw [heq]
+        simp [mem_filter, mem_range, hk, huk]
+      simp only [mem_union, mem_singleton, mem_filter] at this
+      rcases this with htk | rfl
+      · exact hRlt.trans htk.2
+      · exact hRlt
+  have hcount : count R ε n = j + 1 := by
     unfold count
-    have : (range n).filter (fun i => IncrementPays (1 / rinv) ε i) =
+    have : (range n).filter (fun i => IncrementPays R ε i) =
         (range n).filter (fun i => u < g i) := by
       apply filter_congr
       intro k hk
       have hk' : k < n := mem_range.mp hk
       unfold IncrementPays
-      change (1 < (1 / rinv) * g k) ↔ u < g k
-      rw [one_div, inv_mul_eq_div, one_lt_div hrinvpos]
-      exact hiff k hk'
+      change (1 < R * g k) ↔ u < g k
+      have : (1 < R * g k) ↔ R⁻¹ < g k := by
+        constructor
+        · intro h
+          have h' : R⁻¹ * 1 < R⁻¹ * (R * g k) :=
+            mul_lt_mul_of_pos_left h (inv_pos.mpr hRpos)
+          rw [← mul_assoc, inv_mul_cancel₀ hRpos.ne', one_mul, mul_one] at h'
+          exact h'
+        · intro h
+          have h' : R * R⁻¹ < R * g k :=
+            mul_lt_mul_of_pos_left h hRpos
+          rwa [mul_inv_cancel₀ hRpos.ne'] at h'
+      exact this.trans (hiffR k hk')
     rw [this, hcard1]
+  refine ⟨hRpos, hcount, ?_⟩
   rw [hcount]
-  exact not_min_of_rise (by positivity) hj hrise
+  exact not_min_of_rise hRpos hj hrise
+
+/-- **L1 (⇐), general form.**  If the step decrements
+`g i = ε_i - ε_{i+1}` (`i < n`) are pairwise distinct, some decrement
+rises (`g j < g (j+1)`, `j + 2 ≤ n`), and the threshold decrement
+`d_{(m)}` with `m = j+1` is positive (equivalently, at least `m`
+decrements are positive), then for some `R > 0` the from-0 count is not
+a minimizer of `φ`.  This is the single-`R` projection of
+`exists_R_interval_count_not_argmin`, which also records `K*_0(R) = j+1`
+on an open interval. -/
+theorem exists_R_count_not_argmin {n : ℕ} {ε : ℕ → ℝ}
+    (hdist : ∀ i < n, ∀ i' < n, i ≠ i' → ε i - ε (i + 1) ≠ ε i' - ε (i' + 1))
+    {j : ℕ} (hj : j + 2 ≤ n) (hrise : ε j - ε (j + 1) < ε (j + 1) - ε (j + 2))
+    (hthresh : j + 1 ≤ ((range n).filter (fun k => 0 < ε k - ε (k + 1))).card) :
+    ∃ R, 0 < R ∧ ∃ k ≤ n, phi R ε k < phi R ε (count R ε n) := by
+  obtain ⟨R0, hR0, δ, hδ, hI⟩ :=
+    exists_R_interval_count_not_argmin hdist hj hrise hthresh
+  have hmid : |R0 - R0| < δ := by simpa using hδ
+  obtain ⟨hRpos, _, hk⟩ := hI R0 hmid
+  exact ⟨R0, hRpos, hk⟩
 
 /-- Special case of the converse: all decrements positive (which implies
 the threshold decrement is positive). -/
@@ -324,20 +408,33 @@ lemma epsCE_count_zero {R : ℝ} (hR : 0 ≤ R) : count R epsCE 2 = 0 := by
       exact False.elim (notMem_empty _ h)
   rw [hempty, card_empty]
 
-lemma epsCE_zero_min {R : ℝ} (hR : 0 ≤ R) : IsLeftmostArgmin R epsCE 2 0 := by
-  refine ⟨by omega, ?_, by intro j hj; omega⟩
-  intro j hj
-  have hj' : j = 0 ∨ j = 1 ∨ j = 2 := by omega
-  rcases hj' with rfl | rfl | rfl
-  · simp [phi, epsCE]
-  · simp [phi, epsCE]; linarith
-  · simp [phi, epsCE]; linarith
+lemma epsCE_zero_min {R : ℝ} (hR : 0 ≤ R) :
+    IsLeftmostArgmin R epsCE 2 0 ∧
+      ∀ j, 0 < j → j ≤ 2 → phi R epsCE 0 < phi R epsCE j := by
+  have hle : ∀ j ≤ 2, phi R epsCE 0 ≤ phi R epsCE j := by
+    intro j hj
+    have hj' : j = 0 ∨ j = 1 ∨ j = 2 := by omega
+    rcases hj' with rfl | rfl | rfl
+    · simp [phi, epsCE]
+    · simp [phi, epsCE]; linarith
+    · simp [phi, epsCE]; linarith
+  have hlt : ∀ j, 0 < j → j ≤ 2 → phi R epsCE 0 < phi R epsCE j := by
+    intro j hj0 hj
+    have hj' : j = 1 ∨ j = 2 := by omega
+    rcases hj' with rfl | rfl
+    · simp [phi, epsCE]; linarith
+    · simp [phi, epsCE]; linarith
+  exact ⟨⟨by omega, hle, by intro j hj; omega⟩, hlt⟩
 
 /-- **Counterexample to a bare iff.**  `d = (-2, -1)` is not discrete-convex,
-yet the from-0 count equals the unique minimizer for every `R ≥ 0`. -/
+yet the from-0 count equals the unique minimizer for every `R ≥ 0`:
+`φ(0) < φ(j)` for `j = 1, 2`. -/
 theorem exists_nonconvex_count_exact :
     ¬ DiscreteConvexOn 2 epsCE ∧
-      ∀ R, 0 ≤ R → IsLeftmostArgmin R epsCE 2 (count R epsCE 2) := by
+      ∀ R, 0 ≤ R →
+        IsLeftmostArgmin R epsCE 2 (count R epsCE 2) ∧
+          ∀ j, 0 < j → j ≤ 2 →
+            phi R epsCE (count R epsCE 2) < phi R epsCE j := by
   refine ⟨epsCE_not_convex, ?_⟩
   intro R hR
   rw [epsCE_count_zero hR]
