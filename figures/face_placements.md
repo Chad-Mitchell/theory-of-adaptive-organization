@@ -167,7 +167,9 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
   - a team's optimized cost enters its parent's problem as upkeep (CT34).
 - So a firm's "management" component is the firm-wide store. Its divisions would be the same map applied one level down.
 
-## 4. An operational rule for counting a real system's layers (proposed; preregister per class before use)
+## 4. An operational rule for counting a real system's layers (v2.5.4; finalized in `measurement/LAYER_COUNT_RULE.md`; preregister per class before use)
+
+The observation steps below are finalized in `measurement/LAYER_COUNT_RULE.md` and are now implemented and tested. The prediction side (K* from a measured world) and the cost-band comparison used in a later N56 test are stated in `measurement/LAYER_COUNT_RULE.md`: K* is always argmin J, equal to the lower-convex-hull increment; the from-0 count K*_0(R) = #{K ≥ 1 : R d_K > 1} is used only when the decrements of ε_K are non-increasing, and is not used in peaked (rhythmic) worlds, where that premise can fail (N64, PR #145). A raw count difference is not by itself a miss.
 
 1. **Fix the pair and the band.** Before any data, fix per class the input/output pair and the band of time scales:
 
@@ -180,13 +182,13 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
    | city, nation-state, global economy | a documented shock (price, fiscal, climate) | allocation response (spend, land use, rates) | 1 mo–50 y |
 
 2. **Measure the response kernel** over that band (impulse, step or white-noise input), by a protocol fixed in advance.
-3. **Fit sums of exponentials** (complex-conjugate pairs allowed) of order K = 1 … K_max, separately to the isolated-unit response and to the pooled response (step 6 says how each is obtained).
-   - Accept order K + 1 over K only if **ΔBIC ≥ 10**.
+3. **Fit sums of exponentials** (complex-conjugate pairs allowed), separately to the isolated-unit response and to the pooled response (step 6 says how each is obtained).
+   - Fit degrees 0 through K_max. Degree 0 is always eligible. Accept degree K>0 only if it lowers BIC by at least 10 against every lower degree, and select the largest such degree. A rhythm may enter as a jump of 2.
    - Poles outside the band are not counted.
-   - **Classify, then merge.** Classify each pole as local or shared (step 6) *before* any merging. Then merge only within a class: two poles of the same class whose time constants differ by less than a **factor 3** (the resolution) count as one. A local and a shared pole are never merged, however close, so "both" stays observable.
-4. **Count by degree.** The layer count is the number of poles: a complex pair (a rhythm) counts 2, and an integrator-plus-filter counts 2.
+   - **Classify, then merge.** Classify each pole as local or shared (step 6) *before* any merging, by a maximum-cardinality matching under the factor (for a complex pair, both the decay time and the period; among maximum-cardinality matchings, the smallest sum of log-ratios, with remaining ties broken by the sorted pooled decay times, then by the sorted periods (a real pole has no period and sorts before any positive period)). Then merge only within a class, and only among poles that the unit records matched to the same partners: two poles of the same class whose time constants differ by less than a **factor 3** (the resolution; for a pair, both time constants) count as one. A local and a shared pole are never merged, however close, so "both" stays observable.
+4. **Count by degree.** The layer count is the number of poles: a real pole counts 1 and a complex pair (a rhythm) counts 2 (the coded fitter in `measurement/LAYER_COUNT_RULE.md` has no pole-at-0 integrator basis).
 5. **Relay-only test.** Remove the candidate level, or bypass it, or replace it with a pure delay of the same latency, and refit.
-   - The level is a layer only if a pole disappears or moves by more than the resolution factor.
+   - The level is a layer only if a pole disappears or moves by at least the resolution factor (ratio ≥ factor).
    - If only a delay disappears, it is a relay (CT16).
 6. **Local vs shared** (applied in step 3, before merging).
    - *Local:* the pole appears in each unit's own response, measured on isolated units.
@@ -305,7 +307,7 @@ The earlier check (v2.5) claimed greedy 600/600. **It used ρ = 1 throughout and
 8. **The hierarchy above one shared level is not drawn.**
 9. **E. coli is a proxy off the map.** Its inputs come from PR #110 (merged as `e1be66e`).
 10. **City, nation-state and global economy are starred** because their selection is weak or unknown.
-11. **The counting rule is proposed.** It has not been preregistered per class, and no system has been counted by it yet.
+11. **The counting rule is finalized** in `measurement/LAYER_COUNT_RULE.md` (T15, draft). It has not been preregistered per class, and no system has been counted by it yet.
 12. **Beckers' 47 min** is not checked against the full text.
 
 ## 8. History

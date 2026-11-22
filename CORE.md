@@ -82,7 +82,7 @@ Each of these is a window the rest of the page looks through. If it is wrong, he
 | Shared-only delay | If the same latency sits on local updates, the delay floors cancel and speed does not flip the choice. |
 | Shared lump below \(N\) local lumps (\(k_S<N k_L\)) | If the shared re-forming cost is not cheaper than \(N\) local ones, the slow-shared side of the crossing is absent. |
 | Equal read quality | If a shared read is systematically better or worse than a local one, fast scales need not go local. The factor \(e^{-2\ell/\tau}\) stays positive. |
-| Exogenous world, stationary for the information floor | If the system shapes the world it tracks (CX2), or the world has no stationary law (CX1), S1 as proved does not apply. |
+| Exogenous world, stationary for the information floor | If the system shapes the world it tracks (CX2), or the world has no stationary law (CX1), S1 as proved does not apply. For drifting worlds, the flow form of the floor is in `theory/THEOREM_P_DRIFT.md` (CLAIM_MAP section T; reviewed, fixes pending confirm). |
 | Read cost at least linear in the directed-information rate (S-A) | The assembled information floor can fail as a bound on operational \(J\). S-A is an assumption, not a sensor law. |
 | Re-forming is lumpy | If adjustment is smooth, there is no discrete lifetime \(T^*\). |
 | A layer cannot cheaply reset the whole state | If one action can rewrite the sum at little extra cost, a stack is the wrong design and the spacing rule does not apply. |
@@ -97,7 +97,9 @@ Each of these is a window the rest of the page looks through. If it is wrong, he
 
 ## 8. What is next
 
-A note on the stationary excess, under a log-linear fitness map and weak mutation, is in `theory/SELECTION_AXIOMS.md`. Copying that favors lower cost is not enough for the excess \(d/(2\beta)\). The fractional form \(\approx d/(2\sigma N_e)\) is the bridge's formula, and in that note \(N_e\) is Sella and Hirsh's \(\nu\). The bridge file still writes the Moran factor \(\alpha(N_e-1)\). T27's P3 failed and is not rescued. The drifting-world sum adds the CL19 lag only under the extra assumptions in that note (additive costs, zero discount, the lumpy coordinate outside the substitution chain, timescale separation). THEORY §4 still records near-minimization as an assumption. The Part 2 hypothesis sentence is unchanged.
+A note on the stationary excess, under a log-linear fitness map and weak mutation, is in `theory/SELECTION_AXIOMS.md`. Copying that favors lower cost is not enough for the excess \(d/(2\beta)\). The fractional form \(\approx d/(2\sigma N_e)\) is the bridge's formula, with \(N_e\) equal to Sella and Hirsh's \(\nu\) (haploid Moran \(\beta=\alpha(N-1)\); diploid Wright–Fisher \(\beta=\alpha(2N-1)\), an approximation). T27's P3 failed and is not rescued. The drifting-world sum adds the CL19 lag only under the extra assumptions in that note (additive costs, zero discount, the lumpy coordinate outside the substitution chain, timescale separation). The excess \(d/(2\beta)\) is derived in-model under A1, A2-L, \(N\mu\ll 1\), and SA1–SA1b, and that excess is small only when \(\sigma N_e\gg d\) (THEORY §4; `theory/SELECTION_AXIOMS.md` §10). The empirical bet is whether real systems meet those assumptions with parameters that make the remainder small, tested by SA-P1, which is not locked. The Part 2 hypothesis sentence is unchanged.
+
+For an optimum that moves in the soft coordinates, see `theory/DRIFT_SELECTION.md` (CLAIM_MAP section S; revised after the independent review of PR #146).
 
 ## References
 
