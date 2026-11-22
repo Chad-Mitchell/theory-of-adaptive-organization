@@ -1,6 +1,6 @@
 # The predict-act-correct loop
 
-*Sunday 22 November 2026. Draft. A self-check, not an independent review. The hypothesis sentence is unchanged. `THEORY.md`, `CORE.md`, and `README.md` are not edited. The master equation is not edited. The acting-memory preregistration is not edited. T45 is that note. This note's open-work row is T46. The preregistration is `theory/acting_loop_checks/PREREG.md`, commit `774e88f`, sha256 `fdf494e9b7f85ca24d9d877ea1610cbaf539dc50127a45106285165b925259a0`, locked by `d77f448` before this computation. Checks: `theory/acting_loop_checks/acting_loop_checks.py`, run at `nice -n 19` (36 checks, FAILS 0, 33 predictions, misses 0). DOIs resolved on the Crossref API on 22 November 2026 are in `theory/acting_loop_checks/crossref.out`.*
+*Sunday 22 November 2026. Draft. A self-check, not an independent review. The hypothesis sentence is unchanged. `THEORY.md`, `CORE.md`, and `README.md` are not edited. The master equation is not edited. The acting-memory preregistration is not edited. T45 is that note. This note's open-work row is T46. The preregistration is `theory/acting_loop_checks/PREREG.md`, commit `774e88f`, sha256 `fdf494e9b7f85ca24d9d877ea1610cbaf539dc50127a45106285165b925259a0`, locked by `d77f448` before this computation. Checks: `theory/acting_loop_checks/acting_loop_checks.py`, run at `nice -n 19`. 36 checks, FAILS 0. The 33 lines in §5 of the preregistration evaluate the expressions in §4 of that file, or restate a sign §4 already gives. The preregistration says the decimals are the values of those expressions and that a later script may only evaluate them. The lock is six seconds after the commit that contains the decimals. Misses 0 is agreement with that arithmetic. This run contained no prediction that could miss. DOIs resolved on the Crossref API on 22 November 2026 are in `theory/acting_loop_checks/crossref.out`.*
 
 Labels: **PROVED** (the argument is on this page, in the class named with it, and the arithmetic is in the checks), **PROVED (in-model)** (the same, at the frozen point), **KNOWN** (published, fetched this session, and only for what that source states), **CONJECTURE** (named, not proved), **METAPHOR** (the name adds no comparison the cost does not already make).
 
@@ -20,7 +20,7 @@ With the heat floor and the probe price charged, the gap at fraction \(r\) is
 \]
 At \(q=a=\theta=1\) this gap is negative at every \(r\in(0,1)\). At \(r=1/2\) it equals \(-1.096373258863\): the closed loop is dearer by that amount. At stake \(q=4\) the minimizing fraction is \(0.856768708291\) and the gap is \(+0.033889928154\).
 
-Acting cuts the variance of the state and the stock of mutual information. It does not cut the learning-rate heat. The separated gain does not depend on the error variance. A tight variance cap, and a capped loss, each move that gain. The fixed-intensity closed loop is concave in \(\theta\). The capped sign cost of the acting-memory note is convex in \(\theta\). A quadratic heat gap above \(0.160857250019\) flips the closed loop's second derivative.
+Feedback shrinks the mutual-information stock \(\tfrac12\log(v/p)\). The learning-rate heat stays fixed. The separated gain does not depend on the error variance. A tight variance cap, and a capped loss, each move that gain. At stake \(1\) the minimum is the blind cost \(q\theta\), whose second derivative is \(0\). The second derivative \(-0.321714500038\) is the closed-loop cost at fixed intensity \(u_o=4\), and that design costs more than doing nothing.
 
 ## 1. The class
 
@@ -30,7 +30,7 @@ Acting cuts the variance of the state and the stock of mutual information. It do
 
 **AL-K.** \(u_a=-Km\). The state variance is \(v=p+a(\theta-p)/(a+bK)\). The learning rate \(L=a(\theta/p-1)\) does not depend on \(K\).
 
-The scored regulation cost is heat plus the probe price plus \(q v+\rho K^2 s\), with \(s=v-p\). The heat is \(kT\,L\), plus \(\gamma_1\theta\), plus the finite-rate factor \(Q_{\mathrm{fin}}\) at memory rate \(20\). At error fraction \(1/2\) that factor equals \(10/9\). Ruin is a constraint. The frozen point is \(a=b=\rho=kT=\theta=1\), \(\alpha=(4-\pi)/(6\pi)\), \(B=16\), \(\varepsilon_r=1/20\).
+The scored regulation cost is heat plus the probe price plus \(q v+\rho K^2 s\), with \(s=v-p\). The heat is \(kT\,L\), plus \(\gamma_1\theta\), or, when the finite-rate spring is charged, the Sekimoto heat \(Q_{\mathrm{fin}}\) in place of \(kT\,L\). At the frozen point \(L=1\), so the Sekimoto heat and the ratio of that heat to \(kT\,L\) are both \(10/9\). Those two numbers come apart as soon as \(L\neq 1\). AL-H's word "plus" has the wrong relation to that proposition and stays in the locked file. The checks charge \(kT\,L\) and report \(Q_{\mathrm{fin}}\) beside it. Ruin is a constraint. The frozen point is \(a=b=\rho=kT=\theta=1\), \(\alpha=(4-\pi)/(6\pi)\), \(B=16\), \(\varepsilon_r=1/20\).
 
 In the master equation the heat stands where the memory term stands, the probe price where the read term stands, and the actuation price where effort on the drift stands. Layer upkeep and the link term are zero. That placement is this note's. The reduction at \(b=0\) is the proposal `theory/MASTER_EQUATION_ACTING_PROPOSAL_2026-11-22.md`. It does not edit the equation.
 
@@ -48,17 +48,21 @@ Three arms, one regulation cost. Action alone is a constant \(u_a\) and no obser
 
 The answer to the first question is the pair of formulas. Full information, channel not priced: strictly cheaper, by \(\Delta_{\mathrm{full}}(\theta,a)\). Heat and probe priced: strictly cheaper only when the stake covers the first bit of observation. At the frozen price \(\alpha\) that happens at stake \(4\) and not at stake \(1\).
 
-## 3. Acting is memory
+## 3. Feedback shrinks the mutual-information stock
+
+Feedback shrinks \(\tfrac12\log(v/p)\), and the learning-rate heat stays fixed.
 
 **Proposition AL-stock (PROVED).** At fixed error variance,
 \[
 v(K)-p=\frac{a}{a+bK}(\theta-p).
 \]
-For \(bK>0\) the right-hand side is strictly smaller than \(\theta-p\). The mutual information \(\tfrac12\log(v/p)\) falls with \(K\). The learning rate does not, and neither does \(Q_{\mathrm{fin}}\).
+For \(bK>0\) the right-hand side is strictly smaller than \(\theta-p\). The mutual information \(\tfrac12\log(v/p)\) falls with \(K\). The independence of the learning rate \(L=a(\theta/p-1)\) from \(K\) is **PROVED**: the action cancels in the error equation, so \(p\) and \(L\) do not contain \(K\).
 
-At \(p=\theta/2\) and \(K=\sqrt{2}-1\), the state variance is \(0.853553390593\) against the uncontrolled value \(1\). The stock falls from \(0.346573590280\) to \(0.267399998370\). The learning rate is \(1\) on both sides. The finite-rate heat is \(10/9\) on both sides.
+The absence of \(K\) from \(Q_{\mathrm{fin}}\) is a property of the exogenous-spring formula in Proposition AT-attain of `theory/INFO_PHYSICS_ATTAINABILITY.md`. That formula does not cover a controlled plant. The physical heat of a spring tracking the controlled state stays the conjecture the proposal states.
 
-That is the formal link. Acting is memory in the stock: the variance that has to be carried, and the mutual information of the estimate with the state, shrink because the drift depends on the estimate. Acting is not memory in the heat: the innovation rate is fixed by the process noise and the observation noise, and feedback cancels out of it. Calling the heat a memory of the action would add a comparison the two numbers do not make. That name is **METAPHOR**. The identity is the statement.
+At \(p=\theta/2\) and \(K=\sqrt{2}-1\), the state variance is \(0.853553390593\) against the uncontrolled value \(1\). The stock falls from \(0.346573590280\) to \(0.267399998370\). The learning rate is \(1\) on both sides. At that point the Sekimoto heat and the ratio of that heat to \(kT\,L\) are both \(10/9\), and only because \(L=1\).
+
+Calling the heat a memory of the action would add a comparison these numbers do not make. That name is **METAPHOR**. The stock identity is the statement.
 
 ## 4. Separation, and where it stops
 
@@ -66,7 +70,7 @@ That is the formal link. Acting is memory in the stock: the variance that has to
 \[
 K^\star=\frac{-a+\sqrt{a^2+qb^2/\rho}}{b}.
 \]
-It does not depend on \(p\), on \(u_o\), or on \(\theta\). At \(q=\rho=b=a=1\), \(K^\star=\sqrt{2}-1\). This is certainty equivalence for this quadratic, unconstrained, linear-Gaussian problem.
+It does not depend on \(p\), on \(u_o\), or on \(\theta\). At \(q=\rho=b=a=1\), \(K^\star=\sqrt{2}-1\). This independence of \(p\) is certainty equivalence for unconstrained linear-quadratic-Gaussian control, the scalar case of Wonham, doi 10.1137/0306023. A cap on \(v\), or a loss whose marginal value of variance is not \(q\), is the boundary named by Bar-Shalom and Tse, doi 10.1109/TAC.1974.1100635, already cited by title in the acting-memory note.
 
 **Proposition AL-cap (PROVED (in-model)).** The reserve \(B=16\) at this operating point gives \(P(X^2>16)=0.000014940159\), inside \(1/20\). The cap does not bind. The tight cap \(v\le 3/5\) at \(p=1/2\) selects gain \(4\), not \(\sqrt{2}-1\). The gain then depends on the observation, through the cap. Separation does not survive that cap.
 
@@ -78,13 +82,11 @@ The break has one shape in both cases. The quadratic unconstrained cost separate
 
 The two scores stay apart, as in the acting-memory preregistration. Level is the sign of \(\mathrm d J/\mathrm d\theta\). Variability is the sign of \(\mathrm d^2 J/\mathrm d\theta^2\). On the reading in `theory/ROBUSTNESS.md` §6, a concave cost is the one that gains from a spread of \(\theta\).
 
-**Proposition AL-shape (PROVED (in-model)).** At fixed \(u_o=4\), stake \(1\), and no quadratic gap, the slope is \(1.552284749831>0\) and the second derivative is \(-0.321714500038<0\). The spread at half-width \(1/10\) is \(-0.001612560843\). A higher level of \(\theta\) raises the cost. A spread of \(\theta\) lowers it. A linear gap \(\gamma_1\theta\) moves only the slope.
+**Proposition AL-shape (PROVED (in-model)).** At fixed \(u_o=4\), stake \(1\), and no quadratic gap, the slope is \(1.552284749831>0\) and the second derivative is \(-0.321714500038<0\). The spread at half-width \(1/10\) is \(-0.001612560843\). A higher level of \(\theta\) raises this fixed-intensity cost. A spread of \(\theta\) lowers this fixed-intensity cost. A linear gap \(\gamma_1\theta\) moves only the slope. This \(J\) is not the minimum at stake \(1\).
 
-The witness \(\gamma(\theta)=\theta^2\) adds \(2\) to the second derivative. The threshold is \(0.160857250019\). Above it the second derivative is positive, and the witness lies above it.
+The witness \(\gamma(\theta)=\theta^2\) adds \(2\) to the second derivative of that same fixed-intensity cost. The threshold is \(0.160857250019\). Above it the second derivative is positive, and the witness lies above it.
 
-The capped sign cost minimized in the acting-memory note is convex in \(\theta\) (second derivative \(0.313020858054\) there). The closed-loop regulation cost at fixed intensity is concave. The condition for that flip is the loss: a quadratic state penalty under the separated gain, rather than the capped sign loss. The concavity is the concavity of the Kalman error \(p(\theta)\) and of the learning rate \(L(\theta)\), each with a positive weight. It is not the capped-downside route. That route, in the acting-memory note, is a loss that at fixed fraction does not grow with \(\theta\), together with a probe price that falls as \(1/\theta\). Its cost can fall in the level, and the cost is convex, so a spread hurts. The closed loop does the other pair: the level rises, and a spread helps, until a convex heat gap overcomes the concavity of \(p\) and \(L\).
-
-Read on the payoff \(-J\), the same pair is a concave payoff for the sign cost and a convex payoff for the closed loop. The parenthetical "concave, then convex" matches that payoff reading. The scored variability number remains the second derivative of the cost.
+The acting-memory variability score is the second derivative of the minimized sign cost, \(0.313020858054\). The fixed-fraction spread at half-width \(1/10\) is \(0.001839996934\) and the re-optimized spread is \(0.001577268119\). A spread of \(\theta\) raises that minimized cost. The second derivative \(-0.321714500038\) is the closed-loop cost at stake \(1\) and fixed intensity \(u_o=4\). P2 says that intensity is dearer than sensing alone. The minimizing design at stake \(1\) is the blind cost \(q\theta\), whose second derivative is \(0\), so a spread does not lower the cost the hypothesis minimizes at that stake. The fixed-intensity slice is concave for every \(\theta>0\). That concavity belongs to a design the cost does not select. This note does not score the spread of the minimizing closed loop.
 
 A linear gap of \(1/10\) leaves the old sign slope negative, at \(-0.082159696490\). A linear gap of \(1/2\) makes it positive, at \(0.317840303510\). The gap reverses that level drop and does not change its convexity. On the closed loop the same linear gap steepens a slope that is already positive.
 
@@ -102,7 +104,8 @@ Fetched this session. Crossref HTTP 200 for each DOI. An abstract is quoted only
 
 - Kalman, title and abstract fetched, doi 10.1115/1.3662552. The abstract derives the covariance equation of the optimal linear filter and states that filtering is the dual of the noise-free regulator. **KNOWN** for that duality. The scalar Riccati in §1 is this plant's variance equation.
 - Kalman and Bucy, title and abstract fetched, doi 10.1115/1.3658902. The abstract derives the Riccati equation for the filtering error. **KNOWN** for that equation. Not a separation theorem.
-- Wonham, title fetched, doi 10.1137/0306023. No abstract in the record. **KNOWN** for the title. The separation proved in §4 is the calculation for this scalar quadratic problem. It is not a restatement of that paper.
+- Wonham, title fetched, doi 10.1137/0306023. No abstract in the record. **KNOWN** for the title. The independence of \(K^\star\) from \(p\) in §4 is the scalar case of that separation theorem, evaluated at the frozen point.
+- Bar-Shalom and Tse, title fetched, doi 10.1109/TAC.1974.1100635. No abstract in the record. **KNOWN** for the title. The cap on \(v\) and the capped loss in §4 are that boundary, evaluated at the frozen point. The acting-memory note already cited the title.
 - Todorov and Jordan, title fetched, doi 10.1038/nn963. No abstract in the record. **KNOWN** for the title. This note does not identify the separated gain with a motor law.
 - Sagawa and Ueda, title fetched, doi 10.1103/PhysRevLett.104.090602. No abstract in the record. **KNOWN** for the title, as the feedback equality. The heat charged here is the learning-rate floor plus a gap. It is not that equality.
 - Horowitz and Esposito, title fetched, doi 10.1103/PhysRevX.4.031015. **KNOWN** as the source of the shape already used in this repository. Not re-proved.
@@ -112,7 +115,7 @@ Fetched this session. Crossref HTTP 200 for each DOI. An abstract is quoted only
 
 This section is a synthesis. It is not a proof of one theorem that produces every layer, every shared store, every boundary, every turnover rate, and every action. What is proved is named as proved. The rest is a conjecture about how those proved pieces sit on one cost.
 
-The cost is the one in the master equation: memory, error, acquisition, and sharing, under a ruin cap. Limited fragile parts restrict the feasible set. A part holds a finite precision and it fails. That restriction is the same kind of object as the ruin cap. It is not a fifth summand. The new assumption, used only in the proposal, is that the action enters the drift. When the coefficient of that action is zero, the proposal's cost reduces to the master equation in the scalar class, with the memory price at the heat floor. That reduction is **PROVED** for the quadratic regulation cost. It is the content of the proposal, and it is not an edit of the equation.
+The cost in the master equation is memory, error, acquisition, and sharing, under a ruin cap. Limited fragile parts restrict the feasible set. A part holds a finite precision and it fails. That restriction is the same kind of object as the ruin cap. It is not a fifth summand. The new assumption, used only in the proposal, is that the action enters the drift. When that coefficient is zero, the quadratic minimum is \(J=q\theta+\gamma_1\theta\). At \(\gamma_1=0\) the quadratic minimum equals the stake term \(q\theta\), because the minimum has set the channel, the actuation, the layer upkeep, and the link term to zero. Restoring a loss that uses the observation, and pricing memory at the heat and acquisition at the probe, is this proposal's scalar special case of the sum. It is not Theorem R1 applied at \(b=0\). The variance identity \(v=\theta\) is exact for every finite gain, and that identity is **PROVED**. The extended cost is a **CONJECTURE**. It is not an edit of the equation.
 
 **Layers, the time axis. Proved earlier, for an exogenous world.** A stack is the cheapest design only when one store cannot reset every component, and a lumpy store's lifetime is set by its re-forming cost against the drift it faces. Those are the layer theorems already in the repository. **Conjecture:** under the closed loop the relevant reversion is \(a+bK\) rather than \(a\), so the same cost spaces the stores on the closed-loop rates. This note does not solve a multi-rate plant.
 
@@ -122,13 +125,13 @@ The cost is the one in the master equation: memory, error, acquisition, and shar
 
 **Turnover. Proved earlier inside its own class, and one comparison proved here.** Replacement of capacity-limited units can lower the long-run cost under the ruin cap for identical units, and the heterogeneous arm in that draft minimized at no shock. A failure time independent of \(X\) adds nothing about \(X\). The Cox calculation proved here is the other arm: at the frozen law the failure cuts the variance from \(1\) to \(1/2\), and the part is then gone. **Conjecture:** if the hazard rises with \(X^2\), shrinking \(X\) by feedback lowers the rate at which fragile parts fail, and the cost-minimizing turnover moves. The variance cut is proved. The move in the turnover rate is not computed.
 
-**Acting. Proved here, in class AL.** The gap formulas, the stock identity, the separation and its two breaks, and the convexity flip are §2 through §5.
+**Acting. The calculation is in class AL.** The gap formulas and the stock identity are §2 and §3. The separation statement and its two breaks are that theorem and that boundary, evaluated at the frozen point. The full-information gap is the scalar linear-quadratic average cost, evaluated at three values of \(a\). The frozen decimals are the calculation. The fixed-intensity second derivative in §5 is the curvature of a design that, at stake \(1\), costs more than the blind line.
 
-The conjecture that ties them is this. Under one cost, with parts that cannot hold an arbitrary precision and that fail, and under a ruin cap, the minimum spends control to shrink the variance a fragile part would otherwise have to carry, keeps a store only for the residual the control cannot see, shares that residual when the decision is a sum, screens it at the boundary when the decision is outside, and replaces the part when holding it is dearer than the failure. Each clause except the acting identities and the \(b=0\) reduction is a conjecture, or a theorem already proved in a class that did not contain the action. The hypothesis sentence is the bet that a strongly selected system sits near that minimum. This page does not test that bet.
+The conjecture that ties them is this. Under one cost, with parts that cannot hold an arbitrary precision and that fail, and under a ruin cap, the minimum spends control to shrink the variance a fragile part would otherwise have to carry, keeps a store only for the residual the control cannot see, shares that residual when the decision is a sum, screens it at the boundary when the decision is outside, and replaces the part when holding it is dearer than the failure. Each clause except the stock identity, the variance identity \(v=\theta\), and the minimum \(J=q\theta+\gamma_1\theta\) is a conjecture, or a theorem already proved in a class that did not contain the action. The extended cost is a conjecture. The hypothesis sentence is the bet that a strongly selected system sits near that minimum. This page does not test that bet.
 
 ## 9. Checks
 
-`theory/acting_loop_checks/acting_loop_checks.py`. 36 checks, FAILS 0. Predictions P1–P10, 33 hits, misses 0. The locked numbers are the numbers the script prints.
+`theory/acting_loop_checks/acting_loop_checks.py`. 36 checks, FAILS 0. The 33 lines in §5 of the preregistration evaluate the expressions in §4 of that file, or restate a sign §4 already gives. The preregistration says the decimals are the values of those expressions and that a later script may only evaluate them. The lock is six seconds after the commit that contains the decimals. Misses 0 is agreement with that arithmetic. This run contained no prediction that could miss. The locked numbers are the numbers the script prints.
 
 ## 10. What this note does not do
 

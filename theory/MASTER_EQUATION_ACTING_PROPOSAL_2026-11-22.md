@@ -36,7 +36,7 @@ A7-act is the replacement of A7 inside this proposal. At \(b=0\) it is A7. Nothi
 
 ## 2. The extended cost
 
-**Proposal AL-J. CONJECTURE as an adoption, PROVED as an accounting identity inside class AL.** Write the resource coordinates as the heat charged for the conditional, the expected loss, the probe price, and the actuation price. In the scalar class of the acting-loop note, with layer upkeep and the link term set to zero,
+**Proposal AL-J. CONJECTURE.** The extended cost is a conjecture. The identity below is the sum of the coordinates just chosen. Write those coordinates as the heat charged for the conditional, the expected loss, the probe price, and the actuation price. In the scalar class of the acting-loop note, with layer upkeep and the link term set to zero,
 \[
 J=Q+\alpha u_o+\rho\,\mathbb{E}[u_a^2]+q\,\mathbb{E}[X^2],
 \]
@@ -46,7 +46,7 @@ Q=kT\,L+\gamma_1\theta
 \]
 and, when the finite-rate factor is charged, \(kT\,L\) is replaced by the shrunk-spring expression at a frozen memory rate. \(L=a(\theta/p-1)\) is the learning rate of the Kalman conditional. The law of \(X\) depends on \(u_a\) through A7-act, so \(v=\mathbb{E}[X^2]\) depends on the gain.
 
-The additive shape is R1's shape, with the memory coordinate priced at the heat rather than at \(\kappa I_{\mathrm{mem}}\). **STANDARD** that the floor sits under the heat. **CONJECTURE** that the price to charge is the floor plus the frozen gap, for a plant whose drift depends on the estimate: the attainment proof does not cover that plant. **PROVED** that, once those coordinates are the ones being summed, the scalar expression above is the sum. The gap \(\gamma_1\theta\) and the finite-rate factor are frozen in the preregistration. They are not derived from A1–A8.
+The sum below is a specification inside class AL. Theorem R1 does not apply to it. R1 assumes A7, and A7 says both that the world law does not depend on the design and that effort spent changing the drift is not a coordinate. A7-act drops the first and adds the second. The memory coordinate is priced at the heat rather than at \(\kappa I_{\mathrm{mem}}\) by this specification. **STANDARD** that the floor sits under the heat. **CONJECTURE** that the price to charge is the floor plus the frozen gap, for a plant whose drift depends on the estimate: the attainment proof does not cover that plant. **PROVED** that, once those coordinates are the ones being summed, the scalar expression above is the sum of the coordinates just chosen. The gap \(\gamma_1\theta\) and the finite-rate factor are frozen in the preregistration. They are not derived from A1–A8. A7-act drops A7's exogeneity and adds effort on the drift, so R1 does not carry over, and the extended cost is a conjecture.
 
 A fragile part enters as a restriction of the same set. If its failure time is independent of \(X\) given its quality, the conditional law of \(X\) does not change. That is already proved in the acting-memory note. If the failure intensity is \(\lambda(x)=\lambda_0+\beta x^2\), the failure is an observation. At the frozen Cox point the posterior variance is \(1/2\) against a prior variance \(1\). That comparison is **PROVED (in-model)** in the acting-loop note. The price of the observation is the loss of the part. This proposal books that price inside the acquisition coordinate. It does not add a new summand.
 
@@ -68,9 +68,9 @@ At \(\gamma_1=0\) this is \(q\,\mathbb{E}[X^2]\).
 
 *Proof.* Substitute \(b=0\) into \(v=p+a(\theta-p)/(a+bK)\). The second term is \(\theta-p\), so \(v=\theta\). The derivative of \(\rho K^2(\theta-p)\) in \(K\) is \(2\rho K(\theta-p)\), which is zero at \(K=0\) and positive for \(K>0\). The checks evaluate \(v=1\) at \(b=0\), \(p=1/2\), \(\theta=1\), and an arbitrary gain. The Riccati has no \(b\) in it. The channel cost \(kT\,L+\alpha u_o\) is nonnegative and zero only at \(u_o=0\). ∎
 
-**Corollary.** At \(b=0\), \(\gamma_1=0\), and the minimizing design, \(J\) is the stake term of the master equation. Restoring a priced observation that the loss can use, as the acting-memory note does for the sign loss, puts the probe price where the read term stands and the heat where the memory term stands, with layer upkeep and the link term zero. That is the master equation in this scalar class, on an exogenous world. The world law no longer depends on the design, which is A7 again.
+**Corollary.** The \(b=0\) minimum is \(J=q\theta+\gamma_1\theta\). At \(\gamma_1=0\) the quadratic minimum equals the stake term \(q\theta\), because the minimum has set the channel, the actuation, the layer upkeep, and the link term to zero. Restoring a loss that uses the observation, and pricing memory at the heat and acquisition at the probe, is this proposal's scalar special case of the sum. It is not Theorem R1 applied at \(b=0\). The variance identity \(v=\theta\) holds for every finite gain.
 
-The corollary is **PROVED** as a specialization of the sum. It is not a proof that every coordinate of the master equation is forced. Theorem R1 already says the additive form needs A1–A8, and that storing, predicting, acting, and staying solvent do not force it.
+The variance identity and the minimum \(J=q\theta+\gamma_1\theta\) are **PROVED** in class AL. The extended cost remains a **CONJECTURE**. Theorem R1 does not apply once A7 is dropped.
 
 ## 4. What stays a conjecture
 
