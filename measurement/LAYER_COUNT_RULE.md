@@ -1,6 +1,6 @@
 # Layer-counting rule for real systems
 
-*Saturday 21 November 2026, evening, America/New_York. Branch `layer-count-rule-2026-11-21`, draft PR #150, merged with `origin/main` at `8e829e5` (PR #145, CLAIM_MAP v2.73). Revised after the independent review `reviews/layer_count_rule_2026-11-21/REVIEW.md`; revisions are a self-check, not yet re-reviewed. Addresses OPEN_WORK T15. Code: `tools/layer_count_rule.py` (pytest `tools/test_layer_count_rule.py`). No locked prereg or hash file is touched, and the Part 2 hypothesis sentence is unchanged. N56 and CX1 stay OPEN.*
+*Saturday 21 November 2026, evening, America/New_York. Branch `layer-count-rule-2026-11-21`, draft PR #150, merged with `origin/main` at `b16193d` (PR #148, CLAIM_MAP v2.75). Revised after the independent review `reviews/layer_count_rule_2026-11-21/REVIEW.md` and the confirm should-fixes in `reviews/layer_count_rule_2026-11-21/CONFIRM.md`; revisions are a self-check, not yet re-reviewed. Addresses OPEN_WORK T15. Code: `tools/layer_count_rule.py` (pytest `tools/test_layer_count_rule.py`). No locked prereg or hash file is touched, and the Part 2 hypothesis sentence is unchanged. N56 and CX1 stay OPEN.*
 
 This note finalizes the operational counting rule that THEORY §3 and `figures/face_placements.md` §4 still marked as proposed, so that a later N56 test has a fixed way to count layers and a fixed way to predict the cheapest count from measurable inputs. It builds on PR #145 (`theory/LAYER_CONVEXITY.md`, CLAIM_MAP N64) and does not repeat that proof.
 
