@@ -21,7 +21,7 @@ $$J(\mathcal D)=\kappa I_{\text{mem}}+hK+w\,\mathbb E[\ell_{\mathcal D}]+A(\math
 - \(A\), \(L\): the cost of reading the world, and of linking, telling and lookup.
 - \(P(\text{ruin})\le\varepsilon\): a reserve paying \(J\) must not hit zero more often than \(\varepsilon\). A hard cap, not a cost to average away.
 
-The world is a measured input: its statistics, the read noise and the lead time. One currency per system. The equation is a definition, assembled from known parts (THEORY §3).
+The world is a measured input: its statistics, the read noise and the lead time. One currency per system. The equation is a definition, assembled from known parts (THEORY §3). On a product of intervals it is forced up to a positive affine transformation under the axioms in `theory/REPRESENTATION.md`; nonnegative prices need the further assumption that each concatenating coordinate is a bad, and a discrete layer count is outside the cited Debreu theorem. Storing, predicting, acting and staying solvent do not force it.
 
 **Part 1, the limits.**
 
