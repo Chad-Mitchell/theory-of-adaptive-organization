@@ -202,7 +202,7 @@ def published_path():
     for B_cq in (0.49, 0.50, 0.505):
         tau_cq = tau_star(B_cq)
         check(
-            "constraint qualification at B=%.2f" % B_cq,
+            "constraint qualification at B=%.3f" % B_cq,
             tau_cq is not None and thp(tau_cq) < -1.0,
             "th'=%.6e" % thp(tau_cq),
         )
