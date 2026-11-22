@@ -281,6 +281,48 @@ def radius_ratio(n, tau_a, tau_b, eta=0.05):
     return da, db, ra, rb
 
 
+def log_linear_crossing(ds, level=0.05):
+    """First log-linear crossing of Delta(r)/Delta(0) through `level`.
+
+    Returns (r_star, k, rho_k, rho_next) or None.
+    """
+    if not ds or ds[0] <= 0.0:
+        return None
+    rhos = [float(v) / float(ds[0]) for v in ds]
+    for k in range(len(rhos) - 1):
+        if rhos[k] >= level > rhos[k + 1] and rhos[k + 1] > 0.0:
+            num = math.log(rhos[k]) - math.log(level)
+            den = math.log(rhos[k]) - math.log(rhos[k + 1])
+            if den == 0.0:
+                return None
+            return (k + num / den, k, rhos[k], rhos[k + 1])
+    return None
+
+
+def check_crossing():
+    """PREREG_CROSSING.md, commit 8afc11f. Times 1/4 and 1, path 61."""
+    da, db, _, _ = radius_ratio(61, 0.25, 1.0, eta=0.05)
+    ca = log_linear_crossing(da)
+    cb = log_linear_crossing(db)
+    if ca is None or cb is None or ca[0] <= 0.0:
+        puzzle("C1 log-linear crossing", False, "missing %s %s" % (ca, cb))
+        print("INFO  C1 missing")
+        return
+    ra, ka, rho_a0, rho_a1 = ca
+    rb, kb, rho_b0, rho_b1 = cb
+    ratio = rb / ra
+    in_band = 1.7 <= ratio <= 2.3 and ka <= 28 and kb <= 28
+    puzzle(
+        "C1 log-linear crossing ratio",
+        in_band,
+        "r(1/4)=%.12f r(1)=%.12f ratio %.12f" % (ra, rb, ratio),
+    )
+    print(
+        "INFO  C1 k=%d rho %.12e -> %.12e | k=%d rho %.12e -> %.12e"
+        % (ka, rho_a0, rho_a1, kb, rho_b0, rho_b1)
+    )
+
+
 def random_excess(Q, region, blanket, draws, rng):
     """Excess of the matching blanket channel over a random channel on R∪B."""
     region = list(region)
@@ -717,6 +759,7 @@ def main():
     check_breaks()
     check_finite_speed()
     ratio, ra, rb = check_continuous()
+    check_crossing()
     loads = check_gasket_and_square()
     heat_b, phi_b, iv_min = check_square()
     check_pool()

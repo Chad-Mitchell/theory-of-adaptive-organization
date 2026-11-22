@@ -1,6 +1,6 @@
 # Boundary sufficiency
 
-*Sunday 22 November 2026. A self-check, not an independent review. The hypothesis sentence is unchanged. The master equation in THEORY is unchanged. `THEORY.md`, `CORE.md`, and `README.md` are not edited. The preregistration `theory/boundary_checks/PREREG.md` is commit `93084b0`, sha256 `58ba0ebaa19d126d8c47293bc82d598f4416832b1bf767c64c73e9d175de943c`, and it was not edited after the run. Checks: `theory/boundary_checks/boundary_checks.py`, run at `nice -n 19` (107 checks, FAILS 0, one radius-ratio puzzle). DOIs resolved on the Crossref API on 22 November 2026 are listed in `theory/boundary_checks/crossref.out` and in the preregistration.*
+*Sunday 22 November 2026. A self-check, not an independent review. The hypothesis sentence is unchanged. The master equation in THEORY is unchanged. `THEORY.md`, `CORE.md`, and `README.md` are not edited. The preregistration `theory/boundary_checks/PREREG.md` has sha256 `58ba0ebaa19d126d8c47293bc82d598f4416832b1bf767c64c73e9d175de943c`. Its lock commit was `93084b0`; after the rebase onto main `b6e351e` the same bytes are commit `f5a930e`. It was not edited. The crossing preregistration `theory/boundary_checks/PREREG_CROSSING.md` is commit `8afc11f`, sha256 `05f4d12445092d90ff48cbf20985b0e358c1d46ea17e74d1f294f1064cb40ae2`, and it was not edited after its run. Checks: `theory/boundary_checks/boundary_checks.py`, run at `nice -n 19` (107 checks, FAILS 0, one integer-radius puzzle; the log-linear crossing passes its band). DOIs resolved on the Crossref API on 22 November 2026 are listed in `theory/boundary_checks/crossref.out` and in the preregistration.*
 
 Labels: **PROVED** (a proof is on this page, in the class named with it, and the arithmetic is in the checks), **KNOWN** (published, fetched this session, and not claimed here), **FAILS** (a counterexample is on this page), **METAPHOR** (the name adds no prediction the cost equation does not already make), **OPEN** (named, not settled). GTAO is the theory in this repository.
 
@@ -10,13 +10,15 @@ The sentence of the hypothesis is unchanged, byte for byte:
 
 ## 0. The answer
 
-For decisions outside a region, yes, up to a cost that does not grow with the volume. In the equilibrium Gaussian field of the holographic note, local coupling means the precision is zero across any pair that does not share an edge. The conditional law of the exterior given the region then equals the conditional law given the region's Markov blanket, the neighbor set. The decision loss is the same. The heat of a channel that sees the whole region exceeds the heat of a channel that sees only the blanket by at most the trace of one Schur complement, and that trace stays near \(1.291\) on the gasket while the region grows from \(4\) sites to \(121\).
+For decisions outside a region, the conditional law given the region and the blanket equals the law given the blanket. That is BS-screen. It is not the law given the region alone: on the path of three the exterior variances are \(3/5\) and \(1/2\). The decision loss follows the blanket.
 
-The strict sentence "the heat-minimizing channel is supported on the blanket coordinates alone" does not hold. On the path of three, a channel that mixes the interior site with the blanket site reaches exterior variance \(13/25\) at trace \(10.1\). The blanket-only channel that matches it has trace \(10.5\). The gap \(0.4\) sits inside the cap \(1/2\).
+The matching blanket channel costs at most the Schur trace more than the channel it matches. On the path of three the cross-term channel, interior diagonal \(0.1\), cross entry \(1\), blanket diagonal \(10\), has trace \(10.1\) and exterior variance \(13/25\). The matching blanket channel, the blanket-only update with the same blanket posterior, has trace \(10.5\). The excess is \(2/5\), and the cap is \(1/2\). On the gasket that cap settles near \(1.291\) while the region grows from \(4\) sites to \(121\). The holding bound on the blanket stays \(26\); the region bound runs \(54\), \(171\), \(522\), \(1575\).
+
+The strict sentence "the heat-minimizing channel is supported on the blanket coordinates alone" does not hold. The cross-term channel is cheaper than the matching blanket channel by \(2/5\).
 
 Decisions about the interior are not boundary-sufficient. Given the blanket, every interior variance is at least \(1/5\), and the tolerance \(1/18\) is smaller than that. On the gasket the blanket holding bound stays \(26\) at every generation, and the region holding bound runs \(54, 171, 522, 1575\).
 
-The screening fails when the precision is not local, and when the world is not Markov. A finite-range discrete step thickens the blanket by horizon times speed. The continuous-time field does not: the heat kernel is positive at every distance for every positive time, so no finite shell screens. Its walk-kernel second moment is \(2t\), diffusive. The locked \(5\%\) radius of the conditional variance is \(2\) at both \(\tau=1/2\) and \(\tau=1\), on the path of \(31\) and again on the path of \(61\). That comparison is a puzzle. The diagnosis is in §5.
+The screening fails when the precision is not local, and when the world is not Markov. A finite-range discrete step thickens the blanket by horizon times speed. The continuous-time field does not: the heat kernel is positive at every distance for every positive time, so no finite shell screens. Its walk-kernel second moment is \(2t\), diffusive. The locked integer \(5\%\) radius is \(2\) at both \(\tau=1/2\) and \(\tau=1\). That comparison is a puzzle. The log-linear crossing of the same level, on times \(1/4\) and \(1\), has ratio \(2.067863694520\) against \(2\), inside the locked band. The diagnosis and that crossing are in §5.
 
 Under a precision cap of \(1\) and the ruin cap of the memory note, a one-dimensional blanket statistic is held by a pool of units, not by copies of one unit. A per-site exterior loss does not collapse onto one sum of the blanket. Those are the two different ways of being spread out.
 
@@ -82,7 +84,7 @@ K(\Phi)=(Q_{CI}+\Phi_{CI})(Q_{II}+\Phi_{II})^{-1}(Q_{IC}+\Phi_{IC}).
 
 The cap is not zero, and the minimizer need not be supported on \(B\).
 
-**The pure-support sentence. FAILS.** On the path of three the channel with interior diagonal \(0.1\), cross entry \(1\), and blanket diagonal \(10\) has trace \(10.1\), posterior variance of the blanket \(2/25\), and exterior variance \(13/25\). The blanket-only channel with the same blanket variance has trace \(10.5\). The excess is \(0.4\), and the cap in BS-cap is \(1/2\). Forty random channels on the same two sites stayed under the cap; the largest excess was \(0.082158737532\).
+**The pure-support sentence. FAILS.** On the path of three the channel with interior diagonal \(0.1\), cross entry \(1\), and blanket diagonal \(10\) has trace \(10.1\), posterior variance of the blanket \(2/25\), and exterior variance \(13/25\). The matching blanket channel, with that same blanket variance, has trace \(10.5\). The excess is \(2/5\), and the cap in BS-cap is \(1/2\). Forty random channels on the same two sites stayed under the cap; the largest excess was \(0.082158737532\).
 
 A diagonal spend does not produce that saving. Precision \(2\) on the blanket alone leaves exterior variance \(9/16\). Precision \(1\) on the blanket and \(1\) on the interior leaves \(11/19\). The gap is \(5/304\), and the blanket spend is the smaller variance. Mixing, not an interior diagonal, is what beats the pure blanket at this target.
 
@@ -130,7 +132,9 @@ On the path of \(31\) sites the conditional variance \(\Delta(r)\) of the center
 
 **The radius ratio. A puzzle.** The locked radius is the smallest \(r\) with \(\Delta(r)\le 0.05\,\Delta(0)\). It is \(2\) at \(\tau=1/2\) and \(2\) at \(\tau=1\). The ratio is \(1\), which is below the locked band \(1.05\). The named next test, the same definition on a path of \(61\), returns \(2\) and \(2\) again. The path length was not the cause.
 
-The diagnosis is the size of the step. At \(\tau=1/2\), \(\Delta(1)/\Delta(0)=0.05283\) and \(\Delta(2)/\Delta(0)=0.001351\). At \(\tau=1\) the same ratios are \(0.1569\) and \(0.01365\). The level \(0.05\) sits in the gap between radius \(1\) and radius \(2\) at both times, so the integer radius cannot move. A square-root factor \(\sqrt{2}\) and a linear factor \(2\) are both smaller than that gap. The second-moment identity is the diffusive statement, and it passed. The \(5\%\) radius is too coarse to see it. A finer threshold would be a new preregistration. It is not substituted here.
+The diagnosis is the size of the step. At \(\tau=1/2\), \(\Delta(1)/\Delta(0)=0.05283\) and \(\Delta(2)/\Delta(0)=0.001351\). At \(\tau=1\) the same ratios are \(0.1569\) and \(0.01365\). The level \(0.05\) sits in the gap between radius \(1\) and radius \(2\) at both times, so the integer radius stays \(2\) on that pair. A crossing near \(1.05\), doubled, would pass \(2\), and the integer radius would become \(3\). The integer bin on \((1/2,1)\) hid \(\sqrt{2}\). A factor \(2\) that moves a crossing near \(1.05\) changes the integer. The second-moment identity is the diffusive statement, and it passed.
+
+**Log-linear crossing. The locked band passes.** `theory/boundary_checks/PREREG_CROSSING.md`, commit `8afc11f`, was locked before this evaluation. Path of \(61\) sites, center \(30\), times \(1/4\) and \(1\). The crossing of \(\Delta(r)/\Delta(0)\) through \(0.05\), linear in the log of that ratio, is \(0.710059035942\) at \(\tau=1/4\) and \(1.468305301389\) at \(\tau=1\). The ratio is \(2.067863694520\). The target is \(2\), the square root of the time ratio \(4\). The locked band is \([1.7,2.3]\). The ratio sits inside it. It is not the exact value \(2\). The relative gap is \(0.033932\). At the shorter time the bracket is radii \(0\) and \(1\) (\(\rho(1)=0.014713\)); at time \(1\) the bracket is radii \(1\) and \(2\) (\(\rho(1)=0.156902\), \(\rho(2)=0.013649\)). The integer radius does move, from \(1\) to \(2\), on this pair. The next test named in that preregistration, times \(1\) and \(4\) on a path of \(121\), is not run here.
 
 ## 6. Pooled or spread along the blanket
 
@@ -156,7 +160,7 @@ So the boundary memory is spread in two senses, and they answer different questi
 
 The Markov property is a statement about a classical Gaussian precision. It does not build a bulk metric, a conformal boundary, or an isometry from a bulk Hilbert space onto a boundary space.
 
-Maldacena's record was fetched again this session, the same DOI as in the holographic note. That note already says what the fetched abstract supports, a large-\(N\) limit with a supergravity sector on anti-de Sitter space inside a conformal field theory. No map of that kind is constructed here.
+The Crossref record for Maldacena, doi `10.1023/A:1026654312961`, *Int. J. Theor. Phys.* 38 (1999) 1113–1133, contains no abstract. This fetch does not supply one. The AdS sentence is the sentence already in `theory/HOLOGRAPHIC_2026-11-22.md`: Maldacena's large-\(N\) limit puts a supergravity sector on anti-de Sitter space inside a conformal field theory. No map of that kind is constructed here.
 
 Bekenstein, "Black Holes and Entropy," *Phys. Rev. D* 7:2333–2346 (1973), doi `10.1103/PhysRevD.7.2333`, and Hawking, "Particle creation by black holes," *Commun. Math. Phys.* 43:199–220 (1975), doi `10.1007/BF02345020`, resolve on Crossref. Neither record contained an abstract. No entropy formula is taken from either paper. The cost in this note is \(\operatorname{tr}(\Phi)\) on the sites of a graph. It is not an entropy in Planck units, and it is not one quarter of a horizon area.
 
@@ -169,25 +173,26 @@ Wolf, Verstraete, Hastings, and Cirac are already **KNOWN** in the holographic n
 | Claim | Label |
 |---|---|
 | Zeros of \(Q\) are the conditional independencies | **KNOWN** (Speed and Kiiveri; Besag names Hammersley–Clifford). The block proof for this \(Q\) is **PROVED** |
-| Exterior conditional law given the region equals the law given the blanket | **PROVED** (BS-screen) |
+| The law of the exterior given the region and the blanket equals the law given the blanket | **PROVED** (BS-screen). It is not the law given the region alone: \(3/5\) against \(1/2\) on the path of three |
 | Exterior decision loss is a function of the blanket posterior | **PROVED** (BS-loss) |
-| Blanket-only heat exceeds any region channel by at most \(\operatorname{tr}(K)\) | **PROVED** (BS-cap). On the gasket the trace settles at \(1.290955\) |
-| The minimizer is supported on the blanket coordinates alone | **FAILS**. Path of three, traces \(10.1\) and \(10.5\), same exterior variance \(13/25\) |
+| The matching blanket channel costs at most \(\operatorname{tr}(K)\) more than the channel it matches | **PROVED** (BS-cap). The channel it matches, on the path of three, is the cross-term channel of trace \(10.1\). The matching blanket channel has trace \(10.5\). Excess \(2/5\), cap \(1/2\). On the gasket the trace settles at \(1.290955\) |
+| The minimizer is supported on the blanket coordinates alone | **FAILS**. The cross-term channel is cheaper than the matching blanket channel by \(2/5\), at the same exterior variance \(13/25\) |
 | Interior decisions are boundary-sufficient | **FAILS**. Conditional variance at least \(1/5>1/18\) |
 | Holding cost of the sufficient memory scales with the blanket, not the volume | **PROVED** as the bounds and the loads in §3. **METAPHOR** if that cost is called an encoding of the interior |
 | Local screening survives a long-range edge, an equicorrelated covariance, or an MA(1) | **FAILS**. Each conditional information is \(\tfrac12\ln(9/8)\) |
 | Discrete range-\(s\) dynamics: thickness \(=\) horizon times speed | **PROVED** |
 | Continuous time: a finite shell screens | **FAILS**. The kernel is positive at every distance |
-| Continuous time: the \(5\%\) radius thickens as \(\sqrt{\tau}\) or as \(\tau\) | **OPEN** as that comparison. The locked ratio is \(1\), a puzzle, on paths of \(31\) and \(61\). The walk second moment \(2t\) is **PROVED** and checked |
+| Continuous time: the integer \(5\%\) radius thickens as \(\sqrt{\tau}\) or as \(\tau\) | **OPEN** as that comparison. The locked integer ratio is \(1\), a puzzle, on paths of \(31\) and \(61\). The walk second moment \(2t\) is **PROVED** and checked |
+| Log-linear crossing of \(\Delta(r)/\Delta(0)\) through \(0.05\), times \(1/4\) and \(1\), equals \(2\) | The ratio is \(2.067863694520\), inside the locked band \([1.7,2.3]\). Not the exact value \(2\) |
 | One blanket functional, capacity cap, ruin cap: the pool meets and the copy does not | **PROVED**, as the memory note's comparison on this statistic. Six units, cost \(9.537667428571\) |
 | One sum of several blanket sites is enough for a per-site exterior loss | **FAILS**. Path of five, gap \(1/10\) |
 | This is AdS/CFT or the Bekenstein–Hawking area law | **METAPHOR**. No such map is shown |
 
 ## 9. Checks
 
-`theory/boundary_checks/boundary_checks.py`. 107 checks, FAILS 0, one puzzle (the radius ratio). The numbers in §§2–6 are the numbers it prints.
+`theory/boundary_checks/boundary_checks.py`. 107 checks, FAILS 0, one puzzle (the integer radius ratio). The log-linear crossing passes its band. The numbers in §§2–6 are the numbers it prints.
 
-The preregistration was not edited after commit `93084b0`.
+`theory/boundary_checks/PREREG.md` was not edited. Its sha256 is unchanged. `theory/boundary_checks/PREREG_CROSSING.md` was not edited after commit `8afc11f`.
 
 ## 10. References
 
@@ -209,4 +214,4 @@ Bekenstein, J. D. 1973. Black holes and entropy. *Phys. Rev. D* 7:2333–2346. d
 
 Hawking, S. W. 1975. Particle creation by black holes. *Commun. Math. Phys.* 43:199–220. doi 10.1007/BF02345020. No abstract in the record. Not used as a formula.
 
-Maldacena, Wolf–Verstraete–Hastings–Cirac, and Bousso are the records already cited in `theory/HOLOGRAPHIC_2026-11-22.md`. They are not re-quoted.
+Maldacena, doi `10.1023/A:1026654312961`. No abstract in the Crossref record fetched this session. The AdS sentence is the one in `theory/HOLOGRAPHIC_2026-11-22.md`, not a reading of an abstract. Wolf–Verstraete–Hastings–Cirac and Bousso are the records already cited there. They are not re-quoted.

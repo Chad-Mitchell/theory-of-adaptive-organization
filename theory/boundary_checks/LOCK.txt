@@ -1,4 +1,8 @@
-prereg_commit 93084b06da8b6b9b8cb66f671c19368ff3255a48
+prereg_commit_original 93084b06da8b6b9b8cb66f671c19368ff3255a48
+prereg_commit_rebased f5a930e64d28df57145f4b56d0f32a442c27367a
 prereg_sha256 58ba0ebaa19d126d8c47293bc82d598f4416832b1bf767c64c73e9d175de943c
 prereg_path theory/boundary_checks/PREREG.md
-note The preregistration file is not edited after this lock. Checks were run after the commit.
+crossing_commit 8afc11fb4b26279b8b404f8378e90b037b787ea8
+crossing_sha256 05f4d12445092d90ff48cbf20985b0e358c1d46ea17e74d1f294f1064cb40ae2
+crossing_path theory/boundary_checks/PREREG_CROSSING.md
+note Neither preregistration file is edited after its lock. The rebase onto main b6e351e changed the git id of the first file and not its bytes.
