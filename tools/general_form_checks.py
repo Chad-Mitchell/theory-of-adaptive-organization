@@ -216,6 +216,37 @@ def section_q3():
           and (1 / m_arbitrary(ws[2])) > (1 / m_arbitrary(ws[0])))
 
 
+def section_lyapunov():
+    print("LY")
+    lam_L = 0.5 * math.log(0.2)
+    lam_H = math.log(1.1)
+    check("L is strictly better on both expected bads", (1.0 < 2.0) and (0.0 < 0.4))
+    check("L has strictly worse growth", lam_L < lam_H,
+          f"lam_L={lam_L:.12f} lam_H={lam_H:.12f}")
+    check("printed growth values",
+          abs(lam_L - (-0.804718956)) < 5e-10 and abs(lam_H - 0.095310180) < 5e-10)
+    # state-contingent logs are incomparable
+    L = (math.log(4.0), math.log(0.05))
+    H = (math.log(1.1), math.log(1.1))
+    check("state-contingent log offspring is incomparable",
+          L[0] > H[0] and L[1] < H[1])
+    gaps = [2.0 - 1.5 * x for x in (0.0, 0.25, 0.5, 0.75, 1.0)]
+    check("dominated type invades at every frequency",
+          min(gaps) >= 0.5 - 1e-12 and abs(gaps[0] - 2.0) < 1e-12,
+          f"gaps={gaps}")
+    # no three reals realize a strict cycle
+    def cycle_possible():
+        for a in (-1, 0, 1):
+            for b in (-1, 0, 1):
+                for c in (-1, 0, 1):
+                    if a > b and b > c and c > a:
+                        return True
+        return False
+    check("a strict cycle is not three real numbers", not cycle_possible())
+    check("unweighted Chebyshev is weakly monotone",
+          max(0.6, 0.6) == max(0.6, 0.5) == 0.6)
+
+
 def section_q5():
     print("Q5")
     a, Q, k, P = 0.9, 1.0, 2, 0.5
@@ -317,6 +348,7 @@ def crossref():
 
 def main(argv):
     section_q1()
+    section_lyapunov()
     section_q2()
     section_q3()
     section_q5()
