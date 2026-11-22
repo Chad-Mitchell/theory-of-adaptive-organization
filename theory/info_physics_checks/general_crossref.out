@@ -1,0 +1,17 @@
+Crossref API, 22 November 2026. User-Agent sent. Each line is an HTTP 200 from this session. A later retry that returned HTTP 429 is a rate limit, not a failed resolution, and is not listed.
+
+HTTP 200 | 10.1115/1.3658902 | 1961 | Journal of Basic Engineering | New Results in Linear Filtering and Prediction Theory | vol 83 p 95-108 | Kalman; Bucy
+HTTP 200 | 10.1137/0119020 | 1970 | SIAM Journal on Applied Mathematics | On the Calculation of Mutual Information | vol 19 p 215-220 | Duncan
+HTTP 200 | 10.1103/PhysRevX.4.031015 | 2014 | Physical Review X | Thermodynamics with Continuous Information Flow | vol 4 | Horowitz; Esposito
+HTTP 200 | 10.1103/PhysRevE.93.022116 | 2016 | Physical Review E | Sensory capacity: An information theoretical measure of the performance of a sensor | vol 93 | Hartich; Barato; Seifert
+HTTP 200 | 10.1103/PhysRevE.90.042119 | 2014 | Physical Review E | Maximum work extraction and implementation costs for nonequilibrium Maxwell's demons | vol 90 | Sandberg; Delvenne; Newton; Mitter
+HTTP 200 | 10.1088/1367-2630/16/10/103024 | 2014 | New Journal of Physics | Efficiency of cellular information processing | vol 16 p 103024 | Barato; Hartich; Seifert
+HTTP 200 | 10.1088/1367-2630/16/12/125007 | 2014 | New Journal of Physics | Second-law-like inequalities with information and their interpretations | vol 16 p 125007 | Horowitz; Sandberg
+HTTP 200 | 10.1007/s10955-004-8781-9 | 2005 | Journal of Statistical Physics | Information and Entropy Flow in the Kalman-Bucy Filter | vol 118 p 145-176 | Mitter; Newton
+HTTP 200 | 10.1109/TAC.2004.834430 | 2004 | IEEE Transactions on Automatic Control | Stochastic Linear Control Over a Communication Channel | vol 49 p 1549-1561 | Tatikonda; Sahai; Mitter
+HTTP 200 | 10.1109/TAC.2016.2601148 | 2017 | IEEE Transactions on Automatic Control | Semidefinite Programming Approach to Gaussian Sequential Rate-Distortion Trade-Offs | vol 62 p 1896-1910 | Tanaka; Kim; Parrilo; Mitter
+HTTP 200 | 10.1109/TIT.1956.1056823 | 1956 | IRE Transactions on Information Theory | On the Shannon theory of information transmission in the case of continuous signals | vol 2 p 102-108 | Kolmogorov
+HTTP 200 | 10.1016/S0304-3932(03)00029-1 | 2003 | Journal of Monetary Economics | Implications of rational inattention | vol 50 p 665-690 | Sims
+HTTP 200 | 10.1287/mnsc.13.3.210 | 1966 | Management Science | Discrete Optimization Via Marginal Analysis | vol 13 p 210-216 | Fox
+
+Horowitz and Sandberg 2014 and Sandberg, Delvenne, Newton, and Mitter 2014 also returned HTTP 200 on the earlier pass the same day, recorded in theory/info_physics_checks/attainability_crossref.out. The lines above are this session's resolutions, including those two.
