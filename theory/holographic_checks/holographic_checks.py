@@ -163,6 +163,86 @@ def trace_sigma_open(d, n, alpha, beta):
     return total
 
 
+def periodic_precision(d, n, alpha, beta):
+    """Combinatorial precision of the periodic cubic lattice."""
+    V = n ** d
+    coords = np.stack(np.unravel_index(np.arange(V), (n,) * d), axis=1)
+    Q = np.zeros((V, V))
+    for i, c in enumerate(coords):
+        deg = 0
+        ct = [int(x) for x in c]
+        for mu in range(d):
+            for step in (-1, 1):
+                nb = list(ct)
+                nb[mu] = (nb[mu] + step) % n
+                j = int(np.ravel_multi_index(tuple(nb), (n,) * d))
+                if j > i:
+                    Q[i, j] = Q[j, i] = -beta
+                deg += 1
+        Q[i, i] = alpha + beta * deg
+    return Q
+
+
+def strip_precision(length, width, alpha, beta):
+    """Periodic in x (length), open in y (width)."""
+    V = length * width
+    Q = np.zeros((V, V))
+
+    def idx(x, y):
+        return y * length + x
+
+    for y in range(width):
+        for x in range(length):
+            i = idx(x, y)
+            deg = 0
+            for dx in (-1, 1):
+                j = idx((x + dx) % length, y)
+                if j > i:
+                    Q[i, j] = Q[j, i] = -beta
+                deg += 1
+            for dy in (-1, 1):
+                yy = y + dy
+                if 0 <= yy < width:
+                    j = idx(x, yy)
+                    if j > i:
+                        Q[i, j] = Q[j, i] = -beta
+                    deg += 1
+            Q[i, i] = alpha + beta * deg
+    return Q
+
+
+def uniform_diagonal_load(Q, sites, eps):
+    """Smallest uniform diagonal load on `sites` with conditional variance <= eps.
+
+    Returns (total heat = |B| * phi, phi, max conditional variance).
+    """
+    sites = np.asarray(sites, dtype=int)
+    lo, hi = 0.0, 1.0 / eps
+    # Expand the bracket until the tolerance is met.
+    for _ in range(20):
+        M = Q.copy()
+        M[sites, sites] += hi
+        smax = float(np.max(np.diag(np.linalg.inv(M))[sites]))
+        if smax <= eps:
+            break
+        hi *= 2.0
+    else:
+        raise RuntimeError("diagonal load did not meet the tolerance")
+    for _ in range(60):
+        mid = 0.5 * (lo + hi)
+        M = Q.copy()
+        M[sites, sites] += mid
+        smax = float(np.max(np.diag(np.linalg.inv(M))[sites]))
+        if smax <= eps:
+            hi = mid
+        else:
+            lo = mid
+    M = Q.copy()
+    M[sites, sites] += hi
+    smax = float(np.max(np.diag(np.linalg.inv(M))[sites]))
+    return float(len(sites) * hi), float(hi), smax
+
+
 def surface_count_open(d, n):
     if n <= 0:
         return 0
@@ -387,14 +467,19 @@ def check_q1():
     )
 
     # Irrelevant bulk: an equilibrium coordinate of arbitrary entropy, heat 0.
+    # dZ = -λ Z dt + sqrt(2 D) dB with D = λ Var, so the stationary variance is Var.
+    # Sekimoto heat is E[drift^2]/D + d(drift)/dZ.
     for var in (1.0, 100.0, 1.0e6):
-        # dZ = -λ Z dt + sqrt(2 λ var) dB, stationary variance `var`, heat λ - λ.
-        heat_z = 0.0
+        lam_z = 1.0
+        D_z = lam_z * var
+        quadratic = (lam_z ** 2) * var / D_z
+        divergence = -lam_z
+        heat_z = quadratic + divergence
         entropy = 0.5 * math.log(2.0 * math.pi * math.e * var)
         check(
             "equilibrium bulk heat is 0 at variance %g" % var,
-            heat_z == 0.0 and entropy > 0.0,
-            "H %.6f" % entropy,
+            near(quadratic, lam_z, 1e-15) and near(heat_z, 0.0, 1e-15) and entropy > 0.0,
+            "H %.6f  heat %.3e" % (entropy, heat_z),
         )
     entropy_ratio = (
         0.5 * math.log(2.0 * math.pi * math.e * 1.0e6)
@@ -515,6 +600,33 @@ def check_q2():
         "  volume-slope scatter across the grid: mean %.12f  std %.3e  count %d"
         % (float(np.mean(slopes_v)), float(np.std(slopes_v)), len(slopes_v))
     )
+    # The twelve-nines slope is the even-grid identity. Odd sides still move.
+    print("\n-- odd sides, lambda_max still depends on n")
+    odd_n = [9, 15, 21, 31, 45, 63]
+    xs, ys, per = [], [], []
+    for n in odd_n:
+        lams = q_eigs(1, n, 1.0, 1.0)
+        lam_max = 1.0 + 2.0 * (1.0 + math.cos(math.pi / n))
+        check(
+            "odd-side lambda_max d=1 n=%d" % n,
+            near(float(np.max(lams)), lam_max, 1e-12),
+            "max %.12f" % float(np.max(lams)),
+        )
+        eps = 0.5 / lam_max
+        heat = float(np.sum(1.0 / eps - lams))
+        per.append(heat / n)
+        xs.append(math.log(n))
+        ys.append(math.log(heat))
+    sv, _, ev, nv = ols(xs, ys)
+    print(
+        "  d=1 alpha=1 beta=1 odd  %s  heat/V first/last %.6f/%.6f"
+        % (fmt_slope(sv, ev, nv), per[0], per[-1])
+    )
+    check(
+        "odd-side volume slope is about 1.016",
+        near(sv, 1.016062, 1e-4),
+        fmt_slope(sv, ev, nv),
+    )
 
     # Fixed fraction of the prior mean. Finite-size water-fill, then a slope.
     print("\n-- water-fill at half the prior mean")
@@ -579,9 +691,11 @@ def check_q2():
     # The cap, not a particular subset, is what rules a fixed per-site gap out.
     # Scan open cubes until δ = 0.1 of the total variance exceeds A/α.
     print("  crossover where a 10 percent total-variance cut exceeds the surface cap")
+    expect_n = {1: 44, 2: 156, 3: 210}
     for d, alpha, beta in ((1, 1.0, 1.0), (2, 1.0, 1.0), (3, 1.0, 0.5)):
         found = None
-        n_list = list(range(4, 241, 2)) if d < 3 else list(range(4, 261, 4))
+        # d=3 is scanned by 1 near the crossing. A step of 4 stops at 212, which is not the first side.
+        n_list = list(range(4, 241, 2)) if d < 3 else list(range(190, 230))
         for n in n_list:
             need = 0.1 * trace_sigma_open(d, n, alpha, beta)
             cap = surface_count_open(d, n) / alpha
@@ -590,7 +704,7 @@ def check_q2():
                 break
         check(
             "a fixed per-site gap outgrows the surface cap d=%d" % d,
-            found is not None,
+            found is not None and found[0] == expect_n[d],
             "first n=%s need %.4f cap %.4f A %s V %s"
             % (
                 None if found is None else found[0],
@@ -604,6 +718,14 @@ def check_q2():
             print(
                 "  d=%d alpha=%g beta=%g  crossover n=%d  need %.4f  cap %.4f  A=%d  V=%d"
                 % (d, alpha, beta, found[0], found[1], found[2], found[3], found[4])
+            )
+            prev = found[0] - 1
+            need_prev = 0.1 * trace_sigma_open(d, prev, alpha, beta)
+            cap_prev = surface_count_open(d, prev) / alpha
+            check(
+                "previous side still fits under the cap d=%d" % d,
+                need_prev <= cap_prev,
+                "n=%d need %.4f cap %.4f" % (prev, need_prev, cap_prev),
             )
 
     # Geometric boundary of an open cube. Posterior mean error versus prior.
@@ -662,6 +784,12 @@ def check_q2():
                 "1d surface reduction does not grow with volume",
                 abs(sv) < 1e-6,
                 fmt_slope(sv, ev, nv),
+            )
+            exact = 1.0 + 1.0 / math.sqrt(5.0)
+            check(
+                "1d removal is 1 + 1/sqrt(5)",
+                near(rows[-1][6], exact, 1e-9),
+                "delta %.12f  exact %.12f" % (rows[-1][6], exact),
             )
             sg, _, eg, ng = ols(
                 [math.log(r[1]) for r in rows],
@@ -742,11 +870,81 @@ def check_q2():
             heat > 0.0 and near(float(np.mean(alpha_i)), 1.0, 1e-12),
             "heat/V %.6f" % (heat / V),
         )
+        # The draw does not enter. Any masses with the same mean give the same heat.
+        lined = np.linspace(0.5, 1.5, V)
+        lined = lined - float(np.mean(lined)) + 1.0
+        heat_line = V / eps - (float(np.sum(lined)) + 4.0 * V)
+        check(
+            "linspace masses with the same mean match n=%d" % n,
+            near(heat_line, heat, 1e-12),
+            "heat/V %.6f" % (heat_line / V),
+        )
     sv, _, ev, nv = ols(xs, ys)
     print("  disordered volume exponent  %s" % fmt_slope(sv, ev, nv))
     check("disordered mass stays extensive", abs(sv - 1.0) < 1e-9, fmt_slope(sv, ev, nv))
 
     # Mutual information of the field, for contrast with the heat.
+    # A designated cut at the same per-site tolerance as the bulk floor.
+    # The lower bound is |B|(1/eps - Q_ii). A uniform diagonal load on the cut
+    # meets the tolerance from above. Depth behind the cut is not in the cost.
+    print("\n-- designated cut, same per-site tolerance")
+    eps_cut = 0.5 / 9.0  # alpha = beta = 1, d = 2, lambda_max = 9
+    bound_per = 1.0 / eps_cut - 5.0  # Q_ii = alpha + 2 d beta = 5
+    check("cut lower bound is 13 per site", near(bound_per, 13.0, 1e-12), "bound %.6f" % bound_per)
+    achieved_per = []
+    cut_ns = (6, 8, 10, 12, 16)
+    for n in cut_ns:
+        Q = periodic_precision(2, n, 1.0, 1.0)
+        # C-order index = x * n + y, so one column is every n-th site.
+        sites = np.arange(0, n * n, n)
+        total, _phi, smax = uniform_diagonal_load(Q, sites, eps_cut)
+        achieved_per.append(total / n)
+        bulk = (n * n) * bound_per
+        print(
+            "  n=%d bulk %.3f bound %.3f achieved %.3f per site %.4f smax %.6e"
+            % (n, bulk, n * bound_per, total, total / n, smax - eps_cut)
+        )
+        check(
+            "cut load meets the tolerance n=%d" % n,
+            smax <= eps_cut * (1.0 + 1e-6) and total > n * bound_per,
+            "achieved/site %.4f" % (total / n),
+        )
+    check(
+        "achieved cut cost per site is about 13.61",
+        near(achieved_per[-1], 13.6058, 2e-3),
+        "n=16 per site %.4f" % achieved_per[-1],
+    )
+    sc, _, ec, nc = ols(
+        [math.log(n) for n in cut_ns],
+        [math.log(p * n) for p, n in zip(achieved_per, cut_ns)],
+    )
+    print("  cut cost versus cut length  %s" % fmt_slope(sc, ec, nc))
+    check(
+        "cut cost exponent in the cut length is 1",
+        abs(sc - 1.0) < 0.01,
+        fmt_slope(sc, ec, nc),
+    )
+    print("  strip, middle row, depth behind the cut")
+    strip_costs = []
+    for width in (4, 6, 8, 12):
+        Qs = strip_precision(8, width, 1.0, 1.0)
+        y = width // 2
+        sites = np.arange(y * 8, y * 8 + 8)
+        qdiag = float(Qs[sites[0], sites[0]])
+        total, _phi, smax = uniform_diagonal_load(Qs, sites, eps_cut)
+        strip_costs.append(total)
+        print("    W=%d Q_ii %.3f bound 104 achieved %.3f" % (width, qdiag, total))
+        check(
+            "strip middle-row diagonal is 5 at W=%d" % width,
+            near(qdiag, 5.0, 1e-12) and smax <= eps_cut * (1.0 + 1e-6),
+            "achieved %.3f" % total,
+        )
+    check(
+        "strip cost does not grow with depth",
+        strip_costs[-1] < strip_costs[0] and abs(strip_costs[0] - strip_costs[-1]) < 1.0,
+        "W=4 %.3f  W=12 %.3f" % (strip_costs[0], strip_costs[-1]),
+    )
+
     print("\n-- field mutual information across a cut")
     mi_rows = []
     for n in (16, 32, 48, 64, 96):
@@ -761,16 +959,25 @@ def check_q2():
         "last %.6f prev %.6f rel %.4f" % (mi_rows[-1][1], mi_rows[-2][1], rel),
     )
     mi2 = []
-    for n in (4, 6, 8, 10, 12, 16):
+    for n in (4, 6, 8, 10, 12, 16, 20, 24):
         mi = slab_mutual_info(2, n, 1.0, 1.0)
         mi2.append((n, mi, 2 * n))
         print("  d=2 n=%d cut=%d I=%.6f I/cut=%.6f" % (n, 2 * n, mi, mi / (2 * n)))
-    sv, _, ev, nv = ols([math.log(r[2]) for r in mi2], [math.log(r[1]) for r in mi2])
-    print("  d=2 mutual information versus cut length  %s" % fmt_slope(sv, ev, nv))
+    small = [r for r in mi2 if r[0] <= 16]
+    sv, _, ev, nv = ols([math.log(r[2]) for r in small], [math.log(r[1]) for r in small])
+    print("  d=2 mutual information versus cut length, n=4..16  %s" % fmt_slope(sv, ev, nv))
     check(
-        "2d mutual information scales as the cut",
-        abs(sv - 1.0) < 0.15,
+        "six-point mutual-information slope still includes n=4",
+        near(sv, 0.922298, 1e-4),
         fmt_slope(sv, ev, nv),
+    )
+    tail = [r for r in mi2 if r[0] >= 8]
+    st, _, et, nt = ols([math.log(r[2]) for r in tail], [math.log(r[1]) for r in tail])
+    print("  d=2 mutual information versus cut length, n from 8  %s" % fmt_slope(st, et, nt))
+    check(
+        "2d mutual information from n=8 tracks the cut",
+        abs(st - 1.0) < 0.01 and near(tail[-1][1] / tail[-1][2], 0.032174, 1e-4),
+        fmt_slope(st, et, nt),
     )
     # Same lattices, per-site heat versus linear size has exponent d = 2.
     heats = []
@@ -818,21 +1025,31 @@ def check_q3():
             all(near(r, rho, 1e-12) for r in inc_ratios) and abs(rho - 1.0) > 0.5,
             "increment ratios %s" % ", ".join("%.6f" % r for r in inc_ratios),
         )
-        # Modal shares at μ0 are peaked, not flat.
+        # Weights w_k = a v / (a+μ)^2. The learning-rate share is w_k / σ^2,
+        # with σ^2 = sum w_k / μ, so the shares sum to μ. The ratio of two
+        # shares equals the ratio of two weights.
         ak = a * rho ** ks.astype(float)
-        share = ak * v / (ak + mu0) ** 2
-        # Compare the bin nearest μ0 with the bin two octaves higher.
+        weights = ak * v / (ak + mu0) ** 2
+        weight_sum = float(np.sum(weights))
+        sigma2 = weight_sum / mu0
+        shares = weights / sigma2
         k_peak = int(np.argmin(np.abs(np.log(ak) - math.log(mu0))))
         k_far = k_peak + 2
-        ratio = float(share[k_peak] / share[k_far])
+        ratio = float(shares[k_peak] / shares[k_far])
+        weight_ratio = float(weights[k_peak] / weights[k_far])
         expect = (rho ** 2 + 1.0) ** 2 / (4.0 * rho ** 2)
         print(
-            "  rho=%g share peak/two-octaves %.6f  formula %.6f"
-            % (rho, ratio, expect)
+            "  rho=%g weight sum %.6f  sigma2 %.6f  share sum %.6f  ratio %.6f"
+            % (rho, weight_sum, sigma2, float(np.sum(shares)), ratio)
         )
         check(
-            "modal share ratio equals (rho^2+1)^2/(4 rho^2) and is not 1, rho=%g" % rho,
-            near(ratio, expect, 1e-9) and ratio > 1.5,
+            "weights do not sum to mu rho=%g" % rho,
+            abs(weight_sum - mu0) > 0.5 * mu0 and near(float(np.sum(shares)), mu0, 1e-9),
+            "weights %.6f  shares %.6f" % (weight_sum, float(np.sum(shares))),
+        )
+        check(
+            "share ratio equals the weight ratio and (rho^2+1)^2/(4 rho^2), rho=%g" % rho,
+            near(ratio, expect, 1e-9) and near(ratio, weight_ratio, 1e-12) and ratio > 1.5,
             "ratio %.6f" % ratio,
         )
 
@@ -861,14 +1078,17 @@ def check_q3():
         ratio > 2.0,
         "ratio %.6f" % ratio,
     )
-    # Sum-loss memory degree stays 1 while a layered depth would grow.
+    # Sum-loss precision update is the rank-one matrix g g^T. Octave count is K.
     for K in (2, 4, 8):
-        depth = K  # one step of log_rho per added mode, counting the slowest
-        degree = 1
+        ak = a0 * rho ** np.arange(K)
+        mu = 1.0
+        g = 1.0 / (ak + mu)
+        update = np.outer(g, g)
+        rank = int(np.linalg.matrix_rank(update, tol=1e-10))
         check(
-            "sum-loss degree stays 1 at K=%d modes" % K,
-            degree == 1 and depth > degree,
-            "degree %d  octave count %d" % (degree, depth),
+            "sum-loss precision update has rank 1 at K=%d" % K,
+            rank == 1 and K > rank,
+            "rank %d  octave count %d" % (rank, K),
         )
 
 
