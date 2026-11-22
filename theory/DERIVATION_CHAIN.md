@@ -11,19 +11,20 @@ The sentence of the hypothesis is, byte for byte, the sentence in THEORY §3, CO
 ```mermaid
 flowchart TD
   AX["Selection axioms<br/>assumed"]
-  VK["Viability kernel<br/>GF1 derived<br/>closeness open"]
-  LY["Lemma LY, H1 to H3<br/>GF1 proved in-model"]
-  TR["Trichotomy<br/>GF1 proved in-model<br/>occupation open"]
-  GB["Growth bridge<br/>GB1 limit<br/>GB5 and GB6 false"]
-  IN["Term list, cap, currency, prices<br/>assumed, V1 V2 GF3"]
+  H["H1 H2 H3<br/>assumed"]
+  VK["Viability kernel<br/>GF1 PROVED (in-model)"]
+  LY["Lemma LY<br/>GF1 PROVED (in-model)"]
+  TR["Trichotomy<br/>GF1 PROVED (in-model)"]
+  GB["Growth bridge<br/>GB1 GB4 PROVED (in-model)<br/>GB2 GB3 GB5 GB6 FALSE<br/>GB7 OPEN"]
+  IN["Term list, cap, currency, prices assumed<br/>V1 V2 GF3 PROVED (in-model)"]
   J["J<br/>definition, THEORY section 3"]
   HY["Hypothesis sentence<br/>untested"]
-  PF["Price-free theorems<br/>GF4 scope list"]
-  ST["Stake or ratio theorems<br/>GF4 scope list"]
-  RU["Rules and predictions<br/>proved in a model, or open"]
+  PF["Price-free theorems<br/>GF4 PROVED (in-model)"]
+  ST["Stake or ratio theorems<br/>GF4 PROVED (in-model)"]
+  RU["Rules and predictions<br/>row statuses differ"]
   FL["What would make them fail<br/>counterexamples on the map"]
   AX --> VK
-  AX --> LY
+  H --> LY
   LY --> TR
   TR --> GB
   VK --> IN
@@ -37,6 +38,8 @@ flowchart TD
   RU --> FL
 ```
 
+The edge into Lemma LY is H1–H3, the lemma's premises. The selection axioms are not that list. V1, V2, and GF3 are **PROVED (in-model)** classifications. The assumptions of those classifications are the inputs. Closeness under persistence only is A2-P and `theory/SCALE_ENDS.md` §6b. It is not a second status of GF1. Occupation of the front is outside GF1's proved claim (V5 **OPEN**).
+
 Each link below has the statement, the claim-map status, the assumptions by name, the Lean check, and the textbook prior art.
 
 ## 1. Selection axioms — assumed
@@ -45,9 +48,9 @@ Each link below has the statement, the claim-map status, the assumptions by name
 
 **Status.** The axioms are assumptions in that note. They are not rows. The theorems that use them are R1 **PRIOR ART**, R2 **PROVED (in-model)**, R3 **OPEN** (`measurement/CLAIM_MAP_v2.md` section R).
 
-**What R1 and R2 actually deliver.** Under A1, A2-L, \(N\mu\ll 1\), a connected undirected design graph with equal mutation clocks, and no frequency dependence, the monomorphic chain has \(\pi\propto e^{-\beta J}\) with \(\beta=\alpha\nu\) (haploid Moran \(\nu=N-1\); diploid Wright–Fisher \(\nu=2N-1\), an approximation). On a quadratic well in \(d\) whitened coordinates the excess is \(d/(2\beta)\). The fractional form \((\mathbb{E}[J]-J^\star)/J^\star\approx d/(2\sigma N_e)\) needs \(J^\star>0\) and \(N_e=\nu\) (Corollary SA1c). That package is prior art applied to this \(J\), not a new theorem (R1). In a drifting world the operational excess \(\sqrt{kw\sigma^2/6}+d/(2\beta)\), and the total rate including lumps \(2\sqrt{kw\sigma^2/6}+d/(2\beta)\), are the sum of two known terms under SA2-A, SA2-B, and SA2-C, including zero discount and the lumpy coordinate off the substitution chain (R2). SA-P1, the comparison of that excess with \(d/(2\sigma N_e)\), is a sketch and is not locked (R3).
+**What R1 and R2 actually deliver.** Under A1, A2-L, \(N\mu\ll 1\), a connected undirected design graph with equal mutation clocks, and no frequency dependence, the monomorphic chain has \(\pi\propto e^{-\beta J}\) with \(\beta=\alpha\nu\) (haploid Moran \(\nu=N-1\); diploid Wright–Fisher \(\nu=2N-1\), an approximation). On a quadratic well in \(d\) whitened coordinates the excess is \(d/(2\beta)\). The fractional form \((\mathbb{E}[J]-J^\star)/J^\star\approx d/(2\sigma N_e)\) needs \(J^\star>0\), \(N_e=\nu\), and the zero of the cost fixed. V1 records that the fractional excess moves with the additive constant (Corollary SA1c; `theory/GENERAL_FORM.md` §6). That package is prior art applied to this \(J\), not a new theorem (R1). In a drifting world the operational excess \(\sqrt{kw\sigma^2/6}+d/(2\beta)\), and the total rate including lumps \(2\sqrt{kw\sigma^2/6}+d/(2\beta)\), are the sum of two known terms under SA2-A, SA2-B, and SA2-C: zero discount, the lumpy coordinate off the substitution chain, the optimum moving only in that coordinate, a reset that changes only that coordinate, and some mutation rate with both \(N\mu\ll 1\) and \(t_{\mathrm{mix}}(y)\ll b^{\star 2}/\sigma^2\). If no mutation rate satisfies both, SA2 is not claimed (R2; `theory/SELECTION_AXIOMS.md` §4). SA-P1, the comparison of that excess with \(d/(2\sigma N_e)\), is a sketch and is not locked (R3). R2 is the lumpy redesign excess. A moving optimum in the soft coordinates is section S (`theory/DRIFT_SELECTION.md`; CORE §8): S1 **PRIOR ART**, S2 **PROVED (in-model)**, S3 **OPEN**, S4 **OPEN**. N66 **PROVED (in-model)** is the one-coordinate lattice-to-diffusion bound DS1 uses. It does not cover an OU centre. S1 is prior art, not a proved row.
 
-**Lean.** The Gibbs identity \(\mathbb{E}_\pi[J]-J^\star=d/(2\beta)\) for a positive-definite quadratic, given the Boltzmann weight, is machine-checked (`Equipartition.gibbs_excess_quadratic`, `formal/lean/README.md`). SA1, the per-process \(\beta\), the well-supported approximation, SA2 as a selection statement, and the fractional form are not formalized (same file, "What is not formalized"). The barrier algebra \(wb^{\star 2}/6=\sqrt{kw\sigma^2/6}\) is machine-checked with the average-cost expression as an input (`LayerLifetime.barrier_band_identities`).
+**Lean.** The Gibbs identity \(\mathbb{E}_\pi[J]-J^\star=d/(2\beta)\) for a positive-definite quadratic, given the Boltzmann weight, is machine-checked (`Equipartition.gibbs_excess_quadratic`, `formal/lean/README.md`). SA1, the per-process \(\beta\), the well-supported approximation, SA2 as a selection statement, and the fractional form are not formalized (same file, "What is not formalized"). The identity \(wb^{\star 2}/6=\sqrt{kw\sigma^2/6}\) is algebraic in \(b^\star\), from \(k,w,\sigma^2>0\) and \(b^{\star 2}=\sqrt{6k\sigma^2/w}\) (`LayerLifetime.barrier_band_identities`). The average-cost expression is an input of the \(T^\star\) minimizer in §9.2, not of this identity.
 
 **Prior art.** Sella and Hirsh 2005 for the stationary weight. Tenaillon, Silander, Uzan and Chao 2007, from Hartl and Taubes 1998 and Poon and Otto 2000, for the quadratic drift load \(d/(2\beta)\). Chalkley 1997, exact at zero discount, and Dixit 1991, for the lumpy band (also CL19, **PRIOR ART**). Lynch et al. 2016 for the drift-barrier scale; the factor 10 in THEORY §3 is the repository's choice (`theory/SELECTION_AXIOMS.md` §3, §7).
 
@@ -57,7 +60,7 @@ A2-M does not give \(d/(2\beta)\). A2-P does not give the Moran or Wright–Fish
 
 **Statement.** Under persistence only (S-P, the selection note's A2-P restated with no scalar \(J\)), a design is eliminated when a named scarce account hits a ruin set, and designs that miss that set are not ranked against each other. For a static design the resulting set is Aubin's viability kernel. It does not rank designs inside the set, and it is not the Pareto front (`theory/GENERAL_FORM.md` §2, §3 (iv)(vi)).
 
-**Status.** GF1 **PROVED (in-model)** for that classification. The counterexample in the row is the pair of scores \((1,0.2)\) and \((0.5,0.2)\): both survive a ruin probability below 1, and the first is strictly dominated. A closeness theorem for persistence-only structures is **open**. A2-P says the Moran and Wright–Fisher theorems do not apply, and `theory/SCALE_ENDS.md` §6b lists the missing piece: a persistence-only version of Theorem P for non-replicating held structures.
+**Status.** GF1 **PROVED (in-model)** for that classification. The pair of scores \((1,0.2)\) and \((0.5,0.2)\) is the counterexample in `theory/GENERAL_FORM.md` §3 (iv): both have ruin probability below 1, and the first is strictly dominated. The GF1 row's named counterexamples are the \(\lambda\) pair and the invasion gap. A closeness theorem for persistence-only structures is **open**. A2-P says the Moran and Wright–Fisher theorems do not apply, and `theory/SCALE_ENDS.md` §6b lists the missing piece: a persistence-only version of Theorem P for non-replicating held structures.
 
 **Assumptions.** S-P. No use of A2-L, H3, or a scalar cost.
 
@@ -71,7 +74,7 @@ A2-M does not give \(d/(2\beta)\). A2-P does not give the Moran or Wright–Fish
 
 **Status.** GF1 **PROVED (in-model)** for the lemma, the log-linear corollary, the trichotomy, and two counterexamples. Occupation of the front is outside the proved claim. H3 is a hypothesis. The replicator equation does not supply it (`theory/GENERAL_FORM.md` §2).
 
-**Assumptions.** H1, H2, H3. H1 is representation A7 and THEORY's standing exogenous world (S-W). The coupled case is CX2, **OPEN**.
+**Assumptions.** H1, H2, H3. S-W is representation A7: the law of the world does not depend on the design. H1 includes that and adds ergodicity, plus offspring that depends only on the design and the environment. H1 is not A7. H3 is the vector form of A2-M (`theory/GENERAL_FORM.md` §2). The coupled case is CX2, **OPEN**.
 
 **Lean.** Not machine-checked.
 
@@ -109,7 +112,7 @@ A lexicographic order, a ruin threshold, and the Lundberg objective are stronger
 | GB6 | **FALSE** | H3 for memory, acquisition, task loss, ruin, and attention from first principles |
 | GB7 | **OPEN** | A real offspring map in the weak-selection regime on those coordinates |
 
-**Derived in a stated limit (GB1).** Menu: \(W_i=1+\varepsilon X_i\), a unique mean leader, and a fixed gap \(\gamma>0\). For small enough \(\varepsilon\), \(\arg\max\lambda\) agrees with \(\arg\max\mathbb{E}[W]\). The expansion is \(\lambda=\varepsilon\mathbb{E}[X]-(\varepsilon^2/2)\mathbb{E}[X^2]+O(\varepsilon^3)\). The agreement is an agreement of argmaxes. Diffusion: \(W=1+\mu\Delta t+\sigma\sqrt{\Delta t}\,Z\) with \(|W-1|\le 1/2\). The growth per unit time tends to \(\mu-\sigma^2/2\). At \(\mu=0.2\) and \(\sigma^2=0.5\) the limit is \(-0.05\): positive drift, negative growth.
+**Derived in a stated limit (GB1).** Menu: \(W_i=1+\varepsilon X_i\), with \(\varepsilon|X_i|\le 1/2\) almost surely, a finite third moment, a unique mean leader, and a fixed gap \(\gamma>0\). For small enough \(\varepsilon\), \(\arg\max\lambda\) agrees with \(\arg\max\mathbb{E}[W]\). The expansion is \(\lambda=\varepsilon\mathbb{E}[X]-(\varepsilon^2/2)\mathbb{E}[X^2]+O(\varepsilon^3)\). The agreement is an agreement of argmaxes. On this menu the gap stays fixed while \(\varepsilon\to 0\), and the second-moment term cannot flip it. Diffusion: \(W=1+\mu\Delta t+\sigma\sqrt{\Delta t}\,Z\) with \(|W-1|\le 1/2\). The growth per unit time tends to \(\mu-\sigma^2/2\). At \(\mu=0.2\) and \(\sigma^2=0.5\) the limit is \(-0.05\): positive drift, negative growth.
 
 **Derived, and not a cap in the design coordinate (GB4).** Near-critical Galton–Watson survival is \(2(m-1)/\beta_2\). Feller extinction is \(\exp(-\alpha z/\beta)\) for positive drift. Brownian ruin is \(\exp(-2\mu x/\sigma^2)\) for positive drift. Birth-death, Feller, and Brownian level sets are half-spaces in the exponent coordinate. The Galton–Watson half-space in the plane of \((m-1,\beta_2)\) exists after the linear approximation. On the published path of Lemma B9 the preimage in refresh time \(\tau\) is the bounded interval \([0.183706411069,\,0.299049733488]\) at \(\varepsilon_r=10^{-3}\) and \(B=0.5\). The four points \(\tau_S=0.236207526722\), \(\tau_G=0.302668099260\), \(\tau_{\mathrm{cap}}=0.299049733488\), and \(\tau_E=0.316227766017\) are distinct. A requirement between \(\theta(\tau_G)\) and \(\theta(\tau_E)\) puts expected cost at \(\tau_J=0.309679835108\), apart from \(\tau_G\).
 
@@ -121,7 +124,7 @@ A lexicographic order, a ruin threshold, and the Lundberg objective are stronger
 
 ## 6. The assumed inputs — assumed
 
-Four further assumptions stand between the growth exponent and the master equation. GF3 **PROVED (in-model)** is the statement that nonnegative additive \(J\) with a ruin cap is the special case exactly when they hold. It is a classification. It does not derive the assumptions.
+GF3 **PROVED (in-model)** says nonnegative additive \(J\) with a ruin cap is the special case exactly when (R-a), (R-b), and (R-c) hold. That iff has those three clauses. The term list is an input (selection note §2; growth bridge §6; GF2). It is not a fourth clause. V4 and V5 stay **OPEN**. The classification does not derive the assumptions.
 
 | Input | Name in the notes | Row |
 |---|---|---|
@@ -155,7 +158,7 @@ J=\kappa I_{\mathrm{mem}}+hK+w\,\mathbb{E}[\ell]+A+L
 
 ## 8. The principle, and the hypothesis sentence
 
-**Statement.** The cost \(J\) is a definition. The principle is that strongly selected, persistent adaptive systems sit near the design that minimizes \(J\), within the tolerance their selection can resolve (THEORY §4). Under A1, A2-L, weak mutation, and SA1–SA1b, the in-model excess is \(d/(2\beta)\), and that excess is small only when \(\sigma N_e\) is large next to the number of soft coordinates. The empirical bet is that qualifying systems meet those assumptions with parameters that make the remainder small, and that this \(J\) is the cost A2 acts on (`theory/SELECTION_AXIOMS.md` §10). SA-P1 tests the excess and is not locked (R3 **OPEN**).
+**Statement.** The cost \(J\) is a definition. The principle is that strongly selected, persistent adaptive systems sit near the design that minimizes \(J\), within the tolerance their selection can resolve (THEORY §4). Under A1, A2-L, weak mutation, and SA1–SA1b, the in-model excess is \(d/(2\beta)\), and that excess is small only when \(\sigma N_e\) is large next to the number of soft coordinates. A moving optimum in the soft coordinates is section S, as in §1: S1 **PRIOR ART**, S2 **PROVED (in-model)**, S3 **OPEN**, S4 **OPEN**. The empirical bet is that qualifying systems meet those assumptions with parameters that make the remainder small, and that this \(J\) is the cost A2 acts on (`theory/SELECTION_AXIOMS.md` §10). SA-P1 tests the excess and is not locked (R3 **OPEN**).
 
 The sentence is the bold sentence at the top of this note. "Strongly selected" is the five-part operational definition in THEORY §3: a cost-to-fitness map \(\sigma\), a population proxy \(N_e\), a band \(\varepsilon=10/(\sigma N_e)\) that selection can resolve, power against a named rival, and at least ten redesign times in one world. Cities, nation-states, global economies, and the biosphere are excluded until a class-specific proxy is preregistered. The sentence is not rewritten by the selection note, the representation note, the general-form note, or the growth bridge.
 
@@ -175,8 +178,8 @@ These use S-M and the floors, or a definition, and no price (`theory/GENERAL_FOR
 
 | Result | Row | What is free of prices | Lean |
 |---|---|---|---|
-| Antitone front | V6 **PROVED (in-model)**; S2 in `theory/SHANNON_2026-11-21.md` | Two Pareto points move against each other in any pair of coordinates | Not machine-checked |
-| A Pareto point exists | F-0, inside the general-form note; V6 | Continuous score on a nonempty compact design set | Not machine-checked |
+| Antitone front | V6 **PROVED (in-model)** | Two Pareto points move against each other in any pair of coordinates. The definition of Pareto (`theory/GENERAL_FORM.md` §6) | Not machine-checked |
+| A Pareto point exists | F-0, the price-free line of GF4 **PROVED (in-model)** | Continuous score on a nonempty compact design set (`theory/GENERAL_FORM.md` §3). V6 does not state F-0 | Not machine-checked |
 | Information floors | CT1 **PROVED (in-model)**; S1 in the Shannon note; PD1a **PROVED (in-model)** | \((I,e)\) or \((r,e)\) cannot fall below the proved curve. Stationary for S1; a density for PD1a. They do not pick a point | CT1 and PD1a are not formalized. CT4's convexity of \(L(I)=D(IB(I))+\kappa I\) and the first-bit sign in right-slope form are machine-checked. That \(L\) bounds a cost is not (`formal/lean/README.md`) |
 | Staler reading | CT8, alias of K6, **PROVED (in-model)** | A staler reading is a garbling in a stationary Markov world with renewal checks | Not machine-checked |
 | Buffer shape | CT25 **PROVED (in-model)** | \(B\ge z_\varepsilon\sigma\tau^H\) is the shape of a per-window chance constraint. Self-similarity of the error. No price on the error | Not machine-checked |
@@ -185,7 +188,7 @@ These use S-M and the floors, or a definition, and no price (`theory/GENERAL_FOR
 
 The world's judgment frontier \(\mathcal{F}_W=\{(I,r,K,D)\}\) and its support function are Theorem S2 in the Shannon note: \(J^\star(p)=-\sigma_{\mathcal{F}}(-p)\), and this equals the operational least cost only when some minimizer has \(A=c\cdot r\) and \(L=0\). Technical efficiency needs no prices (Theorem S3, Farrell 1957, Debreu 1951). Joint achievability with both memory and reads priced is **open** (efficiency \(J_{\mathrm{floor}}/J=0.9574\) on one grid point; `theory/SHANNON_2026-11-21.md` §3). S1 does not charge a layer. A memoryless read can have \(K=0\) and still carry information.
 
-CX1 stays **OPEN**. Section T is a partial resolution: the flow form of CT1–CT4 is proved for drifting worlds (PD1a–PD5 **PROVED (in-model)**; PD1b and PD7 **PRIOR ART**). When world variance diverges, the raw stock \(I(M_t;X_t)\) cannot be the viability term (PD6 **PROVED (in-model)**). A renormalized stock and the other open parts are PD8 **OPEN**.
+CX1 stays **OPEN**. Section T is a partial resolution: the flow form of CT1–CT4 is proved for drifting worlds (PD1a and PD2–PD5 **PROVED (in-model)**; PD1b and PD7 **PRIOR ART**). When world variance diverges, the raw stock \(I(M_t;X_t)\) cannot be the viability term (PD6 **PROVED (in-model)**). A renormalized stock and the other open parts are PD8 **OPEN**. The section T header still says the confirm is pending. These rows are not promoted past that.
 
 ### 9.2 Needs a stake, a price ratio, or a scalar cost
 
@@ -202,7 +205,7 @@ Dropping the named extra assumption is a counterexample in `theory/GENERAL_FORM.
 | Price of survival | CT22 **PROVED (in-model)** | Scalar diffusion path, \(J''>0\), \((s^2)''>0\), \(\theta'\neq 0\) off the survival endpoint | \(B_{\min}\), certification at \(B_{\mathrm{slack}}\), and optimality of the expected-cost design for \(B\ge B_{\mathrm{slack}}\) are machine-checked. The binding multiplier \(\mu_s=-m'/\theta'\) is not |
 | Physics floor \(\sigma\sqrt{2kT\cdot w}\) | CT7 **PROVED (in-model)** | A price per nat in one random-walk model | Not machine-checked |
 | Read-rate elasticity \(1/\alpha\) | CT12, alias of N7, **PROVED (in-model)** | The ratio \(wq/c\) and the power-law plant | Not machine-checked. CT10, effort nondecreasing in stakes, is machine-checked |
-| Lifetime \(T^\star=\sqrt{6k/(w\sigma^2)}\) | CL19 **PRIOR ART**; the formula is the Brownian case of CT25's family | The ratio \(k/w\), zero discount, a Brownian gap, a lumpy reset | Machine-checked as the unique minimizer of the given average cost \(k/T+w\sigma^2 T/6\). The stochastic derivation of that expression is an input |
+| Lifetime \(T^\star=\sqrt{6k/(w\sigma^2)}\) | CL19 **PRIOR ART** | The minimizer of \(k/T+w\sigma^2 T/6\). The ratio \(k/w\), zero discount, a Brownian gap, a lumpy reset. CT25 is the buffer shape \(B\ge z_\varepsilon\sigma\tau^H\), a different row | Machine-checked as the unique minimizer of the given average cost \(k/T+w\sigma^2 T/6\). The stochastic derivation of that expression is an input |
 | Sharing threshold \(N^\star(\rho)\) | CT14, alias of B2, **PROVED (in-model)** | A scalar cost in the class \(P(a,b)\), and the drift ratio \(\rho=q_g/q_u\). That ratio is a parameter of the world, not a price | Not machine-checked |
 
 The Master Theorem's home is THEORY §5 and Appendix B.9: exogenous Gaussian world, stationary or with stationary increments, white noise or exact reads, first-order stores, squared error, ruin through the Lundberg bound. Parts (ii) and (iii) were restated after the v2.3 review found them too wide. The layer results are linear-Gaussian (THEORY §9). Other rows proved in a model that use the scalar cost, and that GF4 does not put in the price-free column, stay where section O puts them: CT26–CT36 and CT37–CT43. This note does not re-derive them.
@@ -235,8 +238,8 @@ Each line is a counterexample or an open miss condition already in the repositor
 |---|---|---|
 | Offspring does not fall in the expected bads | Lemma LY for those coordinates | LY-1, inside GF1 |
 | Offspring depends on the other designs' frequencies | The complete preorder \(\lambda\) | LY-2; a rock-paper-scissors cycle has no frequency-independent scalar (GF1) |
-| The menu gap is not large next to \(\varepsilon\), or the noise is not small | The ranking agreement of GB1 | GB3: mean excess \(0.01\) has \(\lambda_B=-0.010274369557\); the stake \(f^\star=0.2\) against the expected-offspring corner \(0.99\) |
-| Someone treats the diffusion limit as expected currency | The step from \(\mu-\sigma^2/2\) to \(J\) | GB3, limit \(-0.05\) at positive drift |
+| A fixed mean gap is not small next to \(\varepsilon\) | The ranking agreement of GB1 | The three-design menu in `theory/GROWTH_BRIDGE.md` §9: the growth argmax agrees at small \(\varepsilon\) and flips at a larger \(\varepsilon\). On GB1 the gap stays fixed while \(\varepsilon\to 0\) |
+| Diffusion scaling, or an interior stake, is read as expected currency | GB3 **FALSE** | Mean excess \(0.01\) has \(\lambda_B=-0.010274369557\). Stake \(f^\star=0.2\) against the expected-offspring corner \(0.99\). Limit \(-0.05\) at \(\mu=0.2\), \(\sigma^2=0.5\). Those witnesses are not the GB1 menu |
 | Someone treats a ruin level set as the five-term equation | The step from GB4 to the master equation | GB5; \(\tau_J\neq\tau_G\) inside a binding cap |
 | H3 is demanded from copying alone | The partials on memory, acquisition, and attention | GB6 |
 | The objective is log-growth or a survival exponent | The argmin of expected currency | V2; CT42; Lemma B9 |
@@ -255,7 +258,7 @@ An antitone cloud of traits does not test the general form (GF5 **OPEN**; the wo
 
 Ranked by how much of the chain hangs on the assumption, and by how little is known in its favor. The strengthening and breaking results named here are the ones already specified in the repository. None of them is a new proposal.
 
-1. **The objective itself** (term list, risk-neutral expected currency, linear nonnegative prices, half-space cap). Every theorem from §7 on uses it. It is assumed. V2 and GB3 and GB5 are proved separations, so the support for treating this objective as the output of growth is the counterexamples. The result that would strengthen it is a locked comparison, on one system that qualifies, of expected currency against Kelly and against Lundberg (the sketches in `theory/GENERAL_FORM.md` §7 and GB7 **OPEN**; nothing is locked). The result that would break it is a selected design at the unsupported dent, or \(\arg\max\lambda\) different from the expected-cost argmin inside a slack cap. The published path already separates \(\tau_S\), \(\tau_G\), \(\tau_E\), and \(\tau_{\mathrm{cap}}\) in a model.
+1. **The objective itself** (term list, risk-neutral expected currency, linear nonnegative prices, half-space cap). The master equation, the stake-or-ratio theorems in §9.2, and the rules that minimize \(J\) use it. The price-free lines in §9.1 do not: the antitone front, existence, the information floors, CT8, CT25's buffer shape, and L3's \(E_K>E_\infty\). It is assumed. V2 and GB3 and GB5 are proved separations, so the support for treating this objective as the output of growth is the counterexamples. The result that would strengthen it is a locked comparison, on one system that qualifies, of expected currency against Kelly and against Lundberg (the sketches in `theory/GENERAL_FORM.md` §7 and GB7 **OPEN**; nothing is locked). The result that would break it is a selected design at the unsupported dent, or \(\arg\max\lambda\) different from the expected-cost argmin inside a slack cap. The published path already separates \(\tau_S\), \(\tau_G\), \(\tau_E\), and \(\tau_{\mathrm{cap}}\) in a model.
 
 2. **H3.** Lemma LY, the identified front, and any claim that selection refuses a dominated design hang on it. It is assumed. GB6 is **FALSE** for "from first principles." The result that would strengthen it is an offspring map, with the other bads held fixed, monotone in the preregistered coordinates. The result that would break it is a real map with the sign of LY-1.
 
@@ -292,7 +295,7 @@ Checked against `theory/NOVELTY_NOTE_2026-11-21.md`, THEORY §10, `litmap/PRIOR_
 - The Lyapunov comparison under H1–H3, the trichotomy, the split between a floor that mentions a slot and H3, and the false package sentence that a small-noise limit yields the master equation (`theory/GENERAL_FORM.md` §8; `theory/GROWTH_BRIDGE.md` §7). The geometry is textbook. The hostile reading that says so is accepted in the general-form note.
 - A price per layer and the ruin cap beside the causal rate-distortion program, still without a formula for the fewest layers that reach a given accuracy (`theory/SHANNON_2026-11-21.md` §0 and §7).
 
-**Dated list, not re-adjudicated here.** `litmap/PRIOR_ART.md` still lists, as pending targeted searches, the T3a threshold, the square-root evaporation rule, the temperature identity, geometric level counts, the Rosen–Still–lateness synthesis, and a multi-scale preregistered program. Later notes have credited pieces that list treated more generously: the quadratic excess is prior art (R1, v2.74 credit), and the safety-factor ratio is credited to inventory (CL4, CT25, THEORY §10). This note does not reopen those rows.
+**Dated list, not re-adjudicated here.** `litmap/PRIOR_ART.md` still lists, as pending targeted searches, the T3a threshold, the square-root evaporation rule, the temperature identity, geometric level counts, the Rosen–Still–lateness synthesis, and a multi-scale preregistered program. Later notes have credited pieces that list treated more generously: the quadratic excess is prior art (R1, v2.74 credit). THEORY §10 credits the ratio \(z\) to the inventory safety factor, and first passage to Black and Cox. CL4 is that first-passage formula, **PRIOR ART**, credited to Black and Cox, as is the passage in CT25. This note does not reopen those rows.
 
 ## Disagreements, left in place
 
@@ -304,7 +307,7 @@ THEORY governs where a note disagrees with it. This section records the clashes 
 
 3. **Ruin and convexity, two sentences that look opposed.** Shannon Theorem S3: \(P(\mathrm{ruin})\le\varepsilon\) does not give convexity of the restricted set, because ruin is not determined by the mean loss. GF3 (R-e) and V6: a coordinate cap \(\rho\le\varepsilon\) on a convex score set preserves convexity, and a chance constraint imposed on the design before scoring need not. The general-form note marks as **FALSE** the earlier claim that a plain cap breaks convexity of a convex score set. The two sentences are the two cases GF3 separates. They are not rewritten here into one sentence.
 
-4. **Persistence only.** A2-P: the Moran and Wright–Fisher theorems do not apply, and a persistence-only closeness result remains **open** (`theory/SELECTION_AXIOMS.md` §2; `theory/SCALE_ENDS.md` §3.4). GF1: under S-P the object is the viability kernel, which does not rank inside the viable set, and that classification is **PROVED (in-model)**. The open item is a closeness theorem. The proved item is that the kernel does not rank. Both stand. The diagram draws them as different nodes.
+4. **Persistence only.** A2-P: the Moran and Wright–Fisher theorems do not apply, and a persistence-only closeness result remains **open** (`theory/SELECTION_AXIOMS.md` §2; `theory/SCALE_ENDS.md` §6b). GF1: under S-P the object is the viability kernel, which does not rank inside the viable set, and that classification is **PROVED (in-model)**. The open item is a closeness theorem. The proved item is that the kernel does not rank. Both stand. The diagram draws them as different nodes.
 
 5. **The same letters are different axioms.** Selection A1, A2-L, A2-M, A2-P, and A3 (`theory/SELECTION_AXIOMS.md` §2) are not representation A1–A8 (`theory/REPRESENTATION.md` §1) and are not Appendix B's A1–A5. THEORY §4 already says the selection note's A1 and A2-L are not Appendix B's A1–A5. This chain uses the source name each time. H1–H3 are the copying hypotheses of `theory/GENERAL_FORM.md` §2. S-A is the read-price assumption of the Shannon note.
 
@@ -313,8 +316,8 @@ THEORY governs where a note disagrees with it. This section records the clashes 
    - CORE's `main` SHA is `5fa4b8c` (PR #168), in the header and at the close. The convexity line says N67 is proved for a weak third mode, and N68 stays open. N67 is **PROVED (in-model)**. N68 stays **OPEN**.
    - `theory/SELECTION_AXIOMS.md` header now says the THEORY §4 fold merged with PR #144. The body already states \(\beta=\alpha\nu\).
    - `theory/README.md` now says THEORY v2.9 draft states the core.
-   - The directions note now says PR #154 is merged (item 2).
-   - STATUS already pointed at `main` `5fa4b8c`.
+   - The directions note now says PR #154, PR #153, and PR #155 are merged (item 2, and the order-of-work line).
+   - This PR updates STATUS. At `origin/main` `5fa4b8c`, `STATUS.md` still says `main` is `2d9a812` (PR #165). The edit on this branch sets that pointer to `5fa4b8c` (PR #168).
 
    Left as written, because this pass did not rewrite them:
    - OPEN_WORK T11 still says draft PR #149 is not merged, and section T still says the Theorem P confirm is pending re-confirm.
