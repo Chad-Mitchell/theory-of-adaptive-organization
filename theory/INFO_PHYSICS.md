@@ -4,6 +4,8 @@
 
 Labels: **PROVED** (a proof is on this page, under the assumptions named with it), **PROVED (in-model)** (the same, inside a stated model; it says nothing by itself about nature), **PRIOR ART** (published, credited, not claimed here), **CONJECTURE**, **OPEN**. A lower bound is not a derivation of the cost.
 
+> **Dated correction, 22 November 2026.** The sentences that no coupling attains the Kalman rate at finite heat, in the opening answer, in §8a, and in §11, are superseded for an exogenous equilibrium OU signal when the loss is the mean squared error of an action of the current memory state. The record is `theory/INFO_PHYSICS_CORRECTION_2026-11-22.md`, and the replacement is `theory/INFO_PHYSICS_ATTAINABILITY.md`. The centered-spring calculations below, scored by the raw coordinate error \(\mathbb{E}[(M-X)^2]\), stand. The reviews of PR #175 remain correct for that family and that loss. The text of those sentences is kept.
+
 ## 0. The question, and the answer
 
 The master equation is
@@ -15,6 +17,8 @@ J=\kappa I_{\mathrm{mem}}+hK+w\,\mathbb{E}[\ell]+A+L\qquad\text{subject to}\quad
 Selection does not produce that list, the cap, or the linear prices. Lemma LY gives Pareto in a bad vector that is handed to it. The growth bridge keeps a variance penalty and still takes the term list as an input. The question here is whether the physics of a system that stores a model and acts on it forces the terms instead.
 
 **Answer.** The physical cost in these models is the medium heat of the memory's bath plus \(w\) times the loss. The information flow is a lower bound on that heat. The bound is tight on the telegraph's efficient frontier. It is not tight on the linear spring: there the heat floor and the top of the flow meet at \(kT\,av/\varepsilon\), while the flow's own lower envelope is the Kalman rate \(kT\,a(v-\varepsilon)/\varepsilon\), and the two differ by the constant \(kT\,a\). So \(kT\) times the flow is not, in general, the tangent of the physical frontier. Ruin and linking stay outside. The master equation is not this cost.
+
+*Pointer, 22 November 2026. The two sentences on the linear spring are the centered spring \(dM=-\lambda(M-X)\,dt\), scored by the raw coordinate error. For an exogenous equilibrium OU signal and a mean-squared decision loss they are superseded. Record: `theory/INFO_PHYSICS_CORRECTION_2026-11-22.md`. The reviews of PR #175 remain correct for this family and this loss.*
 
 What is forced, and what is not:
 
@@ -279,6 +283,8 @@ J_{\mathrm{phys}}=\dot Q+w\,\mathbb{E}[\ell],
 
 where \(\dot Q\) is the medium heat rate of the memory's bath. The information flow \(\dot I\) is a lower bound, \(\dot Q\ge kT\,\dot I\), not the price. The bound is tight on the telegraph frontier below. It is not tight on the linear spring. \(kT\,\dot I+w\,\mathbb{E}[\ell]\) is therefore not, in general, the tangent of the physical frontier. The physical tangent uses the heat.
 
+*Pointer, 22 November 2026. "Not tight on the linear spring" is the centered family at raw coordinate error. The decision-loss case is `theory/INFO_PHYSICS_CORRECTION_2026-11-22.md`.*
+
 **Condition 1, when the bound is tight.** The support function of the achievable set uses \(\dot Q\). It equals \(kT\,\dot I+wD\) only on the designs where \(\dot Q=kT\,\dot I\).
 
 *Telegraph (PROVED (in-model)).* At fixed error, \(\dot Q=kT\,\gamma(1-2\varepsilon)\ln\rho\) and \(\dot I=\gamma(1-2\varepsilon)\ln((1-\varepsilon)/\varepsilon)\), for every \(\rho>(1-\varepsilon)/\varepsilon\). The infimum of the heat is the flow, attained as the rates diverge at the minimal affinity. Every minimizer of \(\dot Q+w\varepsilon\), in that closure, sits on that boundary. A finite-speed design pays the excess \(kT\,\gamma(1-2\varepsilon)\ln(\rho/\rho_\star)\). Here the mean squared error fixes the flow, because the flow depends only on \(\varepsilon\) and \(\gamma\).
@@ -308,6 +314,8 @@ which is \(kT\,a\) with the temperature restored. At \(a=v=1\), \(\varepsilon=0.
 PD7 and `theory/INTERNAL_MODEL.md` already give the Kalman–Bucy rate. In these units, with noise intensity \(2av\) and relaxation \(a\), that rate is \(a(v-\varepsilon)/\varepsilon\). Nothing here reverses it.
 
 The constant \(kT\,a\) is the gap between those two envelopes. It is the extra heat this continuous linear coupling dissipates, in the cheap-heat limit, above the information rate of an optimal causal filter at the same error. It is independent of the error and it is not charged at the blind corner. It is not a universal upkeep, and it is not \(h\). Horowitz and Esposito bound a learning bath by \(kT\,\dot I\). They do not exhibit a coupling that attains the Kalman rate at finite heat equal to that bound. This note does not construct one either. Whether a nonlinear potential, or a different bath, closes the gap is **OPEN**. Bo, Del Giudice and Celani bound extra memory about the past by extra entropy production. They do not close it.
+
+*Pointer, 22 November 2026. Superseded for an exogenous equilibrium OU signal and a mean-squared decision loss: a rest point at \(cX\), and the conditional-mean readout of this centered coordinate, both attain the Kalman rate at finite heat. Record: `theory/INFO_PHYSICS_CORRECTION_2026-11-22.md`. The raw-error stake table below remains the table of that coordinate.*
 
 The heat objective and the flow objective, the latter using \(\inf\dot I=a(v-\varepsilon)/\varepsilon\), do not select the same design. The printed numbers are the heat objective. The flow objective is the other column.
 
@@ -359,6 +367,8 @@ What this note adds:
 
 **What is still assumed.** H3. The stake \(w\). Which implementation is in use, and therefore which point on a fixed-error curve is paid. That the memory's bath is the one that pays, outside the two models. Risk-neutral expected currency rather than growth (V2). Ruin and linking, until they are modeled. The master equation's coordinates. Whether any other coupling attains the Kalman rate at finite heat.
 
+*Pointer, 22 November 2026. The attainment sentence is superseded for the decision loss on this signal. The centered raw-error statements in this section stand. Record: `theory/INFO_PHYSICS_CORRECTION_2026-11-22.md`.*
+
 ## 9. Selection, and what is still assumed
 
 Physics cuts the feasible set. It says which \((\dot Q, D)\) cannot occur. Lemma LY, under H1–H3, puts a growth-maximizing lineage on the Pareto front of a bad vector that the lemma does not choose. GF2 already says a floor that mentions a slot does not make retention decrease in that slot. A dissipation floor is a floor. H3, the partial of offspring in that coordinate with the other coordinates held fixed, is still a budget assumption. GB6 stays **FALSE** for "from first principles."
@@ -392,7 +402,7 @@ The Gaussian mutual information \({\textstyle\frac12}\ln(C_{xx}C_{mm}/\det C)\) 
 ## 11. Open, and what was not proved
 
 - **IP7, OPEN.** Whether any system that qualifies under THEORY §3 has a binding ratio near 1, so that these floors rather than niche prices set the design. FRAMEWORK §3.11 and OPEN_WORK T10 already own that measurement. This row is not a preregistration and not a lock.
-- On the spring the error does not fix the flow. A vector loss that does not fix the heat is **OPEN.** Whether any coupling attains the Kalman rate at finite heat equal to \(kT\) times that rate is **OPEN.** The spring does not.
+- On the spring the error does not fix the flow. A vector loss that does not fix the heat is **OPEN.** Whether any coupling attains the Kalman rate at finite heat equal to \(kT\) times that rate is **OPEN.** The spring does not. *Pointer, 22 November 2026. The attainment sentence in this bullet is superseded for the decision loss. The spring sentence remains the centered spring at raw coordinate error. Record: `theory/INFO_PHYSICS_CORRECTION_2026-11-22.md`.*
 - Condition 4 past the additive case and the one sum-tracker comparison. **OPEN.**
 - A diffusion uncertainty relation as a per-layer price. The 2016 theorem is for jump processes. It is not applied to the spring.
 - The two-state family and the linear diffusion are the models. A general bipartite chain has the Horowitz–Esposito shape; the closed form is not claimed past the sensor, the sum-tracker, and the Gaussian.
