@@ -38,7 +38,7 @@ PALETTE = {
 # Pre-wrapped for a phone column.
 YIELDS = [
     ("LAYERS", "Per mode: one store for a paid scale, or none."),
-    ("SPREAD", "One shared memory when the decision is a sum."),
+    ("HOLOGRAPHIC", "Wins on combined signals; ties or loses per item."),
     ("BOUNDARY", "Gaussian field: the blanket suffices outside."),
     ("REBUILD", "Identical units can cost less under the cap."),
     ("ACTING", "Priced channel: only if the stake covers the probe."),
@@ -233,7 +233,7 @@ def main():
     ax.text(
         left + 0.22,
         y + cost_h - 0.40,
-        "OU, independent OU, telegraph",
+        "Any system that meets the axioms A1–A7",
         ha="left",
         va="top",
         fontsize=12,
@@ -270,10 +270,10 @@ def main():
     ax.text(
         left + 0.22,
         y + 0.24,
-        "THEORY still prints five terms. A different object.",
+        "The five-term master equation is a separate, fuller form.",
         ha="left",
         va="center",
-        fontsize=10,
+        fontsize=9.3,
         fontname="DejaVu Sans",
         color="#1C1C1C",
     )

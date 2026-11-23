@@ -55,7 +55,7 @@ For any system that meets A1–A7, on at least three essential interval coordina
 
 A bipartite memory's bath is bounded below by \(kT\) times the information flow of its own transitions, for bipartite chains and for additive-noise diffusions. On a menu that does not depend on the stake, for a cost \(S+wE\) with ruin slack or absent, judgment spend does not fall as the stake rises, and the error does not rise. A joint law that factorizes across a cut screens the two sides; the expected loss is a function of the blanket posterior only when the loss depends on the world through the exterior and the decision is a function of the screened side. An uncapped convex payoff has expectation at least the payoff of the mean; a cap can reverse that comparison. If the control enters the generator only as an additive drift \(b\,u\), and the martingale problem for the uncontrolled generator is unique, the process at \(b=0\) is the uncontrolled process.
 
-The closed forms (the memory-spread factor, the turnover rate, and the gains) are worked examples in clean classes. Whether real systems sit near the minimum is the open hypothesis.
+The closed forms (the holographic-memory factor, the turnover rate, and the gains) are worked examples in clean classes. Whether real systems sit near the minimum is the open hypothesis.
 
 ## 2. What the minimum spends the cost on
 
@@ -63,7 +63,7 @@ Five uses. Each is proved in its own class. One theorem that produces all five f
 
 **Layers.** A stack is the cheapest design when one store cannot reset every component. On the ladder above, the count has no free constant per layer. [`figures/face.png`](figures/face.png) draws, at each time scale, the cheapest of local, shared, both, or neither. Under the closed loop the conjecture is that the relevant reversion is \(a+bK\). That multi-rate plant is not solved.
 
-**Spread.** A shared memory costs less when the decision is a combination of items. It ties or costs more when every item is read on its own (`theory/HOLOGRAPHIC_MEMORY_2026-11-22.md`). At a fixed per-site error the heat scales with the volume. When the decision names a cut, the minimum heat scales with the cut: about \(13.61\) per cut site on the worked square lattice, against a lower bound of \(13\) (`theory/HOLOGRAPHIC_2026-11-22.md`). The encoding name adds no prediction the cost equation does not already make.
+**Holographic memory.** In the storage sense (many items in one shared state), a shared memory costs less when the decision is a combination of items, ties or costs more when every item is read on its own, and is beaten by an aligned readout when the decision is known (`theory/HOLOGRAPHIC_MEMORY_2026-11-22.md`). In the field sense, at a fixed per-site error the heat scales with the volume, and scales with a cut only when the decision names a cut: about \(13.61\) per cut site on the worked square lattice, against a lower bound of \(13\) (`theory/HOLOGRAPHIC_2026-11-22.md`). Holographic memory is not a separate assumption: the one cost equation predicts when it wins.
 
 **Boundary.** For a decision outside a region, the blanket is sufficient and the interior is not (`theory/BOUNDARY_SUFFICIENCY_2026-11-22.md`). On the path of three the exterior variance given the blanket differs from the variance given the region alone (\(3/5\) against \(1/2\)). The matching blanket channel costs at most the Schur trace more than the channel it matches. Screening needs a local precision and a Markov world. A continuous-time heat kernel is positive at every distance, so no finite shell screens.
 
