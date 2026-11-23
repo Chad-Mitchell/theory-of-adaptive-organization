@@ -1,0 +1,82 @@
+Crossref API resolutions, 23 November 2026, America/New_York.
+Queried https://api.crossref.org/works/{doi}. Every DOI listed below returned HTTP 200.
+
+doi 10.1111/j.1749-6632.1992.tb17083.x
+  1992 | Annals of the New York Academy of Sciences 655 349-364
+  Recent Thinking about the Nature of the Physical World: It from Bit
+  WHEELER, JOHN ARCHIBALD
+
+doi 10.1147/rd.53.0183
+  1961 | IBM Journal of Research and Development 5 183-191
+  Irreversibility and Heat Generation in the Computing Process
+  Landauer, R.
+
+doi 10.1147/rd.176.0525
+  1973 | IBM Journal of Research and Development 17 525-532
+  Logical Reversibility of Computation
+  Bennett, C. H.
+
+doi 10.1007/BF02084158
+  1982 | International Journal of Theoretical Physics 21 905-940
+  The thermodynamics of computation—a review
+  Bennett, Charles H.
+
+doi 10.1016/S1355-2198(03)00039-X
+  2003 | Studies in History and Philosophy of Science Part B: Studies in History and Philosophy of Modern Physics 34 501-510
+  Notes on Landauer's principle, reversible computation, and Maxwell's Demon
+  Bennett, Charles H.
+
+doi 10.1016/S0031-8914(40)90098-2
+  1940 | Physica 7 284-304
+  Brownian motion in a field of force and the diffusion model of chemical reactions
+  Kramers, H.A.
+
+doi 10.1073/pnas.71.10.4135
+  1974 | Proceedings of the National Academy of Sciences 71 4135-4139
+  Kinetic Proofreading: A New Mechanism for Reducing Errors in Biosynthetic Processes Requiring High Specificity
+  Hopfield, J. J.
+
+doi 10.1103/PhysRevLett.109.120604
+  2012 | Physical Review Letters 109
+  Thermodynamics of Prediction
+  Still, Susanne; Sivak, David A.; Bell, Anthony J.; Crooks, Gavin E.
+
+doi 10.1103/PhysRevLett.124.050601
+  2020 | Physical Review Letters 124
+  Thermodynamic Cost and Benefit of Memory
+  Still, Susanne
+
+doi 10.1103/PhysRevX.4.031015
+  2014 | Physical Review X 4
+  Thermodynamics with Continuous Information Flow
+  Horowitz, Jordan M.; Esposito, Massimiliano
+
+doi 10.1103/PhysRevX.7.021004
+  2017 | Physical Review X 7
+  Thermodynamics of Computational Copying in Biochemical Systems
+  Ouldridge, Thomas E.; Govern, Christopher C.; ten Wolde, Pieter Rein
+
+doi 10.1103/PhysRevLett.107.010604
+  2011 | Physical Review Letters 107
+  Exploring the Thermodynamic Limits of Computation in Integrated Systems: Magnetic Memory, Nanomagnetic Logic, and the Landauer Limit
+  Lambson, Brian; Carlton, David; Bokor, Jeffrey
+
+doi 10.1103/PhysRevResearch.2.033524
+  2020 | Physical Review Research 2
+  Balancing error and dissipation in computing
+  Riechers, Paul M.; Boyd, Alexander B.; Wimsatt, Gregory W.; Crutchfield, James P.
+
+doi 10.1103/PhysRevD.7.2333
+  1973 | Physical Review D 7 2333-2346
+  Black Holes and Entropy
+  Bekenstein, Jacob D.
+
+doi 10.1103/PhysRevD.23.287
+  1981 | Physical Review D 23 287-298
+  Universal upper bound on the entropy-to-energy ratio for bounded systems
+  Bekenstein, Jacob D.
+
+doi 10.1063/1.4818538
+  2013 | The Journal of Chemical Physics 139
+  Statistical physics of self-replication
+  England, Jeremy L.

@@ -1,0 +1,20 @@
+CHECK PASS telegraph_L_at_eps_0p2  code sanity; I_dot=0.831776616672 against 0.6 ln 4
+CHECK PASS mu_error_inverse  code sanity; mu=3.000000000000, eps_back=0.200000000000
+CHECK PASS destruction_rate_matches_L_transient  code sanity; transient destroy=(r+Gamma)L=0.789243480202, not the heat flow
+CHECK PASS I_derivative_finite_difference  code sanity; dI/deps num=-1.734601057235 anal=-1.734601055388
+CHECK PASS jp_heat_I_alt_equals_r_L  code sanity; I_alt=0.485688295509, r L=0.485688295509, gross (r+Gamma)L=0.789243480202
+CHECK PASS jp_heat_I_alt_vanishes_at_r_zero  code sanity; r=0 detailed-balance residual=0.000e+00, I_alt=0.000e+00
+CHECK PASS reduction_telegraph_Gamma_zero  re-test; kT r L(0.2) at r=1 matches IP3 worked value
+CHECK PASS one_time_write_landauer  code sanity; full bit=0.693147180560 nats, I(0.2)=0.192744757022 nats
+CHECK PASS irreversible_work_min_at_zero_barrier  code sanity; work at dE=0 is 0; at 1,2,5,10: 0.280728, 0.282402, 0.320214, 0.600272
+CHECK PASS heat_bound_independent_of_barrier  code sanity; chi=0 J at dE=0 and dE=8 both 0.649532985002
+CHECK PASS ou_kalman_rate_identity  code sanity; a(v-eps)/eps=3.000000000000 at a=v=1, eps=1/4
+CHECK PASS jp_heat_floor_vanishes_at_r_zero  code sanity; Phi(0.2)=r L is 0 at r=0 with Gamma=0.15; at r=0.4 it is 0.332711
+  joint min at r=0.001: eps=0.020, dE=0.0, J=0.04373615
+  joint min at r=0.01: eps=0.020, dE=0.0, J=0.07736147
+  joint min at r=0.1: eps=0.050, dE=0.0, J=0.36499951
+  joint min at r=1: eps=0.400, dE=0.0, J=0.88109302
+  joint min at r=10: eps=0.500, dE=0.0, J=1.00000000
+CHECK PASS numeric_minimum_zero_barrier  worked example; optimal (eps, dE) by r: (0.020, 0.0), (0.020, 0.0), (0.050, 0.0), (0.400, 0.0), (0.500, 0.0)
+FAILS 0
+ALL FREEZE-OR-HOLD-FLOOR CHECKS PASS
