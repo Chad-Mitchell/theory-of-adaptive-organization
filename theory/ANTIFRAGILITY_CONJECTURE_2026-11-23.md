@@ -52,6 +52,10 @@ This is a bet, not a result. The proved pieces in §2 do not jointly show that c
 
 The joining theorem that would tie both routes to acting on the world is **OPEN**. It is the synthesis already named as a conjecture in `theory/ACTING_LOOP_2026-11-22.md` §8, not a proof. If the conjecture holds, it would explain why systems that last look antifragile. That sentence is a consequence of the bet, not a measurement.
 
+### Closed loop with payoff (follow-up, 23 November 2026)
+
+`theory/ANTIFRAGILE_LOOP_2026-11-23.md` closes the loop with a payoff that depends on the action and the world (a self-check, not an independent review). In that class the bet holds conditionally: with a payoff convex in the world's state for every action (an owned option), a memory family closed under the world's amplitude, and a slack ruin cap or bounded downside, the minimized cost falls with amplitude and is convex in it (PROVED (in-model)). It does not hold for losses paid to stay correct (the level hurts), for convexity bought at prices that scale with volatility (neutral), for faster churn at fixed amplitude (the level hurts), or inside a window where the ruin cap binds on unbounded losses (NUMERICAL). The barbell is the optimum in form only at a hard cap. This section does not change the statement above.
+
 ## 4. What is not ready, and the next test
 
 No dated field prediction is ready. No system has been shown to qualify under THEORY §3, and a field test of the bet would need its own locked preregistration. Inventing a public field prediction here would break that rule.
@@ -66,4 +70,5 @@ The cheapest next test of the conjecture is in-model: score the spread of the mi
 - Closed loop and the joining conjecture: `theory/ACTING_LOOP_2026-11-22.md` (T46), especially §5 and §8.
 - Rebuild: `theory/antifragility_checks/RESULTS.md` (T43).
 - Barbell: `theory/DYNAMICS.md`.
+- Closed loop with payoff: `theory/ANTIFRAGILE_LOOP_2026-11-23.md`.
 - Open work: T50 in `OPEN_WORK.md`.

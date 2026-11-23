@@ -1,0 +1,75 @@
+S1 amplitude invariance of the cost of knowing (Theorem AF-scale)
+CHECK PASS S1 heat, learning rate, error fraction invariant gamma=2 s0=0.3  max rel spread 2.39808e-16
+CHECK PASS S1 heat >= kT x learning rate gamma=2 s0=0.3  Q=7.40741 I=1.42349
+CHECK PASS S1 heat, learning rate, error fraction invariant gamma=2 s0=1  max rel spread 1.66533e-16
+CHECK PASS S1 heat >= kT x learning rate gamma=2 s0=1  Q=0.666667 I=0.363636
+CHECK PASS S1 heat, learning rate, error fraction invariant gamma=20 s0=0.3  max rel spread 2.51823e-15
+CHECK PASS S1 heat >= kT x learning rate gamma=20 s0=0.3  Q=10.582 I=6.70129
+CHECK PASS S1 heat, learning rate, error fraction invariant gamma=20 s0=1  max rel spread 5.11813e-16
+CHECK PASS S1 heat >= kT x learning rate gamma=20 s0=1  Q=0.952381 I=0.867679
+CHECK PASS S1 heat, learning rate, error fraction invariant gamma=2000 s0=0.3  max rel spread 3.2184e-15
+CHECK PASS S1 heat >= kT x learning rate gamma=2000 s0=0.3  Q=11.1056 I=11.0387
+CHECK PASS S1 heat, learning rate, error fraction invariant gamma=2000 s0=1  max rel spread 4.44755e-16
+CHECK PASS S1 heat >= kT x learning rate gamma=2000 s0=1  Q=0.9995 I=0.998502
+CHECK PASS S1 fast spring attains floor a(theta/eps-1) sigma=1  heat 4 floor 4
+CHECK PASS S1 fast spring attains floor a(theta/eps-1) sigma=4  heat 4 floor 4
+S2 closed loop with a payoff convex in the world (Theorem AF-convex)
+CHECK PASS S2a bet class V*=(sqrt(beta theta)-sqrt(kappa))_+^2 matches direct maximization  max abs err 7.10543e-15
+CHECK PASS S2a bet class V* convex in theta  min 2nd diff 0
+CHECK PASS S2a bet class V* nondecreasing in theta  
+CHECK PASS S2a learning threshold theta_c=kappa/beta (=2kTa c/w)  theta_c 2; r* at theta=8: 0.5
+CHECK PASS S2a V* = full-information payoff - minimized tracking cost (T49 A4/A5 form)  theta=8: 1 = 4 - 3
+CHECK PASS S2b act-or-abstain V* convex in sigma (Gaussian spring family)  min 2nd diff 1.04447e-05
+CHECK PASS S2b act-or-abstain V* concave in theta at high volatility  max 2nd diff -9.42486e-05 on theta in [400,3600]
+CHECK PASS S2c 12 random convex menus: V* convex in sigma  min 2nd diff 0; max V* range 2.39911
+CHECK PASS S2c 12 random convex menus: V* nondecreasing in sigma  min diff 0
+CHECK PASS S2d two regimes sigma in {1,3}: E V*(sigma) > V*(E sigma)  E V* 0.62868 against V*(2) 0.171573; calm regime abstains (V*(1)=0)
+S3 pay-to-stay-correct losses (Theorem AF-homeostatic)
+CHECK PASS S3 squared error: J*=2 sqrt(kappa w theta)-kappa (w theta>=kappa)  err 8.88178e-16
+CHECK PASS S3 squared error: J* concave and increasing in theta (level loses, spread gains with redesign)  
+CHECK PASS S3 absolute error (degree 1): J* concave and increasing in sigma  max 2nd diff 4.44089e-16
+S4 rate of change at fixed amplitude (Theorem AF-rate)
+CHECK PASS S4 bet class V*(a) convex and nonincreasing in the world's rate a  
+CHECK PASS S4 V*(sigma,a) jointly convex where the memory learns  min det 0.00758252 over 95 points
+CHECK PASS S4 harvest per decorrelation time: V*(a)=a V*(1), linear in a (neutral in curvature)  V*(1)=1.25736
+S5 ruin cap in the bet class (Propositions AF-ruin)
+CHECK PASS S5a sign-error laws arcsin(sqrt r)/pi and arctan(1/k)/pi (Monte Carlo, seeded)  max abs dev 0.00158362
+CHECK PASS S5b precision threshold eta=0.05: r_eta=sin^2(pi eta), heat kappa cot^2(pi eta)  r_eta 0.0244717 heat 39.8635
+CHECK PASS S5b precision threshold eta=0.01: r_eta=sin^2(pi eta), heat kappa cot^2(pi eta)  r_eta 0.000986636 heat 1012.55
+CHECK PASS S5b coarse design r=0.5: gross payoff bounded by B(1-r)/q_r as sigma grows  gross 0.886583, 0.966582, 0.988365, bound 0.995799
+CHECK PASS S5c above sigma_hi the slack optimum meets the cap (eta=0.05)  sigma_hi 226.916, ruin at slack optimum 0.0442091
+CHECK PASS S5d B=1 eta=0.01: capped V* nondecreasing in sigma  V(1.6)=0.00696471 V(12)=2.92771
+CHECK PASS S5d B=1 eta=0.01: concave window under the binding cap  2nd diff < 0 at sigma in [2, 7.2]; V(7.6)=0.0503961 against slack 19.132
+CHECK PASS S5d B=1 eta=0.01: in the window a spread of sigma lowers the value (sigma in {2,4} against 3)  mean 0.0310365 against 0.0355171
+CHECK PASS S5d B=1 eta=0.01: switch to the precise branch is a convex kink  max 2nd diff 0.216015
+CHECK PASS S5d B=4 eta=0.01: capped V* nondecreasing in sigma  V(1.6)=0.0172583 V(12)=35.9314
+CHECK PASS S5d B=4 eta=0.01: cap binds yet V* stays convex on the grid  min 2nd diff 0.0698347
+CHECK PASS S5e stop-loss payoff (downside <= B): cap never binds, V* convex and nondecreasing in sigma  V*(0.5)=0 V*(4)=5.10173, min 2nd diff 0
+S6 barbell (Propositions AF-barbell)
+CHECK PASS S6a hard cap, linear stake: optimum is reserve plus at most one claim (200 random LPs)  
+CHECK PASS S6b claims priced at the prior: barbell value independent of sigma  E V_B 2.13826 at sigma 0.5..5
+  r=0.5 eta=0 share=0  E V_B=1.21908 E V_L=0 E max=1.21908 ratio=1.000  barbell keeps |m|/sd >= 0.123989
+  r=0.5 eta=0.0001 share=0  E V_B=1.21908 E V_L=0.07317 E max=1.21908 ratio=1.000  barbell keeps |m|/sd >= 0.123989
+  r=0.5 eta=0.001 share=0.196344  E V_B=1.21908 E V_L=0.109869 E max=1.21911 ratio=1.000  barbell keeps |m|/sd >= 0.371979
+  r=0.5 eta=0.01 share=0.380995  E V_B=1.21908 E V_L=0.209487 E max=1.22014 ratio=1.001  barbell keeps |m|/sd >= 0.620004
+  r=0.5 eta=0.05 share=0.953517  E V_B=1.21908 E V_L=0.370025 E max=1.32234 ratio=1.085  barbell keeps |m|/sd >= 2.11025
+  r=0.2 eta=0 share=0  E V_B=2.13826 E V_L=0 E max=2.13826 ratio=1.000  barbell keeps |m|/sd >= 0.123989
+  r=0.2 eta=0.0001 share=0.434985  E V_B=2.13826 E V_L=0.354764 E max=2.1581 ratio=1.009  barbell keeps |m|/sd >= 0.620004
+  r=0.2 eta=0.001 share=0.918436  E V_B=2.13826 E V_L=0.457359 E max=2.25248 ratio=1.053  barbell keeps |m|/sd >= 1.8615
+  r=0.2 eta=0.01 share=0.918436  E V_B=2.13826 E V_L=0.575501 E max=2.37062 ratio=1.109  barbell keeps |m|/sd >= 1.8615
+  r=0.2 eta=0.05 share=0.918436  E V_B=2.13826 E V_L=0.669747 E max=2.46487 ratio=1.153  barbell keeps |m|/sd >= 1.8615
+  r=0.05 eta=0 share=0  E V_B=3.47041 E V_L=0 E max=3.47041 ratio=1.000  barbell keeps |m|/sd >= 0.123989
+  r=0.05 eta=0.0001 share=0.918436  E V_B=3.47041 E V_L=0.712383 E max=3.79001 ratio=1.092  barbell keeps |m|/sd >= 1.8615
+  r=0.05 eta=0.001 share=0.918436  E V_B=3.47041 E V_L=0.7381 E max=3.81572 ratio=1.100  barbell keeps |m|/sd >= 1.8615
+  r=0.05 eta=0.01 share=0.918436  E V_B=3.47041 E V_L=0.767841 E max=3.84546 ratio=1.108  barbell keeps |m|/sd >= 1.8615
+  r=0.05 eta=0.05 share=0.918436  E V_B=3.47041 E V_L=0.775174 E max=3.8528 ratio=1.110  barbell keeps |m|/sd >= 1.8615
+CHECK PASS S6c eta=0: no linear exposure admissible (share 0 for every r)  
+CHECK PASS S6c eta=0.01: capped linear beats the best barbell in >25% of memory states for every r  shares 0.380995, 0.918436, 0.918436
+S7 text
+CHECK PASS S7 hypothesis sentence byte-identical in THEORY.md  
+CHECK PASS S7 hypothesis sentence byte-identical in the note  
+CHECK PASS S7 note wording (no banned words)  
+CHECK PASS S7 'law' appears only in the hypothesis sentence  0 other uses
+CHECKS 50
+FAILS 0
+ALL ANTIFRAGILE-LOOP CHECKS PASS

@@ -1,0 +1,28 @@
+Crossref API resolutions, 23 November 2026, America/New_York.
+Queried https://api.crossref.org/works/{doi}. OK means HTTP 200 and the expected title words.
+
+OK	10.1080/14697688.2013.800219	2013	Taleb; Douady	Mathematical definition, mapping, and detection of (anti)fragility	Quantitative Finance
+OK	10.3390/e17063724	2015	Geman; Geman; Taleb	Tail Risk Constraints and Maximum Entropy	Entropy
+OK	10.1016/0022-5193(66)90188-3	1966	Cohen	Optimizing reproduction in a randomly varying environment	Journal of Theoretical Biology
+OK	10.1016/0169-5347(89)90138-9	1989	Philippi; Seger	Hedging one's evolutionary bets, revisited	Trends in Ecology &amp; Evolution
+OK	10.1002/j.1538-7305.1956.tb03809.x	1956	Kelly	A New Interpretation of Information Rate	Bell System Technical Journal
+OK	10.1287/mnsc.38.11.1562	1992	MacLean; Ziemba; Blazenko	Growth Versus Security in Dynamic Investment Analysis	Management Science
+OK	10.2307/1907687	1961	Oi	The Desirability of Price Instability Under Perfect Competition	Econometrica
+OK	10.1016/0022-0531(72)90105-6	1972	Hartman	The effects of price and cost uncertainty on investment	Journal of Economic Theory
+OK	10.1016/0165-1889(84)90047-2	1984	Abel	The effects of uncertainty on investment and the expected long-run capital stock	Journal of Economic Dynamics and Control
+OK	10.2307/1884175	1986	McDonald; Siegel	The Value of Waiting to Invest	The Quarterly Journal of Economics
+OK	10.1515/9781400830176	1994	Dixit; Pindyck	Investment under Uncertainty	
+OK	10.1086/260062	1973	Black; Scholes	The Pricing of Options and Corporate Liabilities	Journal of Political Economy
+OK	10.2307/3003143	1973	Merton	Theory of Rational Option Pricing	The Bell Journal of Economics and Management Science
+OK	10.1088/0305-4470/14/11/006	1981	Benzi; Sutera; Vulpiani	The mechanism of stochastic resonance	Journal of Physics A: Mathematical and General
+OK	10.1103/RevModPhys.70.223	1998	Gammaitoni; Hänggi; Jung; Marchesoni	Stochastic resonance	Reviews of Modern Physics
+OK	10.1126/science.1114383	2005	Kussell; Leibler	Phenotypic Diversity, Population Growth, and Information in Fluctuating Environments	Science
+OK	10.1007/s10955-011-0166-2	2011	Rivoire; Leibler	The Value of Information for Populations in Varying Environments	Journal of Statistical Physics
+OK	10.1111/j.1600-0706.2009.17781.x	2010	Donaldson‐Matasci; Bergstrom; Lachmann	The fitness value of information	Oikos
+OK	10.1103/PhysRevLett.115.238102	2015	Kobayashi; Sughiyama	Fluctuation Relations of Fitness and Information in Population Dynamics	Physical Review Letters
+OK	10.1103/PhysRevE.96.012402	2017	Kobayashi; Sughiyama	Stochastic and information-thermodynamic structures of population dynamics in a fluctuating environment	Physical Review E
+OK	10.1088/1742-5468/2016/04/043403	2016	Vinkler; Permuter; Merhav	Analogy between gambling and measurement-based work extraction	Journal of Statistical Mechanics: Theory and Experiment
+OK	10.1103/PhysRevX.4.031015	2014	Horowitz; Esposito	Thermodynamics with Continuous Information Flow	Physical Review X
+OK	10.1103/PhysRevLett.109.120604	2012	Still; Sivak; Bell; Crooks	Thermodynamics of Prediction	Physical Review Letters
+OK	10.1063/1.4940236	2016	Peters; Gell-Mann	Evaluating gambles using dynamics	Chaos: An Interdisciplinary Journal of Nonlinear Science
+OK	10.1214/aoms/1177729032	1953	Blackwell	Equivalent Comparisons of Experiments	The Annals of Mathematical Statistics
