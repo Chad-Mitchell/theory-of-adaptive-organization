@@ -1,0 +1,86 @@
+== 1. Lemma Z: a carrier's two-sided barrier is at most its free rest energy
+PASS  min(I, 2m - I) <= m for every binding I in [0, 2m] (10^4 draws)
+PASS  for a level E_b in the gap the two-sided barrier is m - |E_b|, largest (= m) at the mid-gap zero mode
+== 2. Lemma P: rigidly translating a free composite costs no energy
+PASS  energy along the path of lattice translations is constant (barrier 0)
+== 3. fermion zero modes on a BPS-bounded monopole
+   Prasad-Sommerfield energy in units of 4 pi v/g: 1.00000000
+PASS  BPS monopole energy equals 4 pi v/g (Bogomolny bound saturated)
+   zero modes per unit charge, isospin 1/2, 1, 3/2, 2: [1.0, 2.0, 4.0, 6.0]
+PASS  Callias count per unit charge: 1 (isospinor), 2 (isovector), 4, 6
+   beta_unbind <= y g S_t/(4 pi): g = 0.65, y = 1: isospinor 0.0517, isovector 0.1035
+PASS  monopole bound at g = 0.65, y = 1 is 0.052 (isospinor) and 0.103 (isovector)
+== 4. fermion zero modes on a BPS-bounded string loop
+   BPS vortex n = 1: energy per length 6.28318 (2 pi n = 6.28319)
+PASS  BPS string tension equals 2 pi v^2 |n| for n = 1
+   BPS vortex n = 2: energy per length 12.56637 (2 pi n = 12.56637)
+PASS  BPS string tension equals 2 pi v^2 |n| for n = 2
+   per-record beta <= y^2/(4 pi^2) + y/(2 pi v L): y = 1, v L = 1e3: 0.02549
+PASS  string-loop bound at y = 1 is 0.0253 plus a 1/(vL) end term
+PASS  chiral modes below threshold on a loop number L m/(2 pi) + 1 at most
+== 5. electrons held by nuclei
+   nuclear mass per unit charge >= 929.48 MeV; beta <= 2 m_e/(m_p - 8.79 MeV) = 1.0995e-03
+PASS  Coulomb nuclear-trap bound, single atoms (N_c < 2z + 1): beta <= 1.10e-3
+   molecules (N_c < 2Z + K <= 3Z): beta <= 3 m_e/(m_p - 8.79 MeV) = 1.6493e-03
+PASS  Coulomb nuclear-trap bound, any molecule or solid: beta <= 1.65e-3
+   hydrogen: 13.6 eV / m_p = 1.450e-08
+PASS  hydrogen beta (trap charged) is 1.45e-8
+   U91+ point-nucleus Dirac 1s binding 132.3 keV, nucleus 221.7 GeV, beta = 5.967e-07
+PASS  U91+ 1s binding is 132 keV and beta is 6.0e-7
+PASS  every point-nucleus Dirac 1s binding (Z alpha <= 1) is below m_e c^2
+PASS  light Coulomb trap, nonrelativistic hydrogenic sketch: beta <~ n (Z alpha)^2 / 2 = alpha^2 = 5.3e-5 at Z = 1, n = 2
+== 6. fermion bag in mean field (classical sigma, one valence fermion, no Dirac sea)
+   MIT-bag lowest mode x = 2.0428
+PASS  bag-limit mode x = 2.0428 (j0 = j1)
+   sharp wall at R = 1 with outside mass 200: E = 2.0393 (bag limit x/R = 2.0428, approached from below)
+PASS  Dirac solver reproduces the bag limit from below
+   g =   10 (g^2/4pi =     8.0): trial soliton energy 7.144 sigma_v vs free fermion 10; beta_unbind >= 0.40
+   g =  100 (g^2/4pi =   795.8): trial soliton energy 11.815 sigma_v vs free fermion 100; beta_unbind >= 7.46
+   g = 1000 (g^2/4pi = 79577.5): trial soliton energy 21.655 sigma_v vs free fermion 1000; beta_unbind >= 45.18
+PASS  variational lower bounds on beta_unbind: >= 0.40 at g = 10, >= 7.46 at g = 100, >= 45.2 at g = 1000
+PASS  beta_unbind lower bound grows with the Yukawa coupling
+== 7. confinement by the region's own gravity (Newtonian sketch with the hoop input)
+   hoop: G M/(R c^2) <= 1/2, so the escape barrier per object G M m/R <= m c^2/2 and beta <= 1/2 (SKETCH; no check)
+== 8. A2 from relativistic stability of matter
+PASS  94 alpha = 0.68595 < 0.686
+   kappa_int = max(94 alpha, pi z alpha/2): 94 alpha = 0.6860, governs for z <= 59; covered z <= 87
+PASS  kappa_int = 0.686 for z <= 59; 1 - kappa_int = 0.314
+PASS  Lieb-Yau's condition covers nuclear charges up to z = 87
+PASS  at z = 87, 1 - kappa_int = 0.0027
+   cap at R = 1 m: free carriers g = 1: 5.856e+51; electrons (g = 2), z <= 59, Lieb-Yau: 1.660e+52 (factor 2.84)
+PASS  T65 cap at 1 m reproduced (5.86e51)
+PASS  electron cap with Lieb-Yau's kappa is 1.66e52 at 1 m (factor 2.84)
+== 9. method read-off
+   B* = 1.696 eV; least mass per record at B* in the nuclear-trap class: 1.03 keV
+PASS  B* = 1.70 eV; nuclear-trap mass floor per record B*/beta >= 1.03 keV
+== 10. note text
+PASS  hypothesis sentence present exactly once, byte-identical
+PASS  no 'theory of everything', 'solved', 'solves', or 'bill'
+PASS  no kill or verdict words
+PASS  note quotes 0.052
+PASS  note quotes 0.103
+PASS  note quotes 0.0253
+PASS  note quotes 1.10\times10^{-3}
+PASS  note quotes 1.45\times10^{-8}
+PASS  note quotes 6.0\times10^{-7}
+PASS  note quotes 132
+PASS  note quotes 5.3\times10^{-5}
+PASS  note quotes 2.0428
+PASS  note quotes 7.46
+PASS  note quotes 45.2
+PASS  note quotes 0.40
+PASS  note quotes 0.686
+PASS  note quotes 0.314
+PASS  note quotes 59
+PASS  note quotes 87
+PASS  note quotes 0.0027
+PASS  note quotes 1.66\times10^{52}
+PASS  note quotes 2.84
+PASS  note quotes 1.03
+PASS  note quotes 1.70
+PASS  note quotes 1.65\times10^{-3}
+PASS  every DOI cited in the note is in crossref.out (21 cited, 21 resolved)
+PASS  every DOI in crossref.out is cited in the note
+
+CHECKS 54  FAILS 0
+ALL TRANSPORT-BARRIER CHECKS PASS

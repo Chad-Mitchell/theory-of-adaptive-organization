@@ -1,0 +1,26 @@
+Crossref API resolutions, 23 November 2026, America/New_York.
+Queried https://api.crossref.org/works/{doi}. Every DOI listed below returned HTTP 200.
+Fields: DOI | first author | year | container | volume | page or article | title (as returned).
+Lieb 2004 (arXiv math-ph/0401004) and Bogomolny 1976 have no Crossref record and are not listed.
+---
+10.1103/PhysRevD.13.3398 | Jackiw | 1976 | Physical Review D | 13 | 3398-3409 | Solitons with fermion number ½
+10.1007/BF01202525 | Callias | 1978 | Communications in Mathematical Physics | 62 | 213-234 | Axial anomalies and index theorems on open spaces
+10.1016/0550-3213(74)90486-6 | Hooft | 1974 | Nuclear Physics B | 79 | 276-284 | Magnetic monopoles in unified gauge theories
+10.1103/PhysRevLett.35.760 | Prasad | 1975 | Physical Review Letters | 35 | 760-762 | Exact Classical Solution for the 't Hooft Monopole and the Julia-Zee Dyon
+10.1016/0550-3213(73)90350-7 | Nielsen | 1973 | Nuclear Physics B | 61 | 45-61 | Vortex-line models for dual strings
+10.1016/0550-3213(81)90044-4 | Jackiw | 1981 | Nuclear Physics B | 190 | 681-691 | Zero modes of the vortex-fermion system
+10.1103/PhysRevD.24.2669 | Weinberg | 1981 | Physical Review D | 24 | 2669-2673 | Index calculations for the fermion-vortex system
+10.1016/0550-3213(85)90022-7 | Witten | 1985 | Nuclear Physics B | 249 | 557-592 | Superconducting strings
+10.1016/0550-3213(89)90594-4 | Davis | 1989 | Nuclear Physics B | 323 | 209-224 | Cosmic vortons
+10.1103/PhysRevD.15.1694 | Friedberg | 1977 | Physical Review D | 15 | 1694-1711 | Fermion-field nontopological solitons
+10.1103/PhysRevD.11.1094 | Bardeen | 1975 | Physical Review D | 11 | 1094-1136 | Heavy quarks and strong binding: A field theory of hadron structure
+10.1103/PhysRevD.9.3471 | Chodos | 1974 | Physical Review D | 9 | 3471-3495 | New extended model of hadrons
+10.1103/PhysRevA.29.3018 | Lieb | 1984 | Physical Review A | 29 | 3018-3028 | Bound on the maximum negative ionization of atoms and molecules
+10.1063/1.1705209 | Dyson | 1967 | Journal of Mathematical Physics | 8 | 423-434 | Stability of Matter. I
+10.1063/1.1664631 | Lenard | 1968 | Journal of Mathematical Physics | 9 | 698-711 | Stability of Matter. II
+10.1103/PhysRevLett.35.687 | Lieb | 1975 | Physical Review Letters | 35 | 687-689 | Bound for the Kinetic Energy of Fermions Which Proves the Stability of Matter
+10.1007/BF01218577 | Lieb | 1988 | Communications in Mathematical Physics | 118 | 177-213 | The stability and instability of relativistic matter
+10.1103/PhysRevLett.75.985 | Lieb | 1995 | Physical Review Letters | 75 | 985-989 | Stability of Matter in Magnetic Fields
+10.1007/BF01217684 | Lieb | 1987 | Communications in Mathematical Physics | 112 | 147-174 | The Chandrasekhar theory of stellar collapse as the limit of quantum mechanics
+10.1103/PhysRevLett.82.4971 | Cohen | 1999 | Physical Review Letters | 82 | 4971-4974 | Effective Field Theory, Black Holes, and the Cosmological Constant
+10.1088/1674-1137/abddaf | Wang | 2021 | Chinese Physics C | 45 | 030003 | The AME 2020 atomic mass evaluation (II). Tables, graphs and references*
