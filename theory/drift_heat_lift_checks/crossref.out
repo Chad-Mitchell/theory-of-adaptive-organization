@@ -1,0 +1,37 @@
+Crossref API resolutions, 23 November 2026, America/New_York.
+Queried https://api.crossref.org/works/{doi}. Every DOI listed below returned HTTP 200.
+
+doi 10.1103/PhysRevX.4.031015
+  2014 | Physical Review X 4 031015
+  Thermodynamics with Continuous Information Flow
+  Horowitz, Jordan M.; Esposito, Massimiliano
+
+doi 10.1088/1367-2630/16/10/103024
+  2014 | New Journal of Physics 16 103024
+  Efficiency of cellular information processing
+  Barato, Andre C; Hartich, David; Seifert, Udo
+
+doi 10.1109/ALLERTON.2014.7028503
+  2014 | 2014 52nd Annual Allerton Conference on Communication, Control, and Computing (Allerton) 550-555
+  Thermodynamic costs in implementing Kalman-Bucy filters
+  Sandberg, Henrik; Delvenne, Jean-Charles; Newton, Nigel J.; Mitter, Sanjoy K.
+
+doi 10.1103/PhysRevE.93.022116
+  2016 | Physical Review E 93 022116
+  Sensory capacity: An information theoretical measure of the performance of a sensor
+  Hartich, David; Barato, Andre C.; Seifert, Udo
+
+doi 10.1137/0119020
+  1970 | SIAM Journal on Applied Mathematics 19 215-220
+  On the Calculation of Mutual Information
+  Duncan, Tyrone E.
+
+doi 10.1109/TAC.2004.834430
+  2004 | IEEE Transactions on Automatic Control 49 1549-1561
+  Stochastic Linear Control Over a Communication Channel
+  Tatikonda, Sekhar; Sahai, Anant; Mitter, Sanjoy
+
+doi 10.1109/TAC.2019.2912256
+  2019 | IEEE Transactions on Automatic Control 64 4525-4540
+  Rate-Cost Tradeoffs in Control
+  Kostina, Victoria; Hassibi, Babak
