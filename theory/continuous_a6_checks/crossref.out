@@ -1,0 +1,15 @@
+Crossref API, 23 November 2026, America/New_York. User-Agent gtao-continuous-a6/1.0.
+Queried https://api.crossref.org/works/{doi}. A line is HTTP 200 only when the work record loaded.
+
+HTTP 200 | 10.1090/trans2/012/09 | 1959 | American Mathematical Society Translations: Series 2 Eleven Papers on Analysis, Probability and Topology | pp 199-246 | Gel′fand I. M. and Yaglom | Calculation of the amount of information about a random function contained in another such function | ISBN=['9780821817124', '9781470432232']
+HTTP 200 | 10.1090/trans2/033/11 | 1963 | American Mathematical Society Translations: Series 2 Eleven Papers on Differential Equations, Two on Information Theory | pp 323-438 | Dobrušin R. L. | General formulation of Shannon’s main theorem in information theory | ISBN=['9780821817339', '9781470432447']
+HTTP 200 | 10.1137/1105003 | 1960 | Theory of Probability &amp; Its Applications | pp 25-32 | Dobrushin R. L. | Passage to the Limit under the Information and Entropy Signs | ISBN=None
+HTTP 200 | 10.1109/tit.1956.1056823 | 1956 | IRE Transactions on Information Theory | pp 102-108 | Kolmogorov A. | On the Shannon theory of information transmission in the case of continuous signals | ISBN=None
+HTTP 200 | 10.1090/trans2/033/10 | 1963 | American Mathematical Society Translations: Series 2 Eleven Papers on Differential Equations, Two on Information Theory | pp 291-321 | Kolmogorov A. N. | Theory of transmission of information | ISBN=['9780821817339', '9781470432447']
+HTTP 200 | 10.1002/047174882x | 2005 |  | pp None | Cover Thomas M.; Thomas Joy A. | Elements of Information Theory | ISBN=['9780471241959', '9780471748823']
+HTTP 200 | 10.1007/978-1-4419-7970-4 | 2011 |  | pp None | Gray Robert M. | Entropy and Information Theory | ISBN=['9781441979698', '9781441979704']
+HTTP 200 | 10.2307/1426210 | 1974 | Advances in Applied Probability | pp 131-146 | Aczél J.; Forte B.; Ng C. T. | Why the Shannon and Hartley entropies are ‘natural’ | ISBN=None
+HTTP 200 | 10.3390/e10030261 | 2008 | Entropy | pp 261-273 | Csiszár Imre | Axiomatic Characterizations of Information Measures | ISBN=None
+
+Pinsker, M. S. 1964. Information and Information Stability of Random Variables and Processes. Holden-Day, San Francisco. Translated and edited by Amiel Feinstein from the 1960 Russian monograph. Crossref has no work record for the book itself (no DOI, and the 1964 edition predates ISBN). Cited from the title page, not from a DOI.
+
