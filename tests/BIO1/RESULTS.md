@@ -1,7 +1,7 @@
 # BIO1 results: A Theory of Adaptive Organization at biological scales
 
 Saturday 2026-11-14 (ET). Predictions were fixed first in `PREDICTIONS.md`
-(sha256 `9f846e5f…2db31`, git commit `9b6b6c4`, 22:24 ET), before any numbers below were extracted.
+(sha256 `9f846e5f…2db31`, `tests/BIO1/history.bundle` commit 9b6b6c4, 22:24 ET), before any numbers below were extracted.
 Every number here was read from a fetched paper, abstract or full text; local copies or extracts are in
 `sources/`. Literature test, not a blind experiment: the author knew several of these papers in outline
 beforehand (stated in PREDICTIONS.md).

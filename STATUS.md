@@ -1,6 +1,6 @@
 # STATUS (current pointer; rewritten, not appended)
 
-**As of:** Sunday 22 November 2026, late evening (America/New_York): `THEORY.md` v2.9 draft and `measurement/CLAIM_MAP_v2.md` v2.88. `main` is `c7b4b7c` (PR #215, the repository sweep that rewrote `README.md`, `CORE.md`, and this page), before the C7 neutral-wording and review-fix PR. The previous text of this page, with the merge-by-merge record through PR #213, is `history/2026-11-22_STATUS_before_sweep.md`. Run `python3 tools/brief.py` for the live HEAD and open PRs.
+**As of:** Sunday 22 November 2026, late evening (America/New_York): `THEORY.md` v2.9 draft and `measurement/CLAIM_MAP_v2.md` v2.88. `main` is `909c339` (PR #216, C7 neutral refutation wording and PR #215 review fixes), before this repository-health PR. The previous text of this page, with the merge-by-merge record through PR #213, is `history/2026-11-22_STATUS_before_sweep.md`. Run `python3 tools/brief.py` for the live HEAD and open PRs.
 
 ## Where the theory stands
 
@@ -21,7 +21,7 @@ IP5, the claim that the master equation is the physical frontier, is FALSE (CLAI
 
 **Real data.** No field result is a test of the hypothesis. Every scored field row in CLAIM_MAP is NOT A TEST (30 rows; qualification not established; 10 passed on proxy and 20 failed on proxy) or INCONCLUSIVE (the CAISO stakes rows N21–N22, the *E. coli* rows N24, P6, P14 and P15, and GRID-DX P24). DIR1, the price-free directional test on the published record (`tests/DIR1/`, OPEN_WORK W16), was INCONCLUSIVE. No real system has been shown to sit at the minimum. Stakes \(w\) and a tracked world's drift spectrum have never been measured validly.
 
-**Next, in order** (`OPEN_WORK.md` §3): the continuous-information proof of the A6 extension (T48); non-Gaussian closed forms (T49); the decisive real-data test, qualified before scoring, preregistered and hash-locked; then the open puzzles. Every review so far, hostile review and blind confirm alike, was done by agents of the same bot family. No human expert has read the theory.
+**Next, in order** (`OPEN_WORK.md` §3): the continuous-information proof of the A6 extension (T48); non-Gaussian closed forms (T49), then the open Kalman–Bucy minimum-power factor-of-2 question (Sandberg et al. 2014, doi 10.1109/allerton.2014.7028503); the decisive real-data test, qualified, preregistered, and hash-locked; then the open puzzles. Every review so far, hostile review and blind confirm alike, was done by agents of the same bot family. No human expert has read the theory.
 
 ## Canonical files
 - `CORE.md` — the theory on one page: one cost, five yields. The predictive keystone (N60) is scoped in `core/KEYSTONE_NOTE.md`.

@@ -12,7 +12,7 @@ The sentence is unchanged. A wording that would name the currency is parked in O
 
 Read on this branch's base: `theory/DERIVATION_CHAIN.md`, `CORE.md`, `theory/GENERAL_FORM.md`, `theory/GROWTH_BRIDGE.md`, `theory/DYNAMICS.md` (CT42, CT43), `theory/LAYER_CONVEXITY.md`, `measurement/FRAMEWORK.md` §9, `theory/SCALE_ENDS.md` §3.4, and `reviews/lock_2026-11-18/PROCESS.md` (P10: the bottleneck is measurement, not mathematics). `THEORY.md` §9 says "any E. coli test must name its objective first."
 
-`theory/FRONTIER_REREAD_2026-11-22.md` was read on `frontier-reread-2026-11-22` (commit `8f34f53`) and is not on this `main`. `reviews/prereg_interiority_2026-11-22/REVIEW.md` is on `main` as PR #172. It found the mouse-cortex read-floor comparison not informative. This note does not reopen that deposit. GF5 already says an antitone cloud is not a test of the general form.
+theory/FRONTIER_REREAD_2026-11-22.md was read on `frontier-reread-2026-11-22` (commit `8f34f53`) and is not on `main`. `reviews/prereg_interiority_2026-11-22/REVIEW.md` is on `main` as PR #172. It found the mouse-cortex read-floor comparison not informative. This note does not reopen that deposit. GF5 already says an antitone cloud is not a test of the general form.
 
 The question, fixed before the first draft. Does any public dataset, or a feasible experiment that needs no account, support a comparison that
 

@@ -2,7 +2,7 @@
 
 *Sunday 22 November 2026, America/New_York. Branch `growth-bridge-2026-11-22`. Written by one executor for Chad Mitchell. A self-check, not an independent review. It does not edit a locked preregistration, a hash, or a LOCK file. It does not change the Part 2 hypothesis sentence. THEORY.md remains the canonical statement. The equation there stays the statement of the problem.*
 
-*The general form is on `main` (PR #161, merged; confirm PR #164). The independent review of that note is PR #163. This note starts from Lemma LY as merged. Revised after the READY-WITH-FIXES review of draft PR #166 (PR #167, `reviews/growth_bridge_2026-11-22/REVIEW.md` on `review-pr166-2026-11-22`). The repairs below are a self-check of those fixes, not an independent review of the repair.*
+*The general form is on `main` (PR #161, merged; confirm PR #164). The independent review of that note is PR #163. This note starts from Lemma LY as merged. Revised after the READY-WITH-FIXES review of draft PR #166 (PR #167, reviews/growth_bridge_2026-11-22/REVIEW.md on branch `review-pr166-2026-11-22`; confirm review in `reviews/CONFIRM_PR166.md`). The repairs below are a self-check of those fixes, not an independent review of the repair.*
 
 ## 0. The result, in one statement
 
