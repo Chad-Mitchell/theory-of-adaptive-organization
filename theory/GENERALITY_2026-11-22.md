@@ -1,6 +1,6 @@
 # How general the results are
 
-*Monday 23 November 2026. An audit of the proofs on `main`, including the acting-derivation note merged with PR #203. This note does not edit `THEORY.md`. The master equation is unchanged. The hypothesis sentence is unchanged:*
+*Sunday 22 November 2026, evening (America/New_York; 23 November UTC). An audit of the proofs on `main`, including the acting-derivation note merged with PR #203. This note does not edit `THEORY.md`. The master equation is unchanged. The hypothesis sentence is unchanged:*
 
 The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.
 
@@ -8,7 +8,7 @@ The law of adaptive organization (hypothesis): strongly selected systems minimiz
 
 Labels: **(A)** the published proof, or the proof already in this repository, uses no Gaussian, linear, Ornstein–Uhlenbeck, or telegraph assumption. **(B)** a short proof is on this page, and it likewise uses none of those assumptions. **(C)** a named step uses one of those assumptions, and the closed form does not survive its removal. A lower bound is not a derivation of the cost.
 
-Checks: `theory/generality_checks/generality_checks.py`, run at `nice -n 19`. DOIs resolved on the Crossref API on 23 November 2026 are listed in `theory/generality_checks/crossref.out`.
+Checks: `theory/generality_checks/generality_checks.py`, run at `nice -n 19`. DOIs resolved on the Crossref API on 22 November 2026 ET (23 November UTC) are listed in `theory/generality_checks/crossref.out`.
 
 ## 0. What the five questions come to
 
@@ -208,7 +208,7 @@ where \(\partial_x\) acts only on the world coordinate and \(u\) is a measurable
 
 \(G_0\) may be a cubic drift, \(-x^3\partial_x+D\partial_{xx}\), or a three-state rate matrix. The check's birth-death chain for the potential \(x^4/4-b\,u\,x\) has the same stationary distribution at \(b=0\) for \(u=0\) and for \(u=5\), and the mean moves from \(0\) to \(0.622433\) at \(b=1\), \(u=1\). The controlled three-state chain has the same world marginal at \(b=0\) for two memory speeds, and those marginals differ when \(b=1\).
 
-The proposition stops at the law. It does not produce a sum of five prices. That sum is Theorem R1, under A1–A7, and it is not a consequence of a generator. If the control enters inside a diffusion coefficient, or as a nonlinear function of \(u\) with no separate coefficient \(b\), the hypothesis of Proposition GN-zero is false and the conclusion is not claimed.
+The proposition stops at the law. It does not produce a sum of prices. An additive priced sum is Theorem R1, under A1–A7, and it is not a consequence of a generator. R1 does not choose the coordinate list of the THEORY §3 display. On a given list it leaves the prices unsigned without A8, and it does not cover \(hK\) without an extra separability assumption. If the control enters inside a diffusion coefficient, or as a nonlinear function of \(u\) with no separate coefficient \(b\), the hypothesis of Proposition GN-zero is false and the conclusion is not claimed.
 
 On `main`, Corollary LG and Corollary LG-K evaluate the bath rates by the Lyapunov equation of a linear diffusion. That evaluation is (C). The ordering of two gains on a cubic plant is a conjecture there. Proposition GN-zero does not resolve that conjecture. Recording the class is not an adoption into `THEORY.md`.
 
@@ -271,6 +271,8 @@ A row is one named result. "(A)" means the proof of that statement does not use 
 
 ### 2.4 CORE.md and FRAMEWORK.md
 
+*Dated note (sweep, 22 November 2026): this table audits `CORE.md` as it stood before the front-page rewrite of PR #206, now `history/2026-11-22_CORE_before_front.md`; "CORE §5" below is that file's section. The current `CORE.md` prints the heat-plus-stake cost and the five-term sum of THEORY §3 as different objects.*
+
 | Result | Class | Assumptions | Class-specific step |
 |---|---|---|---|
 | CORE, the cost display | A as a definition | Same object as THEORY §3 | None |
@@ -329,7 +331,7 @@ For every system that meets A1–A7, on at least three essential interval coordi
 
 ## 5. References
 
-Resolved on the Crossref API, 23 November 2026. The record is `theory/generality_checks/crossref.out`.
+Resolved on the Crossref API, 22 November 2026 ET (23 November UTC). The record is `theory/generality_checks/crossref.out`.
 
 - Horowitz, J. M. and Esposito, M. 2014. Thermodynamics with Continuous Information Flow. *Phys. Rev. X* 4:031015. doi 10.1103/PhysRevX.4.031015.
 - Barato, A. C., Hartich, D. and Seifert, U. 2014. Efficiency of cellular information processing. *New J. Phys.* 16:103024. doi 10.1088/1367-2630/16/10/103024.

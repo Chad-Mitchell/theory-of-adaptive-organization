@@ -242,3 +242,10 @@ def test_unbackticked_current_to_main_is_a_pointer():
     hits = list(brief.pointer_hits("domain is deadbeef. `main` is `2c32ade`."))
     assert len(hits) == 1 and hits[0][0] == "2c32ade"
 
+
+
+def test_pr_number_covers_merge_handwritten_and_squash_subjects():
+    assert brief.pr_number("Merge pull request #183 from Chad-Mitchell/x") == 183
+    assert brief.pr_number("Merge PR #206: front-page rewrite (reviewed #207)") == 206
+    assert brief.pr_number("Update STATUS main pointer for PRs #210-#212 (#213)") == 213
+    assert brief.pr_number("Point STATUS at the #209 pointer and record the #206 merge") is None

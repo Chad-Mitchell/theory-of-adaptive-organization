@@ -121,14 +121,61 @@ def last_merges(root, ref, n):
     return out
 
 
+PR_SUBJECT_RES = (
+    re.compile(r"^Merge pull request #(\d+)\b"),
+    re.compile(r"^Merge PR #(\d+)\b"),
+    re.compile(r"\(#(\d+)\)\s*$"),
+)
+
+
+def pr_number(subject):
+    """PR number from a merge or squash-merge subject, or None."""
+    for rx in PR_SUBJECT_RES:
+        m = rx.search(subject)
+        if m:
+            return int(m.group(1))
+    return None
+
+
 def last_merged_prs(root, ref, n=10):
-    """Last n first-parent merges that look like GitHub PR merges."""
+    """Last n first-parent commits that land a GitHub PR, newest first.
+
+    Covers GitHub merge commits ("Merge pull request #N"), hand-written
+    merges ("Merge PR #N: ..."), and squash merges ("... (#N)").
+    """
+    r = git(
+        root,
+        "log",
+        "--first-parent",
+        "-n",
+        str(max(n * 5, n)),
+        "--format=%H%x00%cI%x00%s%x00%b%x1e",
+        ref,
+    )
     found = []
-    # Pull a wider window so non-PR merges can be skipped.
-    for item in last_merges(root, ref, max(n * 3, n)):
-        if item["number"] is None:
+    for rec in r.stdout.split("\x1e"):
+        rec = rec.strip()
+        if not rec:
             continue
-        found.append(item)
+        parts = rec.split("\x00", 3)
+        if len(parts) < 3:
+            continue
+        sha, iso, subject = parts[0], parts[1], parts[2]
+        body = parts[3] if len(parts) > 3 else ""
+        num = pr_number(subject)
+        if num is None:
+            continue
+        if subject.startswith("Merge pull request #"):
+            title = next((ln.strip() for ln in body.splitlines() if ln.strip()), subject)
+        else:
+            title = subject
+        found.append({
+            "sha": sha,
+            "date": parse_git_date(iso),
+            "subject": subject,
+            "title": title,
+            "number": num,
+        })
         if len(found) >= n:
             break
     return found

@@ -67,6 +67,8 @@ Hypotheses are part of the claim.  A finite nonempty design set, and a
 stake-independent menu (ruin slack or absent), are standing hypotheses
 wherever `FiniteDesignMenu` is used.
 
+"CORE §" numbers below refer to earlier versions of the one-pager, kept in `history/` (`2026-11-21_CORE_before_onepage.md`, `2026-11-21_CORE_before_shannon.md`, `2026-11-22_CORE_before_front.md`). The current `CORE.md` was rewritten on 22 November 2026 and has different section numbers.
+
 | Lean name | THEORY / source | What is assumed | What is proved |
 |---|---|---|---|
 | `FiniteDesignMenu.J` | CORE §1, THEORY §3 | Finite menu; `J = S + w E`; ruin slack or absent, so the menu does not depend on `w` | Definition of the split cost |
