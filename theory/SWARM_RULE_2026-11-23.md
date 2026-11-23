@@ -143,7 +143,7 @@ with \(D_i^{\text{enf}}\) or \(D_i^{\text{ch}}\) for the kind of tamper on offer
 - **Levels and transitions:** Maynard Smith & Szathmáry, *The Major Transitions in Evolution*, 1995. Fission–fusion societies: Aureli et al. 2008, doi [10.1086/586708](https://doi.org/10.1086/586708).
 - **Re-forming band:** Dixit 1991 (via CL19). Stale readings that change too fast are not worth refreshing: Cho & Garcia-Molina 2003, doi [10.1145/958942.958945](https://doi.org/10.1145/958942.958945), the crawler form of the churn cliff.
 
-**New, as far as found** (several targeted searches; not exhaustive): the stay condition \(\lambda s c<w\Phi\) with a part's net cost share; the five multiplying levers with the alignment rule \(s=w/W\); the churn cliff stated for parts following a whole; tampering priced as one more action, with zero gain under stake-proportional shares and a channel tamper that costs the signal's worth; and the one life cycle that ties join, stay, leave, align, reintegrate, re-form, and remove or reprice to proved results in one cost.
+**New, as far as found** (several targeted searches; not exhaustive): the stay condition \(\lambda s c<w\Phi\) with a part's net cost share; the five multiplying levers with the alignment rule \(s=w/W\); the churn cliff stated for parts following a whole; tampering priced as one more action, with zero gain under stake-proportional shares of the full stay-versus-leave cost and a channel tamper that costs the signal's worth; and the one life cycle that ties join, stay, leave, align, reintegrate, re-form, and remove or reprice to proved results in one cost.
 
 ## 9. Not covered
 
