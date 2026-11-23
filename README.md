@@ -39,7 +39,7 @@ In the worked class (equilibrium Ornstein–Uhlenbeck signals or the two-state t
 - **Layers.** On a ladder of time scales, each scale past the threshold gets a store, and the count follows from the stake with no free constant per layer.
 - **Holographic memory.** When a decision combines many items, one shared memory is cheaper than separate copies; when each item is read on its own, it is not (`theory/HOLOGRAPHIC_MEMORY_2026-11-22.md`).
 - **Boundary.** For a decision outside a region, the boundary is sufficient and the interior adds nothing (`theory/BOUNDARY_SUFFICIENCY_2026-11-22.md`).
-- **Rebuild and gaining from shocks.** Under the ruin cap, replacing identical units can lower the long-run cost, and a probe can make the minimized cost fall as volatility rises (`theory/antifragility_checks/RESULTS.md`, `theory/ACTING_MEMORY_2026-11-22.md`).
+- **Rebuild and gaining from shocks.** The cost predicts when a system gains from disorder and when it does not. Under the ruin cap, replacing identical units can lower the long-run cost. In an open-loop probe class the minimized sign cost can fall as volatility rises, while a spread of that same cost raises it (`theory/antifragility_checks/RESULTS.md`, `theory/ACTING_MEMORY_2026-11-22.md`, `theory/ANTIFRAGILITY_CONJECTURE_2026-11-23.md`).
 - **Acting.** Closed-loop control beats sensing alone when the channel is free. Once its heat and probe are charged, it loses at unit stake and wins by a small margin at stake 4 (`theory/ACTING_LOOP_2026-11-22.md`).
 
 ## Where this is going
@@ -48,7 +48,7 @@ In the worked class (equilibrium Ornstein–Uhlenbeck signals or the two-state t
 2. **The method is general.** Write the cost, find its minimum, read off the design. No single closed-form design exists for every system, any more than thermodynamics has one engine for every job; each class gets its own exact answer, and a team's minimized cost folds exactly into its parent's problem, so the method nests (`THEORY.md` CT34).
 3. **The floor spreads class by class.** The heat floor is proved for bipartite chains and additive-noise diffusions. Beyond those classes it is open. A draft awaiting re-confirmation gives an information-flow bound for linear drifting worlds (`theory/THEOREM_P_DRIFT.md`). Next in the work list are the continuous-information A6 extension (T48), non-Gaussian closed forms (T49), and the open Kalman–Bucy factor-of-2 question. The goal is a floor for every adaptive system.
 4. **Selection finds the minimum where no closed form exists.** A search scored by the cost, natural selection or an evolutionary algorithm, settles near the minimum; near a quadratic minimum the predicted excess is \(d/(2\beta)\), which shrinks as selection strengthens (`core/bridge_2026-11-21/BRIDGE.md`). That holds only under three conditions, each with a counterexample in our own runs: strong selection, a minimum the search can reach, and a cost that includes everything that matters (`CORE.md` §5).
-5. **Antifragility.** Gaining from shocks is convexity, and the cost says when that gain is worth buying.
+5. **Antifragility.** The cost predicts when a system gains from disorder and when it does not (`theory/ANTIFRAGILITY_CONJECTURE_2026-11-23.md`). The option and learning routes are proved in their own classes; a general gain from closing the loop is an open theorem.
 6. **The real-world test.** Qualify a strongly selected system, preregister the prediction, and measure.
 
 ## Where the evidence stands
