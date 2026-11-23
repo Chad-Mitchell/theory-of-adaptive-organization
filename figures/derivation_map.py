@@ -45,8 +45,8 @@ YIELDS = [
 ]
 
 GENERAL_LINES = [
-    "A1–A7: an additive price sum; finite-law Shannon information.",
-    "Gaussian differential case: a named extension.",
+    "A1–A7: an additive price sum; GYD mutual information.",
+    "Finite-law and differential MI agree when I is finite.",
     "Heat floor: bath ≥ kT × its own information flow",
     "(bipartite chains; additive-noise diffusions).",
     "Stake monotonicity, stake-independent menu, ruin slack.",
