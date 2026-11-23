@@ -41,24 +41,26 @@ At least three instances were caught on 20–22 November 2026: the information b
 
 For separate items that drift, the cost of judgment specializes to a sum over items. For each item \(i\), let \(h_i\in\{0,1\}\) be the decision to hold it in the working notes, and let \(T_i\) be the refresh interval used if it is held. The per-item cost is
 
-$$J=\sum_i\bigl[c_i h_i+w_i p_i(1-h_i)+k_i/T_i+w_i\sigma_i^2 T_i/6\bigr].$$
+$$J=\sum_i\bigl[h_i\bigl(c_i+k_i/T_i+w_i\sigma_i^2 T_i/6\bigr)+(1-h_i)w_i p_i\bigr].$$
 
-- \(c_i\) is the upkeep of holding the item.
+- \(c_i\) is the storage upkeep of holding the item.
 - \(w_i\) is the stake on being wrong when the item is needed.
-- \(p_i\) is the chance the item is needed.
+- \(p_i\) is the need rate of the item.
 - \(k_i\) is the cost of a re-check.
 - \(\sigma_i^2\) is the variance rate of the item's drift.
 
-The first two terms are the hold choice. The last two are the refresh of a held item. Minimizing over the hold bit and the interval gives two rules:
+The refresh terms are incurred only when the item is held. Minimizing over the hold bit and the interval gives two rules:
 
-1. Hold an item only if \(w_i p_i>c_i\).
+1. Hold an item only if \(w_i p_i>c_i+2\sqrt{k_i w_i\sigma_i^2/6}\): stake times need rate beats the full cost of holding (storage plus the minimized refresh). The addend is the barrier excess from §5.
 2. Re-check a held item at \(T_i^*=\sqrt{6k_i/(w_i\sigma_i^2)}\).
 
-The related result already in the five-term sum is CT11 (THEORY.md, Appendix B.2): freeze, hold, or look up. That is a three-way rule, with a freeze edge \(q\le q_f=2c/(W\cdot\tau_{\mathrm{life}}^2)\) and a lookup edge \(q>q_c=(\mu u-h)^2/(2cW)\). The hold rule used here is the two-way comparison of upkeep against stake times need, for a working-note item whose alternative is to be dropped from view.
+The post's "stake × need beats upkeep" has the right sign. In that wording, "upkeep" should be read as the full cost of holding, including the minimized refresh, not storage alone. A short check: at \(c=1\), \(w=10\), \(p=0.2\), \(k=0.5\), \(\sigma^2=1\), stake times need is \(wp=2>c=1\), but \(c+2\sqrt{kw\sigma^2/6}=2.83\), so \(wp\) fails the full-cost test. The two tests disagree once refresh is counted.
+
+The related result already in the five-term sum is CT11 (THEORY.md, Appendix B.2): freeze, hold, or look up. That is a three-way rule, with a freeze edge \(q\le q_f=2c/(W\cdot\tau_{\mathrm{life}}^2)\) and a lookup edge \(q>q_c=(\mu u-h)^2/(2cW)\). The hold rule used here is the two-way comparison of the full cost of holding against stake times need rate, for a working-note item whose alternative is to be dropped from view.
 
 The refresh time is the single-layer lifetime in `theory/LAYER_LIFETIME_2026-11-21.md` §2, which is CL19 after Dixit 1991 (doi [10.2307/2298051](https://doi.org/10.2307/2298051); also *J. Econ. Dyn. Control* 15:657, doi [10.1016/0165-1889(91)90037-2](https://doi.org/10.1016/0165-1889(91)90037-2)).
 
-A length-triggered summary breaks both rules. It keeps or drops items by length, not by whether stake times need beats upkeep, and it does not re-check dropped items against the searchable transcript at the lifetime the cost selects.
+A length-triggered summary breaks both rules. It keeps or drops items by length, not by whether stake times need beats the full cost of holding, and it does not refresh what it keeps at the lifetime the cost selects.
 
 ## 5. Scope of the refresh formula
 
@@ -67,7 +69,7 @@ These limits are already in `theory/LAYER_LIFETIME_2026-11-21.md` §2 and §3b. 
 - The coefficient 6 is the barrier policy: re-check when the drift exceeds the band \(b^*=(6k\sigma^2/w)^{1/4}\). The expected time between resets is \(b^{*2}/\sigma^2\), which is \(T^*=\sqrt{6k/(w\sigma^2)}\). So \(\sqrt{6k/(w\sigma^2)}\) is the *mean* interval under that policy, not a fixed clock.
 - A fixed clock gives \(T_{\mathrm{fix}}^*=\sqrt{2k/(w\sigma^2)}\) and a higher cost (\(\sqrt{2kw\sigma^2}\) against the barrier's excess \(2\sqrt{kw\sigma^2/6}\)). The barrier is cheaper because it does not reset when the gap is still small.
 - The formula assumes Brownian drift, quadratic loss, a lumpy reset, and a slack ruin cap.
-- The formula is false as a quantitative rule once \(T^*\) is not short compared with the item's correlation time (`theory/LAYER_LIFETIME_2026-11-21.md` §3b). In the checks there, a case with \(T_{\mathrm{bm}}/\tau\approx0.0045\) was close; a case with \(T_{\mathrm{bm}}/\tau\approx0.63\) missed by 137%, because the mean-square error had begun to saturate.
+- The formula is false as a quantitative rule once \(T^*\) is not short compared with the item's correlation time (`theory/LAYER_LIFETIME_2026-11-21.md` §3b). In the checks there, a case with \(T_{\mathrm{bm}}/\tau\approx0.0045\) had the exact fixed-period OU optimum within 0.3% of \(T_{\mathrm{bm}}\); a case with \(T_{\mathrm{bm}}/\tau\approx0.63\) missed by 137%, because the mean-square error had begun to saturate.
 
 The post said to re-check "every \(\sqrt{6k/(w\sigma^2)}\)". That wording reads as a fixed clock. The correction is the first two bullets: it is the average gap under the barrier rule, and a fixed clock's best interval is \(\sqrt{2k/(w\sigma^2)}\) at higher cost. The diagnosis in the post still holds. A length-triggered summary breaks both rules under either timing.
 
