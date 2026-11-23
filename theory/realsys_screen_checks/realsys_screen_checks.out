@@ -1,0 +1,19 @@
+PASS G1 diffusive d ln eps*/d ln D: D=0.001 w=10000 slope=0.499998
+PASS G1 diffusive d ln eps*/d ln D: D=0.1 w=10000 slope=0.500007
+PASS G1 diffusive d ln eps*/d ln D: D=10 w=10000 slope=0.500004
+PASS G2 closed form eps*=1.5 kT lam/w: lam=0.001 eps*=1.500000e-07
+PASS G2 shock d ln eps*/d ln lam: lam=0.001 slope=1.000005
+PASS G3 with attaining gap: lam=0.001 eps*=1.500e-07 slope=1.000037
+PASS G2 closed form eps*=1.5 kT lam/w: lam=0.1 eps*=1.500000e-05
+PASS G2 shock d ln eps*/d ln lam: lam=0.1 slope=0.999993
+PASS G3 with attaining gap: lam=0.1 eps*=1.500e-05 slope=1.000003
+PASS G2 closed form eps*=1.5 kT lam/w: lam=10 eps*=1.500000e-03
+PASS G2 shock d ln eps*/d ln lam: lam=10 slope=0.999990
+PASS G3 with attaining gap: lam=10 eps*=1.500e-03 slope=0.999746
+PASS R1 linear filter d ln P/d ln lam: R=1e-06 lam=0.01 slope=0.499965
+PASS R1 linear filter d ln P/d ln lam: R=0.0001 lam=0.01 slope=0.499646
+PASS S1 stake elasticity diffusive: slope=-0.499992
+PASS S1 stake elasticity shock: slope=-0.999997
+Rival gap on the shock-rate exponent at matched second-order statistics: GTAO 1, linear filter 1/2
+FAILS 0
+ALL REALSYS-SCREEN CHECKS PASS
