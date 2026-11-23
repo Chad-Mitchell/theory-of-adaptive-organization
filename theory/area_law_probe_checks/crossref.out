@@ -1,0 +1,146 @@
+Crossref API resolutions, 23 November 2026, America/New_York.
+Queried https://api.crossref.org/works/{doi}. Every DOI listed below returned HTTP 200.
+Two sources in the note have no Crossref works record and are not listed here:
+  't Hooft 1993, Salamfestschrift (World Scientific Series in 20th Century Physics vol. 4), pp. 284-296, arXiv gr-qc/9310026;
+  Bremermann 1962 (Self-Organizing Systems 1962) and Bremermann 1967, Proc. Fifth Berkeley Symp. Math. Statist. Prob. 4:15-20, Project Euclid euclid.bsmsp/1200513783.
+
+doi 10.1103/PhysRevD.7.2333
+  1973 | Physical Review D 7 2333-2346
+  Black Holes and Entropy
+  Bekenstein, Jacob D.
+
+doi 10.1103/PhysRevD.23.287
+  1981 | Physical Review D 23 287-298
+  Universal upper bound on the entropy-to-energy ratio for bounded systems
+  Bekenstein, Jacob D.
+
+doi 10.1038/248030a0
+  1974 | Nature 248 30-31
+  Black hole explosions?
+  HAWKING, S. W.
+
+doi 10.1007/BF02345020
+  1975 | Communications In Mathematical Physics 43 199-220
+  Particle creation by black holes
+  Hawking, S. W.
+
+doi 10.1103/PhysRevD.14.870
+  1976 | Physical Review D 14 870-892
+  Notes on black-hole evaporation
+  Unruh, W. G.
+
+doi 10.1063/1.531249
+  1995 | Journal of Mathematical Physics 36 6377-6396
+  The world as a hologram
+  Susskind, Leonard
+
+doi 10.1088/1126-6708/1999/07/004
+  1999 | Journal of High Energy Physics 1999 004-004
+  A covariant entropy conjecture
+  Bousso, Raphael
+
+doi 10.1103/RevModPhys.74.825
+  2002 | Reviews of Modern Physics 74 825-874
+  The holographic principle
+  Bousso, Raphael
+
+doi 10.1103/PhysRevLett.75.1260
+  1995 | Physical Review Letters 75 1260-1263
+  Thermodynamics of Spacetime: The Einstein Equation of State
+  Jacobson, Ted
+
+doi 10.1007/JHEP04(2011)029
+  2011 | Journal of High Energy Physics 2011
+  On the origin of gravity and the laws of Newton
+  Verlinde, Erik
+
+doi 10.1088/0034-4885/73/4/046901
+  2010 | Reports on Progress in Physics 73 046901
+  Thermodynamical aspects of gravity: new insights
+  Padmanabhan, T
+
+doi 10.1147/rd.53.0183
+  1961 | IBM Journal of Research and Development 5 183-191
+  Irreversibility and Heat Generation in the Computing Process
+  Landauer, R.
+
+doi 10.1016/S0167-2789(98)00054-2
+  1998 | Physica D: Nonlinear Phenomena 120 188-195
+  The maximum speed of dynamical evolution
+  Margolus, Norman; Levitin, Lev B.
+
+doi 10.1038/35023282
+  2000 | Nature 406 1047-1054
+  Ultimate physical limits to computation
+  Lloyd, Seth
+
+doi 10.1103/PhysRevD.34.373
+  1986 | Physical Review D 34 373-383
+  Quantum source of entropy for black holes
+  Bombelli, Luca; Koul, Rabinder K.; Lee, Joohan; Sorkin, Rafael D.
+
+doi 10.1103/PhysRevLett.71.666
+  1993 | Physical Review Letters 71 666-669
+  Entropy and area
+  Srednicki, Mark
+
+doi 10.1088/0264-9381/21/9/011
+  2004 | Classical and Quantum Gravity 21 2351-2378
+  Geometric entropy, area and strong subadditivity
+  Casini, H
+
+doi 10.1088/0264-9381/25/20/205021
+  2008 | Classical and Quantum Gravity 25 205021
+  Relative entropy and the Bekenstein bound
+  Casini, H
+
+doi 10.1088/0264-9381/24/5/013
+  2007 | Classical and Quantum Gravity 24 1293-1302
+  Mutual information challenges entropy bounds
+  Casini, H
+
+doi 10.1088/0264-9381/20/13/304
+  2003 | Classical and Quantum Gravity 20 2509-2526
+  A geometrical origin for the covariant entropy bound
+  Casini, H
+
+doi 10.1007/JHEP08(2013)060
+  2013 | Journal of High Energy Physics 2013
+  Relative entropy and holography
+  Blanco, David D.; Casini, Horacio; Hung, Ling-Yan; Myers, Robert C.
+
+doi 10.1103/PhysRevD.93.064044
+  2016 | Physical Review D 93
+  Quantum focusing conjecture
+  Bousso, Raphael; Fisher, Zachary; Leichenauer, Stefan; Wall, Aron C.
+
+doi 10.1103/PhysRevX.4.031015
+  2014 | Physical Review X 4
+  Thermodynamics with Continuous Information Flow
+  Horowitz, Jordan M.; Esposito, Massimiliano
+
+doi 10.1038/nphys3230
+  2015 | Nature Physics 11 131-139
+  Thermodynamics of information
+  Parrondo, Juan M. R.; Horowitz, Jordan M.; Sagawa, Takahiro
+
+doi 10.1088/1751-8113/49/14/143001
+  2016 | Journal of Physics A: Mathematical and Theoretical 49 143001
+  The role of quantum information in thermodynamics—a topical review
+  Goold, John; Huber, Marcus; Riera, Arnau; Rio, Lídia del; Skrzypczyk, Paul
+
+doi 10.1111/j.1749-6632.1992.tb17083.x
+  1992 | Annals of the New York Academy of Sciences 655 349-364
+  Recent Thinking about the Nature of the Physical World: It from Bit<sup>a</sup>
+  WHEELER, JOHN ARCHIBALD
+
+doi 10.1103/PhysRevD.15.2738
+  1977 | Physical Review D 15 2738-2751
+  Cosmological event horizons, thermodynamics, and particle creation
+  Gibbons, G. W.; Hawking, S. W.
+
+doi 10.1103/PhysRevLett.71.3743
+  1993 | Physical Review Letters 71 3743-3746
+  Information in black hole radiation
+  Page, Don N.
+

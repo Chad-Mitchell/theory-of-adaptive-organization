@@ -1,0 +1,15 @@
+CHECK PASS binary_stock_and_L_at_error_0.2  I=0.192744757021757 L=0.831776616671934 = 0.6 ln 4
+CHECK PASS telegraph_L_equals_bernoulli_KL  L(eps)=KL(Bern(eps)||Bern(1-eps))=0.831776616671934
+CHECK PASS static_bias_boltzmann_error_and_detailed_balance  eps=0.200000000000000 affinity=0.000000000000000e+00 flux_up=0.200000000000000 flux_down=0.200000000000000 I_alt=0
+CHECK PASS frozen_volume_stock_scales_at_zero_heat  N=100 stock=19.274475702175742 heat_rate=0.000000000000000; half N has half stock
+CHECK PASS boundary_capacity_four_and_twenty  C4=2.772588722239781 C20=13.862943611198906
+CHECK PASS write_time_lower_bound_then_zero_ongoing_heat  T_write=6.951797627815941; ongoing heat after write remains 0
+CHECK PASS ten_telegraphs_unattainable_on_four_channels  need=8.317766166719343 C4=2.772588722239781 C20=13.862943611198906
+CHECK PASS joint_convexity_of_binary_KL  avg=0.275024923633974 mix=0.001842351520388, avg >= mix
+CHECK PASS product_memory_attains_two_telegraph_floor  2 r L=1.663553233343869, below a loose two-channel cap if c is large
+CHECK PASS cube_side_4_fits_and_side_8_misses  n=4 need=53.233703467003799 cap=96.000000000000000; n=8 need=425.869627736030395 cap=384.000000000000000
+CHECK PASS cube_critical_side_quoted  n_crit=7.213475204444817 lies between 4 and 8
+CHECK PASS capacity_scales_with_area_not_volume  area ratio=4.000000000000000 volume ratio=8; cap follows area
+CHECK PASS recorded_decimals_match_the_note  I=0.192744757022 L=0.831776616672 stock100=19.274475702176 Twrite=6.951797627816 C4=2.772588722240 need10=8.317766166719 n8=425.869627736030
+FAILS 0
+ALL AREA-LAW-PROBE CHECKS PASS
