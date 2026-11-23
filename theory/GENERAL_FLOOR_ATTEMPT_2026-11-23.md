@@ -1,6 +1,6 @@
 # A general heat-floor attempt
 
-*Monday 23 November 2026 (America/New_York). An attempt at one general heat floor, not a change to `THEORY.md` or the hypothesis sentence. Written against `main` `f9874f0`. DOIs below were resolved on the Crossref API the same day (`theory/general_floor_checks/crossref.out`). No new simulation. Open-work row T57. A self-check, not an independent review.*
+*Monday 23 November 2026 (America/New_York). An attempt at one general heat floor, not a change to `THEORY.md` or the hypothesis sentence. Written against `main` `f9874f0`. DOIs below were resolved on the Crossref API the same day (`theory/general_floor_checks/crossref.out`). No new simulation. Open-work row T57. Independent review of PR #229 applied label and citation nits and confirmed READY the same day.*
 
 Labels follow the repo: **PROVED (in-model)** is a result inside a named class. **KNOWN** is published and credited, only for what that source states. **ELEMENTARY** is a direct consequence of a proved or known inequality, not a new named theorem. **CONJECTURE** is a named bet, not a result. **SKETCH** is an argument with a stated gap. **OPEN** is not derived. A lower bound is not a derivation of the cost.
 
