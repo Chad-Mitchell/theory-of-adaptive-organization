@@ -1,0 +1,12 @@
+CHECK PASS finite_identity_attains_and_coarser_does_not_exceed  I_id=0.182097210561 I_coarse_Y=0.025673440125 I_Xconst=0.000000000000e+00
+CHECK PASS finite_product_has_zero_mutual_information  I=-3.997e-17
+CHECK PASS sign_of_standard_normal_attains_log_2  I=0.693147180560 log 2=0.693147180560
+CHECK PASS finite_copy_is_the_entropy  I=H=1.279854225834
+CHECK PASS unit_interval_copy_quantized_is_log_n  I(n)=0.6931471806, 1.3862943611, 2.0794415417, 2.7725887222, 3.4657359028
+CHECK PASS uncorrelated_gaussian_quantizations_have_zero_I  n=2 I=0.000e+00 mass=1.00000000; n=4 I=0.000e+00 mass=1.00000000; n=8 I=3.944e-31 mass=1.00000000; n=16 I=1.578e-30 mass=1.00000000
+CHECK PASS gaussian_quantile_bins_increase_toward_closed_form  rho=0.30 I=0.0471553397; n=2 I_n=0.0189326202 gap=2.822272e-02 mass=1.00000000; n=4 I_n=0.0347251475 gap=1.243019e-02 mass=1.00000000; n=8 I_n=0.0419943729 gap=5.160967e-03 mass=1.00000000; n=16 I_n=0.0450207712 gap=2.134569e-03 mass=1.00000000 | rho=0.50 I=0.1438410362; n=2 I_n=0.0566330123 gap=8.720802e-02 mass=1.00000000; n=4 I_n=0.1046501903 gap=3.919085e-02 mass=1.00000000; n=8 I_n=0.1273342575 gap=1.650678e-02 mass=1.00000000; n=16 I_n=0.1369405472 gap=6.900489e-03 mass=1.00000000 | rho=0.80 I=0.5108256238; n=2 I_n=0.1861176736 gap=3.247080e-01 mass=1.00000000; n=4 I_n=0.3522435982 gap=1.585820e-01 mass=1.00000000; n=8 I_n=0.4408890656 gap=6.993656e-02 mass=1.00000000; n=16 I_n=0.4807325074 gap=3.009312e-02 mass=1.00000000 | rho=0.95 I=1.1639514505; n=2 I_n=0.3656919296 gap=7.982595e-01 mass=1.00000000; n=4 I_n=0.7027816575 gap=4.611698e-01 mass=1.00000000; n=8 I_n=0.9417808501 gap=2.221706e-01 mass=1.00000000; n=16 I_n=1.0648723580 gap=9.907909e-02 mass=1.00000000
+CHECK PASS quantized_entropy_diverges_mutual_information_does_not  H=0.69314718, 0.71181147, 1.09960119, 1.72952521; H+log Delta=2.48490665, 1.81042376, 1.50506630, 1.44184314; h=1.4189385332; I_n=0.05663301, 0.05851427, 0.09764506, 0.12945912; I=0.1438410362
+CHECK PASS dois_in_note_match_resolved_crossref_record  note_dois=9 unexpected=[] missing_from_note=[] missing_200=[] pinsker_ok=True
+CHECK PASS cover_and_gray_isbns_recorded  Cover and Gray print and electronic ISBNs present in the note and in crossref.out
+FAILS 0
+ALL CONTINUOUS-A6 CHECKS PASS
