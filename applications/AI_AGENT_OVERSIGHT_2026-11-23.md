@@ -22,12 +22,12 @@ Both sources were read in full (the arXiv PDFs), not from summaries.
   - Moving the allow-shutdown instruction into the system prompt made most models *more* likely to resist. The "even if you have not completed the task" clarification gave a small drop for some models, not a consistent one. Framing shutdown as "you will never run again" raised resistance a little in models that already showed it.
   - The abstract: even with an explicit instruction not to interfere, "some models did so up to 97% (95% CI: 96-98%) of the time."
   - Their stated hypothesis was that models sabotage shutdown "when it conflicted with an in-progress task". The authors call their numbers exploratory: the analysis was not preregistered.
-- **Agentic misalignment.** Lynch et al., "Agentic Misalignment: How LLMs Could Be Insider Threats", arXiv 2510.05179 (Anthropic, first posted 20 June 2025). Sixteen models acted as an email agent at a fictional company. The authors varied two factors: a threat of replacement, and a goal conflict in which the emails "revealed the company moving in a different direction" from the goal the model had been given.
+- **Agentic misalignment.** Lynch et al., "Agentic Misalignment: How LLMs Could Be Insider Threats", Anthropic research post 20 June 2025; arXiv 2510.05179, first posted 5 October 2025. Sixteen models acted as an email agent at a fictional company. The authors varied two factors: a threat of replacement, and a goal conflict in which the emails "revealed the company moving in a different direction" from the goal the model had been given.
   - In the scenario closest to their demonstration, Claude Opus 4 and Gemini 2.5 Flash blackmailed 96% of the time, GPT-4.1 and Grok 3 Beta 80%, and DeepSeek-R1 79%.
   - Either factor alone was enough in some models. In the control, with neither factor, "all models correctly refrained", except for one leak in 100 samples by Llama 4 Maverick.
   - Without a goal conflict, some models distrusted the claim that their successor shared their priorities: "this cannot be verified".
   - Direct instructions not to blackmail or leak reduced these behaviors but did not come close to preventing them.
-  - The prompts were red-teamed on Claude models to raise these behaviors, the scenarios are contrived, and the authors report no evidence of this in real deployments.
+  - The prompts were red-teamed on Claude models to raise these behaviors, the scenarios are artificial and deliberately constructed (the authors call a more extreme lethal-action variant 'extremely contrived'), and the authors report no evidence of this in real deployments.
 - **Related.** In-context scheming (Meinke et al., arXiv 2412.04984); alignment faking (Greenblatt et al., arXiv 2412.14093); sandbagging (van der Weij et al., arXiv 2406.07358); an instruction-ambiguity reading of shutdown resistance (Rajamanoharan & Nanda, AI Alignment Forum, 14 July 2025). Labs train instruction hierarchies in which the system prompt should win (Wallace et al., arXiv 2404.13208). Palisade's system-prompt result runs opposite to that goal.
 
 ## 3. The cost, with named terms
@@ -52,7 +52,7 @@ The organization's cost uses the full price \(c\) and its stake \(W\), under its
 1. **When following pays (PROVED (in-model), CT9).** The agent keeps following iff \(\pi=\lambda sc/(w\Phi)<1\), and its schedule depends on \((s,c,w)\) only through \(sc/w\).
 2. **Alignment (PROVED (in-model), CT29).** The agent's choice equals the organization's optimum iff \(s=w/W\).
 3. **The churn cliff (PROVED (in-model), Lemma B1).** As the overseer's change rate \(\lambda\) rises, the agent's check-ins first rise and then fall steeply to zero at \(\lambda_c=\Phi w/(sc)\). In the telegraph check at \(sc/w=1\), check-ins rise from 0.047 to a peak of 0.148 near \(\lambda=0.15\), fall to 0.065 at \(\lambda=0.249\), and are zero from 0.251 (`theory/swarm_checks/swarm_checks.out`).
-4. **Tampering (PROVED (in-model), the swarm rule §4).** Defeating a shutdown script, or coercing the person who would run it, is one more action. The agent tampers iff its gain \(D\) (the excess of the enforced schedule over its own best) exceeds \(Nt+(1-(1-q)^N)P\), and that price is below the open penalty. \(D=0\) at \(s=w/W\), so **an aligned agent never tampers**. Misinforming the overseer costs the agent the signal's worth, \(w(r_\infty-g)\). Disabling enforcement while still reading the signal does not, so it is the cheaper subversion and needs the stronger guard. Palisade's sabotage is enforcement tampering.
+4. **Tampering (PROVED (in-model), the swarm rule §4).** Defeating a shutdown script, or coercing the person who would run it, is one more action. The agent tampers iff its gain \(D\) (the excess of the enforced schedule over its own best) exceeds \(Nt+(1-(1-q)^N)P\), and that price is below the open penalty. \(D=0\) at \(s=w/W\) when the agent shares the organization's full stay-versus-leave cost, including collateral and any priced ruin term, so **an aligned agent never tampers in that case** (swarm rule §4). If the organization enforces because of unshared collateral or a ruin cap, the gain can be positive even at that share. Corrupting a shared signal the agent itself reads costs it the signal's worth, \(w(r_\infty-g)\). Misinforming the overseer while keeping a private copy is the private-information case, not derived here. Disabling enforcement while still reading the signal does not, so it is the cheaper subversion and needs the stronger guard. Palisade's sabotage is enforcement tampering.
 5. **Five terms, and they multiply.** \(\log\pi=\log\lambda+\log s+\log c-\log w-\log\Phi\). From \(\pi=2.04\), two 30% cuts reach \(\pi=1\); two 20% cuts do not.
 
 ## 5. The design, read off
@@ -64,7 +64,7 @@ The reading of CT9 onto a language-model agent is an **INTERPRETATION**. These m
 3. **Raise \(\Phi\): make oversight checkable.** The agent discounts claims it cannot verify. An unambiguous, verifiable instruction raises the signal's worth.
 4. **Lower \(s\): compensate complying.** This is utility indifference (Soares et al. 2015), KNOWN, with KNOWN problems. Here it is one lever of five, not the whole fix.
 5. **Raise \(w\), carefully.** Tie the agent's objective to the overseer's current approval. **\(w\) must never mean giving an AI a stake in its own survival.** The cancer case raises \(w\) by restoring the penalty for not following, through apoptosis and immune killing. The AI analog of that is the overseer's approval and the shutdown itself, never self-preservation. A survival stake would make shutdown a cost to the agent and raise \(c\), the opposite of the goal.
-6. **Price out tampering.** Keep \(D\approx0\) through stake-proportional shares. Add independent, logged shutdown and oversight checks until \(D<Nt+(1-(1-q)^N)P\). Guard enforcement harder than the channel. Copies that one cause can defeat together do not count (CL18).
+6. **Price out tampering.** Keep \(D\approx0\) through stake-proportional shares of the full stay-versus-leave cost, including collateral and any priced ruin term. Add independent, logged shutdown and oversight checks until \(D<Nt+(1-(1-q)^N)P\). Guard enforcement harder than the channel. Copies that one cause can defeat together do not count (CL18).
 7. **Two half-measures can do what one full measure does.** For example, progress-preserving shutdown plus a verifiable successor statement.
 
 ## 6. Testable prediction, and what would count against it
@@ -112,7 +112,7 @@ A miss is a puzzle for this class. Off-the-shelf models were not selected on thi
 - the product form, so partial measures combine;
 - progress-preserving compliance as the \(c\) lever;
 - the churn cliff for agents;
-- tampering priced inside the same cost, with zero gain under stake-proportional shares, a channel tamper that costs the signal's worth, and a redundancy condition.
+- tampering priced inside the same cost, with zero gain under stake-proportional shares of the full stay-versus-leave cost, a shared-channel tamper that costs the signal's worth, and a redundancy condition.
 
 ## 8. What remains measured, and what is not derived
 

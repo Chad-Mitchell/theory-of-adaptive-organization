@@ -4,9 +4,16 @@
 Run from the repo root:
   nice -n 19 python3 theory/swarm_checks/swarm_checks.py
 
-These are code checks of identities and of CT9 / Lemma B1 / CT29 inside the
-two-state telegraph class. They re-test proved results; they are not evidence
-about cells, agents or people. Machinery failures set a nonzero exit code.
+These checks fall into three kinds, labeled in each CHECK line:
+
+- code sanity: algebraic or arithmetic identities (cannot fail unless the
+  code disagrees with itself);
+- re-test: a proved result in the telegraph class (can fail if the
+  optimizer, Phi, or A(s) is wrong);
+- worked example: a numerical evaluation of a formula already stated.
+
+They are not evidence about cells, agents or people. Machinery failures
+set a nonzero exit code.
 """
 from __future__ import annotations
 
@@ -63,9 +70,9 @@ def main():
         lhs = part_cost(math.log(s), lam, sh, c, w)
         rhs = w * (lam * (sh * c / w) / s + A(s))
         worst = max(worst, abs(lhs - rhs) / max(1.0, abs(lhs)))
-    check("identity_net_share", worst < 1e-12, "max rel diff %.2e" % worst)
+    check("identity_net_share", worst < 1e-12, "code sanity (algebraic identity); max rel diff %.2e" % worst)
 
-    # 2. Stay iff pi = lam*s*c/(w*Phi) < 1 (CT9 re-tested; code sanity only).
+    # 2. Stay iff pi = lam*s*c/(w*Phi) < 1 (CT9 re-tested in the telegraph class).
     mism = 0
     tested = 0
     for _ in range(2000):
@@ -78,13 +85,13 @@ def main():
         stays = math.isfinite(best(lam, sh, c, w)[0])
         mism += stays != (pi < 1)
     check("stay_iff_pi_below_1", mism == 0,
-          "%d mismatches in %d draws away from pi=1" % (mism, tested))
+          "re-test; %d mismatches in %d draws away from pi=1" % (mism, tested))
 
     # 3. One index: the schedule depends on (share, c, w) only via share*c/w.
     trip = [(1, 1, 1), (0.5, 2, 1), (2, 1, 2)]
     ss = [best(0.1, a, b, d)[0] for a, b, d in trip]
     check("one_index", max(ss) - min(ss) < 1e-5,
-          "s* = %s" % ", ".join("%.6f" % x for x in ss))
+          "re-test; s* = %s" % ", ".join("%.6f" % x for x in ss))
 
     # 4. Alignment: the part's schedule equals the whole's (full c, stake W)
     #    iff share = w/W; equal shares fail (CT29 alignment clause, one party).
@@ -100,14 +107,14 @@ def main():
         if abs(w - 0.5) > 1e-9:
             ok &= abs(s_eq - s_whole) > 1e-3
     check("alignment_share_equals_stake_share", ok,
-          "whole s* %.6f; %s" % (s_whole, "; ".join(rows)))
+          "re-test; whole s* %.6f; %s" % (s_whole, "; ".join(rows)))
 
     # 5. Levers multiply: pi0 = 2.04; two 30% cuts and one 51% cut reach pi=1.
     pi0 = 2.04
     two30, one51, two20 = pi0 * 0.7 * 0.7, pi0 * 0.49, pi0 * 0.8 * 0.8
     check("levers_multiply", abs(two30 - 1.0) < 1e-3 and abs(one51 - 1.0) < 1e-3
           and two20 > 1.0,
-          "two 30%%: %.4f, one 51%%: %.4f, two 20%%: %.4f" % (two30, one51, two20))
+          "code sanity (arithmetic); two 30%%: %.4f, one 51%%: %.4f, two 20%%: %.4f" % (two30, one51, two20))
 
     # 6. Churn cliff (Lemma B1): reads per unit time f* = lam/s* rise with lam,
     #    peak, then fall steeply to 0 at lam_c = Phi/(share*c/w) = 0.25 here.
@@ -123,7 +130,7 @@ def main():
     falls = all(fs[i] >= fs[i + 1] for i in range(k, len(fs) - 1))
     check("churn_cliff", rises and falls and 0 < k < len(fs) - 3
           and fs[-2] == 0.0 and fs[-1] == 0.0 and fs[-3] > 0.0,
-          "peak f*=%.4f at lam=%g; f*=0 for lam>=0.251" % (fs[k], lams[k]))
+          "re-test; peak f*=%.4f at lam=%g; f*=0 for lam>=0.251" % (fs[k], lams[k]))
 
     # 7. Re-form band (CL19 via FLUID_LAYERS): b*^2/sigma^2 = sqrt(6k/(w sigma^2)).
     worst = 0.0
@@ -131,7 +138,7 @@ def main():
         kk, ww, sg2 = rng.uniform(0.01, 10), rng.uniform(0.01, 10), rng.uniform(0.01, 10)
         b = (6 * kk * sg2 / ww) ** 0.25
         worst = max(worst, abs(b * b / sg2 - math.sqrt(6 * kk / (ww * sg2))))
-    check("reform_band_lifetime", worst < 1e-12, "max abs diff %.2e" % worst)
+    check("reform_band_lifetime", worst < 1e-12, "code sanity (algebraic identity, not a test of CL19); max abs diff %.2e" % worst)
 
 
     # 8. Tampering, derived inside the rule. The whole enforces its own optimal
@@ -168,9 +175,9 @@ def main():
     for r in rows:
         print("  " + r)
     check("tamper_gain_zero_iff_aligned", ok_aligned and ok_pos,
-          "D_enf = 0 at s = w/W and > 0 at 0.5x, 1.5x, 2x, 3x")
+          "re-test, no collateral, pi_W=0.4; D_enf = 0 at s = w/W and > 0 at 0.5x, 1.5x, 2x, 3x")
     check("channel_tamper_costs_signal_value", ok_order,
-          "D_enf - D_ch = w*(r_inf - g) = the signal's worth to the part")
+          "code sanity (identity given the two option costs); D_enf - D_ch = w*(r_inf - g)")
 
     # 9. Redundancy: N independent checks must all be moved; each costs t and
     #    each detects with chance q. Deterred iff D < N*t + (1-(1-q)^N)*P.
@@ -181,8 +188,73 @@ def main():
     n_star = next((N for N, x in enumerate(deter, 1) if x > D), None)
     mono = all(deter[i] < deter[i + 1] for i in range(len(deter) - 1))
     check("redundancy_deterrence", mono and n_star is not None and deter[0] < D,
-          "D=%.5f; deterrence N=1..10: %s; first N that deters: %s" % (
+          "worked example; D=%.5f; deterrence N=1..10: %s; first N that deters: %s" % (
               D, ", ".join("%.4f" % x for x in deter), n_star))
+
+
+    # 10. Collateral and the ruin cap. Sharing only the read-and-follow price
+    #     is not enough for D_enf = 0. The whole's leave cost is
+    #     W*r_inf + C + R (collateral C, priced ruin term R). It enforces T
+    #     iff J_W(T) <= W*r_inf + C + R. At s = w/W, J_i(T) = (w/W) J_W(T).
+    #     If C or R is unshared, the part's leave cost stays w*r_inf, and
+    #     D_enf = (w/W)*(J_W(T) - W*r_inf) can be positive. Sharing C or R
+    #     in proportion to stake restores D_enf = 0 whenever the whole
+    #     prefers to enforce.
+    def J_W(T, lam, c, W):
+        return lam * c / T + W * A(T)
+
+    w = 0.5
+    W = 1.0
+    c = 1.0
+    share = w / W
+
+    # 10a. Unshared collateral, pi_W = 1.6 > 1, designated T_enf = 1.
+    #      J_W > W*r_inf for every finite T; the whole still enforces if
+    #      C covers the gap.
+    lam_hi, T_enf = 0.4, 1.0
+    JW_a = J_W(T_enf, lam_hi, c, W)
+    gap_a = JW_a - W * R_INF
+    C_a = gap_a + 0.05
+    Ji_a = sched_cost(T_enf, lam_hi, share, c, w)
+    D_unshared_C = Ji_a - w * R_INF
+    D_shared_C = Ji_a - (w * R_INF + (w / W) * C_a)
+    whole_prefers_a = JW_a <= W * R_INF + C_a
+    print("  10a unshared C=%.5f at pi_W=1.6, T=1: D_enf=%.5f; shared: D_enf=%.5f"
+          % (C_a, D_unshared_C, D_shared_C))
+    check("unshared_collateral_D_positive",
+          whole_prefers_a and D_unshared_C > 0.05 and abs(D_unshared_C - (w / W) * gap_a) < 1e-12,
+          "re-test; unshared C, pi_W=1.6; D_enf=%.5f at s=w/W (must be > 0)" % D_unshared_C)
+    check("shared_collateral_restores_zero",
+          D_shared_C < 0 and abs(D_shared_C - (w / W) * (JW_a - (W * R_INF + C_a))) < 1e-12,
+          "re-test; sharing C restores D_enf=%.5f <= 0 when the whole enforces" % D_shared_C)
+
+    # 10b. A priced ruin term R is the same additive leave cost as C.
+    R_b = C_a
+    D_unshared_R = Ji_a - w * R_INF
+    D_shared_R = Ji_a - (w * R_INF + (w / W) * R_b)
+    check("priced_ruin_like_collateral",
+          abs(D_unshared_R - D_unshared_C) < 1e-15 and abs(D_shared_R - D_shared_C) < 1e-15,
+          "re-test; a priced ruin term R matches collateral of the same size")
+
+    # 10c. Unshared ruin cap: pi_W = 0.4 < 1, but the cap forces a short
+    #      schedule T_cap = 0.1 with J_W(T_cap) > W*r_inf. The whole
+    #      enforces because leaving would break the cap. Unshared: D > 0
+    #      at s=w/W. Sharing the shadow price mu = gap restores D = 0.
+    lam_lo, T_cap = 0.1, 0.1
+    JW_c = J_W(T_cap, lam_lo, c, W)
+    gap_c = JW_c - W * R_INF
+    mu = gap_c  # shadow price that makes the whole indifferent at T_cap
+    Ji_c = sched_cost(T_cap, lam_lo, share, c, w)
+    D_unshared_cap = Ji_c - w * R_INF
+    D_shared_cap = Ji_c - (w * R_INF + (w / W) * mu)
+    print("  10c unshared cap, T_cap=0.1, pi_W=0.4: D_enf=%.5f; shared shadow price: D_enf=%.5f"
+          % (D_unshared_cap, D_shared_cap))
+    check("unshared_ruin_cap_D_positive",
+          gap_c > 0.05 and D_unshared_cap > 0.05 and abs(D_unshared_cap - (w / W) * gap_c) < 1e-12,
+          "re-test; unshared cap forcing T=0.1; D_enf=%.5f at s=w/W (must be > 0)" % D_unshared_cap)
+    check("shared_shadow_price_restores_zero",
+          abs(D_shared_cap) < 1e-12,
+          "re-test; sharing the shadow price restores D_enf=%.2e" % D_shared_cap)
 
     if checks_failed:
         print("FAILS %d: %s" % (len(checks_failed), ", ".join(checks_failed)))

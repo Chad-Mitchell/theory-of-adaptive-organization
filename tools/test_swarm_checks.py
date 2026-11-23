@@ -14,3 +14,7 @@ def test_swarm_checks_all_pass():
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL SWARM CHECKS PASS" in r.stdout
     assert "FAILS 0" in r.stdout
+    out = os.path.join(ROOT, "theory", "swarm_checks", "swarm_checks.out")
+    with open(out, encoding="utf-8") as f:
+        expected = f.read()
+    assert r.stdout == expected
