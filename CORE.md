@@ -138,7 +138,7 @@ In priority order:
 3. **The decisive evidence (real-data test).** Measure one real strongly selected system against the axioms (qualified before scoring) and test whether it sits near the predicted minimum, preregistered and hash-locked.
 4. **Existing open items and puzzles:**
    - Deriving the stake, the link price, or the ruin cap from the heat bound. They stay assumptions.
-   - The fractal draft, [PR #192](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/192). This page claims no result from it.
+   - The heat floor on Sierpiński graphs: cost tracks the sites the decision names, not the Hausdorff or spectral dimension (`theory/FRACTAL_WORLD_2026-11-22.md`, OPEN_WORK T54). Identities the locked script checks are **PROVED** (in-model, class F, code-checked); a dimension law for the cost **FAILS**. A self-check, not an independent review. This page does not treat that review as done.
    - Adopting the acting derivation into THEORY (T47 is merged; the proposal is not applied), and adopting the physics display (T40). Neither edit is made here.
    - The joining theorem that would make a general gain from disorder a consequence of the minimized cost under the closed loop (T50). The cheapest next test is to score the spread of the minimizing closed loop, preregistered before any new computation. No field prediction is ready. The statement is `theory/ANTIFRAGILITY_CONJECTURE_2026-11-23.md`.
    - The integer \(5\%\) radius. It is 2 at \(\tau=1/2\) and at \(\tau=1\), ratio 1, because both crossings of the level 0.05 lie in \((1,2)\). The path of 61 sites, the next test the preregistration named, returned 2 and 2. The smooth crossing on times \(1/4\) and \(1\) is a separate statistic: ratio 2.067863694520, inside \([1.7,2.3]\).

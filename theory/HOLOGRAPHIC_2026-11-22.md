@@ -191,6 +191,8 @@ No row is a holographic prediction that is both extra and true. The cut row is a
 
 It does not edit `THEORY.md`, `CORE.md`, or `README.md`. It does not adopt \(J_{\mathrm{phys}}\) into the master equation. It does not close IP14, and it does not treat a diffusion whose noise does not share the eigenbasis of \(\Sigma\). It does not give an equilibrium floor for a massless field on the torus: \(\alpha>0\) is what keeps the variance finite, and \(\alpha\to 0\) leaves G-E. It does not rerun T20 or the keystone holographic check. Ruin, linking, the stake \(w\), and H3 stay where the heat notes left them.
 
+A follow-up on Sierpiński graphs is `theory/FRACTAL_WORLD_2026-11-22.md`. On those graphs the heat floor tracks the sites the decision names, not the Hausdorff or spectral dimension. That note is a self-check, not an independent review (OPEN_WORK T54). This page does not treat that review as done.
+
 ## 7. Checks
 
 `theory/holographic_checks/holographic_checks.py`. 175 checks, FAILS 0. The numbers in §§2–5 are the numbers it prints.

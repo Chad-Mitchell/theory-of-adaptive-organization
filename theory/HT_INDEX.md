@@ -53,6 +53,8 @@ The setting is Model S (`theory/LAYERS.md`; THEORY CT21): world s = a stationary
 
 *Proof of (ii):* for a convex decreasing sequence the decrements are non-increasing, so K + Rε_K falls while R·(decrement) > 1 and rises afterwards. ∎ This is CX4's "predictive-state dimensions whose marginal value exceeds upkeep" stated concretely inside the linear-Gaussian class. Placement (the store rates b_j) is fixed by the spectral factorization of S + N (L2's proof), so it too is a functional of S/N.
 
+**Correction (N64 / `theory/LAYER_CONVEXITY.md`, `core/KEYSTONE_NOTE.md`).** The from-1 cardinality in (ii), \(K^* = 1 + \#\{k \ge 2 : R\cdot(\varepsilon_{k-1} - \varepsilon_k) > 1\}\), cannot return 0: when the from-0 count \(K^*_0(R) = 0\) it returns 1 (the \(K^*=0\) hole). The from-0 count \(K^*_0(R) = \#\{K \ge 1 : R(\varepsilon_{K-1} - \varepsilon_K) > 1\}\) equals the leftmost argmin of \(K + R(1+\varepsilon_K)\) when the decrements are non-increasing, with a converse under positive distinct decrements. Use \(K^*_0\) when the decrements are non-increasing, and the lower-hull walk otherwise (N65). N60's identity \(K^* = \arg\min_K [K + R(1 + \varepsilon_K)]\) is unchanged.
+
 **So, to the first-principles question.** The property that determines K\* and placement is the noise-normalized spectrum on the band that pays, read through the cost: how much variance sits at each separated scale, how far apart the scales are, and how loud they are against the read noise. Scalar fractal summaries compress this away:
 - ht keeps ln n and a tail index;
 - H keeps a slope;

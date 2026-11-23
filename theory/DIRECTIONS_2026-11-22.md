@@ -30,6 +30,8 @@
 
 So some stalled attempts might become runnable. This is to be checked attempt by attempt after the freeze, and before any new data. No locked prereg is re-scored.
 
+The attempt-by-attempt re-read is `theory/FRONTIER_REREAD_2026-11-22.md`. It is a planning note, not a lock, not a prereg and not a result. Sometimes the interpretation changes; it does not, by itself, turn a stalled attempt into a fair official test. DIR1 stays INCONCLUSIVE. The note's recommended next price-free real-data test is Candidate A: an antitone test of in-use package designs, with the world measured from upstream cadence on no-account sources. Candidates B and C are ranked below it. None of these is a preregistration. Direction A below (AI agent systems) has since been developed on main as `theory/SWARM_RULE_2026-11-23.md` and `applications/AI_AGENT_OVERSIGHT_2026-11-23.md`.
+
 ## 2. Direction A: AI agent systems
 
 These are systems where the experimenter sets the read, upkeep and stake costs, so prices are known by construction (compare T30). Candidate questions:

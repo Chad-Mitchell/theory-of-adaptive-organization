@@ -1,6 +1,6 @@
 # STATUS (current pointer; rewritten, not appended)
 
-**As of:** Monday 23 November 2026, early morning (America/New_York): `THEORY.md` v2.9 draft and `measurement/CLAIM_MAP_v2.md` v2.88. `main` is `850d815` (PR #223, the cancer-as-defection application `applications/CANCER_DEFECTION_2026-11-23.md`; before that, PR #222, the Grok Bot memory application `applications/GROK_BOT_MEMORY_2026-11-23.md`, merged as `f3b315f`). The previous text of this page, with the merge-by-merge record through PR #213, is `history/2026-11-22_STATUS_before_sweep.md`. Run `python3 tools/brief.py` for the live HEAD and open PRs.
+**As of:** Monday 23 November 2026, early morning (America/New_York): `THEORY.md` v2.9 draft and `measurement/CLAIM_MAP_v2.md` v2.88. `main` is `801d4ff` (PR #226, the swarm-rule nit, on top of #225 the swarm rule, #224, and #223 the cancer-as-defection application `applications/CANCER_DEFECTION_2026-11-23.md`; before that, PR #222, the Grok Bot memory application `applications/GROK_BOT_MEMORY_2026-11-23.md`, merged as `f3b315f`). The previous text of this page, with the merge-by-merge record through PR #213, is `history/2026-11-22_STATUS_before_sweep.md`. Run `python3 tools/brief.py` for the live HEAD and open PRs.
 
 ## Where the theory stands
 
