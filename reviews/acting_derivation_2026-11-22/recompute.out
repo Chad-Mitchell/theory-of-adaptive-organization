@@ -1,0 +1,46 @@
+numpy 2.5.5 sympy 1.14.0
+b=0 coordinates ('kappa_Imem', 'hK', 'w_Ell', 'A', 'L')
+heat slope b*(D*c*gamma + 2*Dm*K*b + Dm*c*gamma)/(a + gamma)
+ok   Sr_X
+ok   Sr_M
+ok   heat
+ok   Sr_sum
+ok   I_balance
+ok   I_M
+ok   b0_variance
+ok   b0_Sr_X
+ok   b0_learning
+ok   heat_slope_positive_form
+ok   vprime_degree
+ok   vprime_lead_positive
+ok   vprime_const_negative
+ok   vprime_den_positive_factor
+ok   b0_Sr_M_above_flow
+b0 Sr_M - I_M = D*c**2*gamma**2*(D*c**2*gamma**2 + Dm*a**2 + Dm*a*gamma)/(Dm*(a + gamma)*(D*c**2*gamma**2 + Dm*a**2 + 2*Dm*a*gamma + Dm*gamma**2))
+ok   five_terms
+feedback flow sign at K=2 is negative True
+linear calibration K=1 n=80 L=6 x2 1.001922 vs 1.000000 Sr 2.007688 vs 2 mass 1.000000 minp 3.96e-17
+1D cubic E[X^2] 0.46791992
+stationary n=200 L=4.0 K_E=0.232658 JH0=0.782287 JH0.23=0.941241 JH1=1.740103 JH4=7.192339 slope_h=0.599631 slope_c=0.595302 SrX0=4.041066e-04
+stationary n=200 L=5.0 K_E=0.232360 JH0=0.785007 JH0.23=0.943309 JH1=1.741260 JH4=7.196013 slope_h=0.596196 slope_c=0.591836 SrX0=6.314837e-04
+stationary n=200 L=6.0 K_E=0.232337 JH0=0.785412 JH0.23=0.943740 JH1=1.741978 JH4=7.200479 slope_h=0.596233 slope_c=0.591869 SrX0=9.094548e-04
+GATE sr_hat 1.973637317765 sr_lg 2.000000000000 rel 1.318134e-02 delta 1.428e-13
+batch T=2 n=400 SE=0.126277 rel=0.063139
+batch T=4 n=200 SE=0.135148 rel=0.067574
+batch T=10 n=80 SE=0.129736 rel=0.064868
+batch T=20 n=40 SE=0.131869 rel=0.065934
+batch T=40 n=20 SE=0.126037 rel=0.063019
+batch T=50 n=16 SE=0.142160 rel=0.071080
+K 0.00 x2 0.475917241617 srX 0.050189309209 srM 0.244511366124 JE 0.475917241617 JH 0.770617916951
+K 0.25 x2 0.456944514863 srX 0.126909376730 srM 0.461832905450 JE 0.456944514863 JH 1.045686797043
+K 0.50 x2 0.459180113427 srX 0.155301878324 srM 0.472623263327 JE 0.459180113427 JH 1.087105255079
+K 0.75 x2 0.485410247378 srX 0.482434354955 srM 0.582068167245 JE 0.485410247378 JH 1.549912769578
+K 1.00 x2 0.512117050356 srX 0.618959458088 srM 0.695804516813 JE 0.512117050356 JH 1.826881025257
+K 1.50 x2 0.551779588036 srX 0.976493796382 srM 0.778129295334 JE 0.551779588036 JH 2.306402679752
+K 2.00 x2 0.620818020358 srX 1.602445913752 srM 0.790657673060 JE 0.620818020358 JH 3.013921607169
+K 3.00 x2 0.737414811118 srX 3.119822064700 srM 1.021280486060 JE 0.737414811118 JH 4.878517361877
+K 4.00 x2 0.859189544669 srX 5.232397362567 srM 1.160974916105 JE 0.859189544669 JH 7.252561823341
+GRID K_E 0.25 K_H 0.00 gap 0.25
+seeds 0..23 n=24 misses=7 mean=2.002404 sd=0.122073 rel_sd=0.061036
+seeds 1..24 n=24 misses=8 mean=2.010875 sd=0.126946 rel_sd=0.063473
+SECONDS 199.5
