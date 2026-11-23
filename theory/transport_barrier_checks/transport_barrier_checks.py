@@ -243,6 +243,12 @@ for gy in (10.0, 100.0, 1000.0):
 check("variational lower bounds on beta_unbind: >= 0.40 at g = 10, >= 7.46 at g = 100, >= 45.2 at g = 1000",
       abs(lower[10.0] - 0.400) < 0.01 and abs(lower[100.0] - 7.46) < 0.02 and abs(lower[1000.0] - 45.18) < 0.05)
 check("beta_unbind lower bound grows with the Yukawa coupling", lower[10.0] < lower[100.0] < lower[1000.0])
+two_sided = {gy: min(gy - (gy / (1 + lower[gy])), 2 * gy / (1 + lower[gy])) / (gy / (1 + lower[gy])) for gy in lower}
+print("   two-sided (review): empty state erased by bag + anti-bag at 2 E_1, so beta <= min(m - E_1, 2 E_1)/E_1: %s"
+      % ", ".join("%.2f" % two_sided[gy] for gy in sorted(two_sided)))
+check("bag record two-sided beta <= 2 at every g (one-sided unbind values do not carry over)", max(two_sided.values()) <= 2 + 1e-12)
+check("with the two-state average E_rec = E_1/2 the unbind lower bounds double (0.80, 14.9, 90.4)",
+      abs(2 * lower[10.0] - 0.80) < 0.01 and abs(2 * lower[100.0] - 14.93) < 0.02 and abs(2 * lower[1000.0] - 90.36) < 0.05)
 
 # ---------------------------------------------------------------- 7. self-gravitating confinement (sketch)
 print("== 7. confinement by the region's own gravity (Newtonian sketch with the hoop input)")

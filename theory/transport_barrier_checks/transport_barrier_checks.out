@@ -39,6 +39,9 @@ PASS  Dirac solver reproduces the bag limit from below
    g = 1000 (g^2/4pi = 79577.5): trial soliton energy 21.655 sigma_v vs free fermion 1000; beta_unbind >= 45.18
 PASS  variational lower bounds on beta_unbind: >= 0.40 at g = 10, >= 7.46 at g = 100, >= 45.2 at g = 1000
 PASS  beta_unbind lower bound grows with the Yukawa coupling
+   two-sided (review): empty state erased by bag + anti-bag at 2 E_1, so beta <= min(m - E_1, 2 E_1)/E_1: 0.40, 2.00, 2.00
+PASS  bag record two-sided beta <= 2 at every g (one-sided unbind values do not carry over)
+PASS  with the two-state average E_rec = E_1/2 the unbind lower bounds double (0.80, 14.9, 90.4)
 == 7. confinement by the region's own gravity (Newtonian sketch with the hoop input)
    hoop: G M/(R c^2) <= 1/2, so the escape barrier per object G M m/R <= m c^2/2 and beta <= 1/2 (SKETCH; no check)
 == 8. A2 from relativistic stability of matter
@@ -79,8 +82,8 @@ PASS  note quotes 2.84
 PASS  note quotes 1.03
 PASS  note quotes 1.70
 PASS  note quotes 1.65\times10^{-3}
-PASS  every DOI cited in the note is in crossref.out (21 cited, 21 resolved)
+PASS  every DOI cited in the note is in crossref.out (22 cited, 22 resolved)
 PASS  every DOI in crossref.out is cited in the note
 
-CHECKS 54  FAILS 0
+CHECKS 56  FAILS 0
 ALL TRANSPORT-BARRIER CHECKS PASS
