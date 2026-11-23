@@ -43,3 +43,6 @@ Zhirnov et al. 2003: Crossref returns volume '9'; the printed volume is 91.
 10.1142/S1230161210000023 | Alicki | 2010 | Open Systems &amp; Information Dynamics | 17 | 1-20 | On Thermal Stability of Topological Qubit in Kitaev's 4D Model
 10.1147/rd.53.0183 | Landauer | 1961 | IBM Journal of Research and Development | 5 | 183-191 | Irreversibility and Heat Generation in the Computing Process
 10.1209/0295-5075/95/40004 | Esposito | 2011 | EPL (Europhysics Letters) | 95 | 40004 | Second law and Landauer principle far from equilibrium
+10.1103/PhysRevA.97.052108 | Chiuchiù | 2018 | Physical Review A | 97 | 052108 | Cost of remembering a bit of information (added in independent review, PR #240)
+10.1214/aoap/1034968224 | Diaconis | 1996 | The Annals of Applied Probability | 6 | 695-750 | Logarithmic Sobolev inequalities for finite Markov chains (added in independent review, PR #240)
+10.1002/j.1538-7305.1968.tb01087.x | Taylor | 1968 | Bell System Technical Journal | 47 | 2299-2337 | Reliable Information Storage in Memories Designed from Unreliable Components* (added in independent review, PR #240)

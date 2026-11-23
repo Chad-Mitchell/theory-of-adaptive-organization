@@ -89,7 +89,7 @@ PASS  note quotes 9.57\times10^{68}
 PASS  note quotes 7.78
 PASS  note quotes 203.0
 PASS  note quotes 1193
-PASS  every DOI cited in the note is in crossref.out (40 cited, 40 resolved)
+PASS  every DOI cited in the note is in crossref.out (43 cited, 43 resolved)
 PASS  every DOI in crossref.out is cited in the note
 
 CHECKS 56  FAILS 0
