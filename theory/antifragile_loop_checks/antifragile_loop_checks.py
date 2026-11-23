@@ -473,6 +473,9 @@ def section_text():
 
 # ---------------------------------------------------------------- crossref
 DOIS = [
+    ("10.1016/0022-0531(70)90038-4", "Increasing risk"),
+    ("10.1016/S0304-3932(03)00029-1", "rational inattention"),
+    ("10.1098/rsta.1899.0003", "normal correlation"),
     ("10.1080/14697688.2013.800219", "fragility"),
     ("10.3390/e17063724", "Tail Risk Constraints"),
     ("10.1016/0022-5193(66)90188-3", "Optimizing reproduction"),
