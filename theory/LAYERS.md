@@ -32,8 +32,8 @@ So on the **time axis** (Chad's "fractal time ⇒ layers"), the repo has the pie
 
 ## 2. Results
 
-**Theorem L1 (one timescale ⇒ one layer). PROVED (in-model); the content is KNOWN (Kalman–Bucy 1961).** If the world has a single-pole spectrum (one OU mode, or a random walk), then E_1(k) = E_∞(k) at every lead k. So K\* = 1 for every w and h.
-*Proof.* The Kalman–Bucy filter for a scalar first-order state is one exponential store. The best predictor at lead k is e^{−ak}·ŝ(t) for OU, and ŝ(t) for the random walk, which still has degree 1. ∎
+**Theorem L1 (one timescale ⇒ at most one layer). PROVED (in-model); the content is KNOWN (Kalman–Bucy 1961).** If the world has a single-pole spectrum (one OU mode, or a random walk), then E_1(k) = E_∞(k) at every lead k. So K\* ∈ {0, 1}, never more. K\* = 0, acting blind at cost w·Var, can win for an OU mode when stakes are small; for the random walk, whose blind error is unbounded, K\* = 1 at every w and h. This is the statement already in `THEORY.md` CT21; the earlier sentence "K\* = 1 for every w and h" was stale for the OU case.
+*Proof.* The Kalman–Bucy filter for a scalar first-order state is one exponential store. The best predictor at lead k is e^{−ak}·ŝ(t) for OU, and ŝ(t) for the random walk, which still has degree 1. K\* ≤ 1 is immediate from E_1 = E_∞; K\* = 0 iff w·Var ≤ h + w E_1; for the random walk the blind error is unbounded, so K\* = 1 at every finite w, h, as already in CT21. ∎
 **Consequence.** A random walk (Brownian motion) is the textbook self-similar, "fractal" process, and it needs **one** layer. So "scale-free change ⇒ layers" is false at α = 2. The one tracked series in the repo with a validated α estimate, the 10-year Treasury yield, is exactly this case: α̂ = 2.00 ± 0.03 with no corner over periods from 2 days to 37 years, on proxy (`measurement/estimators/RESULTS.md` l.12, l.78; `reviews/night2/AQN_REFEREE.md` V4).
 
 **Theorem L2 (J timescales ⇒ at most J layers, and exactly J when stakes are high). PROVED (in-model) at k = 0; "≤ J" proved at every lead.** Let s be a sum of J OU modes with distinct rates a_j and v_j > 0.
@@ -93,7 +93,7 @@ Check: `checks/t7b_alpha.out` (optimal widths equal to 4 decimals at α = 1.2, 1
 ## 4. Plain statement of what is now proved, checked or failed
 
 - **Proved (in-model, linear-Gaussian, noisy sensing; this note; not yet independently reviewed):**
-  - L1: one timescale ⇒ one layer, **including the scale-free random walk**.
+  - L1: one timescale ⇒ \(K^*\in\{0,1\}\), **including the scale-free random walk** (K\* = 1 at every stake for the random walk; an OU mode can be left untracked when stakes are small).
   - L2: J timescales ⇒ at most J layers, exactly J at high stakes/upkeep, with an exact iff threshold R\*.
   - L3: a continuum of timescales ⇒ no finite number of layers is exact.
   - L4: geometric clocks are optimal at every α in the shared-clock model.

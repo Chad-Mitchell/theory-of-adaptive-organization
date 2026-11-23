@@ -2,7 +2,9 @@
 
 *Sunday 22 November 2026, America/New_York. Branch `general-form-2026-11-22`. Written by one executor for Chad Mitchell. A self-check, not an independent review. It does not edit a locked preregistration, a hash, or a LOCK file. It does not change the Part 2 hypothesis sentence. THEORY.md remains the canonical statement where the two disagree: the additive equation there is still the statement of the problem. This note derives the weaker object of which that equation is a special case.*
 
-*`theory/REPRESENTATION.md` is on `main` (PR #154, merged; confirm PR #157, including the nits at `40e10c1`). This note builds on that text. It does not reopen V1–V6. V5 stays OPEN. The frontier re-read (PR #158) was read as a draft, not as authority. Algebra shared with the representation note is re-derived here.*
+*`theory/REPRESENTATION.md` is on `main` (PR #154, merged; confirm PR #157, including the nits at `40e10c1`). This note builds on that text. It does not reopen V1–V6. V5 stays OPEN. The frontier re-read was read as a draft, not as authority; it is now `theory/FRONTIER_REREAD_2026-11-22.md` and remains a planning note. Algebra shared with the representation note is re-derived here.*
+
+*Status (23 November 2026). The independent review is `reviews/general_form_2026-11-22/REVIEW.md` (PR #163, NOT-READY). The repair is on main (PR #161). Independent confirm PR #164 is CONFIRMED-WITH-NITS (`reviews/CONFIRM_PR161.md`).*
 
 ## 0. The derived form, in one statement
 
