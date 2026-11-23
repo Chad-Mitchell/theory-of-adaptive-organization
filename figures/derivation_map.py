@@ -46,7 +46,7 @@ YIELDS = [
 
 GENERAL_LINES = [
     "A1–A7: an additive price sum; GYD mutual information.",
-    "Finite-law and differential MI agree when I is finite.",
+    "Matches finite-law MI, and density MI when I < ∞.",
     "Heat floor: bath ≥ kT × its own information flow",
     "(bipartite chains; additive-noise diffusions).",
     "Stake monotonicity, stake-independent menu, ruin slack.",
