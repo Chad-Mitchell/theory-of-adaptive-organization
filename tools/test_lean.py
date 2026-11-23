@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """Build the Lean 4 formalization if Lean is installed; skip if it is not.
 
+The build runs only in the dedicated checkout at /tmp/gtao-lean (or
+$GTAO_LEAN_DIR), never in the clone the test is run from; it skips when that
+checkout is missing or its formal/lean sources differ from this clone.
+
 Run:  python3 -m pytest -q tools/test_lean.py
 """
 from __future__ import annotations
@@ -96,17 +100,51 @@ def test_lean_sources_have_no_sorry():
     assert hits == [], "forbidden token found in Lean sources:\n" + "\n".join(hits)
 
 
+# Repo rule: `lake build` runs only in a dedicated checkout at /tmp/gtao-lean
+# (override with GTAO_LEAN_DIR), never inside an ordinary clone, because a
+# Mathlib cache unpacked into every clone exhausts the disk.
+LEAN_HOME = os.environ.get("GTAO_LEAN_DIR", "/tmp/gtao-lean")
+
+
+def _lean_tree(root: str) -> dict[str, bytes]:
+    """Project files under formal/lean, excluding caches, as {relpath: bytes}."""
+    base = os.path.join(root, "formal", "lean")
+    out: dict[str, bytes] = {}
+    for dirpath, dirnames, filenames in os.walk(base):
+        dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS]
+        for name in filenames:
+            path = os.path.join(dirpath, name)
+            with open(path, "rb") as fh:
+                out[os.path.relpath(path, base)] = fh.read()
+    return out
+
+
 def test_lean_build_if_available():
     if _lake_on_path() is None:
         pytest.skip("Lean 4 / lake is not installed")
-    script = os.path.join(ROOT, "tools", "check_lean.sh")
+    script = os.path.join(LEAN_HOME, "tools", "check_lean.sh")
+    if not (os.path.isfile(script) and os.path.isdir(os.path.join(LEAN_HOME, "formal", "lean"))):
+        pytest.skip(
+            "lake runs only in %s (repo rule); no checkout there. "
+            "Clone the repo to %s and rerun." % (LEAN_HOME, LEAN_HOME)
+        )
+    if os.path.realpath(LEAN_HOME) != os.path.realpath(ROOT):
+        mine, theirs = _lean_tree(ROOT), _lean_tree(LEAN_HOME)
+        # .gitignore and build outputs aside, the Lean sources must match byte for byte.
+        diff = sorted(k for k in set(mine) | set(theirs) if mine.get(k) != theirs.get(k))
+        if diff:
+            pytest.skip(
+                "formal/lean in %s differs from this clone (%s); sync that checkout "
+                "(git -C %s fetch && git -C %s checkout <this commit>) and rerun"
+                % (LEAN_HOME, ", ".join(diff[:5]), LEAN_HOME, LEAN_HOME)
+            )
     env = os.environ.copy()
     elan_bin = os.path.expanduser("~/.elan/bin")
     if os.path.isdir(elan_bin):
         env["PATH"] = elan_bin + os.pathsep + env.get("PATH", "")
     r = subprocess.run(
         [script],
-        cwd=ROOT,
+        cwd=LEAN_HOME,
         capture_output=True,
         text=True,
         timeout=1800,

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Build the Lean 4 formalization of the GTAO core (OPEN_WORK T19).
 # Run from the repo root:  tools/check_lean.sh
+# Repo rule: run it only in the dedicated checkout /tmp/gtao-lean, never in an
+# ordinary clone (the Mathlib cache it unpacks is several GB).
+# tools/test_lean.py enforces that.
 # Exit 0 = lake build succeeded, no forbidden token occurs in project
 #          sources (GTAO.lean, GTAO/*.lean), and the axiom audit
 #          (formal/lean/scripts/AxiomAudit.lean) finds that every GTAO

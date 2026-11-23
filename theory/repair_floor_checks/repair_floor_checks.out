@@ -1,0 +1,96 @@
+== 1. basic numbers
+PASS  L(0.2) = 0.6 ln 4 = 0.831776616672 (T59/T60 telegraph number)  [0.831776616672]
+PASS  ln2 - h(0.2) = 0.192744757022 (T62 binary stock)
+PASS  4(ln2 - h(0.2)) = 0.770979028088  [0.770979028087]
+PASS  4(ln2 - h(1e-9)) = 2.772588635 (tends to 4 ln 2 = 2.772588722)  [2.772588635]
+== 2. single carrier: sigma = Gamma L(eps) and sigma >= 4 Gamma (ln2 - h)
+PASS  one carrier at error eps: leak entropy production = Gamma L(eps) (grid of 2001)
+PASS  one carrier: L(eps) / (ln2 - h(eps)) >= 4 on the grid  [min 4.000000033]
+PASS  ratio tends to 4 as eps -> 1/2 (x = 1 - 2 eps = 1e-3)  [4.000000668]
+PASS  series: 2/(2k-1) >= 2/(k(2k-1)) for every k >= 1, equality only at k = 1
+PASS  change of variables x = 1 - 2 eps: L = x ln((1+x)/(1-x)), 4(ln2-h) = 2[(1+x)ln(1+x)+(1-x)ln(1-x)]
+== 3. tensorization: sigma(p) >= 4 Gamma_min D(p || uniform) on {0,1}^n
+PASS  1500 random distributions, n = 1..5, rates >= Gamma: sigma >= 4 Gamma D  [min ratio 1.000000]
+== 4. coarse-graining a controller only lowers the leak entropy production
+PASS  sum_y (a_y - b_y) ln(a_y/b_y) >= (A - B) ln(A/B), 500 random cases
+== 5. any code, any decoder: average over b of sigma >= 4 Gamma (ln2 - h(eps))
+PASS  random codes and decoders, n = 1..4: (sigma_0 + sigma_1)/2 >= Gamma * 4(ln2 - h(eps))
+PASS  min over decoder mass delta of F1+F2 = 2(ln2 - h(eps)) at eps = 0.2  [0.3854895140]
+PASS  min over decoder mass delta of F1+F2 = 2(ln2 - h(eps)) at eps = 0.01  [1.2742912924]
+PASS  kl(1-eps||eps) = L(eps) >= 2 kl(1-eps||1/2) at eps = 0.2
+== 6. symmetric leak: sigma = -dD(p||u)/dt
+PASS  finite-difference -dD/dt matches sigma (n = 3)  [1.13520532 vs 1.13520766]
+== 7. modified log-Sobolev constant <= 2 x spectral gap (near-equilibrium expansion)
+PASS  50 random reversible chains: sigma/D along the gap mode -> 2 * gap, so rho <= 2 * gap
+== 8. a finite, irreducible, b-blind scheme has one stationary state (the record is lost)
+PASS  majority corrector on 3 leaky carriers: exactly one zero eigenvalue  [second eigenvalue -3.103783e-02]
+PASS  logical error after t >> lifetime tends to 1/2  [0.500000]
+PASS  logical lifetime of that scheme is finite (11.921 / Gamma)
+== 9. repetition codes, majority decoder: numerical minimum of the leak entropy production
+    eps=0.2    n=1    g_rep=0.8318   4(ln2-h)=0.7710   L=0.8318
+    eps=0.2    n=3    g_rep=0.9863   4(ln2-h)=0.7710   L=0.8318
+    eps=0.2    n=5    g_rep=1.0448   4(ln2-h)=0.7710   L=0.8318
+    eps=0.2    n=9    g_rep=1.0943   4(ln2-h)=0.7710   L=0.8318
+    eps=0.2    n=21   g_rep=1.1367   4(ln2-h)=0.7710   L=0.8318
+    eps=0.2    n=41   g_rep=1.1541   4(ln2-h)=0.7710   L=0.8318
+    eps=0.001  n=1    g_rep=6.8929   4(ln2-h)=2.7410   L=6.8929
+    eps=0.001  n=3    g_rep=6.8356   4(ln2-h)=2.7410   L=6.8929
+    eps=0.001  n=5    g_rep=6.7998   4(ln2-h)=2.7410   L=6.8929
+    eps=0.001  n=9    g_rep=6.7627   4(ln2-h)=2.7410   L=6.8929
+    eps=0.001  n=21   g_rep=6.7275   4(ln2-h)=2.7410   L=6.8929
+    eps=0.001  n=41   g_rep=6.7153   4(ln2-h)=2.7410   L=6.8929
+    eps=1e-09  n=1    g_rep=20.7233   4(ln2-h)=2.7726   L=20.7233
+    eps=1e-09  n=3    g_rep=12.2382   4(ln2-h)=2.7726   L=20.7233
+    eps=1e-09  n=5    g_rep=10.9797   4(ln2-h)=2.7726   L=20.7233
+    eps=1e-09  n=9    g_rep=10.0572   4(ln2-h)=2.7726   L=20.7233
+    eps=1e-09  n=21   g_rep=9.2378   4(ln2-h)=2.7726   L=20.7233
+    eps=1e-09  n=41   g_rep=8.8335   4(ln2-h)=2.7726   L=20.7233
+PASS  n = 1 reproduces L(eps) at all three errors
+PASS  every repetition value >= the general bound 4(ln2 - h(eps))
+PASS  eps = 1e-9: redundancy lowers the floor below L (n = 41 value 8.8335 < L = 20.7233)
+PASS  eps = 0.2: redundancy raises the floor (n = 1 is best among those tried)
+PASS  quoted values: eps=1e-9 n=21 -> 9.2378, n=41 -> 8.8335; eps=1e-3 n=41 -> 6.7153
+PASS  diffusion limit: psi = sqrt(2) y on y > 0 is normalized and has relative Fisher information 4 (so 2 Gamma * 4 = 8 Gamma)
+== 10. minimum of kT rho (ln2 - h(eps)) + w eps over eps
+PASS  w/(kT rho) = 2: eps* = 1/(1+e^{w/(kT rho)}) = 1.192029e-01  [numeric 1.192029e-01]
+PASS  w/(kT rho) = 10: eps* = 1/(1+e^{w/(kT rho)}) = 4.539787e-05  [numeric 4.539785e-05]
+PASS  w/(kT rho) = 30: eps* = 1/(1+e^{w/(kT rho)}) = 9.357623e-14  [numeric 9.376312e-14]
+== 11. worked cap: records kept <= q A / (kT * 4 Gamma (ln2 - h(eps)))
+    dE=0.50 eV  Gamma=3.984e+03 /s  lifetime=2.510e-04 s  cap per m^2 of boundary=2.185e+22  R*=6.556e-06 m
+    dE=0.75 eV  Gamma=2.515e-01 /s  lifetime=3.976e+00 s  cap per m^2 of boundary=3.462e+26  R*=1.039e-01 m
+    dE=1.00 eV  Gamma=1.588e-05 /s  lifetime=6.299e+04 s  cap per m^2 of boundary=5.485e+30  R*=1.645e+03 m
+    dE=1.25 eV  Gamma=1.002e-09 /s  lifetime=9.979e+08 s  cap per m^2 of boundary=8.689e+34  R*=2.607e+07 m
+PASS  dE = 1.0 eV: Gamma = 1.59e-5 /s, cap 5.48e30 records per m^2, crossover radius 1.65e3 m  [1.5876e-05 5.4849e+30 1.6455e+03]
+PASS  dE = 0.5 eV: crossover radius is microscopic (6.556e-06 m)
+PASS  holographic stock density A/(4 l_p^2) = 9.57e68 nats per m^2 (for comparison only)  [9.5702e+68]
+PASS  the heat-shed cap at 1.0 eV sits about 38 orders of magnitude below it, and depends on q, Gamma, T  [38.24 decades]
+PASS  dimensionless cube (kT=Gamma=q=1, one carrier per site, eps=0.2): room n^3 vs heat 6 n^2/0.770979, crossover side 7.782  [7.782313]
+== 12. self-correcting media: block size needed and stock scaling
+    d=3  barrier exponent b=2.0  tau=1e9 s  eps=1e-9  carriers per record m(tau)=203.0
+PASS  d = 3: lambda(m(tau)) * tau = eps (passive hold, zero ongoing heat)
+    d=2  barrier exponent b=2.0  tau=1e9 s  eps=1e-9  carriers per record m(tau)=1192.9
+PASS  d = 2: lambda(m(tau)) * tau = eps (passive hold, zero ongoing heat)
+PASS  d = 3, b = 2: m(tau) = 203.0 carriers per record  [202.98]
+PASS  power-law leak kappa = 0: stock exponent 2.0000 = 3 - 1/(1+kappa) = 2.0000
+PASS  power-law leak kappa = 1: stock exponent 2.5000 = 3 - 1/(1+kappa) = 2.5000
+PASS  power-law leak kappa = 3: stock exponent 2.7500 = 3 - 1/(1+kappa) = 2.7500
+== 13. note text
+PASS  hypothesis sentence present exactly once, byte-identical
+PASS  no 'theory of everything', 'solved', 'solves', or 'bill'
+PASS  note quotes 9.2378
+PASS  note quotes 8.8335
+PASS  note quotes 6.7153
+PASS  note quotes 0.770979
+PASS  note quotes 2.7726
+PASS  note quotes 1.59\times10^{-5}
+PASS  note quotes 5.48\times10^{30}
+PASS  note quotes 1.65\times10^{3}
+PASS  note quotes 9.57\times10^{68}
+PASS  note quotes 7.78
+PASS  note quotes 203.0
+PASS  note quotes 1193
+PASS  every DOI cited in the note is in crossref.out (40 cited, 40 resolved)
+PASS  every DOI in crossref.out is cited in the note
+
+CHECKS 56  FAILS 0
+ALL REPAIR-FLOOR CHECKS PASS
