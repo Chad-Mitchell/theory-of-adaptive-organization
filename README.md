@@ -33,7 +33,7 @@ These need no Gaussian or linear step (`theory/REPRESENTATION.md`, `theory/GENER
 
 ## What the minimum buys
 
-In the worked class (equilibrium Ornstein–Uhlenbeck signals or the two-state telegraph, a memory that does not move its signal, mean-square or Hamming loss) the minimum is computed in closed form (`theory/GENERAL_FORM_PHYSICS_2026-11-22.md`). Each result below is proved in its named model; that all five are one minimum of one cost is the synthesis the hypothesis asserts (`theory/ACTING_LOOP_2026-11-22.md` §8).
+In the worked class (equilibrium Ornstein–Uhlenbeck signals or the two-state telegraph, a memory that does not move its signal, mean-square or Hamming loss) the minimum is computed in closed form (`theory/GENERAL_FORM_PHYSICS_2026-11-22.md`). Each result below is proved in its named model; that the five uses of the worked class are one minimum of one cost is the synthesis the hypothesis asserts (`theory/ACTING_LOOP_2026-11-22.md` §8). Of the last bullet, stay, alignment, the leave cliff and the re-form band are proved in the classes of `THEORY.md` Appendix B, not in the worked class; the merge condition and remove-or-reprice are conjectures.
 
 - **When memory pays.** Below the stake ratio \(x=1\) the cheapest design is blind. Above it the minimum cost is \(2\sqrt{kT\,a\,v\,w}-kT\,a\). The same threshold appears for discrete memories as "the first bit must pay" (`THEORY.md` CT4, `core/bridge_2026-11-21/FLOOR.md`).
 - **Layers.** On a ladder of time scales, each scale past the threshold gets a store, and the count follows from the stake with no free constant per layer.
@@ -41,6 +41,7 @@ In the worked class (equilibrium Ornstein–Uhlenbeck signals or the two-state t
 - **Boundary.** For a decision outside a region, the boundary is sufficient and the interior adds nothing (`theory/BOUNDARY_SUFFICIENCY_2026-11-22.md`).
 - **Rebuild and gaining from shocks.** The cost predicts when a system gains from disorder and when it does not. Under the ruin cap, replacing identical units can lower the long-run cost. In the linear-Gaussian class, with the ruin cap slack, a spread of volatility lowers expected cost if the system can redesign per regime. In an open-loop probe class the minimized sign cost can fall as volatility rises; at the scored point a spread of volatility raises that same cost. A general gain from closing the loop is an open conjecture (`theory/antifragility_checks/RESULTS.md`, `theory/ROBUSTNESS.md`, `theory/ACTING_MEMORY_2026-11-22.md`, `theory/ANTIFRAGILITY_CONJECTURE_2026-11-23.md`).
 - **Acting.** Closed-loop control beats sensing alone when the channel is free. Once its heat and probe are charged, it loses at unit stake and wins by a small margin at stake 4 (`theory/ACTING_LOOP_2026-11-22.md`).
+- **Join, stay and leave (swarms).** A part keeps following a whole iff \(\lambda sc<w\Phi\): signal change rate times the part's share of the price of following, against its own stake times the signal's worth to it. Its choice is the whole's iff shares match stakes (\(s=w/W\)), and then, when the part also shares collateral and any priced ruin term, tampering with the whole's signal or enforcement never pays. Cases: cancer and AI agents under oversight (`theory/SWARM_RULE_2026-11-23.md`; `applications/`).
 
 ## Where this is going
 
@@ -49,7 +50,8 @@ In the worked class (equilibrium Ornstein–Uhlenbeck signals or the two-state t
 3. **The floor spreads class by class.** The heat floor is proved for bipartite chains and additive-noise diffusions. Beyond those classes it is open. A draft awaiting re-confirmation gives an information-flow bound for linear drifting worlds (`theory/THEOREM_P_DRIFT.md`). Next in the work list are the continuous-information A6 extension (T48), non-Gaussian closed forms (T49), and the open Kalman–Bucy factor-of-2 question. The goal is a floor for every adaptive system.
 4. **Selection finds the minimum where no closed form exists.** A search scored by the cost, natural selection or an evolutionary algorithm, settles near the minimum; near a quadratic minimum the predicted excess is \(d/(2\beta)\), which shrinks as selection strengthens (`core/bridge_2026-11-21/BRIDGE.md`). That holds only under three conditions, each with a counterexample in our own runs: strong selection, a minimum the search can reach, and a cost that includes everything that matters (`CORE.md` §5).
 5. **Antifragility.** The cost predicts when a system gains from disorder and when it does not (`theory/ANTIFRAGILITY_CONJECTURE_2026-11-23.md`). The option and learning routes are proved in their own classes; a general gain from closing the loop is an open theorem.
-6. **The real-world test.** Qualify a strongly selected system, preregister the prediction, and measure.
+6. **Join, stay and leave.** The same cost says when parts of a whole join, stay, leave, tamper and re-form (`theory/SWARM_RULE_2026-11-23.md`). The stay condition is proved in its class; the tamper condition is proved when the part shares the whole's full stay-versus-leave cost (the swarm rule §4); the cases are interpretations with preregistrable tests (T51–T53).
+7. **The real-world test.** Qualify a strongly selected system, preregister the prediction, and measure.
 
 ## Where the evidence stands
 
