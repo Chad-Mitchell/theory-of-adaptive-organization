@@ -4,7 +4,7 @@
 
 **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
 
-Until a qualifying system is measured, read that sentence as a principle: one cost of judgment, and the design is what the cost selects. Inside the Gaussian and linear class the mathematical core is effectively complete. Evidence from real systems is thin, and it is open. The one-page statement is [`CORE.md`](CORE.md).
+Until a qualifying system is measured, read that sentence as a principle: one cost of judgment, and the design is what the cost selects. The heat floor and its minimizers are proved in one class: an exogenous equilibrium Ornstein–Uhlenbeck signal, independent signals of that kind, or the two-state telegraph; a mean-square loss, or Hamming error on the telegraph; a memory that does not move the signal. The telegraph is in that class. Other Gaussian systems stay open, and other linear systems stay open, including a memory that moves its world. No system has been shown to qualify, so nothing on this page is a test from a real system. The one-page statement is [`CORE.md`](CORE.md).
 
 ![One cost, five yields](figures/derivation_map.png)
 
@@ -16,11 +16,11 @@ In the class where the learning rate has been worked out, the cost of judgment i
 
 $$J = \dot Q + w\,\mathbb{E}[\ell] \qquad\text{subject to}\qquad P(\text{ruin})\le\varepsilon.$$
 
-When the prices are linear, that cost is the five-term sum still printed as the canonical equation:
+THEORY §3 still prints a different sum. \(\kappa\) is the price of one nat of memory \(I_{\mathrm{mem}}\), \(h\) is the upkeep of one layer, \(K\) is the number of layers, \(A\) is the price of reading the world, and \(L\) is the price of linking:
 
 $$\kappa I_{\mathrm{mem}} + hK + w\,\mathbb{E}[\ell] + A + L.$$
 
-\(\kappa I_{\mathrm{mem}}\) is the bath heat. Its floor is \(kT\) times the learning rate (Horowitz and Esposito 2014, doi 10.1103/PhysRevX.4.031015, checked on Crossref 22 November 2026). \(hK\) sits outside that floor. \(w\,\mathbb{E}[\ell]\) survives, and temperature does not set the stake \(w\). A continuous sensor's read is already inside the heat; a separate read price \(A\), the link price \(L\), and the ruin cap stay assumed.
+The sum is a different object. The bath heat replaces \(\kappa I_{\mathrm{mem}}\). The floor on the heat is \(kT\) times the learning rate (Horowitz and Esposito 2014, doi 10.1103/PhysRevX.4.031015, checked on Crossref 22 November 2026). \(hK\) sits outside that floor. \(w\,\mathbb{E}[\ell]\) survives, and temperature does not set the stake \(w\). A continuous sensor's read is already inside the heat. A separate read price \(A\) stays assumed. The link price \(L\) stays assumed and stays outside the heat-plus-stake sum. The ruin cap stays assumed and stays beside the sum.
 
 [`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v2.9 draft). Where this page and that file disagree, that file governs. Adopting the physics display into §3 is open work, T40, proposed in `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` §9.
 
@@ -30,7 +30,7 @@ The worked class is an exogenous equilibrium Ornstein–Uhlenbeck signal, indepe
 
 Each line below is proved in the class named with it. The sentence that the five are one minimum is a synthesis. `theory/ACTING_LOOP_2026-11-22.md` §8 states that limit.
 
-**Layers, along time.** One real time scale needs one store, or none when the stake is small. On the geometric ladder the count is the formula above. [`figures/face.png`](figures/face.png) is the placement: for each time scale, local, shared, both, or neither.
+**Layers, along time.** When each mode is scored on its own, one real time scale needs one store, or none when the stake is small. On the geometric ladder the count is the formula above. When the loss is the error in the sum, one rank-one memory carries the modes. [`figures/face.png`](figures/face.png) is the placement: for each time scale, local, shared, both, or neither. Spacing those stores under a closed loop is unsolved.
 
 **Spread, across items.** One memory carries a sum. \(K\) separate memories of \(K\) identical modes cost \(K\) times the heat at the same error. A shared memory costs less when the decision is a combination of items, and it ties or costs more when every item is read on its own (`theory/HOLOGRAPHIC_MEMORY_2026-11-22.md`). The heat floor on a per-site error scales with the volume. Holding a named cut scales with the cut (`theory/HOLOGRAPHIC_2026-11-22.md`). The name "holographic" adds no prediction those equations do not already make.
 
@@ -38,7 +38,7 @@ Each line below is proved in the class named with it. The sentence that the five
 
 **Rebuild.** Under the ruin cap, replacement of identical capacity-limited units can lower the long-run cost: rate 1 costs 15.473978 with ruin probability 0.020940, against an inadmissible zero-shock point at cost 16 (`theory/antifragility_checks/RESULTS.md`). The heterogeneous arm's grid minimum stays at no shock. That comparison is a puzzle at this cap. Heat is proportional to precision, and the admissible grid kept the more precise units.
 
-**Acting.** With the channel unpriced, closed-loop regulation is cheaper than sensing alone by the factor 0.171572875254 at unit stake and unit drift. With the heat and the probe charged, the gap is negative at every fraction at stake 1, and equals 0.033889928154 at stake 4. Feedback shrinks the information stock and leaves the learning-rate heat fixed (`theory/ACTING_LOOP_2026-11-22.md`). A probe can make the minimized cost fall as volatility rises. The drop is the price of a fraction falling as \(1/\theta\) (`theory/ACTING_MEMORY_2026-11-22.md`).
+**Acting.** With the channel unpriced, closed-loop regulation is cheaper than sensing alone by \((q-2aP(a))\theta\). At unit stake, unit drift, and unit variance that gap is \(0.171572875254\), against a sensing-alone cost of \(1\). With the heat and the probe charged, the gap is negative at every fraction at stake \(1\). At stake \(4\) the gap at the minimizing fraction is \(0.033889928154\). Feedback shrinks the information stock and leaves the learning-rate heat fixed (`theory/ACTING_LOOP_2026-11-22.md`). A probe can make the minimized cost fall as volatility rises. The drop is the price of a fraction falling as \(1/\theta\) (`theory/ACTING_MEMORY_2026-11-22.md`).
 
 ## Options, and the learning heat
 
@@ -46,7 +46,7 @@ A payoff convex in a shock gains from a spread of that shock. Antifragility is t
 
 ## In review
 
-The acting derivation is in review: [PR #203](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/203), branch `cursor/acting-derivation-2d99`, head `a79d7b6`. Theorem R1′ is a representation theorem. The step proved on that branch is the \(b=0\) reduction, which returns the five-term cost. The risky prediction was met by one grid step. A stationary solve gives continuous gains 0.23 against 0. The gate was underpowered, so meeting it is weak evidence. This page does not adopt that derivation, and it does not treat the pull request as merged.
+The acting derivation is in review: [PR #203](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/203), branch `cursor/acting-derivation-2d99`, head `a79d7b6`. This page does not adopt it, and it does not treat the pull request as merged.
 
 ## What remains
 

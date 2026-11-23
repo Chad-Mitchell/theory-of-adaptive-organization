@@ -35,11 +35,11 @@ PALETTE = {
 
 # Pre-wrapped for a phone column.
 YIELDS = [
-    ("LAYERS", "One store for each time scale the stake can pay."),
+    ("LAYERS", "Per mode: one store for a paid scale, or none."),
     ("SPREAD", "One shared memory when the decision is a sum."),
-    ("BOUNDARY", "The blanket screens a decision made outside."),
-    ("REBUILD", "Replace a part when holding it costs more."),
-    ("ACTING", "Close the loop when the stake covers the look."),
+    ("BOUNDARY", "Gaussian field: the blanket suffices outside."),
+    ("REBUILD", "Identical units can cost less under the cap."),
+    ("ACTING", "Priced channel: only if the stake covers the probe."),
 ]
 
 
@@ -212,7 +212,7 @@ def main():
     ax.text(
         left + 0.22,
         y + cost_h - 0.40,
-        "Gaussian and linear class",
+        "OU, independent OU, telegraph",
         ha="left",
         va="top",
         fontsize=12,
@@ -249,7 +249,7 @@ def main():
     ax.text(
         left + 0.22,
         y + 0.24,
-        "Five terms, linear prices. Same cost.",
+        "THEORY still prints five terms. A different object.",
         ha="left",
         va="center",
         fontsize=10,
@@ -362,7 +362,7 @@ def main():
     ax.text(
         left + 0.16,
         y + synth_h - 0.66,
-        "Learning and an option, same cost.",
+        "No theorem joins the learning heat and an option.",
         ha="left",
         va="top",
         fontsize=11,
