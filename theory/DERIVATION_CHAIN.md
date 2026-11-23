@@ -188,7 +188,7 @@ These use S-M and the floors, or a definition, and no price (`theory/GENERAL_FOR
 
 The world's judgment frontier \(\mathcal{F}_W=\{(I,r,K,D)\}\) and its support function are Theorem S2 in the Shannon note: \(J^\star(p)=-\sigma_{\mathcal{F}}(-p)\), and this equals the operational least cost only when some minimizer has \(A=c\cdot r\) and \(L=0\). Technical efficiency needs no prices (Theorem S3, Farrell 1957, Debreu 1951). Joint achievability with both memory and reads priced is **open** (efficiency \(J_{\mathrm{floor}}/J=0.9574\) on one grid point; `theory/SHANNON_2026-11-21.md` §3). S1 does not charge a layer. A memoryless read can have \(K=0\) and still carry information.
 
-CX1 stays **OPEN**. Section T is a partial resolution: the flow form of CT1–CT4 is proved for drifting worlds (PD1a and PD2–PD5 **PROVED (in-model)**; PD1b and PD7 **PRIOR ART**). When world variance diverges, the raw stock \(I(M_t;X_t)\) cannot be the viability term (PD6 **PROVED (in-model)**). A renormalized stock and the other open parts are PD8 **OPEN**. The section T header still says the confirm is pending. These rows are not promoted past that.
+CX1 stays **OPEN**. Section T is a partial resolution: the flow form of CT1–CT4 is proved for drifting worlds (PD1a and PD2–PD5 **PROVED (in-model)**; PD1b and PD7 **PRIOR ART**). When world variance diverges, the raw stock \(I(M_t;X_t)\) cannot be the viability term (PD6 **PROVED (in-model)**). A renormalized stock and the other open parts are PD8 **OPEN**. Section T was re-confirmed on 23 November 2026 (READY). These rows are not promoted past the remaining PD8 items; CX1 stays **OPEN**.
 
 ### 9.2 Needs a stake, a price ratio, or a scalar cost
 
@@ -320,7 +320,7 @@ THEORY governs where a note disagrees with it. This section records the clashes 
    - This PR updates STATUS. At `origin/main` `5fa4b8c`, `STATUS.md` still says `main` is `2d9a812` (PR #165). The edit on this branch sets that pointer to `5fa4b8c` (PR #168).
 
    Left as written, because this pass did not rewrite them:
-   - OPEN_WORK T11 still says draft PR #149 is not merged, and section T still says the Theorem P confirm is pending re-confirm.
+   - OPEN_WORK T11 and section T were later re-confirmed on 23 November 2026 (READY); the stale pending-confirm wording was updated then. PR #149 is merged.
    - `theory/GENERAL_FORM.md` header still says branch `general-form-2026-11-22`. The note is on `main` (PR #161, confirm #164). OPEN_WORK T32 still says it needs a reviewer.
 
 ## What this note does not do
