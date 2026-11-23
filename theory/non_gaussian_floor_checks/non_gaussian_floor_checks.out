@@ -1,0 +1,32 @@
+CHECK PASS hypothesis_sentence_byte_identical  present in THEORY.md and in the note
+== A. diffusive worlds, any smooth stationary distribution ==
+CHECK PASS A1_student_t_fisher_closed_form  J=(nu+1)/((nu+3)s^2) for nu in 1,2,3,5,30; max rel err 2.24552e-15; Cauchy J=1/2
+CHECK PASS A1b_fisher_times_variance_ge_one  Student-t J*Var = 2, 1.25, 1.00649 (Gaussian = 1)
+CHECK PASS A2_van_trees_floor_on_worlds_and_channels  36/36 (world, channel, sigma) cases satisfy D*E[F] >= D(1/eps - J); min relative margin -7.04992e-12
+CHECK PASS A2b_fast_copy_gap_between_0_and_DJ  for the Gaussian copy, 0 <= D/sigma^2 - D(1/eps-J) <= D*J on every world and sigma
+CHECK PASS A3_destruction_identity_any_drift  world-side flow = -D E[channel Fisher] for 4 random non-equilibrium drifts and marginals; max rel err 0.00024217
+CHECK PASS A4_lattice_JP_heat_and_floor  Student-t nu=3 lattice world, spring memory: Q>=I_alt and I_alt >= 0.97*D(1/eps-J) at gamma=5,50,500
+CHECK PASS A4b_fast_spring_heat_to_D_over_sigma2  Q/(D/sigma^2) = 0.884397, 0.981799, 0.993399 at gamma = 5, 50, 500
+CHECK PASS A5_ou_lower_bound_is_known_minimum  2 sqrt(kT D w) - kT D J = 5 at a=v=1, w=9
+CHECK PASS A5b_sandwich_student_t  kT=D=1: J* in [2sqrt(w)-J, 2sqrt(w)]; e.g. Cauchy w=10: [5.82456, 6.32456] (blind cost infinite)
+== B. regime-switching (volatility) worlds ==
+CHECK PASS B1_regime_conditional_distributions  p(s)=0.666667, 0.333333; within-regime Fisher J_s=2.20339, 0.316222 (non-Gaussian mixtures of OU distributions)
+CHECK PASS B2_per_regime_van_trees_floor  sum_s p_s D_s E[F_s] >= sum_s p_s D_s (1/eps_s - J_s) for 4 copies (tuned and blind); min rel margin 0.0195943
+CHECK PASS B3_hybrid_destruction_identity_exact  memory learning rate = diffusive part + switching KL part (exact steady state), gamma=20,400
+CHECK PASS B3b_switching_part_matches_KL_surcharge  switching part 0.216081 vs fast-limit sum p_s r KL(sigma_s||sigma_s') = 0.225
+CHECK PASS B3c_fast_tuned_heat_to_identity  Q=4.31961, I_alt=4.22811, fast-limit value sum p_s D_s/sigma_s^2 + surcharge = 4.30663 (gamma=400)
+CHECK PASS B4_regime_aware_beats_constant_world_floor_above_threshold  Dbar=1.5, E sqrt(D)=1, surcharge=0.225 nats/time, threshold stake 7.42733; at 4x: design 11.1262 < constant-world floor 12.3512
+== C. rare-shock (jump / reset) worlds ==
+CHECK PASS C1_reset_identity_I_plus_L  E KL = I + L exactly (4 vs 4); Gaussian copy I+L = v/sigma^2 (max rel err 2.82849e-07)
+CHECK PASS C2_log_moment_kappa  Gaussian E ln(X-c)^2 at c=0,0.3,1,2: -1.27036, -1.1817, -0.416992, 1.0407 (min at 0 = -gamma-ln2 = -1.27036); Cauchy(s=1) E ln X^2 = 2.5566e-16
+CHECK PASS C3_reset_floor_on_channel_families  17 channels (Gaussian, Student-t, Laplace, core+floor): I >= R(eps), L >= ln(v/eps)-gamma-ln2, I+L >= floor; min excess 1.27118 nats
+CHECK PASS C3b_light_tailed_copy_far_above_floor  Gaussian copy s=0.05: eps=0.00249377, I+L=277.839 vs floor 7.72058; core+floor s=0.05 d=1e-3: eps=0.0044853, I+L=9.02622 vs floor 6.84006
+CHECK PASS C4_core_plus_floor_within_constant_of_floor  targets eps=0.3..0.003: MSE<=eps, I+L <= (3/2)ln(v/eps)+(5/2)ln2+eps/4v; gap to floor 1.38612, 1.40842, 1.67972, 1.97679, 2.26858 nats (proved <= gamma+3.5ln2+eps/4v = 3.0032+eps/4v)
+CHECK PASS C5_reset_chain_identity_and_JP_heat  exact steady state: I_alt = lam * sum pi pi' KL (world-side), Q >= I_alt, gamma=3,30,300
+CHECK PASS C5b_fast_relaxation_heat_to_lam_EKL  Q/(lam E KL) = 0.715038, 0.957763, 0.995518 at gamma/lam = 3, 30, 300
+CHECK PASS C6_ruin_cap_floor  51 (channel, margin) cases: lautum L >= kl(1-beta_b || P(ruin))
+CHECK PASS C7_heavy_tailed_shocks_need_heavy_tailed_memory  Cauchy KL closed form (max err 7.28306e-14); alpha=1.5: Cauchy-copy rate 12.7461 vs Gaussian-copy rate >22222.2 (diverges with cutoff)
+CHECK PASS C8_bretagnolle_huber_per_shock_floor  7140 (channel, pair) cases: KL(p_x||p_x+z) >= ln(z^2/(4(e(x)+e(x+z))))
+CHECK PASS C9_reset_cost_minimum_bracket  J* - (3/2)lam ln(vw/lam) in [-0.378561, 2.66171] at w=10..1e4 (log growth in the stake; OU grows as sqrt(w))
+FAILS 0
+ALL NON-GAUSSIAN-FLOOR CHECKS PASS
