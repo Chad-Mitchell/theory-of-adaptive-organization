@@ -14,6 +14,10 @@ This theory repository does not duplicate that tree. The theorem note used there
 
 One application of the hold and refresh rules to a long-chat assistant. The observed failure is a length-triggered summary that cuts working notes, after which dropped items stay out of view even though the transcript remains searchable. At least three instances were caught on 20–22 November 2026 (information bottleneck, axiom work, one-pager). The write-up, including the posted challenge, the cost, the two derived rules, and the scope of the refresh formula, is [`GROK_BOT_MEMORY_2026-11-23.md`](GROK_BOT_MEMORY_2026-11-23.md). This is an application, not a test of the hypothesis.
 
+## Cancer as defection
+
+One application of the hold-or-stop rule (CT9) and the alignment clause of CT29 to a cell lineage inside a tissue. The condition for following the tissue is \(\lambda s c < w\Phi\): how fast the tissue's instructions change, times the cell's share of the cost of following, must stay below its private stake in following (which carries the enforcement) times what the signal is worth to it. The reading of CT9 onto cells is an interpretation, not a proof. The write-up, with the five levers, the alignment rule \(s=w/W\), the APL and reversion record, prior art (Aktipis, Levin, Archetti and others), and a preregistrable reversion-contour test with its conditions, is [`CANCER_DEFECTION_2026-11-23.md`](CANCER_DEFECTION_2026-11-23.md). This is an application, not a test of the hypothesis.
+
 ## Looper
 
 Looper is a personal-assistant application of the same hypothesis: memory that is supposed to come back before it is needed, with corrections that stick and a store that can be inspected. It is developed in a separate, private codebase.
