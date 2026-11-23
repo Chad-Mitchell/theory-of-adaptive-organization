@@ -1,0 +1,17 @@
+PASS prereg sha256 matches lock (b91e2101ec93...)
+PASS G1 Fourier Lyapunov == scipy to < 1e-10
+PASS G2 boundary-layer identity == finite difference to < 1e-5
+PASS EQ: t1 = -t2 (gross terms 0.124346, -0.124346), Idot = 0
+PASS raw d=1 n=1024 p=1.0 L=[8, 64, 128] reproduces stored values (max diff < 1e-9)
+PASS raw d=1 n=1024 p=2.0 L=[32] reproduces stored values (max diff < 1e-9)
+PASS raw d=2 n=48 p=1.5 L=[3, 6, 12] reproduces stored values (max diff < 1e-9)
+PASS G3/G4 d=1 n=1024: max|Idot_EQ| < 1e-9 and Lyapunov residual < 1e-9
+PASS G3/G4 d=1 n=2048: max|Idot_EQ| < 1e-9 and Lyapunov residual < 1e-9
+PASS G3/G4 d=2 n=48: max|Idot_EQ| < 1e-9 and Lyapunov residual < 1e-9
+PASS G3/G4 d=2 n=64: max|Idot_EQ| < 1e-9 and Lyapunov residual < 1e-9
+PASS post-hoc strip transverse-Fourier decomposition == dense 2D code (< 1e-9)
+PASS analysis reproduces t67_run.out byte for byte
+outcomes: d1_COLD=EQUAL, d1_HOT=EQUAL, d2_COLD=EQUAL, d2_HOT=P-b MISS
+GLOBAL: MIXED: see cells.
+FAILS 0
+ALL T67 CHECKS PASS
