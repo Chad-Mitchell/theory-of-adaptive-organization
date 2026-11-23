@@ -1,6 +1,6 @@
 # Cancer as defection from the body's judgment
 
-*Monday 23 November 2026. Canonical home for one application of the cost to a cell lineage inside a tissue. Not a test of the hypothesis. No new theorem: the math is CT9 and CT29's alignment clause (`THEORY.md`, Appendix B.2 and B.10). `THEORY.md` is not edited. The hypothesis sentence is unchanged. Independently reviewed before this page was written (READY-WITH-FIXES; every fix applied); the page itself awaits review.*
+*Monday 23 November 2026. Canonical home for one application of the cost to a cell lineage inside a tissue. Not a test of the hypothesis. No new theorem: the math is CT9 and CT29's alignment clause (`THEORY.md`, Appendix B.2 and B.10). `THEORY.md` is not edited. The hypothesis sentence is unchanged. Independently reviewed before this page was written (READY-WITH-FIXES; every fix applied).*
 
 The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.
 
@@ -38,17 +38,17 @@ $$J_i(T)=\frac{\lambda\,s_i\,c}{T}+w_i\,A(T),\qquad J_i^{\text{stop}}=w_i\,r_\in
 | \(s_i\) | share of that price the cell pays itself; the tissue subsidizes the rest (supplied factors, oxygen, matrix) | MEASUREMENT |
 | \(w_i\) | the cell's private stake in following: how much its own growth and survival depend on acting as instructed. **It carries the enforcement**: contingent supply, anoikis, apoptosis, immune penalty. Without enforcement an instruction such as "die" has no value to the cell's own fitness | MEASUREMENT |
 | \(A(T)\), \(r(u)\), \(r_\infty\) | average risk to the cell of acting on a reading of age \(u\); \(r_\infty\) if it ignores the tissue | model |
-| \(\Phi_1=\int_0^\infty(r_\infty-r(u))\,du\) | what the tissue's signal is worth to the cell per unit stake. Signaling channels can carry about one bit (Cheong et al. 2011, doi [10.1126/science.1204553](https://doi.org/10.1126/science.1204553)) | MEASUREMENT |
+| \(\Phi=\int_0^\infty(r_\infty-r(u))\,du\) | what the tissue's signal is worth to the cell per unit stake. Signaling channels can carry about one bit (Cheong et al. 2011, doi [10.1126/science.1204553](https://doi.org/10.1126/science.1204553)) | MEASUREMENT |
 | \(W\) | the organism's stake in this cell's compliance: its own loss per unit error in what this lineage does | MEASUREMENT |
 
 ## 4. The minimum
 
 1. **When following pays (PROVED (in-model), CT9).** \(J_i=w_i\,[\lambda c'/T+A(T)]\) with \(c'=s_i c/w_i\), so this is CT9 with the read price replaced by the cell's net share \(s_ic/w_i\). CT9 then gives: following beats stopping iff
-   $$\pi_i=\frac{\lambda\,s_i\,c}{w_i\,\Phi_1}<1 .$$
+   $$\pi_i=\frac{\lambda\,s_i\,c}{w_i\,\Phi}<1 .$$
    The class is CT9's: a stationary Markov signal and renewal reads. The grid check in the scouting notes re-tests CT9 only; it is a code sanity check, not evidence about cells.
 2. **One ratio sets the schedule (PROVED (in-model)).** While the cell follows, its schedule depends on \((s_i, c, w_i)\) only through \(s_ic/w_i\).
 3. **Alignment (PROVED (in-model); KNOWN in form).** The organism's own schedule uses \(c/W\). The two match iff \(s_i=w_i/W\): the cell pays the share of the cost that matches its share of the stake. This is CT29's alignment clause (cost shares proportional to stakes implement the joint optimum) applied to one party. Its form is Lindahl or Pigou pricing (Samuelson 1954). It is not the multi-party free-riding game, and the price of anarchy is not used here.
-4. **Five terms, and they multiply.** \(\log\pi=\log\lambda+\log s+\log c-\log w-\log\Phi_1\). The needed change is \(\log\pi\), and it can be split across the terms in any proportion. This is the same identity as item 1, not a second result.
+4. **Five terms, and they multiply.** \(\log\pi=\log\lambda+\log s+\log c-\log w-\log\Phi\). The needed change is \(\log\pi\), and it can be split across the terms in any proportion. This is the same identity as item 1, not a second result.
 
 ## 5. The design, read off
 

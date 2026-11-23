@@ -1,6 +1,6 @@
 # STATUS (current pointer; rewritten, not appended)
 
-**As of:** Sunday 22 November 2026, late evening (America/New_York): `THEORY.md` v2.9 draft and `measurement/CLAIM_MAP_v2.md` v2.88. `main` is `0463811` (PR #218, the synthesis that rewrites `README.md` and `CORE.md` as one argument; previous texts: `history/2026-11-22_README_before_synthesis.md`, `history/2026-11-22_CORE_before_synthesis.md`). The previous text of this page, with the merge-by-merge record through PR #213, is `history/2026-11-22_STATUS_before_sweep.md`. Run `python3 tools/brief.py` for the live HEAD and open PRs.
+**As of:** Monday 23 November 2026, early morning (America/New_York): `THEORY.md` v2.9 draft and `measurement/CLAIM_MAP_v2.md` v2.88. `main` is `850d815` (PR #223, the cancer-as-defection application `applications/CANCER_DEFECTION_2026-11-23.md`; before that, PR #222, the Grok Bot memory application `applications/GROK_BOT_MEMORY_2026-11-23.md`, merged as `f3b315f`). The previous text of this page, with the merge-by-merge record through PR #213, is `history/2026-11-22_STATUS_before_sweep.md`. Run `python3 tools/brief.py` for the live HEAD and open PRs.
 
 ## Where the theory stands
 
