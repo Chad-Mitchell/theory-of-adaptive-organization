@@ -149,7 +149,7 @@ A one-time write remains a finite cost, amortized to zero as a rate on a long ho
 - **T57.** The thermodynamic step is unchanged. The useful bound on \(\Phi\) is no longer a complete break in the finite-state jump class: when the occupied flux graph is strongly connected, \(\Phi_X(\varepsilon)\ge(\varepsilon_0-\varepsilon)^2/K_X>0\) for \(\varepsilon<\varepsilon_0\), and on the telegraph \(\Phi_X(\varepsilon)=r\,L(\varepsilon)\). The frozen-world loophole, and the disconnected-class loophole, stay open. A general strong-data-processing bound for an arbitrary kernel, including diffusions, is still a larger job.
 - **T58, T59.** Not edited. The T59 identification \(I_{\mathrm{alt}}=r\,L(\varepsilon)\) is the telegraph special case of the identity and of the telegraph bound, and is here shown to hold for any finite memory, not only a two-state record. The claimed critical barrier of the withdrawn T59 draft remains retracted.
 - **T48, T49, T40.** Not applied. `THEORY.md` is not edited. Non-Gaussian or non-jump closed forms stay class by class.
-- **CX2.** A memory that moves the world can change \(\pi\) and \(W_X\). The identity of §3 is then not the one proved, and a design that freezes its world is a different problem.
+- **CX2.** A memory that moves the world can change \(\pi\) and \(W_X\). The identity of §3 is then not the one proved, and a design that freezes its world is a different problem. A follow-up is `theory/FEEDBACK_FLOOR_2026-11-23.md` (OPEN_WORK T61; a self-check, not an independent review).
 
 ## 7. Numerical checks
 
@@ -179,4 +179,4 @@ Already in the repository, and used rather than re-derived: Propositions JP-heat
 
 ## 9. What this note does not do
 
-It does not edit `THEORY.md`, `CORE.md`, or the hypothesis sentence. It does not add a CLAIM_MAP row, and it does not change the status of IP3, IP11, T40, T48, T49, T57, T58, or T59 except to point at this follow-up from T57 and from the open-work rows. It does not edit the T58 or T59 files. It does not prove a closed-form \(\Phi_X\) for every finite irreducible kernel, and it does not treat an in-model statement as a fact about a real system. It does not claim to close T57's loophole. No system has been shown to qualify under THEORY §3.
+It does not edit `THEORY.md`, `CORE.md`, or the hypothesis sentence. It does not add a CLAIM_MAP row, and it does not change the status of IP3, IP11, T40, T48, T49, T57, T58, or T59 except to point at this follow-up from T57 and from the open-work rows. It does not edit the T58 or T59 files. It does not prove a closed-form \(\Phi_X\) for every finite irreducible kernel, and it does not treat an in-model statement as a fact about a real system. It does not claim to close T57's loophole. A world the memory moves is T61, not this note. No system has been shown to qualify under THEORY §3.
