@@ -16,7 +16,7 @@ Until a system qualifies under THEORY §3, the working name is a principle: one 
 
 ## 1. The cost
 
-For bipartite Markov chains and additive-noise diffusions, in steady state the bath of a learning subsystem gives off heat at least equal to temperature times the rate at which the memory learns the world it acts on (Horowitz and Esposito 2014, doi 10.1103/PhysRevX.4.031015). In those classes the inequality is **KNOWN**; for general systems it is open (T48, T49):
+For bipartite Markov chains and additive-noise diffusions, in steady state the bath of a learning subsystem gives off heat at least equal to temperature times the rate at which the memory learns the world it acts on (Horowitz and Esposito 2014, doi 10.1103/PhysRevX.4.031015). In those classes the inequality is **KNOWN**; beyond those classes it is open:
 
 $$\dot Q \ge kT \times \text{(learning rate)}.$$
 
@@ -61,7 +61,7 @@ The closed forms in §3 and §4 (the holographic-memory factor, the turnover rat
 
 ## 3. The floor, class by class
 
-The heat floor of §1 is proved for bipartite chains and additive-noise diffusions (item 2 above; `theory/GENERALITY_2026-11-22.md`, `theory/GENERAL_FORM_PHYSICS_2026-11-22.md`). In a world with no stationary law the floor becomes a flow: for a linear world with independent shocks, any design must take in new information at least as fast as the drift wears the old away, and for a random walk the error obeys \(D\ge q/(e^{2\bar r}-1)\), met with equality by the Kalman filter (CX1, `theory/THEOREM_P_DRIFT.md` §0; CLAIM_MAP rows PD1–PD8; its blind re-confirm is pending). Next in order are T48 (general continuous mutual information), T49 (non-Gaussian closed forms), and the open Kalman–Bucy minimum-power factor-of-2 question (Sandberg, Delvenne, Newton & Mitter 2014, doi 10.1109/allerton.2014.7028503, checked on Crossref; open, not settled). The goal is a floor for every adaptive system. None is claimed here.
+The heat floor of §1 is proved for bipartite chains and additive-noise diffusions (item 2 above; `theory/GENERALITY_2026-11-22.md`, `theory/GENERAL_FORM_PHYSICS_2026-11-22.md`). Beyond those classes it is open. In a world with no stationary law the floor becomes a flow: for a linear world with independent shocks, any design must take in new information at least as fast as the drift wears the old away, and for a random walk the error obeys \(D\ge q/(e^{2\bar r}-1)\), met with equality by the Kalman filter (CX1, `theory/THEOREM_P_DRIFT.md` §0; CLAIM_MAP rows PD1–PD8; its blind re-confirm is pending). Next in the work list are the continuous-information proof of the A6 extension (T48), non-Gaussian closed forms (T49), and the open Kalman–Bucy minimum-power factor-of-2 question (Sandberg, Delvenne, Newton & Mitter 2014, doi 10.1109/allerton.2014.7028503, checked on Crossref; open, not settled). The goal is a floor for every adaptive system. None is claimed here.
 
 ## 4. The worked class and what its minimum buys
 

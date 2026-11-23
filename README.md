@@ -2,6 +2,8 @@
 
 *Chad Mitchell ([@torusflow](https://x.com/torusflow)). Public working draft, CC0. Not peer reviewed.*
 
+A one-page account is in [`ONE_PAGER.md`](ONE_PAGER.md).
+
 Thermodynamics tells an engineer two things about any engine: the best it could possibly do, and how far a real one falls short. This theory aims to do the same for adaptive systems: cells, colonies, brains, teams, firms, AI and robot systems, anything that must act before its world arrives. Its object is the cost of judgment: the heat a system spends remembering its world, plus the stake on being wrong, under a cap on the chance of ruin. In worked classes, minimizing that cost yields the best design: how many layers, what to share, where a boundary is enough, when a shock should strengthen a system rather than harm it. If the hypothesis below holds, any adaptive system can be measured against its minimum, and the gap says where it wastes and what would close it.
 
 **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
@@ -44,7 +46,7 @@ In the worked class (equilibrium Ornstein–Uhlenbeck signals or the two-state t
 
 1. **The cost is universal.** It is defined for any adaptive system.
 2. **The method is general.** Write the cost, find its minimum, read off the design. No single closed-form design exists for every system, any more than thermodynamics has one engine for every job; each class gets its own exact answer, and a team's minimized cost folds exactly into its parent's problem, so the method nests (`THEORY.md` CT34).
-3. **The floor spreads class by class.** It is proved for bipartite chains and additive-noise diffusions, and, in a draft awaiting re-confirmation, as an information flow for linear drifting worlds (`theory/THEOREM_P_DRIFT.md`). Next come general continuous information (T48), non-Gaussian closed forms (T49), and the open Kalman–Bucy factor-of-2 question. The goal is a floor for every adaptive system.
+3. **The floor spreads class by class.** The heat floor is proved for bipartite chains and additive-noise diffusions. Beyond those classes it is open. A draft awaiting re-confirmation gives an information-flow bound for linear drifting worlds (`theory/THEOREM_P_DRIFT.md`). Next in the work list are the continuous-information A6 extension (T48), non-Gaussian closed forms (T49), and the open Kalman–Bucy factor-of-2 question. The goal is a floor for every adaptive system.
 4. **Selection finds the minimum where no closed form exists.** A search scored by the cost, natural selection or an evolutionary algorithm, settles near the minimum; near a quadratic minimum the predicted excess is \(d/(2\beta)\), which shrinks as selection strengthens (`core/bridge_2026-11-21/BRIDGE.md`). That holds only under three conditions, each with a counterexample in our own runs: strong selection, a minimum the search can reach, and a cost that includes everything that matters (`CORE.md` §5).
 5. **Antifragility.** Gaining from shocks is convexity, and the cost says when that gain is worth buying.
 6. **The real-world test.** Qualify a strongly selected system, preregister the prediction, and measure.
