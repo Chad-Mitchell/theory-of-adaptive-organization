@@ -1,0 +1,18 @@
+CHECK PASS telegraph_L_at_eps_0p2  code sanity; I_dot=0.831776616672 against 0.6 ln 4
+CHECK PASS telegraph_identity_and_tight_bound  I_alt=0.582243631670 dest=0.582243631670 r L=0.582243631670 eps=0.200000000000
+CHECK PASS telegraph_leaks_cancel  I_alt=0.849954517140 r L=0.849954517140 (r+Gamma)L=1.153509701833
+CHECK PASS frozen_world_I_alt_zero  I_alt=0.000e+00 eps=0.268941 (Boltzmann) eps0=0.500000
+CHECK PASS path_pinsker_K_telegraph_r_0.5  K=0.500000000000 against 1/(4r)=0.500000000000
+CHECK PASS path_pinsker_K_telegraph_r_1  K=0.250000000000 against 1/(4r)=0.250000000000
+CHECK PASS path_pinsker_K_telegraph_r_2  K=0.125000000000 against 1/(4r)=0.125000000000
+CHECK PASS path_pinsker_below_tight_telegraph  pinsker at eps=0.2 is 0.360000000000, r L is 0.831776616672
+CHECK PASS telegraph_bound_holds_for_richer_memories  30 random LDB memories, nM in 2..6; min I_alt - r L = 0.000002
+CHECK PASS reducible_world_has_two_stationary_classes  found 2 probability left-null vectors
+CHECK PASS two_class_counterexample_I_alt_zero_below_eps0  I_alt=0.000e+00 eps=0.312590 eps0=0.600000 px=[0.3 0.3 0.4]
+CHECK PASS tiny_leak_small_positive_I_alt  I_alt=0.00025706 eps=0.345315 eps0=0.666644
+CHECK PASS irreversible_cycle_identity_and_pinsker  I_alt=1.528038 dest=1.528038 pinsker=0.096530 eps=0.3280 eps0=0.5455 K=0.4899
+CHECK PASS random_and_adversarial_worlds  24 irreducible 3-5 state trials (random, shuffled, coarse); fails=0 none
+CHECK PASS pairwise_L_bound_on_strong_reversible_memories  16 strong 3-state reversible trials; pairwise active in 16, pair fails 0, pinsker fails 0
+CHECK PASS jeffreys_minimum_is_binary_symmetric  J_sym=2 L(0.2)=1.663553233344; grid min=1.663553233344
+FAILS 0
+ALL GENERAL-FLOOR-FINITE CHECKS PASS

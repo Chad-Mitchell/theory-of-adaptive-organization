@@ -1,0 +1,78 @@
+Crossref API resolutions, 23 November 2026, America/New_York.
+Queried https://api.crossref.org/works/{doi}. Every DOI listed below returned HTTP 200.
+
+doi 10.1103/physrevx.4.031015
+  2014 | Physical Review X 4
+  Thermodynamics with Continuous Information Flow
+  Horowitz, Jordan M.; Esposito, Massimiliano
+
+doi 10.1088/1742-5468/2015/03/p03006
+  2015 | Journal of Statistical Mechanics: Theory and Experiment 2015 P03006
+  Multipartite information flow for multiple Maxwell demons
+  Horowitz, Jordan M
+
+doi 10.1088/1367-2630/16/10/103024
+  2014 | New Journal of Physics 16 103024
+  Efficiency of cellular information processing
+  Barato, Andre C; Hartich, David; Seifert, Udo
+
+doi 10.1103/physrevlett.109.120604
+  2012 | Physical Review Letters 109
+  Thermodynamics of Prediction
+  Still, Susanne; Sivak, David A.; Bell, Anthony J.; Crooks, Gavin E.
+
+doi 10.1103/physrevlett.124.050601
+  2020 | Physical Review Letters 124
+  Thermodynamic Cost and Benefit of Memory
+  Still, Susanne
+
+doi 10.1088/1742-5468/2015/01/p01014
+  2015 | Journal of Statistical Mechanics: Theory and Experiment 2015 P01014
+  Thermodynamic limits to information harvesting by sensory systems
+  Bo, Stefano; Giudice, Marco Del; Celani, Antonio
+
+doi 10.1371/journal.pcbi.1003974
+  2014 | PLoS Computational Biology 10 e1003974
+  Thermodynamic Costs of Information Processing in Sensory Adaptation
+  Sartori, Pablo; Granger, Léo; Lee, Chiu Fan; Horowitz, Jordan M.
+
+doi 10.1103/physrevlett.113.148103
+  2014 | Physical Review Letters 113
+  Thermodynamics of Statistical Inference by Cells
+  Lang, Alex H.; Fisher, Charles K.; Mora, Thierry; Mehta, Pankaj
+
+doi 10.1073/pnas.1207814109
+  2012 | Proceedings of the National Academy of Sciences 109 17978-17982
+  Energetic costs of cellular computation
+  Mehta, Pankaj; Schwab, David J.
+
+doi 10.1007/s10955-015-1431-6
+  2016 | Journal of Statistical Physics 162 1153-1166
+  Landauer in the Age of Synthetic Biology: Energy Consumption and Information Processing in Biochemical Networks
+  Mehta, Pankaj; Lang, Alex H.; Schwab, David J.
+
+doi 10.1103/physrevresearch.6.033049
+  2024 | Physical Review Research 6
+  Predicting concentration changes via discrete receptor sampling
+  Tjalma, Age J.; Wolde, Pieter Rein ten
+
+doi 10.1038/nphys2276
+  2012 | Nature Physics 8 422-428
+  The energy–speed–accuracy trade-off in sensory adaptation
+  Lan, Ganhui; Sartori, Pablo; Neumann, Silke; Sourjik, Victor; Tu, Yuhai
+
+doi 10.1103/physreve.93.022116
+  2016 | Physical Review E 93
+  Sensory capacity: An information theoretical measure of the performance of a sensor
+  Hartich, David; Barato, Andre C.; Seifert, Udo
+
+doi 10.1137/0302028
+  1964 | Journal of the Society for Industrial and Applied Mathematics Series A Control 2 347-369
+  Some Applications of Stochastic Differential Equations to Optimal Nonlinear Filtering
+  Wonham, W. M.
+
+doi 10.1137/0119020
+  1970 | SIAM Journal on Applied Mathematics 19 215-220
+  On the Calculation of Mutual Information
+  Duncan, Tyrone E.
+
