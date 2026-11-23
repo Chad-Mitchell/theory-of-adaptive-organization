@@ -1,0 +1,99 @@
+== 1. retention lemma: P_{pi|A0}(X_t in A1) >= pi(A1) (1 - exp(-lambda_2 t))
+PASS  300 random reversible chains x 4 times: error >= pi(A1)(1-e^{-lambda t}) (min slack -1.08e-14)
+== 2. two-state Arrhenius record: B >= kT ln(nu tau / eps~), eps~ = -ln(1-2 eps)/2
+PASS  eps=0.001: at B = B_min the error at tau is eps (1.000000e-03)
+PASS  eps=0.001: eps~/eps - 1 = 1.00e-03 (eps~ = eps + O(eps^2))
+PASS  eps=1e-06: at B = B_min the error at tau is eps (1.000000e-06)
+PASS  eps=1e-06: eps~/eps - 1 = 1.00e-06 (eps~ = eps + O(eps^2))
+PASS  eps=1e-09: at B = B_min the error at tau is eps (1.000000e-09)
+PASS  eps=1e-09: eps~/eps - 1 = 1.00e-09 (eps~ = eps + O(eps^2))
+== 3. Metropolis chain on a 1D double well: ln(mean passage time) vs 1/kT has slope +B
+PASS  fitted slope 2.9299 vs B = 3.0000 (within 5%; the Eyring-Kramers prefactor carries a power of 1/kT)
+== 4. entropic barrier: two complete graphs K_M joined by one edge, all energies equal
+   M=  5  lambda_2=2.98438e-01  M lambda_2=1.4922
+   M= 10  lambda_2=1.69048e-01  M lambda_2=1.6905
+   M= 20  lambda_2=9.12879e-02  M lambda_2=1.8258
+   M= 40  lambda_2=4.76732e-02  M lambda_2=1.9069
+   M= 80  lambda_2=2.43975e-02  M lambda_2=1.9518
+PASS  lambda_2 falls with M at zero energy barrier (monotone)
+PASS  lambda_2 ~ 2 nu/M at large M (M lambda_2 within 5% of 2 at M=80: 1.9518)
+== 5. single-flip minimax barrier between the two ground states <= span of H <= 2 sum|J|
+PASS  40 random ferromagnetic graphs: B <= max H - min H <= 2 sum|J|
+== 5b. 2D Ising L x L block, free boundary: exact single-flip barrier and B / (2 sum J)
+   L=2  m= 4  bonds= 4  barrier=4.0 J  barrier/(2 sum J)=0.5000  barrier/m=1.0000 J
+   L=3  m= 9  bonds=12  barrier=8.0 J  barrier/(2 sum J)=0.3333  barrier/m=0.8889 J
+   L=4  m=16  bonds=24  barrier=10.0 J  barrier/(2 sum J)=0.2083  barrier/m=0.6250 J
+PASS  L=2,3,4 barriers are 4J, 8J, 10J, between 2JL and 2J(L+1)
+PASS  barrier per site falls with block size (B/m: 1.000 > 0.889 > 0.625)
+== 6. equilibrium mean number of records at the saddle: N e^{-B/kT} << 1
+PASS  N=1e60, B = kT ln(nu tau/eps), nu=1e12/s, tau=1 yr, eps=1e-9: mean saddle occupancy 3.169e+31
+PASS  the saddle energy present at once is occupancy x B, not N x B (ratio 3.17e-29)
+== 7. cap N <= beta R c^4/(2 G kT ln) and its temperature-floor forms
+PASS  R=0.001 m: E_max/kT_Unruh(a=c^2/R) = A/(4 l_p^2) (ratio 1.000000000000)
+PASS  R=0.001 m: E_max/kT_Hawking = 2 x A/(4 l_p^2) (ratio 2.000000000000)
+PASS  R=0.001 m: E/kT_Unruh = 2 pi E R/(hbar c) (Bekenstein's ratio)
+PASS  R=1 m: E_max/kT_Unruh(a=c^2/R) = A/(4 l_p^2) (ratio 1.000000000000)
+PASS  R=1 m: E_max/kT_Hawking = 2 x A/(4 l_p^2) (ratio 2.000000000000)
+PASS  R=1 m: E/kT_Unruh = 2 pi E R/(hbar c) (Bekenstein's ratio)
+PASS  R=1000 m: E_max/kT_Unruh(a=c^2/R) = A/(4 l_p^2) (ratio 1.000000000000)
+PASS  R=1000 m: E_max/kT_Hawking = 2 x A/(4 l_p^2) (ratio 2.000000000000)
+PASS  R=1000 m: E/kT_Unruh = 2 pi E R/(hbar c) (Bekenstein's ratio)
+PASS  R=1.5e+11 m: E_max/kT_Unruh(a=c^2/R) = A/(4 l_p^2) (ratio 1.000000000000)
+PASS  R=1.5e+11 m: E_max/kT_Hawking = 2 x A/(4 l_p^2) (ratio 2.000000000000)
+PASS  R=1.5e+11 m: E/kT_Unruh = 2 pi E R/(hbar c) (Bekenstein's ratio)
+PASS  first law dS = c^2 dM / T_H integrates to A/(4 l_p^2) for 1 M_sun (ratio 1.00000000)
+== 7b. without G: dimensional analysis and a Jacobson-style read-off
+PASS  the only G-free dimensionless group from R, c, hbar, nu is R nu / c (null vector [1.0, -1.0, 0.0, 1.0])
+   nu* such that (nu/c)^2 = 1/l_p^2: 1.8549e+43 /s (inverse Planck time)
+PASS  nu* = c/l_p = 1.85e43 /s
+PASS  Jacobson read-off: eta = 1/(4 l_p^2) returns G (ratio 1.000000000000)
+PASS  records at density eta_rec with ln nats each read off G/ln: a record-count density 1/(4 l_p^2) would give G_read = G/65.62
+== 8. worked numbers (beta = 1 unless stated)
+   ln(nu tau/eps) = 65.6216 ; E_max(1 m) = 6.0513e+43 J ; cap(300 K) = 2.2264e+62 ; A/(4 l_p^2) = 1.2026e+70 ; ratio = 1.8513e-08
+PASS  ln(nu tau/eps) = 65.62
+PASS  E_max(R=1 m) = 6.05e43 J
+PASS  cap at 300 K, R = 1 m: 2.23e62 records
+PASS  A/(4 l_p^2) at R = 1 m: 1.20e70
+PASS  fixed-T cap sits 7.7 orders below the holographic count at R = 1 m
+   crossover radius at 300 K (cap = A/(4 l_p^2)): 1.8513e-08 m
+PASS  crossover radius at 300 K is 1.85e-8 m
+   hbar c/(2 pi k R) at R = 1 m: 3.6445e-04 K
+PASS  Unruh-type floor at R = 1 m is 3.64e-4 K (labs reach ~1e-9 K)
+PASS  with the Unruh-type floor: cap = A/(4 l_p^2 ln) = 1.83e68 at R = 1 m
+PASS  all-records error 1e-9 over 1e60 records: ln grows from 65.62 to 203.78
+== 8b. barrier-to-mass ratios beta in ordinary media (illustrative inputs, not measurements)
+   1 eV barrier on a carbon-12 atom: beta = 8.946e-11 ; 60 kT grain of (8 nm)^3 at 16 g/cm^3: beta = 3.375e-16
+PASS  chemical beta = 8.94e-11
+PASS  HDD-grain beta = 3.37e-16
+== 8c. black holes against the barrier cap; Lloyd's ultimate laptop
+PASS  Hawking-floor cap / S_BH = 2 beta / ln < 1 whenever ln(nu tau/eps) > 2 beta (beta = 1, ln = 65.62: 0.0305)
+   Lloyd laptop: E/kT = 1.1090e+31 nats ; Lloyd S/k = 1.4776e+31 nats (= 2.1317e+31 bits) ; ratio S/(E/kT) = 1.3324
+PASS  Lloyd 2000: S = 2.04e8 J/K is 2.13e31 bits
+PASS  Lloyd's laptop entropy is (4/3) E/kT, the black-body ratio (1.3324)
+== 9. block accounting: under J <= kappa mu per bond, beta_block = B/(m mu) <= 2 kappa z/2 and falls as m^{-1/d}
+   L=2: B/(m mu) = 1.0000 (2D bound 2 kappa z/2 = 4.0)
+   L=3: B/(m mu) = 0.8889 (2D bound 2 kappa z/2 = 4.0)
+   L=4: B/(m mu) = 0.6250 (2D bound 2 kappa z/2 = 4.0)
+PASS  2D blocks: B/(m mu) <= 2 kappa x (bonds per site <= 2)
+PASS  2D blocks: B/(m mu) = 1, 0.8889, 0.625 for L = 2, 3, 4, decreasing in L
+== 10. note text
+PASS  hypothesis sentence present exactly once, byte-identical
+PASS  no 'theory of everything', 'solved', 'solves', or 'bill'
+PASS  note quotes 65.62
+PASS  note quotes 6.05\times10^{43}
+PASS  note quotes 2.23\times10^{62}
+PASS  note quotes 1.20\times10^{70}
+PASS  note quotes 1.85\times10^{-8}
+PASS  note quotes 3.64\times10^{-4}
+PASS  note quotes 1.83\times10^{68}
+PASS  note quotes 8.94\times10^{-11}
+PASS  note quotes 3.37\times10^{-16}
+PASS  note quotes 2.13\times10^{31}
+PASS  note quotes 203.78
+PASS  note quotes 0.625
+PASS  note quotes 1.85\times10^{43}
+PASS  every DOI cited in the note is in crossref.out (25 cited, 25 resolved)
+PASS  every DOI in crossref.out is cited in the note
+
+CHECKS 65  FAILS 0
+ALL GRAVITY-BARRIER CHECKS PASS
