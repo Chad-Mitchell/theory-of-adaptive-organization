@@ -58,6 +58,6 @@ None of these is the core. THEORY v2.9 draft states the core and proves its resu
 | `SCALE_ENDS.md`, `scale_ends_checks/` | The ends of the scale (atoms, stars, black holes, the horizon; LAT-1), cited by THEORY §2.3; independently reviewed (`reviews/night2/SCALE_ENDS_INDEP_REVIEW.md`). Maintained. |
 | `BOOKENDS.md`, `bookends_checks/` | How the pieces fit, from chemistry to heat death (keep / hold / know), cited by THEORY §0; reviewed in `reviews/bookends/`. Maintained. |
 | `reach_checks/` | Code and saved output for those notes: proximity-graph nulls, pooling and station-catchment checks, the sine circle map. |
-| `REALSYS_SCREEN_2026-11-23.md`, `realsys_screen_checks/` | Real-system test screen after T49, T50, T61 and the freeze-or-hold floors (OPEN_WORK RS-SCREEN). No candidate clears all three bars, so nothing is locked. In-model rival gate: shock-rate exponent of the minimizing error 1 in a reset-shock world vs 1/2 for a fixed-noise linear filter. Self-check, not an independent review. |
+| `REALSYS_SCREEN_2026-11-23.md`, `realsys_screen_checks/` | Real-system test screen after T49, T50, T61 and the freeze-or-hold floors (OPEN_WORK RS-SCREEN). Independently reviewed (PR #243). No candidate clears all three bars, so nothing is locked. In-model rival gate: shock-rate exponent of the minimizing error 1 in a reset-shock world vs 1/2 for a fixed-noise linear filter. Rational inattention shares the exponent; a fixed-noise Bayesian change-point filter is not cleanly separated by the exponent alone. |
 
 Reviews of these documents live in `../reviews/`.
