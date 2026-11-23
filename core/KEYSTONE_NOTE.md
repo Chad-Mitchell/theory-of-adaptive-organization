@@ -30,7 +30,7 @@ An earlier un-fixed search (`convexity_search.py`, 60 worlds) produced 6 apparen
 
 **What a proof would need.** In Model S, E_J = E_∞ exactly (the causal Wiener filter has J real poles, L2). Convexity of (E_1, …, E_J) is a statement about how the MSE of the best degree-K rational filter falls as K rises on a positive combination of Lorentzians. Closest prior art found: Das & Kempe, STOC 2008 (doi 10.1145/1374376.1374384), on the diminishing returns of subset selection in linear regression — a different problem (subset, not degree of a causal filter). I did not find, and did not produce, a proof.
 
-A small scope note, even when convexity holds: the formula as written starts at K = 1, so it cannot return the K* = 0 (act blind) that CT21 allows when stakes are small. (LAYERS.md's Theorem L1 says "K* = 1 for every w and h," which is the overstatement; CT21 is the right citation: one real pole ⇒ K* ∈ {0, 1}.)
+A small scope note, even when convexity holds: the formula as written starts at K = 1, so it cannot return the K* = 0 (act blind) that CT21 allows when stakes are small. (LAYERS.md's Theorem L1 used to say "K* = 1 for every w and h"; it now matches CT21: one real pole ⇒ K* ∈ {0, 1}.)
 
 ## 2. Outside Model S, inside 𝓜_LG: the increment formula is false
 
