@@ -116,6 +116,7 @@
 | CAUSAL-OVER-RESPONSE | Should an established share above 1/κ_F (design over-responds beyond the tolerated band, the mirror of the kill) be a kill in N6's causal form? Kill-rule question; author-only PR plus a separate reviewer (t1916). Was in `QUEUE.md` and not in `items.json` | open | in progress-able | `process/QUEUE.md` |
 | N52-N53-SWEEP | Literature sweep owed before any N52/N53 prereg: Kaplow 1992 §IV.C ("Changing Rules and Standards over Time") in full, plus the legal-obsolescence and temporary-legislation literature for N53; organizational economics for the memory-versus-enforcement contrast and the monitoring channel (Baker & Hubbard 2004) for N52. Was in `QUEUE.md` and not in `items.json` | not started | in progress-able now | `process/QUEUE.md`, CLAIM_MAP N52–N53 |
 | SENSE-CELL-EFFORT | E. coli adaptation/sensing effort vs input fluctuation level and benefit, with energy state, to test H4. Blocked on a dataset; contacting the authors needs Chad | blocked | needs data, needs Chad (author contact) | `process/QUEUE.md` |
+| PHYSICS-CHAIN | Roadmap from the cost of judgment toward physics (Levels 1–4, labeled and cited to `file:line`; IIT path pointer T56). Queued after T63 (record-repair heat floor, in progress): a horizon-temperature input test against Jacobson 1995 | open (roadmap; no new theorem) | independently reviewed (PR #239); T63 in progress | `theory/PHYSICS_CHAIN_2026-11-23.md` |
 
 ## 4. Waiting on Chad (decisions and outside acts)
 
