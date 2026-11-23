@@ -1,6 +1,6 @@
 # When the additive cost is forced
 
-*Sunday 22 November 2026, America/New_York. Branch `representation-2026-11-21`, draft PR, off `main` at `d1a6de4`. Written by one executor for Chad Mitchell. Revised the same day after `reviews/representation_2026-11-21/REVIEW.md` (NOT-READY). The repairs are a self-check, not a re-review. Addresses the representation gap in `theory/MATH_COMPLETENESS_AUDIT.md` §3.1 (draft PR #151; that note is not on this branch). It does not change the Part 2 hypothesis sentence, and it does not edit `reviews/`, any preregistration, or any hash or locked file.*
+*Sunday 22 November 2026, America/New_York. Branch `representation-2026-11-21`, draft PR, off `main` at `d1a6de4`. Written by one executor for Chad Mitchell. Revised the same day after `reviews/representation_2026-11-21/REVIEW.md` (NOT-READY). The repairs are a self-check, not a re-review. Addresses the representation gap in theory/MATH_COMPLETENESS_AUDIT.md §3.1 (draft PR #151; that note is not on `main`). It does not change the Part 2 hypothesis sentence, and it does not edit `reviews/`, any preregistration, or any hash or locked file.*
 
 *Theorems R1 and R2 below are this note's names. CLAIM_MAP section R is already the selection note (`theory/SELECTION_AXIOMS.md`, rows R1–R3). These two theorems are indexed as V1 and V2.*
 

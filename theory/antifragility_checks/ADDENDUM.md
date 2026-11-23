@@ -1,6 +1,6 @@
 # ADDENDUM to the antifragility turnover preregistration
 
-Written Sunday 22 November 2026, after commit `74e9b197e26a2b70d72503a3c1693f78ec7380c8` (the file `PREREG.md` only) and before any script, grid value, or Monte Carlo estimate. `PREREG.md` is not edited. The predictions below are scored with the arms already frozen there. No parameter in that file is moved.
+Written Sunday 22 November 2026, after `PREREG.md` commit `4041018f8ec127b5b686f202858d7944d57b962d` (pre-rebase branch id 74e9b197e26a2b70d72503a3c1693f78ec7380c8; `PREREG.md` bytes identical) and before any script, grid value, or Monte Carlo estimate. `PREREG.md` is not edited. The predictions below are scored with the arms already frozen there. No parameter in that file is moved.
 
 Three questions are added. They do not replace P1–P7. A biological or physical name with no computed consequence in class AF is **METAPHOR**. A citation is **KNOWN** only for what a fetched source states. A mechanism that is not derived inside class AF is **CONJECTURE**.
 
