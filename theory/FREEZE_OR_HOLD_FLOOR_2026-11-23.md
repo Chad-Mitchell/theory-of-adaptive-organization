@@ -22,7 +22,7 @@ Under Proposition JP-heat, which requires local detailed balance on the memory r
 \dot Q_M\ge kT\,r\,L(\varepsilon).
 \]
 
-This is **PROVED (in-model)** for a two-state telegraph world and a two-state memory with local detailed balance, from Proposition JP-heat and the steady-state master equation. It is not claimed to be the weakest such bound outside this class. At \(r>0\) and \(\Gamma=0\) it is the proved telegraph floor (IP3). At \(r=0\) it is zero at every finite error a static bias can hold. A frozen world, in this class, truly has zero ongoing cost.
+This is **PROVED (in-model)** for a two-state telegraph world and a two-state memory with local detailed balance, from Proposition JP-heat and the steady-state master equation. It is not claimed to be the weakest such bound outside this class. At \(r>0\) and \(\Gamma=0\) it is the proved telegraph floor (IP3). At \(r=0\) it is zero at every finite error a static bias can hold. A frozen world, in this class, has zero ongoing memory-bath heat at every finite Boltzmann error; the stake term \(w\varepsilon\) remains, and is smallest as \(\varepsilon\to 0\).
 
 The cost of judgment, as a rate, is the heat of remembering plus stake times expected error, subject to the ruin cap. Minimizing the JP-heat bound plus the stake over the Hamming error \(\varepsilon\) is the usual telegraph tradeoff, independent of the barrier. If an irreversible-lowering work \(\chi\Delta E(r+\Gamma)(1-2\varepsilon)\) is added as a model assumption, that work is nonnegative and is minimized at \(\Delta E=0\). The critical-barrier identity of the earlier draft, which treated \(kT(r+\Gamma)L(\varepsilon)\) as the heat, is retracted as a fact about the JP-heat cost.
 
