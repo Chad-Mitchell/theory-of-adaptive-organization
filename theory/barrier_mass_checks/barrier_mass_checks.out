@@ -1,11 +1,11 @@
 == 1. electroweak sphaleron barrier against the lightest Delta B = 3 record (in-model inputs)
 PASS  4 pi v/g equals 2 m_W/alpha_W
-   g = 0.6528, alpha_W = 0.03391, 4 pi v/g = 4739.5 GeV; E_sph in [7.20, 12.89] TeV, 9.01 TeV at B = 1.9
-PASS  E_sph range over all Higgs couplings is 7.2 to 12.9 TeV
+   g = 0.6528, alpha_W = 0.03391, 4 pi v/g = 4739.5 GeV; E_sph in [7.39, 12.89] TeV, 9.01 TeV at B = 1.9
+PASS  E_sph range over all Higgs couplings is 7.4 to 12.9 TeV
 PASS  E_sph at B = 1.9 is 9.0 TeV
-   lightest neutral B = 3 state (He-3 atom, plus a neutrino for L = 3): 2.8094 GeV
+   lightest neutral B = 3 state (He-3 atom, plus neutrinos so each L_i = 1): 2.8094 GeV
 PASS  He-3 atom mass is 2.809 GeV
-   beta_charge = E_sph / E_rec in [2564, 4589], 3205 at B = 1.9
+   beta_charge = E_sph / E_rec in [2632, 4589], 3205 at B = 1.9
 PASS  beta_charge is 2.6e3 to 4.6e3 (3.2e3 at B = 1.9): A1 holds only with beta >> 1
    zero-temperature tunneling exponent 4 pi/alpha_W = 370.5, rate factor 10^-161
 PASS  't Hooft suppression exp(-4 pi/alpha_W) ~ 10^-161
@@ -62,7 +62,7 @@ PASS  eta(A) for S = A^(3/4) grows by 10 when A shrinks by 1e4 (no finite local 
 PASS  hypothesis sentence present exactly once, byte-identical
 PASS  no 'theory of everything', 'solved', 'solves', or 'bill'
 PASS  no kill or verdict words
-PASS  note quotes 7.2
+PASS  note quotes 7.4
 PASS  note quotes 12.9
 PASS  note quotes 9.0
 PASS  note quotes 2.809
@@ -80,7 +80,7 @@ PASS  note quotes 18.3
 PASS  note quotes 65.62
 PASS  note quotes 18.1
 PASS  note quotes 1.96\times10^{-6}
-PASS  every DOI cited in the note is in crossref.out (27 cited, 27 resolved)
+PASS  every DOI cited in the note is in crossref.out (30 cited, 30 resolved)
 PASS  every DOI in crossref.out is cited in the note
 
 CHECKS 60  FAILS 0

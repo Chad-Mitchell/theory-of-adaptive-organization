@@ -1,7 +1,7 @@
 Crossref API resolutions, 23 November 2026, America/New_York.
 Queried https://api.crossref.org/works/{doi}. Every DOI listed below returned HTTP 200.
 Fields: DOI | first author | year | container | volume | page or article | title (as returned).
-Zhao 2026 (Zenodo 23406911) is a DataCite record and is not listed.
+Zhao 2026 (Zenodo 23406911) is a DataCite record and is not listed. The last three rows were added and resolved by the independent review of PR #244, same day.
 ---
 10.1103/PhysRevD.30.2212 | Klinkhamer | 1984 | Physical Review D | 30 | 2212-2220 | A saddle-point solution in the Weinberg-Salam theory
 10.1103/PhysRevD.28.2019 | Manton | 1983 | Physical Review D | 28 | 2019-2026 | Topology in the Weinberg-Salam theory
@@ -30,3 +30,6 @@ Zhao 2026 (Zenodo 23406911) is a DataCite record and is not listed.
 10.1103/PhysRevD.23.287 | Bekenstein | 1981 | Physical Review D | 23 | 287-298 | Universal upper bound on the entropy-to-energy ratio for bounded systems
 10.1103/RevModPhys.74.825 | Bousso | 2002 | Reviews of Modern Physics | 74 | 825-874 | The holographic principle
 10.1063/1.531249 | Susskind | 1995 | Journal of Mathematical Physics | 36 | 6377-6396 | The world as a hologram
+10.1103/PhysRevD.101.096014 | Hamada | 2020 | Physical Review D | 101 | 096014 | Obtaining the sphaleron field configurations with gradient flow
+10.1007/BF01217684 | Lieb | 1987 | Communications in Mathematical Physics | 112 | 147-174 | The Chandrasekhar theory of stellar collapse as the limit of quantum mechanics
+10.1007/BF00759862 | Sorkin | 1981 | General Relativity and Gravitation | 13 | 1127-1146 | Entropy of self-gravitating radiation

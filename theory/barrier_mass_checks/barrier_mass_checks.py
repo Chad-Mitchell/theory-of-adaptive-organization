@@ -45,18 +45,18 @@ g = 2 * mW / v      # SU(2) coupling from m_W = g v / 2
 pref = 4 * math.pi * v / g  # GeV, Klinkhamer-Manton prefactor 4 pi v / g = 2 m_W / alpha_W
 alphaW = g * g / (4 * math.pi)
 check("4 pi v/g equals 2 m_W/alpha_W", abs(pref / (2 * mW / alphaW) - 1) < 1e-12)
-Blo, Bhi, Bmid = 1.52, 2.72, 1.9   # KM numerical lower end, variational upper end; ~1.9 at m_H = 125 GeV
+Blo, Bhi, Bmid = 1.56, 2.72, 1.9   # sphaleron branch, lambda/g^2 from 0 to infinity (review PR #244: lower end 1.56, not 1.52); ~1.9 at m_H = 125 GeV
 Elo, Ehi, Emid = pref * Blo / 1e3, pref * Bhi / 1e3, pref * Bmid / 1e3
 print("   g = %.4f, alpha_W = %.5f, 4 pi v/g = %.1f GeV; E_sph in [%.2f, %.2f] TeV, %.2f TeV at B = 1.9" % (g, alphaW, pref, Elo, Ehi, Emid))
-check("E_sph range over all Higgs couplings is 7.2 to 12.9 TeV", abs(Elo - 7.20) < 0.01 and abs(Ehi - 12.89) < 0.01)
+check("E_sph range over all Higgs couplings is 7.4 to 12.9 TeV", abs(Elo - 7.39) < 0.01 and abs(Ehi - 12.89) < 0.01)
 check("E_sph at B = 1.9 is 9.0 TeV", abs(Emid - 9.0) < 0.05)
-# lightest state with B = 3 and L = 3 and zero charge: neutral helium-3 atom plus one neutrino
+# lightest state with B = 3 and L = 3 and zero charge: neutral helium-3 atom plus neutrinos making each L_i = 1
 m_He3_atom = 3.0160293 * 931.49410242e-3  # GeV (atomic mass 3.0160293 u)
-print("   lightest neutral B = 3 state (He-3 atom, plus a neutrino for L = 3): %.4f GeV" % m_He3_atom)
+print("   lightest neutral B = 3 state (He-3 atom, plus neutrinos so each L_i = 1): %.4f GeV" % m_He3_atom)
 check("He-3 atom mass is 2.809 GeV", abs(m_He3_atom - 2.8094) < 2e-4)
 blo, bhi, bmid = Elo * 1e3 / m_He3_atom, Ehi * 1e3 / m_He3_atom, Emid * 1e3 / m_He3_atom
 print("   beta_charge = E_sph / E_rec in [%.0f, %.0f], %.0f at B = 1.9" % (blo, bhi, bmid))
-check("beta_charge is 2.6e3 to 4.6e3 (3.2e3 at B = 1.9): A1 holds only with beta >> 1", 2500 < blo < 2600 and 4550 < bhi < 4650 and 3150 < bmid < 3250)
+check("beta_charge is 2.6e3 to 4.6e3 (3.2e3 at B = 1.9): A1 holds only with beta >> 1", 2600 < blo < 2700 and 4550 < bhi < 4650 and 3150 < bmid < 3250)
 supp = 4 * math.pi / alphaW
 print("   zero-temperature tunneling exponent 4 pi/alpha_W = %.1f, rate factor 10^-%.0f" % (supp, supp / math.log(10)))
 check("'t Hooft suppression exp(-4 pi/alpha_W) ~ 10^-161", abs(supp / math.log(10) - 161) < 0.5)
@@ -222,7 +222,7 @@ low = txt.lower()
 check("no 'theory of everything', 'solved', 'solves', or 'bill'",
       "theory of everything" not in low and " solved" not in low and " solves" not in low and " bill" not in low)
 check("no kill or verdict words", not re.search(r"\b(kill|killed|verdict|falsified|refuted)\b", low))
-for s in ["7.2", "12.9", "9.0", "2.809", "3.2\\times10^{3}", "4.6\\times10^{3}", "1.70", "1.8135", "5.86\\times10^{51}", "45.58",
+for s in ["7.4", "12.9", "9.0", "2.809", "3.2\\times10^{3}", "4.6\\times10^{3}", "1.70", "1.8135", "5.86\\times10^{51}", "45.58",
           "2.63\\times10^{-11}", "1.32\\times10^{52}", "0.0147", "10^{-161}", "18.3", "65.62", "18.1", "1.96\\times10^{-6}"]:
     check("note quotes %s" % s, s in txt)
 with open(os.path.join(ROOT, "theory", "barrier_mass_checks", "crossref.out"), encoding="utf-8") as fh:
