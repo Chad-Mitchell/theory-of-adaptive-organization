@@ -58,12 +58,16 @@ The acting derivation is merged ([PR #203](https://github.com/Chad-Mitchell/theo
 
 ## What remains
 
-- The non-Gaussian case, and a loss other than the mean square or the telegraph mismatch. A memory that changes the world it tracks.
-- A real-data test: a system qualified before the measurement, then scored against the cost. No such test is on this page.
-- The fractal draft, [PR #192](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/192). This page uses no result from it.
-- Adopting the acting derivation into `THEORY.md` (T47 is merged; the proposal is not applied). The master equation is unchanged.
-- The integer \(5\%\) radius. It is 2 at both \(\tau=1/2\) and \(\tau=1\), ratio 1, because both crossings of the level 0.05 fall in the bin \((1,2)\). A longer path, the next test the preregistration named, returned 2 and 2. The smooth crossing is a separate statistic, ratio 2.067863694520, inside \([1.7,2.3]\).
-- \(J^*(8)\) against 5. The grid value is 4.998066177768. The number 5 is the heat plus the sign loss at the frozen fraction, above a floor of 4.966383544211. The crossing is near \(\theta=7.5267\). The next test is a new preregistration scored against that floor.
+In priority order:
+
+1. **Continuous-information proof of the A6 extension (next proof).** Prove the continuous mutual-information extension of A6 as the limit of discrete partitions (Gelfand–Yaglom–Dobrushin). Expected to carry the discrete results over without changing them.
+2. **The decisive evidence (real-data test).** Measure one real strongly selected system against the axioms (qualified before the measurement) and test whether it sits near the predicted minimum, preregistered and hash-locked. No such test is on this page.
+3. **Non-Gaussian closed forms.** Derive closed forms for heavy tails, switching, and rare shocks (and losses other than mean square or telegraph mismatch, plus a memory that changes the world it tracks): sharper numbers for real-data tests, not a change to the theory.
+4. **Existing open items and puzzles:**
+   - The fractal draft, [PR #192](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/192). This page uses no result from it.
+   - Adopting the acting derivation into `THEORY.md` (T47 is merged; the proposal is not applied). The master equation is unchanged.
+   - The integer \(5\%\) radius. It is 2 at both \(\tau=1/2\) and \(\tau=1\), ratio 1, because both crossings of the level 0.05 fall in the bin \((1,2)\). A longer path, the next test the preregistration named, returned 2 and 2. The smooth crossing is a separate statistic, ratio 2.067863694520, inside \([1.7,2.3]\).
+   - \(J^*(8)\) against 5. The grid value is 4.998066177768. The number 5 is the heat plus the sign loss at the frozen fraction, above a floor of 4.966383544211. The crossing is near \(\theta=7.5267\). The next test is a new preregistration scored against that floor.
 
 ## How a miss is read
 
