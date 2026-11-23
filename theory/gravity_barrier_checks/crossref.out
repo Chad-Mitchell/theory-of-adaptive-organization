@@ -1,0 +1,31 @@
+Crossref API resolutions, 23 November 2026, America/New_York.
+Queried https://api.crossref.org/works/{doi}. Every DOI listed below returned HTTP 200.
+Fields: DOI | first author | year | container | volume | page or article | title (as returned).
+Thorne 1972 (hoop conjecture, in Magic without Magic) and 't Hooft 1993 (gr-qc/9310026) have no Crossref works record and are not listed.
+Zhirnov et al. 2003: Crossref returns volume '9'; the printed volume is 91.
+
+10.1103/PhysRevD.23.287 | Bekenstein | 1981 | Physical Review D | 23 | 287-298 | Universal upper bound on the entropy-to-energy ratio for bounded systems
+10.1088/1126-6708/1999/07/004 | Bousso | 1999 | Journal of High Energy Physics | 1999 | 004-004 | A covariant entropy conjecture
+10.1103/RevModPhys.74.825 | Bousso | 2002 | Reviews of Modern Physics | 74 | 825-874 | The holographic principle
+10.1038/35023282 | Lloyd | 2000 | Nature | 406 | 1047-1054 | Ultimate physical limits to computation
+10.1103/PhysRevD.7.2333 | Bekenstein | 1973 | Physical Review D | 7 | 2333-2346 | Black Holes and Entropy
+10.1103/PhysRevD.14.870 | Unruh | 1976 | Physical Review D | 14 | 870-892 | Notes on black-hole evaporation
+10.1007/BF02345020 | Hawking | 1975 | Communications In Mathematical Physics | 43 | 199-220 | Particle creation by black holes
+10.1103/PhysRevD.25.942 | Unruh | 1982 | Physical Review D | 25 | 942-958 | Acceleration radiation and the generalized second law of thermodynamics
+10.1088/0264-9381/25/20/205021 | Casini | 2008 | Classical and Quantum Gravity | 25 | 205021 | Relative entropy and the Bekenstein bound
+10.1063/1.531249 | Susskind | 1995 | Journal of Mathematical Physics | 36 | 6377-6396 | The world as a hologram
+10.1103/PhysRevLett.82.4971 | Cohen | 1999 | Physical Review Letters | 82 | 4971-4974 | Effective Field Theory, Black Holes, and the Cosmological Constant
+10.1103/PhysRevLett.75.1260 | Jacobson | 1995 | Physical Review Letters | 75 | 1260-1263 | Thermodynamics of Spacetime: The Einstein Equation of State
+10.1103/PhysRev.116.1027 | Buchdahl | 1959 | Physical Review | 116 | 1027-1034 | General Relativistic Fluid Spheres
+10.1007/BF01940959 | Schoen | 1979 | Communications in Mathematical Physics | 65 | 45-76 | On the proof of the positive mass conjecture in general relativity
+10.1007/BF01208277 | Witten | 1981 | Communications in Mathematical Physics | 80 | 381-402 | A new proof of the positive energy theorem
+10.1016/S0031-8914(40)90098-2 | Kramers | 1940 | Physica | 7 | 284-304 | Brownian motion in a field of force and the diffusion model of chemical reactions
+10.1103/RevModPhys.62.251 | Hänggi | 1990 | Reviews of Modern Physics | 62 | 251-341 | Reaction-rate theory: fifty years after Kramers
+10.1007/BF01224127 | Holley | 1988 | Communications in Mathematical Physics | 115 | 553-569 | Simulated annealing via Sobolev inequalities
+10.4171/JEMS/14 | Bovier | 2004 | Journal of the European Mathematical Society | 6 | 399-424 | Metastability in Reversible Diffusion Processes I: Sharp Asymptotics for Capacities and Exit Times
+10.1007/BF02124328 | Thomas | 1989 | Communications in Mathematical Physics | 126 | 1-11 | Bound on the mass gap for finite volume stochastic ising models at low temperature
+10.1109/JPROC.2003.818324 | Zhirnov | 2003 | Proceedings of the IEEE | 9 | 1934-1939 | Limits to binary logic switch scaling-a gedanken model
+10.1016/S0167-2789(98)00054-2 | Margolus | 1998 | Physica D: Nonlinear Phenomena | 120 | 188-195 | The maximum speed of dynamical evolution
+10.1007/JHEP04(2011)029 | Verlinde | 2011 | Journal of High Energy Physics | 2011 | 29 | On the origin of gravity and the laws of Newton
+10.1023/A:1001947813563 | Sakharov | 2000 | General Relativity and Gravitation | 32 | 365-367 | Vacuum Quantum Fluctuations in Curved Space and the Theory of Gravitation
+10.1103/PhysRevLett.96.121301 | Eling | 2006 | Physical Review Letters | 96 | 121301 | Nonequilibrium Thermodynamics of Spacetime

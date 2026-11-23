@@ -99,6 +99,7 @@ Each step below separates what is proved in-model from the open conjectures and 
 
 1. **Done:** T63 (record-repair heat floor for leaky records, `theory/RECORD_REPAIR_FLOOR_2026-11-23.md`, PR #240, independently reviewed): floor proved in class RF; area cap only for media that cannot self-correct, given \(q\); classical self-correction evades it in 2D and 3D; 3D quantum open.
 2. **Queued next after T63:** a **horizon-temperature input test** (`theory/AREA_LAW_PROBE_2026-11-23.md:145`), combining T63's repair-heat cap with an explicit Unruh/Hawking horizon-temperature input and checking against Jacobson 1995 without assuming \(S\le A/(4\ell_p^2)\).
+   - Pointer: T64 (`theory/GRAVITY_BARRIER_PROBE_2026-11-23.md`, self-check, not an independent review) runs the Bekenstein-style barrier part of this test; see that note.
 3. **In parallel (Level 2):** qualify, preregister, and hash-lock one real strongly selected system (`CORE.md:148, 156`, `OPEN_WORK.md:47`).
 
 ---
