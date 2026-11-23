@@ -1,0 +1,48 @@
+Crossref API resolutions, 23 November 2026, America/New_York.
+Queried https://api.crossref.org/works/{doi}. Every DOI listed below returned HTTP 200.
+Fields: DOI | first author | year | container | volume | page or article | title (as returned).
+Toom 1980 (Problems of Information Transmission 16) has no Crossref works record and is not listed.
+Zhirnov et al. 2003: Crossref returns volume '9'; the printed volume is 91.
+10.1007/BF02084158 | Bennett | 1982 | International Journal of Theoretical Physics | 21 | 905-940 | The thermodynamics of computation—a review
+10.1007/BF02124328 | Thomas | 1989 | Communications in Mathematical Physics | 126 | 1-11 | Bound on the mass gap for finite volume stochastic ising models at low temperature
+10.1007/s10959-006-0016-3 | Bobkov | 2006 | Journal of Theoretical Probability | 19 | 289-336 | Modified Logarithmic Sobolev Inequalities in Discrete Settings
+10.1016/0303-2647(79)90003-0 | Bennett | 1979 | Biosystems | 11 | 85-91 | Dissipation-error tradeoff in proofreading
+10.1016/S0003-4916(02)00018-0 | Kitaev | 2003 | Annals of Physics | 303 | 2-30 | Fault-tolerant quantum computation by anyons
+10.1016/S0031-8914(40)90098-2 | Kramers | 1940 | Physica | 7 | 284-304 | Brownian motion in a field of force and the diffusion model of chemical reactions
+10.1016/S0300-9084(75)80139-8 | Ninio | 1975 | Biochimie | 57 | 587-595 | Kinetic amplification of enzyme discrimination
+10.1016/j.aop.2011.06.001 | Yoshida | 2011 | Annals of Physics | 326 | 2566-2633 | Feasibility of self-correcting quantum memory and thermal stability of topological order
+10.1017/S0305004100019174 | Peierls | 1936 | Mathematical Proceedings of the Cambridge Philosophical Society | 32 | 477-481 | On Ising's model of ferromagnetism
+10.1023/A:1004823720305 | Gács | 2001 | Journal of Statistical Physics | 103 | 45-267 | Reliable Cellular Automata with Self-Organization
+10.1038/35023282 | Lloyd | 2000 | Nature | 406 | 1047-1054 | Ultimate physical limits to computation
+10.1063/1.1499754 | Dennis | 2002 | Journal of Mathematical Physics | 43 | 4452-4505 | Topological quantum memory
+10.1073/pnas.1119911109 | Murugan | 2012 | Proceedings of the National Academy of Sciences | 109 | 12034-12039 | Speed, dissipation, and error in kinetic proofreading
+10.1073/pnas.1207814109 | Mehta | 2012 | Proceedings of the National Academy of Sciences | 109 | 17978-17982 | Energetic costs of cellular computation
+10.1073/pnas.71.10.4135 | Hopfield | 1974 | Proceedings of the National Academy of Sciences | 71 | 4135-4139 | Kinetic Proofreading: A New Mechanism for Reducing Errors in Biosynthetic Processes Requiring High Specificity
+10.1088/0264-9381/25/20/205021 | Casini | 2008 | Classical and Quantum Gravity | 25 | 205021 | Relative entropy and the Bekenstein bound
+10.1088/1367-2630/11/4/043029 | Bravyi | 2009 | New Journal of Physics | 11 | 043029 | A no-go theorem for a two-dimensional self-correcting quantum memory based on stabilizer codes
+10.1088/1751-8113/42/6/065303 | Alicki | 2009 | Journal of Physics A: Mathematical and Theoretical | 42 | 065303 | On thermalization in Kitaev's 2D model
+10.1103/PhysRevA.83.042330 | Haah | 2011 | Physical Review A | 83 | 042330 | Local stabilizer codes in three dimensions without string logical operators
+10.1103/PhysRevB.78.155120 | Castelnovo | 2008 | Physical Review B | 78 | 155120 | Topological order in a three-dimensional toric code at finite temperature
+10.1103/PhysRevD.23.287 | Bekenstein | 1981 | Physical Review D | 23 | 287-298 | Universal upper bound on the entropy-to-energy ratio for bounded systems
+10.1103/PhysRevLett.104.090601 | Esposito | 2010 | Physical Review Letters | 104 | 090601 | Three Detailed Fluctuation Theorems
+10.1103/PhysRevLett.107.150504 | Bravyi | 2011 | Physical Review Letters | 107 | 150504 | Energy Landscape of 3D Spin Hamiltonians with Topological Order
+10.1103/PhysRevLett.110.090502 | Landon-Cardinal | 2013 | Physical Review Letters | 110 | 090502 | Local Topological Order Inhibits Thermal Stability in 2D
+10.1103/PhysRevLett.110.188101 | Sartori | 2013 | Physical Review Letters | 110 | 188101 | Kinetic versus Energetic Discrimination in Biological Copying
+10.1103/PhysRevLett.111.200501 | Bravyi | 2013 | Physical Review Letters | 111 | 200501 | Quantum Self-Correction in the 3D Cubic Code Model
+10.1103/PhysRevLett.113.130501 | Michnicki | 2014 | Physical Review Letters | 113 | 130501 | 3D Topological Quantum Memory with a Power-Law Energy Barrier
+10.1103/PhysRevLett.113.148103 | Lang | 2014 | Physical Review Letters | 113 | 148103 | Thermodynamics of Statistical Inference by Cells
+10.1103/PhysRevLett.114.158101 | Barato | 2015 | Physical Review Letters | 114 | 158101 | Thermodynamic Uncertainty Relation for Biomolecular Processes
+10.1103/PhysRevLett.86.3463 | Hatano | 2001 | Physical Review Letters | 86 | 3463-3466 | Steady-State Thermodynamics of Langevin Systems
+10.1103/PhysRevX.4.031015 | Horowitz | 2014 | Physical Review X | 4 | 031015 | Thermodynamics with Continuous Information Flow
+10.1103/PhysRevX.5.041039 | Sartori | 2015 | Physical Review X | 5 | 041039 | Thermodynamics of Error Correction
+10.1103/PhysRevX.7.021004 | Ouldridge | 2017 | Physical Review X | 7 | 021004 | Thermodynamics of Computational Copying in Biochemical Systems
+10.1103/RevModPhys.48.571 | Schnakenberg | 1976 | Reviews of Modern Physics | 48 | 571-585 | Network theory of microscopic and macroscopic behavior of master equation systems
+10.1103/RevModPhys.74.825 | Bousso | 2002 | Reviews of Modern Physics | 74 | 825-874 | The holographic principle
+10.1103/RevModPhys.88.045005 | Brown | 2016 | Reviews of Modern Physics | 88 | 045005 | Quantum memories at finite temperature
+10.1109/JPROC.2003.818324 | Zhirnov | 2003 | Proceedings of the IEEE | 9 | 1934-1939 | Limits to binary logic switch scaling-a gedanken model
+10.1142/S1230161210000023 | Alicki | 2010 | Open Systems &amp; Information Dynamics | 17 | 1-20 | On Thermal Stability of Topological Qubit in Kitaev's 4D Model
+10.1147/rd.53.0183 | Landauer | 1961 | IBM Journal of Research and Development | 5 | 183-191 | Irreversibility and Heat Generation in the Computing Process
+10.1209/0295-5075/95/40004 | Esposito | 2011 | EPL (Europhysics Letters) | 95 | 40004 | Second law and Landauer principle far from equilibrium
+10.1103/PhysRevA.97.052108 | Chiuchiù | 2018 | Physical Review A | 97 | 052108 | Cost of remembering a bit of information (added in independent review, PR #240)
+10.1214/aoap/1034968224 | Diaconis | 1996 | The Annals of Applied Probability | 6 | 695-750 | Logarithmic Sobolev inequalities for finite Markov chains (added in independent review, PR #240)
+10.1002/j.1538-7305.1968.tb01087.x | Taylor | 1968 | Bell System Technical Journal | 47 | 2299-2337 | Reliable Information Storage in Memories Designed from Unreliable Components* (added in independent review, PR #240)
