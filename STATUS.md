@@ -1,6 +1,6 @@
 # STATUS (current pointer; rewritten, not appended)
 
-**As of:** Sunday 22 November 2026, late evening (America/New_York): `THEORY.md` v2.9 draft and `measurement/CLAIM_MAP_v2.md` v2.88. `main` is `909c339` (PR #216, C7 neutral refutation wording and PR #215 review fixes), before this repository-health PR. The previous text of this page, with the merge-by-merge record through PR #213, is `history/2026-11-22_STATUS_before_sweep.md`. Run `python3 tools/brief.py` for the live HEAD and open PRs.
+**As of:** Sunday 22 November 2026, late evening (America/New_York): `THEORY.md` v2.9 draft and `measurement/CLAIM_MAP_v2.md` v2.88. `main` is `1dafed2` (PR #217, repository health and the lost-ideas pointers), before this synthesis PR, which rewrites `README.md` and `CORE.md` as one argument (previous texts: `history/2026-11-22_README_before_synthesis.md`, `history/2026-11-22_CORE_before_synthesis.md`). The previous text of this page, with the merge-by-merge record through PR #213, is `history/2026-11-22_STATUS_before_sweep.md`. Run `python3 tools/brief.py` for the live HEAD and open PRs.
 
 ## Where the theory stands
 
@@ -24,7 +24,8 @@ IP5, the claim that the master equation is the physical frontier, is FALSE (CLAI
 **Next, in order** (`OPEN_WORK.md` §3): the continuous-information proof of the A6 extension (T48); non-Gaussian closed forms (T49), then the open Kalman–Bucy minimum-power factor-of-2 question (Sandberg et al. 2014, doi 10.1109/allerton.2014.7028503); the decisive real-data test, qualified, preregistered, and hash-locked; then the open puzzles. Every review so far, hostile review and blind confirm alike, was done by agents of the same bot family. No human expert has read the theory.
 
 ## Canonical files
-- `CORE.md` — the theory on one page: one cost, five yields. The predictive keystone (N60) is scoped in `core/KEYSTONE_NOTE.md`.
+- `CORE.md` — the full argument: the cost, the method, the floor class by class, the worked-class yields, the evolutionary route, the hypothesis, and what remains.
+- **Further results** (demoted from the front pages on 22 November 2026, files unchanged; reasons in `history/2026-11-22_SYNTHESIS_DECISIONS.md`): the predictive keystone N60 (`core/KEYSTONE_NOTE.md`); layer spacing and the local-versus-shared delay crossing (`theory/FLUID_LAYERS_2026-11-21.md`); store-noise timing (`theory/STORE_NOISE.md`); the four design rules, the \(\alpha-1\) spend share N57, the ruin temperature CT25, and free-riding CT29 (`THEORY.md` §§5–7 and Appendix B).
 - `THEORY.md` — the theory (v2.9). A draft; v2.5.x, v2.7, v2.8 and v2.9 are deltas on v2.4; v2.8 is the ht-index work, merged. The earlier v2.0 and v1.4.29 are frozen at `reference/THEORY_v2.0.md` and `reference/THEORY_v1.4.29.md`; the changelog is `reference/CHANGELOG.md`.
 - `theory/DERIVATION_CHAIN.md` — one reading of the chain from the selection axioms to the predictions. Each link is labeled derived, derived in a stated limit, assumed, or open. No new claim.
 - `measurement/CLAIM_MAP_v2.md` (v2.88; one status per claim) and `measurement/FRAMEWORK.md` (validity gates MV1–MV10, tiers, anti-rescue rule).
