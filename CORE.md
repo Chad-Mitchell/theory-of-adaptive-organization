@@ -146,6 +146,7 @@ A qualifying design outside the preregistered band is a puzzle for that class. T
 5. **Antifragility** (§4, rebuild): the cost predicts when a system gains from disorder and when it does not. The option and learning routes are proved in their own classes; a general gain from closing the loop is the open joining theorem (`theory/ANTIFRAGILITY_CONJECTURE_2026-11-23.md`, T50).
 6. **Join, stay and leave** (§4, swarms): when parts come together, hold, leave, tamper and re-form, with \(\lambda sc<w\Phi\) as the stay condition and \(s=w/W\) as alignment (`theory/SWARM_RULE_2026-11-23.md`, T51–T53).
 7. **The real-world test** (§6): qualify, preregister, and measure.
+8. **From the cost toward physics** (`theory/PHYSICS_CHAIN_2026-11-23.md`): the proved heat floors (§3), the open chain through leaky-record repair heat (T63, in flight) and a post-T63 horizon-temperature input test toward Jacobson 1995, and labeled speculation.
 
 ## 7. What remains
 
