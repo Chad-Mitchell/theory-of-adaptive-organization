@@ -8,7 +8,7 @@ Until a qualifying system is measured, read that sentence as a principle: one co
 
 ![One cost, five yields](figures/derivation_map.png)
 
-*One cost, five yields* (`figures/derivation_map.png`, from `figures/derivation_map.py`). The cost is at the top. The five rows are what its minimum spends it on, each proved in its own class. The join of the five is a synthesis. **IN REVIEW** is [PR #203](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/203) and is not merged. **OPEN** is not derived, or not yet measured.
+*One cost, five yields* (`figures/derivation_map.png`, from `figures/derivation_map.py`). The cost is at the top. **GENERAL** results hold without a Gaussian or linear step. The five rows are worked examples in named classes. The join of the five is a synthesis. **OPEN** is not derived, or not yet measured.
 
 ## The cost
 
@@ -25,6 +25,14 @@ The sum is a different object. The bath heat replaces \(\kappa I_{\mathrm{mem}}\
 [`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v2.9 draft). Where this page and that file disagree, that file governs. Adopting the physics display into §3 is open work, T40, proposed in `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` §9.
 
 The worked class is an exogenous equilibrium Ornstein–Uhlenbeck signal, independent signals of that kind, or the two-state telegraph. The memory does not move the signal. The loss is a mean square, or Hamming error on the telegraph. Inside that class the floor on one OU signal is \(kT\,a(v-\varepsilon)/\varepsilon\), approached in a limit; the minimizing cost above the blind stake is \(2\sqrt{kT\,a\,v\,w}-kT\,a\); a geometric ladder tracks \(\lfloor\log(wv/(kT a))/\log\rho\rfloor+1\) modes, with no free constant per layer; a sum of modes is carried by one rank-one memory; the telegraph heat approaches \(kT\) times its information flow.
+
+## What holds in general
+
+For any system that meets A1–A7, on at least three essential interval coordinates, a continuous cost that represents the preorder is an additive price sum, up to one positive scale and one additive constant. The memory coordinate in that sum is finite-law Shannon information, in the scope of A6. A differential mutual information of a Gaussian plant is the extension A6 already names.
+
+A bipartite memory's bath is bounded below by \(kT\) times the information flow of its own transitions, for bipartite chains and for additive-noise diffusions. On a menu that does not depend on the stake, for a cost \(S+wE\) with ruin slack or absent, judgment spend does not fall as the stake rises, and the error does not rise. A joint law that factorizes across a cut screens the two sides; the expected loss is a function of the blanket posterior only when the loss depends on the world through the exterior and the decision is a function of the screened side. An uncapped convex payoff has expectation at least the payoff of the mean; a cap can reverse that comparison. If the control enters the generator only as an additive drift \(b\,u\), and the martingale problem for the uncontrolled generator is unique, the process at \(b=0\) is the uncontrolled process.
+
+The closed forms (the memory-spread factor, the turnover rate, and the gains) are worked examples in clean classes. Whether real systems sit near the minimum is the open hypothesis.
 
 ## Five yields of one minimum
 
@@ -44,16 +52,16 @@ Each line below is proved in the class named with it. The sentence that the five
 
 A payoff convex in a shock gains from a spread of that shock. Antifragility is that convexity. Optionality is a convex payoff bought with a capped premium. Both are standard mathematics (Taleb and Douady 2013, doi 10.1080/14697688.2013.800219, checked on Crossref 22 November 2026), and `theory/ROBUSTNESS.md` already uses that reading. A search of this repository finds the two routes written side by side in the acting-memory note, and finds no theorem that makes them one object. The synthesis is that the learning heat and the option sit under this one cost. That sentence is the hypothesis in another shape. It is not a proof.
 
-## In review
+## Acting derivation
 
-The acting derivation is in review: [PR #203](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/203), branch `cursor/acting-derivation-2d99`, head `a79d7b6`. This page does not adopt it, and it does not treat the pull request as merged.
+The acting derivation is merged ([PR #203](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/203); OPEN_WORK T47). Theorem R1′ is a representation theorem, and the cubic ordering is a conjecture. The proposal is not applied, and `THEORY.md` is unchanged.
 
 ## What remains
 
 - The non-Gaussian case, and a loss other than the mean square or the telegraph mismatch. A memory that changes the world it tracks.
 - A real-data test: a system qualified before the measurement, then scored against the cost. No such test is on this page.
 - The fractal draft, [PR #192](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/192). This page uses no result from it.
-- Adopting the acting derivation into `THEORY.md` once #203 has been reviewed. The master equation is unchanged.
+- Adopting the acting derivation into `THEORY.md` (T47 is merged; the proposal is not applied). The master equation is unchanged.
 - The integer \(5\%\) radius. It is 2 at both \(\tau=1/2\) and \(\tau=1\), ratio 1, because both crossings of the level 0.05 fall in the bin \((1,2)\). A longer path, the next test the preregistration named, returned 2 and 2. The smooth crossing is a separate statistic, ratio 2.067863694520, inside \([1.7,2.3]\).
 - \(J^*(8)\) against 5. The grid value is 4.998066177768. The number 5 is the heat plus the sign loss at the frozen fraction, above a floor of 4.966383544211. The crossing is near \(\theta=7.5267\). The next test is a new preregistration scored against that floor.
 

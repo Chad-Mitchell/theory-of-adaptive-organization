@@ -49,6 +49,14 @@ $$\kappa I_{\mathrm{mem}}+hK+w\,\mathbb{E}[\ell]+A+L \qquad\text{subject to}\qqu
 - The error in a sum of modes: one rank-one memory, gains \(1/(a_k+\mu)\), heat \(kT\mu\). Separate memories of \(K\) identical modes cost \(K\) times that heat.
 - The telegraph: flow \(\gamma(1-2\varepsilon)\ln((1-\varepsilon)/\varepsilon)\) nats per unit time. The heat infimum is \(kT\) times that flow.
 
+## What holds in general
+
+For any system that meets A1–A7, on at least three essential interval coordinates, a continuous cost that represents the preorder is an additive price sum, up to one positive scale and one additive constant. The memory coordinate in that sum is finite-law Shannon information, in the scope of A6. A differential mutual information of a Gaussian plant is the extension A6 already names.
+
+A bipartite memory's bath is bounded below by \(kT\) times the information flow of its own transitions, for bipartite chains and for additive-noise diffusions. On a menu that does not depend on the stake, for a cost \(S+wE\) with ruin slack or absent, judgment spend does not fall as the stake rises, and the error does not rise. A joint law that factorizes across a cut screens the two sides; the expected loss is a function of the blanket posterior only when the loss depends on the world through the exterior and the decision is a function of the screened side. An uncapped convex payoff has expectation at least the payoff of the mean; a cap can reverse that comparison. If the control enters the generator only as an additive drift \(b\,u\), and the martingale problem for the uncontrolled generator is unique, the process at \(b=0\) is the uncontrolled process.
+
+The closed forms (the memory-spread factor, the turnover rate, and the gains) are worked examples in clean classes. Whether real systems sit near the minimum is the open hypothesis.
+
 ## 2. What the minimum spends the cost on
 
 Five uses. Each is proved in its own class. One theorem that produces all five from the action in the drift is not on this page. The synthesis is `theory/ACTING_LOOP_2026-11-22.md` §8.
@@ -69,9 +77,9 @@ Antifragility and optionality fall out of a convex payoff. Taleb and Douady 2013
 
 The learning route is the other one. Fixed observation noise, a probe price that is not proportional to the variance, and a loss that at fixed fraction depends on the variance only through that fraction: the price of the fraction falls as \(1/\theta\), and that fall is the derivative of the minimized cost. A search of this repository finds both routes in the acting-memory note and finds no theorem identifying them. The synthesis of this page is that the learning heat and the option sit under one cost.
 
-## 4. In review, and not adopted
+## 4. Acting derivation, merged and not adopted
 
-[PR #203](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/203) (branch `cursor/acting-derivation-2d99`, head `a79d7b6`) is in review. This page does not adopt it. The proposal diff is on that branch. It is not applied. This page does not treat the pull request as merged.
+[PR #203](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/203) is merged (OPEN_WORK T47). Theorem R1′ is a representation theorem, and the cubic ordering is a conjecture. The proposal diff is not applied. This page does not adopt it into THEORY.
 
 ## 5. How a miss is read
 
@@ -86,7 +94,7 @@ A qualifying design outside the preregistered band is a puzzle for that class. T
 - Deriving the stake, the link price, or the ruin cap from the heat bound. They stay assumptions.
 - A real-data test of a system that qualifies.
 - The fractal draft, [PR #192](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/192). This page claims no result from it.
-- Adopting the acting derivation into THEORY once #203 is reviewed, and adopting the physics display (T40). Neither edit is made here.
+- Adopting the acting derivation into THEORY (T47 is merged; the proposal is not applied), and adopting the physics display (T40). Neither edit is made here.
 - The integer \(5\%\) radius. It is 2 at \(\tau=1/2\) and at \(\tau=1\), ratio 1, because both crossings of the level 0.05 lie in \((1,2)\). The path of 61 sites, the next test the preregistration named, returned 2 and 2. The smooth crossing on times \(1/4\) and \(1\) is a separate statistic: ratio 2.067863694520, inside \([1.7,2.3]\).
 - \(J^*(8)\) against 5. The grid value is 4.998066177768. The number 5 equals \(C(1/2)\), the heat plus the sign loss at the frozen fraction, and the diagnostic floor is 4.966383544211. The crossing is near \(\theta=7.5267\). The next test is a new preregistration scored against that floor. The acting-memory preregistration stays as locked.
 

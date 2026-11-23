@@ -6,13 +6,14 @@
 Writes figures/derivation_map.png beside this file. Portrait, one card wide.
 Colors are a second channel. Every card also prints its status word.
 
-  PROVED      proved inside the class named on the card
+  GENERAL     holds without a Gaussian or linear step
+  EXAMPLE     worked example in a named class
   SYNTHESIS   the five yields on one cost; not one theorem
-  IN REVIEW   pull request 203; not merged
   OPEN        not derived, or not measured
 
 A card states the claim. It does not re-prove it.
-Sources: theory/GENERAL_FORM_PHYSICS_2026-11-22.md,
+Sources: theory/GENERALITY_2026-11-22.md,
+theory/GENERAL_FORM_PHYSICS_2026-11-22.md,
 theory/ACTING_LOOP_2026-11-22.md §8, and the notes named on the cards.
 """
 import os
@@ -26,11 +27,12 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "derivation_map.png")
 
 PALETTE = {
-    "PROVED": ("#0E5C34", "#E4F6EC"),
+    "GENERAL": ("#1F4E79", "#E8F1FA"),
+    "EXAMPLE": ("#0E5C34", "#E4F6EC"),
     "SYNTHESIS": ("#7A4308", "#FFF1DC"),
-    "IN REVIEW": ("#4C3478", "#F3EEF8"),
     "OPEN": ("#3A414B", "#EEEFF2"),
     "COST": ("#143E66", "#E5F0FA"),
+    "T47": ("#4C3478", "#F3EEF8"),
 }
 
 # Pre-wrapped for a phone column.
@@ -40,6 +42,17 @@ YIELDS = [
     ("BOUNDARY", "Gaussian field: the blanket suffices outside."),
     ("REBUILD", "Identical units can cost less under the cap."),
     ("ACTING", "Priced channel: only if the stake covers the probe."),
+]
+
+GENERAL_LINES = [
+    "A1–A7: an additive price sum; finite-law Shannon information.",
+    "Gaussian differential case: a named extension.",
+    "Heat floor: bath ≥ kT × its own information flow",
+    "(bipartite chains; additive-noise diffusions).",
+    "Stake monotonicity, stake-independent menu, ruin slack.",
+    "Screening under factorization, with its conditions.",
+    "Jensen: uncapped convex payoff (a cap can reverse it).",
+    "b=0 reduction if the martingale problem is unique.",
 ]
 
 
@@ -69,14 +82,17 @@ def main():
     # Vertical rhythm, top to bottom, in inches.
     top = 0.20
     title_h = 0.95
-    legend_row = 0.34
+    legend_row = 0.36
     legend_gap = 0.06
     cost_h = 2.05
-    stem = 0.28
+    general_h = 2.72
+    stem = 0.24
+    examples_label_h = 0.28
     yield_h = 0.78
     yield_gap = 0.08
     synth_h = 0.95
-    open_h = 2.58
+    open_h = 2.42
+    t47_h = 0.62
     foot = 0.38
     n_yield = len(YIELDS)
     legend_h = 2 * legend_row + legend_gap
@@ -87,17 +103,22 @@ def main():
         + legend_h
         + 0.12
         + cost_h
+        + 0.12
+        + general_h
         + stem
+        + examples_label_h
         + n_yield * yield_h
         + (n_yield - 1) * yield_gap
         + 0.16
         + synth_h
         + 0.10
         + open_h
+        + 0.10
+        + t47_h
         + foot
     )
 
-    fig = plt.figure(figsize=(width, height), dpi=200, facecolor="white")
+    fig = plt.figure(figsize=(width, height), dpi=360, facecolor="white")
     ax = fig.add_axes([0, 0, 1, 1])
     ax.set_xlim(0, width)
     ax.set_ylim(0, height)
@@ -122,7 +143,7 @@ def main():
         "The law of adaptive organization (hypothesis):",
         ha="center",
         va="top",
-        fontsize=9.5,
+        fontsize=10,
         fontname="DejaVu Sans",
         color="#3A414B",
     )
@@ -133,16 +154,16 @@ def main():
         "strongly selected systems minimize the cost of judgment.",
         ha="center",
         va="top",
-        fontsize=9.5,
+        fontsize=10,
         fontname="DejaVu Sans",
         color="#3A414B",
     )
     y -= 0.32
 
     legend = [
-        ("PROVED", "inside the named class"),
+        ("GENERAL", "no Gaussian or linear step"),
+        ("EXAMPLE", "worked form in a named class"),
         ("SYNTHESIS", "the five on one cost"),
-        ("IN REVIEW", "open pull request"),
         ("OPEN", "still to derive or measure"),
     ]
     for i, (name, gloss) in enumerate(legend):
@@ -168,7 +189,7 @@ def main():
             name,
             ha="left",
             va="center",
-            fontsize=8,
+            fontsize=8.5,
             fontname="DejaVu Sans",
             color="white",
             fontweight="bold",
@@ -179,7 +200,7 @@ def main():
             gloss,
             ha="left",
             va="center",
-            fontsize=7.5,
+            fontsize=7.8,
             fontname="DejaVu Sans",
             color="white",
         )
@@ -257,19 +278,81 @@ def main():
         color="#1C1C1C",
     )
 
-    # Spine in the left margin, from the cost down through the five yields.
-    y_cost_bottom = y
+    y -= 0.12
+    ink, fill = PALETTE["GENERAL"]
+    y -= general_h
+    rounded(ax, left, y, inner, general_h, ink, fill, radius=0.10, lw=1.6)
+    ax.add_patch(
+        FancyBboxPatch(
+            (left, y),
+            rail,
+            general_h,
+            boxstyle="round,pad=0.0,rounding_size=0.04",
+            linewidth=0,
+            facecolor=ink,
+        )
+    )
+    ax.text(
+        left + 0.22,
+        y + general_h - 0.14,
+        "WHAT HOLDS IN GENERAL",
+        ha="left",
+        va="top",
+        fontsize=9,
+        fontname="DejaVu Sans",
+        color=ink,
+        fontweight="bold",
+    )
+    ax.text(
+        left + inner - 0.12,
+        y + general_h - 0.14,
+        "GENERAL",
+        ha="right",
+        va="top",
+        fontsize=8.5,
+        fontname="DejaVu Sans",
+        color=ink,
+        fontweight="bold",
+    )
+    cursor = y + general_h - 0.40
+    for line in GENERAL_LINES:
+        ax.text(
+            left + 0.22,
+            cursor,
+            line,
+            ha="left",
+            va="top",
+            fontsize=9.2,
+            fontname="DejaVu Sans",
+            color="#1C1C1C",
+        )
+        cursor -= 0.255
+
+    # Spine from the general card down through the five example yields.
+    y_gen_bottom = y
     y -= stem
+    ax.text(
+        left,
+        y + 0.02,
+        "WORKED EXAMPLES IN CLEAN CLASSES",
+        ha="left",
+        va="center",
+        fontsize=8,
+        fontname="DejaVu Sans",
+        color="#0E5C34",
+        fontweight="bold",
+    )
+    y -= examples_label_h
     first_mid = y - yield_h * 0.45
     ax.plot(
         [width / 2, width / 2, spine_x, spine_x],
-        [y_cost_bottom - 0.02, y_cost_bottom - 0.10, y_cost_bottom - 0.10, first_mid],
-        color="#143E66",
+        [y_gen_bottom - 0.02, y_gen_bottom - 0.10, y_gen_bottom - 0.10, first_mid],
+        color="#0E5C34",
         lw=1.6,
         solid_capstyle="round",
     )
 
-    ink, fill = PALETTE["PROVED"]
+    ink, fill = PALETTE["EXAMPLE"]
     for index, (name, line) in enumerate(YIELDS):
         y -= yield_h
         mid = y + yield_h * 0.55
@@ -287,7 +370,7 @@ def main():
         ax.plot(
             [spine_x, left - 0.02],
             [mid, mid],
-            color="#143E66",
+            color="#0E5C34",
             lw=1.4,
             solid_capstyle="round",
         )
@@ -305,7 +388,7 @@ def main():
         ax.text(
             left + inner - 0.12,
             y + yield_h - 0.16,
-            "PROVED",
+            "EXAMPLE",
             ha="right",
             va="top",
             fontsize=8,
@@ -328,7 +411,7 @@ def main():
             ax.plot(
                 [spine_x, spine_x],
                 [mid, next_mid],
-                color="#143E66",
+                color="#0E5C34",
                 lw=1.6,
                 solid_capstyle="round",
             )
@@ -388,7 +471,7 @@ def main():
     open_lines = [
         "Non-Gaussian case. A real-data test.",
         "Fractal draft, pull request 192.",
-        "Adopt the derivation after review.",
+        "Acting proposal not applied to THEORY.",
         "Puzzle: the 5% radius bins at 2 and 2.",
         "Puzzle: J*(8) sits just under 5.",
     ]
@@ -404,33 +487,32 @@ def main():
             fontname="DejaVu Sans",
             color="#1C1C1C",
         )
-        cursor -= 0.30
+        cursor -= 0.32
 
-    # In-review chip, below the open lines, own color.
-    ink_r, fill_r = PALETTE["IN REVIEW"]
-    chip_h = 0.38
-    chip_y = y + 0.14
-    ax.add_patch(
-        FancyBboxPatch(
-            (left + 0.14, chip_y),
-            inner - 0.28,
-            chip_h,
-            boxstyle="round,pad=0.01,rounding_size=0.06",
-            linewidth=1.0,
-            edgecolor=ink_r,
-            facecolor=fill_r,
-        )
-    )
+    y -= 0.10
+    ink_r, fill_r = PALETTE["T47"]
+    y -= t47_h
+    rounded(ax, left, y, inner, t47_h, ink_r, fill_r, radius=0.08, lw=1.0)
     ax.text(
-        left + 0.26,
-        chip_y + chip_h / 2,
-        "IN REVIEW   ·   acting derivation, #203",
+        left + 0.16,
+        y + t47_h - 0.12,
+        "T47  ·  acting derivation #203, merged",
         ha="left",
-        va="center",
+        va="top",
         fontsize=9,
         fontname="DejaVu Sans",
         color=ink_r,
         fontweight="bold",
+    )
+    ax.text(
+        left + 0.16,
+        y + 0.16,
+        "R1′ is a representation theorem. The cubic ordering is a conjecture.",
+        ha="left",
+        va="center",
+        fontsize=8.5,
+        fontname="DejaVu Sans",
+        color=ink_r,
     )
 
     ax.text(
@@ -444,7 +526,7 @@ def main():
         color="#6A717A",
     )
 
-    fig.savefig(OUT, dpi=200, facecolor="white")
+    fig.savefig(OUT, dpi=360, facecolor="white")
     plt.close(fig)
     print("wrote %s" % OUT)
 
