@@ -92,8 +92,8 @@ A qualifying design outside the preregistered band is a puzzle for that class. T
 In priority order:
 
 1. **Continuous-information proof of the A6 extension (next proof).** Prove the continuous mutual-information extension of A6 as the limit of discrete partitions (Gelfand–Yaglom–Dobrushin). Expected to carry the discrete results over without changing them.
-2. **The decisive evidence (real-data test).** Measure one real strongly selected system against the axioms (qualified before scoring) and test whether it sits near the predicted minimum, preregistered and hash-locked.
-3. **Non-Gaussian closed forms.** Derive closed forms for heavy tails, switching, and rare shocks (signals other than exogenous equilibrium OU or telegraph, losses other than mean square or Hamming error, and a memory that changes its world): sharper numbers for real-data tests, not a change to the theory.
+2. **Non-Gaussian closed forms.** Derive closed forms for heavy tails, switching, and rare shocks (signals other than exogenous equilibrium OU or telegraph, losses other than mean square or Hamming error, and a memory that changes its world): sharper numbers for later real-data tests, not a change to the theory.
+3. **The decisive evidence (real-data test).** Measure one real strongly selected system against the axioms (qualified before scoring) and test whether it sits near the predicted minimum, preregistered and hash-locked.
 4. **Existing open items and puzzles:**
    - Deriving the stake, the link price, or the ruin cap from the heat bound. They stay assumptions.
    - The fractal draft, [PR #192](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/192). This page claims no result from it.

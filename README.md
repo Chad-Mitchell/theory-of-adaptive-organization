@@ -61,8 +61,8 @@ The acting derivation is merged ([PR #203](https://github.com/Chad-Mitchell/theo
 In priority order:
 
 1. **Continuous-information proof of the A6 extension (next proof).** Prove the continuous mutual-information extension of A6 as the limit of discrete partitions (Gelfand–Yaglom–Dobrushin). Expected to carry the discrete results over without changing them.
-2. **The decisive evidence (real-data test).** Measure one real strongly selected system against the axioms (qualified before the measurement) and test whether it sits near the predicted minimum, preregistered and hash-locked. No such test is on this page.
-3. **Non-Gaussian closed forms.** Derive closed forms for heavy tails, switching, and rare shocks (and losses other than mean square or telegraph mismatch, plus a memory that changes the world it tracks): sharper numbers for real-data tests, not a change to the theory.
+2. **Non-Gaussian closed forms.** Derive closed forms for heavy tails, switching, and rare shocks (and losses other than mean square or telegraph mismatch, plus a memory that changes the world it tracks): sharper numbers for later real-data tests, not a change to the theory.
+3. **The decisive evidence (real-data test).** Measure one real strongly selected system against the axioms (qualified before the measurement) and test whether it sits near the predicted minimum, preregistered and hash-locked. No such test is on this page.
 4. **Existing open items and puzzles:**
    - The fractal draft, [PR #192](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/192). This page uses no result from it.
    - Adopting the acting derivation into `THEORY.md` (T47 is merged; the proposal is not applied). The master equation is unchanged.
