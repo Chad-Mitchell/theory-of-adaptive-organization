@@ -1,0 +1,3 @@
+file: theory/acting_derivation_checks/PREREG.md
+sha256: 7f3b0034de4bea307c4510ade0edde7ccae94ef413d397b52cd9976edb6084a2
+locked before any cubic or linear-gate trajectory of this protocol
