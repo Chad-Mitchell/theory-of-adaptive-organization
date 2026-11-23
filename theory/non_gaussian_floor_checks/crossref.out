@@ -1,0 +1,103 @@
+Crossref API resolutions, 23 November 2026, America/New_York.
+Queried https://api.crossref.org/works/{doi}. Every DOI listed below returned HTTP 200.
+
+doi 10.1103/PhysRevX.4.031015
+  2014 | Physical Review X 4 031015
+  Thermodynamics with Continuous Information Flow
+  Horowitz, J.; Esposito, M.
+
+doi 10.1088/1742-5468/2015/03/p03006
+  2015 | Journal of Statistical Mechanics: Theory and Experiment 2015 P03006
+  Multipartite information flow for multiple Maxwell demons
+  Horowitz, J.
+
+doi 10.1088/1367-2630/16/10/103024
+  2014 | New Journal of Physics 16 103024
+  Efficiency of cellular information processing
+  Barato, A.; Hartich, D.; Seifert, U.
+
+doi 10.1103/PhysRevE.93.022116
+  2016 | Physical Review E 93 022116
+  Sensory capacity: An information theoretical measure of the performance of a sensor
+  Hartich, D.; Barato, A.; Seifert, U.
+
+doi 10.1103/PhysRevLett.109.120604
+  2012 | Physical Review Letters 109 120604
+  Thermodynamics of Prediction
+  Still, S.; Sivak, D.; Bell, A.; Crooks, G.
+
+doi 10.1109/allerton.2014.7028503
+  2014 | 2014 52nd Annual Allerton Conference on Communication, Control, and Computing (Allerton)  550-555
+  Thermodynamic costs in implementing Kalman-Bucy filters
+  Sandberg, H.; Delvenne, J.; Newton, N.; Mitter, S.
+
+doi 10.1088/1742-5468/aa71d4
+  2017 | Journal of Statistical Mechanics: Theory and Experiment 2017 063502
+  What we learn from the learning rate
+  Brittain, R.; Jones, N.; Ouldridge, T.
+
+doi 10.1002/0471221082
+  2001 |   
+  Detection, Estimation, and Modulation Theory, Part I
+  Van Trees, H.
+
+doi 10.2307/3318681
+  1995 | Bernoulli 1 59
+  Applications of the van Trees Inequality: A Bayesian Cramér-Rao Bound
+  Gill, R.; Levit, B.
+
+doi 10.1016/S0019-9958(59)90348-1
+  1959 | Information and Control 2 101-112
+  Some inequalities satisfied by the quantities of information of Fisher and Shannon
+  Stam, A.
+
+doi 10.1109/TIT.2007.915715
+  2008 | IEEE Transactions on Information Theory 54 964-975
+  Lautum Information
+  Palomar, D.; Verdu, S.
+
+doi 10.1002/cpa.3160280102
+  1975 | Communications on Pure and Applied Mathematics 28 1-47
+  Asymptotic evaluation of certain markov process expectations for large time, I
+  Donsker, M.; Varadhan, S.
+
+doi 10.1007/BF00535278
+  1979 | Zeitschrift f�r Wahrscheinlichkeitstheorie und Verwandte Gebiete 47 119-137
+  Estimation des densit�s: risque minimax
+  Bretagnolle, J.; Huber, C.
+
+doi 10.1002/047174882X
+  2005 |   
+  Elements of Information Theory
+  Cover, T.; Thomas, J.
+
+doi 10.1209/0295-5075/95/40004
+  2011 | EPL (Europhysics Letters) 95 40004
+  Second law and Landauer principle far from equilibrium
+  Esposito, M.; Van den Broeck, C.
+
+doi 10.1103/PhysRevLett.127.228301
+  2021 | Physical Review Letters 127 228301
+  Mutual Information Disentangles Interactions from Changing Environments
+  Nicoletti, G.; Busiello, D.
+
+doi 10.1103/PhysRevE.106.014153
+  2022 | Physical Review E 106 014153
+  Mutual information in changing environments: Nonlinear interactions, out-of-equilibrium systems, and continuously varying diffusivities
+  Nicoletti, G.; Busiello, D.
+
+doi 10.2307/1912559
+  1989 | Econometrica 57 357
+  A New Approach to the Economic Analysis of Nonstationary Time Series and the Business Cycle
+  Hamilton, J.
+
+doi 10.1111/1467-9868.00282
+  2001 | Journal of the Royal Statistical Society Series B: Statistical Methodology 63 167-241
+  Non-Gaussian Ornstein–Uhlenbeck-based Models and Some of Their Uses in Financial Economics
+  Barndorff-Nielsen, O.; Shephard, N.
+
+doi 10.1137/0302028
+  1964 | Journal of the Society for Industrial and Applied Mathematics Series A Control 2 347-369
+  Some Applications of Stochastic Differential Equations to Optimal Nonlinear Filtering
+  Wonham, W.
+
