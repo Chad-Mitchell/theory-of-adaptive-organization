@@ -33,13 +33,13 @@ axc = fig.add_axes([0.03, 0.79, 0.94, 0.085]); axc.axis("off")
 axc.add_patch(FancyBboxPatch((0, 0), 1, 1, boxstyle="round,pad=0,rounding_size=0.15", transform=axc.transAxes,
                              facecolor="#f1f3f5", edgecolor="#adb5bd", lw=1))
 axc.text(0.012, 0.5, "THE COST", fontsize=12, fontweight="bold", color=NAVY, va="center", transform=axc.transAxes)
-axc.text(0.098, 0.5, "J = heat + w\u00b7E[loss],  cap: P(ruin) \u2264 \u03b5", fontsize=13.2, color=NAVY, va="center",
+axc.text(0.098, 0.5, "J = heat + w\u00b7E[loss],  cap: P(ruin) \u2264 \u03b5", fontsize=12.4, color=NAVY, va="center",
          transform=axc.transAxes, fontweight="bold")
-axc.text(0.405, 0.5,
+axc.text(0.43, 0.5,
          "Grounded in physics in the worked class: heat \u2265 kT \u00d7 learning rate, approached in a limit. w and the ruin cap are assumed.\n"
          "R1 (axioms A1\u2013A7, \u22653 essential coordinates) proves only that a continuous representing cost is an additive price sum.\n"
          "THEORY's five-term master equation is a stated decomposition; its terms stay assumptions (IP5: not the physical frontier; T40 open).",
-         fontsize=7.9, color=NAVY, va="center", transform=axc.transAxes, linespacing=1.35)
+         fontsize=7.5, color=NAVY, va="center", transform=axc.transAxes, linespacing=1.35)
 
 # ---------------- TIME panel: the curve ----------------
 ax = fig.add_axes([0.075, 0.205, 0.43, 0.50])

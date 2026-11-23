@@ -213,6 +213,9 @@ def hankel_rank(y, sigma, max_pts=PENCIL_MAX_PTS):
     return int(np.sum(s > thr)), s[:10].tolist(), float(thr)
 
 
+RSS_REL_FLOOR = 1e-10  # residual RMS below 1e-10 of the record peak counts as an exact fit
+
+
 def bic_score(rss, n, n_params):
     return n * np.log(max(rss, 1e-300) / n) + n_params * np.log(n)
 
@@ -246,11 +249,15 @@ def detect(t, y, band, k_max=K_MAX, seed=0, merge_factor=RESOLUTION):
     tf, yf = _downsample(t, y)
     n = len(yf)
     fits, bic = [], []
+    # Residuals below floating-point resolution carry no information. Without
+    # this floor, BIC differences on a noiseless record are roundoff and depend
+    # on the BLAS thread count (sweep, 22 Nov 2026).
+    rss_floor = n * (RSS_REL_FLOOR * max(float(np.max(np.abs(yf))), 1e-300)) ** 2
     for K in range(k_max + 1):
         f = fit_degree(tf, yf, K)
         # Re-evaluate RSS on the (downsampled) record used for the BIC, already in f["rss"].
         fits.append(f)
-        bic.append(bic_score(f["rss"], n, 2 * K))
+        bic.append(bic_score(max(f["rss"], rss_floor), n, 2 * K))
     bic = np.array(bic)
     Ksel = select_bic_degree(bic, BIC_GATE)
     f = fits[Ksel]

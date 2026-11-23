@@ -2,13 +2,29 @@
 
 *Chad Mitchell ([@torusflow](https://x.com/torusflow)). Public working draft, CC0. Not peer reviewed.*
 
+Thermodynamics tells an engineer two things about any engine: the best it could possibly do, and how far a real one falls short. This theory aims to do the same for adaptive systems: cells, colonies, brains, teams, firms, AI and robot systems, anything that must act before its world arrives. Its object is one cost, the cost of judgment: holding memory, being wrong or late, and acquiring and sharing information, under a cap on the chance of ruin. Part of the floor is general: a memory's bath gives off at least \(kT\) times the rate at which it learns, for bipartite chains and additive-noise diffusions. In worked classes the minimum is computed, in closed form where the class allows, and it says what the best design looks like: how many layers, what to share, where a boundary is enough, when a shock should strengthen a system rather than harm it. If the hypothesis below holds, any adaptive system can be measured against its minimum, and the gap says where it wastes and what would close it.
+
 **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
 
-Until a qualifying system is measured, read that sentence as a principle: one cost of judgment, and the design is what the cost selects. The heat floor and its minimizers are proved in one class: an exogenous equilibrium Ornstein–Uhlenbeck signal, independent signals of that kind, or the two-state telegraph; a mean-square loss, or Hamming error on the telegraph; a memory that does not move the signal. The telegraph is in that class. Other Gaussian systems stay open, and other linear systems stay open, including a memory that moves its world. No system has been shown to qualify, so nothing on this page is a test from a real system. The one-page statement is [`CORE.md`](CORE.md).
+Some of the mathematics holds in general: a representation theorem for every system that meets the axioms, and four results that need no Gaussian or linear step. Each design result (layers, holographic sharing, boundaries, rebuilding, acting) is proved in a worked model. That they come from one minimum, and that strongly selected systems sit near it, is the hypothesis. The one-page statement is [`CORE.md`](CORE.md).
 
-![One cost, five yields](figures/derivation_map.png)
+**First evidence.** In simulations of the authors' own worlds, selection converged to the predicted minimum in clean worlds: the positive control, W1 and W2 of EVO1 (`tests/EVO1/RESULTS_EVO.md`), the high-β Moran arm of SIM-1 (T28 P4), the high-β mode of the selection bridge (T27 P1; its low-β prediction failed); LEARNSIM's learners matched its regime-A level-class prediction (CLAIM_MAP G26). Where the world put something in the way, selection stalled or the run did not count: a creation valley (EVO1 W4), a ruin gate (W3, INVALID), store noise (two INCONCLUSIVE arms), and a nonlinear readout (ANTS1, locked in-model fails). Real-data attempts so far did not qualify: every scored field result is NOT A TEST (30 rows) or INCONCLUSIVE. The real-system test is next: qualify a strongly selected system, preregister and hash-lock the prediction, and measure whether its design sits at the minimum.
 
-*One cost, five yields* (`figures/derivation_map.png`, from `figures/derivation_map.py`). The cost is at the top. **GENERAL** results hold without a Gaussian or linear step. The five rows are worked examples in named classes. The join of the five is a synthesis. **OPEN** is not derived, or not yet measured.
+![One cost of judgment, in time and in space](figures/master_curve.png)
+
+*One cost of judgment, in time and in space* (`figures/master_curve.png`, from `figures/master_curve.py`; every claim and its source is in `figures/master_curve.md`). In the worked class every time scale lands on one curve in the stake ratio \(x=wv/(kT\,a)\): below \(x=1\) no memory pays, above it a memory pays and its error falls as \(v/\sqrt{x}\). The space panels are holographic memory (T42) and the field and boundary results (T41, T44). Where real systems sit on the curve is the hypothesis. The earlier derivation map is `figures/derivation_map.png`.
+
+## What holds in general
+
+These hold without a Gaussian or linear step. The first is a theorem about any system that meets the representation axioms A1–A7 (`theory/REPRESENTATION.md`). The others hold under the conditions stated with each (`theory/GENERALITY_2026-11-22.md`).
+
+1. **The cost is a priced sum.** For any system that meets A1–A7, on at least three essential interval coordinates, a continuous cost that represents its preferences is an additive price sum, up to one positive scale and one additive constant, and its memory coordinate is finite-law Shannon information (Theorem R1; a differential mutual information of a Gaussian plant is the extension A6 already names). R1 does not choose the coordinate list (A6 fixes only which information is the memory coordinate), so it does not derive the five terms of THEORY §3. Nonnegative prices are a further assumption, A8, and the integer layer count \(hK\) needs an extra separability assumption.
+2. **Memory costs heat.** A bipartite memory's bath gives off at least \(kT\) times the information flow of its own transitions, for bipartite chains and for additive-noise diffusions.
+3. **Higher stakes buy more judgment.** On a menu that does not depend on the stake, for a cost \(S+wE\) with ruin slack or absent, judgment spend does not fall as the stake rises, and the error does not rise.
+4. **A boundary can be enough.** A joint law that factorizes across a cut screens the two sides. The expected loss is a function of the blanket posterior when the loss depends on the world only through the exterior and the decision is a function of the screened side.
+5. **Convex payoffs gain from shocks, and caps can reverse it.** An uncapped convex payoff has expectation at least the payoff of the mean; a cap can reverse that comparison.
+
+If the control enters the generator only as an additive drift \(b\,u\), and the martingale problem for the uncontrolled generator is unique, the process at \(b=0\) is the uncontrolled process. The closed forms below (the holographic-memory factor, the turnover rate, the gains) are worked examples in clean classes.
 
 ## The cost
 
@@ -24,54 +40,34 @@ The sum is a different object, and IP5, the claim that it is the physical fronti
 
 [`THEORY.md`](THEORY.md) is the one canonical statement of the theory (v2.9 draft). Where this page and that file disagree, that file governs. Adopting the physics display into §3 is open work, T40, proposed in `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` §9.
 
-The worked class is an exogenous equilibrium Ornstein–Uhlenbeck signal, independent signals of that kind, or the two-state telegraph. The memory does not move the signal. The loss is a mean square, or Hamming error on the telegraph. Inside that class the floor on one OU signal is \(kT\,a(v-\varepsilon)/\varepsilon\), approached in a limit; the minimizing cost above the blind stake is \(2\sqrt{kT\,a\,v\,w}-kT\,a\); a geometric ladder tracks \(\lfloor\log(wv/(kT a))/\log\rho\rfloor+1\) modes, with no free constant per layer; a sum of modes is carried by one rank-one memory; the telegraph heat approaches \(kT\) times its information flow.
-
-## What holds in general
-
-For any system that meets A1–A7, on at least three essential interval coordinates, a continuous cost that represents the preorder is an additive price sum, up to one positive scale and one additive constant. The memory coordinate in that sum is finite-law Shannon information, in the scope of A6. A differential mutual information of a Gaussian plant is the extension A6 already names. That is Theorem R1 (`theory/REPRESENTATION.md`), and it is all R1 gives. It does not choose the coordinate list, so it does not derive the five terms of THEORY §3. It does not sign the prices; nonnegative prices are a further assumption, A8. It does not cover the integer layer count; \(hK\) needs an extra separability assumption.
-
-A bipartite memory's bath is bounded below by \(kT\) times the information flow of its own transitions, for bipartite chains and for additive-noise diffusions. On a menu that does not depend on the stake, for a cost \(S+wE\) with ruin slack or absent, judgment spend does not fall as the stake rises, and the error does not rise. A joint law that factorizes across a cut screens the two sides; the expected loss is a function of the blanket posterior only when the loss depends on the world through the exterior and the decision is a function of the screened side. An uncapped convex payoff has expectation at least the payoff of the mean; a cap can reverse that comparison. If the control enters the generator only as an additive drift \(b\,u\), and the martingale problem for the uncontrolled generator is unique, the process at \(b=0\) is the uncontrolled process.
-
-The closed forms (the holographic-memory factor, the turnover rate, and the gains) are worked examples in clean classes. Whether real systems sit near the minimum is the open hypothesis.
+The worked class is an exogenous equilibrium Ornstein–Uhlenbeck signal, independent signals of that kind, or the two-state telegraph. The memory does not move the signal. The loss is a mean square, or Hamming error on the telegraph. Inside that class the theory computes the design in closed form. The floor on one OU signal is \(kT\,a(v-\varepsilon)/\varepsilon\), approached in a limit; the minimizing cost above the blind stake is \(2\sqrt{kT\,a\,v\,w}-kT\,a\); a geometric ladder tracks \(\lfloor\log(wv/(kT a))/\log\rho\rfloor+1\) modes, with no free constant per layer; a sum of modes is carried by one rank-one memory; the telegraph heat approaches \(kT\) times its information flow.
 
 ## Five yields of one minimum
 
-Each line below is proved in the class named with it. The sentence that the five are one minimum is a synthesis. `theory/ACTING_LOOP_2026-11-22.md` §8 states that limit.
+Each yield below is proved in the class named with it. That the five are one minimum of one cost is the synthesis the hypothesis asserts (`theory/ACTING_LOOP_2026-11-22.md` §8).
 
-**Layers, along time.** When each mode is scored on its own, one real time scale needs one store, or none when the stake is small. On the geometric ladder the count is the formula above. When the loss is the error in the sum, one rank-one memory carries the modes. [`figures/face.png`](figures/face.png) is the placement: for each time scale, local, shared, both, or neither. Spacing those stores under a closed loop is unsolved.
+**Layers, along time.** When each mode is scored on its own, one real time scale needs one store, or none when the stake is small. On the geometric ladder the count is the formula above. When the loss is the error in the sum, one rank-one memory carries the modes. The older placement view, [`figures/face.png`](figures/face.png), marks for each time scale local, shared, both, or neither. Spacing those stores under a closed loop is unsolved.
 
 **Holographic memory.** In the storage sense (many items held in one shared state), a shared memory costs less when the decision combines many items—\(K\) separate memories of \(K\) identical modes cost \(K\) times the heat at the same error—while it ties or costs more when every item is read on its own, and a random code is not optimal when the decision is known (`theory/HOLOGRAPHIC_MEMORY_2026-11-22.md`). In the field sense, the heat floor for per-site bulk error scales with the volume, and scales with a cut only when the decision names that cut (`theory/HOLOGRAPHIC_2026-11-22.md`). Holographic memory is not a separate assumption: the one cost predicts when it wins.
 
 **Boundary.** For a decision outside a region of an equilibrium Gaussian field, the conditional law given the region and the Markov blanket equals the law given the blanket. The interior is not sufficient for that decision. The matching blanket channel costs at most the Schur trace more than the channel it matches (`theory/BOUNDARY_SUFFICIENCY_2026-11-22.md`).
 
-**Rebuild.** Under the ruin cap, replacement of identical capacity-limited units can lower the long-run cost: rate 1 costs 15.473978 with ruin probability 0.020940, against an inadmissible zero-shock point at cost 16 (`theory/antifragility_checks/RESULTS.md`). The heterogeneous arm's grid minimum stays at no shock. That comparison is a puzzle at this cap. Heat is proportional to precision, and the admissible grid kept the more precise units.
+**Rebuild, and gaining from shocks.** Under the ruin cap, replacement of identical capacity-limited units can lower the long-run cost: rate 1 costs 15.473978 with ruin probability 0.020940, against an inadmissible zero-shock point at cost 16 (`theory/antifragility_checks/RESULTS.md`). The heterogeneous arm's grid minimum stays at no shock. That comparison is a puzzle at this cap. Heat is proportional to precision, and the admissible grid kept the more precise units. Gaining from shocks is convexity in the shock (Taleb and Douady 2013, doi 10.1080/14697688.2013.800219, checked on Crossref 22 November 2026; `theory/ROBUSTNESS.md` already uses that reading). The cost turns it into a design question: when is the gain worth buying, and with what. A second worked answer is a probe that makes the minimized cost fall as volatility rises; the drop is the price of a fraction falling as \(1/\theta\) (`theory/ACTING_MEMORY_2026-11-22.md`). No theorem here makes replacement and probing one object.
 
-**Acting.** With the channel unpriced, closed-loop regulation is cheaper than sensing alone by \((q-2aP(a))\theta\). At unit stake, unit drift, and unit variance that gap is \(0.171572875254\), against a sensing-alone cost of \(1\). With the heat and the probe charged, the gap is negative at every fraction at stake \(1\). At stake \(4\) the gap at the minimizing fraction is \(0.033889928154\). Feedback shrinks the information stock and leaves the learning-rate heat fixed (`theory/ACTING_LOOP_2026-11-22.md`). A probe can make the minimized cost fall as volatility rises. The drop is the price of a fraction falling as \(1/\theta\) (`theory/ACTING_MEMORY_2026-11-22.md`).
-
-## Options, and the learning heat
-
-A payoff convex in a shock gains from a spread of that shock. Antifragility is that convexity. Optionality is a convex payoff bought with a capped premium. Both are standard mathematics (Taleb and Douady 2013, doi 10.1080/14697688.2013.800219, checked on Crossref 22 November 2026), and `theory/ROBUSTNESS.md` already uses that reading. A search of this repository finds the two routes written side by side in the acting-memory note, and finds no theorem that makes them one object. The synthesis is that the learning heat and the option sit under this one cost. That sentence is the hypothesis in another shape. It is not a proof.
-
-## Acting derivation
-
-The acting derivation is merged ([PR #203](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/203); OPEN_WORK T47). Theorem R1′ is a representation theorem, and the cubic ordering is a conjecture. The proposal is not applied, and `THEORY.md` is unchanged.
+**Acting.** With the channel unpriced, closed-loop regulation is cheaper than sensing alone by \((q-2aP(a))\theta\). At unit stake, unit drift, and unit variance that gap is \(0.171572875254\), against a sensing-alone cost of \(1\). With the heat and the probe charged, the gap is negative at every fraction at stake \(1\). At stake \(4\) the gap at the minimizing fraction is \(0.033889928154\). Feedback shrinks the information stock and leaves the learning-rate heat fixed (`theory/ACTING_LOOP_2026-11-22.md`). When the action enters the drift, the additive form is a representation theorem, R1′; that feedback heat selects a smaller gain is a conjecture on the cubic plant (merged as [PR #203](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/203), OPEN_WORK T47, not adopted into `THEORY.md`).
 
 ## What remains
 
-In priority order:
+Math first, then the real-world test (`OPEN_WORK.md` §3):
 
-1. **Continuous-information proof of the A6 extension (next proof).** Prove the continuous mutual-information extension of A6 as the limit of discrete partitions (Gelfand–Yaglom–Dobrushin). Expected to carry the discrete results over without changing them.
-2. **Non-Gaussian closed forms.** Derive closed forms for heavy tails, switching, and rare shocks (and losses other than mean square or telegraph mismatch, plus a memory that changes the world it tracks): sharper numbers for later real-data tests, not a change to the theory.
-3. **The decisive evidence (real-data test).** Measure one real strongly selected system against the axioms (qualified before the measurement) and test whether it sits near the predicted minimum, preregistered and hash-locked. No such test is on this page.
-4. **Existing open items and puzzles:**
-   - The fractal draft, [PR #192](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/192). This page uses no result from it.
-   - Adopting the acting derivation into `THEORY.md` (T47 is merged; the proposal is not applied). The master equation is unchanged.
-   - The integer \(5\%\) radius. It is 2 at both \(\tau=1/2\) and \(\tau=1\), ratio 1, because both crossings of the level 0.05 fall in the bin \((1,2)\). A longer path, the next test the preregistration named, returned 2 and 2. The smooth crossing is a separate statistic, ratio 2.067863694520, inside \([1.7,2.3]\).
-   - \(J^*(8)\) against 5. The grid value is 4.998066177768. The number 5 is the heat plus the sign loss at the frozen fraction, above a floor of 4.966383544211. The crossing is near \(\theta=7.5267\). The next test is a new preregistration scored against that floor.
+1. **The A6 extension in continuous form (T48, next proof).** Mutual information as the limit of discrete partitions (Gelfand–Yaglom–Dobrushin), expected to carry the discrete results over unchanged.
+2. **Non-Gaussian closed forms (T49).** Heavy tails, switching, rare shocks, other losses, and a memory that moves its world: sharper numbers for the test, not a change to the theory.
+3. **The decisive test.** Qualify one real strongly selected system before measuring it, preregister and hash-lock the prediction, and measure whether its design sits near the minimum.
+4. **Open items and puzzles.** Adopting the physics display (T40) and the acting derivation (T47) into `THEORY.md`; the fractal draft, [PR #192](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/192), from which this page uses no result; and two puzzles from the boundary and acting-memory preregistrations, the integer \(5\%\) radius and \(J^*(8)\) against 5, each with its next test written (`CORE.md` §6).
 
 ## How a miss is read
 
-"Strongly selected" is the definition in [THEORY §3](THEORY.md). No system has been shown to qualify. Before measuring, a class fixes a cost-to-fitness map, a population proxy, a band that excludes a named rival, and a redesign time with at least ten of those times in the same world. Cities, nation-states, global economies, and the biosphere wait for a proxy. A design outside the band fixed in advance is a puzzle for that class. The diagnosis and the next test are written down beforehand. A field result with no recorded qualification check is not a test of the hypothesis. So far every field result is NOT A TEST (30 rows) or INCONCLUSIVE, and no real system has been shown at the minimum. Simulations of the authors' own worlds reached the predicted minimum in clean worlds. One world stalled behind a creation valley, one run broke its ruin gate, and other locked simulator predictions failed in-model ([`STATUS.md`](STATUS.md)). Counting layers is the draft method in [`measurement/LAYER_COUNT_RULE.md`](measurement/LAYER_COUNT_RULE.md).
+"Strongly selected" is the definition in [THEORY §3](THEORY.md). No system has been shown to qualify. Before measuring, a class fixes a cost-to-fitness map, a population proxy, a band that excludes a named rival, and a redesign time with at least ten of those times in the same world. Cities, nation-states, global economies, and the biosphere wait for a proxy. A design outside the band fixed in advance is a puzzle for that class. The diagnosis and the next test are written down beforehand. A field result with no recorded qualification check is not a test of the hypothesis. No real system has been shown at the minimum ([`STATUS.md`](STATUS.md)). Counting layers is the draft method in [`measurement/LAYER_COUNT_RULE.md`](measurement/LAYER_COUNT_RULE.md).
 
 ## Where to read
 
@@ -82,7 +78,7 @@ THEORY.md         The theory, v2.9 draft (canonical statement; §3 is still the 
 CORE.md           The same argument on one page
 theory/           The heat, the five yields, and the checks
 measurement/      One status per claim
-figures/          derivation_map.png, the one cost; face.png, the layer placement
+figures/          master_curve.png, the master picture; derivation_map.png and face.png, earlier views
 ```
 
 AI agents helped draft, compute, and review these files under the author's direction. License: [CC0 1.0](LICENSE.md).
