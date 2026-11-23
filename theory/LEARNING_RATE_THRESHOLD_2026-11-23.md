@@ -1,12 +1,12 @@
 # T67: Does the judge's learning rate lose its area form at the mutual-information threshold? (threshold test)
 
-*Monday 23 November 2026, America/New_York. Written against `main` `f4ec246`. Preregistered and hash-locked before any T67 number was computed: `learning_rate_threshold_checks/PREREG_T67.md`, sha256 `b91e2101ec93acf3c22cf8b93241014012938b0db2fccc7df62ea27748d54b98`, locked 17:37:25 EST and pushed as commit `b02a81b` (17:37:31 EST) before the run started. This note also folds in the independently reviewed result of the missing-piece hunt (the judge-inside-world reframe and the boundary-layer formula). Labels follow `CORE.md:168`: PROVED (in-model), KNOWN, ELEMENTARY, CONJECTURE, SPECULATION, OPEN, NUMERICAL. `THEORY.md` is unchanged. Not yet independently reviewed.*
+*Monday 23 November 2026, America/New_York. Written against `main` `f4ec246`. Preregistered and hash-locked before any T67 number was computed: `learning_rate_threshold_checks/PREREG_T67.md`, sha256 `b91e2101ec93acf3c22cf8b93241014012938b0db2fccc7df62ea27748d54b98`, locked 17:37:25 EST and pushed as commit `b02a81b` (17:37:31 EST) before the run started. This note also folds in the independently reviewed result of the missing-piece hunt (the judge-inside-world reframe and the boundary-layer formula). Labels follow `CORE.md:168`: PROVED (in-model), KNOWN, ELEMENTARY, CONJECTURE, SPECULATION, OPEN, NUMERICAL. `THEORY.md` is unchanged. Independently reviewed (PR #247). The reviewer scoped the wording: the preregistered outcome is MIXED, and the "relabeled" reading below is an interpretation, not the locked rule's reading.*
 
 > "The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment." (`CORE.md:7`)
 
 ## 0. Bottom line
 
-**Plain answer.** On this route the judge's learning rate behaves like the known mutual-information area law relabeled. The thresholds came out equal in three of the four preregistered cells. The fourth missed by 0.012 past the tolerance, and it went the "wrong" way for a new object: there the learning rate kept its area form to a slightly *lower* power than the stored information did. No cell came out DIFFERENT. Nothing here shows that the flow of judgment's cost has its own locality class.
+**Plain answer.** By the locked rules the outcome is MIXED, not all-EQUAL. The thresholds came out equal in three of the four preregistered cells. In the fourth (2D, hot judge) \(\Delta\) went 0.012 past the tolerance, which is small against \(\sigma_\Delta=0.057\). It also went the "wrong" way for a new object: there the learning rate kept its area form to a slightly *lower* power than the stored information did. No cell came out DIFFERENT, so nothing here shows that the flow of judgment's cost has its own locality class. The most likely reading is that, on this route, the learning rate's area form tracks the known mutual-information area law. That reading is supported post hoc (§5); it is not the preregistered all-EQUAL outcome.
 
 - **Setup.** Bipartite Gaussian (Ornstein-Uhlenbeck) lattices in 1D and 2D. Couplings fall off as \(r^{-p}\) (Kac-normalized) with a gap \(\alpha=0.5\). The judge is a region \(A\) of the world, and there are two drives that do not cancel: a judge hotter than the world (HOT, \(T_A=2,T_B=1\)) and a judge colder than the world (COLD, \(T_A=1,T_B=2\)).
 - **Measure.** For each quantity, \(p_c\) is the power below which its density per unit boundary keeps growing with the judge's size. It is estimated from the zero of the approach exponent \(s(p)\) on doubling ladders (§3).
@@ -27,8 +27,8 @@
 - **Post-hoc diagnosis (not preregistered; it cannot change the outcome above).**
   - A corner-free strip judge with 8 to 16 times the preregistered boundary gives \(\Delta=-0.134\) (HOT) and \(-0.069\) (COLD), inside the EQUAL band.
   - The 2D mutual-information break sits about 0.1 above 1.5 at every size tried, including at equilibrium. So the miss looks like a slow approach to the threshold in the regime \(p<d\), where couplings are non-extensive. It does not look like a separate threshold for the learning rate (§5).
-- **What it means.** The decision rule says to state this plainly. On this route, the area form of judgment's ongoing cost is the known area law of cross-cut correlation relabeled. The angle adds bookkeeping (a reading of a known result in the theory's own cost), not a new locality class.
-- **Secondary (descriptive).** The gross learning term on its own also breaks near \((d+1)/2\), not at the crossing-coupling bound's \(d+1\), so that bound is loose (§6).
+- **What it means (interpretation, not the locked rule).** The lock reserved the plain "relabeled" statement for EQUAL in all four cells, and that did not happen. Given 3/4 EQUAL, no DIFFERENT cell and the post-hoc diagnosis, the most likely reading is that on this route the area form of judgment's ongoing cost tracks the known area law of cross-cut correlation. If so, the angle adds bookkeeping (a reading of a known result in the theory's own cost), not a new locality class. One pattern stays open: \(\Delta<0\) in every cell, preregistered and post hoc (§9).
+- **Secondary (descriptive).** The gross learning term on its own also breaks near \((d+1)/2\), not at the crossing-coupling bound's \(d+1\), so that bound is loose (§6). This is the flow's analogue of Kim–Kuwahara–Saito's own finding that the MI area law is more robust than the boundary-interaction argument suggests.
 - **Scope.** Classical, linear, Gaussian, gapped, temperature-step drives. None of this bears on \(G\), quantum mechanics, or holography, and none of it is claimed.
 
 ## 1. What is already in the repository (grep of `main` `f4ec246`)
@@ -57,9 +57,9 @@ It follows from \(\Sigma_{AA}^{-1}=P_{AA}-P_{AB}P_{BB}^{-1}P_{BA}\).
   - \(|t_1|\le\kappa\sum_{a\in A,b\in B}|K_{ab}|\), for any \(\Sigma\).
   - \(|t_2|\le D_{\max}\lambda_{\max}(\Sigma)\,\|P_{AB}\|_F^2\).
 - **When the area form holds.** \(|\dot I_A|=O(|\partial A|)\) whenever four things hold: \(K\) has finite range, \(D_{AB}=0\), \(\kappa\) is bounded (a gap), and \(\|P_{AB}\|_F^2=O(|\partial A|)\).
-  - The last holds for exponentially decaying \(P\) (Demko, Moss and Smith 1984).
+  - The last holds for exponentially decaying \(P\). Demko, Moss and Smith 1984 cover inverses of banded matrices; here \(\Sigma\) is only exponentially localized, so what is used is the standard extension of that result to well-conditioned, exponentially localized matrices.
   - For tails \(|P_{ab}|\sim r^{-p}\), it holds iff \(2p>d+1\).
-  - That is the threshold \((d+1)/2\) Kim, Kuwahara and Saito 2025 found for the thermal MI area law, and it is why T67 asks whether the flow's threshold is the same.
+  - That is the threshold \((d+1)/2\) Kim, Kuwahara and Saito 2025 found for the thermal MI area law (in quantum lattice systems, assuming power-law clustering of bipartite correlations; in this classical Gaussian model the Frobenius count above gives the same number directly), and it is why T67 asks whether the flow's threshold is the same.
 - **No packing input.** The packing input of T62 can be dropped for the flow: locality, a gap and bipartite noise bound it by the cut. This is a modest, possibly new corollary of known decay results; a moderate search found it nowhere, and it is not claimed as a theorem of physics.
 
 **An equilibrium area-law stock costs zero.**
@@ -126,7 +126,7 @@ The sign is as expected everywhere: the hot judge forgets (\(\dot I_A<0\)) and t
 
 - In 1D, \(s(p)\) tracks \(d+1-2p=2-2p\) closely above the threshold for every quantity. For example, \(s(2.0)=-2.02\) for \(I_{\rm EQ}\) and \(-2.05\) for \(\dot I_{\rm HOT}\). Below the threshold it is flatter (\(s(0.6)=0.52\) for \(I_{\rm EQ}\), against 0.8 asymptotically).
 - In 2D, \(s(p)\) is much flatter than \(3-2p\) near the threshold: about \(-0.9\) per unit \(p\), against \(-2\) asymptotically. That is a sign of strong finite-size rounding (§5). Above about \(p=2.6\) it flattens at \(-1\), where the square's corners (a \(1/L\) term in the per-boundary density) dominate the approach.
-- The learning rate's \(s\) is at or below the MI's \(s\) at every grid point near the threshold. That is why \(\Delta\le0\) in every cell.
+- The learning rate's \(s\) is at or below the MI's \(s\) at the grid points that bracket each crossing. That is why \(\Delta\le0\) in every cell. Well below the threshold the order can flip (for example COLD at \(p\le0.7\) in 1D and \(p\le1.3\) in 2D).
 
 **Above the learning-term bound threshold \(d+1\) (P-c).** The maximum \(s_{\dot I}\) for \(p\ge d+1+0.2\) is −2.46/−2.36 (1D HOT/COLD) and −1.005/−1.006 (2D). The density is finite with room to spare, and nothing grows faster than the boundary.
 
@@ -151,7 +151,7 @@ The sign is as expected everywhere: the hot judge forgets (\(\dot I_A<0\)) and t
 
 3. **The hot drive raises the MI break more than the learning rate's.** The HOT temperature step lifts \(p_c(I)\) by +0.05 to +0.09 over equilibrium, while \(p_c(\dot I_{\rm HOT})\) stays at 1.51–1.53, near 1.5. The miss in \(\Delta\) is the stock's threshold moving up, not the flow's threshold moving away. Why a hot judge's NESS correlation keeps growing to a higher \(p\) than its equilibrium correlation is OPEN.
 
-**Reading.** The single P-b miss is in the direction opposite to "the flow is its own object". Under the post-hoc diagnostics it shrinks into the EQUAL band. This is evidence, not a preregistered result, and a fresh lock would be needed to make it one.
+**Reading.** The single P-b miss is 0.012 past the tolerance, small against \(\sigma_\Delta=0.057\), and in the direction opposite to "the flow is its own object". Under the post-hoc diagnostics it shrinks into the EQUAL band. This is evidence, not a preregistered result, and a fresh lock would be needed to make it one.
 
 ## 6. Secondary (descriptive, preregistered as descriptive)
 
@@ -166,21 +166,22 @@ The sign is as expected everywhere: the hot judge forgets (\(\dot I_A<0\)) and t
 ## 7. The GTAO method, run explicitly
 
 1. **The cost, with named terms.** The ongoing cost of judgment for a judge that is a region of its world is the heat term \(kT_A\,\dot I_A\) (the floor, `CORE.md:70`), plus the stake and the ruin cap. Those two are not used here; this test touches only the heat term, as in T63–T66. The stock \(I(A;B)\) has no ongoing cost at equilibrium (§2); only its upkeep under a drive does.
-2. **Its minimum.** At fixed locality, gap and bipartite noise, the minimum upkeep is a boundary sum, \(t_1+t_2\) over the cut layer (§2). T67 asks whether the locality class of that minimum differs from the stock's. Within this model class it does not: equal thresholds in 3/4 cells, and the fourth explained post hoc as the stock's slow approach.
-3. **Read-off design (the model's implication, stated plainly).** A judge's ongoing cost scales with its boundary exactly when the world's correlations across that boundary are area-form. A judge facing a world with long-range coupling, \(p<(d+1)/2\), pays an upkeep that grows faster than its skin. There, the cheaper design is to *move the cut*: choose the judge's boundary so that fewer long-range bonds cross it, or coarse-grain them. Making the boundary larger does not help. A colder judge learns and a hotter one forgets (Allahverdyan 2009), so it is the sign of the temperature step at the cut that sets which side pays.
+2. **Its minimum.** At fixed locality, gap and bipartite noise, the minimum upkeep is a boundary sum, \(t_1+t_2\) over the cut layer (§2). T67 asks whether the locality class of that minimum differs from the stock's. Within this model class no difference was found: equal thresholds in 3/4 cells, no DIFFERENT cell, and the fourth diagnosed post hoc (CONJECTURE) as the stock's slow approach.
+3. **Read-off design (the model's implication, stated plainly).** A judge's ongoing cost scales with its boundary exactly when the world's correlations across that boundary are area-form. A judge facing a world with long-range coupling, \(p<(d+1)/2\), pays an upkeep that grows faster than its skin. There, the cheaper design is to *move the cut* (a model implication, untested here): choose the judge's boundary so that fewer long-range bonds cross it, or coarse-grain them. Making the boundary larger does not help. A colder judge learns and a hotter one forgets (Allahverdyan 2009), so it is the sign of the temperature step at the cut that sets which side pays.
 4. **Scope.** *Covered:* classical, linear, Gaussian lattices with a gap, Kac-normalized power-law couplings, bipartite noise, temperature-step drives, rings and tori, and the sizes listed. *Excluded:* non-bipartite (conserving) noise (the Chétrite–Rosinberg–Sagawa–Tarjus 2019 flow), nonlinear or critical media, quantum states, unnormalized couplings, bulk non-cancelling drives with power-law couplings, and anything about \(G\), quantum mechanics or holography.
 
 ## 8. What is new, and what is not
 
 - **KNOWN.** The equilibrium MI area law and its kT-per-nat boundary-energy price (Wolf 2008). The \((d+1)/2\) threshold for thermal MI (Kim–Kuwahara–Saito 2025). Information flow and its heat floor for bipartite splits, zero at equilibrium (Horowitz–Esposito 2014; Hartich–Barato–Seifert 2014; Horowitz–Sandberg 2014). Hot-to-cold information flow (Allahverdyan–Janzing–Mahler 2009). Gaussian/OU flow formulas (Loos–Klapp 2020). Gravity from entanglement equilibrium (Jacobson 2016).
 - **In the repository already.** The interface floor (T41), blanket sufficiency (T44), and the area cap on tracked flux with a packing input (T62).
-- **Possibly new, modest (not found in a moderate search).** Locality, a gap and bipartite noise alone bound the learning rate by the cut, with the exact conditions in §2. The NUMERICAL finding that, in this class, the learning rate's area-form threshold equals the MI threshold (3/4 cells preregistered; 4/4 post hoc), and that the crossing-coupling bound's \(d+1\) is not the operative threshold.
+- **Possibly new, modest (not found in a moderate search).** Locality, a gap and bipartite noise alone bound the learning rate by the cut, with the exact conditions in §2. The NUMERICAL finding that, in this class, the learning rate's area-form threshold equals the MI threshold (3/4 cells preregistered; the fourth inside the band only post hoc, on a different geometry), and that the crossing-coupling bound's \(d+1\) is not the operative threshold (the flow's analogue of Kim–Kuwahara–Saito's observation for the MI, so only modestly new).
 - **Not new.** The "judge = region" reading is a relabeling.
 
 ## 9. Open
 
 - Why the hot drive raises the 2D NESS MI threshold above equilibrium's (§5.3). Whether 2D \(p_c\) approaches 1.5 at much larger \(L\), or with unnormalized couplings.
-- A fresh preregistered lock on the corner-free strip geometry, if this angle is ever reopened. The decision rule above says not to pour more effort into it.
+- Why \(\Delta<0\) in every cell (4/4 preregistered, 4/4 strip post hoc): the flow's threshold sits at or slightly below the stock's, and nearer \((d+1)/2\). Whether that is finite-size structure or a small real offset is OPEN.
+- A fresh preregistered lock on the corner-free strip geometry, if this angle is reopened. The lock's stop instruction belonged to the all-EQUAL branch; with a MIXED outcome, reopening is a judgment call. The case for a low priority is that no cell came out DIFFERENT.
 - The non-bipartite (conserving) case with the Chétrite et al. 2019 flow. Bulk drives with power-law couplings.
 - A proof that the learning term's tail is \(\|P_{AB}\|_F^2\)-type, threshold \((d+1)/2\), out of equilibrium (CONJECTURE, supported numerically here).
 
@@ -196,6 +197,7 @@ The sign is as expected everywhere: the hot judge forgets (\(\dot I_A<0\)) and t
 | No faster-than-boundary learning rate above \(d+1+0.2\) | NUMERICAL, preregistered, met |
 | Strip geometry puts 2D HOT/COLD in the EQUAL band | NUMERICAL, post hoc |
 | 2D offset is a slow approach in the non-extensive regime | CONJECTURE |
+| \(p_c(\dot I)\le p_c(I)\) in every cell (sign of \(\Delta\)) | NUMERICAL (descriptive); cause OPEN |
 | Gross learning term threshold is \((d+1)/2\), not \(d+1\) | NUMERICAL (descriptive); proof OPEN |
 | Any route from this to \(G\), quantum mechanics or holography | SPECULATION, not claimed |
 
