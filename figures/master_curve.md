@@ -19,20 +19,20 @@ From `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` §5 (lines 84–87): blind when
 | Hypothesis sentence | README.md:5, CORE.md:7, THEORY.md:41 | hypothesis |
 | J = heat + w·E[loss], P(ruin) ≤ ε | README.md:17; theory/GENERAL_FORM_PHYSICS_2026-11-22.md:26 | worked class (physics-grounded); w and cap assumed (GFP:155–158) |
 | heat ≥ kT × learning rate, approached in a limit | GFP:21, GFP:29, GFP:56–64 (IP11) | worked class |
-| R1: under A1–A7, ≥3 essential coordinates, a representing cost is an additive price sum, and only that | README.md:31 | general |
+| R1: under A1–A7, ≥3 essential coordinates, a continuous representing cost is an additive price sum, and only that | README.md:31; theory/REPRESENTATION.md:19 | general |
 | Five-term master equation is a stated decomposition; terms stay assumptions; IP5; T40 open | GFP:39, GFP:241, OPEN_WORK.md:92 | stated, not derived |
 | Curve: x ≤ 1 blind, 2√x − 1 above; error v/√x | GFP:84–87 | worked class (IP11) |
 | Below the curve unreachable | GFP:62 (floor kT R(ε)); checks §4 | worked class |
 | 240 random worlds on the curve | computed here (`brute_min`), not data | computed |
 | Ladder: ρ = 10, 4 of 6 rungs past x = 1, stakes ×ρ adds one | GFP:95–98 (per-mode loss, equal variances; IP12 per HOLOGRAPHIC_2026-11-22.md:31) | worked class |
-| Holographic: shared memory on the curve, pays from x = 1; K copies wait to x = K | GFP:106 (blind stake lower by K); general_checks.py:383–398 | worked class (T42/T39) |
+| Holographic: shared memory on the curve, pays from x = 1; K copies wait to x = K | GFP:106 (blind stake lower by K); HOLOGRAPHIC_MEMORY_2026-11-22.md:52–70; general_checks.py:383–398 | worked class (T42/T39) |
 | Copies cost → √K = 2× at high stakes | HOLOGRAPHIC_MEMORY_2026-11-22.md:25 | worked class |
 | Ties or loses when each item is read alone | HOLOGRAPHIC_MEMORY_2026-11-22.md:13, :118 | worked class |
-| Aligned beats random: 4 vs 19.2 at equal heat | HOLOGRAPHIC_MEMORY_2026-11-22.md:120 | worked class (note's example) |
+| Aligned beats random: 4 vs 19.2 expected at equal heat (K = 20, heat 4) | HOLOGRAPHIC_MEMORY_2026-11-22.md:98, :120 | worked class (note's example) |
 | Per-unit precision cap: a pool meets a ruin cap copies miss | BOUNDARY_SUFFICIENCY_2026-11-22.md:33, :145–147, :187 | worked class (T42, T44) |
 | Field: heat ∝ volume at per-site error; 13 per site, 13·n² | HOLOGRAPHIC_2026-11-22.md:21, :130 | worked class (T41) |
 | Named cut: ≈13.61 per cut site, bound 13 (217.693 vs 208 at n = 16) | HOLOGRAPHIC_2026-11-22.md:17, :130; recomputed with that note's checker functions | worked class (T41) |
-| Boundary: blanket suffices for decisions outside a region; interior not | BOUNDARY_SUFFICIENCY_2026-11-22.md:15, :21 | worked class (T44, Gaussian field) |
+| Boundary: blanket suffices for decisions outside a region; interior not | BOUNDARY_SUFFICIENCY_2026-11-22.md:13, :19, :39 | worked class (T44, Gaussian field) |
 | General: heat ≥ kT × information flow (bipartite chains, additive-noise diffusions) | README.md:33; GENERALITY_2026-11-22.md:17 | general |
 | General: stakes up → judgment not down (fixed menu, ruin slack) | README.md:33 | general |
 | General: a factorizing cut screens | README.md:33 | general |

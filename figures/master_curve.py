@@ -33,13 +33,13 @@ axc = fig.add_axes([0.03, 0.79, 0.94, 0.085]); axc.axis("off")
 axc.add_patch(FancyBboxPatch((0, 0), 1, 1, boxstyle="round,pad=0,rounding_size=0.15", transform=axc.transAxes,
                              facecolor="#f1f3f5", edgecolor="#adb5bd", lw=1))
 axc.text(0.012, 0.5, "THE COST", fontsize=12, fontweight="bold", color=NAVY, va="center", transform=axc.transAxes)
-axc.text(0.105, 0.5, "J = heat + w\u00b7E[loss],  P(ruin) \u2264 \u03b5", fontsize=14, color=NAVY, va="center",
+axc.text(0.098, 0.5, "J = heat + w\u00b7E[loss],  cap: P(ruin) \u2264 \u03b5", fontsize=13.2, color=NAVY, va="center",
          transform=axc.transAxes, fontweight="bold")
-axc.text(0.415, 0.5,
+axc.text(0.405, 0.5,
          "Grounded in physics in the worked class: heat \u2265 kT \u00d7 learning rate, approached in a limit. w and the ruin cap are assumed.\n"
-         "R1 (axioms A1\u2013A7, \u22653 essential coordinates) proves only that a representing cost is an additive price sum.\n"
+         "R1 (axioms A1\u2013A7, \u22653 essential coordinates) proves only that a continuous representing cost is an additive price sum.\n"
          "THEORY's five-term master equation is a stated decomposition; its terms stay assumptions (IP5: not the physical frontier; T40 open).",
-         fontsize=8.2, color=NAVY, va="center", transform=axc.transAxes, linespacing=1.35)
+         fontsize=7.9, color=NAVY, va="center", transform=axc.transAxes, linespacing=1.35)
 
 # ---------------- TIME panel: the curve ----------------
 ax = fig.add_axes([0.075, 0.205, 0.43, 0.50])
@@ -69,14 +69,14 @@ ax.axvline(1, color=NAVY, lw=1, ls=":", zorder=1)
 ax.text(1.12, 1.6e-2, "x = 1", fontsize=10.5, color=NAVY, va="bottom")
 ax.text(0.1, 2.5e3, "NO MEMORY\nPAYS", fontsize=13, fontweight="bold", color="#5c677d", ha="center", va="center")
 ax.text(25, 2.5e3, "KEEP A MEMORY", fontsize=13, fontweight="bold", color=BLUE, ha="center", va="center")
-ax.text(25, 1.0e3, "error = v/\u221ax", fontsize=10.5, color=BLUE, ha="center", va="center")
-ax.annotate("LAYERS: one system's time scales,\neach read alone, rates \u03c1 = %g apart.\n4 sit past x = 1 \u2192 4 stores.\nStakes \u00d7%g \u2192 one more."
-            % (P["rho"], P["rho"]), xy=(lx[2], ly[2]), xytext=(0.26, 60), fontsize=9.8, color=GREEN, ha="center", va="center",
+ax.text(25, 1.0e3, "MSE = v/\u221ax", fontsize=10.5, color=BLUE, ha="center", va="center")
+ax.annotate("LAYERS: one system's\ntime scales, each read alone,\nrates \u03c1 = %g apart.\n4 sit past x = 1 \u2192 4 stores.\nStakes \u00d7%g \u2192 one more."
+            % (P["rho"], P["rho"]), xy=(lx[2], ly[2]), xytext=(0.10, 62), fontsize=8.6, color=GREEN, ha="center", va="center",
             arrowprops=dict(arrowstyle="-", color=GREEN, lw=1.2))
-ax.annotate("%d separate copies\nof a %d-item sum" % (K, K), xy=(2e3, float(M.separate_copies(2e3, K))), xytext=(2.2e2, 9),
+ax.annotate("%d separate copies\nof a %d-item sum" % (K, K), xy=(2e3, float(M.separate_copies(2e3, K))), xytext=(6.2e2, 5.2),
             fontsize=10, color=ORANGE, ha="center", va="center", arrowprops=dict(arrowstyle="-", color=ORANGE, lw=1.2))
 ax.set_xlabel("x = stake \u00d7 signal variance \u00f7 (kT \u00d7 signal rate) = w\u00b7v / (kT\u00b7a)", fontsize=11, color=NAVY)
-ax.set_ylabel("minimum cost \u00f7 kT\u00b7a", fontsize=11, color=NAVY)
+ax.set_ylabel("minimum cost \u00f7 (kT\u00b7a)", fontsize=11, color=NAVY)
 ax.tick_params(labelsize=9.5, colors=NAVY)
 for s in ax.spines.values():
     s.set_color(NAVY)
@@ -102,7 +102,7 @@ tbox(0.49, 0.24, ORANGE, "HOLOGRAPHIC MEMORY", "T42 \u2022 WORKED CLASS",
      "%d items, one shared memory is on the curve and pays from x = 1;\n"
      "%d separate copies wait until x = %d and cost \u2192 2\u00d7 (\u221a%d) at high stakes.\n"
      "Ties or loses when each item is read alone. An aligned code beats\n"
-     "a random one (note's example: error 4 vs 19.2 at equal heat).\n"
+     "a random one (K = 20, heat 4: error 4 vs 19.2 expected).\n"
      "Under a per-unit precision cap, a pool can meet a ruin cap that\n"
      "copies miss (T42, applied to a blanket in T44)." % (K, K, K, K), size=9.2)
 
@@ -152,9 +152,9 @@ sbox(0.69, 0.28, PURPLE, "HYPOTHESIS (not yet measured)",
      "systems sit near the curve. No real system\n"
      "has been placed on it or shown to qualify.")
 fig.text(0.03, 0.012,
-         "Sources in theory/: GENERAL_FORM_PHYSICS, HOLOGRAPHIC_MEMORY, HOLOGRAPHIC, BOUNDARY_SUFFICIENCY (2026-11-22); README.md. "
-         "Numbers: figures/master_curve_checks.py.   github.com/Chad-Mitchell/theory-of-adaptive-organization \u00b7 CC0 \u00b7 22 Nov 2026",
-         fontsize=7.6, color="#5c677d", va="bottom")
+         "Sources: theory/{GENERAL_FORM_PHYSICS, HOLOGRAPHIC_MEMORY, HOLOGRAPHIC, BOUNDARY_SUFFICIENCY, GENERALITY}_2026-11-22.md; README.md. "
+         "Checks: figures/master_curve_checks.py.  github.com/Chad-Mitchell/theory-of-adaptive-organization \u00b7 CC0",
+         fontsize=6.5, color="#5c677d", va="bottom")
 
 fig.savefig(OUT, dpi=180, facecolor="white")
 print("wrote", OUT)
