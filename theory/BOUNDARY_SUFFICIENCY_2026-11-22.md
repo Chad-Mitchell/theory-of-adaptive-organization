@@ -20,7 +20,7 @@ Decisions about the interior are not boundary-sufficient. Given the blanket, eve
 
 The screening fails when the precision is not local, and when the world is not Markov. A finite-range discrete step thickens the blanket by horizon times speed. The continuous-time field does not: the heat kernel is positive at every distance for every positive time, so no finite shell screens. Its walk-kernel second moment is \(2t\), diffusive. The locked integer \(5\%\) radius is \(2\) at both \(\tau=1/2\) and \(\tau=1\), so the integer ratio is \(1\). That comparison is a puzzle. The whole-step bin puts both crossings of the level \(0.05\) in \((1,2)\), which is a measurement diagnosis. The preregistered smooth crossing is a separate statistic, on times \(1/4\) and \(1\), with ratio \(2.067863694520\) against \(2\), inside \([1.7, 2.3]\), so that doubling prediction held. The diagnosis is in §5. The original preregistrations are not edited.
 
-Under a precision cap of \(1\) and the ruin cap of the memory note, a one-dimensional blanket statistic is held by a pool of units, not by copies of one unit. A per-site exterior loss does not collapse onto one sum of the blanket. Those are the two different ways of being spread out.
+Under a precision cap of \(1\) and the ruin cap of the memory note, a one-dimensional blanket statistic is held by a pool of units, not by copies of one unit. A per-site exterior loss does not collapse onto one sum of the blanket. Those are the two different ways the memory is distributed.
 
 Nothing on this page is an AdS/CFT dictionary or a black-hole entropy.
 
@@ -136,7 +136,7 @@ The diagnosis is a measurement. At \(\tau=1/2\), \(\Delta(1)/\Delta(0)=0.05283\)
 
 **Log-linear crossing. The locked band passes.** `theory/boundary_checks/PREREG_CROSSING.md`, commit `8afc11f`, was locked before this evaluation. Path of \(61\) sites, center \(30\), times \(1/4\) and \(1\). The crossing of \(\Delta(r)/\Delta(0)\) through \(0.05\), linear in the log of that ratio, is \(0.710059035942\) at \(\tau=1/4\) and \(1.468305301389\) at \(\tau=1\). The ratio is \(2.067863694520\). The target is \(2\), the square root of the time ratio \(4\). The locked band is \([1.7,2.3]\). The ratio sits inside it. It is not the exact value \(2\). The relative gap is \(0.033932\). At the shorter time the bracket is radii \(0\) and \(1\) (\(\rho(1)=0.014713\)); at time \(1\) the bracket is radii \(1\) and \(2\) (\(\rho(1)=0.156902\), \(\rho(2)=0.013649\)). The integer radius does move, from \(1\) to \(2\), on this pair. The next test named in that preregistration, times \(1\) and \(4\) on a path of \(121\), is not run here.
 
-## 6. Pooled or spread along the blanket
+## 6. Pooled across units, or distributed along the blanket
 
 **One functional. PROVED, by the memory note's capacity comparison applied to the blanket.** On the path of three the exterior decision is a function of site \(1\). Prior variance of that site \(1/2\). Precision \(\Phi\) on it gives blanket variance \(1/(2+\Phi)\) and exterior variance \(1/2+1/(4(2+\Phi))\). The tolerance \(0.55\) needs \(\Phi\ge 3\).
 
@@ -154,7 +154,7 @@ For \(Z=X_0+X_4\) the same sum of the blanket matches conditioning on both sites
 
 The trace cap on this path is \(2/3\). Thirty random channels stayed under it. The largest excess was \(0.034554\).
 
-So the boundary memory is spread in two senses, and they answer different questions. Along the blanket, a per-site exterior loss keeps the local sites; one pooled sum of those sites does not. Across units that each see the same local statistic, a precision cap below the tolerance selects the pool and leaves the copy infeasible. Both are proved. Calling either one a hologram does not add a third prediction.
+So the boundary memory is distributed in two senses, and they answer different questions. Along the blanket, a per-site exterior loss keeps the local sites; one pooled sum of those sites does not. Across units that each see the same local statistic, a precision cap below the tolerance selects the pool and leaves the copy infeasible. Both are proved. Calling either one a hologram does not add a third prediction.
 
 ## 7. Physics, not identified
 
