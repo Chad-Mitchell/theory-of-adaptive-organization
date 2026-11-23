@@ -90,3 +90,31 @@ doi 10.1109/TAC.2019.2912256
   2019 | IEEE Transactions on Automatic Control 64 4525-4540
   Rate-Cost Tradeoffs in Control
   Kostina, Victoria; Hassibi, Babak
+
+Additional DOIs added in independent review of PR #235, 23 November 2026, America/New_York.
+Queried https://api.crossref.org/works/{doi}. Every DOI listed below returned HTTP 200.
+
+doi 10.1143/JPSJ.79.104003
+  2010 | Journal of the Physical Society of Japan 79 104003
+  Jarzynski Equality Modified in the Linear Feedback System
+  Fujitani, Youhei; Suzuki, Hiroyuki
+
+doi 10.1143/JPSJ.81.084003
+  2012 | Journal of the Physical Society of Japan 81 084003
+  Numerical Study on the Generalized Second Law for a Brownian Particle under the Linear Feedback Control
+  Suzuki, Hiroyuki; Fujitani, Youhei
+
+doi 10.1103/PhysRevLett.111.180603
+  2013 | Physical Review Letters 111 180603
+  Information Thermodynamics on Causal Networks
+  Ito, Sosuke; Sagawa, Takahiro
+
+doi 10.1109/ALLERTON.2014.7028503
+  2014 | 2014 52nd Annual Allerton Conference on Communication, Control, and Computing (Allerton) 550-555
+  Thermodynamic costs in implementing Kalman-Bucy filters
+  Sandberg, Henrik; Delvenne, Jean-Charles; Newton, Nigel J.; Mitter, Sanjoy K.
+
+doi 10.1038/ncomms8498
+  2015 | Nature Communications 6 8498
+  Maxwell’s demon in biochemical signal transduction with feedback loop
+  Ito, Sosuke; Sagawa, Takahiro
