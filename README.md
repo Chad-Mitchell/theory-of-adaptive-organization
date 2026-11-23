@@ -2,6 +2,8 @@
 
 *Chad Mitchell ([@torusflow](https://x.com/torusflow)). Public working draft, CC0. Not peer reviewed.*
 
+A one-page account is in [`ONE_PAGER.md`](ONE_PAGER.md).
+
 Thermodynamics tells an engineer two things about any engine: the best it could possibly do, and how far a real one falls short. This theory aims to do the same for adaptive systems: cells, colonies, brains, teams, firms, AI and robot systems, anything that must act before its world arrives. Its object is the cost of judgment: the heat a system spends remembering its world, plus the stake on being wrong, under a cap on the chance of ruin. In worked classes, minimizing that cost yields the best design: how many layers, what to share, where a boundary is enough, when a shock should strengthen a system rather than harm it. If the hypothesis below holds, any adaptive system can be measured against its minimum, and the gap says where it wastes and what would close it.
 
 **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
