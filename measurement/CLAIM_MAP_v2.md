@@ -193,6 +193,8 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 
 **Bottom line.** In real systems GTAO's distinctive content is **untested, not refuted**. Every field result so far is PROXY-FAIL or PROXY-PASS. Inside the model, the corrected mathematics stands. The three decisive next tests are in FRAMEWORK §7.
 
+*Historical status labels:* The `v1 status` column below preserves historical night-1 status labels (including `KILLED`) as an unedited record; current statuses are in `v2 status`.
+
 
 ## A. Sensing classes and the single-tracker lemma
 
