@@ -100,6 +100,6 @@ A qualifying design outside the preregistered band is a puzzle for that class. T
 
 ## Status words
 
-**PROVED** means proved inside the stated model. **KNOWN** means published and credited. **SYNTHESIS** means a reading that places proved pieces on one cost and does not claim one theorem. **IN REVIEW** means an open pull request. **OPEN** means not derived or not measured. A **puzzle** is a miss with a diagnosis and a next test.
+**GENERAL** means it holds without a Gaussian or linear step. **EXAMPLE** means a worked form in a named class. **PROVED** means proved inside the stated model. **KNOWN** means published and credited. **SYNTHESIS** means a reading that places proved pieces on one cost and does not claim one theorem. **OPEN** means not derived or not measured. A **puzzle** is a miss with a diagnosis and a next test.
 
 The layer-count, lifetime, and local-versus-shared theorems in `THEORY.md` minimize the five-term sum. They are theorems about that sum. Adopting §9 of `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` would not re-prove them under the heat.
