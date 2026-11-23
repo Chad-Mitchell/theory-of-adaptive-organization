@@ -532,7 +532,7 @@ def section_C():
         ok = ok and (I + L <= upper + 2e-3) and (mse_m <= target * (1 + 1e-3)) and (I + L >= floor - 2e-3)
         gaps.append((I + L) - floor)
     check("C4_core_plus_floor_within_constant_of_floor", ok and all(gp <= 2.5 * math.log(2) - KAPPA_GAUSS_OFFSET + t / 4 for gp, t in zip(gaps, (0.3, 0.1, 0.03, 0.01, 0.003))),
-          "targets eps=0.3..0.003: MSE<=eps, I+L <= (3/2)ln(v/eps)+(5/2)ln2+eps/4v; gap to floor %s nats (proved <= 3.003+eps/4v)"
+          "targets eps=0.3..0.003: MSE<=eps, I+L <= (3/2)ln(v/eps)+(5/2)ln2+eps/4v; gap to floor %s nats (proved <= gamma+3.5ln2+eps/4v = 3.0032+eps/4v)"
           % ", ".join(fmt(t) for t in gaps))
 
     # C5. Exact bipartite chain: reset world (rate lam, landing law pi), memory relaxing at

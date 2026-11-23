@@ -21,7 +21,7 @@ CHECK PASS C1_reset_identity_I_plus_L  E KL = I + L exactly (4 vs 4); Gaussian c
 CHECK PASS C2_log_moment_kappa  Gaussian E ln(X-c)^2 at c=0,0.3,1,2: -1.27036, -1.1817, -0.416992, 1.0407 (min at 0 = -gamma-ln2 = -1.27036); Cauchy(s=1) E ln X^2 = 2.5566e-16
 CHECK PASS C3_reset_floor_on_channel_families  17 channels (Gaussian, Student-t, Laplace, core+floor): I >= R(eps), L >= ln(v/eps)-gamma-ln2, I+L >= floor; min excess 1.27118 nats
 CHECK PASS C3b_light_tailed_copy_far_above_floor  Gaussian copy s=0.05: eps=0.00249377, I+L=277.839 vs floor 7.72058; core+floor s=0.05 d=1e-3: eps=0.0044853, I+L=9.02622 vs floor 6.84006
-CHECK PASS C4_core_plus_floor_within_constant_of_floor  targets eps=0.3..0.003: MSE<=eps, I+L <= (3/2)ln(v/eps)+(5/2)ln2+eps/4v; gap to floor 1.38612, 1.40842, 1.67972, 1.97679, 2.26858 nats (proved <= 3.003+eps/4v)
+CHECK PASS C4_core_plus_floor_within_constant_of_floor  targets eps=0.3..0.003: MSE<=eps, I+L <= (3/2)ln(v/eps)+(5/2)ln2+eps/4v; gap to floor 1.38612, 1.40842, 1.67972, 1.97679, 2.26858 nats (proved <= gamma+3.5ln2+eps/4v = 3.0032+eps/4v)
 CHECK PASS C5_reset_chain_identity_and_JP_heat  exact steady state: I_alt = lam * sum pi pi' KL (world-side), Q >= I_alt, gamma=3,30,300
 CHECK PASS C5b_fast_relaxation_heat_to_lam_EKL  Q/(lam E KL) = 0.715038, 0.957763, 0.995518 at gamma/lam = 3, 30, 300
 CHECK PASS C6_ruin_cap_floor  51 (channel, margin) cases: lautum L >= kl(1-beta_b || P(ruin))
