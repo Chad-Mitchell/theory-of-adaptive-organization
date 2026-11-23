@@ -1,0 +1,63 @@
+HTTP 200
+DOI 10.1115/1.3662552
+YEAR 1960
+AUTHORS R. E. Kalman
+TITLE A New Approach to Linear Filtering and Prediction Problems
+CONTAINER Journal of Basic Engineering
+ABSTRACT The classical filtering and prediction problem is re-examined using the Bode-Shannon representation of random processes and the “state-transition” method of analysis of dynamic systems. New results are: (1) The formulation and methods of solution of the problem apply without modification to stationary and nonstationary statistics and to growing-memory and infinite-memory filters. (2) A nonlinear difference (or differential) equation is derived for the covariance matrix of the optimal estimation error. From the solution of this equation the co-efficients of the difference (or differential) equation of the optimal linear filter are obtained without further calculations. (3) The filtering problem is shown to be the dual of the noise-free regulator problem. The new method developed here is applied to two well-known problems, confirming and extending earlier results. The discussion is largely self-contained and proceeds from first principles; basic concepts of the theory of random processes are reviewed in the Appendix.
+
+HTTP 200
+DOI 10.1115/1.3658902
+YEAR 1961
+AUTHORS R. E. Kalman; R. S. Bucy
+TITLE New Results in Linear Filtering and Prediction Theory
+CONTAINER Journal of Basic Engineering
+ABSTRACT A nonlinear differential equation of the Riccati type is derived for the covariance matrix of the optimal filtering error. The solution of this “variance equation” completely specifies the optimal filter for either finite or infinite smoothing intervals and stationary or nonstationary statistics. The variance equation is closely related to the Hamiltonian (canonical) differential equations of the calculus of variations. Analytic solutions are available in some cases. The significance of the variance equation is illustrated by examples which duplicate, simplify, or extend earlier results in this field. The Duality Principle relating stochastic estimation and deterministic control problems plays an important role in the proof of theoretical results. In several examples, the estimation problem and its dual are discussed side-by-side. Properties of the variance equation are of great interest in the theory of adaptive systems. Some aspects of this are considered briefly.
+
+HTTP 200
+DOI 10.1137/0306023
+YEAR 1968
+AUTHORS W. M. Wonham
+TITLE On the Separation Theorem of Stochastic Control
+CONTAINER SIAM Journal on Control
+ABSTRACT (none)
+
+HTTP 200
+DOI 10.1038/nn963
+YEAR 2002
+AUTHORS Emanuel Todorov; Michael I. Jordan
+TITLE Optimal feedback control as a theory of motor coordination
+CONTAINER Nature Neuroscience
+ABSTRACT (none)
+
+HTTP 200
+DOI 10.1103/PhysRevLett.104.090602
+YEAR 2010
+AUTHORS Takahiro Sagawa; Masahito Ueda
+TITLE Generalized Jarzynski Equality under Nonequilibrium Feedback Control
+CONTAINER Physical Review Letters
+ABSTRACT (none)
+
+HTTP 200
+DOI 10.1103/PhysRevX.4.031015
+YEAR 2014
+AUTHORS Jordan M. Horowitz; Massimiliano Esposito
+TITLE Thermodynamics with Continuous Information Flow
+CONTAINER Physical Review X
+ABSTRACT (none)
+
+HTTP 200
+DOI 10.1162/NECO_a_00912
+YEAR 2017
+AUTHORS Karl Friston; Thomas FitzGerald; Francesco Rigoli; Philipp Schwartenbeck; Giovanni Pezzulo
+TITLE Active Inference: A Process Theory
+CONTAINER Neural Computation
+ABSTRACT This article describes a process theory based on active inference and belief propagation. Starting from the premise that all neuronal processing (and action selection) can be explained by maximizing Bayesian model evidence—or minimizing variational free energy—we ask whether neuronal responses can be described as a gradient descent on variational free energy. Using a standard (Markov decision process) generative model, we derive the neuronal dynamics implicit in this description and reproduce a remarkable range of well-characterized neuronal phenomena. These include repetition suppression, mismatch negativity, violation responses, place-cell activity, phase precession, theta sequences, theta-gamma coupling, evidence accumulation, race-to-bound dynamics, and transfer of dopamine responses. Furthermore, the (approximately Bayes’ optimal) behavior prescribed by these dynamics has a degree of face validity, providing a formal explanation for reward seeking, context learning, and epistemic foraging. Technically, the fact that a gradient descent appears to be a valid description of neuronal activity means that variational free energy is a Lyapunov function for neuronal dynamics, which therefore conform to Hamilton’s principle of least action.
+
+HTTP 200
+DOI 10.1109/TAC.1974.1100635
+YEAR 1974
+AUTHORS Y. Bar-Shalom; E. Tse
+TITLE Dual effect, certainty equivalence, and separation in stochastic control
+CONTAINER IEEE Transactions on Automatic Control
+ABSTRACT (none)

@@ -1,0 +1,5 @@
+Acting-loop lock. The preregistration commit is 774e88fdda46720d933157ee586da3d197235b42.
+This file records the sha256 of theory/acting_loop_checks/PREREG.md at that commit.
+The preregistration is not edited after this line. A dated deviation would be a new file.
+
+fdf494e9b7f85ca24d9d877ea1610cbaf539dc50127a45106285165b925259a0  PREREG.md
