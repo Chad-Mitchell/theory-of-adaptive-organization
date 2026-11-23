@@ -10,6 +10,10 @@ Math and a toy simulation for one application: how an AI assistant's memory shou
 
 This theory repository does not duplicate that tree. The theorem note used there is included here under `theory/THEOREMS.md`, and the independent review is under `reviews/independent-sim/`.
 
+## Grok Bot memory
+
+One application of the hold and refresh rules to a long-chat assistant. The observed failure is a length-triggered summary that cuts working notes, after which dropped items stay out of view even though the transcript remains searchable. At least three instances were caught on 20–22 November 2026 (information bottleneck, axiom work, one-pager). The write-up, including the posted challenge, the cost, the two derived rules, and the scope of the refresh formula, is [`GROK_BOT_MEMORY_2026-11-23.md`](GROK_BOT_MEMORY_2026-11-23.md). This is an application, not a test of the hypothesis.
+
 ## Looper
 
 Looper is a personal-assistant application of the same hypothesis: memory that is supposed to come back before it is needed, with corrections that stick and a store that can be inspected. It is developed in a separate, private codebase.
