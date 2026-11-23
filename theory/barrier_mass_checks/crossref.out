@@ -1,0 +1,35 @@
+Crossref API resolutions, 23 November 2026, America/New_York.
+Queried https://api.crossref.org/works/{doi}. Every DOI listed below returned HTTP 200.
+Fields: DOI | first author | year | container | volume | page or article | title (as returned).
+Zhao 2026 (Zenodo 23406911) is a DataCite record and is not listed. The last three rows were added and resolved by the independent review of PR #244, same day.
+---
+10.1103/PhysRevD.30.2212 | Klinkhamer | 1984 | Physical Review D | 30 | 2212-2220 | A saddle-point solution in the Weinberg-Salam theory
+10.1103/PhysRevD.28.2019 | Manton | 1983 | Physical Review D | 28 | 2019-2026 | Topology in the Weinberg-Salam theory
+10.1098/rsta.2018.0327 | Manton | 2019 | Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences | 377 | 20180327 | The inevitability of sphalerons in field theory
+10.1103/PhysRevLett.37.8 | 't Hooft | 1976 | Physical Review Letters | 37 | 8-11 | Symmetry Breaking through Bell-Jackiw Anomalies
+10.1016/0370-2693(85)91028-7 | Kuzmin | 1985 | Physics Letters B | 155 | 36-42 | On anomalous electroweak baryon-number non-conservation in the early universe
+10.1103/PhysRevLett.37.172 | Jackiw | 1976 | Physical Review Letters | 37 | 172-175 | Vacuum Periodicity in a Yang-Mills Quantum Theory
+10.1016/0370-2693(76)90277-X | Callan | 1976 | Physics Letters B | 63 | 334-340 | The structure of the gauge theory vacuum
+10.1016/0370-2693(83)90554-3 | Vilenkin | 1983 | Physics Letters B | 133 | 177-179 | Gravitational field of vacuum domain walls
+10.1103/PhysRevD.30.712 | Ipser | 1984 | Physical Review D | 30 | 712-719 | Gravitationally repulsive domain wall
+10.1070/IM1972v006n05ABEH001913 | Berezin | 1972 | Mathematics of the USSR-Izvestiya | 6 | 1117-1151 | COVARIANT AND CONTRAVARIANT SYMBOLS OF OPERATORS
+10.1007/BF01213210 | Li | 1983 | Communications in Mathematical Physics | 88 | 309-318 | On the Schr�dinger equation and the eigenvalue problem
+10.1006/jfan.1997.3155 | Laptev | 1997 | Journal of Functional Analysis | 151 | 531-545 | Dirichlet and Neumann Eigenvalue Problems on Domains in Euclidean Spaces
+10.1007/BF01216182 | Daubechies | 1983 | Communications in Mathematical Physics | 90 | 511-520 | An uncertainty principle for fermions with generalized kinetic energy
+10.1007/BF01218577 | Lieb | 1988 | Communications in Mathematical Physics | 118 | 177-213 | The stability and instability of relativistic matter
+10.1103/PhysRevLett.82.4971 | Cohen | 1999 | Physical Review Letters | 82 | 4971-4974 | Effective Field Theory, Black Holes, and the Cosmological Constant
+10.1103/PhysRevLett.75.1260 | Jacobson | 1995 | Physical Review Letters | 75 | 1260-1263 | Thermodynamics of Spacetime: The Einstein Equation of State
+10.1016/0550-3213(90)90300-3 | Ringwald | 1990 | Nuclear Physics B | 330 | 1-18 | High energy breakdown of perturbation theory in the electroweak instanton sector
+10.1016/0550-3213(90)90473-Q | Espinosa | 1990 | Nuclear Physics B | 343 | 310-340 | High-energy behavior of baryon- and lepton-number violating scattering amplitudes in the standard model
+10.1103/PhysRevD.92.045005 | Tye | 2015 | Physical Review D | 92 | 045005 | Bloch wave function for the periodic sphaleron potential and unsuppressed baryon and lepton number violating processes
+10.1063/1.1704233 | Derrick | 1964 | Journal of Mathematical Physics | 5 | 1252-1254 | Comments on Nonlinear Wave Equations as Models for Elementary Particles
+10.1147/rd.53.0183 | Landauer | 1961 | IBM Journal of Research and Development | 5 | 183-191 | Irreversibility and Heat Generation in the Computing Process
+10.1007/BF02084158 | Bennett | 1982 | International Journal of Theoretical Physics | 21 | 905-940 | The thermodynamics of computation—a review
+10.1016/0550-3213(74)90486-6 | Hooft | 1974 | Nuclear Physics B | 79 | 276-284 | Magnetic monopoles in unified gauge theories
+10.1007/BF02124328 | Thomas | 1989 | Communications in Mathematical Physics | 126 | 1-11 | Bound on the mass gap for finite volume stochastic ising models at low temperature
+10.1103/PhysRevD.23.287 | Bekenstein | 1981 | Physical Review D | 23 | 287-298 | Universal upper bound on the entropy-to-energy ratio for bounded systems
+10.1103/RevModPhys.74.825 | Bousso | 2002 | Reviews of Modern Physics | 74 | 825-874 | The holographic principle
+10.1063/1.531249 | Susskind | 1995 | Journal of Mathematical Physics | 36 | 6377-6396 | The world as a hologram
+10.1103/PhysRevD.101.096014 | Hamada | 2020 | Physical Review D | 101 | 096014 | Obtaining the sphaleron field configurations with gradient flow
+10.1007/BF01217684 | Lieb | 1987 | Communications in Mathematical Physics | 112 | 147-174 | The Chandrasekhar theory of stellar collapse as the limit of quantum mechanics
+10.1007/BF00759862 | Sorkin | 1981 | General Relativity and Gravitation | 13 | 1127-1146 | Entropy of self-gravitating radiation

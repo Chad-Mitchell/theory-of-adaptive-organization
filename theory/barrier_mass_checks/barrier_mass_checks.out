@@ -1,0 +1,87 @@
+== 1. electroweak sphaleron barrier against the lightest Delta B = 3 record (in-model inputs)
+PASS  4 pi v/g equals 2 m_W/alpha_W
+   g = 0.6528, alpha_W = 0.03391, 4 pi v/g = 4739.5 GeV; E_sph in [7.39, 12.89] TeV, 9.01 TeV at B = 1.9
+PASS  E_sph range over all Higgs couplings is 7.4 to 12.9 TeV
+PASS  E_sph at B = 1.9 is 9.0 TeV
+   lightest neutral B = 3 state (He-3 atom, plus neutrinos so each L_i = 1): 2.8094 GeV
+PASS  He-3 atom mass is 2.809 GeV
+   beta_charge = E_sph / E_rec in [2632, 4589], 3205 at B = 1.9
+PASS  beta_charge is 2.6e3 to 4.6e3 (3.2e3 at B = 1.9): A1 holds only with beta >> 1
+   zero-temperature tunneling exponent 4 pi/alpha_W = 370.5, rate factor 10^-161
+PASS  't Hooft suppression exp(-4 pi/alpha_W) ~ 10^-161
+   retention need at 300 K (nu = 1e12/s, tau = 1 yr, eps = 1e-9): B* = 1.696 eV; E_sph/B* = 5.31e+12
+PASS  B* at 300 K is 1.70 eV; the sphaleron exceeds it by 5.3e12
+   Yang-Mills-Higgs toy, beta = 4 sqrt2 pi B/(g y n): y = 1e-2 -> 1.724e+03, 1e-6 -> 1.724e+07
+PASS  toy beta scales as 1/y (unbounded as y -> 0)
+== 2. Lemma G: a gauge-invariant observable cannot tell U-related states apart
+PASS  <n|O|n> = <n+1|O|n+1> when |n+1> = U|n> and [O,U] = 0 (200 random cases)
+== 3. Lemma W: a closed thin wall between degenerate vacua has no barrier against collapse
+PASS  E(r) = 4 pi sigma r^2 is increasing, so the minimax path r -> 0 has barrier 0
+PASS  uniform vacuum on a periodic box: flipping it needs two spanning walls, barrier 2 sigma L^2 = 18.0, at record energy 0 (one bit only)
+== 4. Lemma C: the effective barrier is the smallest over erasure channels
+   B_charge = 30, B_transport = 5 -> B_eff = 5.000 kT
+PASS  B_eff within ln 2 of min(B1, B2) for (30, 5)
+   B_charge = 8, B_transport = 40 -> B_eff = 8.000 kT
+PASS  B_eff within ln 2 of min(B1, B2) for (8, 40)
+   B_charge = 12, B_transport = 12 -> B_eff = 11.307 kT
+PASS  B_eff within ln 2 of min(B1, B2) for (12, 12)
+   sketch: field-only beta of a 1 eV, 1 nm electrostatic well = 4 pi alpha hbar c/(U l) = 18.10 (source rest mass excluded)
+PASS  field-only transport beta sketch is 18.1
+PASS  with one electron's rest mass as the source, beta <= 1 eV / 511 keV = 1.96e-6
+== 5. Lemma L (Berezin bathtub): sum of <phi_j, |p| phi_j> over N orthonormal states in a region
+   grid 14^3, region of 208 sites; min over N of (sum of lowest N eigenvalues - bathtub) >= -1e-9: True
+PASS  discrete Berezin bound holds for every N = 1..208 (exact eigenvalues)
+PASS  discrete Berezin bound holds for 40 random orthonormal sets
+   continuum constant C_B = (3/4)(9 pi/2)^(1/3) = 1.8135  (sum E >= C_B N^(4/3) hbar c / R in a ball of radius R)
+PASS  C_B = 1.8135
+PASS  continuum bathtub integral = (3/4) N k_F = C_B N^(4/3)/R at N = 1
+PASS  continuum bathtub integral = (3/4) N k_F = C_B N^(4/3)/R at N = 10
+PASS  continuum bathtub integral = (3/4) N k_F = C_B N^(4/3)/R at N = 1000
+== 6. the localization cap (hoop + Lemma L + A2), against T64's barrier cap
+   R = 1 m: E_max = 6.051e+43 J; N_loc = 5.856e+51; A/(4 l_p^2) = 1.203e+70; 8 pi C_B = 45.58
+PASS  N_loc(1 m) = 5.86e51
+PASS  same cap written with the area: (A/(45.58 l_p^2))^(3/4)
+PASS  N_loc(1 m) is 18.3 orders below A/(4 l_p^2)
+PASS  g species/internal states multiply the cap by g^(1/4) (g = 2)
+PASS  g species/internal states multiply the cap by g^(1/4) (g = 4)
+PASS  g species/internal states multiply the cap by g^(1/4) (g = 100)
+PASS  retention log ln(nu tau/eps) = 65.62
+   crossover beta_c = kT ln * N_loc / E_max at 1 m, 300 K: 2.630e-11
+PASS  beta_c(1 m, 300 K) = 2.63e-11
+PASS  T64's carbon example (beta 8.94e-11) is above beta_c: localization cap binds
+PASS  T64's magnetic-grain example (beta 3.37e-16) is below beta_c: barrier cap binds
+PASS  beta_c scales as T R^(1/2)
+   N_loc equals A/(4 l_p^2) only at R = 0.0147 l_p (below the Planck length; outside any field-theory scope)
+PASS  crossover with the area count is at R = 0.0147 l_p
+   black-body S_max(E_max, V) at R = 1 m, g = 1: 1.322e+52 nats (kT = 6.103e-09 J)
+PASS  thermal general-encoding bound at 1 m is 1.32e52 nats, same (R/l_p)^(3/2) scaling
+PASS  thermal bound scales as R^(3/2)
+== 7. an A^(3/4) record count gives a patch-size-dependent eta = dS/dA
+PASS  eta(A) for S = A^(3/4) grows by 10 when A shrinks by 1e4 (no finite local limit)
+== 8. note text
+PASS  hypothesis sentence present exactly once, byte-identical
+PASS  no 'theory of everything', 'solved', 'solves', or 'bill'
+PASS  no kill or verdict words
+PASS  note quotes 7.4
+PASS  note quotes 12.9
+PASS  note quotes 9.0
+PASS  note quotes 2.809
+PASS  note quotes 3.2\times10^{3}
+PASS  note quotes 4.6\times10^{3}
+PASS  note quotes 1.70
+PASS  note quotes 1.8135
+PASS  note quotes 5.86\times10^{51}
+PASS  note quotes 45.58
+PASS  note quotes 2.63\times10^{-11}
+PASS  note quotes 1.32\times10^{52}
+PASS  note quotes 0.0147
+PASS  note quotes 10^{-161}
+PASS  note quotes 18.3
+PASS  note quotes 65.62
+PASS  note quotes 18.1
+PASS  note quotes 1.96\times10^{-6}
+PASS  every DOI cited in the note is in crossref.out (30 cited, 30 resolved)
+PASS  every DOI in crossref.out is cited in the note
+
+CHECKS 60  FAILS 0
+ALL BARRIER-MASS CHECKS PASS
