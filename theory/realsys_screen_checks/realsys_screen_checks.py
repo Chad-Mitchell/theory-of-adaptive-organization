@@ -11,6 +11,11 @@ Checks, on the same quantity (steady mean squared error eps at a fixed stake w):
       world (autocovariance v*exp(-lam|t|), same for the reset world and the OU world):
                                                                    d ln P/d ln lam -> 1/2 at high precision
   S1  stake elasticity: diffusive -1/2, shock -1; linear filter at fixed R: 0
+  B1  known-jump Bayesian change-point filter, fixed sensor noise R:
+      eps = lam R exp(a) E_1(a), a = lam R/v;
+      d ln eps/d ln lam = 1 + a - 1/(exp(a) E_1(a))
+      (0.764813 at a=0.01; 0.884280 at a=1e-4; approaches 1 only as a -> 0)
+  G3 exact: with the attaining gap, d ln eps*/d ln lam = 1 - eps*/(6v)
 """
 import math
 
@@ -80,7 +85,36 @@ sd = slope(lambda ww: eps_diff(1e-1, ww), w)
 ss = slope(lambda ww: eps_shock(1e-1, ww), w)
 check("S1 stake elasticity diffusive", abs(sd + 0.5) < 1e-3, f"slope={sd:.6f}")
 check("S1 stake elasticity shock", abs(ss + 1.0) < 1e-3, f"slope={ss:.6f}")
-print("Rival gap on the shock-rate exponent at matched second-order statistics: GTAO 1, linear filter 1/2")
+
+# Exact G3 slope with the attaining gap: eps* = 1.5 kT lam / (w + kT lam/(4v))
+# so d ln eps*/d ln lam = 1 - eps*/(6v). At eps*/v = 0.01 the deficit is 1/600.
+for lam in (1e-3, 1e-1, 10.0):
+    eg = eps_shock(lam, w, gap=True)
+    sg_exact = 1.0 - eg / (6.0 * 1.0)
+    sg_closed = 1.0 / (1.0 + KT * lam / (4.0 * w))
+    check("G3 exact slope 1-eps*/(6v)", abs(sg_exact - sg_closed) < 1e-9, f"lam={lam:g} exact={sg_exact:.8f}")
+check("G3 deficit at eps*/v=0.01 is 1/600", abs(0.01 / 6.0 - 1.0 / 600.0) < 1e-18, f"{0.01/6.0:.10f}")
+
+
+def exp1_series(a, n=80):
+    # E_1(a) = -gamma - ln(a) + sum_{k>=1} (-1)^{k+1} a^k / (k k!)
+    s = 0.0
+    term = a
+    for k in range(1, n + 1):
+        s += ((-1) ** (k + 1)) * term / k
+        term *= a / (k + 1)
+    return -GAMMA_E - math.log(a) + s
+
+
+def bayes_cp_slope(alpha):
+    return 1.0 + alpha - 1.0 / (math.exp(alpha) * exp1_series(alpha))
+
+
+# Independently computed with scipy.special.exp1; series must match.
+for a, expect in ((0.01, 0.764813), (1e-4, 0.884280)):
+    s = bayes_cp_slope(a)
+    check("B1 known-jump Bayesian CP exponent", abs(s - expect) < 1e-6, f"alpha={a:g} slope={s:.6f}")
+print("Rival gap on the shock-rate exponent at matched second-order statistics: GTAO 1, linear filter 1/2; Bayesian CP approaches 1 only as lam R/v -> 0")
 print(f"FAILS {FAILS}")
 if FAILS == 0:
     print("ALL REALSYS-SCREEN CHECKS PASS")

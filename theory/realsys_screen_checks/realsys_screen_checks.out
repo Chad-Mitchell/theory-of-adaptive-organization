@@ -14,6 +14,12 @@ PASS R1 linear filter d ln P/d ln lam: R=1e-06 lam=0.01 slope=0.499965
 PASS R1 linear filter d ln P/d ln lam: R=0.0001 lam=0.01 slope=0.499646
 PASS S1 stake elasticity diffusive: slope=-0.499992
 PASS S1 stake elasticity shock: slope=-0.999997
-Rival gap on the shock-rate exponent at matched second-order statistics: GTAO 1, linear filter 1/2
+PASS G3 exact slope 1-eps*/(6v): lam=0.001 exact=0.99999997
+PASS G3 exact slope 1-eps*/(6v): lam=0.1 exact=0.99999750
+PASS G3 exact slope 1-eps*/(6v): lam=10 exact=0.99975006
+PASS G3 deficit at eps*/v=0.01 is 1/600: 0.0016666667
+PASS B1 known-jump Bayesian CP exponent: alpha=0.01 slope=0.764813
+PASS B1 known-jump Bayesian CP exponent: alpha=0.0001 slope=0.884280
+Rival gap on the shock-rate exponent at matched second-order statistics: GTAO 1, linear filter 1/2; Bayesian CP approaches 1 only as lam R/v -> 0
 FAILS 0
 ALL REALSYS-SCREEN CHECKS PASS
