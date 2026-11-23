@@ -1,4 +1,4 @@
-# MEASUREMENT FRAMEWORK: how A Theory of Adaptive Organization's quantities are measured, and what counts as a fair kill
+# MEASUREMENT FRAMEWORK: how A Theory of Adaptive Organization's quantities are measured, and what counts as a fair refutation
 
 Sunday 15 November 2026, written about 08:10–08:20 AM ET (America/New_York) by a Grok Bot executor for Chad Mitchell, via Ace. Nothing was posted or sent by that work. This document sits on top of `reviews/night1/formal/AXIOMS.md` (the model class 𝓜 and its notation, used unchanged) and `reviews/night1/CLAIM_MAP_FINAL.md`. Its companion is `CLAIM_MAP_v2.md`.
 
@@ -6,7 +6,7 @@ Sunday 15 November 2026, written about 08:10–08:20 AM ET (America/New_York) by
 1. An operational definition, procedure, validity checks and failure modes for every core quantity, at every scale (§3).
 2. A re-audit of every past field test: what it actually measured, where validity fails, and the honest relabel (§4).
 3. The systems where all quantities can be measured validly, ranked by feasibility with public data (§5).
-4. A fair-kill specification for each main prediction (§6), and the three decisive tests to run next (§7).
+4. A fair refutation specification for each main prediction (§6), and the three decisive tests to run next (§7).
 
 **Wording rule (Chad's, kept throughout).** GTAO is a general causal theory of adaptive organization, with the same three costs (memory/upkeep, prediction error, and reads) at every level. Only its hypothesis sentence (THEORY §3, "The law of adaptive organization (hypothesis)") carries the word; nothing else is called a law, and it is never called a theory of everything. *Scope (updated 18 Nov 2026, Chad t1927):* the costs apply from atoms to the cosmos; design predictions apply where selection makes a model pay (THEORY §2.3, `theory/SCALE_ENDS.md`; §1.2 item 4 below).
 
@@ -36,7 +36,7 @@ Chad asked me to push back where I disagree. I disagree on four points.
 2. **A proxy fail still carries information.** It kills the specific mapping-plus-auxiliaries that was tested, and that narrows where the theory can live. Example: Enron plus PIAAC rule out "raw external reading rate rises as √span". That rules out κ ≈ 0 under class R in those settings, *if* those channels carried the sampling (§3.9, §4.4). The fair statement is "failed on proxy X", not "no information".
 3. **The relabel is only honest if it cuts both ways and is locked before data.** The physics referee's Issue 5 was that GTAO shields itself through "the mapping might be wrong" plus "selection might be weak". This file is the cure only if:
    - the validity gates in §2 are fixed **now**, before any new data;
-   - a test that passes the gates counts **fully**, as a pass or a kill, with no later appeal to "the measure missed it".
+   - a test that passes the gates counts **fully**, as a pass or a refutation, with no later appeal to "the measure missed it".
 
    Otherwise relabeling every failure as a proxy failure is exactly the unfalsifiability the free-energy principle has been criticised for (Aguilera et al. 2022 [DOI]; Bruineberg et al. 2022 [DOI]).
 4. **"From atoms to cities."** The cost accounting, including physical floors on what a read or a stored bit costs, applies from atoms up. The *design predictions* (onset, vigilance, freeze/hold/lookup) need Axiom 7, a process that selects cheaper designs. An atom or a crystal has physics but no selection over tracking designs. So I would state the scope as: **physical floors at every scale; design predictions wherever there is selection, from cells (and arguably self-replicating chemistry) upward.** This is a scope disagreement worth Chad's call, not a correction. *Resolved 18 Nov 2026 (Chad, t1927):* the costs apply from atoms to the cosmos. `theory/SCALE_ENDS.md` (independently refereed, PASS-WITH-FIXES; THEORY v1.4.18 §2.3; CLAIM_MAP N25–N29) shows the two readings agree: the costs are physically priced at every scale, and what vanishes where nothing selects is the value of a model (N25, PROVED in-model, partly definitional under Axiom 7).
@@ -577,9 +577,9 @@ Scored 0–3 on: (A) all inputs measurable (MV3); (B) a sampling choice is obser
 
 ---
 
-## 6. Fair-kill specifications, one per main prediction (fixed now, before data)
+## 6. Fair refutation specifications, one per main prediction (fixed now, before data)
 
-Every spec inherits MV1–MV10 and the admissibility rule (§2.2). "Kill" means a Tier-1 failure. Tier 2 → DISFAVORED. Tier 3 → logged only.
+Every spec inherits MV1–MV10 and the admissibility rule (§2.2). A refutation means a Tier-1 failure (a puzzle to diagnose for the class). Tier 2 → DISFAVORED. Tier 3 → logged only.
 
 ### 6.1 O1: the level's sensing class sets the onset exponent, e_g = −(1−b_L)/(1−a_L)
 - **System.** A designed AI multi-agent system (preferred), or any system scoring ≥ 2 on A–E in §5.
@@ -589,7 +589,7 @@ Every spec inherits MV1–MV10 and the admissibility rule (§2.2). "Kill" means 
   - (ii) level class ≠ member class: e.g. level A₁ (a = ⅔, b = ⅓; predicted −2) over class-R members (−1 if members set it).
 - **Prediction (locked before onset data).** ê_g within ±0.25 of −(1−b̂_L)/(1−â_L) in both arms. In arm (ii), ê_g is closer to the level's value than to the members'.
 - **Rivals.** Members' class sets e_g. The exponent is technology-independent (−1 always).
-- **Kill.** In arm (ii) the CI excludes the level's value and includes the members' value; or in both arms the CI excludes −(1−b̂_L)/(1−â_L) by more than 0.25.
+- **Fails if.** In arm (ii) the CI excludes the level's value and includes the members' value; or in both arms the CI excludes −(1−b̂_L)/(1−â_L) by more than 0.25.
 - **Power.** SE(ê_g) ≤ 0.35 to separate −1 from −2; SE ≤ 0.18 to separate −1 from −½.
 
 ### 6.2 O2: the technology, not the loss shape, sets the exponent under bundled decisions (T4)
@@ -597,7 +597,7 @@ Every spec inherits MV1–MV10 and the admissibility rule (§2.2). "Kill" means 
 - **Design.** A bundled loss with p = ½ (absolute) vs p = 2 (quadratic), level re-optimized under each loss (the SENSING2 QUART_R flaw fixed), and the flat-arm bug fixed.
 - **Prediction.** ê_g is the same across losses (Δ < 0.15), equal to the technology's quadratic-loss value.
 - **Rival.** The lone-member loss exponent (−2 for absolute loss in R1).
-- **Kill.** Δê_g across losses has a CI excluding 0 and including the rival's predicted difference.
+- **Fails if.** Δê_g across losses has a CI excluding 0 and including the rival's predicted difference.
 
 ### 6.3 O3: vigilance floor, growth and price invariance
 As claim map §3.2 and FAIR_MEASURE, plus:
@@ -607,21 +607,21 @@ As claim map §3.2 and FAIR_MEASURE, plus:
 - **κ̂ measured whenever ranks are compared** (§3.9).
 
 - **Prediction.** V_obs ≥ 1 + (1+ρ̂)^{−1/2}.
-- **Kill.** The pooled upper 95% bound of V_obs/(1 + (1+ρ̂)^{−1/2}) is < 0.8. Or V_obs ≤ 1 with a CI excluding 1, in a class with â ≥ b̂.
-- **Growth.** The slope of ln V on ln N lies in [â − 0.2, â + 0.2]. Kill if the CI excludes â − 0.2 and includes 0.
-- **Price invariance (h ≈ 0 only).** |elasticity of V on p_g/p| < 0.2. Kill if it exceeds 0.2 with a CI excluding 0.
+- **Fails if.** The pooled upper 95% bound of V_obs/(1 + (1+ρ̂)^{−1/2}) is < 0.8. Or V_obs ≤ 1 with a CI excluding 1, in a class with â ≥ b̂.
+- **Growth.** The slope of ln V on ln N lies in [â − 0.2, â + 0.2]. Fails if the CI excludes â − 0.2 and includes 0.
+- **Price invariance (h ≈ 0 only).** |elasticity of V on p_g/p| < 0.2. Fails if it exceeds 0.2 with a CI excluding 0.
 
 ### 6.4 T3: opposite signs of shared and private drift on onset or centralization
 - **Design.** A factorial: shared volatility (low/high) × private volatility (low/high), common technology, with ρ in a range where the prize exceeds ε̂.
 - **Prediction.** Centralization (level presence, or the share of tracking done by the level) rises with q_g and falls with q_u.
 - **Rival.** Contingency theory: a single sign for total volatility.
-- **Kill.** The same sign on both factors with both CIs excluding 0, or the q_u effect positive with a CI excluding 0.
+- **Fails if.** The same sign on both factors with both CIs excluding 0, or the q_u effect positive with a CI excluding 0.
 - **Systems.** AI agents (today); lab teams; Wikidata/software observationally (Tier 2).
 
 ### 6.5 O4: ordering threshold κ\* = (1−a)/(1−b) (h ≈ 0)
 - **Measure.** κ̂ (§3.9) and the level's (â, b̂).
 - **Predict.** Top-down filling if κ̂ < κ\*, bottom-up if κ̂ > κ\*. Use systems that grew levels over time (software orgs' infrastructure history; designed AI).
-- **Kill.** Fill order opposite to the prediction in ≥ 2 of 3 systems where |κ̂ − κ\*| > 2 SE.
+- **Fails if.** Fill order opposite to the prediction in ≥ 2 of 3 systems where |κ̂ − κ\*| > 2 SE.
 
 ### 6.6 O5: freeze/hold/lookup band (T8) and its N widening
 - **Measure per item.** q (§3.1), μ, u, c, h, H_l and N (users of a shared store).
@@ -630,12 +630,12 @@ As claim map §3.2 and FAIR_MEASURE, plus:
   - The hold band exists iff μuH_l > 2c + hH_l.
   - For shared stores, band width ∝ N² (or N^{(1−a)/b} in class P(a, b)).
 - **Rival.** Mode set by norms or item type, independent of q and N.
-- **Kill.** Classification accuracy of the closed form is no better than an item-type-only model (ΔAUC < 0.02, CI including 0) in a gated sample. Or the band-width elasticity on N has a CI excluding the predicted value and including 0.
+- **Fails if.** Classification accuracy of the closed form is no better than an item-type-only model (ΔAUC < 0.02, CI including 0) in a gated sample. Or the band-width elasticity on N has a CI excluding the predicted value and including 0.
 - **Systems.** Wikidata vs hardcoded facts; software pinning; AI memory.
 
 ### 6.7 Drift matching (refresh rate vs drift; the "√" core)
 - **Prediction.** On flat units, the elasticity of effort on drift equals b̂ measured from the technology's price structure (MV5 convergent). For class R, b = 1/(1+2H) with H measured on the same targets (½ only at H = ½; v1.2 correction, THEORY §2.5).
-- **Kill.** The elasticity CI excludes the technology-derived b by > 0.15 in a gated sample.
+- **Fails if.** The elasticity CI excludes the technology-derived b by > 0.15 in a gated sample.
 - **Note.** The √ law is PRIOR ART (EOQ; Lee, Flack & Krakauer 2024). This test calibrates the class gate. It does not test novelty.
 
 ### 6.8 N1: √N fade of pooled shared memory (T4 of the older layer)
@@ -644,17 +644,17 @@ As claim map §3.2 and FAIR_MEASURE, plus:
   - A target with measured drift q > 0.
   - A **linear** readout, or the readout class measured. ANTS1 shows nonlinear readouts break the N^{−½} error pooling.
 - **Prediction.** Optimal fade rate ∝ N^{½} in the small-gain regime (Nq/r ≪ 1, measured).
-- **Kill.** Elasticity CI excludes 0.5 and includes 0, under the preconditions.
+- **Fails if.** Elasticity CI excludes 0.5 and includes 0, under the preconditions.
 - **Systems.** Designed AI shared memories; collaborative documents with measured independent contributors.
 
 ### 6.9 New cross-prediction from §3.9: raw sampling rank gradient = a − κb [DERIVED HERE]
 - **Measure (before opening any sampling data).** κ̂ from a hierarchical variance decomposition of the drivers at each scope; (â, b̂) from the class gate.
 - **Prediction.** The elasticity of the raw read rate on scope size is â − κ̂b̂, within ±0.15.
-- **Kill.** The CI excludes â − κ̂b̂ and includes the κ = 0 value â (or vice versa).
+- **Fails if.** The CI excludes â − κ̂b̂ and includes the κ = 0 value â (or vice versa).
 - **Why it matters.** It turns the Enron/PIAAC-type rank comparison into a valid test. It also tests the T7 ordering logic through a second observable.
 
 ### 6.10 Spectrum → exponent (N4/N6) and layers
-**Precondition:** first derive the mapping from a measured spectrum to the predicted memory exponent. MATCH1 D3's sign came out opposite, so this is owed before any lock. Until then, nothing in N6 can be fairly killed or passed. **OPEN.**
+**Precondition:** first derive the mapping from a measured spectrum to the predicted memory exponent. MATCH1 D3's sign came out opposite, so this is owed before any lock. Until then, nothing in N6 can be fairly refuted or passed. **OPEN.**
 *Update (18 Nov 2026 audit):* the precondition is now met. THEORY v1.4 §2.2 derives the spectrum → exponent map by regime (classical; CLAIM_MAP K12/K13 MATH-CORRECTED), and MATCH1 D3's opposite sign was a mis-derived prediction (CLAIM_MAP H19 MATH-CORRECTED). What stays open is measured-input optimality on one system (CLAIM_MAP N13 OPEN; THEORY §1 N6), first tested by SAME-SYSTEM-AQN.
 
 ---
@@ -698,9 +698,9 @@ The vigilance ONA test run in `prereg/vigil-ona/` (finished; CLAIM_MAP N1–N3) 
 - Updated 18 Nov 2026 (consistency audit): gates binding (§2.2, CLAIM_MAP M2), scope per Chad t1927 (§1.2 item 4), §6.10 and §7 status notes. Re-audit result unchanged: no FIELD-PASS and no FIELD-FAIL; the theory is untested in the field, not refuted.
 - External timestamping of future locks (MV9) still needs Chad's explicit go.
 
-## 9. Preregistered kill conditions for the hypothesis (added 20 Nov 2026, v2.4; written by one executor after the independent review of v2.3 found the hypothesis "well protected in practice"; not independently reviewed)
+## 9. Preregistered refutation conditions for the hypothesis (added 20 Nov 2026, v2.4; written by one executor after the independent review of v2.3 found the hypothesis "well protected in practice"; not independently reviewed)
 
-THEORY §3 defines *strongly selected* and the kill conditions; this section is the protocol. **Nothing here is a lock yet:** a lock happens when a named test is registered with a timestamp (MV9 still needs Chad's go).
+THEORY §3 defines *strongly selected* and the refutation conditions; this section is the protocol. **Nothing here is a lock yet:** a lock happens when a named test is registered with a timestamp (MV9 still needs Chad's go).
 
 1. **Qualifying (decide before any measurement; all five, with the evidence recorded).** (a) A cost-to-fitness map σ (fractional change in growth, survival or reproduction rate per fractional change in J) with its source. (b) A population proxy N_e (independent lineages competing in the same world per redesign time); cities, nation-states, global economies and the biosphere are excluded until a class-specific proxy is preregistered. (c) The selection-resolvable band ε = 10/(σ·N_e) (the drift barrier is s·N_e ≈ 1, Lynch et al. 2016; the factor of 10 above it is a conservative choice made here); the prediction band is at least ε wide, so a worse measurement cannot make qualification easier. (d) Power: the band plus measurement error excludes the design of at least one named rival (item 6). (e) A redesign time T_red, the time to close 1 − 1/e of the gap to the new argmin J after a step change in the prices or in the world's statistics (measured, or preregistered from the class's turnover), with at least 10 T_red of the same world (N54 is the longer record a redesign learns from). A class that fails any item is excluded and is not evidence either way. Drift-limited misses are excluded this way before the test, never invoked after it.
 2. **Closed term list (per substrate).** List J's cost terms for the substrate (memory, upkeep, error stake, acquisition, link, telling, lookup, ruin) and price each independently of the design predicted (no price fitted to the design). A cost found after the test that is not on the list counts as a miss unless it was added publicly, with a date, before the test on that class.
