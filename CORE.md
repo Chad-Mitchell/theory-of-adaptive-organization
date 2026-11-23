@@ -16,7 +16,7 @@ Until a system qualifies under THEORY §3, the working name is a principle: one 
 
 ## 1. The cost
 
-In steady state the bath of a learning subsystem gives off heat at least equal to temperature times the rate at which the memory learns the world it acts on (Horowitz and Esposito 2014, doi 10.1103/PhysRevX.4.031015). The inequality is **KNOWN**:
+For bipartite Markov chains and additive-noise diffusions, in steady state the bath of a learning subsystem gives off heat at least equal to temperature times the rate at which the memory learns the world it acts on (Horowitz and Esposito 2014, doi 10.1103/PhysRevX.4.031015). In those classes the inequality is **KNOWN**; for general systems it is open (T48, T49):
 
 $$\dot Q \ge kT \times \text{(learning rate)}.$$
 

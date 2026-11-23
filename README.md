@@ -6,7 +6,7 @@ Thermodynamics tells an engineer two things about any engine: the best it could 
 
 **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
 
-The theory has two parts. Part 1 is mathematics: the cost, a floor no design can beat, and the designs that reach the minimum inside named classes. Those hold by proof. Part 2 is the hypothesis about nature, and only Part 2 can miss a measurement. No real system has yet been shown to sit at the minimum. The same argument in full, with every number, is [`CORE.md`](CORE.md).
+The theory has two parts. Part 1 is mathematics: the cost, a heat floor no design can beat inside the classes where it is proved, and the designs that reach the minimum inside named classes. Those hold by proof. Part 2 is the hypothesis about nature, and only Part 2 can miss a measurement. No real system has yet been shown to sit at the minimum. The same argument in full, with every number, is [`CORE.md`](CORE.md).
 
 ![One cost of judgment, in time and in space](figures/master_curve.png)
 
