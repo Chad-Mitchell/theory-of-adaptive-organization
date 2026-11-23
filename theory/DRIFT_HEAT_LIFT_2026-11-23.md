@@ -1,6 +1,6 @@
 # Thermodynamic lift of the drifting information floor
 
-*Monday 23 November 2026 (America/New_York). The next step named in `theory/GENERAL_FLOOR_ATTEMPT_2026-11-23.md` §7, after a re-confirm of `theory/THEOREM_P_DRIFT.md`. One explicit physical implementation, not a change to `THEORY.md` or the hypothesis sentence. Open-work row T58 (T57 is reserved by open PR #229). A self-check, not an independent review. DOIs below were checked on the Crossref API the same day (`theory/drift_heat_lift_checks/crossref.out`).*
+*Monday 23 November 2026 (America/New_York). The next step named in `theory/GENERAL_FLOOR_ATTEMPT_2026-11-23.md` §7, after a re-confirm of `theory/THEOREM_P_DRIFT.md`. One explicit physical implementation, not a change to `THEORY.md` or the hypothesis sentence. Open-work row T58 (T57 is on main, PR #229). A self-check, not an independent review. DOIs below were checked on the Crossref API the same day (`theory/drift_heat_lift_checks/crossref.out`).*
 
 Labels follow the repo: **PROVED (in-model)** is a result inside a named class. **KNOWN** is published and credited, only for what that source states. **ELEMENTARY** is a direct consequence of a proved or known inequality. **SKETCH** is an argument with a stated gap. **OPEN** is not derived. A lower bound is not a derivation of the cost.
 
@@ -25,7 +25,7 @@ One parameter choice realises the Kalman–Bucy filter of the walk as a physical
 \lim_{\Delta t\to0}\frac1{\Delta t}\,I(X_{t+\Delta t};M_{t+\Delta t}\mid M_t)=\dot I_M,
 \]
 
-and the bath heat is exactly \(2kT\,\dot I_M\). So the thermodynamic lift of PD1, through an implementation that identifies \(\bar r\) with \(\dot I_M\), carries a factor of two: \(\dot Q_M=2kT\,\bar r\) in continuous-time units. That factor is **PROVED (in-model)** for this implementation, and is the same accounting already **KNOWN** for a path-sufficient or capacity-one device (Sandberg, Delvenne, Newton, and Mitter 2014, equation (46); Hartich, Barato, and Seifert 2016).
+and the bath heat is exactly \(2kT\,\dot I_M\). So the thermodynamic lift of PD1, through an implementation that identifies \(\bar r\) with \(\dot I_M\), carries a factor of two: \(\dot Q_M=2kT\,\bar r\) in continuous-time units. That factor is **PROVED (in-model)** for this implementation, and is the same accounting already **KNOWN** for a path-sufficient or capacity-one device (Sandberg, Delvenne, Newton, and Mitter 2014, *Phys. Rev. E* 90:042119, equations (42) and (47) of arXiv:1402.1010v2; Hartich, Barato, and Seifert 2016).
 
 A fast, noisier spring, with \(D_M\to\infty\) at fixed \(\varepsilon\), drives the heat down to the infimum \(kT\,\sigma^2/(2\varepsilon)\). That infimum is **PROVED (in-model)** for this spring family, and it matches the already-proved Ornstein–Uhlenbeck heat floor (`theory/INFO_PHYSICS_ATTAINABILITY.md`). On those designs the short-time PD1-style inflow \(I(X_t;M_{t+\Delta t}\mid M_t)/\Delta t\) is larger than \(\dot I_M\), and the identification needed to lift PD1 does not hold. The factor-one infimum is a heat floor at fixed error, not a lift of the information inflow.
 
@@ -133,7 +133,7 @@ DOIs checked on Crossref, 23 November 2026, America/New_York. The log is `theory
 
 - Horowitz, J. M. and Esposito, M. 2014. Thermodynamics with Continuous Information Flow. *Phys. Rev. X* 4:031015. doi 10.1103/PhysRevX.4.031015. Proposition EQ-heat is the diffusion form of their split, already in `theory/GENERALITY_2026-11-22.md`.
 - Barato, A. C., Hartich, D. and Seifert, U. 2014. Efficiency of cellular information processing. *New J. Phys.* 16:103024. doi 10.1088/1367-2630/16/10/103024.
-- Sandberg, H., Delvenne, J.-C., Newton, N. J. and Mitter, S. K. 2014. Thermodynamic costs in implementing Kalman-Bucy filters. *Proc. Allerton* 550–555. doi 10.1109/ALLERTON.2014.7028503. Equation (46): the implementation cost of a demon that keeps the path is \(2kT\) times the transfer-entropy rate.
+- Sandberg, H., Delvenne, J.-C., Newton, N. J. and Mitter, S. K. 2014. Maximum work extraction and implementation costs for nonequilibrium Maxwell's demons. *Phys. Rev. E* 90:042119. doi 10.1103/PhysRevE.90.042119. Equations (42) and (47) of the arXiv version (1402.1010v2): the implementation cost of a demon that keeps the path is \(\dot W_{\mathrm{impl}}=2kT\,\dot I_c\). The Allerton short version, *Proc. Allerton* 550–555, doi 10.1109/ALLERTON.2014.7028503, records the same factor-of-two implementation cost; this note does not rely on that proceedings' equation numbering.
 - Hartich, D., Barato, A. C. and Seifert, U. 2016. Sensory capacity: An information theoretical measure of the performance of a sensor. *Phys. Rev. E* 93:022116. doi 10.1103/PhysRevE.93.022116. When sensory capacity is \(1\), efficiency is at most \(1/2\).
 - Duncan, T. E. 1970. On the Calculation of Mutual Information. *SIAM J. Appl. Math.* 19:215–220. doi 10.1137/0119020. The continuous-time Kalman–Bucy information rate; PD7's equality.
 - Tatikonda, S., Sahai, A. and Mitter, S. 2004. Stochastic Linear Control Over a Communication Channel. *IEEE Trans. Automat. Control* 49:1549–1561. doi 10.1109/TAC.2004.834430.
