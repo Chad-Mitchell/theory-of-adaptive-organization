@@ -1,0 +1,120 @@
+Crossref API resolutions, 23 November 2026, America/New_York.
+Queried https://api.crossref.org/works/{doi}. Every DOI listed below returned HTTP 200.
+
+doi 10.1115/1.3658902
+  1961 | Journal of Basic Engineering 83 95-108
+  New Results in Linear Filtering and Prediction Theory
+  Kalman, R. E.; Bucy, R. S.
+
+doi 10.1137/0306023
+  1968 | SIAM Journal on Control 6 312-326
+  On the Separation Theorem of Stochastic Control
+  Wonham, W. M.
+
+doi 10.1109/TAC.1974.1100635
+  1974 | IEEE Transactions on Automatic Control 19 494-500
+  Dual effect, certainty equivalence, and separation in stochastic control
+  Bar-Shalom, Y.; Tse, E.
+
+doi 10.1103/PhysRevLett.84.1156
+  2000 | Physical Review Letters 84 1156-1159
+  Information-Theoretic Limits of Control
+  Touchette, Hugo; Lloyd, Seth
+
+doi 10.1016/j.physa.2003.09.007
+  2004 | Physica A: Statistical Mechanics and its Applications 331 140-172
+  Information-theoretic approach to the study of control systems
+  Touchette, Hugo; Lloyd, Seth
+
+doi 10.1109/TAC.2004.834430
+  2004 | IEEE Transactions on Automatic Control 49 1549-1561
+  Stochastic Linear Control Over a Communication Channel
+  Tatikonda, S.; Sahai, A.; Mitter, S.
+
+doi 10.1103/PhysRevLett.102.250602
+  2009 | Physical Review Letters 102 250602
+  Minimal Energy Cost for Thermodynamic Information Processing: Measurement and Information Erasure
+  Sagawa, Takahiro; Ueda, Masahito
+
+doi 10.1103/PhysRevLett.106.189901
+  2011 | Physical Review Letters 106 189901
+  Erratum: Minimal Energy Cost for Thermodynamic Information Processing: Measurement and Information Erasure [Phys. Rev. Lett. 102, 250602 (2009)]
+  Sagawa, Takahiro; Ueda, Masahito
+
+doi 10.1103/PhysRevLett.104.090602
+  2010 | Physical Review Letters 104 090602
+  Generalized Jarzynski Equality under Nonequilibrium Feedback Control
+  Sagawa, Takahiro; Ueda, Masahito
+
+doi 10.1103/PhysRevLett.109.180602
+  2012 | Physical Review Letters 109 180602
+  Fluctuation Theorem with Information Exchange: Role of Correlations in Stochastic Thermodynamics
+  Sagawa, Takahiro; Ueda, Masahito
+
+doi 10.1103/PhysRevX.4.031015
+  2014 | Physical Review X 4 031015
+  Thermodynamics with Continuous Information Flow
+  Horowitz, Jordan M.; Esposito, Massimiliano
+
+doi 10.1088/1367-2630/16/12/125007
+  2014 | New Journal of Physics 16 125007
+  Second-law-like inequalities with information and their interpretations
+  Horowitz, Jordan M; Sandberg, Henrik
+
+doi 10.1088/1367-2630/16/10/103024
+  2014 | New Journal of Physics 16 103024
+  Efficiency of cellular information processing
+  Barato, Andre C; Hartich, David; Seifert, Udo
+
+doi 10.1103/PhysRevE.90.042119
+  2014 | Physical Review E 90 042119
+  Maximum work extraction and implementation costs for nonequilibrium Maxwell's demons
+  Sandberg, Henrik; Delvenne, Jean-Charles; Newton, Nigel J.; Mitter, Sanjoy K.
+
+doi 10.1088/1742-5468/2015/03/p03006
+  2015 | Journal of Statistical Mechanics: Theory and Experiment 2015 P03006
+  Multipartite information flow for multiple Maxwell demons
+  Horowitz, Jordan M
+
+doi 10.1038/nphys3230
+  2015 | Nature Physics 11 131-139
+  Thermodynamics of information
+  Parrondo, Juan M. R.; Horowitz, Jordan M.; Sagawa, Takahiro
+
+doi 10.1103/PhysRevE.93.022116
+  2016 | Physical Review E 93 022116
+  Sensory capacity: An information theoretical measure of the performance of a sensor
+  Hartich, David; Barato, Andre C.; Seifert, Udo
+
+doi 10.1109/TAC.2019.2912256
+  2019 | IEEE Transactions on Automatic Control 64 4525-4540
+  Rate-Cost Tradeoffs in Control
+  Kostina, Victoria; Hassibi, Babak
+
+Additional DOIs added in independent review of PR #235, 23 November 2026, America/New_York.
+Queried https://api.crossref.org/works/{doi}. Every DOI listed below returned HTTP 200.
+
+doi 10.1143/JPSJ.79.104003
+  2010 | Journal of the Physical Society of Japan 79 104003
+  Jarzynski Equality Modified in the Linear Feedback System
+  Fujitani, Youhei; Suzuki, Hiroyuki
+
+doi 10.1143/JPSJ.81.084003
+  2012 | Journal of the Physical Society of Japan 81 084003
+  Numerical Study on the Generalized Second Law for a Brownian Particle under the Linear Feedback Control
+  Suzuki, Hiroyuki; Fujitani, Youhei
+
+doi 10.1103/PhysRevLett.111.180603
+  2013 | Physical Review Letters 111 180603
+  Information Thermodynamics on Causal Networks
+  Ito, Sosuke; Sagawa, Takahiro
+
+doi 10.1109/ALLERTON.2014.7028503
+  2014 | 2014 52nd Annual Allerton Conference on Communication, Control, and Computing (Allerton) 550-555
+  Thermodynamic costs in implementing Kalman-Bucy filters
+  Sandberg, Henrik; Delvenne, Jean-Charles; Newton, Nigel J.; Mitter, Sanjoy K.
+
+doi 10.1038/ncomms8498
+  2015 | Nature Communications 6 8498
+  Maxwell’s demon in biochemical signal transduction with feedback loop
+  Ito, Sosuke; Sagawa, Takahiro

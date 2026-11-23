@@ -1,0 +1,18 @@
+CHECK PASS lgb_lyapunov_matches_closed_moments  worst abs moment residual=2.220e-16
+CHECK PASS lgb_learning_rate_changes_sign  I_M(K=0)=0.615384615385; I_M(K=4)=0.000000000000; I_M(K=8)=-0.366972477064
+CHECK PASS lgb_frozen_heats_and_variance  v(0)=1.000000000000 Q_M(0)=1.333333333333 Q_X(0)=0.000000000000; v(8)=1.592592592593 Q_M(8)=6.666666666667 Q_X(8)=26.666666666667 I_M(8)=-0.366972477064
+CHECK PASS kalman_error_at_r_half_is_golden_conjugate  p=0.618033988750; (sqrt(5)-1)/2=0.618033988750
+CHECK PASS kalman_heat_and_learning_rate_independent_of_gain  r=1/2: p=0.618033988750 I_M=0.618033988750 Q_M=0.472135955000 D_M=0.381966011250; Q_X(g=1)=0.381966011250 Q_X(g=4)=1.527864045000
+CHECK PASS kalman_world_heat_diverges_as_variance_approaches_p  g=64: v-p=0.005876400173 Q_X=24.445824720007; g=256: v-p=0.001486249071 Q_X=97.783298880027
+CHECK PASS kalman_task_variance_needs_estimation_error_below_it  I_M >= a(theta/v*-1) whenever v<=v* in this family; v cannot undercut p
+CHECK PASS kalman_cost_beats_blind_at_stake_eight_not_one  r=1/2 g=1: J(w=8)=7.326237921249 < 8; J(w=1)=1.663118960625 > 1; v=0.809016994375 Q_M=0.472135955000 Q_X=0.381966011250
+CHECK PASS exogenous_telegraph_recovers_t59_and_t60  I_M = r L(eps) = I_t60; Q_M - I_M >= 0 (smallest slack on this grid is recorded by JP-heat checks below)
+CHECK PASS joint_equilibrium_and_openloop_tilt_have_zero_ongoing_heat  open-loop tilt d=2: task=0.119202922022 = 1/(1+e^2); I_M=Q_M=Q_X=0; joint equilibria also vanish
+CHECK PASS feedback_breaks_t60_identity  enslave h=1 d=3: I_M=-0.675396079423 I_t60=1.113089395109; sluggish: I_M=-0.592743580181 I_t60=2.291291484847
+CHECK PASS acting_can_reduce_or_reverse_the_learning_rate  enslave h=1 d=3: I_M=-0.675396079423 < r L(eps)=1.523188311912 at eps=0.119202922022; sluggish I_M=-0.592743580181; regulate I_M=-0.010991619198
+CHECK PASS jp_heat_holds_and_flows_sum_to_zero_under_feedback  enslave: Q_M=-0.337698039711 I_M=-0.675396079423; sluggish: Q_M=-0.033843334503 I_M=-0.592743580181; regulate: Q_M=0.452418449840 I_M=-0.010991619198
+CHECK PASS adversarial_anticopy_is_a_relabelled_t59_copy  anti-copy h=-2: track=0.268941421370 I_M=0.462117157260; copy h=2: track=0.268941421370 I_M=0.462117157260
+CHECK PASS exogenous_reference_floor_independent_of_slave_gain  I_M=0.462117157260 = r L(eps)=0.462117157260 at eps=0.268941421370, unchanged across five slave settings; Q_M>=I_M
+CHECK PASS recorded_decimals_match_the_note  enslave I_M=-0.675396079423 eps=0.119202922022; sluggish I_M=-0.592743580181; Kalman r=1/2 g=1: v=0.809016994375 Q_M=0.472135955000 Q_X=0.381966011250 J(w=8)=7.326237921249
+FAILS 0
+ALL FEEDBACK-FLOOR CHECKS PASS
