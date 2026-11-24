@@ -37,7 +37,7 @@ IP5, the claim that the master equation is the physical frontier, is FALSE (CLAI
 ## Next
 Open work is listed in [`OPEN_WORK.md`](OPEN_WORK.md). This section does not keep a second list.
 
-Current direction (23 November 2026, evening): the storage-cap and area-law route (T64–T67) mapped where the cost of judgment does not give its own rule, and it is paused. Work moves to the floor's own scope: T68, the clock term (`theory/CLOCK_TERM_2026-11-23.md`, PR open, section 9 awaiting independent review), then the Kalman–Bucy factor-of-two question, now answered from the literature in `theory/DRIFT_HEAT_LIFT_2026-11-23.md` §6, and formal checking of the core proofs.
+Current direction (23 November 2026, evening): the storage-cap and area-law route (T64–T67) mapped where the cost of judgment does not give its own rule, and it is paused. Work moves to the floor's own scope: T68, the clock term (`theory/CLOCK_TERM_2026-11-23.md`, PR #248, sections 1-8 and section 9 each independently reviewed), then the Kalman–Bucy factor-of-two question, now answered from the literature in `theory/DRIFT_HEAT_LIFT_2026-11-23.md` §6, and formal checking of the core proofs.
 
 ## Standing rules
 The repository is public as of 18 November 2026. No posts or other outside acts without Chad's go. Call GTAO a theory. Field results are first gated on qualification, then reported as passed or failed on proxy X; a claim without a recorded pre-test check is not a test of the hypothesis either way. A miss is a puzzle, with its diagnosis and next test written down. Heavy compute runs at nice 19. Looper README wording needs Chad's approval.

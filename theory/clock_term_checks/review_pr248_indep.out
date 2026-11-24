@@ -1,0 +1,11 @@
+h_AL closed 0.8144681593045839 quad tiny-noise 0.8144691341153913
+mu/sqrt(2r)=1.41 I0=0.8229 a=0.53075 b=0.26537 b/a=0.50000
+mu/sqrt(2r)=3.54 I0=1.4305 a=0.77468 b=0.38734 b/a=0.50000
+mu/sqrt(2r)=14.14 I0=2.6397 a=0.93812 b=0.46906 b/a=0.50000
+kap=1.0 lam=1.0 I0=3.920 (0.98x) J0=7.152139 Jbest=7.152139 clockfrac=0.0000 gain=2.48e-16
+kap=1.0 lam=1.0 I0=4.080 (1.02x) J0=6.348568 Jbest=6.348507 clockfrac=0.0027 gain=9.66e-06
+kap=1.0 lam=1.0 I0=4.400 (1.1x) J0=4.981765 Jbest=4.980894 clockfrac=0.0106 gain=1.75e-04
+kap=1.0 lam=2.0 I0=1.960 (0.98x) J0=52.971089 Jbest=52.971089 clockfrac=0.0000 gain=2.68e-16
+kap=1.0 lam=2.0 I0=2.040 (1.02x) J0=50.563806 Jbest=50.561597 clockfrac=0.0114 gain=4.37e-05
+kap=2.0 lam=1.0 I0=7.840 (0.98x) J0=0.291653 Jbest=0.291653 clockfrac=0.0000 gain=0.00e+00
+kap=2.0 lam=1.0 I0=8.160 (1.02x) J0=0.220725 Jbest=0.220724 clockfrac=0.0000 gain=6.68e-06
