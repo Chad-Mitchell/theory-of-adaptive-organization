@@ -17,7 +17,7 @@ Fresh clone of this branch at `587c99f`, then, from that tree:
 
 The image had no sympy, pytest, scipy, or numba. Those were installed to run the author's scripts. The dimension-check bytes still matched the committed log.
 
-## Verdicts
+## Findings
 
 **Prereg order. Confirmed.** `0846e2e` (author and committer `2026-11-24T04:53:04Z`) is the parent of `587c99f` (`2026-11-24T05:03:45Z`). The first commit adds `PREREG.md`, `PREREG.sha256`, and `crossref.out`. The second adds `MEMO.md`, `dimension_check.py`, `dimension_check.out`, `tools/test_constants_exchange.py`, and the `OPEN_WORK.md` row. No later commit exists, and the prereg file is unchanged after the lock. The lock is that git order. Both commits are the same author, about ten minutes apart. There is no external timestamp.
 
