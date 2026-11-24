@@ -16,7 +16,7 @@ Fresh clone of that SHA, then from the clone root:
 - Pawłowski et al. and Allcock et al. read from the arXiv e-prints `0905.2292` (`infocaus2.tex`) and `0906.3464`.
 - This review enumerated the uniform 16-atom van Dam joint and the classical protocol. Not a repo script.
 
-## Verdicts
+## Findings
 
 **Relabel: A1–A8 plus the heat floor do not imply \(I\le m\). Confirmed.**
 
