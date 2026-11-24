@@ -59,11 +59,11 @@ In simulations of our own worlds, selection converged to the predicted minimum i
 
 ## How a miss is read
 
-"Strongly selected" is the definition in [THEORY §3](THEORY.md). Before measuring, a class fixes a cost-to-fitness map, a population proxy, a band that excludes a named rival, and a redesign time with at least ten of those times in the same world. A design outside the band fixed in advance is a puzzle for that class, with its diagnosis and next test written beforehand. A field result with no recorded qualification check is not a test of the hypothesis.
+"Strongly selected" is the definition in [THEORY §3](THEORY.md). Before measuring, a class fixes a cost-to-fitness map, a population proxy, a band that excludes a named rival, and a redesign time with at least ten of those times in the same world. A design outside the band fixed in advance is a miss for that class—logged with its prediction ID, outcome, signed size relative to the band, location (model, measurement/code, or process), and the update it drives (`process/PROCESS.md`), with the diagnosis and next test protocol fixed beforehand. A field result with no recorded qualification check is not a test of the hypothesis.
 
 ## What remains
 
-Math first, then the real-world test (`OPEN_WORK.md` §3): non-Gaussian closed forms (T49), and the decisive test on one qualified system. The continuous A6 extension (T48) is in `theory/CONTINUOUS_A6_2026-11-23.md`. Smaller open items and two written puzzles are listed in `CORE.md` §7.
+Math first, then the real-world test (`OPEN_WORK.md` §3): non-Gaussian closed forms (T49), and the decisive test on one qualified system. The continuous A6 extension (T48) is in `theory/CONTINUOUS_A6_2026-11-23.md`. Smaller open items and two recorded misses are listed in `CORE.md` §7.
 
 ## Where to read
 
