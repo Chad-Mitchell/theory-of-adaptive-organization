@@ -121,3 +121,11 @@ On a classical axis the cheapest feasible record in the named list is classical.
 - Test: `tools/test_composite_contest_checks.py` reruns `run_all.py` and checks the locked hashes
 
 Read-first files, all found on `upstream/ace-probe-memos-2026-11-23`: `theory/probes-2026-11-23/README.md`, `reviews/DUEL_REVIEW.md`, `duel/DUEL_MEMO.md`, `WALLS_MEMO.md`, `reviews/WALLS_REVIEW.md`, `MIRROR_MEMO.md`, `reviews/MIRROR_REVIEW.md`. On this main: `CORE.md` (the priced sum and the memory coordinate at line 52; the heat floor at line 70) and `theory/CLOCK_TERM_2026-11-23.md`. The clock term is not charged. This contest is one preparation and one later readout.
+
+## Pivot: the cap is the worst question
+
+The loose cells lost because the cap was a mean. The rebit's mean error is 1/25, which passes 0.05, and at `λ = 0.1` that is cheaper than a perfect complex record (`decisions.out` lines 249–251). `theory/PREREG_2.md` changes only the cap: ruin is the worst menu pair, `L_∞ = max (C_ab + u·v)^2`. One linear program, not a sweep (`theory/pivot_worst_checks/RUN_LOG.md`). The minimum classical support at that error is 6, not the solver's first support of 11 (`DEVIATIONS.md` D2).
+
+The classical worst-question loss is `4.2893218813467290e-02`, on the Bell floor, at `K = 6` (`theory/pivot_worst_checks/decisions.out` line 1). The rebit stays infeasible below 1/9. The headline band, `λ > 0` and `ε ∈ {0.05, 0.1}`, is MIXED: six WIN, then two LOSE (`theory/pivot_worst_checks/decisions.out` line 364). The two losses are `λ = 0.1`. At `ε = 0.05` the classical cost is `2.2206916573627278e-01` and the complex cost is `2.7725887222397810e-01` (lines 318–321). At `λ ≤ 0.01` the complex record still wins, because the Bell gap is larger than `λ ln(16/6)`.
+
+**What was learned.** A cap on every later question removes the rebit and does not remove a 6-state classical record. At a dimension price of 0.1 nats that record is cheaper. Below that price, on this grid, it is not. The cells under the classical floor are wins by infeasibility; they are a check (Q1), not a new fact. No further variant: lowering `λ` until the complex record wins would be fitting the grid.
