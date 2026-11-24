@@ -31,6 +31,10 @@ Other review items:
 
 **Diagnosis.** The menu builds in a real shortcut. Because `y` is orthogonal to every other setting, perfect anticorrelation on `y` is free for a rebit: constants, not a third direction. That is the menu, not the cap and not the price. `CORE.md:52` prices mutual information. On this protocol that price is 0 for every record set before the settings, so every loss-0 record ties, and with the rebit at loss 0 the dimension price makes every positive-`λ` cell a loss. The cap form never got to decide.
 
+## Menu without that axis
+
+`theory/PREREG_3.md`, committed before its script. `y = (1,1,1)/√3` is not orthogonal to every other setting. Identity readouts are all `3^5` patterns. The rebit minimum is `2.1492408906328463e-03` (`theory/menu3_checks/decisions.out`). P-loss, P-win, P-bell and P-tie pass. Under Hardy dimension, every positive price at exact match is WIN. Under mutual information, every such cell is TIE, because G and R4c still copy the table at information 0. The complex record's own loss on this menu is `1.1898287380433425e-32`. Classical worst-pair loss remains the Bell floor, at product dimension 16.
+
 ## Why this approach
 
 The single-system duel ties, because one generator uses a thin section of the quantum state space and a blurred classical rotor matches every readout on that section (`theory/probes-2026-11-23/reviews/DUEL_REVIEW.md` §6, on `upstream/ace-probe-memos-2026-11-23`). The review named the next question: two records that interact, or a question chosen only after the record is set. That is where complex quantum theory, real quantum theory, a classical hidden-variable model, and a composite without local tomography can come apart. Müller and Masanes (doi 10.1088/1367-2630/15/5/053040) already show that single-system postulates give a ball in every dimension, and that local tomography plus a continuous reversible interaction is what forces the qubit. The mirror review asked that R4a and R4c be controls in this contest, not a separate simulation (`theory/probes-2026-11-23/reviews/MIRROR_REVIEW.md` §4).

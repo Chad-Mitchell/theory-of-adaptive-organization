@@ -1,4 +1,4 @@
-"""Byte-for-byte rerun of the worst-question pivot (OPEN_WORK T69)."""
+"""Byte-for-byte rerun of the worst-question pivot (OPEN_WORK T72)."""
 import hashlib
 import os
 import subprocess
