@@ -57,6 +57,29 @@ def test_real_repo_status_is_in_window_after_fix():
     assert fails == []
 
 
+def _write_ref(repo, ref, sha):
+    path = os.path.join(repo, ".git", "refs", "remotes", ref)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    open(path, "w", encoding="utf-8").write(sha + "\n")
+
+
+def test_pointer_on_upstream_passes_when_origin_is_behind(tmp_path):
+    repo, shas = _repo_with_commits(tmp_path / "r", 8)
+    _write_ref(repo, os.path.join("origin", "main"), shas[2])
+    _write_ref(repo, os.path.join("upstream", "main"), shas[-1])
+    _write_status(repo, shas[-1][:7])
+    assert fresh.check(repo) == []
+
+
+def test_pointer_on_origin_passes_when_upstream_has_moved_past_it(tmp_path):
+    repo, shas = _repo_with_commits(tmp_path / "r", 8)
+    _write_ref(repo, os.path.join("origin", "main"), shas[2])
+    _write_ref(repo, os.path.join("upstream", "main"), shas[-1])
+    _write_status(repo, shas[2][:7])
+    assert shas[2] not in fresh.first_parent_window(repo, shas[-1], 5)
+    assert fresh.check(repo) == []
+
+
 def test_head_pointer_passes(tmp_path):
     repo, shas = _repo_with_commits(tmp_path / "r", 6)
     _write_status(repo, shas[-1][:7])
