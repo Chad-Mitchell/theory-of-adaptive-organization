@@ -13,8 +13,10 @@ What it checks
          or a negation such as 'not a law' / never 'law'; a sentence that
          labels itself a hypothesis may name the law: Chad t1979u, 19 Nov 2026);
        - "theory of everything" unless negated ('not a theory of everything');
+       - "solved" claimed of GTAO / the theory unless negated or quoted as a rule;
        - a field-test name next to passed/failed/confirmed/refuted/killed in
-         the same sentence without a proxy / in-model / gate / tier label;
+         the same sentence without a proxy / in-model / gate / tier label
+         ('miss' is allowed; 'puzzle' is not added to the banned list);
        - the MV gates described as awaiting Chad's sign-off (they bind as of
          18 Nov 2026, Chad t1927).
        - stale scope phrases ('silent on black holes', 'nothing is keeping
@@ -50,7 +52,7 @@ def main(argv=None):
     os.chdir(ROOT)
 
     MAINTAINED = [
-        "README.md", "STATUS.md", "THEORY.md", "CORE.md", "process/QUEUE.md",
+        "README.md", "STATUS.md", "THEORY.md", "CORE.md", "process/PROCESS.md", "process/MISS_LOG_TEMPLATE.md", "process/QUEUE.md",
         "measurement/FRAMEWORK.md", "measurement/CLAIM_MAP_v2.md",
         "theory/README.md", "theory/SCALE_ENDS.md",
         "applications/README.md", "tests/README.md", "reviews/README.md",
@@ -118,9 +120,11 @@ def main(argv=None):
     GTAO_LAW = re.compile(r"((GTAO|the theory|this theory|our theory|A Theory of Adaptive Organization)('s)?\b[^.;|]{0,40}\b(is|as|becomes|called|calls itself|a|the)\b[^.;|]{0,15}\b(universal |general |new |fundamental )?laws?\b|\b(universal|fundamental|general) laws? of (adaptive|organi[sz]ation|life|persistence)|\blaw of adaptive organi[sz]ation)", re.I)
     TOE = re.compile(r"theor(y|ies) of everything", re.I)
     TOE_NEG = re.compile(r"(not|never|isn't|is not|no)[^.]{0,40}theor(y|ies) of everything|theor(y|ies) of everything['\"”’]?\)?[^.]{0,30}(imposter|banned|withdrawn)", re.I)
+    SOLVED_GTAO = re.compile(r"\b(GTAO|the theory|this theory|our theory|the hypothesis|cost of judgment|adaptive organization)\b[^.;|]{0,40}\b(is |has been |now )?solved\b|\bsolved\s+(GTAO|everything|adaptive organization)\b", re.I)
+    SOLVED_NEG = re.compile(r"\b(not|never|isn\'t|is not|nor|no)\b[^.;|]{0,20}\bsolved\b|[\'\"“‘]solved[\'\"”’]", re.I)
     FIELD = re.compile(r"\b(MATCH1|DECISIVE|banks?|glucose|populations|F1|C3b?|BIO1|COLLAPSE1|DRIFT1|measles|PIAAC|Enron|VIGIL[_-]ONA|GITHUB-UPSTREAM|WIKIDATA-BAND|CAISO|SPF|VIX|SENSE-CELL|LANG1|MEASURE-SELF|news(-| )recall|D3S?)\b")
     VERDICT = re.compile(r"(\b(passed|failed|confirmed|refuted|killed|kill fired)\b|\bHIT\b)")
-    LABEL = re.compile(r"(failed[- ]bank|proxy|PROXY|in-model|in model|SIM-|simulat|synthetic|dry run|gate|MV\d|Tier|known-groups|prereg|locked|lock |kill rule|joint (kill )?rule|refutation (condition|rule|test)|fair refutation|fails if|puzzle to diagnose|literal|referee|review|power|not a (theory-specific )?hit|sign-only|INCONCLUSIVE|NOT EVIDENCE|MATH-CORRECTED|withdrawn|premise|by construction|reproduce|replicate|own code|own MC|Monte Carlo|pass rule|wrong-pass|[\"“][^\"”]{0,12}(hit|passed|failed)[^\"”]{0,3}[\"”])", re.I)
+    LABEL = re.compile(r"(failed[- ]bank|proxy|PROXY|in-model|in model|SIM-|simulat|synthetic|dry run|gate|MV\d|Tier|known-groups|prereg|locked|lock |kill rule|joint (kill )?rule|refutation (condition|rule|test)|fair refutation|fails if|qualifying miss|miss to (diagnose|locate)|signed miss|process miss|puzzle to diagnose|literal|referee|review|power|not a (theory-specific )?hit|sign-only|INCONCLUSIVE|NOT EVIDENCE|MATH-CORRECTED|withdrawn|premise|by construction|reproduce|replicate|own code|own MC|Monte Carlo|pass rule|wrong-pass|[\"“][^\"”]{0,12}(hit|passed|failed)[^\"”]{0,3}[\"”])", re.I)
     SIGNOFF = re.compile(r"(sign[- ]?off|signs off|signed off|once Chad|until Chad|await(s|ing)? Chad)", re.I)
     GATECTX = re.compile(r"(gate|MV\d|M2\b|binding)", re.I)
     STALE = re.compile(r"(silent on black holes|nothing (is )?keeping score|no predictions? about black holes|makes no predictions about black holes)", re.I)
@@ -150,6 +154,8 @@ def main(argv=None):
                     sink.append("%s %s:%d law: …%s…" % (tag, path, i, ctx.strip())); hits += 1
                 if TOE.search(s) and not TOE_NEG.search(s):
                     sink.append("%s %s:%d theory-of-everything: …%s…" % (tag, path, i, s.strip()[:160])); hits += 1
+                if SOLVED_GTAO.search(s) and not SOLVED_NEG.search(s):
+                    sink.append("%s %s:%d solved-claim: …%s…" % (tag, path, i, s.strip()[:160])); hits += 1
                 if FIELD.search(s) and VERDICT.search(s) and not LABEL.search(s):
                     sink.append("%s %s:%d unlabeled field verdict: …%s…" % (tag, path, i, s.strip()[:200])); hits += 1
                 if SIGNOFF.search(s) and GATECTX.search(s) and not re.search(r"(no longer|superseded|bind(s|ing)? as of|was:|before 18 Nov|binding since|nothing awaits|treated as binding)", s, re.I):
