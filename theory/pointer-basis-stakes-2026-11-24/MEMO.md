@@ -53,13 +53,21 @@ At \(\gamma=0\) the formulas already forbid a move under \(P_D\), so a grid is i
 
 **Result.** The printed headline `PRICING_ARTIFACT` (`pointer_basis_stakes_checks.out:83`) is fixed by the closed forms already written in `PREREG.md:72`. At \(w=0\) the cost is the price, \(P_D\) is minimized only at \(\theta=0\), and \(P_\chi\) is minimized at \(\theta=\pi/2\). P4 restates that pair, and the headline rule returns the label as soon as P4 holds (`pointer_basis_stakes_checks.py:217`). C7 compares the rule to itself (`pointer_basis_stakes_checks.py:226`–`:227`). This is a puzzle in the test, not a scored finding. The underlying slice stands: **PROVED (in-model)**, at complete dephasing the relative-entropy minimizer is \(\theta=0\) for every stake, and the Holevo minimizer is not.
 
-**Model implication.** Conditional on \(P_D\): once dephasing is complete, the cost-minimizing record basis is the dephasing axis for every stake, a relabel of the sieve (**PROVED, in-model**). A stake moves \(\theta\) at partial dephasing on this grid when the observable does not commute with the axis (**NUMERICAL**), and that move needs the \(\pm x\) states. Theorem R1 (`CORE.md:52`) names mutual information as the memory coordinate of a classical record. The record kept here is \(M\), so that coordinate is \(P_\chi\). \(P_D\) is the entropy produced by writing, a different term. A8 only requires the coefficient to be nonnegative.
+**Model implication.** Conditional on \(P_D\): once dephasing is complete, the cost-minimizing record basis is the dephasing axis for every stake, a relabel of the sieve (**PROVED, in-model**). A stake moves \(\theta\) at partial dephasing on this grid when the observable does not commute with the axis (**NUMERICAL**), and that move needs the \(\pm x\) states. Theorem R1 (`CORE.md:52`) names mutual information as the memory coordinate of a classical record. The record kept here is \(M\), so that coordinate is \(P_\chi\). \(P_D\) is the entropy produced by writing, a different term. A8 requires each coefficient to be nonnegative. The ratio of the two coefficients is the open number below.
 
 **Puzzle.** On this antipodal ensemble
 \[
 P_D(\theta)+P_\chi(\theta)=\ln 2-\mathbb{E}[S(\rho)],
 \]
-and the right-hand side does not depend on \(\theta\). The two prices are one curve. The grid cannot choose between them, and "R1 and A8 do not pick a price" is too wide: R1 already names the classical coordinate, and A8 does not have two candidates for it on this ensemble. What the grid does not answer is whether a non-commuting stake moves \(\theta\) under one price and not the other once the sum depends on \(\theta\). That question passes the two-line gate and is locked, unscored, in `PREREG_2.md` (commit `8ea241d`).
+and the right-hand side does not depend on \(\theta\). The two prices are one curve. R1 already names the classical coordinate, and A8 does not have two candidates for it on this ensemble.
+
+**Exchange rate.** With the terms named, the cost is
+\[
+J=\kappa\,I(W;M)+\kappa_D\,P_D+w\,L,
+\]
+with \(\kappa,\kappa_D\ge 0\) (A8, `CORE.md:52`). \(I(W;M)\) is \(P_\chi\). The open number is the ratio \(\kappa_D/\kappa\), the exchange rate between the entropy of writing and the information held. The two prices scored above are the endpoints of that ratio, \(0\) and \(\infty\). On this antipodal ensemble the sum \(P_D+P_\chi\) does not depend on \(\theta\), so at \(\kappa_D=\kappa\) the record terms are flat in \(\theta\) and the stake alone sets \(\theta\). Until the ratio is derived, every claim in this note is conditional on it. A record kept as an unmeasured state is a separate question and is not taken up here.
+
+The grid does not answer whether a non-commuting stake moves \(\theta\) under one price and not the other once the sum depends on \(\theta\). That question is a test of whether the ratio matters off this ensemble. It is locked, unscored, in `PREREG_2.md` (commit `8ea241d`). The four-angle check of the sum named in `PREREG_2.md:21` was not saved.
 
 **Conjecture, not a result.** The entropy-production half is the proved slice above: on this ensemble, complete pure dephasing keeps the sieve basis for every stake when the price is \(P_D\). The Holevo half is the other sign of the same curve here, so this grid does not separate the two prices. Quantum Darwinism's redundancy plateau was not computed, and this grid does not extend it.
 
@@ -83,4 +91,6 @@ No other change to the criteria. `PREREG.md`, `RUN_LOG.md`, and `pointer_basis_s
 
 **E5. Citation.** PRL 70:1187 uses the name "predictability sieve" and applies the least-entropy procedure. The PTP paper remains a naming source. The earlier sentence that the PRL does not name the sieve is withdrawn.
 
-**E6. Follow-up.** The two-line gate on a non-antipodal ensemble passes. (a) The split can fail, and a split or a miss would each change the belief E2 leaves: whether a stake moves \(\theta\) under one price and not the other once the prices are not one curve. (b) Two states, one angle, one stake pair, no bath and no Monte Carlo, is the cheapest such test. It is locked in `PREREG_2.md` (commit `8ea241d`), predicted label `NOT_SPLIT`, failing input `SPLIT`. No scoring script has been run.
+**E6. Follow-up.** The two-line gate on a non-antipodal ensemble passes. (a) The split can fail, and a split or a miss would each change the belief E2 leaves: whether a stake moves \(\theta\) under one price and not the other once the prices are not one curve. (b) Two states, one angle, one stake pair, no bath and no Monte Carlo, is the cheapest such test. It is locked in `PREREG_2.md` (commit `8ea241d`), predicted label `NOT_SPLIT`, failing input `SPLIT`. No scoring script has been run. The four-angle check of the sum named in `PREREG_2.md:21` was not saved.
+
+**E7. Exchange rate.** The cost with both record terms named is \(J=\kappa\,I(W;M)+\kappa_D\,P_D+w\,L\), \(\kappa,\kappa_D\ge 0\). The open number is \(\kappa_D/\kappa\). At \(\kappa_D=\kappa\) the antipodal record terms are flat in \(\theta\) and the stake alone sets \(\theta\). Until that ratio is derived, every claim above is conditional on it.
