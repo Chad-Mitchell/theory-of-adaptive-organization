@@ -125,7 +125,7 @@ The gap vanishes for every \(\theta\) if and only if \(\kappa_D=0\). At ratio 1 
 
 **Every basis.** At \(\theta\in(0,\pi/2]\), the state is already diagonal in \(z\), and \(P_D(\theta)>0\). The two-term cost exceeds the R1 price of that same classical channel by \(\kappa_D P_D(\theta)\). Equality for every \(\theta\) holds if and only if \(\kappa_D=0\).
 
-**What A1 actually says.** A1 is a continuous preorder on the product of resource coordinates (`theory/REPRESENTATION.md:43`). It is not a requirement that the cost be continuous in a decoherence parameter, and it is not a requirement that a quantum extension agree with R1 off the pointer. Debreu's continuity is closed contour sets in that product topology (`theory/REPRESENTATION.md:102`). The decoherence limit is not one of those coordinates.
+**What A1 actually says.** A1 is a continuous preorder on the product of resource coordinates (`theory/REPRESENTATION.md:43`). It is not a requirement that the cost be continuous in a decoherence parameter, and it is not a requirement that a quantum extension agree with R1 off the pointer. Debreu's continuity is closed contour sets in that product topology (`theory/REPRESENTATION.md:108`). The decoherence limit is not one of those coordinates.
 
 **Status. PROVED (in-model).** Matching R1 at the pointer leaves every ratio. Matching R1 for every basis of the fully decohered state forces the endpoint \(\kappa_D=0\). Neither is ratio 1. At ratio 1 the excess over R1, off the pointer, is \(\kappa P_D(\theta)\).
 

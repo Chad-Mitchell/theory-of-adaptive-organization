@@ -278,11 +278,27 @@ def qutrit_review():
 
 
 def qutrit_coherent():
-    # Block eigenvalues 1/4 ± 1/8, plus 1/2. Φ kills the coherence.
-    eigs = (0.5, 0.375, 0.125)
-    s_rho = entropy_eigs(eigs)
-    s_phi = entropy_eigs((0.5, 0.25, 0.25))
-    return s_phi - s_rho
+    """Lüders map of the review projectors on the coherent block.
+
+    P0 = |0><0| and P1 = |1><1|+|2><2| keep coherence inside the block.
+    The first run subtracted the entropy of the dephased diagonal instead.
+    """
+    rho = (
+        (0.5, 0.0, 0.0),
+        (0.0, 0.25, 0.125),
+        (0.0, 0.125, 0.25),
+    )
+    phi = (
+        (rho[0][0], 0.0, 0.0),
+        (0.0, rho[1][1], rho[1][2]),
+        (0.0, rho[2][1], rho[2][2]),
+    )
+    for i in range(3):
+        for j in range(3):
+            if abs(phi[i][j] - rho[i][j]) > 1e-15:
+                raise SystemExit("named projectors moved the coherent block")
+    # One state, fixed by the instrument: I = 0 and P_D = 0.
+    return 0.0
 
 
 def sequential():

@@ -5,5 +5,5 @@ Q-garble PASS min_gap=0.150000
 Q-state PASS trace_distance=0.300000
 Q-reuse FAIL I_cond=0.017070 PD_total=0.084896 gap1=0.084896 gap2=0.169791
 Q-rank PASS PD=0.000e+00 I=0.000e+00 ledger_gap=0.346573590280 half_ln2=0.346573590280
-Q-coh PASS PD=0.065406 cost_gap=0.065406
-FAILS 1
+Q-coh FAIL PD=0.000000 cost_gap=0.000000
+FAILS 2

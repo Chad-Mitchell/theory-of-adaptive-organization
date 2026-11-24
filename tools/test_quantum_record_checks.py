@@ -39,8 +39,9 @@ def test_quantum_record_checks_match_stored_stdout():
         capture_output=True, text=True, timeout=120,
     )
     assert r.returncode == 0, r.stdout + r.stderr
-    assert "FAILS 1" in r.stdout
+    assert "FAILS 2" in r.stdout
     assert "Q-reuse FAIL" in r.stdout
+    assert "Q-coh FAIL" in r.stdout
     with open(os.path.join(HERE, "quantum_record_checks.out"), encoding="utf-8") as f:
         expected = f.read()
     assert r.stdout == expected
