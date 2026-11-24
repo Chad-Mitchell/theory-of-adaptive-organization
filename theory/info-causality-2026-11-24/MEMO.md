@@ -1,6 +1,6 @@
 # MEMO: paid information and information causality
 
-*24 November 2026 (UTC). Desk derivation, written after the prereg commit and not before it. Self-check, not an independent review. `THEORY.md` is unchanged. Labels follow `CORE.md:167-169`.*
+*24 November 2026 (UTC). Desk derivation, written after the prereg commit and not before it. Self-check, then the independent review at `theory/reviews/INFO_CAUSALITY_REVIEW_2026-11-24.md`. `THEORY.md` is unchanged. Open-work row T71. KNOWN and CONJECTURE below are the status words defined at `CORE.md:169` (header at `:167`). Relabel is the prereg's stopping word (`PREREG.md:44`). Model implication is plain language for the priced comparison, not a status word in that paragraph.*
 
 ## Why this approach
 
@@ -17,6 +17,8 @@ The task is Pawłowski, Paterek, Kaszlikowski, Scarani, Winter and Żukowski, *N
 | P3 | text of A6 and R1 | properties (1)–(3) for a no-signaling share are not stated there | relabel |
 | P4 | message priced at \(\kappa\) per nat, stake \(w\) on the error | the box scores \(\kappa\ln 2\); the classical one-bit protocol scores \(\kappa\ln 2+w/4\) | model implication |
 | P5 | classical protocol of P4 | the Shannon sum is 1 bit; the heat floor is unused | KNOWN, classical scope of A6 |
+
+The column is not a list of `CORE.md:169` status words. KNOWN is one of those words. Relabel is the stopping word. Model implication is plain language.
 
 **P1.** Theorem R1 (`theory/REPRESENTATION.md:84-92`) says a continuous cost representing the preorder is a price sum. The memory coordinate is Shannon mutual information for a finite alphabet, and the Gelfand–Yaglom–Dobrushin supremum when the mutual information is finite (`theory/REPRESENTATION.md:114`, `CORE.md:52`). A6 fixes which functional that coordinate is: the gross stock \(I(M_t;X^t)\), a different functional from the net learning rate (`theory/REPRESENTATION.md:60`). A8 makes a concatenating price nonnegative (`theory/REPRESENTATION.md:64`). A5 says there is no capacity ceiling on that coordinate (`theory/REPRESENTATION.md:56`). A nonnegative price on a coordinate that may be arbitrarily large leaves the random-access sum free of the ceiling \(I\le m\). A7 keeps the joint on the menu. No sentence in A1–A8 removes the perfect box or forces \(I\le 1\) on it.
 
@@ -46,7 +48,7 @@ The task is Pawłowski, Paterek, Kaszlikowski, Scarani, Winter and Żukowski, *N
 - R1: `theory/REPRESENTATION.md:84-92`. Memory coordinate: `:114`. Summary: `CORE.md:52`.
 - Heat floor, hypotheses included: `CORE.md:70`. Worked class, a different list: `CORE.md:86`.
 - Holevo as a duel pricing, not a premise: `theory/probes-2026-11-23/duel/PREREG.md:27` on `ace-probe-memos-2026-11-23`.
-- No PR-box contestant, and the maximal tensor product named only as a future composite to declare: `theory/probes-2026-11-23/reviews/DUEL_REVIEW.md:111` on that same branch. Logged in the prereg before this derivation.
+- No PR-box contestant on `upstream/main` at `0f37918` or on `upstream/ace-probe-memos-2026-11-23`. On the ace-probe branch the maximal tensor product is named only as a future composite to declare: `theory/probes-2026-11-23/reviews/DUEL_REVIEW.md:111`. That is the search the prereg logged. It is not a fork-wide claim. `origin/forge-composite-contest` at `e271ea971a10fbff4d58484cd2942c98dca12518` (2026-11-24 03:59:25 UTC), before this prereg, names Gmax, the maximal tensor product of two Bloch balls (`theory/PREREG.md:89` and `:105` on that commit). Gmax is not a Popescu–Rohrlich box. The task is a ruin-capped composite contest. That naming does not give \(I\le m\).
 - Target and the value \(I=2\): Pawłowski et al. 2009, DOI `10.1038/nature08400`.
 
 ## Deviations
@@ -57,8 +59,18 @@ The price section says a classical record is priced by its Shannon mutual inform
 
 One extra comparison. Reason: the same price section says that charging \(kT\) times the random-access sum, as if that sum were the learning flow, is a further choice and is outside the allowed premises. On the entropy pricing, that charge gives \(J_{\mathrm{box}}=(\kappa+2kT)\ln 2\) and \(J_{\mathrm{classical}}=(\kappa+kT)\ln 2+w/4\). The box remains cheaper when \(w>4kT\ln 2\). The added charge is still a finite price. It is not the ceiling \(I\le m\).
 
-No script and no `RUN_LOG`. C1 fails and C6 forbids both. There was no PR-box or maximal-tensor contestant to reuse.
+No script and no `RUN_LOG`. C1 fails and C6 forbids both. No PR-box contestant turned up on the trees the prereg searched. Gmax, already named on `forge-composite-contest`, is a different task and is not a script for this inequality.
 
 ## Score against the prereg
 
 C1 fail. C2 pass (this memo names the added axiom and stops). C3 pass (sum is 1 bit). C4 pass (sum is 2 bits). C5 pass (the box is cheaper by \(w/4\)). C6 pass (no script).
+
+## Errata
+
+Response to `theory/reviews/INFO_CAUSALITY_REVIEW_2026-11-24.md` (commit `b70c81c`). The relabel stands. `PREREG.md` is unchanged. This desk check is open-work row T71.
+
+1. **Number.** The row was first written as T69. Four branches collided on that number. The allocation is layer T69, constants T70, this desk check T71, composite T72. The science is the same.
+
+2. **Contestant sentence.** The prereg's search of `upstream/main` and the ace-probe branch found no PR-box and no maximal-tensor implementation. That search stands. The reuse sentence in the first memo was wider than the search. `origin/forge-composite-contest` commit `e271ea9` (2026-11-24 03:59:25 UTC), before the prereg, names Gmax, the maximal tensor product of two Bloch balls. Gmax is not a PR box. The task is a different contest. It does not give \(I\le m\). The conditional script stays unrun.
+
+3. **Labels.** `CORE.md:169` defines GENERAL, EXAMPLE, PROVED, KNOWN, SYNTHESIS, CONJECTURE, OPEN, and puzzle. This memo uses KNOWN and CONJECTURE in that sense. Relabel is the stopping word locked in the prereg. Model implication is plain language for the priced comparison. The opening line that said the labels follow `CORE.md:167-169` was too wide, and it is corrected above.
