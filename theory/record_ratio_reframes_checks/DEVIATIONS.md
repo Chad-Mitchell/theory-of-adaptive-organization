@@ -66,7 +66,7 @@ The overwritten field is a measurement/code miss. The bound-clause miss is a mod
 | C1 | at least one interior stake in \(\{0.5,1,2,4,8\}\) | 0 interior stakes | \(-1\) interior stake | model | medium | none yet; a later lock would name a search rule, not these stakes | none |
 | C2 | at least two interior stakes, recovering both coefficients within \(0.02\) | 1 interior stake | \(-1\) interior stake | model | medium | none yet | none |
 | C3 | ratio 0 above \(\pi/2-0.02\); ratio 1 below \(0.02\) | \(1.570796\); \(0\) | HIT | model | low | none yet | none |
-| T-mono | \(w_{\mathrm{crit}}/|\delta|\) strictly decreasing on fifty angles | \(3.208789\) down to \(2.777911\) | HIT | model | low | none yet | none |
+| T-mono | \(w_{\mathrm{crit}}/\lvert\delta\rvert\) strictly decreasing on fifty angles | \(3.208789\) down to \(2.777911\) | HIT | model | low | none yet | none |
 | T-cells | ten listed cells in the locked phase, interior within one grid step of the root | all ten match | HIT | model | low | none yet | none |
 | T-slope | endpoint quotients have the phase sign and absolute value \(>10^{-6}\) | signs match; interior quotients \(-3.386036\times 10^{-7}\) and \(+3.600020\times 10^{-7}\) | magnitude short by \(-6.614\times 10^{-7}\) and \(-6.400\times 10^{-7}\) | model | medium | none yet; a finer grid would be a new preregistration | none |
 | T-gamma | \(\gamma=0\) root and \(\gamma=1/2\) minimizer differ by \(\ge 0.1\) rad | gap \(0.704255\) rad | HIT; margin \(+0.604255\) rad | model | low | none yet | none |
