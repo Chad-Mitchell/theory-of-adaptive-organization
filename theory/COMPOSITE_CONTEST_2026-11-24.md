@@ -31,9 +31,23 @@ Other review items:
 
 **Diagnosis.** The menu builds in a real shortcut. Because `y` is orthogonal to every other setting, perfect anticorrelation on `y` is free for a rebit: constants, not a third direction. That is the menu, not the cap and not the price. `CORE.md:52` prices mutual information. On this protocol that price is 0 for every record set before the settings, so every loss-0 record ties, and with the rebit at loss 0 the dimension price makes every positive-`λ` cell a loss. The cap form never got to decide.
 
+## ERRATA_2
+
+Checked the shared-bit strategy in `theory/reviews/COMPOSITE_CONTEST_REVIEW_2_2026-11-24.md` (commit `4f04415`) on the operators in `run_menu3.py`. On the real singlet, mix sharp `xz` projections, weight `√(2/3)`, with `y → +I` on one wing and `−I` on the other. Mean loss `2.3045076783754708e-32`. Largest absolute entry error `4.4408920985006262e-16`. Averaging those two branches into one readout, `√(2/3) M + (1−√(2/3))(±I)` on `y`, gives mean loss `3.5918405131962310e-03`.
+
+The menu-3 WIN holds only if that correlated bit is charged. With the charge, `K = 20 > 16` and the complex record wins at every positive price: `λ ln(20/16) ≈ 0.223λ`, past a tie band of about `0.030λ`. At `K = 10` every positive-price cell LOSES: `λ ln(10/16) ≈ −0.470λ`. `PREREG.md:55` does not grant the bit. The label is **DEPENDS ON PRICING SHARED RANDOMNESS**, not WIN.
+
+The positive-price WIN inside the implemented list is dimension counting. After the `ε = 0` gate (`run_menu3.py:314`) the feasible records are C at 16, G at 17, and R4c at 36, so `16 < 17 < 36`. The mutual-information and Holevo TIE is the constants set to 0 at `run_menu3.py:302` and `:346`. It is an identity, not a test.
+
+The contestants are not computed. G's loss is copied from C (`run_menu3.py:300`). The odd-momentum witness is the literal `−1` (`run_menu3.py:240`). Gmin and Gmax share one fit (`run_menu3.py:194`, `:298`). Logged in `theory/menu3_checks/DEVIATIONS.md`. `PREREG_3.md:29` leaves the smallest singular value as `(√3 − √(4/3)?)`. The code prints `3.3673504811214609e-02`. The formula is unfinished.
+
+## Puzzle
+
+What would decide the miss is two modeling choices, and this run does not pick either. One is whether shared classical randomness between the wings costs record dimension. The other is which quantum-record price is the headline, Hardy dimension or the mutual information at `CORE.md:52`. That second choice is the same open price as the pointer-basis branch. No new preregistration in this round.
+
 ## Menu without that axis
 
-`theory/PREREG_3.md`, committed before its script. `y = (1,1,1)/√3` is not orthogonal to every other setting. Identity readouts are all `3^5` patterns. The rebit minimum is `2.1492408906328463e-03` (`theory/menu3_checks/decisions.out`). P-loss, P-win, P-bell and P-tie pass. Under Hardy dimension, every positive price at exact match is WIN. Under mutual information, every such cell is TIE, because G and R4c still copy the table at information 0. The complex record's own loss on this menu is `1.1898287380433425e-32`. Classical worst-pair loss remains the Bell floor, at product dimension 16.
+`theory/PREREG_3.md`, committed before its script. `y = (1,1,1)/√3` is not orthogonal to every other setting. The locked search is `3^5` patterns, one readout per setting. Its minimum is `2.1492408906328463e-03` (`theory/menu3_checks/decisions.out`). That number is the search, not the minimum over rebit behaviors. The label is **DEPENDS ON PRICING SHARED RANDOMNESS**, not WIN. See ERRATA_2. `PREREG_3.md:29` leaves the smallest singular value unfinished.
 
 ## Why this approach
 
@@ -149,14 +163,15 @@ On a classical axis the cheapest feasible record in the named list is classical.
 - `theory/composite_contest_checks/lemmas.py`, `search.py`, `decide.py`, `run_all.py`, `crossref_check.py`, `common.py`
 - Outputs: `lemmas.out`, `envelope.txt`, `decisions.out`, `control.out`, `crossref.out`, `SHA256SUMS`
 - `theory/composite_contest_checks/DEVIATIONS.md`
+- `theory/PREREG_3.md`, `theory/menu3_checks/DEVIATIONS.md`
 - Test: `tools/test_composite_contest_checks.py` reruns `run_all.py` and checks the locked hashes
 
 Read-first files, all found on `upstream/ace-probe-memos-2026-11-23`: `theory/probes-2026-11-23/README.md`, `reviews/DUEL_REVIEW.md`, `duel/DUEL_MEMO.md`, `WALLS_MEMO.md`, `reviews/WALLS_REVIEW.md`, `MIRROR_MEMO.md`, `reviews/MIRROR_REVIEW.md`. On this main: `CORE.md` (the priced sum and the memory coordinate at line 52; the heat floor at line 70) and `theory/CLOCK_TERM_2026-11-23.md`. The clock term is not charged. This contest is one preparation and one later readout.
 
 ## Pivot: the cap is the worst question
 
-The loose cells lost because the cap was a mean. The rebit's mean error is 1/25, which passes 0.05, and at `λ = 0.1` that is cheaper than a perfect complex record (`decisions.out` lines 249–251). `theory/PREREG_2.md` changes only the cap: ruin is the worst menu pair, `L_∞ = max (C_ab + u·v)^2`. One linear program, not a sweep (`theory/pivot_worst_checks/RUN_LOG.md`). The minimum classical support at that error is 6, not the solver's first support of 11 (`DEVIATIONS.md` D2).
+The loose cells lost because the cap was a mean. On the traceless search the rebit's mean error is 1/25, which passes 0.05, and at `λ = 0.1` that is cheaper than a perfect complex record (`decisions.out` lines 249–251). `theory/PREREG_2.md` changes only the cap: ruin is the worst menu pair, `L_∞ = max (C_ab + u·v)^2`. One linear program, not a sweep (`theory/pivot_worst_checks/RUN_LOG.md`). The minimum classical support at that error is 6, not the solver's first support of 11 (`DEVIATIONS.md` D2).
 
-The classical worst-question loss is `4.2893218813467290e-02`, on the Bell floor, at `K = 6` (`theory/pivot_worst_checks/decisions.out` line 1). The rebit stays infeasible below 1/9. The headline band, `λ > 0` and `ε ∈ {0.05, 0.1}`, is MIXED: six WIN, then two LOSE (`theory/pivot_worst_checks/decisions.out` line 364). The two losses are `λ = 0.1`. At `ε = 0.05` the classical cost is `2.2206916573627278e-01` and the complex cost is `2.7725887222397810e-01` (lines 318–321). At `λ ≤ 0.01` the complex record still wins, because the Bell gap is larger than `λ ln(16/6)`.
+The classical worst-question loss is `4.2893218813467290e-02`, on the Bell floor, at `K = 6` (`theory/pivot_worst_checks/decisions.out` line 1). The stored print is six WIN and two LOSE (`theory/pivot_worst_checks/decisions.out` line 364). That print is superseded. A rebit with opposite constants on `y` has loss 0, so the headline is eight LOSE (errata above). The rebit is not stuck below `1/9`.
 
-**What was learned.** A cap on every later question removes the rebit and does not remove a 6-state classical record. At a dimension price of 0.1 nats that record is cheaper. Below that price, on this grid, it is not. The cells under the classical floor are wins by infeasibility; they are a check (Q1), not a new fact. No further variant: lowering `λ` until the complex record wins would be fitting the grid.
+**What was learned.** The stored cells are the code output. The corrected headline is the errata, eight LOSE, because the constant readout was outside the search. No further variant on this menu.
