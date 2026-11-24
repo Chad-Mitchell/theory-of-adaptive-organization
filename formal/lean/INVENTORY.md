@@ -325,7 +325,7 @@ LAYER_LIFETIME §5. The cost expressions are inputs.
 | `DriftSelection.sub_two_smul` | lemma | `DriftSelection.lean:100` | unlabeled |
 | `DriftSelection.isHermitian_transpose` | lemma | `DriftSelection.lean:108` | unlabeled |
 | `DriftSelection.ou_C_eq` | lemma | `DriftSelection.lean:113` | unlabeled |
-| `DriftSelection.trace_mul` | lemma | `DriftSelection.lean:150` | unlabeled |
+| `DriftSelection.trace_mul₃_herm` | lemma | `DriftSelection.lean:150` | unlabeled |
 | `DriftSelection.ou_excess` | theorem | `DriftSelection.lean:166` | unlabeled |
 | `DriftSelection.bm_excess` | theorem | `DriftSelection.lean:259` | unlabeled |
 | `DriftSelection.bm_excess_isotropic` | theorem | `DriftSelection.lean:287` | unlabeled |
@@ -649,6 +649,9 @@ statement is the paper sentence, with every extra hypothesis named.
 Lemma C, Lemma P, Lemma C on the nonnegative integers, and Lemma M.
 All **Faithful**. The auxiliary names (`mul_nat`, the rational bounds,
 the squeeze) are the proof of Lemma C, not a second statement.
+`IndependentOf` and `price_zero_of_independent` quantify over strictly
+positive vectors. The witnesses are the constant-`1` vector and the
+vector that is `2` in the ignored coordinate.
 
 `AdditiveOnPos`, `Concatenates`, `mul_nat`, `cauchy_rat`,
 `f_one_nonneg_of_nondecreasing`, `f_one_nonpos_of_nonincreasing`,
@@ -659,20 +662,21 @@ the squeeze) are the proof of Lemma C, not a second statement.
 `pexider_continuous`, `cauchy_nat`, `slope_nonneg_of_nondecreasing`,
 `Represents`, `IndependentOf`, `price_zero_of_independent`.
 
-### `GTAO/Representation.lean` (16)
+### `GTAO/Representation.lean` (17)
 
 | Name | Label |
 |---|---|
 | `DebreuAdditive`, `r1_linear_components` | **Faithful** packaging. Debreu's conclusion, `n ≥ 3`, and Pexider are hypotheses. |
-| `r1_vnm_scale` | **Faithful.** One index, two positive affine writings, one scale. Von Neumann–Morgenstern linearity is a hypothesis. |
+| `r1_vnm_scale` | **WEAKER.** Two writings of one index agree. Debreu's scale is not identified with the currency scale. |
 | `r1_nonneg_of_A8` | **Faithful.** A8 gives nonnegative prices. |
-| `r1_zero_of_not_essential` | **Faithful.** Wraps `price_zero_of_independent`. |
+| `r1_zero_of_not_essential` | **Faithful.** Wraps `price_zero_of_independent` on the positive orthant. |
 | `r1_with_layer_count` | **Faithful.** Separability of `K` is a hypothesis. |
+| `r1_layer_price_nonneg_of_A8` | **Faithful.** A nondecreasing concatenating count has `fn 1 ≥ 0`. |
 | `negative_price_example` | **WEAKER.** Arithmetic and continuity of `z₀ + z₁ − z₂` only. A1–A7 are not checked. |
 | `IsArgmin`, `affine_argmin_iff`, `strictMono_argmin_iff` | **Faithful.** |
 | `affine_excess_scale`, `affine_excess_eq_iff` | **Faithful.** Reuses `gibbs_excess_quadratic` on the fixed weight of `J`. |
 | `affine_excess_refit` | **Faithful.** Refit `β/a` on `a • H`. |
-| `fractional_excess_scale`, `fractional_excess_shift` | **Faithful.** Concrete rationals for the nonzero shift. |
+| `fractional_excess_scale`, `fractional_excess_shift` | **Faithful** for `b = 0` and for the rationals `E[J] = 2`, `J* = 1`, `b = 1`. The general quotient is not a theorem. |
 | `constrained_argmin_not_affine` | **Faithful.** The two-design margin witness. Does not rewrite `LundbergCertified`. |
 
 ### `GTAO/Obstruction.lean` (16)
@@ -683,21 +687,24 @@ the squeeze) are the proof of Lemma C, not a second statement.
 | `kelly_not_expected_factor` | **Faithful.** `247/200` against `417/400`. Pure lean is the linear maximizer. |
 | `intervalCost`, `expected_cost_interval` | **Faithful.** Unique minimizer `√(1/10)`, via `LayerLifetime.Tstar`. |
 | `phi`, `quintic`, `cubic`, `quintic_eq_phi`, `hasDerivAt_quintic`, `cubic_neg`, `quintic_anti` | **Faithful** polynomial arithmetic for the numerator of the interval comparison. |
-| `survival_interval_lt` | **Faithful** for `τ_S < τ_E` inside the rational brackets. Not a proof that the zero maximizes `θ`. See `BATCH1_PLAN.md`. |
+| `survival_interval_lt` | **WEAKER.** The unique zero of `φ` on `(0, 2]` lies below `√(1/10)` inside the rational brackets. Maximality of `θ` is not proved. See `BATCH1_PLAN.md`. |
 
 ### `GTAO/ContinuousA6.lean` (16)
 
 | Name | Label |
 |---|---|
-| `klDiv_prob_integral`, `klDiv_nonneg`, `klDiv_zero_iff_eq` | **Faithful** on probability measures. |
+| `klDiv_prob_integral` | **Faithful.** Absolute continuity and integrability of the log-likelihood give `ENNReal.ofReal` of the integral. |
+| `klDiv_nonneg` | **Faithful** to `0 ≤ klDiv` in `ℝ≥0∞`. The integral's nonnegativity is a different fact. |
+| `klDiv_zero_iff_eq` | **Faithful** for the divergence. The mutual-information biconditional is not a separate declaration. |
 | `mutualInfo`, `mi_swap`, `mi_data_processing` | **Faithful.** Swap and `klDiv_map_le`. |
 | `klDiv_compProd_chain` | **Faithful** to Mathlib's kernel chain rule. Not the mutual-information chain rule. |
 | `partitionMI`, `partition_mi_le`, `refinement_mono`, `finite_identity_attains` | **Faithful.** |
 | `FiniteLabel`, `finitePartitionMI`, `finite_partition_le` | **Faithful.** |
 | `GYDSup`, `gyd_equiv` | **Faithful** hypothesis. The reverse inequality is assumed. `gyd_equiv` is that assumption plus the proved bound. |
 
-Batch 1 adds 74 source declarations. The axiom audit on this tree
-reports 925 `GTAO` constants, up from 757, and only `propext`,
-`Classical.choice`, and `Quot.sound`. The audit counts every generated
-constant, so 925 is larger than 354 + 74.
+Batch 1 adds 75 source declarations: 72 **Faithful** and 3 **WEAKER**
+(`negative_price_example`, `r1_vnm_scale`, `survival_interval_lt`).
+The axiom audit on this tree reports 926 `GTAO` constants, up from 757,
+and only `propext`, `Classical.choice`, and `Quot.sound`. The audit
+counts every generated constant, so 926 is larger than 354 + 75.
 

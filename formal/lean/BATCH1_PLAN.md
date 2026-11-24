@@ -187,3 +187,17 @@ A derivative of `θ` was not constructed, so the sign link from `φ` to
 `θ'` is not a theorem. The shipped comparison is the one in
 `theory/REPRESENTATION.md:162`: the two intervals are not the same
 design. The printed figures `0.2362` and `0.3162` are not equalities.
+The declaration is labeled **WEAKER** for that missing maximality.
+
+`klDiv_prob_integral` now takes `Integrable (llr μ ν) μ` and concludes
+`klDiv μ ν = ENNReal.ofReal (∫ llr ∂μ)` on probability measures.
+Without that hypothesis, `toReal` of `klDiv` and the Bochner integral
+are both `0` when the log-likelihood is not integrable. That equality
+of reals is not the extended value, so it is not the statement.
+
+`price_zero_of_independent` uses the linear form only on strictly
+positive vectors. The two witnesses are the constant-`1` vector and the
+vector that is `2` in the ignored coordinate.
+
+`r1_vnm_scale` is labeled **WEAKER**. It equates two positive affine
+writings of one index. Debreu's scale is not in the statement.

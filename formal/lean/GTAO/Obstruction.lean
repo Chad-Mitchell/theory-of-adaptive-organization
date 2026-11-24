@@ -278,9 +278,10 @@ theorem expected_cost_interval :
     rw [← hT]
     exact LayerLifetime.Tstar_unique ha hk ht hle
 
-/-- The survival interval, the unique positive zero of `φ` on `(0, 2]`,
-lies in `(23615/100000, 189/800)` and is strictly below `√(1/10)`.
-The note's `0.2362` and `0.3162` are roundings of these brackets. -/
+/-- The unique positive zero of `φ` on `(0, 2]` lies in
+`(23615/100000, 189/800)` and is strictly below `√(1/10)`.
+The note's `0.2362` and `0.3162` are roundings of these brackets.
+This does not prove that the zero maximizes `θ`. -/
 theorem survival_interval_lt :
     ∃ τ, 23615 / 100000 < τ ∧ τ < 189 / 800 ∧ phi τ = 0 ∧
       (∀ τ', 0 < τ' → τ' ≤ 2 → phi τ' = 0 → τ' = τ) ∧

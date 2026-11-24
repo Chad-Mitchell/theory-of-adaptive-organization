@@ -310,34 +310,59 @@ theorem slope_nonneg_of_nondecreasing {p : ℝ}
 def Represents {α : Type*} (C : α → ℝ) (R : α → α → Prop) : Prop :=
   ∀ x y, R x y ↔ C x ≤ C y
 
-/-- Coordinate `i` is not essential when the preorder ignores it. -/
+/-- Coordinate `i` is not essential when the preorder on the positive orthant ignores it. -/
 def IndependentOf {ι : Type*} (R : (ι → ℝ) → (ι → ℝ) → Prop) (i : ι) : Prop :=
-  ∀ x y, (∀ j, j ≠ i → x j = y j) → R x y ∧ R y x
+  ∀ x y, (∀ j, 0 < x j) → (∀ j, 0 < y j) → (∀ j, j ≠ i → x j = y j) → R x y ∧ R y x
 
 /-- Lemma M, second sentence. A coordinate the preorder ignores has price 0.
-`theory/REPRESENTATION.md:80`. -/
+Both witnesses lie in the positive orthant, and the linear form is used only
+there. `theory/REPRESENTATION.md:80`. -/
 theorem price_zero_of_independent {ι : Type*} [Fintype ι] [DecidableEq ι] {i : ι}
     {p : ι → ℝ} {b : ℝ} {C : (ι → ℝ) → ℝ} {R : (ι → ℝ) → (ι → ℝ) → Prop}
-    (hC : ∀ z, C z = ∑ j, p j * z j + b) (hR : Represents C R)
+    (hC : ∀ z, (∀ j, 0 < z j) → C z = ∑ j, p j * z j + b) (hR : Represents C R)
     (hind : IndependentOf R i) : p i = 0 := by
-  let z : ι → ℝ := fun _ => 0
-  let z' : ι → ℝ := Function.update z i 1
+  let z : ι → ℝ := fun _ => 1
+  let z' : ι → ℝ := Function.update z i 2
+  have hz : ∀ j, 0 < z j := by
+    intro j
+    simp [z]
+  have hz' : ∀ j, 0 < z' j := by
+    intro j
+    by_cases hj : j = i
+    · subst hj
+      simp [z', z, Function.update_self]
+    · simp [z', z, Function.update_of_ne hj]
   have hagree : ∀ j, j ≠ i → z j = z' j := by
     intro j hj
     simp [z, z', Function.update_of_ne hj]
-  have hboth := hind z z' hagree
+  have hboth := hind z z' hz hz' hagree
   have hle : C z ≤ C z' := (hR z z').mp hboth.1
   have hge : C z' ≤ C z := (hR z' z).mp hboth.2
   have heq : C z = C z' := le_antisymm hle hge
-  have hz : ∑ j, p j * z j = 0 := by simp [z]
-  have hz' : ∑ j, p j * z' j = p i := by
-    classical
+  have hCz : C z = ∑ j, p j * z j + b := hC z hz
+  have hCz' : C z' = ∑ j, p j * z' j + b := hC z' hz'
+  have hsum : ∑ j, p j * z j = ∑ j, p j * z' j := by linarith
+  have hdiff : ∑ j, p j * (z' j - z j) = 0 := by
+    have hsub : ∑ j, p j * z' j - ∑ j, p j * z j = ∑ j, p j * (z' j - z j) := by
+      rw [← Finset.sum_sub_distrib]
+      exact Finset.sum_congr rfl fun j _ => by ring
+    linarith [hsum, hsub]
+  have hstep : ∀ j, z' j - z j = if j = i then (1 : ℝ) else 0 := by
+    intro j
+    by_cases hj : j = i
+    · subst hj
+      simp only [z, z', Function.update_self, ite_true]
+      norm_num
+    · have hzj : z' j = z j := by
+        change Function.update z i 2 j = z j
+        exact Function.update_of_ne hj (2 : ℝ) z
+      rw [hzj, sub_self]
+      exact (ite_eq_right hj).symm
+  have hp : ∑ j, p j * (z' j - z j) = p i := by
     rw [Finset.sum_eq_single i
-      (fun j _ hj => by simp [z', z, Function.update_of_ne hj])
+      (fun j _ hj => by simp [hstep j, hj])
       (fun hi => (hi (Finset.mem_univ i)).elim)]
-    simp [z', z]
-  have hCz : C z = b := by rw [hC z, hz, zero_add]
-  have hCz' : C z' = p i + b := by rw [hC z', hz']
-  linarith
+    simp [hstep]
+  linarith [hdiff, hp]
 
 end Representation

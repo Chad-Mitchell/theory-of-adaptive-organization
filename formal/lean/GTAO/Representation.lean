@@ -51,9 +51,9 @@ theorem r1_linear_components {n : ℕ} {C : (Fin n → ℝ) → ℝ}
   simp_rw [fun i => pexider_continuous (hcat i) (hD.continuous i) (hz i)]
   rw [Finset.sum_sub_distrib]
 
-/-- One scale. If one cost is a positive affine image of one index in two
-ways, and the index takes two values, the slope and the constant agree.
-`theory/REPRESENTATION.md:100` and line 118. -/
+/-- Two positive affine writings of one index agree. Debreu's common scale
+does not appear, so this does not identify that scale with the currency
+regraduation. `theory/REPRESENTATION.md:100` and line 118. -/
 theorem r1_vnm_scale {α : Type*} (C loss : α → ℝ) {a1 b1 a2 b2 : ℝ}
     (h1 : ∀ x, C x = a1 * loss x + b1) (h2 : ∀ x, C x = a2 * loss x + b2)
     (ha1 : 0 < a1) (ha2 : 0 < a2) (x y : α) (hxy : loss x ≠ loss y) :
@@ -86,11 +86,12 @@ theorem r1_nonneg_of_A8 {n : ℕ} {C : (Fin n → ℝ) → ℝ}
     linarith
   simpa [g] using f_one_nonneg_of_nondecreasing hg hmon
 
-/-- A coordinate the preorder ignores has price zero.
+/-- A coordinate the preorder ignores has price zero. The linear form and
+the preorder are used only on the positive orthant.
 `theory/REPRESENTATION.md:25` and line 90. -/
 theorem r1_zero_of_not_essential {ι : Type*} [Fintype ι] [DecidableEq ι] {i : ι}
     {p : ι → ℝ} {b : ℝ} {C : (ι → ℝ) → ℝ} {R : (ι → ℝ) → (ι → ℝ) → Prop}
-    (hC : ∀ z, C z = ∑ j, p j * z j + b) (hR : Represents C R)
+    (hC : ∀ z, (∀ j, 0 < z j) → C z = ∑ j, p j * z j + b) (hR : Represents C R)
     (hind : IndependentOf R i) : p i = 0 :=
   price_zero_of_independent hC hR hind
 
@@ -103,6 +104,15 @@ theorem r1_with_layer_count {n : ℕ} {C : (Fin n → ℝ) → ℕ → ℝ}
     (hadd : ∀ m n, fn (m + n) = fn m + fn n) (z : Fin n → ℝ) (K : ℕ) :
     C z K = Cint z + (K : ℝ) * fn 1 := by
   rw [hsep, (cauchy_nat fn hadd).2 K]
+
+/-- A8 on the integer count: a nondecreasing concatenating count has
+`h = fn 1 ≥ 0`. `theory/REPRESENTATION.md:112`. -/
+theorem r1_layer_price_nonneg_of_A8 (fn : ℕ → ℝ)
+    (hadd : ∀ m n, fn (m + n) = fn m + fn n)
+    (hmono : ∀ m n, m ≤ n → fn m ≤ fn n) : 0 ≤ fn 1 := by
+  have h0 : fn 0 = 0 := (cauchy_nat fn hadd).1
+  have h01 : fn 0 ≤ fn 1 := hmono 0 1 (by norm_num)
+  linarith [h0, h01]
 
 /-- Arithmetic of the negative-price example. This does not check A6.
 `theory/REPRESENTATION.md:90` and line 64. -/

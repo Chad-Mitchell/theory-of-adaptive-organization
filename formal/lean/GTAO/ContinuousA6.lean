@@ -13,10 +13,12 @@ public import Mathlib.MeasureTheory.MeasurableSpace.Embedding
 /-!
 # Finite partitions and Kullback–Leibler divergence
 
-`klDiv` is Mathlib's. On probability measures the finite-measure correction
-is zero, so the value is the integral in the note. The chain rule re-exported
-here is Mathlib's kernel identity. It is not the mutual-information chain
-rule. The Gelfand–Yaglom–Dobrushin reverse inequality is a hypothesis.
+`klDiv` is Mathlib's. On probability measures with an integrable
+log-likelihood the finite-measure correction is zero, so the divergence
+equals `ENNReal.ofReal` of the integral. Without integrability Mathlib
+sets the divergence to `⊤`. The chain rule re-exported here is Mathlib's
+kernel identity. It is not the mutual-information chain rule. The
+Gelfand–Yaglom–Dobrushin reverse inequality is a hypothesis.
 -/
 
 @[expose] public section
@@ -26,13 +28,19 @@ namespace ContinuousA6
 open MeasureTheory InformationTheory ProbabilityTheory
 open scoped ENNReal ProbabilityTheory
 
-/-- On probability measures the correction `ν(univ) - μ(univ)` vanishes, so
-`klDiv` is the integral of the log-likelihood ratio when `μ ≪ ν`.
+/-- On probability measures with an integrable log-likelihood, the correction
+`ν(univ) - μ(univ)` vanishes, so `klDiv` equals `ENNReal.ofReal` of the
+integral. Integrability is required. Without it Mathlib sets `klDiv` to `⊤`,
+and `toReal` of that value is `0`, which is not the extended value.
 `theory/CONTINUOUS_A6_2026-11-23.md:77`. -/
 theorem klDiv_prob_integral {α : Type*} [MeasurableSpace α] {μ ν : Measure α}
-    [IsProbabilityMeasure μ] [IsProbabilityMeasure ν] (h : μ ≪ ν) :
-    (klDiv μ ν).toReal = ∫ a, llr μ ν a ∂μ :=
-  toReal_klDiv_of_measure_eq h (by simp [measure_univ])
+    [IsProbabilityMeasure μ] [IsProbabilityMeasure ν]
+    (h : μ ≪ ν) (hint : Integrable (llr μ ν) μ) :
+    klDiv μ ν = ENNReal.ofReal (∫ a, llr μ ν a ∂μ) := by
+  have hcorr : (∫ a, llr μ ν a ∂μ) + ν.real Set.univ - μ.real Set.univ =
+      ∫ a, llr μ ν a ∂μ := by
+    simp [measureReal_def, measure_univ]
+  simpa [hcorr] using klDiv_of_ac_of_integrable h hint
 
 /-- The divergence takes values in `[0, ∞]`. -/
 theorem klDiv_nonneg {α : Type*} [MeasurableSpace α] (μ ν : Measure α) :
