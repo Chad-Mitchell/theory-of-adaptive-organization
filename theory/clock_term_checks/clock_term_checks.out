@@ -1,0 +1,15 @@
+1. symbolic CK minimum
+  coefficient of f: -K*b/a + c  (equals c - Kb/a: True); onset c* = 2Kb/a: 6K at (a,b)=(1/3,1), 4K at (1,2)
+2. CK closed form vs numerical minimum (interval-averaged)
+  6 cases, max relative gap below 1e-9: True
+3. onset brackets (kap = kT = 1, w = 3, om = 1)
+  interval-averaged: clock at c=5.9: False, at c=6.1: True
+  pre-look / Poisson time-averaged: clock at c=3.9: False, at c=4.1: True
+4. information-priced looks (class CK-I, reset readout, exact information)
+  mu/sqrt(2r)=35.4: b/a = 0.5000
+  mu/sqrt(2r)=14.1: b/a = 0.5000
+  kap=1, lam=1: local onset at 4.000 nats (4 kap/lam = 4.000)
+  kap=2, lam=1: local onset at 8.001 nats (4 kap/lam = 8.000)
+  naive high-SNR closed form onset (kap=lam=1): 4.8284 nats (not the class's onset)
+FAILS 0
+ALL T68 CHECKS PASS

@@ -1,0 +1,6 @@
+1-cos loss, w/(c om) ~ 5: clock first pays at c/kap kT ~ 5.5
+1-cos loss, w/(c om) ~ 50: clock first pays at c/kap kT ~ 6.0
+1-cos loss, w/(c om) ~ 500: clock first pays at c/kap kT ~ 6.0
+1-cos loss, w/(c om) ~ 5000: clock first pays at c/kap kT ~ 6.0
+endpoint quadratic loss, w=1: c=3.8: clock no  c=3.95: clock no  c=4.05: clock pays  c=4.2: clock pays
+endpoint quadratic loss, w=100: c=3.8: clock no  c=3.95: clock no  c=4.05: clock pays  c=4.2: clock pays
