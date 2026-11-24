@@ -169,4 +169,21 @@ or to mark the Lean declaration WEAKER in `formal/lean/README.md` and
 
 ## Appendix (appended only)
 
-None yet.
+The conditional mutual-information chain rule does not typecheck from
+`klDiv_compProd_eq_add`. Mathlib's `KullbackLeibler/ChainRule.lean` at
+pin `v4.37.0-rc1` proves
+`klDiv (μ ⊗ₘ κ) (ν ⊗ₘ η) = klDiv μ ν + klDiv (μ ⊗ₘ κ) (μ ⊗ₘ η)`
+and records that the integral form `μ[x ↦ klDiv (κ x) (η x)]` is not
+proved. `ContinuousA6.klDiv_compProd_chain`
+(`formal/lean/GTAO/ContinuousA6.lean`) is that kernel identity.
+`theory/CONTINUOUS_A6_2026-11-23.md:145` also names
+`I(X; Y, Z) = I(X; Z) + I(X; Y | Z)`. No declaration equates the two,
+and no weaker equation is substituted.
+
+`survival_interval_lt` proves that the unique zero of `φ` on `(0, 2]`
+lies in `(23615/100000, 189/800)` and is strictly below `√(1/10)`.
+It does not prove that this zero is a maximizer of `θ = 2m/s²`.
+A derivative of `θ` was not constructed, so the sign link from `φ` to
+`θ'` is not a theorem. The shipped comparison is the one in
+`theory/REPRESENTATION.md:162`: the two intervals are not the same
+design. The printed figures `0.2362` and `0.3162` are not equalities.

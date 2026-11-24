@@ -632,7 +632,72 @@ nearby lemma in the list above is not a formalization of the claim.
 
 ## Batch 1 declarations
 
-Added after this inventory was first written. See the appendix below once
-the proofs are in the tree. Until that appendix is filled, the 354
-declarations above are the whole formalization.
+These are the declarations added in this batch. They reuse
+`Equipartition.gibbs_excess_quadratic`, `Equipartition.homogCost_quadratic`,
+`Equipartition.integrable_exp`, `Equipartition.integrable_moment`,
+`LayerLifetime.Tstar`, `LayerLifetime.Tstar_isMin`, `LayerLifetime.Tstar_unique`,
+and Mathlib's `klDiv`, `klDiv_eq_zero_iff`, `klDiv_map_le`,
+`klDiv_compProd_eq_add`. None of those is restated. The 354 declarations
+above are unchanged.
+
+Labels match `formal/lean/README.md`. **Faithful** means the checked
+statement is the paper sentence, with every extra hypothesis named.
+**WEAKER** means a clause of the paper sentence is not in the declaration.
+
+### `GTAO/Cauchy.lean` (26)
+
+Lemma C, Lemma P, Lemma C on the nonnegative integers, and Lemma M.
+All **Faithful**. The auxiliary names (`mul_nat`, the rational bounds,
+the squeeze) are the proof of Lemma C, not a second statement.
+
+`AdditiveOnPos`, `Concatenates`, `mul_nat`, `cauchy_rat`,
+`f_one_nonneg_of_nondecreasing`, `f_one_nonpos_of_nonincreasing`,
+`below_gap`, `above_gap`, `ratBelow`, `ratAbove`, `ratBelow_bounds`,
+`ratAbove_bounds`, `tendsto_mul_div`, `tendsto_mul_div_above`,
+`tendsto_ratBelow`, `tendsto_ratAbove`, `eq_of_squeeze`,
+`cauchy_monotone`, `cauchy_continuous`, `pexider_monotone`,
+`pexider_continuous`, `cauchy_nat`, `slope_nonneg_of_nondecreasing`,
+`Represents`, `IndependentOf`, `price_zero_of_independent`.
+
+### `GTAO/Representation.lean` (16)
+
+| Name | Label |
+|---|---|
+| `DebreuAdditive`, `r1_linear_components` | **Faithful** packaging. Debreu's conclusion, `n ≥ 3`, and Pexider are hypotheses. |
+| `r1_vnm_scale` | **Faithful.** One index, two positive affine writings, one scale. Von Neumann–Morgenstern linearity is a hypothesis. |
+| `r1_nonneg_of_A8` | **Faithful.** A8 gives nonnegative prices. |
+| `r1_zero_of_not_essential` | **Faithful.** Wraps `price_zero_of_independent`. |
+| `r1_with_layer_count` | **Faithful.** Separability of `K` is a hypothesis. |
+| `negative_price_example` | **WEAKER.** Arithmetic and continuity of `z₀ + z₁ − z₂` only. A1–A7 are not checked. |
+| `IsArgmin`, `affine_argmin_iff`, `strictMono_argmin_iff` | **Faithful.** |
+| `affine_excess_scale`, `affine_excess_eq_iff` | **Faithful.** Reuses `gibbs_excess_quadratic` on the fixed weight of `J`. |
+| `affine_excess_refit` | **Faithful.** Refit `β/a` on `a • H`. |
+| `fractional_excess_scale`, `fractional_excess_shift` | **Faithful.** Concrete rationals for the nonzero shift. |
+| `constrained_argmin_not_affine` | **Faithful.** The two-design margin witness. Does not rewrite `LundbergCertified`. |
+
+### `GTAO/Obstruction.lean` (16)
+
+| Name | Label |
+|---|---|
+| `sharedGrowth`, `kelly_qstar`, `log_le_tangent`, `log_lt_tangent`, `kelly_foc_sign` | **Faithful.** `q* = 13/50` is the unique maximizer on `(0, 1]`. |
+| `kelly_not_expected_factor` | **Faithful.** `247/200` against `417/400`. Pure lean is the linear maximizer. |
+| `intervalCost`, `expected_cost_interval` | **Faithful.** Unique minimizer `√(1/10)`, via `LayerLifetime.Tstar`. |
+| `phi`, `quintic`, `cubic`, `quintic_eq_phi`, `hasDerivAt_quintic`, `cubic_neg`, `quintic_anti` | **Faithful** polynomial arithmetic for the numerator of the interval comparison. |
+| `survival_interval_lt` | **Faithful** for `τ_S < τ_E` inside the rational brackets. Not a proof that the zero maximizes `θ`. See `BATCH1_PLAN.md`. |
+
+### `GTAO/ContinuousA6.lean` (16)
+
+| Name | Label |
+|---|---|
+| `klDiv_prob_integral`, `klDiv_nonneg`, `klDiv_zero_iff_eq` | **Faithful** on probability measures. |
+| `mutualInfo`, `mi_swap`, `mi_data_processing` | **Faithful.** Swap and `klDiv_map_le`. |
+| `klDiv_compProd_chain` | **Faithful** to Mathlib's kernel chain rule. Not the mutual-information chain rule. |
+| `partitionMI`, `partition_mi_le`, `refinement_mono`, `finite_identity_attains` | **Faithful.** |
+| `FiniteLabel`, `finitePartitionMI`, `finite_partition_le` | **Faithful.** |
+| `GYDSup`, `gyd_equiv` | **Faithful** hypothesis. The reverse inequality is assumed. `gyd_equiv` is that assumption plus the proved bound. |
+
+Batch 1 adds 74 source declarations. The axiom audit on this tree
+reports 925 `GTAO` constants, up from 757, and only `propext`,
+`Classical.choice`, and `Quot.sound`. The audit counts every generated
+constant, so 925 is larger than 354 + 74.
 
