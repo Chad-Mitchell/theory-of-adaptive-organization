@@ -47,22 +47,22 @@ Checked the shared-bit strategy in `theory/reviews/COMPOSITE_CONTEST_REVIEW_2_20
 |---|---|---|---|
 | C | 16 | `1.1898287380433425e-32` | singlet, `decisions.out:2` |
 | R | 10 | `2.1492408906328463e-03` | one readout per setting, `:3`; infeasible |
-| H | 72 | `1.4463870270106627e-02` | mean of squares, `run_menu3.py:209`, `:4`; the squared worst entry `4.2893218813452497e-02` is only the Bell check, `:10` |
+| H | 72 | `1.4463870270106627e-02` | mean of squares, `run_menu3.py:209`; the squared worst entry `4.2893218813452497e-02` is on `:4`, and `:10` is the Bell check |
 | G | 17 | `1.9786896432643543e-32` | no: product Paulis span rank 16 and `eta_gap` is 0, `contestants.py:55`, `:5` |
 | R4a | 7 | `1.8885627596701121e-01` | yes: its own phase space, `contestants.py:167`, `:7`; `yy` is `-5.9487425149700646e-01` |
 | R4c | 36 | `6.8737752773862176e-32` | the real plane, `contestants.py:227`; feasible, and alone it is still `λ ln(36/16)` |
 | Gmin | 16 | `1.6233664462791825e-01` | no: it is the product in Lemma P, `contestants.py:117` |
-| Gmax | 16 | `0` | yes: the maximal tensor product, not the product orbit, `contestants.py:154`, `:7` |
+| Gmax | 16 | `0` | the singlet is in the set, so `gmax_fit` returns the target table (`contestants.py:162`). Not a search. `-8.3266726846886728e-17` on `:7` is float error |
 
 The witnesses are the models' own `yy` entries (`contestants.py:84`, `decisions.out:6`). R, H, R4a, and Gmin are not `−1`. C, G, R4c, and Gmax are.
 
-**Model implication.** Conditional on the Hardy price `λ ln K_AB` (`theory/composite-contest-2026-11-24/PREREG.md:27`), the positive-price cell is TIE (`decisions.out:21`, `:105`). Gmax matches the target at `K = 16`, so the count `16 < 17 < 36` does not decide the cell. At price 0 the same three feasible loss-0 records tie with C (`:11`). `I_A6` and Holevo, computed from the product joint and the eigenvalues, are 0 (`contestants.py:243`, `:8`). The claim that they separate contestants is dropped. The positive-price WIN does not hold.
+**Model implication.** Conditional on the Hardy price `λ ln K_AB` (`theory/composite-contest-2026-11-24/PREREG.md:27`), the positive-price cell is TIE (`decisions.out:21`, `:105`). The loss 0 is the singlet sitting in the maximal tensor product, returned as the target table, so the count `16 < 17 < 36` does not decide the cell. At price 0 the same three feasible loss-0 records tie with C (`:11`). `I_A6` and Holevo are identically 0 (`contestants.py:262`, `:272`, `decisions.out:8`). Those identities cannot fail, and the claim that they separate contestants is dropped. The positive-price WIN does not hold. Under the orbit restriction in `PREREG.md:105`, Gmax stays a product and that cell is WIN.
 
 **Outside the lock.** The shared bit is a sensitivity (`decisions.out:72-103`). The count used is `K = 40`. Charged at 40 or at 20, that pair is WIN. At `K = 16` it is TIE. At `K = 15`, and uncharged at `K = 10`, it is LOSE (`:99-103`).
 
 ## Puzzle
 
-The win disappeared once Gmax was the maximal tensor product. `theory/composite-contest-2026-11-24/PREREG.md:105` granted that row only local rotations, and that orbit is a product, which Lemma P keeps out. The state space contains the singlet, the product-effect probabilities are nonnegative (`decisions.out:65`), and the cell ties. The menu also cannot see a coordinate that product effects ignore (`contestants.py:67`). The next attack is which of those two the cost prices: the reachable orbit, or the state space. The local-rotation restriction was not put back. No further contest on this menu until that choice is locked. The same question, for a record that is held and not read, is still open. Mutual information does not answer it on this protocol.
+The win disappeared once Gmax was the maximal tensor product. The loss 0 follows from the singlet being in that set. `gmax_fit` returns the target table (`theory/menu3_checks/contestants.py:162`). It does not search. `theory/composite-contest-2026-11-24/PREREG.md:105` granted that row only local rotations, and that orbit is a product, which Lemma P keeps out. Under that restriction the cell is WIN. The menu also cannot see a coordinate that product effects ignore (`contestants.py:81`). The next attack is which of those two the cost prices: the reachable orbit, or the state space. The local-rotation restriction was not put back. No further contest on this menu until that choice is locked. The same question, for a record that is held and not read, is still open. `I_A6` and Holevo are identically 0 and cannot fail (`contestants.py:262`, `:272`). L7 is the same kind of identity (`theory/composite_contest_checks/lemmas.py:247-251`). Mutual information does not answer the price question on this protocol.
 
 ## Menu without that axis
 
