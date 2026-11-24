@@ -4,6 +4,33 @@
 
 > "The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment." (`CORE.md:7`)
 
+## Errata
+
+Checked `theory/reviews/composite_contest_review_checks/rebit0.py` after `c2a2a92`. Mean loss `1.101e-32`, worst-pair loss `4.930e-32`. Confirmed. A real singlet, with `y` read out as `+I` on one wing and `−I` on the other, matches the target. `PREREG.md` allows those readouts. The search and Lemma R kept only traceless effects, and the pivot hard-coded `1/9`.
+
+Corrected labels, rebit loss 0 at `K = 10`, same tie band. The stored outputs are unchanged.
+
+| Contest | Cells | Code output | Corrected |
+|---|---|---|---|
+| First, `λ > 0` | 24 | 21 WIN, 3 LOSE | 24 LOSE |
+| Pivot headline, `λ > 0`, `ε ∈ {0.05, 0.1}` | 8 | 6 WIN, 2 LOSE | 8 LOSE |
+| `λ = 0` | 6 and 8 | TIE | TIE |
+
+`ΔJ = λ ln(10/16)` is about `−0.470λ`, past a tie band of about `0.028λ`.
+
+The cause is one restricted search, shared with the lemma. The `y` setting is orthogonal to the other four, so its target row is zero off the diagonal. Opposite constants produce that row.
+
+Other review items:
+
+2. Classical `K` was the number of atoms in one behavior, not `K_A K_B`. Under the product rule the review's `lt.py` finds no local model with `K ≤ 10` inside the worst-pair cap at 0.05 or 0.1. Logged. It does not change the corrected labels.
+3. A shared sign bit (`M = 2`) has loss 0 on the classical-axis control (`rescore.py`). The loss for C there stands. The information-versus-dimension split was about the 6-state copy only. Holevo of that ensemble is `ln 3`, and the printed value `1.0986122886681096` matches it.
+4. Logged as deviations, not previously: no `pinfo` or `orbit` grid, `I_A6` hard-coded, G and R4c entered as constants, R4a copied from H, and `search_results.json`, `grid_results.json`, script hashes, and the pivot `envelope.txt` were not written.
+5. `PREREG_2` changed the stake, the `ε` grid, and the search, not only the cap.
+6. Mean-loss minimum is `2(3−2√2)/25`. The bound `(3−2√2)/25` is not what the search attains. Wording above is corrected.
+7. Three figures above are corrected to `decisions.out`: `I_wings` `1.3862943611198841`, CHSH `−2.8284270928652249`, and `J_H` `3.4520245437103150e-02`.
+
+**Diagnosis.** The menu builds in a real shortcut. Because `y` is orthogonal to every other setting, perfect anticorrelation on `y` is free for a rebit: constants, not a third direction. That is the menu, not the cap and not the price. `CORE.md:52` prices mutual information. On this protocol that price is 0 for every record set before the settings, so every loss-0 record ties, and with the rebit at loss 0 the dimension price makes every positive-`λ` cell a loss. The cap form never got to decide.
+
 ## Why this approach
 
 The single-system duel ties, because one generator uses a thin section of the quantum state space and a blurred classical rotor matches every readout on that section (`theory/probes-2026-11-23/reviews/DUEL_REVIEW.md` §6, on `upstream/ace-probe-memos-2026-11-23`). The review named the next question: two records that interact, or a question chosen only after the record is set. That is where complex quantum theory, real quantum theory, a classical hidden-variable model, and a composite without local tomography can come apart. Müller and Masanes (doi 10.1088/1367-2630/15/5/053040) already show that single-system postulates give a ball in every dimension, and that local tomography plus a continuous reversible interaction is what forces the qubit. The mirror review asked that R4a and R4c be controls in this contest, not a separate simulation (`theory/probes-2026-11-23/reviews/MIRROR_REVIEW.md` §4).
@@ -53,14 +80,14 @@ Contestants and coordinates. `I_A6` is the mutual information between the later 
 | Contestant | K_AB | K_hv | I_A6 | I_wings | Loss on the singlet menu |
 |---|---|---|---|---|---|
 | C complex two qubits | 16 | inf | 0 | 2 ln 2 = 1.3862943611198906 | 0 |
-| R two rebits | 10 | inf | 0 | 1.3862943611198904 | 0.040000000000000098 |
+| R two rebits | 10 | inf | 0 | 1.3862943611198841 | 0.040000000000000098 |
 | H classical search | 1 through 8, chosen per cell | same M | 0 | depends on the mixture; not one state | envelope below |
 | G holistic | 17 | inf | 0 | same singlet at η = 0 | 0 |
 | R4a velocity-flip | same models as H | same M | 0 | same as H | same as H; witness −1 (`lemmas.out` L7) |
 | R4c real doubling | 36 | inf | 0 | the simulated singlet | 0 |
 | Gmin, Gmax | 16 | a product needs no shared variable | 0 | 0 for a pure product | 0.2000000000000000 |
 
-The rebit loss equals the floor proved in `PREREG.md` Lemma R, which is 1/25. The CHSH value of that behavior is −2.8284270928652244, so no local hidden-variable model reproduces it (`decisions.out` line 2).
+The rebit loss in that restricted search equals 1/25. The CHSH value of that behavior is −2.8284270928652249 (`decisions.out` line 2). See the errata: this is not the rebit's minimum.
 
 Classical envelope, loss against ontic cardinality (`decisions.out` line 3; `envelope.txt`):
 
@@ -68,7 +95,7 @@ Classical envelope, loss against ontic cardinality (`decisions.out` line 3; `env
 |---|---|---|---|---|---|---|---|---|
 | L | 0.7337258300203047 | 0.2537258300203047 | 0.0937258300203048 | 0.0480115443060191 | 0.0312868056300609 | 0.0260335223279971 | 0.0217258300203048 | 0.0137258300203048 |
 
-For `M ≥ 3` this loss is the search in `PREREG.md` §5, an upper bound on the true minimum. The analytic floor from Lemma B is `(3 − 2√2)/25`, about 0.00686. The search did not reach it.
+The value at M = 8 is the certified minimum of the mean loss, `2(3 − 2√2)/25 = 0.0137258300203048` (review `qp.py`, `qp2.py`). Lemma B's bound `(3 − 2√2)/25` is not attained. The worst-pair floor `(3 − 2√2)/4` is a different quantity, and the pivot did hit it.
 
 ## Results
 
@@ -110,7 +137,7 @@ On a classical axis the cheapest feasible record in the named list is classical.
 
 **KNOWN, not new.** The singlet correlator, the Bell bound, the failure of local tomography for real quantum theory, and the real simulation of complex quantum theory are in the references of `PREREG.md` §11. All 15 DOIs resolved again (`crossref.out`, FAILS 0). Hardy 2001 has no Crossref DOI and is not cited as a verified reference.
 
-**Search limit.** A classical loss below the envelope would lower `J_H` only. The LOSE cells stay LOSE, because R alone is enough at `λ = 0.1`. A WIN cell that is close is `λ = 0.01`, `ε = 0.05`: `J_H = 3.4520245437103136e-02` at `K = 8` against `J_C = 2.7725887222397813e-02` (`decisions.out` lines 195–198). Closing the gap from 0.0137 down to the Lemma B floor would shrink that margin to about the tie band. Those WIN cells against H are results against this search, not against every classical model.
+**Search limit.** The mean-loss minimum is certified, so it is not an open gap under the restricted readout set. At `λ = 0.01`, `ε = 0.05`, `J_H = 3.4520245437103150e-02` at `K = 8` against `J_C = 2.7725887222397813e-02` (`decisions.out` lines 195–198). The errata supersedes these labels.
 
 ## Files
 
