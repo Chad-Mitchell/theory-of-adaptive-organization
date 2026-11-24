@@ -152,7 +152,7 @@ def product_effect_min() -> float:
 
 
 def gmax_fit() -> tuple[float, float, np.ndarray]:
-    """Maximal tensor product. Not the orbit under local rotations.
+    """Membership check for the maximal tensor product, not a fit.
 
     If every product-effect probability is at least -1e-9 and every target
     entry is in [-1, 1], the target itself is an admissible behavior.

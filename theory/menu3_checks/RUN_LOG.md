@@ -14,6 +14,6 @@ No new prediction, and no new preregistration. `theory/composite-contest-2026-11
 
 (a) The positive-price win disappears if Gmax, the maximal tensor product, is feasible at `K = 16`. It also disappears if the real-plane record or the four-point phase space is feasible at `K ≤ 16`.
 
-(b) The cheapest check is the rank of the product Paulis and the 100 signed menu effects of the singlet. If that already puts a loss-0 behavior at `K = 16`, stop and write the puzzle. Do not put the local-rotation restriction back.
+(b) The cheapest check is the rank of the product Paulis and the 25 product-effect probabilities of the singlet. If that already puts a loss-0 behavior at `K = 16`, stop and write the puzzle. Do not put the local-rotation restriction back.
 
-After the run. The Gmax loss 0 follows from the singlet being in the maximal tensor product. `gmax_fit` returns the target table when the gates pass (`theory/menu3_checks/contestants.py:162`). It does not search the set. The printed minimum `-8.3266726846886728e-17` is float error on a probability that is 0.
+After the run, 24 November 2026. Line (b) above is the pre-run text from `c597418`. The code evaluates 100 signed menu effects, not 25. The Gmax loss 0 follows from the singlet being in the maximal tensor product. The membership check `gmax_fit` returns the target table when the gates pass (`theory/menu3_checks/contestants.py:162`). It is not a search. The printed minimum `-8.3266726846886728e-17` is float error on a probability that is 0.
