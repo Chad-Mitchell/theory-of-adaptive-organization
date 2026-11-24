@@ -25,3 +25,7 @@ The run stored at `00e8dfa` did not apply those projectors. It subtracted the en
 ## D5. Original Q-coh run log restored and appended, 24 November 2026
 
 `PREREG_QUANTUM.md` is unchanged. D4 records that commit `9284624` replaced `quantum_record_checks.out` with the re-scored line. The original nine lines from `00e8dfa`, including `Q-coh PASS PD=0.065406 cost_gap=0.065406` and `FAILS 1`, are now restored at the top of that file and are not edited. The re-score `Q-coh FAIL PD=0.000000 cost_gap=0.000000` and `FAILS 2` is appended below a dated note, 24 November 2026 (America/New_York). The live script stdout is the appended block. No prediction was edited.
+
+## D6. D4 names the old subtraction in the reverse order
+
+`PREREG_QUANTUM.md` is unchanged. D4 and D5 are left as written. The return stored at `00e8dfa` is the dephased entropy minus the coherent-state entropy, \(S(1/2,1/4,1/4)-S(1/2,3/8,1/8)=+0.065406\). D4 says that run subtracted the entropy of \((1/2,1/4,1/4)\) from the entropy of \((1/2,3/8,1/8)\), which is the negative of that difference. The printed gap is still the gap to the dephased diagonal, and the re-score remains \(P_D=0\). No prediction was edited.
