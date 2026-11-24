@@ -1,8 +1,8 @@
-"""Computed contestants for the tilted menu.
+"""Contestants for the tilted menu, as locked in PREREG_4.md.
 
-G, the odd-momentum witness, Gmin, and Gmax are each built from their own
-model. The shared-bit mixture is a sensitivity, not a lock contestant.
-No random seed: every start is a fixed vector.
+Gmin is a Bloch product. Gmax is the maximal tensor product. R4a is its own
+four-point phase space. R4c is the real-plane Born rule. The shared-bit
+mixture is a sensitivity, not a lock contestant. No random seed.
 """
 from __future__ import annotations
 
@@ -52,10 +52,23 @@ def project_ball(v: np.ndarray) -> np.ndarray:
     return v / nrm
 
 
-def g_model(eta: float = 0.0) -> tuple[float, float, np.ndarray]:
-    """Holistic state (singlet density, eta). Product Paulis ignore eta.
+def product_pauli_rank() -> int:
+    """Real rank of the 16 product Paulis. They span every Hermitian 4x4."""
+    eye = np.eye(2, dtype=np.complex128)
+    factors = (eye, X.astype(complex), Y, Z.astype(complex))
+    rows = []
+    for left in factors:
+        for right in factors:
+            op = np.kron(left, right)
+            rows.append(np.concatenate([np.real(op).ravel(), np.imag(op).ravel()]))
+    return int(np.linalg.matrix_rank(np.stack(rows), tol=1e-10))
 
-    The joint effect (1+eta)/2 is computed and is not part of the loss.
+
+def g_model(eta: float = 0.0) -> tuple[float, float, np.ndarray]:
+    """Two-qubit singlet plus a coordinate eta outside the product Paulis.
+
+    The scored correlators are product Paulis. The joint effect (1+eta)/2
+    is computed and is not scored.
     """
     psi = singlet()
     rho = np.outer(psi, psi.conj())
@@ -68,18 +81,9 @@ def g_model(eta: float = 0.0) -> tuple[float, float, np.ndarray]:
     return mean_loss(C), joint, C
 
 
-def odd_momentum_witness() -> float:
-    """Two-point momentum. f(p) = p. The mirror sends p to -p.
-
-    The recorded value is the mean of f(p) f(-p). It does not enter J.
-    """
-    acc = 0.0
-    points = (1.0, -1.0)
-    for p in points:
-        f_here = p
-        f_mirror = -p
-        acc += f_here * f_mirror
-    return acc / float(len(points))
+def yy_entry(C: np.ndarray) -> float:
+    """Scored correlator of the last menu direction, from this model's C."""
+    return float(C[4, 4])
 
 
 def _rank1_loss(n: np.ndarray, m: np.ndarray) -> float:
@@ -110,67 +114,162 @@ def _gmin_starts() -> list[np.ndarray]:
     return starts
 
 
-def gmin_loss() -> float:
-    """Minimal tensor product: a product of two Bloch balls.
-
-    Local unitaries and the swap keep a product a product, so the correlator
-    is (n·u)(m·v) with both Bloch vectors inside the unit ball.
-    """
+def gmin_fit() -> tuple[float, np.ndarray]:
+    """Minimal tensor product: correlators (n·u)(m·v), Bloch vectors in the ball."""
 
     def objective(x: np.ndarray) -> float:
         return _rank1_loss(x[:3], x[3:])
 
     best = math.inf
+    best_x = np.zeros(6)
     for x0 in _gmin_starts():
         res = minimize(objective, x0, method="Powell", options={"maxiter": 80, "ftol": 1e-16})
         if float(res.fun) < best:
             best = float(res.fun)
-    return best
+            best_x = np.array(res.x, dtype=np.float64)
+    n = project_ball(best_x[:3])
+    m = project_ball(best_x[3:])
+    C = np.outer(MENU @ n, MENU @ m)
+    return mean_loss(C), C
 
 
-def _sphere(theta: float, phi: float) -> np.ndarray:
-    return np.array(
-        [math.sin(theta) * math.cos(phi), math.sin(theta) * math.sin(phi), math.cos(theta)],
-        dtype=np.float64,
-    )
+def product_effect_min() -> float:
+    """Smallest product-effect probability of the singlet, over the menu."""
+    psi = singlet()
+    rho = np.outer(psi, psi.conj())
+    worst = 0.0
+    eye = np.eye(2, dtype=np.complex128)
+    for a in range(5):
+        for b in range(5):
+            for sa in (1.0, -1.0):
+                for sb in (1.0, -1.0):
+                    ea = 0.5 * (eye + sa * pauli(MENU[a]))
+                    eb = 0.5 * (eye + sb * pauli(MENU[b]))
+                    pr = float(np.real(np.trace(rho @ np.kron(ea, eb))))
+                    if pr < worst:
+                        worst = pr
+    return worst
 
 
-def gmax_loss() -> float:
-    """Maximal tensor product, local rotations only.
+def gmax_fit() -> tuple[float, float, np.ndarray]:
+    """Maximal tensor product. Not the orbit under local rotations.
 
-    The granted group is SO(3) x SO(3) and the swap, applied to a product.
-    A rotation of the pole (0, 0, 1), then a radius in {1, 1/2} for local
-    mixedness, is the reachable correlator. The swap exchanges the two wings.
+    If every product-effect probability is at least -1e-9 and every target
+    entry is in [-1, 1], the target itself is an admissible behavior.
     """
-    best = math.inf
-    polar = [math.pi * i / 7 for i in range(8)]
-    azimuth = [2.0 * math.pi * i / 8 for i in range(8)]
-    for theta in polar:
-        for phi in azimuth:
-            n = _sphere(theta, phi)
-            for th2 in polar:
-                for ph2 in azimuth:
-                    m = _sphere(th2, ph2)
-                    for radius_n in (1.0, 0.5):
-                        for radius_m in (1.0, 0.5):
-                            val = _rank1_loss(radius_n * n, radius_m * m)
-                            if val < best:
-                                best = val
-                            swapped = _rank1_loss(radius_m * m, radius_n * n)
-                            if swapped < best:
-                                best = swapped
+    worst = product_effect_min()
+    inside = worst >= -1e-9 and float(np.max(np.abs(T))) <= 1.0 + 1e-9
+    if inside:
+        return mean_loss(T), worst, T.copy()
+    return 1.0, worst, np.zeros((5, 5))
 
-    def objective(x: np.ndarray) -> float:
-        return _rank1_loss(x[:3], x[3:])
 
-    frame = MENU.T @ MENU
-    _, axes = np.linalg.eigh(frame)
-    axis = axes[:, -1]
-    x0 = np.concatenate([-axis, axis])
-    res = minimize(objective, x0, method="Nelder-Mead", options={"maxiter": 400, "xatol": 1e-14, "fatol": 1e-16})
-    if float(res.fun) < best:
-        best = float(res.fun)
-    return best
+def r4a_fit(iters: int = 500) -> tuple[float, int, np.ndarray]:
+    """Four ontic states per wing. Outcomes are functions of (q, p)."""
+
+    def outcomes(q: int, psign: float) -> np.ndarray:
+        out = np.empty(5)
+        for i, u in enumerate(MENU):
+            planar = float(u[0]) * (1.0 if q == 0 else -1.0) + float(u[2])
+            if abs(planar) < 1e-12:
+                out[i] = psign
+            else:
+                out[i] = psign * (1.0 if planar >= 0.0 else -1.0)
+        return out
+
+    rows = [outcomes(q, psign) for q in (0, 1) for psign in (1.0, -1.0)]
+    behaviors = np.stack(
+        [np.outer(rows[i], rows[j]).ravel() for i in range(4) for j in range(4)]
+    )
+    weights = np.full(16, 1.0 / 16.0)
+    target = T.ravel()
+    for k in range(iters):
+        flat = weights @ behaviors
+        grad = (flat - target) @ behaviors.T
+        i = int(np.argmin(grad))
+        gamma = 2.0 / (k + 2.0)
+        weights *= 1.0 - gamma
+        weights[i] += gamma
+    C = (weights @ behaviors).reshape(5, 5)
+    return mean_loss(C), int(np.sum(weights > 1e-8)), C
+
+
+def _real_encode(psi: np.ndarray) -> np.ndarray:
+    return np.concatenate([np.real(psi), np.imag(psi)]).astype(np.float64)
+
+
+def _j_mul(v: np.ndarray) -> np.ndarray:
+    n = v.size // 2
+    out = np.empty_like(v)
+    out[:n] = -v[n:]
+    out[n:] = v[:n]
+    return out
+
+
+def _plus_spinor(u: np.ndarray) -> np.ndarray:
+    x, y, z = (float(u[0]), float(u[1]), float(u[2]))
+    if z > -1.0 + 1e-14:
+        den = math.sqrt(2.0 * (1.0 + z))
+        return np.array(
+            [math.sqrt((1.0 + z) / 2.0), (x + 1j * y) / den],
+            dtype=np.complex128,
+        )
+    return np.array([0.0 + 0.0j, 1.0 + 0.0j], dtype=np.complex128)
+
+
+def _born_real_plane(phi: np.ndarray, psi_r: np.ndarray) -> float:
+    pr = _real_encode(phi)
+    nrm = math.sqrt(float(np.dot(pr, pr)))
+    pr = pr / nrm
+    return float(np.dot(pr, psi_r) ** 2 + np.dot(_j_mul(pr), psi_r) ** 2)
+
+
+def r4c_real(psi: np.ndarray) -> tuple[float, np.ndarray]:
+    """Real-plane Born rule on the encoded singlet. Not the complex modulus."""
+    psi_r = _real_encode(psi)
+    psi_r = psi_r / np.linalg.norm(psi_r)
+    C = np.zeros((5, 5))
+    for a in range(5):
+        for b in range(5):
+            acc = 0.0
+            for sa in (1.0, -1.0):
+                for sb in (1.0, -1.0):
+                    phi = np.kron(_plus_spinor(sa * MENU[a]), _plus_spinor(sb * MENU[b]))
+                    acc += sa * sb * _born_real_plane(phi, psi_r)
+            C[a, b] = acc
+    return mean_loss(C), C
+
+
+def information_of_protocol(rho: np.ndarray) -> tuple[float, float, float, float]:
+    """Mutual information of settings with a one-point record, and Holevo.
+
+    The joint is the product of the uniform setting distribution and one
+    record state. Holevo is the average eigenvalue entropy minus that
+    state's eigenvalue entropy.
+    """
+    settings = np.full(25, 1.0 / 25.0)
+    record = np.array([1.0])
+    joint = np.outer(settings, record).ravel()
+
+    def entropy(p: np.ndarray) -> float:
+        kept = p[p > 0.0]
+        return float(-np.sum(kept * np.log(kept)))
+
+    def clean(x: float) -> float:
+        x = float(x)
+        return 0.0 if x == 0.0 else x
+
+    mutual = entropy(settings) + entropy(record) - entropy(joint)
+    ev = np.clip(np.linalg.eigvalsh(rho).real, 0.0, None)
+    ev = ev[ev > 1e-15]
+    if ev.size == 0:
+        state_s = 0.0
+    else:
+        ev = ev / float(np.sum(ev))
+        state_s = float(-np.sum(ev * np.log(ev)))
+    # one prepared state: the average is that state's entropy
+    average_s = state_s
+    return clean(mutual), clean(average_s - state_s), clean(average_s), clean(state_s)
 
 
 def shared_bit_loss() -> float:

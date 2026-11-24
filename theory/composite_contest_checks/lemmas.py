@@ -243,9 +243,11 @@ def run_lemmas() -> str:
     err_r = float(np.max(np.abs(C_real - T_MAT)))
     check("L6corr", err_r <= 1e-12, f"max_abs {fmt(err_r)}")
 
-    # L7 witness
-    # p in {+1,-1} uniform, f(p)=p, Theta flips p, E[f(Theta p) f(p)] = E[-p * p] = -1
-    witness = 0.5 * ((-1.0) * (1.0) + (1.0) * (-1.0))
+    # L7 witness, from the two-point momentum and its mirror, not a written product.
+    momenta = np.array([1.0, -1.0])
+    weights = np.array([0.5, 0.5])
+    mirrored = -momenta
+    witness = float(np.sum(weights * momenta * mirrored))
     check("L7", witness == -1.0, f"witness {fmt(witness)}")
 
     # L8 fractions

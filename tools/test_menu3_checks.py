@@ -20,6 +20,8 @@ def test_menu3_matches_locked_output():
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "P-loss PASS" in r.stdout
-    assert "P-win PASS" in r.stdout
+    assert "P-gmax PASS" in r.stdout
+    assert "P-win FAIL" in r.stdout
+    assert "headline Model implication conditional_on Hardy_ln_K_AB TIE" in r.stdout
     got = hashlib.sha256(open(os.path.join(HERE, name), "rb").read()).hexdigest()
     assert got == digest
