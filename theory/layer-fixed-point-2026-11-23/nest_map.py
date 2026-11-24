@@ -392,7 +392,7 @@ def run():
     rec["binding_b_side"] = binding_side
     rec["marginal_income"] = yhat_rows
 
-    # Amplitude gauge: currency rescaling must be killed by T. Code check.
+    # Amplitude gauge: currency rescaling must be removed by T. Code check.
     def f_amp(t):
         return (1.0 + s) * f_star(t)
 

@@ -49,9 +49,9 @@ Commit order, committer dates, each prereg file added once and never modified:
 
 `git log -p` on the three prereg files shows pure adds. No result digit (`1.20021282055`, `1.45735693345`, `4.021`) appears in those patches. `nest_map.py` and `unit_choice_gate.py` are not in git until the same commit as both outputs.
 
-## Verdicts
+## Findings
 
-| Claim | Verdict |
+| Claim | Findings |
 |---|---|
 | Rerun byte-identical; consistency PASS; pytest 287 passed, 1 skipped | **confirmed** |
 | `THEORY.md` unchanged versus upstream `main` | **confirmed** |
