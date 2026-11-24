@@ -1,4 +1,4 @@
-"""Classical search, rebit seesaw, product seesaw. Locked by theory/PREREG.md §§5 and 9."""
+"""Classical search, rebit seesaw, product seesaw. Locked by theory/composite-contest-2026-11-24/PREREG.md §§5 and 9."""
 from __future__ import annotations
 
 import math

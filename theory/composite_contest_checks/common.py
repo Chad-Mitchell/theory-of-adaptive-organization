@@ -1,4 +1,4 @@
-"""Shared definitions for the composite contest. Locked by theory/PREREG.md."""
+"""Shared definitions for the composite contest. Locked by theory/composite-contest-2026-11-24/PREREG.md."""
 from __future__ import annotations
 
 import math

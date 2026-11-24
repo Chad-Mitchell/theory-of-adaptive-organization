@@ -1,4 +1,4 @@
-"""Menu without an all-orthogonal axis. Locked by theory/PREREG_3.md."""
+"""Menu without an all-orthogonal axis. Locked by theory/composite-contest-2026-11-24/PREREG_3.md."""
 from __future__ import annotations
 
 import hashlib
@@ -8,6 +8,16 @@ from pathlib import Path
 
 import numpy as np
 from scipy.optimize import LinearConstraint, Bounds, linprog, milp, minimize
+
+from contestants import (
+    cell,
+    g_model,
+    gmax_loss,
+    gmin_loss,
+    odd_momentum_witness,
+    pair,
+    shared_bit_loss,
+)
 
 HERE = Path(__file__).resolve().parent
 S2 = math.sqrt(2.0)
@@ -191,28 +201,6 @@ def classical_minimax(Cv: np.ndarray) -> tuple[float, int, int]:
     return s * s, int(np.sum(card.x[n:] > 0.5)), k_prod
 
 
-def product_loss() -> float:
-    def run(f, g):
-        f, g = f.copy(), g.copy()
-        for _ in range(200):
-            for a in range(5):
-                den = float(np.dot(g, g))
-                num = float(np.dot(T[a], g))
-                f[a] = 0.0 if den < 1e-18 else float(np.clip(num / den, -1.0, 1.0))
-            for b in range(5):
-                den = float(np.dot(f, f))
-                num = float(np.dot(T[:, b], f))
-                g[b] = 0.0 if den < 1e-18 else float(np.clip(num / den, -1.0, 1.0))
-        return mean_loss(np.outer(f, g))
-
-    v = np.ones(5)
-    v /= np.linalg.norm(v)
-    for _ in range(100):
-        v = T.T @ (T @ v)
-        v /= np.linalg.norm(v)
-    return min(run(-v, v), run(np.ones(5), np.ones(5)))
-
-
 def r4c_loss(psi: np.ndarray) -> float:
     # real encoding of complex Born for product Pauli measurements
     def plus(u):
@@ -236,35 +224,6 @@ def r4c_loss(psi: np.ndarray) -> float:
     return mean_loss(C)
 
 
-def witness() -> float:
-    return 0.5 * ((-1.0) * 1.0 + 1.0 * (-1.0))
-
-
-def pair(jc, fc, jx, fx) -> str:
-    if fc and not fx:
-        return "WIN"
-    if fx and not fc:
-        return "LOSE"
-    if not fc and not fx:
-        return "EXCLUDED"
-    delta = jx - jc
-    band = 0.01 * max(jc, jx) + 1e-12
-    if delta > band:
-        return "WIN"
-    if delta < -band:
-        return "LOSE"
-    return "TIE"
-
-
-def cell(labels: list[str]) -> str:
-    used = [z for z in labels if z != "EXCLUDED"]
-    if any(z == "LOSE" for z in used):
-        return "LOSE"
-    if used and all(z == "WIN" for z in used):
-        return "WIN"
-    return "TIE"
-
-
 def main() -> int:
     psi = singlet()
     rho_s = np.outer(psi, psi.conj())
@@ -277,9 +236,8 @@ def main() -> int:
     sig = np.linalg.svd(block, compute_uv=False)
     sig2 = float(sig[-1] ** 2)
     lines = [
-        f"sigma_min_sq {fmt(sig2)}",
+        f"sigma_min_sq {fmt(sig2)} svd_value unfinished_formula_not_used",
         f"C_loss {fmt(L_c)}",
-        f"witness {fmt(witness())}",
     ]
     best_exact = math.inf
     best_opt = math.inf
@@ -295,11 +253,22 @@ def main() -> int:
     Cv = vertices()
     Lh, k_atoms, k_prod = classical_minimax(Cv)
     lines.append(f"classical_Linf {fmt(Lh)} K_atoms {k_atoms} K_prod {k_prod}")
-    Lp = product_loss()
+    Lg, joint0, _ = g_model(0.0)
+    _, joint1, _ = g_model(1.0)
+    _, joint_m, _ = g_model(-1.0)
+    Lw = odd_momentum_witness()
+    Lgmin = gmin_loss()
+    Lgmax = gmax_loss()
     Lr4 = r4c_loss(psi)
-    lines.append(f"product {fmt(Lp)} r4c {fmt(Lr4)} G_loss {fmt(L_c)}")
-    # Holevo of one pure state is 0. Settings are independent of the record.
-    lines.append(f"I_A6 {fmt(0.0)} holevo_one_state {fmt(0.0)}")
+    lines.append(
+        f"G_loss {fmt(Lg)} joint_eta0 {fmt(joint0)} joint_eta1 {fmt(joint1)} "
+        f"joint_eta_m1 {fmt(joint_m)} G_minus_C {fmt(Lg - L_c)}"
+    )
+    lines.append(f"witness {fmt(Lw)} phase_space_two_point")
+    lines.append(f"gmin {fmt(Lgmin)} gmax {fmt(Lgmax)} r4c {fmt(Lr4)}")
+    # Lemma I0: the record is fixed before the settings, so this mutual
+    # information is 0. The number is that lemma, not a computed mutual information.
+    lines.append(f"I_A6 {fmt(0.0)} holevo_one_state {fmt(0.0)} Lemma_I0_value_not_computed")
     p_loss = Lr >= 1e-4
     floor = (3 - 2 * math.sqrt(2)) / 4
     p_bell = Lh + 1e-8 >= floor
@@ -314,14 +283,14 @@ def main() -> int:
             "C": L_c <= 1e-8,
             "R": Lr <= 1e-8,
             "H": Lh <= 1e-8,
-            "G": L_c <= 1e-8,
+            "G": Lg <= 1e-8,
             "R4a": Lh <= 1e-8,
             "R4c": Lr4 <= 1e-8,
-            "Gmin": Lp <= 1e-8,
-            "Gmax": Lp <= 1e-8,
+            "Gmin": Lgmin <= 1e-8,
+            "Gmax": Lgmax <= 1e-8,
         }
         K = {"C": 16, "R": 10, "H": k_prod, "G": 17, "R4a": k_prod, "R4c": 36, "Gmin": 16, "Gmax": 16}
-        L = {"C": L_c, "R": Lr, "H": Lh, "G": L_c, "R4a": Lh, "R4c": Lr4, "Gmin": Lp, "Gmax": Lp}
+        Lmap = {"C": L_c, "R": Lr, "H": Lh, "G": Lg, "R4a": Lh, "R4c": Lr4, "Gmin": Lgmin, "Gmax": Lgmax}
         labs = []
         lines.append(f"cell lam {fmt(lam)} eps 0 K-price")
         cell_at = len(lines) - 1
@@ -329,13 +298,13 @@ def main() -> int:
             if not feas[name]:
                 J = math.inf
             else:
-                J = lam * math.log(K[name]) + L[name]
+                J = lam * math.log(K[name]) + Lmap[name]
             if name == "C":
                 lab = "SELF"
             else:
                 lab = pair(jc, feas["C"], J, feas[name])
                 labs.append(lab)
-            lines.append(f"  {name} feas {int(feas[name])} K {K[name]} L {fmt(L[name])} J {fmt(J)} {lab}")
+            lines.append(f"  {name} feas {int(feas[name])} K {K[name]} L {fmt(Lmap[name])} J {fmt(J)} {lab}")
         lab_cell = cell(labs)
         lines[cell_at] = lines[cell_at] + " " + lab_cell
         # mutual-information price: price term 0, so ties among feasible loss-0
@@ -347,14 +316,40 @@ def main() -> int:
             Jic = 0.0 if feas["C"] else math.inf
             labs_i.append(pair(Jic, feas["C"], Ji, feas[name]))
         i_lab = cell(labs_i)
-        lines.append("  I-price " + i_lab)
+        lines.append("  I-price " + i_lab + " Lemma_I0_value_not_computed")
         if i_lab != "TIE":
             p_tie_i = False
         if lam > 0:
             labels_pos.append(lab_cell)
     p_win = p_loss and all(z == "WIN" for z in labels_pos)
     lines.append(f"P-win {'PASS' if p_win else 'FAIL'}")
-    lines.append(f"P-tie {'PASS' if p_tie_i else 'FAIL'} G {fmt(L_c)} R4c {fmt(Lr4)}")
+    lines.append(f"P-tie {'PASS' if p_tie_i else 'FAIL'} G {fmt(Lg)} R4c {fmt(Lr4)}")
+    Lbit = shared_bit_loss()
+    lines.append(f"shared_bit_loss {fmt(Lbit)}")
+    lines.append(
+        "shared_bit_count_used 40 reason both wings hold the bit, m_A times m_B = 4, times rebit 10"
+    )
+    sens = {"charged_K40": 40, "charged_K20": 20, "uncharged_K10": 10}
+    sens_pos = {name: [] for name in sens}
+    for lam in LAMBDAS:
+        jc = 0.0 if lam == 0 else lam * math.log(16)
+        fc = L_c <= 1e-8
+        fb = Lbit <= 1e-8
+        for name, Kb in sens.items():
+            Jb = math.inf if not fb else lam * math.log(Kb) + Lbit
+            lab = pair(jc, fc, Jb, fb)
+            lines.append(
+                f"sensitivity {name} lam {fmt(lam)} K {Kb} L {fmt(Lbit)} J {fmt(Jb)} {lab}"
+            )
+            if lam > 0:
+                sens_pos[name].append(lab)
+    for name, labs in sens_pos.items():
+        lines.append(f"sensitivity_positive {name} {cell(labs)}")
+    lines.append(
+        "headline conditional_on Hardy_ln_K_AB "
+        + ("WIN" if p_win else "FAIL")
+        + " positive_lambda_under_the_lock"
+    )
     text = "\n".join(lines) + "\n"
     (HERE / "decisions.out").write_text(text, encoding="utf-8", newline="\n")
     digest = hashlib.sha256((HERE / "decisions.out").read_bytes()).hexdigest()

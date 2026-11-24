@@ -1,4 +1,4 @@
-"""Recheck the DOIs named in theory/PREREG.md section 11."""
+"""Recheck the DOIs named in theory/composite-contest-2026-11-24/PREREG.md section 11."""
 from __future__ import annotations
 
 import json

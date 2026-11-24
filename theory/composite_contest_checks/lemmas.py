@@ -1,4 +1,4 @@
-"""Checks L1–L8 of theory/PREREG.md section 8. No search, no grid."""
+"""Checks L1–L8 of theory/composite-contest-2026-11-24/PREREG.md section 8. No search, no grid."""
 from __future__ import annotations
 
 import math

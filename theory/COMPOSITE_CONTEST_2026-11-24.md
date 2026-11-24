@@ -1,12 +1,12 @@
 # Composite contest: two records, later local readouts
 
-*Tuesday 24 November 2026. Branch `forge-composite-contest`. Preregistration `theory/PREREG.md`, committed before any scoring run. Deviation `theory/PREREG_R2.md`, also before any scoring run. `THEORY.md` is unchanged. Nothing here derives quantum theory. Labels: **PROVED (in-model)**, **KNOWN**, **ELEMENTARY**, **NUMERICAL**.*
+*Tuesday 24 November 2026. Branch `forge-composite-contest`. Preregistration `theory/composite-contest-2026-11-24/PREREG.md`, committed before any scoring run. Deviation `theory/composite-contest-2026-11-24/PREREG_R2.md`, also before any scoring run. `THEORY.md` is unchanged. Nothing here derives quantum theory. Labels: **PROVED (in-model)**, **KNOWN**, **ELEMENTARY**, **NUMERICAL**.*
 
 > "The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment." (`CORE.md:7`)
 
 ## Errata
 
-Checked `theory/reviews/composite_contest_review_checks/rebit0.py` after `c2a2a92`. Mean loss `1.101e-32`, worst-pair loss `4.930e-32`. Confirmed. A real singlet, with `y` read out as `+I` on one wing and `−I` on the other, matches the target. `PREREG.md` allows those readouts. The search and Lemma R kept only traceless effects, and the pivot hard-coded `1/9`.
+Checked `theory/reviews/composite_contest_review_checks/rebit0.py` after `c2a2a92`. Mean loss `1.101e-32`, worst-pair loss `4.930e-32`. Confirmed. A real singlet, with `y` read out as `+I` on one wing and `−I` on the other, matches the target. `theory/composite-contest-2026-11-24/PREREG.md` allows those readouts. The search and Lemma R kept only traceless effects, and the pivot hard-coded `1/9`.
 
 Corrected labels, rebit loss 0 at `K = 10`, same tie band. The stored outputs are unchanged.
 
@@ -35,31 +35,50 @@ Other review items:
 
 Checked the shared-bit strategy in `theory/reviews/COMPOSITE_CONTEST_REVIEW_2_2026-11-24.md` (commit `4f04415`) on the operators in `run_menu3.py`. On the real singlet, mix sharp `xz` projections, weight `√(2/3)`, with `y → +I` on one wing and `−I` on the other. Mean loss `2.3045076783754708e-32`. Largest absolute entry error `4.4408920985006262e-16`. Averaging those two branches into one readout, `√(2/3) M + (1−√(2/3))(±I)` on `y`, gives mean loss `3.5918405131962310e-03`.
 
-The menu-3 WIN holds only if that correlated bit is charged. With the charge, `K = 20 > 16` and the complex record wins at every positive price: `λ ln(20/16) ≈ 0.223λ`, past a tie band of about `0.030λ`. At `K = 10` every positive-price cell LOSES: `λ ln(10/16) ≈ −0.470λ`. `PREREG.md:55` does not grant the bit. The label is **DEPENDS ON PRICING SHARED RANDOMNESS**, not WIN.
+`theory/composite-contest-2026-11-24/PREREG.md:55` does not grant that bit, so it is not an R contestant. If it is admitted, the count used here is `K = 40`: each wing holds the bit, `m_A m_B = 4`, times the rebit record `10`. `K = 20` is the other count, the bit as one system. Both sit above 16. Uncharged, `K = 10`. The numbers are the sensitivity in Computed contestants, not the lock label.
 
-The positive-price WIN inside the implemented list is dimension counting. After the `ε = 0` gate (`run_menu3.py:314`) the feasible records are C at 16, G at 17, and R4c at 36, so `16 < 17 < 36`. The mutual-information and Holevo TIE is the constants set to 0 at `run_menu3.py:302` and `:346`. It is an identity, not a test.
+`theory/composite-contest-2026-11-24/PREREG_3.md:29` leaves the singular-value formula unfinished. The svd value is `3.3673504811214609e-02` (`theory/menu3_checks/decisions.out:1`). That formula is not used.
 
-The contestants are not computed. G's loss is copied from C (`run_menu3.py:300`). The odd-momentum witness is the literal `−1` (`run_menu3.py:240`). Gmin and Gmax share one fit (`run_menu3.py:194`, `:298`). Logged in `theory/menu3_checks/DEVIATIONS.md`. `PREREG_3.md:29` leaves the smallest singular value as `(√3 − √(4/3)?)`. The code prints `3.3673504811214609e-02`. The formula is unfinished.
+## Computed contestants
+
+Each former placeholder is now its own model (`theory/menu3_checks/contestants.py`). The rebit search number is unchanged.
+
+| Id | K | Loss | Where |
+|---|---|---|---|
+| C | 16 | `1.1898287380433425e-32` | `decisions.out:2` |
+| R | 10 | `2.1492408906328463e-03` | one readout per setting, `:3` |
+| H | 16 | `4.2893218813452497e-02` | product dimension, `:4` |
+| G | 17 | `1.9786896432643543e-32` | product Paulis on the singlet; η only in the joint effect, `:5` |
+| R4a | 16 | same loss as H | witness `−1` from `f(p) f(−p)` on `{+1,−1}`, `:6`, not in `J` |
+| R4c | 36 | `5.6139240218746014e-32` | `:7` |
+| Gmin | 16 | `1.6233664462791825e-01` | Bloch product, own fit, `:7` |
+| Gmax | 16 | `1.6233664462791830e-01` | local rotations of a product, own fit, `:7` |
+
+G matches C to `7.8886090522101182e-33` (`decisions.out:5`). Product effects ignore η, so the `K = 17` row does not move. Gmin and Gmax stay outside the `10^{-8}` gate. The positive-price WIN on this list is `16 < 17 < 36` after that gate.
+
+**Under the lock.** Headline WIN at every positive price, conditional on the Hardy price `λ ln K_AB` (`theory/composite-contest-2026-11-24/PREREG.md:27`, `decisions.out:83`). At price 0 the feasible loss-0 records tie (`:11`). The information row is TIE and is labeled `Lemma_I0_value_not_computed` (`:8`, `:20`). A WIN under this price is not evidence that the cost selects complex structure: the price was locked because only this price can separate loss-0 records (`theory/composite-contest-2026-11-24/PREREG.md:21`), and on the classical axis the same price favors the classical record.
+
+**Outside the lock.** The shared bit is a sensitivity (`decisions.out:63-82`). Charged at the count used here, `K = 40`, every positive price is WIN. Charged at `K = 20`, the same. Uncharged, `K = 10`, every positive price is LOSE.
 
 ## Puzzle
 
-What would decide the miss is two modeling choices, and this run does not pick either. One is whether shared classical randomness between the wings costs record dimension. The other is which quantum-record price is the headline, Hardy dimension or the mutual information at `CORE.md:52`. That second choice is the same open price as the pointer-basis branch. No new preregistration in this round.
+The headline price stays the locked Hardy price. What is still open is whether a record that is held and not read is priced by information or by size. Mutual information, and Holevo, are 0 on this protocol by Lemma I0, for every contestant. That is the same open question as the pointer-basis branch. No further contest until that question has an answer or a lock.
 
 ## Menu without that axis
 
-`theory/PREREG_3.md`, committed before its script. `y = (1,1,1)/√3` is not orthogonal to every other setting. The locked search is `3^5` patterns, one readout per setting. Its minimum is `2.1492408906328463e-03` (`theory/menu3_checks/decisions.out`). That number is the search, not the minimum over rebit behaviors. The label is **DEPENDS ON PRICING SHARED RANDOMNESS**, not WIN. See ERRATA_2. `PREREG_3.md:29` leaves the smallest singular value unfinished.
+`theory/composite-contest-2026-11-24/PREREG_3.md`, committed before its script. `y = (1,1,1)/√3` is not orthogonal to every other setting. The locked search is `3^5` patterns, one readout per setting. Its minimum is `2.1492408906328463e-03` (`theory/menu3_checks/decisions.out:3`). That number is the search, not the minimum over rebit behaviors. The lock label is the computed-contestant section above. `theory/composite-contest-2026-11-24/PREREG_3.md:29` leaves the smallest singular value unfinished, and it is not cited as a finished bound.
 
 ## Why this approach
 
 The single-system duel ties, because one generator uses a thin section of the quantum state space and a blurred classical rotor matches every readout on that section (`theory/probes-2026-11-23/reviews/DUEL_REVIEW.md` §6, on `upstream/ace-probe-memos-2026-11-23`). The review named the next question: two records that interact, or a question chosen only after the record is set. That is where complex quantum theory, real quantum theory, a classical hidden-variable model, and a composite without local tomography can come apart. Müller and Masanes (doi 10.1088/1367-2630/15/5/053040) already show that single-system postulates give a ball in every dimension, and that local tomography plus a continuous reversible interaction is what forces the qubit. The mirror review asked that R4a and R4c be controls in this contest, not a separate simulation (`theory/probes-2026-11-23/reviews/MIRROR_REVIEW.md` §4).
 
-The price is `λ ln K_AB`, the same Hardy dimension for every theory, because that is the record-size price the walls memo and the duel used. The memory coordinate at `CORE.md:52` is mutual information. On a protocol whose settings are drawn after the record, that coordinate is zero for every contestant (`theory/PREREG.md` Lemma I0). It is reported. It is not the price that can separate the loss-zero theories.
+The price is `λ ln K_AB`, the same Hardy dimension for every theory, because that is the record-size price the walls memo and the duel used. The memory coordinate at `CORE.md:52` is mutual information. On a protocol whose settings are drawn after the record, that coordinate is zero for every contestant (`theory/composite-contest-2026-11-24/PREREG.md` Lemma I0). It is reported. It is not the price that can separate the loss-zero theories.
 
 ## Checkpoints
 
 ### After the prereg commit, before any results
 
-Full text: `theory/PREREG_R2.md`, commit `18a36c0ee9610fb8ef8fef20e07b7c83ab0c2656`, after `theory/PREREG.md` at `e271ea971a10fbff4d58484cd2942c98dca12518`.
+Full text: `theory/composite-contest-2026-11-24/PREREG_R2.md`, commit `18a36c0ee9610fb8ef8fef20e07b7c83ab0c2656`, after `theory/composite-contest-2026-11-24/PREREG.md` at `e271ea971a10fbff4d58484cd2942c98dca12518`.
 
 (a) Only in part. Copying the singlet table ranks theories by the cost of that table. It does not show that the cost produces the table.
 
@@ -67,7 +86,7 @@ Full text: `theory/PREREG_R2.md`, commit `18a36c0ee9610fb8ef8fef20e07b7c83ab0c26
 
 (c) Yes. The identity is a one-line comparison of 16, 17 and 36. A classical-axis stake can go the other way. A network with independent sources is sharper and was not started.
 
-Change of course, logged before the run: the headline is H1–H2 in `PREREG_R2.md`. P1–P8 were not rewritten.
+Change of course, logged before the run: the headline is H1–H2 in `theory/composite-contest-2026-11-24/PREREG_R2.md`. P1–P8 were not rewritten.
 
 ### After the first results
 
@@ -87,7 +106,7 @@ Change of course, logged before the run: the headline is H1–H2 in `PREREG_R2.m
 
 ## What was scored
 
-Two stakes, one price. `J = λ ln K_AB + L`, tie band `0.01 · max(J, J') + 10^{−12}` (`theory/PREREG.md` §6).
+Two stakes, one price. `J = λ ln K_AB + L`, tie band `0.01 · max(J, J') + 10^{−12}` (`theory/composite-contest-2026-11-24/PREREG.md` §6).
 
 **Singlet menu.** Five directions, loss the mean squared gap of the correlator from `−u · v`. Grid `λ ∈ {0, 10^{−4}, 10^{−3}, 10^{−2}, 10^{−1}}`, `ε ∈ {0, 10^{−3}, 10^{−2}, 0.05, 0.2, 1}`.
 
@@ -117,7 +136,7 @@ The value at M = 8 is the certified minimum of the mean loss, `2(3 − 2√2)/25
 
 ## Results
 
-**H1, classical axis.** C loses to H at every `λ > 0`, and ties at `λ = 0` (`control.out` lines 5–10). Both have loss 0. `K_H = 6`, `K_C = 16`. At `λ = 0.1`, `J_C = 0.2772588722239781` and `J_H = 0.1791759469228055`. The axis measurement on the matching spin state is deterministic (`control.out` line 2, defect 0). This matches the proof in `PREREG_R2.md`. **PROVED (in-model)**, code check PASS.
+**H1, classical axis.** C loses to H at every `λ > 0`, and ties at `λ = 0` (`control.out` lines 5–10). Both have loss 0. `K_H = 6`, `K_C = 16`. At `λ = 0.1`, `J_C = 0.2772588722239781` and `J_H = 0.1791759469228055`. The axis measurement on the matching spin state is deterministic (`control.out` line 2, defect 0). This matches the proof in `theory/composite-contest-2026-11-24/PREREG_R2.md`. **PROVED (in-model)**, code check PASS.
 
 Holevo quantity of the six product states: 1.0986122886681096, below `ln 4 = 1.3862943611198906` and below `ln 6 = 1.7917594692280550` (`control.out` lines 4, 11–12). **NUMERICAL**, inside the bound that was proved before the run.
 
@@ -149,28 +168,28 @@ At `λ ≤ 0.01` the same loose caps are WIN. The stake gap is larger than the d
 
 On a classical axis the cheapest feasible record in the named list is classical. Demanding the singlet table instead makes complex theory cheapest only while the cap excludes everyone who cannot copy that table, or while `λ` is small enough that a loss of 1/25 still costs more than `λ ln(16/10)`. At `λ = 0.1` the rebit, which does not have local tomography (`K_AB = 10 > 9`), undercuts the complex record. One extra holistic coordinate (`K = 17`) never helps a local readout and loses on the dimension price whenever `λ > 0` (P4). That is the price of an unused coordinate, not a derivation that composites in nature are locally tomographic.
 
-**The information coordinate disagrees with the dimension price on the classical axis.** A perfect classical copy holds `ln 6` nats about `n`. The quantum ensemble's Holevo quantity is about 1.099 nats, under `ln 6`. Charging mutual information would rank that ensemble cheaper. Charging Hardy dimension ranks it dearer, because the theory's state space is 16-dimensional whether or not the protocol visits all of it. `PREREG_R2.md` stated this split before the run. The number 1.0986122886681096 is the check.
+**The information coordinate disagrees with the dimension price on the classical axis.** A perfect classical copy holds `ln 6` nats about `n`. The quantum ensemble's Holevo quantity is about 1.099 nats, under `ln 6`. Charging mutual information would rank that ensemble cheaper. Charging Hardy dimension ranks it dearer, because the theory's state space is 16-dimensional whether or not the protocol visits all of it. `theory/composite-contest-2026-11-24/PREREG_R2.md` stated this split before the run. The number 1.0986122886681096 is the check.
 
 **Puzzle, not a verdict.** The two coordinates are both in the theory's own vocabulary, and they rank one and the same control in opposite directions. The likely cause is the one just named: dimension charges the state space of the theory, and mutual information charges only what that state holds about the world variable. Nothing here chooses which charge is the one a selected system pays. The singlet menu does not resolve it either, because there `I_A6 = 0` for every contestant and the coordinate is silent (`CORE.md:52`).
 
-**KNOWN, not new.** The singlet correlator, the Bell bound, the failure of local tomography for real quantum theory, and the real simulation of complex quantum theory are in the references of `PREREG.md` §11. All 15 DOIs resolved again (`crossref.out`, FAILS 0). Hardy 2001 has no Crossref DOI and is not cited as a verified reference.
+**KNOWN, not new.** The singlet correlator, the Bell bound, the failure of local tomography for real quantum theory, and the real simulation of complex quantum theory are in the references of `theory/composite-contest-2026-11-24/PREREG.md` §11. All 15 DOIs resolved again (`crossref.out`, FAILS 0). Hardy 2001 has no Crossref DOI and is not cited as a verified reference.
 
 **Search limit.** The mean-loss minimum is certified, so it is not an open gap under the restricted readout set. At `λ = 0.01`, `ε = 0.05`, `J_H = 3.4520245437103150e-02` at `K = 8` against `J_C = 2.7725887222397813e-02` (`decisions.out` lines 195–198). The errata supersedes these labels.
 
 ## Files
 
-- `theory/PREREG.md`, `theory/PREREG_R2.md`
+- `theory/composite-contest-2026-11-24/` holds `PREREG.md`, `PREREG_R2.md`, `PREREG_2.md`, and `PREREG_3.md` (moved by `git mv`; bytes unchanged)
 - `theory/composite_contest_checks/lemmas.py`, `search.py`, `decide.py`, `run_all.py`, `crossref_check.py`, `common.py`
 - Outputs: `lemmas.out`, `envelope.txt`, `decisions.out`, `control.out`, `crossref.out`, `SHA256SUMS`
 - `theory/composite_contest_checks/DEVIATIONS.md`
-- `theory/PREREG_3.md`, `theory/menu3_checks/DEVIATIONS.md`
+- `theory/composite-contest-2026-11-24/PREREG_3.md`, `theory/menu3_checks/DEVIATIONS.md`
 - Test: `tools/test_composite_contest_checks.py` reruns `run_all.py` and checks the locked hashes
 
 Read-first files, all found on `upstream/ace-probe-memos-2026-11-23`: `theory/probes-2026-11-23/README.md`, `reviews/DUEL_REVIEW.md`, `duel/DUEL_MEMO.md`, `WALLS_MEMO.md`, `reviews/WALLS_REVIEW.md`, `MIRROR_MEMO.md`, `reviews/MIRROR_REVIEW.md`. On this main: `CORE.md` (the priced sum and the memory coordinate at line 52; the heat floor at line 70) and `theory/CLOCK_TERM_2026-11-23.md`. The clock term is not charged. This contest is one preparation and one later readout.
 
 ## Pivot: the cap is the worst question
 
-The loose cells lost because the cap was a mean. On the traceless search the rebit's mean error is 1/25, which passes 0.05, and at `λ = 0.1` that is cheaper than a perfect complex record (`decisions.out` lines 249–251). `theory/PREREG_2.md` changes only the cap: ruin is the worst menu pair, `L_∞ = max (C_ab + u·v)^2`. One linear program, not a sweep (`theory/pivot_worst_checks/RUN_LOG.md`). The minimum classical support at that error is 6, not the solver's first support of 11 (`DEVIATIONS.md` D2).
+The loose cells lost because the cap was a mean. On the traceless search the rebit's mean error is 1/25, which passes 0.05, and at `λ = 0.1` that is cheaper than a perfect complex record (`decisions.out` lines 249–251). `theory/composite-contest-2026-11-24/PREREG_2.md` changes only the cap: ruin is the worst menu pair, `L_∞ = max (C_ab + u·v)^2`. One linear program, not a sweep (`theory/pivot_worst_checks/RUN_LOG.md`). The minimum classical support at that error is 6, not the solver's first support of 11 (`DEVIATIONS.md` D2).
 
 The classical worst-question loss is `4.2893218813467290e-02`, on the Bell floor, at `K = 6` (`theory/pivot_worst_checks/decisions.out` line 1). The stored print is six WIN and two LOSE (`theory/pivot_worst_checks/decisions.out` line 364). That print is superseded. A rebit with opposite constants on `y` has loss 0, so the headline is eight LOSE (errata above). The rebit is not stuck below `1/9`.
 

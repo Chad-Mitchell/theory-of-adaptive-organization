@@ -2,7 +2,7 @@
 
 ## Computed contestants on the tilted menu
 
-No new prediction, and no new preregistration. `PREREG_3.md` already required these four to be computed. Ace locked the headline price at Hardy `ln K_AB` (`PREREG.md:27`) and said not to open another contest.
+No new prediction, and no new preregistration. `theory/composite-contest-2026-11-24/PREREG_3.md` already required these four to be computed. Ace locked the headline price at Hardy `ln K_AB` (`theory/composite-contest-2026-11-24/PREREG.md:27`) and said not to open another contest.
 
 (a) The positive-price win disappears if the computed holistic loss is not the singlet's local loss, or if Gmin or Gmax, from its own model, reaches loss at most `10^{-8}` at `K = 16`. Either one moves the `K = 17` row or puts a rival inside the gate at `K ≤ 16`.
 
