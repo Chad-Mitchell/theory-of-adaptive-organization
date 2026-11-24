@@ -33,6 +33,24 @@ def test_theory_blob_unchanged():
     assert r.stdout.strip() == LOCKED_THEORY
 
 
+def _split_out(text):
+    """Original stored run, then the dated errata appendix."""
+    marker = "# Errata, 24 November 2026 (America/New_York). K2 net minimum"
+    assert marker in text
+    original, rest = text.split(marker, 1)
+    return original, marker + rest
+
+
+def test_record_ratio_original_run_log_preserved():
+    with open(os.path.join(HERE, "record_ratio_reframes_checks.out"), encoding="utf-8") as f:
+        stored = f.read()
+    original, appendix = _split_out(stored)
+    assert original.endswith("FAILS 4\n")
+    assert "net_min=0.0004213774925606595 at=(1.0033319156709788, 0.6581687266183737)" in original
+    assert "net_min=0.0014997828907532262 at=(1.0, 0.65)" in appendix
+    assert appendix.strip().endswith("FAILS 4")
+
+
 def test_record_ratio_reframes_checks_match_stored_stdout():
     script = os.path.join(HERE, "record_ratio_reframes_checks.py")
     r = subprocess.run(
@@ -41,6 +59,11 @@ def test_record_ratio_reframes_checks_match_stored_stdout():
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "FAILS 4" in r.stdout
+    assert "net_min=0.0014997828907532262 at=(1.0, 0.65)" in r.stdout
+    assert "ls_max=0.000421" in r.stdout
     with open(os.path.join(HERE, "record_ratio_reframes_checks.out"), encoding="utf-8") as f:
-        expected = f.read()
+        stored = f.read()
+    _original, appendix = _split_out(stored)
+    rescore_lines = [ln for ln in appendix.splitlines() if ln and not ln.startswith("#")]
+    expected = "\n".join(rescore_lines) + "\n"
     assert r.stdout == expected

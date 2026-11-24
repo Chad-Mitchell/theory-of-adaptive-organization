@@ -1,5 +1,7 @@
 # Record-price ratio: four consistency readings, none forces 1
 
+**G2: CONSISTENCY_CHECK.** Each route's value is hand-computable from the locked cost, or it is a known theorem. The note is not a test.
+
 *24 November 2026 (UTC). Desk note. No script. Self-check, not an independent review. `THEORY.md` is unchanged. Open-work row T75. Status words are those at `CORE.md:169`. Nothing here derives general relativity, quantum mechanics, or holography. The qubit, the dephasing channel, and the two record functionals are inputs from draft #252.*
 
 *T74 (`theory/QUANTUM_RECORD_PRICE_2026-11-24.md` on `forge-quantum-record-price` at `1fb7b5b`) asked whether A1–A8 or the ruin cap fixes \(\kappa_D/\kappa\). They do not. The missing sentence named there is one shared coefficient on both record terms. On the antipodal ensemble the record cost is flat in \(\theta\) exactly at ratio 1 (`theory/QUANTUM_RECORD_PRICE_2026-11-24.md` Route 5 and ERRATA E1 on that head; `theory/pointer-basis-stakes-2026-11-24/MEMO.md:64-68` at `e584d8b`). This note asks whether a consistency principle, rather than a further axiom, forces that sentence.*
@@ -189,3 +191,17 @@ Checked on 24 November 2026, and used above only where the text was read:
 - A Crossref query `Fundamental energy cost for quantum measurement` with author Reeb, 24 November 2026, returned 41 works. The first page did not contain a paper of that title. That miss is not a claim that no such paper exists.
 
 No claim is made that a consistency principle of some other kind is absent from the literature. The claim is the one in the answer: these four readings do not force the ratio.
+
+## Ledger
+
+**Lock reference:** no preregistration. Desk note. The closed form it uses is draft #252, head `e584d8b`. `THEORY.md` blob `6caadae569116a94a74563398be94cebf6e99e9b`.
+**Logged at (ET):** 2026-11-24 17:50 ET
+**Breach check:** none
+
+| prediction_id | locked_prediction (value/band; odds if feasible) | outcome | miss (signed size and direction, or HIT + info) | location | stake_x_info | update | breach_check |
+|---|---|---|---|---|---|---|---|
+| T75-A | the same-channel gap is \(\kappa_D P_D(\theta)\), and it is zero for every \(\theta\) only at \(\kappa_D=0\) | that identity, on the complete-dephasing antipodal ensemble | HIT; information about 0 (hand computation from the locked closed form) | model | low | none yet | none |
+| T75-B | matching R1 off the pointer forces \(\kappa_D=0\); at the pointer the costs match at every ratio | that split | HIT; information about 0 | model | low | none yet | none |
+| T75-C | Reeb and Wolf 2014 bound heat by a von Neumann entropy decrease and do not pass the bound to mutual information | the cited theorem (Theorem 3, Corollary 4, section 5.2) | HIT; information about 0 (known theorem; it does not set the ratio) | model | low | none yet | none |
+| T75-D | \(I(W;M)+P_D=H(M)-\mathbb{E}[S(\rho)]\) for this rank-1 measurement | that identity; the chain-rule coefficient is not a price | HIT; information about 0 | model | low | none yet; the shared-coefficient sentence stays missing | none |
+| T75-ratio | a consistency reading forces \(\kappa_D/\kappa=1\) | none of the four readings does | HIT on the question as asked; information about 0, because each reading was fixed before a run | model | low | none yet | none |
