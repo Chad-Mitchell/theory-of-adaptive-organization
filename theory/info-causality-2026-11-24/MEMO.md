@@ -1,0 +1,64 @@
+# MEMO: paid information and information causality
+
+*24 November 2026 (UTC). Desk derivation, written after the prereg commit and not before it. Self-check, not an independent review. `THEORY.md` is unchanged. Labels follow `CORE.md:167-169`.*
+
+## Why this approach
+
+The conjecture needs a ceiling: after \(m\) communicated bits, Bob's total Shannon information about Alice's bits is at most \(m\). The premises on hand are a price list and a heat bound. A price ranks designs that are already on the menu. A7 takes the world's distribution as given (`theory/REPRESENTATION.md:62`). The heat floor bounds the bath heat of a memory's own transitions (`CORE.md:70`). The cheapest test is to ask which of those sentences, if any, is the ceiling. A search over boxes cannot supply a ceiling the sentences do not state, so no script is run unless one of them does.
+
+The task is Pawłowski, Paterek, Kaszlikowski, Scarani, Winter and Żukowski, *Nature* 461, 1101–1104 (2009), DOI `10.1038/nature08400`, read from arXiv:0905.2292. Alice holds \(N\) independent bits, Bob holds an index \(b\), Alice sends \(m\) classical bits, a no-signaling resource may be shared, and Bob guesses \(\beta\). Their necessary condition is \(I\le m\), with \(I\) the sum of \(I(a_K:\beta\mid b=K)\) over the \(N\) indices. They derive it from three properties of a mutual information that has to make sense for the shared resource: consistency with Shannon information on classical parts, data processing for local operations, and a chain rule. For one perfect Popescu–Rohrlich box in van Dam's protocol they state \(P_{\mathrm I}=P_{\mathrm{II}}=1\) and \(I=2\) at \(m=1\).
+
+## Results
+
+| Check | Input | What came out | Label |
+|---|---|---|---|
+| P1 | van Dam, one perfect box, \(N=2\), \(m=1\) | A1–A8 leave \(I=2\) on the menu | relabel |
+| P2 | same box, against `CORE.md:70` | the floor's hypotheses are not met | relabel |
+| P3 | text of A6 and R1 | properties (1)–(3) for a no-signaling share are not stated there | relabel |
+| P4 | message priced at \(\kappa\) per nat, stake \(w\) on the error | the box scores \(\kappa\ln 2\); the classical one-bit protocol scores \(\kappa\ln 2+w/4\) | model implication |
+| P5 | classical protocol of P4 | the Shannon sum is 1 bit; the heat floor is unused | KNOWN, classical scope of A6 |
+
+**P1.** Theorem R1 (`theory/REPRESENTATION.md:84-92`) says a continuous cost representing the preorder is a price sum. The memory coordinate is Shannon mutual information for a finite alphabet, and the Gelfand–Yaglom–Dobrushin supremum when the mutual information is finite (`theory/REPRESENTATION.md:114`, `CORE.md:52`). A6 fixes which functional that coordinate is: the gross stock \(I(M_t;X^t)\), a different functional from the net learning rate (`theory/REPRESENTATION.md:60`). A8 makes a concatenating price nonnegative (`theory/REPRESENTATION.md:64`). A5 says there is no capacity ceiling on that coordinate (`theory/REPRESENTATION.md:56`). A nonnegative price on a coordinate that may be arbitrarily large leaves the random-access sum free of the ceiling \(I\le m\). A7 keeps the joint on the menu. No sentence in A1–A8 removes the perfect box or forces \(I\le 1\) on it.
+
+**P2.** `CORE.md:70` bounds bath heat by \(kT\) times the net information flow of the memory's own transitions, under a memory/world split and local detailed balance, or the Einstein relation for additive-noise diffusions, in a steady state or a long-run average. The perfect box is a one-shot conditional distribution. It has no transition rates and no bath. The named processes are bipartite jump processes and additive-noise diffusions. The box is neither. The paper states that classical correlations have \(S\le 3\) and the perfect box has \(S=4\) (KNOWN, their CHSH accounting). A process of the kind `CORE.md:70` names therefore does not have this box as its stationary input-output distribution. The floor is silent on the input where the inequality fails. Silence is not a derivation of \(I\le m\).
+
+**P3.** The step that produces \(I\le m\) for a general no-signaling resource is Pawłowski et al.'s (1)–(3) applied to the shared resource, plus independence of that resource from Alice's data. A6 and R1 state Shannon information, and its Gelfand–Yaglom–Dobrushin extension, for ordinary random variables. They do not state a data-processing inequality or a chain rule for a no-signaling box. Adding (1)–(3) on that box is adding the hypothesis from which the paper proves the inequality.
+
+**Recomputation the prereg required (C4).** Perfect box: \(A\oplus B=xy\) with probability 1, local outputs uniform. Alice inputs \(x=a_0\oplus a_1\) and sends \(M=a_0\oplus A\). Bob inputs \(y=b\) and outputs \(\beta=M\oplus B\). Then \(\beta=a_0\oplus xy\). At \(b=0\), \(\beta=a_0\). At \(b=1\), \(\beta=a_1\). Each requested bit is fair and recovered exactly, so each Shannon term is \(1-h(1)=1\) bit and the sum is 2 bits, against a one-bit message. This agrees with the paper's \(I=2\). The message itself is independent of \(a_0\): \(A\) is uniform and independent of the inputs, so \(H(M)=\ln 2\) nats. The information is in the pair \((M,B)\), which is why a bound by \(H(M)\) needs a hypothesis about \(B\)'s share and not only Shannon information of the message.
+
+**P5, classical menu (C3).** Shared randomness independent of \((a_0,a_1)\), message \(M=a_0\), guess \(M\) when \(b=0\) and an independent fair bit when \(b=1\). Then \(I(a_0:\beta\mid b=0)=1\) bit and \(I(a_1:\beta\mid b=1)=0\). The sum equals \(m\). The same pattern is the classical case of the paper's argument: if a classical share \(R\) is independent of \(\vec a\) and the guess is a function of \((M,b,R)\), Shannon's chain rule and data processing give \(I\le H(M)\). That is the mutual information A6 already names for classical records. The heat floor is not used. The perfect box has no such classical \(R\). This case does not rule the box out.
+
+**P4 (C5).** The locked formula is \(J=\kappa H(M)+w\,\mathbb E[a_b\oplus\beta]\), \(b\) uniform, \(H\) in nats, \(\kappa>0\), \(w>0\). The box has error 0 and \(H(M)=\ln 2\), so \(J=\kappa\ln 2\). The classical protocol has error \(\tfrac12\cdot 0+\tfrac12\cdot\tfrac12=\tfrac14\), so \(J=\kappa\ln 2+w/4\). The box is cheaper by \(w/4\) at every positive price and every positive stake. A1–A8 add no further infinite cost on the box. A finite message price prefers the box. Section 4 of the prereg words the price as mutual information with the data. On this box the message is a one-time pad, so that mutual information is 0 and the cost falls to the stake term, which is also 0. The ordering is unchanged. Details are under Deviations.
+
+## Conclusions
+
+**Result: relabel.** For a general no-signaling resource, \(I\le m\) follows by adding Pawłowski et al.'s information calculus, or information causality itself, as a new axiom. A1–A8 and the heat floor do not provide it. Paid-information accounting leaves correlations stronger than quantum on the menu.
+
+**KNOWN, classical scope.** On classical shared randomness independent of Alice's data, \(I\le H(M)\) is Shannon's chain rule and data processing. A6 already uses that mutual information for classical records (`CORE.md:52`). It is the classical case of the 2009 argument. It is not a bar on a Popescu–Rohrlich box, and it is not the heat floor.
+
+**Model implication.** A price per nat is a slope, and A5 refuses a ceiling (`theory/REPRESENTATION.md:56`). The heat floor prices learning from a world the memory is coupled to (`CORE.md:70`), which is the risk this desk check was opened to test. R1's coordinate for a classical record is Shannon mutual information with what that record is about. The Holevo quantity used at `theory/probes-2026-11-23/duel/PREREG.md:27` on `ace-probe-memos-2026-11-23` stays an unadopted modeling choice. Under either reading of the message price, the perfect box is the cheaper design.
+
+**Conjecture, still open.** Whether a heat bound outside the processes named at `CORE.md:70` could price a nonlocal box is a different hypothesis. This desk check does not support it. Information causality, even where the 2009 argument applies, is not known to single out the whole quantum set: the paper says so for correlations that respect the Tsirelson value \(E\le 1/\sqrt{2}\), and Allcock, Brunner, Pawłowski and Scarani (DOI `10.1103/PhysRevA.80.040103`; arXiv:0906.3464) report that part of the quantum boundary emerges from the principle. Quantum mechanics stays an input of that argument.
+
+## Where the sentences are
+
+- Axioms A1–A8: `theory/REPRESENTATION.md:43-64`. Ceiling refused: `:56`. Gross stock, not the learning rate: `:60`. Exogenous world: `:62`. Nonnegative prices: `:64`.
+- R1: `theory/REPRESENTATION.md:84-92`. Memory coordinate: `:114`. Summary: `CORE.md:52`.
+- Heat floor, hypotheses included: `CORE.md:70`. Worked class, a different list: `CORE.md:86`.
+- Holevo as a duel pricing, not a premise: `theory/probes-2026-11-23/duel/PREREG.md:27` on `ace-probe-memos-2026-11-23`.
+- No PR-box contestant, and the maximal tensor product named only as a future composite to declare: `theory/probes-2026-11-23/reviews/DUEL_REVIEW.md:111` on that same branch. Logged in the prereg before this derivation.
+- Target and the value \(I=2\): Pawłowski et al. 2009, DOI `10.1038/nature08400`.
+
+## Deviations
+
+Two notes, neither a change to a locked pass/fail. The prereg was not edited.
+
+The price section says a classical record is priced by its Shannon mutual information with the data it records. P4 and C5 write the formula as \(\kappa H(M)\) and the value \(\kappa\ln 2\). On the perfect-box protocol those two functionals differ: \(A\) is uniform and independent of \((a_0,a_1)\), so \(M=a_0\oplus A\) is independent of Alice's bits and the mutual information is 0, while \(H(M)=\ln 2\). C5 is scored as locked, on \(H(M)\). Under the mutual-information wording the box's information price is 0. In both readings the box is strictly cheaper than the classical protocol, and in both readings the cost leaves \(I=2\) in place.
+
+One extra comparison. Reason: the same price section says that charging \(kT\) times the random-access sum, as if that sum were the learning flow, is a further choice and is outside the allowed premises. On the entropy pricing, that charge gives \(J_{\mathrm{box}}=(\kappa+2kT)\ln 2\) and \(J_{\mathrm{classical}}=(\kappa+kT)\ln 2+w/4\). The box remains cheaper when \(w>4kT\ln 2\). The added charge is still a finite price. It is not the ceiling \(I\le m\).
+
+No script and no `RUN_LOG`. C1 fails and C6 forbids both. There was no PR-box or maximal-tensor contestant to reuse.
+
+## Score against the prereg
+
+C1 fail. C2 pass (this memo names the added axiom and stops). C3 pass (sum is 1 bit). C4 pass (sum is 2 bits). C5 pass (the box is cheaper by \(w/4\)). C6 pass (no script).
