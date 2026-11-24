@@ -1,6 +1,6 @@
 /-
 Copyright (c) 2026 Chad Mitchell. Public domain (CC0).
-Witnesses and the telegraph bound for the finite-state learning rate.
+Witnesses for the finite-state learning rate.
 `theory/GENERAL_FLOOR_FINITE_2026-11-23.md`, OPEN_WORK T60, batch 2.
 -/
 module
@@ -16,12 +16,11 @@ public import Mathlib.Tactic.Positivity
 public import Mathlib.Tactic.Ring
 
 /-!
-# Witnesses and the telegraph bound
+# Witnesses
 
 The learning-rate sum is zero on a frozen world and on a two-class memory
 whose occupied flux graph is disconnected. It stays positive on a stationary
-3-cycle whose Bayes error equals chance. On the fair telegraph the same sum
-is at least `r L(ε)`.
+3-cycle whose Bayes error equals chance.
 -/
 
 @[expose] public section
