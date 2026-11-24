@@ -1,18 +1,77 @@
-# Record-price ratio: three reframes, none forces 1
+# Record-price ratio: 0 and 1 as candidate fixed points
 
-*24 November 2026 (UTC). Preregistered and hash-locked before the grid (`theory/record_ratio_reframes_checks/PREREG.md`, sha256 `8e495b7b…fce8`, commit of that lock only). Self-check, not an independent review. `THEORY.md` is unchanged (blob `6caadae569116a94a74563398be94cebf6e99e9b`). Open-work row T76. Status words are those at `CORE.md:169`. Nothing here derives general relativity, quantum mechanics, or holography. The qubit, the dephasing channel, and the two record functionals are inputs from draft #252.*
+*24 November 2026 (UTC). Two locks, each committed before its grid. The reframe lock is `theory/record_ratio_reframes_checks/PREREG.md`, sha256 `8e495b7b…fce8`. The fixed-point lock is `PREREG_FIXED_POINTS.md`, sha256 `82d58bdc…017b`. Self-check, not an independent review. `THEORY.md` is unchanged (blob `6caadae569116a94a74563398be94cebf6e99e9b`). Open-work row T76. Status words are those at `CORE.md:169`. Nothing here derives general relativity, quantum mechanics, or holography. The qubit, the dephasing channel, and the two record functionals are inputs from draft #252.*
 
-*T75 asked whether a consistency principle forces \(\kappa_D/\kappa\) in \(J=\kappa\,I(W;M)+\kappa_D\,P_D+w\,L\). None of the four readings did. Routes A and B pointed at the endpoint \(0\) under strengthenings that are not axioms. This note asks a different question: whether a known result in a distant field, or a reframe of what is being asked, forces the ratio or shows that it stays free.*
+*T75 asked whether a consistency principle forces \(\kappa_D/\kappa\) in \(J=\kappa\,I(W;M)+\kappa_D\,P_D+w\,L\). None of the four readings did. Routes A and B point at \(\kappa_D=0\) under strengthenings that are not axioms. The structural picture (one shared coefficient, a \(\theta\)-flat antipodal record cost, the ledger \(I+P_D=H(M)-\mathbb{E}[S(\rho)]\)) points at ratio \(1\). This note treats those two numbers as candidate fixed points. The three reframes below stay as already scored. They do not force the ratio either.*
 
 ## Answer
 
-No. Three routes. None of them forces \(\kappa_D/\kappa=1\).
+Ratio \(0\) and ratio \(1\) are candidate fixed points of different maps. No map in the lock forces one of them on every composition.
+
+- **Sequential remeasurement, and a product of independent worlds.** Every ratio is a fixed point. There is no flow. **NUMERICAL.** \(0\) and \(1\) are fixed, and so is every other ratio.
+- **Coarse-graining to a classical channel** (pointer measurement, then a binary symmetric channel). The one-step map is \(q\mapsto 0\) for every \(q\ge 0\). Ratio \(0\) is the only fixed point, and it is stable. Ratio \(1\) is not a fixed point: the gap at the equator is \(P_D(\pi/2)=0.096372\). The basin is the whole half-line. The boundary is not a value of \(q\). The map is a comparison only when the kept behavior is the classical channel. When the residual quantum state is part of the behavior, the two paths leave the qubit diagonal in different bases, and this route does not send \(q\) to \(0\). The gap identity is adopted from T75 Route A. The fixed-point reading is this note.
+- **Repeated records of one world.** Ratio \(1\) does not keep the record cost flat: the range of \(I_2+2P_D\) is \(0.016289\). At \(w=1\), ratio \(0\) stays at the equator through \(n=8\) and ratio \(1\) stays at the pointer through \(n=20\). At ratio \(0\) and \(w=4\), the minimizer moves from the pointer at \(n=1\) to \(0.966476\) at \(n=8\). At ratio \(0.5\) and \(w=1.5\), it moves from \(0.704677\) to the pointer by \(n=8\). The check that \(n=16\) has reached \(\tfrac32\ln 2\) misses (\(0.713026\) against \(1.039721\)). **NUMERICAL**, with that one clause a puzzle.
+- **The switch.** On the complete-dephasing antipodal menu the equator (the design ratio \(0\) selects at small stake) and the pointer (the design ratio \(1\) selects for every \(w>0\)) meet at \(w=|\kappa_D-\kappa|/r^2\) and \(w=|\kappa_D-\kappa|\,w_\star\). The listed cells match the formula, including the interior roots. A reuse fraction \(\lambda\) crosses the same boundary, because it multiplies \(\kappa_D\) and does not add a resource. At \(\gamma=1/2\) the formula's root and the minimizer differ by \(0.704255\) rad. The endpoint-slope signs match; the magnitude bar misses on the interior cell. **ELEMENTARY** from the closed form where the grid matches, and a puzzle on that one magnitude bar.
+- **Duality.** The ledger reflection \(\delta\mapsto-\delta\) pairs ratio \(0\) with ratio \(2\) and fixes ratio \(1\). It is an identity of record costs on the antipodal ensemble, at \(\gamma=0\) and at \(\gamma=1/2\). It is not an identity on the biased ensemble (range \(0.132555\)). It does not send the ratio-\(0\) minimizer to the ratio-\(1\) minimizer. At \(w=1\) those angles differ by \(\pi/2\). **ELEMENTARY** on the antipodal ledger, **NUMERICAL** on the biased range and the angles.
+
+The two-copy cost on the biased ensemble stays inside the single-shot span to residual \(2.078781\times 10^{-5}\). The fitted slope ratio is \(0.559888\). The lock said to report that pair and not to declare a flow. **Puzzle.**
+
+Kelly's doubling rate, the gauge of selected designs, and the calibration lists stay below. None of them forces the ratio to \(1\).
 
 - **Route K** (Kelly doubling rate). **KNOWN** for the theorem, **NUMERICAL** for the split. The doubling rate of a fair-odds bet on \(W\) given the outcome \(M\) is \(I(W;M)\), weight \((1,0)\) on \((I,P_D)\). The Holevo bound equals \(I+P_D\) on the antipodal ensemble and does not equal it on the biased ensemble. On the biased ensemble a different pair, \((1.0033319156709788,\ 0.6581687266183737)\), tracks the bound with max residual \(0.0004213774925606595\), inside the locked bar \(0.005\). That pair is not ratio \(1\). The cost ratio stays free.
 - **Route G** (gauge). **NUMERICAL**, and the corner case is the antipodal identity already in T75. On the complete-dephasing antipodal ensemble with a stake that prefers the pointer, every ratio in \([1,\infty)\) selects \(\theta=0\) and the same minimized cost. The gauge stops when the stake is zero and the ratio is exactly \(1\) (the argmin is the whole interval), when the ratio is below \(1\), and at partial dephasing with a non-commuting stake (ratio \(1\) and ratio \(100\) differ by \(0.465\) rad). Adding the same constant to both coefficients does not change the selected angle on the antipodal ensemble. It changes the angle once the ledger \(H(M)-\mathbb{E}[S(\rho)]\) depends on \(\theta\).
 - **Route C** (calibration). **Puzzle.** The locked stake lists produced no interior pair, so they did not measure the ratio. A post-hoc scan, not a rescore, finds a thin band of stakes where the antipodal list would have recovered only the difference \(\kappa_D-\kappa\), and the biased list would have recovered both coefficients. The locked lists missed that band. The suggested next stakes in the preregistration sit on the corner and would miss it again.
 
-Renormalization under the chain rule, and the rate-distortion slope, were dropped before the lock. Both rename a route already scored (`PREREG.md:21-23`).
+## Flow
+
+**Claim.** Three compositions, three maps (`PREREG_FIXED_POINTS.md` §4). Same-system remeasurement and independent worlds fix every ratio. The garbling menu sends every ratio to \(0\), and that map stops when the residual state is kept. A repeated record of one world takes the cost out of the flat ledger that ratio \(1\) relies on, and it moves designs.
+
+**Observed against the lock** (`fixed_point_checks.out:6-10`).
+
+- **F-seq matches.** Conditional mutual information of a second pinch is \(5.551\times 10^{-17}\). Same-basis disturbance is \(0\). A right angle adds disturbance \(0.693147\). The best second pinch adds cost \(0\). A second measurement on the same system does not change the price. Every ratio is a fixed point.
+- **F-prod matches.** Two independent worlds double the cost to within \(2.220\times 10^{-16}\) and keep the minimizer, at ratios \(0\), \(1\), and \(2\). Every ratio is a fixed point. These two checks are the chain-rule remark in `PREREG.md:21-23`, now scored.
+- **F-menu matches.** Channel probabilities agree to \(2.220\times 10^{-16}\). The cost gap equals \(P_D\), and at the equator that gap is \(0.096372\). Ratio \(0\) is a fixed point of the menu. Ratio \(1\) is not. **Adopted** from T75 Route A as the gap; the map \(q\mapsto 0\) is the reading added here.
+- **F-rep, one clause misses.** Ratio \(0\) at \(w=1\) is the equator at \(n=1,2,8\). Ratio \(1\) at \(w=1\) is the pointer at \(n=1,2,8,20\). Ratio \(0\) at \(w=4\) is the pointer at \(n=1\) and \(0.966476\) at \(n=8\), with \(J_8(\pi/2)=0.720000<J_8(0)=0.746122\). Ratio \(0.5\) at \(w=1.5\) moves from \(0.704677\) to \(0\). The two-copy range is \(0.016289>0.005\). The certificate \(J_{20}(\pi/2)>J_{20}(0)\) holds (\(2.107448>0.813014\)). **\(I_{16}=0.713026\) misses \(\tfrac32\ln 2=1.039721\) by more than \(0.02\).** Sixteen pointer shots have not reached the elementary limit. The preregistration leaves a larger \(n\) to a new lock.
+- **F-span misses the residual bar.** Least squares of \(I_2+2P_D\) on \((I_1,P_D)\) with an intercept returns \((-8.982341,\ -5.029101,\ 1.354825)\), slope ratio \(0.559888\), max residual \(2.078781\times 10^{-5}\). The bar was \(>0.01\). The lock says to report the pair and not to declare that the ratio flowed to \(0\) or to \(1\) (`PREREG_FIXED_POINTS.md` §4, F-span).
+
+**What it forces.** On a menu of classical channels, with free garbling and the quantum residual discarded, the effective record price is \(\kappa I\). The stable fixed point is ratio \(0\). Ratio \(1\) is sent to \(0\) in one step. Nothing in that map makes \(1\) stable. On a menu that keeps the post-measurement state, that step is not available, and the sequential and product maps leave the ratio where it was. Repetition is a third map: any \(q>0\) in the locked interior cell has reached the pointer by \(n=8\), and ratio \(0\) at a stake between \(w_\star\) and the saturated-information stake has left the pointer by \(n=8\). Those are design flows. They are not a flow of the coefficient inside the original two-term family, because the biased two-copy cost did not leave that family's span at the locked tolerance.
+
+**What blocks calling \(0\) and \(1\) the only fixed points.** F-seq and F-prod fix every ratio. A beta function whose only fixed points are \(0\) and \(1\) is the garbling menu, and only there. The basin boundary of that menu is the kept behavior, not a critical ratio.
+
+**Model implication.** Conditional on the kept record being the final classical outcome, and on pointer-plus-garbling being allowed: the composition map's only fixed point is \(\kappa_D=0\), and ratio \(1\) is unstable. Conditional on the post-measurement state being part of the behavior: this menu does not identify the ratio. Conditional on repeated records of one world at the locked stakes: ratio \(1\) is a fixed design at \(w=1\) (the pointer) and is not a flat cost once \(n=2\); ratio \(0\) is a fixed design at \(w=1\) (the equator) and is not a fixed design at \(w=4\). **NUMERICAL**, except the menu gap, which is T75's identity checked on the grid. The fitted slope ratio \(0.559888\) is not a coefficient of \(J\).
+
+## The switch
+
+**Claim.** For \(\delta=\kappa_D-\kappa<0\) on ANT, \(\gamma=0\), \(\phi=0\), the minimizer is the equator when \(w<|\delta|/r^2\), the pointer when \(w>|\delta|\,w_\star\), and the root of \(w=|\delta|\Lambda(\theta)/(2r^3\cos\theta)\) in between. Ratio \(1\) is the edge \(\delta=0\): the record cost is flat and every \(w>0\) selects the pointer. \(\lambda\) enters only as \(\kappa_{D,\mathrm{eff}}=\lambda\kappa_D\) (`PREREG_FIXED_POINTS.md` §3).
+
+**Observed against the lock** (`fixed_point_checks.out:1-5`).
+
+- **T-mono matches.** \(w_{\mathrm{crit}}/|\delta|\) falls from \(3.208789\) to \(2.777911\) on the fifty-point mesh.
+- **T-cells matches.** All ten cells. The interior roots sit within one grid step: at \(q=0\), \(w=3\), grid \(0.704677\) against root \(0.704255\); at \(q=0.5\), \(w=1.5\), the same pair, as the formula's scaling in \(|\delta|\) requires; at \(q=0.67\), \(w=1\), grid \(0.634864\) against root \(0.634866\). Ratio \(1\) at \(w=0\) ties all \(721\) angles. Ratio \(2\) selects the pointer.
+- **T-lambda matches.** At nominal ratio \(1\) and \(w=1\), \(\lambda=0\) and \(\lambda=0.5\) select the equator, \(\lambda=0.66\) is interior at \(0.842121\) (root \(0.843105\)), and \(\lambda=0.8\) and \(\lambda=1\) select the pointer.
+- **T-gamma matches.** At \(\gamma=1/2\), \(q=0\), \(w=3\), the minimizer is \(0\). The \(\gamma=0\) root is \(0.704255\). The gap is \(0.704255\ge 0.1\).
+- **T-slope misses the magnitude bar on one cell.** Signs match on all three cells. At \(q=0.5\), \(w=1.5\) the difference quotients are \(-3.386036\times 10^{-7}\) and \(+3.600020\times 10^{-7}\), below \(10^{-6}\). The endpoints are critical points, so a step of \(10^{-4}\) times a small second derivative falls under that bar. The minimizer itself matched (T-cells). The sentence was not edited.
+
+**What it forces.** The change from the ratio-\(0\) design to the ratio-\(1\) design is this boundary in \((q,w)\). It is not a jump at a universal stake, and it is not located at ratio \(1\) for every \(w\). For \(q\ge 1\) the design is already the pointer whenever \(w>0\). For \(q<1\) the pointer arrives only once \(w>|\delta|\,w_\star\). Raising \(\lambda\) at a nominal ratio of \(1\) is the same crossing, read in the charged disturbance. Partial dephasing at the one locked stake does not sit on the complete-dephasing root.
+
+**What blocks a single critical ratio.** Below the boundary the two conventions select different angles. Above it they select the same angle, so a designer who only shows \(\theta\) does not reveal which convention was used. That is the gauge already scored as Route G, now with the boundary written as a formula.
+
+**Model implication.** Conditional on ANT, \(\gamma=0\), \(\phi=0\): the selected design switches from the equator to the pointer across \(w=|\kappa_D-\kappa|/r^2\) and \(w=|\kappa_D-\kappa|\,w_\star\), and ratio \(1\) is the boundary value of \(q\) at which the equator phase disappears. Conditional on \(\gamma=1/2\) at the one locked stake: that formula does not locate the angle. **ELEMENTARY** from the closed form on the cells that matched. **NUMERICAL** for the partial-dephasing gap. The slope magnitude is a puzzle in the lock.
+
+## Duality
+
+**Claim.** \(dI=-dP_D\) on the antipodal ledger, so \(\delta\mapsto-\delta\) swaps the two record pieces and fixes the shared-coefficient line. The image of ratio \(0\) is ratio \(2\), not ratio \(1\). No stake-preserving map sends the ratio-\(0\) minimizer to the ratio-\(1\) minimizer at \(w=1\) (`PREREG_FIXED_POINTS.md` §5).
+
+**Observed against the lock** (`fixed_point_checks.out:11-12`).
+
+- **D-value matches.** The range of \(R(\delta)+R(-\delta)\) is below \(10^{-15}\) on ANT at \(\gamma=0\) and at \(\gamma=1/2\), and it is \(0.132555\) on BIAS.
+- **D-argmin matches.** At \(w=1\), ratio \(0\) selects \(1.570796\) and ratio \(1\) selects \(0\). The gap is \(\pi/2\). Ratio \(2\) selects \(0\), with the ratio-\(1\) minimizer.
+
+**What it forces.** The exact involution in the ledger pairs the endpoint \(0\) with ratio \(2\) and leaves ratio \(1\) fixed. Ratio \(1\) is the self-dual price, not the dual of \(0\). The dual of "price only \(I\)" on this menu is "price \(I\) and charge \(P_D\) at twice the coefficient," which is a different regime. At \(w=1\) that dual already shares the pointer with ratio \(1\), while ratio \(0\) does not.
+
+**What blocks a duality of the two candidate fixed points.** Their minimizers at the same stake are different angles. A map that kept \(w\) and preserved minimizers cannot identify them on this cell. The value identity that does exist is constant on ANT and is not constant once \(H(M)\) depends on \(\theta\).
+
+**Model implication.** Conditional on the antipodal ledger: record costs at \(\delta\) and at \(-\delta\) sum to a \(\theta\)-independent multiple of the ledger, and the fixed ratio of that involution is \(1\). Conditional on the biased ensemble: that sum moves by \(0.132555\) nat across \(\theta\), and the involution is not a symmetry. Neither conditional identifies \(\kappa_D/\kappa\) with \(1\). **ELEMENTARY** for the antipodal identity. **NUMERICAL** for the biased range.
 
 ## Route K. Doubling rate
 
@@ -76,13 +135,13 @@ The shared-coefficient reading is the pair \((1,1)\). It reproduces the Holevo b
 
 **Model implication.** Conditional on the antipodal complete-dephasing menu: designs determine \(\kappa_D-\kappa\) when the optimum is interior, and do not determine \(\kappa_D/\kappa\), because \((\kappa,\kappa_D)\) and \((\kappa+a,\kappa_D+a)\) differ by \(a\) times a \(\theta\)-independent ledger. Conditional on the biased menu, once two interior stakes are in hand: both coefficients are returned by the same linear system. The second conditional is **post-hoc**. The locked run's conditional is the weaker one: these stake lists do not pin the ratio. **Puzzle**, with the band located.
 
-## Why the other two candidates were dropped
+## Rate-distortion, still not a separate route
 
-Composition. The chain rule writes \(I(W;M_1,M_2)=I(W;M_1)+I(W;M_2\mid M_1)\), and the entropy increase from the initial state to the final state telescopes. Pricing each increment at the same \((\kappa,\kappa_D)\) reproduces one ratio. Every ratio is a fixed point. The map that sends every ratio to an effective \(0\) is pointer measurement plus garbling, which is T75 Route A. A beta function with one jump to \(0\) is that route renamed. It was not scored (`PREREG.md:21-23`).
-
-Rate-distortion. The slope of a rate-distortion function is a Lagrange multiplier at an operating point. On the antipodal ledger \(dI=-dP_D\), so the technical rate of transformation is \(1\), which is Route G's perfect-substitute line. It does not set the price ratio. It was not scored.
+The slope of a rate-distortion function is a Lagrange multiplier at an operating point. On the antipodal ledger \(dI=-dP_D\), so the technical rate of transformation is \(1\), which is the perfect-substitute line already in Route G and the fixed line of the involution above. It does not set the price ratio. It was not scored (`PREREG.md:21-23`). The composition remark in that same paragraph is the sequential and product maps, scored above as F-seq and F-prod. The menu and the repeated record are the parts that paragraph did not separate.
 
 ## Puzzle
+
+The fixed-point lock has three misses. The interior slope quotients are \(-3.386036\times 10^{-7}\) and \(+3.600020\times 10^{-7}\), under the bar \(10^{-6}\), with the signs the phase asks for. Sixteen pointer records give mutual information \(0.713026\), short of \(\tfrac32\ln 2\). The two-copy biased cost fits the single-shot pair to \(2.078781\times 10^{-5}\) nat, at slope ratio \(0.559888\), and that pair is not a declared flow. A later lock can raise \(n\) past \(16\). It should not reuse \(0.559888\) as a predicted ratio.
 
 K2's bound clause is the one that came out the other way. A fixed pair that is not \((1,1)\) tracks the Holevo quantity on the biased curve to better than the locked bar. The doubling rate itself stayed at \((1,0)\). The next check, as a new preregistration, is whether that pair survives a second ensemble whose ledger is not a function of a single cosine. This note does not run that ensemble.
 
