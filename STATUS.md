@@ -39,6 +39,7 @@ IP5, the claim that the master equation is the physical frontier, is FALSE (`mea
 - `measurement/CLAIM_MAP_v2.md` (v2.88; one status per claim) and `measurement/FRAMEWORK.md` (validity gates MV1–MV10, tiers, anti-rescue rule).
 - `OPEN_WORK.md` — every open item. This is the live list.
 - `process/PROCESS.md` + `process/MISS_LOG_TEMPLATE.md` — live research-process derivation from the cost of judgment, miss vocabulary, rules, and log template.
+- `process/VOCABULARY.md` — proposed vocabulary for memory, record, model, layer, level, nesting, scale, fractal and swarm: one meaning each, with a test, a status label and citations. Adds no result and leaves `THEORY.md` unchanged.
 - `process/QUEUE.md` + `process/queue/` — frozen 20 November 2026; superseded by `OPEN_WORK.md`. The items and ledger remain as a historical record.
 - `tools/brief.py` — live state snapshot (HEAD, recent merges, open PRs, versions, open work). Run `python3 tools/brief.py` before answering from memory; do not trust a hand-written SHA on this page.
 - `tools/check_consistency.py` — run before and after any doc change; it must print RESULT: PASS. It also runs `tools/check_fresh.py`, which fails if this page's stated `main` SHA is not among the last 5 first-parent commits of main (`origin/main` if that ref exists, otherwise local `main`, otherwise HEAD).
