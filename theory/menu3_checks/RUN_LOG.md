@@ -21,3 +21,5 @@ After the run, 24 November 2026. Line (b) above is the pre-run text from `c59741
 After the run, 24 November 2026, errata on the independent review of `b2ff239`. Commit `c539110` replaced the pre-run clause "the 25 product-effect probabilities of the singlet" with "the 100 signed menu effects of the singlet". Commit `4514d39` restored the bytes from `c597418`. The rewrite is still reachable in branch history and was not hidden.
 
 After the run, 24 November 2026, location relabel. D12 named location `measurement/code`. That location is not used for the unfired arms: no MV gate fired, and neither arm at `run_menu3.py:416` ran. D12a records location `process`. The scored file is unchanged: `P-gmax PASS` at `decisions.out:65`, `P-win FAIL` at `:61`, headline TIE at `:105`.
+
+After the merge of `9ed7298`, 24 November 2026. That commit appended a row that leaves the location unassigned. The row stays. D12a is the location row: `process`.
