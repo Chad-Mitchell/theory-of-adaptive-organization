@@ -21,3 +21,7 @@ At \(\theta=0\), \(I=1.039720\) and \(L=0\). At \(\pi/4\), \(I=1.038833\) and \(
 `PREREG_QUANTUM.md` is unchanged. The coherent block is the review instrument, projectors \(|0\rangle\langle 0|\) and \(|1\rangle\langle 1|+|2\rangle\langle 2|\), on the state with off-diagonal \(1/8\) inside that block. Those projectors fix the state, so \(P_D=0\) and the costs at \(q=0\) and \(q=1\) agree. The prediction \(P_D>0.01\) fails.
 
 The run stored at `00e8dfa` did not apply those projectors. It subtracted the entropy of eigenvalues \((1/2,1/4,1/4)\) from the entropy of \((1/2,3/8,1/8)\) and printed `Q-coh PASS PD=0.065406 cost_gap=0.065406`, with `FAILS 1`. That number is the gap to the fully dephased diagonal. It is not the disturbance of the locked instrument. This commit replaces `quantum_record_checks.out`. The corrected line is `Q-coh FAIL PD=0.000000 cost_gap=0.000000`, and the file ends `FAILS 2`. No prediction was edited.
+
+## D5. Original Q-coh run log restored and appended, 24 November 2026
+
+`PREREG_QUANTUM.md` is unchanged. D4 records that commit `9284624` replaced `quantum_record_checks.out` with the re-scored line. The original nine lines from `00e8dfa`, including `Q-coh PASS PD=0.065406 cost_gap=0.065406` and `FAILS 1`, are now restored at the top of that file and are not edited. The re-score `Q-coh FAIL PD=0.000000 cost_gap=0.000000` and `FAILS 2` is appended below a dated note, 24 November 2026 (America/New_York). The live script stdout is the appended block. No prediction was edited.

@@ -32,16 +32,47 @@ def test_theory_blob_unchanged_quantum():
     assert r.stdout.strip() == LOCKED_THEORY
 
 
-def test_quantum_record_checks_match_stored_stdout():
+def _split_out(text):
+    """Original stored run, then the dated errata appendix."""
+    marker = "# Errata, 24 November 2026"
+    assert marker in text
+    original, rest = text.split(marker, 1)
+    return original, marker + rest
+
+
+def test_quantum_original_run_log_preserved():
+    with open(os.path.join(HERE, "quantum_record_checks.out"), encoding="utf-8") as f:
+        stored = f.read()
+    original, appendix = _split_out(stored)
+    assert original == (
+        "Q-comm PASS frobenius=0.176776695297\n"
+        "Q-slope PASS min_PD=0.025450 max_PD=0.025714\n"
+        "Q-pointer PASS PD0=0.025450 PDpi2=0.025450\n"
+        "Q-garble PASS min_gap=0.150000\n"
+        "Q-state PASS trace_distance=0.300000\n"
+        "Q-reuse FAIL I_cond=0.017070 PD_total=0.084896 gap1=0.084896 gap2=0.169791\n"
+        "Q-rank PASS PD=0.000e+00 I=0.000e+00 ledger_gap=0.346573590280 half_ln2=0.346573590280\n"
+        "Q-coh PASS PD=0.065406 cost_gap=0.065406\n"
+        "FAILS 1\n"
+        "\n"
+    )
+    assert "Q-coh FAIL PD=0.000000 cost_gap=0.000000" in appendix
+    assert appendix.strip().endswith("FAILS 2")
+
+
+def test_quantum_record_checks_match_rescore_stdout():
     script = os.path.join(HERE, "quantum_record_checks.py")
     r = subprocess.run(
         [sys.executable, script],
         capture_output=True, text=True, timeout=120,
     )
     assert r.returncode == 0, r.stdout + r.stderr
-    assert "FAILS 2" in r.stdout
     assert "Q-reuse FAIL" in r.stdout
-    assert "Q-coh FAIL" in r.stdout
+    assert "Q-coh FAIL PD=0.000000 cost_gap=0.000000" in r.stdout
+    assert "FAILS 2" in r.stdout
     with open(os.path.join(HERE, "quantum_record_checks.out"), encoding="utf-8") as f:
-        expected = f.read()
+        stored = f.read()
+    _original, appendix = _split_out(stored)
+    rescore_lines = [ln for ln in appendix.splitlines() if ln and not ln.startswith("#")]
+    expected = "\n".join(rescore_lines) + "\n"
     assert r.stdout == expected
