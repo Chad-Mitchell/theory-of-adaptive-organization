@@ -1,0 +1,133 @@
+D   R-Hol    FC1   main    | lambda>0: LOSE   {'TIE': 85, 'LOSE': 475} | lambda=0: TIE    {'TIE': 140} | per-competitor {('a', 'WIN'): 545, ('c1', 'TIE'): 85, ('c1', 'LOSE'): 475, ('a', 'LOSE'): 15} | b vs orbitope {'TIE': 85, 'LOSE': 475}
+      by T/tau: 0.25: {'TIE': 17, 'LOSE': 95}; 1: {'TIE': 17, 'LOSE': 95}; 10: {'TIE': 17, 'LOSE': 95}; 100: {'TIE': 17, 'LOSE': 95}; 1000: {'TIE': 17, 'LOSE': 95}
+D   R-Hol    FC1   strict  | lambda>0: LOSE   {'TIE': 85, 'LOSE': 475} | lambda=0: TIE    {'TIE': 140} | per-competitor {('a', 'WIN'): 560, ('c1', 'TIE'): 85, ('c1', 'LOSE'): 475} | b vs orbitope {'TIE': 85, 'LOSE': 475}
+      by T/tau: 0.25: {'TIE': 17, 'LOSE': 95}; 1: {'TIE': 17, 'LOSE': 95}; 10: {'TIE': 17, 'LOSE': 95}; 100: {'TIE': 17, 'LOSE': 95}; 1000: {'TIE': 17, 'LOSE': 95}
+D   R-Hol    FC1   ticks   | lambda>0: LOSE   {'TIE': 17, 'LOSE': 603} | lambda=0: LOSE   {'TIE': 11, 'LOSE': 144} | per-competitor {('a', 'WIN'): 24, ('c1', 'TIE'): 85, ('c1', 'LOSE'): 475, ('a', 'TIE'): 5, ('a', 'LOSE'): 591, ('c1', None): 60} | b vs orbitope {'TIE': 85, 'LOSE': 475, None: 60}
+      by T/tau: 0.25: {'TIE': 3, 'LOSE': 121}; 1: {'TIE': 3, 'LOSE': 121}; 10: {'TIE': 3, 'LOSE': 121}; 100: {'TIE': 4, 'LOSE': 120}; 1000: {'TIE': 4, 'LOSE': 120}
+D   R-Hol    FC2   main    | lambda>0: TIE    {'TIE': 554, 'LOSE': 6} | lambda=0: TIE    {'TIE': 140} | per-competitor {('a', 'WIN'): 552, ('c1', 'TIE'): 560, ('a', 'TIE'): 2, ('a', 'LOSE'): 6} | b vs orbitope {'TIE': 560}
+      by T/tau: 0.25: {'TIE': 106, 'LOSE': 6}; 1: {'TIE': 112}; 10: {'TIE': 112}; 100: {'TIE': 112}; 1000: {'TIE': 112}
+D   R-Hol    FC2   strict  | lambda>0: TIE    {'TIE': 560} | lambda=0: TIE    {'TIE': 140} | per-competitor {('a', 'WIN'): 560, ('c1', 'TIE'): 560} | b vs orbitope {'TIE': 560}
+      by T/tau: 0.25: {'TIE': 112}; 1: {'TIE': 112}; 10: {'TIE': 112}; 100: {'TIE': 112}; 1000: {'TIE': 112}
+D   R-Hol    FC2   ticks   | lambda>0: LOSE   {'TIE': 31, 'LOSE': 589} | lambda=0: LOSE   {'TIE': 11, 'LOSE': 144} | per-competitor {('a', 'WIN'): 26, ('c1', 'TIE'): 560, ('a', 'TIE'): 5, ('a', 'LOSE'): 589, ('c1', None): 60} | b vs orbitope {'TIE': 560, None: 60}
+      by T/tau: 0.25: {'TIE': 5, 'LOSE': 119}; 1: {'TIE': 5, 'LOSE': 119}; 10: {'TIE': 5, 'LOSE': 119}; 100: {'TIE': 6, 'LOSE': 118}; 1000: {'TIE': 10, 'LOSE': 114}
+D   R-Hol    FC1n  main    | lambda>0: LOSE   {'TIE': 85, 'LOSE': 475} | lambda=0: TIE    {'TIE': 140} | per-competitor {('a', 'WIN'): 545, ('c1', 'TIE'): 85, ('c1', 'LOSE'): 475, ('a', 'LOSE'): 15} | b vs orbitope {'TIE': 85, 'LOSE': 475}
+      by T/tau: 0.25: {'TIE': 17, 'LOSE': 95}; 1: {'TIE': 17, 'LOSE': 95}; 10: {'TIE': 17, 'LOSE': 95}; 100: {'TIE': 17, 'LOSE': 95}; 1000: {'TIE': 17, 'LOSE': 95}
+D   R-Hol    FC1n  strict  | lambda>0: LOSE   {'TIE': 85, 'LOSE': 475} | lambda=0: TIE    {'TIE': 140} | per-competitor {('a', 'WIN'): 560, ('c1', 'TIE'): 85, ('c1', 'LOSE'): 475} | b vs orbitope {'TIE': 85, 'LOSE': 475}
+      by T/tau: 0.25: {'TIE': 17, 'LOSE': 95}; 1: {'TIE': 17, 'LOSE': 95}; 10: {'TIE': 17, 'LOSE': 95}; 100: {'TIE': 17, 'LOSE': 95}; 1000: {'TIE': 17, 'LOSE': 95}
+D   R-Hol    FC1n  ticks   | lambda>0: LOSE   {'TIE': 17, 'LOSE': 603} | lambda=0: LOSE   {'TIE': 11, 'LOSE': 144} | per-competitor {('a', 'WIN'): 24, ('c1', 'TIE'): 85, ('c1', 'LOSE'): 475, ('a', 'TIE'): 5, ('a', 'LOSE'): 591, ('c1', None): 60} | b vs orbitope {'TIE': 85, 'LOSE': 475, None: 60}
+      by T/tau: 0.25: {'TIE': 3, 'LOSE': 121}; 1: {'TIE': 3, 'LOSE': 121}; 10: {'TIE': 3, 'LOSE': 121}; 100: {'TIE': 4, 'LOSE': 120}; 1000: {'TIE': 4, 'LOSE': 120}
+D   R-Hol    FC2n  main    | lambda>0: TIE    {'TIE': 554, 'LOSE': 6} | lambda=0: TIE    {'TIE': 140} | per-competitor {('a', 'WIN'): 552, ('c1', 'TIE'): 560, ('a', 'TIE'): 2, ('a', 'LOSE'): 6} | b vs orbitope {'TIE': 560}
+      by T/tau: 0.25: {'TIE': 106, 'LOSE': 6}; 1: {'TIE': 112}; 10: {'TIE': 112}; 100: {'TIE': 112}; 1000: {'TIE': 112}
+D   R-Hol    FC2n  strict  | lambda>0: TIE    {'TIE': 560} | lambda=0: TIE    {'TIE': 140} | per-competitor {('a', 'WIN'): 560, ('c1', 'TIE'): 560} | b vs orbitope {'TIE': 560}
+      by T/tau: 0.25: {'TIE': 112}; 1: {'TIE': 112}; 10: {'TIE': 112}; 100: {'TIE': 112}; 1000: {'TIE': 112}
+D   R-Hol    FC2n  ticks   | lambda>0: LOSE   {'TIE': 31, 'LOSE': 589} | lambda=0: LOSE   {'TIE': 11, 'LOSE': 144} | per-competitor {('a', 'WIN'): 24, ('c1', 'TIE'): 560, ('a', 'TIE'): 7, ('a', 'LOSE'): 589, ('c1', None): 60} | b vs orbitope {'TIE': 560, None: 60}
+      by T/tau: 0.25: {'TIE': 5, 'LOSE': 119}; 1: {'TIE': 5, 'LOSE': 119}; 10: {'TIE': 5, 'LOSE': 119}; 100: {'TIE': 6, 'LOSE': 118}; 1000: {'TIE': 10, 'LOSE': 114}
+D   R-Hardy  FC1   main    | lambda>0: MIXED  {'WIN': 545, 'LOSE': 15} | lambda=0: WIN    {'WIN': 140} | per-competitor {('a', 'WIN'): 545, ('a', 'LOSE'): 15} | b vs orbitope {'TIE': 85, 'LOSE': 475}
+      by T/tau: 0.25: {'WIN': 98, 'LOSE': 14}; 1: {'WIN': 111, 'LOSE': 1}; 10: {'WIN': 112}; 100: {'WIN': 112}; 1000: {'WIN': 112}
+D   R-Hardy  FC1   strict  | lambda>0: WIN    {'WIN': 560} | lambda=0: WIN    {'WIN': 140} | per-competitor {('a', 'WIN'): 560} | b vs orbitope {'TIE': 85, 'LOSE': 475}
+      by T/tau: 0.25: {'WIN': 112}; 1: {'WIN': 112}; 10: {'WIN': 112}; 100: {'WIN': 112}; 1000: {'WIN': 112}
+D   R-Hardy  FC1   ticks   | lambda>0: LOSE   {'WIN': 24, 'TIE': 5, 'LOSE': 591} | lambda=0: LOSE   {'WIN': 7, 'TIE': 4, 'LOSE': 144} | per-competitor {('a', 'WIN'): 24, ('a', 'TIE'): 5, ('a', 'LOSE'): 591} | b vs orbitope {'TIE': 85, 'LOSE': 475, None: 60}
+      by T/tau: 0.25: {'WIN': 4, 'TIE': 1, 'LOSE': 119}; 1: {'WIN': 4, 'TIE': 1, 'LOSE': 119}; 10: {'WIN': 4, 'TIE': 1, 'LOSE': 119}; 100: {'WIN': 4, 'TIE': 2, 'LOSE': 118}; 1000: {'WIN': 8, 'LOSE': 116}
+D   R-Hardy  FC2   main    | lambda>0: MIXED  {'WIN': 552, 'TIE': 2, 'LOSE': 6} | lambda=0: WIN    {'WIN': 140} | per-competitor {('a', 'WIN'): 552, ('a', 'TIE'): 2, ('a', 'LOSE'): 6} | b vs orbitope {'TIE': 560}
+      by T/tau: 0.25: {'WIN': 104, 'TIE': 2, 'LOSE': 6}; 1: {'WIN': 112}; 10: {'WIN': 112}; 100: {'WIN': 112}; 1000: {'WIN': 112}
+D   R-Hardy  FC2   strict  | lambda>0: WIN    {'WIN': 560} | lambda=0: WIN    {'WIN': 140} | per-competitor {('a', 'WIN'): 560} | b vs orbitope {'TIE': 560}
+      by T/tau: 0.25: {'WIN': 112}; 1: {'WIN': 112}; 10: {'WIN': 112}; 100: {'WIN': 112}; 1000: {'WIN': 112}
+D   R-Hardy  FC2   ticks   | lambda>0: LOSE   {'WIN': 26, 'TIE': 5, 'LOSE': 589} | lambda=0: LOSE   {'WIN': 7, 'TIE': 4, 'LOSE': 144} | per-competitor {('a', 'WIN'): 26, ('a', 'TIE'): 5, ('a', 'LOSE'): 589} | b vs orbitope {'TIE': 560, None: 60}
+      by T/tau: 0.25: {'WIN': 4, 'TIE': 1, 'LOSE': 119}; 1: {'WIN': 4, 'TIE': 1, 'LOSE': 119}; 10: {'WIN': 4, 'TIE': 1, 'LOSE': 119}; 100: {'WIN': 4, 'TIE': 2, 'LOSE': 118}; 1000: {'WIN': 10, 'LOSE': 114}
+D   R-Hardy  FC1n  main    | lambda>0: MIXED  {'WIN': 545, 'LOSE': 15} | lambda=0: WIN    {'WIN': 140} | per-competitor {('a', 'WIN'): 545, ('a', 'LOSE'): 15} | b vs orbitope {'TIE': 85, 'LOSE': 475}
+      by T/tau: 0.25: {'WIN': 98, 'LOSE': 14}; 1: {'WIN': 111, 'LOSE': 1}; 10: {'WIN': 112}; 100: {'WIN': 112}; 1000: {'WIN': 112}
+D   R-Hardy  FC1n  strict  | lambda>0: WIN    {'WIN': 560} | lambda=0: WIN    {'WIN': 140} | per-competitor {('a', 'WIN'): 560} | b vs orbitope {'TIE': 85, 'LOSE': 475}
+      by T/tau: 0.25: {'WIN': 112}; 1: {'WIN': 112}; 10: {'WIN': 112}; 100: {'WIN': 112}; 1000: {'WIN': 112}
+D   R-Hardy  FC1n  ticks   | lambda>0: LOSE   {'WIN': 24, 'TIE': 5, 'LOSE': 591} | lambda=0: LOSE   {'WIN': 7, 'TIE': 4, 'LOSE': 144} | per-competitor {('a', 'WIN'): 24, ('a', 'TIE'): 5, ('a', 'LOSE'): 591} | b vs orbitope {'TIE': 85, 'LOSE': 475, None: 60}
+      by T/tau: 0.25: {'WIN': 4, 'TIE': 1, 'LOSE': 119}; 1: {'WIN': 4, 'TIE': 1, 'LOSE': 119}; 10: {'WIN': 4, 'TIE': 1, 'LOSE': 119}; 100: {'WIN': 4, 'TIE': 2, 'LOSE': 118}; 1000: {'WIN': 8, 'LOSE': 116}
+D   R-Hardy  FC2n  main    | lambda>0: MIXED  {'WIN': 552, 'TIE': 2, 'LOSE': 6} | lambda=0: WIN    {'WIN': 140} | per-competitor {('a', 'WIN'): 552, ('a', 'TIE'): 2, ('a', 'LOSE'): 6} | b vs orbitope {'TIE': 560}
+      by T/tau: 0.25: {'WIN': 104, 'TIE': 2, 'LOSE': 6}; 1: {'WIN': 112}; 10: {'WIN': 112}; 100: {'WIN': 112}; 1000: {'WIN': 112}
+D   R-Hardy  FC2n  strict  | lambda>0: WIN    {'WIN': 560} | lambda=0: WIN    {'WIN': 140} | per-competitor {('a', 'WIN'): 560} | b vs orbitope {'TIE': 560}
+      by T/tau: 0.25: {'WIN': 112}; 1: {'WIN': 112}; 10: {'WIN': 112}; 100: {'WIN': 112}; 1000: {'WIN': 112}
+D   R-Hardy  FC2n  ticks   | lambda>0: LOSE   {'WIN': 24, 'TIE': 7, 'LOSE': 589} | lambda=0: LOSE   {'WIN': 7, 'TIE': 4, 'LOSE': 144} | per-competitor {('a', 'WIN'): 24, ('a', 'TIE'): 7, ('a', 'LOSE'): 589} | b vs orbitope {'TIE': 560, None: 60}
+      by T/tau: 0.25: {'WIN': 4, 'TIE': 1, 'LOSE': 119}; 1: {'WIN': 4, 'TIE': 1, 'LOSE': 119}; 10: {'WIN': 4, 'TIE': 1, 'LOSE': 119}; 100: {'WIN': 4, 'TIE': 2, 'LOSE': 118}; 1000: {'WIN': 8, 'LOSE': 114, 'TIE': 2}
+S1  R-Hol    FC1   main    | lambda>0: LOSE   {'TIE': 121, 'LOSE': 615} | lambda=0: TIE    {'TIE': 184} | per-competitor {('a', 'WIN'): 706, ('c1', 'TIE'): 121, ('c1', 'LOSE'): 615, ('a', 'LOSE'): 30} | b vs orbitope {'TIE': 121, 'LOSE': 615}
+      by T/tau: 0.25: {'TIE': 32, 'LOSE': 188}; 1: {'TIE': 30, 'LOSE': 186}; 10: {'TIE': 37, 'LOSE': 167}; 100: {'TIE': 22, 'LOSE': 74}
+S1  R-Hol    FC1   strict  | lambda>0: LOSE   {'TIE': 121, 'LOSE': 615} | lambda=0: TIE    {'TIE': 184} | per-competitor {('a', 'WIN'): 736, ('c1', 'TIE'): 121, ('c1', 'LOSE'): 615} | b vs orbitope {'TIE': 121, 'LOSE': 615}
+      by T/tau: 0.25: {'TIE': 32, 'LOSE': 188}; 1: {'TIE': 30, 'LOSE': 186}; 10: {'TIE': 37, 'LOSE': 167}; 100: {'TIE': 22, 'LOSE': 74}
+S1  R-Hol    FC1   ticks   | lambda>0: LOSE   {'TIE': 11, 'LOSE': 769} | lambda=0: LOSE   {'TIE': 8, 'LOSE': 187} | per-competitor {('a', 'WIN'): 12, ('c1', 'TIE'): 121, ('c1', 'LOSE'): 615, ('a', 'TIE'): 5, ('a', 'LOSE'): 763, ('c1', None): 44} | b vs orbitope {'TIE': 121, 'LOSE': 615, None: 44}
+      by T/tau: 0.25: {'TIE': 4, 'LOSE': 236}; 1: {'TIE': 2, 'LOSE': 226}; 10: {'TIE': 3, 'LOSE': 209}; 100: {'TIE': 2, 'LOSE': 98}
+S1  R-Hol    FC2   main    | lambda>0: TIE    {'TIE': 724, 'LOSE': 12} | lambda=0: TIE    {'TIE': 184} | per-competitor {('a', 'WIN'): 720, ('c1', 'TIE'): 736, ('a', 'TIE'): 4, ('a', 'LOSE'): 12} | b vs orbitope {'TIE': 736}
+      by T/tau: 0.25: {'TIE': 208, 'LOSE': 12}; 1: {'TIE': 216}; 10: {'TIE': 204}; 100: {'TIE': 96}
+S1  R-Hol    FC2   strict  | lambda>0: TIE    {'TIE': 736} | lambda=0: TIE    {'TIE': 184} | per-competitor {('a', 'WIN'): 736, ('c1', 'TIE'): 736} | b vs orbitope {'TIE': 736}
+      by T/tau: 0.25: {'TIE': 220}; 1: {'TIE': 216}; 10: {'TIE': 204}; 100: {'TIE': 96}
+S1  R-Hol    FC2   ticks   | lambda>0: LOSE   {'TIE': 17, 'LOSE': 763} | lambda=0: LOSE   {'TIE': 8, 'LOSE': 187} | per-competitor {('a', 'WIN'): 12, ('c1', 'TIE'): 736, ('a', 'TIE'): 5, ('a', 'LOSE'): 763, ('c1', None): 44} | b vs orbitope {'TIE': 736, None: 44}
+      by T/tau: 0.25: {'TIE': 6, 'LOSE': 234}; 1: {'TIE': 2, 'LOSE': 226}; 10: {'TIE': 5, 'LOSE': 207}; 100: {'TIE': 4, 'LOSE': 96}
+S1  R-Hol    FC1n  main    | lambda>0: LOSE   {'TIE': 117, 'LOSE': 619} | lambda=0: TIE    {'TIE': 184} | per-competitor {('a', 'WIN'): 706, ('c1', 'TIE'): 117, ('c1', 'LOSE'): 619, ('a', 'LOSE'): 30} | b vs orbitope {'TIE': 117, 'LOSE': 619}
+      by T/tau: 0.25: {'TIE': 32, 'LOSE': 188}; 1: {'TIE': 30, 'LOSE': 186}; 10: {'TIE': 35, 'LOSE': 169}; 100: {'TIE': 20, 'LOSE': 76}
+S1  R-Hol    FC1n  strict  | lambda>0: LOSE   {'TIE': 117, 'LOSE': 619} | lambda=0: TIE    {'TIE': 184} | per-competitor {('a', 'WIN'): 736, ('c1', 'TIE'): 117, ('c1', 'LOSE'): 619} | b vs orbitope {'TIE': 117, 'LOSE': 619}
+      by T/tau: 0.25: {'TIE': 32, 'LOSE': 188}; 1: {'TIE': 30, 'LOSE': 186}; 10: {'TIE': 35, 'LOSE': 169}; 100: {'TIE': 20, 'LOSE': 76}
+S1  R-Hol    FC1n  ticks   | lambda>0: LOSE   {'TIE': 11, 'LOSE': 769} | lambda=0: LOSE   {'TIE': 8, 'LOSE': 187} | per-competitor {('a', 'WIN'): 12, ('c1', 'TIE'): 117, ('c1', 'LOSE'): 619, ('a', 'TIE'): 5, ('a', 'LOSE'): 763, ('c1', None): 44} | b vs orbitope {'TIE': 117, 'LOSE': 619, None: 44}
+      by T/tau: 0.25: {'TIE': 4, 'LOSE': 236}; 1: {'TIE': 2, 'LOSE': 226}; 10: {'TIE': 3, 'LOSE': 209}; 100: {'TIE': 2, 'LOSE': 98}
+S1  R-Hol    FC2n  main    | lambda>0: TIE    {'TIE': 724, 'LOSE': 12} | lambda=0: TIE    {'TIE': 184} | per-competitor {('a', 'WIN'): 720, ('c1', 'TIE'): 736, ('a', 'TIE'): 4, ('a', 'LOSE'): 12} | b vs orbitope {'TIE': 736}
+      by T/tau: 0.25: {'TIE': 208, 'LOSE': 12}; 1: {'TIE': 216}; 10: {'TIE': 204}; 100: {'TIE': 96}
+S1  R-Hol    FC2n  strict  | lambda>0: TIE    {'TIE': 736} | lambda=0: TIE    {'TIE': 184} | per-competitor {('a', 'WIN'): 736, ('c1', 'TIE'): 736} | b vs orbitope {'TIE': 736}
+      by T/tau: 0.25: {'TIE': 220}; 1: {'TIE': 216}; 10: {'TIE': 204}; 100: {'TIE': 96}
+S1  R-Hol    FC2n  ticks   | lambda>0: LOSE   {'TIE': 17, 'LOSE': 763} | lambda=0: LOSE   {'TIE': 8, 'LOSE': 187} | per-competitor {('a', 'WIN'): 12, ('c1', 'TIE'): 736, ('a', 'TIE'): 5, ('a', 'LOSE'): 763, ('c1', None): 44} | b vs orbitope {'TIE': 736, None: 44}
+      by T/tau: 0.25: {'TIE': 6, 'LOSE': 234}; 1: {'TIE': 2, 'LOSE': 226}; 10: {'TIE': 5, 'LOSE': 207}; 100: {'TIE': 4, 'LOSE': 96}
+S1  R-Hardy  FC1   main    | lambda>0: MIXED  {'WIN': 706, 'LOSE': 30} | lambda=0: WIN    {'WIN': 184} | per-competitor {('a', 'WIN'): 706, ('a', 'LOSE'): 30} | b vs orbitope {'TIE': 121, 'LOSE': 615}
+      by T/tau: 0.25: {'WIN': 192, 'LOSE': 28}; 1: {'WIN': 214, 'LOSE': 2}; 10: {'WIN': 204}; 100: {'WIN': 96}
+S1  R-Hardy  FC1   strict  | lambda>0: WIN    {'WIN': 736} | lambda=0: WIN    {'WIN': 184} | per-competitor {('a', 'WIN'): 736} | b vs orbitope {'TIE': 121, 'LOSE': 615}
+      by T/tau: 0.25: {'WIN': 220}; 1: {'WIN': 216}; 10: {'WIN': 204}; 100: {'WIN': 96}
+S1  R-Hardy  FC1   ticks   | lambda>0: LOSE   {'WIN': 12, 'TIE': 5, 'LOSE': 763} | lambda=0: LOSE   {'WIN': 3, 'TIE': 5, 'LOSE': 187} | per-competitor {('a', 'WIN'): 12, ('a', 'TIE'): 5, ('a', 'LOSE'): 763} | b vs orbitope {'TIE': 121, 'LOSE': 615, None: 44}
+      by T/tau: 0.25: {'WIN': 4, 'TIE': 2, 'LOSE': 234}; 1: {'TIE': 2, 'LOSE': 226}; 10: {'TIE': 1, 'LOSE': 207, 'WIN': 4}; 100: {'WIN': 4, 'LOSE': 96}
+S1  R-Hardy  FC2   main    | lambda>0: MIXED  {'WIN': 720, 'TIE': 4, 'LOSE': 12} | lambda=0: WIN    {'WIN': 184} | per-competitor {('a', 'WIN'): 720, ('a', 'TIE'): 4, ('a', 'LOSE'): 12} | b vs orbitope {'TIE': 736}
+      by T/tau: 0.25: {'WIN': 204, 'TIE': 4, 'LOSE': 12}; 1: {'WIN': 216}; 10: {'WIN': 204}; 100: {'WIN': 96}
+S1  R-Hardy  FC2   strict  | lambda>0: WIN    {'WIN': 736} | lambda=0: WIN    {'WIN': 184} | per-competitor {('a', 'WIN'): 736} | b vs orbitope {'TIE': 736}
+      by T/tau: 0.25: {'WIN': 220}; 1: {'WIN': 216}; 10: {'WIN': 204}; 100: {'WIN': 96}
+S1  R-Hardy  FC2   ticks   | lambda>0: LOSE   {'WIN': 12, 'TIE': 5, 'LOSE': 763} | lambda=0: LOSE   {'WIN': 3, 'TIE': 5, 'LOSE': 187} | per-competitor {('a', 'WIN'): 12, ('a', 'TIE'): 5, ('a', 'LOSE'): 763} | b vs orbitope {'TIE': 736, None: 44}
+      by T/tau: 0.25: {'WIN': 4, 'TIE': 2, 'LOSE': 234}; 1: {'TIE': 2, 'LOSE': 226}; 10: {'TIE': 1, 'LOSE': 207, 'WIN': 4}; 100: {'WIN': 4, 'LOSE': 96}
+S1  R-Hardy  FC1n  main    | lambda>0: MIXED  {'WIN': 706, 'LOSE': 30} | lambda=0: WIN    {'WIN': 184} | per-competitor {('a', 'WIN'): 706, ('a', 'LOSE'): 30} | b vs orbitope {'TIE': 117, 'LOSE': 619}
+      by T/tau: 0.25: {'WIN': 192, 'LOSE': 28}; 1: {'WIN': 214, 'LOSE': 2}; 10: {'WIN': 204}; 100: {'WIN': 96}
+S1  R-Hardy  FC1n  strict  | lambda>0: WIN    {'WIN': 736} | lambda=0: WIN    {'WIN': 184} | per-competitor {('a', 'WIN'): 736} | b vs orbitope {'TIE': 117, 'LOSE': 619}
+      by T/tau: 0.25: {'WIN': 220}; 1: {'WIN': 216}; 10: {'WIN': 204}; 100: {'WIN': 96}
+S1  R-Hardy  FC1n  ticks   | lambda>0: LOSE   {'WIN': 12, 'TIE': 5, 'LOSE': 763} | lambda=0: LOSE   {'WIN': 3, 'TIE': 5, 'LOSE': 187} | per-competitor {('a', 'WIN'): 12, ('a', 'TIE'): 5, ('a', 'LOSE'): 763} | b vs orbitope {'TIE': 117, 'LOSE': 619, None: 44}
+      by T/tau: 0.25: {'WIN': 4, 'TIE': 2, 'LOSE': 234}; 1: {'TIE': 2, 'LOSE': 226}; 10: {'TIE': 1, 'LOSE': 207, 'WIN': 4}; 100: {'WIN': 4, 'LOSE': 96}
+S1  R-Hardy  FC2n  main    | lambda>0: MIXED  {'WIN': 720, 'TIE': 4, 'LOSE': 12} | lambda=0: WIN    {'WIN': 184} | per-competitor {('a', 'WIN'): 720, ('a', 'TIE'): 4, ('a', 'LOSE'): 12} | b vs orbitope {'TIE': 736}
+      by T/tau: 0.25: {'WIN': 204, 'TIE': 4, 'LOSE': 12}; 1: {'WIN': 216}; 10: {'WIN': 204}; 100: {'WIN': 96}
+S1  R-Hardy  FC2n  strict  | lambda>0: WIN    {'WIN': 736} | lambda=0: WIN    {'WIN': 184} | per-competitor {('a', 'WIN'): 736} | b vs orbitope {'TIE': 736}
+      by T/tau: 0.25: {'WIN': 220}; 1: {'WIN': 216}; 10: {'WIN': 204}; 100: {'WIN': 96}
+S1  R-Hardy  FC2n  ticks   | lambda>0: LOSE   {'WIN': 12, 'TIE': 5, 'LOSE': 763} | lambda=0: LOSE   {'WIN': 3, 'TIE': 5, 'LOSE': 187} | per-competitor {('a', 'WIN'): 12, ('a', 'TIE'): 5, ('a', 'LOSE'): 763} | b vs orbitope {'TIE': 736, None: 44}
+      by T/tau: 0.25: {'WIN': 4, 'TIE': 2, 'LOSE': 234}; 1: {'TIE': 2, 'LOSE': 226}; 10: {'TIE': 1, 'LOSE': 207, 'WIN': 4}; 100: {'WIN': 4, 'LOSE': 96}
+S2  R-Hol    FC1   main    | lambda>0: LOSE   {'TIE': 113, 'LOSE': 519} | lambda=0: TIE    {'TIE': 158} | per-competitor {('a', 'TIE'): 2, ('c1', 'TIE'): 115, ('a', 'LOSE'): 78, ('c1', 'LOSE'): 517, ('a', 'WIN'): 552} | b vs orbitope {'TIE': 115, 'LOSE': 517}
+      by T/tau: 0.125: {'TIE': 36, 'LOSE': 180}; 1: {'TIE': 36, 'LOSE': 176}; 8: {'TIE': 41, 'LOSE': 163}
+S2  R-Hol    FC1   ticks   | lambda>0: LOSE   {'TIE': 19, 'LOSE': 641} | lambda=0: LOSE   {'TIE': 14, 'LOSE': 151} | per-competitor {('a', 'TIE'): 9, ('c1', 'TIE'): 115, ('a', 'LOSE'): 639, ('c1', 'LOSE'): 517, ('a', 'WIN'): 12, ('c1', None): 28} | b vs orbitope {'TIE': 115, 'LOSE': 517, None: 28}
+      by T/tau: 0.125: {'TIE': 14, 'LOSE': 210}; 1: {'TIE': 2, 'LOSE': 222}; 8: {'TIE': 3, 'LOSE': 209}
+S2  R-Hol    FC2   main    | lambda>0: TIE    {'TIE': 575, 'LOSE': 57} | lambda=0: TIE    {'TIE': 158} | per-competitor {('a', 'TIE'): 3, ('c1', 'TIE'): 632, ('a', 'LOSE'): 57, ('a', 'WIN'): 572} | b vs orbitope {'TIE': 632}
+      by T/tau: 0.125: {'TIE': 159, 'LOSE': 57}; 1: {'TIE': 212}; 8: {'TIE': 204}
+S2  R-Hol    FC2   ticks   | lambda>0: LOSE   {'TIE': 29, 'LOSE': 631} | lambda=0: LOSE   {'TIE': 14, 'LOSE': 151} | per-competitor {('a', 'TIE'): 17, ('c1', 'TIE'): 632, ('a', 'LOSE'): 631, ('a', 'WIN'): 12, ('c1', None): 28} | b vs orbitope {'TIE': 632, None: 28}
+      by T/tau: 0.125: {'TIE': 22, 'LOSE': 202}; 1: {'TIE': 2, 'LOSE': 222}; 8: {'TIE': 5, 'LOSE': 207}
+S2  R-Hol    FC1n  main    | lambda>0: LOSE   {'TIE': 107, 'LOSE': 525} | lambda=0: TIE    {'TIE': 158} | per-competitor {('a', 'TIE'): 2, ('c1', 'TIE'): 109, ('a', 'LOSE'): 78, ('c1', 'LOSE'): 523, ('a', 'WIN'): 552} | b vs orbitope {'TIE': 109, 'LOSE': 523}
+      by T/tau: 0.125: {'TIE': 34, 'LOSE': 182}; 1: {'TIE': 35, 'LOSE': 177}; 8: {'TIE': 38, 'LOSE': 166}
+S2  R-Hol    FC1n  ticks   | lambda>0: LOSE   {'TIE': 19, 'LOSE': 641} | lambda=0: LOSE   {'TIE': 14, 'LOSE': 151} | per-competitor {('a', 'TIE'): 9, ('c1', 'TIE'): 109, ('a', 'LOSE'): 639, ('c1', 'LOSE'): 523, ('a', 'WIN'): 12, ('c1', None): 28} | b vs orbitope {'TIE': 109, 'LOSE': 523, None: 28}
+      by T/tau: 0.125: {'TIE': 14, 'LOSE': 210}; 1: {'TIE': 2, 'LOSE': 222}; 8: {'TIE': 3, 'LOSE': 209}
+S2  R-Hol    FC2n  main    | lambda>0: TIE    {'TIE': 574, 'LOSE': 58} | lambda=0: TIE    {'TIE': 158} | per-competitor {('a', 'TIE'): 2, ('c1', 'TIE'): 632, ('a', 'LOSE'): 58, ('a', 'WIN'): 572} | b vs orbitope {'TIE': 632}
+      by T/tau: 0.125: {'TIE': 158, 'LOSE': 58}; 1: {'TIE': 212}; 8: {'TIE': 204}
+S2  R-Hol    FC2n  ticks   | lambda>0: LOSE   {'TIE': 29, 'LOSE': 631} | lambda=0: LOSE   {'TIE': 14, 'LOSE': 151} | per-competitor {('a', 'TIE'): 17, ('c1', 'TIE'): 632, ('a', 'LOSE'): 631, ('a', 'WIN'): 12, ('c1', None): 28} | b vs orbitope {'TIE': 632, None: 28}
+      by T/tau: 0.125: {'TIE': 22, 'LOSE': 202}; 1: {'TIE': 2, 'LOSE': 222}; 8: {'TIE': 5, 'LOSE': 207}
+S2  R-Hardy  FC1   main    | lambda>0: MIXED  {'TIE': 2, 'LOSE': 78, 'WIN': 552} | lambda=0: WIN    {'TIE': 2, 'WIN': 156} | per-competitor {('a', 'TIE'): 2, ('a', 'LOSE'): 78, ('a', 'WIN'): 552} | b vs orbitope {'TIE': 115, 'LOSE': 517}
+      by T/tau: 0.125: {'TIE': 2, 'LOSE': 76, 'WIN': 138}; 1: {'WIN': 210, 'LOSE': 2}; 8: {'WIN': 204}
+S2  R-Hardy  FC1   ticks   | lambda>0: LOSE   {'TIE': 9, 'LOSE': 639, 'WIN': 12} | lambda=0: LOSE   {'TIE': 9, 'WIN': 5, 'LOSE': 151} | per-competitor {('a', 'TIE'): 9, ('a', 'LOSE'): 639, ('a', 'WIN'): 12} | b vs orbitope {'TIE': 115, 'LOSE': 517, None: 28}
+      by T/tau: 0.125: {'TIE': 6, 'LOSE': 210, 'WIN': 8}; 1: {'TIE': 2, 'LOSE': 222}; 8: {'TIE': 1, 'LOSE': 207, 'WIN': 4}
+S2  R-Hardy  FC2   main    | lambda>0: MIXED  {'TIE': 3, 'LOSE': 57, 'WIN': 572} | lambda=0: WIN    {'TIE': 2, 'WIN': 156} | per-competitor {('a', 'TIE'): 3, ('a', 'LOSE'): 57, ('a', 'WIN'): 572} | b vs orbitope {'TIE': 632}
+      by T/tau: 0.125: {'TIE': 3, 'LOSE': 57, 'WIN': 156}; 1: {'WIN': 212}; 8: {'WIN': 204}
+S2  R-Hardy  FC2   ticks   | lambda>0: LOSE   {'TIE': 17, 'LOSE': 631, 'WIN': 12} | lambda=0: LOSE   {'TIE': 9, 'WIN': 5, 'LOSE': 151} | per-competitor {('a', 'TIE'): 17, ('a', 'LOSE'): 631, ('a', 'WIN'): 12} | b vs orbitope {'TIE': 632, None: 28}
+      by T/tau: 0.125: {'TIE': 14, 'LOSE': 202, 'WIN': 8}; 1: {'TIE': 2, 'LOSE': 222}; 8: {'TIE': 1, 'LOSE': 207, 'WIN': 4}
+S2  R-Hardy  FC1n  main    | lambda>0: MIXED  {'TIE': 2, 'LOSE': 78, 'WIN': 552} | lambda=0: WIN    {'TIE': 2, 'WIN': 156} | per-competitor {('a', 'TIE'): 2, ('a', 'LOSE'): 78, ('a', 'WIN'): 552} | b vs orbitope {'TIE': 109, 'LOSE': 523}
+      by T/tau: 0.125: {'TIE': 2, 'LOSE': 76, 'WIN': 138}; 1: {'WIN': 210, 'LOSE': 2}; 8: {'WIN': 204}
+S2  R-Hardy  FC1n  ticks   | lambda>0: LOSE   {'TIE': 9, 'LOSE': 639, 'WIN': 12} | lambda=0: LOSE   {'TIE': 9, 'WIN': 5, 'LOSE': 151} | per-competitor {('a', 'TIE'): 9, ('a', 'LOSE'): 639, ('a', 'WIN'): 12} | b vs orbitope {'TIE': 109, 'LOSE': 523, None: 28}
+      by T/tau: 0.125: {'TIE': 6, 'LOSE': 210, 'WIN': 8}; 1: {'TIE': 2, 'LOSE': 222}; 8: {'TIE': 1, 'LOSE': 207, 'WIN': 4}
+S2  R-Hardy  FC2n  main    | lambda>0: MIXED  {'TIE': 2, 'LOSE': 58, 'WIN': 572} | lambda=0: WIN    {'TIE': 2, 'WIN': 156} | per-competitor {('a', 'TIE'): 2, ('a', 'LOSE'): 58, ('a', 'WIN'): 572} | b vs orbitope {'TIE': 632}
+      by T/tau: 0.125: {'TIE': 2, 'LOSE': 58, 'WIN': 156}; 1: {'WIN': 212}; 8: {'WIN': 204}
+S2  R-Hardy  FC2n  ticks   | lambda>0: LOSE   {'TIE': 17, 'LOSE': 631, 'WIN': 12} | lambda=0: LOSE   {'TIE': 9, 'WIN': 5, 'LOSE': 151} | per-competitor {('a', 'TIE'): 17, ('a', 'LOSE'): 631, ('a', 'WIN'): 12} | b vs orbitope {'TIE': 632, None: 28}
+      by T/tau: 0.125: {'TIE': 14, 'LOSE': 202, 'WIN': 8}; 1: {'TIE': 2, 'LOSE': 222}; 8: {'TIE': 1, 'LOSE': 207, 'WIN': 4}
+
+STEP (ii) CRITERION (PREREG sec 6): quantum WIN in D under R-Hol with FC1 or FC2 (main variant)?
+  D R-Hol FC1 main: LOSE
+  D R-Hol FC2 main: TIE
+  D R-Hardy FC1 main: MIXED | FC2 main: MIXED

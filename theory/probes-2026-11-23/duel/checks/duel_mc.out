@@ -1,0 +1,21 @@
+b  N=8 t=3.0 s=0.0 k=None: Ecos MC 0.9399 an 0.9397 | tail MC 0.00247 an 0.00252
+a3 N=8 t=3.0 s=0.0 k=None: Ecos MC -0.0003 an 0.0004 | tail MC 0.49982 an 0.49975
+a1 N=8 t=3.0 s=0.0 k=None: Ecos MC 0.9744 an 0.9745 | tail MC 0.00000 an 0.00000
+a2 N=8 t=3.0 s=0.0 k=None: Ecos MC 0.9745 an 0.9745 | tail MC 0.00000 an 0.00000
+b  N=16 t=0.6 s=0.01 k=None: Ecos MC 0.9801 an 0.9800 | tail MC 0.00041 an 0.00042
+a3 N=16 t=0.6 s=0.01 k=None: Ecos MC 0.4687 an 0.4680 | tail MC 0.20003 an 0.20089
+a1 N=16 t=0.6 s=0.01 k=None: Ecos MC -0.8014 an -0.8014 | tail MC 1.00000 an 1.00000
+a2 N=16 t=0.6 s=0.01 k=None: Ecos MC 0.9784 an 0.9784 | tail MC 0.00000 an -0.00000
+b  N=12 t=0.5 s=0.001 k=100.0: Ecos MC 0.9658 an 0.9658 | tail MC 0.00095 an 0.00095
+a3 N=12 t=0.5 s=0.001 k=100.0: Ecos MC 0.4247 an 0.4238 | tail MC 0.23171 an 0.23169
+a1 N=12 t=0.5 s=0.001 k=100.0: Ecos MC -0.9834 an -0.9834 | tail MC 1.00000 an 1.00000
+a2 N=12 t=0.5 s=0.001 k=100.0: Ecos MC 0.9834 an 0.9834 | tail MC 0.00000 an -0.00000
+b  N=32 t=10.0 s=0.001 k=None: Ecos MC 0.9905 an 0.9905 | tail MC 0.00006 an 0.00006
+a3 N=32 t=10.0 s=0.001 k=None: Ecos MC 0.0019 an 0.0020 | tail MC 0.49841 an 0.49870
+a1 N=32 t=10.0 s=0.001 k=None: Ecos MC 0.9934 an 0.9934 | tail MC 0.00000 an -0.00000
+a2 N=32 t=10.0 s=0.001 k=None: Ecos MC 0.9934 an 0.9934 | tail MC 0.00000 an -0.00000
+b  N=5 t=0.9 s=0.0 k=100.0: Ecos MC 0.8619 an 0.8617 | tail MC 0.00998 an 0.00998
+a3 N=5 t=0.9 s=0.0 k=100.0: Ecos MC 0.0154 an 0.0153 | tail MC 0.49021 an 0.49038
+a1 N=5 t=0.9 s=0.0 k=100.0: Ecos MC 0.7529 an 0.7530 | tail MC 0.00002 an 0.00002
+a2 N=5 t=0.9 s=0.0 k=100.0: Ecos MC 0.7534 an 0.7530 | tail MC 0.00000 an 0.00002
+max |MC - analytic| E cos: 0.00086 (MC s.e. ~ 0.0015)

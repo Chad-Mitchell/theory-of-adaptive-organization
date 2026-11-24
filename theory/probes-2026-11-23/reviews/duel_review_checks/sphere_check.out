@@ -1,0 +1,7 @@
+N=2: random states x random covariant seeds: max(density)/mean <= 1.934 (bound N=2); band-limit l<=N-1 fit residual 9.0e-16
+N=3: random states x random covariant seeds: max(density)/mean <= 2.227 (bound N=3); band-limit l<=N-1 fit residual 1.1e-15
+N=4: random states x random covariant seeds: max(density)/mean <= 2.096 (bound N=4); band-limit l<=N-1 fit residual 1.4e-15
+N=6: random states x random covariant seeds: max(density)/mean <= 1.846 (bound N=6); band-limit l<=N-1 fit residual 6.9e-16
+N=3 witness rho=I-2|0><0|: eigenvalues [-1.  1.  1.], trace 1.0; Husimi min 0.0000 (>=0), max/mean 3.000 (<=3); band residual 1.2e-15
+  -> a nonnegative l<=2 density obeying the max<=N*mean cap that is NOT the Husimi function of any quantum state; classical restricted sphere rotor's law set strictly contains quantum's for N=3.
+Counts: sum_{l<=N-1}(2l+1) = {2: 4, 3: 9, 4: 16, 6: 36, 8: 64}

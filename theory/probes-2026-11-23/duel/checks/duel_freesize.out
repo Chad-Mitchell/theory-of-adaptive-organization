@@ -1,0 +1,24 @@
+T=0.25 eps=0.01 lam=0.01 FC1 R-Hol: b J=0.07107 (N=21), a J=0.06505 (N=256), c1 J=0.04591 (N=30) -> LOSE
+T=0.25 eps=0.01 lam=0.01 FC1 R-Hardy: b J=0.07107 (N=21), a J=0.06505 (N=256), c1 J=0.04591 (N=30) -> LOSE
+T=0.25 eps=0.01 lam=0.01 FC2 R-Hol: b J=0.04591 (N=30), a J=0.06505 (N=256), c1 J=0.04591 (N=30) -> TIE
+T=0.25 eps=0.01 lam=0.01 FC2 R-Hardy: b J=0.04591 (N=30), a J=0.06505 (N=256), c1 J=0.04591 (N=30) -> WIN
+T=1 eps=0.01 lam=0.01 FC1 R-Hol: b J=0.07107 (N=21), a J=0.09306 (N=256), c1 J=0.04591 (N=30) -> LOSE
+T=1 eps=0.01 lam=0.01 FC1 R-Hardy: b J=0.07107 (N=21), a J=0.09306 (N=256), c1 J=0.04591 (N=30) -> WIN
+T=1 eps=0.01 lam=0.01 FC2 R-Hol: b J=0.04591 (N=30), a J=0.09306 (N=256), c1 J=0.04591 (N=30) -> TIE
+T=1 eps=0.01 lam=0.01 FC2 R-Hardy: b J=0.04591 (N=30), a J=0.09306 (N=256), c1 J=0.04591 (N=30) -> WIN
+T=10 eps=0.01 lam=0.01 FC1 R-Hol: b J=0.07107 (N=21), a J=None (N=None), c1 J=0.04591 (N=30) -> LOSE
+T=10 eps=0.01 lam=0.01 FC1 R-Hardy: b J=0.07107 (N=21), a J=None (N=None), c1 J=0.04591 (N=30) -> WIN
+T=10 eps=0.01 lam=0.01 FC2 R-Hol: b J=0.04591 (N=30), a J=None (N=None), c1 J=0.04591 (N=30) -> TIE
+T=10 eps=0.01 lam=0.01 FC2 R-Hardy: b J=0.04591 (N=30), a J=None (N=None), c1 J=0.04591 (N=30) -> WIN
+T=100 eps=0.01 lam=0.01 FC1 R-Hol: b J=0.07107 (N=21), a J=None (N=None), c1 J=0.04591 (N=30) -> LOSE
+T=100 eps=0.01 lam=0.01 FC1 R-Hardy: b J=0.07107 (N=21), a J=None (N=None), c1 J=0.04591 (N=30) -> WIN
+T=100 eps=0.01 lam=0.01 FC2 R-Hol: b J=0.04591 (N=30), a J=None (N=None), c1 J=0.04591 (N=30) -> TIE
+T=100 eps=0.01 lam=0.01 FC2 R-Hardy: b J=0.04591 (N=30), a J=None (N=None), c1 J=0.04591 (N=30) -> WIN
+T=1000 eps=0.01 lam=0.01 FC1 R-Hol: b J=0.07107 (N=21), a J=None (N=None), c1 J=0.04591 (N=30) -> LOSE
+T=1000 eps=0.01 lam=0.01 FC1 R-Hardy: b J=0.07107 (N=21), a J=None (N=None), c1 J=0.04591 (N=30) -> WIN
+T=1000 eps=0.01 lam=0.01 FC2 R-Hol: b J=0.04591 (N=30), a J=None (N=None), c1 J=0.04591 (N=30) -> TIE
+T=1000 eps=0.01 lam=0.01 FC2 R-Hardy: b J=0.04591 (N=30), a J=None (N=None), c1 J=0.04591 (N=30) -> WIN
+free-size ('FC1', 'R-Hol') LOSE {'LOSE': 60}
+free-size ('FC1', 'R-Hardy') MIXED {'WIN': 54, 'LOSE': 6}
+free-size ('FC2', 'R-Hol') TIE {'TIE': 60}
+free-size ('FC2', 'R-Hardy') WIN {'WIN': 60}

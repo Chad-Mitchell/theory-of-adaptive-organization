@@ -1,0 +1,42 @@
+R1 strict variant: is a1 (frozen) ever feasible in D/S1? (if never, strict 'WIN' = b feasible only)
+  D: (a1 feas, b feas) counts {(False, False): 40, (False, True): 140}
+  S1: (a1 feas, b feas) counts {(False, False): 176, (False, True): 184}
+  S2: (a1 feas, b feas) counts {(False, False): 58, (True, True): 54, (False, True): 104}
+R2 FC2 D R-Hol: the 6 LOSE cells - which competitor?
+  T=0.25 N=48 eps=0.05 lam=0.1: J_b=0.4574 J_a3=0.4376  stake b 0.0021 a3 0.0504
+  T=0.25 N=48 eps=0.01 lam=0.1: J_b=0.4574 J_a3=0.4376  stake b 0.0021 a3 0.0504
+  T=0.25 N=48 eps=0.001 lam=0.1: J_b=0.4574 J_a3=0.4389  stake b 0.0021 a3 0.0518
+  T=0.25 N=64 eps=0.05 lam=0.1: J_b=0.4856 J_a3=0.4539  stake b 0.0012 a3 0.0380
+  T=0.25 N=64 eps=0.01 lam=0.1: J_b=0.4856 J_a3=0.4539  stake b 0.0012 a3 0.0380
+  T=0.25 N=64 eps=0.001 lam=0.1: J_b=0.4856 J_a3=0.4539  stake b 0.0012 a3 0.0380
+R3 a3 stake vs b stake: any cell where a3 has lower stake (P3 mechanism)?
+  count: 0
+R4 S2 strict variant run literally per PREREG sec 6 (exclude a3 only; keep a1, c1)
+  S2 R-Hol FC1 strict: LOSE {'TIE': 113, 'LOSE': 519} | by tau {0.125: {'TIE': 36, 'LOSE': 180}, 1: {'TIE': 36, 'LOSE': 176}, 8: {'TIE': 41, 'LOSE': 163}}
+  S2 R-Hol FC2 strict: TIE {'TIE': 614, 'LOSE': 18} | by tau {0.125: {'TIE': 198, 'LOSE': 18}, 1: {'TIE': 212}, 8: {'TIE': 204}}
+  S2 R-Hardy FC1 strict: MIXED {'TIE': 2, 'LOSE': 58, 'WIN': 572} | by tau {0.125: {'TIE': 2, 'LOSE': 58, 'WIN': 156}, 1: {'WIN': 212}, 8: {'WIN': 204}}
+  S2 R-Hardy FC2 strict: MIXED {'TIE': 6, 'LOSE': 18, 'WIN': 608} | by tau {0.125: {'TIE': 6, 'LOSE': 18, 'WIN': 192}, 1: {'WIN': 212}, 8: {'WIN': 204}}
+R5 a3 with a constant offset (PREREG sec 4 says 'offset optimized'; code uses offset 0) and a finer rate grid, regime D, exact bin arithmetic
+  CHANGE T=0.25 N=5 eps=0.05: old feas=False stake=0.3748 -> new feas=True stake=0.2176 (r/r*=0.20, delta=0.628); b feas=True stake=0.13397459621556096
+  CHANGE T=0.25 N=6 eps=0.05: old feas=False stake=0.3149 -> new feas=True stake=0.1859 (r/r*=0.20, delta=0.524); b feas=True stake=0.09903113209758119
+  CHANGE T=0.25 N=8 eps=0.05: old feas=False stake=0.2427 -> new feas=True stake=0.1654 (r/r*=0.23, delta=0.393); b feas=True stake=0.060307379214090906
+  CHANGE T=0.25 N=8 eps=0.01: old feas=False stake=0.2427 -> new feas=True stake=0.1654 (r/r*=0.23, delta=0.393); b feas=True stake=0.060307379214090906
+  CHANGE T=0.25 N=12 eps=0.05: old feas=False stake=0.1759 -> new feas=True stake=0.1372 (r/r*=0.51, delta=0.262); b feas=True stake=0.029058182573947433
+  CHANGE T=0.25 N=12 eps=0.01: old feas=False stake=0.1759 -> new feas=True stake=0.1372 (r/r*=0.51, delta=0.262); b feas=True stake=0.029058182573947433
+  CHANGE T=0.25 N=12 eps=0.001: old feas=False stake=0.1759 -> new feas=True stake=0.1509 (r/r*=0.30, delta=0.262); b feas=True stake=0.029058182573947433
+  CHANGE T=0.25 N=16 eps=0.05: old feas=True stake=0.1349 -> new feas=True stake=0.1143 (r/r*=0.58, delta=0.196); b feas=True stake=0.017026900316098992
+  CHANGE T=0.25 N=16 eps=0.01: old feas=False stake=0.1349 -> new feas=True stake=0.1143 (r/r*=0.58, delta=0.196); b feas=True stake=0.017026900316098992
+  CHANGE T=0.25 N=16 eps=0.001: old feas=False stake=0.1349 -> new feas=True stake=0.1247 (r/r*=0.45, delta=0.196); b feas=True stake=0.017026900316098992
+  CHANGE T=0.25 N=24 eps=0.05: old feas=True stake=0.0936 -> new feas=True stake=0.0840 (r/r*=0.76, delta=0.131); b feas=True stake=0.00788529868552268
+  CHANGE T=0.25 N=24 eps=0.01: old feas=True stake=0.0936 -> new feas=True stake=0.0840 (r/r*=0.76, delta=0.131); b feas=True stake=0.00788529868552268
+  CHANGE T=0.25 N=24 eps=0.001: old feas=False stake=0.0936 -> new feas=True stake=0.0937 (r/r*=0.58, delta=0.131); b feas=True stake=0.00788529868552268
+  CHANGE T=0.25 N=32 eps=0.05: old feas=True stake=0.0728 -> new feas=True stake=0.0670 (r/r*=0.76, delta=0.098); b feas=True stake=0.004528077426916077
+  CHANGE T=0.25 N=32 eps=0.01: old feas=True stake=0.0728 -> new feas=True stake=0.0670 (r/r*=0.76, delta=0.098); b feas=True stake=0.004528077426916077
+  CHANGE T=0.25 N=32 eps=0.001: old feas=False stake=0.0728 -> new feas=True stake=0.0670 (r/r*=0.76, delta=0.098); b feas=True stake=0.004528077426916077
+  CHANGE T=0.25 N=48 eps=0.05: old feas=True stake=0.0504 -> new feas=True stake=0.0464 (r/r*=0.87, delta=0.065); b feas=True stake=0.0020546072496638867
+  CHANGE T=0.25 N=48 eps=0.01: old feas=True stake=0.0504 -> new feas=True stake=0.0464 (r/r*=0.87, delta=0.065); b feas=True stake=0.0020546072496638867
+  CHANGE T=0.25 N=48 eps=0.001: old feas=True stake=0.0518 -> new feas=True stake=0.0464 (r/r*=0.87, delta=0.065); b feas=True stake=0.0020546072496638867
+  CHANGE T=0.25 N=64 eps=0.05: old feas=True stake=0.0380 -> new feas=True stake=0.0361 (r/r*=0.87, delta=0.049); b feas=True stake=0.0011677731676731362
+  CHANGE T=0.25 N=64 eps=0.01: old feas=True stake=0.0380 -> new feas=True stake=0.0361 (r/r*=0.87, delta=0.049); b feas=True stake=0.0011677731676731362
+  CHANGE T=0.25 N=64 eps=0.001: old feas=True stake=0.0380 -> new feas=True stake=0.0361 (r/r*=0.87, delta=0.049); b feas=True stake=0.0011677731676731362
+  rows checked 108, rows where offset/finer-rate a3 changes feasibility or improves stake >1%: 22
