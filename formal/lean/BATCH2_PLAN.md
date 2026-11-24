@@ -182,3 +182,25 @@ needs those.
 If a statement will not typecheck, the assumption that blocked it is
 appended below with file and line. The declaration is not weakened
 without a WEAKER label in `formal/lean/INVENTORY.md`.
+
+## Miss log
+
+Appended after the proofs. Lock: plan commit `303696f` on
+`forge-lean-batch2`. Logged 2026-11-24 ET. Breach check: `none`.
+
+The items under "Not proved in this batch" were not locked as
+declarations. They stay at the file:line already written above.
+A locked statement that is absent, and every **WEAKER** declaration,
+is a row here. Formal labels stay in `INVENTORY.md`.
+
+| prediction_id | locked_prediction | outcome | miss | location | stake_x_info | update | breach_check |
+|---|---|---|---|---|---|---|---|
+| B2-destruction | `infoX = worldSum - iAltReal` with the note's `0 log 0` extension. `theory/GENERAL_FLOOR_FINITE_2026-11-23.md:89` | `destruction_identity` at `FiniteFloor.lean:320`, every world mass and every conditional atom strictly positive | short by the zero-atom extension; the singular positive-flux case is the separate statement `iAlt_eq_top_of_singular` | model | medium | strict-positivity hypothesis named; singular edges recorded apart | none |
+| B2-stationary-rate | under stationarity, `I_alt = -I^X` with that same extension. Line 93 | `stationary_learning_rate` at `FiniteFloor.lean:373` | same shortfall as B2-destruction | model | low | inherits the strict-positivity hypothesis | none |
+| B2-repair-average | `Q̄ ≥ (kT/τ) ∫ σ − kT S_max/τ` once the pointwise bound holds. `theory/RECORD_REPAIR_FLOOR_2026-11-23.md:67` | `repair_floor_of_average` at `RepairFloor.lean:303` takes the average `σbar` as an input | short by the integral; the passage from a pointwise bound to the time average is not constructed | model | medium | algebra of the assumed average is checked | none |
+| B2-forget-trajectory | a bit-independent state cannot keep both decoded errors `≤ ε < 1/2`, and the trajectory tends to `1/2`. Line 89 | `rf_forget_stationary` at `RepairFloor.lean:336` | short by the trajectory limit; the stationary obstruction is the checked clause | model | low | stationary obstruction checked; the limit stays a gap at the line cited above | none |
+| B2-telegraph | fair telegraph, any finite memory, `I_alt ≥ r L(ε)`, equality for the symmetric copy, and `I_alt = 0` iff `ε = 1/2`. `theory/GENERAL_FLOOR_FINITE_2026-11-23.md:107` | no declaration | short by the whole bound | model | medium | not substituted by a different quadratic | none |
+| B2-pairwise | `I_alt ≥ min(fluxes) · 2 L(ε / (2 min π))` when `ε < min π`. Line 115 | no declaration | short by the whole bound | model | medium | not substituted | none |
+| B2-path | `I_alt ≥ (ε_0 − ε)^2 / K_X`, and `K_X = 1/(4r)` on the fair telegraph. Lines 117–129 | no declaration | short by the whole bound | model | medium | not substituted by a different quadratic | none |
+| B2-decoder | `D(p_0‖u) + D(p_1‖u) ≥ 2 (log 2 − h(ε))` when both decoded errors are at most `ε`. `theory/RECORD_REPAIR_FLOOR_2026-11-23.md:77` | `decoder_half`, `decoder_pair`, and `decoder_pair_lower` for one binary source | short by the data-processing step from two record distributions to their decoded masses | model | medium | one-source identities checked | none |
+| B2-tensor | `σ_Γ[p] ≥ 4 Γ D(p‖u)` for every distribution on `{0,1}^n`. `theory/RECORD_REPAIR_FLOOR_2026-11-23.md:75` | `L_ge_four_entropy` and `one_carrier_floor` for one carrier | short by every `n > 1`; the product inequality is not a declaration | model | medium | `n = 1` checked; the uniform bound over every code is not claimed | none |

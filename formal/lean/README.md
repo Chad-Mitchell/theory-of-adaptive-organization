@@ -174,6 +174,17 @@ hypotheses. They are not proofs.
 | `partitionMI`, `partition_mi_le`, `refinement_mono`, `finite_identity_attains`, `FiniteLabel`, `finitePartitionMI`, `finite_partition_le` | lines 99 and 101 | **Faithful.** A finite labeling does not raise mutual information. A coarser labeling, being a measurable function of a finer one, does not raise it either. On a finite alphabet the identity labeling attains the value. |
 | `GYDSup`, `gyd_equiv` | lines 91 and 21 | **Faithful** as a hypothesis. `GYDSup` is the reverse inequality, joint divergence at most the supremum of finite-partition mutual informations. `gyd_equiv` adds that hypothesis to the proved inequality. The supremum is not constructed. |
 
+## Batch 2: heat and repair floors
+
+Declarations in `GTAO/HeatFloor.lean`, `GTAO/FiniteFloor.lean`,
+`GTAO/FiniteFloorBounds.lean`, and `GTAO/RepairFloor.lean`. The two-state
+floor, the finite-alphabet divergence, the class-indicator and 3-cycle
+witnesses, and the one-carrier comparison `L ≥ 4 (log 2 - h)` are checked.
+Four declarations are **WEAKER**, each with the missing clause in
+`INVENTORY.md` and a miss row in `BATCH2_PLAN.md`. The telegraph lower
+bound, the pairwise bound, the path bound, the product inequality on
+`{0,1}^n`, and the two-distribution decoder bound are not declarations.
+
 ## What is not formalized
 
 None of the following is claimed as proved in Lean.
@@ -235,6 +246,10 @@ formal/lean/
   GTAO/Representation.lean  # R1 packaging and the affine block
   GTAO/Obstruction.lean     # R2: Kelly and the Lundberg interval comparison
   GTAO/ContinuousA6.lean    # probability-measure klDiv, finite partitions, GYDSup
+  GTAO/HeatFloor.lean       # two-state heat floor, T59
+  GTAO/FiniteFloor.lean     # finite-alphabet learning rate, T60
+  GTAO/FiniteFloorBounds.lean  # connectivity, class indicator, 3-cycle
+  GTAO/RepairFloor.lean     # one-carrier repair comparison, T63
   scripts/AxiomAudit.lean   # every GTAO declaration uses only standard axioms
 ```
 
