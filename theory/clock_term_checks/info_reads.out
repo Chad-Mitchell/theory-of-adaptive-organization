@@ -1,0 +1,25 @@
+(i) h(E) closed form 1 + ln(mu^2 + 2 sig^2)/2 vs grid quadrature with a vanishing Gaussian
+  5 cases, max |gap| 9e-06
+(ii) marginal information prices at the no-clock point (r = 1e-4)
+  mu/sqrt(2r)= 35.4: exact a=0.9748 b=0.4874 b/a=0.50000   naive closed form a=b=1
+  mu/sqrt(2r)= 14.1: exact a=0.9381 b=0.4691 b/a=0.50000   naive closed form a=b=1
+(iii) exact local onset, information per look of the best no-clock design (target 4 kap/lam)
+  kap=1, lam=1: onset I0 = 4.0000 (r=0.0001), 4.0000 (r=1e-07)   4kap/lam = 4.0000
+  kap=2, lam=1: onset I0 = 8.0008 (r=0.0001), 8.0007 (r=1e-07)   4kap/lam = 8.0000
+  kap=1.5, lam=1: onset I0 = 6.0001 (r=0.0001), 6.0001 (r=1e-07)   4kap/lam = 6.0000
+  kap=1, lam=2: onset I0 = 2.0000 (r=0.0001), 2.0000 (r=1e-07)   4kap/lam = 2.0000
+  kap=3, lam=1: onset I0 = 12.0474 (r=0.0001), 12.0455 (r=1e-07)   4kap/lam = 12.0000
+(iv) global multistart minimum with the exact information at 0.98 and 1.02 x 4kap/lam (r = 1e-4)
+  kap=1, lam=1: 0.98: dJ/J0=-2.5e-16 none  w'/om=0.000 | 1.02: dJ/J0=-9.7e-06 clock w'/om=0.003
+  kap=2, lam=1: 0.98: dJ/J0=-3.8e-16 none  w'/om=0.000 | 1.02: dJ/J0=-2.5e-07 clock w'/om=0.000
+  kap=1, lam=2: 0.98: dJ/J0=-4.0e-16 none  w'/om=0.000 | 1.02: dJ/J0=-4.4e-05 clock w'/om=0.011
+(v) clock fraction w'/om above onset, exact information (kap=lam=1, r=1e-4)
+  1.02x: 0.0027  1.1x: 0.0106  1.3x: 0.2476  1.6x: 0.5147
+(vi) fixed-price control: Poisson looks, perfect reads, price c, onset 4 kap kT
+  c=3.9,w=0.1: none  c=3.9,w=10.0: none  c=4.1,w=0.1: clock  c=4.1,w=10.0: clock
+(vii) naive high-SNR closed form (a = b = 1): onset at (2kap/lam)(1+sqrt(1+lam/kap)), kap=lam=1, r=1e-6
+  0.98 x 4.8284: none | 1.02 x 4.8284: clock   (not the onset of the exact class; see (ii)-(iii))
+(viii) scope at onset (kap=lam=1, r=1e-4): filtering no-clock memory that counts looks
+  reset J0=6.73959; filtering min 7.22262 (ratio 1.0717); many-weak-looks limit 7.4 x J0
+FAILS 0
+ALL INFO-READ CHECKS PASS

@@ -1,0 +1,21 @@
+(a,b) closed form vs numerical minimum, random (c/kap kT, w, om, kap)
+  60 cases, max relative gap 3.36e-16
+(a) threshold scan: clock fraction w'/om at the numerical optimum vs c/(kap kT); several (w, om)
+  w=0.1, om=0.5: 4:0.000  5.5:0.000  5.9:0.000  6.1:0.032  6.5:0.143  8:0.400  20:0.824  100:0.969
+     closed-form w'/om: 4:0.000  5.5:0.000  5.9:0.000  6.1:0.032  6.5:0.143  8:0.400  20:0.824  100:0.969
+  w=10, om=3: 4:0.000  5.5:0.000  5.9:0.000  6.1:0.032  6.5:0.143  8:0.400  20:0.824  100:0.969
+     closed-form w'/om: 4:0.000  5.5:0.000  5.9:0.000  6.1:0.032  6.5:0.143  8:0.400  20:0.824  100:0.969
+  w=1000, om=0.2: 4:0.000  5.5:0.000  5.9:0.000  6.1:0.032  6.5:0.143  8:0.400  20:0.824  100:0.969
+     closed-form w'/om: 4:0.000  5.5:0.000  5.9:0.000  6.1:0.032  6.5:0.143  8:0.400  20:0.824  100:0.969
+(c) shares at the optimum (kap=1, w=om=1)
+  c/kT=      7: clock 0.0833  reads 0.5833  loss 0.3333  (J*=4.7622)
+  c/kT=     20: clock 0.2745  reads 0.3922  loss 0.3333  (J*=7.7138)
+  c/kT=    100: clock 0.3230  reads 0.3436  loss 0.3333  (J*=13.784)
+  c/kT=10000.0: clock 0.3332  reads 0.3334  loss 0.3333  (J*=64.627)
+(d) ring clock Monte Carlo (Markov jump, N states per cycle)
+  k+/k- =   2.000: kappa = 1.03972
+  k+/k- =   1.100: kappa = 1.00076
+  k+/k- =   1.010: kappa = 1.00001
+  k+/k- = 100.000: kappa = 2.34910
+  ring N=50, k+=30.0, k-=25.0: om'=0.6283, D=0.43426; time-avg sq error MC 1.04633 vs formula 1.05272 (rel 0.607%)
+  ring heat rate (kT units) = (k+-k-) ln(k+/k-) = 0.91161 >= TUR floor om'^2/D = 0.90909

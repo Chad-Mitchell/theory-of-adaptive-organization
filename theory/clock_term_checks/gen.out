@@ -1,0 +1,3 @@
+D*= sqrt(K)*sqrt(f)*wp/(sqrt(b)*sqrt(w))  wp*= -sqrt(K)*sqrt(b)*f**(3/2)/(a*sqrt(w)) + omega
+J(f)= (2*sqrt(K)*a*sqrt(b)*omega*sqrt(w) - K*b*f**(3/2) + a*c*f**(3/2))/(a*sqrt(f))
+coef of f: -K*b/a + c
