@@ -63,6 +63,8 @@ Under `PREREG.md:105` the orbit row's loss is the Gmin product number `1.6233664
 
 Under `PREREG_4` the positive-price WIN does not hold. The membership check returns the target table, loss 0 at `K = 16`, because the singlet is in the set (`contestants.py:162`, `decisions.out:29`, `:105`). `-8.3266726846886728e-17` is float error. `PREREG_4` is a new lock, written after the first result. At price 0 the feasible loss-0 records tie with C (`:11`). `I_A6` and Holevo are identically 0 (`contestants.py:262`, `:272`, `decisions.out:8`). Those identities cannot fail, and the claim that they separate contestants is dropped.
 
+**Errata, 24 November 2026, after the independent review of `b2ff239`.** The machine-checked headline is TIE (`theory/menu3_checks/decisions.out:105`). The orbit WIN is a recomputed prose substitution at lines 60-62 of this file, not a line the scorer prints. The number tied to `PREREG.md:105`, `1.6233664462791825e-01`, is the tilted menu's rank-1 floor. The menu in `PREREG.md:35-41` gives `0.2`. At `ε = 0` the label is the same for both.
+
 **Outside the lock.** The shared bit is a sensitivity (`decisions.out:72-103`). The count used is `K = 40`. Charged at 40 or at 20, that pair is WIN. At `K = 16` it is TIE. At `K = 15`, and uncharged at `K = 10`, it is LOSE (`:99-103`).
 
 ## Puzzle

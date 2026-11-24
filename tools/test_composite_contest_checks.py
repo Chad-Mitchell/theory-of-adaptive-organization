@@ -38,6 +38,8 @@ def test_composite_contest_matches_locked_outputs():
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL LEMMAS PASS" in r.stdout
     assert "H1 PASS" in r.stdout
+    # Stored bytes. The errata corrects this orthogonal-menu P1 to LOSE
+    # (theory/COMPOSITE_CONTEST_2026-11-24.md:15). This assertion is not changed.
     assert "P1 PASS" in r.stdout
     for name in LOCKED:
         digest = hashlib.sha256(open(os.path.join(HERE, name), "rb").read()).hexdigest()
