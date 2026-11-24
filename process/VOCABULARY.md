@@ -27,7 +27,7 @@
 **Test.** Can a reader, later, recover something about the world from the state better than chance? That is the "Correlation" row of the four notions of knowing (`theory/BOOKENDS.md:125`: \(I(M;X)>0\), "none needed; nearly universal").
 
 **Cost (cited results, not new).**
-- Acquiring or erasing a nat costs at least \(kT\) (**KNOWN**, Landauer 1961; `THEORY.md:36`), and the freeze-or-hold note prices a record's one-time write at that floor (`theory/FREEZE_OR_HOLD_FLOOR_2026-11-23.md:101`). A Landauer cost per irreversible reset as a steady floor is **OPEN** there (`:105`).
+- Acquiring or erasing a nat by a measuring tracker costs at least \(kT\) (**KNOWN**, Landauer 1961; `THEORY.md:36`), and the freeze-or-hold note prices a record's one-time write at that floor (`theory/FREEZE_OR_HOLD_FLOOR_2026-11-23.md:101`). A Landauer cost per irreversible reset as a steady floor is **OPEN** there (`:105`).
 - In a frozen or disconnected world a static record can beat a no-memory guess at vanishing ongoing memory-bath heat after the one-time write (**PROVED (in-model)** in the named classes, T57, T59, T60; T59 is on main after independent review, `OPEN_WORK.md:110`; passive retention over a horizon short against the leak time, `theory/FREEZE_OR_HOLD_FLOOR_2026-11-23.md:103`). In the words of `CORE.md:78`: "Storage is cheap. Tracking a changing, connected world is what costs."
 - Keeping a record current against a changing, connected world costs heat of at least \(kT\) times the net learning rate (`CORE.md:70`): **KNOWN** for bipartite jump processes, **PROVED (in-model)** for additive-noise diffusions, open beyond those classes. When the memory also steers the world, the thermodynamic step still holds but the exogenous floor is not inherited (`CORE.md:80`).
 
@@ -39,24 +39,24 @@
 
 **Definition (DECIDED, already decided as N30).** A *model* is a held structure, in a system with something at stake, that contains the dynamics of an outside variable bearing on the system's own persistence and regulates against it by error feedback. It is built from records and is more than a record. The minimal case is integral feedback, the model of a constant or step world. A structure that tracks a variable with nothing at stake is a *regulator without stakes*, outside the theory's sense of knowing (`theory/BOOKENDS.md:127`, CLAIM_MAP N30).
 
-**Test (the repo's own).** BK-SEM: scramble the state–drive correlation at fixed fluxes and viability must drop (the survival-relevant step). BK-IMP, all three parts: return to the prior value after a sustained step, robustness to parameter change, and a structural check that the integrated quantity is the error (`theory/BOOKENDS.md:127`). Flames, dunes and hurricanes are expected not to meet (a).
+**Test (the repo's own).** BK-SEM: scramble the state–drive correlation at fixed fluxes and viability must drop (the survival-relevant step). BK-IMP, all three parts: return to the prior value after a sustained step, robustness to parameter change, and a structural check that the integrated quantity is the error (BK-SEM at `theory/BOOKENDS.md:126`, BK-IMP at `:127`). Flames, dunes and hurricanes are expected not to meet (a) (`theory/BOOKENDS.md:204`).
 
 **Why predictive correlation alone is not enough.** A driven system that retains predictive information has a correlation, and that is nearly universal (`theory/BOOKENDS.md:125`). A star is held but carries no model (`theory/SCALE_ENDS.md:83`).
 
 **The cost reading, with its limits.**
 - Memory beyond the predictive part pays heat for nothing predictive: at least \(kT(I_{\mathrm{mem}}-I_{\mathrm{pred}})\) (**KNOWN**: Landauer 1961, Still et al. 2012; `THEORY.md:36`).
-- For a forecaster scored by log-loss, the miss of a memory equals the predictive information it fails to carry, and a memory with near-zero shortfall must nearly copy the world's causal state, with dynamics near a homomorphism of the world's, when the causal states are separated (\(\gamma_L>0\)) (CL10, `THEORY.md:408`, `theory/INTERNAL_MODEL.md:110-123`): **PROVED (in-model)**, self-checked, parts probably folklore (Shalizi and Crutchfield at zero shortfall).
+- For a forecaster scored by log-loss, the miss of a memory equals the predictive information it fails to carry, and a memory with near-zero shortfall must nearly copy the world's causal state, with dynamics near a homomorphism of the world's, when the causal states are separated (\(\gamma_L>0\)) (CL10, `THEORY.md:408`, `theory/INTERNAL_MODEL.md:110-123`): The square-root bound is often vacuous at realistic misses (`theory/INTERNAL_MODEL.md:28-31`). **PROVED (in-model)**, self-checked, parts probably folklore (Shalizi and Crutchfield at zero shortfall).
 - What is forced is only what decisions use. Under Hamming loss on the Even process a memoryless agent that always says "1" is exactly optimal. Only log-loss, or another strictly proper score, forces the full causal state. History length is the wrong measure of a model (`theory/INTERNAL_MODEL.md:32`: **FAILS** for general losses).
-- So the working paraphrase "a model is the cheapest record that still gets the decisions right" is a *reading* of these results at the minimum of the cost. It holds inside the proved classes. That real systems sit at that minimum is Part 2 of the theory and is untested. Do not shorten it to "the cheapest record that predicts".
+- So the working paraphrase "a model is the cheapest record that still gets the decisions right" is a *reading* of these results at the minimum of the cost. It holds inside the proved classes, and only for a system that meets the stakes and error-feedback conditions in the definition above; a copy of the causal state with nothing at stake is a regulator without stakes. That real systems sit at that minimum is Part 2 of the theory and is untested. Do not shorten it to "the cheapest record that predicts".
 
 **A person.** "A person is a model of their world" is an INTERPRETATION. Cells and every level above are the *candidate* held models, and earlier cases are OPEN (`theory/SCALE_ENDS.md:78`). Nothing here speaks to experience.
 
-**Say / don't say.** In new text bare "model" means this entry. For the theory's mathematical setting write "in-model" or "model class" (the label PROVED (in-model)). For code that imitates a world write "simulator". In the miss ledger, `location: model` means the in-model math or a Part-2 prediction (`PROCESS.md` §1 item 6). That is a third use, and the column name stays as is.
+**Say / don't say.** In new text bare "model" means this entry. For the theory's mathematical setting write "in-model" or "model class" (the label PROVED (in-model)). For code that imitates a world write "simulator". In the miss ledger, `location: model` means the in-model math or a Part-2 prediction (`PROCESS.md` §1 item 6). That is a third use, and the column name stays as is. `theory/INTERNAL_MODEL.md` and CL10 use 'model' for the memory's decoded state ('P(model ≠ world's causal state)'). In new text write 'decoded state' or 'internal-model bound'; that result is about a memory, not about entry 3's model.
 
 ## 4. Layer, store, level and tracker
 
 **Definitions (DECIDED, taken from `THEORY.md`).**
-- A *tracker* is a memory that is updated to follow a changing world (CT7, `THEORY.md:295`).
+- A *tracker* is a memory that is updated to follow a changing world (`THEORY.md:208` for the memory; CT7, `:295`, for its use as a tracker).
 - A *layer* is "a tracking store, not an org-chart level" (`THEORY.md:67`). It is the general word. \(K\) counts layers by degree, so a rhythm counts two (CT21, `THEORY.md:180` and `:245`).
 - A *store* is a layer on the time axis, and a *level* is a layer on the member axis, one shared tracker for the members that face a common driver: "stores lie across time scales and levels across members" (`THEORY.md:123`).
 
@@ -90,7 +90,7 @@
 
 **Status.**
 - Self-similar world and power-law costs give a self-similar optimal architecture: **PROVED (in-model)** as a conditional, close to a tautology (T7b, `theory/THEOREMS.md:175-204`). "The architecture is fractal" is not a theorem (`theory/THEOREMS.md:17`). The CLAIM_MAP status of CL16 is MATH-CORRECTED.
-- A law of cost against fractal dimension **FAILS** in the checked class: on the locked Sierpiński gasket and carpet the heat floor follows the sites the decision names and the degree sum, not the Hausdorff or spectral dimension. This is a self-check, not an independent review, in one class (`theory/FRACTAL_WORLD_2026-11-22.md:5`, `OPEN_WORK.md:105`, T54).
+- A scaling of the heat floor with fractal dimension **FAILS** in the checked class: on the locked Sierpiński gasket and carpet the heat floor follows the sites the decision names and the degree sum, not the Hausdorff or spectral dimension. This is a self-check, not an independent review, in one class (`theory/FRACTAL_WORLD_2026-11-22.md:5`, `OPEN_WORK.md:105`, T54).
 - Geometric spacing of layers that holds across spans: LAYERS1 P2 is **SIM-FAIL** (6 of 12), and geometric levels are proved only in T7b's shared-clock model (`theory/LAYERS.md:21`, `measurement/CLAIM_MAP_v2.md:317`).
 
 **Say / don't say.** Say "self-similar world" for the input. Never say "the theory says time is fractal", "the universe is fractal" or "everything is the same at every level".
@@ -101,7 +101,7 @@
 
 **Test.** Check the stay condition \(\lambda s c<w\Phi\) with measured inputs. \(\lambda, s, c, w\) and \(\Phi\) are MEASUREMENTS (`theory/SWARM_RULE_2026-11-23.md:17-36`).
 
-**Status.** Onset, stay, leave, align and the re-form band are **PROVED (in-model)** in their named classes. Merging and remove-or-reprice are **CONJECTURE** (T53). Every reading onto cells, agents, people or bacteria is **INTERPRETATION**. That real parts minimize this cost is the hypothesis, untested there (`theory/SWARM_RULE_2026-11-23.md:52`). *The swarm limit* (\(k\to0\), groups re-form continuously) is an ANALOGY, not a theorem (`theory/FLUID_LAYERS_2026-11-21.md:11`, `theory/GENERALITY_2026-11-22.md:285`).
+**Status.** Onset, stay, leave, align and the re-form band are **PROVED (in-model)** in their named classes. Reintegrate is an identity on stay plus a property of the memoryless class (`theory/SWARM_RULE_2026-11-23.md:52`). Merging and remove-or-reprice are **CONJECTURE** (T53). Every reading onto cells, agents, people or bacteria is **INTERPRETATION**. That real parts minimize this cost is the hypothesis, untested there (`theory/SWARM_RULE_2026-11-23.md:52`). *The swarm limit* (\(k\to0\), groups re-form continuously) is an ANALOGY, not a theorem (`theory/FLUID_LAYERS_2026-11-21.md:11`, `theory/GENERALITY_2026-11-22.md:285`).
 
 **Say / don't say.** Do not say "the swarm principle". Say "the swarm rule" for the membership life cycle. Do not use "swarm" for the claim that levels repeat the same pattern (entries 6 and 7).
 
