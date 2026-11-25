@@ -25,7 +25,7 @@ The code passed because it shares the proof's assumption. The rebit seesaw searc
 
 Under `K = m_A·m_B`, a MILP shows that no local model with `K ≤ 10` meets `ε ≤ 0.1` in the worst-pair cap (`lt.py`: (1,10), (2,5), (3,3), (2,4) all infeasible). Every `K ≥ 11` costs `J ≥ 0.1 ln 11 + 0.0429 = 0.283`, which loses to C by more than the tie band. So the pivot's classical win at `λ = 0.1` (`:129`; `pivot decisions.out:321`) depends on this pricing choice. It does not change any final label, because of problem 1.
 
-**3. Medium: H1 uses a classical record bigger than needed, and the "information vs dimension" puzzle is an artifact of that.**
+**3. Medium: H1 uses a classical record bigger than needed, and the "information vs dimension" puzzle is an artifact of that.** <!-- banned-ok: review record; quotes the memo wording at the reviewed head -->
 Only the pairs `n = ±u` are scored. A shared sign bit, with both wings outputting `sign(n)` whatever the query, has loss 0 at `M = 2` (`K = 4` under product pricing) and carries `I = ln 2` (`rescore.py`). The quantum ensemble's Holevo quantity is exactly `ln 3`, because `|n⟩|n⟩` lies in the 3-dimensional symmetric subspace. `control.out:4` gives 1.0986122886681096, which the memo reports only as "about 1.099". The minimal classical record is cheaper under the dimension price and under the information price. "Two coordinates rank the same control in opposite directions" (`COMPOSITE_CONTEST:107–109`; `theory/composite-contest-2026-11-24/PREREG_R2.md:47`) holds only for the 6-state copy (`theory/composite-contest-2026-11-24/PREREG_R2.md:39`). H1's label (C loses) is right, and more robust than stated.
 
 **4. Medium: promised outputs and contestants are not implemented, and these gaps are not logged as deviations.**

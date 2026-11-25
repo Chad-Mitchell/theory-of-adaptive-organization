@@ -41,7 +41,7 @@ The cell does not use these digits. The first four menu directions are still the
 
 **The unused failure branch would print WIN.** `PREREG_4.md:38` says that if P-gmax fails, the headline is withdrawn and the cell is re-read. `run_menu3.py:416` prints TIE only when P-gmax passes and P-win fails; otherwise it prints WIN whenever P-win passes. A failed gate makes Gmax infeasible, which the cell counts as a WIN for C, so P-win can pass and the headline would read WIN. This run took the success branch. The mismatch is not logged in `DEVIATIONS.md`.
 
-**Two status lines state the tie without the model-implication label.** The memo labels it (`theory/COMPOSITE_CONTEST_2026-11-24.md:59`) and so does the headline string (`decisions.out:105`). `theory/README.md:50` and `OPEN_WORK.md:120` state the positive-price TIE as the status of the row. `OPEN_WORK.md:120` does call the G comparison a puzzle and names the condition `λ ln K_AB`.
+**Two status lines state the tie without the model-implication label.** The memo labels it (`theory/COMPOSITE_CONTEST_2026-11-24.md:59`) and so does the headline string (`decisions.out:105`). `theory/README.md:50` and `OPEN_WORK.md:120` state the positive-price TIE as the status of the row. `OPEN_WORK.md:120` does call the G comparison a puzzle and names the condition `λ ln K_AB`. <!-- banned-ok: review record; quotes the memo wording at the reviewed head -->
 
 ## What review 3 flagged
 
@@ -76,7 +76,7 @@ D10 is the deviation for this run. The failure branch of the headline, noted abo
 
 ## Wording
 
-The lines added in these three commits do not say "theory of everything", "solved", or "bill". They do not call a miss a kill or a verdict. `PREREG_4.md:3` says this addendum does not derive quantum theory. The new memo section is titled Puzzle and does not claim a derivation of quantum theory, gravitation, or holography. The headline in the memo is labeled **Model implication** and is conditional on the Hardy price (`theory/COMPOSITE_CONTEST_2026-11-24.md:59`). The older sentence "Puzzle, not a verdict" is still at `:173`. `check_consistency.py` reports 0 wording failures on the maintained documents. The status-line label gap is the low finding. The added sentences contain no personal details.
+The lines added in these three commits do not say "theory of everything", "solved", or "bill". They do not call a miss a kill or a verdict. `PREREG_4.md:3` says this addendum does not derive quantum theory. The new memo section is titled Puzzle and does not claim a derivation of quantum theory, gravitation, or holography. The headline in the memo is labeled **Model implication** and is conditional on the Hardy price (`theory/COMPOSITE_CONTEST_2026-11-24.md:59`). The older sentence "Puzzle, not a verdict" is still at `:173`. `check_consistency.py` reports 0 wording failures on the maintained documents. The status-line label gap is the low finding. The added sentences contain no personal details. <!-- banned-ok: review record; quotes the memo wording at the reviewed head -->
 
 ## DOIs
 

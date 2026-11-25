@@ -67,7 +67,7 @@ Under `PREREG_4` the positive-price WIN does not hold. The membership check retu
 
 **Outside the lock.** The shared bit is a sensitivity (`decisions.out:72-103`). The count used is `K = 40`. Charged at 40 or at 20, that pair is WIN. At `K = 16` it is TIE. At `K = 15`, and uncharged at `K = 10`, it is LOSE (`:99-103`).
 
-## Puzzle
+## Open miss
 
 Under `PREREG.md` as locked the cell is WIN, and that WIN rests on a hand-restricted Gmax. Under `PREREG_4` the loss 0 follows from the singlet being in the maximal tensor product. The membership check returns the target table (`theory/menu3_checks/contestants.py:162`). It is not a search. The menu also cannot see a coordinate that product effects ignore (`contestants.py:81`). No next contest lock. The state-space reading stays a sensitivity, distinct from the reachable-orbit lock. Neither the classical information coordinate nor the present cost chooses which preparations are available. An orbit lock needs each contestant's full reversible group, and for Gmax that group was chosen by hand. Do not open another contest on this menu. `I_A6` and Holevo are identically 0 and cannot fail (`contestants.py:262`, `:272`). L7 is the same kind of identity (`theory/composite_contest_checks/lemmas.py:247-251`). Mutual information does not answer the record-price question on this protocol.
 
@@ -177,7 +177,7 @@ On a classical axis the cheapest feasible record in the named list is classical.
 
 **The information coordinate disagrees with the dimension price on the classical axis.** A perfect classical copy holds `ln 6` nats about `n`. The quantum ensemble's Holevo quantity is about 1.099 nats, under `ln 6`. Charging mutual information would rank that ensemble cheaper. Charging Hardy dimension ranks it dearer, because the theory's state space is 16-dimensional whether or not the protocol visits all of it. `theory/composite-contest-2026-11-24/PREREG_R2.md` stated this split before the run. The number 1.0986122886681096 is the check.
 
-**Puzzle, not a verdict.** The two coordinates are both in the theory's own vocabulary, and they rank one and the same control in opposite directions. The likely cause is the one just named: dimension charges the state space of the theory, and mutual information charges only what that state holds about the world variable. Nothing here chooses which charge is the one a selected system pays. The singlet menu does not resolve it either, because there `I_A6 = 0` for every contestant and the coordinate is silent (`CORE.md:52`).
+**Open miss (`CORE.md:169`), no update yet.** The two coordinates are both in the theory's own vocabulary, and they rank one and the same control in opposite directions. The likely cause is the one just named: dimension charges the state space of the theory, and mutual information charges only what that state holds about the world variable. Nothing here chooses which charge is the one a selected system pays. The singlet menu does not resolve it either, because there `I_A6 = 0` for every contestant and the coordinate is silent (`CORE.md:52`).
 
 **KNOWN, not new.** The singlet correlator, the Bell bound, the failure of local tomography for real quantum theory, and the real simulation of complex quantum theory are in the references of `theory/composite-contest-2026-11-24/PREREG.md` §11. All 15 DOIs resolved again (`crossref.out`, FAILS 0). Hardy 2001 has no Crossref DOI and is not cited as a verified reference.
 
