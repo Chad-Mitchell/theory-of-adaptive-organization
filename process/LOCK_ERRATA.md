@@ -60,7 +60,13 @@ These lock hashes of external data files (downloads, API pulls). The data are no
 
 - 13 of 17 mismatches are explained exactly. 2 more are declared edits with the locked version in history. 2 cannot be checked. 42 lock lines point at data that is not here.
 - The locks are real: they were committed before the results they protect, and the original blobs are in the public history except for the two in section 3.
-- `tools/verify_locks.py` pins these counts (163 or more OK, 13, 2, 2, 42 and the seven lock files above). A new lock that does not verify, a pinned file that starts to verify, or a change in the 42 fails `tools/check_consistency.py` until this page and the script are updated together.
+- `tools/verify_locks.py` pins these counts (163 or more OK, 13, 2, 2, 42 and the seven lock files above). It also pins the **current git blob** of the three files that no lock covers and whose lock does not verify: `theory/layers_checks/stores.py` (`71a113e0`), `tests/F1/code/outcome.py` (`3126c5e0`) and `tests/DECISIVE/glucose/code/analyze.py` (`1c9a5051`). A later edit to any of the three fails. (`pull.py` needs no pin: its current bytes are locked by the addendum, and the 13 scrub-only files are protected by the reverse-substitution proof.) A new lock that does not verify, a pinned file that starts to verify, a change in the 42, or an edit to a pinned file fails `tools/check_consistency.py` until this page and the script are updated together.
+
+## Which locks the script reads
+
+It reads only lock lines of the form `<64 hex>  <path>` in `*.sha256`, `SHA256SUMS*` and `LOCK*.txt` files: 222 lines. It does **not** read two other kinds, so "every lock" here means every such line, not every lock in the repository:
+- six lock files whose lines are a bare hash with no path: `core/bridge_2026-11-21/PREDICTIONS.sha256`, `core/bridge_2026-11-21/PREREG.sha256`, `core/sim1_2026-11-21/PREDICTIONS.sha256`, `core/sim1_2026-11-21/PREREG.sha256`, `core/sim1_2026-11-21/RUN_SIM1.sha256` and `core/sim1_2026-11-21/SIM1_LIB.sha256` (a reviewer checked that each hash matches one tracked file);
+- prose locks written as `sha256: …` inside a text file, for example `core/sim1_2026-11-21/LOCK.txt`.
 
 ## Not done, on purpose
 

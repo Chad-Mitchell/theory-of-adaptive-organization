@@ -20,9 +20,14 @@ tracked file and puts the line in one class:
               substitution, hashes to the locked value;
   MISSING     the locked file is raw external data that was never committed.
 
-The expected members of every class except OK are pinned below. The script
+The expected members of every class except OK are pinned below, and the current
+git blob of each file that no lock covers (stores.py, F1 outcome.py, glucose
+analyze.py) is pinned too, so a later edit to one of them fails. The script
 fails if a lock stops verifying that is not pinned, if a pinned SCRUB file no
 longer reverses, or if a count changes. New locks that verify (OK) are free.
+
+Not scanned (disclosed in process/LOCK_ERRATA.md): lock files whose lines are a bare
+hash with no path, and prose locks written as "sha256: ...". Only `hex  path` lines count.
 
 Run from the repo root:  python3 tools/verify_locks.py [-v]
 Exit 0 = every lock is OK or accounted for in process/LOCK_ERRATA.md.
@@ -58,6 +63,13 @@ POST_LOCK = {
 }
 # Pinned: no committed version matches.
 UNVERIFIABLE = {"tests/DECISIVE/glucose/code/analyze.py", "tests/F1/code/outcome.py"}
+# Pinned: the current git blob of every file whose lock does not verify and whose bytes are not themselves
+# locked by another hash. Without this, a later edit to these three files would go unnoticed.
+CURRENT_BLOB = {
+    "theory/layers_checks/stores.py": "71a113e05eab9f62b70cedbfcf27f0d698bc2f92",
+    "tests/F1/code/outcome.py": "3126c5e00f096ce7632f4ea18557fc9b1e734ed5",
+    "tests/DECISIVE/glucose/code/analyze.py": "1c9a5051eeb9e058da452ed3a5b86fb0ca4f5e4b",
+}
 # Pinned: locked files that are raw external data and were never committed, by lock file.
 MISSING = {
     "night2/GITHUB/data/SHA256SUMS": 5,
@@ -72,6 +84,11 @@ MISSING = {
 
 def sha256(b):
     return hashlib.sha256(b).hexdigest()
+
+
+def git_blob(b):
+    """The git blob id of these bytes (what `git hash-object` prints)."""
+    return hashlib.sha1(b"blob %d\0" % len(b) + b).hexdigest()
 
 
 def unscrub(b):
@@ -121,12 +138,13 @@ def git_history_sha256(root, path):
     return out
 
 
-def verify(root=ROOT, history=True, scrub=None, post=None, unverifiable=None, missing_pin=None):
+def verify(root=ROOT, history=True, scrub=None, post=None, unverifiable=None, missing_pin=None, blobs=None):
     """(fails, counts, notes). The pins default to the module's tables."""
     scrub = SCRUB if scrub is None else scrub
     post = POST_LOCK if post is None else post
     unverifiable = UNVERIFIABLE if unverifiable is None else unverifiable
     missing_pin = MISSING if missing_pin is None else missing_pin
+    blobs = CURRENT_BLOB if blobs is None else blobs
     fails, notes = [], []
     counts = {"OK": 0, "SCRUB": 0, "POST_LOCK": 0, "UNVERIFIABLE": 0, "MISSING": 0}
     missing = {}
@@ -137,6 +155,8 @@ def verify(root=ROOT, history=True, scrub=None, post=None, unverifiable=None, mi
             counts["MISSING"] += 1
             continue
         b = open(os.path.join(root, hit), "rb").read()
+        if hit in blobs and hit not in scrub and git_blob(b) != blobs[hit]:
+            fails.append("locks: %s changed since it was pinned (git blob %s, now %s); it is outside every lock, so any edit needs a new entry in process/LOCK_ERRATA.md and here" % (hit, blobs[hit][:8], git_blob(b)[:8]))
         if sha256(b) == hx:
             counts["OK"] += 1
         elif hit in scrub:

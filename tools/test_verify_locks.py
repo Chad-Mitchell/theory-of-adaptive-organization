@@ -94,3 +94,43 @@ def test_post_lock_requires_the_lock_time_blob_in_history():
     if h_ is None or "86aa1cc" not in h_:
         return  # shallow clone: the script reports a note instead
     assert vl.POST_LOCK["night2/GITHUB/code/pull.py"][2] in h_
+
+
+def test_real_repo_pins_the_three_unlocked_current_blobs():
+    assert set(vl.CURRENT_BLOB) == {"theory/layers_checks/stores.py", "tests/F1/code/outcome.py", "tests/DECISIVE/glucose/code/analyze.py"}
+    for path, blob in vl.CURRENT_BLOB.items():
+        assert vl.git_blob(open(os.path.join(ROOT, path), "rb").read()) == blob, path
+
+
+def test_git_blob_matches_git_hash_object():
+    assert vl.git_blob(b"") == "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    assert vl.git_blob(b"hello\n") == "ce013625030ba8dba906f756967f9e9ca394464a"
+
+
+def test_later_edit_to_a_pinned_unlocked_file_fails(tmp_path):
+    root = _tree(tmp_path, {"d/a.py": b"y\n"}, [(h(b"locked-never-committed\n"), "a.py")])
+    pin = {"d/a.py": vl.git_blob(b"y\n")}
+    fails, _, _ = vl.verify(root, scrub=set(), post={}, unverifiable={"d/a.py"}, missing_pin={}, blobs=pin)
+    assert fails == []
+    (tmp_path / "d" / "a.py").write_bytes(b"y\n# appended later\n")
+    fails, _, _ = vl.verify(root, scrub=set(), post={}, unverifiable={"d/a.py"}, missing_pin={}, blobs=pin)
+    assert len(fails) == 1 and "changed since it was pinned" in fails[0]
+
+
+def test_later_edit_to_post_lock_file_fails(tmp_path):
+    root = _tree(tmp_path, {"d/a.py": b"later\n"}, [(h(b"locked-version\n"), "a.py")])
+    pin = {"d/a.py": vl.git_blob(b"later\n")}
+    post = {"d/a.py": ("abc1234", "0" * 40, "def5678", pin["d/a.py"])}
+    fails, counts, _ = vl.verify(root, history=False, scrub=set(), post=post, unverifiable=set(), missing_pin={}, blobs=pin)
+    assert fails == [] and counts["POST_LOCK"] == 1
+    (tmp_path / "d" / "a.py").write_bytes(b"later\n#more\n")
+    fails, _, _ = vl.verify(root, history=False, scrub=set(), post=post, unverifiable=set(), missing_pin={}, blobs=pin)
+    assert fails and "changed since it was pinned" in fails[0]
+
+
+def test_scrub_file_is_not_blob_pinned(tmp_path):
+    # scrub-only files are protected by the reverse-substitution proof, so a blob pin must not apply to them
+    original = b"p='/workspace/x'\n"
+    root = _tree(tmp_path, {"d/a.py": b"p='<local>/x'\n"}, [(h(original), "a.py")])
+    fails, _, _ = vl.verify(root, scrub={"d/a.py"}, post={}, unverifiable=set(), missing_pin={}, blobs={"d/a.py": "0" * 40})
+    assert fails == []
