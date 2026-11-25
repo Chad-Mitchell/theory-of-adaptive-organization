@@ -444,6 +444,15 @@ def main(argv=None):
         print("  FAIL " + x)
         fails.append("FAIL " + x)
 
+    # OPEN_WORK.md pointer and the Lean total against formal/lean/AUDIT.json
+    # (see tools/check_pending.py; the network part runs only there).
+    from check_fresh import is_git_repo as _is_git
+    if _is_git(ROOT):
+        from check_pending import check_lean as _lean_check, check_pointers as _ptr_check
+        for x in [y for y in _ptr_check(ROOT) if y.startswith("pending:")] + _lean_check(ROOT):
+            print("  FAIL " + x)
+            fails.append("FAIL " + x)
+
     # ---------------------------------------------------------------- summary
     print("\n== Summary")
     print("FAIL: %d   INFO (frozen records): %d" % (len(fails), len(infos)))

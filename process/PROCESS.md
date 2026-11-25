@@ -46,3 +46,7 @@ Meanings of the scientific terms (memory, record, model, layer, level, nesting, 
 ## 3. Minimal miss / hit record and template
 
 Every new test write-up, `DEVIATIONS.md`, or process-miss log records each prediction outcome using the eight fields in [`process/MISS_LOG_TEMPLATE.md`](MISS_LOG_TEMPLATE.md): `prediction_id`, `locked_prediction` (value/band and odds where feasible), `outcome`, `miss` (signed size and direction, or `HIT` with information/rival margin), `location` (`model` \| `measurement/code` \| `process`), `stake_x_info` (`low` \| `medium` \| `high`, governing depth), `update` (what changed, or `none yet`), and `breach_check`.
+
+## 4. Repository upkeep after every merge
+
+**Rule (24 November 2026):** after every merge to `main`, refresh `STATUS.md` (the `main` is `SHA` pointer, the Lean total, open PRs) and run `python3 tools/check_pending.py`; it fails when the `STATUS.md` or `OPEN_WORK.md` pointer is behind `main`, when the `STATUS.md` Lean total differs from `formal/lean/AUDIT.json` or the Lean sources changed since that audit, or when an upstream or fork PR has had a passing independent review for more than 24 hours without a merge.
