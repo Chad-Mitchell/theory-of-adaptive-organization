@@ -567,16 +567,16 @@ in the list above is not a formalization of a later claim.
 
 ### Batch 2: heat and repair floors, T59, T60, T63
 
-- **T59** (`OPEN_WORK.md:110`). Under Proposition JP-heat with local detailed
+- **T59** ([`OPEN_WORK.md:110`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L110)). Under Proposition JP-heat with local detailed
   balance, memory-bath heat satisfies `Q̇_M ≥ kT · r · L(ε)` in that class.
   At `r = 0` a static bias is at equilibrium and the ongoing floor is 0.
   Metastable retention is a lifetime, not a steady heat floor.
-- **T60** (`OPEN_WORK.md:111`). For an exogenous finite-state world,
+- **T60** ([`OPEN_WORK.md:111`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L111)). For an exogenous finite-state world,
   `I_alt = ∑ π(x) W_X(x→x') D_KL(p(M|x) ‖ p(M|x'))`. The claim that this flow
   is strictly positive whenever the world is not frozen and the Bayes error
   is below `ε_0` is false. On a strongly connected occupied flux graph,
   `I_alt = 0` implies `ε = ε_0`. On the telegraph, `I_alt ≥ r L(ε)`.
-- **T63** (`OPEN_WORK.md:114`). Repair floor in class RF: averaged dissipated
+- **T63** ([`OPEN_WORK.md:114`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L114)). Repair floor in class RF: averaged dissipated
   power is at least `4 kT Γ (ln 2 − h(ε)) − kT S_max/τ` for carriers that each
   leak at rate at least `Γ`. One carrier gives the telegraph floor. A finite
   fully leaky scheme forgets. The cooperative-media loophole in `d = 2, 3` is
@@ -590,52 +590,52 @@ Schnakenberg integral are still not declarations.
 
 ### Batch 3: T58, T50, T68, the OU lift, and the clock
 
-- **T58** (`OPEN_WORK.md:109`). For an overdamped Einstein spring coupled to a
+- **T58** ([`OPEN_WORK.md:109`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L109)). For an overdamped Einstein spring coupled to a
   random walk, the Kalman–Bucy-matched choice pays bath heat `2 kT r̄`. A fast
   spring at the same error drives the heat to the infimum `kT σ²/(2ε)`, where
   that identification does not hold. `DriftSelection` is not this statement:
   it takes the OU moment equations as inputs and proves a trace identity.
-- **T50** (`OPEN_WORK.md:101`). Joining the predict-act-correct loop:
+- **T50** ([`OPEN_WORK.md:101`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L101)). Joining the predict-act-correct loop:
   AF-scale, AF-convex, the bet-class value, AF-homeostatic, and AF-rate, in
   the named class. Not as a general claim outside that class.
-- **T68** (`OPEN_WORK.md:119`). Class CK: an internal clock is optimal if and
+- **T68** ([`OPEN_WORK.md:119`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L119)). Class CK: an internal clock is optimal if and
   only if the look price exceeds a stated multiple of `κ kT b/a` (6, 4, or
   the Poisson variant). The onset is a scoring convention inside that class.
   `LayerLifetime` is a refresh interval for a lumpy layer, not this clock.
 
 ### Batch 4: T73 and T74, quantum record price
 
-- **T73** (`OPEN_WORK.md:123`). Class PB, one projective record of a dephased
+- **T73** ([`OPEN_WORK.md:123`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L123)). Class PB, one projective record of a dephased
   qubit. At complete dephasing the relative-entropy minimizer is `θ = 0` for
   every stake. The Holevo predicate is false. A stake off the dephasing axis
   moves the relative-entropy minimizer only in the partial-dephasing numerical
   case. At equal coefficients the record terms are flat in `θ`.
-- **T74** (`OPEN_WORK.md:124`). No route among the five fixes `κ_D/κ`. The
+- **T74** ([`OPEN_WORK.md:124`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L124)). No route among the five fixes `κ_D/κ`. The
   one-scale sentence multiplies the whole sum. The ratio stays a free
   nonnegative price. Batch 1's one-scale declaration is that multiplier. It
   is not a formalization of T74, and it does not set the ratio.
 
 ### Batch 5: structural lemmas T32, T33, T44, T51, T64, T65
 
-- **T32** (`OPEN_WORK.md:83`). Lyapunov lemma for the general form under
+- **T32** ([`OPEN_WORK.md:83`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L83)). Lyapunov lemma for the general form under
   H1–H3. Occupation of the front is not proved. GF5 is not a certificate.
   This is not CT32; CT32 is a different item and is also not formalized.
-- **T33** (`OPEN_WORK.md:84`). Growth bridge: on a gapped finite menu, weak
+- **T33** ([`OPEN_WORK.md:84`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L84)). Growth bridge: on a gapped finite menu, weak
   selection recovers the ranking only; the diffusion limit keeps `μ − σ²/2`;
   an interior stake separates the argmaxes. GB2, GB3, GB5, and GB6 are false
   as unscoped identities. This T33 is not THEORY CT33. CT33 is already in
   `GTAO/CT33.lean`.
-- **T44** (`OPEN_WORK.md:95`). In the equilibrium Gaussian field, the
+- **T44** ([`OPEN_WORK.md:95`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L95)). In the equilibrium Gaussian field, the
   conditional distribution of the exterior given the region and the blanket
   equals the distribution given the blanket. Interior decisions are not
   boundary-sufficient.
-- **T51** (`OPEN_WORK.md:102`). Swarm rule in the telegraph class: stay
+- **T51** ([`OPEN_WORK.md:102`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L102)). Swarm rule in the telegraph class: stay
   condition `λ s c < w Φ`, alignment `s = w/W`, and tampering priced as one
   more action. Unshared collateral or a binding ruin cap is outside that case.
-- **T64** (`OPEN_WORK.md:115`). Barrier route: retention error is at least
+- **T64** ([`OPEN_WORK.md:115`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L115)). Barrier route: retention error is at least
   `π(A1) (1 − e^{−λ₂ τ})` for a reversible medium, and the Eyring–Kramers
   reading needs a barrier at least `kT ln(ν τ / ε)`. A1 is not automatic.
-- **T65** (`OPEN_WORK.md:116`). A1 fails in the destruction channel for a
+- **T65** ([`OPEN_WORK.md:116`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L116)). A1 fails in the destruction channel for a
   sphaleron-protected record, under the stated Standard Model inputs. The
   cap without A1 stays open in the transport channel.
 

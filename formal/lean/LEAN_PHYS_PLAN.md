@@ -4,7 +4,7 @@ Written before any proof in this work order. The parent is upstream
 `main` at `4f17326`. This file is not revised in place. Later notes are
 appended at the bottom.
 
-Work order: `OPEN_WORK.md:250` (row LEAN-PHYS, rank 4 of the ranked gap
+Work order: [`OPEN_WORK.md:250`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L250) (row LEAN-PHYS, rank 4 of the ranked gap
 plan). Formalize, with every assumption named, the general diffusion heat
 step, the T60 pairwise and path bounds, and the T63 product argument.
 Nothing here is a claim about a real system. `THEORY.md` and `CORE.md`

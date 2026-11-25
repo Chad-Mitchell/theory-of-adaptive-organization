@@ -201,3 +201,10 @@ def test_blob_list_is_read_from_origin_main_not_the_working_tree():
         assert listed == {}
     else:
         assert listed == bw.parse_blob_list(shown.stdout)
+
+
+def test_standalone_entry_point(capsys):
+    # Ace nit: banned_words.py has a real entry point.
+    rc = bw.main(["banned_words.py", ROOT])
+    out = capsys.readouterr().out
+    assert rc in (0, 2) and "RESULT:" in out

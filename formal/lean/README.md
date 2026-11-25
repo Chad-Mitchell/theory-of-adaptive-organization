@@ -1,4 +1,4 @@
-# Lean 4 formalization of the GTAO core (OPEN_WORK T19)
+# Lean 4 formalization of the GTAO core (T19)
 
 This directory is a Lean 4 + Mathlib project.  It machine-checks a
 finite-menu fragment of the core in `THEORY.md` (canonical) and `CORE.md`,
@@ -64,7 +64,7 @@ Hypotheses are part of the claim.  A finite nonempty design set, and a
 stake-independent menu (ruin slack or absent), are standing hypotheses
 wherever `FiniteDesignMenu` is used.
 
-"CORE §" numbers below refer to earlier versions of the one-pager, kept in `history/` (`2026-11-21_CORE_before_onepage.md`, `2026-11-21_CORE_before_shannon.md`, `2026-11-22_CORE_before_front.md`). The current `CORE.md` was rewritten on 22 November 2026 and has different section numbers.
+"CORE §" numbers below refer to earlier versions of the one-pager, kept in git history ([`2026-11-21_CORE_before_onepage.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-21_CORE_before_onepage.md), [`2026-11-21_CORE_before_shannon.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-21_CORE_before_shannon.md), [`2026-11-22_CORE_before_front.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-22_CORE_before_front.md)). The current `CORE.md` was rewritten on 22 November 2026 and has different section numbers.
 
 | Lean name | THEORY / source | What is assumed | What is proved |
 |---|---|---|---|

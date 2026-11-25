@@ -49,15 +49,16 @@ Every new test write-up, `DEVIATIONS.md`, or process-miss log records each predi
 
 ## 4. One source per fact
 
-**Rule (25 November 2026), replacing the 24 November refresh rule:** each fact has one hand-kept source, and every other copy is deleted ([design memo](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/a0508fd/history/2026-11-25_DRIFT_MEMO.md)). The visible repo is the current theory; git holds history.
+**Rule (25 November 2026), replacing the 24 November refresh rule:** each fact has one hand-kept source, and every other copy is deleted ([design memo](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/a0508fd264fd840b84e60a136a83ef4f17b1fde2/history/2026-11-25_DRIFT_MEMO.md)). The visible repo is the current theory; git holds history.
 - Facts that change at every merge are never committed: the `main` SHA, the open-PR list, PR heads and review state come live from `python3 tools/brief.py`.
 - Claim statuses live in the `measurement/CLAIM_MAP_v2.md` headline ledger. Other pages link to it and carry no copy of it.
 - The direction, the ranked work, and the "Waiting on Chad" list live in `README.md`. Versions live in the `THEORY.md` title and the latest CLAIM_MAP note. The Lean total lives in `formal/lean/AUDIT.json`.
-- A path that a dated record names but that is no longer in the tree resolves at its permalink: `https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183/<path>`.
+- A path that a dated record names but that is no longer in the tree resolves at its permalink: `https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/<path>`.
 
 **Checks (all must pass before a PR is marked ready):** `tools/check_fresh.py`, `tools/check_pending.py`, `tools/check_consistency.py`, `tools/verify_locks.py`, `tools/banned_words.py`, `tools/check_claims.py`, and `python3 -m pytest -q`.
-- `check_fresh.py` fails on a hand-kept SHA of a recent `main` commit, an open-PR list, a hand-typed PR head, a version string, or a Lean total on any maintained page. It also fails on a root `.md` file outside its allow-list.
-- `check_claims.py` fails on a claims view, a second copy of the direction line, a ranking outside `README.md`, or a summary that judges the theory as a whole, or a claim without its exact ledger status.
+- `check_fresh.py` fails on any maintained page that hand-keeps a SHA of a recent `main` commit or the head of an open PR (in any wording), an open-PR list, a hand-typed PR head, a version string, or a Lean declaration total. It also fails on a root `.md` file outside its allow-list and on a `STATUS.md` or `OPEN_WORK.md` in any folder. Dated entries sit inside `<!-- history:begin -->` … `<!-- history:end -->` and are skipped. Without network it prints `RESULT: PARTIAL`.
+- `check_claims.py` fails on a claims view, a second copy of the direction line, a ranking outside `README.md`, a `README.md` ranked-gaps or Waiting-on-Chad row ID used as a table row or ordered-list item on another page, a summary that judges the theory as a whole, or a claim without its exact ledger status.
+- `banned_words.py` runs on its own (`python3 tools/banned_words.py`) and inside `check_consistency.py`.
 - Run `python3 tools/check_pending.py --pr N --body-file BODY.md`. It fails when that PR's own `README.md` row is still "In flight", when that PR has a passing review older than 24 hours that no longer covers its head, or when its body breaks the summary rule. Other PRs' findings only warn. A run that could not fetch or reach GitHub prints `RESULT: PARTIAL`, never PASS.
 
 **Parked work and parked PRs (25 November 2026; moved here from the retired parked-PR page).**

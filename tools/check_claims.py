@@ -390,6 +390,52 @@ def check_direction(root):
     return errors
 
 
+# ------------------------------------------------------------------ work rows have one home (README.md)
+WORK_SECTIONS = ("## Ranked gaps", "## Waiting on Chad")
+HIST_BLOCK = re.compile(r"<!-- history:begin.*?<!-- history:end -->", re.S)
+
+
+def work_ids(root):
+    """IDs of the README.md ranked-gaps and Waiting-on-Chad rows."""
+    text = read(root, "README.md") if os.path.isfile(os.path.join(root, "README.md")) else ""
+    ids = set()
+    for head in WORK_SECTIONS:
+        m = re.search("^" + re.escape(head) + r".*", text, re.M | re.S)
+        if not m:
+            continue
+        for line in m.group(0).split("\n## ", 1)[0].splitlines():
+            c = split_cells(line) if line.startswith("|") else []
+            if c and c[0] and c[0] not in ("ID",) and not set(c[0]) <= set("-: "):
+                ids.add(c[0].strip("*` "))
+    return ids
+
+
+def check_work_rows(root):
+    """A README work row ID used as a table row or an ordered-list item on another page fails.
+    measurement/CLAIM_MAP_v2.md and THEORY.md Appendix C are exempt: they index claim statuses under the
+    same IDs, not work."""
+    ids = work_ids(root)
+    if not ids:
+        return []
+    alt = "|".join(sorted(map(re.escape, ids), key=len, reverse=True))
+    row = re.compile(r"^\|\s*[*`]*(%s)[*`]*\s*\|" % alt)
+    # an ordered item that names the ID as its label: "3. **T40**", "3. T40:", "3. **T40 —"
+    item = re.compile(r"^\s*\d+[.)]\s+[*`]*(%s)(?:[*`]+|\s*[:|\u2014\u2013]|\s+-\s)" % alt)
+    errors = []
+    pages = sorted((set(direction_pages(root)) | {"CORE.md", "THEORY.md"}) - {"README.md", "measurement/CLAIM_MAP_v2.md"})
+    for path in pages:
+        if not os.path.isfile(os.path.join(root, path)):
+            continue
+        body = HIST_BLOCK.sub(lambda m: "\n" * m.group(0).count("\n"), read(root, path))
+        if path == "THEORY.md" and "## Appendix C" in body:
+            body = body.split("## Appendix C", 1)[0]  # Appendix C indexes claim statuses, like the ledger
+        for ln, line in enumerate(body.split("\n"), 1):
+            m = row.match(line) or item.match(line)
+            if m:
+                errors.append("work rows: %s:%d lists README work row %s; README.md holds it" % (path, ln, m.group(1)))
+    return errors
+
+
 # ------------------------------------------------------------------ summaries
 SURFACE = {
     "proved-in-model": r"proved-in-model|PROVED \(in-model\)|proved \(in-model\)|proved in-model|proved in (?:the |a )?models?"
@@ -498,6 +544,7 @@ def check(root=None):
     errors.extend(check_hypothesis(root))
     errors.extend(check_unmanaged(rows, root, claim_ids(text)))
     errors.extend(check_direction(root))
+    errors.extend(check_work_rows(root))
     errors.extend(check_summaries(root))
     # de-duplicate, keep order
     out, seen = [], set()

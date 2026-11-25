@@ -269,6 +269,38 @@ def test_direction_line_missing_from_readme_fails():
         shutil.rmtree(root)
 
 
+# ---------------------------------------------------------------- work rows have one home (Ace 2d)
+def test_work_ids_come_from_readme():
+    ids = cc.work_ids(ROOT)
+    assert {"BICAUSAL", "DATA-ONE", "T40", "T72", "LOCK-V1.5"} <= ids
+
+
+def test_work_row_copied_to_another_page_fails():
+    plants = [("process/PROCESS.md", "| T40 | Adopt the physical cost display | open |\n"),
+              ("theory/PHYSICS_CHAIN_2026-11-23.md", "1. **BICAUSAL** first.\n"),
+              ("CORE.md", "| STOP-COPY | 2 | math |\n"),
+              ("measurement/FRAMEWORK.md", "2. MV9-DECISION: needs Chad.\n")]
+    for rel, line in plants:
+        root = copy_tree()
+        try:
+            with open(os.path.join(root, rel), "a", encoding="utf-8") as fh:
+                fh.write("\n\n| a | b |\n|---|---|\n" + line if line.startswith("|") else "\n\n" + line)
+            got = fails_of(root)
+            assert "work rows: %s" % rel in got, (rel, got)
+        finally:
+            shutil.rmtree(root)
+
+
+def test_work_id_in_prose_or_history_passes():
+    root = copy_tree()
+    try:
+        with open(os.path.join(root, "process/PROCESS.md"), "a", encoding="utf-8") as fh:
+            fh.write("\n\nT40 waits on Chad (see README.md).\n\n<!-- history:begin -->\n| T40 | old row |\n<!-- history:end -->\n")
+        assert "work rows" not in fails_of(root)
+    finally:
+        shutil.rmtree(root)
+
+
 # ---------------------------------------------------------------- summaries
 def test_whole_theory_summary_fails():
     # Acceptance: a whole-theory summary with no row cite fails.

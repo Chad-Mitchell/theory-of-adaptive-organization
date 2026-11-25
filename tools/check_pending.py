@@ -193,6 +193,15 @@ def paged(api, path):
         page += 1
 
 
+def open_pr_heads(api=gh_api):
+    """{head SHA: 'upstream#N' or 'fork#N'} for every open PR in both repos (the live PR list). Raises Offline."""
+    out = {}
+    for label, repo in (("upstream", UPSTREAM), ("fork", FORK)):
+        for p in paged(api, "/repos/%s/pulls?state=open" % repo):
+            out[p["head"]["sha"]] = "%s#%d" % (label, p["number"])
+    return out
+
+
 def parse_time(s):
     return datetime.strptime(s, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
 
