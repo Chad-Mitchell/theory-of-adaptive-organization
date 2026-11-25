@@ -113,3 +113,27 @@ Cheapest way: no new axiom.
 ## Miss log
 
 Appended after the proofs.
+
+Lock: plan commit `07ce4e5` on `forge-lean-phys` (sha256 of this file at
+lock `2573b8934b60a742ea5a6ca93b3cfe0790712d8bd7dd3d548629fd97658f7d6f`).
+Logged 25 November 2026 ET. Breach check: `none`.
+
+Every row of the statement list above has a declaration with the planned
+name. Two declarations are **WEAKER**; each is a row here. Formal labels
+stay in `INVENTORY.md`.
+
+| prediction_id | locked_prediction | outcome | miss | location | stake_x_info | update | breach_check |
+|---|---|---|---|---|---|---|---|
+| LP-eqheat | `Σ = Sr − İ + dS`, and `İ ≤ Sr` in the steady state, for the SDE `dM = F dt + √(2D) dW` with vanishing boundary terms. `theory/GENERALITY_2026-11-22.md:62-68` | `eq_heat_identity`, `eq_heat_steady`, `eq_heat_floor` at `DiffusionHeat.lean:102`, `:135`, `:144`; integration by parts and the marginal-entropy identity are fields of `EQHeatHyp` | short by the derivation of those two integral identities from the SDE and its Fokker–Planck equation | model | medium | both identities named as hypotheses; the substitution, the sign of `Σ`, and the steady-state bound are checked on any measure space | none |
+| LP-tensor-zero | `σ_Γ[p] ≥ 4 Γ D(p‖u)` for every distribution on `{0,1}^n`. `theory/RECORD_REPAIR_FLOOR_2026-11-23.md:75` | `cube_tensorization` at `RepairTensor.lean:162`, every `n`, leak rates `Γ_i ≥ g ≥ 0`, strictly positive `p` | short by the zero-atom case: there the note's `σ` is `+∞` and the bound is trivial, but Lean's `log 0 = 0` does not give `+∞` | model | low | strict positivity named; the product inequality for every `n` is checked by induction on the carriers, not by the note's entropy-subadditivity route | none |
+
+Not misses, recorded so the coverage is exact. `pairwise_L` and
+`path_pinsker` on the real sum `iAltReal` take absolute continuity on the
+edges they use; `pairwise_L_ennreal`, `path_pinsker_ennreal`, and
+`path_pinsker_stronglyConnected` on the extended `iAlt` take none, so the
+paper sentences are checked without it. `iAlt` is the flux-weighted
+divergence sum, the right side of the destruction identity; passing from
+the net learning rate to that sum is `stationary_learning_rate`, which
+stays **WEAKER** (B2-stationary-rate). `pathWeight` counts an edge with
+its multiplicity in a walk; on walks with no repeated edge, such as
+shortest paths, it is `√2 c_e` of the note.

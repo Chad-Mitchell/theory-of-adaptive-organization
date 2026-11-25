@@ -49,6 +49,9 @@ about the real world.
   Batch 2 (24 November 2026, branch `forge-lean-batch2` at `6663d0e`,
   merged as PR #266): 1185 declarations, OK. The 259 constants above 926
   are the four batch 2 modules.
+  LEAN-PHYS (25 November 2026, branch `forge-lean-phys` at `07bffb7`):
+  1370 declarations, OK. The 185 constants above 1185 are the four
+  LEAN-PHYS modules; 71 of them are source declarations.
 
 ## How to build
 
@@ -188,6 +191,23 @@ Four declarations are **WEAKER**, each with the missing clause in
 bound, the pairwise bound, the path bound, the product inequality on
 `{0,1}^n`, and the two-distribution decoder bound are not declarations.
 
+## LEAN-PHYS: diffusion heat step, T60 pairwise and path, T63 product
+
+Declarations in `GTAO/DiffusionHeat.lean`, `GTAO/FiniteFloorPairwise.lean`,
+`GTAO/FiniteFloorPath.lean`, and `GTAO/RepairTensor.lean`, planned in
+`LEAN_PHYS_PLAN.md` before any proof (commit `07ce4e5`). This adds to the
+Batch 2 paragraph above: the pairwise bound, the path bound, and the
+product inequality on `{0,1}^n` are now declarations. Every assumption is
+a named hypothesis or structure field.
+
+| Declaration | Paper sentence | Label |
+|---|---|---|
+| `eq_heat_identity`, `eq_heat_steady`, `eq_heat_floor` | `theory/GENERALITY_2026-11-22.md:39-68`, Proposition EQ-heat | **WEAKER.** Integration by parts and the marginal-entropy identity are fields of `EQHeatHyp`, not derived from the SDE. Miss LP-eqheat. |
+| `pairwise_L_ennreal` | `theory/GENERAL_FLOOR_FINITE_2026-11-23.md:115` | **Faithful** on the extended sum `iAlt`, no extra hypothesis. `pairwise_L` is the real form under absolute continuity. |
+| `path_pinsker_ennreal`, `path_pinsker_stronglyConnected`, `telegraph_K` | `theory/GENERAL_FLOOR_FINITE_2026-11-23.md:117-129` | **Faithful.** `pathWeight` counts each edge with its multiplicity. `path_pinsker` is the real form under absolute continuity on used edges. |
+| `pairwise_telegraph` | `theory/GENERAL_FLOOR_FINITE_2026-11-23.md:107` | **Faithful** to the lower bound `I_alt ≥ r L(ε)` for `ε < 1/2`. Equality and the converse are not declarations. |
+| `cube_tensorization` | `theory/RECORD_REPAIR_FLOOR_2026-11-23.md:75` | **WEAKER.** Strictly positive `p`; the zero-atom case, where the note's `σ` is `+∞`, is miss LP-tensor-zero. |
+
 ## What is not formalized
 
 None of the following is claimed as proved in Lean.
@@ -253,6 +273,10 @@ formal/lean/
   GTAO/FiniteFloor.lean     # finite-alphabet learning rate, T60
   GTAO/FiniteFloorBounds.lean  # connectivity, class indicator, 3-cycle
   GTAO/RepairFloor.lean     # one-carrier repair comparison, T63
+  GTAO/DiffusionHeat.lean   # EQ-heat step on any measure space, named hypotheses
+  GTAO/FiniteFloorPairwise.lean  # log-sum, Jeffreys, pairwise L bound, T60
+  GTAO/FiniteFloorPath.lean # Pinsker, walks, path bound, K = 1/(4r), T60
+  GTAO/RepairTensor.lean    # product inequality on {0,1}^n, T63
   scripts/AxiomAudit.lean   # every GTAO declaration uses only standard axioms
 ```
 
