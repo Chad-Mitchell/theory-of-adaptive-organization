@@ -18,7 +18,10 @@ root .md, process/*.md, formal/lean/README.md):
     including hand-typed PR heads ("head `sha`", "PR #N (head", "is at sha",
     "tip: sha") and Lean declaration totals;
   - a root .md file outside ROOT_ALLOW, and a STATUS.md or OPEN_WORK.md in any
-    folder (a status page or work list that comes back).
+    folder (a status page or work list that comes back);
+  - a line that starts with `<!-- history:begin` in README.md, CORE.md, THEORY.md
+    or process/PROCESS.md (those pages do not keep a history block; a mid-line
+    quote of the marker still passes).
 Without network the open-PR head rule is skipped and the result is PARTIAL.
 Text between `<!-- history:begin` and `<!-- history:end -->` is a dated record
 and is skipped, as are the copies in files this repo may not edit (ALLOW).
@@ -72,6 +75,10 @@ ALLOW = {
     ("measurement/CLAIM_MAP_v2.md", "the booking is now fixed** (`THEORY.md` v2.0 §2)"),
 }
 HIST = re.compile(r"<!-- history:begin.*?<!-- history:end -->", re.S)
+# These four pages do not keep a history block. A line that starts with the marker fails.
+# A mid-line quote (process/PROCESS.md names the marker inside backticks) still passes.
+NO_HIST_BLOCK = {"README.md", "CORE.md", "THEORY.md", "process/PROCESS.md"}
+HIST_BEGIN = "<!-- history:begin"
 
 
 def repo_root():
@@ -168,8 +175,14 @@ def check(root=None, recent=None, heads=None):
                      % (p, sorted(ROOT_ALLOW)))
     for p in live_pages(root):
         with open(os.path.join(root, p), encoding="utf-8") as fh:
-            for ln, name, ex in hand_pointers(fh.read(), p, recent, heads):
-                fails.append("hand pointer (%s) at %s:%d: %s; read it live or from its one source" % (name, p, ln, ex))
+            text = fh.read()
+        if p in NO_HIST_BLOCK:
+            for i, line in enumerate(text.split("\n"), 1):
+                if line.startswith(HIST_BEGIN):
+                    fails.append("history block at %s:%d: a line starts with <!-- history:begin; "
+                                 "README.md, CORE.md, THEORY.md and process/PROCESS.md do not keep one" % (p, i))
+        for ln, name, ex in hand_pointers(text, p, recent, heads):
+            fails.append("hand pointer (%s) at %s:%d: %s; read it live or from its one source" % (name, p, ln, ex))
     return fails
 
 

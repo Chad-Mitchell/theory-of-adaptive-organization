@@ -291,6 +291,34 @@ def test_work_row_copied_to_another_page_fails():
             shutil.rmtree(root)
 
 
+def test_open_row_and_bicausal_period_fail():
+    # Open, not ranked IDs are work rows, and "1. **BICAUSAL.**" is an ordered label.
+    ids = cc.work_ids(ROOT)
+    assert "T13" in ids and "T21-T24" in ids and "T49-LOSSES" in ids
+    plants = [("process/PROCESS.md", "| T13 | Other open conjectures | Open |\n"),
+              ("CORE.md", "1. **BICAUSAL.**\n")]
+    for rel, line in plants:
+        root = copy_tree()
+        try:
+            with open(os.path.join(root, rel), "a", encoding="utf-8") as fh:
+                fh.write("\n\n" + line)
+            got = fails_of(root)
+            assert "work rows: %s" % rel in got, (rel, got)
+        finally:
+            shutil.rmtree(root)
+
+
+def test_altered_hypothesis_line_fails():
+    root = copy_tree()
+    try:
+        with open(os.path.join(root, "process/PROCESS.md"), "a", encoding="utf-8") as fh:
+            fh.write("\nThe law of adaptive organization (hypothesis): strongly selected systems maximize the cost of judgment.\n")
+        got = fails_of(root)
+        assert "hypothesis sentence altered or incomplete in process/PROCESS.md" in got, got
+    finally:
+        shutil.rmtree(root)
+
+
 def test_work_id_in_prose_or_history_passes():
     root = copy_tree()
     try:

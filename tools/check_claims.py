@@ -296,6 +296,16 @@ def check_hypothesis(root):
         full = os.path.join(root, path)
         if os.path.isfile(full) and HYPOTHESIS not in read(root, path):
             errors.append("claims: hypothesis sentence changed or missing in %s" % path)
+    # Every maintained page: a line that names the hypothesis must carry the exact sentence.
+    import check_consistency
+    phrase = "The law of adaptive organization (hypothesis)"
+    for path in check_consistency.MAINTAINED_DOCS:
+        full = os.path.join(root, path)
+        if not os.path.isfile(full):
+            continue
+        for ln, line in enumerate(read(root, path).splitlines(), 1):
+            if phrase in line and HYPOTHESIS not in line:
+                errors.append("claims: hypothesis sentence altered or incomplete in %s:%d" % (path, ln))
     return errors
 
 
@@ -391,12 +401,12 @@ def check_direction(root):
 
 
 # ------------------------------------------------------------------ work rows have one home (README.md)
-WORK_SECTIONS = ("## Ranked gaps", "## Waiting on Chad")
+WORK_SECTIONS = ("## Ranked gaps", "## Waiting on Chad", "## Open, not ranked")
 HIST_BLOCK = re.compile(r"<!-- history:begin.*?<!-- history:end -->", re.S)
 
 
 def work_ids(root):
-    """IDs of the README.md ranked-gaps and Waiting-on-Chad rows."""
+    """IDs of the README.md ranked-gaps, Waiting-on-Chad, and Open-not-ranked rows."""
     text = read(root, "README.md") if os.path.isfile(os.path.join(root, "README.md")) else ""
     ids = set()
     for head in WORK_SECTIONS:
@@ -419,8 +429,8 @@ def check_work_rows(root):
         return []
     alt = "|".join(sorted(map(re.escape, ids), key=len, reverse=True))
     row = re.compile(r"^\|\s*[*`]*(%s)[*`]*\s*\|" % alt)
-    # an ordered item that names the ID as its label: "3. **T40**", "3. T40:", "3. **T40 —"
-    item = re.compile(r"^\s*\d+[.)]\s+[*`]*(%s)(?:[*`]+|\s*[:|\u2014\u2013]|\s+-\s)" % alt)
+    # an ordered item that names the ID as its label: "3. **T40**", "3. T40:", "3. **T40 —", "1. **BICAUSAL.**"
+    item = re.compile(r"^\s*\d+[.)]\s+[*`]*(%s)(?:[*`.]+|\s*[:|\u2014\u2013]|\s+-\s)" % alt)
     errors = []
     pages = sorted((set(direction_pages(root)) | {"CORE.md", "THEORY.md"}) - {"README.md", "measurement/CLAIM_MAP_v2.md"})
     for path in pages:

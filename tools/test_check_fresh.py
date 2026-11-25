@@ -206,6 +206,23 @@ def test_status_or_open_work_in_any_folder_fails(tmp_path):
         assert any(rel in f and "retired page name" in f for f in fails), (rel, fails)
 
 
+def test_history_begin_at_line_start_fails_on_four_pages(tmp_path):
+    # A line that starts with the marker fails on the four front pages, including a block that hides a stale SHA.
+    block = "\n<!-- history:begin -->\nHEAD is 1eed183.\n<!-- history:end -->\n"
+    for i, rel in enumerate(sorted(cf.NO_HIST_BLOCK)):
+        fails = _plant(tmp_path / ("h%d" % i), rel, block)
+        assert any(f.startswith("history block at %s:" % rel) for f in fails), (rel, fails)
+
+
+def test_history_marker_quoted_mid_line_passes(tmp_path):
+    # process/PROCESS.md quotes the marker inside backticks mid-line. That line, and a planted copy, pass.
+    line = open(os.path.join(ROOT, "process/PROCESS.md"), encoding="utf-8").read().splitlines()[58]
+    assert "<!-- history:begin" in line and not line.startswith("<!-- history:begin")
+    fails = _plant(tmp_path, "process/PROCESS.md",
+                   "\nDated entries sit inside `<!-- history:begin -->` and are skipped.\n")
+    assert fails == [], fails
+
+
 def test_plain_lean_total_fails(tmp_path):
     # Ace 2f
     for w in ["Lean checks 1370 declarations.", "1,370 Lean declarations, OK", "**1370 declarations**"]:

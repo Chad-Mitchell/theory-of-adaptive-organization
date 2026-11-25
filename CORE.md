@@ -151,7 +151,7 @@ A qualifying design outside the preregistered band is a miss for that class. The
 ## 7. What remains
 
 The ranked work list is in [`README.md`, Ranked gaps](README.md#ranked-gaps).
-4. **Existing open items and open misses:**
+**Existing open items and open misses:**
    - Deriving the stake, the link price, or the ruin cap from the heat bound. They stay assumptions.
    - A closed form of the learning-rate–distortion function for a general world, which memories attain the floor outside the telegraph, and worlds the memory itself moves beyond the named classes of T61 (T57, T60, T61; the proved pieces and the open boundary are in §3).
    - The heat floor on Sierpiński graphs: cost tracks the sites the decision names, not the Hausdorff or spectral dimension (`theory/FRACTAL_WORLD_2026-11-22.md`, T54). Identities the locked script checks are **PROVED** (in-model, class F, code-checked); a dimension law for the cost **FAILS**. A self-check, not an independent review. This page does not treat that review as done.
