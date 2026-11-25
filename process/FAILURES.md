@@ -39,4 +39,15 @@ The columns are the eight fields of [`MISS_LOG_TEMPLATE.md`](MISS_LOG_TEMPLATE.m
 
 <!-- history:end -->
 
+Ledger, continued (rows below were appended after the medium and high blocks above; same columns).
+
+| date | prediction_id | locked_prediction | outcome | miss (size, cost) | cause | location | stake_x_info | update | breach_check |
+|---|---|---|---|---|---|---|---|---|---|
 | 2026-11-25 | `FORGE-PUSH-1` | Every push runs the five pre-push checks on the commit being pushed (`PROCESS.md` §4, the Forge brief). | Fork branch `forge-two-route-prereg` was pushed at `9967b5d` after the checks had passed at `59229bf`; the third commit (Route A ledger, a check script) had not been through `check_consistency.py` and the full pytest. Both passed on `9967b5d` afterwards. | One push ahead of its checks; no content changed. Cost: about zero (fork branch, no PR open yet). | The push was batched with the base-branch push and ran before the rerun finished. | process | low | none yet; repeat would make the push script refuse to run while a check is pending | none |
+| 2026-11-25 | `FORGE-GATE-1` | No bar runs before a separate reader checks the prereg's Gate section (draft #263 §2, "Gate check… before the run"); a self-check is not that reader. | A-T2 of `theory/two-route-2026-11-25/PREREG.md` was scored in `9967b5d` (08:53 ET) on the author's self-check. The later independent gate read found 5 blocking items, among them A-T2's rival value: RI gives 0.877, inside the hit band, so the bar could not separate the hypothesis from RI. | One bar scored that could not discriminate against its rival. Cost: one bar's information (about 0 against RI), one gate round, and v1's four unscored bars superseded by `PREREG_2.md`. | The gate was read as a self-check because #263 is still a draft, and the run started about 1 minute after the lock. | process | medium | `PREREG_2.md` puts the Gate at the top, and no v2 bar runs until a fresh independent reader passes it. The A-T2 miss and its RI correction are logged append-only. | none (no locked text or logged number edited) |
+
+### 2026-11-25 `FORGE-GATE-1` (medium)
+
+1. **Locked prediction and risk.** The run order in draft #263 is lock, separate gate read, run. Nothing on `main` enforces it yet, so it held only by practice.
+2. **Miss and location.** The location is process. A-T2 was scored about 2 minutes after the lock, on a self-check. The later gate read showed the bar's rival value was wrong (RI gives 0.877, inside the hit band), so the run carried about 0 information against RI.
+3. **Update.** Scaled to one occurrence at medium stake: `PREREG_2.md` opens with the Gate, and no v2 bar runs until a fresh independent reader passes it. A tool check for gate-before-run waits on #263 merging.

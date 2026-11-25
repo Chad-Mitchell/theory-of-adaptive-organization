@@ -17,3 +17,11 @@ Rows are added as bars are scored. Bars not listed (A-C3, A-T1, A-T3, all of Rou
 1. **Prediction and risk.** Locked: a world that copies the memory (gain \(g=0.5\)) lowers the optimal memory heat by at least 10% at \(w=10\). RI, which treats the world as exogenous, predicts no change. Odds of a miss were set at 0.5.
 2. **Miss and location.** \(\rho-0.9=+0.145\), location `model`. The cost does fall with \(g\) (\(J^*=6.281\) at \(g=0\), \(6.052\) at \(0.5\), \(5.851\) at \(0.9\)), but not through the memory bath: the world-bath heat turns negative (\(\dot Q_X^*=-0.278\) at \(g=0.5\)), the memory relaxes more slowly and copies more (\(\gamma^*\) 6.88 to 5.24, \(c^*\) 0.59 to 0.76), and the memory heat rises by 4.5%. The learning rate barely moves (1.453 to 1.448). Total heat stays positive (1.926 at \(g=0.5\)), as the second law requires at equal temperatures. All numbers: `checks/route_a_w2.out`.
 3. **Update.** None yet. Diagnosis: in W2 the responding world's gain shows up as a shift of heat between the two baths, not as a free ride on the memory's heat, and RI's exogenous reading is closer than the locked bar (+0.045 against +0.145). Next test: A-T1 asks whether the two-bath account and the design-level chain are one object; the sign of \(\dot Q_X^*\) is the cross term the two-one-way null sets to 0, and it is not 0 here (reported, not a scored bar). Per the prereg's G5, the free-ride line stops here.
+
+## Notes appended after the gate read (2026-11-25 09:29 ET; the lines above are unchanged)
+
+- **A-T2 status:** run without a gate check (see `DEVIATIONS.md`, process miss `FORGE-GATE-1`). The miss against the locked bar stands: \(+0.145\), location model.
+- **RI correction:** RI's held design gives \(\rho_{\mathrm{RI}}=0.8774\), inside the hit band, not 1. The sentence above saying RI's value 1 "is also off, by +0.045" is withdrawn. A-T2 did not discriminate against RI. Calculation in `DEVIATIONS.md`.
+- **Stamp:** the header's "09:05 ET" should read 08:53 ET (commit `9967b5d`, 08:53:38 ET).
+- **Wording:** "second law" in the write-up is the physics name (`process/PROCESS.md:39` allows physics names). It is kept.
+- **v2:** A-T1, A-T3, B-T1 and B-T2 are superseded by `PREREG_2.md`. No v2 bar has been run.
