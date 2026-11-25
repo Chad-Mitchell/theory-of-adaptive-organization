@@ -23,6 +23,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATUS_RE = re.compile(r"`main` is `([0-9a-f]{7,40})` \(PR #(\d+)([^)]*)\), following PRs ")
 OPEN_RE = re.compile(r"on `main` `([0-9a-f]{7,40})` \(PR #(\d+)\)")
+DUP_RE = re.compile(r"(#(\d+) \(`([0-9a-f]+)`\), )(?:#\2 \(`\3`\), )+")
 MERGE_RE = re.compile(r"^Merge pull request #(\d+)\b")
 
 
@@ -63,6 +64,7 @@ def main():
     new_pr = ms[0][0]
     listing = ", ".join("#%d (`%s`)" % (n, sha) for n, sha in ms) + ", "
     s = s[:m.start()] + "`main` is `%s` (PR #%d), following PRs %s" % (tip, new_pr, listing) + s[m.end():]
+    s = DUP_RE.sub(r"\1", s)  # the old tip is listed by the sentence it replaces and again by merges_since
     open(spath, "w", encoding="utf-8").write(s)
     o = open(opath, encoding="utf-8").read()
     om = OPEN_RE.search(o)
