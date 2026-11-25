@@ -103,3 +103,85 @@ def test_maintained_docs_have_no_puzzle():
     block = s[s.index("MAINTAINED = ["): s.index("MAINTAINED = [f for f")]
     files = re.findall(r'"([^"]+\.md)"', block)
     assert files and bw.check_puzzle(ROOT, files) == []
+
+
+# ---- locked files are exempt only while their bytes are unchanged ----
+import hashlib  # noqa: E402
+
+
+def _sha(b):
+    return hashlib.sha256(b).hexdigest()
+
+
+def _blob(b):
+    return hashlib.sha1(b"blob %d\0" % len(b) + b).hexdigest()
+
+
+def _locked_repo(tmp_path):
+    d = _repo(tmp_path)
+    return d
+
+
+def test_hash_locked_file_is_exempt_while_unchanged(tmp_path):
+    d = _repo(tmp_path)
+    prereg = b"This is a puzzle and a verdict, locked.\n"
+    os.makedirs(os.path.join(d, "t"))
+    open(os.path.join(d, "t", "PREREG.md"), "wb").write(prereg)
+    open(os.path.join(d, "t", "PREREG.sha256"), "w").write("%s  PREREG.md\n" % _sha(prereg))
+    open(os.path.join(d, "t", "notes.md"), "w").write("another puzzle here\n")
+    _git(d, "add", "-A"); _git(d, "commit", "-qm", "add")
+    fails, _ = bw.check_added(d)
+    assert len(fails) == 1 and "t/notes.md" in fails[0]       # only the unlocked file
+
+
+def test_edited_locked_file_is_scanned_again(tmp_path):
+    d = _repo(tmp_path)
+    prereg = b"A locked puzzle line.\n"
+    os.makedirs(os.path.join(d, "t"))
+    open(os.path.join(d, "t", "PREREG.md"), "wb").write(prereg)
+    open(os.path.join(d, "t", "SHA256SUMS"), "w").write("%s  PREREG.md\n" % _sha(prereg))
+    _git(d, "add", "-A"); _git(d, "commit", "-qm", "add")
+    assert bw.check_added(d) == ([], None)
+    open(os.path.join(d, "t", "PREREG.md"), "wb").write(prereg + b"and a new kill line\n")
+    fails, _ = bw.check_added(d)
+    assert fails and "t/PREREG.md" in fails[0]
+
+
+def test_scrubbed_hash_locked_file_is_exempt(tmp_path):
+    d = _repo(tmp_path)
+    original = b"path /workspace/x has a puzzle\n"
+    os.makedirs(os.path.join(d, "t"))
+    open(os.path.join(d, "t", "PREREG.md"), "wb").write(b"path <local>/x has a puzzle\n")
+    open(os.path.join(d, "t", "LOCK.txt"), "w").write("%s  PREREG.md\n" % _sha(original))
+    _git(d, "add", "-A"); _git(d, "commit", "-qm", "add")
+    assert bw.check_added(d) == ([], None)
+
+
+def test_blob_listed_file_is_exempt_only_for_that_blob(tmp_path):
+    d = _repo(tmp_path)
+    locked = b"locked by commit order: a verdict\n"
+    os.makedirs(os.path.join(d, "process"))
+    open(os.path.join(d, "x.md"), "wb").write(locked)
+    open(os.path.join(d, "process", "LOCKED_BLOBS.txt"), "w").write(
+        "# comment\nx.md %s committed before the run\n" % _blob(locked))
+    _git(d, "add", "-A"); _git(d, "commit", "-qm", "add")
+    assert bw.check_added(d) == ([], None)
+    open(os.path.join(d, "x.md"), "wb").write(locked + b"edited\n")
+    fails, _ = bw.check_added(d)
+    assert fails and "x.md" in fails[0]
+
+
+def test_blob_list_ignores_malformed_lines(tmp_path):
+    d = str(tmp_path)
+    os.makedirs(os.path.join(d, "process"))
+    open(os.path.join(d, "process", "LOCKED_BLOBS.txt"), "w").write("x.md notablob why\njust-one-field\n# c\n")
+    assert bw.blob_list(d) == {}
+
+
+def test_real_blob_list_matches_the_files_in_this_repo():
+    listed = bw.blob_list(ROOT)
+    assert "theory/antifragility_checks/ADDENDUM.md" in listed
+    for path, blob in listed.items():
+        fp = os.path.join(ROOT, path)
+        if os.path.isfile(fp):                      # #253's two files are listed before they land
+            assert bw.git_blob(open(fp, "rb").read()) == blob, path
