@@ -49,3 +49,10 @@ def test_pointer_refresh_after_four_merges(tmp_path):
     assert "(PR #5), following PRs #5 (" in s and "#2 (" in s and "#0 (`aaaaaaa`)" in s
     # the pointer now names the merge before the refresh commit; the refresh commit is first-parent HEAD
     assert fresh.check(repo) == []
+
+
+def test_duplicate_tip_entries_are_collapsed():
+    import refresh_pointer as rp
+    line = "following PRs #275 (`4ff299e`), #275 (`4ff299e`), #271 (`62da4fb`), #270 (`12cb996`), and more"
+    assert rp.DUP_RE.sub(r"\1", line) == "following PRs #275 (`4ff299e`), #271 (`62da4fb`), #270 (`12cb996`), and more"
+    assert rp.DUP_RE.sub(r"\1", "#1 (`aaaaaaa`), #2 (`bbbbbbb`), ") == "#1 (`aaaaaaa`), #2 (`bbbbbbb`), "
