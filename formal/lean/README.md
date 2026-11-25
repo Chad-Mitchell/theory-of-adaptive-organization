@@ -46,6 +46,9 @@ about the real world.
   label corrections): 926 declarations, OK. The 169 constants above 757
   are the four new modules. 75 of them are the source declarations in
   the batch 1 table; the rest are generated.
+  Batch 2 (24 November 2026, branch `forge-lean-batch2` at `6663d0e`,
+  merged as PR #266): 1185 declarations, OK. The 259 constants above 926
+  are the four batch 2 modules.
 
 ## How to build
 
