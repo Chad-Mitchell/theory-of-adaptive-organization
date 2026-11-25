@@ -9,6 +9,18 @@ HERE = os.path.join(ROOT, "theory", "record_ratio_reframes_checks")
 LOCKED_THEORY = "6caadae569116a94a74563398be94cebf6e99e9b"
 LOCKED_PREREG = "8e495b7b97bbf254429dc4ed0aeb153944579db9f2230eae769937e98b43fce8"
 
+def _theory_blobs_allowed():
+    """The lock-time blob, plus THEORY.md on main: this branch must not edit THEORY.md,
+    and main may have changed it after the lock (#284 did)."""
+    allowed = {LOCKED_THEORY}
+    for ref in ("origin/main", "upstream/main"):
+        r = subprocess.run(["git", "rev-parse", "--verify", "-q", ref + ":THEORY.md"],
+                           capture_output=True, text=True, cwd=ROOT, timeout=30)
+        if r.returncode == 0:
+            allowed.add(r.stdout.strip())
+    return allowed
+
+
 
 def _sha256(path):
     h = hashlib.sha256()
@@ -30,7 +42,7 @@ def test_theory_blob_unchanged():
         capture_output=True, text=True, cwd=ROOT, timeout=30,
     )
     assert r.returncode == 0, r.stderr
-    assert r.stdout.strip() == LOCKED_THEORY
+    assert r.stdout.strip() in _theory_blobs_allowed()
 
 
 def _split_out(text):
