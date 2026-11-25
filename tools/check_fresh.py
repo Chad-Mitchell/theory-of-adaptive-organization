@@ -2,12 +2,12 @@
 """Fail if STATUS.md's stated main SHA has drifted too far from main.
 
 The stated SHA is the current-pointer form (`main` is `abc1234`). It must
-be one of the last 5 first-parent commits of a main ref: origin/main,
-upstream/main when that remote exists, else local main, else HEAD. Either
-window is enough, so a fork whose origin/main is behind an upstream main
-the branch merged still passes. The width is wide enough for a few merges
-before the pointer is rewritten, and tight enough that a65b64e fails once
-the six later first-parent merges through #114 are on main.
+be one of the last 3 first-parent commits of main (origin/main if that
+ref exists, else local main, else HEAD). The width allows the STATUS
+refresh's own merge plus one other merge. It was 5 until 24 November 2026,
+which let four merges (#261, #262, #264, #265) pass with no refresh
+(process/FAILURES.md). Run tools/check_pending.py for the Lean count and
+the open reviewed PRs.
 
 Run from the repo root:  python3 tools/check_fresh.py
 Exit 0 = the pointer is in the window (or the tree is not a git repo
@@ -29,7 +29,7 @@ STATUS_MAIN_RE = re.compile(
     re.I,
 )
 
-WINDOW = 5
+WINDOW = 3
 
 
 def repo_root():
@@ -76,33 +76,19 @@ def is_git_repo(root):
     return r.returncode == 0 and r.stdout.strip() == "true"
 
 
-def history_tips(root):
-    """Refs whose first-parent history the STATUS pointer may match.
+def history_tip(root):
+    """Ref whose first-parent history the STATUS pointer is judged against.
 
-    Prefer origin/main, then upstream/main, then local main, then HEAD.
-    A fork clone's origin/main can sit behind the upstream main a branch
-    has merged. The pointer is fresh if it is in either window. Commits
-    that exist only on a feature branch are not main moving. Five of them
-    push a correct main SHA out of a HEAD window. PRs #114 and #133–#137
-    were 7–10 first-parent commits.
+    Prefer origin/main, then local main, then HEAD. Commits that exist
+    only on a feature branch are not main moving. Five of them push a
+    correct main SHA out of a HEAD window. PRs #114 and #133–#137 were
+    7–10 first-parent commits.
     """
-    tips = []
-    for ref in (
-        "refs/remotes/origin/main",
-        "refs/remotes/upstream/main",
-        "refs/heads/main",
-    ):
+    for ref in ("refs/remotes/origin/main", "refs/heads/main"):
         r = git(root, "rev-parse", "--verify", ref)
         if r.returncode == 0:
-            sha = r.stdout.strip()
-            if sha not in tips:
-                tips.append(sha)
-    return tips or ["HEAD"]
-
-
-def history_tip(root):
-    """First main ref. Kept for the one-line status print."""
-    return history_tips(root)[0]
+            return r.stdout.strip()
+    return "HEAD"
 
 
 def check(root=None, window=WINDOW):
@@ -122,21 +108,18 @@ def check(root=None, window=WINDOW):
     full = expand_sha(root, stated)
     if not full:
         return ["freshness: STATUS.md main SHA %s is not a commit in this repo" % stated]
-    tips = history_tips(root)
-    windows = []
+    tip = history_tip(root)
     try:
-        for tip in tips:
-            windows.append((tip, first_parent_window(root, tip, window)))
+        window_shas = first_parent_window(root, tip, window)
     except RuntimeError as e:
         return ["freshness: %s" % e]
-    if any(full in shas for _, shas in windows):
-        return []
-    tip, window_shas = windows[0]
-    return [
-        "freshness: STATUS.md main is %s, which is not among the last %d "
-        "first-parent commits of %s (%s)"
-        % (stated, window, tip[:7], " ".join(s[:7] for s in window_shas))
-    ]
+    if full not in window_shas:
+        return [
+            "freshness: STATUS.md main is %s, which is not among the last %d "
+            "first-parent commits of %s (%s)"
+            % (stated, window, tip[:7], " ".join(s[:7] for s in window_shas))
+        ]
+    return []
 
 
 def main(argv=None):
@@ -153,18 +136,8 @@ def main(argv=None):
         print("RESULT: FAIL")
         return 1
     stated = stated_main_sha(open(os.path.join(root, "STATUS.md"), encoding="utf-8").read())
-    full = expand_sha(root, stated)
-    matched = None
-    for tip in history_tips(root):
-        window_shas = first_parent_window(root, tip, WINDOW)
-        if full in window_shas:
-            matched = (tip, window_shas)
-            break
-    tip, window_shas = matched
-    print(
-        "STATUS.md main is %s; window of %s: %s"
-        % (stated, tip[:7], " ".join(s[:7] for s in window_shas))
-    )
+    window_shas = first_parent_window(root, history_tip(root), WINDOW)
+    print("STATUS.md main is %s; window: %s" % (stated, " ".join(s[:7] for s in window_shas)))
     print("RESULT: PASS")
     return 0
 

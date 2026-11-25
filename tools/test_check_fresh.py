@@ -57,41 +57,19 @@ def test_real_repo_status_is_in_window_after_fix():
     assert fails == []
 
 
-def _write_ref(repo, ref, sha):
-    path = os.path.join(repo, ".git", "refs", "remotes", ref)
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    open(path, "w", encoding="utf-8").write(sha + "\n")
-
-
-def test_pointer_on_upstream_passes_when_origin_is_behind(tmp_path):
-    repo, shas = _repo_with_commits(tmp_path / "r", 8)
-    _write_ref(repo, os.path.join("origin", "main"), shas[2])
-    _write_ref(repo, os.path.join("upstream", "main"), shas[-1])
-    _write_status(repo, shas[-1][:7])
-    assert fresh.check(repo) == []
-
-
-def test_pointer_on_origin_passes_when_upstream_has_moved_past_it(tmp_path):
-    repo, shas = _repo_with_commits(tmp_path / "r", 8)
-    _write_ref(repo, os.path.join("origin", "main"), shas[2])
-    _write_ref(repo, os.path.join("upstream", "main"), shas[-1])
-    _write_status(repo, shas[2][:7])
-    assert shas[2] not in fresh.first_parent_window(repo, shas[-1], 5)
-    assert fresh.check(repo) == []
-
-
 def test_head_pointer_passes(tmp_path):
     repo, shas = _repo_with_commits(tmp_path / "r", 6)
     _write_status(repo, shas[-1][:7])
     assert fresh.check(repo) == []
 
 
-def test_pointer_within_last_five_first_parent_passes(tmp_path):
+def test_pointer_within_last_three_first_parent_passes(tmp_path):
     repo, shas = _repo_with_commits(tmp_path / "r", 6)
-    # shas[-5] is the 5th first-parent commit counting HEAD as 1; still in window.
-    _write_status(repo, shas[-5][:7])
-    window = fresh.first_parent_window(repo, "HEAD", 5)
-    assert shas[-5] in window
+    # shas[-3] is the 3rd first-parent commit counting HEAD as 1; still in window.
+    _write_status(repo, shas[-3][:7])
+    window = fresh.first_parent_window(repo, "HEAD", fresh.WINDOW)
+    assert fresh.WINDOW == 3
+    assert shas[-3] in window
     assert fresh.check(repo) == []
 
 
@@ -166,3 +144,11 @@ def test_unquoted_main_is_feedback_is_not_a_sha():
     assert fresh.stated_main_sha("remain is deadbeef") is None
     assert fresh.stated_main_sha("domain is deadbeef. `main` is `2c32ade`.") == "2c32ade"
 
+
+
+def test_pointer_fourth_first_parent_fails(tmp_path):
+    # Window is 3 since 24 November 2026 (process/FAILURES.md).
+    repo, shas = _repo_with_commits(tmp_path / "r", 6)
+    _write_status(repo, shas[-4][:7])
+    fails = fresh.check(repo)
+    assert fails and "freshness:" in fails[0]
