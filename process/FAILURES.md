@@ -38,3 +38,5 @@ The columns are the eight fields of [`MISS_LOG_TEMPLATE.md`](MISS_LOG_TEMPLATE.m
 3. **Update.** The update is a check, because a headline is easy to miss by eye. `check_pending.py` flags a closing keyword that names another PR, in the title, body and commits of every open upstream PR, and `--closing-keywords` runs the same check before a push. A `PROCESS.md` §4 rule requires it. The merged headline cannot be edited.
 
 <!-- history:end -->
+
+| 2026-11-25 | `FORGE-PUSH-1` | Every push runs the five pre-push checks on the commit being pushed (`PROCESS.md` §4, the Forge brief). | Fork branch `forge-two-route-prereg` was pushed at `9967b5d` after the checks had passed at `59229bf`; the third commit (Route A ledger, a check script) had not been through `check_consistency.py` and the full pytest. Both passed on `9967b5d` afterwards. | One push ahead of its checks; no content changed. Cost: about zero (fork branch, no PR open yet). | The push was batched with the base-branch push and ran before the rerun finished. | process | low | none yet; repeat would make the push script refuse to run while a check is pending | none |
