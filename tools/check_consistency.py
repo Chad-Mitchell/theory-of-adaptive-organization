@@ -479,6 +479,15 @@ def main(argv=None):
             print("  FAIL " + x)
             fails.append("FAIL " + x)
 
+    # Headline ledger vs front pages (tools/check_claims.py).
+    from check_claims import check as _claims_check
+    claim_fails = _claims_check(ROOT)
+    print("\n== 6. Headline ledger")
+    for x in claim_fails:
+        print("  FAIL " + x)
+        fails.append("FAIL " + x)
+    print("  claims: %d FAIL(s)" % len(claim_fails))
+
     # ---------------------------------------------------------------- summary
     print("\n== Summary")
     print("FAIL: %d   INFO (frozen records): %d" % (len(fails), len(infos)))
