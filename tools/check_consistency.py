@@ -52,7 +52,7 @@ def main(argv=None):
     os.chdir(ROOT)
 
     MAINTAINED = [
-        "README.md", "STATUS.md", "THEORY.md", "CORE.md", "process/PROCESS.md", "process/VOCABULARY.md", "process/MISS_LOG_TEMPLATE.md", "process/QUEUE.md",
+        "README.md", "STATUS.md", "THEORY.md", "CORE.md", "process/PROCESS.md", "process/VOCABULARY.md", "process/FAILURES.md", "process/MISS_LOG_TEMPLATE.md", "process/QUEUE.md",
         "measurement/FRAMEWORK.md", "measurement/CLAIM_MAP_v2.md",
         "theory/README.md", "theory/SCALE_ENDS.md",
         "applications/README.md", "tests/README.md", "reviews/README.md",
@@ -453,6 +453,15 @@ def main(argv=None):
     for x in _fresh_check(ROOT):
         print("  FAIL " + x)
         fails.append("FAIL " + x)
+
+    # OPEN_WORK.md pointer and the Lean total against formal/lean/AUDIT.json
+    # (see tools/check_pending.py; the network part runs only there).
+    from check_fresh import is_git_repo as _is_git
+    if _is_git(ROOT):
+        from check_pending import check_lean as _lean_check, check_pointers as _ptr_check
+        for x in [y for y in _ptr_check(ROOT) if y.startswith("pending:")] + _lean_check(ROOT):
+            print("  FAIL " + x)
+            fails.append("FAIL " + x)
 
     # ---------------------------------------------------------------- summary
     print("\n== Summary")
