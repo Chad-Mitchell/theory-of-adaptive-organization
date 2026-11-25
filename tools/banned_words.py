@@ -13,6 +13,13 @@ Two checks, both run from tools/check_consistency.py:
      of the five words fails. Old lines are not rescanned (many dated records
      use "kill rule" as a locked-test term); a changed line counts as added.
 
+Locked files are never edited to satisfy this lint. A path is skipped, while its bytes are
+unchanged, if (1) a hash-lock line (`<sha256>  <path>` in a *.sha256, SHA256SUMS* or
+LOCK*.txt file) names it and the file still hashes to that value (or to it after the
+public-readiness scrub is reversed), or (2) process/LOCKED_BLOBS.txt lists its path and
+current git blob id (for files locked by commit order, not by hash). Edit a locked file
+and the exemption ends, and the verify_locks check fails too.
+
 Exempt: text inside backticks, straight double quotes or curly quotes (the word is
 quoted, not used); a line with `<!-- banned-ok: reason -->` (reviewable escape);
 and, in process/PROCESS.md, process/VOCABULARY.md and process/FAILURES.md only,
@@ -21,6 +28,7 @@ word is banned.
 """
 from __future__ import annotations
 
+import hashlib
 import os
 import re
 import subprocess
@@ -91,6 +99,68 @@ def added_lines(root, base):
     return out
 
 
+LOCKED_BLOBS = "process/LOCKED_BLOBS.txt"
+
+
+def blob_list(root):
+    """{path: blob id} from process/LOCKED_BLOBS.txt."""
+    out = {}
+    fp = os.path.join(root, LOCKED_BLOBS)
+    if os.path.exists(fp):
+        for line in open(fp, encoding="utf-8"):
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            parts = line.split(None, 2)
+            if len(parts) >= 3 and re.fullmatch(r"[0-9a-f]{40}", parts[1]):
+                out[parts[0]] = parts[1]
+    return out
+
+
+LOCK_FILE_RE = re.compile(r"(\.sha256|SHA256SUMS[^/]*|LOCK[^/]*\.txt)$")
+LOCK_LINE_RE = re.compile(r"^\s*([0-9a-f]{64})\s+\*?(\S.*?)\s*$")
+SKIP_DIRS = {".git", ".lake", "node_modules", "__pycache__"}
+SCRUB_MAP = ((b"<repo>", b"/workspace/theory-of-adaptive-organization"), (b"<local>", b"/workspace"))
+
+
+def git_blob(b):
+    return hashlib.sha1(b"blob %d\0" % len(b) + b).hexdigest()
+
+
+def locked_paths(root):
+    """Paths that are locked and whose bytes still match their lock (hash lines or the blob list).
+    Same reading of lock files as tools/verify_locks.py."""
+    exempt = set()
+    for dp, dn, fn in os.walk(root):
+        dn[:] = [d for d in dn if d not in SKIP_DIRS]
+        for f in fn:
+            if not LOCK_FILE_RE.search(f):
+                continue
+            lf = os.path.relpath(os.path.join(dp, f), root).replace(os.sep, "/")
+            d = os.path.dirname(lf)
+            for line in open(os.path.join(root, lf), encoding="utf-8", errors="replace"):
+                m = LOCK_LINE_RE.match(line)
+                if not m:
+                    continue
+                hx, p = m.groups()
+                p = p[2:] if p.startswith("./") else p
+                for cand in (os.path.normpath(os.path.join(d, p)).replace(os.sep, "/"), os.path.normpath(p).replace(os.sep, "/")):
+                    fp = os.path.join(root, cand)
+                    if os.path.isfile(fp):
+                        b = open(fp, "rb").read()
+                        un = b
+                        for x, y in SCRUB_MAP:
+                            un = un.replace(x, y)
+                        if hashlib.sha256(b).hexdigest() == hx or hashlib.sha256(un).hexdigest() == hx:
+                            exempt.add(cand)
+                        break
+    for path, blob in blob_list(root).items():
+        fp = os.path.join(root, path)
+        if os.path.isfile(fp) and git_blob(open(fp, "rb").read()) == blob:
+            exempt.add(path)
+    return exempt
+
+
 def check_added(root, base=None):
     """(fails, note). note is a string when the comparison could not run."""
     base = base or base_ref(root)
@@ -100,7 +170,10 @@ def check_added(root, base=None):
     if added is None:
         return [], "banned-word check on added lines skipped: could not diff against %s" % base
     fails = []
+    locked = locked_paths(root)
     for path, rows in sorted(added.items()):
+        if path in locked:
+            continue
         for ln, text in rows:
             h = hits(text, path)
             if h:
