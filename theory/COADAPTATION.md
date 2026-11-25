@@ -244,7 +244,7 @@ CT34 says that a team's optimized cost enters the parent exactly as upkeep when 
 
 ## 9. Failure classes, each with a minimal counterexample (PROVED (in-model))
 
-Each is a place where the near-minimizer conclusion does not follow. None is a verdict on the hypothesis; misses are puzzles to diagnose (measurement, inputs, hidden cost, or the claim itself).
+Each is a place where the near-minimizer conclusion does not follow. None is a verdict on the hypothesis; misses are open items to diagnose (measurement, inputs, hidden cost, or the claim itself).
 
 - **F1. Non-potential coupling with no pure equilibrium: permanent cycling.** Matching pennies with costs in \(\{0,1\}\): \(J_1=\mathbf 1[x_1\ne x_2]\), \(J_2=\mathbf 1[x_1=x_2]\), binary designs, equal clocks and sizes. Every state has one downhill and one uphill exit, and in-rates equal out-rates, so \(\pi\) is uniform at **every** \(\beta\). Then \(\mathbb{E}[J_i]=\tfrac12\) while each best reply costs 0: regret does not shrink with selection. A probability current circulates (0.025, 0.106, 0.223 at \(\beta=1,5,20\); check s4).
 - **F2. Spiral instability (unstable focus) in J's class (costs ≥ 0, a unique Nash point).** Three parties, \(J_i=\tfrac12(x_i+cx_{i+1})^2\) (indices mod 3), each chasing the next. The game Jacobian is \(I+cP\), with eigenvalues \(1+c\,e^{2\pi ik/3}\). With equal \(v_i\beta_i\), the unique Nash point \(x=0\) is unstable, through a complex pair (an unstable focus: trajectories spiral outward rather than forming a periodic orbit in the linear model), iff \(c>2\) (min real part 0.25, 0.05, −0.05, −0.5 at \(c=1.5,1.9,2.1,3\); check s5d). Not \(\beta\)-potential: the cross-curvatures are \(c\beta_i\) one way and 0 the other.

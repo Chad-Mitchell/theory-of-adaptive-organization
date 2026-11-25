@@ -156,4 +156,4 @@ with \(D_i^{\text{enf}}\) or \(D_i^{\text{ch}}\) for the kind of tamper on offer
 
 ## 10. What remains measured, and the tests
 
-The theory does not supply \(\lambda\), \(c\), \(s\), \(w\), \(\Phi\), \(W\), \(N\), \(k\), \(\sigma^2\), the lever costs or the ruin hazard. The preregistrable tests are on the case pages: the reversion contour (`applications/CANCER_DEFECTION_2026-11-23.md` §6) and the agent oversight test (`applications/AI_AGENT_OVERSIGHT_2026-11-23.md` §6, T52). Group lifetime against re-forming cost is the dated prediction in `theory/FLUID_LAYERS_2026-11-21.md:15`. A miss is a puzzle for its class.
+The theory does not supply \(\lambda\), \(c\), \(s\), \(w\), \(\Phi\), \(W\), \(N\), \(k\), \(\sigma^2\), the lever costs or the ruin hazard. The preregistrable tests are on the case pages: the reversion contour (`applications/CANCER_DEFECTION_2026-11-23.md` §6) and the agent oversight test (`applications/AI_AGENT_OVERSIGHT_2026-11-23.md` §6, T52). Group lifetime against re-forming cost is the dated prediction in `theory/FLUID_LAYERS_2026-11-21.md:15`. A miss stays open for its class.
