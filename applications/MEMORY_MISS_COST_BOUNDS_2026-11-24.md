@@ -16,7 +16,7 @@ Third: under an unreliable policy the human may pay an attention cost on every a
 
 The inequalities in §6 and §7–10 do not need the Brownian and quadratic assumptions of the refresh formula, except where §11 and the \(T^*\) shortening in §8 say so. Parameter values remain measurements (`applications/GROK_BOT_MEMORY_2026-11-23.md:78`). Section 13 uses labeled assumptions and a few repo-verifiable counts only to illustrate. No observed blowup rate, and no observed human-verification rate, is claimed.
 
-This page is an application of the cost, not a qualification under THEORY §3 and not a field test of the hypothesis, in the same sense as the parent application (`applications/GROK_BOT_MEMORY_2026-11-23.md:78`).
+This page is an application of the cost, not a qualification under THEORY §3 and not a field test of the hypothesis, in the same sense as the parent application (`applications/GROK_BOT_MEMORY_2026-11-23.md:78`). Interpretation only, not a proved bridge: a summary that shapes later inputs is the memory's output feeding its own future, the coupled class named in `applications/UFR_FORGETTING_2026-11-24.md` and at CX2. This note does not derive that identification and does not identify the gap with T61.
 
 ## 2. No cap by construction, versus a lookup-design cap when errors are caught at use
 
