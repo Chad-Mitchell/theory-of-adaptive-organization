@@ -16,11 +16,15 @@ What it checks
        - "solved" claimed of GTAO / the theory unless negated or quoted as a rule;
        - a field-test name next to passed/failed/confirmed/refuted/killed in
          the same sentence without a proxy / in-model / gate / tier label
-         ('miss' is allowed; 'puzzle' is not added to the banned list);
+         ('miss' is allowed; puzzle, bill, kill, dead and verdict are banned by
+         tools/banned_words.py, below);
        - the MV gates described as awaiting Chad's sign-off (they bind as of
          18 Nov 2026, Chad t1927).
        - stale scope phrases ('silent on black holes', 'nothing is keeping
          score', 'no predictions about black holes').
+  2b. Banned words (tools/banned_words.py): 'puzzle' in any maintained doc, and
+     puzzle, bill, kill, dead or verdict on any .md line added since origin/main,
+     unless quoted, in backticks, or marked <!-- banned-ok: reason -->.
   3. CLAIM_MAP N-rows: every 'N<k>' cited with a CLAIM_MAP context in a
      maintained doc exists in CLAIM_MAP section N, and wherever a maintained
      doc states a status right after a CLAIM_MAP N-number, the base status
@@ -124,7 +128,7 @@ def main(argv=None):
     SOLVED_NEG = re.compile(r"\b(not|never|isn\'t|is not|nor|no)\b[^.;|]{0,20}\bsolved\b|[\'\"“‘]solved[\'\"”’]", re.I)
     FIELD = re.compile(r"\b(MATCH1|DECISIVE|banks?|glucose|populations|F1|C3b?|BIO1|COLLAPSE1|DRIFT1|measles|PIAAC|Enron|VIGIL[_-]ONA|GITHUB-UPSTREAM|WIKIDATA-BAND|CAISO|SPF|VIX|SENSE-CELL|LANG1|MEASURE-SELF|news(-| )recall|D3S?)\b")
     VERDICT = re.compile(r"(\b(passed|failed|confirmed|refuted|killed|kill fired)\b|\bHIT\b)")
-    LABEL = re.compile(r"(failed[- ]bank|proxy|PROXY|in-model|in model|SIM-|simulat|synthetic|dry run|gate|MV\d|Tier|known-groups|prereg|locked|lock |kill rule|joint (kill )?rule|refutation (condition|rule|test)|fair refutation|fails if|qualifying miss|miss to (diagnose|locate)|signed miss|process miss|puzzle to diagnose|literal|referee|review|power|not a (theory-specific )?hit|sign-only|INCONCLUSIVE|NOT EVIDENCE|MATH-CORRECTED|withdrawn|premise|by construction|reproduce|replicate|own code|own MC|Monte Carlo|pass rule|wrong-pass|[\"“][^\"”]{0,12}(hit|passed|failed)[^\"”]{0,3}[\"”])", re.I)
+    LABEL = re.compile(r"(failed[- ]bank|proxy|PROXY|in-model|in model|SIM-|simulat|synthetic|dry run|gate|MV\d|Tier|known-groups|prereg|locked|lock |kill rule|joint (kill )?rule|refutation (condition|rule|test)|fair refutation|fails if|qualifying miss|miss to (diagnose|locate)|signed miss|process miss|literal|referee|review|power|not a (theory-specific )?hit|sign-only|INCONCLUSIVE|NOT EVIDENCE|MATH-CORRECTED|withdrawn|premise|by construction|reproduce|replicate|own code|own MC|Monte Carlo|pass rule|wrong-pass|[\"“][^\"”]{0,12}(hit|passed|failed)[^\"”]{0,3}[\"”])", re.I)
     SIGNOFF = re.compile(r"(sign[- ]?off|signs off|signed off|once Chad|until Chad|await(s|ing)? Chad)", re.I)
     GATECTX = re.compile(r"(gate|MV\d|M2\b|binding)", re.I)
     STALE = re.compile(r"(silent on black holes|nothing (is )?keeping score|no predictions? about black holes|makes no predictions about black holes)", re.I)
@@ -177,6 +181,18 @@ def main(argv=None):
         scan_wording(p, fi, "INFO")
     infos.extend(fi)
     print("  frozen records scanned: %d; INFO hits (not edited, dated records): %d" % (len(FROZEN), len(fi)))
+
+    # 2b. banned words (tools/banned_words.py): puzzle in maintained docs; five words on added lines
+    sys.path.insert(0, os.path.join(ROOT, "tools"))
+    import banned_words as _bw
+    bw_fails = _bw.check_puzzle(ROOT, MAINTAINED)
+    bw_added, bw_note = _bw.check_added(ROOT)
+    for x in bw_fails + bw_added:
+        print("  FAIL " + x)
+        fails.append("FAIL " + x)
+    if bw_note:
+        print("  NOTE " + bw_note)
+    print("  banned words: %d FAIL(s)%s" % (len(bw_fails) + len(bw_added), "; added-line check skipped" if bw_note else ""))
 
     # ---------------------------------------------------------------- 3. N rows
     print("\n== 3. CLAIM_MAP section N")
