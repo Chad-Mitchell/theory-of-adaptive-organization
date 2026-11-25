@@ -111,4 +111,4 @@ Hormesis, synaptic pruning, and apoptosis are names for P1 and for A9 only if a 
 - A Jensen row in the table with a predicted direction that comes out the other way refutes that row.
 - P11's ordering \(\mathbb{E}[k] > n\pi\), or the heat ordering at matched rate, failing refutes P11's ordering. It does not create a fluctuation theorem.
 
-A miss is a puzzle when it is not one of these refutations. The objective remains a cost. This addendum does not edit `PREREG.md`, `THEORY.md`, `CORE.md`, or `README.md`.
+A miss is open when it is not one of these refutations. The objective remains a cost. This addendum does not edit `PREREG.md`, `THEORY.md`, `CORE.md`, or `README.md`.
