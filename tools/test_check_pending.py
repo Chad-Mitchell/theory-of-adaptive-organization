@@ -540,3 +540,30 @@ def test_local_check_cli_exit_codes(tmp_path, capsys):
         assert cp.main(["--closing-keywords"]) == 0
     finally:
         cp.repo_root = real
+
+
+def test_will_when_if_should_must_before_blockers_is_not_a_result():
+    for text in ("I will report Blockers remaining: 0",
+                 "The note says when Blockers remaining: 0 the work can merge.",
+                 "Merge only if Blockers remaining: 0.",
+                 "The reviewer should write Blockers remaining: 0.",
+                 "The reviewer must write Blockers remaining: 0"):
+        assert cp.blockers_found(text) == [], text
+
+
+def test_fixes_without_space_is_flagged():
+    for text in ("Fixes:#12", "fixes:#12", "Closes:#12", "Resolves:#12"):
+        got = cp.closing_refs(text, self_number=1)
+        assert len(got) == 1 and got[0][2] == 12, text
+
+
+def test_quoted_or_fenced_closing_keyword_is_not_flagged():
+    for text in ('The headline contained "fix #253" in ordinary English.',
+                 "The headline contained `fix #253`.",
+                 "```\nfix #253\n```",
+                 "> fix #253",
+                 "Do not write “fix #253” in a commit message."):
+        assert cp.closing_refs(text, self_number=1) == [], text
+    # an unquoted keyword in the same text as a quoted one still flags
+    got = cp.closing_refs('See "fix #253". Also fix #257 in the same body.', 1)
+    assert len(got) == 1 and got[0][2] == 257

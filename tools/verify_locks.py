@@ -123,11 +123,18 @@ def entries(root):
     return out
 
 
+
+def commit_matches(pin, names):
+    """True if `pin` (a possibly short hash) names one of the commits in `names`."""
+    pin = (pin or "").lower()
+    return any(c.lower().startswith(pin) or pin.startswith(c.lower()) for c in names if c)
+
+
 def git_history_sha256(root, path):
-    """{commit short: sha256} for every committed version of path, or None without history."""
+    """{commit sha: sha256} for every committed version of path, or None without history."""
     if not os.path.exists(os.path.join(root, ".git")):
         return None
-    r = subprocess.run(["git", "log", "--all", "--format=%h", "--", path], cwd=root, capture_output=True, text=True)
+    r = subprocess.run(["git", "log", "--all", "--format=%H", "--", path], cwd=root, capture_output=True, text=True)
     if r.returncode != 0 or not r.stdout.split():
         return None
     out = {}
@@ -171,8 +178,14 @@ def verify(root=ROOT, history=True, scrub=None, post=None, unverifiable=None, mi
             h = git_history_sha256(root, hit) if history else None
             if h is None:
                 notes.append("post-lock history for %s not checked (no git history)" % hit)
-            elif post[hit][0] not in {c for c, v in h.items() if v == hx}:
-                fails.append("locks: %s: no committed version at %s hashes to the locked value" % (hit, POST_LOCK[hit][0]))
+            else:
+                matching = [c for c, v in h.items() if v == hx]
+                if commit_matches(post[hit][0], matching):
+                    pass
+                elif commit_matches(post[hit][0], h):
+                    fails.append("locks: %s: commit %s is in history but does not hash to the locked value" % (hit, post[hit][0]))
+                else:
+                    notes.append("post-lock history for %s: lock-time commit %s is not in this clone; the erratum in process/LOCK_ERRATA.md still stands" % (hit, post[hit][0]))
         elif hit in unverifiable:
             counts["UNVERIFIABLE"] += 1
             seen_unv.add(hit)

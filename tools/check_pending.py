@@ -388,7 +388,7 @@ def check_status_list(root, open_upstream, parked, now=None, hours=PENDING_HOURS
 # says close/fix/resolve (any tense) followed by #N. On 24 November 2026 a commit headline "fix #253 ..." in
 # #270 closed an unrelated open PR at merge (process/FAILURES.md, REPO-CURRENT-3).
 CLOSING_RE = re.compile(
-    r"\b(close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b:?\s+"
+    r"\b(close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b:?\s*"
     r"(?:(?P<repo>[\w.-]+/[\w.-]+)#(?P<n1>\d+)|#(?P<n2>\d+)|https://github\.com/(?P<urepo>[\w.-]+/[\w.-]+)/(?:issues|pull)/(?P<n3>\d+))",
     re.I)
 CLOSES_OK_RE = re.compile(r"closes-ok:\s*#(\d+)", re.I)
@@ -396,15 +396,25 @@ CLOSES_OK_RE = re.compile(r"closes-ok:\s*#(\d+)", re.I)
 
 def closing_refs(text, self_number=None, self_repo=UPSTREAM):
     """[(keyword, repo, number)] for closing keywords that name something other than the PR itself,
-    minus any number the text allows with `closes-ok: #N <reason>`."""
+    minus any number the text allows with `closes-ok: #N <reason>`.
+
+    Quoted or fenced keywords are skipped: GitHub does not close on a keyword inside quotes,
+    backticks, a code fence or a block quote.
+    """
     allowed = {int(x) for x in CLOSES_OK_RE.findall(text or "")}
+    body = FENCE_RE.sub(" ", text or "")
     out = []
-    for m in CLOSING_RE.finditer(text or ""):
-        repo = m.group("repo") or m.group("urepo") or self_repo
-        n = int(m.group("n1") or m.group("n2") or m.group("n3"))
-        if n in allowed or (n == self_number and repo.lower() == self_repo.lower()):
+    for line in body.splitlines():
+        if line.lstrip().startswith(">"):
             continue
-        out.append((m.group(1).lower(), repo, n))
+        for m in CLOSING_RE.finditer(line):
+            if _inside_quote(line[:m.start()]):
+                continue
+            repo = m.group("repo") or m.group("urepo") or self_repo
+            n = int(m.group("n1") or m.group("n2") or m.group("n3"))
+            if n in allowed or (n == self_number and repo.lower() == self_repo.lower()):
+                continue
+            out.append((m.group(1).lower(), repo, n))
     return out
 
 
