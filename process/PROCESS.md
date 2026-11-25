@@ -1,6 +1,6 @@
 # PROCESS: research-process vocabulary and rules from the cost of judgment
 
-*Tuesday 24 November 2026 (America/New_York). Live maintained process rulebook (`tools/check_consistency.py`), replacing the old wording rule "misses are puzzles" in the retired `STATUS.md`, `README.md`, `ONE_PAGER.md`, and `measurement/FRAMEWORK.md`. Historical `history/2026-11-20_queue/QUEUE.md` and `reviews/lock_2026-11-18/PROCESS.md` remain dated records and are not edited.*
+*Tuesday 24 November 2026 (America/New_York). Live maintained process rulebook (`tools/check_consistency.py`). It replaces an older wording rule that described misses with a word that §2 now bans. Dated records such as `reviews/lock_2026-11-18/PROCESS.md` are not edited.*
 
 > **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.** (`CORE.md:7`)
 
@@ -49,7 +49,24 @@ Every new test write-up, `DEVIATIONS.md`, or process-miss log records each predi
 
 ## 4. One source per fact
 
-**Rule (25 November 2026), replacing the 24 November refresh rule:** each fact has one hand-kept source and every other appearance is generated from it or deleted (`history/2026-11-25_DRIFT_MEMO.md`). Facts that change at every merge are never committed: the `main` SHA, the open-PR list and a PR's review state come live from `python3 tools/brief.py`. Claim statuses live in the `measurement/CLAIM_MAP_v2.md` headline ledger, and the claims views are written by `python3 tools/check_claims.py --write`. The ranked work, the mission and the parked list live only in `OPEN_WORK.md` §9. Versions live in the `THEORY.md` title and the latest CLAIM_MAP note, and the Lean total in `formal/lean/AUDIT.json`. `tools/check_fresh.py` fails on a hand-kept SHA pointer, open-PR list, version string or Lean total elsewhere. `tools/check_claims.py` fails on a stale view, a ranking outside §9, or a summary that judges the theory as a whole or a claim without the ledger status. Before marking a PR ready, run `python3 tools/check_pending.py --pr N --body-file BODY.md`. It fails when that PR's own `OPEN_WORK.md` row is still "In flight", when that PR has a passing review older than 24 hours that no longer covers its head, or when its body breaks the summary rule. Other PRs' findings only warn. A run that could not fetch or reach GitHub prints `RESULT: PARTIAL`, never PASS.
+**Rule (25 November 2026), replacing the 24 November refresh rule:** each fact has one hand-kept source, and every other copy is deleted ([design memo](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/a0508fd/history/2026-11-25_DRIFT_MEMO.md)). The visible repo is the current theory; git holds history.
+- Facts that change at every merge are never committed: the `main` SHA, the open-PR list, PR heads and review state come live from `python3 tools/brief.py`.
+- Claim statuses live in the `measurement/CLAIM_MAP_v2.md` headline ledger. Other pages link to it and carry no copy of it.
+- The direction, the ranked work, and the "Waiting on Chad" list live in `README.md`. Versions live in the `THEORY.md` title and the latest CLAIM_MAP note. The Lean total lives in `formal/lean/AUDIT.json`.
+- A path that a dated record names but that is no longer in the tree resolves at its permalink: `https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183/<path>`.
+
+**Checks (all must pass before a PR is marked ready):** `tools/check_fresh.py`, `tools/check_pending.py`, `tools/check_consistency.py`, `tools/verify_locks.py`, `tools/banned_words.py`, `tools/check_claims.py`, and `python3 -m pytest -q`.
+- `check_fresh.py` fails on a hand-kept SHA of a recent `main` commit, an open-PR list, a hand-typed PR head, a version string, or a Lean total on any maintained page. It also fails on a root `.md` file outside its allow-list.
+- `check_claims.py` fails on a claims view, a second copy of the direction line, a ranking outside `README.md`, or a summary that judges the theory as a whole, or a claim without its exact ledger status.
+- Run `python3 tools/check_pending.py --pr N --body-file BODY.md`. It fails when that PR's own `README.md` row is still "In flight", when that PR has a passing review older than 24 hours that no longer covers its head, or when its body breaks the summary rule. Other PRs' findings only warn. A run that could not fetch or reach GitHub prints `RESULT: PARTIAL`, never PASS.
+
+**Parked work and parked PRs (25 November 2026; moved here from the retired parked-PR page).**
+- A row tagged `data` in the `README.md` ranked table stays `parked` until its restart condition is met. Each parked row names a restart condition and a decider. DATA-ONE and RS-SCREEN are parked. Restart: Chad's sign-off; decider: Chad.
+- A PR held on purpose is listed in the table below, as `upstream#N` or `fork#N`. A listed PR is exempt from the check that flags a PR reviewed but unmerged for more than 24 hours (`tools/check_pending.py` reads this table). Add a row only when someone has decided to hold the PR. Each row needs a reason, the date (YYYY-MM-DD) and who decided. Remove the row when the PR moves.
+
+| PR | reason | date | decided by |
+|---|---|---|---|
+
 
 **Rule (24 November 2026):** every process miss gets an entry in [`process/FAILURES.md`](FAILURES.md): date, locked prediction, outcome, miss with size and cost, cause, location, `stake_x_info`, the update scaled to size, repetition and stake, and `breach_check` (the eight fields of `MISS_LOG_TEMPLATE.md`, plus date and cause).
 

@@ -80,15 +80,15 @@ def _repo(tmp_path, n):
 def _ow(tmp_path, rows):
     root = tmp_path / "ow"
     root.mkdir(exist_ok=True)
-    (root / "OPEN_WORK.md").write_text("# Open work\n\n| ID | What | Status | Gate | Where |\n|---|---|---|---|---|\n" + rows)
+    (root / "README.md").write_text("# Front page\n\n| ID | What | Status | Gate | Where |\n|---|---|---|---|---|\n" + rows)
     return str(root)
 
 
 def test_own_row_left_in_flight_fails(tmp_path):
-    # Acceptance: a PR that leaves its own OPEN_WORK row "In flight" fails --pr N.
+    # Acceptance: a PR that leaves its own README.md row "In flight" fails --pr N.
     root = _ow(tmp_path, "| T80 | x | open | In flight (upstream PR #300) | theory/X.md |\n")
     fails = cp.own_row_check(root, 300)
-    assert len(fails) == 1 and "#300" in fails[0] and "OPEN_WORK.md:5" in fails[0]
+    assert len(fails) == 1 and "#300" in fails[0] and "README.md:5" in fails[0]
 
 
 def test_own_row_moved_passes_and_other_rows_are_not_this_prs(tmp_path):
@@ -263,7 +263,7 @@ def test_parked_pr_is_exempt(tmp_path):
 def _parked(tmp_path, body):
     root = tmp_path / "p"
     (root / "process").mkdir(parents=True)
-    (root / "process" / "PARKED.md").write_text("# Parked\n\n| PR | reason | date | decided by |\n|---|---|---|---|\n" + body)
+    (root / "process" / "PROCESS.md").write_text("# Process\n\n## 4. One source per fact\n\n| PR | reason | date | decided by |\n|---|---|---|---|\n" + body)
     return str(root)
 
 
@@ -276,7 +276,7 @@ def test_parked_file_parses(tmp_path):
 def test_parked_row_without_date_or_decider_fails(tmp_path):
     root = _parked(tmp_path, "| fork#16 | because | soon |  |\n")
     parked, problems = cp.read_parked(root)
-    assert parked == {} and problems and "PARKED.md" in problems[0]
+    assert parked == {} and problems and "PROCESS.md" in problems[0]
 
 
 # ---------------------------------------------------------------- result line
@@ -504,11 +504,11 @@ def test_two_back_to_back_merges_need_no_repair_commit(tmp_path):
     # drift check passes on main as merged, with no follow-up commit, because no page names main or open PRs.
     import check_fresh
     repo, _ = _repo(tmp_path, 1)
-    ow = os.path.join(repo, "OPEN_WORK.md")
+    ow = os.path.join(repo, "README.md")
     rows = {"T90": "In flight (upstream PR #400)", "T91": "In flight (upstream PR #401)"}
 
     def write():
-        open(ow, "w").write("# Open work\n\nLive state: `python3 tools/brief.py`.\n\n| ID | What | Status | Gate | Where |\n"
+        open(ow, "w").write("# Front page\n\nLive state: `python3 tools/brief.py`.\n\n| ID | What | Status | Gate | Where |\n"
                             "|---|---|---|---|---|\n" + "".join("| %s | x | open | %s | t |\n" % kv for kv in rows.items()))
     write()
     _git(repo, "add", ".")

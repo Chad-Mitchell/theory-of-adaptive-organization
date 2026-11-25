@@ -265,7 +265,7 @@ def open_work_undone(text):
     i, rows = 0, []
     while i < len(lines):
         cells = split_cells(lines[i]) if lines[i].startswith("|") else []
-        if cells and cells[0] == "ID" and "Item" in cells:
+        if cells and cells[0] == "ID" and ("Item" in cells or "gap" in cells):
             headers = cells
             i += 1
             if i < len(lines) and re.match(r"^\|[\s:|-]+$", lines[i]):
@@ -274,6 +274,8 @@ def open_work_undone(text):
                 gate_idx = headers.index("Gate")
             elif "State" in headers:
                 gate_idx = headers.index("State")
+            elif "rank" in headers:
+                gate_idx = headers.index("rank")
             else:
                 gate_idx = 2
             while i < len(lines) and lines[i].startswith("|"):
@@ -315,7 +317,7 @@ def stale_reviewed_prs(root):
         return ["Stale reviewed PRs: not checked (%s)" % (str(e).split("\n")[0][:80] or type(e).__name__)]
     if not pending:
         return ["Stale reviewed PRs: none"]
-    return ["WARN stale reviewed PR (merge, park in process/PARKED.md, or close): %s" % x for x in pending]
+    return ["WARN stale reviewed PR (merge, park in process/PROCESS.md §4, or close): %s" % x for x in pending]
 
 
 def render(root=None):
@@ -385,7 +387,7 @@ def render(root=None):
     lines.append("Hypothesis")
     lines.append("  %s" % (hypo or "(unparsed)"))
 
-    ow = _read(root, "OPEN_WORK.md") or ""
+    ow = _read(root, "README.md") or ""
     undone = open_work_undone(ow)
     lines.append("")
     lines.append("Open work (gate not DONE): %d" % len(undone))

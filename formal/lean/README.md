@@ -39,22 +39,6 @@ about the real world.
   depends only on `propext`, `Classical.choice` and `Quot.sound`.  A
   `sorry` anywhere would show up as `sorryAx` and fail the check.  The
   current total is `audit_count` in `AUDIT.json`, its one source.
-  <!-- history:begin (dated batch runs; not the current total) -->
-  Run of 22 November 2026, branch `lean-batch2-2026-11-21`, after the
-  batch-2 confirm nits: 757 declarations, OK
-  (635 after the lean-layer-drift review should-fixes, plus batch 2,
-  its should-fixes, and the confirm nits).
-  Batch 1 (24 November 2026, branch `forge-lean-batch1`, after the
-  label corrections): 926 declarations, OK. The 169 constants above 757
-  are the four new modules. 75 of them are the source declarations in
-  the batch 1 table; the rest are generated.
-  Batch 2 (24 November 2026, branch `forge-lean-batch2` at `6663d0e`,
-  merged as PR #266): 1185 declarations, OK. The 259 constants above 926
-  are the four batch 2 modules.
-  LEAN-PHYS (25 November 2026, branch `forge-lean-phys` at `07bffb7`):
-  1370 declarations, OK. The 185 constants above 1185 are the four
-  LEAN-PHYS modules; 71 of them are source declarations.
-  <!-- history:end -->
 
 ## How to build
 

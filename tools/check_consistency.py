@@ -47,6 +47,20 @@ INFO only: those files are dated records and are not edited.
 """
 import glob, os, re, sys
 
+# Maintained docs: edited to stay current. check_fresh.py and check_claims.py import this list.
+MAINTAINED_DOCS = [
+    "README.md", "THEORY.md", "CORE.md", "process/PROCESS.md", "process/VOCABULARY.md", "process/FAILURES.md", "process/MISS_LOG_TEMPLATE.md",
+    "measurement/FRAMEWORK.md", "measurement/CLAIM_MAP_v2.md",
+    "theory/SCALE_ENDS.md",
+    "applications/README.md", "tests/README.md", "reviews/README.md",
+    "litmap/LITMAP.md", "litmap/PRIOR_ART.md", "litmap/THREATS.md",
+    "litmap/LEFT_ON_THE_TABLE.md", "theory/BOOKENDS.md",
+    "theory/REACH.md", "theory/HT_INDEX.md", "theory/COSMIC_WEB.md", "theory/WORMHOLES.md", "theory/TORUS.md",
+    "theory/GENERAL_THEOREM.md", "theory/INTERNAL_MODEL.md", "theory/COADAPTATION.md", "theory/REPRESENTATION.md", "theory/MATH_ATTACK.md",
+    "reviews/night1/formal/AXIOMS.md", "reviews/night1/formal/THEOREMS.md", "reviews/night1/formal/checks/README.md",
+    "process/LOCK_ERRATA.md",
+]
+
 
 def main(argv=None):
     """Run every check from the repo root; return the exit code (0 = no FAIL).
@@ -56,21 +70,10 @@ def main(argv=None):
     ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     os.chdir(ROOT)
 
-    MAINTAINED = [
-        "README.md", "THEORY.md", "CORE.md", "process/PROCESS.md", "process/VOCABULARY.md", "process/FAILURES.md", "process/MISS_LOG_TEMPLATE.md",
-        "measurement/FRAMEWORK.md", "measurement/CLAIM_MAP_v2.md",
-        "theory/README.md", "theory/SCALE_ENDS.md",
-        "applications/README.md", "tests/README.md", "reviews/README.md",
-        "litmap/LITMAP.md", "litmap/PRIOR_ART.md", "litmap/THREATS.md",
-        "litmap/LEFT_ON_THE_TABLE.md", "theory/BOOKENDS.md",
-        "theory/REACH.md", "theory/HT_INDEX.md", "theory/COSMIC_WEB.md", "theory/WORMHOLES.md", "theory/TORUS.md",
-        "theory/GENERAL_THEOREM.md", "theory/INTERNAL_MODEL.md", "theory/COADAPTATION.md", "theory/REPRESENTATION.md", "theory/MATH_ATTACK.md", "reference/CHANGELOG.md",
-        "reviews/night1/formal/AXIOMS.md", "reviews/night1/formal/THEOREMS.md", "reviews/night1/formal/checks/README.md",
-        "process/LOCK_ERRATA.md",
-    ]
+    MAINTAINED = list(MAINTAINED_DOCS)
     MAINTAINED = [f for f in MAINTAINED if os.path.exists(f)]
     ALL_MD = sorted(p for p in glob.glob("**/*.md", recursive=True))
-    FROZEN = [p for p in ALL_MD if p not in MAINTAINED and not p.startswith("history/")]
+    FROZEN = [p for p in ALL_MD if p not in MAINTAINED]
 
     fails, infos = [], []
 

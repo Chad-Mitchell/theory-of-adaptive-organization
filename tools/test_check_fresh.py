@@ -41,15 +41,15 @@ def test_planted_main_sha_fails(tmp_path):
 
 
 def test_planted_open_pr_list_fails(tmp_path):
-    fails = _plant(tmp_path, "OPEN_WORK.md", "\n\nOpen upstream PRs not yet merged: #288 (Lean) and #290.\n")
+    fails = _plant(tmp_path, "process/PROCESS.md", "\n\nOpen upstream PRs not yet merged: #288 (Lean) and #290.\n")
     assert len(fails) == 1 and "open-PR list" in fails[0]
 
 
 def test_planted_version_string_fails(tmp_path):
     # Acceptance: an edited version string outside its source fails.
-    fails = _plant(tmp_path, "theory/README.md", "\n\nThe core is THEORY v2.9 draft.\n")
+    fails = _plant(tmp_path, "theory/SCALE_ENDS.md", "\n\nThe core is THEORY v2.9 draft.\n")
     assert len(fails) == 1 and "version string" in fails[0]
-    fails = _plant(tmp_path, "ONE_PAGER.md", "\n\nClaim statuses: `measurement/CLAIM_MAP_v2.md` (v2.89).\n")
+    fails = _plant(tmp_path, "applications/README.md", "\n\nClaim statuses: `measurement/CLAIM_MAP_v2.md` (v2.89).\n")
     assert len(fails) == 1 and "version string" in fails[0]
 
 
@@ -84,3 +84,71 @@ def test_cli_exit_codes(tmp_path, capsys):
     (d / "README.md").write_text("`main` is `abc1234`\n", encoding="utf-8")
     assert cf.main(["check_fresh.py", str(d)]) == 1
     assert "RESULT: FAIL" in capsys.readouterr().out
+
+
+# ---------------------------------------------------------------- round 2 (Ace review of #291)
+FAKE_MAIN = ["1eed183" + "0" * 33, "abc1234def" + "1" * 30, "591fb7b" + "2" * 33]
+WORDINGS = ["Current main: abc1234def", "As of main abc1234", "HEAD is 1eed183", "Latest merge: 1eed183 (PR #288)"]
+
+
+def test_four_sha_wordings_fail_by_rule_without_git():
+    # Acceptance: each of the four wordings fails even with no git history to compare against.
+    for w in WORDINGS:
+        got = cf.hand_pointers(w, "README.md", recent=())
+        assert got and got[0][1] == "main SHA pointer", (w, got)
+
+
+def test_four_sha_wordings_fail_when_planted(tmp_path):
+    # Acceptance: each of the four wordings, planted on a live page, fails.
+    for i, w in enumerate(WORDINGS):
+        d = _copy(tmp_path / str(i))
+        p = d / "README.md"
+        p.write_text(p.read_text(encoding="utf-8") + "\n\n" + w + "\n", encoding="utf-8")
+        fails = cf.check(str(d), recent=FAKE_MAIN)
+        assert len(fails) == 1 and "README.md" in fails[0], (w, fails)
+
+
+def test_any_recent_main_sha_fails_in_any_wording():
+    got = cf.hand_pointers("See 591fb7b for the details.", "process/PROCESS.md", recent=FAKE_MAIN)
+    assert got and got[0][1] == "recent main SHA"
+    assert cf.hand_pointers("See 591fb7b for the details.", "process/PROCESS.md", recent=()) == []
+    assert cf.hand_pointers("An old commit `deadbee` is not on the recent list.", "README.md", recent=FAKE_MAIN) == []
+
+
+def test_merged_as_and_history_block_are_exempt():
+    assert cf.hand_pointers("PR #288 merged as `1eed183`.", "README.md", recent=FAKE_MAIN) == []
+    text = "a\n<!-- history:begin -->\nHEAD is 1eed183, latest merge 591fb7b\n<!-- history:end -->\nb\n"
+    assert cf.hand_pointers(text, "README.md", recent=FAKE_MAIN) == []
+
+
+def test_permalinks_are_not_pointers():
+    url = "[`OPEN_WORK.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183/OPEN_WORK.md)"
+    assert cf.hand_pointers(url, "README.md", recent=FAKE_MAIN) == []
+
+
+def test_hand_typed_pr_head_fails(tmp_path):
+    # Acceptance: a hand-typed PR head fails on any live page.
+    for w in ["The review covers head `abc1234`.", "Waiting on PR #291 (head a0508fd)."]:
+        got = cf.hand_pointers(w, "process/PROCESS.md", recent=())
+        assert got and got[0][1] == "PR head", (w, got)
+    fails = _plant(tmp_path, "measurement/FRAMEWORK.md", "\n\nPR #12 (head `abc1234`) is reviewed.\n")
+    assert len(fails) == 1 and "PR head" in fails[0]
+
+
+def test_root_status_page_fails(tmp_path):
+    # Acceptance: a root STATUS.md fails.
+    d = _copy(tmp_path)
+    (d / "STATUS.md").write_text("# Status\n\nAll good.\n", encoding="utf-8")
+    fails = cf.check(str(d), recent=[])
+    assert len(fails) == 1 and "root page STATUS.md" in fails[0]
+
+
+def test_every_maintained_doc_is_scanned():
+    import check_consistency
+    pages = set(cf.live_pages(ROOT))
+    for p in check_consistency.MAINTAINED_DOCS:
+        if os.path.isfile(os.path.join(ROOT, p)) and p not in cf.SKIP:
+            assert p in pages, p
+    for p in os.listdir(ROOT):
+        if p.endswith(".md"):
+            assert p in pages and p in cf.ROOT_ALLOW, p

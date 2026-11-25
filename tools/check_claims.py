@@ -2,9 +2,10 @@
 """Headline-claim check for the GTAO repository (stdlib only).
 
 The canonical statuses live in the headline ledger of
-measurement/CLAIM_MAP_v2.md (between the ledger markers). Front pages carry
-a derived view of that ledger. This script fails when the view is stale,
-when a cited source or review path is missing, when an edge is invalid,
+measurement/CLAIM_MAP_v2.md (between the ledger markers). No other page copies
+them: README.md, CORE.md and THEORY.md carry a one-line link to that ledger
+instead of a claims view. This script fails when a page carries a claims view
+or a front page lacks the link, when a cited source or review path is missing, when an edge is invalid,
 when a front page states a headline status the ledger does not, when the
 hypothesis sentence changes, or when a page claims Lean coverage the ledger
 does not give.
@@ -27,18 +28,16 @@ HYP_FILES = [
     "README.md",
     "CORE.md",
     "THEORY.md",
-    "ONE_PAGER.md",
-    "OPEN_WORK.md",
     "theory/COADAPTATION.md",
     "theory/GROWTH_BRIDGE.md",
     "theory/FEEDBACK_FLOOR_2026-11-23.md",
     "theory/SWARM_RULE_2026-11-23.md",
     "theory/AREA_LAW_PROBE_2026-11-23.md",
 ]
-FRONT = ["README.md", "CORE.md", "ONE_PAGER.md", "THEORY.md"]
-# Generated claims views (python3 tools/check_claims.py --write). README is the front page; CORE.md and
-# THEORY.md keep theirs because this repo may not edit them. No other page carries a view.
-VIEW_FILES = ["README.md", "CORE.md", "THEORY.md"]
+FRONT = ["README.md", "CORE.md", "THEORY.md"]
+# Claims views are retired (25 November 2026): each front page carries a one-line link to the ledger instead.
+LINK_FILES = ["README.md", "CORE.md", "THEORY.md"]
+LINK_RX = re.compile(r"\[`?measurement/CLAIM_MAP_v2\.md`?\]\(measurement/CLAIM_MAP_v2\.md\)")
 STATUSES = {
     "proved-in-model",
     "known",
@@ -146,17 +145,6 @@ def parse_ledger(text):
     return rows, rules, errors
 
 
-def render_view(rows):
-    lines = [
-        VIEW_BEGIN,
-        "Derived from the headline ledger in measurement/CLAIM_MAP_v2.md. Refresh this block from that ledger. A disagreement is a miss of a public claim.",
-    ]
-    for row in rows:
-        lines.append("%s | %s | %s" % (row["id"], row["status"], row["review"]))
-    lines.append(VIEW_END)
-    return "\n".join(lines)
-
-
 def strip_view(text):
     return re.sub(
         re.escape(VIEW_BEGIN) + r".*?" + re.escape(VIEW_END),
@@ -243,42 +231,19 @@ def check_edges(rows, known):
 
 
 def check_views(rows, root):
+    """No page carries a claims view; each front page links to the ledger instead."""
     errors = []
-    want = render_view(rows)
-    for path in FRONT:
-        if path not in VIEW_FILES and os.path.isfile(os.path.join(root, path)) and VIEW_BEGIN in read(root, path):
-            errors.append("claims: %s carries a claims view; only %s do" % (path, ", ".join(VIEW_FILES)))
-    for path in VIEW_FILES:
+    pages = set(LINK_FILES) | set(direction_pages(root)) | {p for p in glob.glob("**/*.md", root_dir=root, recursive=True)
+                                                           if not p.startswith(("reviews/", "theory/reviews/", "prereg/"))}
+    for path in sorted(pages):
+        if os.path.isfile(os.path.join(root, path)) and VIEW_BEGIN in read(root, path):
+            errors.append("claims: %s carries a claims view; link to measurement/CLAIM_MAP_v2.md instead" % path)
+    for path in LINK_FILES:
         if not os.path.isfile(os.path.join(root, path)):
             errors.append("claims: front page missing %s" % path)
-            continue
-        text = read(root, path)
-        n = text.count(VIEW_BEGIN)
-        if n != 1 or text.count(VIEW_END) != 1:
-            errors.append("claims: view stale %s (markers %d)" % (path, n))
-            continue
-        got = text.split(VIEW_BEGIN, 1)[1]
-        got = VIEW_BEGIN + got.split(VIEW_END, 1)[0] + VIEW_END
-        if got != want:
-            errors.append("claims: view stale %s (run python3 tools/check_claims.py --write)" % path)
+        elif not LINK_RX.search(read(root, path)):
+            errors.append("claims: %s lacks the one-line link to measurement/CLAIM_MAP_v2.md" % path)
     return errors
-
-
-def write_views(root=None):
-    """Regenerate every claims view from the ledger. Returns the paths rewritten."""
-    root = root or repo_root()
-    rows, _rules, errors = parse_ledger(read(root, "measurement/CLAIM_MAP_v2.md"))
-    if not rows:
-        raise SystemExit("; ".join(errors))
-    want, done = render_view(rows), []
-    for path in VIEW_FILES:
-        text = read(root, path)
-        new = re.sub(re.escape(VIEW_BEGIN) + r".*?" + re.escape(VIEW_END), lambda _m: want, text, count=1, flags=re.S)
-        if new != text:
-            with open(os.path.join(root, path), "w", encoding="utf-8") as fh:
-                fh.write(new)
-            done.append(path)
-    return done
 
 
 def check_rules(rules, rows, root):
@@ -353,7 +318,7 @@ def check_unmanaged(rows, root, known):
     return errors
 
 
-# ------------------------------------------------------------------ direction (OPEN_WORK.md section 9)
+# ------------------------------------------------------------------ direction (README.md, Ranked gaps)
 PARKED_IDS = {"DATA-ONE", "RS-SCREEN"}
 REAL_IDS = re.compile(r"(?<![A-Za-z0-9-])(DATA-ONE|RS-SCREEN)(?![A-Za-z0-9])")
 ORDER = re.compile(r"\brank(?:ed)?\s*\d|\bnext\b|\bthen\b|\bqueued?\b|\bpriority\b|\bin parallel\b|\bbest (?:two|one|candidates?)\b"
@@ -363,32 +328,37 @@ PARKED_OK = re.compile(r"\bparked\b|\bnot ranked\b|\bdownstream\b", re.I)
 DIRECTION_LINE = re.compile(r"^\*\*Direction \([^)]*\d{4}\):\*\*", re.M)
 
 
-def section9(text):
-    m = re.search(r"^## 9\. Ranked gaps.*", text, re.M | re.S)
+def ranked_section(text):
+    m = re.search(r"^## Ranked gaps.*", text, re.M | re.S)
     return m.group(0).split("\n## ", 1)[0] if m else None
 
 
 def direction_pages(root):
     import check_fresh
     pages = set(check_fresh.live_pages(root)) | {p for p in glob.glob("theory/*.md", root_dir=root)}
-    return sorted(p for p in pages if p not in ("CORE.md", "THEORY.md"))  # not editable here
+    return sorted(p for p in pages if p not in ("CORE.md", "THEORY.md"))  # not editable here beyond the claims link
 
 
 def check_direction(root):
     errors = []
-    if not os.path.isfile(os.path.join(root, "OPEN_WORK.md")):
-        return ["direction: OPEN_WORK.md missing"]
-    text = read(root, "OPEN_WORK.md")
-    sec = section9(text)
+    if not os.path.isfile(os.path.join(root, "README.md")):
+        return ["direction: README.md missing"]
+    text = read(root, "README.md")
+    sec = ranked_section(text)
     if sec is None:
-        return ["direction: OPEN_WORK.md has no section 9 ranked gaps"]
-    if not DIRECTION_LINE.search(sec):
-        errors.append("direction: OPEN_WORK.md section 9 has no dated '**Direction (..., YYYY):**' line")
-    if HYPOTHESIS not in sec:
-        errors.append("direction: OPEN_WORK.md section 9 does not quote the CORE.md:7 hypothesis sentence byte-identical")
+        return ["direction: README.md has no '## Ranked gaps' section"]
+    # The direction line has one hand-kept copy: README.md.
+    copies = [(p, ln) for p in sorted(set(direction_pages(root)) | {"CORE.md", "THEORY.md"})
+              if os.path.isfile(os.path.join(root, p))
+              for ln, line in enumerate(read(root, p).split("\n"), 1) if DIRECTION_LINE.match(line)]
+    if not any(p == "README.md" for p, _ln in copies):
+        errors.append("direction: README.md has no dated '**Direction (..., YYYY):**' line")
+    if len(copies) > 1:
+        errors.append("direction: the direction line has %d copies (%s); keep one, in README.md"
+                      % (len(copies), ", ".join("%s:%d" % c for c in copies)))
     rows = [split_cells(l) for l in sec.splitlines() if GAP_ID.match(l) and not l.startswith("| ID ")]
     if not rows:
-        errors.append("direction: section 9 has no rows")
+        errors.append("direction: README.md Ranked gaps has no rows")
     ranked = sorted((int(c[1]), c) for c in rows if len(c) >= 5 and c[1].isdigit())
     for c in rows:
         ident, rank, tag = c[0], c[1] if len(c) > 1 else "", c[2] if len(c) > 2 else ""
@@ -399,13 +369,13 @@ def check_direction(root):
         if rank == "parked" and not (re.search(r"\bRestart:", c[-1]) and re.search(r"\bdecider:\s*\w", c[-1], re.I)):
             errors.append("direction: parked row %s needs 'Restart: ...' and 'decider: ...'" % ident)
     for ident in PARKED_IDS - {c[0] for c in rows if len(c) > 1 and c[1] == "parked"}:
-        errors.append("direction: %s must stay in section 9 as parked" % ident)
+        errors.append("direction: %s must stay in README.md Ranked gaps as parked" % ident)
     if ranked and ranked[0][1][2] != "math":
         errors.append("direction: rank 1 (%s) is tagged %s, not math" % (ranked[0][1][0], ranked[0][1][2]))
     # no other page ranks or orders real-system work
     for path in direction_pages(root):
         body = read(root, path)
-        if path == "OPEN_WORK.md":
+        if path == "README.md":
             body = body.replace(sec, "\n" * sec.count("\n"))
         for ln, line in enumerate(body.split("\n"), 1):
             if line.startswith("|") and not REAL_IDS.search(line.split("|")[1] if line.count("|") > 1 else ""):
@@ -415,7 +385,7 @@ def check_direction(root):
             if PARKED_OK.search(cells):
                 continue
             if (REAL_IDS.search(cells) and ORDER.search(cells)) or (re.search(r"\bin parallel\b", cells, re.I) and REAL_WORK.search(cells)):
-                errors.append("direction: %s:%d orders real-system work outside OPEN_WORK.md section 9: %s"
+                errors.append("direction: %s:%d orders real-system work outside README.md Ranked gaps: %s"
                               % (path, ln, cells.strip()[:120]))
     return errors
 
@@ -495,7 +465,7 @@ def ledger_status(text):
 
 
 def check_summaries(root):
-    """summary_fails on Markdown lines added since origin/main, outside history/, reference/ (archived copies) and locked files."""
+    """summary_fails on Markdown lines added since origin/main, outside reference/ (archived copies) and locked files."""
     import banned_words
     base = banned_words.base_ref(root)
     added = banned_words.added_lines(root, base) if base else None
@@ -504,7 +474,7 @@ def check_summaries(root):
     locked = banned_words.locked_paths(root)
     out = []
     for path, lines in sorted(added.items()):
-        if path.startswith(("history/", "reference/")) or path in locked:
+        if path.startswith("reference/") or path in locked:
             continue
         for ln, line in lines:
             out += ["summary: " + x for x in summary_fails(line, root, "%s:%d" % (path, ln))]
@@ -541,9 +511,8 @@ def check(root=None):
 def main(argv=None):
     argv = sys.argv if argv is None else argv
     if "--write" in argv:
-        done = write_views()
-        print("views rewritten: %s" % (", ".join(done) or "none (already current)"))
-        return 0
+        print("claims views are retired: front pages link to measurement/CLAIM_MAP_v2.md; nothing to write")
+        return 2
     if "--summary" in argv:
         f = argv[argv.index("--summary") + 1]
         fails = summary_fails(open(f, encoding="utf-8").read(), None, f)
@@ -558,7 +527,7 @@ def main(argv=None):
             print("  FAIL " + f)
         print("RESULT: FAIL")
         return 1
-    print("claims: ledger, views, sources, edges, hypothesis: OK")
+    print("claims: ledger, links, sources, edges, hypothesis, direction: OK")
     print("RESULT: PASS")
     return 0
 

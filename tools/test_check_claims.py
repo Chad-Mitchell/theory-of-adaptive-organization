@@ -144,7 +144,7 @@ if __name__ == "__main__":
     print("RESULT: PASS")
 
 
-# ---------------------------------------------------------------- views (--write), 25 November 2026
+# ---------------------------------------------------------------- claims link (views retired), 25 November 2026
 def _edit(root, rel, old, new):
     path = os.path.join(root, rel)
     text = open(path, encoding="utf-8").read()
@@ -152,63 +152,70 @@ def _edit(root, rel, old, new):
     open(path, "w", encoding="utf-8").write(text.replace(old, new, 1))
 
 
-def test_hand_edited_view_fails_and_write_restores():
-    # Acceptance: a hand-edited claim view fails, and --write restores it.
-    root = copy_tree()
-    try:
-        text = open(os.path.join(root, "README.md"), encoding="utf-8").read()
-        view = text[text.index(cc.VIEW_BEGIN):text.index(cc.VIEW_END)]
-        line = next(l for l in view.splitlines() if l.startswith("T61 |"))
-        _edit(root, "README.md", line, line.replace("proved-in-model", "known"))
-        assert "view stale README.md" in fails_of(root)
-        assert cc.write_views(root) == ["README.md"]
-        assert cc.check(root) == []
-        assert open(os.path.join(root, "README.md"), encoding="utf-8").read() == text
-    finally:
-        shutil.rmtree(root)
+LINK = "Claim statuses: [`measurement/CLAIM_MAP_v2.md`](measurement/CLAIM_MAP_v2.md) (headline ledger)."
+VIEW = cc.VIEW_BEGIN + "\nT61 | proved-in-model | reviewed\n" + cc.VIEW_END
 
 
-def test_view_on_a_page_without_one_fails():
-    root = copy_tree()
-    try:
-        text = open(os.path.join(root, "README.md"), encoding="utf-8").read()
-        view = text[text.index(cc.VIEW_BEGIN):text.index(cc.VIEW_END) + len(cc.VIEW_END)]
-        with open(os.path.join(root, "ONE_PAGER.md"), "a", encoding="utf-8") as fh:
-            fh.write("\n" + view + "\n")
-        assert "ONE_PAGER.md carries a claims view" in fails_of(root)
-    finally:
-        shutil.rmtree(root)
+def test_front_pages_carry_the_link_not_a_view():
+    for rel in cc.LINK_FILES:
+        text = open(os.path.join(ROOT, rel), encoding="utf-8").read()
+        assert cc.LINK_RX.search(text) and cc.VIEW_BEGIN not in text, rel
 
 
-# ---------------------------------------------------------------- direction
+def test_missing_link_fails():
+    for rel in ("CORE.md", "THEORY.md"):
+        root = copy_tree()
+        try:
+            _edit(root, rel, LINK, "")
+            assert "%s lacks the one-line link" % rel in fails_of(root)
+        finally:
+            shutil.rmtree(root)
+
+
+def test_view_planted_anywhere_fails():
+    for rel in ("README.md", "CORE.md", "theory/PHYSICS_CHAIN_2026-11-23.md"):
+        root = copy_tree()
+        try:
+            with open(os.path.join(root, rel), "a", encoding="utf-8") as fh:
+                fh.write("\n" + VIEW + "\n")
+            assert "%s carries a claims view" % rel in fails_of(root)
+        finally:
+            shutil.rmtree(root)
+
+
+def test_write_is_retired():
+    assert cc.main(["check_claims.py", "--write"]) == 2
+
+
+# ---------------------------------------------------------------- direction (README.md, Ranked gaps)
 def test_data_one_given_a_rank_fails():
     # Acceptance: DATA-ONE given a rank fails.
     root = copy_tree()
     try:
-        text = open(os.path.join(root, "OPEN_WORK.md"), encoding="utf-8").read()
+        text = open(os.path.join(root, "README.md"), encoding="utf-8").read()
         row = next(l for l in text.splitlines() if l.startswith("| DATA-ONE | parked |"))
-        _edit(root, "OPEN_WORK.md", row, row.replace("| DATA-ONE | parked |", "| DATA-ONE | 7 |", 1))
+        _edit(root, "README.md", row, row.replace("| DATA-ONE | parked |", "| DATA-ONE | 7 |", 1))
         assert "DATA-ONE is parked work" in fails_of(root)
     finally:
         shutil.rmtree(root)
 
 
 def test_in_parallel_real_system_line_fails():
-    # Acceptance: an "In parallel" real-system line, or a rank for RS-SCREEN outside section 9, fails.
+    # Acceptance: an "In parallel" real-system line, or a rank for RS-SCREEN outside README Ranked gaps, fails.
     for rel, line in [("theory/PHYSICS_CHAIN_2026-11-23.md", "3. **In parallel (Level 2):** qualify one real system.\n"),
                       ("README.md", "Next after BICAUSAL: RS-SCREEN.\n"),
-                      ("theory/README.md", "Real-system work runs in parallel with the physics chain.\n")]:
+                      ("process/PROCESS.md", "Real-system work runs in parallel with the physics chain.\n")]:
         root = copy_tree()
         try:
             with open(os.path.join(root, rel), "a", encoding="utf-8") as fh:
                 fh.write("\n" + line)
             got = fails_of(root)
-            assert "orders real-system work outside OPEN_WORK.md section 9" in got and rel in got, (rel, got)
+            assert "orders real-system work outside README.md Ranked gaps" in got and rel in got, (rel, got)
         finally:
             shutil.rmtree(root)
 
 
-def test_parked_mention_outside_section_9_passes():
+def test_parked_mention_outside_ranked_table_passes():
     root = copy_tree()
     try:
         with open(os.path.join(root, "README.md"), "a", encoding="utf-8") as fh:
@@ -221,10 +228,43 @@ def test_parked_mention_outside_section_9_passes():
 def test_parked_row_without_restart_or_decider_fails():
     root = copy_tree()
     try:
-        text = open(os.path.join(root, "OPEN_WORK.md"), encoding="utf-8").read()
+        text = open(os.path.join(root, "README.md"), encoding="utf-8").read()
         row = next(l for l in text.splitlines() if l.startswith("| RS-SCREEN | parked |"))
-        _edit(root, "OPEN_WORK.md", row, row.replace("Restart:", "Later:"))
+        _edit(root, "README.md", row, row.replace("Restart:", "Later:"))
         assert "parked row RS-SCREEN needs" in fails_of(root)
+    finally:
+        shutil.rmtree(root)
+
+
+def _direction_line():
+    text = open(os.path.join(ROOT, "README.md"), encoding="utf-8").read()
+    return next(l for l in text.splitlines() if l.startswith("**Direction ("))
+
+
+def test_direction_line_has_one_copy():
+    copies = [l for l in open(os.path.join(ROOT, "README.md"), encoding="utf-8").read().splitlines()
+              if l.startswith("**Direction (")]
+    assert len(copies) == 1
+
+
+def test_second_copy_of_direction_line_fails():
+    # Acceptance: a second copy of the direction line fails, wherever it lands.
+    for rel in ("process/PROCESS.md", "theory/PHYSICS_CHAIN_2026-11-23.md", "README.md"):
+        root = copy_tree()
+        try:
+            with open(os.path.join(root, rel), "a", encoding="utf-8") as fh:
+                fh.write("\n" + _direction_line() + "\n")
+            got = fails_of(root)
+            assert "the direction line has 2 copies" in got and rel in got, (rel, got)
+        finally:
+            shutil.rmtree(root)
+
+
+def test_direction_line_missing_from_readme_fails():
+    root = copy_tree()
+    try:
+        _edit(root, "README.md", _direction_line(), "Physics comes first.")
+        assert "README.md has no dated '**Direction" in fails_of(root)
     finally:
         shutil.rmtree(root)
 

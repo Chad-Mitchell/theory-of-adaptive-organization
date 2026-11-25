@@ -10,11 +10,11 @@ Checks
   (b) Lean: formal/lean/AUDIT.json records the AxiomAudit count and a sha256 of
       the Lean sources; the sources must still hash to it (otherwise rerun
       tools/check_lean.sh in /tmp/gtao-lean and --record-audit N).
-  own row (--pr N): the PR's own OPEN_WORK.md row is no longer "In flight".
+  own row (--pr N): the PR's own README.md row is no longer "In flight".
   summary (--body-file F): the PR body passes check_claims.summary_fails.
   (c) live, via gh: an open PR whose latest independent review says
       "Blockers remaining: 0" and is older than PENDING_HOURS, unless parked in
-      process/PARKED.md; and closing keywords in open upstream PRs. Only findings
+      the parked-PR table in process/PROCESS.md §4; and closing keywords in open upstream PRs. Only findings
       about the PR named by --pr fail; the rest print as WARN (tools/brief.py
       lists them too). A review is found by content: a PR whose changes are all
       added review files, one of whose text has a "Blockers remaining: N" line,
@@ -75,15 +75,15 @@ def is_git_repo(root):
 
 # ------------------------------------------------------------------ own row
 def own_row_check(root, pr):
-    """A PR moves its own OPEN_WORK.md row in the same PR: fail if a row naming upstream #pr is still 'In flight'."""
-    path = os.path.join(root, "OPEN_WORK.md")
+    """A PR moves its own README.md row in the same PR: fail if a row naming upstream #pr is still 'In flight'."""
+    path = os.path.join(root, "README.md")
     if pr is None or not os.path.exists(path):
         return []
     rx = re.compile(r"(?:\bPR\s+|\bupstream\s+(?:draft\s+)?(?:PR\s+)?|/pull/)#?%d\b" % pr, re.I)
     fails = []
     for ln, line in enumerate(open(path, encoding="utf-8").read().split("\n"), 1):
         if line.startswith("|") and rx.search(line) and re.search(r"\bin flight\b", line, re.I):
-            fails.append("own row: OPEN_WORK.md:%d still marks the row for #%d 'In flight'; move it in this PR as if "
+            fails.append("own row: README.md:%d still marks the row for #%d 'In flight'; move it in this PR as if "
                          "it were the one merged" % (ln, pr))
     return fails
 
@@ -140,13 +140,13 @@ def record_audit(root, count, commit=None):
 
 
 # ------------------------------------------------------------------ parked
-PARKED_FILE = os.path.join("process", "PARKED.md")
+PARKED_FILE = os.path.join("process", "PROCESS.md")  # parked-PR table, section 4
 PARKED_ROW_RE = re.compile(r"^\|\s*(upstream|fork)#(\d+)\s*\|(.*)\|\s*$", re.I)
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
 def read_parked(root):
-    """({('upstream'|'fork', n): reason}, [problems]) from process/PARKED.md."""
+    """({('upstream'|'fork', n): reason}, [problems]) from the parked-PR table in process/PROCESS.md."""
     path = os.path.join(root, PARKED_FILE)
     parked, problems = {}, []
     if not os.path.exists(path):

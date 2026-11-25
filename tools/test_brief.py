@@ -39,7 +39,7 @@ def _git(repo, *args, env=None):
 
 
 def _init_repo(dest, n_merges=4):
-    """A small repo with main, THEORY/CLAIM_MAP/CORE/OPEN_WORK, and n PR merges."""
+    """A small repo with main, THEORY/CLAIM_MAP/CORE/README, and n PR merges."""
     os.makedirs(dest)
     _git(dest, "init", "-b", "main")
     _git(dest, "config", "user.name", "Test")
@@ -78,9 +78,9 @@ def _init_repo(dest, n_merges=4):
         """),
     )
     write(
-        "OPEN_WORK.md",
+        "README.md",
         textwrap.dedent("""\
-        # OPEN_WORK
+        # Front page
 
         | ID | Item | State | Gate | Where |
         |---|---|---|---|---|
@@ -174,7 +174,7 @@ def test_stale_reviewed_pr_is_a_warning_in_the_brief(tmp_path, monkeypatch):
     monkeypatch.setattr(check_pending, "collect", lambda api, **k: (["upstream#280 (Old work): reviewed 30h ago"], []))
     monkeypatch.setattr(check_pending, "read_parked", lambda root: ({}, []))
     out = REAL_STALE(str(tmp_path))
-    assert out == ["WARN stale reviewed PR (merge, park in process/PARKED.md, or close): upstream#280 (Old work): reviewed 30h ago"]
+    assert out == ["WARN stale reviewed PR (merge, park in process/PROCESS.md §4, or close): upstream#280 (Old work): reviewed 30h ago"]
     monkeypatch.setattr(check_pending, "collect", lambda api, **k: (_ for _ in ()).throw(check_pending.Offline("no network")))
     assert REAL_STALE(str(tmp_path))[0].startswith("Stale reviewed PRs: not checked")
 

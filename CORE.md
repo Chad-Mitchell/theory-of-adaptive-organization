@@ -171,42 +171,4 @@ In priority order:
 The layer-count, lifetime, and local-versus-shared theorems in `THEORY.md` minimize the five-term sum. They are theorems about that sum. Adopting §9 of `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` would not re-prove them under the heat.
 
 
-<!-- claims-view:begin -->
-Derived from the headline ledger in measurement/CLAIM_MAP_v2.md. Refresh this block from that ledger. A disagreement is a miss of a public claim.
-HYP | hypothesis | no qualified real test
-JP-HEAT | known | Horowitz and Esposito 2014, credited
-EQ-HEAT | proved-in-model | in-model proof; not the whole physical argument
-T57 | proved-in-model | T57 note; closed forms are named classes only
-T60 | proved-in-model | proved in-model, one direction
-T61 | proved-in-model | independent review reported in OPEN_WORK; no review record committed
-T41 | proved-in-model | reviewed holographic note
-T42 | proved-in-model | reviewed holographic-memory note
-T44 | proved-in-model | reviewed boundary note
-T62 | proved-in-model | review fixes recorded at d79e766; independent review reported by T63 §1; no standalone review record
-T63 | proved-in-model | Independently reviewed (PR #240; commit 911a71c)
-CX2 | open | reviewed, `reviews/coadaptation_2026-11-21/REVIEW.md`, CONFIRM2 READY at 93add78, merged as b16193d
-CT31 | proved-in-model | Appendix B.10, proved in the model
-CT32 | proved-in-model | Appendix B.10, proved in the model
-CT34 | proved-in-model | Appendix B.10
-CA1 | proved-in-model | CONFIRM2 READY at 93add78
-CA5 | proved-in-model | CONFIRM2 READY at 93add78
-F3 | proved-in-model | CONFIRM2 READY at 93add78
-F4 | proved-in-model | CONFIRM2 READY at 93add78
-F6 | proved-in-model | CONFIRM2 READY at 93add78
-CL11 | open | open lever of section 3
-SWARM-STAY | proved-in-model | swarm note, proved in that class
-WORLD-PARTY | interpretation | interpretation of the co-adaptation setup
-BICAUSAL | open | open row; pieces are not one result
-GROWTH | proved-in-model | growth-bridge note
-T40 | open | needs a reviewed adoption
-T49 | proved-in-model | Independently reviewed (PR #238)
-FOUR | proved-in-model | the fourth condition is the proved settling scope, not an if and only if
-IP5 | false | claim-map section Y
-LEAN-SCOPE | open | batch reviews recorded on main
-T31 | open | parked
-T71 | known | relabel; classical scope known
-T73 | proved-in-model | self-check
-T74 | open | routes stop
-T72 | open | in flight upstream
-GATE | open | open miss of the design interpretation in this ledger
-<!-- claims-view:end -->
+Claim statuses: [`measurement/CLAIM_MAP_v2.md`](measurement/CLAIM_MAP_v2.md) (headline ledger).
