@@ -65,6 +65,7 @@ def main(argv=None):
         "theory/REACH.md", "theory/HT_INDEX.md", "theory/COSMIC_WEB.md", "theory/WORMHOLES.md", "theory/TORUS.md",
         "theory/GENERAL_THEOREM.md", "theory/INTERNAL_MODEL.md", "theory/COADAPTATION.md", "theory/REPRESENTATION.md", "theory/MATH_ATTACK.md", "reference/CHANGELOG.md",
         "reviews/night1/formal/AXIOMS.md", "reviews/night1/formal/THEOREMS.md", "reviews/night1/formal/checks/README.md",
+        "process/LOCK_ERRATA.md",
     ]
     MAINTAINED = [f for f in MAINTAINED if os.path.exists(f)]
     ALL_MD = sorted(p for p in glob.glob("**/*.md", recursive=True))
@@ -114,6 +115,15 @@ def main(argv=None):
         print("  %-4s %-26s %s -> %s (want v%s)" % (status, f, "THEORY" if which == "T" else "CLAIM_MAP", ",".join("v" + v for v in found), want))
         if bad:
             fails.append("versions: %s points to %s, current is v%s" % (f, ",".join(bad), want))
+
+    # Hash locks: every lock verifies or is accounted for (process/LOCK_ERRATA.md).
+    # Needs the real checkout: the mutation test copies only .md and .py files (no .git), so it is skipped there.
+    if os.path.exists(os.path.join(ROOT, ".git")):
+        from verify_locks import verify as _verify_locks
+        lock_fails, _lc, _ln = _verify_locks(ROOT)
+        for x in lock_fails:
+            print("  FAIL " + x)
+            fails.append("FAIL " + x)
 
     # ---------------------------------------------------------------- 2. wording
     LAW_OK = re.compile(
