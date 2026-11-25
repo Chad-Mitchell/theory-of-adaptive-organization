@@ -74,3 +74,44 @@ Not a candidate, as fixed before scoring (`PREREG.md` §4). The cost-to-fitness 
 - Rissanen 1978, doi `10.1016/0005-1098(78)90005-5`, and Sims 2003, doi `10.1016/S0304-3932(03)00029-1`: Crossref API, `crossref.out`.
 - Delétang et al., "Language Modeling Is Compression", arXiv:2309.10668 (arXiv API, 25 November 2026), cited in `MEMO.md` as background for R-SHIP; no DOI used.
 - Jiang et al. 2019, arXiv:1910.00762 (arXiv API, 25 November 2026).
+
+---
+
+## Corrections after independent gate read (Wednesday 25 November 2026, ~12:30 ET, append-only)
+
+All lines above are preserved as committed at `66640ab`. The independent gate read (`/workspace/gtao-notes/gate_read_290.md`, checking `process/PREREG_GATE.md` at `8c4b3c0`) found 4 blocking items and gave `E1` a **GATE STOP**. The corrections below are appended without editing `PREREG.md` or earlier lines.
+
+### 1. Withdrawal of E1 and correction of the prior-art reading (blocking items 1–3)
+
+- **Correction to lines 63–64 above (OBSERVED in `83f2603`):**
+  - The `train()` at `src/models/fxcmv1.cpp:536-544` cited at line 63 is inside a comment block (`:520-545`). The live `train()` at `src/models/fxcmv1.cpp:504-517` opens with `if (e) {` (`:506`). When `err == 0` inside `[-elim, elim]` (`:554`), the weight-update loop is skipped completely, which matches the comment at `:4698-4699` ("less updates and better speed").
+  - `src/mixer/mixer.cpp:74-77` immediately after line 74 reads `if(fabs(update)<0.000000000005f && extra_inputs_size_>0) { return; }`, an early-return skip on tiny updates (active on `mixer_0_[1..22]`, where `extra_inputs_size_ > 0`, though with a near-zero width `5e-12`).
+- **Effect on E1 and section 5:** The record **already uses** J's time-saving inaction band in its inner `fxcm` mixers (with adaptive width `elim`). The premise that the band was unused is false, and the gate read stopped E1 (G3 rival contradicted by prior art; missing stop rule and underspecified implementation in `PREREG.md:102`; slack decoding time of 36.5 h vs ~49–53 h cap). **E1 is withdrawn as a new-design experiment.** It was never run, and it was not a locked prediction of the record.
+- **New J-implied design choice not used by the record:** **none found.** Per the work order, when none is found, say so and stop.
+- **No post hoc hit:** The record's use of an adaptive inaction band (`fxcmv1.cpp:506, 554, 4697-4702`) is **not** counted as a hit for J because it was not preregistered; it is recorded only as an observed match, labeled **post hoc**.
+
+### 2. Re-score of P1 under the lock's allocation-constant fallback (blocking item 4)
+
+- **Correction to lines 26–27 above:** `PREREG.md:43` explicitly names "summed from allocation constants in its source" as the fallback when documentation does not state the RAM split, and only about 4 minutes elapsed between opening the sources (~11:31 ET) and commit `66640ab` (11:35:11 ET), so the one-hour reading limit had not run out. P1 is therefore **scorable** under the locked fallback.
+- **Allocation sum (OBSERVED in `83f2603`):**
+  - **PPMD** (`src/predictor.cpp:302`, `src/models/ppmd.cpp:140-144`, `mmap_to_disk = true`): `StartSubAllocator(14000)` allocates `14000 << 20` = **14,000.0 MiB** (14,680,064,000 B, memory-mapped to disk).
+  - **fxcm** (`src/models/fxcmv1.cpp`): **4,163.6 MiB** total, consisting of `cmC2[0..17]` (3,668.5 MiB: `Init(m1, ...)` sets `m = 2*m1` and allocates `m >> 7` elements of `E1<14,128>` = 128 B each, `:1370-1378`, `:3287-3330`), `mxA[0..11]` (308.0 MiB: `alloc1(wx, N*M+32)` with `N = 512` `short`s for `mxA[0..9]`, `:578, :3255-3266, :3275-3282`), `rcmA[0]` (16.0 MiB, `:692, :3273`), `cmC[0..5]` (4.7 MiB, `:939`), `cmC1[0..4,6,7]` (0.59 MiB of `E<3,32>`, `:1144`), and static/global arrays (`ind3` 64 MiB, `buffer` 16 MiB, `mhashtable` 24 MiB, `smatch.Table` 4 MiB, `apmA0..5` 57.8 MiB, `:3169, :3181, :4795, :1670, :3218-3222`).
+  - **ContextManager** (`src/context-manager.cpp:58-65`): **666.9 MiB** (`hashes_ind1..5` 512.0 MiB, `shared_map_` 97.7 MiB, `history_` 57.2 MiB).
+  - **SSE** (`src/mixer/sse.cpp:206-222`): **423.6 MiB** (`s6` 336.0 MiB, `s7` 83.7 MiB, `x1`/`x2` 4.0 MiB).
+  - **Mixer** (`src/predictor.cpp:394-421`, `src/mixer/mixer.cpp:19`): at most **404.5 MiB** (23 layer-0 + 1 layer-1 mixers, each capped at 10,000 contexts × ~460 `float` inputs).
+  - **Match** (`src/predictor.cpp:333, 356`): **61.0 MiB** (8 map tables of 2M `uint32_t` each plus two tiny tables).
+  - **TransformerOpt, Bracket, Direct**: **~30.1 MiB** combined (6M-parameter quantized weight arenas in `cpp_infer/src/opt/`, 1024-token KV/KDA spool, and small bracket/direct tables).
+  - **Total allocated:** **~19,750 MiB** (14,000 MiB PPMD + ~5,750 MiB non-PPMD).
+- **Score (updated):**
+  - Under the lock's allocation-constant fallback: PPMD's share is `14,000 / 19,750` = **0.709 ≥ 0.40** → **hit**.
+  - **RAM-residency caveat:** LTCB `.0969` measures decompression RAM at 9,547 MB (`9,105 MiB` if decimal MB; `9,547 MiB` if MiB) because PPMD is `mmap_to_disk = true`. Assuming the non-mmapped tables sit in RAM, `fxcm` alone allocates `4,163.6 MiB` = **0.436** of 9,547 MiB (or **0.457** of 9,105 MiB), which is already ≥ 0.40; any unpaged non-PPMD pages simply leave more RAM for PPMD (all other non-PPMD, non-`fxcm` tables together allocate ≤ 1,586 MiB, so `max(fxcm, PPMD_resident) ≥ 0.413` of 9,105 MiB). Either by allocation constants (PPMD) or in RAM (`fxcm`/PPMD), \(f_{\max} \ge 0.40\) holds, subject to the assumption that `fxcm` is counted as one named model family and no hidden OS/process buffer dominates RAM.
+- **Updated P1–P4 tally:** **two TEST hits (P1, P3)** and two TEST misses (P2, P4). Condition (i) of the overall rule (`PREREG.md:115`) is now met, while condition (ii) fails because E1 is withdrawn and no unused J-implied design choice was found. **The overall outcome remains `open miss`** ("explains the trade but gives no compressor").
+
+### 3. Non-blocking clarifications from the gate read
+
+- **P2 (line 34):** Stated explicitly: `S` counts the 2,930,652 B weights **twice** (once appended to the `cmix` compressor and once inside `archive9`, 5,861,304 B = 0.0584 of `S`). The scored `s_ship` for P2 (inside the decompressor) is the one-copy figure **0.0292** (+0.0192 over the 0.01 bar).
+- **P4 (lines 48–49):** `PREREG.md:83` defines `S_1` as the decompressor, whereas the prize page and LTCB report `3,428,474` B (`0.0341` of `S`) as the **compressor**. Inside `archive9`, the decompressor carries at least the `2,930,652` B transformer weights (`r_1 ≥ 0.0292`). Thus "≥ 0.0341" applies under the all-program-bytes reading and "≥ 0.0292" applies strictly to the decompressor; the miss (> 0.02) holds under both readings.
+- **P2 and P4 dependence:** Both misses stem from the same observation (the 2.93 MB shipped weights), though their miss odds were set separately before reading.
+- **P3 (line 42–43):** P3 carries little information given the prior knowledge of the cmix family disclosed in `PREREG.md` §0; also note `fxcm` itself supplies 431 outputs (`fxcmv1.cpp:93`), so total inputs are 460 (≥ 31).
+- **Decode time vs cap (line 58):** LTCB D-time `131,561 s` (36.5 h) on AMD sits comfortably below the ~49–53 h cap (`70'000/T`), leaving slack; under J, slack time gives update time a shadow price near 0, further weakening E1's "binding time cap" premise.
+- **LTCB curl note:** `ltcb.html` was fetched with curl at 11:30 ET (sha256 `4d1224b7…`); some automated fetchers encounter a bot wall on `mattmahoney.net`, though the figures match the page text.
