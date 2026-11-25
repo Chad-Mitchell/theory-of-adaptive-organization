@@ -2,7 +2,7 @@
 
 Derivations that `THEORY.md` cites, and older working drafts. `THEORY.md` governs where they disagree. Files marked *Maintained* are kept consistent with THEORY by `tools/check_consistency.py`; the rest (`THEOREMS.md`, `GENERAL_THEOREM.md`, `INTERNAL_MODEL.md`, `MATH_ATTACK.md`) are frozen history cited by section. None of this is claimed as a new theorem. Each file labels what is already known, what is a calculation or a code check, and where the argument fails.
 
-None of these is the core. THEORY v2.9 draft states the core and proves its results in its own Appendix B; the notes below are the reference derivations it cites, including the reach notes (`REACH.md`, `COSMIC_WEB.md`, `WORMHOLES.md`, `TORUS.md`), which extend the core's scope and are not part of it. `core_checks/` holds the checks of v2.0's closed forms. The one-page SCALE_ENDS summary is now `../history/2026-11-18_SCALE_ENDS_SUMMARY_FOR_CHAD.md`.
+None of these is the core. THEORY.md states the core and proves its results in its own Appendix B; the notes below are the reference derivations it cites, including the reach notes (`REACH.md`, `COSMIC_WEB.md`, `WORMHOLES.md`, `TORUS.md`), which extend the core's scope and are not part of it. `core_checks/` holds the checks of v2.0's closed forms. The one-page SCALE_ENDS summary is now `../history/2026-11-18_SCALE_ENDS_SUMMARY_FOR_CHAD.md`.
 
 | File | What it is |
 |---|---|
@@ -66,6 +66,6 @@ None of these is the core. THEORY v2.9 draft states the core and proves its resu
 | `SCALE_ENDS.md`, `scale_ends_checks/` | The ends of the scale (atoms, stars, black holes, the horizon; LAT-1), cited by THEORY §2.3; independently reviewed (`reviews/night2/SCALE_ENDS_INDEP_REVIEW.md`). Maintained. |
 | `BOOKENDS.md`, `bookends_checks/` | How the pieces fit, from chemistry to heat death (keep / hold / know), cited by THEORY §0; reviewed in `reviews/bookends/`. Maintained. |
 | `reach_checks/` | Code and saved output for those notes: proximity-graph nulls, pooling and station-catchment checks, the sine circle map. |
-| `REALSYS_SCREEN_2026-11-23.md`, `realsys_screen_checks/` | Real-system test screen after T49, T50, T61 and the freeze-or-hold floors (OPEN_WORK RS-SCREEN). Independently reviewed (PR #243). No candidate clears all three bars, so nothing is locked. In-model rival gate: shock-rate exponent of the minimizing error 1 in a reset-shock world vs 1/2 for a fixed-noise linear filter. Rational inattention shares the exponent; a fixed-noise Bayesian change-point filter is not cleanly separated by the exponent alone. |
+| `REALSYS_SCREEN_2026-11-23.md`, `realsys_screen_checks/` | Real-system test screen after T49, T50, T61 and the freeze-or-hold floors (OPEN_WORK RS-SCREEN; parked in `OPEN_WORK.md` §9, not ranked). Independently reviewed (PR #243). No candidate clears all three bars, so nothing is locked. In-model rival gate: shock-rate exponent of the minimizing error 1 in a reset-shock world vs 1/2 for a fixed-noise linear filter. Rational inattention shares the exponent; a fixed-noise Bayesian change-point filter is not cleanly separated by the exponent alone. |
 
 Reviews of these documents live in `../reviews/`.

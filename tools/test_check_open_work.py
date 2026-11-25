@@ -10,12 +10,12 @@ import check_open_work as cow
 
 
 def _copy_repo_slice(dest):
-    os.makedirs(os.path.join(dest, "process", "queue"))
+    q = os.path.join("history", "2026-11-20_queue")
+    os.makedirs(os.path.join(dest, q, "queue"))
     os.makedirs(os.path.join(dest, "tools"))
     shutil.copy(os.path.join(ROOT, "OPEN_WORK.md"), dest)
-    shutil.copy(os.path.join(ROOT, "process", "QUEUE.md"), os.path.join(dest, "process"))
-    shutil.copy(os.path.join(ROOT, "process", "queue", "items.json"),
-                os.path.join(dest, "process", "queue"))
+    shutil.copy(os.path.join(ROOT, q, "QUEUE.md"), os.path.join(dest, q))
+    shutil.copy(os.path.join(ROOT, q, "queue", "items.json"), os.path.join(dest, q, "queue"))
 
 
 def test_repo_open_work_lists_every_not_done_id():

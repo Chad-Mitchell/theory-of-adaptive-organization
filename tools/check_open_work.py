@@ -2,7 +2,7 @@
 """Every not-DONE queue item ID must appear in OPEN_WORK.md.
 
 Run from the repo root:  python3 tools/check_open_work.py
-Exit 0 = every not-DONE ID from process/QUEUE.md and process/queue/items.json
+Exit 0 = every not-DONE ID from history/2026-11-20_queue/QUEUE.md and history/2026-11-20_queue/queue/items.json
 appears in OPEN_WORK.md as a whole token (so SENSE-CELL does not count as a
 hit inside SENSE-CELL-MATCHED).
 
@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import json, os, re, sys
 
-ROOT_FILES = ("process/QUEUE.md", "process/queue/items.json", "OPEN_WORK.md")
+ROOT_FILES = ("history/2026-11-20_queue/QUEUE.md", "history/2026-11-20_queue/queue/items.json", "OPEN_WORK.md")
 
 # All-caps verdict / label words that appear bold in QUEUE.md but are not item IDs.
 NOT_IDS = {
@@ -116,8 +116,8 @@ def missing_ids(open_work: str, queue_text: str, items) -> list:
 
 def check(root=None):
     root = root or repo_root()
-    queue = open(os.path.join(root, "process/QUEUE.md"), encoding="utf-8").read()
-    items = json.load(open(os.path.join(root, "process/queue/items.json"), encoding="utf-8"))
+    queue = open(os.path.join(root, "history/2026-11-20_queue/QUEUE.md"), encoding="utf-8").read()
+    items = json.load(open(os.path.join(root, "history/2026-11-20_queue/queue/items.json"), encoding="utf-8"))
     open_work = open(os.path.join(root, "OPEN_WORK.md"), encoding="utf-8").read()
     missing = missing_ids(open_work, queue, items)
     return missing, items_not_done(items), queue_not_done(queue, [it["id"] for it in items])

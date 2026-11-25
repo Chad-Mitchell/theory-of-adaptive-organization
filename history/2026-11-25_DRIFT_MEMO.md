@@ -1,6 +1,6 @@
-# Memo: one source per fact, a cost-based fix for repo drift (draft, not implemented)
+# Memo: one source per fact, a cost-based fix for repo drift (implemented in PR #291)
 
-*Wednesday 25 November 2026 (America/New_York). Counted on `main` at `1eed183` (PR #288). A design memo only: nothing below is implemented, and no file outside this memo changes in this PR. Implementation waits for sign-off.*
+*Wednesday 25 November 2026 (America/New_York). Counted on `main` at `1eed183` (PR #288). Written as a design memo; the design was approved with changes the same day and implemented in the same PR (§7). Sections 1-6 are the memo as reviewed; §7 records what changed in implementation. Kept here as a record.*
 
 > The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment. (`CORE.md:7`)
 
@@ -111,3 +111,19 @@ After the change, a merge needs no follow-up commit: nothing committed names the
 ## 6. What this memo does not do
 
 It edits no file but itself, and no `THEORY.md`, `CORE.md` or locked blob. It does not reword any status, add any claim or change a ledger row. The `check_pending.py` failure on `main` (`STATUS.md` lists #288 as open) is noted in §3 and left for a separate change. On implementation this memo moves to `history/`.
+
+## 7. As implemented (25 November 2026)
+
+The approved changes, as implemented in this PR:
+
+- `STATUS.md` is retired. The T61, T63 and T68 class summaries moved to their notes (`theory/FEEDBACK_FLOOR_2026-11-23.md`, `theory/RECORD_REPAIR_FLOOR_2026-11-23.md`, `theory/CLOCK_TERM_2026-11-23.md`). Every reference is repointed: claim statuses to the `measurement/CLAIM_MAP_v2.md` ledger, live state to `tools/brief.py`, ranking to `OPEN_WORK.md` §9.
+- The frozen queue moved to `history/2026-11-20_queue/`. `check_open_work.py` and `OPEN_WORK.md` §7 now point there, and the root `QUEUE.md` stub is gone.
+- `tools/check_fresh.py` is kept under its old name as the "no hand-kept live facts" check, so the seven-check command list still works. It fails on a current `main` SHA, an open-PR list, a version string or a Lean total on a maintained page. The `CORE.md` canonical-statement string is allow-listed, and lines between history markers are skipped. Neither `check_consistency.py` nor `check_pending.py` imports it; `is_git_repo` moved to `check_pending.py`.
+- `check_pending.py`: findings from the live open-PR check fail only for the PR named by `--pr N`. Other PRs print `WARN`, and `tools/brief.py` lists them. The own-row check and the summary check on `--body-file` were added. The STATUS-based checks were removed.
+- `check_claims.py`:
+  - Claim views remain only in `README.md`, `CORE.md` and `THEORY.md`, and `--write` regenerates them.
+  - The direction check replaces `check_gap`. It also fails any maintained page outside §9 that ranks or orders DATA-ONE, RS-SCREEN or other real-system work.
+  - The summary check covers PR bodies and added Markdown lines. It was calibrated on the previous week of PR bodies and merges before it gated: 18 hits (13 true, 5 false) and 3 misses, reported in the PR.
+- The other ranked lists were deleted or repointed to §9: `theory/GAP_PLAN.md`, the `ONE_PAGER.md` "next" sentence, the `PHYSICS_CHAIN` "In parallel (Level 2)" item and the `theory/README.md` RS-SCREEN line.
+- The optional CI workflow was dropped.
+

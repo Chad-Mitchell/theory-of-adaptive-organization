@@ -20,7 +20,7 @@ The tree was searched (CORE, THEORY including every CT and Appendix B, FRAMEWORK
 - FRAMEWORK §6.3 already specifies “price invariance (*h* ≈ 0 only)” for vigilance. FRAMEWORK §1.4 already says the empirical content is relations between independently measured quantities, not universal constants.
 - L1–L3: the caps *K*\* ≤ 1 for one real pole and *K*\* ≤ *J* for *J* modes hold “for every *w* and *h*” (`theory/LAYERS.md` lines 35, 40); L3's “no finite *K* is exact” does not use prices.
 - The selection lag \(\mathbb{E}[J]-J^\star=d/(2\beta)\), and the fractional form \(d/(2\sigma N_e)\), is in `core/bridge_2026-11-21/SELECTION.md` (Sella & Hirsh 2005 applied to *J*).
-- `OPEN_WORK.md` §8 already records the fitness-unit price obstacle. `STATUS.md` already records that stakes *w* have never been measured validly.
+- `OPEN_WORK.md` §8 already records the fitness-unit price obstacle. `STATUS.md` (retired 25 November 2026) already records that stakes *w* have never been measured validly.
 - Named rivals R1 (fixed budget share), R2 (exponent always ½), R3 (design equals the world's time scales, no price dependence): FRAMEWORK §9 item 6, and the 21 November shortlist.
 - Topkis (1978) and Milgrom & Shannon (1994) are already the cited engine of CT20 (ii) and of CT10 / G4 (`theory/MASTER_EQUATION.md` line 29; `THEORY.md` line 509; `theory/GENERAL_THEOREM.md` line 348).
 

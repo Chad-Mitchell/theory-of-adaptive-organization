@@ -205,3 +205,7 @@ Already in the repository, and used rather than re-derived: Propositions JP-heat
 ## 10. What this note does not do
 
 It does not edit `THEORY.md` or the hypothesis sentence. It adds a pointer, and a short class paragraph, in `CORE.md` §3 for the feedback case, and it does not otherwise rewrite CORE. It does not add a CLAIM_MAP row, and it does not change the status of IP3, IP11, T40, T46, T47, T48, T49, T57, T58, T59, or T60 except to point at this follow-up from T60 and from the open-work rows. It does not edit the T46–T60 files except for that pointer from T60. It does not prove a closed-form floor for every feedback kernel, and it does not treat an in-model statement as a fact about a real system. It does not claim to close T57's loophole, and it does not claim to close CX2. No system has been shown to qualify under THEORY §3.
+
+## Class summary (moved here from the retired `STATUS.md`, 25 November 2026)
+
+*Feedback boundary* (T61, proved-in-model, `theory/FEEDBACK_FLOOR_2026-11-23.md:13-35`; independent review reported in OPEN_WORK; no review record committed). T61 is heat accounting for a passive plant. It is not co-adaptation F3/F4. \(\dot Q_M\ge kT\,I_{\mathrm{alt}}\) with \(I_{\mathrm{alt}}=-I^X\) still holds when the memory steers the world, while T60's exogenous bare-rate floor (T60, proved-in-model, in its exogenous class) fails (acting can lower or reverse \(I_{\mathrm{alt}}\)); conservative traps have vanishing ongoing heat, whereas additive linear feedback separates compensated Kalman–Bucy control from uncompensated loops.

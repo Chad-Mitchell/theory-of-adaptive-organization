@@ -183,3 +183,7 @@ The next in-model test, to be preregistered first, is a selection simulation (\(
 - Sagawa, T. and Ueda, M. 2009. Minimal energy cost for thermodynamic information processing: measurement and information erasure. *Phys. Rev. Lett.* 102:250602. doi 10.1103/PhysRevLett.102.250602.
 - Brockett, R. W. 1997. Minimum attention control. *Proc. 36th IEEE Conf. Decision and Control*. doi 10.1109/cdc.1997.657776.
 - Also verified for the companion edits in this PR: Ito et al. 2026 (doi 10.1103/19nl-c8fl), Matsumoto, Sasa and Dechant 2025 (doi 10.1088/1742-5468/adf4be), Hartich, Barato and Seifert 2016 (doi 10.1103/PhysRevE.93.022116), Kappen 2005 (doi 10.1103/PhysRevLett.95.200201), Todorov 2009 (doi 10.1073/pnas.0710743106), Doob 1957 (doi 10.24033/bsmf.1494), Horowitz and Esposito 2014 (doi 10.1103/PhysRevX.4.031015).
+
+## Class summary (moved here from the retired `STATUS.md`, 25 November 2026)
+
+*Clock term and Kalman–Bucy factor of two* (T68, `theory/CLOCK_TERM_2026-11-23.md:11-15, 125`; `theory/DRIFT_HEAT_LIFT_2026-11-23.md:128-129`): anticipating predictable change between paid looks needs a TUR-priced internal clock once looks cost more than \(4\kappa kT\) or \(6\kappa kT\) (fixed price) or carry more than \(4\kappa/\lambda\) nats (information-priced random looks); the Kalman–Bucy factor-of-two question is answered from the linear identity (\(\dot Q_M=kT\,\dot I_M(1+\dot I_M/N)\)) and Hartich–Barato–Seifert 2016 (with its transfer-entropy qualification).

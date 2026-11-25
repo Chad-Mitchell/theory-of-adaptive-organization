@@ -37,9 +37,11 @@ about the real world.
 - Axiom audit: `scripts/AxiomAudit.lean` (run by `tools/check_lean.sh`
   after the build) checks that every declaration in a `GTAO.*` module
   depends only on `propext`, `Classical.choice` and `Quot.sound`.  A
-  `sorry` anywhere would show up as `sorryAx` and fail the check.  Last
-  run (22 November 2026, branch `lean-batch2-2026-11-21`, after the
-  batch-2 confirm nits): 757 declarations, OK
+  `sorry` anywhere would show up as `sorryAx` and fail the check.  The
+  current total is `audit_count` in `AUDIT.json`, its one source.
+  <!-- history:begin (dated batch runs; not the current total) -->
+  Run of 22 November 2026, branch `lean-batch2-2026-11-21`, after the
+  batch-2 confirm nits: 757 declarations, OK
   (635 after the lean-layer-drift review should-fixes, plus batch 2,
   its should-fixes, and the confirm nits).
   Batch 1 (24 November 2026, branch `forge-lean-batch1`, after the
@@ -52,6 +54,7 @@ about the real world.
   LEAN-PHYS (25 November 2026, branch `forge-lean-phys` at `07bffb7`):
   1370 declarations, OK. The 185 constants above 1185 are the four
   LEAN-PHYS modules; 71 of them are source declarations.
+  <!-- history:end -->
 
 ## How to build
 

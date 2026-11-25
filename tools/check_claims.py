@@ -14,6 +14,7 @@ Exit 0 = no FAIL. A local pass is not a server-side publication gate.
 """
 from __future__ import annotations
 
+import glob
 import os
 import re
 import sys
@@ -26,15 +27,18 @@ HYP_FILES = [
     "README.md",
     "CORE.md",
     "THEORY.md",
-    "STATUS.md",
     "ONE_PAGER.md",
+    "OPEN_WORK.md",
     "theory/COADAPTATION.md",
     "theory/GROWTH_BRIDGE.md",
     "theory/FEEDBACK_FLOOR_2026-11-23.md",
     "theory/SWARM_RULE_2026-11-23.md",
     "theory/AREA_LAW_PROBE_2026-11-23.md",
 ]
-FRONT = ["README.md", "CORE.md", "STATUS.md", "ONE_PAGER.md", "THEORY.md"]
+FRONT = ["README.md", "CORE.md", "ONE_PAGER.md", "THEORY.md"]
+# Generated claims views (python3 tools/check_claims.py --write). README is the front page; CORE.md and
+# THEORY.md keep theirs because this repo may not edit them. No other page carries a view.
+VIEW_FILES = ["README.md", "CORE.md", "THEORY.md"]
 STATUSES = {
     "proved-in-model",
     "known",
@@ -242,6 +246,9 @@ def check_views(rows, root):
     errors = []
     want = render_view(rows)
     for path in FRONT:
+        if path not in VIEW_FILES and os.path.isfile(os.path.join(root, path)) and VIEW_BEGIN in read(root, path):
+            errors.append("claims: %s carries a claims view; only %s do" % (path, ", ".join(VIEW_FILES)))
+    for path in VIEW_FILES:
         if not os.path.isfile(os.path.join(root, path)):
             errors.append("claims: front page missing %s" % path)
             continue
@@ -253,8 +260,25 @@ def check_views(rows, root):
         got = text.split(VIEW_BEGIN, 1)[1]
         got = VIEW_BEGIN + got.split(VIEW_END, 1)[0] + VIEW_END
         if got != want:
-            errors.append("claims: view stale %s" % path)
+            errors.append("claims: view stale %s (run python3 tools/check_claims.py --write)" % path)
     return errors
+
+
+def write_views(root=None):
+    """Regenerate every claims view from the ledger. Returns the paths rewritten."""
+    root = root or repo_root()
+    rows, _rules, errors = parse_ledger(read(root, "measurement/CLAIM_MAP_v2.md"))
+    if not rows:
+        raise SystemExit("; ".join(errors))
+    want, done = render_view(rows), []
+    for path in VIEW_FILES:
+        text = read(root, path)
+        new = re.sub(re.escape(VIEW_BEGIN) + r".*?" + re.escape(VIEW_END), lambda _m: want, text, count=1, flags=re.S)
+        if new != text:
+            with open(os.path.join(root, path), "w", encoding="utf-8") as fh:
+                fh.write(new)
+            done.append(path)
+    return done
 
 
 def check_rules(rules, rows, root):
@@ -329,31 +353,162 @@ def check_unmanaged(rows, root, known):
     return errors
 
 
-def check_gap(root):
-    errors = []
-    ow = os.path.join(root, "OPEN_WORK.md")
-    gp = os.path.join(root, "theory/GAP_PLAN.md")
-    if not os.path.isfile(ow) or not os.path.isfile(gp):
-        return ["claims: GAP_PLAN or OPEN_WORK missing"]
-    text = read(root, "OPEN_WORK.md")
+# ------------------------------------------------------------------ direction (OPEN_WORK.md section 9)
+PARKED_IDS = {"DATA-ONE", "RS-SCREEN"}
+REAL_IDS = re.compile(r"(?<![A-Za-z0-9-])(DATA-ONE|RS-SCREEN)(?![A-Za-z0-9])")
+ORDER = re.compile(r"\brank(?:ed)?\s*\d|\bnext\b|\bthen\b|\bqueued?\b|\bpriority\b|\bin parallel\b|\bbest (?:two|one|candidates?)\b"
+                   r"|^\s*\d+\.\s", re.I)
+REAL_WORK = re.compile(r"\breal(?:-world)?\b[^.\n]{0,40}\b(?:systems?|data|tests?)\b|\bLevel 2\b|\bfield tests?\b", re.I)
+PARKED_OK = re.compile(r"\bparked\b|\bnot ranked\b|\bdownstream\b", re.I)
+DIRECTION_LINE = re.compile(r"^\*\*Direction \([^)]*\d{4}\):\*\*", re.M)
+
+
+def section9(text):
     m = re.search(r"^## 9\. Ranked gaps.*", text, re.M | re.S)
-    if not m:
-        return ["claims: OPEN_WORK has no section 9 ranked gaps"]
-    sec = m.group(0).split("\n## ", 1)[0]
-    ids = []
-    for line in sec.splitlines():
-        mm = GAP_ID.match(line)
-        if mm and mm.group(1) not in {"ID"}:
-            ids.append(mm.group(1))
-    if not ids:
-        errors.append("claims: section 9 has no gap rows")
-    gtext = read(root, "theory/GAP_PLAN.md")
-    for ident in ids:
-        if ident not in gtext:
-            errors.append("claims: GAP_PLAN.md missing %s" % ident)
-    if "not a second queue" not in gtext and "not a second list" not in gtext:
-        errors.append("claims: GAP_PLAN.md does not say it is derived")
+    return m.group(0).split("\n## ", 1)[0] if m else None
+
+
+def direction_pages(root):
+    import check_fresh
+    pages = set(check_fresh.live_pages(root)) | {p for p in glob.glob("theory/*.md", root_dir=root)}
+    return sorted(p for p in pages if p not in ("CORE.md", "THEORY.md"))  # not editable here
+
+
+def check_direction(root):
+    errors = []
+    if not os.path.isfile(os.path.join(root, "OPEN_WORK.md")):
+        return ["direction: OPEN_WORK.md missing"]
+    text = read(root, "OPEN_WORK.md")
+    sec = section9(text)
+    if sec is None:
+        return ["direction: OPEN_WORK.md has no section 9 ranked gaps"]
+    if not DIRECTION_LINE.search(sec):
+        errors.append("direction: OPEN_WORK.md section 9 has no dated '**Direction (..., YYYY):**' line")
+    if HYPOTHESIS not in sec:
+        errors.append("direction: OPEN_WORK.md section 9 does not quote the CORE.md:7 hypothesis sentence byte-identical")
+    rows = [split_cells(l) for l in sec.splitlines() if GAP_ID.match(l) and not l.startswith("| ID ")]
+    if not rows:
+        errors.append("direction: section 9 has no rows")
+    ranked = sorted((int(c[1]), c) for c in rows if len(c) >= 5 and c[1].isdigit())
+    for c in rows:
+        ident, rank, tag = c[0], c[1] if len(c) > 1 else "", c[2] if len(c) > 2 else ""
+        if rank != "parked" and not rank.isdigit():
+            errors.append("direction: %s has rank %r; a rank is a number or 'parked'" % (ident, rank))
+        if rank.isdigit() and (ident in PARKED_IDS or tag == "data"):
+            errors.append("direction: %s is parked work (tag %s) but has rank %s" % (ident, tag, rank))
+        if rank == "parked" and not (re.search(r"\bRestart:", c[-1]) and re.search(r"\bdecider:\s*\w", c[-1], re.I)):
+            errors.append("direction: parked row %s needs 'Restart: ...' and 'decider: ...'" % ident)
+    for ident in PARKED_IDS - {c[0] for c in rows if len(c) > 1 and c[1] == "parked"}:
+        errors.append("direction: %s must stay in section 9 as parked" % ident)
+    if ranked and ranked[0][1][2] != "math":
+        errors.append("direction: rank 1 (%s) is tagged %s, not math" % (ranked[0][1][0], ranked[0][1][2]))
+    # no other page ranks or orders real-system work
+    for path in direction_pages(root):
+        body = read(root, path)
+        if path == "OPEN_WORK.md":
+            body = body.replace(sec, "\n" * sec.count("\n"))
+        for ln, line in enumerate(body.split("\n"), 1):
+            if line.startswith("|") and not REAL_IDS.search(line.split("|")[1] if line.count("|") > 1 else ""):
+                cells = line
+            else:
+                cells = line
+            if PARKED_OK.search(cells):
+                continue
+            if (REAL_IDS.search(cells) and ORDER.search(cells)) or (re.search(r"\bin parallel\b", cells, re.I) and REAL_WORK.search(cells)):
+                errors.append("direction: %s:%d orders real-system work outside OPEN_WORK.md section 9: %s"
+                              % (path, ln, cells.strip()[:120]))
     return errors
+
+
+# ------------------------------------------------------------------ summaries
+SURFACE = {
+    "proved-in-model": r"proved-in-model|PROVED \(in-model\)|proved \(in-model\)|proved in-model|proved in (?:the |a )?models?"
+                       r"|proved in (?:its|their|the) (?:named |stated )?class(?:es)?",
+    "known": r"known", "open": r"open", "false": r"false", "hypothesis": r"hypothesis",
+    "interpretation": r"interpretation", "conjecture": r"conjecture", "synthesis": r"synthesis",
+}
+# A claim is judged when a status or outcome phrase follows its ID in the same clause ("T61 holds", "T49 stays open").
+JUDGE_NEAR = re.compile(r"^[^.;]{0,50}?\b(?:(?:is|are|was|were|stays?|remains?|becomes?|became|now|still)\s+(?:now\s+|still\s+|only\s+)?"
+                        r"(?:proved|proven|open|known|false|true|settled|established|refuted|confirmed|falsified|wrong|correct|"
+                        r"shown|closed)|holds|fails|failed|works|survives|survived)\b", re.I)
+WHOLE = [
+    re.compile(r"\b(?:the|this|our|GTAO(?:'s)?)\s+theory\s+(?:is|was|looks|seems|appears|has been|stands|holds up)\b[^.\n]{0,60}?"
+               r"\b(?:promising|strong|stronger|weak|weaker|wrong|right|correct|true|false|confirmed|refuted|validated|"
+               r"vindicated|falsified|on track|in trouble|working|failing|broken|sound|successful|a success|a failure|"
+               r"good|bad|robust|fragile|universal|supported|unsupported)\b", re.I),
+    re.compile(r"\b(?:the|this|our|GTAO(?:'s)?)\s+theory\s+(?:fails|failed|works|worked|succeeds|succeeded)\b", re.I),
+    re.compile(r"\b(?:GTAO|the theory)\s+(?:is|was)\s+(?:confirmed|refuted|validated|falsified|vindicated|supported)\b", re.I),
+    re.compile(r"\b(?:GTAO|the theory)\b[^.\n]{0,40}\b(?:nothing|no)\s+(?:\w+\s+)?(?:confirmed|refuted|validated|falsified)\b", re.I),
+    re.compile(r"\bthe theory-specific structure (?:failed|fails|held|holds|works|worked)\b", re.I),
+]
+CONDITIONAL = re.compile(r"\b(?:if|whether|unless|would)\b", re.I)
+REACH = re.compile(r"\b(?:the theory|GTAO)(?:'s)?\s+(?:reach|prospects|promise|value|future)\s+(?:is|are|grows|grew|extends|widens|"
+                   r"narrows|shrinks|looks|improves|improved|now)\b"
+                   r"|\bwhat (?:this|the|a) (?:test|result|miss|hit|run) (?:means|says) (?:for|about) (?:the theory|GTAO)\b", re.I)
+QUOTED = re.compile(r"`[^`]*`|\"[^\"\n]*\"|“[^”\n]*”|'[^'\n]{3,}'")
+
+
+def _sentences(text):
+    text = re.sub(r"```.*?```", " ", text, flags=re.S)
+    for para in text.split("\n"):
+        if para.lstrip().startswith(">") or para.lstrip().startswith("|"):
+            continue  # quotes, and table rows (the row-by-row form)
+        for s in re.split(r"(?<=[.!?])\s+", QUOTED.sub(" ", para)):
+            if s.strip():
+                yield s.strip()
+
+
+def summary_fails(text, root=None, where="text", status=None):
+    """Failure strings for summary sentences in text (a PR body or added Markdown lines).
+
+    1. A whole-theory judgment ('the theory works', 'the theory is promising', ...) fails.
+    2. A sentence on the theory's reach or prospects must name a ledger row with its exact status.
+    3. A sentence that judges a ledger claim ("T61 holds", "T49 stays open") must quote that row's exact
+       ledger status, or be a table row (the row-by-row form).
+    status: {id: ledger status}; default is the ledger in root.
+    """
+    if status is None:
+        rows, _r, _e = parse_ledger(read(root or repo_root(), "measurement/CLAIM_MAP_v2.md"))
+        status = {r["id"]: r["status"] for r in rows}
+    idrx = re.compile(r"(?<![A-Za-z0-9-])(" + "|".join(sorted(map(re.escape, status), key=len, reverse=True)) + r")(?![A-Za-z0-9-])")
+    out = []
+    for s in _sentences(text):
+        if any(rx.search(s) for rx in WHOLE) and not CONDITIONAL.search(s):
+            out.append("%s: whole-theory judgment; report row by row against named rivals: %s" % (where, s[:140]))
+            continue
+        found = list(idrx.finditer(s))
+        exact = {m.group(1) for m in found if re.search(r"(?<![\w-])(?:%s)(?![\w-])" % SURFACE.get(status[m.group(1)], "$^"), s, re.I)}
+        # "T57's loophole stays open" judges the loophole, not T57
+        judged = {m.group(1) for m in found if not re.match(r"['’]s\b", s[m.end():]) and JUDGE_NEAR.search(s[m.end():])}
+        if REACH.search(s) and not exact:
+            out.append("%s: judges the theory's reach without a ledger row and its exact status: %s" % (where, s[:140]))
+        elif judged - exact and not CONDITIONAL.search(s):
+            miss = sorted(judged - exact)
+            out.append("%s: judges %s without its exact ledger status (%s): %s"
+                       % (where, ", ".join(miss), "; ".join("%s is %s" % (i, status[i]) for i in miss), s[:140]))
+    return out
+
+
+def ledger_status(text):
+    rows, _r, _e = parse_ledger(text)
+    return {r["id"]: r["status"] for r in rows}
+
+
+def check_summaries(root):
+    """summary_fails on Markdown lines added since origin/main, outside history/, reference/ (archived copies) and locked files."""
+    import banned_words
+    base = banned_words.base_ref(root)
+    added = banned_words.added_lines(root, base) if base else None
+    if not added:
+        return []
+    locked = banned_words.locked_paths(root)
+    out = []
+    for path, lines in sorted(added.items()):
+        if path.startswith(("history/", "reference/")) or path in locked:
+            continue
+        for ln, line in lines:
+            out += ["summary: " + x for x in summary_fails(line, root, "%s:%d" % (path, ln))]
+    return out
 
 
 def check(root=None):
@@ -372,7 +527,8 @@ def check(root=None):
     errors.extend(check_rules(rules, rows, root))
     errors.extend(check_hypothesis(root))
     errors.extend(check_unmanaged(rows, root, claim_ids(text)))
-    errors.extend(check_gap(root))
+    errors.extend(check_direction(root))
+    errors.extend(check_summaries(root))
     # de-duplicate, keep order
     out, seen = [], set()
     for e in errors:
@@ -384,6 +540,17 @@ def check(root=None):
 
 def main(argv=None):
     argv = sys.argv if argv is None else argv
+    if "--write" in argv:
+        done = write_views()
+        print("views rewritten: %s" % (", ".join(done) or "none (already current)"))
+        return 0
+    if "--summary" in argv:
+        f = argv[argv.index("--summary") + 1]
+        fails = summary_fails(open(f, encoding="utf-8").read(), None, f)
+        for x in fails:
+            print("  FAIL " + x)
+        print("RESULT:", "FAIL" if fails else "PASS")
+        return 1 if fails else 0
     root = argv[1] if len(argv) > 1 else repo_root()
     fails = check(root)
     if fails:

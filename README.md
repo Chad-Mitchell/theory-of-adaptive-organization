@@ -18,7 +18,7 @@ The theory has two parts. Part 1 is mathematics: the cost, a heat floor no desig
 
 $$J = \dot Q + w\,\mathbb{E}[\ell] \qquad\text{subject to}\qquad P(\text{ruin})\le\varepsilon.$$
 
-\(\dot Q\) is the heat the memory's bath gives off, \(w\) is the stake that converts loss into that currency, \(\mathbb{E}[\ell]\) is the expected loss of the decision, and \(\varepsilon\) caps the chance of ruin. The cost is defined for any adaptive system: each has a memory that dissipates, a stake on error, and a chance of ruin. Physics sets the floor on the first term: for bipartite chains and additive-noise diffusions the heat is at least \(kT\) times the rate at which the memory learns its world (Horowitz and Esposito 2014, doi 10.1103/PhysRevX.4.031015). Temperature does not set the stake, and the stake and the ruin cap stay assumptions. [`THEORY.md`](THEORY.md) is the canonical statement of the theory (v2.9 draft) and still prints an older five-term sum; adopting this display there is open work T40 ([`OPEN_WORK.md`](OPEN_WORK.md)), and the relation between the two is set out in `CORE.md` §1.
+\(\dot Q\) is the heat the memory's bath gives off, \(w\) is the stake that converts loss into that currency, \(\mathbb{E}[\ell]\) is the expected loss of the decision, and \(\varepsilon\) caps the chance of ruin. The cost is defined for any adaptive system: each has a memory that dissipates, a stake on error, and a chance of ruin. Physics sets the floor on the first term: for bipartite chains and additive-noise diffusions the heat is at least \(kT\) times the rate at which the memory learns its world (Horowitz and Esposito 2014, doi 10.1103/PhysRevX.4.031015). Temperature does not set the stake, and the stake and the ruin cap stay assumptions. [`THEORY.md`](THEORY.md) is the canonical statement of the theory (a draft) and still prints an older five-term sum; adopting this display there is open work T40 ([`OPEN_WORK.md`](OPEN_WORK.md)), and the relation between the two is set out in `CORE.md` §1.
 
 ## What holds in general
 
@@ -55,7 +55,7 @@ In the worked class (equilibrium Ornstein–Uhlenbeck signals or the two-state t
 
 ## Where the evidence stands
 
-In simulations of our own worlds, selection converged to the predicted minimum in clean worlds and stalled where the world added an obstacle such as a valley, a ruin gate, or store noise; several locked in-model predictions also missed (`CORE.md` §5, `measurement/CLAIM_MAP_v2.md`). No real-data result yet counts as a test: every scored field row is NOT A TEST or INCONCLUSIVE, because no system has been qualified under THEORY §3 ([`STATUS.md`](STATUS.md)).
+In simulations of our own worlds, selection converged to the predicted minimum in clean worlds and stalled where the world added an obstacle such as a valley, a ruin gate, or store noise; several locked in-model predictions also missed (`CORE.md` §5, `measurement/CLAIM_MAP_v2.md`). No real-data result yet counts as a test: every scored field row is NOT A TEST or INCONCLUSIVE, because no system has been qualified under THEORY §3 (`measurement/CLAIM_MAP_v2.md`, tally lines and the HYP row of its headline ledger).
 
 ## How a miss is read
 
@@ -63,14 +63,14 @@ In simulations of our own worlds, selection converged to the predicted minimum i
 
 ## What remains
 
-Math first, then the real-world test. The live list is `OPEN_WORK.md`, including the ranked gaps in §9. T48 and T49 are on main and are not an unstarted next item. Smaller open items and two recorded misses are listed in `CORE.md` §7.
+Physics first; real systems are downstream checks. The live list is `OPEN_WORK.md`, and its §9 is the one ranked list of work. T48 and T49 are on main and are not an unstarted next item. Smaller open items and two recorded misses are listed in `CORE.md` §7.
 
 ## Where to read
 
-Claim statuses: `measurement/CLAIM_MAP_v2.md` (v2.89). Where the work stands: [`STATUS.md`](STATUS.md). What is still open: [`OPEN_WORK.md`](OPEN_WORK.md). Earlier front pages are in `history/`, most recently `history/2026-11-22_README_before_synthesis.md`.
+Claim statuses: `measurement/CLAIM_MAP_v2.md` (its headline ledger). Live state (HEAD, recent merges, open PRs): `python3 tools/brief.py`. What is still open: [`OPEN_WORK.md`](OPEN_WORK.md). Earlier front pages are in `history/`, most recently `history/2026-11-22_README_before_synthesis.md`.
 
 ```
-THEORY.md         The theory, v2.9 draft (canonical statement; §3 is still the five-term cost)
+THEORY.md         The theory, a draft (canonical statement; §3 is still the five-term cost)
 CORE.md           The same argument in full, with every number
 theory/           The heat, the five yields, and the checks
 measurement/      One status per claim

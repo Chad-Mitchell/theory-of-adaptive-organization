@@ -317,7 +317,7 @@ THEORY governs where a note disagrees with it. This section records the clashes 
    - `theory/SELECTION_AXIOMS.md` header now says the THEORY §4 fold merged with PR #144. The body already states \(\beta=\alpha\nu\).
    - `theory/README.md` now says THEORY v2.9 draft states the core.
    - The directions note now says PR #154, PR #153, and PR #155 are merged (item 2, and the order-of-work line).
-   - This PR updates STATUS. At `origin/main` `5fa4b8c`, `STATUS.md` still says `main` is `2d9a812` (PR #165). The edit on this branch sets that pointer to `5fa4b8c` (PR #168).
+   - This PR updates STATUS. At `origin/main` `5fa4b8c`, `STATUS.md` (retired 25 November 2026) still says `main` is `2d9a812` (PR #165). The edit on this branch sets that pointer to `5fa4b8c` (PR #168).
 
    Left as written, because this pass did not rewrite them:
    - OPEN_WORK T11 and section T were later re-confirmed on 23 November 2026 (READY); the stale pending-confirm wording was updated then. PR #149 is merged.
