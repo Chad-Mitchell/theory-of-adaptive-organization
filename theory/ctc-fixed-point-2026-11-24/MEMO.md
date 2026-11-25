@@ -10,7 +10,7 @@ Nothing here derives general relativity, quantum mechanics, holography, or gravi
 
 **HYPOTHESIS, Ace's unreviewed candidate, re-derived before the bars were locked.** A two-qubit Deutsch loop is a toy model of Deutsch's fixed-point prescription, and on that model the closed loop does not push the chronology-respecting entropy below the acyclic Landauer sign or force the record-price ratio.
 
-Route A has no cycle. Its same-channel gap is \(\kappa_D P_D(\theta)\) (`theory/RECORD_RATIO_CONSISTENCY_2026-11-24.md:103` on `forge-record-ratio-reframes`; the vanishing condition is `:106`, the status is `:112`). The two-qubit loop is the smallest cycle that can sit beside that gap. The score is `theory/ctc_fixed_point_checks/ctc_fixed_point_checks.out`. `FAILS 0` (`out:18`).
+Route A has no cycle. Its same-channel gap is \(\kappa_D P_D(\theta)\) (`theory/RECORD_RATIO_CONSISTENCY_2026-11-24.md:103` on `main`; the vanishing condition is `:106`, the status is `:112`). The two-qubit loop is the smallest cycle that can sit beside that gap. The score is `theory/ctc_fixed_point_checks/ctc_fixed_point_checks.out`. `FAILS 0` (`out:18`).
 
 ## Can it fail
 
@@ -58,7 +58,7 @@ Model implication, conditional on these bars (`PREREG.md:170`): the loop does no
 
 The sentences above that call the scored gap the route A gap stay visible. They are withdrawn. `PREREG.md` is not edited. The lock remains `f18721fc852f83a6154aa50186cbbdb876fe0ad9`, sha256 `756d9f0c257d4dcf73d53440cde43a50dd8092633cdc3383cf7b21ad3b0e2f8e`.
 
-**Miss.** Location `model`. The prose claim was that the loop's ratio gap is route A's same-channel gap and is not undercut. Route A's minimized record cost of one classical channel has slope 0 in \(\kappa_D\) (`theory/RECORD_RATIO_CONSISTENCY_2026-11-24.md:116` on `forge-record-ratio-reframes`). The scored DISC design, one fixed point, has slope \(P_D=h((2+\sqrt{2})/4)=0.416495530700\). Signed size: \(+0.416495530700\) nats per unit \(\kappa_D\), outcome minus that slope 0. The eight-field row is `route-A-id` in `DEVIATIONS.md`. This blocks reading the score as a test of route A. The ten locked bars are not moved.
+**Miss.** Location `model`. The prose claim was that the loop's ratio gap is route A's same-channel gap and is not undercut. Route A's minimized record cost of one classical channel has slope 0 in \(\kappa_D\) (`theory/RECORD_RATIO_CONSISTENCY_2026-11-24.md:116` on `main`). The scored DISC design, one fixed point, has slope \(P_D=h((2+\sqrt{2})/4)=0.416495530700\). Signed size: \(+0.416495530700\) nats per unit \(\kappa_D\), outcome minus that slope 0. The eight-field row is `route-A-id` in `DEVIATIONS.md`. This blocks reading the score as a test of route A. The ten locked bars are not moved.
 
 The loop's gap and route A's gap differ as follows.
 
@@ -85,3 +85,5 @@ Reported here, on this toy: 20 of 64 gates need a selector; the discriminating u
 Appended after the review: the route A identification is a miss, logged in that file. The ten locked bars stay hits.
 
 **Labels, 25 November 2026 (bar by bar, `process/PROCESS.md:28`).** CONSISTENCY_CHECK, an identity that could not miss: P1a, P2-bound, P3-phase, P3-contraction, P4-cycle. Bars that could have missed: P1b-named, P1b-grid, P2-illicit, P3-gap, P4-half. The route A identification is a separate miss located in the model (`DEVIATIONS.md`). No number or bar changed.
+
+**Update, 25 November 2026.** The Route A file is now on `main` (PR #257, `fa91b59`). Cites in this memo point there. The locked preregistration still names the file as on `forge-record-ratio-reframes` and is not edited; those line numbers now resolve on `main`.
