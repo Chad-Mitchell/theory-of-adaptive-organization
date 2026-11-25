@@ -168,7 +168,7 @@ No value of \(\kappa_D/\kappa\) is computed from this paper. The route stops.
 
 **Why A5 does not fire.** A measurement followed by a classical garbling is one record, then a degradation of that record. The mutual informations do not add. The costs of two independent copies would add. These are not independent copies. Concatenation over time prices a duration at a fixed rate. It does not identify the coefficient of a stock with the coefficient of a disturbance.
 
-**Status. Puzzle.** The identity is **PROVED (in-model)** in the scope above. The price reading is the missing sentence, not a consequence of it. A1–A8 do not contain the sentence (`theory/REPRESENTATION.md:177`, `:120`, `:114`).
+**Status. Open miss.** The identity is **PROVED (in-model)** in the scope above. The price reading is the missing sentence, not a consequence of it. A1–A8 do not contain the sentence (`theory/REPRESENTATION.md:177`, `:120`, `:114`).
 
 **Model implication.** Conditional on the shared-coefficient sentence: the record cost equals \(\kappa(H(M)-\mathbb{E}[S(\rho)])\). On the antipodal complete-dephasing ensemble that expression is independent of \(\theta\), and the stake alone sets \(\theta\) (`MEMO.md:68`). Off that ensemble \(H(M)\) can depend on \(\theta\), so ratio 1 need not flatten the record cost. What it does to the minimizing \(\theta\) there is **OPEN**, and it is the unscored lock in `PREREG_2.md` on draft #252. This note does not score it.
 
@@ -178,7 +178,7 @@ Routes A, B, and D are algebra on the closed form already locked and checked on 
 
 If the closed form on draft #252 were withdrawn, the gap in Route A and the pointer match in Route B would be withdrawn with it. The thing to do then is to re-derive the channel identity from whatever closed form replaces it, not to keep the ratio claim. The ledger identity in Route D does not use the antipodal closed form. It uses only that a rank-1 projective measurement leaves a diagonal state whose entropy is the outcome entropy. That step would survive a change of ensemble.
 
-## Puzzle
+## Open miss
 
 Route A has no cycle. The one-way replacement lowers the cost of a channel by \(\kappa_D P_D\), including at ratio 1, and it is available only if classical post-processing is on the menu and the kept record is the final outcome. Route B's continuity either misses \(\kappa_D\), at the pointer, or sets \(\kappa_D=0\), off the pointer. Route C is a known entropy bound on a different functional, and the paper shows the bound does not pass to mutual information. Route D writes the missing sentence as "do not price the split" and does not derive it. A1–A8, the ruin cap, and these four readings do not force \(\kappa_D/\kappa=1\). The shared-coefficient sentence is still missing. The endpoint 0 is what two strengthened readings would say instead, and those strengthenings are not in the axioms either.
 
