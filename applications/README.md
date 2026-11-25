@@ -20,7 +20,7 @@ One application of the cost of judgment to a long-chat assistant that answers fr
 
 ## Unified factored representations and forgetting
 
-One application note on arXiv:2611.11020 (Lehman and Stanley): a summary of the paper labeled observed, one locked, hash-stamped prediction (UFR-P1, a hypothesis, no data run) that forgetting under cyclic fine-tuning ranks with an entropy effective-rank measure of held activations at equal fit, and three open gaps (self-induced coupled drift, representation-dependent redesign cost, saturating against diffusive drift). `applications/UFR_FORGETTING_2026-11-24.md`. Not a test of the hypothesis, and the repository has no neural-network result.
+One application note on arXiv:2611.11020 (Lehman and Stanley): a summary of the paper labeled observed, one locked, hash-stamped prediction (UFR-P1, a hypothesis, no data run) that forgetting under cyclic fine-tuning ranks with an entropy effective-rank measure of held activations at a common fit threshold, with a hit needing both a pooled Spearman of at least +0.40 and a mean within-arm Spearman of at least +0.20, and three open gaps (self-induced coupled drift, representation-dependent redesign cost, saturating against diffusive drift). `applications/UFR_FORGETTING_2026-11-24.md`. Not a test of the hypothesis, and the repository has no neural-network result.
 
 ## Cancer as defection
 
