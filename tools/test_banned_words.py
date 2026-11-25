@@ -165,23 +165,41 @@ def test_blob_listed_file_is_exempt_only_for_that_blob(tmp_path):
     open(os.path.join(d, "process", "LOCKED_BLOBS.txt"), "w").write(
         "# comment\nx.md %s committed before the run\n" % _blob(locked))
     _git(d, "add", "-A"); _git(d, "commit", "-qm", "add")
+    _git(d, "update-ref", "refs/remotes/origin/main", "HEAD")  # exemption is on main
     assert bw.check_added(d) == ([], None)
-    open(os.path.join(d, "x.md"), "wb").write(locked + b"edited\n")
+    open(os.path.join(d, "x.md"), "wb").write(b"a verdict, now edited\n")
     fails, _ = bw.check_added(d)
     assert fails and "x.md" in fails[0]
 
 
-def test_blob_list_ignores_malformed_lines(tmp_path):
-    d = str(tmp_path)
+def test_same_pr_new_exemption_plus_banned_word_is_flagged(tmp_path):
+    """B-278-2: a PR cannot add a LOCKED_BLOBS line and a banned word in the same change."""
+    d = _repo(tmp_path)  # origin/main has no LOCKED_BLOBS.txt
+    locked = b"a verdict in a file this PR also exempts\n"
     os.makedirs(os.path.join(d, "process"))
-    open(os.path.join(d, "process", "LOCKED_BLOBS.txt"), "w").write("x.md notablob why\njust-one-field\n# c\n")
-    assert bw.blob_list(d) == {}
+    open(os.path.join(d, "x.md"), "wb").write(locked)
+    open(os.path.join(d, "process", "LOCKED_BLOBS.txt"), "w").write(
+        "x.md %s added in the same PR\n" % _blob(locked))
+    _git(d, "add", "-A"); _git(d, "commit", "-qm", "exemption and word together")
+    fails, note = bw.check_added(d)
+    assert note is None and fails and "x.md" in fails[0] and "verdict" in fails[0]
 
 
-def test_real_blob_list_matches_the_files_in_this_repo():
+def test_blob_list_ignores_malformed_lines():
+    assert bw.parse_blob_list("x.md notablob why\njust-one-field\n# c\n") == {}
+
+
+def test_blob_list_is_read_from_origin_main_not_the_working_tree():
+    working = os.path.join(ROOT, "process", "LOCKED_BLOBS.txt")
+    assert os.path.isfile(working), "this PR keeps process/LOCKED_BLOBS.txt"
+    text = open(working, encoding="utf-8").read()
+    assert "theory/composite-contest-2026-11-24/PREREG_4.md" in text
+    assert "6f97e49b0f0d4674726c5558e967903636d24905" in text
+    assert "theory/menu3_checks/RUN_LOG.md" in text
+    assert "3a5efc2adf5a498d5f1f9f9403157136c6d880c9" in text
     listed = bw.blob_list(ROOT)
-    assert "theory/antifragility_checks/ADDENDUM.md" in listed
-    for path, blob in listed.items():
-        fp = os.path.join(ROOT, path)
-        if os.path.isfile(fp):                      # #253's two files are listed before they land
-            assert bw.git_blob(open(fp, "rb").read()) == blob, path
+    shown = bw.git(ROOT, "show", "origin/main:process/LOCKED_BLOBS.txt")
+    if shown.returncode != 0:
+        assert listed == {}
+    else:
+        assert listed == bw.parse_blob_list(shown.stdout)

@@ -16,9 +16,11 @@ Two checks, both run from tools/check_consistency.py:
 Locked files are never edited to satisfy this lint. A path is skipped, while its bytes are
 unchanged, if (1) a hash-lock line (`<sha256>  <path>` in a *.sha256, SHA256SUMS* or
 LOCK*.txt file) names it and the file still hashes to that value (or to it after the
-public-readiness scrub is reversed), or (2) process/LOCKED_BLOBS.txt lists its path and
-current git blob id (for files locked by commit order, not by hash). Edit a locked file
-and the exemption ends, and the verify_locks check fails too.
+public-readiness scrub is reversed), or (2) process/LOCKED_BLOBS.txt, read from
+origin/main (or the merge-base with it), lists its path and current git blob id
+(for files locked by commit order, not by hash). A new line in that file only
+takes effect after it is on main, so a PR cannot add an exemption and a banned
+word in the same change. Edit a locked file and the exemption ends.
 
 Exempt: text inside backticks, straight double quotes or curly quotes (the word is
 quoted, not used); a line with `<!-- banned-ok: reason -->` (reviewable escape);
@@ -102,19 +104,39 @@ def added_lines(root, base):
 LOCKED_BLOBS = "process/LOCKED_BLOBS.txt"
 
 
-def blob_list(root):
-    """{path: blob id} from process/LOCKED_BLOBS.txt."""
+def parse_blob_list(text):
+    """{path: blob id} from the contents of LOCKED_BLOBS.txt."""
     out = {}
-    fp = os.path.join(root, LOCKED_BLOBS)
-    if os.path.exists(fp):
-        for line in open(fp, encoding="utf-8"):
-            line = line.strip()
-            if not line or line.startswith("#"):
-                continue
-            parts = line.split(None, 2)
-            if len(parts) >= 3 and re.fullmatch(r"[0-9a-f]{40}", parts[1]):
-                out[parts[0]] = parts[1]
+    for line in (text or "").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = line.split(None, 2)
+        if len(parts) >= 3 and re.fullmatch(r"[0-9a-f]{40}", parts[1]):
+            out[parts[0]] = parts[1]
     return out
+
+
+def blob_list_ref(root):
+    """origin/main if present, else the merge-base of HEAD and origin/main, else None."""
+    if git(root, "rev-parse", "--verify", "-q", "origin/main").returncode == 0:
+        return "origin/main"
+    r = git(root, "merge-base", "HEAD", "origin/main")
+    return r.stdout.strip() or None if r.returncode == 0 else None
+
+
+def blob_list(root, ref=None):
+    """{path: blob id} from process/LOCKED_BLOBS.txt at origin/main (or the merge-base), not the working tree.
+
+    A new exemption only takes effect after it is on main.
+    """
+    ref = ref or blob_list_ref(root)
+    if not ref:
+        return {}
+    r = git(root, "show", "%s:%s" % (ref, LOCKED_BLOBS))
+    if r.returncode != 0:
+        return {}
+    return parse_blob_list(r.stdout)
 
 
 LOCK_FILE_RE = re.compile(r"(\.sha256|SHA256SUMS[^/]*|LOCK[^/]*\.txt)$")
