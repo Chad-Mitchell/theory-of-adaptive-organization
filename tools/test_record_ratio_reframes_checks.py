@@ -10,14 +10,26 @@ LOCKED_THEORY = "6caadae569116a94a74563398be94cebf6e99e9b"
 LOCKED_PREREG = "8e495b7b97bbf254429dc4ed0aeb153944579db9f2230eae769937e98b43fce8"
 
 def _theory_blobs_allowed():
-    """The lock-time blob, plus THEORY.md on main: this branch must not edit THEORY.md,
-    and main may have changed it after the lock (#284 did)."""
+    """The lock-time blob, THEORY.md on a main ref, and THEORY.md from the main
+    that was merged into this branch. This branch must not edit THEORY.md.
+    Fork main can still hold the lock-time blob after upstream main has moved (#284)."""
     allowed = {LOCKED_THEORY}
     for ref in ("origin/main", "upstream/main"):
         r = subprocess.run(["git", "rev-parse", "--verify", "-q", ref + ":THEORY.md"],
                            capture_output=True, text=True, cwd=ROOT, timeout=30)
         if r.returncode == 0:
             allowed.add(r.stdout.strip())
+    latest = subprocess.run(
+        ["git", "rev-list", "--first-parent", "--merges", "-1", "HEAD"],
+        capture_output=True, text=True, cwd=ROOT, timeout=30,
+    )
+    if latest.returncode == 0 and latest.stdout.strip():
+        parent = subprocess.run(
+            ["git", "rev-parse", "--verify", "-q", latest.stdout.strip() + "^2:THEORY.md"],
+            capture_output=True, text=True, cwd=ROOT, timeout=30,
+        )
+        if parent.returncode == 0:
+            allowed.add(parent.stdout.strip())
     return allowed
 
 
