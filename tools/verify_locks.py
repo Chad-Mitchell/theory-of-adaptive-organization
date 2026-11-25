@@ -155,7 +155,7 @@ def verify(root=ROOT, history=True, scrub=None, post=None, unverifiable=None, mi
     fails, notes = [], []
     counts = {"OK": 0, "SCRUB": 0, "POST_LOCK": 0, "UNVERIFIABLE": 0, "MISSING": 0}
     missing = {}
-    seen_scrub, seen_post, seen_unv = set(), set(), set()
+    seen_scrub, seen_post, seen_unv, seen_later = set(), set(), set(), set()
     for lf, hit, hx, target in entries(root):
         if hit is None:
             missing[lf] = missing.get(lf, 0) + 1
@@ -164,6 +164,13 @@ def verify(root=ROOT, history=True, scrub=None, post=None, unverifiable=None, mi
         b = open(os.path.join(root, hit), "rb").read()
         if hit in blobs and hit not in scrub and git_blob(b) != blobs[hit]:
             fails.append("locks: %s changed since it was pinned (git blob %s, now %s); it is outside every lock, so any edit needs a new entry in process/LOCK_ERRATA.md and here" % (hit, blobs[hit][:8], git_blob(b)[:8]))
+        # Always check the declared later blob, even when this clone has no lock-time history
+        # (B-281-1: a shallow clone must still catch a tamper of pull.py).
+        if hit in post and hit not in seen_later:
+            seen_later.add(hit)
+            want = post[hit][3] if len(post[hit]) > 3 else None
+            if want and git_blob(b) != want:
+                fails.append("locks: %s changed since the declared later version (git blob %s, now %s)" % (hit, want[:8], git_blob(b)[:8]))
         if sha256(b) == hx:
             counts["OK"] += 1
         elif hit in scrub:
@@ -206,9 +213,8 @@ def main(argv=None):
     fails, counts, notes = verify(ROOT)
     print("locks: %(OK)d OK; %(SCRUB)d scrub-only (proved by reversing the substitution); %(POST_LOCK)d changed after the lock (declared); "
           "%(UNVERIFIABLE)d unverifiable; %(MISSING)d raw data never committed" % counts)
-    if "-v" in argv:
-        for n in notes:
-            print("  note: " + n)
+    for n in notes:
+        print("  note: " + n)
     for f in fails:
         print("  FAIL " + f)
     print("RESULT:", "FAIL" if fails else "PASS")

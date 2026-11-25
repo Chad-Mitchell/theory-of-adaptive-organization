@@ -17,7 +17,7 @@ Locked files are never edited to satisfy this lint. A path is skipped, while its
 unchanged, if (1) a hash-lock line (`<sha256>  <path>` in a *.sha256, SHA256SUMS* or
 LOCK*.txt file) names it and the file still hashes to that value (or to it after the
 public-readiness scrub is reversed), or (2) process/LOCKED_BLOBS.txt, read from
-origin/main (or the merge-base with it), lists its path and current git blob id
+origin/main, lists its path and current git blob id
 (for files locked by commit order, not by hash). A new line in that file only
 takes effect after it is on main, so a PR cannot add an exemption and a banned
 word in the same change. Edit a locked file and the exemption ends.
@@ -118,15 +118,18 @@ def parse_blob_list(text):
 
 
 def blob_list_ref(root):
-    """origin/main if present, else the merge-base of HEAD and origin/main, else None."""
+    """origin/main if that ref exists, else None.
+
+    There is no merge-base fallback: if origin/main is missing,
+    `git merge-base HEAD origin/main` also fails.
+    """
     if git(root, "rev-parse", "--verify", "-q", "origin/main").returncode == 0:
         return "origin/main"
-    r = git(root, "merge-base", "HEAD", "origin/main")
-    return r.stdout.strip() or None if r.returncode == 0 else None
+    return None
 
 
 def blob_list(root, ref=None):
-    """{path: blob id} from process/LOCKED_BLOBS.txt at origin/main (or the merge-base), not the working tree.
+    """{path: blob id} from process/LOCKED_BLOBS.txt at origin/main, not the working tree.
 
     A new exemption only takes effect after it is on main.
     """

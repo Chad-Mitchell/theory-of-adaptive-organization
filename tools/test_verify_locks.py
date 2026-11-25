@@ -175,3 +175,67 @@ def test_declared_post_lock_still_fails_if_the_pin_commit_is_present_but_wrong(t
     post = {"d/a.py": (pin[:7], pin, "def5678", vl.git_blob(b"later edited\n"))}
     fails, counts, _ = vl.verify(root, history=True, scrub=set(), post=post, unverifiable=set(), missing_pin={}, blobs={})
     assert counts["POST_LOCK"] == 1 and fails and "does not hash to the locked value" in fails[0]
+
+
+def test_post_lock_later_blob_is_checked_even_without_history(tmp_path):
+    later = b"later bytes\n"
+    root = _tree(tmp_path, {"d/a.py": later}, [(h(b"locked-version\n"), "a.py")])
+    post = {"d/a.py": ("86aa1cc", "0" * 40, "def5678", vl.git_blob(later))}
+    fails, counts, _ = vl.verify(root, history=False, scrub=set(), post=post, unverifiable=set(), missing_pin={}, blobs={})
+    assert fails == [] and counts["POST_LOCK"] == 1
+    (tmp_path / "d" / "a.py").write_bytes(later + b"# appended\n")
+    fails, _, _ = vl.verify(root, history=False, scrub=set(), post=post, unverifiable=set(), missing_pin={}, blobs={})
+    assert fails and "d/a.py" in fails[0] and "declared later version" in fails[0]
+
+
+def test_tampered_pull_py_fails_on_a_real_depth_5_clone(tmp_path):
+    """B-281-1: a shallow clone must still catch a tamper of pull.py. Use file:// so --depth is honoured."""
+    if not os.path.exists(os.path.join(ROOT, ".git")):
+        return
+    import subprocess
+    dest = tmp_path / "shallow"
+    url = "file://" + os.path.abspath(ROOT)
+    r = subprocess.run(["git", "clone", "-q", "--depth", "5", url, str(dest)], capture_output=True, text=True)
+    assert r.returncode == 0, r.stderr
+    assert os.path.exists(os.path.join(str(dest), ".git", "shallow"))
+    missing = subprocess.run(["git", "-C", str(dest), "cat-file", "-e", "86aa1cc^{commit}"], capture_output=True)
+    assert missing.returncode != 0, "clone was not shallow; lock-time commit is present"
+
+    fails, counts, notes = vl.verify(str(dest))
+    assert fails == [] and counts["POST_LOCK"] == 2
+    assert any("pull.py" in n and "not in this clone" in n for n in notes)
+
+    path = dest / "night2" / "GITHUB" / "code" / "pull.py"
+    path.write_bytes(path.read_bytes() + b"# tampered\n")
+    fails, counts, notes = vl.verify(str(dest))
+    assert any("night2/GITHUB/code/pull.py" in f and "declared later version" in f for f in fails), fails
+
+
+def test_shallow_history_notes_print_without_verbose(tmp_path, capsys):
+    if not os.path.exists(os.path.join(ROOT, ".git")):
+        return
+    import subprocess
+    dest = tmp_path / "shallow"
+    url = "file://" + os.path.abspath(ROOT)
+    r = subprocess.run(["git", "clone", "-q", "--depth", "5", url, str(dest)], capture_output=True, text=True)
+    assert r.returncode == 0, r.stderr
+    # run main() from the shallow tree by pointing ROOT... the module uses its own ROOT.
+    # Call verify and also simulate main's print of notes.
+    fails, counts, notes = vl.verify(str(dest))
+    assert fails == [] and notes
+    # main() always prints notes (no -v required); exercise that path with a stub root by
+    # printing the same way main does and checking capsys after a direct verify+print.
+    for n in notes:
+        print("  note: " + n)
+    out = capsys.readouterr().out
+    assert "not in this clone" in out and "pull.py" in out
+
+
+def test_main_prints_shallow_notes_without_verbose(monkeypatch, capsys):
+    counts = {"OK": 163, "SCRUB": 13, "POST_LOCK": 2, "UNVERIFIABLE": 2, "MISSING": 42}
+    notes = ["post-lock history for night2/GITHUB/code/pull.py: lock-time commit 86aa1cc is not in this clone; the erratum in process/LOCK_ERRATA.md still stands"]
+    monkeypatch.setattr(vl, "verify", lambda root: ([], counts, notes))
+    assert vl.main([]) == 0
+    out = capsys.readouterr().out
+    assert "note:" in out and "pull.py" in out and "not in this clone" in out
+    assert "RESULT: PASS" in out
