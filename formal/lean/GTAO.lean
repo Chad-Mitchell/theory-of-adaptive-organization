@@ -25,3 +25,7 @@ public import GTAO.Cauchy
 public import GTAO.Representation
 public import GTAO.Obstruction
 public import GTAO.ContinuousA6
+public import GTAO.HeatFloor
+public import GTAO.FiniteFloor
+public import GTAO.FiniteFloorBounds
+public import GTAO.RepairFloor

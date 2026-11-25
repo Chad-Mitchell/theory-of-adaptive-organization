@@ -559,8 +559,9 @@ Batch 1 does not prove these again.
 
 ## Paper claims with no formalization, by later batch
 
-Nothing in `formal/lean/GTAO/` is a declaration of these claims. Naming a
-nearby lemma in the list above is not a formalization of the claim.
+Batches after batch 2 have no declaration in `formal/lean/GTAO/`.
+Batch 2 is listed under **Batch 2 declarations**. Naming a nearby lemma
+in the list above is not a formalization of a later claim.
 
 ### Batch 2: heat and repair floors, T59, T60, T63
 
@@ -707,4 +708,70 @@ Batch 1 adds 75 source declarations: 72 **Faithful** and 3 **WEAKER**
 The axiom audit on this tree reports 926 `GTAO` constants, up from 757,
 and only `propext`, `Classical.choice`, and `Quot.sound`. The audit
 counts every generated constant, so 926 is larger than 354 + 75.
+
+## Batch 2 declarations
+
+These are the declarations added for the heat and repair floors.
+The 354 declarations and the 75 batch 1 declarations above are unchanged.
+Labels match `formal/lean/README.md`. **Faithful** means the checked
+statement is the paper sentence, with every extra hypothesis named.
+**WEAKER** means a clause of the paper sentence is not in the declaration.
+Each WEAKER row is also a miss in the appendix of `formal/lean/BATCH2_PLAN.md`.
+
+Batch 2 adds 125 source declarations: 121 **Faithful** and 4 **WEAKER**.
+
+### `GTAO/HeatFloor.lean` (45)
+
+All **Faithful**. The two-state floor, the cancellation of the leak, the
+frozen equilibrium, the barrier sign, and the copy-cap comparison.
+`jp_heat_floor` is the one-edge budget `Q̇ = kT (σ + I_alt)` with `σ`
+the entropy production of that edge. A general bipartite generator is
+not a declaration.
+
+`errorDot`, `steadyEps`, `steadyMu`, `L`, `binaryEntropy`, `fairInfo`,
+`copyBracket`, `iAltTwoState`, `edgeEntropy`, `memoryHeat`, `kramersRate`,
+`barrierWork`, `copyCapEps`, `L_zero_at_half`, `L_one_fifth`, `L_nonneg`,
+`L_pos`, `steady_mu_dot_zero`, `steady_unique`, `kolmogorov_error_dot`,
+`bracket_eq_world`, `iAlt_eq_rate_L`, `floor_independent_of_barrier`,
+`edgeEntropy_nonneg`, `edgeEntropy_eq_zero_iff`, `memoryHeat_ge_info`,
+`jp_heat_floor`, `frozen_flux_balance`, `frozen_heat_zero`,
+`hasDerivAt_mul_log`, `hasDerivAt_one_sub`, `hasDerivAt_compl_log`,
+`hasDerivAt_binaryEntropy`, `hasDerivAt_fairInfo`, `destroyDeriv`,
+`kramersRate_pos`, `iAlt_of_kramers`, `barrierWork_zero`, `barrierWork_pos`,
+`steady_ge_copyCap`, `copy_cap_gap`, `copy_cap_near_half`,
+`hasDerivAt_log_ratio`, `hasDerivAt_L`, `L_antitone`.
+
+### `GTAO/FiniteFloor.lean` (34)
+
+| Name | Label |
+|---|---|
+| `Nonneg`, `AC`, `Prob`, `klSum`, `kl`, `klSum_nonneg`, `kl_nonneg`, `kl_eq_top_of_not_ac`, `kl_eq_ofReal`, `klTerm_expand`, `klSum_eq_sum_log`, `kl_zero_iff` | **Faithful.** `kl` is `⊤` when a positive atom meets a zero atom. |
+| `totalVariation`, `totalVariation_nonneg`, `flux`, `stationary`, `flux_nonneg`, `flux_off_support` | **Faithful.** |
+| `worldSum`, `worldSum_stationary` | **Faithful.** Stationarity cancels the world sum, including states with zero mass. |
+| `iAltReal`, `iAlt`, `ennreal_sum_eq_zero`, `iAlt_nonneg`, `iAlt_eq_top_of_singular`, `iAlt_zero_iff_edge` | **Faithful.** A positive flux into a singular pair makes `iAlt = ⊤`. Zero iff every positive-flux edge has `kl = 0`. |
+| `infoX`, `destruction_identity` | **WEAKER.** The real expansion requires every world mass and every conditional atom to be strictly positive. The note's `0 log 0` extension of that expansion is not this identity. `FiniteFloor.lean:320`. |
+| `stationary_learning_rate` | **WEAKER.** Same missing clause: `iAltReal = -infoX` only under that strict positivity. `FiniteFloor.lean:373`. |
+| `bayesError`, `chanceError`, `sup'_witness_irrelevant`, `le_sup'_univ`, `bayes_of_constant` | **Faithful.** A constant conditional gives `ε = ε_0`. |
+
+### `GTAO/FiniteFloorBounds.lean` (19)
+
+All **Faithful**. `frozen_support`, `boltzmann_below_half` (`1/(1+exp 1) < 1/2`; the printed soft-memory decimal is not an equality), `PosFlux`, `Reach`, `stronglyConnected`, `reach_same_conditional`, `iAlt_zero_stronglyConnected`, `sup_fin3`, `classπ`, `classW`, `classP`, `classP_prob`, `classP_same`, `two_class_counterexample` (`ε = 3/10`, `ε_0 = 3/5`, `I_alt = 0`), `cycleπ`, `cycleW`, `cycleP`, `cycle_flux01`, `converse_fails_three` (`ε = ε_0` and `I_alt > 0`).
+
+The telegraph lower bound, the pairwise `L` bound, and the path bound are not declarations.
+
+### `GTAO/RepairFloor.lean` (27)
+
+| Name | Label |
+|---|---|
+| `log_sub_log_le`, `log_sub_log_lt`, `infoDeriv`, `infoDeriv_nonpos`, `infoDeriv_neg`, `hasDerivAt_infoGap`, `infoGap_half`, `infoGap_anti`, `infoGap_strictAnti`, `L_ge_four_entropy`, `L_eq_four_entropy_iff`, `fairInfo_half`, `fairInfo_antitone`, `fairInfo_strictAnti`, `fairInfo_nonneg` | **Faithful.** `L(ε) ≥ 4 (log 2 - h(ε))` on `(0, 1/2]`, with equality exactly at `1/2`. |
+| `oneCarrierSigma`, `one_carrier_floor` | **Faithful.** One carrier, `σ = Γ L(ε)`. |
+| `repair_floor_of_average` | **WEAKER.** The algebra of an assumed average `σbar`. The Schnakenberg integral is not constructed. `RepairFloor.lean:303`. |
+| `long_horizon` | **Faithful.** `S_max / τ` can be made smaller than any positive allowance. |
+| `rf_forget_stationary` | **WEAKER.** The two decoded errors of a bit-independent state sum to 1, so they cannot both be `≤ ε < 1/2`. The trajectory limit is not this theorem. `RepairFloor.lean:336`. |
+| `rf_cap`, `rf_cap_entropy`, `rf_cap_chain` | **Faithful.** `q` is an input. |
+| `bernoulli`, `decoder_half`, `decoder_pair`, `decoder_pair_lower` | **Faithful** for one binary source. The sum of two record distributions against the uniform, after data processing, is not a declaration. |
+
+The axiom audit after these declarations reports 1185 `GTAO` constants,
+up from 926, and only `propext`, `Classical.choice`, and `Quot.sound`.
+The audit counts every generated constant, so 1185 is larger than 354 + 75 + 125.
 
