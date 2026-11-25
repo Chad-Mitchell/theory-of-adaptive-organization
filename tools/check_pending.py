@@ -15,18 +15,32 @@ Checks
       lakefile and toolchain pins). The sources must still hash to the
       recorded value (otherwise rerun tools/check_lean.sh in /tmp/gtao-lean
       and record the new count with --record-audit N), and STATUS.md's
-      "**N declarations**" must equal the recorded count.
-  (c) pending reviewed work (network): every open PR on the upstream repo
-      and the fork that has a passing independent review (a review record
-      or comment with "Blockers remaining: 0") older than PENDING_HOURS is
-      listed and fails the check. No network, no gh, or an API error: (c)
-      is skipped with a WARN line and does not fail.
+      "**N declarations**" must equal the recorded count. The count is
+      attested by whoever ran the Lean build (a build is too heavy for CI);
+      the source hash only proves the sources have not changed since.
+  (c) pending reviewed work (network, via gh): every open PR on the
+      upstream repo and the fork whose latest independent review says
+      "Blockers remaining: 0" and is older than PENDING_HOURS fails, unless
+      the PR is listed in process/PARKED.md (reason, date, who decided).
+      A review is found by content, not by PR title: a PR whose changes are
+      all added review files, one of whose text has a "Blockers remaining: N" line is a review record, and
+      so is a comment with that line. A review is matched to the work PR
+      whose commits contain the reviewed head, or whose head branch is the
+      review's base branch, or whose head branch the review names.
+      Also fails when STATUS.md's "Open upstream PRs not yet merged" list
+      names a PR that is not open, or omits an open upstream PR older than
+      PENDING_HOURS that is not parked.
+
+Before comparing, the run does `git fetch origin main` so a stale clone
+cannot pass. If it cannot fetch, or has no network or no gh, the result is
+PARTIAL, never PASS.
 
 Run from the repo root:
   python3 tools/check_pending.py              # (a), (b), (c)
-  python3 tools/check_pending.py --offline    # (a), (b) only
+  python3 tools/check_pending.py --offline    # (a), (b) only: PARTIAL
+  python3 tools/check_pending.py --strict     # PARTIAL exits 2
   python3 tools/check_pending.py --record-audit 1185
-Exit 0 = PASS, 1 = FAIL.
+Exit 0 = PASS or PARTIAL, 1 = FAIL, 2 = PARTIAL with --strict.
 """
 from __future__ import annotations
 
@@ -55,7 +69,6 @@ OPEN_WORK_MAIN_RE = re.compile(r"on\s+`main`\s+`([0-9a-f]{7,40})`", re.I)
 STATUS_LEAN_RE = re.compile(r"\*\*(\d[\d,]*)\s+declarations\*\*")
 BLOCKERS_RE = re.compile(r"Blockers remaining:\s*(\d+)", re.I)
 REVIEWED_HEAD_RE = re.compile(r"(?:Reviewed head|^Head|^Re-check of head)\s+`([0-9a-f]{7,40})`", re.I | re.M)
-REVIEW_TITLE_RE = re.compile(r"\breview\b", re.I)
 
 
 def repo_root():
@@ -149,6 +162,30 @@ def record_audit(root, count, commit=None):
     return data
 
 
+# ------------------------------------------------------------------ parked
+PARKED_FILE = os.path.join("process", "PARKED.md")
+PARKED_ROW_RE = re.compile(r"^\|\s*(upstream|fork)#(\d+)\s*\|(.*)\|\s*$", re.I)
+DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def read_parked(root):
+    """({('upstream'|'fork', n): reason}, [problems]) from process/PARKED.md."""
+    path = os.path.join(root, PARKED_FILE)
+    parked, problems = {}, []
+    if not os.path.exists(path):
+        return parked, problems
+    for ln, line in enumerate(open(path, encoding="utf-8").read().split("\n"), 1):
+        m = PARKED_ROW_RE.match(line.strip())
+        if not m:
+            continue
+        cells = [c.strip() for c in m.group(3).split("|")]
+        if len(cells) < 3 or not cells[0] or not DATE_RE.match(cells[1]) or not cells[2]:
+            problems.append("pending: %s:%d needs reason | YYYY-MM-DD | decided by" % (PARKED_FILE, ln))
+            continue
+        parked[(m.group(1).lower(), int(m.group(2)))] = cells[0]
+    return parked, problems
+
+
 # ------------------------------------------------------------------ (c)
 class Offline(Exception):
     pass
@@ -157,88 +194,186 @@ class Offline(Exception):
 def gh_api(path):
     if not shutil.which("gh"):
         raise Offline("gh not installed")
-    r = subprocess.run(["gh", "api", "-H", "Accept: application/vnd.github+json", path],
-                       capture_output=True, text=True, timeout=60)
+    try:
+        r = subprocess.run(["gh", "api", "-H", "Accept: application/vnd.github+json", path],
+                           capture_output=True, text=True, timeout=60)
+    except subprocess.TimeoutExpired:
+        raise Offline("gh timed out")
     if r.returncode != 0:
         raise Offline((r.stderr or r.stdout).strip()[:200])
     return json.loads(r.stdout or "null")
+
+
+def paged(api, path):
+    """All items of a list endpoint: follow page=N until a short page."""
+    out, page = [], 1
+    sep = "&" if "?" in path else "?"
+    while True:
+        chunk = api("%s%sper_page=100&page=%d" % (path, sep, page)) or []
+        out.extend(chunk)
+        if len(chunk) < 100:
+            return out
+        page += 1
 
 
 def parse_time(s):
     return datetime.strptime(s, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
 
 
+HEX_TOKEN_RE = re.compile(r"`([0-9a-f]{7,40})`")
+
+
 def review_result(text):
-    """(blockers, reviewed_head) from the last 'Blockers remaining' in a review text."""
+    """(blockers, [reviewed SHAs]) from the last 'Blockers remaining' in a review text."""
     found = BLOCKERS_RE.findall(text or "")
     if not found:
-        return None, None
+        return None, []
     m = REVIEWED_HEAD_RE.search(text)
-    return int(found[-1]), (m.group(1) if m else None)
+    if m:
+        shas = [m.group(1)]
+    else:  # no explicit "Reviewed head": the first backticked hash of the opening
+        shas = HEX_TOKEN_RE.findall((text or "")[:400])[:1]
+    return int(found[-1]), shas
 
 
-def pending_items(api=gh_api, now=None, hours=PENDING_HOURS):
-    """Open work PRs with a passing review older than `hours`.
+def _owner(pr, side):
+    r = pr[side].get("repo")
+    return r["owner"]["login"] if r else None
 
-    A review counts when it is (1) a PR whose title says review, opened
-    against the work PR's head branch, whose added review file ends with
-    "Blockers remaining: N", or (2) a comment on the work PR with that line.
-    The latest such review governs: the item is pending when it says 0.
+
+def collect(api=gh_api, now=None, hours=PENDING_HOURS, parked=None, is_merged=None):
+    """(pending, open_upstream) for both repos.
+
+    pending: strings for open work PRs whose latest independent review
+    says 0 blockers and is older than `hours` and which are not parked.
+    open_upstream: the open upstream PR dicts.
+    is_merged(sha) -> True when that commit is already in main (a fork PR
+    whose work landed through another PR is not pending).
     """
     now = now or datetime.now(timezone.utc)
+    parked = parked or {}
     prs = {}
-    for repo in (UPSTREAM, FORK):
-        for p in api("/repos/%s/pulls?state=open&per_page=100" % repo) or []:
-            prs[(repo, p["number"])] = p
-    work = {k: p for k, p in prs.items() if not REVIEW_TITLE_RE.search(p["title"])}
-    reviews = {k: p for k, p in prs.items() if REVIEW_TITLE_RE.search(p["title"])}
-    seen = {}  # work key -> list of (time, where, blockers, reviewed_head)
-
-    def targets(owner, branch):
-        return [k for k, p in work.items()
-                if p["head"]["ref"] == branch and p["head"]["repo"] and p["head"]["repo"]["owner"]["login"] == owner]
-
-    for (repo, n), r in reviews.items():
-        owner = r["base"]["repo"]["owner"]["login"]
-        tgt = targets(owner, r["base"]["ref"])
-        if not tgt:
-            continue
-        files = api("/repos/%s/pulls/%d/files?per_page=100" % (repo, n)) or []
-        for f in files:
-            if not re.search(r"review", f["filename"], re.I) or f.get("status") != "added":
+    for label, repo in (("upstream", UPSTREAM), ("fork", FORK)):
+        for p in paged(api, "/repos/%s/pulls?state=open" % repo):
+            prs[(label, p["number"])] = (repo, p)
+    # 1. classify by content: a PR that adds a file with a "Blockers remaining" line is a review record
+    review_records, work = [], {}
+    for key, (repo, p) in prs.items():
+        found, other = None, False
+        for f in paged(api, "/repos/%s/pulls/%d/files" % (repo, p["number"])):
+            if f.get("status") != "added" or not re.search(r"review", f["filename"], re.I):
+                other = True  # a review record changes only review files
                 continue
-            c = api("/repos/%s/contents/%s?ref=%s" % (r["head"]["repo"]["full_name"], f["filename"], r["head"]["sha"]))
+            hrepo = p["head"]["repo"]["full_name"] if p["head"]["repo"] else repo
+            c = api("/repos/%s/contents/%s?ref=%s" % (hrepo, f["filename"], p["head"]["sha"])) or {}
             text = base64.b64decode(c.get("content", "")).decode("utf-8", "replace")
-            b, head = review_result(text)
+            b, shas = review_result(text)
             if b is not None:
-                for k in tgt:
-                    seen.setdefault(k, []).append((parse_time(r["created_at"]), "%s#%d" % (repo, n), b, head))
-    for (repo, n), p in work.items():
-        for c in api("/repos/%s/issues/%d/comments?per_page=100" % (repo, n)) or []:
-            b, head = review_result(c.get("body", ""))
+                found = (b, shas, text)
+        if found and not other:
+            review_records.append((key, p, found))
+        else:
+            work[key] = (repo, p)
+    # 2. reviews: records matched to work PRs, plus comments on work PRs
+    seen = {k: [] for k in work}  # key -> [(time, where, blockers, shas)]
+    commits = {}
+
+    def commit_shas(k):
+        if k not in commits:
+            repo, p = work[k]
+            commits[k] = [c["sha"] for c in paged(api, "/repos/%s/pulls/%d/commits" % (repo, p["number"]))]
+        return commits[k]
+
+    for key, rp, (b, shas, text) in review_records:
+        by_branch = [k for k, (repo, wp) in work.items()
+                     if rp["base"]["ref"] == wp["head"]["ref"]
+                     and rp["base"]["repo"]["owner"]["login"] == _owner(wp, "head")
+                     or ("`%s`" % wp["head"]["ref"]) in text]
+        # the reviewed head's commit is the fallback (a review based on main)
+        targets = by_branch or [k for k in work if any(c.startswith(x[:7]) for x in shas for c in commit_shas(k))]
+        for k in targets:
+            seen[k].append((parse_time(rp["created_at"]), "%s#%d" % (key[0], key[1]), b, shas))
+    for k, (repo, wp) in work.items():
+        for c in paged(api, "/repos/%s/issues/%d/comments" % (repo, wp["number"])):
+            b, shas = review_result(c.get("body", ""))
             if b is not None:
-                seen.setdefault((repo, n), []).append((parse_time(c["created_at"]), c.get("html_url", ""), b, head))
+                seen[k].append((parse_time(c["created_at"]), c.get("html_url", "comment"), b, shas))
     out = []
     for k, revs in seen.items():
-        t, where, b, head = max(revs)  # the latest review governs
-        if b == 0 and now - t > timedelta(hours=hours):
-            p = work[k]
-            cur = p["head"]["sha"]
-            stale = head and not cur.startswith(head[:7])
-            out.append("%s#%d (%s) head %s: passing review %s at %s, %.0f h ago%s" % (
-                k[0], k[1], p["title"][:70], cur[:7], where, head[:7] if head else "?",
-                (now - t).total_seconds() / 3600, "; head moved since that review" if stale else ""))
-    return sorted(out)
+        if not revs or k in parked:
+            continue
+        t, where, b, shas = max(revs, key=lambda r: r[0])  # the latest review governs
+        if b != 0 or now - t <= timedelta(hours=hours):
+            continue
+        wp = work[k][1]
+        cur = wp["head"]["sha"]
+        if is_merged and is_merged(cur):
+            continue
+        stale = shas and not any(cur.startswith(x[:7]) for x in shas)
+        out.append("%s#%d (%s) head %s: latest review %s says 0 blockers, %.0f h ago%s" % (
+            k[0], k[1], wp["title"][:60], cur[:7], where, (now - t).total_seconds() / 3600,
+            "; head moved since that review" if stale else ""))
+    open_upstream = [p for (label, n), (repo, p) in prs.items() if label == "upstream"]
+    return sorted(out), open_upstream
 
 
-def check_pending_work(api=gh_api):
+STATUS_LIST_RE = re.compile(r"Open upstream PRs not yet merged:(.*?)(?:Earlier merge logs|\n|$)", re.S)
+
+
+def check_status_list(root, open_upstream, parked, now=None, hours=PENDING_HOURS):
+    """STATUS.md's open-PR list against the live open upstream PRs."""
+    path = os.path.join(root, "STATUS.md")
+    if not os.path.exists(path):
+        return []
+    m = STATUS_LIST_RE.search(open(path, encoding="utf-8").read())
+    if not m:
+        return ["pending: STATUS.md has no 'Open upstream PRs not yet merged:' list"]
+    listed = {int(x) for x in re.findall(r"#(\d+)", m.group(1))}
+    live = {p["number"]: p for p in open_upstream}
+    now = now or datetime.now(timezone.utc)
+    fails = []
+    for n in sorted(listed - set(live)):
+        fails.append("pending: STATUS.md lists upstream #%d as open, but it is not open" % n)
+    for n, p in sorted(live.items()):
+        old = now - parse_time(p["created_at"]) > timedelta(hours=hours)
+        if n not in listed and old and ("upstream", n) not in parked:
+            fails.append("pending: open upstream #%d (%s) is neither in STATUS.md's open-PR list nor in %s"
+                         % (n, p["title"][:50], PARKED_FILE))
+    return fails
+
+
+def fetch_origin(root):
+    """None if origin/main was refreshed, else the reason it was not."""
+    if not fresh.is_git_repo(root):
+        return None
     try:
-        items = pending_items(api)
+        r = fresh.git(root, "fetch", "-q", "origin", "main")
+    except Exception as e:  # pragma: no cover
+        return str(e)
+    return None if r.returncode == 0 else ("git fetch origin main failed: " + (r.stderr.strip()[:120] or "?"))
+
+
+def in_main(root, sha):
+    """True when the commit is an ancestor of origin/main (False if unknown locally)."""
+    if not fresh.is_git_repo(root):
+        return False
+    r = fresh.git(root, "merge-base", "--is-ancestor", sha, "refs/remotes/origin/main")
+    return r.returncode == 0
+
+
+def check_online(root, api=gh_api, now=None):
+    """(fails, partial_reasons) for part (c) and the STATUS list."""
+    parked, problems = read_parked(root)
+    try:
+        pending, open_upstream = collect(api, now=now, parked=parked, is_merged=lambda sha: in_main(root, sha))
     except Offline as e:
-        return [], ["WARN pending: skipped the open-PR check (%s)" % e]
-    except Exception as e:  # network or API shape problem: never fail the offline checks
-        return [], ["WARN pending: skipped the open-PR check (%s: %s)" % (type(e).__name__, e)]
-    return ["pending: reviewed but unmerged > %dh: %s" % (PENDING_HOURS, x) for x in items], []
+        return problems, ["open-PR check not run (%s)" % e]
+    except Exception as e:
+        return problems, ["open-PR check not run (%s: %s)" % (type(e).__name__, e)]
+    fails = list(problems)
+    fails += ["pending: reviewed but unmerged > %dh: %s" % (PENDING_HOURS, x) for x in pending]
+    fails += check_status_list(root, open_upstream, parked, now=now)
+    return fails, []
 
 
 def main(argv=None):
@@ -249,19 +384,32 @@ def main(argv=None):
         d = record_audit(root, n)
         print("recorded %s" % json.dumps(d))
         return 0
-    fails, warns = [], []
+    fails, partial = [], []
+    online = "--offline" not in argv
+    if online:
+        err = fetch_origin(root)
+        if err:
+            partial.append(err + " (pointer checks use the local origin/main)")
+    else:
+        partial.append("open-PR check not run (--offline)")
     fails += check_pointers(root)
     fails += check_lean(root)
-    if "--offline" not in argv:
-        f, w = check_pending_work()
+    if online:
+        f, w = check_online(root)
         fails += f
-        warns += w
-    for w in warns:
-        print("  " + w)
+        partial += w
+    for w in partial:
+        print("  PARTIAL " + w)
     for f in fails:
         print("  FAIL " + f)
-    print("RESULT:", "PASS" if not fails else "FAIL")
-    return 0 if not fails else 1
+    if fails:
+        print("RESULT: FAIL")
+        return 1
+    if partial:
+        print("RESULT: PARTIAL (not everything was checked)")
+        return 2 if "--strict" in argv else 0
+    print("RESULT: PASS")
+    return 0
 
 
 if __name__ == "__main__":
