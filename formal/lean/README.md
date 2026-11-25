@@ -49,7 +49,7 @@ about the real world.
   Batch 2 (24 November 2026, branch `forge-lean-batch2` at `6663d0e`,
   merged as PR #266): 1185 declarations, OK. The 259 constants above 926
   are the four batch 2 modules.
-  LEAN-PHYS (25 November 2026, branch `forge-lean-phys` at `07bffb7`):
+  LEAN-PHYS (25 November 2026, on `main` as PR #288, source `07bffb7`):
   1370 declarations, OK. The 185 constants above 1185 are the four
   LEAN-PHYS modules; 71 of them are source declarations.
 
