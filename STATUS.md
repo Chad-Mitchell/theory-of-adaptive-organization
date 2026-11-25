@@ -42,7 +42,7 @@ IP5, the claim that the master equation is the physical frontier, is FALSE (`mea
 - `process/VOCABULARY.md` — proposed vocabulary for memory, record, model, layer, level, nesting, scale, fractal and swarm: one meaning each, with a test, a status label and citations. Adds no result and leaves `THEORY.md` unchanged.
 - `process/QUEUE.md` + `process/queue/` — frozen 20 November 2026; superseded by `OPEN_WORK.md`. The items and ledger remain as a historical record.
 - `tools/brief.py` — live state snapshot (HEAD, recent merges, open PRs, versions, open work). Run `python3 tools/brief.py` before answering from memory; do not trust a hand-written SHA on this page.
-- `tools/check_consistency.py` — run before and after any doc change; it must print RESULT: PASS. It also runs `tools/check_fresh.py`, which fails if this page's stated `main` SHA is not among the last 5 first-parent commits of main (`origin/main` if that ref exists, otherwise local `main`, otherwise HEAD).
+- `tools/check_consistency.py` — run before and after any doc change; it must print RESULT: PASS. It also runs `tools/check_fresh.py`, which fails if this page's stated `main` SHA is not among the last 3 first-parent commits of main, and the offline parts of `tools/check_pending.py` (the `OPEN_WORK.md` pointer and the Lean total against `formal/lean/AUDIT.json`). Run `python3 tools/check_pending.py` after every merge: it also lists open upstream or fork PRs with a passing review older than 24 hours (`process/PROCESS.md` §4). Main here means `origin/main` if that ref exists, otherwise local `main`, otherwise HEAD.
 
 ## Next
 Open work is listed in [`OPEN_WORK.md`](OPEN_WORK.md). This section does not keep a second list.
