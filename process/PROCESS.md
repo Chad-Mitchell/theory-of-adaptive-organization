@@ -50,3 +50,5 @@ Every new test write-up, `DEVIATIONS.md`, or process-miss log records each predi
 ## 4. Repository upkeep after every merge
 
 **Rule (24 November 2026):** after every merge to `main`, refresh `STATUS.md` (the `main` is `SHA` pointer, the Lean total, open PRs) and run `python3 tools/check_pending.py`; it fails when the `STATUS.md` or `OPEN_WORK.md` pointer is behind `main`, when the `STATUS.md` Lean total differs from `formal/lean/AUDIT.json` or the Lean sources changed since that audit, or when an upstream or fork PR has had a passing independent review for more than 24 hours without a merge.
+
+**Rule (24 November 2026):** every process miss gets an entry in [`process/FAILURES.md`](FAILURES.md): date, locked prediction, outcome, miss with size and cost, cause, location, and the update scaled to size, repetition and stake.
