@@ -39,8 +39,12 @@ Run from the repo root:
   python3 tools/check_pending.py              # (a), (b), (c)
   python3 tools/check_pending.py --offline    # (a), (b) only: PARTIAL
   python3 tools/check_pending.py --strict     # PARTIAL exits 2
+  python3 tools/check_pending.py --closing-keywords [RANGE] [--pr N] [--body-file F]
+                                              # pre-merge: closing keywords in commits and body
   python3 tools/check_pending.py --record-audit 1185
-Exit 0 = PASS or PARTIAL, 1 = FAIL, 2 = PARTIAL with --strict.
+Exit 0 = PASS (or PARTIAL because --offline was asked for), 1 = FAIL, 2 = PARTIAL that was not
+asked for (no gh, no network, an API error, or origin could not be fetched). `--allow-partial`
+makes that exit 0 again; the RESULT line still says PARTIAL.
 """
 from __future__ import annotations
 
@@ -67,7 +71,7 @@ AUDIT_FILE = os.path.join("formal", "lean", "AUDIT.json")
 
 OPEN_WORK_MAIN_RE = re.compile(r"on\s+`main`\s+`([0-9a-f]{7,40})`", re.I)
 STATUS_LEAN_RE = re.compile(r"\*\*(\d[\d,]*)\s+declarations\*\*")
-BLOCKERS_RE = re.compile(r"Blockers remaining:\s*(\d+)", re.I)
+BLOCKERS_RE = re.compile(r"Blockers remaining:?\**\s*\**(\d+)", re.I)
 REVIEWED_HEAD_RE = re.compile(r"(?:Reviewed head|^Head|^Re-check of head)\s+`([0-9a-f]{7,40})`", re.I | re.M)
 
 
@@ -223,9 +227,40 @@ def parse_time(s):
 HEX_TOKEN_RE = re.compile(r"`([0-9a-f]{7,40})`")
 
 
+FENCE_RE = re.compile(r"```.*?```|~~~.*?~~~", re.S)
+NEGATOR_RE = re.compile(r"\b(not|never|no|until|unless|if|once|when|whether|without|before|should|must|would|will|"
+                        r"require[sd]?|expect(?:ed)?|wait(?:s|ing)?|need(?:s|ed)?|until)\b", re.I)
+
+
+def _inside_quote(head):
+    """True when the text before the phrase leaves a quote open on this line."""
+    return (head.count("`") % 2 == 1 or head.count('"') % 2 == 1
+            or head.count("\u201c") > head.count("\u201d") or head.count("\u2018") > head.count("\u2019"))
+
+
+def blockers_found(text):
+    """[int] of 'Blockers remaining: N' that a reviewer wrote as a result.
+
+    Not counted: text in code fences or block quotes, a phrase that follows a quote mark or a
+    backtick on the same line (it is quoted), and a phrase that follows a negator within 50
+    characters of the same line ('not Blockers remaining: 0', 'wait for Blockers remaining: 0').
+    """
+    text = FENCE_RE.sub(" ", text or "")
+    out = []
+    for line in text.splitlines():
+        if line.lstrip().startswith(">"):
+            continue
+        for m in BLOCKERS_RE.finditer(line):
+            head = line[:m.start()]
+            if _inside_quote(head) or NEGATOR_RE.search(head[-50:]):
+                continue
+            out.append(int(m.group(1)))
+    return out
+
+
 def review_result(text):
     """(blockers, [reviewed SHAs]) from the last 'Blockers remaining' in a review text."""
-    found = BLOCKERS_RE.findall(text or "")
+    found = blockers_found(text)
     if not found:
         return None, []
     m = REVIEWED_HEAD_RE.search(text)
@@ -233,7 +268,7 @@ def review_result(text):
         shas = [m.group(1)]
     else:  # no explicit "Reviewed head": the first backticked hash of the opening
         shas = HEX_TOKEN_RE.findall((text or "")[:400])[:1]
-    return int(found[-1]), shas
+    return found[-1], shas
 
 
 def _owner(pr, side):
@@ -261,15 +296,21 @@ def collect(api=gh_api, now=None, hours=PENDING_HOURS, parked=None, is_merged=No
     for key, (repo, p) in prs.items():
         found, other = None, False
         for f in paged(api, "/repos/%s/pulls/%d/files" % (repo, p["number"])):
-            if f.get("status") != "added" or not re.search(r"review", f["filename"], re.I):
-                other = True  # a review record changes only review files
-                continue
-            hrepo = p["head"]["repo"]["full_name"] if p["head"]["repo"] else repo
-            c = api("/repos/%s/contents/%s?ref=%s" % (hrepo, f["filename"], p["head"]["sha"])) or {}
-            text = base64.b64decode(c.get("content", "")).decode("utf-8", "replace")
-            b, shas = review_result(text)
-            if b is not None:
-                found = (b, shas, text)
+            name = f["filename"]
+            reviewish = re.search(r"review", name, re.I) is not None
+            textual = name.lower().endswith((".md", ".txt")) and f.get("status") != "removed"
+            # a record may add or MODIFY a file, and its file name need not say "review": read any changed
+            # text file that is review-named or whose diff mentions "Blockers remaining"
+            if textual and (reviewish or "Blockers remaining" in (f.get("patch") or "")):
+                hrepo = p["head"]["repo"]["full_name"] if p["head"]["repo"] else repo
+                c = api("/repos/%s/contents/%s?ref=%s" % (hrepo, name, p["head"]["sha"])) or {}
+                text = base64.b64decode(c.get("content", "")).decode("utf-8", "replace")
+                b, shas = review_result(text)
+                if b is not None:
+                    found = (b, shas, text)
+                    continue
+            if not reviewish:
+                other = True  # a review record changes only review files (and the file that holds the result)
         if found and not other:
             review_records.append((key, p, found))
         else:
@@ -342,6 +383,70 @@ def check_status_list(root, open_upstream, parked, now=None, hours=PENDING_HOURS
     return fails
 
 
+# ------------------------------------------------------------------ closing keywords
+# GitHub closes the referenced issue or PR when a commit message or PR body that reaches the default branch
+# says close/fix/resolve (any tense) followed by #N. On 24 November 2026 a commit headline "fix #253 ..." in
+# #270 closed an unrelated open PR at merge (process/FAILURES.md, REPO-CURRENT-3).
+CLOSING_RE = re.compile(
+    r"\b(close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b:?\s+"
+    r"(?:(?P<repo>[\w.-]+/[\w.-]+)#(?P<n1>\d+)|#(?P<n2>\d+)|https://github\.com/(?P<urepo>[\w.-]+/[\w.-]+)/(?:issues|pull)/(?P<n3>\d+))",
+    re.I)
+CLOSES_OK_RE = re.compile(r"closes-ok:\s*#(\d+)", re.I)
+
+
+def closing_refs(text, self_number=None, self_repo=UPSTREAM):
+    """[(keyword, repo, number)] for closing keywords that name something other than the PR itself,
+    minus any number the text allows with `closes-ok: #N <reason>`."""
+    allowed = {int(x) for x in CLOSES_OK_RE.findall(text or "")}
+    out = []
+    for m in CLOSING_RE.finditer(text or ""):
+        repo = m.group("repo") or m.group("urepo") or self_repo
+        n = int(m.group("n1") or m.group("n2") or m.group("n3"))
+        if n in allowed or (n == self_number and repo.lower() == self_repo.lower()):
+            continue
+        out.append((m.group(1).lower(), repo, n))
+    return out
+
+
+def check_closing_texts(items, self_number=None):
+    """items: [(where, text)] -> failure strings."""
+    fails = []
+    for where, text in items:
+        for kw, repo, n in closing_refs(text, self_number):
+            fails.append("closing keyword '%s %s#%d' in %s would close another PR or issue when merged; reword it "
+                         "(say 'see #%d') or, if you mean it, add 'closes-ok: #%d <reason>'" % (kw, repo, n, where, n, n))
+    return fails
+
+
+def local_closing_check(root, rev_range, self_number=None, body_file=None):
+    """Pre-merge check on a local branch: commit messages in rev_range (default origin/main..HEAD) and an
+    optional PR body file."""
+    r = fresh.git(root, "log", "--format=%H%x1f%B%x1e", rev_range)
+    if r.returncode != 0:
+        return ["closing keywords: git log %s failed: %s" % (rev_range, r.stderr.strip()[:120])]
+    items = []
+    for rec in r.stdout.split("\x1e"):
+        rec = rec.strip("\n")
+        if "\x1f" in rec:
+            sha, msg = rec.split("\x1f", 1)
+            items.append(("commit %s" % sha[:7], msg))
+    if body_file:
+        items.append(("the PR body (%s)" % body_file, open(body_file, encoding="utf-8").read()))
+    return check_closing_texts(items, self_number)
+
+
+def check_closing_online(api=gh_api):
+    """Failure strings for every open upstream PR: title, body and commit messages."""
+    fails = []
+    for p in paged(api, "/repos/%s/pulls?state=open" % UPSTREAM):
+        n = p["number"]
+        items = [("#%d title/body" % n, "%s\n%s" % (p.get("title") or "", p.get("body") or ""))]
+        for c in paged(api, "/repos/%s/pulls/%d/commits" % (UPSTREAM, n)):
+            items.append(("#%d commit %s" % (n, c["sha"][:7]), (c.get("commit") or {}).get("message", "")))
+        fails += check_closing_texts(items, n)
+    return fails
+
+
 def fetch_origin(root):
     """None if origin/main was refreshed, else the reason it was not."""
     if not fresh.is_git_repo(root):
@@ -373,6 +478,10 @@ def check_online(root, api=gh_api, now=None):
     fails = list(problems)
     fails += ["pending: reviewed but unmerged > %dh: %s" % (PENDING_HOURS, x) for x in pending]
     fails += check_status_list(root, open_upstream, parked, now=now)
+    try:
+        fails += ["closing: " + x for x in check_closing_online(api)]
+    except Exception as e:
+        return fails, ["closing-keyword check not run (%s: %s)" % (type(e).__name__, e)]
     return fails, []
 
 
@@ -384,6 +493,16 @@ def main(argv=None):
         d = record_audit(root, n)
         print("recorded %s" % json.dumps(d))
         return 0
+    if "--closing-keywords" in argv:
+        i = argv.index("--closing-keywords")
+        rng = argv[i + 1] if i + 1 < len(argv) and not argv[i + 1].startswith("--") else "origin/main..HEAD"
+        pr = int(argv[argv.index("--pr") + 1]) if "--pr" in argv else None
+        body = argv[argv.index("--body-file") + 1] if "--body-file" in argv else None
+        fl = local_closing_check(root, rng, pr, body)
+        for f in fl:
+            print("  FAIL " + f)
+        print("RESULT:", "FAIL" if fl else "PASS")
+        return 1 if fl else 0
     fails, partial = [], []
     online = "--offline" not in argv
     if online:
@@ -407,7 +526,10 @@ def main(argv=None):
         return 1
     if partial:
         print("RESULT: PARTIAL (not everything was checked)")
-        return 2 if "--strict" in argv else 0
+        asked = not online                       # --offline: the caller asked for the offline subset
+        if "--strict" in argv:
+            return 2
+        return 0 if asked or "--allow-partial" in argv else 2
     print("RESULT: PASS")
     return 0
 

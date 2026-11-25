@@ -341,7 +341,15 @@ def test_strict_makes_partial_exit_2(monkeypatch, capsys):
 
 def test_no_network_is_partial_not_pass(monkeypatch, capsys):
     rc, out = _run_main(monkeypatch, capsys, [], online=lambda root: ([], ["open-PR check not run (no network)"]))
-    assert "RESULT: PARTIAL" in out and "RESULT: PASS" not in out and rc == 0
+    assert "RESULT: PARTIAL" in out and "RESULT: PASS" not in out and rc == 2   # not asked for: non-zero
+
+
+def test_no_gh_exits_nonzero_by_default_and_zero_with_allow_partial(monkeypatch, capsys):
+    off = lambda root: ([], ["open-PR check not run (gh not installed)"])  # noqa: E731
+    rc, out = _run_main(monkeypatch, capsys, [], online=off)
+    assert rc == 2 and "PARTIAL" in out
+    rc, out = _run_main(monkeypatch, capsys, ["--allow-partial"], online=off)
+    assert rc == 0 and "RESULT: PARTIAL" in out and "RESULT: PASS" not in out
 
 
 def test_failed_fetch_is_partial(monkeypatch, capsys):
@@ -386,3 +394,149 @@ def test_in_main_uses_git_ancestry(tmp_path):
     _git(repo, "update-ref", "refs/remotes/origin/main", shas[1])
     assert cp.in_main(repo, shas[0]) and cp.in_main(repo, shas[1])
     assert not cp.in_main(repo, shas[2]) and not cp.in_main(repo, "deadbeef")
+
+
+# ---------------------------------------------------------------- review-record detection (round 2 non-blockers)
+def test_review_record_that_modifies_an_existing_file_is_a_record():
+    g = FakeGH()
+    g.pr(cp.FORK, 30, "Lean batch 2", "batch2", "6663d0e", "batch1")
+    g.pr(cp.FORK, 32, "Re-check", "batch2-review", "295c968", "batch2", age_h=30)
+    g.files[(cp.FORK, 32)] = [{"filename": "theory/reviews/BATCH2_REVIEW.md", "status": "modified"}]
+    g.contents[("mitchell-moving/x", "theory/reviews/BATCH2_REVIEW.md", "295c968".ljust(40, "0"))] = pass_text("6663d0e")
+    items, _ = cp.collect(g, now=NOW)
+    assert len(items) == 1 and "fork#30" in items[0]
+
+
+def test_review_record_whose_file_name_lacks_review_is_a_record():
+    g = FakeGH()
+    g.pr(cp.FORK, 30, "Lean batch 2", "batch2", "6663d0e", "batch1")
+    g.pr(cp.FORK, 32, "Second look", "batch2-look", "295c968", "batch2", age_h=30)
+    g.files[(cp.FORK, 32)] = [{"filename": "notes/BATCH2_CHECK.md", "status": "added",
+                               "patch": "@@ -0,0 +1 @@\n+Blockers remaining: 0"}]
+    g.contents[("mitchell-moving/x", "notes/BATCH2_CHECK.md", "295c968".ljust(40, "0"))] = pass_text("6663d0e")
+    items, _ = cp.collect(g, now=NOW)
+    assert len(items) == 1 and "fork#30" in items[0]
+
+
+def test_work_pr_with_a_text_file_quoting_the_line_is_still_work():
+    g = FakeGH()
+    g.pr(cp.FORK, 5, "T99", "t99", "aaaaaaa")
+    g.files[(cp.FORK, 5)] = [{"filename": "theory/T99.md", "status": "added", "patch": "+Blockers remaining: 0"},
+                             {"filename": "tools/t99.py", "status": "added"}]
+    g.contents[("mitchell-moving/x", "theory/T99.md", "aaaaaaa".ljust(40, "0"))] = "Blockers remaining: 0\n"
+    items, _ = cp.collect(g, now=NOW)
+    assert items == []        # a code file makes it work, and nothing reviewed it
+
+
+# ---------------------------------------------------------------- quoted or negated results
+def test_quoted_blockers_line_is_not_a_result():
+    for text in ('The reviewer must write "Blockers remaining: 0" at the end.',
+                 "Write `Blockers remaining: 0` when done.",
+                 "> Blockers remaining: 0",
+                 "```\nBlockers remaining: 0\n```",
+                 "This is not Blockers remaining: 0.",
+                 "Do not merge until Blockers remaining: 0 appears.",
+                 "\u201cBlockers remaining: 0\u201d is the phrase to look for."):
+        assert cp.blockers_found(text) == [], text
+        assert cp.review_result(text) == (None, [])
+
+
+def test_real_result_forms_still_count():
+    for text, want in (("Blockers remaining: 0", [0]),
+                       ("Reviewed. **Blockers remaining: 2**", [2]),
+                       ("Delta review of `d12642b` gives **Blockers remaining: 0**.", [0]),
+                       ("one commit) is in: **Blockers remaining: 0.** Review", [0]),
+                       ("Blockers remaining: 3\n\nlater\n\nBlockers remaining: 0", [3, 0])):
+        assert cp.blockers_found(text) == want, text
+
+
+def test_quoted_passing_comment_does_not_make_a_pr_pending():
+    g = FakeGH()
+    g.pr(cp.FORK, 30, "Lean batch 2", "batch2", "6663d0e", "batch1")
+    g.comments[(cp.FORK, 30)] = [{"body": 'Please add "Blockers remaining: 0" once done.', "created_at": ts(40)}]
+    assert cp.collect(g, now=NOW)[0] == []
+
+
+# ---------------------------------------------------------------- closing keywords (REPO-CURRENT-3)
+def test_closing_keyword_naming_another_pr_is_flagged():
+    got = cp.closing_refs("STATUS, OPEN_WORK: fix #253 and #257 state", self_number=270)
+    assert got == [("fix", cp.UPSTREAM, 253)]
+
+
+def test_every_keyword_and_tense_is_flagged():
+    for kw in ("close", "closes", "closed", "fix", "fixes", "fixed", "resolve", "resolves", "resolved", "Fixes", "CLOSES"):
+        assert cp.closing_refs("%s #12" % kw, 1), kw
+        assert cp.closing_refs("%s: #12" % kw, 1), kw
+
+
+def test_other_repo_and_url_forms_are_flagged():
+    assert cp.closing_refs("fixes mitchell-moving/theory-of-adaptive-organization#9", 1)[0][2] == 9
+    assert cp.closing_refs("closes https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/253", 1)[0][2] == 253
+
+
+def test_own_number_and_plain_mentions_are_not_flagged():
+    assert cp.closing_refs("fixes #270", self_number=270) == []
+    assert cp.closing_refs("see #253; follows #257; prefix #12; the fix for #5 is below", 1) == []
+    assert cp.closing_refs("Pointer refresh after #270, #271 and #275", 1) == []
+
+
+def test_closes_ok_marker_allows_a_stated_number():
+    assert cp.closing_refs("closes #12\ncloses-ok: #12 the issue is really done", 1) == []
+    assert len(cp.closing_refs("closes #12 and fixes #13\ncloses-ok: #12 reason", 1)) == 1
+
+
+def test_online_check_reads_title_body_and_commits():
+    g = FakeGH()
+    g.pr(cp.UPSTREAM, 270, "STATUS rebuild", "s270", "98d349a")
+    g.pulls[cp.UPSTREAM][0]["body"] = "Rebuilds STATUS. Fixes #253 as a side effect."
+    g.commits[(cp.UPSTREAM, 270)] = [{"sha": "a" * 40, "commit": {"message": "fix #253 and #257 state"}},
+                                      {"sha": "b" * 40, "commit": {"message": "reword"}}]
+    fails = cp.check_closing_online(g)
+    assert len(fails) == 2 and any("commit aaaaaaa" in f for f in fails) and any("title/body" in f for f in fails)
+
+
+def test_online_check_clean_pr_passes():
+    g = FakeGH()
+    g.pr(cp.UPSTREAM, 270, "STATUS rebuild", "s270", "98d349a")
+    g.pulls[cp.UPSTREAM][0]["body"] = "Rebuilds STATUS. See #253."
+    g.commits[(cp.UPSTREAM, 270)] = [{"sha": "a" * 40, "commit": {"message": "update state of #253"}}]
+    assert cp.check_closing_online(g) == []
+
+
+def test_check_online_includes_the_closing_check(tmp_path):
+    g = FakeGH()
+    g.pr(cp.UPSTREAM, 270, "STATUS rebuild", "s270", "98d349a", age_h=1)
+    g.commits[(cp.UPSTREAM, 270)] = [{"sha": "a" * 40, "commit": {"message": "fix #253"}}]
+    fails, _ = cp.check_online(str(tmp_path), api=g, now=NOW)
+    assert any(f.startswith("closing:") for f in fails)
+
+
+def test_local_pre_merge_check_reads_commits_and_body(tmp_path):
+    repo, shas = _repo(tmp_path, 1)
+    _git(repo, "update-ref", "refs/remotes/origin/main", "HEAD")
+    open(os.path.join(repo, "g"), "w").write("x")
+    _git(repo, "add", ".")
+    _git(repo, "commit", "-m", "STATUS: fix #253 and #257 state")
+    assert len(cp.local_closing_check(repo, "origin/main..HEAD", 270)) == 1
+    body = tmp_path / "body.md"
+    body.write_text("Rebuild. Closes #263.\n")
+    assert len(cp.local_closing_check(repo, "origin/main..HEAD", 270, str(body))) == 2
+    _git(repo, "commit", "--amend", "-m", "STATUS: update state of #253 and #257")
+    assert cp.local_closing_check(repo, "origin/main..HEAD", 270) == []
+
+
+def test_local_check_cli_exit_codes(tmp_path, capsys):
+    repo, shas = _repo(tmp_path, 1)
+    _git(repo, "update-ref", "refs/remotes/origin/main", "HEAD")
+    open(os.path.join(repo, "g"), "w").write("x")
+    _git(repo, "add", ".")
+    _git(repo, "commit", "-m", "resolves #253")
+    real = cp.repo_root
+    cp.repo_root = lambda: repo
+    try:
+        assert cp.main(["--closing-keywords", "origin/main..HEAD", "--pr", "270"]) == 1
+        assert "FAIL" in capsys.readouterr().out
+        _git(repo, "commit", "--amend", "-m", "see #253")
+        assert cp.main(["--closing-keywords"]) == 0
+    finally:
+        cp.repo_root = real
