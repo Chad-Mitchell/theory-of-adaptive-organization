@@ -130,6 +130,6 @@ At \(\alpha=10^{-8}\), \(\lambda_1=1.15409405\times 10^{-3}\), window up to \(0.
 
 ## 6. What is still open
 
-The four open misses are the two early gap ratios, the generation-\(4\) carpet band, and the impossible gap of \(2\) against \(13.8\cdot d_f/2\). The next tests named for the first two have been run and are in §2 and §4. They do not reopen the identities.
+The four open misses (printed by the script as `PUZZLE`) are the two early gap ratios, the generation-\(4\) carpet band, and the impossible gap of \(2\) against \(13.8\cdot d_f/2\). The next tests named for the first two have been run and are in §2 and §4. They do not reopen the identities.
 
 Not done, and not claimed: a continuum diffusion on the gasket, a non-Gaussian field, a decision whose loss is not a mean square, and any identification of the bismuth experiment with this cost. The carpet's spectral dimension was not a target. The equation in THEORY is unchanged.
