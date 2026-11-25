@@ -1,5 +1,7 @@
 # Inventory of Lean declarations
 
+**Current audit count on `main`: 1185** (batch 2, build at `6663d0e`, merged as PR #266; `formal/lean/README.md:37-51`). The 757 below is the baseline counted before batch 1, kept as the record of that count; the batch 1 and batch 2 sections at the end give 926 and 1185.
+
 Counted on upstream `main` `d2aeb81` before the batch 1 proofs.
 The axiom audit (`formal/lean/scripts/AxiomAudit.lean`) reports **757**
 environment constants in modules whose names start with `GTAO`, and every
