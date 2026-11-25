@@ -902,7 +902,7 @@ The scientific gap is separate, and it is not a process error. No theorem yet jo
 | T71 | known | The representation axioms do not force information causality on a general no-signaling box. The result is a relabel of the known classical scope. | theory/info-causality-2026-11-24/MEMO.md:37 | Result: relabel. | not-formalized | relabel; classical scope known | IP5:interpretation | STATUS |
 | T73 | proved-in-model | Under complete dephasing the dephasing-axis stake result holds on the slices named in the memo. | theory/pointer-basis-stakes-2026-11-24/MEMO.md:19 | PROVED (in-model) | not-formalized | self-check | T74:open | STATUS |
 | T74 | open | No route forces a unique quantum-record price or a ratio of the two memory prices. | theory/QUANTUM_RECORD_PRICE_2026-11-24.md:9 | No unique quantum-record price. | not-formalized | routes stop | T71:known | STATUS |
-| T72 | open | The composite-contest note is not on main. | OPEN_WORK.md:123 | not on `main` | not-formalized | in flight upstream | T74:open | STATUS |
+| T72 | open | Composite contest: TIE under PREREG_4 (machine-checked); WIN only under a hand-restricted Gmax. | OPEN_WORK.md:123 | TIE at every positive locked price | not-formalized | in flight upstream | T74:open | STATUS |
 | GATE | open | The claims check runs on a local tree. It is not a server-side merge gate. | process/FAILURES.md:22 | The repo has no CI | not-formalized | open miss of the design interpretation in this ledger | HYP:interpretation | STATUS |
 
 <!-- claim-rules:begin -->
