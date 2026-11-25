@@ -112,6 +112,13 @@ def main(argv=None):
         if bad:
             fails.append("versions: %s points to %s, current is v%s" % (f, ",".join(bad), want))
 
+    # Hash locks: every lock verifies or is accounted for (process/LOCK_ERRATA.md).
+    from verify_locks import verify as _verify_locks
+    lock_fails, _lc, _ln = _verify_locks(ROOT)
+    for x in lock_fails:
+        print("  FAIL " + x)
+        fails.append("FAIL " + x)
+
     # ---------------------------------------------------------------- 2. wording
     LAW_OK = re.compile(
         r"(power[- ]laws?|area[- ]laws?|law firms?|second law|first law|laws? of (thermodynamics|motion|physics|large numbers|their interaction|nature)|"
@@ -442,13 +449,6 @@ def main(argv=None):
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
         from check_fresh import check as _fresh_check
     for x in _fresh_check(ROOT):
-        print("  FAIL " + x)
-        fails.append("FAIL " + x)
-
-    # Hash locks: every lock verifies or is accounted for (process/LOCK_ERRATA.md).
-    from verify_locks import verify as _verify_locks
-    lock_fails, _lc, _ln = _verify_locks(ROOT)
-    for x in lock_fails:
         print("  FAIL " + x)
         fails.append("FAIL " + x)
 
