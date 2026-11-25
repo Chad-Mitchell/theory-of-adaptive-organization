@@ -113,11 +113,13 @@ def main(argv=None):
             fails.append("versions: %s points to %s, current is v%s" % (f, ",".join(bad), want))
 
     # Hash locks: every lock verifies or is accounted for (process/LOCK_ERRATA.md).
-    from verify_locks import verify as _verify_locks
-    lock_fails, _lc, _ln = _verify_locks(ROOT)
-    for x in lock_fails:
-        print("  FAIL " + x)
-        fails.append("FAIL " + x)
+    # Needs the real checkout: the mutation test copies only .md and .py files (no .git), so it is skipped there.
+    if os.path.exists(os.path.join(ROOT, ".git")):
+        from verify_locks import verify as _verify_locks
+        lock_fails, _lc, _ln = _verify_locks(ROOT)
+        for x in lock_fails:
+            print("  FAIL " + x)
+            fails.append("FAIL " + x)
 
     # ---------------------------------------------------------------- 2. wording
     LAW_OK = re.compile(
