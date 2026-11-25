@@ -26,3 +26,4 @@ Rows are added as bars are scored. Bars not listed (A-C3, A-T1, A-T3, all of Rou
 - **Wording:** "second law" in the write-up is the physics name (`process/PROCESS.md:39` allows physics names). It is kept.
 - **v2:** A-T1, A-T3, B-T1 and B-T2 are superseded by `PREREG_2.md`. No v2 bar has been run.
 - **v3:** The v2 gate read found 1 blocker on A-T1′ (`gc = 0.95` margin). A-T1′ (only) and the §6/Gate wording items are superseded by `PREREG_3.md` (lock `78ff15a`), which awaits a fresh gate read. No v2 or v3 bar has been run.
+- **v4:** The v3 gate read found 1 blocker on A-T1″ (`J_m` lacked the confinement term, letting memory best replies reach `gc = 0.999`). A-T1″ (only) is superseded by `PREREG_4.md` (lock `b9a2710`, shared `w_x E[x^2]` modeling choice with `w_x in {0.5, 1, 2}` robustness rule), which awaits a fresh gate read. No v2, v3, or v4 bar has been run.
