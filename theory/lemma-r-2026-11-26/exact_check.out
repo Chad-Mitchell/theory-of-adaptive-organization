@@ -1,0 +1,6 @@
+square^2                                 mixed4=  1812 dependent=0 | K-preserving perms=128 exactly-linear=128 lines->lines=128
+pentagon^2 (affine, Q(sqrt5))            mixed4= 12600 dependent=0 | K-preserving perms=200 exactly-linear=200 lines->lines=200
+square x pentagon                        mixed4=  4820 dependent=0 | K-preserving perms=80 exactly-linear=80 lines->lines=80
+bit x pentagon                           mixed4=   200 dependent=0 | K-preserving perms=200 exactly-linear=200 lines->lines=20
+cube^2 (Lemma D only)                    mixed4=634256 dependent=0
+square-pyramid x square (Lemma D only)   mixed4=  4820 dependent=0
