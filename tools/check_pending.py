@@ -92,7 +92,8 @@ def own_row_check(root, pr):
 def lean_source_files(root):
     lean = os.path.join(root, "formal", "lean")
     files = [os.path.join(lean, "GTAO.lean")]
-    files += sorted(glob.glob(os.path.join(lean, "GTAO", "*.lean")))
+    # Recursive: modules in subfolders (GTAO/Rnd/**) are sources too. With no subfolder this is the old list.
+    files += sorted(glob.glob(os.path.join(lean, "GTAO", "**", "*.lean"), recursive=True))
     for extra in ("scripts/AxiomAudit.lean", "lakefile.toml", "lake-manifest.json", "lean-toolchain"):
         files.append(os.path.join(lean, extra))
     return [f for f in files if os.path.exists(f)]
