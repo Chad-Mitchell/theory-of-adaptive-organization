@@ -266,3 +266,26 @@ KNOWN for comparison: for identical polygons and S = max, all reversible maps ar
 **Not formalized:** M12, the disk lemma and the corollary. The two Lean candidates of §15 (the square case of Lemma 1 and a finite form of Lemma 2) are now written as precise statements in the session notes. The disk lemma is a third, heavier candidate, since it needs the S-lemma.
 
 Sources added: Loewy, Schneider 1975, J. Math. Anal. Appl. 49:375–392, `10.1016/0022-247X(75)90186-9`; Pólik, Terlaky 2007, SIAM Rev. 49:371–418, `10.1137/S003614450444614X`; Hanner 1956, Math. Scand. 4, p. 65, `10.7146/math.scand.a-10456`; Kolangatt et al. 2025, Quantum 9:1599, `10.22331/q-2025-01-20-1599`.
+
+## 17. Corrections to §15 and §16 after a hostile review (Theorem M11′)
+
+A fresh-context hostile review of Theorem M11 (session file `HOSTILE_REVIEW_M11.md`) found no counterexample and no gap in the proof, but asked for explicit hypotheses, one wrong reason and one novelty claim to be corrected. This section supersedes the statement of Theorem M11 in §15; the earlier text is left as it was.
+
+**Theorem M11′ (PROVED (in-model); the proof of §15 is unchanged, the hypotheses are now explicit).**
+- *Parts.* A and B have all consistent effects (no restriction). Their normalized state spaces are centrally symmetric polytopes P_A ⊂ R^{m_A}, P_B ⊂ R^{m_B} centred at 0, with G_X = Aut(P_X) (linear). For X = A, B:
+  1. G_X is transitive on the vertices of P_X.
+  2. G_X acts absolutely irreducibly on R^{m_X}, in the representation-theoretic sense (one absolutely irreducible part suffices).
+  3. (★): P_X is centrally symmetric 2-level, i.e. n·v ∈ {−1, +1} for every facet n·r ≤ 1 and every vertex v. Equivalently, in G_X-invariant Euclidean coordinates, R_X²|n_X|² = m_X.
+- *Composite.* S is closed and convex in the normalized slice of V_A ⊗ V_B (local tomography), min(A,B) ⊆ S ⊆ max(A,B), and S is locally symmetric: (g⊗h)(S) = S for all g ∈ G_A, h ∈ G_B.
+- *Conclusion.* Every linear bijection T with T(S) = S permutes the product pure states; S has no reversible entangling map.
+- *Covered parts.* Hypercubes and cross-polytopes in every dimension, and at least octahedron × octahedron and cube ⊕ cube (free sum) in R^6 (checked exactly by the reviewer); more generally every vertex-transitive Hanner polytope with an absolutely irreducible group (§16).
+
+**Scope (corrected).** For S = max the conclusion is already implied, in the stronger form "every reversible map is trivial", by Al-Safi and Richens 2015 Theorem 1: every centrally symmetric polytope with all effects is dichotomic, because u − e for a facet effect e is the opposite facet effect. So the sentence in §15 that leaves non-regular polytopes open on maximal composites is wrong for centrally symmetric ones, and M11′ is new only for intermediate (min ⊊ S ⊊ max) locally symmetric composites. The same applies to §16: for S = max with centrally symmetric parts (even polygons in any pairing, icosahedron × dodecahedron) the stronger "trivial" is KNOWN from Theorem 1, and for identical odd polygons from Theorem 3; Corollary M12-P is new for intermediate composites and for maximal composites with an odd polygon paired with a different polygon (as far as checked in those two theorems).
+
+**Other corrections.**
+- The reason a part fails (★) is "some |n·v| < 1" (equivalently R²|n|² < m), not "some n·v = 0": the latter is false for the octagon, the 12-gon, the icosahedron and the dodecahedron (it holds for polygons with n ≡ 2 mod 4 and the 24-cell). The exclusions in §15 stand.
+- Uniqueness of the minimum-volume enclosing ellipsoid is due to Danzer, Laugwitz and Lenz 1957, Arch. Math. 8:214–219, `10.1007/BF01899996`; John 1948 does not state it explicitly. For polytope S the vertex second moment (finite Aut(S)) already gives an invariant form, so the ellipsoid is not needed.
+- "Irreducible" has two meanings here. Al-Safi and Richens' "reducible" (their Theorem 2, the square pyramid in §15's table) is geometric: the cone is a direct sum. M11′ and M12 use representation-theoretic absolute irreducibility. They are unrelated conditions.
+- M12 (§16) uses the same composite hypotheses as M11′: local tomography, S closed and convex, local symmetry.
+
+**open miss (unchanged by the review):** parts that are not 2-level and fail (♦), composites that are not locally symmetric (the reviewer's involution ansatz found no entangling map for any entangled max vertex of □□, □O, OO, observed only), three or more parts, and the entangling-map premise.
