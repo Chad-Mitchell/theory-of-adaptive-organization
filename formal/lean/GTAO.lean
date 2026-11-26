@@ -48,3 +48,5 @@ public import GTAO.Rnd.SelfRefRun.Basic
 public import GTAO.Rnd.SelfRefRun.Round2
 public import GTAO.Rnd.SelfRef.R34
 public import GTAO.Rnd.Composition
+public import GTAO.Rnd.SelfRef.SFP
+public import GTAO.Rnd.SelfRef.Precision

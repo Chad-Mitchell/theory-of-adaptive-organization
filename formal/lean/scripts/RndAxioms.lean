@@ -1,7 +1,8 @@
 /-
 Copyright (c) 2026 Chad Mitchell. Public domain (CC0).
-`#print axioms` for the 62 exported theorems of the record-cost side R&D
-(`GTAO/Rnd/`, `theory/RECORD_COST_CHAIN_2026-11-25.md`).
+`#print axioms` for the 81 exported theorems of the record-cost side R&D
+(`GTAO/Rnd/`, `theory/RECORD_COST_CHAIN_2026-11-25.md`; the last 19, `SelfRef.R78.*`, for
+`theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` §10).
 Run from `formal/lean/`:  `lake env lean scripts/RndAxioms.lean`
 Expected: each line lists only `propext`, `Classical.choice`, `Quot.sound` (or a subset),
 or says the theorem depends on no axioms.
@@ -70,3 +71,22 @@ open GTAORnd
 #print axioms Composition.log_additive_iff
 #print axioms Composition.P2_entries
 #print axioms Composition.gbit_no_local_write
+#print axioms SelfRef.R78.jordan_derangement
+#print axioms SelfRef.R78.finite_transitive_not_SFP
+#print axioms SelfRef.R78.simplex_not_SFP
+#print axioms SelfRef.R78.square_rotation_moves_all
+#print axioms SelfRef.R78.square_not_SFP
+#print axioms SelfRef.R78.SO_odd_fixes_unit
+#print axioms SelfRef.R78.SO_odd_fixes_poles
+#print axioms SelfRef.R78.SO3_fixes_poles
+#print axioms SelfRef.R78.odd_ball_SFP
+#print axioms SelfRef.R78.SO2_nonid_no_fixed
+#print axioms SelfRef.R78.disk_not_SFP
+#print axioms SelfRef.R78.even_ball_not_SFP
+#print axioms SelfRef.R78.ball_record_bound
+#print axioms SelfRef.R78.chord
+#print axioms SelfRef.R78.disk_record_error
+#print axioms SelfRef.R78.disk_error_linear
+#print axioms SelfRef.R78.disk_exceeds_ball
+#print axioms SelfRef.R78.mixture_copy_core
+#print axioms SelfRef.R78.no_copy_mixture
