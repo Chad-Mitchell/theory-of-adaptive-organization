@@ -111,7 +111,7 @@ Decisions and outside acts. Nothing outside the repo happens without Chad's go.
 | ID | Item | State |
 |---|---|---|
 | T40 | Adopt the physical cost display (`CORE.md` §1) into `THEORY.md` §3 | **Not applied.** Needs a reviewed adoption, and `THEORY.md` changes only with Chad's OK |
-| T72 | Composite contest (upstream PR #253): merge decision after the spot-check | The note is not on `main` |
+| T72 | Composite contest (upstream PR #253, carried into the record-cost consolidated PR): merge decision after the spot-check | Headline TIE under `PREREG_4` (script-checked); WIN only under a hand-restricted Gmax; [`theory/COMPOSITE_CONTEST_2026-11-24.md`](theory/COMPOSITE_CONTEST_2026-11-24.md) |
 | C1 | X correction / map post: the live post (https://x.com/torusflow/status/2123631750223945917) is behind the theory (gate, map, robustness) | Draft text needs Chad's approval of the exact words; nothing posted |
 | C2 | Outreach to a chemotaxis lab for T7 | Draft kept outside the repo, unsent; needs Chad's go |
 | C3 | "Proposed law" label for the hypothesis sentence (now "The law of adaptive organization (hypothesis)"; CLAIM_MAP J3) | Awaiting Chad's decision |
