@@ -1,4 +1,4 @@
-# Lean 4 formalization of the GTAO core (OPEN_WORK T19)
+# Lean 4 formalization of the GTAO core (T19)
 
 This directory is a Lean 4 + Mathlib project.  It machine-checks a
 finite-menu fragment of the core in `THEORY.md` (canonical) and `CORE.md`,
@@ -37,21 +37,8 @@ about the real world.
 - Axiom audit: `scripts/AxiomAudit.lean` (run by `tools/check_lean.sh`
   after the build) checks that every declaration in a `GTAO.*` module
   depends only on `propext`, `Classical.choice` and `Quot.sound`.  A
-  `sorry` anywhere would show up as `sorryAx` and fail the check.  Last
-  run (22 November 2026, branch `lean-batch2-2026-11-21`, after the
-  batch-2 confirm nits): 757 declarations, OK
-  (635 after the lean-layer-drift review should-fixes, plus batch 2,
-  its should-fixes, and the confirm nits).
-  Batch 1 (24 November 2026, branch `forge-lean-batch1`, after the
-  label corrections): 926 declarations, OK. The 169 constants above 757
-  are the four new modules. 75 of them are the source declarations in
-  the batch 1 table; the rest are generated.
-  Batch 2 (24 November 2026, branch `forge-lean-batch2` at `6663d0e`,
-  merged as PR #266): 1185 declarations, OK. The 259 constants above 926
-  are the four batch 2 modules.
-  LEAN-PHYS (25 November 2026, branch `forge-lean-phys` at `07bffb7`):
-  1370 declarations, OK. The 185 constants above 1185 are the four
-  LEAN-PHYS modules; 71 of them are source declarations.
+  `sorry` anywhere would show up as `sorryAx` and fail the check.  The
+  current total is `audit_count` in `AUDIT.json`, its one source.
 
 ## How to build
 
@@ -77,7 +64,7 @@ Hypotheses are part of the claim.  A finite nonempty design set, and a
 stake-independent menu (ruin slack or absent), are standing hypotheses
 wherever `FiniteDesignMenu` is used.
 
-"CORE §" numbers below refer to earlier versions of the one-pager, kept in `history/` (`2026-11-21_CORE_before_onepage.md`, `2026-11-21_CORE_before_shannon.md`, `2026-11-22_CORE_before_front.md`). The current `CORE.md` was rewritten on 22 November 2026 and has different section numbers.
+"CORE §" numbers below refer to earlier versions of the one-pager, kept in git history ([`2026-11-21_CORE_before_onepage.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-21_CORE_before_onepage.md), [`2026-11-21_CORE_before_shannon.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-21_CORE_before_shannon.md), [`2026-11-22_CORE_before_front.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/history/2026-11-22_CORE_before_front.md)). The current `CORE.md` was rewritten on 22 November 2026 and has different section numbers.
 
 | Lean name | THEORY / source | What is assumed | What is proved |
 |---|---|---|---|
