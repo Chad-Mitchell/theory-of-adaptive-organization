@@ -85,3 +85,4 @@ The premise list is frozen in `theory/qm-selection-2026-11-26/PREREG.md` (lock c
 - Rounds 4–9 note :46 ("partial in Lean", on L5) is superseded by :83 (L5 in Lean round 3).
 - Hopf–Samelson, cited at rounds 4–9 :42 and :85, is 1940 (Comment. Math. Helv. 13:240–251; Crossref `10.1007/BF01378063`).
 - About twelve exported Lean names are one-line instances, restatements or Mathlib wrappers beyond the five declared paddings (list in `formal/lean/README.md`, scope notes after the Lean round 3 review); the raw count is not a measure of depth.
+- Cost dial (Lean round 4, `CostDialBeyond.lean`): at the tuned ρ the midpoint is not a global minimizer for every π/2 < β < π (`Jdial_midpoint_not_global`; α = β/2 + π/2 is cheaper), and ties at β = π/2. The `CostDialGlobal.lean` docstring's "from β ≈ 1.61" is superseded.
