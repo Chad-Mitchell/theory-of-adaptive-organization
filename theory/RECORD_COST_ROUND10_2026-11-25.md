@@ -165,3 +165,53 @@ Conjecture C is being tested separately; its result will be added here when it i
 **Not formalized:** the compact-closure step, the Thue–Morse construction, the stabilizer counts, the polytope reduction and the transport costs.
 
 Sources added: Al-Safi, Short 2014, J. Phys. A 47:325303, `10.1088/1751-8113/47/32/325303`; Al-Safi, Richens 2015, NJP 17:123001, `10.1088/1367-2630/17/12/123001`; Barnum, Wilce 2014, Found. Phys. 44:192–212, `10.1007/s10701-014-9777-1`; Crooks 2007, PRL 99:100602, `10.1103/PhysRevLett.99.100602`; de la Torre, Masanes, Short, Müller 2012, PRL 109:090403, `10.1103/PhysRevLett.109.090403`; Gross, Müller, Colbeck, Dahlsten 2010, PRL 104:080402, `10.1103/PhysRevLett.104.080402`; Krumm, Müller 2019, npj Quantum Inf. 5:7, `10.1038/s41534-018-0123-x`; Landauer 1961, `10.1147/rd.53.0183`; Masanes et al. 2013, PNAS, `10.1073/pnas.1304884110`; Massar, Patra 2014, PRA 89:052124, `10.1103/PhysRevA.89.052124`; Salamon, Berry 1983, PRL 51:1127, `10.1103/PhysRevLett.51.1127`.
+
+## 15. Conjecture C: result of the separate test (round 11, part M; fills the placeholder in §14)
+
+The test promised at the end of §14 has run; §14 is left as written. Scripts: `scripts/selfref/m_round11_lib.py` and `m_round11.py`, `m_round11_sym.py`, `m_round11_more.py`, `m_round11_lemma.py`, `m_round11_control.py`, `m_round11_pyramid.py`, with `.stdout` files beside them (the repository copies print only; the symmetric-composite copy runs the one octahedron × octahedron sample that the session run completed). Citations: `doi_check_4m.out` (6 DOIs). Extra tools needed: `lrs` and `redund` from lrslib (exact rational vertex enumeration), plus numpy, sympy and networkx; `tools/test_conjecture_c_checks.py` skips cleanly without them.
+
+**Result in one paragraph.** No counterexample to Conjecture C was found in any composite tested, and a positive control shows the test can find an entangling map when one exists. For one class of parts, Theorem M11 below proves C in every composite that keeps the parts' own reversible maps reversible (PROVED (in-model)). This is a partial result on composites between the minimal and maximal tensor products. It is not a derivation of U or of quantum theory: C is still open for other polytopes, and the premise that a reversible entangling map exists is not derived.
+
+**Method (exact).** States are w = (1, r) per part and Kronecker vectors for composites. The maximal composite is vertex-enumerated with `lrs`; an intermediate composite is conv(min ∪ X) with X inside max, and its extreme points come from `redund`. Every polyhedral composite between min and max has this form. Linear automorphisms of a polytope are exactly the vertex permutations that preserve K_ij = v_iᵀ(Σ_k v_k v_kᵀ)⁻¹v_j (KNOWN; Bremner et al. 2014), computed here in exact integers. Colour refinement on K gives classes that every automorphism preserves. When no entangled extreme point shares a class with a product pure state, no entangling automorphism exists: an exact certificate for that composite. Otherwise a backtracking search runs, and any map found is rebuilt as an exact linear map.
+
+**What was tested** (△ triangle, □ square, O octahedron, each with all its effects; the hexagon is affinely regular with rational vertices):
+
+| composites | parts | count | outcome |
+|---|---|---|---|
+| maximal | △△, △□, △O, □□ (24 vertices), □O (48), OO (684) | 6 | simplex cases have no entangled states; the others are certified: no entangling map |
+| minimal | the same pairs | 6 | no entangled extreme points |
+| min with every subset of the 8 PR boxes | □□ | 255 | certified |
+| min with noisy PR boxes (λ from 3/5 to 9/10) | □□ | 12 | certified |
+| min with refinement classes of max vertices, also noisy | □O, OO | 9 | certified, or no entangled points left |
+| random mixtures of max vertices with noise | □O (40), OO (25) | 65 | certified, or no entangled points left |
+| locally symmetric: orbit of a random max point under both parts' groups and the swap | □□ (12), □O (10), OO (1) | 23 | certified, or no entangled points left |
+| maximal, more parts | hexagon², □ × hexagon, hexagon × O (1740), □ × cube, cube × O, cube² (1408) | 6 | certified |
+| maximal, a reducible part (the square pyramid of Al-Safi and Richens) | pyramid × □, pyramid², pyramid × O | 3 | certified |
+| **positive control:** two-qubit stabilizer polytope (octahedron parts with restricted reads, not inside max) | O, O | 1 | an entangling automorphism is found and rebuilt as an exact linear map |
+
+All OBSERVED (numerical) as a search, and each "certified" row is an exact certificate for that composite (PROVED (in-model)). The simplex sanity case behaves as Al-Safi and Richens describe: on △ × △ the controlled shift (i, j) ↦ (i, j + i) is an exact linear automorphism, non-local and correlating, with no entangled states to create. Coverage limits: non-symmetric intermediate composites are sampled, not exhausted; non-polyhedral composites are not tested numerically; only two parts are tested.
+
+**Theorem M11 (PROVED (in-model), pen and paper; both lemmas checked exactly on the vertices of six maximal composites).**
+- *Parts.* A and B have all consistent reads, and their state spaces are centrally symmetric polytopes with centre 0. Each part's reversible group acts transitively on vertices and absolutely irreducibly on r-space (dimension m). Vertices lie at radius R, and facets are n·r ≤ 1 with |n| the same for every facet.
+- *Condition (★).* R²|n|² = m. Equivalently, every vertex lies on one facet of every opposite pair (|n·v| = 1 for every facet normal n and vertex v).
+- *Composite.* S is any composite with min ⊆ S ⊆ max, polyhedral or not, that is invariant under both parts' groups, so local reversible maps stay reversible.
+- *Conclusion.* Every reversible map of S sends product pure states to product pure states, so S has no reversible entangling map.
+- *Proof.*
+  1. Write w = (1, a, b, C): the two marginals and the correlation matrix.
+  2. The minimum-volume ellipsoid containing S is unique (KNOWN; John 1948). A reversible map is affine on the normalized slice and maps S onto S, so it preserves that ellipsoid and its quadratic gauge q.
+  3. Invariance under both groups puts the ellipsoid's centre at (1, 0, 0, 0). Schur's lemma on the three inequivalent absolutely irreducible blocks then gives q = |a|²/β + |b|²/γ + ‖C‖²_F/δ with β, γ, δ > 0.
+  4. **Lemma 1:** ‖C‖_F ≤ R_A R_B on all of max. Positivity on the four products of the facet effects (1 ± n·r)/2 and (1 ± m·s)/2 gives |nᵀCm| ≤ 1. Averaging over the facet normals, whose second moment is (|n|²/m)·I by irreducibility, gives ‖C‖²_F ≤ m_A m_B / (|n_A|²|n_B|²), which equals R_A²R_B² by (★).
+  5. **Lemma 2:** a state in max with a pure marginal is a product, because the conditional states of a pure marginal must all be proportional to it. So an entangled extreme point has two non-pure marginals, and |a| < R_A, |b| < R_B (non-vertex points of an inscribed polytope lie strictly inside the sphere).
+  6. A product of pure states has |a| = R_A, |b| = R_B and ‖C‖ = R_A R_B, so its q is strictly larger than that of any entangled extreme point. A reversible map preserves q, which completes the proof.
+- *Exact checks.* Lemma 1 is tight: the largest ‖C‖²_F over max-composite vertices equals R_A²R_B² for □□, □O, OO, □ × cube, cube × O and cube² (4, 2, 1, 6, 3, 9). Lemma 2: no entangled max vertex has a pure marginal (0 in all six).
+- *Which parts meet (★).* Hypercubes (boxworld bits with m binary measurements, including □ and the cube) and cross-polytopes (including O), in every dimension. Polygons with six or more sides, the icosahedron, the dodecahedron and the 24-cell fail it. So do balls (|n| = 1 = R, m = 3; the singlet has ‖C‖² = 3 > 1), which is where quantum theory leaves the theorem, and the stabilizer polytope, which is not inside max (§14: the Bell state gives −0.5).
+
+**Comparison with Al-Safi and Richens 2015 (full text read).** Their Theorem 1 makes every reversible map trivial (local maps and swaps) in the maximal composite of non-classical dichotomic parts, which include balls and every regular polytope except simplices and odd polygons; their Theorem 3 covers identical odd polygons; their Theorem 2 gives non-trivial, correlating but not entangling, maps when one part is reducible. Their Conjecture 2 says no maximally non-local composite allows reversible entanglement generation, for any parts, and they name composites other than the maximal one as an open obstacle. Conjecture C is narrower in its parts (polytopes only) and broader in its composites (everything between min and max), so it is neither weaker nor stronger. On maximal composites of polytopes it is the polytope case of their Conjecture 2. Theorem M11 is a case between min and max with a weaker conclusion than their "trivial".
+
+**What this does for U.** With transitivity, all reads allowed, a locally symmetric composite and one reversible entangling map, the parts cannot be hypercubes or cross-polytopes (PROVED (in-model)). Excluding every transitive polytope needs C for the parts that fail (★). The premise that a reversible entangling map exists is not derived from the record-cost chain. U stays an **open miss**.
+
+**open miss (what C still lacks):** parts that fail (★) (polygons with six or more sides, odd polygons, the icosahedron and dodecahedron, non-regular vertex-transitive polytopes such as prisms); composites that are not invariant under the parts' groups (sampled only); three or more parts; and the entangling-map premise.
+
+**Not formalized:** Theorem M11, its two lemmas and the certificates. Two Lean candidates are written up in the session notes: the square case of Lemma 1 and a finite form of Lemma 2.
+
+Sources added: Bremner, Dutour Sikirić, Pasechnik, Rehn, Schürmann 2014, LMS J. Comput. Math. 17:565–581, `10.1112/S1461157014000400`; Avis, Fukuda 1992, Discrete Comput. Geom. 8:295–313, `10.1007/BF02293050`; John, "Extremum problems with inequalities as subsidiary conditions" (1948), reprinted in *Traces and Emergence of Nonlinear Programming* (Birkhäuser; Crossref year 2013), 197–215, `10.1007/978-3-0348-0439-4_9`. Al-Safi and Richens 2015, Gross et al. 2010 and Al-Safi and Short 2014 are as in §14.

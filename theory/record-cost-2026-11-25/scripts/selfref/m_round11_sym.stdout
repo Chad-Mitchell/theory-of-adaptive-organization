@@ -1,0 +1,39 @@
+=== Round 11-M continued: symmetric composites (m_round11_sym.py) ===
+-- C4 local symmetry groups: square 8 octahedron 48
+SYM squarexsquare #0 (seed mix of 1 max-vertices, lambda=7/10, orbit 8): extreme pts 24 (product 16, entangled 8), stable classes 2, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage separates: True; product leverage > every entangled leverage: True ; 0.0s
+SYM squarexsquare #1 (seed mix of 2 max-vertices, lambda=1, orbit 16): extreme pts 32 (product 16, entangled 16), stable classes 2, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage separates: True; product leverage > every entangled leverage: True ; 0.0s
+SYM squarexsquare #2 (seed mix of 2 max-vertices, lambda=1, orbit 32): extreme pts 48 (product 16, entangled 32), stable classes 2, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage separates: True; product leverage > every entangled leverage: True ; 0.0s
+SYM squarexsquare #3 (seed mix of 1 max-vertices, lambda=4/5, orbit 8): extreme pts 24 (product 16, entangled 8), stable classes 2, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage separates: True; product leverage > every entangled leverage: True ; 0.0s
+SYM squarexsquare #4 (seed mix of 2 max-vertices, lambda=7/10, orbit 8): extreme pts 16 (product 16, entangled 0), stable classes 1, entangled sharing a product class 0 -> no entangled extreme points (C vacuous)
+SYM squarexsquare #5 (seed mix of 3 max-vertices, lambda=1, orbit 16): extreme pts 16 (product 16, entangled 0), stable classes 1, entangled sharing a product class 0 -> no entangled extreme points (C vacuous)
+SYM squarexsquare #6 (seed mix of 1 max-vertices, lambda=4/5, orbit 8): extreme pts 24 (product 16, entangled 8), stable classes 2, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage separates: True; product leverage > every entangled leverage: True ; 0.0s
+SYM squarexsquare #7 (seed mix of 1 max-vertices, lambda=7/10, orbit 8): extreme pts 24 (product 16, entangled 8), stable classes 2, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage separates: True; product leverage > every entangled leverage: True ; 0.0s
+SYM squarexsquare #8 (seed mix of 3 max-vertices, lambda=7/10, orbit 64): extreme pts 16 (product 16, entangled 0), stable classes 1, entangled sharing a product class 0 -> no entangled extreme points (C vacuous)
+SYM squarexsquare #9 (seed mix of 2 max-vertices, lambda=7/10, orbit 16): extreme pts 16 (product 16, entangled 0), stable classes 1, entangled sharing a product class 0 -> no entangled extreme points (C vacuous)
+SYM squarexsquare #10 (seed mix of 3 max-vertices, lambda=1, orbit 64): extreme pts 16 (product 16, entangled 0), stable classes 1, entangled sharing a product class 0 -> no entangled extreme points (C vacuous)
+SYM squarexsquare #11 (seed mix of 2 max-vertices, lambda=7/10, orbit 32): extreme pts 16 (product 16, entangled 0), stable classes 1, entangled sharing a product class 0 -> no entangled extreme points (C vacuous)
+SYM squarexoctahedron #0 (seed mix of 1 max-vertices, lambda=9/10, orbit 24): extreme pts 48 (product 24, entangled 24), stable classes 2, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage separates: True; product leverage > every entangled leverage: True ; 0.1s
+SYM squarexoctahedron #1 (seed mix of 2 max-vertices, lambda=3/5, orbit 96): extreme pts 120 (product 24, entangled 96), stable classes 2, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage separates: True; product leverage > every entangled leverage: True ; 0.3s
+SYM squarexoctahedron #2 (seed mix of 3 max-vertices, lambda=3/5, orbit 96): extreme pts 24 (product 24, entangled 0), stable classes 1, entangled sharing a product class 0 -> no entangled extreme points (C vacuous)
+SYM squarexoctahedron #3 (seed mix of 2 max-vertices, lambda=9/10, orbit 192): extreme pts 216 (product 24, entangled 192), stable classes 2, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage separates: True; product leverage > every entangled leverage: True ; 0.5s
+SYM squarexoctahedron #4 (seed mix of 3 max-vertices, lambda=7/10, orbit 192): extreme pts 24 (product 24, entangled 0), stable classes 1, entangled sharing a product class 0 -> no entangled extreme points (C vacuous)
+SYM squarexoctahedron #5 (seed mix of 1 max-vertices, lambda=7/10, orbit 24): extreme pts 48 (product 24, entangled 24), stable classes 2, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage separates: True; product leverage > every entangled leverage: True ; 0.1s
+SYM squarexoctahedron #6 (seed mix of 3 max-vertices, lambda=4/5, orbit 192): extreme pts 24 (product 24, entangled 0), stable classes 1, entangled sharing a product class 0 -> no entangled extreme points (C vacuous)
+SYM squarexoctahedron #7 (seed mix of 2 max-vertices, lambda=7/10, orbit 96): extreme pts 120 (product 24, entangled 96), stable classes 2, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage separates: True; product leverage > every entangled leverage: True ; 0.2s
+SYM squarexoctahedron #8 (seed mix of 1 max-vertices, lambda=4/5, orbit 24): extreme pts 48 (product 24, entangled 24), stable classes 2, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage separates: True; product leverage > every entangled leverage: True ; 0.1s
+SYM squarexoctahedron #9 (seed mix of 2 max-vertices, lambda=4/5, orbit 96): extreme pts 120 (product 24, entangled 96), stable classes 2, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage separates: True; product leverage > every entangled leverage: True ; 0.3s
+SYM octahedronxoctahedron #0 (seed mix of 1 max-vertices, lambda=9/10, orbit 576): extreme pts 612 (product 36, entangled 576), stable classes 2, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage separates: True; product leverage > every entangled leverage: True ; 61.0s

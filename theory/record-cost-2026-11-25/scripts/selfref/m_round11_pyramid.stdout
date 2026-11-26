@@ -1,0 +1,4 @@
+=== Round 11-M continued: reducible part (m_round11_pyramid.py) ===
+max pyramidxsquare: extreme pts 28 (product 20, entangled 8), stable classes 3, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+max pyramidxpyramid: extreme pts 33 (product 25, entangled 8), stable classes 4, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+max pyramidxoctahedron: extreme pts 54 (product 30, entangled 24), stable classes 3, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
