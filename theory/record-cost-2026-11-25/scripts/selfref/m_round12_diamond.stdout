@@ -1,0 +1,17 @@
+max(P3,P3): 9 extreme pts (9 product); entangled: max ||C||^2=nan, max Phi=+nan  -> diamond HOLDS
+max(sq,sq): 24 extreme pts (16 product); entangled: max ||C||^2=1.000000, max Phi=-4.000000  -> diamond HOLDS
+max(P5,P5): 135 extreme pts (25 product); entangled: max ||C||^2=1.309017, max Phi=-2.763932  -> diamond HOLDS
+max(P6,P6): 552 extreme pts (36 product); entangled: max ||C||^2=1.500000, max Phi=-2.000000  -> diamond HOLDS
+max(P7,P7): 2415 extreme pts (49 product); entangled: max ||C||^2=1.623490, max Phi=-1.506041  -> diamond HOLDS
+max(P8,P8): 8656 extreme pts (64 product); entangled: max ||C||^2=1.707107, max Phi=-1.171573  -> diamond HOLDS
+max(P5,P6): 630 extreme pts (30 product); entangled: max ||C||^2=1.188471, max Phi=-3.004385  -> diamond HOLDS
+max(sq,P6): 144 extreme pts (24 product); entangled: max ||C||^2=1.000000, max Phi=-3.750000  -> diamond HOLDS
+max(P3,P6): 18 extreme pts (18 product); entangled: max ||C||^2=nan, max Phi=+nan  -> diamond HOLDS
+max(sq,P5): 60 extreme pts (20 product); entangled: max ||C||^2=0.909830, max Phi=-3.957428  -> diamond HOLDS
+max(P9,P9): 30231 extreme pts (81 product); entangled: max ||C||^2=1.766044, max Phi=-0.935822  -> diamond HOLDS
+max(P10,P10): 59520 extreme pts (100 product); entangled: max ||C||^2=1.809017, max Phi=-0.763932  -> diamond HOLDS
+max(cube3,cube3): 1408 extreme pts (64 product); entangled: max ||C||^2=1.000000, max Phi=-6.000000  -> diamond HOLDS
+max(oct3,oct3): 684 extreme pts (36 product); entangled: max ||C||^2=1.000000, max Phi=-6.000000  -> diamond HOLDS
+max(cube3,oct3): 384 extreme pts (48 product); entangled: max ||C||^2=1.000000, max Phi=-6.000000  -> diamond HOLDS
+max(sq,cube3): 128 extreme pts (32 product); entangled: max ||C||^2=1.000000, max Phi=-5.000000  -> diamond HOLDS
+max(P6,oct3): 1740 extreme pts (36 product); entangled: max ||C||^2=1.000000, max Phi=-4.875000  -> diamond HOLDS

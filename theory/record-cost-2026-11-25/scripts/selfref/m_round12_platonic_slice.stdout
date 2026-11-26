@@ -1,0 +1,6 @@
+max(cube3,cube3) zero-marginal slice: best Phi = -6.000000 (||C||^2 = 1.000000) over 4002 objectives -> diamond not refuted
+max(oct3,oct3) zero-marginal slice: best Phi = -6.000000 (||C||^2 = 1.000000) over 4002 objectives -> diamond not refuted
+max(I,I) zero-marginal slice: best Phi = -2.541438 (||C||^2 = 1.384285) over 4002 objectives -> diamond not refuted
+max(D,D) zero-marginal slice: best Phi = -0.444582 (||C||^2 = 1.617269) over 4002 objectives -> diamond not refuted
+max(CO,CO) zero-marginal slice: best Phi = -1.500000 (||C||^2 = 1.500000) over 4002 objectives -> diamond not refuted
+max(I,D) zero-marginal slice: best Phi = +2.049845 (||C||^2 = 1.894427) over 4002 objectives -> diamond FAILS on max
