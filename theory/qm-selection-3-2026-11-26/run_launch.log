@@ -1,0 +1,8 @@
+# launch log for the qm-selection-3 scored run
+# ls-remote (07:27:00 ET): 499ef043a6c45a8abb995d4d88758cb7b2dc5fdd	refs/heads/forge-rnd-record-cost-2
+# clone path: /workspace/qmsel3-run (fresh git clone from https://github.com/mitchell-moving/theory-of-adaptive-organization.git), HEAD 499ef04, descendant of lock e496428, no change in theory/qm-selection-3-2026-11-26/ since e496428
+# sha256sum -c PREREG.sha256: 4/4 OK
+# versions numpy 2.5.5 scipy 1.18.1 python 3.13.5
+# command (locked, PREREG §0.9): OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 search_qmsel3.py --run --workers=8 > search_qmsel3.out 2>&1
+# started 2026-11-26 07:27:19 EST
+# finished 2026-11-26 08:48:05 EST rc=0
