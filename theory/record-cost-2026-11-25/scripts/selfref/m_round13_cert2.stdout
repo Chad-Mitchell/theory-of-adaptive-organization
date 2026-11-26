@@ -1,0 +1,13 @@
+# copied from the session log (Round 13-M run, not preregistered)
+max(sq,sq): 15 multipliers (facet-pair + Lorentz); best min block slack t = -0.000e+00 -> CERTIFICATE (diamond holds on all of max)
+max(P5,P5): 15 multipliers (facet-pair + Lorentz); best min block slack t = -0.000e+00 -> CERTIFICATE (diamond holds on all of max)
+max(P6,P6): 24 multipliers (facet-pair + Lorentz); best min block slack t = -0.000e+00 -> CERTIFICATE (diamond holds on all of max)
+max(P7,P7): 24 multipliers (facet-pair + Lorentz); best min block slack t = -0.000e+00 -> CERTIFICATE (diamond holds on all of max)
+max(P8,P8): 35 multipliers (facet-pair + Lorentz); best min block slack t = -0.000e+00 -> CERTIFICATE (diamond holds on all of max)
+max(P5,P6): 19 multipliers (facet-pair + Lorentz); best min block slack t = -0.000e+00 -> CERTIFICATE (diamond holds on all of max)
+max(cube3,cube3): 15 multipliers (facet-pair + Lorentz); best min block slack t = -0.000e+00 -> CERTIFICATE (diamond holds on all of max)
+max(oct3,oct3): 24 multipliers (facet-pair + Lorentz); best min block slack t = -0.000e+00 -> CERTIFICATE (diamond holds on all of max)
+max(I,I): 48 multipliers (facet-pair + Lorentz); best min block slack t = -1.326e-04 -> no certificate of this type
+max(D,D): 24 multipliers (facet-pair + Lorentz); best min block slack t = -5.150e-04 -> no certificate of this type
+max(CO,CO): 99 multipliers (facet-pair + Lorentz); best min block slack t = -0.000e+00 -> CERTIFICATE (diamond holds on all of max)
+max(I,D): 34 multipliers (facet-pair + Lorentz); best min block slack t = -2.617e-04 -> no certificate of this type

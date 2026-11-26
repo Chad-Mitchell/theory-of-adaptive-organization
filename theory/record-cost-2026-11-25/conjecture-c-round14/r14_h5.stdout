@@ -1,0 +1,5 @@
+START Thu Nov 26 03:55:07 EST 2026
+H5 three squares, PR on AB only: 96 extreme pts (64 product, 32 other), classes 2: CERTIFIED (refinement separates)
+H5 three squares, PR on AB+BC only: 128 extreme pts (64 product, 64 other), classes 2: CERTIFIED (refinement separates)
+H5 three squares, one PR box on AB: 68 extreme pts (64 product, 4 other), classes 3: CERTIFIED (refinement separates)
+EXIT 0 Thu Nov 26 03:55:16 EST 2026

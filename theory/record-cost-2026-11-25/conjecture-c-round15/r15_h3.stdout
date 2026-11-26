@@ -1,0 +1,12 @@
+START Thu Nov 26 05:09:19 EST 2026
+exact facets: 20 12 ; sums: [20, 0, 0, 0] [12, 0, 0, 0]
+per-factor canonical classes: 6 4 [57s]
+Traceback (most recent call last):
+  File "/workspace/r15-check/theory/record-cost-2026-11-25/conjecture-c-round15/r15_h3_canonical.py", line 41, in <module>
+    Kl[i][j]=vals.setdefault(fmul(CA[i//nB][j//nB],CB[i%nB][j%nB]),len(vals))
+                             ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/r15-check/theory/record-cost-2026-11-25/conjecture-c-round15/r15_h3_canonical.py", line 35, in fmul
+    return tuple((FQ.from_list(list(x))*FQ.from_list(list(y))).to_list())
+                  ^^^^^^^^^^^^
+AttributeError: 'AlgebraicField' object has no attribute 'from_list'
+EXIT 1 Thu Nov 26 05:10:16 EST 2026

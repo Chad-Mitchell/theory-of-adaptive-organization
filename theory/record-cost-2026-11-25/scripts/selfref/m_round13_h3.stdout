@@ -1,0 +1,9 @@
+# copied from the session log (Round 13-M run, 2026-11-26)
+facet effects: I 20  D 12 ; sum of D facet effects = [12. -0.  0.  0.] ; sum of I facet effects = [20. -0. -0.  0.]
+240 facets; distinct K values (rounded 1e-9): 20; smallest nonzero gap between raw K values: 1.087e-03; max deviation within a rounded class: 4.8e-10
+same-A-factor pairs use K values disjoint from all other pairs: False  values: [-0.033333333, -0.005694013, 0.039027346]
+same-B-factor pairs use K values disjoint from all other pairs: False  values: [-0.033333333, -0.020601133, 0.0, 0.033333333, 0.053934466]
+=> K values alone do not force the grid structure; refinement / search needed
+same-A-factor (row): tried 1 (partner-class rep -> non-partner) pairs fixing facet 0: automorphisms found 0, undecided 0 [1s]
+same-B-factor (column): tried 397 (partner-class rep -> non-partner) pairs fixing facet 0: automorphisms found 0, undecided 0 [290s]
+EXIT 0
