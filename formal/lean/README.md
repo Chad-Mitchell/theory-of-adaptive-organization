@@ -228,7 +228,7 @@ None of the following is claimed as proved in Lean.
 Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
 from a private Lake project with the same pins. Paper:
 `theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
-`#print axioms` on the 181 exported theorems (19 for the rounds 4–9
+`#print axioms` on the 185 exported theorems (19 for the rounds 4–9
 note, 4 for the round 10 note, and the Lean rounds 3 and 4 theorems, below); each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
@@ -365,7 +365,8 @@ Lean round 4, transport (namespace `GTAORnd.SelfRef.LR3.TransportHorizons`, file
 | Declaration | Note item | Label |
 |---|---|---|
 | `disk_cost_T2` | round 10 §14 (gentle transport, disk), T = 2 | **Faithful.** Every 2-tick path through pure states from `p 0` to its partner `p π` costs exactly 1. |
-| `cos_sum4_le`, `disk_cost_T4_ge`, `disk_cost_T4_attained` | round 10 §14 (gentle transport, disk), T = 4 | **Faithful** for T = 4. `cos A + cos B + cos C + cos D ≤ 2√2` when the angles sum to π, so every 4-tick pure path from `p 0` to `p π` costs at least `2 − √2`, and equal quarters attain it. The 7-gon side at T = 2 and T = 4, and horizons other than 2, 3 and 4, are not formalized. |
+| `cos_sum4_le`, `disk_cost_T4_ge`, `disk_cost_T4_attained` | round 10 §14 (gentle transport, disk), T = 4 | **Faithful** for T = 4. `cos A + cos B + cos C + cos D ≤ 2√2` when the angles sum to π, so every 4-tick pure path from `p 0` to `p π` costs at least `2 − √2`, and equal quarters attain it. The polygon side at T = 2, and horizons other than 2, 3 and 4, are not formalized. |
+| `nona_step_le`, `nona_partner`, `nona_path_cost`, `nona_beats_disk` | round 10 §14 (odd polygons beat the disk), T = 4 | **WEAKER** on the 9-gon side, **faithful** on the disk side. In the 9-gon, neighbouring vertices are at operational distance at most `μ = sin(π/9)/sin(5π/9)`, `w 0` and `w 4` are perfectly distinguishable, and the path `w0 → … → w4` costs at most `4μ² < 0.52`; so it costs less than every 4-tick pure path in the disk (at least `2 − √2`). That the note's 0.483 is the 9-gon's exact optimum is not formalized; same unit price per squared distance as `hept_beats_disk`. |
 
 **Scope notes on earlier names (hostile review of the Lean layer, 26 November 2026).** No locked
 or committed theorem is renamed or edited; these lines give each one's actual content.
@@ -379,8 +380,8 @@ carries weight (see `ball_O_not_SFP`); the `SFP` definition has no transitivity 
 per-step rate error δ: the same symbol names two different errors, so "the ball beats the disk"
 holds only under that identification. `SelfRef.liar_half` and `SelfRefRun.liar_half` are the same
 one-line fact in two namespaces; `Composition.P2_entries` is four numeric facts; `SelfRefRun.perm_periodic`
-is the existence of `orderOf`. Theorem count without padding: of the 181 names in
-`scripts/RndAxioms.lean`, 176 remain after dropping the duplicate `SelfRefRun.liar_half`,
+is the existence of `orderOf`. Theorem count without padding: of the 185 names in
+`scripts/RndAxioms.lean`, 180 remain after dropping the duplicate `SelfRefRun.liar_half`,
 `Composition.P2_entries`, and the Lean round 3 restatements `local_map_tmul`, `swap_tmul` and the
 numeric `le4_attained`. Raw counts are not a measure of depth: the load-bearing steps (NA1, the
 general maximal-torus criterion, the Jordan-class classification, Piron, Solèr, Baer, the tensor-product block of the Schur step for parts other than hypercubes and cross-polytopes and the
@@ -411,7 +412,7 @@ the count: besides the five dropped above, about twelve more names are one-line 
 restatements or Mathlib wrappers: `unitary_fixes_ray`, `qubit_O3_not_SFP`, `reversible_preserves_pure`,
 `final_assembly`, `finite_divring_comm` (`littleWedderburn`), `chevalley_nonzero_zero` (Mathlib's
 Chevalley–Warning), `rho_60`, `Jdial_60_global`, `SO1_trivial`, `sphere_one_two_points`,
-`moment_trace`, and the second conjunct of `qubit_bound_tight`. So the 176 names are not a measure
+`moment_trace`, and the second conjunct of `qubit_bound_tight`. So the 180 names are not a measure
 of depth.
 
 ## Layout
