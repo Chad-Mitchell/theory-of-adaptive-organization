@@ -1,0 +1,29 @@
+# numpy 2.5.5 scipy 1.18.1 python 3.13.5
+# construction checks (no orbit, no outcome quantity is computed)
+  su(3) adjoint  algebra dim  8  closure residual 2.1e-16  antisymmetry residual 0.0e+00
+  so(5) 5        algebra dim 10  closure residual 1.6e-16  antisymmetry residual 0.0e+00
+  so(5) 10       algebra dim 10  closure residual 1.1e-16  antisymmetry residual 0.0e+00
+  so(5) 14       algebra dim 10  closure residual 2.4e-16  antisymmetry residual 6.2e-16
+  g2 7           algebra dim 14  closure residual 6.9e-16  antisymmetry residual 2.7e-16
+  g2 14          algebra dim 14  closure residual 3.8e-16  antisymmetry residual 4.3e-16
+  so(3) spin 1   algebra dim  3  closure residual 3.0e-16  antisymmetry residual 0.0e+00
+  so(3) spin 2   algebra dim  3  closure residual 7.9e-17  antisymmetry residual 0.0e+00
+  so(3) spin 3   algebra dim  3  closure residual 1.0e-16  antisymmetry residual 0.0e+00
+  so(3) spin 4   algebra dim  3  closure residual 1.6e-16  antisymmetry residual 0.0e+00
+  so(3) spin 5   algebra dim  3  closure residual 9.6e-17  antisymmetry residual 0.0e+00
+  so(3) spin 6   algebra dim  3  closure residual 8.9e-17  antisymmetry residual 0.0e+00
+  so(3) spin 7   algebra dim  3  closure residual 6.8e-17  antisymmetry residual 0.0e+00
+# selftest: SO(3) controls with published outcomes
+{"body": "B3 (spin 1)", "group": "SO(3)", "family": "", "affine_dim": 3, "dim_G": 3, "dim_G0": 3, "g0_closure_residual": 9.087676095658469e-16, "g0_antisymmetry_residual": 7.556732451689384e-16, "rank_G0": 1, "rank_stab": 1, "SFP": "pass", "cap_UB": 2, "alpha": 0.4999999847375489, "n_torus_fixed_weyl": 2, "n_torus_fixed_search": 2, "torus_fixed_match": true, "hSFP": "pass at depth 1 (no failure found)", "hSFP_info": {"flats": 1}, "cap_LB": 2, "jordan_type": "complex QM", "outcome_dimension_only": "TIE", "witness_recheck_min": -7.59911005010494e-07, "outcome": "TARGET (complex QM itself)"}
+{"body": "Z3 (spin 3)", "group": "SO(3)", "family": "", "affine_dim": 7, "dim_G": 3, "dim_G0": 3, "g0_closure_residual": 3.1775799303331027e-15, "g0_antisymmetry_residual": 5.748695645439707e-15, "rank_G0": 1, "rank_stab": 1, "SFP": "pass", "cap_UB": 2, "alpha": 0.4999999804612047, "outcome": "MISS (cost: d > N_UB^2 - 1)"}
+{"body": "C1 (spin 1+2)", "group": "SO(3)", "family": "", "affine_dim": 8, "dim_G": 3, "dim_G0": 3, "g0_closure_residual": 3.4841467327123296e-15, "g0_antisymmetry_residual": 5.207241426084561e-15, "rank_G0": 1, "rank_stab": 1, "SFP": "pass", "cap_UB": 4, "alpha": 0.24999999590363411, "n_torus_fixed_weyl": 2, "n_torus_fixed_search": 2, "torus_fixed_match": true, "hSFP": "fail (re-confirmed)", "hSFP_info": {"flat_dim": 0, "gap": 0.3525372145455061, "gap_first": 0.3525372145455069, "eps": 1.0}, "outcome": "MISS (hSFP fails)"}
+{"body": "Z2 (real QM d=3)", "group": "SO(3)", "family": "", "affine_dim": 5, "dim_G": 3, "dim_G0": 3, "g0_closure_residual": 5.845743162870976e-15, "g0_antisymmetry_residual": 8.514946079696976e-15, "rank_G0": 1, "rank_stab": 1, "SFP": "pass", "cap_UB": 3, "alpha": 0.33333332027889223, "n_torus_fixed_weyl": 1, "n_torus_fixed_search": 1, "torus_fixed_match": true, "hSFP": "fail (re-confirmed)", "hSFP_info": {"flat_dim": 0, "gap": 1.5000000000000695, "gap_first": 1.5000000000000213, "eps": 1.0}, "outcome": "MISS (hSFP fails)"}
+{"body": "B3 x B3", "group": "SO(3)^2", "family": "", "affine_dim": 6, "dim_G": 6, "dim_G0": 6, "g0_closure_residual": 1.0600042968647152e-15, "g0_antisymmetry_residual": 1.6728742925455221e-15, "rank_G0": 2, "rank_stab": 2, "SFP": "pass", "cap_UB": 2, "alpha": 0.4999989550257286, "outcome": "MISS (cost: d > N_UB^2 - 1)"}
+# bit-face check on published cases: B3 (bit face = the whole 3-ball), Z2 = real QM d=3 (bit faces are discs)
+  B3 (spin 1)        cap_LB 2  bit-face affine dim 3  status ball
+  Z2 (real QM d=3)   cap_LB 3  bit-face affine dim 2  status undecided
+expected (published): B3 = complex QM N=2 (TARGET); Z3 MISS cost (N_UB=2); C1 hSFP fail or cost; Z2 hSFP fail; B3xB3 MISS cost
+
+real	2m43.785s
+user	14m2.567s
+sys	0m1.586s
