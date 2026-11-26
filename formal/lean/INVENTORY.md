@@ -1,6 +1,6 @@
 # Inventory of Lean declarations
 
-**Current audit count: 1370** (LEAN-PHYS, build at `07bffb7` on branch `forge-lean-phys`; `formal/lean/README.md:37-54`). On `main` before LEAN-PHYS it was 1185 (batch 2, build at `6663d0e`, merged as PR #266). The 757 below is the baseline counted before batch 1, kept as the record of that count; the batch 1, batch 2 and LEAN-PHYS sections at the end give 926, 1185 and 1370.
+**Current audit count:** `audit_count` in `AUDIT.json`, its one source. LEAN-PHYS gave 1370 (build at `07bffb7` on branch `forge-lean-phys`; `formal/lean/README.md:37-54`). On `main` before LEAN-PHYS it was 1185 (batch 2, build at `6663d0e`, merged as PR #266). The 757 below is the baseline counted before batch 1, kept as the record of that count; the batch 1, batch 2 and LEAN-PHYS sections at the end give 926, 1185 and 1370.
 
 Counted on upstream `main` `d2aeb81` before the batch 1 proofs.
 The axiom audit (`formal/lean/scripts/AxiomAudit.lean`) reports **757**
@@ -840,3 +840,11 @@ The axiom audit after these declarations reports 1370 `GTAO` constants,
 up from 1185, and only `propext`, `Classical.choice`, and `Quot.sound`.
 The audit counts every generated constant, so 1370 is larger than
 354 + 75 + 125 + 71.
+
+## RND-RECORD-COST declarations
+
+Modules under `GTAO/Rnd/` (15 files), from the record-cost side R&D
+(`theory/RECORD_COST_CHAIN_2026-11-25.md`). Labels are in
+`formal/lean/README.md`, section RND-RECORD-COST. The 62 exported theorems
+are listed in `scripts/RndAxioms.lean`. The current total is
+`audit_count` in `AUDIT.json`, its one source.
