@@ -228,7 +228,7 @@ None of the following is claimed as proved in Lean.
 Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
 from a private Lake project with the same pins. Paper:
 `theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
-`#print axioms` on the 232 exported theorems (19 for the rounds 4–9
+`#print axioms` on the 235 exported theorems (19 for the rounds 4–9
 note, 4 for the round 10 note, and the Lean rounds 3 to 6 theorems, below); each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
@@ -387,7 +387,7 @@ cross-polytope) that the round 4 rows leave open.
 
 | Declaration | Note item | Label |
 |---|---|---|
-| `diag_of_separating`, `flips_separate` | M11′, Schur step, tensor block, minimal diagonal form | **Faithful.** A matrix on the tensor coordinates invariant under a family of diagonal matrices that separates every pair of distinct coordinates (for `u ≠ v` some `diag d` in the family with `d u * d v ≠ 1`) is diagonal. The local sign flips form such a family; so does any smaller set of sign patterns that tells all coordinates apart. Among diagonal symmetries the condition is also necessary for this step: if no `d` in the family separates `u ≠ v`, the matrix `E_uv + E_vu` is invariant under all of them. |
+| `diag_of_separating`, `flips_separate` | M11′, Schur step, tensor block, minimal diagonal form | **Faithful.** A matrix on the tensor coordinates invariant under a family of diagonal matrices that separates every pair of distinct coordinates (for `u ≠ v` some `diag d` in the family with `d u * d v ≠ 1`) is diagonal. The local sign flips form such a family; so does any smaller set of sign patterns that tells all coordinates apart. Among diagonal symmetries the condition is also necessary for this step: if no `d` in the family separates `u ≠ v`, the matrix `E_uv + E_vu` is invariant under all of them. (Appended after the hostile review of Lean round 5: this necessity sentence was on paper, not stated in Lean, at round 5; it is now `sep_necessary`, Lean round 6, below, for the Schur step only.) |
 | `pure_mem_maxSetB`, `maxSetB_bounds`, `maxSetB_unit` | M11′, Lemma 1 setting for block parts | **Faithful.** Products of block vertices lie in `maxSetB` (so the hypotheses below are consistent); on `maxSetB` the block marginals and block correlations obey `(s·a)², (t·b)², (sᵀCt)² ≤ 1` for block sign vectors, and `0 ≤ 1 + σa_i + τb_j + στC_ij` for `σ, τ = ±1`. |
 | `maxSetB_blockA`, `maxSetB_blockB`, `sum_sgn_sq2`, `maxSetB_blockC` | M11′, Lemma 1 for block parts | **Faithful** (at least one block label on each side). Each block of `a` and of `b` has squared norm at most 1, with equality only at a vertex `±e_i` of that block; each block of `C` has squared Frobenius norm at most 1. |
 | `pure_of_eqB`, `quad_blockw` | M11′, strictness for block parts | **Faithful.** A point of `maxSetB` at which every block of `a`, of `b` and of `C` has norm 1 is a product of block vertices. A diagonal form constant on each block is `q₀₀x₀₀² + ∑_k α_k‖a_k‖² + ∑_l β_l‖b_l‖² + ∑_{k,l} γ_{kl}‖C_{kl}‖²_F`, with weights that may differ between blocks. |
@@ -398,7 +398,7 @@ cross-polytope) that the round 4 rows leave open.
 | `maxSetB_convex`, `pureSetB_finite`, `blocks_hyps_consistent` | non-vacuity of the round 5 hypotheses | **Faithful.** `maxSetB` is convex and there are finitely many product states, so `S = conv(pureSetB)` is a polytope with `pureSetB ⊆ S ⊆ maxSetB`. Its invariance under the local symmetries is not stated in Lean. |
 
 Lean round 5 add-on, finite Theorem O (namespace `GTAORnd.SelfRef.LR3.OnsetO`, file `OnsetO.lean`;
-source: the stepback session note C12C §3.1 as corrected after its hostile review, not in the repo).
+source: the stepback session note C12C §3.1 as corrected after its hostile review, not in the repo; appended after the hostile review of Lean round 5: the Lean spec with items (i)–(v) is now committed as `theory/onset-o-2026-11-26/C12C_LEAN_SPEC.md`, ledger row RC21).
 KNOWN in substance: a one-variable Everett / KKT instance for a discrete convex error curve; no
 novelty is claimed. Setting over ℚ: designs `k = 0..n`, error `f` nonincreasing and discrete convex,
 `g w k = w f k + κ k` (`κ > 0`, `w ≥ 0`), cap `f k ≤ D` with strict feasibility `f n < D`; `xD` the
@@ -409,10 +409,18 @@ least design meeting the cap, `xw` the least minimizer of `g w`.
 | `isMin_iff_local` | C12C, discrete convexity | **Faithful.** With nondecreasing steps on `0..n`, `k` minimizes on `0..n` iff its left step is `≤ 0` and its right step `≥ 0`. |
 | `Setting.projection` | C12C (i) | **Faithful.** `max xw xD` meets the cap, is optimal under the cap, and is the least such design. |
 | `Setting.onset_union` | C12C (ii) | **Faithful** (`n ≥ 1`). `0 < max xw xD ↔ κ < w(−Δ0) ∨ D < f 0`. |
-| `Setting.supporting_iff`, `Setting.tie_at_wstar`, `Setting.wstar_one` | C12C (iii a, b) | **Faithful** (`xD ≥ 1`, `v ≥ 0`). `xD` minimizes `g v` iff `wstar = κ/(−Δ(xD−1)) ≤ v` and (`xD = n` or `v(−Δ xD) ≤ κ`); at `v = wstar`, `xD − 1` and `xD` tie, so `wstar` is the least supporting stake, not a stake at which `xD` is the least minimizer; at `xD = 1`, `wstar = κ/(−Δ0)`. |
-| `Setting.kkt` | C12C (iii c, d) | **Faithful in the combined form.** For `xD ≥ 1`, `max xw xD` minimizes `g (max w wstar)`: the multiplier is `max 0 (wstar − w)`. The separate statement "`xD > xw'` implies `μ > 0`" is not stated. |
+| `Setting.supporting_iff`, `Setting.tie_at_wstar`, `Setting.wstar_one` | C12C (iii a, b) | **Faithful** (`xD ≥ 1`, `v ≥ 0`). `xD` minimizes `g v` iff `wstar = κ/(−Δ(xD−1)) ≤ v` and (`xD = n` or `v(−Δ xD) ≤ κ`); at `v = wstar`, `xD − 1` and `xD` tie, so `wstar` is the least supporting stake, not a stake at which `xD` is the least minimizer; at `xD = 1`, `wstar = κ/(−Δ0)`. Appended after the hostile review of Lean round 5: the other half of (iii b), that `xD` is the least minimizer for every `v` strictly between the bounds, is not formalized. |
+| `Setting.kkt` | C12C (iii c, d) | **Faithful in the combined form.** For `xD ≥ 1`, `max xw xD` minimizes `g (max w wstar)`: the multiplier is `max 0 (wstar − w)`. The separate statement "`xD > xw'` implies `μ > 0`" is not stated. Appended after the hostile review of Lean round 5: (iii d), that `xw ≤ xD ≤ xw'` implies `wstar ≤ w`, is not formalized (it appears only inside the proof, for `xD ≤ xw`), and the greatest minimizer `xw'` is not defined in Lean. |
 | `Setting.wstar_anti` | C12C (iv) | **Faithful.** A looser cap (`D ≤ D'`, same `f`, `κ`) meets no later and needs no larger supporting stake. |
 | `Setting.zero_stake`, `example_values` | C12C (v), the spec's instance | **Faithful.** At `w = 0` the least optimum under the cap is 0 iff `f 0 ≤ D`; for `f = [4, 2, 1, 1/2]`, `κ = 1`, `D = 3/2`: `xD = 2`, `wstar = 1`, supporting stakes `[1, 2]`. |
+
+Lean round 6, checks from the hostile review of Lean round 5 (namespace `GTAORnd.SelfRef.LR3.M11Blocks`,
+file `M11BlocksChecks.lean`; written by the reviewer in scratch files and moved here under new names).
+
+| Declaration | Note item | Label |
+|---|---|---|
+| `sep_necessary` | M11′, Schur step | **Faithful.** For `u ≠ v` and `d u · d v = 1`, `(diag d)ᵀ (E_uv + E_vu) diag d = E_uv + E_vu`: without a separating member, a diagonal family leaves a non-diagonal invariant form. Necessity for this step only, not for the conclusion of M11′. |
+| `flipA_pureSetB`, `flipA_hull_pureSetB` | non-vacuity of `m11_blocks_polytope_flips` | **Faithful, partial.** Each A-side flip `diag(rowSign i)` maps `pureSetB` and `conv(pureSetB)` onto themselves, so `S = conv(pureSetB)` meets `hfA`. `hfB` (symmetric, on paper), the coordinate permutations and the hypotheses of `m11_blocks_polytope` are not stated in Lean. |
 
 Lean round 6, Lemma R (namespace `GTAORnd.SelfRef.LR3.LemmaR`, file `LemmaR.lean`; source:
 `theory/lemma-r-2026-11-26/LEMMA_R.md` §§1–3 with its §9 corrections, and `LEMMA_R_LEAN_SPEC.md`;
@@ -456,8 +464,8 @@ carries weight (see `ball_O_not_SFP`); the `SFP` definition has no transitivity 
 per-step rate error δ: the same symbol names two different errors, so "the ball beats the disk"
 holds only under that identification. `SelfRef.liar_half` and `SelfRefRun.liar_half` are the same
 one-line fact in two namespaces; `Composition.P2_entries` is four numeric facts; `SelfRefRun.perm_periodic`
-is the existence of `orderOf`. Theorem count without padding: of the 232 names in
-`scripts/RndAxioms.lean`, 227 remain after dropping the duplicate `SelfRefRun.liar_half`,
+is the existence of `orderOf`. Theorem count without padding: of the 235 names in
+`scripts/RndAxioms.lean`, 230 remain after dropping the duplicate `SelfRefRun.liar_half`,
 `Composition.P2_entries`, and the Lean round 3 restatements `local_map_tmul`, `swap_tmul` and the
 numeric `le4_attained`. Raw counts are not a measure of depth: the load-bearing steps (NA1, the
 general maximal-torus criterion, the Jordan-class classification, Piron, Solèr, Baer, the tensor-product block of the Schur step for parts other than products of cross-polytopes (Lean round 5) and the
