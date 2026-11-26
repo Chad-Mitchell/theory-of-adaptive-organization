@@ -1,0 +1,12 @@
+# copied from the session log (Round 13-M run, not preregistered)
+max(sq,sq): 9 invariant multipliers; best min block slack t = -0 -> boundary (t ~ 0): inconclusive
+max(P5,P5): 9 invariant multipliers; best min block slack t = -0.0223607 -> no certificate of this type
+max(P6,P6): 16 invariant multipliers; best min block slack t = -0.0216049 -> no certificate of this type
+max(P7,P7): 16 invariant multipliers; best min block slack t = -0.0155557 -> no certificate of this type
+max(P8,P8): 25 invariant multipliers; best min block slack t = -0.0140546 -> no certificate of this type
+max(cube3,cube3): 9 invariant multipliers; best min block slack t = -0 -> boundary (t ~ 0): inconclusive
+max(oct3,oct3): 16 invariant multipliers; best min block slack t = -0 -> boundary (t ~ 0): inconclusive
+max(I,I): 36 invariant multipliers; best min block slack t = -0.0010565 -> no certificate of this type
+max(D,D): 16 invariant multipliers; best min block slack t = -0.00400456 -> no certificate of this type
+max(CO,CO): 81 invariant multipliers; best min block slack t = -0.00274884 -> no certificate of this type
+max(I,D): 24 invariant multipliers; best min block slack t = -0.00205949 -> no certificate of this type
