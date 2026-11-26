@@ -1,0 +1,22 @@
+{
+  "T1": "clean miss",
+  "T2": "clean miss",
+  "T-form": "not applicable",
+  "T-acyclic": "not applicable",
+  "T1_settings": [
+    "clean miss",
+    "clean miss",
+    "clean miss",
+    "clean miss",
+    "clean miss"
+  ],
+  "T2_settings": [
+    "clean miss",
+    "clean miss",
+    "clean miss",
+    "clean miss",
+    "clean miss"
+  ],
+  "T1_cpu": 27.774111373999997,
+  "T2_cpu": 1510.0249805940002
+}
