@@ -1,4 +1,4 @@
-<!-- Repository copy, added 26 Nov 2026. The note below is reproduced as written, with its appended review corrections (§9). Paths in it refer to the R&D working folders: `lemma_r/…` and `rnd/review_lemma_r/…` correspond to the files in this directory. PREREG_P, NOTE_P, STEPBACK and PREREG_DRAFT_C3v2 are R&D session notes that are not in this repository. Status source: ledger row RC20 in `measurement/CLAIM_MAP_v2.md`. -->
+<!-- Repository copy, added 26 Nov 2026. The note below is reproduced as written, with its appended review corrections (§9). Paths in it refer to the R&D working folders: `lemma_r/…` and `rnd/review_lemma_r/…` correspond to the files in this directory. PREREG_P, NOTE_P, STEPBACK and PREREG_DRAFT_C3v2 are R&D session notes that are not in this repository. Status source: ledger row RC20 in `measurement/CLAIM_MAP_v2.md`. One sentence in §5 (the QM bullet) was reworded for the repository claim checker; the meaning is unchanged. -->
 
 # Lemma R: maps that keep pure products pure in polygon composites are local ⋊ swap
 
@@ -123,7 +123,7 @@ Readings:
   - Its "free" outcome comes from an entangling map: CNOT sends |+⟩|0⟩ to a Bell state. That is a non-product-preserving map, outside Lemma R in any case.
   - The linear product preservers of octahedron² are 4608 = local ⋊ swap (OBS). So a Lemma-R-type statement plausibly holds for octahedra too (HYP), but it does not touch the stabilizer's free outcome.
 - **QM: not covered** (Bloch balls, infinitely many pure states). The QM analogue is KNOWN: Friedland–Li–Poon–Sze 2011, Theorem 3. A linear map with Ψ(P_m ⊗ P_n) = P_m ⊗ P_n is a product of unitary conjugations, optionally transposed, or that composed with swap when m = n.
-  - QM is "free" because it has entangling maps (the RC15 step fails), not because of anything in Lemma R.
+  - QM is "free" because it has entangling maps (RC15, proved-in-model, covers polygon parts only, not Bloch balls), not because of anything in Lemma R.
 
 ## 6. Prior art (DOIs verified on Crossref, `lemma_r/crossref_lemma_r.txt`)
 - **Al-Safi, Richens 2015, NJP 17:123001 (10.1088/1367-2630/17/12/123001)**, read from arXiv:1508.03491:
