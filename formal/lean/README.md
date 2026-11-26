@@ -228,7 +228,7 @@ None of the following is claimed as proved in Lean.
 Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
 from a private Lake project with the same pins. Paper:
 `theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
-`#print axioms` on the 122 exported theorems (19 for the rounds 4–9
+`#print axioms` on the 154 exported theorems (19 for the rounds 4–9
 note, 4 for the round 10 note, and the Lean round 3 theorems, below); each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
@@ -313,6 +313,49 @@ Further Lean round 3 modules, same namespace: `SFPCriterion.lean`, `Transport.le
 | `cube_corr_bound`, `square_corr_bound`, `cube_corr_tight` | `theory/RECORD_COST_ROUND10_2026-11-25.md` §15, Lemma 1 for hypercube parts | **Faithful** for hypercube parts (square, cube). Positivity on products of facet effects gives every `abs Cᵢⱼ ≤ 1`, so `‖C‖²_F ≤ m_A m_B = R_A² R_B²` (square: ≤ 4). Products of vertices attain it. Cross-polytope parts are not covered. |
 | `pure_marginal_product`, `pure_marginal_factorizes` | `theory/RECORD_COST_ROUND10_2026-11-25.md` §15, Lemma 2 | **Faithful, abstract form.** If the marginal is an extreme point, every conditional unnormalized state is a multiple of it, so the joint statistics factorize. That the max composite with no-restriction parts supplies these conditional states is a hypothesis. |
 | `square_C_bound`, `square_pure_marginal`, `pure_marginal_finite` | `theory/RECORD_COST_ROUND10_2026-11-25.md` §15, the two Lean candidates (square case of Lemma 1, finite Lemma 2) | **Faithful** to the stated candidates. L1: in the max product of two squares (coordinates in [−1,1]², facets (1 ± x_i)/2), positivity on the sixteen facet products gives Σ C_ij² ≤ 4 = R_A²R_B². L2 square instance: if a marginal coordinate is ±1 then C_ij = a_i b_j. L2 general finite form: facet functionals of A, a vertex whose tight facets cut out only its line, facet functionals of B that span B's dual with a positive combination equal to the unit; a matrix non-negative on all facet products whose A-marginal is the vertex is a product v yᵀ. |
+
+Lean round 3, third batch (same namespace): `OControl.lean`, `Modular.lean` (namespace
+`GTAORnd.SelfRef.LR3.Modular`), `Entangle.lean` (`...LR3.Entangle`) and `M11Prime.lean`
+(`...LR3.M11Prime`). The first two answer a hostile review of the Lean layer; `Entangle.lean`
+holds the entanglement round's candidates LE0–LE5; `M11Prime.lean` holds the Lean-able steps of
+Theorem M11 as amended by a hostile review (M11′).
+
+| Declaration | Note item | Label |
+|---|---|---|
+| `ball_O_not_SFP`, `qubit_O3_not_SFP` | rounds 4–9 note §10, control for `R78.odd_ball_SFP` | **Faithful.** For every n ≥ 1, the n-ball under the full orthogonal group O(n) fails SFP, because `-1` fixes no pure state; the qubit (n = 3) under O(3) fails. So the group choice SO(2m+1) in `odd_ball_SFP` carries weight. |
+| `SO1_trivial`, `sphere_one_two_points` | control for `R78.odd_ball_SFP` at m = 0 | **Faithful.** SO(1) is the trivial group and the 0-sphere is `{±1}`: the m = 0 case of `odd_ball_SFP` is SFP of the trivial group on a classical bit. |
+| `r_covBy`, `r_step_le`, `modular_of_semimodular` | round 10 note §8, the lattice route (finite-height step) | **Faithful.** In a finite lattice that is upper and lower semimodular, the height rank goes up by exactly one along covers (Jordan–Dedekind), the rank identity `r a + r b = r (a ⊔ b) + r (a ⊓ b)` holds, and the lattice is modular (Dilworth–Birkhoff). |
+| `lower_of_upper_ortho`, `modular_of_upper_ortho`, `orthomodular_of_upper_ortho`, `finite_of_atomistic`, `upper_of_atomistic_covering`, `orthomodular_of_atomistic` | round 10 note §8 | **Faithful.** An orthocomplementation (antitone involution giving complements) turns upper into lower semimodularity; so a finite upper semimodular orthocomplemented lattice is modular and orthomodular (`a ≤ b → a ⊔ (a⊥ ⊓ b) = b`), the property Piron's theorem needs. An atomistic complete lattice with finitely many atoms is finite. Atomistic plus the covering property gives upper semimodular, and `orthomodular_of_atomistic` puts the steps together: an atomistic complete lattice with finitely many atoms, the covering property and an orthocomplementation is orthomodular. Whether the GPT face lattice carries an orthocomplementation is a premise of the round 10 note, not proved here. |
+| `pure_marginal_extreme` | entanglement round, LE1 | **Faithful, normalization written out.** If B's effects span and a positive combination is the unit, every conditional `X f_q` lies in the cone over A's convex normalized state space `Ω` (unit functional equal to 1 on `Ω`, stated as a hypothesis), and the marginal `X u_B` is an extreme point of `Ω`, then `X = x yᵀ`. Same core as `pure_marginal_finite` (which uses tight facets instead of an extreme point). |
+| `reversible_preserves_pure` | entanglement round, LE2 | **Faithful.** A linear automorphism `T` with `T '' Ω = Ω` maps the extreme points of `Ω` exactly onto themselves. |
+| `local_perm_tprod`, `local_map_tmul`, `swap_tmul` | entanglement round, LE0 | **Faithful, elementary.** `(⊗ g_i) ∘ P_σ` sends `⊗ ω_i` to `⊗ g_i ω_{σ⁻¹ i}`; the two-part versions restate Mathlib's `TensorProduct.map_tmul` and `comm_tmul`. |
+| `simplex_extreme_iff`, `classical_pure_product` | entanglement round, LE5 (classical control) | **Faithful.** The extreme points of the probability simplex on a finite set are exactly the point masses; on `Fin m × Fin n` each is a product `δ_i ⊗ δ_j`. |
+| `le4_bound`, `le4_attained` | entanglement round, LE4 | **Faithful, arithmetic.** `∑ abs β_i ≤ 1/2` over three rationals gives `∑ β_i ≤ 1/2` and success `1/2 + (1/3)∑β ≤ 2/3`; the value `1/2 + (1/3)(3/2) = 1`. |
+| `moment_quad`, `moment_trace`, `star_equiv` | M11′, 2-level hypothesis | **Faithful.** With vertices on a sphere `‖v‖² = R²`, facet normals of equal squared length `s` with second moment `∑ n nᵀ = c I`, and `abs(n·v) ≤ 1`: the part is 2-level (`abs(n·v) = 1` throughout) iff `R² s = m`. |
+| `max_pos_corr`, `lemma1_general` | M11′, Lemma 1 | **Faithful.** The four product-facet inequalities give `abs(nᵀ C k) ≤ 1`; with second moments `(#N_A s_A / m_A) I` and `(#N_B s_B / m_B) I` this gives `‖C‖²_F ≤ m_A m_B / (s_A s_B)`, generalizing `cube_corr_bound`. |
+| `hull_strict` | M11′, strictness | **Faithful.** A point of the convex hull of points on the sphere of radius R that is not one of them has norm `< R`. |
+| `average_invariant` | M11′, averaging in place of John for polytopes | **Faithful.** For a finite group acting linearly and a symmetric positive definite `M`, `∑_g ρ(g)ᵀ M ρ(g)` is symmetric, positive definite and invariant. |
+| `final_assembly` | M11′, last step | **Faithful, elementary.** A bijection of the extreme points that preserves `q`, with `q` strictly larger at product pure states than elsewhere, maps the product pure states onto themselves. The Schur block step and the Löwner/Haar step for non-polyhedral S are not formalized. |
+| `invariant_form_scalar`, `cross_term_zero` | M11′, Schur step (partial) | **Special case.** For an orthogonal representation whose commutant is the scalars (absolute irreducibility, as a hypothesis), every invariant form is a multiple of the identity; and an invariant coupling to a part the group leaves fixed vanishes once `-1` is in the group (central symmetry), so the A–B, A–C and B–C cross terms drop. That the C block (the tensor product representation) is absolutely irreducible is not formalized. |
+
+**Scope notes on earlier names (hostile review of the Lean layer, 26 November 2026).** No locked
+or committed theorem is renamed or edited; these lines give each one's actual content.
+`disk_strictly_cheaper` shows only that the ring's Σ is positive (`lam*0 < lam*ringSigma`); the
+disk's 0 is the definition NA4, not derived. `R78.ball_record_bound` is the triangle inequality
+`‖Rᵏp − p‖ ≤ 2‖p‖` for an isometry; the content is the model. `SelfRefRun.no_zero_drift_while_recording`
+is a tautology (it uses no axioms) and is elementary; the S8 conclusion is modelling, not Lean.
+`R78.odd_ball_SFP` at m = 0 is SFP of the trivial group (see `SO1_trivial`), and the group choice
+carries weight (see `ball_O_not_SFP`); the `SFP` definition has no transitivity hypothesis.
+`R78.disk_exceeds_ball` compares the ball under a static axis-angle error δ with the disk under a
+per-step rate error δ: the same symbol names two different errors, so "the ball beats the disk"
+holds only under that identification. `SelfRef.liar_half` and `SelfRefRun.liar_half` are the same
+one-line fact in two namespaces; `Composition.P2_entries` is four numeric facts; `SelfRefRun.perm_periodic`
+is the existence of `orderOf`. Theorem count without padding: of the 154 names in
+`scripts/RndAxioms.lean`, 149 remain after dropping the duplicate `SelfRefRun.liar_half`,
+`Composition.P2_entries`, and the Lean round 3 restatements `local_map_tmul`, `swap_tmul` and the
+numeric `le4_attained`. Raw counts are not a measure of depth: the load-bearing steps (NA1, the
+general maximal-torus criterion, the Jordan-class classification, Piron, Solèr, Baer, the tensor-product block of the Schur step and the
+Löwner step of M11, M12, purification and the cost-selection step) are not in Lean.
 
 ## Layout
 

@@ -1,6 +1,6 @@
 /-
 Copyright (c) 2026 Chad Mitchell. Public domain (CC0).
-`#print axioms` for the 122 exported theorems of the record-cost side R&D
+`#print axioms` for the 154 exported theorems of the record-cost side R&D
 (`GTAO/Rnd/`, `theory/RECORD_COST_CHAIN_2026-11-25.md`; then 19, `SelfRef.R78.*`, for
 `theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` §10; then 4, `SelfRef.R10.*`, for
 `theory/RECORD_COST_ROUND10_2026-11-25.md` §11; then `SelfRef.LR3.*`, Lean round 3, for
@@ -134,3 +134,35 @@ open GTAORnd
 #print axioms SelfRef.LR3.square_C_bound
 #print axioms SelfRef.LR3.square_pure_marginal
 #print axioms SelfRef.LR3.pure_marginal_finite
+#print axioms SelfRef.LR3.ball_O_not_SFP
+#print axioms SelfRef.LR3.qubit_O3_not_SFP
+#print axioms SelfRef.LR3.SO1_trivial
+#print axioms SelfRef.LR3.sphere_one_two_points
+#print axioms SelfRef.LR3.Modular.r_covBy
+#print axioms SelfRef.LR3.Modular.r_step_le
+#print axioms SelfRef.LR3.Modular.modular_of_semimodular
+#print axioms SelfRef.LR3.Modular.lower_of_upper_ortho
+#print axioms SelfRef.LR3.Modular.modular_of_upper_ortho
+#print axioms SelfRef.LR3.Modular.orthomodular_of_upper_ortho
+#print axioms SelfRef.LR3.Modular.finite_of_atomistic
+#print axioms SelfRef.LR3.Modular.upper_of_atomistic_covering
+#print axioms SelfRef.LR3.Modular.orthomodular_of_atomistic
+#print axioms SelfRef.LR3.Entangle.pure_marginal_extreme
+#print axioms SelfRef.LR3.Entangle.reversible_preserves_pure
+#print axioms SelfRef.LR3.Entangle.local_map_tmul
+#print axioms SelfRef.LR3.Entangle.swap_tmul
+#print axioms SelfRef.LR3.Entangle.local_perm_tprod
+#print axioms SelfRef.LR3.Entangle.simplex_extreme_iff
+#print axioms SelfRef.LR3.Entangle.classical_pure_product
+#print axioms SelfRef.LR3.Entangle.le4_bound
+#print axioms SelfRef.LR3.Entangle.le4_attained
+#print axioms SelfRef.LR3.M11Prime.moment_quad
+#print axioms SelfRef.LR3.M11Prime.moment_trace
+#print axioms SelfRef.LR3.M11Prime.star_equiv
+#print axioms SelfRef.LR3.M11Prime.max_pos_corr
+#print axioms SelfRef.LR3.M11Prime.lemma1_general
+#print axioms SelfRef.LR3.M11Prime.hull_strict
+#print axioms SelfRef.LR3.M11Prime.average_invariant
+#print axioms SelfRef.LR3.M11Prime.final_assembly
+#print axioms SelfRef.LR3.M11Prime.invariant_form_scalar
+#print axioms SelfRef.LR3.M11Prime.cross_term_zero
