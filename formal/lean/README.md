@@ -228,7 +228,7 @@ None of the following is claimed as proved in Lean.
 Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
 from a private Lake project with the same pins. Paper:
 `theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
-`#print axioms` on the 248 exported theorems (19 for the rounds 4–9
+`#print axioms` on the 253 listed theorems (19 for the rounds 4–9
 note, 4 for the round 10 note, and the Lean rounds 3 to 6 theorems, below); each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
@@ -426,7 +426,7 @@ Lean round 6, Lemma R (namespace `GTAORnd.SelfRef.LR3.LemmaR`, file `LemmaR.lean
 `theory/lemma-r-2026-11-26/LEMMA_R.md` §§1–3 with its §9 corrections, and `LEMMA_R_LEAN_SPEC.md`;
 ledger RC20). **Proved-in-model; folklore-level; novelty not claimed.** Credit: the dual-functional
 step is the Marcus–Moyls argument as used by Al-Safi and Richens 2015 (Lemma 4); the line argument is
-the automorphism fact for the rook's graph (Harary 1958, cited, not read). Setting over a field `K`:
+the automorphism fact for the rook's graph (Harary 1958, cited, not read; corrected after the hostile review of Lean round 6: Harary 1958, DOI 10.2140/pjm.1958.8.743, gives the line group of K_{m,n}, and the full automorphism group of the rook's graph follows from Whitney's line-graph theorem, Whitney 1932, DOI 10.2307/2371086, Crossref-checked, cited, not read; `rook_aut` is proved directly, so no result depends on either paper; the adjacency argument is Al-Safi and Richens 2015 Lemma 2, stated there for effects in maximal composites, and the whole argument is folklore-level). Setting over a field `K`:
 families `a : Fin m → K^dA`, `b : Fin n → K^dB` with S2 (`Indep3`: any set of at most three
 members is linearly independent); product vectors `kr a b (i, j) = a_i b_jᵀ`.
 
@@ -437,13 +437,15 @@ members is linearly independent); product vectors `kr a b (i, j) = a_i b_jᵀ`.
 | `indep_of_rows`, `indep_of_cols` | D.1, D.2 | **Faithful** (cases of D). Product vectors on index pairs meeting at most three rows (columns), none holding all of them, are independent. |
 | `lemmaD` | Lemma D | **Faithful, any dimensions.** Four distinct index pairs lying neither in one row nor in one column give independent product vectors. |
 | `line_of_triangle`, `row_line`, `row_col`, `same_type`, `assemble` | R.2–R.4, rook's-graph steps | **Faithful.** Three distinct pairwise adjacent points of a grid lie in one line; for an injective map of index pairs preserving adjacency both ways (`RookAdj`: same row or same column), each row maps into one line, all rows map into lines of the same kind, and if rows map into rows the map is a product map. |
-| `rook_aut` | rook's-graph automorphisms (Harary 1958, cited, not read) | **Faithful, slightly more general** (`m ≥ 1`, `n ≥ 2`, any target grid `Fin p × Fin q`). An injective map of index pairs preserving adjacency both ways is `(i, j) ↦ (α i, β j)` or `(i, j) ↦ (α j, β i)`. Pure combinatorics; no linear algebra. |
+| `rook_aut` | rook's-graph automorphisms (Harary 1958 line group of K_{m,n} and Whitney 1932, cited; Al-Safi–Richens 2015 Lemma 2 for the adjacency argument; see the credit paragraph above) | **Faithful, slightly more general** (`m ≥ 1`, `n ≥ 2`, any target grid `Fin p × Fin q`). An injective map of index pairs preserving adjacency both ways is `(i, j) ↦ (α i, β j)` or `(i, j) ↦ (α j, β i)`. Pure combinatorics; no linear algebra. |
 | `indep_small`, `kr_injective` | R, injectivity of `(i, j) ↦ a_i ⊗ b_j` | **Faithful.** Under S2 any at most three product vectors are independent; distinct index pairs give distinct product vectors. |
 | `not_indep_row`, `not_indep_col`, `exists_line4` | R.1, four points of a line are dependent | **Faithful** (`dB ≤ 3`, resp. `dA ≤ 3`). Four product vectors in one row (column) are dependent; with `m, n ≥ 4` every adjacent pair lies in four points of its line. |
 | `adj_of_map` | R.1, lines map into lines | **Faithful** (`m, n ≥ 4`, `dA, dB ≤ 3`). If a linear equivalence `T` of `Matrix (Fin dA) (Fin dB) K` sends `a_x ⊗ b_x` to the product vector of `f x`, then `f` maps adjacent index pairs to adjacent ones (Lemma D on the images against the dependence of the preimages). |
 | `lemmaR` | Lemma R (`LEMMA_R_LEAN_SPEC.md` item 4; note §1–3 with §9) | **Faithful in the abstract form.** For `a : Fin m → K^dA`, `b : Fin n → K^dB` with S2, `m, n ≥ 4`, `dA, dB ≤ 3`, every linear equivalence `T` with `T '' P = P` (`P` the set of product vectors) permutes `P` by a bijection `f` of index pairs with `f (i, j) = (α i, β j)` for all pairs, or `f (i, j) = (α j, β i)`. |
+| `factors_bijective`, `lemmaR_perm` | spec item 4, σ and τ permutations, m = n (added after the hostile review of Lean round 6, finding L1) | **Faithful.** In `lemmaR`'s conclusion the factors `α`, `β` are bijections; in the swap case also `m = n`. |
+| `sqV_indep3`, `square_lemmaR`, `square_transpose_preserves` (`LemmaRNonVac.lean`, from the reviewer's scratch, finding M3) | non-vacuity of `lemmaR` | **Faithful, one polygon over ℚ.** S2 holds for the square's vertices (1, ±1, 0), (1, 0, ±1); `lemmaR` applies to them; the transpose, a map other than the identity, meets `T '' P = P`. Regular n-gons with n ≠ 4 need ℝ; S2 for a general convex polygon (no three vertices collinear) is on paper, and S2 needs no regularity. |
 
-Not covered by Lean round 6: the corollary that `T` itself is `g_A ⊗ g_B` or `(g_A ⊗ g_B) ∘ swap` as a linear map (spec item 5); S2 for the vertex vectors of regular polygons (the instance; on paper in the note); the combination with RC15 (reversible maps of locally symmetric composites); parts other than two polygons. The S2 hypothesis forces `dA, dB ≥ 3`, so with `dA, dB ≤ 3` the dimensions are exactly 3, as for polygons.
+Not covered by Lean round 6: the corollary that `T` itself is `g_A ⊗ g_B` or `(g_A ⊗ g_B) ∘ swap` as a linear map (spec item 5); S2 for the vertex vectors of polygons (the instance; on paper in the note for any convex polygon, no regularity needed; in Lean only for the square, `LemmaRNonVac.lean`); the combination with RC15 (reversible maps of locally symmetric composites); parts other than two polygons. The S2 hypothesis forces `dA, dB ≥ 3`, so with `dA, dB ≤ 3` the dimensions are exactly 3, as for polygons. Wording after the hostile review of Lean round 6: read "dimensions at most 3" as dimension 3 (polygon parts); bit and trit parts are where Lemma R fails and are not covered.
 
 **Scope notes after the hostile review of Lean round 4 (26 November 2026; appended, no theorem
 renamed).** "No group hypothesis" in the `m11_cube_polytope`, `m11_cross_polytope` row means no
@@ -472,8 +474,8 @@ carries weight (see `ball_O_not_SFP`); the `SFP` definition has no transitivity 
 per-step rate error δ: the same symbol names two different errors, so "the ball beats the disk"
 holds only under that identification. `SelfRef.liar_half` and `SelfRefRun.liar_half` are the same
 one-line fact in two namespaces; `Composition.P2_entries` is four numeric facts; `SelfRefRun.perm_periodic`
-is the existence of `orderOf`. Theorem count without padding: of the 248 names in
-`scripts/RndAxioms.lean`, 243 remain after dropping the duplicate `SelfRefRun.liar_half`,
+is the existence of `orderOf`. Theorem count without padding: of the 253 names in
+`scripts/RndAxioms.lean`, 248 remain after dropping the duplicate `SelfRefRun.liar_half`,
 `Composition.P2_entries`, and the Lean round 3 restatements `local_map_tmul`, `swap_tmul` and the
 numeric `le4_attained`. Raw counts are not a measure of depth: the load-bearing steps (NA1, the
 general maximal-torus criterion, the Jordan-class classification, Piron, Solèr, Baer, the tensor-product block of the Schur step for parts other than products of cross-polytopes (Lean round 5) and the

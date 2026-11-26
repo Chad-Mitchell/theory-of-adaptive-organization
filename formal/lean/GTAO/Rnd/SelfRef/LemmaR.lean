@@ -2,7 +2,8 @@
 Copyright (c) 2026 Chad Mitchell. Public domain (CC0).
 Side R&D, stepback Lemma R (`theory/lemma-r-2026-11-26/LEMMA_R.md`, ledger RC20): product vectors of
 polygon composites. Folklore-level, novelty not claimed: the dual-functional step is Marcus–Moyls,
-as Al-Safi–Richens 2015 Lemma 4; the line argument is the rook's-graph automorphism fact. Lean
+as Al-Safi–Richens 2015 Lemma 4; the adjacency argument is Al-Safi–Richens 2015 Lemma 2; the rook's
+graph is Harary 1958 (line group of K_{m,n}) with Whitney 1932 (`rook_aut` is proved directly). Lean
 round 6 of the side session; written in a private Lake project (same Lean and Mathlib pins) and moved
 here with only this header and the module lines changed.
 -/
@@ -15,9 +16,11 @@ public import Mathlib
 /-!
 # Lemma R for polygon composites (Lean round 6)
 
-Folklore-level; novelty is not claimed (the dual-functional step of Marcus–Moyls / Al-Safi–Richens
-2015 Lemma 4, and the automorphisms of the rook's graph, Harary 1958; Al-Safi and Richens 2015 use
-the same adjacency idea for effects). Source: `rnd/stepback/LEMMA_R.md` with its §9 corrections.
+Folklore-level; novelty is not claimed. Credit: the dual-functional step is the Marcus–Moyls argument
+as Al-Safi–Richens 2015 Lemma 4; the adjacency argument is Al-Safi–Richens 2015 Lemma 2 (stated there
+for effects in maximal composites); for the rook's graph, Harary 1958 gives the line group of
+K_{m,n} and Whitney 1932 the line-graph theorem (`rook_aut` is proved directly here, so no result
+depends on either paper). Source: `rnd/stepback/LEMMA_R.md` with its §9 corrections.
 -/
 
 namespace GTAORnd.SelfRef.LR3.LemmaR
@@ -538,5 +541,54 @@ theorem lemmaR (hA : Indep3 a) (hB : Indep3 b) (hdA : dA ≤ 3) (hdB : dB ≤ 3)
   exact ⟨f, ⟨hfinj, fun y => ⟨g y, hfg y⟩⟩, hf, rook_aut (by omega) (by omega) hfinj hadj⟩
 
 end Main
+
+section Perm
+variable {m n p q : ℕ}
+
+/-- a bijective product map has bijective factors -/
+lemma factors_bijective (hm : 0 < m) (hn : 0 < n) {f : Fin m × Fin n → Fin p × Fin q}
+    (hf : Function.Bijective f) {α : Fin m → Fin p} {β : Fin n → Fin q}
+    (h : ∀ x, f x = (α x.1, β x.2)) : Function.Bijective α ∧ Function.Bijective β := by
+  have j0 : Fin n := ⟨0, hn⟩
+  have i0 : Fin m := ⟨0, hm⟩
+  refine ⟨⟨fun i i' e => ?_, fun r => ?_⟩, ⟨fun j j' e => ?_, fun t => ?_⟩⟩
+  · have := hf.1 (a₁ := (i, j0)) (a₂ := (i', j0)) (by rw [h, h]; simp [e])
+    exact congrArg Prod.fst this
+  · obtain ⟨x, hx⟩ := hf.2 (r, β j0)
+    rw [h] at hx
+    exact ⟨x.1, congrArg Prod.fst hx⟩
+  · have := hf.1 (a₁ := (i0, j)) (a₂ := (i0, j')) (by rw [h, h]; simp [e])
+    exact congrArg Prod.snd this
+  · obtain ⟨x, hx⟩ := hf.2 (α i0, t)
+    rw [h] at hx
+    exact ⟨x.2, congrArg Prod.snd hx⟩
+
+/-- **Lemma R, with the corollaries of spec item 4**: in the product case `α`, `β` are bijections;
+in the swap case the factors are bijections and `m = n`. -/
+theorem lemmaR_perm {K : Type*} [Field K] {dA dB : ℕ} {a : Fin m → Fin dA → K}
+    {b : Fin n → Fin dB → K} (hA : Indep3 a) (hB : Indep3 b) (hdA : dA ≤ 3) (hdB : dB ≤ 3)
+    (hm : 4 ≤ m) (hn : 4 ≤ n) (T : Matrix (Fin dA) (Fin dB) K ≃ₗ[K] Matrix (Fin dA) (Fin dB) K)
+    (hP : T '' Set.range (kr a b) = Set.range (kr a b)) :
+    ∃ f : Fin m × Fin n → Fin m × Fin n, Function.Bijective f ∧
+      (∀ x, T (kr a b x) = kr a b (f x)) ∧
+      ((∃ α : Fin m → Fin m, ∃ β : Fin n → Fin n, Function.Bijective α ∧ Function.Bijective β ∧
+          ∀ x, f x = (α x.1, β x.2)) ∨
+       (m = n ∧ ∃ α : Fin n → Fin m, ∃ β : Fin m → Fin n, Function.Bijective α ∧
+          Function.Bijective β ∧ ∀ x, f x = (α x.2, β x.1))) := by
+  obtain ⟨f, hf, hT, h | h⟩ := lemmaR hA hB hdA hdB hm hn T hP
+  · obtain ⟨α, β, h⟩ := h
+    obtain ⟨h1, h2⟩ := factors_bijective (by omega) (by omega) hf h
+    exact ⟨f, hf, hT, Or.inl ⟨α, β, h1, h2, h⟩⟩
+  · obtain ⟨α, β, h⟩ := h
+    have hf' : Function.Bijective (fun x : Fin n × Fin m => f x.swap) :=
+      hf.comp (Prod.swap_bijective)
+    have hg : ∀ x : Fin n × Fin m, f x.swap = (α x.1, β x.2) := fun x => h x.swap
+    obtain ⟨h1, h2⟩ := factors_bijective (by omega) (by omega) hf' hg
+    have hmn : m = n := by
+      have := Fintype.card_of_bijective h2
+      simpa using this
+    exact ⟨f, hf, hT, Or.inr ⟨hmn, α, β, h1, h2, h⟩⟩
+
+end Perm
 
 end GTAORnd.SelfRef.LR3.LemmaR

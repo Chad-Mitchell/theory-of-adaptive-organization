@@ -1,11 +1,11 @@
 /-
 Copyright (c) 2026 Chad Mitchell. Public domain (CC0).
-`#print axioms` for the 248 exported theorems of the record-cost side R&D
+`#print axioms` for the 253 listed theorems of the record-cost side R&D
 (`GTAO/Rnd/`, `theory/RECORD_COST_CHAIN_2026-11-25.md`; then 19, `SelfRef.R78.*`, for
 `theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` §10; then 4, `SelfRef.R10.*`, for
 `theory/RECORD_COST_ROUND10_2026-11-25.md` §11; then `SelfRef.LR3.*`, Lean round 3, for
 the rounds 4–9 note §10 item L5, the rounds 4–9 and round 10 notes, the chain note
-steps S2 and S10, and round 11 part M, and Lean rounds 4 and 5 (with the round 5 add-on `SelfRef.LR3.OnsetO.*`), and Lean round 6, Lemma R (`SelfRef.LR3.LemmaR.*`) and the round 5 review checks (`SelfRef.LR3.M11Blocks.sep_necessary`, `flipA_pureSetB`, `flipA_hull_pureSetB`), labels in `formal/lean/README.md`).
+steps S2 and S10, and round 11 part M, and Lean rounds 4 and 5 (with the round 5 add-on `SelfRef.LR3.OnsetO.*`), and Lean round 6, Lemma R (`SelfRef.LR3.LemmaR.*`, with its non-vacuity witness `LemmaRNonVac.lean`) and the round 5 review checks (`SelfRef.LR3.M11Blocks.sep_necessary`, `flipA_pureSetB`, `flipA_hull_pureSetB`), labels in `formal/lean/README.md`).
 Run from `formal/lean/`:  `lake env lean scripts/RndAxioms.lean`
 Expected: each line lists only `propext`, `Classical.choice`, `Quot.sound` (or a subset),
 or says the theorem depends on no axioms.
@@ -260,3 +260,8 @@ open GTAORnd
 #print axioms SelfRef.LR3.LemmaR.exists_line4
 #print axioms SelfRef.LR3.LemmaR.adj_of_map
 #print axioms SelfRef.LR3.LemmaR.lemmaR
+#print axioms SelfRef.LR3.LemmaR.factors_bijective
+#print axioms SelfRef.LR3.LemmaR.lemmaR_perm
+#print axioms SelfRef.LR3.LemmaR.sqV_indep3
+#print axioms SelfRef.LR3.LemmaR.square_lemmaR
+#print axioms SelfRef.LR3.LemmaR.square_transpose_preserves

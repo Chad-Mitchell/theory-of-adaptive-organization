@@ -67,6 +67,7 @@ public import GTAO.Rnd.SelfRef.M11Cube
 public import GTAO.Rnd.SelfRef.M11Blocks
 public import GTAO.Rnd.SelfRef.OnsetO
 public import GTAO.Rnd.SelfRef.LemmaR
+public import GTAO.Rnd.SelfRef.LemmaRNonVac
 public import GTAO.Rnd.SelfRef.M11BlocksChecks
 public import GTAO.Rnd.SelfRef.TransportHorizons
 public import GTAO.Rnd.SelfRef.CostDialBeyond

@@ -228,3 +228,5 @@ R2 and R3 hold only under all of the following:
   - Scope: two regular polygon parts with n ≥ 4, all effects, a composite invariant under the local groups with finite orbits, two parts acting alone, and ε = 0 (or capped reads at ε = 0.01).
   - Relation to Open Quantum Problem #42 as stated in C9-3(a).
 - **C3v2 Arm 2:** "theorem-fixed conditional on RC15". The useful independent check is an exact RC15 instance check on max(P5, P7).
+
+**Appended 26 Nov 2026 after the hostile review of Lean round 6 (C9-7 status).** The "not formalized" of C9-7 is superseded in part: Lean round 6 (`formal/lean/GTAO/Rnd/SelfRef/LemmaR.lean`) proves Lemma D, the rook's-graph step and Lemma R in abstract form (dimension 3, polygon parts; S2 for the square over ℚ in `LemmaRNonVac.lean`). Still not formalized: the corollary that T itself is local or local with swap, S2 for general polygons, and the RC15 combination (R2, R3). Credit: Al-Safi and Richens 2015 Lemma 4 (dual-functional step) and Lemma 2 (adjacency argument); Harary 1958 and Whitney 1932 for the rook's graph.
