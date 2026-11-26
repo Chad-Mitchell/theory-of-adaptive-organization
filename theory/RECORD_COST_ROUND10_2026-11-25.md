@@ -147,7 +147,7 @@ A second worker ran these three routes in parallel. Its results refine §2, §5 
 - *Gentle transport.* The task is to move a record to a perfectly distinguishable partner over T ticks, at a cost of c·d² per tick plus κ per affine dimension. Results:
   - An even polygon never beats the disk, and the 4T-gon ties it (PROVED (in-model)).
   - Odd polygons beat it (OBSERVED (numerical)). At T = 3 the 7-gon costs 0.594 against the disk's 0.750; at T = 4 the 9-gon costs 0.483 against 0.586.
-- So J does not select a continuous group at any finite horizon. The disk wins only if one design must serve every horizon, which is U again. With a linear price c·d the ranking reverses toward the classical jump. **open miss.**
+- So J does not select a continuous group at the tested horizons: an odd polygon is strictly cheaper than the disk at T = 3, 4, 5 and 8 (`m_round10b_poly.stdout`), and the (2T+1)-gon is at every T from 2 to 12 and at T = 16 and 20, with a tie at T = 1 (`m_round10b_poly_ext.stdout`, added at review; OBSERVED (numerical)). That this holds at every finite horizon is a HYPOTHESIS. The disk wins only if one design must serve every horizon, which is U again. With a linear price c·d the ranking reverses toward the classical jump. **open miss.**
 
 **Counterexamples recorded here:**
 - the Thue–Morse shift world;
