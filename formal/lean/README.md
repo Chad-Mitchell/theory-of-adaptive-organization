@@ -228,7 +228,7 @@ None of the following is claimed as proved in Lean.
 Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
 from a private Lake project with the same pins. Paper:
 `theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
-`#print axioms` on the 235 exported theorems (19 for the rounds 4–9
+`#print axioms` on the 241 exported theorems (19 for the rounds 4–9
 note, 4 for the round 10 note, and the Lean rounds 3 to 6 theorems, below); each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
@@ -436,6 +436,8 @@ members is linearly independent); product vectors `kr a b (i, j) = a_i b_jᵀ`.
 | `exists_dual` | D | **Faithful.** For an independent finite family and a member `i0`, some `f` has `f · v_i = [i = i0]` on the family. |
 | `indep_of_rows`, `indep_of_cols` | D.1, D.2 | **Faithful** (cases of D). Product vectors on index pairs meeting at most three rows (columns), none holding all of them, are independent. |
 | `lemmaD` | Lemma D | **Faithful, any dimensions.** Four distinct index pairs lying neither in one row nor in one column give independent product vectors. |
+| `line_of_triangle`, `row_line`, `row_col`, `same_type`, `assemble` | R.2–R.4, rook's-graph steps | **Faithful.** Three distinct pairwise adjacent points of a grid lie in one line; for an injective map of index pairs preserving adjacency both ways (`RookAdj`: same row or same column), each row maps into one line, all rows map into lines of the same kind, and if rows map into rows the map is a product map. |
+| `rook_aut` | rook's-graph automorphisms (Harary 1958, cited, not read) | **Faithful, slightly more general** (`m ≥ 1`, `n ≥ 2`, any target grid `Fin p × Fin q`). An injective map of index pairs preserving adjacency both ways is `(i, j) ↦ (α i, β j)` or `(i, j) ↦ (α j, β i)`. Pure combinatorics; no linear algebra. |
 
 **Scope notes after the hostile review of Lean round 4 (26 November 2026; appended, no theorem
 renamed).** "No group hypothesis" in the `m11_cube_polytope`, `m11_cross_polytope` row means no
@@ -464,8 +466,8 @@ carries weight (see `ball_O_not_SFP`); the `SFP` definition has no transitivity 
 per-step rate error δ: the same symbol names two different errors, so "the ball beats the disk"
 holds only under that identification. `SelfRef.liar_half` and `SelfRefRun.liar_half` are the same
 one-line fact in two namespaces; `Composition.P2_entries` is four numeric facts; `SelfRefRun.perm_periodic`
-is the existence of `orderOf`. Theorem count without padding: of the 235 names in
-`scripts/RndAxioms.lean`, 230 remain after dropping the duplicate `SelfRefRun.liar_half`,
+is the existence of `orderOf`. Theorem count without padding: of the 241 names in
+`scripts/RndAxioms.lean`, 236 remain after dropping the duplicate `SelfRefRun.liar_half`,
 `Composition.P2_entries`, and the Lean round 3 restatements `local_map_tmul`, `swap_tmul` and the
 numeric `le4_attained`. Raw counts are not a measure of depth: the load-bearing steps (NA1, the
 general maximal-torus criterion, the Jordan-class classification, Piron, Solèr, Baer, the tensor-product block of the Schur step for parts other than products of cross-polytopes (Lean round 5) and the

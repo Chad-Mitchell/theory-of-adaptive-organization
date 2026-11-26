@@ -217,4 +217,137 @@ theorem lemmaD (hA : Indep3 a) (hB : Indep3 b) {Y : Finset (Fin m × Fin n)} (hY
 
 end LemmaD
 
+section Rook
+
+/-- rook's-graph adjacency: same row or same column (a point is adjacent to itself) -/
+def RookAdj {α β : Type*} (x y : α × β) : Prop := x.1 = y.1 ∨ x.2 = y.2
+
+/-- three distinct pairwise adjacent points lie in one row or one column -/
+lemma line_of_triangle {α β : Type*} {x y z : α × β} (hxy : x ≠ y) (hxz : x ≠ z) (_hyz : y ≠ z)
+    (h1 : RookAdj x y) (h2 : RookAdj x z) (h3 : RookAdj y z) :
+    (x.1 = y.1 ∧ x.1 = z.1) ∨ (x.2 = y.2 ∧ x.2 = z.2) := by
+  unfold RookAdj at h1 h2 h3
+  rcases h1 with h1 | h1 <;> rcases h2 with h2 | h2
+  · exact Or.inl ⟨h1, h2⟩
+  · exfalso
+    rcases h3 with h3 | h3
+    · exact hxz (Prod.ext (h1.trans h3) h2)
+    · exact hxy (Prod.ext h1 (h2.trans h3.symm))
+  · exfalso
+    rcases h3 with h3 | h3
+    · exact hxy (Prod.ext (h2.trans h3.symm) h1)
+    · exact hxz (Prod.ext h2 (h1.trans h3))
+  · exact Or.inr ⟨h1, h2⟩
+
+variable {m n p q : ℕ} {f : Fin m × Fin n → Fin p × Fin q}
+
+/-- a row whose first two images share a row maps into that row -/
+lemma row_line (hf : Function.Injective f) (hadj : ∀ x y, RookAdj (f x) (f y) ↔ RookAdj x y)
+    {j0 j1 : Fin n} (h01 : j0 ≠ j1) (i : Fin m) (hrow : (f (i, j0)).1 = (f (i, j1)).1)
+    (j : Fin n) : (f (i, j)).1 = (f (i, j0)).1 := by
+  by_cases hj0 : j = j0
+  · rw [hj0]
+  by_cases hj1 : j = j1
+  · rw [hj1, hrow]
+  have ne : ∀ {a b : Fin n}, a ≠ b → f (i, a) ≠ f (i, b) :=
+    fun hab e => hab (congrArg Prod.snd (hf e))
+  have ad : ∀ a b : Fin n, RookAdj (f (i, a)) (f (i, b)) := fun a b => (hadj _ _).2 (Or.inl rfl)
+  rcases line_of_triangle (ne h01) (ne (Ne.symm hj0)) (ne (Ne.symm hj1)) (ad _ _) (ad _ _)
+    (ad _ _) with h | h
+  · exact h.2.symm
+  · exact absurd (hf (Prod.ext hrow h.1)) (fun e => h01 (congrArg Prod.snd e))
+
+/-- a row whose first two images do not share a row maps into one column -/
+lemma row_col (hf : Function.Injective f) (hadj : ∀ x y, RookAdj (f x) (f y) ↔ RookAdj x y)
+    {j0 j1 : Fin n} (h01 : j0 ≠ j1) (i : Fin m) (hrow : (f (i, j0)).1 ≠ (f (i, j1)).1)
+    (j : Fin n) : (f (i, j)).2 = (f (i, j0)).2 := by
+  have h01' : (f (i, j0)).2 = (f (i, j1)).2 := ((hadj (i, j0) (i, j1)).2 (Or.inl rfl)).resolve_left hrow
+  by_cases hj0 : j = j0
+  · rw [hj0]
+  by_cases hj1 : j = j1
+  · rw [hj1, h01']
+  have ne : ∀ {a b : Fin n}, a ≠ b → f (i, a) ≠ f (i, b) :=
+    fun hab e => hab (congrArg Prod.snd (hf e))
+  have ad : ∀ a b : Fin n, RookAdj (f (i, a)) (f (i, b)) := fun a b => (hadj _ _).2 (Or.inl rfl)
+  rcases line_of_triangle (ne h01) (ne (Ne.symm hj0)) (ne (Ne.symm hj1)) (ad _ _) (ad _ _)
+    (ad _ _) with h | h
+  · exact absurd h.1 hrow
+  · exact h.2.symm
+
+/-- all rows have the same type -/
+lemma same_type (hadj : ∀ x y, RookAdj (f x) (f y) ↔ RookAdj x y)
+    {j0 j1 : Fin n} (h01 : j0 ≠ j1) {i i' : Fin m} (hii : i ≠ i')
+    (hr : (f (i, j0)).1 = (f (i, j1)).1) : (f (i', j0)).1 = (f (i', j1)).1 := by
+  by_contra hr'
+  have hc : (f (i', j0)).2 = (f (i', j1)).2 := ((hadj (i', j0) (i', j1)).2 (Or.inl rfl)).resolve_left hr'
+  have a1 : RookAdj (f (i, j0)) (f (i', j0)) := (hadj _ _).2 (Or.inr rfl)
+  have n1 : ¬ RookAdj (f (i, j1)) (f (i', j0)) := fun h => by
+    rcases (hadj _ _).1 h with h | h
+    · exact hii h
+    · exact h01 h.symm
+  have n2 : ¬ RookAdj (f (i, j0)) (f (i', j1)) := fun h => by
+    rcases (hadj _ _).1 h with h | h
+    · exact hii h
+    · exact h01 h
+  rcases a1 with a | a
+  · exact n1 (Or.inl (hr.symm.trans a))
+  · exact n2 (Or.inr (a.trans hc))
+
+/-- if every row maps into a row, the map is a product map -/
+lemma assemble (hf : Function.Injective f) (hadj : ∀ x y, RookAdj (f x) (f y) ↔ RookAdj x y)
+    {j0 j1 : Fin n} (h01 : j0 ≠ j1) (i0 : Fin m) (hall : ∀ i, (f (i, j0)).1 = (f (i, j1)).1) :
+    ∀ x, f x = ((f (x.1, j0)).1, (f (i0, x.2)).2) := by
+  rintro ⟨i, j⟩
+  refine Prod.ext (row_line hf hadj h01 i (hall i) j) ?_
+  show (f (i, j)).2 = (f (i0, j)).2
+  by_cases hi : i = i0
+  · rw [hi]
+  rcases (hadj (i, j) (i0, j)).2 (Or.inr rfl) with h | h
+  · exfalso
+    obtain ⟨j', hj'⟩ : ∃ j', j' ≠ j := by
+      by_cases hj : j = j0
+      · exact ⟨j1, by rw [hj]; exact h01.symm⟩
+      · exact ⟨j0, Ne.symm hj⟩
+    have e1 := row_line hf hadj h01 i0 (hall i0) j
+    have e2 := row_line hf hadj h01 i0 (hall i0) j'
+    have hadj' : RookAdj (f (i, j)) (f (i0, j')) := Or.inl (h.trans (e1.trans e2.symm))
+    rcases (hadj _ _).1 hadj' with h' | h'
+    · exact hi h'
+    · exact hj' h'.symm
+  · exact h
+
+/-- **Rook's-graph step** (Harary 1958 for the automorphisms; here for injective maps preserving
+adjacency both ways, `m ≥ 1`, `n ≥ 2`): such a map is a product map, or a product map composed with
+the swap of the two coordinates. -/
+theorem rook_aut (hm : 0 < m) (hn : 2 ≤ n) (hf : Function.Injective f)
+    (hadj : ∀ x y, RookAdj (f x) (f y) ↔ RookAdj x y) :
+    (∃ α : Fin m → Fin p, ∃ β : Fin n → Fin q, ∀ x, f x = (α x.1, β x.2)) ∨
+    (∃ α : Fin n → Fin p, ∃ β : Fin m → Fin q, ∀ x, f x = (α x.2, β x.1)) := by
+  let j0 : Fin n := ⟨0, by omega⟩
+  let j1 : Fin n := ⟨1, by omega⟩
+  have h01 : j0 ≠ j1 := by simp [j0, j1, Fin.ext_iff]
+  let i0 : Fin m := ⟨0, hm⟩
+  by_cases h : (f (i0, j0)).1 = (f (i0, j1)).1
+  · have hall : ∀ i, (f (i, j0)).1 = (f (i, j1)).1 := fun i => by
+      by_cases hi : i0 = i
+      · rw [← hi]; exact h
+      · exact same_type hadj h01 hi h
+    exact Or.inl ⟨fun i => (f (i, j0)).1, fun j => (f (i0, j)).2, assemble hf hadj h01 i0 hall⟩
+  · let g : Fin m × Fin n → Fin q × Fin p := fun x => (f x).swap
+    have hg : Function.Injective g := fun x y e => hf (Prod.swap_injective e)
+    have hgadj : ∀ x y, RookAdj (g x) (g y) ↔ RookAdj x y := fun x y => by
+      rw [← hadj]; unfold RookAdj; simp only [g, Prod.fst_swap, Prod.snd_swap]; exact or_comm
+    have hall : ∀ i, (g (i, j0)).1 = (g (i, j1)).1 := fun i => by
+      have hi : (f (i, j0)).1 ≠ (f (i, j1)).1 := fun e => by
+        by_cases hi : i = i0
+        · rw [hi] at e; exact h e
+        · exact h (same_type hadj h01 hi e)
+      exact ((hadj (i, j0) (i, j1)).2 (Or.inl rfl)).resolve_left hi
+    refine Or.inr ⟨fun j => (g (i0, j)).2, fun i => (g (i, j0)).1, fun x => ?_⟩
+    have e : f x = (g x).swap := (Prod.swap_swap _).symm
+    rw [e, assemble hg hgadj h01 i0 hall x]
+    rfl
+
+end Rook
+
 end GTAORnd.SelfRef.LR3.LemmaR
