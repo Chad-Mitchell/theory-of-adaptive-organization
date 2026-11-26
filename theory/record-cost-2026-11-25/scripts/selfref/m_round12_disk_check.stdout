@@ -1,0 +1,8 @@
+max(P4,P4): 24 pts; max slack (i) +0.000000, (ii) +0.000000  (OK)
+max(P5,P5): 135 pts; max slack (i) +0.000000, (ii) +0.000000  (OK)
+max(P6,P6): 552 pts; max slack (i) +0.000000, (ii) +0.000000  (OK)
+max(P7,P7): 2415 pts; max slack (i) +0.000000, (ii) +0.000000  (OK)
+max(P8,P8): 8656 pts; max slack (i) +0.000000, (ii) +0.000000  (OK)
+max(P5,P6): 630 pts; max slack (i) +0.000000, (ii) +0.000000  (OK)
+max(P3,P7): 21 pts; max slack (i) +0.000000, (ii) +0.000000  (OK)
+max(P5,P8): 2440 pts; max slack (i) +0.000000, (ii) +0.000000  (OK)
