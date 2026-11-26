@@ -228,8 +228,8 @@ None of the following is claimed as proved in Lean.
 Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
 from a private Lake project with the same pins. Paper:
 `theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
-`#print axioms` on the 227 exported theorems (19 for the rounds 4–9
-note, 4 for the round 10 note, and the Lean rounds 3, 4 and 5 theorems, below); each depends only on
+`#print axioms` on the 232 exported theorems (19 for the rounds 4–9
+note, 4 for the round 10 note, and the Lean rounds 3 to 6 theorems, below); each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
 Lean `axiom`. The named assumptions NA1–NA6 are those of §5 of the paper (the
@@ -414,6 +414,21 @@ least design meeting the cap, `xw` the least minimizer of `g w`.
 | `Setting.wstar_anti` | C12C (iv) | **Faithful.** A looser cap (`D ≤ D'`, same `f`, `κ`) meets no later and needs no larger supporting stake. |
 | `Setting.zero_stake`, `example_values` | C12C (v), the spec's instance | **Faithful.** At `w = 0` the least optimum under the cap is 0 iff `f 0 ≤ D`; for `f = [4, 2, 1, 1/2]`, `κ = 1`, `D = 3/2`: `xD = 2`, `wstar = 1`, supporting stakes `[1, 2]`. |
 
+Lean round 6, Lemma R (namespace `GTAORnd.SelfRef.LR3.LemmaR`, file `LemmaR.lean`; source:
+`theory/lemma-r-2026-11-26/LEMMA_R.md` §§1–3 with its §9 corrections, and `LEMMA_R_LEAN_SPEC.md`;
+ledger RC20). **Proved-in-model; folklore-level; novelty not claimed.** Credit: the dual-functional
+step is the Marcus–Moyls argument as used by Al-Safi and Richens 2015 (Lemma 4); the line argument is
+the automorphism fact for the rook's graph (Harary 1958, cited, not read). Setting over a field `K`:
+families `a : Fin m → K^dA`, `b : Fin n → K^dB` with S2 (`Indep3`: any set of at most three
+members is linearly independent); product vectors `kr a b (i, j) = a_i b_jᵀ`.
+
+| Declaration | Note item | Label |
+|---|---|---|
+| `dual_step` | D, the dual-functional step | **Faithful.** If the `v i` (`i ∈ s`) are independent and `∑ v_i ⊗ β_i = 0`, every `β_i = 0`. |
+| `exists_dual` | D | **Faithful.** For an independent finite family and a member `i0`, some `f` has `f · v_i = [i = i0]` on the family. |
+| `indep_of_rows`, `indep_of_cols` | D.1, D.2 | **Faithful** (cases of D). Product vectors on index pairs meeting at most three rows (columns), none holding all of them, are independent. |
+| `lemmaD` | Lemma D | **Faithful, any dimensions.** Four distinct index pairs lying neither in one row nor in one column give independent product vectors. |
+
 **Scope notes after the hostile review of Lean round 4 (26 November 2026; appended, no theorem
 renamed).** "No group hypothesis" in the `m11_cube_polytope`, `m11_cross_polytope` row means no
 hypothesis on the symmetry group: `Aut(S)` is built and proved finite. The local-symmetry premise of
@@ -441,8 +456,8 @@ carries weight (see `ball_O_not_SFP`); the `SFP` definition has no transitivity 
 per-step rate error δ: the same symbol names two different errors, so "the ball beats the disk"
 holds only under that identification. `SelfRef.liar_half` and `SelfRefRun.liar_half` are the same
 one-line fact in two namespaces; `Composition.P2_entries` is four numeric facts; `SelfRefRun.perm_periodic`
-is the existence of `orderOf`. Theorem count without padding: of the 227 names in
-`scripts/RndAxioms.lean`, 222 remain after dropping the duplicate `SelfRefRun.liar_half`,
+is the existence of `orderOf`. Theorem count without padding: of the 232 names in
+`scripts/RndAxioms.lean`, 227 remain after dropping the duplicate `SelfRefRun.liar_half`,
 `Composition.P2_entries`, and the Lean round 3 restatements `local_map_tmul`, `swap_tmul` and the
 numeric `le4_attained`. Raw counts are not a measure of depth: the load-bearing steps (NA1, the
 general maximal-torus criterion, the Jordan-class classification, Piron, Solèr, Baer, the tensor-product block of the Schur step for parts other than products of cross-polytopes (Lean round 5) and the
