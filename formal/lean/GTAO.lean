@@ -59,3 +59,7 @@ public import GTAO.Rnd.SelfRef.CostDialGlobal
 public import GTAO.Rnd.SelfRef.QubitWitness
 public import GTAO.Rnd.SelfRef.FiniteGeometry
 public import GTAO.Rnd.SelfRef.Composite
+public import GTAO.Rnd.SelfRef.OControl
+public import GTAO.Rnd.SelfRef.Modular
+public import GTAO.Rnd.SelfRef.Entangle
+public import GTAO.Rnd.SelfRef.M11Prime
