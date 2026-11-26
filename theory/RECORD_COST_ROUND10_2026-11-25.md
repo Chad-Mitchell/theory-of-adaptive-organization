@@ -125,3 +125,43 @@ Piron's representation theorem (1964) is cited by name; no DOI was checked for i
 ## 13. Reproduce
 
 From `theory/record-cost-2026-11-25/scripts/selfref/`, run `python3 m_round10.py` (2 s) and `python3 n_round10b.py` (30 s; numpy, scipy). The outputs are the `.stdout` files beside them.
+
+## 14. Part M: priced inflow, composition and the cost J (folded in from a parallel worker)
+
+A second worker ran these three routes in parallel. Its results refine §2, §5 and §6 above, which are left as written. Scripts: `scripts/selfref/m_round10b.py` and `m_round10b_poly.py`, with `.stdout` files beside them; the repository copies print only. Citations: `doi_check_3m.out` (17 DOIs). Hardy 2001 is cited by arXiv identifier (`quant-ph/0101012`).
+
+**Priced inflow with finite capacity.**
+- *Closed world.* In a finite-dimensional closed world the reversible group is a compact Lie group (Cartan, KNOWN). An evolution that never returns has infinite order, so the closure of the group it generates has positive dimension and contains a circle (PROVED (in-model) from KNOWN). In a finite closed world, "never returns" is therefore equivalent to a continuous symmetry. That is U restated, not derived.
+- *Unbounded environment.* An infinite world of capacity-2 cells under the shift, started in a Thue–Morse configuration, feeds cell 0 an aperiodic stream forever. Every finite block keeps a finite group (PROVED (in-model) by construction; no period up to 1024, OBSERVED (numerical)). Compactness fails only because the environment is unbounded; this is the missing local-from-global step of §5.
+- *Pricing inflow is geometry-blind.* Swapping an old record out is reversible and free in both worlds. Overwriting it costs the Landauer amount, which is the same for a classical bit and a qubit holding the same record. The memory for the reversible map favours the finite group: log₂ 24 ≈ 4.6 bits for the octahedral group, against roughly 3·log₂(1/ε) bits for SO(3) (OBSERVED (numerical)).
+- *Inheritance.* A part that records a connected environment group covariantly and faithfully inherits a non-trivial connected group (PROVED (in-model)). Inflow passes U on from an environment that already has it; it does not create it. **open miss.**
+
+**Composition.**
+- *Stabilizer theory meets both composite rules with finite groups.* Records of composites are costed like records of parts under Hardy's rules K_AB = K_A·K_B and N_AB = N_A·N_B. Stabilizer theory meets both for n = 1, 2, 3 with finite groups: 6, 60 and 1080 pure states; affine dimensions 3, 15 and 63; capacities 2, 4 and 8 (OBSERVED (numerical); KNOWN, Aaronson and Gottesman 2004).
+- *Cheapest cost then picks classical.* Hardy's own abstract says that dropping the word "continuous" leaves classical probability theory (KNOWN). **open miss.**
+- *No-restriction excludes stabilizer entanglement.* If the octahedron is given all its effects, the Bell stabilizer state gives the value −0.5 on a product effect, so that state is not allowed (PROVED (in-model)).
+- *Known results on no-restriction polytope parts.* With maximally non-local composites, reversible dynamics are trivial for boxworld (Gross et al. 2010; Al-Safi and Short 2014) and for most regular polytopes (Al-Safi and Richens 2015, KNOWN).
+
+**The cost J.**
+- *Finite tasks.* Every single-shot task with finitely many preparations and reads is matched by a polytope of no larger affine dimension (PROVED (in-model)).
+- *Gentle transport.* The task is to move a record to a perfectly distinguishable partner over T ticks, at a cost of c·d² per tick plus κ per affine dimension. Results:
+  - An even polygon never beats the disk, and the 4T-gon ties it (PROVED (in-model)).
+  - Odd polygons beat it (OBSERVED (numerical)). At T = 3 the 7-gon costs 0.594 against the disk's 0.750; at T = 4 the 9-gon costs 0.483 against 0.586.
+- So J does not select a continuous group at any finite horizon. The disk wins only if one design must serve every horizon, which is U again. With a linear price c·d the ranking reverses toward the classical jump. **open miss.**
+
+**Counterexamples recorded here:**
+- the Thue–Morse shift world;
+- stabilizer theory up to 3 qubits;
+- the 7-gon at T = 3.
+
+**Conditional remark (HYPOTHESIS, not a claim).** U would follow from four premises together:
+1. transitivity on the parts' pure states;
+2. no-restriction;
+3. one reversible map that entangles two parts;
+4. Conjecture C: no-restriction polytope parts admit no reversible entangling map in any composite between the minimal and maximal tensor products. This extends the Al-Safi–Richens conjecture.
+
+Conjecture C is being tested separately; its result will be added here when it is available. Two of these premises, no-restriction and entangling dynamics, are not yet in the record-cost chain.
+
+**Not formalized:** the compact-closure step, the Thue–Morse construction, the stabilizer counts, the polytope reduction and the transport costs.
+
+Sources added: Al-Safi, Short 2014, J. Phys. A 47:325303, `10.1088/1751-8113/47/32/325303`; Al-Safi, Richens 2015, NJP 17:123001, `10.1088/1367-2630/17/12/123001`; Barnum, Wilce 2014, Found. Phys. 44:192–212, `10.1007/s10701-014-9777-1`; Crooks 2007, PRL 99:100602, `10.1103/PhysRevLett.99.100602`; de la Torre, Masanes, Short, Müller 2012, PRL 109:090403, `10.1103/PhysRevLett.109.090403`; Gross, Müller, Colbeck, Dahlsten 2010, PRL 104:080402, `10.1103/PhysRevLett.104.080402`; Krumm, Müller 2019, npj Quantum Inf. 5:7, `10.1038/s41534-018-0123-x`; Landauer 1961, `10.1147/rd.53.0183`; Masanes et al. 2013, PNAS, `10.1073/pnas.1304884110`; Massar, Patra 2014, PRA 89:052124, `10.1103/PhysRevA.89.052124`; Salamon, Berry 1983, PRL 51:1127, `10.1103/PhysRevLett.51.1127`.

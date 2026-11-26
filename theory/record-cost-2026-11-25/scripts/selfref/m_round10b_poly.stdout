@@ -1,0 +1,11 @@
+M3g odd 3-gon (all effects): max op distance between two vertices = 1.000000
+M3g odd 5-gon (all effects): max op distance between two vertices = 1.000000
+M3g odd 7-gon (all effects): max op distance between two vertices = 1.000000
+M3g odd 9-gon (all effects): max op distance between two vertices = 1.000000
+M3g 6-gon: d(v0,vj)/sin(pi j/n) for j=1..n/2: [1.0, 1.1547, 1.0]
+M3g 8-gon: d(v0,vj)/sin(pi j/n) for j=1..n/2: [1.0824, 1.0, 1.0824, 1.0]
+M3g 10-gon: d(v0,vj)/sin(pi j/n) for j=1..n/2: [1.0, 1.0515, 1.0, 1.0515, 1.0]
+M3h T=3 disk=0.7500 | odd n-gon optimum to a perfectly distinguishable vertex: 3:1.0000 5:0.7639 7:0.5942 9:0.6673 11:0.6777 15:0.6838 21:0.6977 31:0.7084
+M3h T=4 disk=0.5858 | odd n-gon optimum to a perfectly distinguishable vertex: 3:1.0000 5:0.7639 7:0.5942 9:0.4825 11:0.5414 15:0.5455 21:0.5534 31:0.5576
+M3h T=5 disk=0.4775 | odd n-gon optimum to a perfectly distinguishable vertex: 3:1.0000 5:0.7639 7:0.5942 9:0.4825 11:0.4051 15:0.4656 21:0.4368 31:0.4492
+M3h T=8 disk=0.3045 | odd n-gon optimum to a perfectly distinguishable vertex: 3:1.0000 5:0.7639 7:0.5942 9:0.4825 11:0.4051 15:0.3059 21:0.3088 31:0.2946
