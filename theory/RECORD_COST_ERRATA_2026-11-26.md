@@ -60,3 +60,7 @@ No single step is fallacious, and no complex numbers are hidden in steps S1–S4
 3. The forces and gravity rounds use quantum mechanics as input.
 
 Sources: Barnum, Müller, Ududec 2014, `10.1088/1367-2630/16/12/123029`; Al-Safi, Richens 2015, NJP 17:123001, `10.1088/1367-2630/17/12/123001`; Baer 1946, Bull. AMS 52:77–93, `10.1090/S0002-9904-1946-08506-7` (Crossref-checked 26 November 2026, `theory/record-cost-2026-11-25/doi_check_7f.out`).
+
+## 8. Frozen premise list and the round 9 search (appended)
+
+The premise list is frozen in `theory/qm-selection-2026-11-26/PREREG.md` (lock commit `06f07e6`). The search that round 9 named (U(2) and Sp(1)×Sp(1) transitive bodies, affine dimension 4–8) is a **miss**: no counterexample. The non-Jordan bodies that pass hSFP there (the spin-3 zonal orbitope and B3 × B3) are centrally symmetric, so their capacity is 2 and the 3-ball beats them on dimension. The spin-1 ⊕ spin-2 family, C1 included, fails hSFP through an equatorial circle face (`RESULTS.md` there). This does not cover other groups or dimensions 9–15, and it was not a blind run (disclosed in the prereg).
