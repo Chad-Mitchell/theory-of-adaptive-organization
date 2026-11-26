@@ -228,8 +228,8 @@ None of the following is claimed as proved in Lean.
 Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
 from a private Lake project with the same pins. Paper:
 `theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
-`#print axioms` on the 192 exported theorems (19 for the rounds 4–9
-note, 4 for the round 10 note, and the Lean rounds 3 and 4 theorems, below); each depends only on
+`#print axioms` on the 214 exported theorems (19 for the rounds 4–9
+note, 4 for the round 10 note, and the Lean rounds 3, 4 and 5 theorems, below); each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
 Lean `axiom`. The named assumptions NA1–NA6 are those of §5 of the paper (the
@@ -376,6 +376,31 @@ Lean round 4, cost dial (file `CostDialBeyond.lean`, namespace `GTAORnd.SelfRef.
 |---|---|---|
 | `Jdial_midpoint_not_global`, `Jdial_tie_at_right_angle` | chain S10 (cost dial, `β > π/2`) | **Faithful** at the tuned weight `ρ = 1/(2cos(β/2))`. For every `π/2 < β < π`, `α = β/2 + π/2` costs strictly less than the midpoint, so the midpoint is not a global minimizer; at `β = π/2` the two tie. This settles the converse left open in the `Jdial_midpoint_global` row and corrects "from β ≈ 1.61" in the `CostDialGlobal.lean` docstring: the midpoint stops being the global minimizer right after π/2. Where the minimizer lies for `β > π/2` is not formalized. |
 
+Lean round 5 (namespace `GTAORnd.SelfRef.LR3.M11Blocks`, file `M11Blocks.lean`): Theorem M11′ for
+parts that are products of cross-polytopes, under a minimal symmetry hypothesis. A *block part* has
+its coordinates grouped into blocks (`b : Fin m → Fin r`) and state space
+`{a : ∑_{i ∈ block k} |a_i| ≤ 1 for every block k}`: singleton blocks give the cube, one block the
+cross-polytope, and other labellings e.g. octahedron × octahedron. `maxSetB` is the maximal tensor
+product of two block parts (facet effects `1 + s·a` with `s` a sign vector on one block, zero
+elsewhere) and `pureSetB` the products of their vertices. This covers the mixed composite (cube with
+cross-polytope) that the round 4 rows leave open.
+
+| Declaration | Note item | Label |
+|---|---|---|
+| `diag_of_separating`, `flips_separate` | M11′, Schur step, tensor block, minimal diagonal form | **Faithful.** A matrix on the tensor coordinates invariant under a family of diagonal matrices that separates every pair of distinct coordinates (for `u ≠ v` some `diag d` in the family with `d u * d v ≠ 1`) is diagonal. The local sign flips form such a family; so does any smaller set of sign patterns that tells all coordinates apart. Among diagonal symmetries the condition is also necessary for this step: if no `d` in the family separates `u ≠ v`, the matrix `E_uv + E_vu` is invariant under all of them. |
+| `pure_mem_maxSetB`, `maxSetB_bounds`, `maxSetB_unit` | M11′, Lemma 1 setting for block parts | **Faithful.** Products of block vertices lie in `maxSetB` (so the hypotheses below are consistent); on `maxSetB` the block marginals and block correlations obey `(s·a)², (t·b)², (sᵀCt)² ≤ 1` for block sign vectors, and `0 ≤ 1 + σa_i + τb_j + στC_ij` for `σ, τ = ±1`. |
+| `maxSetB_blockA`, `maxSetB_blockB`, `sum_sgn_sq2`, `maxSetB_blockC` | M11′, Lemma 1 for block parts | **Faithful** (at least one block label on each side). Each block of `a` and of `b` has squared norm at most 1, with equality only at a vertex `±e_i` of that block; each block of `C` has squared Frobenius norm at most 1. |
+| `pure_of_eqB`, `quad_blockw` | M11′, strictness for block parts | **Faithful.** A point of `maxSetB` at which every block of `a`, of `b` and of `C` has norm 1 is a product of block vertices. A diagonal form constant on each block is `q₀₀x₀₀² + ∑_k α_k‖a_k‖² + ∑_l β_l‖b_l‖² + ∑_{k,l} γ_{kl}‖C_{kl}‖²_F`, with weights that may differ between blocks. |
+| `m11_blocks` | M11′, assembled for block parts, with `Γ` as a hypothesis | **Faithful for products of cross-polytopes, with `Γ` as a hypothesis.** For any finite group `Γ` acting linearly whose image contains (i) a separating family of diagonal matrices (as in `diag_of_separating`) and (ii) for any two coordinates of the same block of either part, the permutation matrix of a coordinate permutation of that part sending one to the other, and any `S` with `pureSetB ⊆ S ⊆ maxSetB`: an element of `Γ` mapping `S` onto `S` maps the product states onto themselves. Exactly these two properties are used. (i) makes the averaged form diagonal. (ii) makes it constant within blocks; without (ii) the weights inside a block can differ, `q` then separates only the top-weight vertices, and this proof route fails. Coordinate swaps between blocks, swaps of a cube's coordinates (singleton blocks, where (ii) is vacuous) and the rest of the hyperoctahedral group are not used. |
+| `pureSetB_span`, `m11_blocks_polytope`, `m11_blocks_polytope_flips` | Theorem M11′ for polytope composites of block parts | **Faithful for these parts, no group hypothesis.** Let `S` be the convex hull of a finite set with `pureSetB ⊆ S ⊆ maxSetB`. Assume it is invariant under ±1 diagonal maps separating the coordinates (`_flips`: under the local sign flips) and under the within-block coordinate permutations of (ii). Then every reversible map of `S` maps the product states onto the product states; `Aut(S)` is built and shown finite (the products of block vertices span), then `m11_blocks` applies. |
+| `maxSet_eq_blocks`, `pureSet_eq_blocks`, `maxSetX_eq_blocks`, `pureSetX_eq_blocks`, `maxSetCX_eq_blocks`, `pureSetCX_eq_blocks` | instances | **Faithful.** Round 4's cube composite is the singleton-block case and its cross-polytope composite the one-block case (`m_A, m_B ≥ 1` for the pure sets). The mixed cube × cross-polytope composite `maxSetCX` / `pureSetCX`, written out directly, is the labelling `(id, fun _ => 0)`. |
+| `m11_cube_cross_polytope` | Theorem M11′ for a polytope composite of a hypercube and a cross-polytope | **Faithful, no group hypothesis.** `pureSetCX ⊆ S ⊆ maxSetCX`, `S` the convex hull of a finite set, `m_A, m_B ≥ 1`. If `S` is invariant under the local sign flips of both parts and the coordinate swaps of the cross-polytope (none of the cube), every reversible map of `S` maps the product states onto the product states. |
+
+Not covered by round 5: 2-level centrally symmetric parts that are not products of cross-polytopes
+(free sums such as cube ⊕ cube, the dual of octahedron × octahedron, and the other Hanner and non-Hanner
+2-level parts); composites with no separating diagonal symmetries or without within-block
+transitivity; non-polyhedral `S`.
+
 **Scope notes on earlier names (hostile review of the Lean layer, 26 November 2026).** No locked
 or committed theorem is renamed or edited; these lines give each one's actual content.
 `disk_strictly_cheaper` shows only that the ring's Σ is positive (`lam*0 < lam*ringSigma`); the
@@ -388,11 +413,11 @@ carries weight (see `ball_O_not_SFP`); the `SFP` definition has no transitivity 
 per-step rate error δ: the same symbol names two different errors, so "the ball beats the disk"
 holds only under that identification. `SelfRef.liar_half` and `SelfRefRun.liar_half` are the same
 one-line fact in two namespaces; `Composition.P2_entries` is four numeric facts; `SelfRefRun.perm_periodic`
-is the existence of `orderOf`. Theorem count without padding: of the 192 names in
-`scripts/RndAxioms.lean`, 187 remain after dropping the duplicate `SelfRefRun.liar_half`,
+is the existence of `orderOf`. Theorem count without padding: of the 214 names in
+`scripts/RndAxioms.lean`, 209 remain after dropping the duplicate `SelfRefRun.liar_half`,
 `Composition.P2_entries`, and the Lean round 3 restatements `local_map_tmul`, `swap_tmul` and the
 numeric `le4_attained`. Raw counts are not a measure of depth: the load-bearing steps (NA1, the
-general maximal-torus criterion, the Jordan-class classification, Piron, Solèr, Baer, the tensor-product block of the Schur step for parts other than hypercubes and cross-polytopes and the
+general maximal-torus criterion, the Jordan-class classification, Piron, Solèr, Baer, the tensor-product block of the Schur step for parts other than products of cross-polytopes (Lean round 5) and the
 Löwner step of M11, M12, purification and the cost-selection step) are not in Lean.
 
 **Scope notes after the hostile review of Lean round 3 (26 November 2026; appended, no theorem
@@ -415,7 +440,7 @@ directly; the CNOT map is not formalized. `final_assembly` assumes only `T '' E 
 says bijection) and is an elementary set lemma: it takes the invariance of q and the strict
 separation of product pure states as hypotheses, and the `M11Prime.lean` steps are not chained; the
 separation is derived, and the steps chained, only in `M11Cube.lean` for hypercube and
-cross-polytope parts. Depth of
+cross-polytope parts and in `M11Blocks.lean` for products of cross-polytopes. Depth of
 the count: besides the five dropped above, about twelve more names are one-line instances,
 restatements or Mathlib wrappers: `unitary_fixes_ray`, `qubit_O3_not_SFP`, `reversible_preserves_pure`,
 `final_assembly`, `finite_divring_comm` (`littleWedderburn`), `chevalley_nonzero_zero` (Mathlib's
