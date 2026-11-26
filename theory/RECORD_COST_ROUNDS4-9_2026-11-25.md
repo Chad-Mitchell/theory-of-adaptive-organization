@@ -126,3 +126,7 @@ Hardy 2001 (continuity axiom) is cited as in the chain note (DataCite, `10.48550
 ## 12. Reproduce
 
 From `theory/record-cost-2026-11-25/scripts/selfref/`, run `python3 <script>.py` for `g_round4`, `h_round5`, `i_round6` (about 80 s), `j_round7`, `k_round8`, `l_round9`, `l_round9_check` (numpy, scipy ≥ 1.15 for `sph_harm_y`). Outputs are the `.stdout` files beside them. The repository copy of `l_round9.py` tries every combination of distinct permutations as its diagonal candidate sets; the session copy repeated entries and under-reported the CP² capacity as 2. The repository run gives 3 for CP² (its known value), 2 for the flag orbitope, and the other rows as in the session. Lean: `tools/check_lean.sh` in the dedicated Lean checkout, then `lake env lean scripts/RndAxioms.lean` in `formal/lean/`.
+
+## 13. Round 10 (pointer, appended)
+
+Round 10 tests whether U follows from more basic premises: `theory/RECORD_COST_ROUND10_2026-11-25.md`.

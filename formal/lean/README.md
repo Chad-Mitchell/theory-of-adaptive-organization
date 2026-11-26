@@ -228,8 +228,8 @@ None of the following is claimed as proved in Lean.
 Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
 from a private Lake project with the same pins. Paper:
 `theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
-`#print axioms` on the 81 exported theorems (the last 19 for the rounds 4–9
-note, below); each depends only on
+`#print axioms` on the 85 exported theorems (19 for the rounds 4–9
+note and the last 4 for the round 10 note, below); each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
 Lean `axiom`. The named assumptions NA1–NA6 are those of §5 of the paper (the
@@ -272,6 +272,14 @@ fixes some point of `X`.
 Not formalized here: the maximal-torus criterion for SFP, the O(3) subgroup
 classification, other transitive groups (G₂, real and quaternionic quantum
 theory), and the orbitope and cost results of the rounds 4–9 note.
+
+Round 10 (`theory/RECORD_COST_ROUND10_2026-11-25.md` §11): `GTAO/Rnd/SelfRef/ContinuousTime.lean`,
+namespace `GTAORnd.SelfRef.R10`.
+
+| Declaration | Note item | Label |
+|---|---|---|
+| `continuous_line_discrete_const`, `finite_group_no_continuous_motion`, `continuous_change_infinite_group` | §3 (continuous time with change forces an infinite reversible group) | **Faithful.** That a polytope's reversible group is finite is not formalized. |
+| `never_returns_infinite_order` | §5 (a never-returning orbit forces infinite order of the global map) | **Faithful.** |
 
 ## Layout
 
