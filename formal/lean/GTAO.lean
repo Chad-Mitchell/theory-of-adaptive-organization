@@ -53,3 +53,9 @@ public import GTAO.Rnd.SelfRef.Precision
 public import GTAO.Rnd.SelfRef.ContinuousTime
 public import GTAO.Rnd.SelfRef.Broadcast
 public import GTAO.Rnd.SelfRef.BroadcastControl
+public import GTAO.Rnd.SelfRef.SFPCriterion
+public import GTAO.Rnd.SelfRef.Transport
+public import GTAO.Rnd.SelfRef.CostDialGlobal
+public import GTAO.Rnd.SelfRef.QubitWitness
+public import GTAO.Rnd.SelfRef.FiniteGeometry
+public import GTAO.Rnd.SelfRef.Composite

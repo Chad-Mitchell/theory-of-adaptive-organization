@@ -94,7 +94,7 @@ Copyable (drift-fixed) records are mutually compatible, so they lie in one Boole
 | `continuous_change_infinite_group` | non-trivial continuous change forces an infinite group | **Faithful.** |
 | `never_returns_infinite_order` | an orbit that never returns forces infinite order | **Faithful.** |
 
-Not formalized: the finiteness of polytope reversible groups, the stabilizer counts, Piron's and Solèr's theorems, Baer's theorem, Chevalley–Warning, and the purification steps.
+Not formalized: the finiteness of polytope reversible groups, the stabilizer counts, Piron's and Solèr's theorems, Baer's theorem, Chevalley–Warning, and the purification steps. Lean round 3 (26 November 2026; labels in `formal/lean/README.md`): `FiniteGeometry.lean` proves the algebra after Piron for §8 (a finite division ring is commutative; diagonal quadratic forms in three or more variables, and two-variable norm forms, over finite fields have a non-zero zero, from Mathlib's Chevalley–Warning), and `Transport.lean` proves the §14 comparison at T = 3 (a 7-gon path costs at most 3·(sin(π/7)/sin(3π/7))² < 0.67, while every 3-tick pure-state path in the disk costs at least 3/4). Piron's, Solèr's and Baer's theorems, the other horizons and the purification steps stay not formalized.
 
 ## 12. Sources (Crossref-checked)
 
@@ -162,7 +162,7 @@ A second worker ran these three routes in parallel. Its results refine §2, §5 
 
 Conjecture C is being tested separately; its result will be added here when it is available. Two of these premises, no-restriction and entangling dynamics, are not yet in the record-cost chain.
 
-**Not formalized:** the compact-closure step, the Thue–Morse construction, the stabilizer counts, the polytope reduction and the transport costs.
+**Not formalized:** the compact-closure step, the Thue–Morse construction, the stabilizer counts, the polytope reduction and the transport costs. Lean round 3 (26 November 2026): `formal/lean/GTAO/Rnd/SelfRef/Transport.lean` proves the transport comparison at T = 3 only (7-gon path cost < 0.67 against at least 3/4 for every 3-tick pure-state path in the disk); the other horizons stay not formalized.
 
 Sources added: Al-Safi, Short 2014, J. Phys. A 47:325303, `10.1088/1751-8113/47/32/325303`; Al-Safi, Richens 2015, NJP 17:123001, `10.1088/1367-2630/17/12/123001`; Barnum, Wilce 2014, Found. Phys. 44:192–212, `10.1007/s10701-014-9777-1`; Crooks 2007, PRL 99:100602, `10.1103/PhysRevLett.99.100602`; de la Torre, Masanes, Short, Müller 2012, PRL 109:090403, `10.1103/PhysRevLett.109.090403`; Gross, Müller, Colbeck, Dahlsten 2010, PRL 104:080402, `10.1103/PhysRevLett.104.080402`; Krumm, Müller 2019, npj Quantum Inf. 5:7, `10.1038/s41534-018-0123-x`; Landauer 1961, `10.1147/rd.53.0183`; Masanes et al. 2013, PNAS, `10.1073/pnas.1304884110`; Massar, Patra 2014, PRA 89:052124, `10.1103/PhysRevA.89.052124`; Salamon, Berry 1983, PRL 51:1127, `10.1103/PhysRevLett.51.1127`.
 
@@ -212,6 +212,6 @@ All OBSERVED (numerical) as a search, and each "certified" row is an exact certi
 
 **open miss (what C still lacks):** parts that fail (★) (polygons with six or more sides, odd polygons, the icosahedron and dodecahedron, non-regular vertex-transitive polytopes such as prisms); composites that are not invariant under the parts' groups (sampled only); three or more parts; and the entangling-map premise.
 
-**Not formalized:** Theorem M11, its two lemmas and the certificates. Two Lean candidates are written up in the session notes: the square case of Lemma 1 and a finite form of Lemma 2.
+**Not formalized:** Theorem M11, its two lemmas and the certificates. Two Lean candidates are written up in the session notes: the square case of Lemma 1 and a finite form of Lemma 2. Lean round 3 (26 November 2026; labels in `formal/lean/README.md`): `formal/lean/GTAO/Rnd/SelfRef/Composite.lean` proves both candidates (PROVED (in-model)): Lemma 1 for hypercube parts (`cube_corr_bound`, `square_corr_bound`, `square_C_bound`, tight by `cube_corr_tight`) and Lemma 2 in a finite form (`square_pure_marginal`, `pure_marginal_finite`) plus an abstract form that takes the conditional-state property of the max composite as a hypothesis (`pure_marginal_product`, `pure_marginal_factorizes`). Theorem M11 itself, Lemma 1 for other parts and the certificates stay not formalized.
 
 Sources added: Bremner, Dutour Sikirić, Pasechnik, Rehn, Schürmann 2014, LMS J. Comput. Math. 17:565–581, `10.1112/S1461157014000400`; Avis, Fukuda 1992, Discrete Comput. Geom. 8:295–313, `10.1007/BF02293050`; John, "Extremum problems with inequalities as subsidiary conditions" (1948), reprinted in *Traces and Emergence of Nonlinear Programming* (Birkhäuser; Crossref year 2013), 197–215, `10.1007/978-3-0348-0439-4_9`. Al-Safi and Richens 2015, Gross et al. 2010 and Al-Safi and Short 2014 are as in §14.
