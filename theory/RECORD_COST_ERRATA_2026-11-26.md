@@ -64,3 +64,10 @@ Sources: Barnum, Müller, Ududec 2014, `10.1088/1367-2630/16/12/123029`; Al-Safi
 ## 8. Frozen premise list and the round 9 search (appended)
 
 The premise list is frozen in `theory/qm-selection-2026-11-26/PREREG.md` (lock commit `06f07e6`). The search that round 9 named (U(2) and Sp(1)×Sp(1) transitive bodies, affine dimension 4–8) is a **miss**: no counterexample. The non-Jordan bodies that pass hSFP there (the spin-3 zonal orbitope and B3 × B3) are centrally symmetric, so their capacity is 2 and the 3-ball beats them on dimension. The spin-1 ⊕ spin-2 family, C1 included, fails hSFP through an equatorial circle face (`RESULTS.md` there). This does not cover other groups or dimensions 9–15, and it was not a blind run (disclosed in the prereg).
+
+## 9. Corrections to this file (appended after a hostile review of the errata commits)
+
+- **§6, "Not in Lean … the maximal-torus SFP criterion".** The general criterion is not in Lean. Its concrete cases are: `ball_SFP_iff_odd`, `complex_fixes_ray`, `unitary_fixes_ray`, `real_odd_fixes_ray` and `real_even_not_SFP` in `formal/lean/GTAO/Rnd/SelfRef/SFPCriterion.lean` (commit `80cf785`, Lean round 3, already on the branch before this file was written).
+- **§1, "assumed infinitely many pure states, i.e. U".** Read: "assumed infinitely many pure states, hence, **with a closed (compact) group**, U". An infinite transitive group gives a continuous group only after taking its closure.
+- **PR-body items of the foundations review** are fixed in the PR #295 body itself, not in a repository note: line 1 ("Nothing was rebased" replaced by the #286 rebase disclosure), the #292 row (the run followed a gate pass by the author agent), and the horizon wording ("at the tested horizons (observed)", matching `cfa97cd`).
+- **§4, the M11 reason** is unchanged. §8: the search is relabelled **`CONSISTENCY_CHECK`**, and "P7 is not needed" reads "P7 is not needed given P5 (hSFP)" (`theory/qm-selection-2026-11-26/DEVIATIONS.md`).

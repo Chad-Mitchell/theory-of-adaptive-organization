@@ -30,3 +30,14 @@ No U(2) or Sp(1)×Sp(1) transitive body of affine dimension 4–8 satisfies P1�
 ## Deviations
 
 None from the locked method. The two process deviations (development run before the lock; no separate gate reader) are disclosed in `PREREG.md` §0 and are not repeated in a `DEVIATIONS.md`.
+
+## Addendum (26 November 2026, after a hostile review; the text above is unchanged)
+
+1. **Label: `CONSISTENCY_CHECK`, not a test** (`DEVIATIONS.md` 2). The lock and the results were pushed together (`DEVIATIONS.md` 1). P4 + P2 already imply P3, so U enters through the group rule P4 (`DEVIATIONS.md` 3). The miss shows P7 is not needed **given P5 (hSFP)** (`DEVIATIONS.md` 4).
+2. **G₀ of the two passing bodies** (needed for their hSFP pass; the fail claims are safe without it, since a circle face rotated by a subgroup of G₀ already fails):
+   - **G₀(Z3) = SO(3).** G₀ is a compact connected group of linear maps preserving Z3. It acts faithfully on the pure states (they span), contains SO(3), and acts transitively on them, which form a 2-sphere. A compact connected group acting effectively and transitively on S² is SO(3) (Montgomery and Samelson 1943, Ann. Math. 44:454, `10.2307/1968975`, Crossref-checked in `doi_check.out`).
+   - **G₀(B3 × B3) = SO(3) × SO(3).** The proper faces of B3 × B3 with more than one point are the 3-balls {a} × B3 and B3 × {b}. A connected G₀ preserves each of the two families, so it acts as a product of groups on the two factors, each a compact connected group transitive on S², hence SO(3) by the same theorem.
+3. **Non-exposed faces** (closes the gap in `PREREG.md` §3.3, which treated exposed faces). If a face F, exposed or not, has a positive-dimensional stabilizer, it is invariant under some SO(2) ⊂ G₀. The minimal exposed face containing F is the intersection of all exposed faces containing F; that set of faces is permuted by the stabilizer of F, so the minimal exposed face is SO(2)-invariant. Apply the normal-cone argument to it: for Z3 it is a pole, so F is a point. For B3 × B3 every face is a product of faces of balls, all exposed.
+4. **The maximal-torus criterion, cited inline.** SFP for a compact connected G transitive on G/H holds iff H contains a maximal torus of G. This uses the conjugacy of maximal tori (every element of G lies in some maximal torus, and all maximal tori are conjugate) together with Hopf and Samelson 1940, Comment. Math. Helv. 13:240–251, `10.1007/BF01378063` (Crossref-checked in `doi_check.out`). Concrete cases (balls; complex and real QM) are proved in Lean in `formal/lean/GTAO/Rnd/SelfRef/SFPCriterion.lean` (80cf785); the general criterion is not.
+5. **K_θ is one body up to affine isomorphism.** Scaling the spin-2 component commutes with SO(3), so every θ ∈ (0, π/2) gives the same body as C1. The nine θ values in the table are redundant checks of one body, not a family.
+6. **Rank.** The "Next" line says "rank-2 and rank-3 groups (SU(3), Sp(2), G₂)". All three have **rank 2**.
