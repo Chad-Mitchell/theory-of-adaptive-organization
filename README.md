@@ -110,7 +110,7 @@ Decisions and outside acts. Nothing outside the repo happens without Chad's go.
 | T72 | Composite contest (upstream PR #253): merge decision after the spot-check | The note is not on `main` |
 | C1 | X correction / map post: the live post (https://x.com/torusflow/status/2123631750223945917) is behind the theory (gate, map, robustness) | Draft text needs Chad's approval of the exact words; nothing posted |
 | C2 | Outreach to a chemotaxis lab for T7 | Draft kept outside the repo, unsent; needs Chad's go |
-| C3 | "Proposed law" label for the hypothesis sentence (now "The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment."; CLAIM_MAP J3) | Awaiting Chad's decision |
+| C3 | "Proposed law" label for the hypothesis sentence (now "The law of adaptive organization (hypothesis)"; CLAIM_MAP J3) | Awaiting Chad's decision |
 | C4 | Explainer video | On hold (Chad) |
 | C5 | EVOSIM | Parked. EVO1 (W2) merged as `2c32ade`; it is not the live test |
 | C6 | Branch cleanup: stale remote branches (list them live with `git branch -r`) | Branch deletion still needs Chad |
@@ -130,4 +130,4 @@ measurement/      One status per claim
 figures/          master_curve.png, the master picture; derivation_map.png and face.png, earlier views
 ```
 
-AI agents helped draft, compute, and review these files under the author's direction. License: [CC0 1.0](LICENSE.md).
+AI agents helped draft, compute, and review these files under the author's direction. License: [CC0 1.0](LICENSE). Everything here is public domain under CC0, cited works keep their own terms, and adaptive-memory-levels stays MIT.

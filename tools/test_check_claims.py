@@ -319,6 +319,18 @@ def test_altered_hypothesis_line_fails():
         shutil.rmtree(root)
 
 
+def test_hypothesis_label_without_colon_passes():
+    root = copy_tree()
+    try:
+        before = set(cc.check(root))
+        with open(os.path.join(root, "process/PROCESS.md"), "a", encoding="utf-8") as fh:
+            fh.write('\nThe label is "The law of adaptive organization (hypothesis)" and nothing more.\n')
+        added = [e for e in cc.check(root) if e not in before]
+        assert added == [], added
+    finally:
+        shutil.rmtree(root)
+
+
 def test_work_id_in_prose_or_history_passes():
     root = copy_tree()
     try:

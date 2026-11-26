@@ -296,15 +296,16 @@ def check_hypothesis(root):
         full = os.path.join(root, path)
         if os.path.isfile(full) and HYPOTHESIS not in read(root, path):
             errors.append("claims: hypothesis sentence changed or missing in %s" % path)
-    # Every maintained page: a line that names the hypothesis must carry the exact sentence.
+    # A line that states the hypothesis, marked by "(hypothesis):", must carry the CORE.md:7 sentence.
+    # A label that names "(hypothesis)" without the colon is not that sentence.
     import check_consistency
-    phrase = "The law of adaptive organization (hypothesis)"
+    mark = "(hypothesis):"
     for path in check_consistency.MAINTAINED_DOCS:
         full = os.path.join(root, path)
         if not os.path.isfile(full):
             continue
         for ln, line in enumerate(read(root, path).splitlines(), 1):
-            if phrase in line and HYPOTHESIS not in line:
+            if mark in line and HYPOTHESIS not in line:
                 errors.append("claims: hypothesis sentence altered or incomplete in %s:%d" % (path, ln))
     return errors
 
