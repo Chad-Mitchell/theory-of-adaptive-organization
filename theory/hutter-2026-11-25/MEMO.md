@@ -47,7 +47,7 @@ Give the map three prices: shipped bytes 1, run-time memory 0 below the cap, off
 
 ## 6. Ledger and queue
 
-- `OPEN_WORK.md` §3, row HUTTER-J: open miss, as above.
+- `OPEN_WORK.md` §3, row HUTTER-J: open miss, as above. (`OPEN_WORK.md` is retired on `main`; the row now lives in the README open table as HUTTER-J.)
 - **DATA-ONE: not a candidate.** The cost-to-fitness map is S itself, and no scored item excluded both MDL and the engineering rivals (`PREREG.md` §4).
 - `measurement/CLAIM_MAP_v2.md`: no ledger status changes. No row claims anything about compressors, and HYP stays "no qualified real test". `theory/GAP_PLAN.md`: no matching row, so it is unchanged.
 
