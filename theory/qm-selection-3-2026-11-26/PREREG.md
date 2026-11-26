@@ -1,6 +1,6 @@
 # Preregistration: third QM-selection search (SU(3), Sp(2), G₂ up to dimension 15; U(2), Sp(1)², Sp(1)³ and G × Sp(1)ᵏ in dimensions 9–15), amended after a failed gate read
 
-*Thursday 26 November 2026, written 05:56–06:15 ET (America/New_York). Branch `forge-rnd-record-cost-2` (PR #295). This file, `PREREG.sha256`, `search_qmsel3.py` and `list.out` go in one commit, which is **pushed before any scored run**. Results go append-only in `RESULTS.md`; changes to this file go in `DEVIATIONS.md` and never edit it. `THEORY.md`, `CORE.md` and locked blobs are not touched. It implements amendments A1–A10 of the gate read of the previous lock (session file `GATE_READ_qmsel2.md`, 05:45–05:55 ET).*
+*Thursday 26 November 2026, written 05:56–06:15 ET, §0.10 and §8 added 06:47–07:00 ET (America/New_York). Branch `forge-rnd-record-cost-2` (PR #295). This file, `search_qmsel3.py`, `list.out` and `toy_tests.py` are hashed in `PREREG.sha256` in one lock commit (the renewed lock, §0.10), which is **pushed before any scored run**. Results go append-only in `RESULTS.md`; changes to this file go in `DEVIATIONS.md` and never edit it. `THEORY.md`, `CORE.md` and locked blobs are not touched. It implements amendments A1–A10 of the gate read of the previous lock (session file `GATE_READ_qmsel2.md`, 05:45–05:55 ET).*
 
 Labels: **PROVED (in-model)**, **OBSERVED (numerical)**, **KNOWN**, **HYPOTHESIS**, **OPEN**, **open miss**. Every claim below carries one.
 
@@ -17,6 +17,7 @@ Labels: **PROVED (in-model)**, **OBSERVED (numerical)**, **KNOWN**, **HYPOTHESIS
 7. **Prior knowledge.** The author wrote the first search (dimensions 4–8; outcome MISS, a CONSISTENCY_CHECK) and the failed second prereg. For the new groups it has expectations only (§5). It puts about 50% on the SU(3) generic adjoint (flag) orbitope being a TIE.
 8. **Seeds and hash.** `SEED = 20261127`. Body *i* uses `numpy.random.default_rng(SEED + i)` in `list.out` order. The capacity-witness recheck uses `SEED + 10⁶ + i`; the selftest controls use `SEED + 1000 + i` and `SEED + 2000 + i`. The result does not depend on the number of worker processes. The script's sha256 is in `PREREG.sha256`.
 9. **Run command (locked).** `OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 search_qmsel3.py --run --workers=8 > search_qmsel3.out 2>&1`, run from this directory on a machine without other heavy load. Pinned versions: numpy 2.5.5, scipy 1.18.1, python 3.13.5. The output is committed as is, followed by `RESULTS.md`. Wall time per body is printed.
+10. **An earlier local lock commit of this directory was never pushed.** Commit `30f345e` (06:08 ET) locked this directory without the toy-input helper tests now required by the process rule in `theory/RECORD_COST_ERRATA_R1316_2026-11-26.md` (appended to the branch at 4741761 while that commit waited for its checks). It was never on GitHub and no `--run` was made from it. This file adds §8 (helper tests on toy inputs and validity checks), `toy_tests.py` and `toy_tests.out`, and the lock is renewed in a later commit (`PREREG.sha256` rewritten in that commit); both commits are in the branch history. `search_qmsel3.py` and `list.out` are unchanged from `30f345e` (same hashes).
 
 ## 1. Premises (frozen, unchanged)
 
@@ -134,3 +135,24 @@ The premise list P1–P8 is the one frozen in `../qm-selection-2026-11-26/PREREG
 | A10 | an OPEN body settled later is a new, unregistered result | §2 G1, §6 |
 
 Gate notes N1–N6: N1 kept (grid windows declared); N2 the singular angles are in `list.out` and their counts match the root systems (6, 8, 6, 8, 12); N3, N4 subsumed by A2, A4; N5 done (slack 10⁻⁴); N6 wall time per body printed.
+
+## 8. Helper tests on toy inputs and validity checks (process rule of 2026-11-26)
+
+`toy_tests.py` tests every helper whose failure could print a scored outcome, on inputs with known answers (toy point sets, SO(2) on the plane, the published SO(3) controls; no SU(3), Sp(2) or G₂ orbit). Output: `toy_tests.out`, **38/38 passed** (OBSERVED (numerical)). A first run (`toy_tests_run1.out`, 36/37) had one failing test, and the fault was in the test: it used an LP witness from 2000 grid points without cutting planes as the "valid" witness, and `recheck_witness` correctly found −1.5 × 10⁻⁴ on fresh points. The test now uses the exact B3 witness and adds the grid-only witness as a case that must be caught. No helper was changed.
+
+| Step | Wrong output it could print | Toy test (expected) | Validity check in the scored run |
+|---|---|---|---|
+| capacity UB LP | MISS (cost) if too low; lets a HIT through if too high | SO(2) disc α = 1/2; square 1/2; triangle 1/3 | Y ⊂ orbit makes the bound valid whatever the grid (§4.3); controls Z3, B3 × B3 MISS cost |
+| capacity witness `effects_lp` | false HIT/TIE | triangle 3 distinguishable; disc: antipodal yes, 90° no, 3 points no | A3 recheck on 10⁵ fresh points; OPEN if < −10⁻⁶ |
+| `recheck_witness` | lets a false witness through | exact B3 witness ≈ 0; witness shifted by −0.1 gives −0.100; grid-only LP witness caught (−4 × 10⁻²) | printed minimum per body |
+| `g0_closure` | wrong G₀ ⇒ wrong signature | so(4) closes (10⁻¹⁶); 2 of 3 so(3) generators give 0.71 | OPEN if residual > 10⁻⁸ |
+| `root_reflections`, `weyl_orbit`, `tfixed_points` | wrong T-fixed set ⇒ false hSFP pass or fail | B3 2, Z2 1, Z3 2, B3 × B3 4; search equals Weyl | OPEN on mismatch (§4.4) |
+| `hsfp_test` | false failure ⇒ MISS; missed failure ⇒ false HIT | B3 pass; Z2 fail (gap 1.5) | re-confirmation with 5× starts; controls C1, Z2 |
+| `distinguishable_pair` | wrong pair set for bit faces | SO(2): antipodal yes, 90° no | same cutting-plane check as the witness |
+| `in_relint` | false "not ball" ⇒ MISS | triangle centroid 1/3; vertex 0; outside, off-hull refused; 10⁻⁵ noise tolerated | undecided ⇒ OPEN, never HIT |
+| `face_is_ball` | false "ball" ⇒ HIT | sphere, ellipsoid in R⁶ yes; cube surface, circle, S³ no | all bit faces of a body must pass; controls B3 ball, Z2 not ball |
+| `bit_face_status` | as above | SO(2) disc: not ball, dim 2 | as above |
+| `jordan_type` | wrong TARGET | complex QM₂, CP² vs flag, real QM₃ | TARGET only for named CP^{N−1} orbits (A5) |
+| `check_lock`, `check_list`, `check_versions` | run on changed files or a different enumeration | accept matching; refuse edited PREREG, swapped list order, wrong version | abort before any body |
+
+Launch (process rule, steps 1–6): the run is launched from a fresh clone from GitHub at a commit confirmed by `git ls-remote` to be the branch tip or a descendant of the lock commit; the hashes are verified there; the ls-remote line and the clone path go at the top of the run log.
