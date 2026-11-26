@@ -222,4 +222,20 @@ theorem le4_bound (β : Fin 3 → ℚ) (h : ∑ i, |β i| ≤ 1 / 2) :
 
 theorem le4_attained : (1 / 2 : ℚ) + (1 / 3) * (3 / 2) = 1 := by norm_num
 
+
+/-- **Classical control for purification** (PROVED-IN-MODEL; the side session's self-reference note, SR-OM5): in classical
+theory a pure joint state on `Fin m × Fin n` has a pure (point-mass) marginal, so a mixed state of
+`A` has no purification in any classical `A × B`. -/
+theorem classical_no_purification {m n : ℕ} (pA : Fin m → ℝ)
+    (hmixed : ∀ i, pA ≠ Pi.single i 1) (p : Fin m × Fin n → ℝ)
+    (hp : p ∈ (simplex (Fin m × Fin n)).extremePoints ℝ) :
+    (fun a => ∑ b, p (a, b)) ≠ pA := by
+  obtain ⟨i, j, hij⟩ := classical_pure_product p hp
+  intro h
+  apply hmixed i
+  rw [← h]
+  funext a
+  simp only [hij, ← Finset.mul_sum, Finset.sum_pi_single', Finset.mem_univ, ite_true, mul_one]
+
+
 end GTAORnd.SelfRef.LR3.Entangle

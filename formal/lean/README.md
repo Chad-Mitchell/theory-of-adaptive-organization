@@ -228,7 +228,7 @@ None of the following is claimed as proved in Lean.
 Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
 from a private Lake project with the same pins. Paper:
 `theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
-`#print axioms` on the 154 exported theorems (19 for the rounds 4–9
+`#print axioms` on the 155 exported theorems (19 for the rounds 4–9
 note, 4 for the round 10 note, and the Lean round 3 theorems, below); each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
@@ -331,6 +331,7 @@ Theorem M11 as amended by a hostile review (M11′).
 | `local_perm_tprod`, `local_map_tmul`, `swap_tmul` | entanglement round, LE0 | **Faithful, elementary.** `(⊗ g_i) ∘ P_σ` sends `⊗ ω_i` to `⊗ g_i ω_{σ⁻¹ i}`; the two-part versions restate Mathlib's `TensorProduct.map_tmul` and `comm_tmul`. |
 | `simplex_extreme_iff`, `classical_pure_product` | entanglement round, LE5 (classical control) | **Faithful.** The extreme points of the probability simplex on a finite set are exactly the point masses; on `Fin m × Fin n` each is a product `δ_i ⊗ δ_j`. |
 | `le4_bound`, `le4_attained` | entanglement round, LE4 | **Faithful, arithmetic.** `∑ abs β_i ≤ 1/2` over three rationals gives `∑ β_i ≤ 1/2` and success `1/2 + (1/3)∑β ≤ 2/3`; the value `1/2 + (1/3)(3/2) = 1`. |
+| `classical_no_purification` | purification (control) | **Faithful, a control.** In classical theory every pure joint state on `Fin m × Fin n` has a point-mass marginal, so a mixed state has no purification in any classical composite. Purification itself is not formalized and is not implied by the other premises. |
 | `moment_quad`, `moment_trace`, `star_equiv` | M11′, 2-level hypothesis | **Faithful.** With vertices on a sphere `‖v‖² = R²`, facet normals of equal squared length `s` with second moment `∑ n nᵀ = c I`, and `abs(n·v) ≤ 1`: the part is 2-level (`abs(n·v) = 1` throughout) iff `R² s = m`. |
 | `max_pos_corr`, `lemma1_general` | M11′, Lemma 1 | **Faithful.** The four product-facet inequalities give `abs(nᵀ C k) ≤ 1`; with second moments `(#N_A s_A / m_A) I` and `(#N_B s_B / m_B) I` this gives `‖C‖²_F ≤ m_A m_B / (s_A s_B)`, generalizing `cube_corr_bound`. |
 | `hull_strict` | M11′, strictness | **Faithful.** A point of the convex hull of points on the sphere of radius R that is not one of them has norm `< R`. |
@@ -350,8 +351,8 @@ carries weight (see `ball_O_not_SFP`); the `SFP` definition has no transitivity 
 per-step rate error δ: the same symbol names two different errors, so "the ball beats the disk"
 holds only under that identification. `SelfRef.liar_half` and `SelfRefRun.liar_half` are the same
 one-line fact in two namespaces; `Composition.P2_entries` is four numeric facts; `SelfRefRun.perm_periodic`
-is the existence of `orderOf`. Theorem count without padding: of the 154 names in
-`scripts/RndAxioms.lean`, 149 remain after dropping the duplicate `SelfRefRun.liar_half`,
+is the existence of `orderOf`. Theorem count without padding: of the 155 names in
+`scripts/RndAxioms.lean`, 150 remain after dropping the duplicate `SelfRefRun.liar_half`,
 `Composition.P2_entries`, and the Lean round 3 restatements `local_map_tmul`, `swap_tmul` and the
 numeric `le4_attained`. Raw counts are not a measure of depth: the load-bearing steps (NA1, the
 general maximal-torus criterion, the Jordan-class classification, Piron, Solèr, Baer, the tensor-product block of the Schur step and the

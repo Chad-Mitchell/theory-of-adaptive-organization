@@ -1,6 +1,6 @@
 /-
 Copyright (c) 2026 Chad Mitchell. Public domain (CC0).
-`#print axioms` for the 154 exported theorems of the record-cost side R&D
+`#print axioms` for the 155 exported theorems of the record-cost side R&D
 (`GTAO/Rnd/`, `theory/RECORD_COST_CHAIN_2026-11-25.md`; then 19, `SelfRef.R78.*`, for
 `theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` §10; then 4, `SelfRef.R10.*`, for
 `theory/RECORD_COST_ROUND10_2026-11-25.md` §11; then `SelfRef.LR3.*`, Lean round 3, for
@@ -156,6 +156,7 @@ open GTAORnd
 #print axioms SelfRef.LR3.Entangle.classical_pure_product
 #print axioms SelfRef.LR3.Entangle.le4_bound
 #print axioms SelfRef.LR3.Entangle.le4_attained
+#print axioms SelfRef.LR3.Entangle.classical_no_purification
 #print axioms SelfRef.LR3.M11Prime.moment_quad
 #print axioms SelfRef.LR3.M11Prime.moment_trace
 #print axioms SelfRef.LR3.M11Prime.star_equiv
