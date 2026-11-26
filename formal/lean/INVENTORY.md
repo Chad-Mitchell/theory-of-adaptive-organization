@@ -848,6 +848,6 @@ Modules under `GTAO/Rnd/` (37 files), from the record-cost side R&D
 `theory/RECORD_COST_ROUNDS4-9_2026-11-25.md`; `SelfRef/ContinuousTime.lean` for
 `theory/RECORD_COST_ROUND10_2026-11-25.md`; `SelfRef/Broadcast.lean`, `BroadcastControl.lean`, `SFPCriterion.lean`, `Transport.lean`,
 `CostDialGlobal.lean`, `QubitWitness.lean`, `FiniteGeometry.lean`, `Composite.lean`, `OControl.lean`, `Modular.lean`, `Entangle.lean` and `M11Prime.lean` for Lean round 3; `M11Cube.lean`, `TransportHorizons.lean` and `CostDialBeyond.lean` for Lean round 4; `M11Blocks.lean` and the add-on `OnsetO.lean` for Lean round 5; `LemmaR.lean` and `M11BlocksChecks.lean` for Lean round 6). Labels are in
-`formal/lean/README.md`, section RND-RECORD-COST. The 241 exported theorems
+`formal/lean/README.md`, section RND-RECORD-COST. The 248 exported theorems
 are listed in `scripts/RndAxioms.lean`. The current total is
 `audit_count` in `AUDIT.json`, its one source.

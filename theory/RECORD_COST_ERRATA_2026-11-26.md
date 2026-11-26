@@ -100,3 +100,8 @@ The premise list is frozen in `theory/qm-selection-2026-11-26/PREREG.md` (lock c
 - Coverage: (i), (ii), (iii a), (iv), (v), the tie at wstar and the combined KKT form are proved in Lean. Not formalized: that `xD` is the least minimizer for every stake strictly between the bounds (half of iii b); (iii c) in separate form; (iii d), `xw ≤ xD ≤ xw'` implies `wstar ≤ w` (`xw'` is not defined in Lean). `wstar_one` holds by definition.
 - The README row for `diag_of_separating` stated necessity of the separating condition without a Lean theorem at round 5. It was true on paper; Lean round 6 adds it as `sep_necessary` (`M11BlocksChecks.lean`), for the Schur step only.
 - The RC13 Lean cell's round 4 clause "the finiteness of Aut(S) … not-formalized" is superseded for polytope S (`M11Cube.autSet_finite`); a correction is appended in the cell.
+
+## 13. Lemma R in Lean (appended; ledger row RC20)
+
+- Lean round 6 adds `formal/lean/GTAO/Rnd/SelfRef/LemmaR.lean`: Lemma D in any dimensions (`lemmaD`), the rook's-graph step (`rook_aut`), and Lemma R in an abstract form (`lemmaR`): for families `a`, `b` with S2, `m, n ≥ 4` and dimensions at most 3, every linear equivalence mapping the product vectors onto themselves permutes them by a product map of index pairs, or a product map with swap. Proved-in-model; folklore-level; novelty not claimed. Credit: Al-Safi and Richens 2015 (Lemma 4, the dual-functional step after Marcus–Moyls); Harary 1958 for the rook's graph (cited, not read).
+- Not formalized: the corollary that the map itself is local or local with swap (spec item 5), S2 for regular polygon vertices, and the combination with RC15. RC20's status is unchanged.

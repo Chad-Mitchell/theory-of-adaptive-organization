@@ -350,4 +350,193 @@ theorem rook_aut (hm : 0 < m) (hn : 2 ≤ n) (hf : Function.Injective f)
 
 end Rook
 
+section Main
+variable {m n dA dB : ℕ} {a : Fin m → Fin dA → K} {b : Fin n → Fin dB → K}
+
+lemma vecMulVec_sum_left {ι : Type*} (s : Finset ι) (c : ι → K) (x : ι → Fin dA → K)
+    (y : Fin dB → K) :
+    vecMulVec (∑ i ∈ s, c i • x i) y = ∑ i ∈ s, c i • vecMulVec (x i) y := by
+  ext r t
+  simp only [vecMulVec_apply, Finset.sum_apply, Pi.smul_apply, smul_eq_mul, Matrix.sum_apply,
+    Matrix.smul_apply, Finset.sum_mul]
+  exact Finset.sum_congr rfl fun i _ => by ring
+
+/-- any at most three product vectors are linearly independent -/
+lemma indep_small (hA : Indep3 a) (hB : Indep3 b) {Y : Finset (Fin m × Fin n)} (hY : Y.card ≤ 3) :
+    LinearIndepOn K (kr a b) (Y : Set (Fin m × Fin n)) := by
+  classical
+  exact indep_of_rows hA hB (Finset.card_image_le.trans hY)
+    (fun i => (Finset.card_filter_le _ _).trans hY)
+
+/-- distinct index pairs give distinct product vectors -/
+lemma kr_injective (hA : Indep3 a) (hB : Indep3 b) : Function.Injective (kr a b) := by
+  classical
+  intro x y hxy
+  have h := indep_small hA hB (Y := {x, y}) (Finset.card_le_two.trans (by norm_num))
+  exact h.injOn (by simp) (by simp) hxy
+
+/-- four product vectors in one row are dependent when `dB ≤ 3` -/
+lemma not_indep_row (hdB : dB ≤ 3) {Y : Finset (Fin m × Fin n)} (hY : Y.card = 4) {i : Fin m}
+    (hrow : ∀ p ∈ Y, p.1 = i) : ¬ LinearIndepOn K (kr a b) (Y : Set (Fin m × Fin n)) := by
+  classical
+  intro hind
+  have hinj : Set.InjOn Prod.snd (Y : Set (Fin m × Fin n)) := fun x hx y hy h =>
+    Prod.ext ((hrow x hx).trans (hrow y hy).symm) h
+  have hb : LinearIndepOn K b ((Y.image Prod.snd : Finset (Fin n)) : Set (Fin n)) := by
+    rw [linearIndepOn_finset_iff]
+    intro c hc j hj
+    obtain ⟨p, hp, rfl⟩ := Finset.mem_image.1 hj
+    have h0 : ∑ q ∈ Y, c q.2 • kr a b q = 0 := by
+      have e : ∑ q ∈ Y, c q.2 • kr a b q =
+          vecMulVec (a i) (∑ j ∈ Y.image Prod.snd, c j • b j) := by
+        rw [vecMulVec_sum_right, Finset.sum_image hinj]
+        refine Finset.sum_congr rfl fun q hq => ?_
+        rw [kr, hrow q hq]
+      rw [e, hc]
+      ext r t
+      simp [vecMulVec_apply]
+    exact linearIndepOn_finset_iff.1 hind (fun q => c q.2) h0 p hp
+  have hcard : (Y.image Prod.snd).card = 4 := by rw [Finset.card_image_of_injOn hinj, hY]
+  have h4 := LinearIndependent.fintype_card_le_finrank (R := K) (M := Fin dB → K) hb
+  simp only [Finset.coe_sort_coe, Fintype.card_coe, hcard, Module.finrank_fin_fun] at h4
+  omega
+
+/-- four product vectors in one column are dependent when `dA ≤ 3` -/
+lemma not_indep_col (hdA : dA ≤ 3) {Y : Finset (Fin m × Fin n)} (hY : Y.card = 4) {j : Fin n}
+    (hcol : ∀ p ∈ Y, p.2 = j) : ¬ LinearIndepOn K (kr a b) (Y : Set (Fin m × Fin n)) := by
+  classical
+  intro hind
+  have hinj : Set.InjOn Prod.fst (Y : Set (Fin m × Fin n)) := fun x hx y hy h =>
+    Prod.ext h ((hcol x hx).trans (hcol y hy).symm)
+  have ha : LinearIndepOn K a ((Y.image Prod.fst : Finset (Fin m)) : Set (Fin m)) := by
+    rw [linearIndepOn_finset_iff]
+    intro c hc i hi
+    obtain ⟨p, hp, rfl⟩ := Finset.mem_image.1 hi
+    have h0 : ∑ q ∈ Y, c q.1 • kr a b q = 0 := by
+      have e : ∑ q ∈ Y, c q.1 • kr a b q =
+          vecMulVec (∑ i ∈ Y.image Prod.fst, c i • a i) (b j) := by
+        rw [vecMulVec_sum_left, Finset.sum_image hinj]
+        refine Finset.sum_congr rfl fun q hq => ?_
+        rw [kr, hcol q hq]
+      rw [e, hc]
+      ext r t
+      simp [vecMulVec_apply]
+    exact linearIndepOn_finset_iff.1 hind (fun q => c q.1) h0 p hp
+  have hcard : (Y.image Prod.fst).card = 4 := by rw [Finset.card_image_of_injOn hinj, hY]
+  have h4 := LinearIndependent.fintype_card_le_finrank (R := K) (M := Fin dA → K) ha
+  simp only [Finset.coe_sort_coe, Fintype.card_coe, hcard, Module.finrank_fin_fun] at h4
+  omega
+
+/-- four index pairs in the line of `x` (its row, or its column) containing `x` and `y` -/
+lemma exists_line4 (hm : 4 ≤ m) (hn : 4 ≤ n) {x y : Fin m × Fin n} (hxy : RookAdj x y) :
+    ∃ Y : Finset (Fin m × Fin n), x ∈ Y ∧ y ∈ Y ∧ Y.card = 4 ∧
+      ((∀ p ∈ Y, p.1 = x.1) ∨ (∀ p ∈ Y, p.2 = x.2)) := by
+  classical
+  rcases hxy with h | h
+  · let t : Finset (Fin m × Fin n) := Finset.univ.image (fun j => (x.1, j))
+    have ht : t.card = n := by
+      rw [Finset.card_image_of_injective _ (fun j k e => (Prod.mk.inj e).2), Finset.card_univ,
+        Fintype.card_fin]
+    have hsub : ({x, y} : Finset _) ⊆ t := by
+      intro z hz
+      rcases Finset.mem_insert.1 hz with rfl | hz
+      · exact Finset.mem_image.2 ⟨z.2, Finset.mem_univ _, rfl⟩
+      · rw [Finset.mem_singleton.1 hz]
+        exact Finset.mem_image.2 ⟨y.2, Finset.mem_univ _, Prod.ext h rfl⟩
+    obtain ⟨u, hxu, hut, hu⟩ := Finset.exists_subsuperset_card_eq (n := 4) hsub
+      (Finset.card_le_two.trans (by norm_num)) (by omega)
+    refine ⟨u, hxu (by simp), hxu (by simp), hu, Or.inl fun p hp => ?_⟩
+    obtain ⟨j, _, rfl⟩ := Finset.mem_image.1 (hut hp)
+    rfl
+  · let t : Finset (Fin m × Fin n) := Finset.univ.image (fun i => (i, x.2))
+    have ht : t.card = m := by
+      rw [Finset.card_image_of_injective _ (fun i k e => (Prod.mk.inj e).1), Finset.card_univ,
+        Fintype.card_fin]
+    have hsub : ({x, y} : Finset _) ⊆ t := by
+      intro z hz
+      rcases Finset.mem_insert.1 hz with rfl | hz
+      · exact Finset.mem_image.2 ⟨z.1, Finset.mem_univ _, rfl⟩
+      · rw [Finset.mem_singleton.1 hz]
+        exact Finset.mem_image.2 ⟨y.1, Finset.mem_univ _, Prod.ext rfl h⟩
+    obtain ⟨u, hxu, hut, hu⟩ := Finset.exists_subsuperset_card_eq (n := 4) hsub
+      (Finset.card_le_two.trans (by norm_num)) (by omega)
+    refine ⟨u, hxu (by simp), hxu (by simp), hu, Or.inr fun p hp => ?_⟩
+    obtain ⟨i, _, rfl⟩ := Finset.mem_image.1 (hut hp)
+    rfl
+
+/-- **Lines map into lines** (note R.1): if a linear equivalence sends each product vector to the
+product vector of `f x`, then `f` maps adjacent index pairs to adjacent ones (`m, n ≥ 4`,
+`dA, dB ≤ 3`). -/
+lemma adj_of_map (hA : Indep3 a) (hB : Indep3 b) (hdA : dA ≤ 3) (hdB : dB ≤ 3) (hm : 4 ≤ m)
+    (hn : 4 ≤ n) (T : Matrix (Fin dA) (Fin dB) K ≃ₗ[K] Matrix (Fin dA) (Fin dB) K)
+    {f : Fin m × Fin n → Fin m × Fin n} (hTf : ∀ x, T (kr a b x) = kr a b (f x))
+    {x y : Fin m × Fin n} (hxy : RookAdj x y) : RookAdj (f x) (f y) := by
+  classical
+  have : Nonempty (Fin m × Fin n) := ⟨x⟩
+  have hfinj : Function.Injective f := fun u v h =>
+    kr_injective hA hB (T.injective (by rw [hTf, hTf, h]))
+  by_contra hnot
+  have hn1 : (f x).1 ≠ (f y).1 := fun e => hnot (Or.inl e)
+  have hn2 : (f x).2 ≠ (f y).2 := fun e => hnot (Or.inr e)
+  obtain ⟨Y, hx, hy, hY4, hline⟩ := exists_line4 hm hn hxy
+  have hD : LinearIndepOn K (kr a b) ((Y.image f : Finset _) : Set (Fin m × Fin n)) :=
+    lemmaD hA hB (by rw [Finset.card_image_of_injective _ hfinj, hY4])
+      ⟨f x, Finset.mem_image_of_mem _ hx, f y, Finset.mem_image_of_mem _ hy, hn1⟩
+      ⟨f x, Finset.mem_image_of_mem _ hx, f y, Finset.mem_image_of_mem _ hy, hn2⟩
+  have hind : LinearIndepOn K (kr a b) (Y : Set (Fin m × Fin n)) := by
+    rw [linearIndepOn_finset_iff] at hD ⊢
+    intro c hc p hp
+    have h0 : ∑ z ∈ Y.image f, c (Function.invFun f z) • kr a b z = 0 := by
+      rw [Finset.sum_image (fun u _ v _ h => hfinj h)]
+      have e : ∑ q ∈ Y, c (Function.invFun f (f q)) • kr a b (f q) =
+          T (∑ q ∈ Y, c q • kr a b q) := by
+        rw [map_sum]
+        refine Finset.sum_congr rfl fun q _ => ?_
+        rw [map_smul, hTf, Function.leftInverse_invFun hfinj q]
+      rw [e, hc, map_zero]
+    have := hD _ h0 (f p) (Finset.mem_image_of_mem _ hp)
+    rwa [Function.leftInverse_invFun hfinj p] at this
+  rcases hline with h | h
+  · exact not_indep_row hdB hY4 h hind
+  · exact not_indep_col hdA hY4 h hind
+
+/-- **Lemma R** (abstract form, note §1–3 with the §9 corrections): let `a` (`m ≥ 4` vectors in
+`K^dA`) and `b` (`n ≥ 4` vectors in `K^dB`), `dA, dB ≤ 3`, satisfy S2. Every linear equivalence of
+the tensor space mapping the set of product vectors `a_i ⊗ b_j` onto itself permutes them by a
+bijection of index pairs that is a product map `(i, j) ↦ (α i, β j)` or a product map composed with
+the swap `(i, j) ↦ (α j, β i)`. Folklore-level; novelty not claimed. -/
+theorem lemmaR (hA : Indep3 a) (hB : Indep3 b) (hdA : dA ≤ 3) (hdB : dB ≤ 3) (hm : 4 ≤ m)
+    (hn : 4 ≤ n) (T : Matrix (Fin dA) (Fin dB) K ≃ₗ[K] Matrix (Fin dA) (Fin dB) K)
+    (hP : T '' Set.range (kr a b) = Set.range (kr a b)) :
+    ∃ f : Fin m × Fin n → Fin m × Fin n, Function.Bijective f ∧
+      (∀ x, T (kr a b x) = kr a b (f x)) ∧
+      ((∃ α : Fin m → Fin m, ∃ β : Fin n → Fin n, ∀ x, f x = (α x.1, β x.2)) ∨
+       (∃ α : Fin n → Fin m, ∃ β : Fin m → Fin n, ∀ x, f x = (α x.2, β x.1))) := by
+  classical
+  have hfwd : ∀ x, ∃ y, T (kr a b x) = kr a b y := fun x => by
+    have h : T (kr a b x) ∈ T '' Set.range (kr a b) := ⟨_, ⟨x, rfl⟩, rfl⟩
+    rw [hP] at h
+    obtain ⟨y, hy⟩ := h
+    exact ⟨y, hy.symm⟩
+  have hbwd : ∀ y, ∃ x, T.symm (kr a b y) = kr a b x := fun y => by
+    have h : kr a b y ∈ T '' Set.range (kr a b) := by rw [hP]; exact ⟨y, rfl⟩
+    obtain ⟨_, ⟨x, rfl⟩, hx⟩ := h
+    exact ⟨x, by rw [← hx, LinearEquiv.symm_apply_apply]⟩
+  choose f hf using hfwd
+  choose g hg using hbwd
+  have hfinj : Function.Injective f := fun x y h =>
+    kr_injective hA hB (T.injective (by rw [hf, hf, h]))
+  have hgf : ∀ x, g (f x) = x := fun x =>
+    kr_injective hA hB (by rw [← hg, ← hf, LinearEquiv.symm_apply_apply])
+  have hfg : ∀ y, f (g y) = y := fun y =>
+    kr_injective hA hB (by rw [← hf, ← hg, LinearEquiv.apply_symm_apply])
+  have hadj : ∀ x y, RookAdj (f x) (f y) ↔ RookAdj x y := fun x y =>
+    ⟨fun h => by
+      have h' := adj_of_map hA hB hdA hdB hm hn T.symm hg h
+      rwa [hgf, hgf] at h',
+     fun h => adj_of_map hA hB hdA hdB hm hn T hf h⟩
+  exact ⟨f, ⟨hfinj, fun y => ⟨g y, hfg y⟩⟩, hf, rook_aut (by omega) (by omega) hfinj hadj⟩
+
+end Main
+
 end GTAORnd.SelfRef.LR3.LemmaR
