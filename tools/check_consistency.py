@@ -49,7 +49,7 @@ import glob, os, re, sys
 
 # Maintained docs: edited to stay current. check_fresh.py and check_claims.py import this list.
 MAINTAINED_DOCS = [
-    "README.md", "THEORY.md", "CORE.md", "process/PROCESS.md", "process/VOCABULARY.md", "process/FAILURES.md", "process/MISS_LOG_TEMPLATE.md",
+    "README.md", "THEORY.md", "CORE.md", "process/PROCESS.md", "process/VOCABULARY.md", "process/FAILURES.md", "process/PREREG_GATE.md", "process/MISS_LOG_TEMPLATE.md",
     "measurement/FRAMEWORK.md", "measurement/CLAIM_MAP_v2.md",
     "theory/SCALE_ENDS.md", "theory/PHYSICS_CHAIN_2026-11-23.md",
     "applications/README.md", "tests/README.md", "reviews/README.md",
