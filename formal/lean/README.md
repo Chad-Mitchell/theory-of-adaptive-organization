@@ -223,6 +223,33 @@ None of the following is claimed as proved in Lean.
 - DRIFT_SELECTION: the generator expansion from the origination–fixation chain to the Langevin equation (L), existence and uniqueness of the stationary law and the ergodic theorem (time average = stationary mean); DS1(b) for a general mutation matrix `M` (`d/(2β) + Tr(M^{-1} Q)/(2β)`); DS1(c) as the single excess `d/(2β) + vᵀH⁻¹v/(2 β² D_m²)` (only the mean-lag term is formalized; the fluctuation `d/(2β)` is not supplied here by `Equipartition`); the jump-process construction behind the DS2 mean-speed bound; S2's `E[|L|]`, `E[J−J*]`, and time average (the formalized DS2 lag, cost, and half-window theorems are WEAKER: they bound `|E[L]|`, give a Rayleigh lower bound on a free quadratic, and have no time-average statement); DS3; Corollary DS1c (the fractional form with `β = σ N_e / J*`); the topological limit `γ→∞` in DS1(d).
 - COADAPTATION: the origination–fixation derivation of the log-linear rate ratio; CA2–CA4 and CA5–CA6; CA7 (2) the blockwise virial and CA7 (3) the team mismatch bracket (order-preserving Lyapunov inverse from CA3); the Hurwitz half of CA7 (1) (`−VK` is Hurwitz); the §6 counterexamples; U2's per-party `E[R_i]=d_i/(2β_i)` and `E[Φ]−Φ*=d/(2γ)` (not declarations); the A2-L identification `γ = σ N_e / J_T*` and the derivation of equal-`σ N_e`; uniqueness of the symmetric s8b Lyapunov solution.  CA1 uniqueness and the CA7 (1) excess identity are Faithful in this batch.  CA1b's shift, Boltzmann, and Gibbs quadratic excess are Faithful; the team split is WEAKER (the second-moment contraction is an input).  CA1c's potential and summed-cost identity are Faithful; `ca1c_gap_zero` and `ca1c_fraction` are WEAKER (`J_T(x^Ψ)=min`, and cancellation of `J_T*` between `d/(2γ)` and `γ = σ N_e / J_T*`).  CA7 (4) is the s8b negative finding, Faithful on that datum, including the `Q=0` quadratic-form static regrets.
 
+## RND-RECORD-COST: copy ban under drift, dimension bound, pricing (side R&D)
+
+Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
+from a private Lake project with the same pins. Paper:
+`theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
+`#print axioms` on the 62 exported theorems; each depends only on
+`propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
+input is a named hypothesis, a structure field, or a definition. None is a
+Lean `axiom`.
+
+| Declaration | Paper step | Label |
+|---|---|---|
+| `GTAORnd.SelfRef.fourier_core`, `no_linear_clone_gpt`, `no_linear_clone_circle` | S1 (copy ban on a moved circle orbit) | **Faithful** to the trigonometric and GPT forms. That a compact connected drift contains such a circle orbit is the setting (assumption A5), not a declaration. |
+| `GTAORnd.SelfRef.R3_full`, `dim_bound` | S2 (`d ≥ N + 1`) | **WEAKER.** "H compact" is replaced by the declared hypothesis `hinv`: the drift's linear parts preserve one inner product and depend continuously on the group element (assumption A2). |
+| `GTAORnd.ring_bound`, `factor_ge_two`, `discrete_oneParam_trivial`, `disk_oneParam`, `disk_strictly_cheaper` | S3 (polygon cost `≥ 2Θ²/V`) | **WEAKER.** `V`, `σ` and "the disk pays 0" are definitions (assumptions A3, A4), not derived from a path measure. |
+| `GTAORnd.SelfRef.normal_fixer_bot`, `normal_nontrivial_fixes_nothing`, `SelfRefRun.normal_fixer_trivial` | S4 (ball in `d = 3`) | **Partial.** Group step only. Ball uniqueness rests on the SO(3) connected-subgroup classification, not in Mathlib (assumption A1). |
+| `GTAORnd.Composition.P1`, `log_additive_iff`, `P2_entries` | S5 (additive price is `c log` count) | **Faithful.** |
+| `GTAORnd.CopyModel.lemmaB1`, `lemmaB1_k`, `clone2_to_k` | S6 (Lemma B1) | **Faithful** under the `CopyModel` fields; capacity is weakened to `≤ N` (a stronger lemma); the 1→2 form needs at least one effect. Controls: `unitModel_clones`, `square_B1_hypotheses`. |
+| `SelfRefRun.perm_periodic`, `SelfRefRun.no_zero_drift_while_recording` | S7, S8 | **Faithful.** |
+| `GTAORnd.SelfRef.liar_half`, `sharp_flip_no_fixed` | S9 | **Faithful.** |
+| `GTAORnd.SelfRef.Jdial_stationary_iff`, `Jdial_midpoint`, `Jdial_midpoint_60` | S10 (cost dial) | **WEAKER.** Stationarity only; the global minimum is open. |
+
+Not formalized here: the SO(3) classification and the convex-geometry steps
+of S4; Haar averaging behind `hinv`; the scripted counts (boxworld's 128
+symmetries, the complete-record table, the zero-drift prices); a Lean
+witness that the qubit ball attains `d = N + 1`.
+
 ## Layout
 
 ```
