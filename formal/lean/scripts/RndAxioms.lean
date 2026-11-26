@@ -1,11 +1,11 @@
 /-
 Copyright (c) 2026 Chad Mitchell. Public domain (CC0).
-`#print axioms` for the 192 exported theorems of the record-cost side R&D
+`#print axioms` for the 214 exported theorems of the record-cost side R&D
 (`GTAO/Rnd/`, `theory/RECORD_COST_CHAIN_2026-11-25.md`; then 19, `SelfRef.R78.*`, for
 `theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` §10; then 4, `SelfRef.R10.*`, for
 `theory/RECORD_COST_ROUND10_2026-11-25.md` §11; then `SelfRef.LR3.*`, Lean round 3, for
 the rounds 4–9 note §10 item L5, the rounds 4–9 and round 10 notes, the chain note
-steps S2 and S10, and round 11 part M, and Lean round 4, labels in `formal/lean/README.md`).
+steps S2 and S10, and round 11 part M, and Lean rounds 4 and 5, labels in `formal/lean/README.md`).
 Run from `formal/lean/`:  `lake env lean scripts/RndAxioms.lean`
 Expected: each line lists only `propext`, `Classical.choice`, `Quot.sound` (or a subset),
 or says the theorem depends on no axioms.
@@ -204,3 +204,25 @@ open GTAORnd
 #print axioms SelfRef.LR3.M11Cube.pureSetX_span
 #print axioms SelfRef.LR3.M11Cube.m11_cube_polytope
 #print axioms SelfRef.LR3.M11Cube.m11_cross_polytope
+#print axioms SelfRef.LR3.M11Blocks.diag_of_separating
+#print axioms SelfRef.LR3.M11Blocks.flips_separate
+#print axioms SelfRef.LR3.M11Blocks.pure_mem_maxSetB
+#print axioms SelfRef.LR3.M11Blocks.maxSetB_bounds
+#print axioms SelfRef.LR3.M11Blocks.maxSetB_blockA
+#print axioms SelfRef.LR3.M11Blocks.maxSetB_blockB
+#print axioms SelfRef.LR3.M11Blocks.sum_sgn_sq2
+#print axioms SelfRef.LR3.M11Blocks.maxSetB_blockC
+#print axioms SelfRef.LR3.M11Blocks.maxSetB_unit
+#print axioms SelfRef.LR3.M11Blocks.pure_of_eqB
+#print axioms SelfRef.LR3.M11Blocks.quad_blockw
+#print axioms SelfRef.LR3.M11Blocks.m11_blocks
+#print axioms SelfRef.LR3.M11Blocks.pureSetB_span
+#print axioms SelfRef.LR3.M11Blocks.m11_blocks_polytope
+#print axioms SelfRef.LR3.M11Blocks.m11_blocks_polytope_flips
+#print axioms SelfRef.LR3.M11Blocks.maxSetCX_eq_blocks
+#print axioms SelfRef.LR3.M11Blocks.pureSetCX_eq_blocks
+#print axioms SelfRef.LR3.M11Blocks.maxSetX_eq_blocks
+#print axioms SelfRef.LR3.M11Blocks.pureSetX_eq_blocks
+#print axioms SelfRef.LR3.M11Blocks.maxSet_eq_blocks
+#print axioms SelfRef.LR3.M11Blocks.pureSet_eq_blocks
+#print axioms SelfRef.LR3.M11Blocks.m11_cube_cross_polytope
