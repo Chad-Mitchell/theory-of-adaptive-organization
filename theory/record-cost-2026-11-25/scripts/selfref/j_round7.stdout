@@ -1,0 +1,17 @@
+state space (reversible group)             fraction of sampled group elements fixing a pure state   note
+  classical simplex, 2 outcomes (S_2)         0.500   finite
+  classical simplex, 3 outcomes (S_3)         0.667   finite
+  classical simplex, 4 outcomes (S_4)         0.625   finite
+  square / gbit (D4)                          0.375   finite
+  disk / rebit (SO(2))                        0.000   S^1, chi=0
+  ball with full O(3) (incl. inversion)       0.498   S^2 but inversion has no fixed point
+  qubit ball (SO(3)=PU(2))                    1.000   S^2, chi=2
+  4-ball (SO(4)) spin factor                  0.000   S^3, chi=0
+  5-ball (SO(5)) = quaternionic qubit         1.000   S^4, chi=2
+  real QM d=2 (O(2) on RP^1)                  0.508   chi(RP^1)=0
+  real QM d=3 (O(3) on RP^2)                  1.000   chi(RP^2)=1
+  real QM d=4 (O(4) on RP^3)                  0.509   chi(RP^3)=0
+  complex QM d=2 (U(2) on CP^1)               1.000   chi=2: every unitary has an eigenvector
+  complex QM d=3 (U(3) on CP^2)               1.000   chi=3: every unitary has an eigenvector
+SFP holds iff fraction = 1 for EVERY element (sampling shows generic behaviour; exact statements in NOTE R7).
+qubit ball: random rotation fixes poles +v and -v (a perfectly distinguishable pair): True True

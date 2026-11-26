@@ -1,0 +1,3 @@
+spin1+2 orbitope N= 5 any distinguishable config: False
+spin1+2 orbitope N= 6 any distinguishable config: False
+analytic p_i=(1+3 n.t_i)^2/16: min 1.4641285641490786e-12  max |sum-1| 8.881784197001252e-16  p_i(t_j)= [[1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 1.0]]

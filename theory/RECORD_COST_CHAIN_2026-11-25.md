@@ -130,3 +130,7 @@ DOIs resolved on the Crossref API on 25 November 2026 (Hardy 2001 on DataCite); 
 
 - Scripts: from each folder under `theory/record-cost-2026-11-25/scripts/`, run `python3 <script>.py` (numpy, scipy; `t3_boxworld.py` also needs networkx). In `composition/round2/`, run `r2_record_pricing.py` before `r2_checks.py`. Outputs are the `.stdout` and `.json` files beside them.
 - Lean: `tools/check_lean.sh` (in the dedicated Lean checkout), then `lake env lean scripts/RndAxioms.lean` in `formal/lean/` for `#print axioms` on the 62 exported theorems.
+
+## 10. Rounds 4–9 (pointer, appended)
+
+The follow-up `theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` tries to derive premise CD and reports that it is not derived. It records four new open misses, a proposed amendment to NA4 ("pays 0" means pays 0 in tracking), three counterexamples, a fixed-pure-state condition with its Lean (`formal/lean/GTAO/Rnd/SelfRef/SFP.lean`, `Precision.lean`), and a remark comparing that condition with Barnum, Müller and Ududec's energy postulate. Ledger rows RC3–RC6. The text of this note above is unchanged.

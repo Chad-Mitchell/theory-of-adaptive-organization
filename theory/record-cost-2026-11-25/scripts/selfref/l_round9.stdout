@@ -1,0 +1,18 @@
+L2 standing law-memory (bits) + re-learning rate (bits/tick) to hold a 1-bit record at read error <= eps
+      eps | disk (standing+relearn) | ball (axis memory) | classical bit E[.] | square E[.] | simplex n=3 E[.]
+    1e-01 |   6.80 (b=5, rate 1.800) |   3.32            |  0.50              | 0.875       | 0.862
+    1e-02 |   8.95 (b=7, rate 1.955) |   6.64            |  0.50              | 0.875       | 0.862
+    1e-03 |  10.93 (b=9, rate 1.934) |   9.97            |  0.50              | 0.875       | 0.862
+    1e-04 |  12.83 (b=11, rate 1.828) |  13.29            |  0.50              | 0.875       | 0.862
+  (finite-group memories are exact and eps-independent; continuous ones grow ~log2(1/eps); disk-ball gap = re-learning + O(1))
+
+L3 capacity by LP: N points, effects = affine functionals >= 0 on the sampled orbit, summing to the unit
+  B^3 (sanity)                                     dim 3: capacity found 2
+  S^2 orbitope, spin 1+2 (qutrit coherent states)  dim 8: capacity found 4
+  S^2 orbitope, spin 3 (odd zonal)                 dim 7: capacity found 2
+  CP^2 = complex QM d=3 (sanity)                   dim 8: capacity found 3
+  flag orbitope SU(3)/T (regular adjoint orbit)    dim 8: capacity found 2
+
+L3b SFP for these orbitopes: pure states G/H; pass iff H contains a maximal torus of G
+  spin 1+2 and spin 3 orbits of a zonal vector: H=SO(2) (max torus of SO(3)) -> pass; Caratheodory SO(2)-orbitope in R^4: H trivial -> fail;
+  flag orbitope SU(3)/T: H=T -> pass; generic SO(3) orbit in spin 2 (distinct eigenvalues): H finite -> fail; torus orbitopes: fail

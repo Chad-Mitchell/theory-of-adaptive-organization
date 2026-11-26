@@ -843,8 +843,9 @@ The audit counts every generated constant, so 1370 is larger than
 
 ## RND-RECORD-COST declarations
 
-Modules under `GTAO/Rnd/` (15 files), from the record-cost side R&D
-(`theory/RECORD_COST_CHAIN_2026-11-25.md`). Labels are in
-`formal/lean/README.md`, section RND-RECORD-COST. The 62 exported theorems
+Modules under `GTAO/Rnd/` (17 files), from the record-cost side R&D
+(`theory/RECORD_COST_CHAIN_2026-11-25.md`; `SelfRef/SFP.lean` and `SelfRef/Precision.lean` for
+`theory/RECORD_COST_ROUNDS4-9_2026-11-25.md`). Labels are in
+`formal/lean/README.md`, section RND-RECORD-COST. The 81 exported theorems
 are listed in `scripts/RndAxioms.lean`. The current total is
 `audit_count` in `AUDIT.json`, its one source.

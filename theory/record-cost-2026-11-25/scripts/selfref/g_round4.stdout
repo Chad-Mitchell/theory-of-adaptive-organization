@@ -1,0 +1,21 @@
+G1 stationary Markov chains (random, n states): novelty H(X1|X0) vs destruction H(X0|X1)
+   max |novelty - destruction| over 2000 chains: 4.81e-15  (identity: H(X0,X1)-H(X0) = H(X0,X1)-H(X1) when marginals are equal)
+   a permutation chain: novelty 0, destruction 0; any positive novelty rate is paid by an equal destruction rate.
+
+G2 distinct observation windows of length L (log2 = information a tracker can ever extract from that window)
+   L=   4  permutation world (64 states):     5 windows   irrational rotation:     8 windows
+   L=   8  permutation world (64 states):     7 windows   irrational rotation:    16 windows
+   L=  16  permutation world (64 states):     7 windows   irrational rotation:    32 windows
+   L=  32  permutation world (64 states):     7 windows   irrational rotation:    64 windows
+   L=  64  permutation world (64 states):     7 windows   irrational rotation:   128 windows
+   L= 128  permutation world (64 states):     7 windows   irrational rotation:   256 windows
+   permutation: windows saturate at <= period (bounded learning). rotation (sign readout): about 2L windows, so
+   total information ~ log L, unbounded, rate -> 0. (For a single half-circle readout the count is 2L; Sturmian n+1 is the
+   two-letter coding by an interval of length alpha; both are linear in L.)
+
+G3 long-run share of a feature (the 'variant' set) along one trajectory
+   T=  1000: permutation share=0.7150  rotation share=0.2510
+   T= 10000: permutation share=0.7143  rotation share=0.2501
+   T=100000: permutation share=0.7143  rotation share=0.2500
+   contracting map: share of [0,0.25) after T steps from z0=0.9: 0.9998 (-> 1: the feature grows)
+   permutation and rotation: shares converge to fixed values (orbit measure); no feature grows. Growth (selection) needs a many-to-one map.

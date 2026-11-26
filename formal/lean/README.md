@@ -228,7 +228,8 @@ None of the following is claimed as proved in Lean.
 Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
 from a private Lake project with the same pins. Paper:
 `theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
-`#print axioms` on the 62 exported theorems; each depends only on
+`#print axioms` on the 81 exported theorems (the last 19 for the rounds 4–9
+note, below); each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
 Lean `axiom`. The named assumptions NA1–NA6 are those of §5 of the paper (the
@@ -254,6 +255,23 @@ Not formalized here: the SO(3) classification and the convex-geometry steps
 of S4; Haar averaging behind `hinv`; the scripted counts (boxworld's 128
 symmetries, the complete-record table, the zero-drift prices); a Lean
 witness that the qubit ball attains `d = N + 1`.
+
+Rounds 4–9 (`theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` §10): `GTAO/Rnd/SelfRef/SFP.lean`
+and `GTAO/Rnd/SelfRef/Precision.lean`, namespace `GTAORnd.SelfRef.R78`, moved with only the
+header, the module lines and doc-comment wording changed. `SFP G X` says every element of `G`
+fixes some point of `X`.
+
+| Declaration | Note item | Label |
+|---|---|---|
+| `jordan_derangement`, `finite_transitive_not_SFP`, `simplex_not_SFP`, `square_rotation_moves_all`, `square_not_SFP` | L1 (finite transitive groups fail SFP) | **Faithful.** Jordan's theorem is proved from Mathlib's Burnside lemma. |
+| `SO_odd_fixes_unit`, `SO_odd_fixes_poles`, `SO3_fixes_poles`, `odd_ball_SFP` | L2 (odd balls with SO(2m+1) satisfy SFP) | **Faithful** for the full SO(2m+1); other transitive groups are not covered. |
+| `SO2_nonid_no_fixed`, `disk_not_SFP`, `even_ball_not_SFP` | L3 (disk and even balls fail SFP) | **Faithful** for SO(2) and SO(2m). |
+| `ball_record_bound`, `chord`, `disk_record_error`, `disk_error_linear`, `disk_exceeds_ball` | L4 (finite precision) | **Faithful** to the toy: the ball record sits at angle δ from the true axis; the disk residual per step is ε. Re-learning cost is not modelled. |
+| `mixture_copy_core`, `no_copy_mixture` | L5 (copyable records are distinguishable) | **Partial.** Linear core only; the full no-broadcasting step is not formalized. |
+
+Not formalized here: the maximal-torus criterion for SFP, the O(3) subgroup
+classification, other transitive groups (G₂, real and quaternionic quantum
+theory), and the orbitope and cost results of the rounds 4–9 note.
 
 ## Layout
 
