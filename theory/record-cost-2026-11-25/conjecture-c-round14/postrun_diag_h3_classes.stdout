@@ -1,0 +1,5 @@
+exact facets: 20 12 ; sums: [20, 0, 0, 0] [12, 0, 0, 0]
+K_I distinct symbolic: 58 distinct numeric (1e-9): 6 distinct after expand+nsimplify: 6
+K_D distinct symbolic: 6 distinct numeric (1e-9): 4 distinct after expand+nsimplify: 4
+product values, numeric distinct (1e-9) over symbolic entry pairs: 20
+[42s]

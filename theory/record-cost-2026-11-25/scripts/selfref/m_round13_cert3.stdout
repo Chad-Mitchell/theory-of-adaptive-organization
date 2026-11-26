@@ -1,0 +1,16 @@
+# copied from the session log (Round 13-M run, not preregistered)
+max(P6,P6) W=v: 38 multipliers; t = -0.000e+00; residual blocks of S = [ 8.8818e-16 -1.3323e-15  8.8818e-16  0.0000e+00] -> CERTIFICATE
+max(P6,P6) W=n: 40 multipliers; t = -0.000e+00; residual blocks of S = [ 8.8818e-16 -1.3323e-15  0.0000e+00  0.0000e+00] -> CERTIFICATE
+max(P6,P6) W=vn: 60 multipliers; t = -0.000e+00; residual blocks of S = [-1.7764e-15  1.7764e-15 -8.8818e-16  0.0000e+00] -> CERTIFICATE
+max(CO,CO) W=v: 115 multipliers; t = -0.000e+00; residual blocks of S = [ 8.8818e-15 -8.8818e-15  1.7764e-15  0.0000e+00] -> CERTIFICATE
+max(CO,CO) W=n: 135 multipliers; t = -0.000e+00; residual blocks of S = [0.0000e+00 1.7764e-15 0.0000e+00 0.0000e+00] -> CERTIFICATE
+max(CO,CO) W=vn: 161 multipliers; t = -0.000e+00; residual blocks of S = [0.0000e+00 1.7764e-15 0.0000e+00 0.0000e+00] -> CERTIFICATE
+max(I,I) W=v: 64 multipliers; t = -1.326e-04; residual blocks of S = [-1.9098  2.3594 -0.3757 -0.0739] -> no certificate of this type
+max(I,I) W=n: 72 multipliers; t = -1.326e-04; residual blocks of S = [-1.9098  2.3594 -0.3757 -0.0739] -> no certificate of this type
+max(I,I) W=vn: 96 multipliers; t = -1.326e-04; residual blocks of S = [-1.9098 -0.3757  2.3594 -0.0739] -> no certificate of this type
+max(D,D) W=v: 44 multipliers; t = -5.150e-04; residual blocks of S = [-1.8541  2.3951 -0.4377 -0.1033] -> no certificate of this type
+max(D,D) W=n: 40 multipliers; t = -5.150e-04; residual blocks of S = [-1.8541  2.3951 -0.4377 -0.1033] -> no certificate of this type
+max(D,D) W=vn: 68 multipliers; t = -5.150e-04; residual blocks of S = [-1.8541 -0.4377  2.3951 -0.1033] -> no certificate of this type
+max(I,D) W=v: 52 multipliers; t = -2.617e-04; residual blocks of S = [-1.8841 -0.3706  2.3422 -0.0875] -> no certificate of this type
+max(I,D) W=n: 54 multipliers; t = -2.617e-04; residual blocks of S = [-1.8841 -0.3706  2.3422 -0.0875] -> no certificate of this type
+max(I,D) W=vn: 80 multipliers; t = -2.617e-04; residual blocks of S = [-1.8841 -0.3706  2.3422 -0.0875] -> no certificate of this type
