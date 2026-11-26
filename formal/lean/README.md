@@ -228,7 +228,7 @@ None of the following is claimed as proved in Lean.
 Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
 from a private Lake project with the same pins. Paper:
 `theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
-`#print axioms` on the 91 exported theorems (19 for the rounds 4–9
+`#print axioms` on the 122 exported theorems (19 for the rounds 4–9
 note, 4 for the round 10 note, and the Lean round 3 theorems, below); each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
@@ -249,12 +249,12 @@ in `gbit_no_local_write`, the cost-dial refresh term).
 | `GTAORnd.CopyModel.lemmaB1`, `lemmaB1_k`, `clone2_to_k` | S6 (Lemma B1) | **Faithful** under the `CopyModel` fields; capacity is weakened to `≤ N` (a stronger lemma); the 1→2 form needs at least one effect; the `CopyModel` fields are assumption NA6. Controls: `unitModel_clones`, `square_B1_hypotheses`. |
 | `SelfRefRun.perm_periodic`, `SelfRefRun.no_zero_drift_while_recording` | S7, S8 | **Faithful.** |
 | `GTAORnd.SelfRef.liar_half`, `sharp_flip_no_fixed` | S9 | **Faithful.** |
-| `GTAORnd.SelfRef.Jdial_stationary_iff`, `Jdial_midpoint`, `Jdial_midpoint_60` | S10 (cost dial) | **WEAKER.** Stationarity only; the global minimum is open. The refresh term is a modelling choice (assumption NA6). |
+| `GTAORnd.SelfRef.Jdial_stationary_iff`, `Jdial_midpoint`, `Jdial_midpoint_60` | S10 (cost dial) | **WEAKER.** Stationarity only here; the global minimum for `β ≤ π/2` is in Lean round 3 below (`Jdial_midpoint_global`), and for `β > π/2` it is open. The refresh term is a modelling choice (assumption NA6). |
 
 Not formalized here: the SO(3) classification and the convex-geometry steps
 of S4; Haar averaging behind `hinv`; the scripted counts (boxworld's 128
-symmetries, the complete-record table, the zero-drift prices); a Lean
-witness that the qubit ball attains `d = N + 1`.
+symmetries, the complete-record table, the zero-drift prices). The witness that the
+qubit ball attains `d = N + 1` is in Lean round 3 below (`qubit_bound_tight`).
 
 Rounds 4–9 (`theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` §10): `GTAO/Rnd/SelfRef/SFP.lean`
 and `GTAO/Rnd/SelfRef/Precision.lean`, namespace `GTAORnd.SelfRef.R78`, moved with only the
@@ -269,9 +269,10 @@ fixes some point of `X`.
 | `ball_record_bound`, `chord`, `disk_record_error`, `disk_error_linear`, `disk_exceeds_ball` | L4 (finite precision) | **Faithful** to the toy: the ball record sits at angle δ from the true axis; the disk residual per step is ε. Re-learning cost is not modelled. |
 | `mixture_copy_core`, `no_copy_mixture` | L5 (copyable records are distinguishable) | **Partial.** Linear core only. The full step is in Lean round 3 below (`L5_perfect`, `L5_pairwise`). |
 
-Not formalized here: the maximal-torus criterion for SFP, the O(3) subgroup
-classification, other transitive groups (G₂, real and quaternionic quantum
-theory), and the orbitope and cost results of the rounds 4–9 note.
+Not formalized here: the maximal-torus criterion for SFP in general, the O(3) subgroup
+classification, G₂ and quaternionic quantum theory, and the orbitope and cost results of
+the rounds 4–9 note. The cases SO(n) on balls (iff n odd), complex quantum theory and real
+quantum theory with its orthogonal group are in Lean round 3 below.
 
 Round 10 (`theory/RECORD_COST_ROUND10_2026-11-25.md` §11): `GTAO/Rnd/SelfRef/ContinuousTime.lean`,
 namespace `GTAORnd.SelfRef.R10`.
@@ -293,6 +294,25 @@ Lean round 3 (side session, 26 November 2026): `GTAO/Rnd/SelfRef/Broadcast.lean`
 | `L5_asymptotic` | L5 (copyable records are distinguishable) | **Faithful**, asymptotic form. If one allowed channel clones `x` and `y` into two copies and some allowed measurement separates them, then for every `ε > 0` an allowed two-outcome measurement fires on `x` with probability at least `1 − ε` and on `y` with probability at most `ε`. The no-broadcasting theorem is not used: the proof measures both copies and iterates through the cloner. |
 | `L5_perfect`, `L5_pairwise` | L5 | **Faithful** under the extra hypothesis that the set of achievable firing-probability pairs on `(x, y)` is closed (true when the effect set is compact). Then `x` and `y` are perfectly distinguishable. Over a family cloned by one channel, with separating measurements, any two distinct members are perfectly distinguishable. Purity of records is not derived. Cloning is assumed, not broadcasting of mixed states. |
 | `bit_achSet`, `L5_control` | control | **Faithful.** In the classical bit model (`bitModel`) every hypothesis of `L5_perfect` holds for two distinct states, so the theorem applies non-vacuously. |
+
+Further Lean round 3 modules, same namespace: `SFPCriterion.lean`, `Transport.lean`
+(namespace `GTAORnd.SelfRef.LR3.Transport`), `CostDialGlobal.lean`, `QubitWitness.lean`,
+`FiniteGeometry.lean`, `Composite.lean`.
+
+| Declaration | Note item | Label |
+|---|---|---|
+| `ball_SFP_iff_odd` | rounds 4–9 §5 (maximal-torus criterion), ball case | **Special case.** SO(n) on the unit sphere of ℝⁿ satisfies SFP iff n is odd. The general criterion (rank H = rank G) is not formalized. |
+| `complex_fixes_ray`, `unitary_fixes_ray` | rounds 4–9 §5, complex quantum theory | **Special case, faithful.** Every complex d×d matrix (d ≥ 1), in particular every unitary, has an eigenvector, so it fixes a pure state. |
+| `real_odd_fixes_ray`, `real_even_not_SFP` | rounds 4–9 §5, real quantum theory | **Special case, faithful.** Every element of O(2m+1) has eigenvalue 1 or −1. The quarter turn in O(2m) has no real eigenvector. Pure states are rays. |
+| `hept_step_le`, `hept_partner`, `hept_path_cost` | round 10 §14 (gentle transport, 7-gon) | **WEAKER.** The operational distance is defined as a supremum over the 7-gon's effects. Neighbouring vertices are at distance at most `λ = sin(π/7)/sin(3π/7)`. `v 0` and `v 3` are perfectly distinguishable. The path `v0 → v1 → v2 → v3` costs at most `3λ² < 0.67`. That 0.594 is the exact optimum is not formalized. |
+| `disk_dist`, `disk_partner`, `disk_cost_ge`, `disk_cost_attained` | round 10 §14 (gentle transport, disk) | **Faithful** for T = 3. The disk distance between pure states equals `abs (sin ((φ − ψ)/2))`. Every 3-tick path through pure states from `p 0` to its partner `p π` costs at least 3/4, and equal thirds attain it. |
+| `hept_beats_disk` | round 10 §14 (odd polygons beat the disk at T = 3) | **Faithful** to the T = 3 comparison at unit price per squared distance (both spaces have affine dimension 2, so the per-dimension term cancels). Other horizons and polygons are not formalized. |
+| `Jdial_midpoint_global`, `Jdial_midpoint_unique`, `Jdial_60_global`, `rho_60` | chain S10 (cost dial, global minimum) | **Special case.** At `ρ = 1/(2cos(β/2))` the midpoint `β/2` is a global minimizer for `0 < β ≤ π/2`, and the unique one modulo 2π for `β < π/2`. For `β = 60°` (`ρ = 1/√3`), 30° is the unique global minimizer. For `β > π/2` the midpoint is not the global minimizer (numerically); that is not formalized. |
+| `qubit_attains_bound`, `qubit_bound_tight` | chain S2 (`d ≥ N + 1` is attained) | **Faithful.** In ℝ³, the poles `±e₃` under the rotations about `e₃` meet every hypothesis of `dim_bound`, and `finrank = 3 = N + 1`. |
+| `finite_divring_comm`, `chevalley_nonzero_zero`, `diag_form_isotropic`, `norm_form_isotropic` | round 10 §8 (finite-geometry step, the algebra after Piron) | **Partial.** A finite division ring is commutative (Mathlib's `littleWedderburn`). Diagonal quadratic forms in at least 3 variables over a finite field have a non-zero zero (from Mathlib's Chevalley–Warning). Norm forms `a₁N(x₁) + a₂N(x₂)` over a finite extension do too. Not formalized: Piron's representation, diagonalization of Hermitian forms, the classification of involutions of finite fields, and Baer's rank-3 case. |
+| `cube_corr_bound`, `square_corr_bound`, `cube_corr_tight` | `theory/RECORD_COST_ROUND10_2026-11-25.md` §15, Lemma 1 for hypercube parts | **Faithful** for hypercube parts (square, cube). Positivity on products of facet effects gives every `abs Cᵢⱼ ≤ 1`, so `‖C‖²_F ≤ m_A m_B = R_A² R_B²` (square: ≤ 4). Products of vertices attain it. Cross-polytope parts are not covered. |
+| `pure_marginal_product`, `pure_marginal_factorizes` | `theory/RECORD_COST_ROUND10_2026-11-25.md` §15, Lemma 2 | **Faithful, abstract form.** If the marginal is an extreme point, every conditional unnormalized state is a multiple of it, so the joint statistics factorize. That the max composite with no-restriction parts supplies these conditional states is a hypothesis. |
+| `square_C_bound`, `square_pure_marginal`, `pure_marginal_finite` | `theory/RECORD_COST_ROUND10_2026-11-25.md` §15, the two Lean candidates (square case of Lemma 1, finite Lemma 2) | **Faithful** to the stated candidates. L1: in the max product of two squares (coordinates in [−1,1]², facets (1 ± x_i)/2), positivity on the sixteen facet products gives Σ C_ij² ≤ 4 = R_A²R_B². L2 square instance: if a marginal coordinate is ±1 then C_ij = a_i b_j. L2 general finite form: facet functionals of A, a vertex whose tight facets cut out only its line, facet functionals of B that span B's dual with a positive combination equal to the unit; a matrix non-negative on all facet products whose A-marginal is the vertex is a product v yᵀ. |
 
 ## Layout
 
