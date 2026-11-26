@@ -696,7 +696,8 @@ def diagUnit (d : Idx mA mB → ℝ) (hd : ∀ u, d u = 1 ∨ d u = -1) :
   ⟨diagonal d, diagonal d, diag_sign_sq hd, diag_sign_sq hd⟩
 
 /-- **Theorem M11′ for polytope composites of block parts, minimal symmetry** (PROVED-IN-MODEL; no
-group hypothesis). Parts: products of cross-polytopes (`bA`, `bB`, at least one block label each).
+hypothesis on the symmetry group, which is built as `Aut(S)`; the local-symmetry premise of M11′
+stays, as the invariance hypotheses below). Parts: products of cross-polytopes (`bA`, `bB`, at least one block label each).
 `S` is the convex hull of a finite set with `pureSetB ⊆ S ⊆ maxSetB`. Symmetry assumed of `S`:
 (`hsep`) for every pair of distinct tensor coordinates a `±1` diagonal map of `S` onto itself that
 separates them, and (`htrA`, `htrB`) for any two coordinates of the same block a coordinate
@@ -888,7 +889,8 @@ lemma liftA_one : liftA (mB := mB) (1 : Equiv.Perm (Fin mA)) = 1 := by
   ext u <;> simp [liftA]
 
 /-- **Theorem M11′ for a polytope composite of a hypercube and a cross-polytope** (PROVED-IN-MODEL;
-no group hypothesis). `S` is the convex hull of a finite set with `pureSetCX ⊆ S ⊆ maxSetCX`
+no hypothesis on the symmetry group, which is built as `Aut(S)`; the local-symmetry premise stays as the
+invariance hypotheses). `S` is the convex hull of a finite set with `pureSetCX ⊆ S ⊆ maxSetCX`
 (`m_A, m_B ≥ 1`), invariant under the local coordinate sign flips of both parts and the coordinate
 swaps of the cross-polytope B (no coordinate swaps of the cube A are needed). Every reversible map
 of `S` maps the product states onto the product states. -/
@@ -909,5 +911,64 @@ theorem m11_cube_cross_polytope (hA : 0 < mA) (hB : 0 < mB) (V : Set (Idx mA mB 
   simp
 
 end Instances
+
+
+/-! ### Part 8: the hypotheses can be met -/
+
+/-- the maximal tensor product of two block parts is convex -/
+theorem maxSetB_convex (bA : Fin mA → Fin rA) (bB : Fin mB → Fin rB) :
+    Convex ℝ (maxSetB bA bB) := by
+  intro x hx y hy a b ha hb hab
+  refine ⟨by simp [hx.1, hy.1, hab], fun k l s t hs ht => ?_⟩
+  have e1 := hx.2 k l s t hs ht
+  have e2 := hy.2 k l s t hs ht
+  have hlin : 1 + ∑ i, s i * avec (a • x + b • y) i + ∑ j, t j * bvec (a • x + b • y) j +
+      ∑ i, ∑ j, s i * t j * cmat (a • x + b • y) i j =
+      a * (1 + ∑ i, s i * avec x i + ∑ j, t j * bvec x j + ∑ i, ∑ j, s i * t j * cmat x i j) +
+      b * (1 + ∑ i, s i * avec y i + ∑ j, t j * bvec y j + ∑ i, ∑ j, s i * t j * cmat y i j) := by
+    simp only [avec, bvec, cmat, Pi.add_apply, Pi.smul_apply, smul_eq_mul, mul_add,
+      Finset.sum_add_distrib, Finset.mul_sum]
+    have h1 : ∀ i, s i * (a * x (some i, none)) = a * (s i * x (some i, none)) := fun i => by ring
+    have h2 : ∀ i, s i * (b * y (some i, none)) = b * (s i * y (some i, none)) := fun i => by ring
+    have h3 : ∀ j, t j * (a * x (none, some j)) = a * (t j * x (none, some j)) := fun j => by ring
+    have h4 : ∀ j, t j * (b * y (none, some j)) = b * (t j * y (none, some j)) := fun j => by ring
+    have h5 : ∀ i j, s i * t j * (a * x (some i, some j)) = a * (s i * t j * x (some i, some j)) :=
+      fun i j => by ring
+    have h6 : ∀ i j, s i * t j * (b * y (some i, some j)) = b * (s i * t j * y (some i, some j)) :=
+      fun i j => by ring
+    simp only [h1, h2, h3, h4, h5, h6]
+    linear_combination (-1 : ℝ) * hab
+  rw [hlin]
+  exact add_nonneg (mul_nonneg ha e1) (mul_nonneg hb e2)
+
+/-- there are finitely many product states -/
+theorem pureSetB_finite (bA : Fin mA → Fin rA) (bB : Fin mB → Fin rB) :
+    (pureSetB bA bB).Finite := by
+  have hfin : (Set.pi Set.univ (fun _ : Idx mA mB => ({-1, 0, 1} : Set ℝ))).Finite :=
+    Set.Finite.pi fun _ => Set.toFinite _
+  refine hfin.subset ?_
+  rintro _ ⟨v, w, hv, hw, rfl⟩ u _
+  have hvals : ∀ {m r : ℕ} (b : Fin m → Fin r) (z : Fin m → ℝ), IsBlockVert b z →
+      ∀ o, ext1 z o = -1 ∨ ext1 z o = 0 ∨ ext1 z o = 1 := by
+    intro m r b z hz o
+    rcases o with _ | i
+    · simp [ext1]
+    · obtain ⟨i0, σ, -, hσ, h⟩ := hz i
+      simp only [ext1, h i rfl]
+      split_ifs
+      · rcases hσ with e | e <;> simp [e]
+      · simp
+  simp only [pureProd, Set.mem_insert_iff, Set.mem_singleton_iff]
+  rcases hvals bA v hv u.1 with h | h | h <;> rcases hvals bB w hw u.2 with h' | h' | h' <;>
+    rw [h, h'] <;> norm_num
+
+/-- **The hypotheses of `m11_blocks_polytope` on `S` can be met** (PROVED-IN-MODEL): `S` = the
+convex hull of the product states is a polytope between the product states and the maximal tensor
+product. (Its invariance under the local symmetries is not stated here.) -/
+theorem blocks_hyps_consistent (bA : Fin mA → Fin rA) (bB : Fin mB → Fin rB) :
+    ∃ V : Set (Idx mA mB → ℝ), V.Finite ∧ convexHull ℝ V ⊆ maxSetB bA bB ∧
+      pureSetB bA bB ⊆ convexHull ℝ V :=
+  ⟨pureSetB bA bB, pureSetB_finite bA bB,
+    convexHull_min (pure_mem_maxSetB bA bB) (maxSetB_convex bA bB), subset_convexHull ℝ _⟩
 
 end GTAORnd.SelfRef.LR3.M11Blocks
