@@ -1,0 +1,39 @@
+PASS effects_lp: triangle, 3 vertices distinguishable               
+PASS effects_lp: disc, antipodal pair distinguishable               
+PASS effects_lp: disc, pair at 90 deg not distinguishable           
+PASS effects_lp: disc, 3 points not distinguishable                 
+PASS in_relint: triangle centroid t = 1/3                           t=0.333333
+PASS in_relint: vertex t <= 1e-6                                    t=-0.00e+00
+PASS in_relint: point outside -> not interior                       t=-inf
+PASS in_relint: point off the hull -> -inf                          
+PASS in_relint: centroid with 1e-5 noise on the points              t=0.3333
+PASS face_is_ball: sphere S^2 -> (3, True)                          
+PASS face_is_ball: ellipsoid in R^6 -> (3, True)                    
+PASS face_is_ball: cube surface -> (3, False)                       
+PASS face_is_ball: circle -> (2, False)                             
+PASS face_is_ball: S^3 -> dim 4, not ball                           
+PASS cap_upper_bound: SO(2) disc -> alpha 1/2, N_UB 2               alpha=0.500000
+PASS cap_upper_bound LP: square -> alpha 1/2 (gbit, N 2)            
+PASS cap_upper_bound LP: triangle -> alpha 1/3 (trit, N 3)          
+PASS g0_closure: so(4) basis closes                                 res=1.6e-16
+PASS g0_closure: 2 of 3 so(3) generators do not close               res=0.71
+PASS distinguishable_pair: SO(2) antipodal pair -> True             
+PASS distinguishable_pair: SO(2) pair at 90 deg -> False            
+PASS bit_face_status: SO(2) disc -> 'not ball', dim 2               not ball 2
+PASS weyl_orbit = tfixed_points: B3 spin 1 -> 2                     W=2 search=2
+PASS weyl_orbit = tfixed_points: Z2 spin 2 -> 1                     W=1 search=1
+PASS weyl_orbit = tfixed_points: Z3 spin 3 -> 2                     W=2 search=2
+PASS weyl_orbit: B3 x B3 -> 4 (W = Z2 x Z2)                         W=4
+PASS recheck_witness: exact B3 witness, min >= -1e-6                min=-1.20e-13
+PASS recheck_witness: false witness (a - 0.1) caught, min ~ -0.1    min=-0.1000
+PASS recheck_witness: LP witness on 50 grid points, no cutting planes, caught min=-3.98e-02
+PASS hsfp_test: B3 pass                                             {'flats': 1}
+PASS hsfp_test: Z2 fail                                             {'flat_dim': 0, 'gap': 1.5000000000000986, 'gap_first': 1.500000000000056, 'eps': 1.0}
+PASS jordan_type: (3,2,3,2) complex QM; (8,3,8,4) complex QM; (8,3,8,6) no; (5,3,3,2) real QM 
+PASS check_lock: matching hashes accepted                           ['ok']
+PASS check_lock: edited PREREG.md refused                           ['hash mismatch for theory/x/PREREG.md: the locked files were changed']
+PASS check_list: committed list.out accepted                        ['ok']
+PASS check_list: swapped order refused                              ['enumeration differs from the committed list.out (names or order)']
+PASS check_versions: pinned versions present                        ['ok']
+PASS check_versions: wrong version refused                          ["version mismatch: have {'numpy': '2.5.5', 'scipy': '1.18.1', 'python': '3.13.5'}, pinned {'numpy': '0.0', 'scipy': '1.18.1', 'python': '3.13.5'}"]
+SUMMARY: 38/38 passed
