@@ -51,3 +51,5 @@ public import GTAO.Rnd.Composition
 public import GTAO.Rnd.SelfRef.SFP
 public import GTAO.Rnd.SelfRef.Precision
 public import GTAO.Rnd.SelfRef.ContinuousTime
+public import GTAO.Rnd.SelfRef.Broadcast
+public import GTAO.Rnd.SelfRef.BroadcastControl
