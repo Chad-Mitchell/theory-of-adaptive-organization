@@ -1,6 +1,6 @@
 {
-  "audit_count": 1910,
-  "sources_sha256": "202c13aa732761e9a4eaa3548215f6fe7d81989e6d711993cf99626414524f44",
-  "audited_at": "e4acb0f",
+  "audit_count": 1923,
+  "sources_sha256": "16657776f2b97909b5fa6851fb4a1c8ca5b37c3c13336b2fbf03e45e934363cc",
+  "audited_at": "d699a1f",
   "how": "tools/check_lean.sh in /tmp/gtao-lean; AxiomAudit 'N GTAO declarations'"
 }
