@@ -30,4 +30,4 @@ A line that says "Can it fail: yes" is not enough. T84, T84b and T85 each had on
 
 ## 4. Old work
 
-Work already scored before this gate keeps its locks. Before it is opened upstream, its memo and its `OPEN_WORK.md` row state, at the top, `TEST` or `CONSISTENCY_CHECK` by G2, without editing the lock.
+Work already scored before this gate keeps its locks. Before it is opened upstream, its memo and its row in the README open tables state, at the top, `TEST` or `CONSISTENCY_CHECK` by G2, without editing the lock.
