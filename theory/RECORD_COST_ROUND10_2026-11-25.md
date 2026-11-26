@@ -323,3 +323,12 @@ The preregistration `theory/record-cost-2026-11-25/conjecture-c-round14/PREREG.m
 - *Round 14 scorecard.* 2 hits (H4, H5), 0 misses, 3 not tested (H1, H2, H3).
 
 **open miss (after round 14):** (♦) on icosahedron² and dodecahedron², which still blocks M12 for those parts; composites that are not locally symmetric, tested only per instance; parts that fail both (★) and (♦), such as icosahedron × dodecahedron in intermediate composites and balls; and the entangling-map premise, which is not derived. Tracking that never finishes stays an open miss.
+
+## 20. Corrections after a hostile review of rounds 13–16 (appended)
+
+The corrections to §17–§19, to the round 14–16 `RESULTS.md` files and to the ledger rows RC17–RC19 are in `theory/RECORD_COST_ERRATA_R1316_2026-11-26.md`, together with a process rule for future rounds. In brief:
+- The round 15 and 16 runs were launched from a directory whose lock commit came from a local working copy, not from GitHub, so "pushed before the run" holds by timestamps only, to one second for round 16.
+- The "box clock stepped" explanation is withdrawn. The wall clock agreed with GitHub; the uptime clock lagged by about 6.6 minutes, consistent with a pause (HYPOTHESIS).
+- The H4 and §18 hexagon² certificates carry the same label as H5: PROVED (in-model) for each instance, with the weak-test caveat.
+- "Centrally symmetric parts" in §17 and the README means non-classical ones. RC18 was not preregistered.
+No score changes.
