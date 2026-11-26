@@ -215,3 +215,77 @@ All OBSERVED (numerical) as a search, and each "certified" row is an exact certi
 **Not formalized:** Theorem M11, its two lemmas and the certificates. Two Lean candidates are written up in the session notes: the square case of Lemma 1 and a finite form of Lemma 2. Lean round 3 (26 November 2026; labels in `formal/lean/README.md`): `formal/lean/GTAO/Rnd/SelfRef/Composite.lean` proves both candidates (PROVED (in-model)): Lemma 1 for hypercube parts (`cube_corr_bound`, `square_corr_bound`, `square_C_bound`, tight by `cube_corr_tight`) and Lemma 2 in a finite form (`square_pure_marginal`, `pure_marginal_finite`) plus an abstract form that takes the conditional-state property of the max composite as a hypothesis (`pure_marginal_product`, `pure_marginal_factorizes`). Theorem M11 itself, Lemma 1 for other parts and the certificates stay not formalized. `M11Prime.lean` proves the Lean-able steps of M11 with the hypotheses made explicit by a later hostile review (vertex-transitive, absolutely irreducible, 2-level parts; a locally symmetric composite between min and max): 2-level iff R²s = m, Lemma 1 in general finite form, the strictness step, averaging over a finite group in place of the Löwner ellipsoid for polytopes, and the final step. Of the Schur block step, only the scalar blocks (commutant = scalars as the hypothesis) and the vanishing of cross terms under -1 are formalized; the tensor-product block is not.
 
 Sources added: Bremner, Dutour Sikirić, Pasechnik, Rehn, Schürmann 2014, LMS J. Comput. Math. 17:565–581, `10.1112/S1461157014000400`; Avis, Fukuda 1992, Discrete Comput. Geom. 8:295–313, `10.1007/BF02293050`; John, "Extremum problems with inequalities as subsidiary conditions" (1948), reprinted in *Traces and Emergence of Nonlinear Programming* (Birkhäuser; Crossref year 2013), 197–215, `10.1007/978-3-0348-0439-4_9`. Al-Safi and Richens 2015, Gross et al. 2010 and Al-Safi and Short 2014 are as in §14.
+
+## 16. Conjecture C beyond (★): an orbit bound and all polygon pairs (round 12, part M)
+
+§15 left open every part that fails (★). This section proves C for a wider class with a sharper, marginal-aware bound. Scripts and outputs: `theory/record-cost-2026-11-25/scripts/selfref/m_round12_*.py` with `.stdout` (vertex enumeration in floating point with pycddlib; LP searches with scipy). DOIs: `doi_check_5m.py` / `.out`.
+
+**Why M11's proof stops (OBSERVED (numerical), with one exact example).** In the coordinates of §15 with R = 1, the largest ‖C‖²_F over entangled extreme points of max(P_n, P_n) is 1 + cos(2π/n) for n = 4 to 10 (1.309 for the pentagon, 1.5 for the hexagon, 1.809 for n = 10). So Lemma 1 is false for every polygon with five or more sides. Exact example: for the hexagon, a = b = 0, C = (3/4)·I lies in max and has ‖C‖² = 9/8.
+
+**Theorem M12 (PROVED (in-model), pen and paper; checked numerically on the vertices of max for 17 part pairs).**
+- *Parts.* A and B have all consistent reads. Each has a finite group of symmetries that is transitive on extreme points and absolutely irreducible on r-space (dimension m_A, m_B). Coordinates are invariant and Euclidean with extreme points at radius 1. Central symmetry is not assumed.
+- *Composite.* S has min ⊆ S ⊆ max, is invariant under both parts' groups, and its reversible group has finite orbits (for example, S a polytope).
+- *Condition (♦).* Φ(w) = m_A m_B (‖C‖² − 1) − m_A (1 − |a|²) − m_B (1 − |b|²) ≤ 0 at every entangled extreme point w of S. Products have Φ = 0.
+- *Conclusion.* No reversible map of S sends a product pure state to an entangled state.
+- *Proof.*
+  1. Let T(p) = e with p a pure product state and e entangled. Let O be the orbit of p under the reversible group of S, with N points; it contains every pure product state (local transitivity) and E ≥ 1 entangled points. The products span the whole space (local tomography), so O does.
+  2. Σ_O = Σ_{o∈O} o oᵀ is invariant under the reversible group, so h(o) = oᵀ Σ_O⁻¹ o is constant on O. Its sum over O is the trace of the identity, D = (1 + m_A)(1 + m_B), so h = D/N on O.
+  3. O is invariant under both parts' groups, so Schur's lemma makes Σ_O block-scalar: N, (A_O/m_A)·I, (B_O/m_B)·I, (C_O/m_A m_B)·I, where A_O, B_O, C_O are the sums over O of |a|², |b|², ‖C‖².
+  4. Evaluating h at a product gives m_A (1/A_O − 1/N) + m_B (1/B_O − 1/N) = m_A m_B (1/N − 1/C_O).
+  5. Let u, v, t be the means over the entangled points of O of 1 − |a|², 1 − |b|², ‖C‖² − 1. Lemma 2 of §15 gives u, v > 0. The left side of step 4 is then strictly larger than (m_A u + m_B v)E/N². The right side is at most 0 if t ≤ 0 and strictly smaller than m_A m_B t E/N² if t > 0. Condition (♦), averaged, gives m_A m_B t ≤ m_A u + m_B v, so step 4 fails, which completes the proof.
+- *Remarks.* Theorem M11 is the case ‖C‖ ≤ 1. Φ is convex, so (♦) holds on every S inside max as soon as it holds at the extreme points of max. Geometrically, (♦) says S lies inside the ellipsoid fixed by the second moment of the pure product states. For non-polyhedral S, the same argument with the invariant measure on the orbit is a sketch only.
+
+**Disk lemma (PROVED (in-model), pen and paper; checked numerically).** If w = (1, a; b, C) lies in max(D, D), with D the unit disk, then ‖C‖² ≤ 2 + |b|² − 2|a|² and ‖C‖² ≤ 2 + |a|² − 2|b|². Adding them gives Φ ≤ 0 for m = 2.
+- *Proof.*
+  1. Write X = [[1, bᵀ], [a, C]] and J = diag(1, −1, −1). w lies in max exactly when X maps the 3-dimensional Lorentz cone into itself.
+  2. By the S-lemma there is μ ≥ 0 with XᵀJX − μJ positive semidefinite. This is the Loewy–Schneider criterion (KNOWN).
+  3. Evaluating that matrix at the first basis vector gives μ ≤ 1 − |a|². Taking its trace gives ‖C‖² ≤ 1 + |b|² − |a|² + μ.
+  4. Combining the two gives the first inequality. Xᵀ satisfies the same condition, which gives the second.
+- *Sharpness.* Equality holds at a rotation C with a = b = 0, which is a point of the disk composite and of no polygon composite. For balls of dimension m ≥ 3, the same steps leave room for Φ > 0; for example, the qubit singlet has Φ = 12.
+
+**Corollary M12-P (PROVED (in-model)).** Take any two regular polygons P_n and P_m (n, m ≥ 3, odd or even, equal or not), inscribed in the unit circle. Then max(P_n, P_m) ⊆ max(D, D), so (♦) holds. Every locally symmetric composite between min and max with finite orbits therefore has no reversible entangling map. This covers odd polygons, which are not centrally symmetric.
+
+Numerics (OBSERVED (numerical)):
+- The largest Φ over entangled extreme points of max(P_n, P_n) is 4cos(2π/n) − 4 for n = 4 to 10.
+- The mixed pairs P5×P6, □×P5, □×P6 and P3×P6 also have Φ < 0.
+- Cube, octahedron and mixed products have Φ ≤ −4.875.
+- Both one-sided disk inequalities hold on all vertices of max for 8 polygon pairs, with equality only at products.
+
+KNOWN for comparison: for identical polygons and S = max, all reversible maps are trivial (Al-Safi and Richens 2015, Theorems 1 and 3), which is stronger. The cases of intermediate composites and of mixed polygon pairs are not in that paper or in Kolangatt et al. 2025 (Quantum, `10.22331/q-2025-01-20-1599`). This is "not found there", not a full literature search.
+
+**Hanner polytopes and (★) (PROVED (in-model), a two-line induction).** For a centrally symmetric polytope, (★) in the form |n·v| = 1 says each vertex lies on one facet of every opposite pair ("centrally symmetric 2-level"). Hanner polytopes (Hanner 1956) are built from segments by products and polar duals, and both operations keep |n·v| = 1. So M11 also covers vertex-transitive Hanner polytopes whose group acts absolutely irreducibly, such as octahedron × octahedron, not only cubes and cross-polytopes.
+
+**Parts in dimension 3 that fail (★) (OBSERVED (numerical), LP search, not exhaustive).**
+- On the zero-marginal slice of max, the largest Φ found is −2.54 for icosahedron², −0.44 for dodecahedron² and −1.5 for cuboctahedron². So (♦) is not refuted there; it is not proved either.
+- For icosahedron × dodecahedron the search finds Φ = +2.05 (a = b = 0, ‖C‖² = 1.894), so (♦) fails on that maximal composite and M12 says nothing about it. Al-Safi and Richens' Theorem 1 already makes that maximal composite's reversible maps trivial (KNOWN), so (♦) is sufficient for C but not necessary.
+
+**The entangling-map premise, priced (PROVED (in-model), one direction only).** By M12, a locally symmetric composite with finite orbits can have a reversible entangling map only if it has an entangled extreme point with Φ > 0, that is, if it leaves the product ellipsoid. Quantum theory passes this test (the Bell state has Φ = 12). The converse is false: the maximal composite of two Bloch balls has Φ = 12 at C = I and only trivial reversible maps (Al-Safi and Richens Theorem 1, KNOWN). So the premise can be bounded this way but not replaced.
+
+**open miss (what C still lacks after round 12):** parts in dimension 3 or more that fail (★) and (♦), such as balls, icosahedron × dodecahedron, and (unsettled) icosahedron², dodecahedron² and cuboctahedron²; composites that are not invariant under the parts' groups; three or more parts; a full write-up for non-polyhedral S; and the entangling-map premise itself. None of this derives tracking that never finishes or quantum theory; U stays an **open miss**.
+
+**Not formalized:** M12, the disk lemma and the corollary. The two Lean candidates of §15 (the square case of Lemma 1 and a finite form of Lemma 2) are now written as precise statements in the session notes. The disk lemma is a third, heavier candidate, since it needs the S-lemma.
+
+Sources added: Loewy, Schneider 1975, J. Math. Anal. Appl. 49:375–392, `10.1016/0022-247X(75)90186-9`; Pólik, Terlaky 2007, SIAM Rev. 49:371–418, `10.1137/S003614450444614X`; Hanner 1956, Math. Scand. 4, p. 65, `10.7146/math.scand.a-10456`; Kolangatt et al. 2025, Quantum 9:1599, `10.22331/q-2025-01-20-1599`.
+
+## 17. Corrections to §15 and §16 after a hostile review (Theorem M11′)
+
+A fresh-context hostile review of Theorem M11 (session file `HOSTILE_REVIEW_M11.md`) found no counterexample and no gap in the proof, but asked for explicit hypotheses, one wrong reason and one novelty claim to be corrected. This section supersedes the statement of Theorem M11 in §15; the earlier text is left as it was.
+
+**Theorem M11′ (PROVED (in-model); the proof of §15 is unchanged, the hypotheses are now explicit).**
+- *Parts.* A and B have all consistent effects (no restriction). Their normalized state spaces are centrally symmetric polytopes P_A ⊂ R^{m_A}, P_B ⊂ R^{m_B} centred at 0, with G_X = Aut(P_X) (linear). For X = A, B:
+  1. G_X is transitive on the vertices of P_X.
+  2. G_X acts absolutely irreducibly on R^{m_X}, in the representation-theoretic sense (one absolutely irreducible part suffices).
+  3. (★): P_X is centrally symmetric 2-level, i.e. n·v ∈ {−1, +1} for every facet n·r ≤ 1 and every vertex v. Equivalently, in G_X-invariant Euclidean coordinates, R_X²|n_X|² = m_X.
+- *Composite.* S is closed and convex in the normalized slice of V_A ⊗ V_B (local tomography), min(A,B) ⊆ S ⊆ max(A,B), and S is locally symmetric: (g⊗h)(S) = S for all g ∈ G_A, h ∈ G_B.
+- *Conclusion.* Every linear bijection T with T(S) = S permutes the product pure states; S has no reversible entangling map.
+- *Covered parts.* Hypercubes and cross-polytopes in every dimension, and at least octahedron × octahedron and cube ⊕ cube (free sum) in R^6 (checked exactly by the reviewer); more generally every vertex-transitive Hanner polytope with an absolutely irreducible group (§16).
+
+**Scope (corrected).** For S = max the conclusion is already implied, in the stronger form "every reversible map is trivial", by Al-Safi and Richens 2015 Theorem 1: every centrally symmetric polytope with all effects is dichotomic, because u − e for a facet effect e is the opposite facet effect. So the sentence in §15 that leaves non-regular polytopes open on maximal composites is wrong for centrally symmetric ones, and M11′ is new only for intermediate (min ⊊ S ⊊ max) locally symmetric composites. The same applies to §16: for S = max with centrally symmetric parts (even polygons in any pairing, icosahedron × dodecahedron) the stronger "trivial" is KNOWN from Theorem 1, and for identical odd polygons from Theorem 3; Corollary M12-P is new for intermediate composites and for maximal composites with an odd polygon paired with a different polygon (as far as checked in those two theorems).
+
+**Other corrections.**
+- The reason a part fails (★) is "some |n·v| < 1" (equivalently R²|n|² < m), not "some n·v = 0": the latter is false for the octagon, the 12-gon, the icosahedron and the dodecahedron (it holds for polygons with n ≡ 2 mod 4 and the 24-cell). The exclusions in §15 stand.
+- Uniqueness of the minimum-volume enclosing ellipsoid is due to Danzer, Laugwitz and Lenz 1957, Arch. Math. 8:214–219, `10.1007/BF01899996`; John 1948 does not state it explicitly. For polytope S the vertex second moment (finite Aut(S)) already gives an invariant form, so the ellipsoid is not needed.
+- "Irreducible" has two meanings here. Al-Safi and Richens' "reducible" (their Theorem 2, the square pyramid in §15's table) is geometric: the cone is a direct sum. M11′ and M12 use representation-theoretic absolute irreducibility. They are unrelated conditions.
+- M12 (§16) uses the same composite hypotheses as M11′: local tomography, S closed and convex, local symmetry.
+
+**open miss (unchanged by the review):** parts that are not 2-level and fail (♦), composites that are not locally symmetric (the reviewer's involution ansatz found no entangling map for any entangled max vertex of □□, □O, OO, observed only), three or more parts, and the entangling-map premise.
