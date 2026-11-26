@@ -1,0 +1,13 @@
+start  0 uniform      status=0 nit= 114 nfev= 4300 stopped_on_limit=False cpu= 0.59s msg=CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+start  1 uniform      status=2 nit= 115 nfev= 5525 stopped_on_limit=False cpu= 0.78s msg=ABNORMAL: 
+start  2 uniform      status=0 nit= 106 nfev= 3675 stopped_on_limit=False cpu= 0.50s msg=CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+start  3 uniform      status=0 nit= 153 nfev= 5300 stopped_on_limit=False cpu= 0.80s msg=CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+start  4 uniform      status=0 nit= 133 nfev= 4575 stopped_on_limit=False cpu= 0.61s msg=CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+start  5 uniform      status=0 nit=  93 nfev= 2925 stopped_on_limit=False cpu= 0.39s msg=CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+start  6 uniform      status=0 nit= 134 nfev= 4800 stopped_on_limit=False cpu= 0.63s msg=CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+start  7 uniform      status=0 nit= 119 nfev= 4375 stopped_on_limit=False cpu= 0.58s msg=CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+start  8 near-uniform status=0 nit=  73 nfev= 2725 stopped_on_limit=False cpu= 0.36s msg=CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+start  9 near-uniform status=0 nit=  47 nfev= 1575 stopped_on_limit=False cpu= 0.21s msg=CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+half-tol rerun 0 status=0 nit=114 nfev=4300 stopped_on_limit=False cpu= 0.59s msg=CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH
+half-tol rerun 1 status=2 nit=115 nfev=5525 stopped_on_limit=False cpu= 0.78s msg=ABNORMAL: 
+tally (status, stopped_on_limit): {(0, False): 9, (2, False): 1}  total probe CPU 6.8 s

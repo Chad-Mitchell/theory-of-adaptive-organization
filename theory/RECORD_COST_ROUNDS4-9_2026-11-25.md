@@ -130,3 +130,7 @@ From `theory/record-cost-2026-11-25/scripts/selfref/`, run `python3 <script>.py`
 ## 13. Round 10 (pointer, appended)
 
 Round 10 tests whether U follows from more basic premises: `theory/RECORD_COST_ROUND10_2026-11-25.md`.
+
+## 14. Errata (pointer, appended 26 November 2026)
+
+The §8 phrase "without a time-evolution premise" overstates the remark; corrected wording, the fact that SFP plus transitivity already implies U, and the SO(3)-versus-O(3) group rule are in `theory/RECORD_COST_ERRATA_2026-11-26.md` §1. The text above is unchanged.
