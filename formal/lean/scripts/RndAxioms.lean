@@ -1,10 +1,11 @@
 /-
 Copyright (c) 2026 Chad Mitchell. Public domain (CC0).
-`#print axioms` for the 91 exported theorems of the record-cost side R&D
+`#print axioms` for the 122 exported theorems of the record-cost side R&D
 (`GTAO/Rnd/`, `theory/RECORD_COST_CHAIN_2026-11-25.md`; then 19, `SelfRef.R78.*`, for
 `theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` §10; then 4, `SelfRef.R10.*`, for
 `theory/RECORD_COST_ROUND10_2026-11-25.md` §11; then `SelfRef.LR3.*`, Lean round 3, for
-the rounds 4–9 note §10 item L5 and later items, labels in `formal/lean/README.md`).
+the rounds 4–9 note §10 item L5, the rounds 4–9 and round 10 notes, the chain note
+steps S2 and S10, and round 11 part M, labels in `formal/lean/README.md`).
 Run from `formal/lean/`:  `lake env lean scripts/RndAxioms.lean`
 Expected: each line lists only `propext`, `Classical.choice`, `Quot.sound` (or a subset),
 or says the theorem depends on no axioms.
@@ -102,3 +103,34 @@ open GTAORnd
 #print axioms SelfRef.LR3.L5_pairwise
 #print axioms SelfRef.LR3.bit_achSet
 #print axioms SelfRef.LR3.L5_control
+#print axioms SelfRef.LR3.ball_SFP_iff_odd
+#print axioms SelfRef.LR3.complex_fixes_ray
+#print axioms SelfRef.LR3.unitary_fixes_ray
+#print axioms SelfRef.LR3.real_odd_fixes_ray
+#print axioms SelfRef.LR3.real_even_not_SFP
+#print axioms SelfRef.LR3.Transport.hept_step_le
+#print axioms SelfRef.LR3.Transport.hept_partner
+#print axioms SelfRef.LR3.Transport.hept_path_cost
+#print axioms SelfRef.LR3.Transport.disk_dist
+#print axioms SelfRef.LR3.Transport.disk_partner
+#print axioms SelfRef.LR3.Transport.disk_cost_ge
+#print axioms SelfRef.LR3.Transport.disk_cost_attained
+#print axioms SelfRef.LR3.Transport.hept_beats_disk
+#print axioms SelfRef.LR3.Jdial_midpoint_global
+#print axioms SelfRef.LR3.Jdial_midpoint_unique
+#print axioms SelfRef.LR3.Jdial_60_global
+#print axioms SelfRef.LR3.rho_60
+#print axioms SelfRef.LR3.qubit_attains_bound
+#print axioms SelfRef.LR3.qubit_bound_tight
+#print axioms SelfRef.LR3.finite_divring_comm
+#print axioms SelfRef.LR3.chevalley_nonzero_zero
+#print axioms SelfRef.LR3.diag_form_isotropic
+#print axioms SelfRef.LR3.norm_form_isotropic
+#print axioms SelfRef.LR3.cube_corr_bound
+#print axioms SelfRef.LR3.square_corr_bound
+#print axioms SelfRef.LR3.cube_corr_tight
+#print axioms SelfRef.LR3.pure_marginal_product
+#print axioms SelfRef.LR3.pure_marginal_factorizes
+#print axioms SelfRef.LR3.square_C_bound
+#print axioms SelfRef.LR3.square_pure_marginal
+#print axioms SelfRef.LR3.pure_marginal_finite
