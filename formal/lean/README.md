@@ -228,8 +228,8 @@ None of the following is claimed as proved in Lean.
 Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
 from a private Lake project with the same pins. Paper:
 `theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
-`#print axioms` on the 85 exported theorems (19 for the rounds 4–9
-note and the last 4 for the round 10 note, below); each depends only on
+`#print axioms` on the 91 exported theorems (19 for the rounds 4–9
+note, 4 for the round 10 note, and the Lean round 3 theorems, below); each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
 Lean `axiom`. The named assumptions NA1–NA6 are those of §5 of the paper (the
@@ -267,7 +267,7 @@ fixes some point of `X`.
 | `SO_odd_fixes_unit`, `SO_odd_fixes_poles`, `SO3_fixes_poles`, `odd_ball_SFP` | L2 (odd balls with SO(2m+1) satisfy SFP) | **Faithful** for the full SO(2m+1); other transitive groups are not covered. |
 | `SO2_nonid_no_fixed`, `disk_not_SFP`, `even_ball_not_SFP` | L3 (disk and even balls fail SFP) | **Faithful** for SO(2) and SO(2m). |
 | `ball_record_bound`, `chord`, `disk_record_error`, `disk_error_linear`, `disk_exceeds_ball` | L4 (finite precision) | **Faithful** to the toy: the ball record sits at angle δ from the true axis; the disk residual per step is ε. Re-learning cost is not modelled. |
-| `mixture_copy_core`, `no_copy_mixture` | L5 (copyable records are distinguishable) | **Partial.** Linear core only; the full no-broadcasting step is not formalized. |
+| `mixture_copy_core`, `no_copy_mixture` | L5 (copyable records are distinguishable) | **Partial.** Linear core only. The full step is in Lean round 3 below (`L5_perfect`, `L5_pairwise`). |
 
 Not formalized here: the maximal-torus criterion for SFP, the O(3) subgroup
 classification, other transitive groups (G₂, real and quaternionic quantum
@@ -280,6 +280,19 @@ namespace `GTAORnd.SelfRef.R10`.
 |---|---|---|
 | `continuous_line_discrete_const`, `finite_group_no_continuous_motion`, `continuous_change_infinite_group` | §3 (continuous time with change forces an infinite reversible group) | **Faithful.** That a polytope's reversible group is finite is not formalized. |
 | `never_returns_infinite_order` | §5 (a never-returning orbit forces infinite order of the global map) | **Faithful.** |
+
+Lean round 3 (side session, 26 November 2026): `GTAO/Rnd/SelfRef/Broadcast.lean` and
+`GTAO/Rnd/SelfRef/BroadcastControl.lean`, namespace `GTAORnd.SelfRef.LR3`. The setting is the
+`CopyModel` of `LemmaB1.lean`, plus two hypotheses passed as arguments, not new fields:
+`CoarseGrain` (classical post-processing of an allowed measurement is allowed) and `NonNeg`
+(measurement values are non-negative).
+
+| Declaration | Note item | Label |
+|---|---|---|
+| `amplify` | L5, analysis step | **Faithful.** For `0 ≤ q < p ≤ 1` and `ε > 0`, some `k, m` give `1 − (1 − p^k)^m ≥ 1 − ε` and `1 − (1 − q^k)^m ≤ ε` (AND/OR amplification). |
+| `L5_asymptotic` | L5 (copyable records are distinguishable) | **Faithful**, asymptotic form. If one allowed channel clones `x` and `y` into two copies and some allowed measurement separates them, then for every `ε > 0` an allowed two-outcome measurement fires on `x` with probability at least `1 − ε` and on `y` with probability at most `ε`. The no-broadcasting theorem is not used: the proof measures both copies and iterates through the cloner. |
+| `L5_perfect`, `L5_pairwise` | L5 | **Faithful** under the extra hypothesis that the set of achievable firing-probability pairs on `(x, y)` is closed (true when the effect set is compact). Then `x` and `y` are perfectly distinguishable. Over a family cloned by one channel, with separating measurements, any two distinct members are perfectly distinguishable. Purity of records is not derived. Cloning is assumed, not broadcasting of mixed states. |
+| `bit_achSet`, `L5_control` | control | **Faithful.** In the classical bit model (`bitModel`) every hypothesis of `L5_perfect` holds for two distinct states, so the theorem applies non-vacuously. |
 
 ## Layout
 

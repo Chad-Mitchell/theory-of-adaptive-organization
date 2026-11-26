@@ -1,9 +1,10 @@
 /-
 Copyright (c) 2026 Chad Mitchell. Public domain (CC0).
-`#print axioms` for the 85 exported theorems of the record-cost side R&D
-(`GTAO/Rnd/`, `theory/RECORD_COST_CHAIN_2026-11-25.md`; the last 19, `SelfRef.R78.*`, for
-`theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` §10; the last 4, `SelfRef.R10.*`, for
-`theory/RECORD_COST_ROUND10_2026-11-25.md` §11).
+`#print axioms` for the 91 exported theorems of the record-cost side R&D
+(`GTAO/Rnd/`, `theory/RECORD_COST_CHAIN_2026-11-25.md`; then 19, `SelfRef.R78.*`, for
+`theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` §10; then 4, `SelfRef.R10.*`, for
+`theory/RECORD_COST_ROUND10_2026-11-25.md` §11; then `SelfRef.LR3.*`, Lean round 3, for
+the rounds 4–9 note §10 item L5 and later items, labels in `formal/lean/README.md`).
 Run from `formal/lean/`:  `lake env lean scripts/RndAxioms.lean`
 Expected: each line lists only `propext`, `Classical.choice`, `Quot.sound` (or a subset),
 or says the theorem depends on no axioms.
@@ -95,3 +96,9 @@ open GTAORnd
 #print axioms SelfRef.R10.finite_group_no_continuous_motion
 #print axioms SelfRef.R10.continuous_change_infinite_group
 #print axioms SelfRef.R10.never_returns_infinite_order
+#print axioms SelfRef.LR3.amplify
+#print axioms SelfRef.LR3.L5_asymptotic
+#print axioms SelfRef.LR3.L5_perfect
+#print axioms SelfRef.LR3.L5_pairwise
+#print axioms SelfRef.LR3.bit_achSet
+#print axioms SelfRef.LR3.L5_control
