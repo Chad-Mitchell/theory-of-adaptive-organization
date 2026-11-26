@@ -71,3 +71,18 @@ The premise list is frozen in `theory/qm-selection-2026-11-26/PREREG.md` (lock c
 - **§1, "assumed infinitely many pure states, i.e. U".** Read: "assumed infinitely many pure states, hence, **with a closed (compact) group**, U". An infinite transitive group gives a continuous group only after taking its closure.
 - **PR-body items of the foundations review** are fixed in the PR #295 body itself, not in a repository note: line 1 ("Nothing was rebased" replaced by the #286 rebase disclosure), the #292 row (the run followed a gate pass by the author agent), and the horizon wording ("at the tested horizons (observed)", matching `cfa97cd`).
 - **§4, the M11 reason** is unchanged. §8: the search is relabelled **`CONSISTENCY_CHECK`**, and "P7 is not needed" reads "P7 is not needed given P5 (hSFP)" (`theory/qm-selection-2026-11-26/DEVIATIONS.md`).
+
+## 10. Lean round 3 statement fidelity (appended after a hostile review of Lean round 3)
+
+- **M11′ in Lean.** `M11Prime.final_assembly` is an elementary set lemma. It takes as hypotheses the invariance of q under every reversible map and the strict separation of product pure states, which is the core of M11′, and the `M11Prime.lean` steps are proved separately, not chained. Lean round 4 adds `M11Cube.lean`, which derives the separation and chains the steps for hypercube parts and for cross-polytope parts only (`m11_cube`, `m11_cross`, with the finite symmetry group as a hypothesis; `m11_cube_polytope` and `m11_cross_polytope` prove `Aut(S)` finite for polytope composites and need no group hypothesis); for other parts no Lean theorem states M11′.
+- `orthomodular_of_atomistic` assumes finitely many atoms (a finite lattice), not only finite height. §3 above ("from finite height plus atomistic …") is stronger than Lean; the round 10 use assumes finitely many atoms (§3, line 27), so it is covered.
+- The `SFPCriterion.lean` docstring's "cases the survivor table uses" covers balls with SO(n), complex QM and real QM only; quaternionic QM, octonionic d = 3, even balls, G₂ on B⁷ and the C1 orbitope are not in Lean.
+- The `Jdial_*_global` results hold at `ρ = 1/(2cos(β/2))` (the tuned weight), `0 < β ≤ π/2`; the title of commit `80cf785` omits the tuned ρ.
+- `le4_attained` is the all-reads value at a point outside `le4_bound`'s hypothesis, not attainment of the 2/3 bound.
+- `L5_perfect`: the docstring's compactness remark is outside Lean (`CopyModel` has no topology); closedness is a hypothesis.
+- `classical_no_purification` shows only that classical theory lacks purification, not that purification is independent of the other premises.
+- `hept_beats_disk` is T = 3 only. In RC10, "at every finite horizon it is a hypothesis" reads "at untested horizons it is a hypothesis".
+- Rounds 4–9 note :46 ("partial in Lean", on L5) is superseded by :83 (L5 in Lean round 3).
+- Hopf–Samelson, cited at rounds 4–9 :42 and :85, is 1940 (Comment. Math. Helv. 13:240–251; Crossref `10.1007/BF01378063`).
+- About twelve exported Lean names are one-line instances, restatements or Mathlib wrappers beyond the five declared paddings (list in `formal/lean/README.md`, scope notes after the Lean round 3 review); the raw count is not a measure of depth.
+- Cost dial (Lean round 4, `CostDialBeyond.lean`): at the tuned ρ the midpoint is not a global minimizer for every π/2 < β < π (`Jdial_midpoint_not_global`; α = β/2 + π/2 is cheaper), and ties at β = π/2. The `CostDialGlobal.lean` docstring's "from β ≈ 1.61" is superseded.

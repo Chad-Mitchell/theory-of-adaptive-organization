@@ -63,3 +63,6 @@ public import GTAO.Rnd.SelfRef.OControl
 public import GTAO.Rnd.SelfRef.Modular
 public import GTAO.Rnd.SelfRef.Entangle
 public import GTAO.Rnd.SelfRef.M11Prime
+public import GTAO.Rnd.SelfRef.M11Cube
+public import GTAO.Rnd.SelfRef.TransportHorizons
+public import GTAO.Rnd.SelfRef.CostDialBeyond

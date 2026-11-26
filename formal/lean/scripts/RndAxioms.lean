@@ -1,11 +1,11 @@
 /-
 Copyright (c) 2026 Chad Mitchell. Public domain (CC0).
-`#print axioms` for the 157 exported theorems of the record-cost side R&D
+`#print axioms` for the 192 exported theorems of the record-cost side R&D
 (`GTAO/Rnd/`, `theory/RECORD_COST_CHAIN_2026-11-25.md`; then 19, `SelfRef.R78.*`, for
 `theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` §10; then 4, `SelfRef.R10.*`, for
 `theory/RECORD_COST_ROUND10_2026-11-25.md` §11; then `SelfRef.LR3.*`, Lean round 3, for
 the rounds 4–9 note §10 item L5, the rounds 4–9 and round 10 notes, the chain note
-steps S2 and S10, and round 11 part M, labels in `formal/lean/README.md`).
+steps S2 and S10, and round 11 part M, and Lean round 4, labels in `formal/lean/README.md`).
 Run from `formal/lean/`:  `lake env lean scripts/RndAxioms.lean`
 Expected: each line lists only `propext`, `Classical.choice`, `Quot.sound` (or a subset),
 or says the theorem depends on no axioms.
@@ -169,3 +169,38 @@ open GTAORnd
 #print axioms SelfRef.LR3.M11Prime.final_assembly
 #print axioms SelfRef.LR3.M11Prime.invariant_form_scalar
 #print axioms SelfRef.LR3.M11Prime.cross_term_zero
+#print axioms SelfRef.LR3.M11Cube.flip_invariant_diag
+#print axioms SelfRef.LR3.M11Cube.swap_invariant_blocks
+#print axioms SelfRef.LR3.M11Cube.pureProd_mem_maxSet
+#print axioms SelfRef.LR3.M11Cube.maxSet_sq_le
+#print axioms SelfRef.LR3.M11Cube.pure_of_sq_one
+#print axioms SelfRef.LR3.M11Cube.avgGram_invariant
+#print axioms SelfRef.LR3.M11Cube.avgGram_diag_ge_one
+#print axioms SelfRef.LR3.M11Cube.diag_form_max
+#print axioms SelfRef.LR3.M11Cube.m11_cube_into
+#print axioms SelfRef.LR3.M11Cube.m11_cube
+#print axioms SelfRef.LR3.M11Cube.pureProdX_mem_maxSetX
+#print axioms SelfRef.LR3.M11Cube.maxSetX_bounds
+#print axioms SelfRef.LR3.M11Cube.sum_sgn_sq
+#print axioms SelfRef.LR3.M11Cube.maxSetX_frob
+#print axioms SelfRef.LR3.M11Cube.sq_le_of_l1
+#print axioms SelfRef.LR3.M11Cube.maxSetX_unit
+#print axioms SelfRef.LR3.M11Cube.pure_of_eqX
+#print axioms SelfRef.LR3.M11Cube.quad_blocks
+#print axioms SelfRef.LR3.M11Cube.m11_cross_into
+#print axioms SelfRef.LR3.M11Cube.m11_cross
+#print axioms SelfRef.LR3.TransportHorizons.disk_cost_T2
+#print axioms SelfRef.LR3.TransportHorizons.cos_sum4_le
+#print axioms SelfRef.LR3.TransportHorizons.disk_cost_T4_ge
+#print axioms SelfRef.LR3.TransportHorizons.disk_cost_T4_attained
+#print axioms SelfRef.LR3.TransportHorizons.nona_step_le
+#print axioms SelfRef.LR3.TransportHorizons.nona_partner
+#print axioms SelfRef.LR3.TransportHorizons.nona_path_cost
+#print axioms SelfRef.LR3.TransportHorizons.nona_beats_disk
+#print axioms SelfRef.LR3.Jdial_midpoint_not_global
+#print axioms SelfRef.LR3.Jdial_tie_at_right_angle
+#print axioms SelfRef.LR3.M11Cube.autSet_finite
+#print axioms SelfRef.LR3.M11Cube.pureSet_span
+#print axioms SelfRef.LR3.M11Cube.pureSetX_span
+#print axioms SelfRef.LR3.M11Cube.m11_cube_polytope
+#print axioms SelfRef.LR3.M11Cube.m11_cross_polytope
