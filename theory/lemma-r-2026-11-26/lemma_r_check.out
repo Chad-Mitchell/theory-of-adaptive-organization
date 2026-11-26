@@ -1,0 +1,10 @@
+square^2                             mixed4-sets=  1812 dependent=   0 | #linear maps with T(P)=P =    128 | of which rows/cols->rows/cols = 128
+pentagon^2                           mixed4-sets= 12600 dependent=   0 | #linear maps with T(P)=P =    200 | of which rows/cols->rows/cols = 200
+hexagon^2                            mixed4-sets= 58725 dependent=   0 | #linear maps with T(P)=P =    288 | of which rows/cols->rows/cols = 288
+pentagon x heptagon                  mixed4-sets= 52150 dependent=   0 | #linear maps with T(P)=P =    140 | of which rows/cols->rows/cols = 140
+square x pentagon                    mixed4-sets=  4820 dependent=   0 | #linear maps with T(P)=P =     80 | of which rows/cols->rows/cols = 80
+heptagon^2                           mixed4-sets=211386 dependent=   0 | #linear maps with T(P)=P =    392 | of which rows/cols->rows/cols = 392
+bit x pentagon (n_A=2, excluded)     mixed4-sets=   200 dependent=   0 | #linear maps with T(P)=P =    200 | of which rows/cols->rows/cols = 20
+trit x pentagon (n_A=3, excluded)    mixed4-sets=  1350 dependent=   0 | #linear maps with T(P)=P =   6000 | of which rows/cols->rows/cols = 60
+octahedron^2 (K=4, not a polygon)    mixed4-sets= 58725 dependent=   0 | #linear maps with T(P)=P =   4608 | of which rows/cols->rows/cols = 4608
+bit^2                                mixed4-sets=     1 dependent=   0 | #linear maps with T(P)=P =     24 | of which rows/cols->rows/cols = 8

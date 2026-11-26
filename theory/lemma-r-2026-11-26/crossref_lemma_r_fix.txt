@@ -1,0 +1,2 @@
+10.1112/S1461157014000400 | Computing symmetry groups of polyhedra | Bremner; Dutour Sikirić; Pasechnik; Rehn; Schürmann | LMS Journal of Computation and Mathematics 17 565-581 [[2014]]
+10.2140/pjm.1958.8.743 | On the number of bi-colored graphs | Harary | Pacific Journal of Mathematics 8 743-755 [[1958, 12, 1]]

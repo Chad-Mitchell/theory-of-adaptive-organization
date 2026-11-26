@@ -1,0 +1,14 @@
+10.1088/1367-2630/17/12/123001 | Reversibility and the structure of the local state space | Al-Safi;Richens | New Journal of Physics 17 123001 2015
+10.1103/PhysRevLett.104.080402 | All Reversible Dynamics in Maximally Nonlocal Theories are Trivial | Gross;Müller;Colbeck;Dahlsten | Physical Review Letters 104 080402 2010
+10.1088/1751-8113/47/32/325303 | Reversible dynamics in strongly non-local Boxworld systems | Al-Safi;Short | Journal of Physics A: Mathematical and Theoretical 47 325303 2014
+10.2140/pjm.1959.9.1215 | Transformations on tensor product spaces | Marcus;Moyls | Pacific Journal of Mathematics 9 1215-1221 1959
+10.2140/pjm.1967.23.613 | Transformations on tensor spaces | Westwick | Pacific Journal of Mathematics 23 613-620 1967
+10.1063/1.3578015 | The automorphism group of separable states in quantum information theo | Friedland;Li;Poon;Sze | Journal of Mathematical Physics 52 042203 2011
+10.1080/03081087.2011.596540 | Characterizing operations preserving separability measures via linear  | Johnston | Linear and Multilinear Algebra 59 1171-1187 2011
+10.1063/1.3399808 | Unique decompositions, faces, and automorphisms of separable states | Alfsen;Shultz | Journal of Mathematical Physics 51 052201 2010
+10.1103/PhysRevLett.109.090403 | Deriving Quantum Theory from Its Local Structure and Reversibility | de la Torre;Masanes;Short;Müller | Physical Review Letters 109 090403 2012
+10.1063/1.4903510 | Entanglement and the three-dimensionality of the Bloch ball | Masanes;Müller;Pérez-García;Augusiak | Journal of Mathematical Physics 55 122203 2014
+10.1112/S1461157014000400 | Computing symmetry groups of polyhedra | Bremner;Dutour Sikirić;Pasechnik;Rehn;Schürmann | LMS Journal of Computation and Mathematics 17 565-581 2014
+10.2140/pjm.1958.8.743 | On the number of bi-colored graphs | Harary | Pacific Journal of Mathematics 8 743-755 1958
+10.1103/PhysRevLett.119.080503 | Entanglement is Necessary for Emergent Classicality in All Physical Theories | Richens;Selby;Al-Safi | Physical Review Letters 119 080503 2017
+10.22331/q-2025-01-20-1599 | Bipartite polygon models: entanglement classes and their nonlocal behaviour | Kolangatt;Muruganandan;Naik;Guha;Banik;Saha | Quantum 9 1599 2025
