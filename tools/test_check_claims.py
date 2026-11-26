@@ -366,3 +366,10 @@ def test_row_by_row_table_quotes_and_plain_mentions_pass():
     assert cc.summary_fails("> the theory works\n", ROOT) == []
     assert cc.summary_fails("A reviewer wrote \"the theory works\" and we did not adopt it.", ROOT) == []
     assert cc.summary_fails("See T61 and T63 for the classes.", ROOT) == []
+
+
+def test_gate_read_outcome_is_not_the_gate_row():
+    # "GATE STOP" / "GATE PASS" name a gate-read outcome (process/PREREG_GATE.md), not ledger row GATE.
+    assert cc.summary_fails("The independent gate read returned **GATE STOP** on E1, so it stays withdrawn.", ROOT) == []
+    assert cc.summary_fails("Gate read v5: GATE PASS, so the run went ahead.", ROOT) == []
+    assert cc.summary_fails("GATE holds as a server-side merge gate.", ROOT)
