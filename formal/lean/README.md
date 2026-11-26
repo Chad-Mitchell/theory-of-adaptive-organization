@@ -374,6 +374,33 @@ numeric `le4_attained`. Raw counts are not a measure of depth: the load-bearing 
 general maximal-torus criterion, the Jordan-class classification, Piron, Solèr, Baer, the tensor-product block of the Schur step for parts other than hypercubes and the
 Löwner step of M11, M12, purification and the cost-selection step) are not in Lean.
 
+**Scope notes after the hostile review of Lean round 3 (26 November 2026; appended, no theorem
+renamed).** `classical_no_purification` shows only that classical theory lacks purification; it does
+not show that purification is independent of the other premises (classical theory fails U), so the
+clause "is not implied by the other premises" in its row is withdrawn. `orthomodular_of_atomistic`
+assumes finitely many atoms (a finite lattice), not only finite height, and its orthocomplement is an
+abstract antitone involution; identifying it with perfect distinguishability on a GPT face lattice is
+a premise. The `SFPCriterion.lean` docstring's "the cases the survivor table uses" covers SO(n) on
+balls, complex QM and real QM only; quaternionic QM, octonionic d = 3, even balls under any
+transitive group, G₂ on B⁷ and the C1 orbitope are not in Lean. `L5_perfect` takes closedness of the
+achievable set as a hypothesis; its docstring's remark that this holds for compact effect sets is
+true of finite-dimensional GPTs but is not provable in `CopyModel`, which has no topology. The
+`Jdial_*_global` results hold only at the tuned weight, `ρ = 1/(2cos(β/2))`, `0 < β ≤ π/2`.
+`hept_beats_disk` is T = 3 only, for one fixed 7-gon path (cost bounded by `3λ²`, not computed), disk
+paths through pure states, the disk partner fixed to `p π` and unit price per squared distance.
+`le4_attained` is the all-reads value at `β = (½, ½, ½)`, a point outside `le4_bound`'s hypothesis,
+not attainment of the 2/3 bound; the name misleads. `cnot_mixed_correlated` defines the state
+directly; the CNOT map is not formalized. `final_assembly` assumes only `T '' E = E` (its docstring
+says bijection) and is an elementary set lemma: it takes the invariance of q and the strict
+separation of product pure states as hypotheses, and the `M11Prime.lean` steps are not chained; the
+separation is derived, and the steps chained, only in `M11Cube.lean` for hypercube parts. Depth of
+the count: besides the five dropped above, about twelve more names are one-line instances,
+restatements or Mathlib wrappers: `unitary_fixes_ray`, `qubit_O3_not_SFP`, `reversible_preserves_pure`,
+`final_assembly`, `finite_divring_comm` (`littleWedderburn`), `chevalley_nonzero_zero` (Mathlib's
+Chevalley–Warning), `rho_60`, `Jdial_60_global`, `SO1_trivial`, `sphere_one_two_points`,
+`moment_trace`, and the second conjunct of `qubit_bound_tight`. So the 162 names are not a measure
+of depth.
+
 ## Layout
 
 ```
