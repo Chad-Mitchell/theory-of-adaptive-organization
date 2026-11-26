@@ -311,3 +311,10 @@ Scripts and outputs: `theory/record-cost-2026-11-25/scripts/selfref/m_round13_*.
 - *Ascent search (`m_round13_ascent.py`; OBSERVED (numerical), a search, not a proof).* The largest non-product Φ found is −2.541438 for icosahedron² at a = b = 0 and −0.233437 for dodecahedron² at |a|² = |b|² = 0.0352 (also in 8000 further starts). The predicted dodecahedron² value of −0.444582 at a = b = 0 was a **miss**: that value is the zero-marginal slice, not the maximum. (♦) is not refuted for either pair.
 
 **open miss (after round 13):** (♦) on icosahedron² and dodecahedron² is not settled; composites that are not locally symmetric are tested only on random families; the entangling-map premise is not derived.
+
+## 19. Conjecture C, round 14 (part M): the same tests from a pushed lock
+
+The preregistration `theory/record-cost-2026-11-25/conjecture-c-round14/PREREG.md` (sha256 `523dfb53…`) was pushed in 4e189c6 before any of its scripts ran. Outputs and the scorecard are in that directory (`RESULTS.md`, `r14_*.stdout`).
+- *H5, three squares with non-symmetric PR placements (hit).* For each of the 3 composites, colour refinement on the Gram invariant separates products from the rest. So no linear automorphism maps a product pure state to a non-product one (PROVED (in-model), an exact certificate for each composite).
+- *H4, square × hexagon (hit).* 23 of 23 composites were certified the same way: 20 random ones, which are a weak test, and 3 "max minus one vertex" ones, which keep much more symmetry. These composites are not locally symmetric, so M12 does not apply to them. OBSERVED (exact, per instance).
+- *H3, icosahedron × dodecahedron (not tested).* The "exact" value classes were not canonical: 413 classes against 20 true values, because sympy's `radsimp` is not a normal form in Q(√5). So the run's "no automorphism found" is not a certificate. It is not rerun under this lock. The float result of §18 stands as OBSERVED (numerical) only.
