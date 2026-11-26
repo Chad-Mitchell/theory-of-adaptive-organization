@@ -1,0 +1,12 @@
+uniform+1e-7 noise: max A_e 3.843612377129426e-07 3.7584332813655136e-07 orients a [1, 1, 1, 1, -1, 1, 1, 1] b [-1, 1, 1, 1, -1, 1, -1, -1]
+dihedral_match on two numerically reciprocal designs: False
+A5 2.2004934249944131e-07 label clean miss
+T2 Jtot eval 0.122 ms; one FD gradient (25 evals) 3.0 ms
+T2: 576 starts x 100 iters x ~1.2 grads -> 4 CPU-min (cap 12)
+T2: default maxfun 15000 evals per start -> 600 iterations max; 1.8 CPU-s per start at maxfun
+T1 Jtot eval 0.065 ms; 260 starts x 100 iters x 1.2 x 5 evals -> 0.2 CPU-min
+J 0.0715 script window 1e-06 relative window 7.149999999999999e-08
+J 0.1846 script window 1e-06 relative window 1.8459999999999997e-07
+J 0.9295 script window 1e-06 relative window 9.295e-07
+J 2.7517 script window 2.7517e-06 relative window 2.7517e-06
+threadpoolctl n/a No module named 'threadpoolctl'
