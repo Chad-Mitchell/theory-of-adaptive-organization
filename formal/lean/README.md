@@ -228,7 +228,7 @@ None of the following is claimed as proved in Lean.
 Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
 from a private Lake project with the same pins. Paper:
 `theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
-`#print axioms` on the 217 exported theorems (19 for the rounds 4–9
+`#print axioms` on the 227 exported theorems (19 for the rounds 4–9
 note, 4 for the round 10 note, and the Lean rounds 3, 4 and 5 theorems, below); each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
@@ -397,6 +397,23 @@ cross-polytope) that the round 4 rows leave open.
 | `m11_cube_cross_polytope` | Theorem M11′ for a polytope composite of a hypercube and a cross-polytope | **Faithful; no hypothesis on the symmetry group** (`Aut(S)` is built); the local-symmetry premise stays, as the invariance assumptions below. `pureSetCX ⊆ S ⊆ maxSetCX`, `S` the convex hull of a finite set, `m_A, m_B ≥ 1`. If `S` is invariant under the local sign flips of both parts and the coordinate swaps of the cross-polytope (none of the cube), every reversible map of `S` maps the product states onto the product states. |
 | `maxSetB_convex`, `pureSetB_finite`, `blocks_hyps_consistent` | non-vacuity of the round 5 hypotheses | **Faithful.** `maxSetB` is convex and there are finitely many product states, so `S = conv(pureSetB)` is a polytope with `pureSetB ⊆ S ⊆ maxSetB`. Its invariance under the local symmetries is not stated in Lean. |
 
+Lean round 5 add-on, finite Theorem O (namespace `GTAORnd.SelfRef.LR3.OnsetO`, file `OnsetO.lean`;
+source: the stepback session note C12C §3.1 as corrected after its hostile review, not in the repo).
+KNOWN in substance: a one-variable Everett / KKT instance for a discrete convex error curve; no
+novelty is claimed. Setting over ℚ: designs `k = 0..n`, error `f` nonincreasing and discrete convex,
+`g w k = w f k + κ k` (`κ > 0`, `w ≥ 0`), cap `f k ≤ D` with strict feasibility `f n < D`; `xD` the
+least design meeting the cap, `xw` the least minimizer of `g w`.
+
+| Declaration | Note item | Label |
+|---|---|---|
+| `isMin_iff_local` | C12C, discrete convexity | **Faithful.** With nondecreasing steps on `0..n`, `k` minimizes on `0..n` iff its left step is `≤ 0` and its right step `≥ 0`. |
+| `Setting.projection` | C12C (i) | **Faithful.** `max xw xD` meets the cap, is optimal under the cap, and is the least such design. |
+| `Setting.onset_union` | C12C (ii) | **Faithful** (`n ≥ 1`). `0 < max xw xD ↔ κ < w(−Δ0) ∨ D < f 0`. |
+| `Setting.supporting_iff`, `Setting.tie_at_wstar`, `Setting.wstar_one` | C12C (iii a, b) | **Faithful** (`xD ≥ 1`, `v ≥ 0`). `xD` minimizes `g v` iff `wstar = κ/(−Δ(xD−1)) ≤ v` and (`xD = n` or `v(−Δ xD) ≤ κ`); at `v = wstar`, `xD − 1` and `xD` tie, so `wstar` is the least supporting stake, not a stake at which `xD` is the least minimizer; at `xD = 1`, `wstar = κ/(−Δ0)`. |
+| `Setting.kkt` | C12C (iii c, d) | **Faithful in the combined form.** For `xD ≥ 1`, `max xw xD` minimizes `g (max w wstar)`: the multiplier is `max 0 (wstar − w)`. The separate statement "`xD > xw'` implies `μ > 0`" is not stated. |
+| `Setting.wstar_anti` | C12C (iv) | **Faithful.** A looser cap (`D ≤ D'`, same `f`, `κ`) meets no later and needs no larger supporting stake. |
+| `Setting.zero_stake`, `example_values` | C12C (v), the spec's instance | **Faithful.** At `w = 0` the least optimum under the cap is 0 iff `f 0 ≤ D`; for `f = [4, 2, 1, 1/2]`, `κ = 1`, `D = 3/2`: `xD = 2`, `wstar = 1`, supporting stakes `[1, 2]`. |
+
 **Scope notes after the hostile review of Lean round 4 (26 November 2026; appended, no theorem
 renamed).** "No group hypothesis" in the `m11_cube_polytope`, `m11_cross_polytope` row means no
 hypothesis on the symmetry group: `Aut(S)` is built and proved finite. The local-symmetry premise of
@@ -424,8 +441,8 @@ carries weight (see `ball_O_not_SFP`); the `SFP` definition has no transitivity 
 per-step rate error δ: the same symbol names two different errors, so "the ball beats the disk"
 holds only under that identification. `SelfRef.liar_half` and `SelfRefRun.liar_half` are the same
 one-line fact in two namespaces; `Composition.P2_entries` is four numeric facts; `SelfRefRun.perm_periodic`
-is the existence of `orderOf`. Theorem count without padding: of the 217 names in
-`scripts/RndAxioms.lean`, 212 remain after dropping the duplicate `SelfRefRun.liar_half`,
+is the existence of `orderOf`. Theorem count without padding: of the 227 names in
+`scripts/RndAxioms.lean`, 222 remain after dropping the duplicate `SelfRefRun.liar_half`,
 `Composition.P2_entries`, and the Lean round 3 restatements `local_map_tmul`, `swap_tmul` and the
 numeric `le4_attained`. Raw counts are not a measure of depth: the load-bearing steps (NA1, the
 general maximal-torus criterion, the Jordan-class classification, Piron, Solèr, Baer, the tensor-product block of the Schur step for parts other than products of cross-polytopes (Lean round 5) and the
