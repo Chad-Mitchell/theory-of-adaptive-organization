@@ -1,7 +1,9 @@
 /-
 Copyright (c) 2026 Chad Mitchell. Public domain (CC0).
 Side R&D, record-cost chain: `theory/RECORD_COST_CHAIN_2026-11-25.md`. Moved from a private Lake project
-(library `GTAORnd`, same Lean and Mathlib pins); statements and proofs unchanged.
+(library `GTAORnd`, same Lean and Mathlib pins). Statements and proofs unchanged; only this
+header, the module lines and doc-comment paths differ. Session labels (R2a′, R3, C3, §R3.4, …)
+are mapped to the note's steps S1–S10 in its §3.
 -/
 module
 
