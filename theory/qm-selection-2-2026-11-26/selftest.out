@@ -1,0 +1,25 @@
+# numpy 2.5.5 scipy 1.18.1 python 3.13.5
+# construction checks (no orbit, no outcome quantity is computed)
+  su(3) adjoint  algebra dim  8  closure residual 2.1e-16  antisymmetry residual 0.0e+00
+  so(5) 5        algebra dim 10  closure residual 1.6e-16  antisymmetry residual 0.0e+00
+  so(5) 10       algebra dim 10  closure residual 1.1e-16  antisymmetry residual 0.0e+00
+  so(5) 14       algebra dim 10  closure residual 2.4e-16  antisymmetry residual 6.2e-16
+  g2 7           algebra dim 14  closure residual 6.9e-16  antisymmetry residual 2.7e-16
+  g2 14          algebra dim 14  closure residual 3.8e-16  antisymmetry residual 4.3e-16
+  so(3) spin 1   algebra dim  3  closure residual 3.0e-16  antisymmetry residual 0.0e+00
+  so(3) spin 2   algebra dim  3  closure residual 7.9e-17  antisymmetry residual 0.0e+00
+  so(3) spin 3   algebra dim  3  closure residual 1.0e-16  antisymmetry residual 0.0e+00
+  so(3) spin 4   algebra dim  3  closure residual 1.6e-16  antisymmetry residual 0.0e+00
+  so(3) spin 5   algebra dim  3  closure residual 9.6e-17  antisymmetry residual 0.0e+00
+  so(3) spin 6   algebra dim  3  closure residual 8.9e-17  antisymmetry residual 0.0e+00
+  so(3) spin 7   algebra dim  3  closure residual 6.8e-17  antisymmetry residual 0.0e+00
+# selftest: SO(3) controls with published outcomes
+{"body": "B3 (spin 1)", "group": "SO(3)", "family": "", "affine_dim": 3, "dim_G": 3, "dim_G0": 3, "rank_G0": 1, "rank_stab": 1, "SFP": "pass", "cap_UB": 2, "alpha": 0.4999999847375489, "n_torus_fixed_points": 2, "hSFP": "pass (no failure found)", "hSFP_info": {"flats": 1}, "cap_LB": 2, "bitface_affine_dim": 3, "bitface_B3": true, "jordan_type": "complex QM", "outcome": "TARGET (complex QM itself)"}
+{"body": "Z3 (spin 3)", "group": "SO(3)", "family": "", "affine_dim": 7, "dim_G": 3, "dim_G0": 3, "rank_G0": 1, "rank_stab": 1, "SFP": "pass", "cap_UB": 2, "alpha": 0.4999999804612047, "outcome": "MISS (cost: d > N_UB^2 - 1)"}
+{"body": "C1 (spin 1+2)", "group": "SO(3)", "family": "", "affine_dim": 8, "dim_G": 3, "dim_G0": 3, "rank_G0": 1, "rank_stab": 1, "SFP": "pass", "cap_UB": 4, "alpha": 0.24999999590363411, "n_torus_fixed_points": 2, "hSFP": "fail", "hSFP_info": {"flat_dim": 0, "gap": 0.3525372145455022, "eps": 1.0}, "outcome": "MISS (hSFP fails)"}
+{"body": "Z2 (real QM d=3)", "group": "SO(3)", "family": "", "affine_dim": 5, "dim_G": 3, "dim_G0": 3, "rank_G0": 1, "rank_stab": 1, "SFP": "pass", "cap_UB": 3, "alpha": 0.33333332027889223, "n_torus_fixed_points": 1, "hSFP": "fail", "hSFP_info": {"flat_dim": 0, "gap": 1.5000000000000893, "eps": 1.0}, "outcome": "MISS (hSFP fails)"}
+{"body": "B3 x B3", "group": "SO(3)^2", "family": "", "affine_dim": 6, "dim_G": 6, "dim_G0": 6, "rank_G0": 2, "rank_stab": 2, "SFP": "pass", "cap_UB": 2, "alpha": 0.4999989550257286, "outcome": "MISS (cost: d > N_UB^2 - 1)"}
+# bit-face check on published cases: B3 (bit face = the whole 3-ball), Z2 = real QM d=3 (bit faces are discs)
+  B3 (spin 1)        cap_LB 2  bit-face affine dim 3  is 3-ball True
+  Z2 (real QM d=3)   cap_LB 3  bit-face affine dim 2  is 3-ball False
+expected (published): B3 = complex QM N=2 (TARGET); Z3 MISS cost (N_UB=2); C1 hSFP fail or cost; Z2 hSFP fail; B3xB3 MISS cost
