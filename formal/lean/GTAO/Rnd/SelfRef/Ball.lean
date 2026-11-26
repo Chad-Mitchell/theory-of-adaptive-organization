@@ -26,6 +26,9 @@ any normal subgroup that fixes one pure state is trivial. Applied to the identit
 G₀ (normal in G): G₀ cannot fix any pure state, unless it is trivial; but G₀ contains the
 non-trivial connected drift, so G₀ fixes no pure state.
 
+Named assumption NA1 (theory/RECORD_COST_CHAIN_2026-11-25.md §5): the SO(3) classification below is not in
+Mathlib and is assumed, not proved, for "Ω is a ball".
+
 Not formalized (open items, see formal/lean/README.md, section RND-RECORD-COST):
 * the classification of closed connected subgroups of SO(3) ({1}, conjugates of SO(2),
   SO(3)), which turns "G₀ fixes no pure state" into "G₀ = SO(3)";

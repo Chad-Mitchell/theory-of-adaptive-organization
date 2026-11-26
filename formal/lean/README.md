@@ -231,19 +231,24 @@ from a private Lake project with the same pins. Paper:
 `#print axioms` on the 62 exported theorems; each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
-Lean `axiom`.
+Lean `axiom`. The named assumptions NA1–NA6 are those of §5 of the paper (the
+"NA" prefix keeps them apart from the theory's axioms A1–A8): NA1 the SO(3)
+connected-subgroup classification, NA2 the inner-product-preserving drift, NA3
+the polygon `V` and `σ` as definitions, NA4 "the disk pays 0" as a definition,
+NA5 the Lie setting, NA6 the modelling fields (`CopyModel`, the tensor property
+in `gbit_no_local_write`, the cost-dial refresh term).
 
 | Declaration | Paper step | Label |
 |---|---|---|
-| `GTAORnd.SelfRef.fourier_core`, `no_linear_clone_gpt`, `no_linear_clone_circle` | S1 (copy ban on a moved circle orbit) | **Faithful** to the trigonometric and GPT forms. That a compact connected drift contains such a circle orbit is the setting (assumption A5), not a declaration. |
-| `GTAORnd.SelfRef.R3_full`, `dim_bound` | S2 (`d ≥ N + 1`) | **WEAKER.** "H compact" is replaced by the declared hypothesis `hinv`: the drift's linear parts preserve one inner product and depend continuously on the group element (assumption A2). |
-| `GTAORnd.ring_bound`, `factor_ge_two`, `discrete_oneParam_trivial`, `disk_oneParam`, `disk_strictly_cheaper` | S3 (polygon cost `≥ 2Θ²/V`) | **WEAKER.** `V`, `σ` and "the disk pays 0" are definitions (assumptions A3, A4), not derived from a path measure. |
-| `GTAORnd.SelfRef.normal_fixer_bot`, `normal_nontrivial_fixes_nothing`, `SelfRefRun.normal_fixer_trivial` | S4 (ball in `d = 3`) | **Partial.** Group step only. Ball uniqueness rests on the SO(3) connected-subgroup classification, not in Mathlib (assumption A1). |
+| `GTAORnd.SelfRef.fourier_core`, `no_linear_clone_gpt`, `no_linear_clone_circle` | S1 (copy ban on a moved circle orbit) | **Faithful** to the trigonometric and GPT forms. That a compact connected drift contains such a circle orbit is the setting (assumption NA5), not a declaration. |
+| `GTAORnd.SelfRef.R3_full`, `dim_bound` | S2 (`d ≥ N + 1`) | **WEAKER.** "H compact" is replaced by the declared hypothesis `hinv`: the drift's linear parts preserve one inner product and depend continuously on the group element (assumption NA2). |
+| `GTAORnd.ring_bound`, `factor_ge_two`, `discrete_oneParam_trivial`, `disk_oneParam`, `disk_strictly_cheaper` | S3 (polygon cost `≥ 2Θ²/V`) | **WEAKER.** `V`, `σ` and "the disk pays 0" are definitions (assumptions NA3, NA4), not derived from a path measure. |
+| `GTAORnd.SelfRef.normal_fixer_bot`, `normal_nontrivial_fixes_nothing`, `SelfRefRun.normal_fixer_trivial` | S4 (ball in `d = 3`) | **Partial.** Group step only. Ball uniqueness rests on the SO(3) connected-subgroup classification, not in Mathlib (assumption NA1). |
 | `GTAORnd.Composition.P1`, `log_additive_iff`, `P2_entries` | S5 (additive price is `c log` count) | **Faithful.** |
-| `GTAORnd.CopyModel.lemmaB1`, `lemmaB1_k`, `clone2_to_k` | S6 (Lemma B1) | **Faithful** under the `CopyModel` fields; capacity is weakened to `≤ N` (a stronger lemma); the 1→2 form needs at least one effect. Controls: `unitModel_clones`, `square_B1_hypotheses`. |
+| `GTAORnd.CopyModel.lemmaB1`, `lemmaB1_k`, `clone2_to_k` | S6 (Lemma B1) | **Faithful** under the `CopyModel` fields; capacity is weakened to `≤ N` (a stronger lemma); the 1→2 form needs at least one effect; the `CopyModel` fields are assumption NA6. Controls: `unitModel_clones`, `square_B1_hypotheses`. |
 | `SelfRefRun.perm_periodic`, `SelfRefRun.no_zero_drift_while_recording` | S7, S8 | **Faithful.** |
 | `GTAORnd.SelfRef.liar_half`, `sharp_flip_no_fixed` | S9 | **Faithful.** |
-| `GTAORnd.SelfRef.Jdial_stationary_iff`, `Jdial_midpoint`, `Jdial_midpoint_60` | S10 (cost dial) | **WEAKER.** Stationarity only; the global minimum is open. |
+| `GTAORnd.SelfRef.Jdial_stationary_iff`, `Jdial_midpoint`, `Jdial_midpoint_60` | S10 (cost dial) | **WEAKER.** Stationarity only; the global minimum is open. The refresh term is a modelling choice (assumption NA6). |
 
 Not formalized here: the SO(3) classification and the convex-geometry steps
 of S4; Haar averaging behind `hinv`; the scripted counts (boxworld's 128
