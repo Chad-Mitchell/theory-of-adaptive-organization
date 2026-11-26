@@ -228,7 +228,7 @@ None of the following is claimed as proved in Lean.
 Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
 from a private Lake project with the same pins. Paper:
 `theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
-`#print axioms` on the 167 exported theorems (19 for the rounds 4–9
+`#print axioms` on the 177 exported theorems (19 for the rounds 4–9
 note, 4 for the round 10 note, and the Lean rounds 3 and 4 theorems, below); each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
@@ -341,7 +341,7 @@ Theorem M11 as amended by a hostile review (M11′).
 | `invariant_form_scalar`, `cross_term_zero` | M11′, Schur step (partial) | **Special case.** For an orthogonal representation whose commutant is the scalars (absolute irreducibility, as a hypothesis), every invariant form is a multiple of the identity; and an invariant coupling to a part the group leaves fixed vanishes once `-1` is in the group (central symmetry), so the A–B, A–C and B–C cross terms drop. That the C block (the tensor product representation) is absolutely irreducible is not formalized. |
 
 Lean round 4 (namespace `GTAORnd.SelfRef.LR3.M11Cube`, file `M11Cube.lean`): Theorem M11′ assembled
-for hypercube parts. Tensor coordinates are indexed by `Option (Fin m_A) × Option (Fin m_B)`
+for hypercube parts and for cross-polytope parts. Tensor coordinates are indexed by `Option (Fin m_A) × Option (Fin m_B)`
 (unit, Bloch and correlation coordinates); `maxSet` is the maximal tensor product of the cubes
 `[-1,1]^{m_A}`, `[-1,1]^{m_B}` (normalized, nonnegative on every product of facet effects) and
 `pureSet` the products of cube vertices.
@@ -349,11 +349,15 @@ for hypercube parts. Tensor coordinates are indexed by `Option (Fin m_A) × Opti
 | Declaration | Note item | Label |
 |---|---|---|
 | `flip_invariant_diag` | M11′, Schur step, tensor block (hyperoctahedral case) | **Faithful.** A matrix on the tensor coordinates invariant under every local coordinate sign flip of A and of B is diagonal: this covers the cross terms and the off-diagonal part of the C block. |
-| `swap_invariant_blocks` | M11′, Schur step, tensor block (hyperoctahedral case) | **Faithful.** Invariance under local coordinate swaps makes the diagonal constant on the A, B and C blocks. Not needed for the hypercube assembly below. |
+| `swap_invariant_blocks` | M11′, Schur step, tensor block (hyperoctahedral case) | **Faithful.** Invariance under local coordinate swaps makes the diagonal constant on the A, B and C blocks. Not needed for the hypercube assembly; used for cross-polytope parts. |
 | `pureProd_mem_maxSet`, `maxSet_sq_le`, `pure_of_sq_one` | M11′, Lemma 1 and strictness for hypercube parts | **Faithful** (`m_A, m_B ≥ 1` for the bound). Products of cube vertices lie in the maximal tensor product; there every tensor coordinate lies in [−1,1]; a point of it with every coordinate ±1 is a product of cube vertices. |
 | `avgGram_invariant`, `avgGram_diag_ge_one` | M11′, averaging over a finite group | **Faithful.** `A = ∑_γ ρ(γ)ᵀρ(γ)` over a finite group is invariant and has every diagonal entry ≥ 1. |
 | `diag_form_max` | M11′, strictness for hypercube parts | **Faithful.** On the maximal tensor product a diagonal form with positive diagonal is at most its trace, with equality only where every coordinate is ±1. |
-| `m11_cube_into`, `m11_cube` | M11′, assembled for hypercube parts | **Faithful for hypercube parts, with `Γ` as a hypothesis.** For any finite group `Γ` acting linearly on the tensor coordinates whose image contains the local sign flips, and any `S` with `pureSet ⊆ S ⊆ maxSet`: an element of `Γ` mapping `S` into `S` maps product states to product states, and one mapping `S` onto `S` maps them onto themselves (`m11_cube`, whose last step is `M11Prime.final_assembly` with `E := S`). The intended instance is `Γ = Aut(S)`; that `Aut(S)` is finite for a polytope is not formalized. Cross-polytope and mixed parts are not covered. |
+| `m11_cube_into`, `m11_cube` | M11′, assembled for hypercube parts | **Faithful for hypercube parts, with `Γ` as a hypothesis.** For any finite group `Γ` acting linearly on the tensor coordinates whose image contains the local sign flips, and any `S` with `pureSet ⊆ S ⊆ maxSet`: an element of `Γ` mapping `S` into `S` maps product states to product states, and one mapping `S` onto `S` maps them onto themselves (`m11_cube`, whose last step is `M11Prime.final_assembly` with `E := S`). The intended instance is `Γ = Aut(S)`; that `Aut(S)` is finite for a polytope is not formalized. Cross-polytope parts: `m11_cross` below; mixed parts (cube with cross-polytope) are not covered. |
+| `pureProdX_mem_maxSetX`, `maxSetX_bounds`, `maxSetX_unit` | M11′ for cross-polytope parts (vertices `±e_i`, facets `1 + s·a` for sign vectors `s`) | **Faithful.** `maxSetX` is the maximal tensor product of two cross-polytopes. Products of vertices lie in it; on it `(s·a)² ≤ 1`, `(t·b)² ≤ 1`, `(sᵀCt)² ≤ 1` for sign vectors, and `0 ≤ 1 + σa_i + τb_j + στC_ij` for `σ, τ = ±1`. |
+| `sum_sgn_sq`, `maxSetX_frob`, `sq_le_of_l1` | M11′, Lemma 1 for cross-polytope parts | **Faithful.** Averaging over sign vectors, `∑_s (s·u)² = 2^m ‖u‖²`; hence `‖C‖²_F ≤ 1 = R_A²R_B²` on `maxSetX`. A vector with `∑ abs u_i ≤ 1` has `‖u‖² ≤ 1`, with equality only at a vertex `±e_i`. |
+| `pure_of_eqX`, `quad_blocks` | M11′, strictness for cross-polytope parts | **Faithful.** A point of `maxSetX` with `‖a‖² = ‖b‖² = ‖C‖²_F = 1` is a product of vertices; a diagonal form constant on the A, B and C blocks is `q₀₀x₀₀² + α‖a‖² + β‖b‖² + γ‖C‖²_F`. |
+| `m11_cross_into`, `m11_cross` | M11′, assembled for cross-polytope parts | **Faithful for cross-polytope parts, with `Γ` as a hypothesis.** For any finite group `Γ` acting linearly on the tensor coordinates whose image contains the local sign flips and coordinate swaps (these generate the hyperoctahedral group, the cross-polytope's symmetry group), and any `S` with `pureSetX ⊆ S ⊆ maxSetX`: an element of `Γ` mapping `S` into `S` maps product states to product states, and one mapping `S` onto `S` maps them onto themselves. Chain: averaging, `flip_invariant_diag` and `swap_invariant_blocks` (the tensor Schur block for this group), `sq_le_of_l1` and `maxSetX_frob` (Lemma 1), `pure_of_eqX` (strictness), `M11Prime.final_assembly` with `E := S`. The finiteness of `Aut(S)` is not formalized. |
 
 **Scope notes on earlier names (hostile review of the Lean layer, 26 November 2026).** No locked
 or committed theorem is renamed or edited; these lines give each one's actual content.
@@ -367,11 +371,11 @@ carries weight (see `ball_O_not_SFP`); the `SFP` definition has no transitivity 
 per-step rate error δ: the same symbol names two different errors, so "the ball beats the disk"
 holds only under that identification. `SelfRef.liar_half` and `SelfRefRun.liar_half` are the same
 one-line fact in two namespaces; `Composition.P2_entries` is four numeric facts; `SelfRefRun.perm_periodic`
-is the existence of `orderOf`. Theorem count without padding: of the 167 names in
-`scripts/RndAxioms.lean`, 162 remain after dropping the duplicate `SelfRefRun.liar_half`,
+is the existence of `orderOf`. Theorem count without padding: of the 177 names in
+`scripts/RndAxioms.lean`, 172 remain after dropping the duplicate `SelfRefRun.liar_half`,
 `Composition.P2_entries`, and the Lean round 3 restatements `local_map_tmul`, `swap_tmul` and the
 numeric `le4_attained`. Raw counts are not a measure of depth: the load-bearing steps (NA1, the
-general maximal-torus criterion, the Jordan-class classification, Piron, Solèr, Baer, the tensor-product block of the Schur step for parts other than hypercubes and the
+general maximal-torus criterion, the Jordan-class classification, Piron, Solèr, Baer, the tensor-product block of the Schur step for parts other than hypercubes and cross-polytopes and the
 Löwner step of M11, M12, purification and the cost-selection step) are not in Lean.
 
 **Scope notes after the hostile review of Lean round 3 (26 November 2026; appended, no theorem
@@ -393,12 +397,13 @@ not attainment of the 2/3 bound; the name misleads. `cnot_mixed_correlated` defi
 directly; the CNOT map is not formalized. `final_assembly` assumes only `T '' E = E` (its docstring
 says bijection) and is an elementary set lemma: it takes the invariance of q and the strict
 separation of product pure states as hypotheses, and the `M11Prime.lean` steps are not chained; the
-separation is derived, and the steps chained, only in `M11Cube.lean` for hypercube parts. Depth of
+separation is derived, and the steps chained, only in `M11Cube.lean` for hypercube and
+cross-polytope parts. Depth of
 the count: besides the five dropped above, about twelve more names are one-line instances,
 restatements or Mathlib wrappers: `unitary_fixes_ray`, `qubit_O3_not_SFP`, `reversible_preserves_pure`,
 `final_assembly`, `finite_divring_comm` (`littleWedderburn`), `chevalley_nonzero_zero` (Mathlib's
 Chevalley–Warning), `rho_60`, `Jdial_60_global`, `SO1_trivial`, `sphere_one_two_points`,
-`moment_trace`, and the second conjunct of `qubit_bound_tight`. So the 162 names are not a measure
+`moment_trace`, and the second conjunct of `qubit_bound_tight`. So the 172 names are not a measure
 of depth.
 
 ## Layout

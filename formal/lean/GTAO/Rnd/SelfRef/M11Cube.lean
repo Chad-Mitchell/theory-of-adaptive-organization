@@ -4,7 +4,7 @@ Side R&D, record-cost: Theorem M11′ (round 10 note §15, as amended by the sid
 review), assembled for hypercube and cross-polytope parts. Lean round 4 of the side session; written
 in a private Lake project (library `GTAORnd`, same Lean and Mathlib pins) and moved here with only
 this header, the module lines, the namespace and the last step of the assembled theorems (which call
-`M11Prime.final_assembly`) changed.
+`M11Prime.final_assembly` in place of a local copy) changed.
 -/
 module
 
@@ -338,5 +338,423 @@ theorem m11_cube {Γ : Type*} [Group Γ] [Fintype Γ] (hA : 0 < mA) (hB : 0 < mB
   simp only [hsq, mul_one]
   obtain ⟨hle, heq⟩ := diag_form_max hA hB A hpos (hS he)
   exact lt_of_le_of_ne hle fun h => hne (pure_of_sq_one (hS he) (heq h))
+
+/-! ### Cross-polytope parts
+
+The cross-polytope `{a : ∑ |a_i| ≤ 1}` in `ℝ^m` has vertices `±e_i` and facet functionals
+`1 + s·a` for the sign vectors `s`. -/
+
+/-- the A-Bloch vector of a tensor-coordinate vector -/
+def avec (x : Idx mA mB → ℝ) : Fin mA → ℝ := fun i => x (some i, none)
+/-- the B-Bloch vector -/
+def bvec (x : Idx mA mB → ℝ) : Fin mB → ℝ := fun j => x (none, some j)
+/-- the correlation matrix -/
+def cmat (x : Idx mA mB → ℝ) (i : Fin mA) (j : Fin mB) : ℝ := x (some i, some j)
+
+/-- the maximal tensor product of two cross-polytopes (normalized states): `x₀₀ = 1` and every
+product of facet effects `(1 + s·a)(1 + t·b)`, `s, t` sign vectors, is nonnegative. -/
+def maxSetX (mA mB : ℕ) : Set (Idx mA mB → ℝ) :=
+  {x | x (none, none) = 1 ∧ ∀ s : Fin mA → ℝ, ∀ t : Fin mB → ℝ, IsSign s → IsSign t →
+    0 ≤ 1 + ∑ i, s i * avec x i + ∑ j, t j * bvec x j + ∑ i, ∑ j, s i * t j * cmat x i j}
+
+/-- the vertex `σ e_i` of the cross-polytope -/
+def vert {m : ℕ} (i : Fin m) (σ : ℝ) : Fin m → ℝ := fun k => if k = i then σ else 0
+
+/-- products of cross-polytope vertices -/
+def pureSetX (mA mB : ℕ) : Set (Idx mA mB → ℝ) :=
+  {x | ∃ (i : Fin mA) (j : Fin mB) (σ τ : ℝ), (σ = 1 ∨ σ = -1) ∧ (τ = 1 ∨ τ = -1) ∧
+    x = pureProd (vert i σ) (vert j τ)}
+
+lemma sum_vert {m : ℕ} (s : Fin m → ℝ) (i : Fin m) (σ : ℝ) :
+    ∑ k, s k * vert i σ k = s i * σ := by
+  simp [vert, mul_ite]
+
+theorem pureProdX_mem_maxSetX {i : Fin mA} {j : Fin mB} {σ τ : ℝ} (hσ : σ = 1 ∨ σ = -1)
+    (hτ : τ = 1 ∨ τ = -1) : pureProd (vert i σ) (vert j τ) ∈ maxSetX mA mB := by
+  refine ⟨by simp [pureProd, ext1], fun s t hs ht => ?_⟩
+  have ha : ∑ k, s k * avec (pureProd (vert i σ) (vert j τ)) k = s i * σ := by
+    simpa [avec, pureProd, ext1] using sum_vert s i σ
+  have hb : ∑ l, t l * bvec (pureProd (vert i σ) (vert j τ)) l = t j * τ := by
+    simpa [bvec, pureProd, ext1] using sum_vert t j τ
+  have hc : ∑ k, ∑ l, s k * t l * cmat (pureProd (vert i σ) (vert j τ)) k l
+      = (s i * σ) * (t j * τ) := by
+    simp only [cmat, pureProd, ext1]
+    rw [← sum_vert s i σ, Finset.sum_mul]
+    refine Finset.sum_congr rfl fun k _ => ?_
+    rw [← sum_vert t j τ, Finset.mul_sum]
+    refine Finset.sum_congr rfl fun l _ => ?_
+    ring
+  rw [ha, hb, hc]
+  have h1 : 0 ≤ 1 + s i * σ := by
+    rcases hs i with h | h <;> rcases hσ with h' | h' <;> rw [h, h'] <;> norm_num
+  have h2 : 0 ≤ 1 + t j * τ := by
+    rcases ht j with h | h <;> rcases hτ with h' | h' <;> rw [h, h'] <;> norm_num
+  nlinarith [mul_nonneg h1 h2]
+
+lemma isSign_neg {m : ℕ} {s : Fin m → ℝ} (hs : IsSign s) : IsSign (-s) := fun i => by
+  rcases hs i with h | h <;> simp [h]
+
+/-- the marginal and correlation bounds `abs(s·a) ≤ 1`, `abs(sᵀ C t) ≤ 1` on the maximal tensor
+product of two cross-polytopes -/
+theorem maxSetX_bounds {x : Idx mA mB → ℝ} (hx : x ∈ maxSetX mA mB) {s : Fin mA → ℝ}
+    {t : Fin mB → ℝ} (hs : IsSign s) (ht : IsSign t) :
+    (∑ i, s i * avec x i) ^ 2 ≤ 1 ∧ (∑ j, t j * bvec x j) ^ 2 ≤ 1 ∧
+      (∑ i, ∑ j, s i * t j * cmat x i j) ^ 2 ≤ 1 := by
+  obtain ⟨-, hc⟩ := hx
+  have e1 := hc s t hs ht
+  have e2 := hc (-s) (-t) (isSign_neg hs) (isSign_neg ht)
+  have e3 := hc s (-t) hs (isSign_neg ht)
+  have e4 := hc (-s) t (isSign_neg hs) ht
+  simp only [Pi.neg_apply, neg_mul, mul_neg, neg_neg, Finset.sum_neg_distrib] at e2 e3 e4
+  refine ⟨?_, ?_, ?_⟩ <;> nlinarith
+
+/-- the sign vector of a Boolean vector -/
+def sgn {m : ℕ} (b : Fin m → Bool) : Fin m → ℝ := fun i => if b i then 1 else -1
+
+lemma isSign_sgn {m : ℕ} (b : Fin m → Bool) : IsSign (sgn b) := fun i => by
+  unfold sgn; split_ifs <;> simp
+
+lemma sum_sgn_mul {m : ℕ} (i k : Fin m) :
+    ∑ b : Fin m → Bool, sgn b i * sgn b k = if i = k then (2 : ℝ) ^ m else 0 := by
+  split_ifs with hik
+  · subst hik
+    have : ∀ b : Fin m → Bool, sgn b i * sgn b i = 1 := fun b => by unfold sgn; split_ifs <;> norm_num
+    simp only [this, Finset.sum_const, Finset.card_univ, Fintype.card_fun, Fintype.card_bool,
+      Fintype.card_fin, nsmul_eq_mul, mul_one]
+    norm_num
+  · let e : Equiv.Perm (Fin m → Bool) :=
+      Function.Involutive.toPerm (fun b => Function.update b i (!b i)) (fun b => by
+        funext l; by_cases hl : l = i
+        · subst hl; simp
+        · simp [Function.update_of_ne hl])
+    have hflip : ∀ b, sgn (e b) i * sgn (e b) k = -(sgn b i * sgn b k) := fun b => by
+      show sgn (Function.update b i (!b i)) i * sgn (Function.update b i (!b i)) k = _
+      simp only [sgn, Function.update_self, Function.update_of_ne (Ne.symm hik)]
+      cases b i <;> cases b k <;> norm_num
+    have h := Fintype.sum_equiv e (fun b => sgn b i * sgn b k) (fun b => -(sgn b i * sgn b k))
+      (fun b => by rw [hflip, neg_neg])
+    rw [Finset.sum_neg_distrib] at h
+    linarith
+
+/-- averaging over the sign vectors: `∑_s (s·u)² = 2^m ‖u‖²` -/
+theorem sum_sgn_sq {m : ℕ} (u : Fin m → ℝ) :
+    ∑ b : Fin m → Bool, (∑ i, sgn b i * u i) ^ 2 = 2 ^ m * ∑ i, u i ^ 2 := by
+  have : ∀ b : Fin m → Bool, (∑ i, sgn b i * u i) ^ 2 =
+      ∑ i, ∑ k, (sgn b i * sgn b k) * (u i * u k) := fun b => by
+    rw [sq, Finset.sum_mul_sum]
+    refine Finset.sum_congr rfl fun i _ => Finset.sum_congr rfl fun k _ => ?_
+    ring
+  simp only [this]
+  rw [Finset.sum_comm]
+  simp only [Finset.mul_sum]
+  refine Finset.sum_congr rfl fun i _ => ?_
+  rw [Finset.sum_comm]
+  simp only [← Finset.sum_mul, sum_sgn_mul, ite_mul, zero_mul, Finset.sum_ite_eq, Finset.mem_univ,
+    if_true]
+  ring
+
+/-- **Lemma 1 for cross-polytope parts**: on the maximal tensor product of two cross-polytopes,
+`‖C‖²_F ≤ 1 = R_A² R_B²`, and `‖a‖² ≤ 1`, `‖b‖² ≤ 1`. -/
+theorem maxSetX_frob {x : Idx mA mB → ℝ} (hx : x ∈ maxSetX mA mB) :
+    ∑ i, ∑ j, cmat x i j ^ 2 ≤ 1 := by
+  have key : ∑ bs : Fin mA → Bool, ∑ bt : Fin mB → Bool,
+      (∑ i, ∑ j, sgn bs i * sgn bt j * cmat x i j) ^ 2 =
+      2 ^ mA * 2 ^ mB * ∑ i, ∑ j, cmat x i j ^ 2 := by
+    have h1 : ∀ bs bt, (∑ i, ∑ j, sgn bs i * sgn bt j * cmat x i j) =
+        ∑ i, sgn bs i * (∑ j, sgn bt j * cmat x i j) := fun bs bt => by
+      simp only [Finset.mul_sum]; refine Finset.sum_congr rfl fun i _ =>
+        Finset.sum_congr rfl fun j _ => by ring
+    simp only [h1]
+    rw [Finset.sum_comm]
+    simp only [sum_sgn_sq, ← Finset.mul_sum]
+    rw [Finset.sum_comm]
+    simp only [sum_sgn_sq, ← Finset.mul_sum]
+    ring
+  have hle : ∑ bs : Fin mA → Bool, ∑ bt : Fin mB → Bool,
+      (∑ i, ∑ j, sgn bs i * sgn bt j * cmat x i j) ^ 2 ≤ 2 ^ mA * 2 ^ mB := by
+    calc _ ≤ ∑ _bs : Fin mA → Bool, ∑ _bt : Fin mB → Bool, (1 : ℝ) :=
+          Finset.sum_le_sum fun bs _ => Finset.sum_le_sum fun bt _ =>
+            (maxSetX_bounds hx (isSign_sgn bs) (isSign_sgn bt)).2.2
+      _ = 2 ^ mA * 2 ^ mB := by simp
+  rw [key] at hle
+  have hp : (0 : ℝ) < 2 ^ mA * 2 ^ mB := by positivity
+  nlinarith
+
+theorem sum_abs_le_of_bound {m : ℕ} (u : Fin m → ℝ)
+    (h : ∀ s : Fin m → ℝ, IsSign s → (∑ i, s i * u i) ^ 2 ≤ 1) : ∑ i, |u i| ≤ 1 := by
+  let s : Fin m → ℝ := fun i => if 0 ≤ u i then 1 else -1
+  have hs : IsSign s := fun i => by simp only [s]; split_ifs <;> simp
+  have he : ∑ i, s i * u i = ∑ i, |u i| := Finset.sum_congr rfl fun i _ => by
+    simp only [s]; split_ifs with h0
+    · rw [abs_of_nonneg h0, one_mul]
+    · rw [abs_of_neg (lt_of_not_ge h0)]; ring
+  have := h s hs
+  rw [he] at this
+  nlinarith [Finset.sum_nonneg fun i (_ : i ∈ Finset.univ) => abs_nonneg (u i)]
+
+/-- `‖u‖² ≤ 1` when `∑ abs u_i ≤ 1`, with equality only at a vertex `±e_i` -/
+theorem sq_le_of_l1 {m : ℕ} (u : Fin m → ℝ) (h : ∑ i, |u i| ≤ 1) :
+    ∑ i, u i ^ 2 ≤ 1 ∧ (∑ i, u i ^ 2 = 1 → ∃ i σ, (σ = 1 ∨ σ = -1) ∧ u = vert i σ) := by
+  have h1 : ∀ i, |u i| ≤ 1 := fun i =>
+    le_trans (Finset.single_le_sum (fun k _ => abs_nonneg (u k)) (Finset.mem_univ i)) h
+  have h2 : ∀ i, u i ^ 2 ≤ |u i| := fun i => by
+    rw [← sq_abs]; nlinarith [abs_nonneg (u i), h1 i]
+  have hle : ∑ i, u i ^ 2 ≤ 1 := le_trans (Finset.sum_le_sum fun i _ => h2 i) h
+  refine ⟨hle, fun heq => ?_⟩
+  have hz : ∑ i, (|u i| - u i ^ 2) ≤ 0 := by rw [Finset.sum_sub_distrib]; linarith
+  have hz' := (Finset.sum_eq_zero_iff_of_nonneg (fun i _ => sub_nonneg.2 (h2 i))).1
+    (le_antisymm hz (Finset.sum_nonneg fun i _ => sub_nonneg.2 (h2 i)))
+  obtain ⟨i, hi⟩ : ∃ i, u i ≠ 0 := by
+    by_contra hall; push Not at hall; simp [hall] at heq
+  have hai : |u i| = u i ^ 2 := by linarith [hz' i (Finset.mem_univ _)]
+  have hsq : u i ^ 2 = 1 := by
+    have : |u i| * (|u i| - 1) = 0 := by rw [← sq_abs] at hai; nlinarith
+    rcases mul_eq_zero.1 this with h0 | h0
+    · exact absurd (abs_eq_zero.1 h0) hi
+    · rw [← sq_abs]; nlinarith
+  refine ⟨i, u i, sign_of_sq hsq, funext fun k => ?_⟩
+  simp only [vert]
+  split_ifs with hk
+  · rw [hk]
+  · have : u i ^ 2 + u k ^ 2 ≤ ∑ l, u l ^ 2 := by
+      rw [← Finset.sum_pair (f := fun l => u l ^ 2) (Ne.symm hk)]
+      exact Finset.sum_le_sum_of_subset_of_nonneg (Finset.subset_univ _)
+        fun l _ _ => sq_nonneg _
+    nlinarith [sq_nonneg (u k)]
+
+/-- the unit-vector inequalities on the maximal tensor product of two cross-polytopes:
+`0 ≤ 1 + σ a_i + τ b_j + στ C_ij` for `σ, τ = ±1` (average two sign vectors on each side) -/
+theorem maxSetX_unit {x : Idx mA mB → ℝ} (hx : x ∈ maxSetX mA mB) (i : Fin mA) (j : Fin mB)
+    {σ τ : ℝ} (hσ : σ = 1 ∨ σ = -1) (hτ : τ = 1 ∨ τ = -1) :
+    0 ≤ 1 + σ * avec x i + τ * bvec x j + σ * τ * cmat x i j := by
+  obtain ⟨-, hc⟩ := hx
+  set s1 : Fin mA → ℝ := fun k => if k = i then σ else 1
+  set s2 : Fin mA → ℝ := fun k => if k = i then σ else -1
+  set t1 : Fin mB → ℝ := fun l => if l = j then τ else 1
+  set t2 : Fin mB → ℝ := fun l => if l = j then τ else -1
+  have hs1 : IsSign s1 := fun k => by simp only [s1]; split_ifs <;> simp [hσ]
+  have hs2 : IsSign s2 := fun k => by simp only [s2]; split_ifs <;> simp [hσ]
+  have ht1 : IsSign t1 := fun l => by simp only [t1]; split_ifs <;> simp [hτ]
+  have ht2 : IsSign t2 := fun l => by simp only [t2]; split_ifs <;> simp [hτ]
+  have hs : ∀ k, s1 k + s2 k = if k = i then 2 * σ else 0 := fun k => by
+    simp only [s1, s2]; split_ifs <;> ring
+  have ht : ∀ l, t1 l + t2 l = if l = j then 2 * τ else 0 := fun l => by
+    simp only [t1, t2]; split_ifs <;> ring
+  have hA : ∑ k, s1 k * avec x k + ∑ k, s2 k * avec x k = 2 * σ * avec x i := by
+    rw [← Finset.sum_add_distrib]
+    simp only [← add_mul, hs, ite_mul, zero_mul, Finset.sum_ite_eq', Finset.mem_univ, ite_true]
+  have hB : ∑ l, t1 l * bvec x l + ∑ l, t2 l * bvec x l = 2 * τ * bvec x j := by
+    rw [← Finset.sum_add_distrib]
+    simp only [← add_mul, ht, ite_mul, zero_mul, Finset.sum_ite_eq', Finset.mem_univ, ite_true]
+  have hC : (∑ k, ∑ l, s1 k * t1 l * cmat x k l) + (∑ k, ∑ l, s1 k * t2 l * cmat x k l) +
+      (∑ k, ∑ l, s2 k * t1 l * cmat x k l) + (∑ k, ∑ l, s2 k * t2 l * cmat x k l) =
+      4 * σ * τ * cmat x i j := by
+    have e : ∀ k l, s1 k * t1 l * cmat x k l + s1 k * t2 l * cmat x k l +
+        s2 k * t1 l * cmat x k l + s2 k * t2 l * cmat x k l =
+        (s1 k + s2 k) * ((t1 l + t2 l) * cmat x k l) := fun k l => by ring
+    simp only [← Finset.sum_add_distrib, e, hs, ht, ite_mul, zero_mul]
+    simp [Finset.sum_ite_irrel, mul_ite, ite_mul, Finset.sum_ite_eq']
+    ring
+  have e1 := hc s1 t1 hs1 ht1
+  have e2 := hc s1 t2 hs1 ht2
+  have e3 := hc s2 t1 hs2 ht1
+  have e4 := hc s2 t2 hs2 ht2
+  nlinarith
+
+lemma sum_pair_le {α : Type*} [Fintype α] [DecidableEq α] (u : α → ℝ) {i k : α} (hk : k ≠ i) :
+    u i ^ 2 + u k ^ 2 ≤ ∑ l, u l ^ 2 := by
+  rw [← Finset.sum_pair (f := fun l => u l ^ 2) (Ne.symm hk)]
+  exact Finset.sum_le_sum_of_subset_of_nonneg (Finset.subset_univ _) fun l _ _ => sq_nonneg _
+
+/-- **Equality case for cross-polytope parts**: a point of the maximal tensor product with
+`‖a‖² = ‖b‖² = ‖C‖²_F = 1` is a product of cross-polytope vertices -/
+theorem pure_of_eqX {x : Idx mA mB → ℝ} (hx : x ∈ maxSetX mA mB)
+    (ha : ∑ i, avec x i ^ 2 = 1) (hb : ∑ j, bvec x j ^ 2 = 1)
+    (hc : ∑ i, ∑ j, cmat x i j ^ 2 = 1) : x ∈ pureSetX mA mB := by
+  have t0 : IsSign (sgn (fun _ : Fin mB => true)) := isSign_sgn _
+  have s0 : IsSign (sgn (fun _ : Fin mA => true)) := isSign_sgn _
+  obtain ⟨i, σ, hσ, hai⟩ := (sq_le_of_l1 (avec x) (sum_abs_le_of_bound (avec x)
+    fun s hs => (maxSetX_bounds hx hs t0).1)).2 ha
+  obtain ⟨j, τ, hτ, hbj⟩ := (sq_le_of_l1 (bvec x) (sum_abs_le_of_bound (bvec x)
+    fun t ht => (maxSetX_bounds hx s0 ht).2.1)).2 hb
+  have hnσ : -σ = 1 ∨ -σ = -1 := by rcases hσ with h | h <;> simp [h]
+  have hnτ : -τ = 1 ∨ -τ = -1 := by rcases hτ with h | h <;> simp [h]
+  have hu := maxSetX_unit hx i j hnσ hnτ
+  have hai' : avec x i = σ := by rw [hai]; simp [vert]
+  have hbj' : bvec x j = τ := by rw [hbj]; simp [vert]
+  rw [hai', hbj'] at hu
+  have hσ2 : σ ^ 2 = 1 := sq_one_of_sign hσ
+  have hτ2 : τ ^ 2 = 1 := sq_one_of_sign hτ
+  -- the full double sum, as a sum over pairs
+  have hcp : ∑ p : Fin mA × Fin mB, cmat x p.1 p.2 ^ 2 = 1 := by
+    rw [Fintype.sum_prod_type]; exact hc
+  have hCij2 : cmat x i j ^ 2 ≤ 1 := by
+    rw [← hcp]
+    exact Finset.single_le_sum (f := fun p : Fin mA × Fin mB => cmat x p.1 p.2 ^ 2)
+      (fun p _ => sq_nonneg _) (Finset.mem_univ (i, j))
+  have hCij : cmat x i j = σ * τ := by
+    have h1 : 1 ≤ σ * τ * cmat x i j := by nlinarith
+    have h2 : (σ * τ * cmat x i j) ^ 2 ≤ 1 := by
+      rw [mul_pow, mul_pow, hσ2, hτ2]; linarith
+    have h3 : σ * τ * cmat x i j = 1 := by nlinarith
+    calc cmat x i j = (σ ^ 2 * τ ^ 2) * cmat x i j := by rw [hσ2, hτ2]; ring
+      _ = σ * τ * (σ * τ * cmat x i j) := by ring
+      _ = σ * τ := by rw [h3, mul_one]
+  have hrest : ∀ k l, (k, l) ≠ (i, j) → cmat x k l = 0 := by
+    intro k l hkl
+    have := sum_pair_le (fun p : Fin mA × Fin mB => cmat x p.1 p.2) hkl
+    simp only at this
+    rw [hcp, hCij, mul_pow, hσ2, hτ2] at this
+    nlinarith [sq_nonneg (cmat x k l)]
+  refine ⟨i, j, σ, τ, hσ, hτ, funext fun u => ?_⟩
+  rcases u with ⟨_ | k, _ | l⟩
+  · simp [pureProd, ext1, hx.1]
+  · have := congrFun hbj l; simpa [pureProd, ext1, bvec] using this
+  · have := congrFun hai k; simpa [pureProd, ext1, avec] using this
+  · simp only [pureProd, ext1, vert]
+    by_cases hk : k = i
+    · by_cases hl : l = j
+      · subst hk; subst hl; simpa [cmat] using hCij
+      · rw [if_pos hk, if_neg hl, mul_zero]
+        exact hrest k l (fun h => hl (Prod.mk.inj h).2)
+    · rw [if_neg hk, zero_mul]
+      exact hrest k l (fun h => hk (Prod.mk.inj h).1)
+
+/-- the quadratic form of a diagonal matrix that is constant on the A, B and C blocks -/
+theorem quad_blocks (A : Matrix (Idx mA mB) (Idx mA mB) ℝ) (α β γ : ℝ)
+    (hα : ∀ i, A (some i, none) (some i, none) = α) (hβ : ∀ j, A (none, some j) (none, some j) = β)
+    (hγ : ∀ i j, A (some i, some j) (some i, some j) = γ) (x : Idx mA mB → ℝ) :
+    ∑ u, A u u * x u ^ 2 = A (none, none) (none, none) * x (none, none) ^ 2 +
+      α * ∑ i, avec x i ^ 2 + β * ∑ j, bvec x j ^ 2 + γ * ∑ i, ∑ j, cmat x i j ^ 2 := by
+  rw [Fintype.sum_prod_type, Fintype.sum_option]
+  simp only [Fintype.sum_option, Finset.sum_add_distrib, hα, hβ, hγ, avec, bvec, cmat,
+    Finset.mul_sum]
+  ring
+
+lemma pureX_sums {i : Fin mA} {j : Fin mB} {σ τ : ℝ} (hσ : σ = 1 ∨ σ = -1)
+    (hτ : τ = 1 ∨ τ = -1) :
+    ∑ k, avec (pureProd (vert i σ) (vert j τ)) k ^ 2 = 1 ∧
+    ∑ l, bvec (pureProd (vert i σ) (vert j τ)) l ^ 2 = 1 ∧
+    ∑ k, ∑ l, cmat (pureProd (vert i σ) (vert j τ)) k l ^ 2 = 1 := by
+  have hσ2 := sq_one_of_sign hσ
+  have hτ2 := sq_one_of_sign hτ
+  refine ⟨?_, ?_, ?_⟩
+  · simp [avec, pureProd, ext1, vert, ite_pow, hσ2]
+  · simp [bvec, pureProd, ext1, vert, ite_pow, hτ2]
+  · simp only [cmat, pureProd, ext1, mul_pow]
+    simp [← Finset.mul_sum, ← Finset.sum_mul, vert, ite_pow, hσ2, hτ2]
+
+/-- **No reversible map entangles, cross-polytope parts** (PROVED-IN-MODEL). As `m11_cube_into`,
+for two cross-polytopes (`m_A, m_B ≥ 1`), with the local coordinate swaps as well as the sign flips
+in the image of `Γ` (together they generate the hyperoctahedral group, the symmetry group of the
+cross-polytope): every element of `Γ` that maps `S` into `S`, `pureSetX ⊆ S ⊆ maxSetX`, maps each
+product state to a product state. The averaged form is diagonal (`flip_invariant_diag`) and constant
+on the A, B and C blocks (`swap_invariant_blocks`), so `q = q₀₀ + α‖a‖² + β‖b‖² + γ‖C‖²_F`; on
+`maxSetX` each norm is at most 1 (`sq_le_of_l1`, `maxSetX_frob`) and all three equal 1 only at
+product states (`pure_of_eqX`). -/
+theorem m11_cross_into {Γ : Type*} [Group Γ] [Fintype Γ] (hA : 0 < mA) (hB : 0 < mB)
+    (ρ : Γ →* Matrix (Idx mA mB) (Idx mA mB) ℝ)
+    (hr : ∀ i, ∃ g, ρ g = diagonal (rowSign i)) (hc : ∀ j, ∃ g, ρ g = diagonal (colSign j))
+    (hrs : ∀ i i', ∃ g, ρ g = permMat (rowSwap i i'))
+    (hcs : ∀ j j', ∃ g, ρ g = permMat (colSwap j j'))
+    (S : Set (Idx mA mB → ℝ)) (hS : S ⊆ maxSetX mA mB) (hP : pureSetX mA mB ⊆ S)
+    (g : Γ) (hg : ∀ x ∈ S, ρ g *ᵥ x ∈ S) :
+    ∀ p ∈ pureSetX mA mB, ρ g *ᵥ p ∈ pureSetX mA mB := by
+  set A := avgGram ρ with hAdef
+  have hinv : ∀ g, (ρ g)ᵀ * A * ρ g = A := avgGram_invariant ρ
+  have hdiag : ∀ u v, u ≠ v → A u v = 0 := flip_invariant_diag A
+    (fun i => by obtain ⟨g, hg⟩ := hr i; rw [← hg]; exact hinv g)
+    (fun j => by obtain ⟨g, hg⟩ := hc j; rw [← hg]; exact hinv g)
+  obtain ⟨hbA, hbB, hbC⟩ := swap_invariant_blocks A
+    (fun i i' => by obtain ⟨g, hg⟩ := hrs i i'; rw [← hg]; exact hinv g)
+    (fun j j' => by obtain ⟨g, hg⟩ := hcs j j'; rw [← hg]; exact hinv g)
+  have hpos : ∀ u, 0 < A u u := fun u => lt_of_lt_of_le one_pos (avgGram_diag_ge_one ρ u)
+  set i0 : Fin mA := ⟨0, hA⟩
+  set j0 : Fin mB := ⟨0, hB⟩
+  have hq := quad_blocks A _ _ _ (fun i => hbA i i0) (fun j => hbB j j0)
+    (fun i j => hbC i i0 j j0)
+  set α := A (some i0, none) (some i0, none)
+  set β := A (none, some j0) (none, some j0)
+  set γ := A (some i0, some j0) (some i0, some j0)
+  have hα : 0 < α := hpos _
+  have hβ : 0 < β := hpos _
+  have hγ : 0 < γ := hpos _
+  intro p hp
+  have hpS := hg p (hP hp)
+  obtain ⟨i, j, σ, τ, hσ, hτ, rfl⟩ := hp
+  set y := ρ g *ᵥ pureProd (vert i σ) (vert j τ)
+  have hyS := hS hpS
+  have heq : y ⬝ᵥ (A *ᵥ y) = pureProd (vert i σ) (vert j τ) ⬝ᵥ (A *ᵥ pureProd (vert i σ) (vert j τ)) := by
+    rw [quad_conj, hinv]
+  rw [quad_of_diag A hdiag, quad_of_diag A hdiag, hq, hq] at heq
+  obtain ⟨p1, p2, p3⟩ := pureX_sums (i := i) (j := j) hσ hτ
+  have h00 : pureProd (vert i σ) (vert j τ) (none, none) = 1 := by simp [pureProd, ext1]
+  rw [p1, p2, p3, h00, hyS.1] at heq
+  have t0 : IsSign (sgn (fun _ : Fin mB => true)) := isSign_sgn _
+  have s0 : IsSign (sgn (fun _ : Fin mA => true)) := isSign_sgn _
+  have ya := (sq_le_of_l1 (avec y) (sum_abs_le_of_bound (avec y)
+    fun s hs => (maxSetX_bounds hyS hs t0).1)).1
+  have yb := (sq_le_of_l1 (bvec y) (sum_abs_le_of_bound (bvec y)
+    fun t ht => (maxSetX_bounds hyS s0 ht).2.1)).1
+  have yc := maxSetX_frob hyS
+  have ea : ∑ i, avec y i ^ 2 = 1 := by nlinarith
+  have eb : ∑ j, bvec y j ^ 2 = 1 := by nlinarith
+  have ec : ∑ i, ∑ j, cmat y i j ^ 2 = 1 := by nlinarith
+  exact pure_of_eqX hyS ea eb ec
+
+/-- **Theorem M11′, assembled for two cross-polytope parts** (PROVED-IN-MODEL). Setting as in
+`m11_cross_into`; the intended instance is `Γ = Aut(S)` (finiteness of `Aut(S)` is not formalized:
+`Γ` and `ρ` are hypotheses). Every element of `Γ` that maps `S` onto `S` maps the product states
+onto the product states. The last step is `M11Prime.final_assembly` with `E := S`. -/
+theorem m11_cross {Γ : Type*} [Group Γ] [Fintype Γ] (hA : 0 < mA) (hB : 0 < mB)
+    (ρ : Γ →* Matrix (Idx mA mB) (Idx mA mB) ℝ)
+    (hr : ∀ i, ∃ g, ρ g = diagonal (rowSign i)) (hc : ∀ j, ∃ g, ρ g = diagonal (colSign j))
+    (hrs : ∀ i i', ∃ g, ρ g = permMat (rowSwap i i'))
+    (hcs : ∀ j j', ∃ g, ρ g = permMat (colSwap j j'))
+    (S : Set (Idx mA mB → ℝ)) (hS : S ⊆ maxSetX mA mB) (hP : pureSetX mA mB ⊆ S)
+    (γ0 : Γ) (hT : (fun x => ρ γ0 *ᵥ x) '' S = S) :
+    (fun x => ρ γ0 *ᵥ x) '' pureSetX mA mB = pureSetX mA mB := by
+  set A := avgGram ρ with hAdef
+  have hinv : ∀ g, (ρ g)ᵀ * A * ρ g = A := avgGram_invariant ρ
+  have hdiag : ∀ u v, u ≠ v → A u v = 0 := flip_invariant_diag A
+    (fun i => by obtain ⟨g, hg⟩ := hr i; rw [← hg]; exact hinv g)
+    (fun j => by obtain ⟨g, hg⟩ := hc j; rw [← hg]; exact hinv g)
+  obtain ⟨hbA, hbB, hbC⟩ := swap_invariant_blocks A
+    (fun i i' => by obtain ⟨g, hg⟩ := hrs i i'; rw [← hg]; exact hinv g)
+    (fun j j' => by obtain ⟨g, hg⟩ := hcs j j'; rw [← hg]; exact hinv g)
+  have hpos : ∀ u, 0 < A u u := fun u => lt_of_lt_of_le one_pos (avgGram_diag_ge_one ρ u)
+  set i0 : Fin mA := ⟨0, hA⟩
+  set j0 : Fin mB := ⟨0, hB⟩
+  have hq := quad_blocks A _ _ _ (fun i => hbA i i0) (fun j => hbB j j0)
+    (fun i j => hbC i i0 j j0)
+  set α := A (some i0, none) (some i0, none)
+  set β := A (none, some j0) (none, some j0)
+  set γ := A (some i0, some j0) (some i0, some j0)
+  have hα : 0 < α := hpos _
+  have hβ : 0 < β := hpos _
+  have hγ : 0 < γ := hpos _
+  refine M11Prime.final_assembly S (pureSetX mA mB) hP (fun x => x ⬝ᵥ (A *ᵥ x))
+    (fun x => ρ γ0 *ᵥ x) hT (fun x => by rw [quad_conj, hinv]) ?_
+  intro p hp e he hne
+  show e ⬝ᵥ (A *ᵥ e) < p ⬝ᵥ (A *ᵥ p)
+  rw [quad_of_diag A hdiag, quad_of_diag A hdiag, hq, hq]
+  obtain ⟨i, j, σ, τ, hσ, hτ, rfl⟩ := hp
+  obtain ⟨p1, p2, p3⟩ := pureX_sums (i := i) (j := j) hσ hτ
+  have h00 : pureProd (vert i σ) (vert j τ) (none, none) = 1 := by simp [pureProd, ext1]
+  have heS := hS he
+  rw [p1, p2, p3, h00, heS.1]
+  have t0 : IsSign (sgn (fun _ : Fin mB => true)) := isSign_sgn _
+  have s0 : IsSign (sgn (fun _ : Fin mA => true)) := isSign_sgn _
+  have ya := (sq_le_of_l1 (avec e) (sum_abs_le_of_bound (avec e)
+    fun s hs => (maxSetX_bounds heS hs t0).1)).1
+  have yb := (sq_le_of_l1 (bvec e) (sum_abs_le_of_bound (bvec e)
+    fun t ht => (maxSetX_bounds heS s0 ht).2.1)).1
+  have yc := maxSetX_frob heS
+  by_contra hge
+  push Not at hge
+  have ea : ∑ i, avec e i ^ 2 = 1 := by nlinarith
+  have eb : ∑ j, bvec e j ^ 2 = 1 := by nlinarith
+  have ec : ∑ i, ∑ j, cmat e i j ^ 2 = 1 := by nlinarith
+  exact hne (pure_of_eqX heS ea eb ec)
 
 end GTAORnd.SelfRef.LR3.M11Cube

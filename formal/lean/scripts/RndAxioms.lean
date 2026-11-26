@@ -1,6 +1,6 @@
 /-
 Copyright (c) 2026 Chad Mitchell. Public domain (CC0).
-`#print axioms` for the 167 exported theorems of the record-cost side R&D
+`#print axioms` for the 177 exported theorems of the record-cost side R&D
 (`GTAO/Rnd/`, `theory/RECORD_COST_CHAIN_2026-11-25.md`; then 19, `SelfRef.R78.*`, for
 `theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` §10; then 4, `SelfRef.R10.*`, for
 `theory/RECORD_COST_ROUND10_2026-11-25.md` §11; then `SelfRef.LR3.*`, Lean round 3, for
@@ -179,3 +179,13 @@ open GTAORnd
 #print axioms SelfRef.LR3.M11Cube.diag_form_max
 #print axioms SelfRef.LR3.M11Cube.m11_cube_into
 #print axioms SelfRef.LR3.M11Cube.m11_cube
+#print axioms SelfRef.LR3.M11Cube.pureProdX_mem_maxSetX
+#print axioms SelfRef.LR3.M11Cube.maxSetX_bounds
+#print axioms SelfRef.LR3.M11Cube.sum_sgn_sq
+#print axioms SelfRef.LR3.M11Cube.maxSetX_frob
+#print axioms SelfRef.LR3.M11Cube.sq_le_of_l1
+#print axioms SelfRef.LR3.M11Cube.maxSetX_unit
+#print axioms SelfRef.LR3.M11Cube.pure_of_eqX
+#print axioms SelfRef.LR3.M11Cube.quad_blocks
+#print axioms SelfRef.LR3.M11Cube.m11_cross_into
+#print axioms SelfRef.LR3.M11Cube.m11_cross
