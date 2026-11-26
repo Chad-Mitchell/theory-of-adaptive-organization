@@ -228,7 +228,7 @@ None of the following is claimed as proved in Lean.
 Modules under `GTAO/Rnd/`, moved unchanged (apart from the module header)
 from a private Lake project with the same pins. Paper:
 `theory/RECORD_COST_CHAIN_2026-11-25.md`. `scripts/RndAxioms.lean` runs
-`#print axioms` on the 187 exported theorems (19 for the rounds 4–9
+`#print axioms` on the 192 exported theorems (19 for the rounds 4–9
 note, 4 for the round 10 note, and the Lean rounds 3 and 4 theorems, below); each depends only on
 `propext`, `Classical.choice`, `Quot.sound`, or a subset. Every modelling
 input is a named hypothesis, a structure field, or a definition. None is a
@@ -358,6 +358,8 @@ for hypercube parts and for cross-polytope parts. Tensor coordinates are indexed
 | `sum_sgn_sq`, `maxSetX_frob`, `sq_le_of_l1` | M11′, Lemma 1 for cross-polytope parts | **Faithful.** Averaging over sign vectors, `∑_s (s·u)² = 2^m ‖u‖²`; hence `‖C‖²_F ≤ 1 = R_A²R_B²` on `maxSetX`. A vector with `∑ abs u_i ≤ 1` has `‖u‖² ≤ 1`, with equality only at a vertex `±e_i`. |
 | `pure_of_eqX`, `quad_blocks` | M11′, strictness for cross-polytope parts | **Faithful.** A point of `maxSetX` with `‖a‖² = ‖b‖² = ‖C‖²_F = 1` is a product of vertices; a diagonal form constant on the A, B and C blocks is `q₀₀x₀₀² + α‖a‖² + β‖b‖² + γ‖C‖²_F`. |
 | `m11_cross_into`, `m11_cross` | M11′, assembled for cross-polytope parts | **Faithful for cross-polytope parts, with `Γ` as a hypothesis.** For any finite group `Γ` acting linearly on the tensor coordinates whose image contains the local sign flips and coordinate swaps (these generate the hyperoctahedral group, the cross-polytope's symmetry group), and any `S` with `pureSetX ⊆ S ⊆ maxSetX`: an element of `Γ` mapping `S` into `S` maps product states to product states, and one mapping `S` onto `S` maps them onto themselves. Chain: averaging, `flip_invariant_diag` and `swap_invariant_blocks` (the tensor Schur block for this group), `sq_le_of_l1` and `maxSetX_frob` (Lemma 1), `pure_of_eqX` (strictness), `M11Prime.final_assembly` with `E := S`. The finiteness of `Aut(S)` is not formalized. |
+| `autSet_finite`, `pureSet_span`, `pureSetX_span` | M11′, finiteness of `Aut(S)` for polytopes | **Faithful.** The reversible maps of `S` (invertible matrices `T` with `T '' S = S`) form a group, finite when `S` is the convex hull of a finite set spanning the space: each `T` permutes the extreme points, and Krein–Milman makes `T` determined by them. The products of cube vertices span the tensor coordinates, and so do the products of cross-polytope vertices (`m_A, m_B ≥ 1`). |
+| `m11_cube_polytope`, `m11_cross_polytope` | Theorem M11′ for polytope composites of two hypercubes or two cross-polytopes | **Faithful for these parts, no group hypothesis.** Let `S` be the convex hull of a finite set with `pureSet ⊆ S ⊆ maxSet` (resp. `pureSetX ⊆ S ⊆ maxSetX`), `m_A, m_B ≥ 1`, invariant under the local sign flips (and, for cross-polytopes, the local coordinate swaps). Then every reversible map of `S` maps the product states onto the product states. `Γ = Aut(S)` is built and shown finite, then `m11_cube` / `m11_cross` apply; the steps are chained and the strict separation is derived. Not covered: other 2-level parts, mixed parts (cube with cross-polytope), non-polyhedral `S`, and composites not invariant under the full local hyperoctahedral group. |
 
 Lean round 4, transport (namespace `GTAORnd.SelfRef.LR3.TransportHorizons`, file
 `TransportHorizons.lean`; same model as `Transport.lean`).
@@ -386,8 +388,8 @@ carries weight (see `ball_O_not_SFP`); the `SFP` definition has no transitivity 
 per-step rate error δ: the same symbol names two different errors, so "the ball beats the disk"
 holds only under that identification. `SelfRef.liar_half` and `SelfRefRun.liar_half` are the same
 one-line fact in two namespaces; `Composition.P2_entries` is four numeric facts; `SelfRefRun.perm_periodic`
-is the existence of `orderOf`. Theorem count without padding: of the 187 names in
-`scripts/RndAxioms.lean`, 182 remain after dropping the duplicate `SelfRefRun.liar_half`,
+is the existence of `orderOf`. Theorem count without padding: of the 192 names in
+`scripts/RndAxioms.lean`, 187 remain after dropping the duplicate `SelfRefRun.liar_half`,
 `Composition.P2_entries`, and the Lean round 3 restatements `local_map_tmul`, `swap_tmul` and the
 numeric `le4_attained`. Raw counts are not a measure of depth: the load-bearing steps (NA1, the
 general maximal-torus criterion, the Jordan-class classification, Piron, Solèr, Baer, the tensor-product block of the Schur step for parts other than hypercubes and cross-polytopes and the
@@ -418,7 +420,7 @@ the count: besides the five dropped above, about twelve more names are one-line 
 restatements or Mathlib wrappers: `unitary_fixes_ray`, `qubit_O3_not_SFP`, `reversible_preserves_pure`,
 `final_assembly`, `finite_divring_comm` (`littleWedderburn`), `chevalley_nonzero_zero` (Mathlib's
 Chevalley–Warning), `rho_60`, `Jdial_60_global`, `SO1_trivial`, `sphere_one_two_points`,
-`moment_trace`, and the second conjunct of `qubit_bound_tight`. So the 182 names are not a measure
+`moment_trace`, and the second conjunct of `qubit_bound_tight`. So the 187 names are not a measure
 of depth.
 
 ## Layout

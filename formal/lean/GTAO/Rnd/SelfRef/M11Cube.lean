@@ -757,4 +757,273 @@ theorem m11_cross {Γ : Type*} [Group Γ] [Fintype Γ] (hA : 0 < mA) (hB : 0 < m
   have ec : ∑ i, ∑ j, cmat e i j ^ 2 = 1 := by nlinarith
   exact hne (pure_of_eqX heS ea eb ec)
 
+/-! ### The symmetry group of a polytope composite is finite
+
+`autSet S` is the group of invertible matrices `T` with `T '' S = S` (the reversible maps of `S`).
+For `S` the convex hull of a finite set whose span is everything, it is finite: each `T` permutes the
+finitely many extreme points, and a map is determined by its values there (Krein–Milman). -/
+
+section Aut
+
+variable {ι : Type*} [Fintype ι] [DecidableEq ι]
+
+/-- the reversible maps of `S`: invertible matrices mapping `S` onto `S` -/
+def autSet (S : Set (ι → ℝ)) : Subgroup (Matrix ι ι ℝ)ˣ where
+  carrier := {T | (fun x => (T : Matrix ι ι ℝ) *ᵥ x) '' S = S}
+  mul_mem' := by
+    intro a b ha hb
+    simp only [Set.mem_setOf_eq] at *
+    rw [show (fun x => ((a * b : (Matrix ι ι ℝ)ˣ) : Matrix ι ι ℝ) *ᵥ x) =
+      (fun x => (a : Matrix ι ι ℝ) *ᵥ x) ∘ (fun x => (b : Matrix ι ι ℝ) *ᵥ x) by
+        funext x; simp [Units.val_mul, mulVec_mulVec], Set.image_comp, hb, ha]
+  one_mem' := by simp
+  inv_mem' := by
+    intro a ha
+    simp only [Set.mem_setOf_eq] at *
+    conv_lhs => rw [← ha]
+    rw [← Set.image_comp]
+    convert Set.image_id S using 2
+    funext x
+    simp [mulVec_mulVec]
+
+/-- the linear equivalence of an invertible matrix -/
+noncomputable def unitEquiv (T : (Matrix ι ι ℝ)ˣ) : (ι → ℝ) ≃ₗ[ℝ] (ι → ℝ) where
+  toFun x := (T : Matrix ι ι ℝ) *ᵥ x
+  invFun x := ((T⁻¹ : (Matrix ι ι ℝ)ˣ) : Matrix ι ι ℝ) *ᵥ x
+  map_add' x y := mulVec_add _ x y
+  map_smul' c x := mulVec_smul _ c x
+  left_inv x := by simp [mulVec_mulVec]
+  right_inv x := by simp [mulVec_mulVec]
+
+/-- **`Aut(S)` is finite for a spanning polytope** (PROVED-IN-MODEL) -/
+theorem autSet_finite (V : Set (ι → ℝ)) (hV : V.Finite)
+    (hspan : Submodule.span ℝ (convexHull ℝ V) = ⊤) : Finite (autSet (convexHull ℝ V)) := by
+  set S := convexHull ℝ V
+  set E := S.extremePoints ℝ
+  have hEV : E ⊆ V := extremePoints_convexHull_subset
+  have hEfin : E.Finite := hV.subset hEV
+  haveI : Finite E := hEfin.to_subtype
+  -- each `T` maps `E` onto `E`
+  have hmapE : ∀ T ∈ autSet S, ∀ e ∈ E, (T : Matrix ι ι ℝ) *ᵥ e ∈ E := by
+    intro T hT e he
+    have h := image_extremePoints (unitEquiv T) S
+    have hTS : (unitEquiv T) '' S = S := hT
+    rw [hTS] at h
+    have : (unitEquiv T) e ∈ (unitEquiv T) '' E := ⟨e, he, rfl⟩
+    rw [h] at this
+    exact this
+  -- `S ⊆ span E` (Krein–Milman)
+  have hSE : S ⊆ Submodule.span ℝ E := by
+    have hc : IsCompact S := Set.Finite.isCompact_convexHull (𝕜 := ℝ) hV
+    have km := closure_convexHull_extremePoints hc (convex_convexHull ℝ V)
+    intro x hx
+    rw [← km] at hx
+    have hcl : IsClosed (Submodule.span ℝ E : Set (ι → ℝ)) :=
+      Submodule.isClosed_of_finiteDimensional _
+    refine closure_minimal ?_ hcl hx
+    exact (convexHull_min Submodule.subset_span (Submodule.span ℝ E).convex)
+  have hEtop : Submodule.span ℝ E = ⊤ := by
+    rw [eq_top_iff, ← hspan]; exact Submodule.span_le.2 hSE
+  let Φ : autSet S → (E → E) := fun T e => ⟨(T.1 : Matrix ι ι ℝ) *ᵥ e.1, hmapE T.1 T.2 e.1 e.2⟩
+  refine Finite.of_injective Φ fun T T' h => ?_
+  have hagree : ∀ e ∈ E, (T.1 : Matrix ι ι ℝ) *ᵥ e = (T'.1 : Matrix ι ι ℝ) *ᵥ e := fun e he => by
+    have := congrFun h ⟨e, he⟩
+    simpa [Φ] using congrArg Subtype.val this
+  have hlin : Matrix.toLin' (T.1 : Matrix ι ι ℝ) = Matrix.toLin' (T'.1 : Matrix ι ι ℝ) := by
+    apply LinearMap.ext_on_range (v := fun e : E => (e : ι → ℝ))
+    · simpa using hEtop
+    · intro e; simpa using hagree e.1 e.2
+  have hm : (T.1 : Matrix ι ι ℝ) = (T'.1 : Matrix ι ι ℝ) := Matrix.toLin'.injective hlin
+  exact Subtype.ext (Units.ext hm)
+
+end Aut
+
+/-! ### The product states span the tensor coordinates -/
+
+/-- a linear functional on the tensor coordinates that kills every vector of a set spanning... :
+the contrapositive form used below -/
+lemma span_eq_top_of_functional {ι : Type*} [Fintype ι] [DecidableEq ι] (P : Set (ι → ℝ))
+    (h : ∀ c : ι → ℝ, (∀ x ∈ P, ∑ u, c u * x u = 0) → c = 0) : Submodule.span ℝ P = ⊤ := by
+  by_contra hne
+  obtain ⟨f, hf0, hker⟩ := (Submodule.span ℝ P).exists_le_ker_of_lt_top (lt_top_iff_ne_top.2 hne)
+  set c : ι → ℝ := fun u => f fun j => if u = j then 1 else 0
+  have hfx : ∀ x, f x = ∑ u, c u * x u := fun x => by
+    rw [LinearMap.pi_apply_eq_sum_univ f x]
+    exact Finset.sum_congr rfl fun u _ => by rw [smul_eq_mul, mul_comm]
+  have hc : c = 0 := h c fun x hx => by
+    rw [← hfx]; exact hker (Submodule.subset_span hx)
+  apply hf0
+  exact LinearMap.ext fun x => by rw [hfx, hc]; simp
+
+lemma sum_sgn_eq_zero {m : ℕ} (k : Fin m) : ∑ b : Fin m → Bool, sgn b k = 0 := by
+  let e : Equiv.Perm (Fin m → Bool) :=
+    Function.Involutive.toPerm (fun b => Function.update b k (!b k)) (fun b => by
+      funext l; by_cases hl : l = k
+      · subst hl; simp
+      · simp [Function.update_of_ne hl])
+  have hflip : ∀ b, sgn (e b) k = -sgn b k := fun b => by
+    show sgn (Function.update b k (!b k)) k = _
+    simp only [sgn, Function.update_self]
+    cases b k <;> norm_num
+  have h := Fintype.sum_equiv e (fun b => sgn b k) (fun b => -sgn b k)
+    (fun b => by rw [hflip, neg_neg])
+  rw [Finset.sum_neg_distrib] at h
+  linarith
+
+lemma sum_ext1_sgn {m : ℕ} (o o' : Option (Fin m)) :
+    ∑ b : Fin m → Bool, ext1 (sgn b) o * ext1 (sgn b) o' = if o = o' then (2 : ℝ) ^ m else 0 := by
+  rcases o with _ | k <;> rcases o' with _ | k'
+  · simp [ext1]
+  · simp only [ext1, one_mul, reduceCtorEq, ite_false]; exact sum_sgn_eq_zero k'
+  · simp only [ext1, mul_one, reduceCtorEq, ite_false]; exact sum_sgn_eq_zero k
+  · simp only [ext1, Option.some.injEq]; exact sum_sgn_mul k k'
+
+/-- **The products of cube vertices span the tensor coordinates** -/
+theorem pureSet_span : Submodule.span ℝ (pureSet mA mB) = ⊤ := by
+  apply span_eq_top_of_functional
+  intro c hc
+  have h0 : ∀ (bs : Fin mA → Bool) (bt : Fin mB → Bool),
+      ∑ u : Idx mA mB, c u * (ext1 (sgn bs) u.1 * ext1 (sgn bt) u.2) = 0 := fun bs bt =>
+    hc _ ⟨_, _, isSign_sgn bs, isSign_sgn bt, rfl⟩
+  funext u0
+  have key : ∑ bs : Fin mA → Bool, ∑ bt : Fin mB → Bool, ext1 (sgn bs) u0.1 * ext1 (sgn bt) u0.2 *
+      ∑ u : Idx mA mB, c u * (ext1 (sgn bs) u.1 * ext1 (sgn bt) u.2) = 0 := by
+    simp [h0]
+  have expand : ∑ bs : Fin mA → Bool, ∑ bt : Fin mB → Bool, ext1 (sgn bs) u0.1 * ext1 (sgn bt) u0.2 *
+      ∑ u : Idx mA mB, c u * (ext1 (sgn bs) u.1 * ext1 (sgn bt) u.2) =
+      ∑ u : Idx mA mB, c u * ((∑ bs : Fin mA → Bool, ext1 (sgn bs) u0.1 * ext1 (sgn bs) u.1) *
+        (∑ bt : Fin mB → Bool, ext1 (sgn bt) u0.2 * ext1 (sgn bt) u.2)) := by
+    set F : (Fin mA → Bool) → (Fin mB → Bool) → Idx mA mB → ℝ := fun bs bt u =>
+      c u * ((ext1 (sgn bs) u0.1 * ext1 (sgn bs) u.1) * (ext1 (sgn bt) u0.2 * ext1 (sgn bt) u.2))
+    calc _ = ∑ bs : Fin mA → Bool, ∑ bt : Fin mB → Bool, ∑ u : Idx mA mB, F bs bt u := by
+          simp only [F, Finset.mul_sum]
+          refine Finset.sum_congr rfl fun bs _ => Finset.sum_congr rfl fun bt _ =>
+            Finset.sum_congr rfl fun u _ => by ring
+      _ = ∑ bs : Fin mA → Bool, ∑ u : Idx mA mB, ∑ bt : Fin mB → Bool, F bs bt u :=
+          Finset.sum_congr rfl fun bs _ => Finset.sum_comm
+      _ = ∑ u : Idx mA mB, ∑ bs : Fin mA → Bool, ∑ bt : Fin mB → Bool, F bs bt u := Finset.sum_comm
+      _ = _ := by
+          simp only [F, Finset.mul_sum, Finset.sum_mul]
+          exact Finset.sum_congr rfl fun u _ => Finset.sum_comm
+  rw [expand] at key
+  simp only [sum_ext1_sgn, mul_ite, mul_zero, ite_mul, zero_mul] at key
+  rw [Finset.sum_eq_single u0 (fun u _ hu => by
+      have : ¬(u0.1 = u.1 ∧ u0.2 = u.2) := fun h => hu (Prod.ext h.1.symm h.2.symm)
+      by_cases h1 : u0.1 = u.1 <;> by_cases h2 : u0.2 = u.2 <;> simp_all)
+    (by simp)] at key
+  simp only [ite_true] at key
+  have hp : (0 : ℝ) < 2 ^ mA * 2 ^ mB := by positivity
+  simp only [Pi.zero_apply]
+  nlinarith [key]
+
+/-- **The products of cross-polytope vertices span the tensor coordinates** (`m_A, m_B ≥ 1`) -/
+theorem pureSetX_span (hA : 0 < mA) (hB : 0 < mB) : Submodule.span ℝ (pureSetX mA mB) = ⊤ := by
+  apply span_eq_top_of_functional
+  intro c hc
+  have hval : ∀ (i : Fin mA) (j : Fin mB) (σ τ : ℝ), (σ = 1 ∨ σ = -1) → (τ = 1 ∨ τ = -1) →
+      c (none, none) + σ * c (some i, none) + τ * c (none, some j) + σ * τ * c (some i, some j)
+        = 0 := by
+    intro i j σ τ hσ hτ
+    have := hc _ ⟨i, j, σ, τ, hσ, hτ, rfl⟩
+    rw [Fintype.sum_prod_type, Fintype.sum_option] at this
+    simp only [Fintype.sum_option, pureProd, ext1, vert] at this
+    simp [mul_ite, ite_mul, Finset.sum_ite_eq', Finset.sum_add_distrib] at this
+    linarith
+  have four : ∀ i j, c (none, none) = 0 ∧ c (some i, none) = 0 ∧ c (none, some j) = 0 ∧
+      c (some i, some j) = 0 := by
+    intro i j
+    have h1 := hval i j 1 1 (Or.inl rfl) (Or.inl rfl)
+    have h2 := hval i j 1 (-1) (Or.inl rfl) (Or.inr rfl)
+    have h3 := hval i j (-1) 1 (Or.inr rfl) (Or.inl rfl)
+    have h4 := hval i j (-1) (-1) (Or.inr rfl) (Or.inr rfl)
+    refine ⟨?_, ?_, ?_, ?_⟩ <;> linarith
+  have i0 : Fin mA := ⟨0, hA⟩
+  have j0 : Fin mB := ⟨0, hB⟩
+  funext u
+  rcases u with ⟨_ | i, _ | j⟩
+  · exact (four i0 j0).1
+  · exact (four i0 j).2.2.1
+  · exact (four i j0).2.1
+  · exact (four i j).2.2.2
+
+/-! ### M11′ for polytope composites, with `Γ = Aut(S)` -/
+
+lemma diag_sign_sq {d : Idx mA mB → ℝ} (hd : ∀ u, d u = 1 ∨ d u = -1) :
+    diagonal d * diagonal d = 1 := by
+  rw [diagonal_mul_diagonal, ← diagonal_one]
+  congr 1; funext u; rcases hd u with h | h <;> rw [h] <;> norm_num
+
+/-- the sign flip of A's coordinate `i`, as an invertible matrix -/
+def flipA (i : Fin mA) : (Matrix (Idx mA mB) (Idx mA mB) ℝ)ˣ :=
+  ⟨diagonal (rowSign i), diagonal (rowSign i),
+    diag_sign_sq fun u => by unfold rowSign; split_ifs <;> simp,
+    diag_sign_sq fun u => by unfold rowSign; split_ifs <;> simp⟩
+
+/-- the sign flip of B's coordinate `j`, as an invertible matrix -/
+def flipB (j : Fin mB) : (Matrix (Idx mA mB) (Idx mA mB) ℝ)ˣ :=
+  ⟨diagonal (colSign j), diagonal (colSign j),
+    diag_sign_sq fun u => by unfold colSign; split_ifs <;> simp,
+    diag_sign_sq fun u => by unfold colSign; split_ifs <;> simp⟩
+
+lemma permMat_mul (σ τ : Equiv.Perm (Idx mA mB)) : permMat σ * permMat τ = permMat (σ * τ) := by
+  ext w u
+  simp [permMat, Matrix.mul_apply]
+  split_ifs <;> simp_all
+
+lemma permMat_one : permMat (1 : Equiv.Perm (Idx mA mB)) = 1 := by
+  ext w u
+  simp [permMat, Matrix.one_apply]
+  split_ifs <;> simp_all
+
+/-- a coordinate permutation as an invertible matrix -/
+def permUnit (σ : Equiv.Perm (Idx mA mB)) : (Matrix (Idx mA mB) (Idx mA mB) ℝ)ˣ :=
+  ⟨permMat σ, permMat σ⁻¹, by rw [permMat_mul, mul_inv_cancel, permMat_one],
+    by rw [permMat_mul, inv_mul_cancel, permMat_one]⟩
+
+/-- **Theorem M11′ for a polytope composite of two hypercubes** (PROVED-IN-MODEL; no group
+hypothesis). Let `S` be the convex hull of a finite set, between the product states and the maximal
+tensor product (`pureSet ⊆ S ⊆ maxSet`, `m_A, m_B ≥ 1`), and invariant under the local coordinate sign
+flips. Then every reversible map of `S` (an invertible linear map `T` with `T '' S = S`) maps the
+product states onto the product states. The group `Γ = Aut(S)` is built here and shown finite
+(`autSet_finite`, using that the product states span, `pureSet_span`), then `m11_cube` applies. -/
+theorem m11_cube_polytope (hA : 0 < mA) (hB : 0 < mB) (V : Set (Idx mA mB → ℝ)) (hV : V.Finite)
+    (hS : convexHull ℝ V ⊆ maxSet mA mB) (hP : pureSet mA mB ⊆ convexHull ℝ V)
+    (hfA : ∀ i, (fun x => diagonal (rowSign i) *ᵥ x) '' convexHull ℝ V = convexHull ℝ V)
+    (hfB : ∀ j, (fun x => diagonal (colSign j) *ᵥ x) '' convexHull ℝ V = convexHull ℝ V)
+    (T : (Matrix (Idx mA mB) (Idx mA mB) ℝ)ˣ)
+    (hT : (fun x => (T : Matrix (Idx mA mB) (Idx mA mB) ℝ) *ᵥ x) '' convexHull ℝ V = convexHull ℝ V) :
+    (fun x => (T : Matrix (Idx mA mB) (Idx mA mB) ℝ) *ᵥ x) '' pureSet mA mB = pureSet mA mB := by
+  set S := convexHull ℝ V
+  have hspan : Submodule.span ℝ S = ⊤ :=
+    eq_top_iff.2 (pureSet_span (mA := mA) (mB := mB) ▸ Submodule.span_mono hP)
+  haveI : Finite (autSet S) := autSet_finite V hV hspan
+  letI : Fintype (autSet S) := Fintype.ofFinite _
+  let ρ : autSet S →* Matrix (Idx mA mB) (Idx mA mB) ℝ :=
+    (Units.coeHom (Matrix (Idx mA mB) (Idx mA mB) ℝ)).comp (autSet S).subtype
+  exact m11_cube hA hB ρ (fun i => ⟨⟨flipA i, hfA i⟩, rfl⟩) (fun j => ⟨⟨flipB j, hfB j⟩, rfl⟩)
+    S hS hP ⟨T, hT⟩ hT
+
+/-- **Theorem M11′ for a polytope composite of two cross-polytopes** (PROVED-IN-MODEL; no group
+hypothesis). As `m11_cube_polytope`, with `pureSetX ⊆ S ⊆ maxSetX` and `S` invariant under the local
+sign flips and coordinate swaps. -/
+theorem m11_cross_polytope (hA : 0 < mA) (hB : 0 < mB) (V : Set (Idx mA mB → ℝ)) (hV : V.Finite)
+    (hS : convexHull ℝ V ⊆ maxSetX mA mB) (hP : pureSetX mA mB ⊆ convexHull ℝ V)
+    (hfA : ∀ i, (fun x => diagonal (rowSign i) *ᵥ x) '' convexHull ℝ V = convexHull ℝ V)
+    (hfB : ∀ j, (fun x => diagonal (colSign j) *ᵥ x) '' convexHull ℝ V = convexHull ℝ V)
+    (hsA : ∀ i i', (fun x => permMat (rowSwap i i') *ᵥ x) '' convexHull ℝ V = convexHull ℝ V)
+    (hsB : ∀ j j', (fun x => permMat (colSwap j j') *ᵥ x) '' convexHull ℝ V = convexHull ℝ V)
+    (T : (Matrix (Idx mA mB) (Idx mA mB) ℝ)ˣ)
+    (hT : (fun x => (T : Matrix (Idx mA mB) (Idx mA mB) ℝ) *ᵥ x) '' convexHull ℝ V = convexHull ℝ V) :
+    (fun x => (T : Matrix (Idx mA mB) (Idx mA mB) ℝ) *ᵥ x) '' pureSetX mA mB = pureSetX mA mB := by
+  set S := convexHull ℝ V
+  have hspan : Submodule.span ℝ S = ⊤ :=
+    eq_top_iff.2 (pureSetX_span hA hB ▸ Submodule.span_mono hP)
+  haveI : Finite (autSet S) := autSet_finite V hV hspan
+  letI : Fintype (autSet S) := Fintype.ofFinite _
+  let ρ : autSet S →* Matrix (Idx mA mB) (Idx mA mB) ℝ :=
+    (Units.coeHom (Matrix (Idx mA mB) (Idx mA mB) ℝ)).comp (autSet S).subtype
+  exact m11_cross hA hB ρ (fun i => ⟨⟨flipA i, hfA i⟩, rfl⟩) (fun j => ⟨⟨flipB j, hfB j⟩, rfl⟩)
+    (fun i i' => ⟨⟨permUnit _, hsA i i'⟩, rfl⟩) (fun j j' => ⟨⟨permUnit _, hsB j j'⟩, rfl⟩)
+    S hS hP ⟨T, hT⟩ hT
+
 end GTAORnd.SelfRef.LR3.M11Cube
