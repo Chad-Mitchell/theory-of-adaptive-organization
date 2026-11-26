@@ -11,3 +11,5 @@ These are the gate reads of the #292 preregs, done 25 November 2026 and kept unt
 | `gate_read_292_v5.md` | `PREREG_5.md` | GATE PASS | **the author agent** (not independent; `RESULTS.md:7`, `DEVIATIONS.md` 2026-11-26 line) |
 
 The v2 and v3 probes called the scored code's cost and label functions on designed inputs before the run (not the minimizer).
+
+**Correction (26 November 2026, 03:10 ET).** The sentence above is wrong for v3: the v3 probe *did* call the L-BFGS-B minimizer on the locked T2 objective (10 starts plus 2 half-tolerance reruns, non-locked seeds 424242 and 777, J and A not printed). Only the v2 probe stayed at the function level. Gate read v5 was written at 22:11:36 ET, 7 s before T1 started. A retrospective independent gate read of `PREREG_5.md` (pass as a TEST, with a relabel caveat) is in `gate_read_292_retro_2026-11-26.md`.
