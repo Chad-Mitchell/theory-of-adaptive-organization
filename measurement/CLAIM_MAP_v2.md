@@ -382,7 +382,7 @@ Sunday 15 November 2026, about 08:15–08:20 AM ET (America/New_York). Grok Bot 
 |---|---|---|---|---|
 | J1 | Same constants (Π* ≈ 4, V ≈ 2, 29%) on every substrate | KILLED | **MATH-CORRECTED** | Constants are functions of (a, b) and H. Replacement: J6 (same *relations*, with measured classes) |
 | J2 | −1 onset is a universality class | KILLED | **MATH-CORRECTED** | It is a Buckingham-Π homogeneity identity |
-| J3 | GTAO is a law | OPEN | **WITHDRAWN** | **Restated 20 Nov 2026** (Chad: no locked sentences; earlier decision "never call it a law" superseded). GTAO as a whole is a general causal theory and is not called a law; only its hypothesis sentence, "The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment" (THEORY §3), carries the word, and it earns the word without the qualifier only if the tests in THEORY §4 and §8 pass |
+| J3 | GTAO is a law | OPEN | **WITHDRAWN** | **Restated 20 Nov 2026** (Chad: no locked sentences; earlier decision "never call it a law" superseded). GTAO as a whole is a general causal theory and is not called a law; only its hypothesis sentence, "The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment." (THEORY §3), carries the word, and it earns the word without the qualifier only if the tests in THEORY §4 and §8 pass |
 | J4 | Cross-substrate recursive organization (qualitative) | PRIOR ART | **PRIOR ART** | Beer's VSM |
 | J5 | 'Nobody has stated them across substrates' | KILLED | **WITHDRAWN** | Should read 'not quantitatively' |
 | J6 | Same (a, b) exponent relation in each substrate, with independently measured classes | OPEN | **OPEN** | The theory's real cross-substrate content (FRAMEWORK §1.4, §3.11) |
