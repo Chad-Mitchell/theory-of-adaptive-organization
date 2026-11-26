@@ -238,4 +238,63 @@ theorem classical_no_purification {m n : ℕ} (pA : Fin m → ℝ)
   simp only [hij, ← Finset.mul_sum, Finset.sum_pi_single', Finset.mem_univ, ite_true, mul_one]
 
 
+
+/-- **C1 (round C)** (PROVED-IN-MODEL): a pure state has only the trivial convex decomposition.
+If an extreme point `x` of a convex set `Ω` is a finite convex combination `∑ μ_i w_i` of points of
+`Ω`, then every `w_i` with `μ_i > 0` equals `x`. -/
+theorem extreme_trivial_decomp {E : Type*} [AddCommGroup E] [Module ℝ E] {ι : Type*}
+    [Fintype ι] [DecidableEq ι] (Ω : Set E) (hconv : Convex ℝ Ω) (x : E)
+    (hx : x ∈ Ω.extremePoints ℝ) (μ : ι → ℝ) (w : ι → E) (hμ0 : ∀ i, 0 ≤ μ i)
+    (hμ1 : ∑ i, μ i = 1) (hw : ∀ i, w i ∈ Ω) (hsum : ∑ i, μ i • w i = x) :
+    ∀ i, 0 < μ i → w i = x := by
+  intro q hq
+  by_cases h1 : μ q = 1
+  · have hothers : ∀ p ∈ Finset.univ.erase q, μ p = 0 := by
+      have hs := Finset.sum_erase_add Finset.univ μ (Finset.mem_univ q)
+      rw [hμ1, h1] at hs
+      exact (Finset.sum_eq_zero_iff_of_nonneg (fun p _ => hμ0 p)).mp (by linarith)
+    rw [← hsum, ← Finset.sum_erase_add _ _ (Finset.mem_univ q), h1, one_smul,
+      Finset.sum_eq_zero (fun p hp => by rw [hothers p hp, zero_smul]), zero_add]
+  · have hlt : μ q < 1 := by
+      have := Finset.single_le_sum (fun p _ => hμ0 p) (Finset.mem_univ q)
+      rw [hμ1] at this; exact lt_of_le_of_ne this h1
+    set t := μ q
+    set z := ∑ p ∈ Finset.univ.erase q, (μ p / (1 - t)) • w p
+    have hsum' : ∑ p ∈ Finset.univ.erase q, μ p = 1 - t := by
+      have hs := Finset.sum_erase_add Finset.univ μ (Finset.mem_univ q)
+      rw [hμ1] at hs; simp only [t]; linarith
+    have hz : z ∈ Ω := by
+      apply hconv.sum_mem
+      · intro p _; exact div_nonneg (hμ0 p) (by linarith)
+      · rw [← Finset.sum_div, hsum']; field_simp [show (1 - t) ≠ 0 by linarith]
+      · intro p _; exact hw p
+    have hxz : x = t • w q + (1 - t) • z := by
+      rw [← hsum, ← Finset.sum_erase_add _ _ (Finset.mem_univ q), add_comm]
+      congr 1
+      simp only [z, Finset.smul_sum, smul_smul]
+      refine Finset.sum_congr rfl fun p _ => ?_
+      congr 1; field_simp [show (1 - t) ≠ 0 by linarith]
+    exact hx.2 (hw q) hz ⟨t, 1 - t, hq, by linarith, by ring, hxz.symm⟩
+
+/-- the classical 2-bit state after CNOT on `(½δ₀ + ½δ₁) ⊗ δ₀`: `½δ₀₀ + ½δ₁₁` -/
+noncomputable def cnotState : Fin 2 × Fin 2 → ℝ := fun ab => if ab.1 = ab.2 then 1 / 2 else 0
+
+/-- **C3 countermodel (round C)** (PROVED-IN-MODEL): the classical 2-bit world after CNOT is a
+valid state, is mixed (not an extreme point), and is correlated (not the product of its marginals),
+so a mixed whole can carry a perfect record. -/
+theorem cnot_mixed_correlated :
+    cnotState ∈ simplex (Fin 2 × Fin 2) ∧
+    cnotState ∉ (simplex (Fin 2 × Fin 2)).extremePoints ℝ ∧
+    cnotState (0, 0) ≠ (∑ b, cnotState (0, b)) * (∑ a, cnotState (a, 0)) := by
+  refine ⟨⟨fun ab => by unfold cnotState; split_ifs <;> norm_num, ?_⟩, ?_, ?_⟩
+  · simp [cnotState, Fintype.sum_prod_type]
+  · intro h
+    obtain ⟨⟨i, j⟩, hij⟩ := (simplex_extreme_iff _).mp h
+    have h00 := congrFun hij (0, 0)
+    have h11 := congrFun hij (1, 1)
+    simp [cnotState, Pi.single_apply, Prod.ext_iff] at h00 h11
+    fin_cases i <;> fin_cases j <;> simp_all
+  · simp [cnotState]
+
+
 end GTAORnd.SelfRef.LR3.Entangle
