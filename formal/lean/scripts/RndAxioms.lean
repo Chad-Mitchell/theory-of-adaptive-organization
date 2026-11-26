@@ -1,11 +1,11 @@
 /-
 Copyright (c) 2026 Chad Mitchell. Public domain (CC0).
-`#print axioms` for the 157 exported theorems of the record-cost side R&D
+`#print axioms` for the 167 exported theorems of the record-cost side R&D
 (`GTAO/Rnd/`, `theory/RECORD_COST_CHAIN_2026-11-25.md`; then 19, `SelfRef.R78.*`, for
 `theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` §10; then 4, `SelfRef.R10.*`, for
 `theory/RECORD_COST_ROUND10_2026-11-25.md` §11; then `SelfRef.LR3.*`, Lean round 3, for
 the rounds 4–9 note §10 item L5, the rounds 4–9 and round 10 notes, the chain note
-steps S2 and S10, and round 11 part M, labels in `formal/lean/README.md`).
+steps S2 and S10, and round 11 part M, and Lean round 4, labels in `formal/lean/README.md`).
 Run from `formal/lean/`:  `lake env lean scripts/RndAxioms.lean`
 Expected: each line lists only `propext`, `Classical.choice`, `Quot.sound` (or a subset),
 or says the theorem depends on no axioms.
@@ -169,3 +169,13 @@ open GTAORnd
 #print axioms SelfRef.LR3.M11Prime.final_assembly
 #print axioms SelfRef.LR3.M11Prime.invariant_form_scalar
 #print axioms SelfRef.LR3.M11Prime.cross_term_zero
+#print axioms SelfRef.LR3.M11Cube.flip_invariant_diag
+#print axioms SelfRef.LR3.M11Cube.swap_invariant_blocks
+#print axioms SelfRef.LR3.M11Cube.pureProd_mem_maxSet
+#print axioms SelfRef.LR3.M11Cube.maxSet_sq_le
+#print axioms SelfRef.LR3.M11Cube.pure_of_sq_one
+#print axioms SelfRef.LR3.M11Cube.avgGram_invariant
+#print axioms SelfRef.LR3.M11Cube.avgGram_diag_ge_one
+#print axioms SelfRef.LR3.M11Cube.diag_form_max
+#print axioms SelfRef.LR3.M11Cube.m11_cube_into
+#print axioms SelfRef.LR3.M11Cube.m11_cube
