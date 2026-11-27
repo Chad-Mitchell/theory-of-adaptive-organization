@@ -1,0 +1,47 @@
+== A. Fold-ins (FOLD_INS.md)
+CHECK PASS ct17ii_is_kappa_power  code sanity (CT12 algebra) to 4.4e-16 and optimizer re-test to 5.5e-08 over 500 draws
+CHECK PASS ct17i_one_clock_tamper_gains  re-test of CT13 + CT17 (i); definition vs closed form and sum D_i vs penalty to 4.2e-15; 0 negative gains; equal index -> max D=0.0e+00
+CHECK PASS ct19_latency_stay_index  re-test; Phi_ell quadrature err 6.9e-18; 0 mismatches in 1483 draws; reach L=15.901977 (pi0=0.12): follows at 0.999L True, at 1.001L False
+CHECK PASS lemma_b3_drift_direction  re-test of Lemma B3 by finite differences on CT14's N*; 0 sign failures in 800 draws
+CHECK PASS lemma_b7_sqrtN_fade  re-test (CT30 gain at small rho; linear readout only); N=4 ratio 1.99999 (sqrt 2); N=16 ratio 3.99994 (sqrt 4); N=64 ratio 7.99972 (sqrt 8)
+== B. Telling price with private information (TELLING_PRICE.md)
+CHECK PASS tp_full_revelation_iff_aligned  re-test (grid brute force): at kappa=1 no interior type gains by misreporting; at kappa=1.5 and 0.7 interior types do
+CHECK PASS tp_mrr_conditions_hold  re-test of the proved monotonicity for uniform and log-uniform priors on [1,100]
+CHECK PASS tp_informative_iff_kappa_window  re-test (shooting + brute-force sender check); windows loguniform[1,100]: (0.215678, 2.156777); uniform[1,100]: (0.140720, 1.407195); loguniform[1,4]: (0.679778, 1.359556)
+CHECK PASS tp_value_falls_with_mispricing  re-test; log-uniform [1,100], most informative equilibrium found by shooting (N searched to 39): k=1.00 V_full=1.02939; k=1.10 N=4 V=0.92512; k=1.30 N=3 V=0.72915; k=1.60 N=2 V=0.54397; k=2.00 N=2 V=0.18386; k=2.30 N=1 V=0.00000
+== C. Stake revelation (STAKES.md)
+CHECK PASS clarke_truth_dominant  re-test (misreport grid x0.05..x20, others' reports arbitrary=true); best misreport gain 1.0e-15
+CHECK PASS clarke_deficit_bounds  re-test; deficit/J* = sum sqrt(1-x_i) - (N-1) to 1.7e-15; in [0, N sqrt(1-1/N)-(N-1)) < 1/2; IR vs tracking alone holds; equal-stake deficit/J* at N=2,3,10,100,1e4: 0.41421, 0.44949, 0.48683, 0.49874, 0.49999
+CHECK PASS groves_no_budget_balance  code sanity (symbolic); d^N sqrt(sum w)/dw_1..dw_N at w=1: N=2 -sqrt(2)/16, N=3 sqrt(3)/72, N=4 -15/2048, N=5 21*sqrt(5)/20000, N=6 -35*sqrt(6)/110592
+CHECK PASS proportional_shares_reward_underreporting  re-test (finite differences, 500 draws); derivative matches (k/(2 sqrt W))(1 - x_i) to rel 2.0e-09; reporting 0.9 w_i lowers cost in 500 of 500
+== D. Objective-rewriting part (OBJECTIVE.md)
+CHECK PASS objective_fixed_reference_no_gain  re-test; aligned at W0=1: no rewritten W on a 61-point grid in [0.2,20] beats W0 by more than optimizer tolerance (best grid point 1.002, gain 0.0e+00)
+CHECK PASS objective_misaligned_gain_equals_Denf  re-test; s=2w/W0: best rewritten W=0.502 (w/s=0.500); gain 0.022050 = D_enf 0.022050
+CHECK PASS objective_indexed_share_rewards_inflation  re-test; s=w/W(a): part's cost 0.25000 at W=0.2 falls to 0.04830 at W=20, strictly
+== E. Couplings beyond potential games (COUPLINGS.md)
+CHECK PASS hetero_curves_not_weighted_potential  counterexample; M1/M2 at F=0.5,1,2,4: 0.1963, 0.3646, 0.6989, 1.3661 (a weighted potential needs it constant)
+CHECK PASS hetero_curves_best_response_converges  re-test; 0 failures in 400 random games; total -> max F_hat with only argmax reading; max rounds 546
+CHECK PASS lindahl_shares_align_hetero  re-test; F*=1.796322; Lindahl shares 0.3099,0.6901 -> preferred totals 1.796322, 1.796322; stake shares -> 1.7321, 1.8171
+CHECK PASS credibility_coupling_extremal_equilibria  re-test (enumeration of all profiles, 300 random games, N<=8): 0 failures; hysteresis window lam in [0.100, 0.250)
+== F. Remove or reprice (REMOVE_OR_REPRICE.md)
+CHECK PASS ruin_during_transition_formulas  re-test (Monte Carlo, n=400000): det 0.04366 vs 0.04400; exp 0.06965 vs 0.06977; varying 0.11366 vs 0.11308
+CHECK PASS cap_threshold_vs_written_form  code sanity; eps=0.1: ln(1/(1-eps))=0.105360516, rel gap 0.0536; eps=0.01: ln(1/(1-eps))=0.0100503359, rel gap 0.00503; eps=0.001: ln(1/(1-eps))=0.00100050033, rel gap 0.0005; eps=1e-06: ln(1/(1-eps))=1.0000005e-06, rel gap 5e-07
+CHECK PASS remove_or_reprice_rule  code sanity (finite menu under a chance constraint); 0 mismatches in 3000 random instances
+== G. Merge conjecture CX2/CX3 (MERGE.md)
+CHECK PASS merge_public_reads_never_stable  re-test; sum exit payoffs / k sqrt(W) max 0.70711 (bound 1/sqrt2=0.70711) over 3000 stake vectors with max share <= 1/2; equal stakes N=2,3,5,10,100: 0.7071, 0.6124, 0.5590, 0.5270, 0.5025
+CHECK PASS merge_private_reads_iff_gap  re-test (LP feasibility, 600 instances): 0 mismatches; equal stakes d/k sqrt(w)=0.4 -> merge iff N >= 2.7778
+CHECK PASS merge_gap_not_sufficient_for_core  counterexample; gap 0.5958 > coupling 0.1500, LP status 2 (2 = core empty); partition {1,2},{3} costs 1.5242 < grand 1.5642
+CHECK PASS merge_stake_shares_in_core_iff  re-test (all coalitions, 800 instances, N<=6): 0 mismatches
+== H. Heat floor with feedback for a part (FEEDBACK_PART.md)
+CHECK PASS part_floor_exogenous_signal  re-test of T60 telegraph bound + JP-heat for a part reading an exogenous signal; 0 failures in 200 random memories
+CHECK PASS floor_alone_never_forces_leave  re-test; max over 2000 draws of (min_eps cost - w/2)/w = -4.853e-08 (< 0 means following beats leaving)
+  tau=0.00 Q_M=2.5712 I_alt=1.6238 eps(S)=0.0465 eps(X)=0.0591
+  tau=0.25 Q_M=2.3760 I_alt=1.6807 eps(S)=0.0443 eps(X)=0.0925
+  tau=0.50 Q_M=1.9005 I_alt=1.4955 eps(S)=0.0390 eps(X)=0.1741
+  tau=0.75 Q_M=0.9931 I_alt=0.8716 eps(S)=0.0290 eps(X)=0.3297
+  tau=1.00 Q_M=-0.0000 I_alt=-0.0000 eps(S)=0.0180 eps(X)=0.5000
+CHECK PASS channel_tamper_buys_heat_with_world_information  re-test; JP-heat holds at every tau; eps(X) rises with tau to exactly 1/2 at full tamper; full tamper with equal couplings: Q_M=-1.2e-15; unequal couplings: Q_M=2.6582, eps(X)=0.500
+CHECK PASS per_read_floor_bounded  code sanity; max_x L(1/(x+2))/x = 0.278465 at x = f/lam = 2.5912 (units kT per read)
+CHECK PASS pair_floor_under_tamper  re-test (stationary law; 308 tamper levels and couplings): Q_S+Q_M >= l_(S,M) >= r L(eps_(S,M)) >= r L(eps_M) with 0 failures; at tau=0.5 Q_S+Q_M=1.3668, r L(eps_M)=0.3045
+FAILS 0
+ALL SWARM27 CHECKS PASS
