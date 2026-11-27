@@ -239,3 +239,34 @@ def test_main_prints_shallow_notes_without_verbose(monkeypatch, capsys):
     out = capsys.readouterr().out
     assert "note:" in out and "pull.py" in out and "not in this clone" in out
     assert "RESULT: PASS" in out
+
+
+# ---------------------------------------------------------------- across the layout move (tools/movemap.py)
+def test_moved_lock_file_resolves_a_cross_tree_line_against_its_old_folder(tmp_path):
+    root = _tree(tmp_path, {"theory/a.py": b"x\n"}, [(h(b"x\n"), "../../theory/a.py")],
+                 lock_name="records/tests/X/PREREG.sha256")
+    fails, counts, _ = vl.verify(root, history=False, scrub=set(), post={}, unverifiable=set(), missing_pin={}, blobs={})
+    assert fails == [] and counts["OK"] == 1
+
+
+def test_moved_lock_file_resolves_a_root_relative_line(tmp_path):
+    root = _tree(tmp_path, {"records/tests/X/PREREG.md": b"p\n"}, [(h(b"p\n"), "tests/X/PREREG.md")],
+                 lock_name="records/tests/X/PREREG.sha256")
+    fails, counts, _ = vl.verify(root, history=False, scrub=set(), post={}, unverifiable=set(), missing_pin={}, blobs={})
+    assert fails == [] and counts["OK"] == 1
+
+
+def test_pins_under_old_paths_hold_after_the_move(tmp_path):
+    original = b"p='/workspace/x'\n"
+    root = _tree(tmp_path, {"records/tests/X/a.py": b"p='<local>/x'\n"}, [(h(original), "a.py")],
+                 lock_name="records/tests/X/PREREG.sha256")
+    fails, counts, _ = vl.verify(root, history=False, scrub={"tests/X/a.py"}, post={}, unverifiable=set(),
+                                 missing_pin={}, blobs={})
+    assert fails == [] and counts["SCRUB"] == 1
+
+
+def test_unaccounted_mismatch_in_a_moved_tree_still_fails(tmp_path):
+    root = _tree(tmp_path, {"records/tests/X/a.py": b"edited\n"}, [(h(b"locked\n"), "a.py")],
+                 lock_name="records/tests/X/PREREG.sha256")
+    fails, _, _ = vl.verify(root, history=False, scrub=set(), post={}, unverifiable=set(), missing_pin={}, blobs={})
+    assert any("not accounted for" in f for f in fails)

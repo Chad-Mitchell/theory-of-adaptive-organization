@@ -40,6 +40,9 @@ import re
 import subprocess
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import movemap  # noqa: E402  the one move map: lock lines and pins resolve across the 27 Nov layout move
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOCK_FILE_RE = re.compile(r"(\.sha256|SHA256SUMS[^/]*|LOCK[^/]*\.txt)$")
 LINE_RE = re.compile(r"^\s*([0-9a-f]{64})\s+\*?(\S.*?)\s*$")
@@ -110,14 +113,15 @@ def entries(root):
     out = []
     for lf in sorted(lock_files(root)):
         text = open(os.path.join(root, lf), encoding="utf-8", errors="replace").read()
-        d = os.path.dirname(lf)
         for line in text.splitlines():
             m = LINE_RE.match(line)
             if not m:
                 continue
             hx, p = m.groups()
             p = p[2:] if p.startswith("./") else p
-            cands = [os.path.normpath(os.path.join(d, p)).replace(os.sep, "/"), os.path.normpath(p).replace(os.sep, "/")]
+            # As written (relative to the lock file, then root-relative), then against the lock file's folder before
+            # the move, mapped forward: a moved lock file keeps lines written relative to where it was.
+            cands = movemap.resolve_lock_line(lf, p)
             hit = next((c for c in cands if os.path.isfile(os.path.join(root, c))), None)
             out.append((lf, hit, hx, cands[0]))
     return out
@@ -134,15 +138,17 @@ def git_history_sha256(root, path):
     """{commit sha: sha256} for every committed version of path, or None without history."""
     if not os.path.exists(os.path.join(root, ".git")):
         return None
-    r = subprocess.run(["git", "log", "--all", "--format=%H", "--", path], cwd=root, capture_output=True, text=True)
-    if r.returncode != 0 or not r.stdout.split():
-        return None
     out = {}
-    for c in r.stdout.split():
-        b = subprocess.run(["git", "show", "%s:%s" % (c, path)], cwd=root, capture_output=True)
-        if b.returncode == 0:
-            out[c] = sha256(b.stdout)
-    return out
+    # The file's history under its present name and, for a moved file, under its name before the move.
+    for name in dict.fromkeys((path, movemap.backward(path))):
+        r = subprocess.run(["git", "log", "--all", "--format=%H", "--", name], cwd=root, capture_output=True, text=True)
+        if r.returncode != 0:
+            continue
+        for c in r.stdout.split():
+            b = subprocess.run(["git", "show", "%s:%s" % (c, name)], cwd=root, capture_output=True)
+            if b.returncode == 0:
+                out[c] = sha256(b.stdout)
+    return out or None
 
 
 def verify(root=ROOT, history=True, scrub=None, post=None, unverifiable=None, missing_pin=None, blobs=None):
@@ -152,56 +158,60 @@ def verify(root=ROOT, history=True, scrub=None, post=None, unverifiable=None, mi
     unverifiable = UNVERIFIABLE if unverifiable is None else unverifiable
     missing_pin = MISSING if missing_pin is None else missing_pin
     blobs = CURRENT_BLOB if blobs is None else blobs
+    # The pins are keyed by the path before the move. A file found at its moved path is looked up under its old
+    # name (movemap.backward), so the same pins hold before and after the move.
+    key = movemap.backward
     fails, notes = [], []
     counts = {"OK": 0, "SCRUB": 0, "POST_LOCK": 0, "UNVERIFIABLE": 0, "MISSING": 0}
     missing = {}
     seen_scrub, seen_post, seen_unv, seen_later = set(), set(), set(), set()
     for lf, hit, hx, target in entries(root):
         if hit is None:
-            missing[lf] = missing.get(lf, 0) + 1
+            missing[key(lf)] = missing.get(key(lf), 0) + 1
             counts["MISSING"] += 1
             continue
         b = open(os.path.join(root, hit), "rb").read()
-        if hit in blobs and hit not in scrub and git_blob(b) != blobs[hit]:
-            fails.append("locks: %s changed since it was pinned (git blob %s, now %s); it is outside every lock, so any edit needs a new entry in process/LOCK_ERRATA.md and here" % (hit, blobs[hit][:8], git_blob(b)[:8]))
+        k = key(hit)
+        if k in blobs and k not in scrub and git_blob(b) != blobs[k]:
+            fails.append("locks: %s changed since it was pinned (git blob %s, now %s); it is outside every lock, so any edit needs a new entry in process/LOCK_ERRATA.md and here" % (hit, blobs[k][:8], git_blob(b)[:8]))
         # Always check the declared later blob, even when this clone has no lock-time history
         # (B-281-1: a shallow clone must still catch a tamper of pull.py).
-        if hit in post and hit not in seen_later:
-            seen_later.add(hit)
-            want = post[hit][3] if len(post[hit]) > 3 else None
+        if k in post and k not in seen_later:
+            seen_later.add(k)
+            want = post[k][3] if len(post[k]) > 3 else None
             if want and git_blob(b) != want:
                 fails.append("locks: %s changed since the declared later version (git blob %s, now %s)" % (hit, want[:8], git_blob(b)[:8]))
         if sha256(b) == hx:
             counts["OK"] += 1
-        elif hit in scrub:
+        elif k in scrub:
             if sha256(unscrub(b)) == hx:
                 counts["SCRUB"] += 1
-                seen_scrub.add(hit)
+                seen_scrub.add(k)
             else:
                 fails.append("locks: %s was pinned as scrub-only but reversing the substitution no longer gives the locked hash" % hit)
-        elif hit in post:
+        elif k in post:
             counts["POST_LOCK"] += 1
-            seen_post.add(hit)
+            seen_post.add(k)
             h = git_history_sha256(root, hit) if history else None
             if h is None:
                 notes.append("post-lock history for %s not checked (no git history)" % hit)
             else:
                 matching = [c for c, v in h.items() if v == hx]
-                if commit_matches(post[hit][0], matching):
+                if commit_matches(post[k][0], matching):
                     pass
-                elif commit_matches(post[hit][0], h):
-                    fails.append("locks: %s: commit %s is in history but does not hash to the locked value" % (hit, post[hit][0]))
+                elif commit_matches(post[k][0], h):
+                    fails.append("locks: %s: commit %s is in history but does not hash to the locked value" % (hit, post[k][0]))
                 else:
-                    notes.append("post-lock history for %s: lock-time commit %s is not in this clone; the erratum in process/LOCK_ERRATA.md still stands" % (hit, post[hit][0]))
-        elif hit in unverifiable:
+                    notes.append("post-lock history for %s: lock-time commit %s is not in this clone; the erratum in process/LOCK_ERRATA.md still stands" % (hit, post[k][0]))
+        elif k in unverifiable:
             counts["UNVERIFIABLE"] += 1
-            seen_unv.add(hit)
+            seen_unv.add(k)
         else:
             fails.append("locks: %s (locked in %s) does not match its hash and is not accounted for in process/LOCK_ERRATA.md" % (hit, lf))
     for name, want, seen in (("scrub-only", set(scrub), seen_scrub), ("post-lock", set(post), seen_post),
                              ("unverifiable", set(unverifiable), seen_unv)):
         for g in sorted(want - seen):
-            if os.path.isfile(os.path.join(root, g)):
+            if any(os.path.isfile(os.path.join(root, x)) for x in (g, movemap.forward(g))):
                 fails.append("locks: pinned %s file %s now verifies or lost its lock line; update tools/verify_locks.py and process/LOCK_ERRATA.md" % (name, g))
     if missing != missing_pin:
         fails.append("locks: locked-but-uncommitted files changed: pinned %s, found %s" % (missing_pin, missing))
