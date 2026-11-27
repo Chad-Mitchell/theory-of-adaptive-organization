@@ -4,7 +4,7 @@ Wednesday 18 November 2026, evening ET. Companion to [`REACH.md`](REACH.md) (§5
 
 **The idea tested (Chad, t1955/t1956).** Revisit the torus rigorously: the idea that coupled cycles live on a torus, and that this connects to the theory. Treated as a hypothesis. One earlier test is re-read, and it was a mismatched proxy.
 
-## 0. Verdict in plain words
+## 0. Reading in plain words
 
 1. **A torus is the right picture for two cycles.** The state of two independent repeating cycles (two phases) lives on a torus. When they are coupled, they either lock into a fixed ratio or keep drifting past each other. That is textbook mathematics (PRIOR ART), and my check reproduces the standard result.
 2. **The earlier toy test that "found no torus effect" could not tell.** Its preregistered staircase prediction (P7) did fail inside that toy. But its coupling fired one loop at the same instant as the other and reset its schedule at random moments, which forces coincident locking by construction; locking went to 1:1 whatever the nominal ratio; one dial changed two things at once; and its calibration checks had failed. So it is INVALID as a test of the torus idea, a judgment made after the result by the 13 November review, and it gives no support either. The idea remains untested on real data.
@@ -48,7 +48,7 @@ The honest status (modest wording from that review): in one unpublished toy of a
 
 **What can be derived.** If the benefit is a fixed amount and both it and the price are linear in K, the optimum is all or nothing. (v1.4.25: §4b shows that when the benefit is instead the covered share of a spread of detunings, the optimum is interior iff the mean mismatch is no larger than the spread; it still rests on an assumed price.) I could not derive which price shape holds for any real system. So the hypothesis is "plateaus of locking exist in adaptive loops, and their width tracks measured coupling cost", and nothing stronger. That is a hypothesis about plateau structure, and it could be wrong, as the circle-map result says nothing about whether adaptive organizations phase-couple. The half that ties width to cost needs a defined map from a measured coupling price to K before it can be run: §4b now defines it, K = 2π·Z·ε(price), for systems with a measured phase-response curve and coupling cost, and finds none yet for organizations.
 
-**Kill condition (N45).** In real pairs of cycles with independently measured phase coupling (the setup in §3), rotation number versus detuning shows no plateaus beyond a surrogate-null, or the plateau width is uncorrelated with the measured coupling cost across at least a preregistered number of pairs. A system whose coupling turns out to be reset-type rather than phase-type is not a test of N45 (INVALID, as in §2).
+**Miss condition (N45).** In real pairs of cycles with independently measured phase coupling (the setup in §3), rotation number versus detuning shows no plateaus beyond a surrogate-null, or the plateau width is uncorrelated with the measured coupling cost across at least a preregistered number of pairs. A system whose coupling turns out to be reset-type rather than phase-type is not a test of N45 (INVALID, as in §2).
 
 ## 4b. A price-to-K map, and what shape the optimum has (v1.4.25; DERIVED in-model, CONDITIONAL; checked)
 
@@ -71,9 +71,9 @@ So the earlier statement that linear benefit and linear price give all or nothin
 - **Topology.** Planck 2015 searched for matched circles and fitted specific topologies. No sign of compact topology with a scale below the diameter of the last-scattering surface was found. For a cubic 3-torus (T3) the radius of the largest inscribed sphere is R_i > 0.97 χ_rec, and for a slab (T1) R_i > 0.56 χ_rec (Planck 2015 XVIII, abstract).
 - **Reading.** Flatness is compatible with a 3-torus topology on a scale larger than the last-scattering surface. A 3-torus is not a donut in 3D space; that picture is an embedding of the 2D torus. The theory takes the cosmological geometry as an input, and **it predicts neither a curved nor a toroidal universe**. Nothing in §1 to §4 depends on the universe's topology.
 
-## 6. Predictions and kill conditions
+## 6. Predictions and miss conditions
 
-| Row | Claim | Label | Kill condition |
+| Row | Claim | Label | Miss condition |
 |---|---|---|---|
 | N43 | Torus mathematics (§1): phase coupling gives Arnold tongues of width K/π (0:1) | PRIOR ART | The check's tongue widths disagree with K/π by more than the grid step (currently within 1e-4), or a standard source contradicts it |
 | N44 | The earlier toy test (§2): locking forced by the coupling, accuracy effect due to the information weight | NOT EVIDENCE (INVALID as a test of the torus idea; not FAILED) | A source or rerun showing the toy's coupling was phase coupling and the factorial split does not reproduce |

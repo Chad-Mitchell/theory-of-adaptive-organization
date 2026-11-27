@@ -2,7 +2,7 @@
 
 Sat 2026-11-14 ET. **Not independently reviewed.** Full citations and DOIs are in `LITMAP.md`; every DOI was resolved this pass.
 
-**How to read the verdicts.**
+**How to read the reading.**
 - **"Adds" means: not found in this sweep.** It does not mean proven new. A sweep of this breadth cannot rule out an obscure precursor.
 - Each "adds" item should get a targeted search before any public novelty claim.
 - **Novelty is graded:**
