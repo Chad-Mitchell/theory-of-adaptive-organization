@@ -79,7 +79,7 @@ Not a candidate, as fixed before scoring (`PREREG.md` §4). The cost-to-fitness 
 
 ## Corrections after independent gate read (Wednesday 25 November 2026, ~12:30 ET, append-only)
 
-All lines above are preserved as committed at `66640ab`. The independent gate read (`/workspace/gtao-notes/gate_read_290.md`, checking `process/PREREG_GATE.md` at `8c4b3c0`) found 4 blocking items and gave `E1` a **GATE STOP**. The corrections below are appended without editing `PREREG.md` or earlier lines.
+All lines above are preserved as committed at `66640ab`. The independent gate read (`<local>/gtao-notes/gate_read_290.md`, checking `process/PREREG_GATE.md` at `8c4b3c0`) found 4 blocking items and gave `E1` a **GATE STOP**. The corrections below are appended without editing `PREREG.md` or earlier lines.
 
 ### 1. Withdrawal of E1 and correction of the prior-art reading (blocking items 1–3)
 
@@ -123,3 +123,12 @@ All lines above are preserved as committed at `66640ab`. The independent gate re
   - The RAM reading (fxcm about 0.44 of RAM) needs fxcm, a bundle of 18 context-map banks, 12 mixers and APM/SSE tables, to count as "one named model or table family", and needs the non-mapped tables to be resident. Neither was fixed before scoring.
 - **Tally as read now:** P1 contested (post-hoc reading); P3 hit; P2, P4 miss. With P1 contested, condition (i) of the overall rule (`PREREG.md:115`) is not met on uncontested hits; condition (ii) fails either way. **Overall: open miss**, unchanged.
 - No locked line, number or script is changed. Source of the review: the hostile review of #295 at main `ecf5bdbb4aae33bb5511816dac901dac2596e6c7` (27 Nov 2026).
+
+## Ledger rows (appended 27 Nov 2026; lines above unchanged)
+
+| prediction_id | locked_prediction | outcome | miss | location | stake_x_info | update | breach_check |
+|---|---|---|---|---|---|---|---|
+| P1 | f_max ≥ 0.40 of runtime RAM (`PREREG.md:43`) | runtime-RAM share not read; allocation share 0.709 is address space (PPMD mmap) | not scorable as locked; post-hoc allocation reading would be a hit | process | medium | reported as contested | re-score after direction seen (RESULTS:27) |
+| P2 | s_ship ≤ 0.01 | 0.0292 | miss +0.0192 | model | medium | none yet | none |
+| P3 | ≥ 10 components, learned context-selected combiner | ≥ 31 inputs, 23 mixers | HIT, low information (cmix family known before lock) | model | low | none | none |
+| P4 | 0.001 ≤ r_1 ≤ 0.02 | ≥ 0.0292 | miss ≥ +0.0092 (strict decompressor reading) | model | medium | none yet; same cause as P2 | none |

@@ -17,3 +17,9 @@ Linear gate: path rate \(1.973637317765\), Lemma LG rate \(2\), relative differe
 | 4 | 0.859189544669 | 5.232397362567 | 1.160974916105 | 0.859189544669 | 7.252561823341 |
 
 \(K_E=0.25\), \(K_H=0\), difference \(0.25\). The prediction was met.
+
+## Ledger rows (appended 27 Nov 2026; lines above unchanged)
+
+| prediction_id | locked_prediction | outcome | miss | location | stake_x_info | update | breach_check |
+|---|---|---|---|---|---|---|---|
+| T47-order | gate holds and K_E − K_H ≥ 0.25 (`PREREG.md:63`) | 0.25 (K_E 0.25, K_H 0) | HIT at the bar, margin 0 grid steps; K_H on the grid edge; Monte Carlo SE not reported | model | low | none | none |

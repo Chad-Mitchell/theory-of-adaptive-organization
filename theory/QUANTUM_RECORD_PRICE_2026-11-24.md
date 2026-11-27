@@ -1,6 +1,6 @@
 # Quantum record price: five routes, none names it
 
-*24 November 2026 (UTC). Desk note. No script. Self-check through the third pass; the ERRATA answers the independent review at `theory/reviews/QUANTUM_RECORD_PRICE_REVIEW_2026-11-24.md` (commit `1e2f7f5`). `THEORY.md` is unchanged. Open-work row T74. Status words are those at `CORE.md:169`. Nothing here derives general relativity, quantum mechanics, or holography.*
+*24 November 2026 (UTC). Desk note. No script. Self-check through the third pass; the ERRATA answers the independent review at `theory/reviews/QUANTUM_RECORD_PRICE_REVIEW_2026-11-24.md` (commit `1e2f7f5`). `THEORY.md` is unchanged. Open-work row T74. Status words are those at `CORE.md` §Status words. Nothing here derives general relativity, quantum mechanics, or holography.*
 
 *Each route below states what it assumes, where it stops, and a status label. A route that would name a price only by adopting a known entropy theorem is marked KNOWN and is not counted as a derivation.*
 

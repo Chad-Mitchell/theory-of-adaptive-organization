@@ -11,6 +11,8 @@ Checks
       the Lean sources; the sources must still hash to it (otherwise rerun
       tools/check_lean.sh in /tmp/gtao-lean and --record-audit N).
   own row (--pr N): the PR's own README.md row is no longer "In flight".
+  gate (27 Nov 2026, GATE-REPEAT-5): a RESULTS.md beside a PREREG*.md needs a gate_read* file committed
+      before it, unless marked 'gate: none (CONSISTENCY_CHECK)'; older folders are listed by name.
   summary (--body-file F): the PR body passes check_claims.summary_fails.
   (c) live, via gh: an open PR whose latest independent review says
       "Blockers remaining: 0" and is older than PENDING_HOURS, unless parked in
@@ -138,6 +140,116 @@ def record_audit(root, count, commit=None):
         json.dump(data, fh, indent=2)
         fh.write("\n")
     return data
+
+
+# ------------------------------------------------------------------ gate before results
+# Added 27 November 2026 (process/FAILURES.md, GATE-REPEAT-5): a scored RESULTS.md in a folder that holds a
+# PREREG*.md needs a separate gate read (process/PREREG_GATE.md section 2) committed before the RESULTS.md.
+# A gate read is a committed .md file whose name starts with gate_read (any case) and that sits in the folder or
+# names the folder's path in its text. "Before" means its first commit is a proper ancestor of the commit that
+# first added the RESULTS.md (the first scored line is in that commit or later); renames are followed. The check reads order, not
+# the gate read's outcome: a gate read that failed and was run past is a process miss logged by hand. A RESULTS.md that carries the
+# line "gate: none (CONSISTENCY_CHECK)" is exempt. Folders that broke the rule before the check existed are
+# listed by name below; the list only shrinks, and a new folder never joins it.
+GATE_EXEMPT_MARK = "gate: none (CONSISTENCY_CHECK)"
+GATE_GRANDFATHERED = {
+    "core/bridge_2026-11-21",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "core/keystone_checks/holographic_2026-11-20",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "core/keystone_checks/waterfill_2026-11-20",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "core/sim1_2026-11-21",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "measurement/estimators",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "night2/GITHUB",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "prereg/SENSE-CELL",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "prereg/WIKIDATA-BAND",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "prereg/vigil-ona",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "reviews/night2/SELF",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/C3",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/D3_OOS",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/DECISIVE/banks",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/DECISIVE/glucose",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/DECISIVE/populations",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/DRIFT1",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/F1",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/KERNEL_MEASURE",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/LAB_AKLMT_TAU",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/LEARNSIM",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/LFK_SPF",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/LOCK1",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/ONSET_ACROSS_ALPHA",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/SPF_NOISE_PROXY",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/STAKES_EXOGENOUS",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "tests/STAKES_SHIFT_CAISO",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "theory/acting_derivation_checks",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "theory/antifragility_checks",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "theory/hutter-2026-11-25",  # gate read committed after the results or absent (GATE-REPEAT-2..5)
+    "theory/measured/grid_cross_2026-11-21",  # before the gate rule (25 Nov 2026) or no gate read committed
+    "theory/qm-selection-2026-11-26",  # gate read committed after the results or absent (GATE-REPEAT-2..5)
+    "theory/qm-selection-3-2026-11-26",  # gate read committed after the results or absent (GATE-REPEAT-2..5)
+    "theory/record-cost-2026-11-25/conjecture-c-round14",  # gate read committed after the results or absent (GATE-REPEAT-2..5)
+    "theory/record-cost-2026-11-25/conjecture-c-round15",  # gate read committed after the results or absent (GATE-REPEAT-2..5)
+    "theory/record-cost-2026-11-25/conjecture-c-round16",  # gate read committed after the results or absent (GATE-REPEAT-2..5)
+    "theory/stop-copying-2026-11-25",  # gate read committed after the results or absent (GATE-REPEAT-2..5)
+    "theory/two-route-2026-11-25",  # gate read committed after the results or absent (GATE-REPEAT-2..5)
+}
+_GATE_GRANDFATHERED_ORIG = frozenset(GATE_GRANDFATHERED)
+
+
+def _first_commit(root, path):
+    r = git(root, "log", "--follow", "--diff-filter=A", "--format=%H", "--", path)
+    shas = r.stdout.split()
+    return shas[-1] if r.returncode == 0 and shas else None
+
+
+def _gate_reads(root):
+    r = git(root, "ls-files")
+    return [f for f in r.stdout.split("\n") if os.path.basename(f).lower().startswith("gate_read") and f.endswith(".md")]
+
+
+def gate_before_results(root):
+    """(fails, partial_reasons): every scored RESULTS.md beside a PREREG*.md has an earlier committed gate read."""
+    if not is_git_repo(root):
+        return [], ["gate-before-results check not run (not a git work tree)"]
+    if git(root, "rev-parse", "--is-shallow-repository").stdout.strip() == "true":
+        return [], ["gate-before-results check not run (shallow clone; history needed)"]
+    files = git(root, "ls-files").stdout.split("\n")
+    gates = _gate_reads(root)
+    gate_text = {}
+    for g in gates:
+        try:
+            gate_text[g] = open(os.path.join(root, g), encoding="utf-8", errors="replace").read()
+        except OSError:
+            gate_text[g] = ""
+    fails = []
+    for f in sorted(files):
+        if os.path.basename(f) != "RESULTS.md":
+            continue
+        folder = os.path.dirname(f)
+        if not any(os.path.dirname(x) == folder and os.path.basename(x).startswith("PREREG") and x.endswith(".md")
+                   for x in files):
+            continue
+        text = open(os.path.join(root, f), encoding="utf-8", errors="replace").read()
+        if GATE_EXEMPT_MARK in text or folder in GATE_GRANDFATHERED:
+            continue
+        added = _first_commit(root, f)
+        if added is None:  # not committed yet: compare against HEAD, so the gate must already be committed
+            added = git(root, "rev-parse", "HEAD").stdout.strip()
+            strict = False
+        else:
+            strict = True
+        ok = False
+        for g in gates:
+            if not (g.startswith(folder + "/") or (folder + "/") in gate_text[g]):
+                continue
+            gc = _first_commit(root, g)
+            if gc is None or (strict and gc == added):
+                continue
+            if git(root, "merge-base", "--is-ancestor", gc, added).returncode == 0:
+                ok = True
+                break
+        if not ok:
+            fails.append("gate: %s has no gate_read* file committed before it (process/PREREG_GATE.md section 2); "
+                         "add the gate read first, or mark a consistency check with '%s'" % (f, GATE_EXEMPT_MARK))
+    return fails, []
 
 
 # ------------------------------------------------------------------ parked
@@ -494,6 +606,9 @@ def main(argv=None):
         partial.append("open-PR check not run (--offline)")
     fails += check_lean(root)
     fails += own_row_check(root, pr)
+    gf, gp = gate_before_results(root)
+    fails += gf
+    partial += gp
     if body:
         from check_claims import summary_fails
         fails += ["summary: " + x for x in summary_fails(open(body, encoding="utf-8").read(), root, "the PR body")]

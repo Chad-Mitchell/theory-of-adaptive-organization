@@ -1,5 +1,6 @@
 """Recompute every number drawn on figures/master_curve.png. Run: nice -n 19 python3 figures/master_curve_checks.py"""
 import math
+import os
 import sys
 
 import numpy as np
@@ -133,6 +134,19 @@ check("bulk: exponent 2 in the side (volume in d=2)", near(sb, 2.0, 1e-9))
 txt = open(root + "/theory/HOLOGRAPHIC_MEMORY_2026-11-22.md", encoding="utf-8").read()
 check("quoted: random 19.2 against 4", "\\(19.2\\), against \\(4\\)" in txt)
 check("quoted: optimized cost ratio tends to sqrt(K)", "The ratio of optimized costs tends to \\(\\sqrt{K}\\)" in txt)
+
+# 12. Added 27 Nov 2026: the swarm rule and the area cap, quoted from their sources; the judgment line from README.
+sw = open(root + "/CORE.md", encoding="utf-8").read()
+check("swarm: stay condition lambda s c < w Phi in CORE", "\\(\\lambda s c<w\\Phi\\)" in sw)
+check("swarm: alignment s = w/W in CORE", "\\(s=w/W\\)" in sw)
+check("swarm rule note exists", os.path.exists(root + "/theory/SWARM_RULE_2026-11-23.md"))
+rd = open(root + "/README.md", encoding="utf-8").read()
+check("T62: README says the tracked rate scales with area and is not the holographic bound",
+      "scales with area" in rd and "not the holographic bound" in rd)
+check("judgment line: README states memory pays only by cutting decision loss or the ruin cap",
+      "memory pays only by cutting decision loss or by keeping the system inside the ruin cap" in rd)
+check("floor status: KNOWN for bipartite jump processes, PROVED (in-model) for additive-noise diffusions",
+      "KNOWN for bipartite jump processes, PROVED (in-model) for additive-noise diffusions" in rd)
 
 print("PASS %d  FAIL %d" % (PASS, FAIL))
 print("FAILS %d" % FAIL)

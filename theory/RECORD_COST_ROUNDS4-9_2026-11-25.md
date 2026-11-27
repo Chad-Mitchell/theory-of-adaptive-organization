@@ -1,10 +1,10 @@
 # Record cost, rounds 4–9: can the change be derived, what selection costs, and a fixed-pure-state condition
 
-*Wednesday 25 November 2026 (America/New_York). Side R&D, a follow-up to `theory/RECORD_COST_CHAIN_2026-11-25.md` (the "chain note"), consolidated from a private session. Status words are those at `CORE.md:169`. `THEORY.md`, `CORE.md`, locked blobs and the chain note's prereg are unchanged; the chain note only gains a pointer section at its end. Scripts and outputs are in `theory/record-cost-2026-11-25/scripts/selfref/` (files `g_round4` to `l_round9_check`). Citations were checked on Crossref (`theory/record-cost-2026-11-25/doi_check_2.out`). Nothing here derives quantum theory, general relativity, holography, or gravity.*
+*Wednesday 25 November 2026 (America/New_York). Side R&D, a follow-up to `theory/RECORD_COST_CHAIN_2026-11-25.md` (the "chain note"), consolidated from a private session. Status words are those at `CORE.md` §Status words. `THEORY.md`, `CORE.md`, locked blobs and the chain note's prereg are unchanged; the chain note only gains a pointer section at its end. Scripts and outputs are in `theory/record-cost-2026-11-25/scripts/selfref/` (files `g_round4` to `l_round9_check`). Citations were checked on Crossref (`theory/record-cost-2026-11-25/doi_check_2.out`). Nothing here derives quantum theory, general relativity, holography, or gravity.*
 
 The hypothesis sentence is the one at `CORE.md:7`. Selecting state spaces by their cost applies that hypothesis by assumption. It is not tested here.
 
-**Labels**, as in the chain note: **PROVED (in-model)**, **OBSERVED (numerical)**, **KNOWN**, **HYPOTHESIS**, **OPEN** and **open miss** (`CORE.md:169`). In this note, "update" means one reversible transformation of the state space applied per tick; "unknown update" means the tracker does not know which one.
+**Labels**, as in the chain note: **PROVED (in-model)**, **OBSERVED (numerical)**, **KNOWN**, **HYPOTHESIS**, **OPEN** and **open miss** (`CORE.md` §Status words). In this note, "update" means one reversible transformation of the state space applied per tick; "unknown update" means the tracker does not know which one.
 
 ## 1. What this adds, in one paragraph
 

@@ -1,6 +1,6 @@
 # Manifest: late 26 November 2026 notes (Forge)
 
-*Copied Thursday 26 November 2026 at about 20:24–20:28 ET from the box folders `/workspace/gtao-notes/rnd/` and `/workspace/gtao-notes/WORKLOG.md`, for the Friday handoff update. Copied byte for byte; nothing in this folder was edited after the copy. Every copied file is listed with its SHA-256 in `SHA256SUMS` beside this file (`sha256sum -c SHA256SUMS` from this folder). Those lock lines are also what keeps the repo's word check from reading these notes as new prose: they are a record, written under the day's working vocabulary, and are kept as they were.*
+*Copied Thursday 26 November 2026 at about 20:24–20:28 ET from the box folders `<local>/gtao-notes/rnd/` and `<local>/gtao-notes/WORKLOG.md`, for the Friday handoff update. Copied byte for byte; nothing in this folder was edited after the copy. Every copied file is listed with its SHA-256 in `SHA256SUMS` beside this file (`sha256sum -c SHA256SUMS` from this folder). Those lock lines are also what keeps the repo's word check from reading these notes as new prose: they are a record, written under the day's working vocabulary, and are kept as they were.*
 
 This folder is a new dated copy. It does not overwrite `NOTES/rnd-2026-11-26/`. Paths below are relative to this folder.
 
@@ -38,7 +38,7 @@ The NEXT_ROUTES main block at 20:14:38 (111 lines, SHA-256 `4ff41038bde692e8d737
 
 Same reasons as `NOTES/rnd-2026-11-26/MANIFEST.md` §3: scripts that contain an email address (a mailbox in a Crossref User-Agent or contact string), and a third-party paper excerpt (cite by DOI or arXiv id instead). Hashes are given so a later copy can be checked.
 
-| path (under `/workspace/gtao-notes/rnd/`) | bytes | SHA-256 | reason |
+| path (under `<local>/gtao-notes/rnd/`) | bytes | SHA-256 | reason |
 |---|---|---|---|
 | `review_worldtrack/rv_tl.py` | 2476 | `2f50b9b48802def28b8b253d1622a0f128e4ddaadcc8b9e7f0e10b7ae95ce566` | contains an email address (a mailbox in a User-Agent or contact string); withheld to keep addresses out of the public repo; same hash as in the first snapshot's withheld table |
 | `review_worldtrack/kge_excerpt.txt` | 3468 | `2c09dd3bd7a3899e8892290c30f6ff482fea5633aa6da5e76eb2770343f679f6` | third-party paper excerpt (Kipnis–Goldsmith–Eldar, arXiv 1608.04679 / 10.1109/tit.2018.2878446); cite by DOI or arXiv id instead |

@@ -67,7 +67,7 @@ RULES = [
     ("Lean total", re.compile(r"\*\*\d[\d,]*\s+declarations\*\*|machine-checks\s+\**\d[\d,]*"
                               r"|\b\d[\d,]*\s+(?:Lean\s+)?declarations\b", re.I)),
 ]
-# Copies in files that may not be edited here; check_consistency.py keeps them equal to their source.
+# The two version pointers that stay put; check_consistency.py keeps them equal to their source.
 ALLOW = {
     ("CORE.md", "is the canonical statement (v"),
     ("THEORY.md", "Claim statuses: `measurement/CLAIM_MAP_v2.md` (v"),

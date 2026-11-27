@@ -6,7 +6,7 @@
 
 <!-- history:end -->
 
-Labels follow `CORE.md:168` and `theory/AREA_LAW_PROBE_2026-11-23.md:5`: **PROVED (in-model)** is a result inside a named class. **KNOWN** is published and credited, only for what that source states. **CONJECTURE** is a named bet, not a result. **HYPOTHESIS** is a claim about nature, not a theorem. **SPECULATION** is neither proved nor preregistered. **OPEN** is not derived or not measured. **IMPOSTER** (`theory/IIT_PATH_2026-11-23.md:5`) is a claim that sounds as if it follows from the theory when it does not.
+Labels follow `CORE.md` §Status words and `theory/AREA_LAW_PROBE_2026-11-23.md:5`: **PROVED (in-model)** is a result inside a named class. **KNOWN** is published and credited, only for what that source states. **CONJECTURE** is the scope word defined in the scope header of the headline ledger (`measurement/CLAIM_MAP_v2.md`). **HYPOTHESIS** is a claim about nature, not a theorem. **SPECULATION** is neither proved nor preregistered. **OPEN** is not derived or not measured. **IMPOSTER** (`theory/IIT_PATH_2026-11-23.md:5`) is a claim that sounds as if it follows from the theory when it does not.
 
 > "The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment." (`CORE.md:7`)
 
