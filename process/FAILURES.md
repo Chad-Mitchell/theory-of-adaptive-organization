@@ -78,7 +78,7 @@ Ledger, continued (rows below were appended after the medium and high blocks abo
 ### 2026-11-26 `GATE-REPEAT-5` (high)
 1. **Locked prediction and risk.** No scored bar without a separate gate read; FORGE-GATE-1 (25 Nov) promised a tool check.
 2. **Miss and location.** process. Five occurrences in 24 hours (A-T2, Hutter, STOP-COPY, QM-selection 1, record-cost rounds 14–16), same direction each time.
-3. **Update.** The tool check in the GATE-REPEAT-5 row, because reminders did not hold.
+3. **Update.** The tool check in the GATE-REPEAT-5 row, because reminders did not hold. Built 27 Nov 2026: `tools/check_pending.py` fails a `RESULTS.md` beside a `PREREG*.md` with no `gate_read*` file committed before it; tests in `tools/test_check_pending.py`. The 37 folders that broke the rule before the check are listed by name in the tool, and a test fails if that list stops matching the history exactly.
 
 ### 2026-11-27 `LEDGER-1` (high)
 1. **Locked prediction and risk.** One ledger of record; base rates visible.

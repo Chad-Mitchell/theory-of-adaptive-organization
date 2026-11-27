@@ -582,3 +582,102 @@ def test_quoted_or_fenced_closing_keyword_is_not_flagged():
     # an unquoted keyword in the same text as a quoted one still flags
     got = cp.closing_refs('See "fix #253". Also fix #257 in the same body.', 1)
     assert len(got) == 1 and got[0][2] == 257
+
+
+# ---------------------------------------------------------------- gate before results (27 Nov 2026, GATE-REPEAT-5)
+def _gate_repo(tmp_path):
+    repo = str(tmp_path / "gr")
+    os.makedirs(os.path.join(repo, "theory", "t1"))
+    _git(repo, "init", "-b", "main")
+    return repo
+
+
+def _commit(repo, files, msg="c"):
+    for rel, text in files.items():
+        p = os.path.join(repo, rel)
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        open(p, "w").write(text)
+    _git(repo, "add", ".")
+    _git(repo, "commit", "-m", msg)
+
+
+def test_gate_missing_fails(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo, {"theory/t1/RESULTS.md": "| P1 | miss |\n"})
+    fails, partial = cp.gate_before_results(repo)
+    assert partial == [] and len(fails) == 1 and "theory/t1/RESULTS.md" in fails[0]
+
+
+def test_gate_committed_before_results_passes(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo, {"theory/t1/gate_read_1.md": "Gate: PASS\n"})
+    _commit(repo, {"theory/t1/RESULTS.md": "| P1 | hit |\n"})
+    assert cp.gate_before_results(repo) == ([], [])
+
+
+def test_gate_in_same_commit_as_results_fails(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo, {"theory/t1/gate_read_1.md": "Gate: PASS\n", "theory/t1/RESULTS.md": "| P1 | hit |\n"})
+    assert len(cp.gate_before_results(repo)[0]) == 1
+
+
+def test_gate_after_results_fails(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo, {"theory/t1/RESULTS.md": "| P1 | hit |\n"})
+    _commit(repo, {"theory/t1/gate_read_1.md": "Gate: PASS\n"})
+    assert len(cp.gate_before_results(repo)[0]) == 1
+
+
+def test_gate_read_elsewhere_naming_the_folder_passes(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo, {"NOTES/GATE_READ_T1.md": "Gate read of `theory/t1/PREREG.md`: PASS\n"})
+    _commit(repo, {"theory/t1/RESULTS.md": "| P1 | hit |\n"})
+    assert cp.gate_before_results(repo) == ([], [])
+
+
+def test_gate_probe_script_is_not_a_gate_read(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo, {"theory/t1/checks/gate_read_probe.py": "print(1)\n"})
+    _commit(repo, {"theory/t1/RESULTS.md": "| P1 | hit |\n"})
+    assert len(cp.gate_before_results(repo)[0]) == 1
+
+
+def test_gate_consistency_check_mark_exempts(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo, {"theory/t1/RESULTS.md": "gate: none (CONSISTENCY_CHECK)\n| V1 | implied |\n"})
+    assert cp.gate_before_results(repo) == ([], [])
+
+
+def test_gate_uncommitted_results_need_committed_gate(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    open(os.path.join(repo, "theory/t1/RESULTS.md"), "w").write("| P1 | hit |\n")
+    _git(repo, "add", ".")  # staged, not committed
+    assert len(cp.gate_before_results(repo)[0]) == 1
+
+
+def test_gate_no_prereg_not_checked(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/RESULTS.md": "| desk | note |\n"})
+    assert cp.gate_before_results(repo) == ([], [])
+
+
+def test_gate_real_repo_passes_and_grandfather_list_is_exact(monkeypatch):
+    """The real tree passes, and the grandfathered list is exactly the folders that fail without it:
+    no stale entry, and no folder passes only because a list hides it by accident."""
+    if subprocess.run(["git", "-C", ROOT, "rev-parse", "--is-shallow-repository"],
+                      capture_output=True, text=True).stdout.strip() != "false":
+        import pytest
+        pytest.skip("needs full history")
+    assert cp.gate_before_results(ROOT) == ([], [])
+    monkeypatch.setattr(cp, "GATE_GRANDFATHERED", set())
+    fails, _ = cp.gate_before_results(ROOT)
+    failing = {f.split(" has ")[0][len("gate: "):].rsplit("/", 1)[0] for f in fails}
+    assert failing == set(cp.__dict__["_GATE_GRANDFATHERED_ORIG"])
