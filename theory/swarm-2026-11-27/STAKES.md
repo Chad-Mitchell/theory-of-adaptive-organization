@@ -56,4 +56,4 @@ Vickrey 1961, doi [10.1111/j.1540-6261.1961.tb02789.x](https://doi.org/10.1111/j
 
 - **Bayesian balance with the stay constraint.** With a common prior on stakes, the AGV mechanism (d'Aspremont & Gérard-Varet 1979) is truthful in Bayes–Nash equilibrium and balanced, but need not be individually rational against tracking alone; with many parties, Mailath & Postlewaite (1990) show the voluntary-participation version tends to fail. Whether a balanced Bayesian rule that every part prefers to staying alone exists in class ST, for which priors, is OPEN (a CONJECTURE row is not added: no bet is made either way).
 - **Stakes that change over time**, so that the report is repeated, are OPEN.
-- **Other α.** ST1 and ST3 hold for any convex read cost (the proofs use only optimality and subadditivity of \(J^*\), which is concave with \(J^*(0)=0\)); ST0's derivative, ST2's closed form and ST4's derivative are α = 2.
+- **Other α.** ST1 and ST3 hold for any convex read cost (the proofs use only optimality and subadditivity of \(J^*\), which is concave with \(J^*(0)=0\)); ST0's derivative, ST2's closed form and ST4's finite difference are α = 2.
