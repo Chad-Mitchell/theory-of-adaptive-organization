@@ -35,11 +35,11 @@ axc.add_patch(FancyBboxPatch((0, 0), 1, 1, boxstyle="round,pad=0,rounding_size=0
 axc.text(0.012, 0.5, "THE COST", fontsize=12, fontweight="bold", color=NAVY, va="center", transform=axc.transAxes)
 axc.text(0.098, 0.5, "J = heat + w\u00b7E[loss],  cap: P(ruin) \u2264 \u03b5", fontsize=12.4, color=NAVY, va="center",
          transform=axc.transAxes, fontweight="bold")
-axc.text(0.43, 0.5,
+axc.text(0.41, 0.5,
          "Heat \u2265 kT \u00d7 the rate the memory learns its world: KNOWN for bipartite jump processes, PROVED (in-model) for additive-noise diffusions.\n"
          "REP-R1 (axioms A1\u2013A7, \u22653 essential coordinates) proves only that a continuous representing cost is an additive price sum.\n"
          "In a world it does not steer, memory pays only by cutting decision loss or keeping the system inside the ruin cap. w and the cap are assumed.",
-         fontsize=7.5, color=NAVY, va="center", transform=axc.transAxes, linespacing=1.35)
+         fontsize=7.2, color=NAVY, va="center", transform=axc.transAxes, linespacing=1.35)
 
 # ---------------- TIME panel: the curve ----------------
 ax = fig.add_axes([0.075, 0.205, 0.43, 0.50])
