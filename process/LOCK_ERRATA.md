@@ -78,10 +78,10 @@ No locked file was restored, re-hashed or edited, and no lock file was rewritten
 
 ## Path scrubs in unlocked dated records (27 November 2026, PR #297)
 
-Five records that no lock file covers had raw local `/workspace` paths replaced in place by `<local>`, the same substitution as `d513528`. No other byte changed, and no hash-locked file was touched (`python3 tools/verify_locks.py`). The original bytes are in git history (`git log -p` on each file).
+Five records that no lock file covers had raw local `/workspace` paths replaced in place by `<local>`, the same substitution as `d513528`. No other byte of those lines changed, and no hash-locked file was touched (`python3 tools/verify_locks.py`). The original bytes are in git history (`git log -p` on each file).
 
 - `theory/qm-selection-3-2026-11-26/RESULTS.md:8`, the launch line of a scored record ("Fresh clone from GitHub into `<local>/qmsel3-run`"). The clone path is provenance, not a score; the outcome lines are unchanged.
-- `theory/hutter-2026-11-25/RESULTS.md:82`, the path of the independent gate read.
+- `theory/hutter-2026-11-25/RESULTS.md:82`, the path of the independent gate read. This file also gained appended lines in this PR: a "Ledger rows (appended 27 Nov 2026; lines above unchanged)" section with rows P1–P4 after line 82. Those lines are new, not edits of old ones.
 - `theory/RECORD_COST_ERRATA_R1316_2026-11-26.md:7`, the run directory in M1.
 - `NOTES/rnd-2026-11-26/MANIFEST.md:3`, `:8-10`, `:23` and `NOTES/rnd-2026-11-26-late/MANIFEST.md:3`, `:41`, the source folders of the snapshot. These MANIFEST files are not listed in their `SHA256SUMS`.
 
