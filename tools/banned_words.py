@@ -36,6 +36,8 @@ import re
 import subprocess
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 WORD = re.compile(r"\b(puzzles?|bills?|billed|billing|kill(?:s|ed|ing)?|dead|verdicts?)\b", re.I)
 PUZZLE = re.compile(r"\bpuzzles?\b", re.I)
 QUOTED = re.compile(r"`[^`]*`|\"[^\"]*\"|“[^”]*”|‘[^’]*’")
@@ -82,24 +84,45 @@ def base_ref(root):
 
 def added_lines(root, base):
     """{path: [(lineno, text)]} for .md lines added or changed since the merge base with `base`,
-    including uncommitted edits."""
+    including uncommitted edits. A line that only rewrites paths through tools/movemap.py (it equals the move-map
+    rewrite of a line it replaced, and that rewrite changed the line) is not new text and is dropped."""
     mb = git(root, "merge-base", "HEAD", base)
     if mb.returncode != 0:
         return None
-    r = git(root, "diff", "-U0", "--no-color", mb.stdout.strip(), "--", "*.md")
+    r = git(root, "diff", "-M", "-U0", "--no-color", mb.stdout.strip(), "--", "*.md")
     if r.returncode != 0:
         return None
-    out, path, ln = {}, None, 0
+    out, removed, path, ln = {}, {}, None, 0
     for line in r.stdout.splitlines():
         if line.startswith("+++ "):
             path = line[6:] if line.startswith("+++ b/") else None
+        elif line.startswith("--- "):
+            continue
         elif line.startswith("@@"):
             m = re.match(r"@@ -\S+ \+(\d+)", line)
             ln = int(m.group(1)) if m else 0
-        elif line.startswith("+") and not line.startswith("+++") and path:
+        elif line.startswith("+") and path:
             out.setdefault(path, []).append((ln, line[1:]))
             ln += 1
-    return out
+        elif line.startswith("-") and path is not None:
+            removed.setdefault(path, []).append(line[1:])
+    return _drop_path_only(out, removed)
+
+
+def _drop_path_only(out, removed):
+    """Drop added lines that are the move-map rewrite of a removed line. Only a base line that the rewrite changes
+    counts, so copying an old line unchanged into a new place is still new text."""
+    try:
+        import movemap
+    except ImportError:  # a copy of the tools without the map: nothing moves
+        return out
+    res = {}
+    for p, rows in out.items():
+        moved = {movemap.rewrite(x) for x in removed.get(p, []) if movemap.rewrite(x) != x}
+        keep = [(n, t) for n, t in rows if t not in moved]
+        if keep:
+            res[p] = keep
+    return res
 
 
 LOCKED_BLOBS = "process/LOCKED_BLOBS.txt"
