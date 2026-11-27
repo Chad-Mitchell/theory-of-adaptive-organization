@@ -38,20 +38,12 @@ if [[ -n "${GTAO_PREMERGE_CHECKS:-}" ]]; then
   mapfile -t CHECKS <<< "$GTAO_PREMERGE_CHECKS"
 else
   PRARGS=""; [[ -n "$PR" ]] && PRARGS="--pr $PR --body-file $WORK/body.md"
-  CHECKS=(
-    "python3 tools/check_fresh.py"
-    "python3 tools/check_pending.py --strict $PRARGS"
-    "python3 tools/check_pending.py --closing-keywords origin/main..HEAD $PRARGS"
-    "python3 tools/check_consistency.py"
-    "python3 tools/verify_locks.py"
-    "python3 tools/banned_words.py"
-    "python3 tools/check_claims.py"
-    "python3 tools/facts.py --check"
-    "python3 tools/miss.py --check-corrections"
-    "python3 tools/miss.py --check-logged"
-    "python3 tools/check_figures.py"
-    "python3 -m pytest -q -p no:cacheprovider tools"
-  )
+  [[ -f tools/premerge_checks.txt ]] || { echo "premerge: $SHA has no tools/premerge_checks.txt"; exit 2; }
+  CHECKS=()
+  while IFS= read -r line; do
+    [[ -z "${line// }" || "$line" == \#* ]] && continue
+    CHECKS+=("${line//\$PRARGS/$PRARGS}")
+  done < tools/premerge_checks.txt
 fi
 FAILED=0; LOG="$WORK/log.txt"; : > "$LOG"
 for c in "${CHECKS[@]}"; do

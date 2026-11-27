@@ -90,6 +90,22 @@ def test_runs_outside_a_clone(world):
     assert " -R Chad-Mitchell/theory-of-adaptive-organization" in open(world["log"]).read()
 
 
+def test_the_list_comes_from_the_commit_being_checked(world):
+    d = world["d"]
+    repo = os.path.join(d, "repo")
+    g = lambda *a: subprocess.run(["git", *a], cwd=repo, check=True, capture_output=True, text=True).stdout.strip()
+    os.makedirs(os.path.join(repo, "tools"))
+    open(os.path.join(repo, "tools", "premerge_checks.txt"), "w").write("# list\ntest -f a.txt\nfalse $PRARGS\n")
+    g("add", ".")
+    g("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-q", "-m", "list")
+    open(os.path.join(d, "head"), "w").write(g("rev-parse", "HEAD") + "\n")
+    env = {k: v for k, v in world["env"].items() if k != "GTAO_PREMERGE_CHECKS"}
+    r = run([PRE, "7"], env)
+    assert r.returncode == 1, r.stdout
+    assert "test -f a.txt" in r.stdout and "PASS" in r.stdout
+    assert "false --pr 7 --body-file" in r.stdout
+
+
 def test_scripts_never_rebase_squash_or_force():
     for p in (PRE, MERGE):
         t = open(p).read()
