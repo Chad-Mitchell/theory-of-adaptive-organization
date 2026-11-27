@@ -710,6 +710,66 @@ def check_one_row_per_id(root, text, rows):
     return fails
 
 
+FRONT_BEGIN, FRONT_END = "<!-- front-results:begin -->", "<!-- front-results:end -->"
+FRONT_SECTIONS = ("## What holds in general", "## What the minimum buys")
+SCOPE_WORDS = re.compile(r"\b(GENERAL|WORKED-CLASS-ONLY|SYNTHESIS|CONJECTURE)\b")
+
+
+def front_result_items(readme):
+    """{heading: italic label} for the result items in README's two result sections."""
+    items, on = {}, False
+    for line in readme.splitlines():
+        if line.startswith("## "):
+            on = line.startswith(FRONT_SECTIONS)
+            continue
+        m = re.match(r"^(?:\d+\.|-) \*\*(.+?)\.?\*\*\s*\*([^*]+)\*", line) if on else None
+        if m:
+            items[m.group(1).rstrip(".")] = m.group(2)
+    return items
+
+
+def front_result_map(text):
+    if FRONT_BEGIN not in text or FRONT_END not in text:
+        return None
+    out = {}
+    for line in text.split(FRONT_BEGIN, 1)[1].split(FRONT_END, 1)[0].splitlines():
+        cells = split_cells(line) if line.startswith("|") else []
+        if len(cells) == 2 and cells[0] not in ("README item",) and not cells[0].startswith("-"):
+            out[cells[0]] = [x.strip() for x in cells[1].split(",") if x.strip()]
+    return out
+
+
+def check_front_results(root, text, rows):
+    """Front-page result lines are checked against ledger rows (R1, R7)."""
+    fmap = front_result_map(text)
+    if fmap is None:
+        return ["front results: markers missing in measurement/CLAIM_MAP_v2.md"]
+    items = front_result_items(read(root, "README.md")) if os.path.isfile(os.path.join(root, "README.md")) else {}
+    byid = {r["id"]: r for r in rows}
+    fails = []
+    for h in sorted(set(items) - set(fmap)):
+        fails.append("front results: README item %r has no row in the front-page table" % h)
+    for h in sorted(set(fmap) - set(items)):
+        fails.append("front results: table row %r names no README result item" % h)
+    for h, ids in sorted(fmap.items()):
+        scopes = set()
+        for i in ids:
+            r = byid.get(i)
+            if r is None:
+                fails.append("front results: %r cites %s, which is not a headline row" % (h, i))
+                continue
+            if "README" not in r.get("pages", ""):
+                fails.append("front results: %r cites %s, whose pages do not list README" % (h, i))
+            if SCOPE_WORDS.fullmatch(r.get("scope", "")):
+                scopes.add(r["scope"])
+        if h in items:
+            said = set(SCOPE_WORDS.findall(items[h]))
+            if said != scopes:
+                fails.append("front results: README item %r is labelled %s; its rows have %s"
+                             % (h, sorted(said) or "no scope", sorted(scopes) or "no scope"))
+    return fails
+
+
 def check(root=None):
     """Return a list of failure strings (empty means pass)."""
     root = root or repo_root()
@@ -732,6 +792,7 @@ def check(root=None):
     errors.extend(check_scored_has_row(root))
     errors.extend(check_front_cases(root))
     errors.extend(check_one_row_per_id(root, text, rows))
+    errors.extend(check_front_results(root, text, rows))
     # de-duplicate, keep order
     out, seen = [], set()
     for e in errors:

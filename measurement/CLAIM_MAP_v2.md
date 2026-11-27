@@ -896,7 +896,7 @@ The `status` word **estimated** marks a measured or simulated quantity reported 
 |---|---|---|---|---|---|---|---|---|---|
 | HYP | hypothesis | not a result | Strongly selected systems minimize the cost of judgment. Untested. | THEORY.md:41 | The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment. | not-formalized | no qualified real test | CX2:open | README, CORE, THEORY |
 | JP-HEAT | known | GENERAL | For bipartite jump processes the memory bath gives off at least kT times the net learning rate. | CORE.md:70 | **KNOWN** | not-formalized | Horowitz and Esposito 2014, credited | EQ-HEAT:known | README, CORE |
-| EQ-HEAT | proved-in-model | GENERAL | For additive-noise diffusions the same heat bound is proved in the model. | CORE.md:70 | PROVED (in-model) | formal/lean/GTAO/DiffusionHeat.lean checks the EQ-heat step with integration by parts and the marginal-entropy identity as named hypotheses (WEAKER, miss LP-eqheat); formal/lean/GTAO/HeatFloor.lean is a two-state piece | in-model proof; not the whole physical argument | JP-HEAT:known | CORE |
+| EQ-HEAT | proved-in-model | GENERAL | For additive-noise diffusions the same heat bound is proved in the model. | CORE.md:70 | PROVED (in-model) | formal/lean/GTAO/DiffusionHeat.lean checks the EQ-heat step with integration by parts and the marginal-entropy identity as named hypotheses (WEAKER, miss LP-eqheat); formal/lean/GTAO/HeatFloor.lean is a two-state piece | in-model proof; not the whole physical argument | JP-HEAT:known | README, CORE |
 | T57 | proved-in-model | GENERAL | The general form, heat at least kT times the learning-rate distortion function, is exact wherever the thermodynamic step holds. Closed forms exist only in named classes. | CORE.md:70 | general form of the floor | not-formalized | T57 note; closed forms are named classes only | JP-HEAT:known | CORE |
 | T60 | proved-in-model | GENERAL | A memory that beats chance on a connected finite-state world has a world-only positive floor, one direction only. | CORE.md:72 | one direction only | formal/lean/GTAO/FiniteFloorPairwise.lean and formal/lean/GTAO/FiniteFloorPath.lean check the pairwise and path bounds and the telegraph lower bound; the telegraph equality and converse are not-formalized | proved in-model, one direction; credit added 27 Nov 2026: the telegraph step's fixed-total-variation minimum of the Jeffreys divergence is KNOWN (Gilardoni 2006, *C. R. Math.* 343:763–766, doi 10.1016/j.crma.2006.10.027 (corrigendum *C. R. Math.* 348, 2010, doi 10.1016/j.crma.2010.02.006); Sason 2015, IEEE Information Theory Workshop, doi 10.1109/ITW.2015.7133079, Prop. 4) | T57:proved | CORE |
 | T61 | proved-in-model | WORKED-CLASS-ONLY | When the memory steers, in named classes, the heat bound holds on the net learning rate and no design-independent floor on memory heat alone exists. | theory/FEEDBACK_FLOOR_2026-11-23.md:17 | design-independent lower bound | not-formalized | independent review reported in [the T61 row of the retired work list](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L112); no review record committed | COAD-F3:interpretation; BICAUSAL:open | README, CORE |
@@ -1039,3 +1039,25 @@ must README.md | BICAUSAL |
 <!-- claim-rules:end -->
 
 <!-- headline-ledger:end -->
+
+## Front-page result lines
+
+Each result item in `README.md` under "What holds in general" and "What the minimum buys" is one row here, with the headline rows it states. `tools/check_claims.py` fails an item missing from this table, a row here with no such item, an id that is not a headline row or does not list README among its pages, and an item whose italic scope label does not name exactly the scopes of its rows.
+
+<!-- front-results:begin -->
+| README item | headline rows |
+|---|---|
+| The cost is a priced sum | REP-R1 |
+| Memory costs heat | JP-HEAT, EQ-HEAT |
+| Higher stakes buy more judgment | CT33 |
+| A boundary can be enough | BL-SCREEN |
+| Convex payoffs gain from shocks, and caps can reverse it | JN-PAY-CAP |
+| Zero-gain control drops out | GN-ZERO |
+| When memory pays | MEM-PAYS, CT4 |
+| Layers | LAYERS |
+| Holographic memory | T42, T41 |
+| Boundary | T44, T62 |
+| Rebuild and gaining from shocks | CT40, LEARN-ROUTE, T50 |
+| Acting | ACTING |
+| Join, stay and leave (the swarm rule) | SWARM-RULE |
+<!-- front-results:end -->

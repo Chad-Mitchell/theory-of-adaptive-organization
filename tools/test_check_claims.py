@@ -5,6 +5,7 @@ The clean tree must pass. Each planted error must be reported.
 """
 import os
 import shutil
+import tempfile
 
 import pytest
 import sys
@@ -518,3 +519,45 @@ def test_estimated_without_an_uncertainty_fails():
     cells[3] = "A number from a simulation."
     t = t[:i] + " | ".join(cells) + t[j:]
     assert any("BT2P is `estimated` but its plain text states no uncertainty" in e for e in _ledger_errors(t))
+
+
+# ---------------------------------------------------------------- front-page result lines against ledger rows
+def _front(readme=None, cm=None):
+    root = cc.repo_root()
+    d = tempfile.mkdtemp()
+    open(os.path.join(d, "README.md"), "w", encoding="utf-8").write(
+        readme if readme is not None else open(os.path.join(root, "README.md"), encoding="utf-8").read())
+    text = cm if cm is not None else _cm()
+    rows = cc.parse_ledger(text)[0]
+    out = cc.check_front_results(d, text, rows)
+    shutil.rmtree(d)
+    return out
+
+
+def _readme():
+    return open(os.path.join(cc.repo_root(), "README.md"), encoding="utf-8").read()
+
+
+def test_front_results_pass_on_the_repo():
+    assert _front() == []
+    assert len(cc.front_result_items(_readme())) == 13
+
+
+def test_a_new_readme_result_with_no_ledger_row_fails():
+    r = _readme().replace("- **Acting.**", "- **Telepathy.** *GENERAL.* Minds read minds.\n- **Acting.**", 1)
+    assert any("'Telepathy' has no row" in f for f in _front(readme=r))
+
+
+def test_a_wrong_scope_label_fails():
+    r = _readme().replace("- **Layers.** *WORKED-CLASS-ONLY.*", "- **Layers.** *GENERAL.*", 1)
+    assert any("'Layers' is labelled ['GENERAL']" in f for f in _front(readme=r))
+
+
+def test_a_dropped_conjecture_label_fails():
+    r = _readme().replace("is a CONJECTURE (T50)", "is open (T50)", 1)
+    assert any("Rebuild and gaining from shocks" in f for f in _front(readme=r))
+
+
+def test_a_mapped_id_that_is_not_a_headline_row_fails():
+    cm = _cm().replace("| Acting | ACTING |", "| Acting | ACTING, NOPE-1 |", 1)
+    assert any("NOPE-1, which is not a headline row" in f for f in _front(cm=cm))
