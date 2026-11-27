@@ -12,7 +12,7 @@ The theory has two parts, and they are different kinds of claim. **Part 1 is mat
 
 Until a system qualifies under THEORY §3, the working name is a principle: one cost, and the design is what that cost selects. The heat floor, class by class, is §3. The heat floor and its minimizers in the worked class are proved in the class named in §4. The telegraph is in that class. Other Gaussian systems stay open, and other linear systems stay open. The list of what stays open is §7. No system has been shown to qualify.
 
-[`THEORY.md`](THEORY.md) is the canonical statement (v2.9 draft). It still displays the five-term sum. Where this page and `THEORY.md` disagree, `THEORY.md` governs. Putting the physics display into THEORY §3 is open work, T40 in [`README.md`, Waiting on Chad](README.md#waiting-on-chad).
+[`THEORY.md`](THEORY.md) (v2.9 draft, frozen 27 November 2026) keeps the proofs (Appendix B) and the claim index as of v2.9 (Appendix C); it is not edited. This page governs the cost and the argument, and the headline ledger in `measurement/CLAIM_MAP_v2.md` governs statuses. THEORY §3 still prints the five-term sum; the display above is the adopted one (T40, resolved).
 
 ## 1. The cost
 
@@ -139,7 +139,7 @@ A qualifying design outside the preregistered band is a miss for that class. The
 
 ## Where this is going
 
-1. **The cost is universal** (§1). Adopting \(J_{\mathrm{phys}}\) into `THEORY.md` §3 is open work T40.
+1. **The cost is universal** (§1). The physical display \(J_{\mathrm{phys}}\) is the adopted one (T40, resolved); `THEORY.md` is frozen and keeps the earlier sum.
 2. **The method is general** (§2). No single closed-form design exists for every system, not even in thermodynamics; each class has its own exact answer.
 3. **The floor spreads class by class** (§3): the proved pieces and the open frozen-or-disconnected boundary are in that section, toward a floor for every adaptive system.
 4. **Selection finds the minimum where no closed form exists** (§5), under four stated conditions.
@@ -155,7 +155,7 @@ The ranked work list is in [`README.md`, Ranked gaps](README.md#ranked-gaps).
    - Deriving the stake, the link price, or the ruin cap from the heat bound. They stay assumptions.
    - A closed form of the learning-rate–distortion function for a general world, which memories attain the floor outside the telegraph, and worlds the memory itself moves beyond the named classes of T61 (T57, T60, T61; the proved pieces and the open boundary are in §3).
    - The heat floor on Sierpiński graphs: cost tracks the sites the decision names, not the Hausdorff or spectral dimension (`theory/FRACTAL_WORLD_2026-11-22.md`, T54). Identities the locked script checks are **PROVED** (in-model, class F, code-checked); a dimension law for the cost **FAILS**. A self-check, not an independent review. This page does not treat that review as done.
-   - Adopting the acting derivation into THEORY (T47 is merged; the proposal is not applied), and adopting the physics display (T40). Neither edit is made here.
+   - Adopting the acting derivation (T47 is merged; the proposal is not applied). `THEORY.md` is frozen, so an adoption is written on this page, not in THEORY.
    - The joining theorem that would make a general gain from disorder a consequence of the minimized cost under the closed loop (T50). The cheapest next test is to score the spread of the minimizing closed loop, preregistered before any new computation. No field prediction is ready. The statement is `theory/ANTIFRAGILITY_CONJECTURE_2026-11-23.md`.
    - The integer \(5\%\) radius. It is 2 at \(\tau=1/2\) and at \(\tau=1\), ratio 1, because both crossings of the level 0.05 lie in \((1,2)\). The path of 61 sites, the next test the preregistration named, returned 2 and 2. The smooth crossing on times \(1/4\) and \(1\) is a separate statistic: ratio 2.067863694520, inside \([1.7,2.3]\).
    - \(J^*(8)\) against 5. The grid value is 4.998066177768. The number 5 equals \(C(1/2)\), the heat plus the sign loss at the frozen fraction, and the diagnostic floor is 4.966383544211. The crossing is near \(\theta=7.5267\). The next test is a new preregistration scored against that floor. The acting-memory preregistration stays as locked.

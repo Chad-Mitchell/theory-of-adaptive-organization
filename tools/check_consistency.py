@@ -49,7 +49,7 @@ import glob, os, re, sys
 
 # Maintained docs: edited to stay current. check_fresh.py and check_claims.py import this list.
 MAINTAINED_DOCS = [
-    "README.md", "THEORY.md", "CORE.md", "process/PROCESS.md", "process/VOCABULARY.md", "process/FAILURES.md", "process/PREREG_GATE.md", "process/MISS_LOG_TEMPLATE.md",
+    "README.md", "CORE.md", "process/PROCESS.md", "process/VOCABULARY.md", "process/FAILURES.md", "process/PREREG_GATE.md", "process/MISS_LOG_TEMPLATE.md",
     "measurement/FRAMEWORK.md", "measurement/CLAIM_MAP_v2.md",
     "theory/SCALE_ENDS.md", "theory/PHYSICS_CHAIN_2026-11-23.md",
     "applications/README.md", "tests/README.md", "reviews/README.md",
@@ -103,8 +103,7 @@ def main(argv=None):
 
     # Pointer patterns: (file, regex, which) -- each must match at least once and every match must agree.
     POINTERS = [  # the only version copies left, one in CORE.md and one in THEORY.md (tools/check_fresh.py ALLOW)
-        ("CORE.md", r"is the canonical statement \(v(\d+\.\d+(?:\.\d+)?[a-z]?) draft\)", "T"),
-        ("THEORY.md", r"Claim statuses: `measurement/CLAIM_MAP_v2\.md` \(v(2\.\d+)\)", "C"),
+        ("CORE.md", r"\(v(\d+\.\d+(?:\.\d+)?[a-z]?) draft, frozen \d+ \w+ \d{4}\)", "T"),
     ]
     for f, rx, which in POINTERS:
         if not os.path.exists(f):
@@ -121,6 +120,13 @@ def main(argv=None):
 
     # Hash locks: every lock verifies or is accounted for (process/LOCK_ERRATA.md).
     # Needs the real checkout: the mutation test copies only .md and .py files (no .git), so it is skipped there.
+    if not os.path.exists(os.path.join(ROOT, ".git")):
+        # A copy without history (the mutation test): the frozen-file check needs no history, so it still runs.
+        sys.path.insert(0, os.path.join(ROOT, "tools"))
+        from verify_locks import frozen_fails as _frozen_fails
+        for x in _frozen_fails(ROOT):
+            print("  FAIL " + x)
+            fails.append("FAIL " + x)
     if os.path.exists(os.path.join(ROOT, ".git")):
         from verify_locks import verify as _verify_locks
         lock_fails, _lc, _ln = _verify_locks(ROOT)
@@ -418,12 +424,14 @@ def main(argv=None):
     for k, (st, counted) in sorted(c_rows.items()):
         if k not in o_rows:
             cf.append("core-index: THEORY Appendix C lists %s, which CLAIM_MAP section O lacks" % k); continue
+        # THEORY.md is frozen at v2.9: its Appendix C statuses are as of then and the ledger governs, so a later
+        # status change is reported, not failed. Every ID it lists must still have a ledger row.
         if st != o_rows[k][0]:
-            cf.append("core-index: THEORY Appendix C says %s is %s; CLAIM_MAP section O says %s" % (k, st, o_rows[k][0]))
+            infos.append("core-index: THEORY Appendix C (v2.9) says %s is %s; CLAIM_MAP section O now says %s" % (k, st, o_rows[k][0]))
         if counted != o_rows[k][1]:
-            cf.append("core-index: THEORY Appendix C counts %s as %s; CLAIM_MAP section O counts it as %s" % (k, counted, o_rows[k][1]))
+            infos.append("core-index: THEORY Appendix C (v2.9) counts %s as %s; CLAIM_MAP section O now counts it as %s" % (k, counted, o_rows[k][1]))
     for k in sorted(set(o_rows) - set(c_rows)):
-        cf.append("core-index: CLAIM_MAP section O has %s, missing from THEORY Appendix C" % k)
+        infos.append("core-index: CLAIM_MAP section O has %s, added after THEORY v2.9" % k)
     print("  claim index: %d rows in THEORY Appendix C, %d in CLAIM_MAP section O" % (len(c_rows), len(o_rows)))
     # R7: length budgets
     def words(t):

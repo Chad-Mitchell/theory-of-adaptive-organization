@@ -270,3 +270,29 @@ def test_unaccounted_mismatch_in_a_moved_tree_still_fails(tmp_path):
                  lock_name="records/tests/X/PREREG.sha256")
     fails, _, _ = vl.verify(root, history=False, scrub=set(), post={}, unverifiable=set(), missing_pin={}, blobs={})
     assert any("not accounted for" in f for f in fails)
+
+
+# ---------------------------------------------------------------- frozen files (THEORY.md, 27 Nov 2026)
+def _frozen_tree(tmp_path, body=b"frozen\n"):
+    (tmp_path / "process").mkdir()
+    (tmp_path / "T.md").write_bytes(body)
+    row = "T.md %s frozen: test\n" % vl.git_blob(b"frozen\n")
+    (tmp_path / "process" / "LOCKED_BLOBS.txt").write_text(row)
+    return str(tmp_path), row
+
+
+def test_real_repo_freezes_theory():
+    rows = vl.frozen_rows(open(os.path.join(ROOT, "process", "LOCKED_BLOBS.txt")).read())
+    assert "THEORY.md" in rows and vl.frozen_fails(ROOT) == []
+
+
+def test_edit_to_a_frozen_file_fails(tmp_path):
+    root, _ = _frozen_tree(tmp_path, b"edited\n")
+    assert any("was edited" in f for f in vl.frozen_fails(root))
+
+
+def test_dropping_a_frozen_row_on_main_fails(tmp_path):
+    root, row = _frozen_tree(tmp_path)
+    assert vl.frozen_fails(root, row) == []
+    (tmp_path / "process" / "LOCKED_BLOBS.txt").write_text("")
+    assert any("changed or dropped" in f for f in vl.frozen_fails(root, row))

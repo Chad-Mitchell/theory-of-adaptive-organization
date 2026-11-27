@@ -116,7 +116,6 @@ Decisions and outside acts. Nothing outside the repo happens without Chad's go.
 
 | ID | Item | State |
 |---|---|---|
-| T40 | Adopt the physical cost display (`CORE.md` §1) into `THEORY.md` §3 | **Not applied.** Needs a reviewed adoption; until then `THEORY.md` keeps its text (`process/PROCESS.md` §2) |
 | T72 | Composite contest (upstream PR #253), now on `main` through PR #295: Chad's call is whether to keep it there | **Open miss** (corrected 27 Nov 2026). Under the original lock (`PREREG.md`) the cell is WIN only because Gmax's group was restricted by hand. `PREREG_4.md` was committed (`82a803dd5fc266c8778dfb80f35cbd1fe7c294d6`) after that first WIN result (`f774ca3509f6b8e32101c914238b66d3752ace27`), and under it the cell is TIE (script-checked); `PREREG_4.md` is a post-result lock, logged as process miss `POSTLOCK-1`. The earlier menus corrected to LOSE at every positive price (errata in the note). Was: "Headline TIE under `PREREG_4` (script-checked); WIN only under a hand-restricted Gmax". [`theory/COMPOSITE_CONTEST_2026-11-24.md`](theory/COMPOSITE_CONTEST_2026-11-24.md) |
 | C1 | X correction / map post: the post https://x.com/torusflow/status/2123631750223945917 (deleted 27 Nov 2026) was behind the theory (gate, map, robustness) | **Closed 27 Nov 2026.** The post was deleted; the live statement is the pinned post https://x.com/torusflow/status/2125614287997534386. Was: "Draft text needs Chad's approval of the exact words; nothing posted" |
 | C2 | Outreach to a chemotaxis lab for T7 | Draft kept outside the repo, unsent; needs Chad's go |

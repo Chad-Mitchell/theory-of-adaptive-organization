@@ -272,11 +272,11 @@ def test_direction_line_missing_from_readme_fails():
 # ---------------------------------------------------------------- work rows have one home (Ace 2d)
 def test_work_ids_come_from_readme():
     ids = cc.work_ids(ROOT)
-    assert {"BICAUSAL", "DATA-ONE", "T40", "T72", "LOCK-V1.5"} <= ids
+    assert {"BICAUSAL", "DATA-ONE", "T72", "LOCK-V1.5"} <= ids
 
 
 def test_work_row_copied_to_another_page_fails():
-    plants = [("process/PROCESS.md", "| T40 | Adopt the physical cost display | open |\n"),
+    plants = [("process/PROCESS.md", "| T72 | A copied work row | open |\n"),
               ("theory/PHYSICS_CHAIN_2026-11-23.md", "1. **BICAUSAL** first.\n"),
               ("CORE.md", "| STOP-COPY | 2 | math |\n"),
               ("measurement/FRAMEWORK.md", "2. MV9-DECISION: needs Chad.\n")]
@@ -335,7 +335,7 @@ def test_work_id_in_prose_or_history_passes():
     root = copy_tree()
     try:
         with open(os.path.join(root, "process/PROCESS.md"), "a", encoding="utf-8") as fh:
-            fh.write("\n\nT40 waits on Chad (see README.md).\n\n<!-- history:begin -->\n| T40 | old row |\n<!-- history:end -->\n")
+            fh.write("\n\nT72 is open work (see README.md).\n\n<!-- history:begin -->\n| T72 | old row |\n<!-- history:end -->\n")
         assert "work rows" not in fails_of(root)
     finally:
         shutil.rmtree(root)

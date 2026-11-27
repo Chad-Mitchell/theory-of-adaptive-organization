@@ -151,6 +151,46 @@ def git_history_sha256(root, path):
     return out or None
 
 
+LOCKED_BLOBS = "process/LOCKED_BLOBS.txt"
+
+
+def frozen_rows(text):
+    """{path: blob} for LOCKED_BLOBS rows whose reason starts with `frozen:`."""
+    out = {}
+    for line in (text or "").splitlines():
+        parts = line.strip().split(None, 2)
+        if len(parts) == 3 and not parts[0].startswith("#") and re.fullmatch(r"[0-9a-f]{40}", parts[1]) \
+                and parts[2].startswith("frozen:"):
+            out[parts[0]] = parts[1]
+    return out
+
+
+def base_blob_list(root):
+    """LOCKED_BLOBS.txt on origin/main, or None when there is no such ref (a copy without .git)."""
+    if not os.path.exists(os.path.join(root, ".git")):
+        return None
+    r = subprocess.run(["git", "show", "origin/main:" + LOCKED_BLOBS], cwd=root, capture_output=True, text=True)
+    return r.stdout if r.returncode == 0 else None
+
+
+def frozen_fails(root, base_text=None):
+    """A frozen file must keep the blob in its row, and a frozen row already on origin/main must not change."""
+    p = os.path.join(root, LOCKED_BLOBS)
+    now = frozen_rows(open(p, encoding="utf-8").read() if os.path.isfile(p) else "")
+    fails = []
+    for path, blob in sorted(now.items()):
+        fp = os.path.join(root, movemap.forward(path) if not os.path.exists(os.path.join(root, path)) else path)
+        if not os.path.isfile(fp):
+            fails.append("frozen: %s is missing" % path)
+        elif git_blob(open(fp, "rb").read()) != blob:
+            fails.append("frozen: %s was edited (git blob %s, frozen %s); it is not edited, see process/PROCESS.md" % (
+                path, git_blob(open(fp, "rb").read())[:8], blob[:8]))
+    for path, blob in sorted(frozen_rows(base_text).items()):
+        if now.get(path) != blob:
+            fails.append("frozen: the frozen row for %s on origin/main was changed or dropped" % path)
+    return fails
+
+
 def verify(root=ROOT, history=True, scrub=None, post=None, unverifiable=None, missing_pin=None, blobs=None):
     """(fails, counts, notes). The pins default to the module's tables."""
     scrub = SCRUB if scrub is None else scrub
@@ -213,6 +253,7 @@ def verify(root=ROOT, history=True, scrub=None, post=None, unverifiable=None, mi
         for g in sorted(want - seen):
             if any(os.path.isfile(os.path.join(root, x)) for x in (g, movemap.forward(g))):
                 fails.append("locks: pinned %s file %s now verifies or lost its lock line; update tools/verify_locks.py and process/LOCK_ERRATA.md" % (name, g))
+    fails.extend(frozen_fails(root, base_blob_list(root)))
     if missing != missing_pin:
         fails.append("locks: locked-but-uncommitted files changed: pinned %s, found %s" % (missing_pin, missing))
     return fails, counts, notes
