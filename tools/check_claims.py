@@ -809,6 +809,37 @@ def scope_def_hits(root, pages=None):
     return out
 
 
+# A bare id whose claim was renamed to a prefixed headline id (R1 -> REP-R1, S1 -> SHANNON-S1, F3 -> COAD-F3) is
+# ambiguous on a front page or figure: the bare id is also a different lettered row. Name the headline id, or the
+# note's own theorem ("Theorem R1").
+TWIN_PAGES = ["README.md", "CORE.md"]
+
+
+def ambiguous_ids(text, rows):
+    twins = {}
+    for r in rows:
+        m = re.fullmatch(r"[A-Z]+-([A-Z]{1,3}\d+)", r.get("id", ""))
+        if m:
+            twins[m.group(1)] = r["id"]
+    out = []
+    for m in re.finditer(r"(?<![\w\-′'])([A-Z]{1,3}\d+)(?![\w\-′'])", text):
+        bare = m.group(1)
+        before = text[max(0, m.start() - 8):m.start()]
+        if bare in twins and not before.endswith(("Theorem ", "Lemma ")):
+            out.append((bare, twins[bare], text.count("\n", 0, m.start()) + 1))
+    return out
+
+
+def check_twins(root, rows):
+    fails = []
+    for p in TWIN_PAGES:
+        if os.path.isfile(os.path.join(root, p)):
+            for bare, twin, line in ambiguous_ids(read(root, p), rows):
+                fails.append("ambiguous id: %s:%d names %s, which is also a different lettered row; write %s (or "
+                             "'Theorem %s' for the note's own theorem)" % (p, line, bare, twin, bare))
+    return fails
+
+
 def check(root=None):
     """Return a list of failure strings (empty means pass)."""
     root = root or repo_root()
@@ -833,6 +864,7 @@ def check(root=None):
     errors.extend(check_one_row_per_id(root, text, rows))
     errors.extend(check_front_results(root, text, rows))
     errors.extend("scope words: " + x for x in scope_def_hits(root))
+    errors.extend(check_twins(root, rows))
     # de-duplicate, keep order
     out, seen = [], set()
     for e in errors:

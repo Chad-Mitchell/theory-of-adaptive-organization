@@ -603,3 +603,21 @@ def test_a_single_labelled_claim_is_not_a_definition():
 def test_the_ledger_header_itself_may_define():
     text = "The `scope` column labels every row. **GENERAL**: holds without a worked-class step. **SYNTHESIS**: x.\n"
     assert _scope_hits(text, "measurement/CLAIM_MAP_v2.md") == []
+
+
+# ---------------------------------------------------------------- bare ids whose claim has a prefixed headline id
+def test_no_ambiguous_ids_on_the_front_pages():
+    assert cc.check_twins(cc.repo_root(), cc.parse_ledger(_cm())[0]) == []
+
+
+@pytest.mark.parametrize("text,bare", [("R1 does not choose the coordinates.", "R1"),
+                                       ("loss of confinement at copy gain one (F3)", "F3"),
+                                       ("the information floor S1 holds", "S1")])
+def test_a_bare_renamed_id_is_ambiguous(text, bare):
+    rows = cc.parse_ledger(_cm())[0]
+    assert [x[0] for x in cc.ambiguous_ids(text, rows)] == [bare]
+
+
+@pytest.mark.parametrize("text", ["Theorem R1 does not choose.", "REP-R1 holds.", "COAD-F3 and COAD-F4", "R1′ is a theorem"])
+def test_qualified_ids_pass(text):
+    assert cc.ambiguous_ids(text, cc.parse_ledger(_cm())[0]) == []

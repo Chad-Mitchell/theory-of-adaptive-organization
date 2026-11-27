@@ -77,7 +77,7 @@ Every new test write-up, `DEVIATIONS.md`, or process-miss log records each predi
 
 **Rule (27 November 2026).** The cost of judgment applied to a repository fact (a count, a status, a pointer, a line cite, a rule): keep a hand copy only if drift times upkeep is below the stake times the loss the copy saves over a link. A count or pointer that changes at most merges never passes, so it is generated or linked. A dated record that never changes costs nothing to keep. A reminder is a memory with no enforcement, so once a miss repeats at medium or high stake the update is a check that fails (§1 item 3), not a reminder.
 
-Every row in [`process/FAILURES.md`](FAILURES.md) names its root cause; the seven codes are defined once, in its "Root-cause codes" section. Log a miss when it happens with `python3 tools/miss.py`: it refuses a row with no root cause, and a model or measurement/code miss goes to that test's `DEVIATIONS.md`. Rows by root cause: <!-- gen:misses -->124 rows. By root cause (a row can carry two): R1 28, R2 29, R3 13, R4 14, R5 16, R6 4, R7 15; no code: 32<!-- /gen:misses -->. Rows written before the codes keep their wording.
+Every row in [`process/FAILURES.md`](FAILURES.md) names its root cause; the seven codes are defined once, in its "Root-cause codes" section. Log a miss when it happens with `python3 tools/miss.py`: it refuses a row with no root cause, and a model or measurement/code miss goes to that test's `DEVIATIONS.md`. Rows by root cause: <!-- gen:misses -->125 rows. By root cause (a row can carry two): R1 29, R2 29, R3 13, R4 14, R5 16, R6 4, R7 15; no code: 32<!-- /gen:misses -->. Rows written before the codes keep their wording.
 
 | code | what holds it |
 |---|---|
