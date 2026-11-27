@@ -31,7 +31,7 @@ Draft, Saturday 2026-11-14 (ET). Private working file. Nothing here was posted o
    - **What the physics contributes.** Every derivation goes through unchanged for any optimizer with those costs. The second law enters in only two places:
      - it is why persistence costs a continual throughput (there is a maintenance term at all);
      - it sets a physical floor on memory cost (Landauer; Still et al. 2012), which binds for cells and is negligible for firms.
-   - **Verdict.** The shared structure across scales is information and decision theory running on a budget that thermodynamics forces to exist. "The same physics all the way up" is not proved by any of this. "The same optimization problem all the way up" is, conditionally.
+   - **Reading.** The shared structure across scales is information and decision theory running on a budget that thermodynamics forces to exist. "The same physics all the way up" is not proved by any of this. "The same optimization problem all the way up" is, conditionally.
 2. **The new statement most worth claiming is Theorem P**, a quantitative, stochastic "must carry a model" theorem.
    - **Statement.** An agent facing an exogenous, drifting world can persist only if its memory carries at least R(y − c̄) bits of information about the future it must act on. R is the rate–distortion function of that future under the agent's loss; y − c̄ is the income left after other costs.
    - **Consequences.** A model is necessary if and only if acting blind is not viable. Lead time is capped by how fast predictive information decays. With a per-bit cost κ, carrying any model pays only if κ is below the marginal value of the first bit, and the optimal model size then grows only logarithmically with stakes.
@@ -52,7 +52,7 @@ Draft, Saturday 2026-11-14 (ET). Private working file. Nothing here was posted o
 5. **C3 failed on proxy, and the theory now says why, quantitatively.** In the reset model, hazard × τ equals per-window ruin, so the observed dormancy hazard and τ alone pin z, with no units needed.
    - At C3's numbers (h ≈ 0.07/yr, median τ = 44 days), the model would predict a hazard ratio of about 11 per doubling of τ. C3 measured about 1.0 (upper CI ≈ 1.09).
    - So at most about 1–5% of OSS dormancy hazard can come from diffusive error accumulation reset at issue-close time.
-   - **Reading.** Dormancy is not diffusive first passage at this τ. Either failures are jump-like (maintainers leave) or τ does not measure the fix interval. This kills the mechanism as posted for this proxy and scale. It does not kill the index where errors really are diffusive.
+   - **Reading.** Dormancy is not diffusive first passage at this τ. Either failures are jump-like (maintainers leave) or τ does not measure the fix interval. This rules out the mechanism as posted for this proxy and scale. It does not rule out the index where errors really are diffusive.
 6. **Scale covariance (Theorem S).**
    - **Where it holds exactly.** The optimal structure is invariant to the currency exactly when the objective is homogeneous in one currency, and it is covariant under time rescaling.
    - **The exponents.** They depend on only two numbers: the loss exponent p and the drift scaling H. The interval scales as σ^(−p/(1+pH)). Smooth losses near an optimum (p = 2) and aggregated independent shocks (H = ½) make the "Gaussian–quadratic class" generic. This is a mean-field-style argument, and it FAILS for heavy tails, thresholds and long memory.
@@ -267,8 +267,8 @@ Setting: S with renewal checks (A3). A copy taken at age 0 is used by the Bayes 
 | Plus unmeasured shock frailty and survivor selection | +0.18 |
 
   - Even with every dilution stacked, β stays above C3's upper CI (0.10–0.12) unless the diffusive share is small.
-- **Verdict on C3 (FAILS for this mechanism at this scale and proxy).**
-  - **Erratum (19 Nov 2026, ET; math-attack REVIEW G1, applied with THEORY v2.0).** Every C3 conclusion in this file (§0 item 5, this R6, §8, §9 items 2, 9 and the closing line) holds only if the fix interval is **deterministic (or narrowly distributed) and exogenous** given (σ, B). With random fix intervals the same pinning predicts a hazard ratio per doubling of 3.0 (exponential), 2.1 (lognormal, sd 1), 1.5 (Pareto κ = 1.5), 1.26 (Pareto κ = 1.2) or 1.20 (lognormal, sd 2), and the diffusive share of hazard compatible with C3 rises from ≈1% to ≈4%, 8%, 18%, 34% or 43% (`reviews/math-attack/review_checks/review_checks.out` R2b). If τ is chosen in response to z, the coefficient can lie anywhere down to −1. So C3 excludes a deterministic, exogenous reset clock at that proxy; with heavy-tailed or endogenous fix intervals it does not. Read "rules out", "at most about 1–5%" and "dead" below and above with this condition. In the repo's vocabulary C3 is a **proxy result** (CLAIM_MAP H15, PROXY-FAIL), not a kill of the theory.
+- **Reading on C3 (FAILS for this mechanism at this scale and proxy).**
+  - **Erratum (19 Nov 2026, ET; math-attack REVIEW G1, applied with THEORY v2.0).** Every C3 conclusion in this file (§0 item 5, this R6, §8, §9 items 2, 9 and the closing line) holds only if the fix interval is **deterministic (or narrowly distributed) and exogenous** given (σ, B). With random fix intervals the same pinning predicts a hazard ratio per doubling of 3.0 (exponential), 2.1 (lognormal, sd 1), 1.5 (Pareto κ = 1.5), 1.26 (Pareto κ = 1.2) or 1.20 (lognormal, sd 2), and the diffusive share of hazard compatible with C3 rises from ≈1% to ≈4%, 8%, 18%, 34% or 43% (`reviews/math-attack/review_checks/review_checks.out` R2b). If τ is chosen in response to z, the coefficient can lie anywhere down to −1. So C3 excludes a deterministic, exogenous reset clock at that proxy; with heavy-tailed or endogenous fix intervals it does not. Read "rules out", "at most about 1–5%" and "dead" below and above with this condition. In the repo's vocabulary C3 is a **proxy result** (CLAIM_MAP H15, PROXY-FAIL), not a miss for the theory.
   - OSS dormancy is not diffusive error accumulation reset at issue-close time.
   - The surviving readings are: (i) dormancy is jump-like (people leave); (ii) issue-close time is not the error-correction interval; (iii) both.
   - A fair second test needs a setting where errors are plausibly diffusive and the fix interval is measured directly.
@@ -410,29 +410,29 @@ Setting: S with renewal checks (A3). A copy taken at age 0 is used by the Bayes 
 
 ---
 
-## 9. Red team: the strongest objections, with verdicts
+## 9. Red team: the strongest objections, with readings
 
 1. **"This is decision theory in a lab coat."** The derivations never use the second law; they hold for a thermostat designer, a portfolio manager and a cell alike.
-   - **Verdict: correct; it survives only in a reduced form.** The literal physics enters as (a) the existence of a maintenance cost (why y > 0 is needed) and (b) a memory-cost floor (Landauer; Still) that binds only for molecular and cellular systems.
+   - **Reading: correct; it survives only in a reduced form.** The literal physics enters as (a) the existence of a maintenance cost (why y > 0 is needed) and (b) a memory-cost floor (Landauer; Still) that binds only for molecular and cellular systems.
    - The claim that can be defended is "one optimization problem at every scale, whose budget the second law guarantees exists". "The same physics doing the work at every scale" is not established by any theorem here, and Chad's framing should not claim it is.
 2. **"Optimal for some cost" is vacuous.** Every policy is the unique optimum of some loss (`c7c`).
-   - **Verdict: correct.** Predictions have content only with costs, stakes and drifts measured independently of the behavior they predict. That is how C3 was built, and it failed on proxy.
+   - **Reading: correct.** Predictions have content only with costs, stakes and drifts measured independently of the behavior they predict. That is how C3 was built, and it failed on proxy.
 3. **There is no mechanism that puts real systems at the optimum.** Alchian (1950): selection rewards relative, realized success; "as if" optimization is at best an approximation.
-   - **Verdict: open.** The theory needs either a selection argument (survivors are near the persistence frontier P0, which is testable) or a learning argument (outcome-driven updating, rule 6).
+   - **Reading: open.** The theory needs either a selection argument (survivors are near the persistence frontier P0, which is testable) or a learning argument (outcome-driven updating, rule 6).
 4. **The temperature index is forced by dimensional analysis, so it has no content.**
-   - **Verdict: half right.** The functional form is forced for diffusive errors. The content lies in (i) diffusive scaling (√τ, H = ½) rather than jumps or long memory, and (ii) the calendar-time elasticities (R3, R4).
+   - **Reading: half right.** The functional form is forced for diffusive errors. The content lies in (i) diffusive scaling (√τ, H = ½) rather than jumps or long memory, and (ii) the calendar-time elasticities (R3, R4).
    - The C3 data refute (i) for OSS dormancy (R6). The posted prediction survives only where errors are demonstrably diffusive and the fix interval is directly measured.
 5. **Feedback breaks everything.** Agents act on their worlds, violating Still's no-feedback condition and (A1).
-   - **Verdict: partly.** P's bound still holds with the policy-induced marginal D_π, but the agent can then buy persistence by stabilizing the world (lowering H(X)) instead of modeling it (Touchette & Lloyd; Sagawa & Ueda 2010 for the thermodynamics).
+   - **Reading: partly.** P's bound still holds with the policy-induced marginal D_π, but the agent can then buy persistence by stabilizing the world (lowering H(X)) instead of modeling it (Touchette & Lloyd; Sagawa & Ueda 2010 for the thermodynamics).
    - "Model the world or make it predictable" is the honest version. Niche construction and regulation are the second strategy.
 6. **Non-Markov observed variables.** Seasonality breaks rule 5's age monotonicity (G1 fails, `c1a`).
-   - **Verdict: correct.** The rule holds in the predictive (Markov) state, which a good model has to discover. That is a real requirement, not a technicality.
+   - **Reading: correct.** The rule holds in the predictive (Markov) state, which a good model has to discover. That is a real requirement, not a technicality.
 7. **Heavy tails and regime shifts.** Big jumps set ruin; the quadratic and diffusive class does not apply.
-   - **Verdict: correct where tails are heavy.** S3 gives the exponents for α-stable drift, but ruin is set by the single big jump and buffers sized to σ√τ are irrelevant. Firm and city data are often heavy-tailed, which may itself explain C3.
+   - **Reading: correct where tails are heavy.** S3 gives the exponents for α-stable drift, but ruin is set by the single big jump and buffers sized to σ√τ are irrelevant. Firm and city data are often heavy-tailed, which may itself explain C3.
 8. **"Every self-maintaining system keeps a model" is false.** Bet-hedging, cheap buffers, viable blind policies and regulation are all counterexamples.
-   - **Verdict: correct.** P1 replaces it with an exact condition. That condition is testable: blind viability, and the first-bit threshold κ < 2 ln 2·a²·Var in the Gaussian case.
-9. **Kill rule.** C3 failed at scale 1 on the τ term.
-   - **Verdict.** The posted kill rule needs two scales. But by R6 the diffusive-reset mechanism, as operationalized with issue-close time, is effectively excluded for OSS. A second-scale test is only informative if it uses a directly measured fix interval in a diffusive-error setting.
+   - **Reading: correct.** P1 replaces it with an exact condition. That condition is testable: blind viability, and the first-bit threshold κ < 2 ln 2·a²·Var in the Gaussian case.
+9. **Miss rule.** C3 failed at scale 1 on the τ term (a proxy result, CLAIM_MAP H15).
+   - **Reading.** The posted miss rule needs two scales. But by R6 the diffusive-reset mechanism, as operationalized with issue-close time, is effectively excluded for OSS. A second-scale test is only informative if it uses a directly measured fix interval in a diffusive-error setting.
 
 **Can any part not survive?** Five things do not:
 - the universal "every self-maintaining system must carry a model";
@@ -441,7 +441,7 @@ Setting: S with renewal checks (A3). A copy taken at age 0 is used by the Bayes 
 - unconditional age monotonicity (rule 5);
 - the derivation of rule 6's mechanism.
 
-The τ term as operationalized in C3 is dead for that scale and proxy.
+The τ term as operationalized in C3 is ruled out for that scale and proxy (H15 now NOT A TEST: qualification not established).
 
 What survives: P, G and R/L as conditional theorems; S as a conditional universality with explicit failure conditions; and the "same optimization problem at every scale" framing.
 

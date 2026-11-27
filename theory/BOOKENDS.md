@@ -9,7 +9,7 @@
 - BK-IMP adds a robustness-to-parameters check and a structural check.
 - BK-G2 is redesigned again: the droplet entrains chemically, and light only scrambles.
 - Shared fate is partial (scaled by relatedness r).
-- BK-P4 gets a third kill.
+- BK-P4 gets a third miss condition.
 
 **The proposals (§6) are applied in this same PR** to THEORY.md, `theory/SCALE_ENDS.md`, `theory/THEOREMS.md`, CLAIM_MAP, litmap and the checker. §6 records what was applied where.
 
@@ -37,7 +37,7 @@ Every blocker, major and high finding is addressed here. The disposition, findin
 - **PROVED (in-model):** a CLAIM_MAP theorem inside the model. It says nothing about nature by itself.
 - **DERIVED:** follows from the theory's own results plus stated mappings or published physics. Where the derivation is new here, it is marked **[BK, new]** and was reviewed in two rounds unless marked unreviewed.
 - **PRIOR ART:** published by others and credited.
-- **HYPOTHESIS:** a real-system claim with a stated kill.
+- **HYPOTHESIS:** a real-system claim with a stated miss condition.
 - **OPEN:** not settled.
 - **IMPOSTER:** sounds like it follows from GTAO but does not. Rejected.
 - **ANALOGY:** a borrowed formula whose premises do not hold, used for direction only.
@@ -75,7 +75,7 @@ Every blocker, major and high finding is addressed here. The disposition, findin
 8. **Status changes.** No status label in CLAIM_MAP changes. Three rows change their wording or stated conditions: CM-N25 (a note), CM-N26 (its PROVED (in-model) scope narrows to pre-Page-time holes; post-Page holes are stated outside that scope, conditional on a conjecture) and CM-N28 ("*selected* models"). §2.0.4 shows why the labels survive.
 9. **Repo inconsistencies flagged (three; all fixed in this PR, §6).**
    - SCALE_ENDS labels its no-model class "H80's thermostat tier", though H80's thermostat tier tracks an outside target.
-   - SCALE_ENDS and THEORY say "models switch on only with heredity" while Theorem P carries no selection premise. Under the Axiom-7 reading of "action" this is consistent, but the wording hides the choice (MATH_LOGIC's verdict, accepted).
+   - SCALE_ENDS and THEORY say "models switch on only with heredity" while Theorem P carries no selection premise. Under the Axiom-7 reading of "action" this is consistent, but the wording hides the choice (MATH_LOGIC's reading, accepted).
    - `theory/THEOREMS.md` T7(iii) keeps the withdrawn L^{2/3} level count, where L is the log-span.
 
    Two smaller ones: THEORY §6 cited MATH_ATTACK "§3.5" for under-watching, but the result is in §3.4 (fixed, BK-P10). GENERAL_THEOREM defines z = σ√τ/B, the inverse of THEORY's z = B/(σ√τ) (not a proposal here; left as a note).
@@ -90,7 +90,7 @@ Everything runs downhill. Fuel burns, heat spreads, and the total disorder of th
 
 **Hold** (called "Burn" before 19 Nov 2026). Some things last only by running energy through themselves: a star, a candle flame. They regulate themselves, and a star does so richly: self-regulating fusion (if the core runs hot, it expands, cools and burns slower), convection, magnetic dynamos, and a layered composition that is itself a frozen record of its history. But they regulate only themselves: they anticipate nothing outside, and nothing outside has to be known for them to keep going. Storms burn too. A hurricane is a heat engine between warm sea and cold sky, and it dies when the water under it cools or it hits land. Its state follows the world, so it carries a correlation with it. As far as anyone knows, nothing in it uses that correlation to last longer; whether anything does is an open question with a test (§2.2).
 
-**Know.** Some things last only by running energy through themselves *and* staying matched to an outside world that changes and can kill them: a cell whose food moves, an animal, a company, a city. Knowing comes in steps:
+**Know.** Some things last only by running energy through themselves *and* staying matched to an outside world that changes and can destroy them: a cell whose food moves, an animal, a company, a city. Knowing comes in steps:
 - **Notice.** Many things merely follow the world. That is correlation, and it is everywhere.
 - **Need it.** Some things would die sooner if that match were scrambled. Now the information matters for survival.
 - **Hold a set point.** The simplest real model is a feedback loop that keeps adding up its error until the error is gone. A bacterium does this when it re-sets its sensitivity after a change in smell (integral feedback). That loop carries a tiny model of the world: "it will stay like this." A loop that only pushes back in proportion to the error, without adding up, does not.
@@ -123,7 +123,7 @@ Everything runs downhill. Fuel burns, heat spreads, and the total disorder of th
 | Notion | Definition | Who has it | Test |
 |---|---|---|---|
 | Correlation | I(M; X) > 0, including predictive I_pred > 0 | almost every driven system (Still et al. 2012: a system "responding to a stochastic driving signal" retains information, "a fraction" of it predictive) | none needed; nearly universal |
-| **Survival-relevant (semantic) information** | correlation whose scrambling, at fixed energy and matter fluxes, lowers viability (Kolchinsky & Wolpert 2018; viability = "ability to keep itself in a low entropy state", or a stated persistence time) | candidates: driven chemistry, storms, cells | **BK-SEM test:** scramble the state–drive correlation with a dose-matched sham; viability must drop. **Kill (non-model):** a drive-matched structure whose viability does *not* drop under scrambling at fixed fluxes holds correlation only |
+| **Survival-relevant (semantic) information** | correlation whose scrambling, at fixed energy and matter fluxes, lowers viability (Kolchinsky & Wolpert 2018; viability = "ability to keep itself in a low entropy state", or a stated persistence time) | candidates: driven chemistry, storms, cells | **BK-SEM test:** scramble the state–drive correlation with a dose-matched sham; viability must drop. **Miss condition (non-model):** a drive-matched structure whose viability does *not* drop under scrambling at fixed fluxes holds correlation only |
 | **Model (structural)** | error feedback containing a reduplicated model of the outside signal's dynamics (internal model principle, Francis & Wonham 1976), **regulating a variable that bears on the entity's own ruin**. Minimal case: integral feedback, the model of a constant/step world. It gives robust perfect adaptation (Barkai & Leibler 1997, abstract: adaptation that "does not require the 'fine-tuning' of parameters"; Yi et al. 2000 show that this is integral feedback, "integral control … necessary"). Proportional or leaky feedback holds no internal model; it leaves a steady error that shifts with the drive. High-gain proportional loops can *approximate* adaptation, because the IMP's necessity result concerns asymptotic, structurally stable regulation, which is why BK-IMP tests robustness. An oscillator matched to a periodic signal generator (an entrained clock) is **IMP-like**. **Regulator without stakes:** an IMP-like structure whose regulated variable does not bear on its own persistence. It is outside GTAO's knowing, whatever its structure | bacterial chemotaxis (integral); circadian clocks (IMP-like oscillator). Regulators without stakes: the carbonate–silicate cycle (candidate), ocean carbonate compensation | **BK-IMP test**, all three parts required: (a) after a sustained step in the drive, the regulated variable returns to its prior value; (b) that return is **robust to parameter perturbation**, which excludes tuned or high-gain proportional loops but does not by itself exclude an incoherent feedforward loop: searching all three-node topologies, "only two major core topologies emerge as robust solutions: a negative feedback loop with a buffering node and an incoherent feedforward loop with a proportioner node" (Ma et al. 2009, abstract); (c) a **structural check**, which is what separates feedback from feedforward: that the integrated quantity is the error (for example antithetic integral feedback, Briat, Gupta & Khammash 2016, metadata only). Flames, dunes and hurricanes are expected to fail (a) |
 | **Selected model** | a structural model whose design is shaped by selection with resolution ε (Axiom 7) | cells and above, under strong selection | GTAO's design predictions (CM-N13, CM-J6, OPEN) |
 
@@ -168,7 +168,7 @@ Everything runs downhill. Fuel burns, heat spreads, and the total disorder of th
 | Q5 Acting ahead (realized lead k > 0) | entrained oscillators with phase lead (may not need heredity; untested, BK-G2); circadian clocks (Woelfle et al. 2004); microbial anticipation (Mitchell et al. 2009; Tagkopoulos et al. 2008; litmap) | acting ahead is *viable* only within the predictability horizon (GT-P2: k ≤ k_max, a ceiling set by the world and the budget). It *pays* only where lateness costs exceed upkeep (GT-P3, with actions) | PROOF (GT-P2, GT-P3); PRIOR ART for the data; H2 stays HYPOTHESIS |
 
 **What changes relative to the record.**
-- **CM-N28's wording changes; its status stays OPEN.** Its text said "a model switches on only with heredity …". Under this file's definitions that is true of *selected* models (Q4) and false for Q2–Q3 as a matter of definition. The same sentence in THEORY §2.3 (the "ends of the scale" bullet) gets the same change (BK-P5, applied). Under the response/action split the claim is no longer definitional: it has a kill, SCALE_ENDS SE4 kill (iii) (BK-P4).
+- **CM-N28's wording changes; its status stays OPEN.** Its text said "a model switches on only with heredity …". Under this file's definitions that is true of *selected* models (Q4) and false for Q2–Q3 as a matter of definition. The same sentence in THEORY §2.3 (the "ends of the scale" bullet) gets the same change (BK-P5, applied). Under the response/action split the claim is no longer definitional: it has a miss condition, SCALE_ENDS SE4 miss condition (iii) (BK-P4).
 - **SCALE_ENDS §3.3** put all pre-hereditary chemistry in "held, no model". Under §2.0 that stays right for "model". The structures can still carry survival-relevant information, which SCALE_ENDS now separates (BK-P2, applied).
 
 **Testable consequence (HYPOTHESIS BK-G2, redesigned again in revision 3 per PHYSICS R2-1 and BIO R2-4).** *This is a test of the mapping in a designed system, not evidence about natural prebiotic chemistry.* **Not preregistered**, and it must not be until the premise check and power calculation below are done.
@@ -181,7 +181,7 @@ Everything runs downhill. Fuel burns, heat spreads, and the total disorder of th
   - (C) **rhythmless matched-mean control:** an aperiodic feed with the same mean reagent supply, where no phase information can help;
   - (L) **light-alone check:** the matched light dose under the C feed, to confirm that light by itself does not change amplitude decay.
 - **Prediction:** viability T > S, and S ≈ C.
-- **Kill:** T ≤ S within the preregistered minimum detectable effect.
+- **Miss condition:** T ≤ S within the preregistered minimum detectable effect.
 - **Caveat:** the phase dependence of the feed is engineered, so a pass shows only that the mapping (§2.0.3) and the scrambling test (BK-SEM) work as instruments, here on a droplet's *own* entrained state. It is not evidence that nature built such systems. **Status:** HYPOTHESIS. Design OPEN until the tongue and phase-response premises are measured and the minimum detectable effect and power are computed (MV10).
 
 ### 2.2 Is feedback the simplest model? (revised)
@@ -202,7 +202,7 @@ Everything runs downhill. Fuel burns, heat spreads, and the total disorder of th
 - **Correlation:** all have it (Still et al. 2012).
 - **Survival-relevant information (BK-SEM):** OPEN for each. For drive-slaved structures whose relaxation is much faster than the drive changes, the expected result is no drop, because the scrambled state relaxes back within one relaxation time.
 - **Model (BK-IMP):** expected **no** for all four. A flame's size shifts with oxygen supply, a dune migrates with the wind, and a hurricane's intensity tracks sea-surface temperature. A galaxy's gas reservoir in the gas-regulator ("bathtub") model is a **leaky** integrator: star formation "is instantaneously regulated by the mass of gas in a reservoir", and the sSFR "is set to the specific accretion rate" *if the SFR efficiency and wind mass loading are constant* (Lilly et al. 2013, abstract). The gas mass scales with inflow, so this is tracking with a shifting state, not perfect adaptation: **K1 per the Lilly 2013 regulator model**. An observational BK-IMP form for galaxies is not defined (OPEN).
-- **Kill for this expectation:** any of them passes BK-IMP (a)–(c) for a regulated variable after a sustained step in its drive.
+- **Miss condition for this expectation:** any of them passes BK-IMP (a)–(c) for a regulated variable after a sustained step in its drive.
 
 ### 2.3 Why frozen memory exists in the grand scheme
 
@@ -227,7 +227,7 @@ The like-for-like gap is therefore S_CEH,int ≈ 10¹⁰³ against S_CEH ≈ 10�
 - **Withdrawn from revision 1:** "its ruin is fixed by its own mass and composition", which holds only for isolated stars.
 - **Withdrawn:** "upkeep h = L". L is the star's **free-energy throughput**, not a maintenance cost. A star that stops fusing contracts and heats, and white dwarfs persist with no flux.
 - **Stellar generations** pass on composition, a frozen record, with no selection over designs.
-- **Kill (SE9):** a star whose persistence depends on tracking an external drift through a response it can vary. Stars remain an MV7 calibration case for "held but not modelling". **Galaxies are removed from that known group** (PHYSICS F3): they are K1 per the Lilly 2013 regulator model; an observational test is not defined (OPEN).
+- **Miss condition (SE9):** a star whose persistence depends on tracking an external drift through a response it can vary. Stars remain an MV7 calibration case for "held but not modelling". **Galaxies are removed from that known group** (PHYSICS F3): they are K1 per the Lilly 2013 regulator model; an observational test is not defined (OPEN).
 
 ### 2.5 Planets and Gaia
 
@@ -327,7 +327,7 @@ Each step keeps its source label and states where it fails.
 | **City** | levels; weak selection | Monitoring sublinear and tiered | **CM-I14** (OPEN). z ∝ N^{b−H−θ/2} (MATH_ATTACK §3.5, CONJECTURE) |
 | **Civilization** | levels at planetary extent | Federation forced by latency (light delay: a latency cost on Earth, a hard cap off-planet; absent shortcuts, `WORMHOLES.md` §4b) | **LAT-1** (CM-N27 OPEN), weighted toward geo-distributed firms |
 | **Planet** | mixed (§2.5) | Earth regulates through its biosphere, plus an integrator-like geochemical cycle that is a regulator without stakes. Life reduces the drift it tracks. The technosphere adds forecasting | **Microcosm substitution (HYPOTHESIS, redesigned per BIO finding 9):** externally manipulate drift (buffered vs fluctuating medium) across replicate evolving lines, and predict lower investment in sensing and regulation in buffered lines at matched stakes. A pass is weak, because loss of unused regulation under relaxed selection is known (Mitchell et al. 2009). **BK-IMP on carbonate–silicate box models** (OPEN; a classification, not a knowing test). No test at planet scale for design predictions (n = 1) |
-| **Star** | held; K1 | — | CLASSIFICATION. SE9 kill; MV7 calibration case |
+| **Star** | held; K1 | — | CLASSIFICATION. SE9 miss condition; MV7 calibration case |
 | **Galaxy** | held; K1 per the Lilly 2013 regulator model | — | CLASSIFICATION; an observational BK-IMP form is not defined (OPEN). Not a calibration case |
 | **Black hole** | frozen extreme | Nobody's usable memory | CLASSIFICATION. BH-1 = O5 is tested only in ordinary storage hierarchies (HYPOTHESIS) |
 | **Cosmos, heat death** | gap closing | Knowing can last no longer than the last usable gradient, which may be black-hole evaporation long after the stars. In an accelerating universe the total recoverable information is finite and "life cannot be eternal" (Krauss & Starkman 2000, via SCALE_ENDS). Dyson-style hibernation does not rescue indefinite computation, by Krauss & Starkman's argument | CLASSIFICATION; PRIOR ART relabelled (SE14). Revision 1's ordering "knowing ends first, burning next, keeping last" is withdrawn (PHYSICS F13) |
@@ -357,12 +357,12 @@ Each step keeps its source label and states where it fails.
 - **BK-P1 — SCALE_ENDS §2 class table, class 2 (amended per MATH_LOGIC R2-2).** Class 2 becomes "**Held structure, no structural model**: self-regulation, or a proportional/drive-slaved response to an exogenous variable; may carry survival-relevant information (BOOKENDS BK-SEM)". The "(H80's thermostat tier)" label is removed. In §4.1, "H80's feedback tier" becomes "self-regulation (a proportional restoring effect); not H80's thermostat rung, which predicts an exogenous target". *Applied.*
 - **BK-P2 — SCALE_ENDS §2: the four notions, and class 3 vs 3s (amended per PHYSICS and BIO R2-1).** A note after the class table defines (a) correlation, (b) survival-relevant information, (c) a structural model *of a variable bearing on the entity's own ruin*, and (d) a selected model. A structural model with nothing at stake is a **regulator without stakes** and stays in class 2 with a note; the candidate is the carbonate–silicate cycle. Galaxies-as-K1 is a candidate classification. Class 3 (held model) may include unselected systems. **Class 3s (selected model)** is where GTAO's design predictions apply. *Applied.*
 - **BK-P3 — SCALE_ENDS §2: class 3 condition (amended per MATH_LOGIC R2-2).** The class-3 "Needs" cell becomes "E1 fails for a *response* with world-dependent payoff (BOOKENDS §2.0.1), E2 fails, a flux (E3), and a structural model of an exogenous drifting target bearing on the entity's own ruin (internal model principle; BOOKENDS BK-IMP)". Class 3s adds "selection over designs (Axiom 7: heredity, learning or design)". *Applied.*
-- **BK-P4 — SCALE_ENDS §3.3 and SE4 kill (a pre-data revision, logged with its reason; amended per PHYSICS and BIO R2-5).** §3.3 becomes "They need D > 0. They are class 2 unless they hold a structural model; whether they carry survival-relevant information is tested by BOOKENDS BK-SEM". SE4's kill becomes three kills:
+- **BK-P4 — SCALE_ENDS §3.3 and SE4 miss condition (a pre-data revision, logged with its reason; amended per PHYSICS and BIO R2-5).** §3.3 becomes "They need D > 0. They are class 2 unless they hold a structural model; whether they carry survival-relevant information is tested by BOOKENDS BK-SEM". SE4's miss condition becomes three miss conditions:
   - (i) a structure holding survival-relevant information about a drifting variable **with no flux** (not merely a vanishing one; passive quasi-static coupling, SE-E3(c), is excluded);
   - (ii) a structure passing BK-IMP for an exogenous step **with no flux** (prior art says adaptation is necessarily dissipative: Lan et al. 2012);
-  - (iii) **a non-hereditary, non-learning structure whose design sits measurably nearer a GTAO optimum than unselected controls** (a design prediction met without heredity or learning). This kill tests "selected models need heredity" (CM-N28 as reworded).
+  - (iii) **a non-hereditary, non-learning structure whose design sits measurably nearer a GTAO optimum than unselected controls** (a design prediction met without heredity or learning). This miss condition tests "selected models need heredity" (CM-N28 as reworded).
 
-  *Reason:* SCALE_ENDS IR-FIX10 found the heredity clause near-definitional under the Axiom-7 reading. Under the response/action split, kill (iii) makes it non-definitional. *Applied.*
+  *Reason:* SCALE_ENDS IR-FIX10 found the heredity clause near-definitional under the Axiom-7 reading. Under the response/action split, miss condition (iii) makes it non-definitional. *Applied.*
 - **BK-P5 — THEORY §2.3 ("ends of the scale" bullet), the THEORY status block, SCALE_ENDS §0 item 6, and the CM-N28 text.** "Models switch on only with heredity, …" becomes "*Selected* models (design optimization) switch on only with heredity, a world-dependent action, drift inside the hold band, and a first nat that pays; survival-relevant information and minimal (integral-feedback) models are not excluded earlier (`theory/BOOKENDS.md` §2.1)". CM-N28 stays OPEN. *Applied.*
 - **BK-P6 — CM-N25 note (label unchanged; amended per MATH_LOGIC R2-4 and PHYSICS).** Added note: "Under a response (unselected) reading the conclusion follows from SE-E2 alone: blind persistence is viable, so Theorem P allows I_pred = 0, and semantic information is expected to be 0 (physical argument, not computed; BOOKENDS §2.0.4)." *Applied.*
 - **BK-P7 — CM-N26, THEORY §2.3 and status block, SCALE_ENDS §0 item 3, SE10 and §4.2 (label unchanged; scope narrowed per MATH_LOGIC R2-3).**

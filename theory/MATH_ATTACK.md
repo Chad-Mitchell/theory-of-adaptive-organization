@@ -56,7 +56,7 @@ Written Sat 2026-11-14, about 10:15 PM to midnight ET, by a Grok Bot executor, f
      - heterogeneous fix speeds aggregate to long memory (Granger), and a single-τ fit mispredicts failure by 1.4–2.4× (NUMERIC);
      - the "representative agent" exists only under a Gorman-type condition, otherwise with an **unbounded** penalty;
      - parts do not internalize the whole's failure cost.
-   - **Verdict:** the strong claim ("a population obeying the objective is an agent obeying the same objective") is **false in general**. The conditional claim is a theorem with four explicit conditions.
+   - **Reading:** the strong claim ("a population obeying the objective is an agent obeying the same objective") is **false in general**. The conditional claim is a theorem with four explicit conditions.
 9. **Red team.** None of the five objections is fatal to the conditional theory. Objection 5 is fatal to the unconditional "same at every scale". Objection 1 (the forms are forced) demotes the cross-domain recurrence evidence to near zero.
 10. **Decisive tests:**
     - banks (firm scale; FFIEC + FDIC failures; competitor Boyd–Graham Z);
@@ -200,7 +200,7 @@ So r_B = ε_B/ε_σ = −1 exactly, and r_τ = ½ − 1/ε_σ. Finite difference
    - σ = SD of monthly inflow. Its Fano factor σ²/mean has median 1.85, with 55% of repos below 2 (near Poisson counting noise). The slope d ln σ/d ln volume is 0.68, close to the Poisson 0.5.
    - So σ largely measured √size, and corr(ln σ, ln B) = 0.79.
    - τ (KM median close time) spans 0.09–18 months between the 10th and 90th percentiles and mixes triage with fixing.
-4. **Shock class [CONJECTURE].** Project death is plausibly single-jump (the maintainer leaves), and that kills ε_τ (§2.3). This is testable: does dormancy follow an abrupt drop in the top contributor's activity?
+4. **Shock class [CONJECTURE].** Project death is plausibly single-jump (the maintainer leaves), and that rules out ε_τ (§2.3). This is testable: does dormancy follow an abrupt drop in the top contributor's activity?
 5. **Endogeneity and selection [KNOWN mechanism; CONJECTURE here].**
    - Projects with big buffers can afford slow triage, and the optimal τ\* rises with B/σ.
    - Survivorship (alive in mid-2023) truncates away hot, slow units.
@@ -250,7 +250,7 @@ At fixed level spread s, ε_τ = −1.
 - At ρ = 0, z grows as √N without limit (diversification).
 - At ρ > 0, z saturates at z/√ρ. Correlated shocks set a floor temperature that no amount of size removes.
 
-**Weakest link** (each part has its own buffer, and any part failing kills the whole): h_N = N·h(z). In the tails this is the *same form* with:
+**Weakest link** (each part has its own buffer, and any part failing brings down the whole): h_N = N·h(z). In the tails this is the *same form* with:
 - z' ≈ √(z² − ln N) for Gaussian tails (z = 3, N = 16: exact 2.45, rule 2.50);
 - z' ≈ z − ln N/√2 for exponential tails.
 
@@ -278,7 +278,7 @@ The unit **heats** with size. Its maximum viable size without pooling is about N
 - **Data handle [KNOWN].** Stanley et al. 1996 (Nature 379:804) find that the SD of firm growth rates falls as size^{−0.15} or so, so absolute σ ∝ S^{~0.85} (H ≈ 0.85, far from ½). With b = 1 and θ = 0, z ∝ S^{0.15}: firms cool only weakly with size [CONJECTURE: that b ≈ 1].
 - Urban scaling exponents (Bettencourt et al. 2007, PNAS 104:7301: ≈ 0.8 for infrastructure, ≈ 1.15 for socioeconomic) give b for cities if buffers are infrastructure-like [CONJECTURE].
 
-### 3.6 Verdict on scale invariance
+### 3.6 Reading on scale invariance
 
 **Proved: form invariance, under four conditions.** Coarse-graining yields an agent with the same objective, with renormalized σ' (CLT), B' (pooled), τ' = τ and costs (c', w') = (Σc, Σwσ²/σ'²), **iff** all four hold:
 - C1: shocks lie in a Gaussian or stable basin;
@@ -305,7 +305,7 @@ These are falsifiable cross-scale statements. The renormalization picture is a G
 
 ## 4. Red team: the five strongest objections
 
-| # | Objection | Verdict |
+| # | Objection | Reading |
 |---|---|---|
 | 1 | **"The forms are forced."** Dimensional analysis plus CLT universality give σ√(cw), z = B/(σ√τ) and Brownian closure for *any* system with additive noise, one cost scale and one fix time. Recurring EOQ, Kalman and Kramers forms across domains is therefore not evidence for a common principle (this pass proves it, §1.2 and §2.1). | **Answered against the theory's past evidence; fixable going forward.** The "unification" in REAUDIT §2 counts for almost nothing. Content must sit in the risky parts: the F classes, the identity's numbers, the flow directions and the competitor-distinguishing signs (§5). |
 | 2 | **Still et al. do not apply.** They assume no feedback, a heat bath, Markov dynamics and an equilibrium start. Adaptive systems act on their world, and firms do not pay in heat. | **Fixable for cells** (Barato–Seifert, Horowitz–Esposito, Sagawa–Ueda handle information flow and feedback). **Fatal to "thermodynamics explains firm design"** but not to the bet: at firm scale the floor holds but does not bind, and the shaping claim rests on J in money and time. O1 makes the currency swap exact in form, which says *where* the bet lives (c_nat), not that it is true. |
@@ -321,7 +321,7 @@ These are falsifiable cross-scale statements. The renormalization picture is a G
 - Estimate (σ, τ, B) on the first time block and outcomes on a later block.
 - Lock the code, hash it, and preregister before pulling any outcome.
 - Report both the continuous (ε_σ/2 − 1) and incident (ε_σ/2) versions of the identity.
-- **Joint kill:** at **two or more** scales, in the cold regime (z ≥ 1.5), either β_lnτ|σ,B ≤ 0 with the CI excluding +0.2, or the fixed-spread slope β_lnτ|s,B is closer to 0 than to −1. Either outcome kills the τ term and the dynamical temperature.
+- **Joint miss condition:** at **two or more** scales, in the cold regime (z ≥ 1.5), either β_lnτ|σ,B ≤ 0 with the CI excluding +0.2, or the fixed-spread slope β_lnτ|s,B is closer to 0 than to −1. Either outcome rules out the τ term and the dynamical temperature.
 
 ### D1. Firm scale: US commercial banks, 2008–2014 failures
 - **Data (free):**

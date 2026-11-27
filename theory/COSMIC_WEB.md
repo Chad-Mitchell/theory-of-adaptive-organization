@@ -1,10 +1,10 @@
 # The cosmic web as a network: what resembles organizations, brains and the internet, and what does not
 
-Wednesday 18 November 2026, evening ET. Companion to [`REACH.md`](REACH.md) (§5). Code and saved output: `reach_checks/web_null.py`, `web_null.out`; and, added in v1.4.25, `reach_checks/web_hubs_sdss.py`, `web_hubs_sdss.out` (§2b). Labels as in REACH.md (DERIVED / RESTATEMENT / PRIOR ART / HYPOTHESIS / CONDITIONAL). **Updated Wednesday 18 November 2026, late evening ET (v1.4.25): the "no hubs" claim is withdrawn (verdict 3, §2b); the delay-versus-link-cost prior-art sweep is in §3b; a preregistered hub-test spec is in §8.**
+Wednesday 18 November 2026, evening ET. Companion to [`REACH.md`](REACH.md) (§5). Code and saved output: `reach_checks/web_null.py`, `web_null.out`; and, added in v1.4.25, `reach_checks/web_hubs_sdss.py`, `web_hubs_sdss.out` (§2b). Labels as in REACH.md (DERIVED / RESTATEMENT / PRIOR ART / HYPOTHESIS / CONDITIONAL). **Updated Wednesday 18 November 2026, late evening ET (v1.4.25): the "no hubs" claim is withdrawn (reading 3, §2b); the delay-versus-link-cost prior-art sweep is in §3b; a preregistered hub-test spec is in §8.**
 
 **The idea tested (Chad, t1955/t1956).** The cosmic web looks like a network of organizations, a brain, or the internet; the theory should say what is shared and what is different, with real published network numbers. Treated as a hypothesis, not a spec.
 
-## 0. Verdict in plain words
+## 0. Reading in plain words
 
 1. **The resemblance is real but shallow.** The web is clustered and spatially embedded, as brains' local circuits and many spatial networks are. That much is shared.
 2. **It is geometry plus gravitational structure, not function.** Linking points that are near each other already gives high clustering and positive degree correlation, whatever the points are. A random point set with the same linking rule (the published "random" curve in Coutinho et al.; my check below) does much of it. The real web's excess over that proper null is clear but bounded: a clustering of about 0.60 to 0.64 against about 0.44 to 0.47 for random positions at ⟨k⟩ ≥ 8, read by eye from their Fig. 4(c). Its in-degree spread is also broader than random positions give. That excess is real, nonlinear gravitational structure, so more than geometry is going on (Chad's point, t1955). What the theory denies is narrower: that any of it is tracking or selected design.
@@ -163,15 +163,15 @@ Empty cells say "not read here". They are not "no".
 
 The resemblance between the cosmic web and an organization is mostly of the same kind as the resemblance between a spider web and a road map: both are networks of local links in space. The web adds real gravitational structure on top (more clustering and a broader degree spread than random positions give), so "just geometry" undersells it. But nothing in that structure needs a tracker. The theory says what is shared (link cost with distance) and what is not (a priced delay, one route to hubs, and a tracker that rewires). The sharper negative prediction is that **no feature of the cosmic web's topology depends on a cost the web pays**, because it pays none that the theory counts. Whether that is testable is limited: the web's observed topology is already explained by gravity from the initial field, which is a rival the prediction cannot beat but does not need to.
 
-## 6. Predictions and kill conditions
+## 6. Predictions and miss conditions
 
-| Row | Prediction | Label | Kill condition |
+| Row | Prediction | Label | Miss condition |
 |---|---|---|---|
 | N39 | The web's topology is accounted for by initial conditions plus gravity and baryonic physics; GTAO adds nothing. Negative prediction | PRIOR ART (consistent with Bond et al. 1996; v1.4.25: hub-like degree heterogeneity in halo networks is also gravitational, Yang & Yu 2023, §2b) | A web feature shown to depend on a tracked quantity (for example one that correlates with a cost paid by the web) rather than on initial conditions and gravity. Not expected |
 | N40 | Among tracking networks (organizations, communication systems), hub degree increases with the ratio lateness price / link price; where nothing tracks, no cost-driven hubs | OPEN (HYPOTHESIS; v1.4.25: the delay-versus-link-cost trade-off is PRIOR ART in several fields, §3b, so only the staleness-cost reading and the measured-price dependence are GTAO's; presence of hubs is not diagnostic, since gravity and growth give hubs too) | A preregistered cross-section of at least a stated number of organizational or communication networks in which hub concentration (for example the top-1% degree share) is uncorrelated or negatively correlated with a measured delay-cost to link-cost ratio, with proximity-null and growth-null controls. Must meet MV1 to MV10 before a prereg locks; the price-to-λ map is now defined for single-root networks embedded in space (§3b: λ = u·L/(W·τ_h)) but its staleness-cost input W has not been measured for any system, so the prediction still cannot be run |
 | (control) | A proximity-only null reproduces the clustering and positive assortativity of any spatial network | DERIVED (simulation) | Not a prediction about the theory; it is a requirement on any test: compare with a proximity null, not with Erdős–Rényi |
 
-## 7. What would change my mind about the verdict
+## 7. What would change my mind about the reading
 
 **Partly done in v1.4.25 (§2b).** Against a geometry-only null the web's heterogeneity is clearly higher. Against a two-point-matched null both the nearest-neighbour in-degree and the radius-graph hub statistic are **unresolved** (the first reading of the in-degree as matched was withdrawn by independent review 2, because the lognormal null had failed its check). §2c's better null finds no hub excess but does not pass the §8 gate, and shows the hub share depends on the null's higher-order structure. A reanalysis with N-body-based mocks (spec in §8) is still needed. It cannot support or refute GTAO, since both outcomes are gravity.
 

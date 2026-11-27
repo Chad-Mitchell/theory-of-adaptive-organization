@@ -235,7 +235,7 @@ How it could fail:
 3. A constant exponent near 1 regardless of β falsifies the theory and favours the budget-share null.
 4. Retina and vision give one anchor: β = 0.905 predicts 1.10.
 
-## 8. The "decision theory in a lab coat" objection: verdict
+## 8. The "decision theory in a lab coat" objection: reading
 
 | Claim | Does the second law do the work? | Status |
 |---|---|---|
@@ -245,7 +245,7 @@ How it could fail:
 | Growth ≤ disequilibrium + information − take | Same inequality for Szilard (Esposito & Van den Broeck 2011, EPL 95:40004; Sagawa & Ueda 2009), Kelly (Vinkler et al. 2016) and selection (Kimura 1961, Genet. Res. 2:127: ~0.29 bits/generation at load 0.2). No-arbitrage is the market's "second law". | KNOWN (isomorphism) |
 | Efficient environment ⇒ blind persistence impossible, so persistence needs I > ln(1 + v) | Follows from the identity above. Check (i3): blind growth −0.154 and −0.086 in near-efficient markets; MC with side information matches D − ln(1 + v) + I to < 0.015. The value of information is linear, so the choice is bang-bang at κ = 1 nat/nat. | PROOF (assembly; UNCONFIRMED novelty) |
 
-**Verdict.**
+**Reading.**
 - Above the cell, the thermodynamic second law constrains the *currency* (a floor on κ) and the *throughput* (via networks), but not the *exponents*.
 - The one law that is truly the same at every scale is the growth/disequilibrium/information inequality. It is a known isomorphism.
 - The objection is answered only in that weak sense. I am not claiming more.

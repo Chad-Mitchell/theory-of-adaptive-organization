@@ -55,7 +55,7 @@ Preregistration rules for every test are the same as in MATH_ATTACK §5: fix mea
   - (b) a single exponential matched to the driver's mean correlation time (T1 alone).
 - **Second scale, same logic:** Supreme Court precedent citation decay (CourtListener, free) against how fast each area of law drifts (amendment counts for the governing US Code titles, from US Code release points, free).
 - **Third scale:** BIO1's neural data are not public, so use published retention exponents and environmental need exponents (Anderson & Schooler's own analyses) as a check that does not need new data.
-- **Kill:** α unrelated to β_env (|ρ| < 0.1 with a tight CI) at two scales.
+- **Miss condition:** α unrelated to β_env (|ρ| < 0.1 with a tight CI) at two scales.
 
 **Payoff.**
 - If it holds, it is the cleanest evidence that "memory matches the world" *quantitatively* across scales.
@@ -83,7 +83,7 @@ Preregistration rules for every test are the same as in MATH_ATTACK §5: fix mea
   - Fit log(gain rate) on log(speaker population).
   - **T4 predicts slope ≈ 0.5** in the small-gain regime.
   - **Competitor:** neutral substitution (Kimura 1968, Nature 217:624; a textbook result, not in LITMAP). The fixation rate of neutral variants is independent of N, so slope 0. A per-capita innovation model with no fixation filter predicts slope 1.
-  - **Kill:** a CI excluding 0.5 and including 0 or 1.
+  - **Miss condition:** a CI excluding 0.5 and including 0 or 1.
 - **Sign flip.** In Google Books Ngram (free), compare replacement rates of words for drifting referents (technology nouns, for example the names of communication devices) against stable meanings (Swadesh-list items), each against frequency.
   - Prediction: the frequency effect on replacement is negative for stable meanings (Pagel/Lieberman) and attenuated or positive for drifting referents.
 - **Wikipedia.** Take statements in articles about fast-drifting topics (live sports rosters, company executives) against stable topics. Track replacement rate against the number of active editors N, at matched topic drift.
