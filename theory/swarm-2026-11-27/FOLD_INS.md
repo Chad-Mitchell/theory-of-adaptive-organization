@@ -1,6 +1,6 @@
 # Fold-ins: five parent-child results read inside the swarm rule
 
-*Friday 27 November 2026 (America/New_York). Part of `theory/swarm-2026-11-27/` (index: `INDEX.md` in this folder). Branched from `863a8a8bb3e0bb46c00a9236a9b4d5192c4b9d8d`. The swarm rule is a SYNTHESIS design (`measurement/CLAIM_MAP_v2.md`, row SWARM-RULE); the results below are each labelled for their own class and each has its own ledger row. `THEORY.md` and `CORE.md` are not edited. Checks: `checks/swarm27_checks.py`, section A. A self-check, not an independent review.*
+*Friday 27 November 2026 (America/New_York). Part of `theory/swarm-2026-11-27/` (index: `INDEX.md` in this folder). Branched from `863a8a8bb3e0bb46c00a9236a9b4d5192c4b9d8d`. The swarm rule is a SYNTHESIS design (`measurement/CLAIM_MAP_v2.md`, row SWARM-RULE); the results below are each labelled for their own class and each has its own ledger row. `THEORY.md` is not edited; `CORE.md` is edited only at lines 98 and 120, where the swarm paragraph now points to ledger rows SWARM-MERGE and SWARM-REPRICE instead of restating their status. Checks: `checks/swarm27_checks.py`, section A. A self-check, not an independent review.*
 
 The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.
 
