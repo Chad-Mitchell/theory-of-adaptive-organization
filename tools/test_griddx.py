@@ -106,7 +106,7 @@ def test_claim_map_retype_and_new_rows():
     assert status("P20") == PASS_STATUS
     assert status("H3") == PASS_STATUS
     assert status("P1") == FAIL_STATUS
-    assert "Qualification prospect (reviewer judgment, not a verdict)" in cm
+    assert "Qualification prospect (reviewer judgment, not a result)" in cm
     assert "not a test of the law" not in cm
     assert status("P23") == "DECIDED"
     assert status("P24") == "INCONCLUSIVE"

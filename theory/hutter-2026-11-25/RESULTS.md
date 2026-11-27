@@ -79,7 +79,7 @@ Not a candidate, as fixed before scoring (`PREREG.md` §4). The cost-to-fitness 
 
 ## Corrections after independent gate read (Wednesday 25 November 2026, ~12:30 ET, append-only)
 
-All lines above are preserved as committed at `66640ab`. The independent gate read (`/workspace/gtao-notes/gate_read_290.md`, checking `process/PREREG_GATE.md` at `8c4b3c0`) found 4 blocking items and gave `E1` a **GATE STOP**. The corrections below are appended without editing `PREREG.md` or earlier lines.
+All lines above are preserved as committed at `66640ab`. The independent gate read (`<local>/gtao-notes/gate_read_290.md`, checking `process/PREREG_GATE.md` at `8c4b3c0`) found 4 blocking items and gave `E1` a **GATE STOP**. The corrections below are appended without editing `PREREG.md` or earlier lines.
 
 ### 1. Withdrawal of E1 and correction of the prior-art reading (blocking items 1–3)
 

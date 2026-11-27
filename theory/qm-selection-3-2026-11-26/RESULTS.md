@@ -5,7 +5,7 @@
 ## Launch (process rule of 2026-11-26)
 
 - `git ls-remote` at 07:27:00 ET: `499ef043a6c45a8abb995d4d88758cb7b2dc5fdd refs/heads/forge-rnd-record-cost-2`. `499ef04` descends from the lock `e496428`, and no file in this directory changed between them.
-- Fresh clone from GitHub into `/workspace/qmsel3-run`; `sha256sum -c PREREG.sha256` gave 4/4 OK there; numpy 2.5.5, scipy 1.18.1, python 3.13.5 (the pinned versions).
+- Fresh clone from GitHub into `<local>/qmsel3-run`; `sha256sum -c PREREG.sha256` gave 4/4 OK there; numpy 2.5.5, scipy 1.18.1, python 3.13.5 (the pinned versions).
 - The locked command (§0.9) was run once, from that clone only: started 07:27:19 ET, finished 08:48:05 ET, exit code 0. `run_launch.log` holds the ls-remote line, the clone path and both times.
 - One launch, no restart. The operator's session was cut off at about 08:16 ET while the run was in progress; the run itself was not interrupted (one process tree throughout, checked with `pgrep`), and it was not relaunched. Progress was read during the run from the worker arguments with `py-spy dump` (read-only); no outcome was visible before the end, because the script prints all results at the end.
 - `--run` passed its own guards: lock hashes, pinned versions, and the regenerated enumeration equal to `list.out` (927 bodies).

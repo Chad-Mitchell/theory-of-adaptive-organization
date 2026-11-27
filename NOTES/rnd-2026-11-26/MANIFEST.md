@@ -1,13 +1,13 @@
 # Manifest: verbatim copy of the 26 November 2026 R&D notes (Forge)
 
-*Snapshot taken Thursday 26 November 2026 at 19:17 ET from the box folder `/workspace/gtao-notes/rnd/` (and `/workspace/gtao-notes/WORKLOG.md`). Copied byte for byte; nothing in this folder was edited. Every copied file is listed with its SHA-256 in `SHA256SUMS` beside this file (`sha256sum -c SHA256SUMS` from this folder). Those lock lines are also what keeps the repo's word check from reading these notes as new prose: they are a record, written under the day's working vocabulary, and are kept as they were.*
+*Snapshot taken Thursday 26 November 2026 at 19:17 ET from the box folder `<local>/gtao-notes/rnd/` (and `<local>/gtao-notes/WORKLOG.md`). Copied byte for byte; nothing in this folder was edited. Every copied file is listed with its SHA-256 in `SHA256SUMS` beside this file (`sha256sum -c SHA256SUMS` from this folder). Those lock lines are also what keeps the repo's word check from reading these notes as new prose: they are a record, written under the day's working vocabulary, and are kept as they were.*
 
 ## 1. What was copied
 
 - **535 files**, about 15.9 MB.
-- `stepback/**` from `/workspace/gtao-notes/rnd/stepback/` (the step-back notes, every route note, scripts and outputs).
-- `review_*/**` from `/workspace/gtao-notes/rnd/review_*/` (19 review folders, including `review_worldtrack/`, which held reviewer scripts only at the snapshot).
-- `overnight/`: `HOSTILE_REVIEW_FOUNDATIONS.md` (from `rnd/`), `entangle/*.md` with `PREREG_P.sha256` and `PREREG_C.sha256` (both verify), `forces-gravity/*.md`, `selfref/HOSTILE_REVIEW_M11.md` with `PREREG_ROUND13_M.md` and its `.sha256` (verifies), `WORKLOG.md` (from `/workspace/gtao-notes/WORKLOG.md`), and the two gate reads under `gate_reads/` (copies of `review_qmsel3/GATE_READ_QMSEL3.md` and `review_fix36/GATE_READ_qmsel2.md`).
+- `stepback/**` from `<local>/gtao-notes/rnd/stepback/` (the step-back notes, every route note, scripts and outputs).
+- `review_*/**` from `<local>/gtao-notes/rnd/review_*/` (19 review folders, including `review_worldtrack/`, which held reviewer scripts only at the snapshot).
+- `overnight/`: `HOSTILE_REVIEW_FOUNDATIONS.md` (from `rnd/`), `entangle/*.md` with `PREREG_P.sha256` and `PREREG_C.sha256` (both verify), `forces-gravity/*.md`, `selfref/HOSTILE_REVIEW_M11.md` with `PREREG_ROUND13_M.md` and its `.sha256` (verifies), `WORKLOG.md` (from `<local>/gtao-notes/WORKLOG.md`), and the two gate reads under `gate_reads/` (copies of `review_qmsel3/GATE_READ_QMSEL3.md` and `review_fix36/GATE_READ_qmsel2.md`).
 - Skipped as not notes: folders named `clone*` (fresh repo clones used by reviewers), `__pycache__`, `.lake`, `.git`.
 
 ## 2. In progress at the snapshot
@@ -20,7 +20,7 @@
 
 Reasons: compiled binaries (rebuildable from the `.c` beside them), third-party paper copies (cited by DOI or arXiv id in the notes), binary numeric caches and data files over 5 MB (regenerable by the scripts beside them), and scripts or outputs that contain an email address (a mailbox in a Crossref User-Agent string), withheld so that no address goes into the public repo. Hashes are given so a later copy can be checked.
 
-| path (under `/workspace/gtao-notes/rnd/`) | bytes | SHA-256 | reason |
+| path (under `<local>/gtao-notes/rnd/`) | bytes | SHA-256 | reason |
 |---|---|---|---|
 | `review_c1/rv_crossref.py` | 1468 | `d02dfdd5fdda103c9217bab4c44231803fb867be324744244c154da82f3dca27` | contains an email address (a mailbox in a User-Agent or contact string); withheld to keep addresses out of the public repo |
 | `review_c12b/crossref_review.py` | 1124 | `7bae84e2ab23133199e487aeddfcfdac0b68de6d0c804b9d4e0acd80db30dbe9` | contains an email address (a mailbox in a User-Agent or contact string); withheld to keep addresses out of the public repo |
