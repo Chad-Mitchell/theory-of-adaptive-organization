@@ -104,7 +104,7 @@ def gen_scored(root):
     raise Pending("needs a per-test bars table with a source path per bar (FAILURES SCORED-UNSOURCED)")
 
 
-GENERATORS = {"field": gen_field, "scored": gen_scored}
+GENERATORS = {"field": gen_field, "misses": gen_misses, "scored": gen_scored}
 # Shrink-only: blocks whose generator has no structured source yet. Each keeps its text, says so, and has a FAILURES
 # row; tools/test_facts.py asserts this set equals the blocks whose generator is pending.
 GEN_PENDING = {"measurement/CLAIM_MAP_v2.md:scored"}
