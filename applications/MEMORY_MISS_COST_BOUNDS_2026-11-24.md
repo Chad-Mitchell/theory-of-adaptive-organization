@@ -49,9 +49,9 @@ Here \(w\,\mathbb{E}[\ell]\) is the stake times the expected loss at the moment 
 
 **Application used here.** For separate working-note items that drift, the cost specializes to (`applications/GROK_BOT_MEMORY_2026-11-23.md:42-55`)
 
-$$J=\sum_i\Bigl[h_i\bigl(c_i+k_i/T_i+w_i\sigma_i^2 T_i/6\bigr)+(1-h_i)w_i p_i\Bigr],$$
+$$J=\sum_i\Bigl[h_i\bigl(c_i+k_i/T_i+w_i p_i s_i T_i/6\bigr)+(1-h_i)w_i p_i\Bigr],$$
 
-with the two rules: hold only if stake times need beats the full cost of holding, and re-check a held item at \(T_i^*=\sqrt{6k_i/(w_i\sigma_i^2)}\). The related three-way rule already in the five-term sum is CT11 (`THEORY.md:321-325`; `applications/GROK_BOT_MEMORY_2026-11-23.md:59`): freeze, hold, or look up. The parent page already records that a length-triggered summary breaks both rules (`applications/GROK_BOT_MEMORY_2026-11-23.md:36, 63`).
+with the two rules: hold only if stake times need beats the full cost of holding, and re-check a held item at \(T_i^*=\sqrt{6k_i/(w_i p_i s_i)}\), with \(s_i=\sigma_i^2/g_i^2\) the drift variance rate in units of the gap \(g_i\) at which a held item is as costly as a dropped one (corrected 27 November 2026, miss M45 in `NOTES/MISSES-LEDGER.md`: the version copied here on 24 November used \(w_i\) for the drift weight, which under the parent page's definitions is \(w_i p_i/g_i^2\)). In §10–§11 below, \(w\) in the drift term \(w\sigma^2T/6\) and in \(T^*\) stands for that drift weight \(wp/g^2\). The related three-way rule already in the five-term sum is CT11 (`THEORY.md:321-325`; `applications/GROK_BOT_MEMORY_2026-11-23.md:59`): freeze, hold, or look up. The parent page already records that a length-triggered summary breaks both rules (`applications/GROK_BOT_MEMORY_2026-11-23.md:36, 63`).
 
 **Miss and breach.** A miss is an admissible error inside locked rules, paid as \(w\ell\) and learned from. A breach — including making a false public claim — violates the hard admissibility constraint and is prevented by rule, not traded off inside \(J\) (`process/PROCESS.md:26, 42`; `CORE.md:27, 44, 66, 112`). Answering without opening the file is named as a process miss (`process/PROCESS.md:30`). If a downstream node is a false public claim, that node is a breach, not an ordinary term of \(J\).
 
