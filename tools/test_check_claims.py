@@ -612,7 +612,8 @@ def test_no_ambiguous_ids_on_the_front_pages():
 
 @pytest.mark.parametrize("text,bare", [("R1 does not choose the coordinates.", "R1"),
                                        ("loss of confinement at copy gain one (F3)", "F3"),
-                                       ("the information floor S1 holds", "S1")])
+                                       ("the information floor S1 holds", "S1"),
+                                       ("Opposed coupling can cycle (CT32, F1).", "F1")])
 def test_a_bare_renamed_id_is_ambiguous(text, bare):
     rows = cc.parse_ledger(_cm())[0]
     assert [x[0] for x in cc.ambiguous_ids(text, rows)] == [bare]
