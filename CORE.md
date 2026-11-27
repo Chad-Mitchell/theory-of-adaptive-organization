@@ -162,7 +162,7 @@ The ranked work list is in [`README.md`, Ranked gaps](README.md#ranked-gaps).
 
 ## Status words
 
-**GENERAL** means it holds without a Gaussian or linear step. **EXAMPLE** means a worked form in a named class. **PROVED** means proved inside the stated model. **KNOWN** means published and credited. **SYNTHESIS** means a reading that places proved pieces on one cost and does not claim one theorem. **CONJECTURE** means a named bet that is not proved. **OPEN** means not derived or not measured. An **open miss** is a miss with a diagnosis and a next test, and no update yet. The headline ledger also gives each row a scope (GENERAL, WORKED-CLASS-ONLY, SYNTHESIS or CONJECTURE); those words are defined once, in its scope header (`measurement/CLAIM_MAP_v2.md`).
+**EXAMPLE** means a worked form in a named class. **PROVED** means proved inside the stated model. **KNOWN** means published and credited. **OPEN** means not derived or not measured. An **open miss** is a miss with a diagnosis and a next test, and no update yet. The scope words (GENERAL, WORKED-CLASS-ONLY, SYNTHESIS, CONJECTURE) are not defined here: they are defined once, in the scope header of the headline ledger (`measurement/CLAIM_MAP_v2.md`), and each result's scope is its row there.
 
 The layer-count, lifetime, and local-versus-shared theorems in `THEORY.md` minimize the five-term sum. They are theorems about that sum. Adopting §9 of `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` would not re-prove them under the heat.
 

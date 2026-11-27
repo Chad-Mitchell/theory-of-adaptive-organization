@@ -4,7 +4,7 @@
 
 > **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
 
-**Labels.** **DECIDED** is a naming decision, not a claim about the world (the CLAIM_MAP status of N30). **PROVED (in-model)**, **KNOWN**, **CONJECTURE**, **OPEN**, **INTERPRETATION**, **FAILS**, **SIM-FAIL** are used as in `CORE.md:165`, `theory/SWARM_RULE_2026-11-23.md:7` and the CLAIM_MAP. Each entry says which words are the decision and which are the cited results.
+**Labels.** **DECIDED** is a naming decision, not a claim about the world (the CLAIM_MAP status of N30). **PROVED (in-model)**, **KNOWN**, **CONJECTURE**, **OPEN**, **INTERPRETATION**, **FAILS**, **SIM-FAIL** are used as in `CORE.md` §Status words (the scope words GENERAL, WORKED-CLASS-ONLY, SYNTHESIS and CONJECTURE: the scope header of `measurement/CLAIM_MAP_v2.md`), `theory/SWARM_RULE_2026-11-23.md:7` and the CLAIM_MAP. Each entry says which words are the decision and which are the cited results.
 
 **Scope.** Nothing here says anything about experience or consciousness. That question is parked (`theory/IIT_PATH_2026-11-23.md`; [`OPEN_WORK.md:107`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L107), T56: "Open (exploration path, not a result)"). "A person is a model of their world" is an INTERPRETATION, not a measured result (entry 3).
 
