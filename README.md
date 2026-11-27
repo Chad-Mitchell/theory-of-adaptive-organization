@@ -14,7 +14,7 @@ The theory has two parts. Part 1 is mathematics: the cost, a heat floor no desig
 
 ![One cost of judgment, in time and in space](figures/master_curve.png)
 
-*One cost of judgment, in time and in space* (`figures/master_curve.png`; every claim and its source is in `figures/master_curve.md`). In the worked class every time scale lands on one curve in the stake ratio \(x=wv/(kT\,a)\): below \(x=1\) no memory pays, and above it a memory pays and its error falls as \(v/\sqrt{x}\). The space panels are holographic memory and the field and boundary results. Where real systems sit on the curve is the hypothesis.
+*One cost of judgment, in time and in space* (`figures/master_curve.png`; every claim and its source is in `figures/master_curve.md`). In the worked class every time scale lands on one curve in the stake ratio \(x=wv/(kT\,a)\): below \(x=1\) no memory pays, and above it a memory pays and its error falls as \(v/\sqrt{x}\). The right-hand panels are holographic memory, the swarm rule, and the field, boundary and area results, each labelled GENERAL or WORKED-CLASS-ONLY. Where real systems sit on the curve is the hypothesis.
 
 ## The cost
 
