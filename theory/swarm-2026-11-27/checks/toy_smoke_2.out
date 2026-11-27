@@ -1,0 +1,20 @@
+A(1) = 0.283833820809
+A_lat(1, 0.5) = 0.420476906799
+best_follow(0.1, A) = (0.688211, 0.373759760)
+g_follow(0.1) = 0.373759760
+loguniform[1,100] mean = 21.497576854, m(1,10) = 3.908650337, P(1,10) = 0.500000000
+uniform[1,100] mean = 50.500000000, P(1,10) = 0.090909091
+tp_two(loguniform, 1.3) = ['1.000000000', '27.610128749', '100.000000000']
+tp_two(loguniform, 2.3) = None
+tp_verify(two) = 0.000e+00
+tp_value(two) = 0.707306427
+tp_equilibrium(loguniform, 1.1, 3) = ['1.000000', '11.034698', '44.741083', '100.000000']
+L_floor(0.1) = 1.757779662
+stationary([[-1,1],[2,-2]]) = ['0.666666667', '0.333333333']
+== A. Fold-ins (FOLD_INS.md)
+CHECK PASS ct17ii_is_kappa_power  code sanity (CT12 algebra) to 4.4e-16 and optimizer re-test to 5.5e-08 over 500 draws
+CHECK PASS ct17i_one_clock_tamper_gains  re-test of CT13 + CT17 (i); definition vs closed form and sum D_i vs penalty to 4.2e-15; 0 negative gains; equal index -> max D=0.0e+00
+CHECK PASS ct19_latency_stay_index  re-test; Phi_ell quadrature err 6.9e-18; 0 mismatches in 1483 draws; reach L=15.901977 (pi0=0.12): follows at 0.999L True, at 1.001L False
+CHECK PASS lemma_b3_drift_direction  re-test of Lemma B3 by finite differences on CT14's N*; 0 sign failures in 800 draws
+CHECK PASS lemma_b7_sqrtN_fade  re-test (CT30 gain at small rho; linear readout only); N=4 ratio 1.99999 (sqrt 2); N=16 ratio 3.99994 (sqrt 4); N=64 ratio 7.99972 (sqrt 8)
+section A wall time class: under 60 s
