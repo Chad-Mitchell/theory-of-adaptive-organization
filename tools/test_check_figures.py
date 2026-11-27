@@ -106,3 +106,15 @@ def test_a_corrupt_committed_png_fails_without_a_crash():
     fails, _ = cf.check(d)
     shutil.rmtree(d)
     assert len(fails) == 1 and "unreadable" in fails[0]
+
+
+def test_text_running_out_of_its_box_fails(monkeypatch):
+    box = ('ax = fig.add_axes([0.1, 0.1, 0.3, 0.3]); ax.axis("off")\n'
+           'ax.text(0.1, 0.5, "%s", fontsize=8, transform=ax.transAxes)\n')
+    base = SCRIPT
+    for words, n in (("ok", 0), ("a long line of words that cannot fit in this small box", 1)):
+        monkeypatch.setitem(globals(), "SCRIPT", base.replace('fig.savefig', box % words + 'fig.savefig'))
+        d = _tree()
+        fails, _ = cf.check(d)
+        shutil.rmtree(d)
+        assert len(fails) == n and all("outside its box" in f for f in fails)

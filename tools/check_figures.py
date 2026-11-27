@@ -65,15 +65,30 @@ matplotlib.use("Agg")
 import matplotlib.figure as mf
 from matplotlib.text import Text
 texts = []
+overflow = []
 _save = mf.Figure.savefig
 def _rec(self, *a, **k):
     texts.extend(t.get_text() for t in self.findobj(Text) if t.get_text().strip())
+    # an axes drawn with its axis off is a box or panel: text placed in it must stay inside it
+    self.canvas.draw()
+    r = self.canvas.get_renderer()
+    for ax in self.axes:
+        if ax.axison:
+            continue
+        box = ax.get_window_extent(r)
+        for t in ax.texts:
+            if not t.get_text().strip() or not t.get_visible():
+                continue
+            bb = t.get_window_extent(r)
+            over = max(box.x0 - bb.x0, bb.x1 - box.x1, box.y0 - bb.y0, bb.y1 - box.y1)
+            if over > 1:
+                overflow.append([" ".join(t.get_text().split())[:60], round(over)])
     return _save(self, *a, **k)
 mf.Figure.savefig = _rec
 sys.argv = [sys.argv[1]]
 dump = %r
 runpy.run_path(sys.argv[0], run_name="__main__")
-json.dump(texts, open(dump, "w", encoding="utf-8"))
+json.dump({"texts": texts, "overflow": overflow}, open(dump, "w", encoding="utf-8"))
 """
 PANEL = re.compile(r"^(.+?) \u2022 (GENERAL|WORKED-CLASS-ONLY|SYNTHESIS|CONJECTURE)$|^(GENERAL|WORKED-CLASS-ONLY|SYNTHESIS|CONJECTURE) \u2022 (.+)$")
 HYP_START = "The law of adaptive organization"
@@ -146,7 +161,9 @@ def check(root=ROOT):
                 fails.append("figure %s: %s did not rebuild it (exit %d): %s"
                              % (png, script, r.returncode, (r.stderr or r.stdout).strip()[-200:]))
                 continue
-            texts = json.load(open(dump, encoding="utf-8")) if os.path.isfile(dump) else []
+            drawn = json.load(open(dump, encoding="utf-8")) if os.path.isfile(dump) else {}
+            texts = drawn.get("texts", [])
+            fails.extend("figure %s: text %r runs %d px outside its box" % (png, t, px) for t, px in drawn.get("overflow", []))
             if not texts:
                 fails.append("figure %s: no drawn text captured from %s" % (png, script))
             fails.extend("figure %s text: %s" % (png, x) for x in text_fails(root, texts))
