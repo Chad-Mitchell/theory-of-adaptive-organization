@@ -120,3 +120,9 @@ The count in the header (58 rows) is as of the snapshot and is not rewritten. Th
 - M3 cause: the scored location is `model` (`RESULTS.md:38`); the box edge is where the solver saw it; the interior point at w_x = 2 is below the bar (G = 0.0654).
 - M9: CONSISTENCY_CHECK, not a research miss.
 - Scope: this ledger covers 25–26 Nov only and records misses only; hits and earlier misses are in each test's RESULTS/DEVIATIONS and the CLAIM_MAP headline ledger. §4–§5 process rows are carried into `process/FAILURES.md`: P5, P6 and P8 as `TOY-1`, P9 as `GATE-REPEAT-4`, S7 as `GATE-REPEAT-3`, and P1–P4, P7 and S1–S6 in the rows added 27 Nov 2026 that name their number here (`NOTTESTED-13M` to `PUSHCLAIM-1`).
+
+## 10. Added 27 Nov 2026 (Lean memory rule, branch `lean-memory-rule-2026-11-27`)
+
+| # | item | where | score | cause | lesson |
+|---|---|---|---|---|---|
+| M45 | GROK_BOT_MEMORY §4 per-item cost: one symbol `w` carries two units | `applications/GROK_BOT_MEMORY_2026-11-23.md:44-50`; public reply [2126422798096646198](https://x.com/i/status/2126422798096646198) | open miss (units), found on paper while formalizing; no theorem changed | §4 defines `w_i` as the stake on being wrong when the item is needed and `p_i` as the need rate, so `w_i p_i` is a loss per unit time; the drift term `w_i σ_i² T_i/6` uses `w_i` as a loss per unit squared gap per unit time, as in `theory/LAYER_LIFETIME_2026-11-21.md:38`. Under §4's own definitions the drift term would read `p_i w_i σ_i² T_i/(6 g_i²)` for a gap scale `g_i`, which puts the need rate into `T*`, the band and the hold threshold. The form of both rules and the √ share of CT17 (ii) are unchanged under either reading | Check the units of every symbol in an application before a formula goes public. `GTAO/MemoryRule.lean` states the theorems for a separate drift weight `a`, so both readings are covered; which reading the application means is open |
