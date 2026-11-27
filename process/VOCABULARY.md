@@ -1,10 +1,10 @@
 # VOCABULARY: what we mean by memory, record, model, layer, level, nesting, scale, fractal and swarm
 
-*Tuesday 24 November 2026 (America/New_York). Proposed maintained vocabulary, in the same spirit as the miss vocabulary in [`PROCESS.md`](PROCESS.md). It fixes words, not results: it adds no theorem, changes no status, and leaves `THEORY.md` untouched (`THEORY.md` governs wherever it differs; see section 4). Applies to new and maintained text. Historical files, locked preregistrations and dated notes keep their wording.*
+*Tuesday 24 November 2026 (America/New_York). Proposed maintained vocabulary, in the same spirit as the miss vocabulary in [`PROCESS.md`](PROCESS.md). It fixes words, not results: it adds no theorem, changes no status, and does not edit `THEORY.md` (`THEORY.md` governs wherever it differs; see section 4). Applies to new and maintained text. Historical files, locked preregistrations and dated notes keep their wording.*
 
 > **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
 
-**Labels.** **DECIDED** is a naming decision, not a claim about the world (the CLAIM_MAP status of N30). **PROVED (in-model)**, **KNOWN**, **CONJECTURE**, **OPEN**, **INTERPRETATION**, **FAILS**, **SIM-FAIL** are used as in `CORE.md:169`, `theory/SWARM_RULE_2026-11-23.md:7` and the CLAIM_MAP. Each entry says which words are the decision and which are the cited results.
+**Labels.** **DECIDED** is a naming decision, not a claim about the world (the CLAIM_MAP status of N30). **PROVED (in-model)**, **KNOWN**, **CONJECTURE**, **OPEN**, **INTERPRETATION**, **FAILS**, **SIM-FAIL** are used as in `CORE.md:165`, `theory/SWARM_RULE_2026-11-23.md:7` and the CLAIM_MAP. Each entry says which words are the decision and which are the cited results.
 
 **Scope.** Nothing here says anything about experience or consciousness. That question is parked (`theory/IIT_PATH_2026-11-23.md`; [`OPEN_WORK.md:107`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L107), T56: "Open (exploration path, not a result)"). "A person is a model of their world" is an INTERPRETATION, not a measured result (entry 3).
 

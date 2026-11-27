@@ -6,7 +6,7 @@ Exit code 0 = no FAIL in the maintained (canonical) documents.
 
 What it checks
   1. Versions: THEORY.md's title version and CLAIM_MAP_v2.md's latest "vN note"
-     agree with the two copies in files this repo may not edit (CORE.md, THEORY.md);
+     agree with the two pointer copies that stay put in CORE.md and THEORY.md;
      every other copy is a hand pointer (tools/check_fresh.py).
   2. Banned wording in maintained docs:
        - "law" used of GTAO (any bare 'law' not in an allow-listed compound
@@ -97,7 +97,7 @@ def main(argv=None):
         fails.append("versions: could not read THEORY or CLAIM_MAP version")
 
     # Pointer patterns: (file, regex, which) -- each must match at least once and every match must agree.
-    POINTERS = [  # the only version copies left: both sit in files this repo may not edit (tools/check_fresh.py ALLOW)
+    POINTERS = [  # the only version copies left, one in CORE.md and one in THEORY.md (tools/check_fresh.py ALLOW)
         ("CORE.md", r"is the canonical statement \(v(\d+\.\d+(?:\.\d+)?[a-z]?) draft\)", "T"),
         ("THEORY.md", r"Claim statuses: `measurement/CLAIM_MAP_v2\.md` \(v(2\.\d+)\)", "C"),
     ]

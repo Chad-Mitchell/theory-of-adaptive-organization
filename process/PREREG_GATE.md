@@ -1,6 +1,6 @@
 # PREREG GATE: no run unless the prediction can miss
 
-*Tuesday 24 November 2026 (America/New_York). Maintained process rule, in the same family as [`PROCESS.md`](PROCESS.md) and [`MISS_LOG_TEMPLATE.md`](MISS_LOG_TEMPLATE.md). It adds no result. `THEORY.md` and `CORE.md` are not edited. Locked preregistrations keep their text. The process miss that prompted it is logged in [`misses/2026-11-24_T84_T84b_T85.md`](misses/2026-11-24_T84_T84b_T85.md).*
+*Tuesday 24 November 2026 (America/New_York). Maintained process rule, in the same family as [`PROCESS.md`](PROCESS.md) and [`MISS_LOG_TEMPLATE.md`](MISS_LOG_TEMPLATE.md). It adds no result. `THEORY.md` and `CORE.md` are maintained pages and change only through review ([`PROCESS.md`](PROCESS.md) §2). Locked preregistrations keep their text. The process miss that prompted it is logged in [`misses/2026-11-24_T84_T84b_T85.md`](misses/2026-11-24_T84_T84b_T85.md).*
 
 > **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.** (`CORE.md:7`)
 

@@ -347,7 +347,7 @@ def ranked_section(text):
 def direction_pages(root):
     import check_fresh
     pages = set(check_fresh.live_pages(root)) | {p for p in glob.glob("theory/*.md", root_dir=root)}
-    return sorted(p for p in pages if p not in ("CORE.md", "THEORY.md"))  # not editable here beyond the claims link
+    return sorted(p for p in pages if p not in ("CORE.md", "THEORY.md"))  # these two carry the claims link; the direction line stays on README.md
 
 
 def check_direction(root):
