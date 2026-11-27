@@ -466,7 +466,7 @@ def test_one_row_per_id_passes_on_the_repo():
     assert _one_row(_cm()) == []
 
 
-@pytest.mark.parametrize("new,old", [("REP-R1", "R1"), ("SHANNON-S1", "S1"), ("COAD-F3", "F3"), ("COAD-F6", "F6")])
+@pytest.mark.parametrize("new,old", [("REP-R1", "R1"), ("SHANNON-S1", "S1"), ("COAD-F3", "F3"), ("COAD-F4", "F4"), ("COAD-F6", "F6")])
 def test_one_row_per_id_catches_a_reused_lettered_id(new, old):
     t = _cm()
     assert ("| %s |" % new) in t

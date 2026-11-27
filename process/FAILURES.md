@@ -227,7 +227,7 @@ Ledger, continued (27 Nov 2026: the process rows of `NOTES/MISSES-LEDGER.md` §4
 ### 2026-11-27 `ID-COLLIDE-COAD` (medium)
 1. **Locked prediction and risk.** After the REP-R1 and SHANNON-S1 renames, no headline id collides with a lettered id. Risk: a front-page citation resolves to the wrong claim.
 2. **Miss and location.** Process. Three collisions (F3, F4, F6) in the ledger rows added for the front pages; found by the new check, not by review.
-3. **Update.** Structural: `check_one_row_per_id` in `tools/check_claims.py`, with mutation tests that restore each old id (R1, S1, F3, F6) and expect a FAIL.
+3. **Update.** Structural: `check_one_row_per_id` in `tools/check_claims.py`, with mutation tests that restore each old id (R1, S1, F3, F4, F6) and expect a FAIL.
 
 ### 2026-11-27 `MUSK-ANSWER-1` (medium)
 1. **Locked prediction and risk.** A judgment on a public post about the theory is made after reading the rows it touches. Risk: a public statement about the theory that the theory does not support.
