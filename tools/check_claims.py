@@ -770,6 +770,45 @@ def check_front_results(root, text, rows):
     return fails
 
 
+# One definition of each scope word (SCOPE-DEF-1..3): only the ledger's scope header defines GENERAL,
+# WORKED-CLASS-ONLY, SYNTHESIS and CONJECTURE. A maintained page may use the words and point to the header; a line
+# that sets one up as a definition ("**WORD**: ...", "**WORD:** ...", "**WORD** means/is ...", "WORD: ..." at the
+# start of a line or list item) fails unless the same sentence points to the scope header.
+SCOPE_DEF = re.compile(r"(?:\*\*(GENERAL|WORKED-CLASS-ONLY|SYNTHESIS|CONJECTURE)(?:\*\*\s*(?::|means\b|is\b|=|—)|:\*\*)"
+                       r"|^\s*(?:[-*]\s+|\d+\.\s+)?(GENERAL|WORKED-CLASS-ONLY|SYNTHESIS|CONJECTURE)\s*[:—])", re.M)
+# A label list: another label is set up the same way on this line or the next or previous line. A single labelled
+# claim ("- **CONJECTURE:** under a separation, ...") is a use of the word, not a definition.
+LABEL_DEF = re.compile(r"\*\*([A-Z][A-Za-z()\- ]*[A-Z)])(?:\*\*\s*(?::|means\b|is\b|=|—)|:\*\*)")
+SCOPE_HEADER_LINE = "The `scope` column"
+SCOPE_DEF_SKIP = {"process/FAILURES.md"}  # the miss log quotes old definitions as evidence
+
+
+def scope_def_hits(root, pages=None):
+    if pages is None:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import check_consistency
+        pages = check_consistency.MAINTAINED_DOCS
+    out = []
+    for p in pages:
+        if p in SCOPE_DEF_SKIP or not os.path.isfile(os.path.join(root, p)):
+            continue
+        lines = read(root, p).splitlines()
+        for n, line in enumerate(lines, 1):
+            if p == "measurement/CLAIM_MAP_v2.md" and line.startswith(SCOPE_HEADER_LINE):
+                continue
+            near = [x for x in lines[max(0, n - 2):n + 1] if x.strip()]
+            labels = {m.group(1) for x in near for m in LABEL_DEF.finditer(x)}
+            for m in SCOPE_DEF.finditer(line):
+                if len(labels - {m.group(1) or m.group(2)}) == 0:
+                    continue
+                rest = line[m.end():]
+                sentence = re.split(r"(?<=[.;])\s|\*\*(?:[A-Z][A-Z-]+)", rest, maxsplit=1)[0]
+                if "scope header" not in sentence:
+                    out.append("%s:%d defines the scope word %s; only the scope header of measurement/CLAIM_MAP_v2.md "
+                               "may define it (point there instead)" % (p, n, m.group(1) or m.group(2)))
+    return out
+
+
 def check(root=None):
     """Return a list of failure strings (empty means pass)."""
     root = root or repo_root()
@@ -793,6 +832,7 @@ def check(root=None):
     errors.extend(check_front_cases(root))
     errors.extend(check_one_row_per_id(root, text, rows))
     errors.extend(check_front_results(root, text, rows))
+    errors.extend("scope words: " + x for x in scope_def_hits(root))
     # de-duplicate, keep order
     out, seen = [], set()
     for e in errors:

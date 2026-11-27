@@ -562,3 +562,44 @@ def test_a_dropped_conjecture_label_fails():
 def test_a_mapped_id_that_is_not_a_headline_row_fails():
     cm = _cm().replace("| Acting | ACTING |", "| Acting | ACTING, NOPE-1 |", 1)
     assert any("NOPE-1, which is not a headline row" in f for f in _front(cm=cm))
+
+
+# ---------------------------------------------------------------- scope words are defined only in the ledger header
+def _scope_hits(page_text, name="theory/X.md"):
+    d = tempfile.mkdtemp()
+    os.makedirs(os.path.join(d, os.path.dirname(name)), exist_ok=True)
+    open(os.path.join(d, name), "w", encoding="utf-8").write(page_text)
+    out = cc.scope_def_hits(d, [name])
+    shutil.rmtree(d)
+    return out
+
+
+def test_scope_defs_pass_on_the_repo():
+    assert cc.scope_def_hits(cc.repo_root()) == []
+
+
+@pytest.mark.parametrize("text", [
+    # the SCOPE-DEF-3 lines as they stood at #297's head 863a8a8
+    "- **PROVED (in-model)**: proved inside a model.\n- **CONJECTURE**: not proved.\n",
+    "- **KNOWN:** published.\n- **CONJECTURE:** not shown.\n",
+    "Labels: **PROVED (in-model)** is a result inside a named class. **CONJECTURE** is a named bet, not a result.\n",
+    # the SCOPE-DEF-2 line of CORE.md
+    "**GENERAL** means it holds without a Gaussian or linear step. **EXAMPLE** means a worked form in a named class.\n",
+])
+def test_an_old_scope_definition_fails(text):
+    assert _scope_hits(text)
+
+
+def test_a_pointer_to_the_header_passes():
+    text = ("- **PROVED (in-model)**: proved inside a model.\n- **CONJECTURE**: the scope word defined in the scope "
+            "header of the headline ledger (`measurement/CLAIM_MAP_v2.md`).\n")
+    assert _scope_hits(text) == []
+
+
+def test_a_single_labelled_claim_is_not_a_definition():
+    assert _scope_hits("- data line\n- **CONJECTURE:** under a Hellinger-type separation, the error is small.\n") == []
+
+
+def test_the_ledger_header_itself_may_define():
+    text = "The `scope` column labels every row. **GENERAL**: holds without a worked-class step. **SYNTHESIS**: x.\n"
+    assert _scope_hits(text, "measurement/CLAIM_MAP_v2.md") == []
