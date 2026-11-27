@@ -493,3 +493,28 @@ def test_one_row_per_id_catches_a_duplicate_failures_id(tmp_path):
         "| 2026-11-27 | `X-1` | a |\n| 2026-11-27 | `X-1` | b |\n| 2026-11-27 | `X-2` | c |\n", encoding="utf-8")
     fails = cc.check_one_row_per_id(str(tmp_path), "", [])
     assert fails == ["one row per id: FAILURES id X-1 has 2 rows"]
+
+
+# ---------------------------------------------------------------- status word for estimates
+def _ledger_errors(text):
+    return cc.parse_ledger(text)[2]
+
+
+def test_estimate_rows_carry_estimated_on_the_repo():
+    assert not [e for e in _ledger_errors(_cm()) if "estimate" in e]
+
+
+@pytest.mark.parametrize("ident", ["BT2P", "EVO1"])
+def test_an_estimate_under_open_fails(ident):
+    t = _cm().replace("| %s | estimated |" % ident, "| %s | open |" % ident, 1)
+    assert any(("%s calls itself an estimate" % ident) in e for e in _ledger_errors(t))
+
+
+def test_estimated_without_an_uncertainty_fails():
+    t = _cm()
+    i = t.index("| BT2P | estimated |")
+    j = t.index("\n", i)
+    cells = t[i:j].split(" | ")
+    cells[3] = "A number from a simulation."
+    t = t[:i] + " | ".join(cells) + t[j:]
+    assert any("BT2P is `estimated` but its plain text states no uncertainty" in e for e in _ledger_errors(t))

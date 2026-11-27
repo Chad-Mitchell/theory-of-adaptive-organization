@@ -47,7 +47,12 @@ STATUSES = {
     "false",
     "synthesis",
     "interpretation",
+    "estimated",
 }
+# A row whose plain text calls itself an estimate carries the status `estimated`, and an `estimated` row states its
+# uncertainty (a standard error, an interval, a band, or a count such as 3/8). Before 27 Nov such rows were `open`.
+ESTIMATE_PLAIN = re.compile(r"\b(?:Monte Carlo|[Ss]imulation|[Mm]easured)\s+estimate\b|\bestimate,? not a proof\b")
+UNCERTAINTY = re.compile(r"\bSE\b|±|\binterval\b|\bband\b|\b\d+/\d+\b|\bCI\b")
 EDGE_KINDS = {"proved", "known", "interpretation", "open", "conjecture"}
 LEDGER_BEGIN = "<!-- headline-ledger:begin -->"
 LEDGER_END = "<!-- headline-ledger:end -->"
@@ -119,6 +124,10 @@ def parse_ledger(text):
         seen.add(ident)
         if row.get("status") not in STATUSES:
             errors.append("claims: %s has status %r" % (ident, row.get("status")))
+        if ESTIMATE_PLAIN.search(row.get("plain", "")) and row.get("status") != "estimated":
+            errors.append("claims: %s calls itself an estimate but has status %r; use `estimated`" % (ident, row.get("status")))
+        if row.get("status") == "estimated" and not UNCERTAINTY.search(row.get("plain", "")):
+            errors.append("claims: %s is `estimated` but its plain text states no uncertainty (SE, interval, band or k/n)" % ident)
         if not row.get("source") or not row.get("anchor") or not row.get("plain"):
             errors.append("claims: %s missing plain, source, or anchor" % ident)
     rules = []
