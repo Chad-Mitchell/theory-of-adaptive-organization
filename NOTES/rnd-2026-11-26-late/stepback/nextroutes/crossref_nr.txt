@@ -1,0 +1,19 @@
+10.1103/PhysRevA.103.022213 | OK | Quantum mereology: Factorizing Hilbert space into subsystems with quasiclassical dynamics | Carroll, Singh | Physical Review A | 2021
+10.1103/PhysRevLett.92.060402 | OK | Quantum Tensor Product Structures are Observable Induced | Zanardi, Lidar, Lloyd | Physical Review Letters | 2004
+10.1103/PhysRevLett.87.077901 | OK | Virtual Quantum Subsystems | Zanardi | Physical Review Letters | 2001
+10.1007/s00220-019-03376-w | OK | Locality from the Spectrum | Cotler, Penington, Ranard | Communications in Mathematical Physics | 2019
+10.1103/PhysRevD.95.024031 | OK | Space from Hilbert space: Recovering geometry from bulk entanglement | Cao, Carroll, Michalakis | Physical Review D | 2017
+10.22331/q-2020-07-20-301 | OK | Law without law: from observer states to physics via algorithmic information theory | Müller | Quantum | 2020
+10.1162/089976601753195969 | OK | Predictability, Complexity, and Learning | Bialek, Nemenman, Tishby | Neural Computation | 2001
+10.1103/PhysRevLett.109.120604 | OK | Thermodynamics of Prediction | Still, Sivak, Bell, Crooks | Physical Review Letters | 2012
+10.1103/PhysRevE.79.041925 | OK | Past-future information bottleneck in dynamical systems | Creutzig, Globerson, Tishby | Physical Review E | 2009
+10.1090/S0002-9947-1936-1501854-3 | OK | On distributions admitting a sufficient statistic | Koopman | Transactions of the American Mathematica | 1936
+10.1017/S0305004100019307 | FAIL Expecting value: line 2 column 1 (char 1)
+10.1088/0264-9381/9/1/016 | OK | Did the Universe evolve? | Smolin | Classical and Quantum Gravity | 1992
+10.1007/s12064-020-00313-7 | FAIL Expecting value: line 2 column 1 (char 1)
+10.1098/rsfs.2018.0041 | FAIL Expecting value: line 2 column 1 (char 1)
+10.1103/PhysRevLett.50.1411 | OK | Microcanonical Monte Carlo Simulation | Creutz | Physical Review Letters | 1983
+10.1103/PhysRevA.84.012311 | OK | Informational derivation of quantum theory | Chiribella, D’Ariano, Perinotti | Physical Review A | 2011
+10.1038/ncomms8908 | FAIL Expecting value: line 2 column 1 (char 1)
+10.1038/nphys1202 | FAIL Expecting value: line 2 column 1 (char 1)
+10.1111/j.1749-6632.1992.tb17083.x | FAIL Expecting value: line 2 column 1 (char 1)

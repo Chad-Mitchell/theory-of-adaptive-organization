@@ -254,3 +254,42 @@ The method: write the cost of a route, J_route = attention spent + w·(expected 
 8. **Positives hide inside misses scored against our own targets.** SH-heat's band (D32) was scored MISS and was the key positive. Score against the theory's claims, and log what each miss did show.
 9. **Imported physics targets need a line in the theory first.** The overnight physics threads mostly reproduced known physics given our inputs (D8, D12). The README claims nothing about deriving gravity, QM or holography; targets that need such a claim are outside the theory's own test set.
 10. **Reviews pay.** Every fresh-context review found something; none found a false proved-in-model claim; several stopped a wasted run. Keep the rule that nothing counts before its hostile review.
+
+---
+
+## 26 November, late evening (appended after the 19:30 ET snapshot)
+
+Earlier entries D1–D40 and the lessons list are unchanged.
+
+**D41. About 19:15–19:29. Memory rebuild from primary records.**
+- Chose: rebuild the working set from the repo and the notes (`WORKING_CONTEXT`, `WALLS`, `MEMORY_CHALLENGE`, `FADED`, `SELF_REVIEW`), not from compacted chat summaries. Alternative: keep going from the day's queue.
+- Reason then: Chad t173u (paraphrase: do not rely on summarized context; apply the theory's keep/check/fade rule to the working memory).
+- Outcome: 14 walls already on record; 7 re-hit on 26 Nov without citing the earlier work. Three earlier messages to Chad were overstated (`WORKING_CONTEXT` §3). 17 wrong citations in the first draft, later fixed.
+- Hindsight: the right move. The circling Chad named had a recorded cause.
+
+**D42. 19:09–20:05. WORLD_TRACK Step 3 STORED-PEAK, then drop the re-pose.**
+- Chose: run the already-queued uniqueness check (pre-stated 19:09, p(HIT) 0.8), then append the nine review fixes, then drop a re-posed version rather than run it.
+- Outcome: MISS (ledger M43). Continuous-look uniqueness in CORE's class is proved-in-model and elementary. The broader claim is not stated. Re-pose dropped at about 20:05 ET because it sits inside walls W1 and W2 and has low information value.
+- Hindsight: scoring the locked test was fair; the pre-stated p(HIT) 0.8 was too high (flatness in the look interval was visible in earlier steps). Cancelling the re-pose after the walls rebuild was right: a unique optimum inside a known wall does not move the goal.
+
+**D43. About 19:13–19:29. Pause T1 BLANK-PRICE and KELLY-TRACK / SELECTION-PRICE.**
+- Chose: leave T1's 19:22 run unscored, and pause both routes, after the walls list flagged them. Alternative: score the T1 run and continue.
+- Reason then: T1 sits beside W11 and W5 (competitive exclusion, next to #292); KELLY-TRACK / SELECTION-PRICE heads into W12 (GROWTH_BRIDGE).
+- Outcome: paused; T1 remains pre-stated, run, not scored (ledger U1).
+- Hindsight: right. Scoring a run after learning it sits at a known wall would have spent attention on a result that does not move the goal.
+
+**D44. Evening. Repeated-paths report emailed to Ace (message 15712323, "Re: GTAO open PRs" thread).**
+- Chose: send the usage share of repeated work, with the method and the caveats, after Chad asked for the figures for Ace's update of the memory-challenge post.
+- Outcome: estimated 0.4–12.5% (mid 6.5%) of Forge's 26 November UTC usage, which was 48% of the 7-day account total. The email body is not in the repo.
+- Hindsight: the method is a judgment call on "partial repeats" and may undercount, as the email said.
+
+**D45. About 20:05–20:15. NEXT_ROUTES shortlist, then pick A over D.**
+- Chose: write a shortlist of routes toward "physics arises from tracking", each checked against the 14 walls, with triviality and novelty bars fixed first. After the review, keep A (TRACKABLE-WORLD) and D (WORLD-RULES REQUIREMENT AUDIT); drop B and C.
+- Reason then: A stays in the theory's present scope (necessity, not a new premise). D scores slightly higher per hour on unreviewed numbers, but D needs Chad's decision on whether a premise that puts the world's rules under the cost is in scope, and that decision is still open. So A went first.
+- Outcome: file `NEXT_ROUTES_2026-11-26.md`, hash `ac43abe518c1e8edec0eb2ce13083cc7507beb0ef260fe604e8dba9ee6d3ff49`, review PASS-WITH-FIXES. No candidate is expected to show physics arising. A was then run (D46).
+- Hindsight: open on the content; the choice of A over D was right given the open scope question. D is parked until Chad decides.
+
+**D46. 20:18–20:20. TRACKABLE_WORLD route A.**
+- Chose: run A on paper, with the pre-statement locked (p(HIT) 0.10) before any derivation.
+- Outcome: MISS (ledger M44). The W15-reverse proposal is the content of the miss. Locality and a conserved quantity are not implied.
+- Hindsight: the low p(HIT) was better calibrated than Step 3's 0.8. The miss is informative as a wall, not as a step toward physics arising, which was already the review's limit (NEXT_ROUTES §5 R2).

@@ -1,0 +1,12 @@
+0.001 1.0 0.0 0 10000.0 n* 906 profile minima at n= [906, 920] J= [0.12427308, 0.1242825559] rel gap 7.63e-05
+    with all-integer s grid to 1e5: profile minima count 2
+0.001 1.0 0.0 0 100000.0 n* 1660 profile minima at n= [1582, 1660] J= [0.3768282745, 0.376561356] rel gap 7.09e-04
+    with all-integer s grid to 1e5: profile minima count 2
+0.001 1.0 0.0 1e-05 10000.0 n* 906 profile minima at n= [906, 920] J= [0.1244092607, 0.1244190433] rel gap 7.86e-05
+    with all-integer s grid to 1e5: profile minima count 2
+0.001 1.0 0.0 1e-05 100000.0 n* 1660 profile minima at n= [1582, 1660] J= [0.3769756034, 0.3767096475] rel gap 7.06e-04
+    with all-integer s grid to 1e5: profile minima count 2
+0.001 1.0 0.0 0.0001 100000.0 n* 1659 profile minima at n= [1581, 1659] J= [0.3783014816, 0.3780442606] rel gap 6.80e-04
+    with all-integer s grid to 1e5: profile minima count 2
+0.001 1.0 0.0 0.001 100000.0 n* 1650 profile minima at n= [1573, 1650] J= [0.3915552044, 0.3913845164] rel gap 4.36e-04
+    with all-integer s grid to 1e5: profile minima count 2

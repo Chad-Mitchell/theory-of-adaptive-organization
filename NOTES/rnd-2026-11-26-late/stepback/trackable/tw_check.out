@@ -1,0 +1,11 @@
+C1 T* check: 0 | J* = c + sqrt(6)*sqrt(k)*sqrt(sigma2)*sqrt(w)/3
+C2 lost-fraction series in G*T: g/2 - g**2/6 + O(g**3)
+C3 Gamma=0: min_T J = 0.1816  (blind cost w p = 1.0) tracker viable: True
+C3 Gamma=0.001: min_T J = 0.1930  (blind cost w p = 1.0) tracker viable: True
+C3 Gamma=0.01: min_T J = 0.2608  (blind cost w p = 1.0) tracker viable: True
+C3 Gamma=0.1: min_T J = 0.5212  (blind cost w p = 1.0) tracker viable: True
+C3 Gamma=1: min_T J = 1.1097  (blind cost w p = 1.0) tracker viable: False
+C3 Gamma=10: min_T J = 1.1775  (blind cost w p = 1.0) tracker viable: False
+C3 Gamma=100: min_T J = 1.1812  (blind cost w p = 1.0) tracker viable: False
+C4 limit sigma2->0: c | sigma2->oo: oo
+C5 infinite-horizon ruin prob from R=5: q=1/2 -> 1 ; q=0.55 -> 0.36664783205320056 ; q=0.6 -> 0.13168724279835392
