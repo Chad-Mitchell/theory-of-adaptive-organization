@@ -140,4 +140,4 @@ measurement/      One status per claim
 figures/          master_curve.png, the master picture; derivation_map.png and face.png, earlier views
 ```
 
-AI agents helped draft, compute, and review these files under the author's direction. License: [CC0 1.0](LICENSE). Everything here is public domain under CC0, cited works keep their own terms, and adaptive-memory-levels stays MIT.
+AI agents helped draft, compute, and review these files under the author's direction. License: [CC0 1.0](LICENSE). Everything here is public domain under CC0, cited works keep their own terms, and the separate application repositories listed in [`applications/README.md`](applications/README.md) keep their own licenses.

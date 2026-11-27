@@ -415,3 +415,35 @@ def test_moved_folder_is_the_same_folder():
     import movemap
     paths = cc.ledger_paths(ROOT)
     assert all(movemap.backward(p) == p for p in paths)
+
+
+# ---------------------------------------------------------------- front-page cases (27 Nov 2026)
+def test_front_cases_pending_list_equals_the_failing_set():
+    assert {x.split(": ")[0] for x in cc.front_case_hits(ROOT)} == cc.FRONT_CASES_PENDING
+
+
+def test_front_case_names_come_from_the_index():
+    names = cc.case_names(ROOT)
+    assert "cancer" in names and "Grok Bot" in names and "the swarm rule" not in names
+
+
+def test_naming_a_case_on_the_front_page_fails_and_a_work_row_does_not():
+    root = copy_tree()
+    try:
+        with open(os.path.join(root, "README.md"), "a", encoding="utf-8") as fh:
+            fh.write("\n\nThe theory explains cancer.\n\n| T99 | Grok Bot memory test | open |\n")
+        got = fails_of(root)
+        assert "names the case 'cancer'" in got and "Grok Bot" not in got
+    finally:
+        shutil.rmtree(root)
+
+
+def test_missing_case_index_fails():
+    root = copy_tree()
+    try:
+        p = os.path.join(root, "applications", "README.md")
+        t = open(p, encoding="utf-8").read().replace(cc.CASES_BEGIN, "")
+        open(p, "w", encoding="utf-8").write(t)
+        assert "has no cases table" in fails_of(root)
+    finally:
+        shutil.rmtree(root)
