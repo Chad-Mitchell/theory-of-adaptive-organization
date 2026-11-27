@@ -1056,6 +1056,12 @@ must theory/FEEDBACK_FLOOR_2026-11-23.md independent review reported in [the T61
 must theory/FEEDBACK_FLOOR_2026-11-23.md need not optimize
 forbid theory/FEEDBACK_FLOOR_2026-11-23.md A self-check, not an independent review
 must theory/AREA_LAW_PROBE_2026-11-23.md review fixes recorded at d79e766
+forbid CORE.md the merge condition and remove-or-reprice are conjectures
+forbid CORE.md The merge condition (CX2, CX3) and remove-or-reprice are conjectures
+forbid README.md The merge condition and remove-or-reprice are CONJECTURE
+forbid process/VOCABULARY.md Merging and remove-or-reprice are **CONJECTURE**
+forbid applications/CANCER_DEFECTION_2026-11-23.md Remove or reprice (CONJECTURE
+forbid theory/SWARM_RULE_2026-11-23.md T53 (remove-or-reprice inequality)
 must theory/SWARM_RULE_2026-11-23.md A floor on the part's own heat in terms of its error about the world under partial tamper is not derived
 must README.md | BICAUSAL |
 <!-- claim-rules:end -->
