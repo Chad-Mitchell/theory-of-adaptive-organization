@@ -1,6 +1,6 @@
 # The master picture: one cost of judgment, in time and in space
 
-`figures/master_curve.png` (16:9), drawn by `figures/master_curve.py` from `figures/master_curve_math.py` and `figures/master_curve_params.py`. Every plotted or printed number is recomputed by `figures/master_curve_checks.py` (run at `nice -n 19`; FAILS 0). First drawn 22 November 2026 from `main` at `5c36ee4`; redrawn 27 November 2026 to match the current front page: the floor's status (KNOWN for jump processes, PROVED (in-model) for diffusions), the judgment line of `README.md`, the swarm rule, the area cap (T62), and GENERAL / WORKED-CLASS-ONLY labels. `THEORY.md` is not edited. The hypothesis sentence is copied byte for byte and checked against README, CORE, and THEORY.
+`figures/master_curve.png` (16:9), drawn by `figures/master_curve.py` from `figures/master_curve_math.py` and `figures/master_curve_params.py`. Every plotted or printed number is recomputed by `figures/master_curve_checks.py` (run at `nice -n 19`; FAILS 0). First drawn 22 November 2026 from `main` at `5c36ee4`; redrawn 27 November 2026 to match the current front page: the floor's status (KNOWN for jump processes, PROVED (in-model) for diffusions), the judgment line of `README.md`, the swarm rule, the area cap (T62), and scope labels (GENERAL, WORKED-CLASS-ONLY, SYNTHESIS; defined in the scope header of `measurement/CLAIM_MAP_v2.md`). Relabelled the same day after the review of PR #297: T62 is WORKED-CLASS-ONLY (class AL), and the swarm panel is a SYNTHESIS. `THEORY.md` is not edited. The hypothesis sentence is copied byte for byte and checked against README, CORE, and THEORY.
 
 **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
 
@@ -28,8 +28,8 @@ From `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` §5 (lines 84–87): blind when
 | Holographic: shared memory on the curve, pays from x = 1; K copies wait to x = K | GFP:106 (blind stake lower by K); HOLOGRAPHIC_MEMORY_2026-11-22.md:52–70; general_checks.py:383–398 | worked class (T42/T39) |
 | Copies cost → √K = 2× at high stakes | HOLOGRAPHIC_MEMORY_2026-11-22.md:25 | worked class |
 | Ties or loses when each item is read alone | HOLOGRAPHIC_MEMORY_2026-11-22.md:13, :118 | worked class |
-| Swarm rule: stay iff λ·s·c < w·Φ; the part's choice is the whole's iff s = w/W | CORE.md:136 (27 Nov); theory/SWARM_RULE_2026-11-23.md | WORKED-CLASS-ONLY (THEORY Appendix B classes; ledger SWARM-STAY) |
-| Through finite-capacity channels the tracked rate scales with area; not the holographic bound | README.md:43 (27 Nov); theory/AREA_LAW_PROBE_2026-11-23.md:15 | GENERAL (ledger T62) |
+| Swarm rule: stay iff λ·s·c < w·Φ; the part's choice is the whole's iff s = w/W | CORE.md §4, Join, stay and leave; theory/SWARM_RULE_2026-11-23.md | SYNTHESIS (ledger SWARM-RULE); the stay and alignment clauses are WORKED-CLASS-ONLY, in THEORY Appendix B classes (ledger SWARM-STAY, SWARM-ALIGN) |
+| Through finite-capacity channels the tracked rate scales with area; not the holographic bound | README.md:43 (27 Nov); theory/AREA_LAW_PROBE_2026-11-23.md:15 | WORKED-CLASS-ONLY, class AL, given finite-capacity boundary channels (ledger T62) |
 | Field: heat ∝ volume at per-site error; 13 per site, 13·n² | HOLOGRAPHIC_2026-11-22.md:21, :130 | worked class (T41) |
 | Named cut: ≈13.61 per cut site, bound 13 (217.693 vs 208 at n = 16) | HOLOGRAPHIC_2026-11-22.md:17, :130; recomputed with that note's checker functions | worked class (T41) |
 | Boundary: blanket suffices for decisions outside a region; interior not | BOUNDARY_SUFFICIENCY_2026-11-22.md:13, :19, :39 | worked class (T44, Gaussian field) |

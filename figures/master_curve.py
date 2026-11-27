@@ -102,12 +102,12 @@ tbox(0.60, 0.13, ORANGE, "HOLOGRAPHIC MEMORY", "T42 \u2022 WORKED-CLASS-ONLY",
      "pays from x = 1; %d separate copies wait until x = %d and cost \u2192 2\u00d7 (\u221a%d).\n"
      "Ties or loses when each item is read alone." % (K, K, K, K), size=9.0)
 
-tbox(0.455, 0.13, "#b35c00", "THE SWARM RULE", "SWARM-STAY \u2022 WORKED-CLASS-ONLY",
+tbox(0.455, 0.13, "#b35c00", "THE SWARM RULE", "SYNTHESIS \u2022 IN-CLASS CLAUSES",
      "A part stays iff \u03bb\u00b7s\u00b7c < w\u00b7\u03a6: signal change rate \u00d7 its share of the price\n"
      "of following, against its stake \u00d7 the signal's worth. Its choice is the whole's\n"
-     "iff shares match stakes, s = w/W (THEORY Appendix B classes).", size=9.0)
+     "iff shares match stakes, s = w/W (each clause in its THEORY Appendix B class).", size=9.0)
 
-ab = tbox(0.205, 0.235, TEAL, "FIELD, CUT, BOUNDARY", "T41, T44 WORKED \u2022 T62 GENERAL", "", size=9.6)
+ab = tbox(0.205, 0.235, TEAL, "FIELD, CUT, BOUNDARY", "T41, T44, T62 \u2022 WORKED-CLASS-ONLY", "", size=9.6)
 rows = M.cut_vs_bulk()
 axs = fig.add_axes([X0 + 0.035, 0.235, 0.15, 0.145])
 nn = np.array([r[0] for r in rows], float)
@@ -128,8 +128,8 @@ fig.text(X0 + 0.205, 0.395,
          "site, bound 13). For decisions outside a\n"
          "region the blanket suffices (T44). Through\n"
          "finite-capacity channels the tracked rate\n"
-         "scales with area (T62); not the\n"
-         "holographic bound.", fontsize=8.8, color=NAVY, va="top", linespacing=1.28)
+         "scales with area (T62, class AL);\n"
+         "not the holographic bound.", fontsize=8.8, color=NAVY, va="top", linespacing=1.28)
 
 # ---------------- status strip ----------------
 def sbox(x0, wdt, color, tag, text):
@@ -146,7 +146,7 @@ sbox(0.03, 0.335, GREEN, "GENERAL (no Gaussian or linear step)",
 sbox(0.375, 0.305, BLUE, "WORKED-CLASS-ONLY (curve, panels)",
      "Equilibrium OU signals or a Gaussian field;\n"
      "mean-square error; memory does not move the\n"
-     "signal. Swarm rule: THEORY Appendix B classes.")
+     "signal. T62: class AL. Swarm rule: SYNTHESIS.")
 sbox(0.69, 0.28, PURPLE, "HYPOTHESIS (not yet measured)",
      "Where this class applies, strongly selected\n"
      "systems sit near the curve. No real system\n"
