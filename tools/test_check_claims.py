@@ -373,3 +373,45 @@ def test_gate_read_outcome_is_not_the_gate_row():
     assert cc.summary_fails("The independent gate read returned **GATE STOP** on E1, so it stays withdrawn.", ROOT) == []
     assert cc.summary_fails("Gate read v5: GATE PASS, so the run went ahead.", ROOT) == []
     assert cc.summary_fails("GATE holds as a server-side merge gate.", ROOT)
+
+
+# ---------------------------------------------------------------- LEDGER-1 (27 Nov 2026)
+def test_ledger1_grandfather_list_equals_the_failing_set():
+    assert set(cc.scored_without_row(ROOT)) == cc.LEDGER1_GRANDFATHERED
+
+
+def test_new_scored_folder_without_a_row_fails_and_a_row_naming_it_passes():
+    root = copy_tree()
+    try:
+        d = os.path.join(root, "theory", "zz-new-test")
+        os.makedirs(d)
+        open(os.path.join(d, "RESULTS.md"), "w").write("P1: HIT\n")
+        assert "ledger-1: theory/zz-new-test holds scored results" in fails_of(root)
+        cm = os.path.join(root, "measurement/CLAIM_MAP_v2.md")
+        t = open(cm, encoding="utf-8").read()
+        t = t.replace("| review_r1316; rounds 14 and 15:", "| review_r1316; theory/zz-new-test/RESULTS.md; rounds 14 and 15:")
+        open(cm, "w", encoding="utf-8").write(t)
+        assert "ledger-1" not in fails_of(root)
+    finally:
+        shutil.rmtree(root)
+
+
+def test_suffixed_results_name_is_scored_and_unscored_file_is_not():
+    root = copy_tree()
+    try:
+        d = os.path.join(root, "theory", "zz-new-test")
+        os.makedirs(d)
+        open(os.path.join(d, "RESULTS_RUN2.md"), "w").write("P1: SIM-FAIL\n")
+        open(os.path.join(root, "theory", "zz-new-test", "NOTES.md"), "w").write("HIT\n")
+        assert "ledger-1: theory/zz-new-test" in fails_of(root)
+        os.remove(os.path.join(d, "RESULTS_RUN2.md"))
+        open(os.path.join(d, "RESULTS.md"), "w").write("no status words here\n")
+        assert "ledger-1: theory/zz-new-test" not in fails_of(root)
+    finally:
+        shutil.rmtree(root)
+
+
+def test_moved_folder_is_the_same_folder():
+    import movemap
+    paths = cc.ledger_paths(ROOT)
+    assert all(movemap.backward(p) == p for p in paths)

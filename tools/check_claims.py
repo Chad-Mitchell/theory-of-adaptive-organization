@@ -540,6 +540,62 @@ def check_summaries(root):
     return out
 
 
+# ---------------------------------------------------------------- LEDGER-1 (27 Nov 2026)
+# Every folder that holds a scored results file (tools/facts.py scored_results, the definition the gate check also
+# uses) has at least one row in measurement/CLAIM_MAP_v2.md whose cells name that folder or a file in it. Paths are
+# compared through tools/movemap.py, so tests/X and records/tests/X are the same folder. A test name alone in prose is
+# not enough, because names collide.
+# Shrink-only: the folders that failed when the rule became a check (FAILURES LEDGER-1-GAP). Adding a row that names
+# the folder removes it; tools/test_check_claims.py asserts this set equals the failing set, and nothing joins it.
+LEDGER1_GRANDFATHERED = {
+    "core/sim1_2026-11-21",
+    "reviews/night2/SELF",
+    "tests/C3",
+    "tests/DECISIVE/banks",
+    "tests/DECISIVE/glucose",
+    "tests/DECISIVE/populations",
+    "tests/DIR1",
+    "tests/F1",
+    "tests/KERNEL_MEASURE",
+    "tests/LEARNSIM",
+    "tests/LFK_SPF",
+    "tests/ONSET_ACROSS_ALPHA",
+    "theory/acting_derivation_checks",
+    "theory/measured/grid_cross_2026-11-21",
+}
+LEDGER_PATH = re.compile(r"(?<![\w./-])((?:[A-Za-z0-9_.\-]+/)+[A-Za-z0-9_.\-]*)")
+
+
+def ledger_paths(root):
+    """Every path named in a table row of the claim map, in its pre-move form."""
+    import movemap
+    out = set()
+    for line in read(root, "measurement/CLAIM_MAP_v2.md").splitlines():
+        if line.startswith("|"):
+            for p in LEDGER_PATH.findall(line):
+                p = p.rstrip("/.")
+                out.add(movemap.backward(p))
+    return out
+
+
+def scored_without_row(root):
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import facts
+    import movemap
+    paths = ledger_paths(root)
+    out = []
+    for folder in facts.scored_folders(root):
+        old = movemap.backward(folder)
+        if not any(p == old or p.startswith(old + "/") for p in paths):
+            out.append(old)
+    return sorted(out)
+
+
+def check_scored_has_row(root):
+    return ["ledger-1: %s holds scored results and no claim-map row names it; add its path to the row's source cell" % f
+            for f in scored_without_row(root) if f not in LEDGER1_GRANDFATHERED]
+
+
 def check(root=None):
     """Return a list of failure strings (empty means pass)."""
     root = root or repo_root()
@@ -559,6 +615,7 @@ def check(root=None):
     errors.extend(check_direction(root))
     errors.extend(check_work_rows(root))
     errors.extend(check_summaries(root))
+    errors.extend(check_scored_has_row(root))
     # de-duplicate, keep order
     out, seen = [], set()
     for e in errors:
