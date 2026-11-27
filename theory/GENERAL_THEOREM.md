@@ -15,7 +15,7 @@ Draft, Saturday 2026-11-14 (ET). Private working file. Nothing here was posted o
 **Labels.**
 - **PROOF**: proved here, and checked by code.
 - **KNOWN**: an existing result, with the citation fetched this pass.
-- **CONJECTURE**: not proved.
+- **CONJECTURE**: the scope word defined in the scope header of the headline ledger (`measurement/CLAIM_MAP_v2.md`).
 - **FAILS**: the hoped-for statement is false or could not be proved, usually shown by a counterexample.
 - **UNCONFIRMED novelty**: elementary; not found in a quick search; may well be known. Novelty is not claimed.
 

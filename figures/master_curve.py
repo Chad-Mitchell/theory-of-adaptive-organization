@@ -139,7 +139,7 @@ def sbox(x0, wdt, color, tag, text):
     axb.text(0.03, 0.80, tag, fontsize=10.5, fontweight="bold", color=color, va="center", transform=axb.transAxes)
     axb.text(0.03, 0.36, text, fontsize=8.6, color=NAVY, va="center", transform=axb.transAxes, linespacing=1.3)
 
-sbox(0.03, 0.335, GREEN, "GENERAL (no Gaussian or linear step)",
+sbox(0.03, 0.335, GREEN, "GENERAL (scope: ledger header)",
      "R1: additive price sum (A1\u2013A7). Heat \u2265 kT \u00d7 information flow\n"
      "(KNOWN for jump processes; PROVED in-model for diffusions).\n"
      "Stakes up \u2192 judgment not down (ruin cap slack). A cut screens.")
