@@ -30,7 +30,7 @@ So HC is a best-reply potential game (Voorneveld 2000) with a convex potential. 
 \[
 s_i=\frac{-w_ig_i'(F^*)}{c},
 \]
-and these shares sum to 1. Stake shares \(s_i=w_i/W\) align every party iff \(g_i'(F^*)\) is the same for all \(i\), which holds when the curves coincide (CT31) and fails in general.
+and these shares sum to 1. Stake shares \(s_i=w_i/W\) align every party iff \(g_i'(F^*)\) is the same for all \(i\), the case when the curves coincide (the CT31 class, proved-in-model) and not in general.
 
 *Proof.* Party \(i\) minimizes \(s_icF+w_ig_i(F)\), strictly convex, with stationary point where \(s_ic=-w_ig_i'(F)\). Setting \(F=F^*\) gives the shares; summing gives Samuelson's condition. ∎ *Check:* `lindahl_shares_align_hetero` (\(w=(1,2)\), \(g_1=1/F\), \(g_2=1/F^2\)).
 
