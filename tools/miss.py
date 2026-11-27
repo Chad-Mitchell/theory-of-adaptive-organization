@@ -10,6 +10,7 @@ root cause, R1 to R7 (process/FAILURES.md, "Root-cause codes").
         [--deviations PATH]          (required for a model or measurement/code miss)
   python3 tools/miss.py --batch rows.json      (a list of objects with the same keys; a medium or high entry
                                                 also carries "block": its three items, which go below the ledger)
+                                                a process row may carry "covers": [ids of DEVIATIONS rows it logs]
   python3 tools/miss.py --check-corrections [BASE]
         every commit since BASE (default: the merge base with origin/main) whose subject corrects something names a
         row: a FAILURES or DEVIATIONS id that exists, or the trailer `Miss: none (<reason>)`.
@@ -98,7 +99,10 @@ def _check_target(root, r):
 
 
 def failures_line(r):
-    cells = [r["date"], "`%s`" % r["id"], r["prediction"], r["outcome"], r["miss"], r["cause"], r["location"],
+    idcell = "`%s`" % r["id"]
+    if r.get("covers"):
+        idcell += " (DEVIATIONS %s)" % ", ".join(r["covers"])
+    cells = [r["date"], idcell, r["prediction"], r["outcome"], r["miss"], r["cause"], r["location"],
              r["stake"], r["update"], r["breach"]]
     return "| " + " | ".join(_cell(c) if i != 1 else c for i, c in enumerate(cells)) + " |"
 
@@ -262,7 +266,13 @@ def logged_without_row(root):
             if m and sec.startswith(secs) and m.group(1) not in named:
                 out.append("%s %s is a process miss that no FAILURES row names (add \"(MISSES-LEDGER %s)\" to the row "
                            "that covers it, or log one)" % (path, m.group(1), m.group(1)))
-    ids = set(re.findall(r"^\| 20\d\d-\d\d-\d\d \| `([^`]+)`", ftext, re.M))
+    # A DEVIATIONS process row is covered by a FAILURES row with the same id, or one whose id cell names it as
+    # "(DEVIATIONS X-P1)"; a mention in another row's prose does not count.
+    ids = set()
+    for cell in re.findall(r"^\| 20\d\d-\d\d-\d\d \| ([^|]+)\|", ftext, re.M):
+        ids |= set(re.findall(r"`([^`]+)`", cell))
+        for m in re.finditer(r"DEVIATIONS ((?:[\w.\-]+(?:, )?)+)", cell):
+            ids |= {x.strip() for x in m.group(1).split(",")}
     for dirpath, dirs, files in os.walk(root):
         dirs[:] = [d for d in dirs if not d.startswith(".")]
         for f in files:
@@ -282,7 +292,7 @@ def logged_without_row(root):
                     continue
                 loc = cells[header.index("location")].lower() if len(cells) > header.index("location") else ""
                 rid = cells[0].strip("` ")
-                if loc.startswith("process") and rid not in ids and rid not in ftext:
+                if loc.startswith("process") and rid not in ids:
                     out.append("%s: %s has location process and no FAILURES row" % (os.path.relpath(full, root), rid))
     return out
 

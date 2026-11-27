@@ -146,6 +146,11 @@ def test_a_deviations_row_located_in_process_needs_a_failures_row():
         "| `X-M1` | p | o | m | model | low | u | none |\n")
     bad = miss.logged_without_row(d)
     assert bad == ["tests/X/DEVIATIONS.md: X-P1 has location process and no FAILURES row"]
-    miss.log(d, [dict(ROW, id="X-P1-PROC", outcome="see X-P1 in tests/X/DEVIATIONS.md")])
+    # a mention in another row's prose does not cover it
+    miss.log(d, [dict(ROW, id="X-P1-MENTION", outcome="see X-P1 in tests/X/DEVIATIONS.md")])
+    assert miss.logged_without_row(d) == bad
+    # a row whose id cell names it does
+    miss.log(d, [dict(ROW, id="X-P1-PROC", covers=["X-P1"])])
+    assert "`X-P1-PROC` (DEVIATIONS X-P1)" in open(os.path.join(d, miss.FAILURES), encoding="utf-8").read()
     assert miss.logged_without_row(d) == []
     shutil.rmtree(d)
