@@ -592,8 +592,8 @@ is useless, `b* ≤ g`, i.e. `w p ≥ 6kσ²/g²`; past that the formulas are an
 upper-bound guide only.  This sits beside the Brownian and correlation-time
 caveats of GROK_BOT_MEMORY §5.
 
-Independent review of head `43c4c81acb0417512dfa30aba0c5b2c7c17818d5`:
-`reviews/pr301_2026-11-27/REVIEW301.md` (no Lean blockers; blocker B1 was the
+Independent review: `reviews/pr301_2026-11-27/REVIEW301.md` (it names
+the head it read) (no Lean blockers; blocker B1 was the
 text of M45, this section and the MEM-RULE row).  The reviewer rebuilt in a
 separate tree (`/tmp/gtao-lean2`) and got the same AxiomAudit count, 2333, as
 `AUDIT.json` records for `/tmp/gtao-lean`.
