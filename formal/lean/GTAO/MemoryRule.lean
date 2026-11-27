@@ -207,7 +207,7 @@ theorem band_rule {k a s : ℝ} (hk : 0 < k) (ha : 0 < a) (hs : 0 < s) :
     exact (pow_left_inj₀ hb0.le hb.le two_ne_zero).mp this
 
 /-- The occupation integrals behind the coefficient `6`, for the assumed
-density `g(x) = (b − |x|)/σ²` of Brownian motion from `0` killed at `±b`:
+density `g(x) = (b − |x|)/σ²` of Brownian motion from `0` absorbed at `±b`:
 total mass `∫_{−b}^{b} (b − |x|) dx = b²` (so the mean exit time is
 `b²/σ²`) and second moment `∫_{−b}^{b} (b − |x|) x² dx = b⁴/6` (so the
 time-average square gap is `b²/6`). -/
