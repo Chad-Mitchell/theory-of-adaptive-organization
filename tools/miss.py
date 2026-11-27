@@ -225,7 +225,22 @@ def main(argv=None):
         print("miss.py: %s (nothing written)" % e)
         return 1
     print("logged %d row(s): %s" % (len(done), ", ".join(done)))
+    refresh_counts(a.root)
     return 0
+
+
+def refresh_counts(root):
+    """Rewrite the generated counts on process/PROCESS.md (the gen:misses block) so a logged row never leaves them stale."""
+    page = os.path.join(root, "process", "PROCESS.md")
+    if not os.path.isfile(page):
+        return
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import facts
+    text = open(page, encoding="utf-8").read()
+    new, _ = facts.render(root, "process/PROCESS.md", text)
+    if new != text:
+        open(page, "w", encoding="utf-8").write(new)
+        print("refreshed the generated counts in process/PROCESS.md")
 
 
 if __name__ == "__main__":
