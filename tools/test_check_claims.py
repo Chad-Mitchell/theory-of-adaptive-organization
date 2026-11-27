@@ -554,7 +554,8 @@ def test_a_wrong_scope_label_fails():
 
 
 def test_a_dropped_conjecture_label_fails():
-    r = _readme().replace("is a CONJECTURE (T50)", "is open (T50)", 1)
+    r = _readme().replace("is a CONJECTURE (T50).*", "is open (T50).*", 1)
+    assert r != _readme()
     assert any("Rebuild and gaining from shocks" in f for f in _front(readme=r))
 
 
