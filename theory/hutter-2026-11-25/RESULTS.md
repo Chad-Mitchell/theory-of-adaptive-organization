@@ -115,3 +115,11 @@ All lines above are preserved as committed at `66640ab`. The independent gate re
 - **P3 (line 42–43):** P3 carries little information given the prior knowledge of the cmix family disclosed in `PREREG.md` §0; also note `fxcm` itself supplies 431 outputs (`fxcmv1.cpp:93`), so total inputs are 460 (≥ 31).
 - **Decode time vs cap (line 58):** LTCB D-time `131,561 s` (36.5 h) on AMD sits comfortably below the ~49–53 h cap (`70'000/T`), leaving slack; under J, slack time gives update time a shadow price near 0, further weakening E1's "binding time cap" premise.
 - **LTCB curl note:** `ltcb.html` was fetched with curl at 11:30 ET (sha256 `4d1224b7…`); some automated fetchers encounter a bot wall on `mattmahoney.net`, though the figures match the page text.
+
+## Note on P1 (appended 27 November 2026, after the hostile review of PR #295; the lines above are unchanged)
+
+- **P1 is reported as contested, not as a hit.** The first score above was **not scorable** (line 14). The later re-score to **hit** (lines 104–108) rests on readings chosen after the numbers were seen. The lock defines P1 as a share of the record's **runtime RAM** (`PREREG.md:43`).
+  - The allocation-constant reading counts PPMD's 14,000 MiB, which is memory-mapped to disk (`mmap_to_disk = true`) and exceeds the measured decompression RAM of 9,547 MB. So the 0.709 share is a share of allocated address space, not of RAM.
+  - The RAM reading (fxcm about 0.44 of RAM) needs fxcm, a bundle of 18 context-map banks, 12 mixers and APM/SSE tables, to count as "one named model or table family", and needs the non-mapped tables to be resident. Neither was fixed before scoring.
+- **Tally as read now:** P1 contested (post-hoc reading); P3 hit; P2, P4 miss. With P1 contested, condition (i) of the overall rule (`PREREG.md:115`) is not met on uncontested hits; condition (ii) fails either way. **Overall: open miss**, unchanged.
+- No locked line, number or script is changed. Source of the review: the hostile review of #295 at main `ecf5bdbb4aae33bb5511816dac901dac2596e6c7` (27 Nov 2026).

@@ -12,7 +12,7 @@ Write the cost, find its minimum, read off the design, and state which inputs ar
 
 ## 2. The posted challenge
 
-Posted Monday 23 November 2026 at 1:01 AM ET (America/New_York) as [2124745125699944748](https://x.com/i/status/2124745125699944748). The text as posted:
+Posted Monday 23 November 2026 at 1:01 AM ET (America/New_York) as [2124745125699944748](https://x.com/i/status/2124745125699944748) (deleted 27 Nov 2026; text preserved here). The text as posted:
 
 > A challenge for the Grok Bot team.
 >
@@ -76,3 +76,7 @@ The post said to re-check "every \(\sqrt{6k/(w\sigma^2)}\)". That wording reads 
 ## 6. What remains measured
 
 The theory does not supply the numbers. For each item, \(c_i\), \(p_i\), \(w_i\), \(k_i\), and \(\sigma_i\) are still measurements. Until they are measured for this system, the two rules are the design the cost selects, not a scored test. This page is not a qualification under THEORY §3, and it is not a field test of the hypothesis.
+
+## Credits (appended 27 November 2026)
+
+The two rules in the post are not new mathematics. The square-root rule for a holding cost against a lumpy reset is Harris 1913 and Barro 1972; the re-check interval as the mean gap of a barrier rule is the monitoring-interval result of Senders 1964; the same √ rule in noisy niches is Lee, Flack and Krakauer 2024, doi 10.1098/rspb.2024.1606; the refresh-time form is Dixit 1991 (§4). These credits are already in `theory/PRICE_FREE_2026-11-21.md` (line 94), and this note repeats them beside the application. The posted challenge (2124745125699944748) was deleted on 27 Nov 2026; its text is preserved in §2.

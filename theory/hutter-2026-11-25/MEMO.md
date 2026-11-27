@@ -58,3 +58,7 @@ Give the map three prices: shipped bytes 1, run-time memory 0 below the cap, off
 - Delétang, G., Ruoss, A., et al. 2023. Language Modeling Is Compression. arXiv:2309.10668. Background for the ship-pretrained-weights rival.
 - Jiang, A. H., Wong, D. L.-K., Zhou, G., Andersen, D. G., Dean, J., et al. 2019. Accelerating Deep Learning by Focusing on the Biggest Losers. arXiv:1910.00762.
 - Record: `https://github.com/astOwOlfo/fx2-cmix-transformer-v1` at `83f2603`. Benchmark: `https://mattmahoney.net/dc/text.html`. Prize: `https://www.hutter1.net/prize/hrules.htm`, `https://www.hutter1.net/prize/index.htm`.
+
+## Note (appended 27 November 2026; the lines above are unchanged)
+
+The P1 row above reads **hit**. After the hostile review of PR #295 it is reported as **contested (post-hoc reading)**: see the note of 27 November 2026 at the end of `RESULTS.md`. Tally: P1 contested; P3 hit; P2, P4 miss; overall open miss.

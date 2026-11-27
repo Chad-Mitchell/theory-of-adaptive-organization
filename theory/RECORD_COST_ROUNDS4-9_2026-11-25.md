@@ -134,3 +134,7 @@ Round 10 tests whether U follows from more basic premises: `theory/RECORD_COST_R
 ## 14. Errata (pointer, appended 26 November 2026)
 
 The §8 phrase "without a time-evolution premise" overstates the remark; corrected wording, the fact that SFP plus transitivity already implies U, and the SO(3)-versus-O(3) group rule are in `theory/RECORD_COST_ERRATA_2026-11-26.md` §1. The text above is unchanged.
+
+## 15. Label note (appended 27 November 2026)
+
+The §2 item "Novelty equals destruction, PROVED (in-model)" is **ELEMENTARY**, not a new result: for a stationary chain \(H(X_0)=H(X_1)\), so the chain rule \(H(X_0,X_1)=H(X_0)+H(X_1|X_0)=H(X_1)+H(X_0|X_1)\) gives \(H(X_1|X_0)=H(X_0|X_1)\). The line above is unchanged.
