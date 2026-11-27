@@ -101,7 +101,7 @@
 
 **Test.** Check the stay condition \(\lambda s c<w\Phi\) with measured inputs. \(\lambda, s, c, w\) and \(\Phi\) are MEASUREMENTS (`theory/SWARM_RULE_2026-11-23.md:17-36`).
 
-**Status.** Onset, stay, leave, align and the re-form band are **PROVED (in-model)** in their named classes. Reintegrate is an identity on stay plus a property of the memoryless class (`theory/SWARM_RULE_2026-11-23.md:52`). Merging and remove-or-reprice are **CONJECTURE** (T53). Every reading onto cells, agents, people or bacteria is **INTERPRETATION**. That real parts minimize this cost is the hypothesis, untested there (`theory/SWARM_RULE_2026-11-23.md:52`). *The swarm limit* (\(k\to0\), groups re-form continuously) is an ANALOGY, not a theorem (`theory/FLUID_LAYERS_2026-11-21.md:11`, `theory/GENERALITY_2026-11-22.md:285`).
+**Status.** Onset, stay, leave, align and the re-form band are **PROVED (in-model)** in their named classes. Reintegrate is an identity on stay plus a property of the memoryless class (`theory/SWARM_RULE_2026-11-23.md:52`). For merging and remove-or-reprice, see ledger rows SWARM-MERGE (an open miss) and SWARM-REPRICE (proved-in-model, T53) in `measurement/CLAIM_MAP_v2.md`. Every reading onto cells, agents, people or bacteria is **INTERPRETATION**. That real parts minimize this cost is the hypothesis, untested there (`theory/SWARM_RULE_2026-11-23.md:52`). *The swarm limit* (\(k\to0\), groups re-form continuously) is an ANALOGY, not a theorem (`theory/FLUID_LAYERS_2026-11-21.md:11`, `theory/GENERALITY_2026-11-22.md:285`).
 
 **Say / don't say.** Do not say "the swarm principle". Say "the swarm rule" for the membership life cycle. Do not use "swarm" for the claim that levels repeat the same pattern (entries 6 and 7).
 
