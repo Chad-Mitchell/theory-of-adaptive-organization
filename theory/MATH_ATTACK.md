@@ -20,7 +20,7 @@ Written Sat 2026-11-14, about 10:15 PM to midnight ET, by a Grok Bot executor, f
 - **KNOWN:** prior work, with each citation checked by web search this pass.
 - **PROOF:** a derivation given here, with its stated assumptions.
 - **NUMERIC:** a script result.
-- **CONJECTURE:** not shown.
+- **CONJECTURE:** the scope word defined in the scope header of the headline ledger (`measurement/CLAIM_MAP_v2.md`).
 
 ---
 
