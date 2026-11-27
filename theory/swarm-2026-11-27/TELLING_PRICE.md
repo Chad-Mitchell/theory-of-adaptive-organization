@@ -31,7 +31,7 @@ which is positive by Jensen's inequality whenever the prior is not a point mass.
 
 **TP2 (misaligned part: no full revelation; PROVED (in-model), an application of Crawford & Sobel 1982, Theorem 1).** If \(\kappa_i\neq1\), no equilibrium is fully revealing, and every equilibrium partitions \([q_{\text{lo}},q_{\text{hi}}]\) into finitely many intervals, each inducing one read rate.
 
-*Proof.* Use the action \(f\) and the type \(q\). Both payoffs \(-J\) are strictly concave in \(f\) and have positive cross-partial in \((f,q)\) (\(\partial^2(-J)/\partial f\,\partial q=w/(2f^2)>0\) for either player's stake), and the two ideal actions differ at every \(q\) because their ratio is \(\sqrt{\kappa_i}\neq1\). These are the conditions of Crawford and Sobel's Theorem 1 (after a monotone relabelling of the type interval to \([0,1]\)), which gives a finite partition. Directly for full revelation: if the whole played \(f_W(q)\) on truthful messages, type \(q\) would report \(q'=q/\kappa_i\), which is inside the support for interior \(q\) near the middle, and gain. ∎
+*Proof.* Use the action \(f\) and the type \(q\). Both payoffs \(-J\) are strictly concave in \(f\) and have positive cross-partial in \((f,q)\) (\(\partial^2(-J)/\partial f\,\partial q=w/(2f^2)>0\) for either player's stake), and the two ideal actions differ at every \(q\) because their ratio is \(\sqrt{\kappa_i}\neq1\). These are the conditions of Crawford and Sobel's Theorem 1 (after a monotone relabelling of the type interval to \([0,1]\)), which gives a finite partition. Directly for full revelation: if the whole played \(f_W(q)\) on truthful messages, type \(q\) would report \(q'=q/\kappa_i\), and gain whenever \(q/\kappa_i\) lies in the support (for some interior \(q\) when \(q_{\text{lo}}/q_{\text{hi}}<\kappa_i<q_{\text{hi}}/q_{\text{lo}}\); outside that range Crawford and Sobel's theorem still applies). ∎
 
 **The arbitrage condition.** In an \(N\)-step equilibrium with boundaries \(q_{\text{lo}}=q_0<q_1<\dots<q_N=q_{\text{hi}}\) and conditional means \(m_k=\mathbb E[q\mid q_{k-1}\le q<q_k]\), the receiver plays \(f_k=\sqrt{Wm_k/(2c)}\), and the boundary type is indifferent between \(f_k\) and \(f_{k+1}\): \(s_ic(f_{k+1}-f_k)=(w_iq_k/2)(1/f_k-1/f_{k+1})\), that is \(q_k=2s_icf_kf_{k+1}/w_i\), which is
 \[
@@ -55,7 +55,7 @@ Outside this window only babbling remains (\(N=1\)) and the telling channel is w
 \[
 V_N(\kappa_i)=\sqrt{2cW}\Bigl(\sqrt M-\sum_{k=1}^N P_k\sqrt{m_k}\Bigr)\ \ge 0,
 \]
-with \(P_k\) the prior mass of step \(k\). The whole opens a telling channel of price \(d\) iff \(d<V^*(\kappa_i)\), the value of the equilibrium it can coordinate on. \(V^*(1)=V_{\text{full}}\); \(V^*(\kappa_i)=0\) outside TP3's window. *Proof.* The whole's expected cost on step \(k\) is \(\sqrt{2cWm_k}\); Jensen gives the sign. ∎
+with \(P_k\) the prior mass of step \(k\). The whole opens a telling channel of price \(d\) iff \(d<V^*(\kappa_i)\), the value of the equilibrium it can coordinate on. \(V^*(1)=V_{\text{full}}\); \(V^*(\kappa_i)=0\) outside TP3's window (under MRR). *Proof.* The whole's expected cost on step \(k\) is \(\sqrt{2cWm_k}\); Jensen gives the sign. ∎
 
 So CT16's rule for telling becomes, for a part that tells the whole what only it knows: **tell iff the price of the channel is below the value of the information the part's pricing lets it reveal**. Repricing the part to \(\kappa_i=1\) (clause 4) restores full revelation and the full value; mispricing beyond the window makes the part's reports worthless even when talk is free.
 
