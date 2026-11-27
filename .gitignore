@@ -17,3 +17,6 @@ __pycache__/
 formal/lean/.lake/
 formal/lean/lake-packages/
 **/.lake/
+
+# written to the working directory by reviews/night2/CAUSAL_NULL_INVARIANCE/run_test.py when pytest runs it from the root
+/test_result.json

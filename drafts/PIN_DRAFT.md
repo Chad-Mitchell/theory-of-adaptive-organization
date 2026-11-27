@@ -5,7 +5,7 @@
 **What changed from the live pin** (https://x.com/torusflow/status/2125614287997534386, posted 25 Nov 2026 10:35 ET), following the judgment framing check of 27 Nov 2026:
 
 - Date line: 25 Nov → 27 Nov 2026, and it now replaces the 25 Nov pin.
-- "What holds": the stake result moves from item 3 to item 1, with the CT2 sentence added (a ruin cap that acting blind cannot meet needs memory at any price; `THEORY.md:269`). Old items 1 and 2 follow, word for word. Items 4 to 7 are unchanged. A new item 8 states the swarm rule (`README.md` §The swarm rule; `theory/SWARM_RULE_2026-11-23.md`).
+- "What holds": the stake result moves from item 3 to item 1, with the CT2 sentence added (a ruin cap that acting blind cannot meet needs memory at any price; `THEORY.md:269`). Old items 1 and 2 follow, word for word. Items 4 to 7 are unchanged. A new item 8 states the swarm rule, a synthesis of in-class results (`theory/SWARM_RULE_2026-11-23.md`; ledger row SWARM-RULE). Item 1 says "spends nothing on memory", not "remembers nothing": with nothing at stake a zero-heat record ties with no record (`process/FAILURES.md`, `JUDGMENT-PIN-1`).
 - Lean count: 1,370 → 2,285 declarations. Source: `formal/lean/AUDIT.json` on `main` (`8b4d5a13dc52f4ef3a84204478826f7ac6c11f98`, 27 Nov 2026 13:49 ET) records `audit_count` 2285, and `tools/check_pending.py` confirms the Lean sources still hash to that audit. Not re-run in this PR. This is a raw declaration count; `formal/lean/README.md` warns that raw counts are not a measure of depth.
 - Credit: the telegraph floor's divergence step is KNOWN (Gilardoni 2006; Sason 2015), as `CORE.md:74` now says.
 - Evidence: the latest open misses are named (two-route A-T2, who-copies-whom, the Hutter map, the composite contest T72), each with its row in the headline ledger.
@@ -24,14 +24,14 @@ That sentence is a bet about nature. It is untested, and no real system has yet 
 
 What holds, inside stated math models (not real systems):
 
-1. Memory pays only when the stake on being wrong is high enough against its price. Below that threshold the cheapest design remembers nothing. A ruin cap that acting blind cannot meet is the one exception: then some memory is needed at any price.
+1. Memory pays only when the stake on being wrong is high enough against its price. Below that threshold the cheapest design spends nothing on memory. A ruin cap that acting blind cannot meet is the one exception: then some memory is needed at any price.
 2. Tracking a changing world costs heat: at least kT times the net rate at which the memory learns that world. This is published physics for bipartite jump processes (Horowitz and Esposito 2014) and proved here for additive-noise diffusions.
 3. Storage is cheap; tracking change is what costs. A record of an unchanging world can be kept at vanishing ongoing heat after a one-time write.
 4. How the cost grows with the stake depends on how the world moves. In continuously drifting worlds the minimum cost grows like the square root of the stake. In worlds hit by rare reset shocks it grows only like its logarithm at high stakes, and the best memory keeps a small uncommitted reserve.
 5. When a system steers its world, the heat bound on learning still holds, but there is no design-independent floor on memory heat alone. Some steering designs have vanishing ongoing memory heat; in the linear-feedback class, acting does not cut the tracking floor, and acting costs heat of its own.
 6. Predictable rhythms add a cost the basic floor misses: once looks are costly enough, a memory that keeps the beat between them needs an internal clock, and clocks cost heat.
 7. Where no formula exists, selection acts as a search scored by the cost. It settles near the minimum only under four conditions: strong selection, a reachable minimum, a cost that counts everything that matters, and a coupling that settles.
-8. The swarm rule: a part keeps following a whole only while the whole's signal changes slowly enough against the part's own stake in it, and the part's choice is the whole's when each part's share of the cost matches its share of the stake. Proved in its stated classes; reading it onto cells, people or AI agents is interpretation.
+8. The swarm rule: a part keeps following a whole only while the whole's signal changes slowly enough against the part's own stake in it, and the part's choice is the whole's when each part's share of the cost matches its share of the stake. Each clause is proved in its own stated class, and the rule puts them on one life cycle; reading it onto cells, people or AI agents is interpretation.
 
 How strong the evidence is:
 
