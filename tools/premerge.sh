@@ -7,12 +7,13 @@
 #   tools/premerge.sh --sha <SHA>        any commit reachable from the remote (for example the new main after a merge)
 #
 # Environment: GTAO_REPO_URL (default: the GitHub repository), GTAO_PREMERGE_DIR (default ~/.gtao-premerge),
-# GTAO_GH (default gh), GTAO_PREMERGE_CHECKS (a newline-separated list of commands; replaces the default list,
+# GTAO_GH (default gh), GTAO_REPO_SLUG (default Chad-Mitchell/theory-of-adaptive-organization), GTAO_PREMERGE_CHECKS (a newline-separated list of commands; replaces the default list,
 # for tests only). The clone is deleted on exit.
 set -uo pipefail
 REPO_URL="${GTAO_REPO_URL:-https://github.com/Chad-Mitchell/theory-of-adaptive-organization.git}"
 OKDIR="${GTAO_PREMERGE_DIR:-$HOME/.gtao-premerge}"
 GH="${GTAO_GH:-gh}"
+SLUG="${GTAO_REPO_SLUG:-Chad-Mitchell/theory-of-adaptive-organization}"  # gh needs the repository when run outside a clone
 PR=""; SHA=""
 case "${1:-}" in
   --sha) SHA="${2:?--sha needs a commit}";;
@@ -22,8 +23,8 @@ esac
 WORK="$(mktemp -d /tmp/gtao-premerge.XXXXXX)"
 trap 'rm -rf "$WORK"' EXIT
 if [[ -n "$PR" ]]; then
-  SHA="$("$GH" pr view "$PR" --json headRefOid -q .headRefOid)" || { echo "premerge: cannot read the head of #$PR"; exit 2; }
-  "$GH" pr view "$PR" --json body -q .body > "$WORK/body.md" || exit 2
+  SHA="$("$GH" pr view "$PR" -R "$SLUG" --json headRefOid -q .headRefOid)" || { echo "premerge: cannot read the head of #$PR"; exit 2; }
+  "$GH" pr view "$PR" -R "$SLUG" --json body -q .body > "$WORK/body.md" || exit 2
 fi
 [[ "$SHA" =~ ^[0-9a-f]{7,40}$ ]] || { echo "premerge: bad commit '$SHA'"; exit 2; }
 git clone -q "$REPO_URL" "$WORK/repo" || exit 2
