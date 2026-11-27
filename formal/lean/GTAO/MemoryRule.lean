@@ -351,6 +351,108 @@ theorem corrected_example :
   · nlinarith
   · nlinarith
 
+/-! ## 3c. The form for a public post: `V = w p`, `s = σ²/g²`
+
+Here the gap is measured in units of `g`, so `s = σ²/g²` and the band is
+`b*/g`.  `V = w p` is stake × need.  The held cost is `c + k/T + V s T/6`
+(`heldCost c k V s T`), `T` the barrier rule's mean interval. -/
+
+/-- **Post line 1.**  Hold iff `V > c + 2√(kVs/6)` (strict: at equality both
+choices are optimal). -/
+theorem post_hold_iff {c k V s : ℝ} (hk : 0 < k) (hV : 0 < V) (hs : 0 < s) :
+    (∃ T, 0 < T ∧ heldCost c k V s T < V) ↔ c + 2 * √(k * V * s / 6) < V :=
+  hold_strictly_better_iff hk hV hs
+
+/-- **Post line 2.**  The band, in units of `g`, is `b*/g = (6ks/V)^{1/4}`, and
+its mean exit time `(b*/g)²/s` is `T* = √(6k/(Vs))`. -/
+theorem post_band {k V s : ℝ} (hk : 0 < k) (hV : 0 < V) (hs : 0 < s) :
+    band k V s = (6 * k * s / V) ^ (1 / 4 : ℝ) ∧
+    band k V s ^ 2 / s = √(6 * k / (V * s)) :=
+  ⟨rfl, (band_rule hk hV hs).2.1⟩
+
+/-- At the optimum the two refresh terms are equal: `k/T* = √(kVs/6)` and
+`V s T*/6 = √(kVs/6)`. -/
+lemma balanced_terms {k V s : ℝ} (hk : 0 < k) (hV : 0 < V) (hs : 0 < s) :
+    k / Tstar k V s = √(k * V * s / 6) ∧ V * s * Tstar k V s / 6 = √(k * V * s / 6) := by
+  have hT := Tstar_pos hk hV hs
+  have hTsq : Tstar k V s ^ 2 = 6 * k / (V * s) := by unfold Tstar; rw [sq_sqrt (by positivity)]
+  have hC : 0 ≤ √(k * V * s / 6) := sqrt_nonneg _
+  have hCsq : √(k * V * s / 6) ^ 2 = k * V * s / 6 := sq_sqrt (by positivity)
+  refine ⟨?_, ?_⟩
+  · rw [← sq_eq_sq₀ (by positivity) hC, hCsq, div_pow, hTsq]; field_simp
+  · rw [← sq_eq_sq₀ (by positivity) hC, hCsq, div_pow, mul_pow, hTsq]; field_simp
+
+/-- **Post line 3 (a bot that counts a share `f` of `V`).**  It sets its
+interval as if the stake were `f V`, `T_f = √(6k/(fVs))`.  Its re-check rate is
+`√f` times the right rate, and its true refresh cost `k/T_f + V s T_f/6` is the
+optimum `2√(kVs/6)` times `(√f + 1/√f)/2`. -/
+theorem share_cost {k V s f : ℝ} (hk : 0 < k) (hV : 0 < V) (hs : 0 < s) (hf : 0 < f) :
+    1 / Tstar k (f * V) s = √f * (1 / Tstar k V s) ∧
+    LayerLifetime.cost (1 / 6) k V s (Tstar k (f * V) s) =
+      2 * √(k * V * s / 6) * ((√f + 1 / √f) / 2) := by
+  have hT := Tstar_pos hk hV hs
+  have hr : 0 < √f := sqrt_pos.mpr hf
+  have hTf : Tstar k (f * V) s = Tstar k V s / √f := by
+    unfold Tstar
+    rw [← sqrt_div' _ hf.le]
+    congr 1; field_simp
+  obtain ⟨h1, h2⟩ := balanced_terms hk hV hs
+  refine ⟨?_, ?_⟩
+  · rw [hTf]; field_simp
+  · unfold LayerLifetime.cost
+    rw [hTf]
+    have e1 : k / (Tstar k V s / √f) = √f * (k / Tstar k V s) := by field_simp
+    have e2 : 1 / 6 * V * s * (Tstar k V s / √f) = (V * s * Tstar k V s / 6) / √f := by
+      field_simp
+    rw [e1, e2, h1, h2]
+    field_simp
+
+/-- `(√f + 1/√f)/2 ≥ 1`, with equality iff `f = 1`: a bot that counts only a
+share `f < 1` (or any `f ≠ 1`) overpays. -/
+theorem share_overpay {f : ℝ} (hf : 0 < f) :
+    1 ≤ (√f + 1 / √f) / 2 ∧ ((√f + 1 / √f) / 2 = 1 ↔ f = 1) := by
+  have hr : 0 < √f := sqrt_pos.mpr hf
+  have key : (√f + 1 / √f) / 2 - 1 = (√f - 1) ^ 2 / (2 * √f) := by
+    field_simp; ring
+  have hnn : 0 ≤ (√f - 1) ^ 2 / (2 * √f) := by positivity
+  refine ⟨by linarith, ⟨fun h => ?_, fun h => ?_⟩⟩
+  · have h0 : (√f - 1) ^ 2 / (2 * √f) = 0 := by linarith
+    rw [div_eq_zero_iff] at h0
+    rcases h0 with h0 | h0
+    · have : √f = 1 := by nlinarith [sq_nonneg (√f - 1)]
+      have := congrArg (· ^ 2) this
+      simp only [sq_sqrt hf.le, one_pow] at this
+      exact this
+    · linarith
+  · subst h; simp
+
+/-- **Post line 4 (specialist).**  A specialist with check cost `k'` that
+counts a share `f` of `V` sets `T = √(6k'/(fVs))`; its true refresh cost
+`k'/T + V s T/6` is below the whole's optimum `2√(kVs/6)` iff
+`√(k'/k)·(√f + 1/√f)/2 < 1`. -/
+theorem specialist_beats_iff {k k' V s f : ℝ} (hk : 0 < k) (hk' : 0 < k') (hV : 0 < V)
+    (hs : 0 < s) (hf : 0 < f) :
+    LayerLifetime.cost (1 / 6) k' V s (Tstar k' (f * V) s) <
+        LayerLifetime.cost (1 / 6) k V s (Tstar k V s) ↔
+      √(k' / k) * ((√f + 1 / √f) / 2) < 1 := by
+  rw [(share_cost hk' hV hs hf).2]
+  have hopt : LayerLifetime.cost (1 / 6) k V s (Tstar k V s) = 2 * √(k * V * s / 6) := by
+    have := (held_min (c := 0) hk hV hs).2.1
+    unfold heldCost at this; linarith
+  rw [hopt]
+  have hC : 0 < 2 * √(k * V * s / 6) := by positivity
+  have hsplit : √(k' * V * s / 6) = √(k' / k) * √(k * V * s / 6) := by
+    rw [← sqrt_mul (by positivity)]; congr 1; field_simp
+  rw [hsplit]
+  constructor
+  · intro h
+    have : 2 * √(k * V * s / 6) * (√(k' / k) * ((√f + 1 / √f) / 2)) < 2 * √(k * V * s / 6) * 1 := by
+      linarith
+    exact lt_of_mul_lt_mul_left this hC.le
+  · intro h
+    have := mul_lt_mul_of_pos_left h hC
+    linarith
+
 /-! ## 4. CT17 (ii): the part that bears only part of the loss -/
 
 /-- Re-check rate `1/T*` of an item whose drift weight is `a`. -/
