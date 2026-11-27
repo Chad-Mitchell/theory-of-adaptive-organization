@@ -5,6 +5,8 @@ The clean tree must pass. Each planted error must be reported.
 """
 import os
 import shutil
+
+import pytest
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -447,3 +449,47 @@ def test_missing_case_index_fails():
         assert "has no cases table" in fails_of(root)
     finally:
         shutil.rmtree(root)
+
+
+# ---------------------------------------------------------------- one row per id
+def _one_row(text):
+    rows, _, _ = cc.parse_ledger(text)
+    return cc.check_one_row_per_id(cc.repo_root(), text, rows)
+
+
+def _cm():
+    return open(os.path.join(cc.repo_root(), "measurement/CLAIM_MAP_v2.md"), encoding="utf-8").read()
+
+
+def test_one_row_per_id_passes_on_the_repo():
+    assert _one_row(_cm()) == []
+
+
+@pytest.mark.parametrize("new,old", [("REP-R1", "R1"), ("SHANNON-S1", "S1"), ("COAD-F3", "F3"), ("COAD-F6", "F6")])
+def test_one_row_per_id_catches_a_reused_lettered_id(new, old):
+    t = _cm()
+    assert ("| %s |" % new) in t
+    fails = _one_row(t.replace("| %s |" % new, "| %s |" % old, 1))
+    assert any(("headline %s " % old) in f and "different claim" in f for f in fails), fails
+
+
+def test_one_row_per_id_accepts_a_theory_appendix_row():
+    t = _cm()
+    assert "| CT33 |" in t.split(cc.LEDGER_BEGIN, 1)[1]
+    assert not [f for f in _one_row(t) if "CT33" in f]
+
+
+def test_one_row_per_id_catches_a_duplicate_lettered_row():
+    t = _cm()
+    i = t.index("| F5 |")
+    line = t[i:t.index("\n", i)]
+    fails = _one_row(t.replace(line, line + "\n" + line, 1))
+    assert any("F5 is a lettered row 2 times" in f for f in fails), fails
+
+
+def test_one_row_per_id_catches_a_duplicate_failures_id(tmp_path):
+    (tmp_path / "process").mkdir()
+    (tmp_path / "process" / "FAILURES.md").write_text(
+        "| 2026-11-27 | `X-1` | a |\n| 2026-11-27 | `X-1` | b |\n| 2026-11-27 | `X-2` | c |\n", encoding="utf-8")
+    fails = cc.check_one_row_per_id(str(tmp_path), "", [])
+    assert fails == ["one row per id: FAILURES id X-1 has 2 rows"]

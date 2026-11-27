@@ -642,6 +642,65 @@ def check_front_cases(root):
     return ["front cases: " + x for x in front_case_hits(root) if x.split(": ")[0] not in FRONT_CASES_PENDING]
 
 
+def lettered_rows(text):
+    """{id: [(line number, section heading)]} for the lettered claim sections (above the headline ledger)."""
+    out, sec = {}, ""
+    pre = text.split(LEDGER_BEGIN, 1)[0] if LEDGER_BEGIN in text else text
+    for i, line in enumerate(pre.splitlines(), 1):
+        if line.startswith("## "):
+            sec = line
+        m = CLAIM_ROW.match(line)
+        if m:
+            out.setdefault(m.group(1), []).append((i, sec))
+    return out
+
+
+def _same_claim(root, ident, source, where):
+    """True when a headline row's source is where the lettered row `ident` comes from: Appendix C of THEORY.md, the
+    lettered row itself, a file its section heading names, or a table row of `ident` at the cited line."""
+    line, sec = where
+    path, _, rest = source.partition(":")
+    num = re.match(r"\d+", rest)
+    num = int(num.group(0)) if num else None
+    if path == "THEORY.md":
+        return True
+    if path == "measurement/CLAIM_MAP_v2.md" and num == line:
+        return True
+    if "`%s`" % path in sec:
+        return True
+    full = os.path.join(root, path)
+    if num and os.path.isfile(full):
+        lines = read(root, path).splitlines()
+        if num <= len(lines) and re.match(r"^\| %s \|" % re.escape(ident), lines[num - 1]):
+            return True
+    return False
+
+
+def check_one_row_per_id(root, text, rows):
+    """One id names one claim (R4). A lettered id is defined once; a headline row that reuses a lettered id must be
+    that claim, not another file's result with the same label (the REP-R1 / SHANNON-S1 collision: a theory note's
+    "Theorem R1" filed as R1 while R1 is a selection-axioms row). Process misses: one FAILURES row per id."""
+    fails = []
+    lett = lettered_rows(text)
+    for ident, where in sorted(lett.items()):
+        if len(where) > 1:
+            fails.append("one row per id: %s is a lettered row %d times (lines %s)" % (ident, len(where), ", ".join(str(w[0]) for w in where)))
+    for r in rows:
+        ident = r.get("id", "")
+        if ident in lett and len(lett[ident]) == 1 and not _same_claim(root, ident, r.get("source", ""), lett[ident][0]):
+            line, sec = lett[ident][0]
+            fails.append("one row per id: headline %s (source %s) reuses the id of a different claim, lettered row %s at "
+                         "measurement/CLAIM_MAP_v2.md:%d (%s); give it a prefixed id such as NOTE-%s"
+                         % (ident, r.get("source", ""), ident, line, sec.lstrip("# ")[:60], ident))
+    fpath = os.path.join(root, "process", "FAILURES.md")
+    if os.path.isfile(fpath):
+        seen = {}
+        for m in re.finditer(r"^\| [0-9-]{10} \| `([^`]+)`", read(root, "process/FAILURES.md"), re.M):
+            seen[m.group(1)] = seen.get(m.group(1), 0) + 1
+        fails += ["one row per id: FAILURES id %s has %d rows" % (k, v) for k, v in sorted(seen.items()) if v > 1]
+    return fails
+
+
 def check(root=None):
     """Return a list of failure strings (empty means pass)."""
     root = root or repo_root()
@@ -663,6 +722,7 @@ def check(root=None):
     errors.extend(check_summaries(root))
     errors.extend(check_scored_has_row(root))
     errors.extend(check_front_cases(root))
+    errors.extend(check_one_row_per_id(root, text, rows))
     # de-duplicate, keep order
     out, seen = [], set()
     for e in errors:
