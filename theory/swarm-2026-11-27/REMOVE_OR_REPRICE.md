@@ -21,7 +21,7 @@ with \(K_X\ge0\) the cost of cutting the exposure first. The whole's ruin cap is
 
 ## 2. Results
 
-**RR1 (ruin during a transition; PROVED, elementary).** For a fixed transition time \(\tau\),
+**RR1 (ruin during a transition; PROVED (in-model), elementary).** For a fixed transition time \(\tau\),
 \[
 P(\text{ruin during }o)=1-\exp\Bigl(-\int_0^{\tau}h_o(t)\,dt\Bigr),
 \]
@@ -37,10 +37,10 @@ o^*=\arg\min\{C_o:\ \textstyle\int_0^{\tau_o}h_o\,dt\le\ln\frac1{1-\varepsilon}\
 \]
 and if no option is feasible the menu cannot meet the cap. In the menu above this reads as clause 7:
 1. If both remove and reprice meet the cap, remove when \(L_R<C_P\) (a part the whole can lose cheaply) and reprice when \(C_P<L_R\) (an entangled part). A cut option cannot be cheaper than a feasible uncut option with the same transition, since \(K_X\ge0\).
-2. If the cheaper of the two breaks the cap (for a constant hazard, \(H\tau>\ln\frac1{1-\varepsilon}\)), the choice is between the other uncut option, if feasible, and cutting the exposure first, whichever costs less.
+2. If the cheaper of the two breaks the cap (for a constant hazard, \(H\tau>\ln\frac1{1-\varepsilon}\)), the choice is between the other uncut option, if feasible, and cutting the exposure first (the cheaper feasible cut option), whichever costs less.
 3. If neither uncut option meets the cap, cut the exposure first, then take the cheaper feasible cut option.
 
-*Proof.* A minimization over a finite set under a constraint; items 1–3 enumerate which constraints bind. ∎ *Check:* `remove_or_reprice_rule` (the stated rule against brute force on random instances).
+*Proof.* A minimization over a finite set under a constraint; items 1–3 enumerate which constraints bind. ∎ *Check:* `remove_or_reprice_rule` (code sanity: when an uncut option is feasible the check re-implements the brute-force minimum, so it does not test items 1–3 as written; the rule itself is a chance-constrained menu choice, close to definitional, and the ruin formula of RR1 is its content).
 
 ## 3. What this changes
 
