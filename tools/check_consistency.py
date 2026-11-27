@@ -70,12 +70,17 @@ def main(argv=None):
     ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     os.chdir(ROOT)
 
-    MAINTAINED = list(MAINTAINED_DOCS)
-    MAINTAINED = [f for f in MAINTAINED if os.path.exists(f)]
+    MAINTAINED = [f for f in MAINTAINED_DOCS if os.path.exists(f)]
     ALL_MD = sorted(p for p in glob.glob("**/*.md", recursive=True))
     FROZEN = [p for p in ALL_MD if p not in MAINTAINED]
 
     fails, infos = [], []
+    # A listed page that is missing is a FAIL, not a silent skip: a move or a delete would otherwise drop the page
+    # from every check without one failure (FAILURES MAINTAINED-EXIST).
+    for f in MAINTAINED_DOCS:
+        if not os.path.exists(f):
+            print("  FAIL maintained-exist: %s is in MAINTAINED_DOCS but missing" % f)
+            fails.append("maintained-exist: %s is in MAINTAINED_DOCS but missing; move it with tools/movemap.py or update the list" % f)
 
     def read(p):
         with open(p, encoding="utf-8") as fh:

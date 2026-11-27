@@ -77,6 +77,10 @@ def run_all():
         with open(os.path.join(d, f), "a", encoding="utf-8") as fh: fh.write(text)
         rc, out = run(d); shutil.rmtree(d)
         print("clean sentence in %-10s -> %s" % (f, "passes" if rc == 0 else "FALSE POSITIVE")); ok &= rc == 0
+    # a listed maintained page that disappears is caught (a move or delete must not drop it from every check)
+    d = copy(); os.remove(os.path.join(d, "theory", "BOOKENDS.md"))
+    rc, out = run(d); shutil.rmtree(d); caught = rc != 0 and "maintained-exist" in out
+    print("removed %-24s in %-10s -> %s" % ("maintained page", "theory/", "caught" if caught else "MISSED")); ok &= caught
     # R7 is a soft warning: an over-long README warns but does not fail
     d = copy()
     with open(os.path.join(d, "README.md"), "a", encoding="utf-8") as fh: fh.write("\n\n" + "word " * 1000 + "\n")
