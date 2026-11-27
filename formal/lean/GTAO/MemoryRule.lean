@@ -134,17 +134,22 @@ theorem joint_min {c k a s L : ℝ} (hk : 0 < k) (ha : 0 < a) (hs : 0 < s) :
       simp only [itemCost, ↓reduceIte, heldCost_Tstar hk ha hs, min_eq_left hle]
     · exact ⟨false, 1, one_pos, by simp [itemCost, min_eq_right hle]⟩
 
-/-- **The document's form** (`a = w`, `L = w p`):  holding strictly beats
+/-- **The printed form** (`a = w`, `L = w p`):  holding strictly beats
 dropping iff `w p > c + 2√(k w σ²/6)`, and the best held interval is
-`√(6k/(wσ²))`. -/
+`√(6k/(wσ²))`.  This checks the formula as printed at GROK_BOT_MEMORY §4
+(23 Nov 2026), whose `a = w` reading is dimensionally inconsistent with §4's
+own definitions (miss M45): the consistent drift weight is `a = w p / g²`
+(`fixed_hold_rule`). -/
 theorem doc_hold_rule {c k w s p : ℝ} (hk : 0 < k) (hw : 0 < w) (hs : 0 < s) :
     ((∃ T, 0 < T ∧ heldCost c k w s T < w * p) ↔ c + 2 * √(k * w * s / 6) < w * p) ∧
     Tstar k w s = √(6 * k / (w * s)) :=
   ⟨hold_strictly_better_iff hk hw hs, rfl⟩
 
-/-- The worked check in §4: at `c = 1`, `w = 10`, `p = 0.2`, `k = 0.5`,
-`σ² = 1`, `w p = 2 > c` but `2.82 < c + 2√(kwσ²/6) < 2.83`, so the item
-fails the full-cost test. -/
+/-- The worked check printed in §4 (23 Nov 2026), in the inconsistent `a = w`
+reading (miss M45): at `c = 1`, `w = 10`, `p = 0.2`, `k = 0.5`, `σ² = 1`,
+`w p = 2 > c` but `2.82 < c + 2√(kwσ²/6) < 2.83`, so the item fails the
+full-cost test.  In the consistent reading the conclusion reverses
+(`printed_example_flips`). -/
 theorem doc_example :
     (10 : ℝ) * (2 / 10) = 2 ∧ (1 : ℝ) < 10 * (2 / 10) ∧
     (282 / 100 : ℝ) < holdMin 1 (1 / 2) 10 1 ∧ holdMin 1 (1 / 2) 10 1 < 283 / 100 ∧
@@ -269,6 +274,82 @@ theorem barrier_cheaper_than_fixed {k a s : ℝ} (hk : 0 < k) (ha : 0 < a) (hs :
     rw [sqrt_mul (by norm_num), show (4 : ℝ) = 2 ^ 2 by norm_num, sqrt_sq (by norm_num)]
   rw [h2]
   exact sqrt_lt_sqrt (by positivity) (by nlinarith [mul_pos (mul_pos hk ha) hs])
+
+/-! ## 3b. The consistent reading `a = w p / g²` (miss M45) -/
+
+/-- **The corrected rules.**  With `w` the stake per need, `p` the need rate
+and `g` the gap at which a held item is as costly as a dropped one, the drift
+weight is `a = w p / g²`.  Holding strictly beats dropping iff
+`w p > c + 2√(k w p σ²/(6 g²))`; the mean re-check interval is
+`√(6 k g²/(w p σ²))`; the band is `(6 k σ² g²/(w p))^{1/4}`. -/
+theorem fixed_hold_rule {c k w p g s : ℝ} (hk : 0 < k) (hw : 0 < w) (hp : 0 < p) (hg : 0 < g)
+    (hs : 0 < s) :
+    ((∃ T, 0 < T ∧ heldCost c k (w * p / g ^ 2) s T < w * p) ↔
+      c + 2 * √(k * w * p * s / (6 * g ^ 2)) < w * p) ∧
+    Tstar k (w * p / g ^ 2) s = √(6 * k * g ^ 2 / (w * p * s)) ∧
+    band k (w * p / g ^ 2) s = (6 * k * s * g ^ 2 / (w * p)) ^ (1 / 4 : ℝ) := by
+  have ha : 0 < w * p / g ^ 2 := by positivity
+  have e1 : k * (w * p / g ^ 2) * s / 6 = k * w * p * s / (6 * g ^ 2) := by
+    field_simp
+  refine ⟨?_, ?_, ?_⟩
+  · rw [hold_strictly_better_iff hk ha hs, e1]
+  · unfold Tstar; congr 1; field_simp
+  · unfold band; congr 1; field_simp
+
+/-- **The printed example reverses** in the consistent reading (`g = 1`, so
+`a = w p = 2`): `1.81 < c + 2√(k w p σ²/6) < 1.82 < w p = 2`, so holding
+strictly beats dropping.  The unconstrained band `(6kσ²/(wp))^{1/4} > 1 = g`
+lies past the quadratic range, but the capped band `b = g` (mean interval
+`T = 1`) already costs `c + k + wpσ²/6 = 11/6 < 2`. -/
+theorem printed_example_flips :
+    (181 / 100 : ℝ) < holdMin 1 (1 / 2) (10 * (2 / 10) / 1 ^ 2) 1 ∧
+    holdMin 1 (1 / 2) (10 * (2 / 10) / 1 ^ 2) 1 < 182 / 100 ∧
+    (∃ T, 0 < T ∧ heldCost 1 (1 / 2) (10 * (2 / 10) / 1 ^ 2) 1 T < 10 * (2 / 10)) ∧
+    1 < band (1 / 2) (10 * (2 / 10) / 1 ^ 2) 1 ∧
+    heldCost 1 (1 / 2) (10 * (2 / 10) / 1 ^ 2) 1 1 = 11 / 6 := by
+  have ha : (10 * (2 / 10) / 1 ^ 2 : ℝ) = 2 := by norm_num
+  rw [ha]
+  have hv : (1 / 2 : ℝ) * 2 * 1 / 6 = 1 / 6 := by norm_num
+  have lo : (405 / 1000 : ℝ) < √(1 / 6) := by rw [lt_sqrt (by norm_num)]; norm_num
+  have hi : √(1 / 6 : ℝ) < 41 / 100 := by rw [sqrt_lt' (by norm_num)]; norm_num
+  have hb := band_sq (k := 1 / 2) (a := 2) (s := 1) (by norm_num) (by norm_num) (by norm_num)
+  have hbpos : 0 < band (1 / 2) 2 1 := by unfold band; positivity
+  have h15 : (1 : ℝ) < √(6 * (1 / 2) * 1 / 2) := by rw [lt_sqrt (by norm_num)]; norm_num
+  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+  · unfold holdMin; rw [hv]; linarith
+  · unfold holdMin; rw [hv]; linarith
+  · rw [hold_strictly_better_iff (by norm_num) (by norm_num) (by norm_num), hv]; linarith
+  · nlinarith
+  · unfold heldCost LayerLifetime.cost; norm_num
+
+/-- **The corrected worked example** (inside the quadratic range):
+`c = 2.5`, `w = 15`, `p = 0.2`, `k = 0.4`, `σ² = 1`, `g = 1`, so `w p = 3 > c`
+but `3.39 < c + 2√(k w p σ²/6) < 3.40`, so the item fails the full-cost test;
+the band is `0.94 < b*/g < 0.95 ≤ 1`. -/
+theorem corrected_example :
+    (5 / 2 : ℝ) < 15 * (2 / 10) ∧
+    (339 / 100 : ℝ) < holdMin (5 / 2) (2 / 5) (15 * (2 / 10) / 1 ^ 2) 1 ∧
+    holdMin (5 / 2) (2 / 5) (15 * (2 / 10) / 1 ^ 2) 1 < 340 / 100 ∧
+    ¬ (∃ T, 0 < T ∧ heldCost (5 / 2) (2 / 5) (15 * (2 / 10) / 1 ^ 2) 1 T < 15 * (2 / 10)) ∧
+    (94 / 100 : ℝ) < band (2 / 5) (15 * (2 / 10) / 1 ^ 2) 1 ∧
+    band (2 / 5) (15 * (2 / 10) / 1 ^ 2) 1 < 95 / 100 := by
+  have ha : (15 * (2 / 10) / 1 ^ 2 : ℝ) = 3 := by norm_num
+  rw [ha]
+  have hv : (2 / 5 : ℝ) * 3 * 1 / 6 = 1 / 5 := by norm_num
+  have lo : (446 / 1000 : ℝ) < √(1 / 5) := by rw [lt_sqrt (by norm_num)]; norm_num
+  have hi : √(1 / 5 : ℝ) < 45 / 100 := by rw [sqrt_lt' (by norm_num)]; norm_num
+  have hb := band_sq (k := 2 / 5) (a := 3) (s := 1) (by norm_num) (by norm_num) (by norm_num)
+  have hbpos : 0 < band (2 / 5) 3 1 := by unfold band; positivity
+  have blo : (8836 / 10000 : ℝ) < √(6 * (2 / 5) * 1 / 3) := by
+    rw [lt_sqrt (by norm_num)]; norm_num
+  have bhi : √(6 * (2 / 5) * 1 / 3 : ℝ) < 9025 / 10000 := by
+    rw [sqrt_lt' (by norm_num)]; norm_num
+  refine ⟨by norm_num, ?_, ?_, ?_, ?_, ?_⟩
+  · unfold holdMin; rw [hv]; linarith
+  · unfold holdMin; rw [hv]; linarith
+  · rw [hold_strictly_better_iff (by norm_num) (by norm_num) (by norm_num), hv]; linarith
+  · nlinarith
+  · nlinarith
 
 /-! ## 4. CT17 (ii): the part that bears only part of the loss -/
 
