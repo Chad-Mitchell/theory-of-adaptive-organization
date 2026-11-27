@@ -21,7 +21,7 @@
 
 - 2026-11-27 (ET), after the hostile review of PR #295: **Lock history (disclosure).** The lock and score commits cited above (`b159d0f`, `64c8b53`, `78ff15a`, `b9a2710`, `6580fb0`, `9967b5d`) are **not ancestors of `main`**. The source branch was rebased before PR #295: the commits carried to `main` keep the author dates and have new committer dates (for example `344f8f6bd080472a55a570d582f27b35d9703c0c`: author 2026-11-25 08:51:28 ET, committer 2026-11-25 22:08:53 ET). The old commits survive only in the fork network (GitHub resolves them). What still holds: each prereg file's git blob at the old lock commit equals its blob on `main` (checked through the GitHub API on 27 Nov 2026), the sha256 values in the `.sha256` files are unchanged, and every prereg commit on `main` is an ancestor of the results commit that scores it. What was lost: an independent timestamp; on `main` the only lock times are author dates, which can be set by hand (see README `MV9-DECISION`). Mapping, full SHAs:
 
-| File or event | Commit cited in these notes (fork only) | Commit on `main` (same bytes) |
+| File or event | Commit cited in these notes (fork only) | Commit on `main` (same bytes) (for the v3 and v4 log rows, same bytes for the two-route files only; the fork commits also edited `OPEN_WORK.md` and `theory/GAP_PLAN.md`, which the rebase dropped). |
 |---|---|---|
 | `PREREG.md` lock | `b159d0f4be65515b88ff46fc70224a5b1344da27` | `344f8f6bd080472a55a570d582f27b35d9703c0c` |
 | `PREREG_2.md` lock | `64c8b5343097e6b45fb0ee3624bb3f63959c4f02` | `292218d7807af9fc4a9f28beeede00403c5de34b` |

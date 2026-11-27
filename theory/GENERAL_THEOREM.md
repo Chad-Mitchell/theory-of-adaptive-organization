@@ -441,7 +441,7 @@ Setting: S with renewal checks (A3). A copy taken at age 0 is used by the Bayes 
 - unconditional age monotonicity (rule 5);
 - the derivation of rule 6's mechanism.
 
-The τ term as operationalized in C3 is ruled out for that scale and proxy.
+The τ term as operationalized in C3 is ruled out for that scale and proxy (H15 now NOT A TEST: qualification not established).
 
 What survives: P, G and R/L as conditional theorems; S as a conditional universality with explicit failure conditions; and the "same optimization problem at every scale" framing.
 
