@@ -1,0 +1,29 @@
+('Reg', 0.01, 0.0, 'write'): cells 432 blind 0 U1-fail 0 U2-one-min 422/432 (0.9769) edge 0
+('Reg', 0.01, 0.1, 'write'): cells 432 blind 0 U1-fail 0 U2-one-min 430/432 (0.9954) edge 0
+('Reg', 0.01, 1.0, 'write'): cells 432 blind 0 U1-fail 0 U2-one-min 432/432 (1.0000) edge 0
+('Reg', 0.01, 10.0, 'write'): cells 432 blind 1 U1-fail 0 U2-one-min 432/432 (1.0000) edge 0
+('Reg', 0.1, 0.0, 'write'): cells 432 blind 0 U1-fail 0 U2-one-min 427/432 (0.9884) edge 0
+('Reg', 0.1, 0.1, 'write'): cells 432 blind 0 U1-fail 4 U2-one-min 422/432 (0.9769) edge 0
+('Reg', 0.1, 1.0, 'write'): cells 432 blind 0 U1-fail 0 U2-one-min 430/432 (0.9954) edge 0
+('Reg', 0.1, 10.0, 'write'): cells 432 blind 1 U1-fail 0 U2-one-min 427/432 (0.9884) edge 0
+('Reg', 1.0, 0.0, 'write'): cells 432 blind 0 U1-fail 0 U2-one-min 422/432 (0.9769) edge 0
+('Reg', 1.0, 0.1, 'write'): cells 432 blind 0 U1-fail 6 U2-one-min 418/432 (0.9676) edge 0
+('Reg', 1.0, 1.0, 'write'): cells 432 blind 0 U1-fail 0 U2-one-min 430/432 (0.9954) edge 0
+('Reg', 1.0, 10.0, 'write'): cells 432 blind 1 U1-fail 0 U2-one-min 431/432 (0.9977) edge 0
+failing cells (first 15):
+   (('Reg', 0.01, 0.0, 'write'), 0.01, 1000000.0, 0, 2, 0, [])
+   (('Reg', 0.01, 0.0, 'write'), 0.01, 1000000.0, 1e-05, 2, 0, [])
+   (('Reg', 0.01, 0.0, 'write'), 0.01, 1000000.0, 0.0001, 2, 0, [])
+   (('Reg', 0.01, 0.0, 'write'), 0.01, 1000000.0, 0.001, 2, 0, [])
+   (('Reg', 0.01, 0.0, 'write'), 0.1, 100000.0, 0, 2, 0, [])
+   (('Reg', 0.01, 0.0, 'write'), 0.1, 100000.0, 1e-05, 2, 0, [])
+   (('Reg', 0.01, 0.0, 'write'), 0.1, 100000.0, 0.0001, 2, 0, [])
+   (('Reg', 0.01, 0.0, 'write'), 0.1, 100000.0, 0.001, 2, 0, [])
+   (('Reg', 0.01, 0.0, 'write'), 0.1, 100000.0, 0.01, 2, 0, [])
+   (('Reg', 0.01, 0.0, 'write'), 0.1, 100000.0, 0.1, 2, 0, [])
+   (('Reg', 0.01, 0.1, 'write'), 0.001, 1000000.0, 0.1, 2, 0, [])
+   (('Reg', 0.01, 0.1, 'write'), 0.003, 1000000.0, 0.1, 2, 0, [])
+   (('Reg', 0.1, 0.0, 'write'), 0.01, 100000.0, 0, 2, 0, [])
+   (('Reg', 0.1, 0.0, 'write'), 0.01, 100000.0, 1e-05, 2, 0, [])
+   (('Reg', 0.1, 0.0, 'write'), 0.01, 100000.0, 0.0001, 2, 0, [])
+total failing 61

@@ -1,0 +1,6 @@
+10.1017/S0305004100019307 | OK | Sufficient statistics and intrinsic accuracy | Pitman | Mathematical Proceedings of the Cambridg | 1936
+10.1007/s12064-020-00313-7 | OK | The information theory of individuality | Krakauer, Bertschinger, Olbrich, Flack | Theory in Biosciences | 2020
+10.1098/rsfs.2018.0041 | OK | Semantic information, autonomous agency and non-equilibrium statistical physics | Kolchinsky, Wolpert | Interface Focus | 2018
+10.1038/ncomms8908 | OK | Generic emergence of classical features in quantum Darwinism | Brandão, Piani, Horodecki | Nature Communications | 2015
+10.1038/nphys1202 | OK | Quantum Darwinism | Zurek | Nature Physics | 2009
+10.1111/j.1749-6632.1992.tb17083.x | OK | Recent Thinking about the Nature of the Physical World: It from Bit<sup>a</sup> | WHEELER | Annals of the New York Academy of Scienc | 1992

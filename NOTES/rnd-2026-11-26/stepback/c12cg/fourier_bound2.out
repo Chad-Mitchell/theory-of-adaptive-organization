@@ -1,0 +1,8 @@
+n=5 sigma=0.9355 tau=1.0875 R=1.1056 | proved: residual at |m|>=3: V<= 0.70383 -> e >= 0.14809 | e_nv=0.176393 | gap needs e >= 0.17226: not enough
+n=5 sigma=0.9355 tau=1.0875 R=1.1056 | HYP stability: residual only at aliasing |m|: V<= 0.70383 -> e >= 0.14809 | e_nv=0.176393 | gap needs e >= 0.17226: not enough
+n=8 sigma=0.9745 tau=1.0548 R=1.0824 | proved: residual at |m|>=3: V<= 0.68907 -> e >= 0.15546 | e_nv=0.172335 | gap needs e >= 0.17153: not enough
+n=8 sigma=0.9745 tau=1.0548 R=1.0824 | HYP stability: residual only at aliasing |m|: V<= 0.68907 -> e >= 0.15546 | e_nv=0.172335 | gap needs e >= 0.17153: not enough
+n=5 sigma=0.93549(formula 0.93549) tau=1.08748(formula 1.08748) R=1.10557(formula 1.10557) kP=1.2109 kD=1.4077 | residual factor 1/3 (proved): V<=0.68833 -> e>=0.15583 vs need 0.17226: not enough; e_nv=0.176393
+n=5 sigma=0.93549(formula 0.93549) tau=1.08748(formula 1.08748) R=1.10557(formula 1.10557) kP=1.2109 kD=1.4077 | residual factor 1/9 (needs a stability lemma (HYP)): V<=0.68659 -> e>=0.15671 vs need 0.17226: not enough; e_nv=0.176393
+n=8 sigma=0.97450(formula 0.97450) tau=1.05479(formula 1.05479) R=1.08239(formula 1.08239) kP=1.2732 kD=1.3781 | residual factor 1/3 (proved): V<=0.68907 -> e>=0.15546 vs need 0.17153: not enough; e_nv=0.172335
+n=8 sigma=0.97450(formula 0.97450) tau=1.05479(formula 1.05479) R=1.08239(formula 1.08239) kP=1.2732 kD=1.3781 | residual factor 1/7 (needs a stability lemma (HYP)): V<=0.68907 -> e>=0.15546 vs need 0.17153: not enough; e_nv=0.172335

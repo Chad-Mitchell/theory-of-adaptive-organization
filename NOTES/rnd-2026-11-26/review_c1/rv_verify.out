@@ -1,0 +1,17 @@
+[ED 4x4 pi-flux m=0.5] single-particle gap at N=8: 4.123; S(T): ED 2.2967624592 vs corr-matrix 2.2967624592; S(T+2 sites): ED 3.2675453468 vs corr 3.2675453468
+[ED 4x4 NN m=0.5] single-particle gap at N=8: 1.000; S(T): ED 1.9167348845 vs corr-matrix 1.9167348845; S(T+2 sites): ED 2.6778798310 vs corr 2.6778798310
+[ED 4x4 pi-flux m=0 (APBC)] single-particle gap at N=8: 4.000; S(T): ED 2.4035041468 vs corr-matrix 2.4035041468; S(T+2 sites): ED 3.4183156107 vs corr 3.4183156107
+[k vs real L=64 APBC, gauge y] V1 NN critical (Fermi surface): zero modes(real)=128; T: k 2.904024 / real 2.900380 (d=+3.6e-03); T+ring8: k 6.826748 / real 6.847971 (d=-2.1e-02); far pair: k 2.000000 / real 1.999967 (d=+3.3e-05); diag strip: k 10.911104 / real 10.887289 (d=+2.4e-02)
+[k vs real L=64 APBC, gauge y] V2 NN + mass 0.5 (gapped): zero modes(real)=0; T: k 2.351195 / real 2.351195 (d=+5.3e-09); T+ring8: k 5.044010 / real 5.044010 (d=+1.9e-08); far pair: k 1.713778 / real 1.713778 (d=+3.1e-09); diag strip: k 8.596288 / real 8.596288 (d=+2.9e-08)
+[k vs real L=64 APBC, gauge y] V3 pi-flux critical (Dirac): zero modes(real)=0; T: k 2.549295 / real 2.549273 (d=+2.2e-05); T+ring8: k 5.145952 / real 5.145791 (d=+1.6e-04); far pair: k 2.000000 / real 2.000000 (d=+0.0e+00); diag strip: k 9.184454 / real 9.184316 (d=+1.4e-04)
+[k vs real L=64 APBC, gauge x] V3 pi-flux critical (Dirac): zero modes(real)=0; T: k 2.549295 / real 2.549273 (d=+2.2e-05); T+ring8: k 5.145952 / real 5.145791 (d=+1.6e-04); far pair: k 2.000000 / real 2.000000 (d=+0.0e+00); diag strip: k 9.184454 / real 9.184316 (d=+1.4e-04)
+[k vs real L=64 APBC, gauge y] V4 pi-flux + mass 0.5 (gapped Dirac): zero modes(real)=0; T: k 2.379974 / real 2.379974 (d=-1.5e-09); T+ring8: k 4.735182 / real 4.735182 (d=-5.5e-09); far pair: k 1.884374 / real 1.884374 (d=-1.1e-09); diag strip: k 8.608956 / real 8.608956 (d=-4.8e-09)
+[k vs real L=64 APBC, gauge x] V4 pi-flux + mass 0.5 (gapped Dirac): zero modes(real)=0; T: k 2.379974 / real 2.379974 (d=-1.5e-09); T+ring8: k 4.735182 / real 4.735182 (d=-5.5e-09); far pair: k 1.884374 / real 1.884374 (d=-1.1e-09); diag strip: k 8.608956 / real 8.608956 (d=-4.8e-09)
+[grid K=256] V1 NN critical (Fermi surface): min|E|=1.93e-06, filling=0.500000; max|C(0,r)| even x+y (r!=0): 1.61e-16, odd: 0.203; max |Im P| (gauge-real check) 7.7e-04
+[grid K=256] V2 NN + mass 0.5 (gapped): min|E|=5.00e-01, filling=0.500000; max|C(0,r)| even x+y (r!=0): 5.97e-02, odd: 0.193; max |Im P| (gauge-real check) 5.2e-17
+[grid K=256] V3 pi-flux critical (Dirac): min|E|=1.11e-02, filling=0.500000; max|C(0,r)| even x+y (r!=0): 8.66e-19, odd: 0.240; max |Im P| (gauge-real check) 1.3e-06
+[grid K=256] V4 pi-flux + mass 0.5 (gapped Dirac): min|E|=5.00e-01, filling=0.500000; max|C(0,r)| even x+y (r!=0): 2.50e-02, odd: 0.231; max |Im P| (gauge-real check) 6.2e-17
+[V1 zero modes] K=64: min|E|=3.08e-05; filling=0.50000000; S(T)=2.90389932
+[V1 zero modes] K=128: min|E|=7.71e-06; filling=0.50000000; S(T)=2.90399874
+[V1 zero modes] K=256: min|E|=1.93e-06; filling=0.50000000; S(T)=2.90402359
+[V1 zero modes] K=512: min|E|=4.82e-07; filling=0.50000000; S(T)=2.90402980

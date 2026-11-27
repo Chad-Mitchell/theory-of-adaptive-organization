@@ -1,0 +1,8 @@
+OK  10.1103/PhysRevD.27.2885 | Page, Wootters | 1983 | Evolution without evolution: Dynamics described by stationary observables | Physical Review D
+OK  10.1088/0264-9381/10/8/015 | Rovelli | 1993 | Statistical mechanics of gravity and the thermodynamical origin of time | Classical and Quantum Gravity
+OK  10.1088/0264-9381/28/7/075007 | Rovelli, Smerlak | 2011 | Thermal time and Tolman–Ehrenfest effect: ‘temperature as the speed of time’ | Classical and Quantum Gravity
+OK  10.1103/PhysRevX.7.031022 | Erker, Mitchison, Silva, Woods | 2017 | Autonomous Quantum Clocks: Does Thermodynamics Limit Our Ability to Measure Time? | Physical Review X
+OK  10.1103/PhysRevX.6.041053 | Barato, Seifert | 2016 | Cost and Precision of Brownian Clocks | Physical Review X
+OK  10.1103/PhysRevX.11.021029 | Pearson, Guryanova, Erker, Laird | 2021 | Measuring the Thermodynamic Cost of Timekeeping | Physical Review X
+OK  10.1103/PhysRevD.92.045033 | Giovannetti, Lloyd, Maccone | 2015 | Quantum time | Physical Review D
+OK  10.1145/359545.359563 | Lamport | 1978 | Time, clocks, and the ordering of events in a distributed system | Communications of the ACM

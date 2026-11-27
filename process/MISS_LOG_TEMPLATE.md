@@ -1,6 +1,6 @@
 # Miss, Hit, and Deviations Log Template
 
-*Copy this template for future test `RESULTS.md` / `DEVIATIONS.md` entries and process miss logs. Rules and derivation: [`process/PROCESS.md`](PROCESS.md).*
+*Copy this template for future test `RESULTS.md` / `DEVIATIONS.md` entries and process miss logs. Rules and derivation: [`process/PROCESS.md`](PROCESS.md). Before any run, the prereg passes the gate in [`process/PREREG_GATE.md`](PREREG_GATE.md).*
 
 **Lock reference:** `<branch/commit SHA of locked PREREG.md or baseline state>`  
 **Logged at (ET):** `<YYYY-MM-DD HH:MM ET>`  

@@ -1,0 +1,8 @@
+OK  10.1103/PhysRevLett.59.521 | Bombelli, Lee, Meyer, Sorkin | 1987 | Space-time as a causal set | Physical Review Letters
+OK  10.1063/1.523436 | Malament | 1977 | The class of continuous timelike curves determines the topology of spacetime | Journal of Mathematical Physics
+OK  10.1063/1.522874 | Hawking, King, McCarthy | 1976 | A new topology for curved space–time which incorporates the causal, differential, and conformal structures | Journal of Mathematical Physics
+OK  10.1103/PhysRevLett.66.260 | Brightwell, Gregory | 1991 | Structure of random discrete spacetime | Physical Review Letters
+OK  10.1090/S0002-9947-1975-0369090-9 | Kleitman, Rothschild | 1975 | Asymptotic enumeration of partial orders on a finite set | Transactions of the American Mathematical Society
+OK  10.1103/PhysRevD.61.024002 | Rideout, Sorkin | 1999 | Classical sequential growth dynamics for causal sets | Physical Review D
+OK  10.1016/0001-8708(77)90030-5 | Logan, Shepp | 1977 | A variational problem for random Young tableaux | Advances in Mathematics
+ERR 10.1090/S0002-9939-1988-0943043-4 HTTP Error 404: Not Found

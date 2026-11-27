@@ -1,0 +1,6 @@
+  <title>arXiv Query: search_query=&amp;id_list=quant-ph/9611028&amp;start=0&amp;max_results=10</title>
+    <title>Limitations of Noisy Reversible Computation</title>
+      <name>D. Aharonov</name>
+      <name>M. Ben-Or</name>
+      <name>R. Impagliazzo</name>
+      <name>N. Nisan</name>

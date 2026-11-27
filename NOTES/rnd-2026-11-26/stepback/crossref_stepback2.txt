@@ -1,0 +1,9 @@
+OK  10.1103/PhysRevA.90.062106 | D'Ariano, Perinotti | 2014 | Derivation of the Dirac equation from principles of information processing | Physical Review A
+OK  10.1016/j.aop.2014.12.016 | Bisio, D’Ariano, Tosini | 2015 | Quantum field as a quantum cellular automaton: The Dirac free evolution in one dimension | Annals of Physics
+ERR 10.1007/s10701-016-0045-5 HTTP Error 404: Not Found
+OK  10.1088/1367-2630/18/3/033023 | Lee, Selby | 2016 | Generalised phase kick-back: the structure of computational algorithms from physical principles | New Journal of Physics
+ERR Deriving Grover's lower bound from simple physical principles HTTP Error 429: Too Many Requests
+ERR Higher-order interference in extensions of quantum theory Lee Selby HTTP Error 429: Too Many Requests
+ERR Oracles and query lower bounds in generalised probabilistic theories HTTP Error 429: Too Many Requests
+ERR Informational derivation of quantum theory HTTP Error 429: Too Many Requests
+ERR Quantum theory from five reasonable axioms Hardy HTTP Error 429: Too Many Requests

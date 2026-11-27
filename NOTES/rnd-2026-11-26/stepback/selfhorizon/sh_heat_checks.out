@@ -1,0 +1,22 @@
+kernel normalisation and a-range:
+  max |sum q - 1| = 1.67e-15 ; max (1-lambda) = 1.0000
+(b),(c) FFT entropy and closed-form E vs direct matrix powers, n<=15:
+  max rel err H = 4.34e-10 ; E = 4.71e-09
+(d) first-order vs exact near t*p = 1e-6:
+   n=7 s=0.1 t=1 p=7.19e-06  H/p fo=13.536 exact=13.536
+   n=7 s=0.1 t=2 p=7.19e-06  H/p fo=25.6857 exact=25.6856
+   n=7 s=0.1 t=3 p=7.19e-06  H/p fo=37.3121 exact=37.3119
+   n=9 s=0.05 t=341967 p=2.92e-12  H/p fo=5.30345e+06 exact=5.30345e+06
+   n=9 s=0.05 t=341968 p=2.92e-12  H/p fo=5.30346e+06 exact=5.30346e+06
+   n=9 s=0.05 t=683935 p=2.92e-12  H/p fo=1.01328e+07 exact=1.01328e+07
+   n=21 s=0.02 t=13453064 p=7.43e-14  H/p fo=2.08639e+08 exact=2.08639e+08
+   n=21 s=0.02 t=13453065 p=7.43e-14  H/p fo=2.08639e+08 exact=2.08639e+08
+   n=21 s=0.02 t=26906129 p=7.43e-14  H/p fo=3.98628e+08 exact=3.98628e+08
+   n=41 s=0.012 t=5847 p=1.71e-10  H/p fo=90679.9 exact=90679.9
+   n=41 s=0.012 t=5848 p=1.71e-10  H/p fo=90694.4 exact=90694.4
+   n=41 s=0.012 t=11695 p=1.71e-10  H/p fo=173268 exact=173268
+   n=101 s=0.0035 t=1594385818152 p=6.27e-19  H/p fo=2.47268e+13 exact=2.47268e+13
+   n=101 s=0.0035 t=1594385818153 p=6.27e-19  H/p fo=2.47268e+13 exact=2.47268e+13
+   n=101 s=0.0035 t=3188771636305 p=6.27e-19  H/p fo=4.72433e+13 exact=4.72432e+13
+(a) full scan s<=4000 vs grid search, n<=61, all sigma, all x:
+  cases 6608, mismatches 0

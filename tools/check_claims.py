@@ -472,6 +472,7 @@ CONDITIONAL = re.compile(r"\b(?:if|whether|unless|would)\b", re.I)
 REACH = re.compile(r"\b(?:the theory|GTAO)(?:'s)?\s+(?:reach|prospects|promise|value|future)\s+(?:is|are|grows|grew|extends|widens|"
                    r"narrows|shrinks|looks|improves|improved|now)\b"
                    r"|\bwhat (?:this|the|a) (?:test|result|miss|hit|run) (?:means|says) (?:for|about) (?:the theory|GTAO)\b", re.I)
+GATE_OUTCOME = re.compile(r"\s+(?:PASS|STOP)\b")
 QUOTED = re.compile(r"`[^`]*`|\"[^\"\n]*\"|“[^”\n]*”|'[^'\n]{3,}'")
 
 
@@ -503,7 +504,8 @@ def summary_fails(text, root=None, where="text", status=None):
         if any(rx.search(s) for rx in WHOLE) and not CONDITIONAL.search(s):
             out.append("%s: whole-theory judgment; report row by row against named rivals: %s" % (where, s[:140]))
             continue
-        found = list(idrx.finditer(s))
+        # "GATE PASS" / "GATE STOP" are gate-read outcomes (process/PREREG_GATE.md), not the GATE ledger row
+        found = [m for m in idrx.finditer(s) if not (m.group(1) == "GATE" and GATE_OUTCOME.match(s[m.end():]))]
         exact = {m.group(1) for m in found if re.search(r"(?<![\w-])(?:%s)(?![\w-])" % SURFACE.get(status[m.group(1)], "$^"), s, re.I)}
         # "T57's loophole stays open" judges the loophole, not T57
         judged = {m.group(1) for m in found if not re.match(r"['’]s\b", s[m.end():]) and JUDGE_NEAR.search(s[m.end():])}

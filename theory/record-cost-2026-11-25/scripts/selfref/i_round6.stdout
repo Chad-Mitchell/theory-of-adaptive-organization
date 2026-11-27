@@ -1,0 +1,21 @@
+I1 qubit cells, random unitaries on R (1 or 2 qubits) x inflow (1 qubit); X takes 2-4 values
+  4000 random cases: max(L + Delta - log2 N_cell) = -3.78e-01   (<= 0 predicted)
+  swap, R maximally mixed, inflow entropy -0.000: L=-0.000 Delta=1.000 L+Delta=1.000  (frontier reached; same protocol is classical)
+  swap, R maximally mixed, inflow entropy 0.500: L=0.500 Delta=0.500 L+Delta=1.000  (frontier reached; same protocol is classical)
+  swap, R maximally mixed, inflow entropy 1.000: L=1.000 Delta=0.000 L+Delta=1.000  (frontier reached; same protocol is classical)
+
+I2 caveat: count quantum mutual information with a reference E entangled with the inflow
+  swap a maximally entangled inflow qubit into R: I(R';E) = S(R')+S(E)-S(R'E) = 1.9999999999999998 bits on a 1-bit channel; with Delta = 1 - S(in) = 0: L_q + Delta = 2. Not a classical record (cannot be copied/broadcast).
+
+I3 gbit (square) cells. state (x,y) = (P(meas a -> 0), P(meas b -> 0)); vertices (0/1,0/1)
+  dihedral group size: 8 ; reversible maps on 2 gbits = 8*8*2 = 128
+  max L + Delta over all 128 maps and 251 input cases: measurement entropy 2.000 ; decomposition entropy 1.471  (cell capacity 1 bit)
+  witness: R=(.5,.5) centre; inflow encodes X in coordinate b with a fixed: (1,1)/(1,0); swap.
+    measurement entropy: inflow mixture (1,.5) has H_meas 0, so Delta=1 and L=1: L+Delta=2 (looks strictly better)
+    decomposition entropy: (1,.5) has H_dec 1, Delta=0, L+Delta=1 (ties)
+
+I4 frontier per unit priced inflow (best L+Delta per cell / price per cell)
+  classical bit                          capacity price log2N=1.000: 1.000 | dimension price log2K=1.000: 1.000
+  square gbit (decomposition entropy)    capacity price log2N=1.000: 1.000 | dimension price log2K=1.585: 0.631
+  square gbit (measurement entropy)      capacity price log2N=1.000: 2.000 | dimension price log2K=1.585: 1.262
+  qubit ball                             capacity price log2N=1.000: 1.000 | dimension price log2K=2.000: 0.500

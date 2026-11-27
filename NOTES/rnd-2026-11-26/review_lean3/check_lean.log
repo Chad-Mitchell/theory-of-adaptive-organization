@@ -1,0 +1,11 @@
+check_lean.sh: lake exe cache get
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+No files to download
+Already decompressed 9133 file(s)
+check_lean.sh: lake build
+Build completed successfully (18419 jobs).
+check_lean.sh: AxiomAudit
+AxiomAudit: OK (1923 GTAO declarations; only propext, Classical.choice, Quot.sound)
+check_lean.sh: OK
+rc=0

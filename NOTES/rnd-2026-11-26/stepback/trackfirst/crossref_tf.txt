@@ -1,0 +1,36 @@
+OK	10.1103/PhysRev.106.620	1957	Jaynes	Information Theory and Statistical Mechanics	Physical Review
+OK	10.1147/rd.53.0183	1961	Landauer	Irreversibility and Heat Generation in the Computing Process	IBM Journal of Research and Development
+OK	10.1007/BF02084158	1982	Bennett	The thermodynamics of computation—a review	International Journal of Theoretical Physics
+OK	10.1016/S1355-2198(03)00039-X	2003	Bennett	Notes on Landauer's principle, reversible computation, and Maxwell's Demon	Studies in History and Philosophy of Science Part 
+OK	10.1103/PhysRevLett.109.120604	2012	Still, Sivak, Bell, Crooks	Thermodynamics of Prediction	Physical Review Letters
+OK	10.1098/rsfs.2018.0041	2018	Kolchinsky, Wolpert	Semantic information, autonomous agency and non-equilibrium statistical physics	Interface Focus
+OK	10.1038/nphys3230	2015	Parrondo, Horowitz, Sagawa	Thermodynamics of information	Nature Physics
+OK	10.1109/TIT.1972.1054855	1972	Blahut	Computation of channel capacity and rate-distortion functions	IEEE Transactions on Information Theory
+OK	10.1103/PhysRevLett.65.945	1990	Rose, Gurewitz, Fox	Statistical mechanics and phase transitions in clustering	Physical Review Letters
+OK	10.1109/5.726788	1998	Rose	Deterministic annealing for clustering, compression, classification, regression, and related optimization prob	Proceedings of the IEEE
+OK	10.1088/1751-8113/44/22/225303	2011	Caticha	Entropic dynamics, time and quantum theory	Journal of Physics A: Mathematical and Theoretical
+OK	10.1111/j.1749-6632.1992.tb17083.x	1992	WHEELER	Recent Thinking about the Nature of the Physical World: It from Bit<sup>a</sup>	Annals of the New York Academy of Sciences
+OK	10.1098/rspa.2012.0683	2013	Ortega, Braun	Thermodynamics as a theory of decision-making with information-processing costs	Proceedings of the Royal Society A: Mathematical, 
+OK	10.1038/nrn2787	2010	Friston	The free-energy principle: a unified brain theory?	Nature Reviews Neuroscience
+OK	10.1073/pnas.0501865102	2005	Sella, Hirsh	The application of statistical physics to evolutionary biology	Proceedings of the National Academy of Sciences
+OK	10.1103/PhysRevX.4.031015	2014	Horowitz, Esposito	Thermodynamics with Continuous Information Flow	Physical Review X
+OK	10.1103/PhysRevLett.102.250602	2009	Sagawa, Ueda	Minimal Energy Cost for Thermodynamic Information Processing: Measurement and Information Erasure	Physical Review Letters
+OK	10.1073/pnas.0710743106	2009	Todorov	Efficient computation of optimal actions	Proceedings of the National Academy of Sciences
+OK	10.1088/1742-5468/2005/11/P11011	2005	Kappen	Path integrals and symmetry breaking for optimal control theory	Journal of Statistical Mechanics: Theory and Exper
+OK	10.1016/S0304-3932(03)00029-1	2003	Sims	Implications of rational inattention	Journal of Monetary Economics
+OK	10.3390/e13111945	2011	Baez, Fritz, Leinster	A Characterization of Entropy in Terms of Information Loss	Entropy
+OK	10.1002/j.1538-7305.1956.tb03809.x	1956	Kelly	A New Interpretation of Information Rate	Bell System Technical Journal
+OK	10.1007/s10955-011-0166-2	2011	Rivoire, Leibler	The Value of Information for Populations in Varying Environments	Journal of Statistical Physics
+OK	10.1007/s100510070114	2000	Dragulescu, Yakovenko	Statistical mechanics of money	The European Physical Journal B
+OK	10.1016/S0370-1573(98)00082-9	1999	Lieb, Yngvason	The physics and mathematics of the second law of thermodynamics	Physics Reports
+OK	10.1103/PhysRevLett.50.1411	1983	Creutz	Microcanonical Monte Carlo Simulation	Physical Review Letters
+OK	10.1162/089976601753195969	2001	Bialek, Nemenman, Tishby	Predictability, Complexity, and Learning	Neural Computation
+OK	10.1088/1751-8121/ab0850	2019	Wolpert	The stochastic thermodynamics of computation	Journal of Physics A: Mathematical and Theoretical
+OK	10.1103/PhysRevLett.75.1260	1995	Jacobson	Thermodynamics of Spacetime: The Einstein Equation of State	Physical Review Letters
+OK	10.1103/PhysRev.108.171	1957	Jaynes	Information Theory and Statistical Mechanics. II	Physical Review
+OK	10.1109/TIT.1968.1054193	1968	Gish, Pierce	Asymptotically efficient quantizing	IEEE Transactions on Information Theory
+OK	10.1007/BF00623322	1971	Eigen	Selforganization of matter and the evolution of biological macromolecules	Die Naturwissenschaften
+OK	10.1007/BF02984069	1957	Haldane	The cost of natural selection	Journal of Genetics
+OK	10.1017/S0016672300000616	1961	Kimura	Natural selection as the process of accumulating genetic information in adaptive evolution	Genetical Research
+OK	10.1111/jeb.12010	2012	Frank	Natural selection. V. How to read the fundamental equations of evolutionary change in terms of information the	Journal of Evolutionary Biology
+OK	10.1103/PhysRevLett.110.040601	2013	Strasberg, Schaller, Brandes, Esposito	Thermodynamics of a Physical Model Implementing a Maxwell Demon	Physical Review Letters

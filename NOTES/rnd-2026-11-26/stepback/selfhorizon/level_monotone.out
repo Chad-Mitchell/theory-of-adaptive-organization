@@ -1,0 +1,8 @@
+parity even delta 0.1 : tau_delta increases with n at 227 of 3543 consecutive steps (sigma in 0.4..0.012)
+parity even delta 0.2 : tau_delta increases with n at 449 of 3540 consecutive steps (sigma in 0.4..0.012)
+parity even delta 0.3 : tau_delta increases with n at 681 of 3537 consecutive steps (sigma in 0.4..0.012)
+parity even delta 0.5 : tau_delta increases with n at 1158 of 3533 consecutive steps (sigma in 0.4..0.012)
+parity odd delta 0.1 : tau_delta increases with n at 227 of 3547 consecutive steps (sigma in 0.4..0.012)
+parity odd delta 0.2 : tau_delta increases with n at 449 of 3544 consecutive steps (sigma in 0.4..0.012)
+parity odd delta 0.3 : tau_delta increases with n at 681 of 3541 consecutive steps (sigma in 0.4..0.012)
+parity odd delta 0.5 : tau_delta increases with n at 1165 of 3538 consecutive steps (sigma in 0.4..0.012)

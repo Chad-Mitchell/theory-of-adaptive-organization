@@ -1,0 +1,14 @@
+../../../scratch/NonVacR.lean:19:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../../../scratch/NonVacR.lean:20:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../../../scratch/NonVacR.lean:19:6: warning: Unused tactic linter: `(rcases hi with rfl | rfl <;> linarith)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../../../scratch/NonVacR.lean:20:6: warning: Unused tactic linter: `(subst hi; linarith)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'sqV_indep3' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit 0

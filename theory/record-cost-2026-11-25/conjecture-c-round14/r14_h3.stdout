@@ -1,0 +1,6 @@
+START Thu Nov 26 03:55:07 EST 2026
+exact facets: 20 12 ; sums: [20, 0, 0, 0] [12, 0, 0, 0]
+240 facets; exact distinct K values: 413 [3600s]
+same-A-factor (row): tried 0 pairs fixing facet 0: automorphisms found 0, undecided 0 [0s]
+same-B-factor (column): tried 44 pairs fixing facet 0: automorphisms found 0, undecided 0 [5s]
+EXIT 0 Thu Nov 26 04:55:13 EST 2026

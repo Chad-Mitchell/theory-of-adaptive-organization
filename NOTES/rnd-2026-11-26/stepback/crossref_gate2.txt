@@ -1,0 +1,6 @@
+OK 10.1103/physreva.75.032304 | Information processing in generalized probabilistic theories | ['Barrett'] | ['Physical Review A'] 75 032304 2007
+OK 10.1063/1.4903510 | Entanglement and the three-dimensionality of the Bloch ball | ['Masanes', 'Müller', 'Pérez-García', 'Augusiak'] | ['Journal of Mathematical Physics'] 55 122203 2014
+OK 10.1103/physrevlett.109.090403 | Deriving Quantum Theory from Its Local Structure and Reversibility | ['de la Torre', 'Masanes', 'Short', 'Müller'] | ['Physical Review Letters'] 109 090403 2012
+OK 10.22331/q-2020-11-08-359 | Composites and Categories of Euclidean Jordan Algebras | ['Barnum', 'Graydon', 'Wilce'] | ['Quantum'] 4 359 2020
+OK 10.1007/s10701-011-9616-6 | Limited Holism and Real-Vector-Space Quantum Theory | ['Hardy', 'Wootters'] | ['Foundations of Physics'] 42 454-473 2011
+OK 10.1088/1367-2630/13/6/063001 | A derivation of quantum theory from physical requirements | ['Masanes', 'Müller'] | ['New Journal of Physics'] 13 063001 2011

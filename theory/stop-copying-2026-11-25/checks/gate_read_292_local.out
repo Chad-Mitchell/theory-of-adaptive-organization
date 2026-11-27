@@ -1,0 +1,7 @@
+w 10 wx 0.5: antiH eig [4.67700e-01 9.73677e+02] small-eig vector (dlng,dc)=[-0.7811  0.6244] | one-sided dJ/dlng_A=-0.08897 dJ/dlng_B=-0.08897 | (cA,cB) Hessian eig [  0.468 297.126] | anti-c curvature 594.25
+w 10 wx 1: antiH eig [3.949000e-01 9.098896e+02] small-eig vector (dlng,dc)=[-0.8079  0.5893] | one-sided dJ/dlng_A=-0.09628 dJ/dlng_B=-0.09628 | (cA,cB) Hessian eig [  0.395 297.037] | anti-c curvature 594.07
+w 10 wx 2: antiH eig [3.569000e-01 8.381255e+02] small-eig vector (dlng,dc)=[-0.8417  0.5399] | one-sided dJ/dlng_A=-0.10805 dJ/dlng_B=-0.10805 | (cA,cB) Hessian eig [  0.357 296.973] | anti-c curvature 593.95
+w 3 wx 1: antiH eig [1.050000e-01 7.836465e+02] small-eig vector (dlng,dc)=[-0.8704  0.4923] | one-sided dJ/dlng_A=-0.03811 dJ/dlng_B=-0.03811 | (cA,cB) Hessian eig [1.0500e-01 2.9686e+02] | anti-c curvature 593.72
+w 30 wx 1: antiH eig [   1.5858 1006.342 ] small-eig vector (dlng,dc)=[-0.7691  0.6392] | one-sided dJ/dlng_A=-0.24772 dJ/dlng_B=-0.24772 | (cA,cB) Hessian eig [  1.588 297.929] | anti-c curvature 595.86
+leader-copier on cap w 10 wx 1 best cB=0.00091 J=0.28293 numeric check 0.2829326517725992
+leader-copier on cap w 3 wx 1 best cB=0.00027 J=0.09433 numeric check 0.09432575350201283

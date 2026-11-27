@@ -1,0 +1,8 @@
+heat w 10 wx 0.5 lng=5.000 c=0.8000 J=0.16845 antisym eig [4.67700e-01 9.73677e+02]
+heat w 10 wx 1 lng=5.000 c=0.7298 J=0.18464 antisym eig [3.949000e-01 9.098896e+02]
+heat w 10 wx 2 lng=5.000 c=0.6418 J=0.20999 antisym eig [3.569000e-01 8.381255e+02]
+heat w 3 wx 1 lng=5.000 c=0.5657 J=0.07146 antisym eig [1.050000e-01 7.836465e+02]
+heat w 30 wx 1 lng=5.000 c=0.8333 J=0.48513 antisym eig [   1.5858 1006.342 ]
+ri lam 0.25 lng=5.000 c=0.0036 J=0.28251 antisym eig [ 0.2835 74.208 ]
+ri lam 1 lng=5.000 c=0.0009 J=0.28287 antisym eig [2.831000e-01 2.968266e+02]
+ri lam 4 lng=5.000 c=0.0002 J=0.28296 antisym eig [2.8300000e-01 1.1873051e+03]

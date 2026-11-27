@@ -1,0 +1,28 @@
+OK  10.1103/PhysRevLett.75.1260 | Jacobson | 1995 | Thermodynamics of Spacetime: The Einstein Equation of State | Physical Review Letters
+OK  10.1007/JHEP04(2011)029 | Verlinde | 2011 | On the origin of gravity and the laws of Newton | Journal of High Energy Physics
+OK  10.1088/0034-4885/73/4/046901 | Padmanabhan | 2010 | Thermodynamical aspects of gravity: new insights | Reports on Progress in Physics
+OK  10.1103/PhysRevD.14.870 | Unruh | 1976 | Notes on black-hole evaporation | Physical Review D
+OK  10.1063/1.522898 | Bisognano, Wichmann | 1976 | On the duality condition for quantum fields | Journal of Mathematical Physics
+OK  10.1103/PhysRevA.84.012311 | Chiribella, D’Ariano, Perinotti | 2011 | Informational derivation of quantum theory | Physical Review A
+OK  10.1088/1367-2630/13/6/063001 | Masanes, Müller | 2011 | A derivation of quantum theory from physical requirements | New Journal of Physics
+OK  10.1103/PhysRevLett.116.201101 | Jacobson | 2016 | Entanglement Equilibrium and the Einstein Equation | Physical Review Letters
+OK  10.1103/PhysRevLett.79.325 | Grover | 1997 | Quantum Mechanics Helps in Searching for a Needle in a Haystack | Physical Review Letters
+OK  10.1137/S0097539796300933 | Bennett, Bernstein, Brassard, Vazirani | 1997 | Strengths and Weaknesses of Quantum Computing | SIAM Journal on Computing
+OK  10.1103/PhysRevA.60.2746 | Zalka | 1999 | Grover’s quantum searching algorithm is optimal | Physical Review A
+OK  10.1088/1367-2630/17/8/083001 | Lee, Barrett | 2015 | Computation in generalised probabilisitic theories | New Journal of Physics
+OK  10.1088/1367-2630/18/9/093047 | Lee, Selby | 2016 | Deriving Grover's lower bound from simple physical principles | New Journal of Physics
+ERR 10.1007/s10701-018-0198-5 | HTTP Error 404: Not Found
+OK  10.1257/aer.20130047 | Matějka, McKay | 2015 | Rational Inattention to Discrete Choices: A New Foundation for the Multinomial Logit Model | American Economic Review
+OK  10.1016/S0304-3932(03)00029-1 | Sims | 2003 | Implications of rational inattention | Journal of Monetary Economics
+OK  10.1007/s100510070114 | Dragulescu, Yakovenko | 2000 | Statistical mechanics of money | The European Physical Journal B
+OK  10.1088/0264-9381/11/12/007 | Connes, Rovelli | 1994 | Von Neumann algebra automorphisms and time-thermodynamics relation in generally covariant quantum theories | Classical and Quantum Gravity
+OK  10.1103/PhysRev.106.620 | Jaynes | 1957 | Information Theory and Statistical Mechanics | Physical Review
+OK  10.1007/JHEP04(2014)195 | Lashkari, McDermott, Van Raamsdonk | 2014 | Gravitational dynamics from entanglement “thermodynamics” | Journal of High Energy Physics
+OK  10.1007/BF01378063 | Hopf, Samelson | 1940 | Ein Satz �ber die Wirkungsr�ume geschlossener Liescher Gruppen | Commentarii Mathematici Helvetici
+OK  10.1098/rspa.2012.0683 | Ortega, Braun | 2013 | Thermodynamics as a theory of decision-making with information-processing costs | Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences
+OK  10.1007/BF01208372 | Hislop, Longo | 1982 | Modular structure of the local algebras associated with the free massless scalar field theory | Communications in Mathematical Physics
+OK  10.1088/1367-2630/16/12/123029 | Barnum, Müller, Ududec | 2014 | Higher-order interference and single-system postulates characterizing quantum theory | New Journal of Physics
+OK  10.1103/PhysRevD.7.2333 | Bekenstein | 1973 | Black Holes and Entropy | Physical Review D
+OK  10.1147/rd.53.0183 | Landauer | 1961 | Irreversibility and Heat Generation in the Computing Process | IBM Journal of Research and Development
+OK  10.1103/PhysRevA.81.062348 | Chiribella, D’Ariano, Perinotti | 2010 | Probabilistic theories with purification | Physical Review A
+OK  10.1103/PhysRevA.75.032304 | Barrett | 2007 | Information processing in generalized probabilistic theories | Physical Review A

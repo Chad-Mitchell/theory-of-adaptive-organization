@@ -1,0 +1,173 @@
+Thu Nov 26 09:38:49 EST 2026
+check_lean.sh: lake exe cache get
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+No files to download
+Already decompressed 9133 file(s)
+check_lean.sh: lake build
+✔ [4527/4592] Built GTAO.CT10 (8.8s)
+✔ [4548/4658] Built GTAO.Cost (8.0s)
+✔ [4550/4658] Built GTAO.CT4 (8.9s)
+✔ [4773/4856] Built GTAO.Hull (7.1s)
+✔ [4826/5016] Built GTAO.CT22 (7.1s)
+✔ [4946/5106] Built GTAO.CT34 (9.5s)
+✔ [5460/5718] Built GTAO.CT33 (940ms)
+✔ [5789/5860] Built GTAO.LayerLifetime (6.0s)
+✔ [5791/5860] Built GTAO.LocalShared (6.1s)
+✔ [5802/5860] Built GTAO.CT20 (925ms)
+✔ [5810/5860] Built GTAO.Coadaptation (1.6s)
+✔ [5811/5860] Built GTAO.BandCounterexample (2.1s)
+✔ [5818/5860] Built GTAO.Cauchy (2.5s)
+✔ [5838/5878] Built GTAO.N60Exact (3.3s)
+✔ [5850/5884] Built GTAO.DriftSpeed (2.1s)
+✔ [5858/5930] Built GTAO.HullWalk (3.7s)
+✔ [6101/6196] Built GTAO.CoadaptationDrift (3.4s)
+✔ [6423/6562] Built GTAO.BandMonge (4.8s)
+✔ [6508/6642] Built GTAO.CoadaptationUnique (2.2s)
+✔ [6812/6954] Built GTAO.DriftSelection (3.1s)
+✔ [7888/8052] Built GTAO.DiffusionHeat (1.6s)
+✔ [8193/8388] Built GTAO.ContinuousA6 (1.6s)
+✔ [8568/8776] Built GTAO.Obstruction (6.6s)
+✔ [8740/8970] Built GTAO.HeatFloor (2.3s)
+✔ [8904/9138] Built GTAO.Equipartition (3.6s)
+✔ [10711/10904] Built GTAO.CoadaptationExcess (1.2s)
+✔ [10968/11182] Built GTAO.FiniteFloor (1.4s)
+✔ [11416/11576] Built GTAO.Representation (1.6s)
+✔ [13998/14160] Built GTAO.FiniteFloorBounds (2.1s)
+✔ [14886/15162] Built GTAO.RepairFloor (2.7s)
+✔ [15976/16150] Built GTAO.FiniteFloorPairwise (3.2s)
+✔ [18351/18429] Built GTAO.RepairTensor (1.9s)
+✔ [18355/18429] Built GTAO.FiniteFloorPath (3.1s)
+✔ [18356/18429] Built GTAO.Rnd.SelfRef.ContinuousTime (15s)
+✔ [18357/18429] Built GTAO.Rnd.SelfRef.Modular (16s)
+✔ [18358/18429] Built GTAO.Rnd.SelfRef.FiniteGeometry (17s)
+✔ [18359/18429] Built GTAO.Rnd.SelfRef.Precision (17s)
+✔ [18360/18429] Built GTAO.Rnd.SelfRef.Entangle (18s)
+✔ [18361/18429] Built GTAO.Rnd.SelfRef.M11Prime (18s)
+✔ [18362/18429] Built GTAO.Rnd.SelfRef.Transport (20s)
+✔ [18363/18429] Built GTAO.Rnd.SelfRefRun.Round2 (3.1s)
+✔ [18364/18429] Built GTAO.Rnd.SelfRef.SFP (19s)
+✔ [18365/18429] Built GTAO.Rnd.SelfRefRun.Basic (4.7s)
+✔ [18366/18429] Built GTAO.Rnd.Composition (6.0s)
+✔ [18367/18429] Built GTAO.Rnd.SelfRef.CostDial (4.2s)
+✔ [18368/18429] Built GTAO.Rnd.SelfRef.CircleOrbit (3.6s)
+✔ [18370/18429] Built GTAO.Rnd.Spekkens (2.8s)
+✔ [18372/18429] Built GTAO.Rnd.SelfRef.Liar (2.9s)
+✔ [18386/18429] Built GTAO.Rnd.SelfRef.DimBound (5.6s)
+✔ [18387/18429] Built GTAO.Rnd.LemmaB1 (3.5s)
+✔ [18388/18429] Built GTAO.Rnd.PolygonDrift (3.8s)
+✔ [18389/18429] Built GTAO.Rnd.SelfRef.OnsetO (4.1s)
+✔ [18394/18429] Built GTAO.Rnd.SelfRef.Composite (4.4s)
+✔ [18397/18429] Built GTAO.Rnd.SelfRef.OrbitClone (7.2s)
+✔ [18398/18429] Built GTAO.Rnd.SelfRef.SFPCriterion (3.9s)
+✔ [18399/18429] Built GTAO.Rnd.SelfRef.TransportHorizons (5.2s)
+✔ [18400/18429] Built GTAO.Rnd.SelfRef.OControl (3.8s)
+✔ [18402/18429] Built GTAO.Rnd.SelfRef.Ball (4.1s)
+✔ [18407/18429] Built GTAO.Rnd.SelfRef.R34 (4.2s)
+✔ [18409/18429] Built GTAO.Rnd.Controls (2.8s)
+✔ [18411/18429] Built GTAO.Rnd.SelfRef.QubitWitness (4.6s)
+✔ [18413/18429] Built GTAO.Rnd.SelfRef.CostDialGlobal (6.7s)
+✔ [18415/18429] Built GTAO.Rnd.SquareBit (3.9s)
+✔ [18417/18429] Built GTAO.Rnd.SelfRef.Broadcast (5.6s)
+✔ [18419/18429] Built GTAO.Rnd.SelfRef.CostDialBeyond (2.5s)
+✔ [18421/18429] Built GTAO.Rnd.SelfRef.BroadcastControl (2.1s)
+⚠ [18423/18429] Built GTAO.Rnd.SelfRef.M11Cube (13s)
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:453:4: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:556:41: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finset.sum_ite_irrel, mul_ite, Finset.sum_ite_eq']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:618:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:618:23: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:620:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:645:10: This simp argument is unused:
+  ← Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [← Finset.sum_mul, vert, ite_pow, hσ2, hτ2]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:645:28: This simp argument is unused:
+  ← Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [← Finset.mul_sum, vert, ite_pow, hσ2, hτ2]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:775:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:782:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:805:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:999:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:1000:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:1021:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:1022:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [18425/18429] Built GTAO.Rnd.SelfRef.M11Blocks (3.5s)
+✔ [18427/18429] Built GTAO (1.5s)
+Build completed successfully (18429 jobs).
+check_lean.sh: AxiomAudit
+AxiomAudit: OK (2228 GTAO declarations; only propext, Classical.choice, Quot.sound)
+check_lean.sh: OK
+EXIT=0
+Thu Nov 26 09:40:38 EST 2026
+RND_EXIT=0
+Thu Nov 26 09:40:41 EST 2026

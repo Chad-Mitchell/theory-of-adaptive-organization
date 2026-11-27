@@ -1,0 +1,3 @@
+=== Round 11-M continued: positive control (m_round11_control.py) ===
+CONTROL 2-qubit stabilizer polytope (octahedron parts, restricted reads): extreme pts 60 (product 36, entangled 24), stable classes 1, entangled sharing a product class 24 -> ENTANGLING AUTOMORPHISM FOUND
+   exact linear map reproduces the permutation on all extreme points: True ; maps ['1', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1'] -> ['1', '0', '0', '0', '0', '1', '0', '0', '0', '0', '-1', '0', '0', '0', '0', '1']

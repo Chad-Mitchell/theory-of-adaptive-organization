@@ -1,0 +1,4 @@
+V1: kappa=0.00374 |S|=120; best single add/kappa=0.747; best pair add (top-40 singles) = 1.777 kappa for 2 sites at (-7, -6),(-6, -7) -> pair beats 2*kappa: False; cheapest single removal = 0.974 kappa at (1, 5)
+V2: kappa=0.00074 |S|=123; best single add/kappa=0.984; best pair add (top-40 singles) = 1.962 kappa for 2 sites at (-6, 7),(7, 7) -> pair beats 2*kappa: False; cheapest single removal = 0.974 kappa at (5, 2)
+V3: kappa=0.00072 |S|=124; best single add/kappa=0.912; best pair add (top-40 singles) = 1.823 kappa for 2 sites at (3, -6),(-6, 3) -> pair beats 2*kappa: False; cheapest single removal = 0.911 kappa at (6, 2)
+V4: kappa=0.00034 |S|=120; best single add/kappa=0.865; best pair add (top-40 singles) = 1.731 kappa for 2 sites at (-5, 2),(2, -5) -> pair beats 2*kappa: False; cheapest single removal = 0.940 kappa at (5, 5)

@@ -1,0 +1,2 @@
+(a) full scan s<=20000, n<=31: cases 2256 mismatches 0 []
+(c) y=0 regression vs §9 (n<=61): mismatches 2

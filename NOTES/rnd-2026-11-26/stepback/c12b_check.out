@@ -1,0 +1,31 @@
+(a) quadratic onset near blind: L(1/2-d)/d^2 and g4(1/2-d)/d^2 -> 8
+   d=0.1: 8.109302 8.054205
+   d=0.01: 8.001067 8.000533
+   d=0.001: 8.000011 8.000005
+(b) binary: best error < 1/2 at every w>0 (w1=w2=0); scaling eps_keep(w;G)=eps_track(w*r/G;r)
+   w=0.001: eps_track=0.499792 eps_keep=0.499963 eps_track(w r/G)=0.499963
+   w=0.01: eps_track=0.497917 eps_keep=0.499632 eps_track(w r/G)=0.499632
+   w=0.1: eps_track=0.479191 eps_keep=0.496324 eps_track(w r/G)=0.496324
+   w=1: eps_track=0.311994 eps_keep=0.463367 eps_track(w r/G)=0.463367
+   w=10: eps_track=0.035979 eps_keep=0.217442 eps_track(w r/G)=0.217442
+(c) Gaussian OU tracking (CORE:91-92): J(eps)=kT a (v-eps)/eps + w eps on (0,v]; onset at w1 = kT a/v
+   w/w1=0.90: eps*=2.000000 (blind = 2.0)
+   w/w1=0.99: eps*=2.000000 (blind = 2.0)
+   w/w1=1.01: eps*=1.990074 (blind = 2.0)
+   w/w1=1.10: eps*=1.906925 (blind = 2.0)
+(d) OU carrier leak: d/dt I at small I is -2*Gamma*I under both storage conventions
+   I=0.1: loss/(2*Gamma*I) = 0.906346 , 1.107014
+   I=0.01: loss/(2*Gamma*I) = 0.990066 , 1.010067
+   I=0.001: loss/(2*Gamma*I) = 0.999001 , 1.001001
+(e) Gaussian keep cost f(I)=kT G (1-e^{-2I}) + w Var e^{-2I}: holds iff w > w2 = kT G/Var
+   w/w2=0.90: argmin I = 0.000
+   w/w2=1.10: argmin I = 5.000
+(f) ratio w2/w1 = (G/Var)/(a/Var) = G/a; here G/a = 4.2500
+(g) HYP Gaussian keep floor F(I)=2 kT G I + w Var e^{-2I}: convex; minimizer I*=max(0, 0.5 ln(w Var/(kT G)))
+   w/w2=0.50: I*=0.000000 closed=0.000000
+   w/w2=0.99: I*=0.000000 closed=0.000000
+   w/w2=1.01: I*=0.004975 closed=0.004975
+   w/w2=3.00: I*=0.549306 closed=0.549306
+(h) OU relative-entropy decay rate for Gaussian p=N(m,s2) vs pi=N(0,1), relaxation G: -dD/dt / D at small offset
+   m0=0.1: rate/G = 1.999997
+   m0=0.01: rate/G = 1.999997

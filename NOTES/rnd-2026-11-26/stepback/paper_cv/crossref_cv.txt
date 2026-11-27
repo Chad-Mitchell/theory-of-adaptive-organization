@@ -1,0 +1,8 @@
+10.1007/JHEP02(2023)082 => An algebra of observables for de Sitter space | Journal of High Energy Physics | [2023, 2, 7] | Chandrasekaran, Longo, Penington, Witten
+10.1007/JHEP04(2023)009 => Large N algebras and generalized entropy | Journal of High Energy Physics | [2023, 4, 3] | Chandrasekaran, Penington, Witten
+10.1088/1126-6708/1999/07/004 => A covariant entropy conjecture | Journal of High Energy Physics | [1999, 7, 2] | Bousso
+10.1103/PhysRevLett.116.201101 => Entanglement Equilibrium and the Einstein Equation | Physical Review Letters | [2016, 5, 20] | Jacobson
+10.1007/JHEP10(2022)008 => Gravity and the crossed product | Journal of High Energy Physics | [2022, 10, 3] | Witten
+10.1007/JHEP10(2024)063 => Algebras and Hilbert spaces from gravitational path integrals. Understanding Ryu-Takayanagi/HRT as entropy without AdS/CFT | Journal of High Energy Physics | [2024, 10, 8] | Colafranceschi, Dong, Marolf, Wang
+10.1103/PhysRevD.27.2885 => Evolution without evolution: Dynamics described by stationary observables | Physical Review D | [1983, 6, 15] | Page, Wootters
+10.1007/JHEP04(2013)156 => Logarithmic corrections to Schwarzschild and other non-extremal black hole entropy in different dimensions [2013, 4] Sen

@@ -1,0 +1,25 @@
+(a) (2T+1)-gon, exact distances: True  min n*rel-margin of the bound: 0.777088
+(a) odd lcm H=2 n=5: every proof step holds at every T in 2..H (exact distances): True (exact distance check only for n<1000)
+(a) odd lcm H=3 n=13: every proof step holds at every T in 2..H (exact distances): True (exact distance check only for n<1000)
+(a) odd lcm H=4 n=25: every proof step holds at every T in 2..H (exact distances): True (exact distance check only for n<1000)
+(a) odd lcm H=5 n=121: every proof step holds at every T in 2..H (exact distances): True (exact distance check only for n<1000)
+(a) odd lcm H=6 n=121: every proof step holds at every T in 2..H (exact distances): True (exact distance check only for n<1000)
+(a) odd lcm H=7 n=841: every proof step holds at every T in 2..H (exact distances): True (exact distance check only for n<1000)
+(a) odd lcm H=8 n=1681: every proof step holds at every T in 2..H (exact distances): True (exact distance check only for n<1000)
+(a) odd lcm H=9 n=5041: every proof step holds at every T in 2..H (exact distances): True (exact distance check only for n<1000)
+(b) DP H=2 m=1 n=5: J(1)=1.000000000000000; cheaper than disk at all T in 2..H: True; min rel margin 2.3607e-01
+(b) DP H=2 m=2 n=9: J(1)=1.000000000000000; cheaper than disk at all T in 2..H: True; min rel margin 1.4796e-01
+(b) DP H=3 m=1 n=13: J(1)=1.000000000000000; cheaper than disk at all T in 2..H: True; min rel margin 1.0757e-01
+(b) DP H=3 m=2 n=25: J(1)=1.000000000000000; cheaper than disk at all T in 2..H: True; min rel margin 5.9081e-02
+(b) DP H=4 m=1 n=25: J(1)=1.000000000000000; cheaper than disk at all T in 2..H: True; min rel margin 5.9081e-02
+(b) DP H=4 m=2 n=49: J(1)=1.000000000000000; cheaper than disk at all T in 2..H: True; min rel margin 3.1056e-02
+(b) DP H=5 m=1 n=121: J(1)=1.000000000000000; cheaper than disk at all T in 2..H: True; min rel margin 1.2815e-02
+(b) DP H=5 m=2 n=241: J(1)=1.000000000000000; cheaper than disk at all T in 2..H: True; min rel margin 6.4756e-03
+(b) DP H=6 m=1 n=121: J(1)=1.000000000000000; cheaper than disk at all T in 2..H: True; min rel margin 1.2815e-02
+(b) DP H=6 m=2 n=241: J(1)=1.000000000000000; cheaper than disk at all T in 2..H: True; min rel margin 6.4756e-03
+(b) DP H=7 m=1 n=841: J(1)=1.000000000000000; cheaper than disk at all T in 2..H: True; min rel margin 1.8643e-03
+(b) DP H=7 m=2 n=1681: J(1)=1.000000000000000; cheaper than disk at all T in 2..H: True; min rel margin 9.3357e-04
+(b) DP H=8 m=1 n=1681: J(1)=1.000000000000000; cheaper than disk at all T in 2..H: True; min rel margin 9.3357e-04
+(b) DP H=8 m=2 n=3361: J(1)=1.000000000000000; cheaper than disk at all T in 2..H: True; min rel margin 4.6714e-04
+(b) DP H=9 m=1 n=5041: J(1)=1.000000000000000; cheaper than disk at all T in 2..H: True; min rel margin 3.1151e-04
+(c) bound-only chain, n=1+2 lcm(1..H), H=2..60, failures: 0

@@ -1,0 +1,12 @@
+(1) J*/CORE frontier at Gamma=0,c=0 all smin: min 1.000000 max 74.3448
+    cells below CORE frontier: 0 []
+(2) S-eq: 41 Step-1 cells; best c_eff=0.383 kT/look; median |ln ratio| 0.017; within 25%: 1.000 -> PASS
+    ratio quantiles s_gauss/s_reg: [0.893 1.001 1.012 1.018 1.135]
+(3) ln n*(register) - I*(Gaussian, c_eff): median 0.066 range [0.028,0.114] (GP space-filling gap 0.5ln(pi e/6)=0.176)
+(4) c=0, smin=1, Gamma=0: nats/look vs u=sig*sqrt(x): corr of ln: 0.9836
+    u in [0.001,0.01): nats/look 0.0005-0.0047
+    u in [0.01,0.1): nats/look 0.0050-0.0474
+    u in [0.1,1): nats/look 0.0485-0.4584
+    u in [1,10): nats/look 0.4797-2.2607
+    u in [10,1000.0): nats/look 2.3101-5.6901
+(5) post hoc, primary restricted to smin*sig*sqrt(x)<=0.1: R dI/dlnx n=63 med 0.255; R dI/dlnsig n=47 med -0.492

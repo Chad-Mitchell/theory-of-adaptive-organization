@@ -1,0 +1,9 @@
+toy size N0=1e6 per diamond at s=0; 10 batches of 16 seeds vs 10 disjoint control batches of 16
+control alone: mean R(s) over 160 seeds: {0.25: 0.9997, 0.5: 0.9994, 0.75: 0.9972, 0.9: 0.9939}  per-seed sd: {0.25: 0.0058, 0.5: 0.0071, 0.75: 0.0071, 0.9: 0.0088}
+cp=1.00 planted R-1 at s=.5/.75/.9 = 0.000/0.000/0.000 | measured dR(.9) mean 0.000 (z median 0) | decisions {'MISS': 10}
+cp=1.02 planted R-1 at s=.5/.75/.9 = 0.006/0.025/0.080 | measured dR(.9) mean 0.080 (z median 25) | decisions {'OPEN': 10}
+cp=1.05 planted R-1 at s=.5/.75/.9 = 0.015/0.058/0.182 | measured dR(.9) mean 0.183 (z median 58) | decisions {'OPEN': 10}
+cp=1.10 planted R-1 at s=.5/.75/.9 = 0.029/0.106/0.319 | measured dR(.9) mean 0.320 (z median 95) | decisions {'HIT': 10}
+cp=1.20 planted R-1 at s=.5/.75/.9 = 0.050/0.180/0.517 | measured dR(.9) mean 0.520 (z median 152) | decisions {'HIT': 10}
+cp=1.96 planted R-1 at s=.5/.75/.9 = 0.116/0.397/1.038 | measured dR(.9) mean 1.042 (z median 306) | decisions {'HIT': 10}
+toy lattice T=4000 (seeds 1-16) vs control batch 1: HIT {0.25: (np.float64(1.025), np.float64(0.027), 13), 0.5: (np.float64(1.123), np.float64(0.126), 54), 0.75: (np.float64(1.407), np.float64(0.413), 181), 0.9: (np.float64(2.033), np.float64(1.042), 238)}

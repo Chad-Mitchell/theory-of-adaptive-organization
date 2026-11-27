@@ -1,0 +1,27 @@
+OK 10.1103/PhysRevLett.75.1260 | Jacobson | 1995 | Thermodynamics of Spacetime: The Einstein Equation of State | Physical Review Letters 75 1260-1263
+OK 10.1103/PhysRevLett.116.201101 | Jacobson | 2016 | Entanglement Equilibrium and the Einstein Equation | Physical Review Letters 116 201101
+OK 10.1103/PhysRevD.50.2700 | Susskind; Uglum | 1994 | Black hole entropy in canonical quantum gravity and superstring theory | Physical Review D 50 2700-2711
+OK 10.1103/PhysRevD.34.373 | Bombelli; Koul; Lee; Sorkin | 1986 | Quantum source of entropy for black holes | Physical Review D 34 373-383
+OK 10.1103/PhysRevLett.71.666 | Srednicki | 1993 | Entropy and area | Physical Review Letters 71 666-669
+OK 10.1103/PhysRevLett.100.070502 | Wolf; Verstraete; Hastings; Cirac | 2008 | Area Laws in Quantum Systems: Mutual Information and Correlations | Physical Review Letters 100 070502
+OK 10.1103/RevModPhys.82.277 | Eisert; Cramer; Plenio | 2010 | <i>Colloquium</i>                     : Area laws for the entanglement entropy | Reviews of Modern Physics 82 277-306
+OK 10.1103/PhysRevLett.96.010404 | Wolf | 2006 | Violation of the Entropic Area Law for Fermions | Physical Review Letters 96 010404
+OK 10.1103/PhysRevLett.96.100503 | Gioev; Klich | 2006 | Entanglement Entropy of Fermions in Any Dimension and the Widom Conjecture | Physical Review Letters 96 100503
+OK 10.1088/0305-4470/36/14/101 | Peschel | 2003 | Calculation of reduced density matrices from correlation functions | Journal of Physics A: Mathematical and General 36 L205-L208
+OK 10.1088/0264-9381/31/21/214002 | Bianchi; Myers | 2014 | On the architecture of spacetime geometry | Classical and Quantum Gravity 31 214002
+OK 10.1088/1742-5468/2014/10/P10011 | Chen; Vidal | 2014 | Entanglement contour | Journal of Statistical Mechanics: Theory and Experiment 2014 P10011
+OK 10.1103/PhysRevA.70.052329 | Botero; Reznik | 2004 | Spatial structures and localization of vacuum entanglement in the linear harmonic chain | Physical Review A 70 052329
+OK 10.1088/1751-8121/aa7902 | Coser; De Nobili; Tonni | 2017 | A contour for the entanglement entropies in harmonic lattices | Journal of Physics A: Mathematical and Theoretical 50 314001
+OK 10.1088/1742-5468/aab67d | Tonni; Rodríguez-Laguna; Sierra | 2018 | Entanglement hamiltonian and entanglement contour in inhomogeneous 1D critical systems | Journal of Statistical Mechanics: Theory and Experiment 2018 043105
+OK 10.1088/1751-8121/ab2dae | Kudler-Flam; MacCormack; Ryu | 2019 | Holographic entanglement contour, bit threads, and the entanglement tsunami | Journal of Physics A: Mathematical and Theoretical 52 325401
+OK 10.1103/PhysRevD.98.106004 | Wen | 2018 | Fine structure in holographic entanglement and entanglement contour | Physical Review D 98 106004
+OK 10.1145/1102351.1102385 | Guestrin; Krause; Singh | 2005 | Near-optimal sensor placements in Gaussian processes | Proceedings of the 22nd international conference on Machine learning  - ICML '05  265-272
+OK 10.1007/BF01588971 | Nemhauser; Wolsey; Fisher | 1978 | An analysis of approximations for maximizing submodular set functions—I | Mathematical Programming 14 265-294
+OK 10.1103/PhysRevB.74.073103 | Li; Ding; Yu; Roscilde | 2006 | Scaling behavior of entanglement in two- and three-dimensional free-fermion systems | Physical Review B 74 073103
+OK 10.1103/PhysRevA.74.022329 | Barthel; Chung; Schollwöck | 2006 | Entanglement scaling in critical two-dimensional fermionic and bosonic systems | Physical Review A 74 022329
+OK 10.1103/PhysRevLett.105.050502 | Swingle | 2010 | Entanglement Entropy and the Fermi Surface | Physical Review Letters 105 050502
+OK 10.1088/1751-8113/42/50/504007 | Casini; Huerta | 2009 | Entanglement entropy in free quantum field theory | Journal of Physics A: Mathematical and Theoretical 42 504007
+OK 10.1088/1751-8113/42/50/504003 | Peschel; Eisler | 2009 | Reduced density matrices and entanglement entropy in free lattice models | Journal of Physics A: Mathematical and Theoretical 42 504003
+OK 10.1103/PhysRevB.37.3774 | Affleck; Marston | 1988 | Large-<i>n</i>limit of the Heisenberg-Hubbard model: Implications for high-<mml:math xmlns:mml="http://www.w3. | Physical Review B 37 3774-3777
+OK 10.1088/1742-5468/2015/02/P02008 | Bernigau; Kastoryano; Eisert | 2015 | Mutual information area laws for thermal free fermions | Journal of Statistical Mechanics: Theory and Experiment 2015 P02008
+OK 10.21468/SciPostPhys.13.4.080 | Klein Kvorning; Herviou; Bardarson | 2022 | Time-evolution of local information: thermalization dynamics of local observables | SciPost Physics 13 080

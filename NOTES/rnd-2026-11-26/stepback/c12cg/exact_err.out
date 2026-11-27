@@ -1,0 +1,5 @@
+disk exact 1/2-1/pi = 0.1816901138162093
+n=4: nearest-vertex exact err = 0.125000 | altopt M=720: 0.124996 | altopt M=1440: 0.124999 | altopt M=2880: 0.125000
+n=5: nearest-vertex exact err = 0.176393 | altopt M=720: 0.176362 | altopt M=1440: 0.176381 | altopt M=2880: 0.176392
+n=6: nearest-vertex exact err = 0.166667 | altopt M=720: 0.166661 | altopt M=1440: 0.166665 | altopt M=2880: 0.166666
+n=8: nearest-vertex exact err = 0.172335 | altopt M=720: 0.172329 | altopt M=1440: 0.172334 | altopt M=2880: 0.172335

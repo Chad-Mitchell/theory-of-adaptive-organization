@@ -1,0 +1,6 @@
+regular n=3..80, all vertex pairs: min (d_poly - d_disk) = (np.float64(-1.4432899320127035e-15), (54, 23))
+odd n: no exact tie on any nonzero step: True
+even n tie counts (ties/nonzero steps from v0): {4: (1, 3), 6: (3, 5), 8: (3, 7), 10: (5, 9), 12: (5, 11), 14: (7, 13), 16: (7, 15), 18: (9, 17), 20: (9, 19), 22: (11, 21), 24: (11, 23)}
+even-n closed form (SR_B 8.6) mismatches: 0
+400 random inscribed polygons, all pairs: min (d_K - d_disk) = 6.856404333177579e-11
+hexagon v0->v1 with one effect pair: d=0.2500 vs disk sin(pi/6)=0.5000 (restricted effects can undercut)

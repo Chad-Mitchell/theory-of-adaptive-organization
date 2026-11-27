@@ -1,0 +1,301 @@
+disk check (Nystrom vs Siegmund): [[0.05, 0.5, 463.63743319940363, 463.39239898594604], [0.035, 0.3, 324.0161670402855, 323.7699576791011], [0.025, 0.2, 278.8439099951955, 278.5972812004243]]
+== E-M3h delta= 0.1
+   s=0.4     SC=[] cyc=[] disk_sc=False T(disk)=1 open=0 cross=(6, 12, 8, 6)
+   s=0.3     SC=[] cyc=[] disk_sc=False T(disk)=1 open=0 cross=(8, 12, 10, 6)
+   s=0.2     SC=[12] cyc=[(6, 228)] disk_sc=False T(disk)=2 open=0 cross=(10, 18, 12, 12)
+   s=0.15    SC=[] cyc=[] disk_sc=False T(disk)=3 open=0 cross=(14, 16, 16, 12)
+   s=0.1     SC=[] cyc=[(14, 82)] disk_sc=False T(disk)=6 open=0 cross=(18, 26, 20, 18)
+   s=0.07    SC=[] cyc=[(22, 50)] disk_sc=False T(disk)=12 open=0 cross=(24, 34, 26, 24)
+   s=0.05    SC=[] cyc=[(34, 124), (38, 82)] disk_sc=False T(disk)=21 open=0 cross=(46, 48, 48, 42)
+   s=0.035   SC=[60, 76] cyc=[] disk_sc=False T(disk)=40 open=0 cross=(58, 66, 60, 60)
+   s=0.025   SC=[136] cyc=[] disk_sc=False T(disk)=74 open=0 cross=(114, 118, 116, 114)
+   s=0.018   SC=[238, 260] cyc=[] disk_sc=False T(disk)=137 open=0 cross=(214, 218, 216, 214)
+   s=0.012   SC=[532, 554, 596] cyc=[] disk_sc=False T(disk)=298 open=0 cross=(530, 536, 532, 532)
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=656 open=213 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=1652 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=3343 open=0 cross=None
+== E-M3h delta= 0.2
+   s=0.4     SC=[] cyc=[] disk_sc=False T(disk)=2 open=0 cross=(6, 12, 8, 6)
+   s=0.3     SC=[] cyc=[(6, 26)] disk_sc=False T(disk)=3 open=0 cross=(8, 12, 10, 6)
+   s=0.2     SC=[12] cyc=[] disk_sc=False T(disk)=6 open=0 cross=(10, 18, 12, 12)
+   s=0.15    SC=[] cyc=[(22, 24)] disk_sc=False T(disk)=10 open=0 cross=(22, 24, 24, 22)
+   s=0.1     SC=[40] cyc=[] disk_sc=False T(disk)=21 open=0 cross=(28, 32, 30, 28)
+   s=0.07    SC=[72] cyc=[] disk_sc=False T(disk)=40 open=0 cross=(60, 64, 62, 60)
+   s=0.05    SC=[] cyc=[(146, 148)] disk_sc=False T(disk)=74 open=0 cross=(136, 138, 138, 134)
+   s=0.035   SC=[288, 298] cyc=[] disk_sc=False T(disk)=146 open=0 cross=(276, 280, 278, 276)
+   s=0.025   SC=[] cyc=[] disk_sc=False T(disk)=278 open=0 cross=(542, 544, 544, 540)
+   s=0.018   SC=[] cyc=[] disk_sc=False T(disk)=527 open=272 cross=None
+   s=0.012   SC=[] cyc=[] disk_sc=False T(disk)=1165 open=0 cross=None
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=2593 open=0 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=6581 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=13373 open=0 cross=None
+== E-M3h delta= 0.3
+   s=0.4     SC=[] cyc=[(12, 14)] disk_sc=False T(disk)=4 open=0 cross=(6, 12, 8, 6)
+   s=0.3     SC=[] cyc=[] disk_sc=False T(disk)=7 open=0 cross=(8, 12, 10, 6)
+   s=0.2     SC=[26, 32] cyc=[] disk_sc=False T(disk)=13 open=0 cross=(18, 22, 20, 18)
+   s=0.15    SC=[] cyc=[] disk_sc=False T(disk)=21 open=0 cross=(38, 40, 40, 36)
+   s=0.1     SC=[88] cyc=[(80, 82)] disk_sc=False T(disk)=44 open=0 cross=(80, 82, 82, 80)
+   s=0.07    SC=[164] cyc=[] disk_sc=False T(disk)=86 open=0 cross=(162, 166, 164, 164)
+   s=0.05    SC=[318] cyc=[] disk_sc=False T(disk)=163 open=0 cross=(316, 322, 318, 318)
+   s=0.035   SC=[638] cyc=[] disk_sc=False T(disk)=324 open=0 cross=(636, 642, 638, 638)
+   s=0.025   SC=[] cyc=[] disk_sc=False T(disk)=623 open=206 cross=None
+   s=0.018   SC=[] cyc=[] disk_sc=False T(disk)=1186 open=0 cross=None
+   s=0.012   SC=[] cyc=[] disk_sc=False T(disk)=2638 open=0 cross=None
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=5891 open=0 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=14996 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=30517 open=0 cross=None
+== E-M3h delta= 0.5
+   s=0.4     SC=[] cyc=[(24, 26)] disk_sc=False T(disk)=10 open=0 cross=(20, 24, 22, 20)
+   s=0.3     SC=[] cyc=[] disk_sc=False T(disk)=16 open=0 cross=(32, 36, 34, 32)
+   s=0.2     SC=[] cyc=[] disk_sc=False T(disk)=34 open=0 cross=(68, 70, 70, 66)
+   s=0.15    SC=[116, 120] cyc=[] disk_sc=False T(disk)=57 open=0 cross=(114, 120, 116, 116)
+   s=0.1     SC=[] cyc=[] disk_sc=False T(disk)=122 open=0 cross=(242, 246, 244, 242)
+   s=0.07    SC=[] cyc=[] disk_sc=False T(disk)=241 open=0 cross=(482, 486, 484, 482)
+   s=0.05    SC=[] cyc=[] disk_sc=False T(disk)=463 open=307 cross=None
+   s=0.035   SC=[] cyc=[] disk_sc=False T(disk)=930 open=8 cross=None
+   s=0.025   SC=[] cyc=[] disk_sc=False T(disk)=1803 open=0 cross=None
+   s=0.018   SC=[] cyc=[] disk_sc=False T(disk)=3452 open=0 cross=None
+   s=0.012   SC=[] cyc=[] disk_sc=False T(disk)=7717 open=0 cross=None
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=17287 open=0 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=44109 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=89869 open=0 cross=None
+== E-mixed delta= 0.1
+   s=0.4     SC=[10, 32] cyc=[] disk_sc=False T(disk)=1 open=0 cross=(6, 10, 8, 6)
+   s=0.3     SC=[12, 14, 32, 34, 36, 38, 40, 42, '+31'] cyc=[] disk_sc=False T(disk)=1 open=0 cross=(8, 10, 10, 6)
+   s=0.2     SC=[18, 20, 22, 32, 36, 42, 46, 48, '+565'] cyc=[(12, 40), (12, 70), (12, 100), '+4'] disk_sc=True T(disk)=2 open=0 cross=(10, 32, 12, 10)
+   s=0.15    SC=[14, 22, 24, 26, 28, 30, 48, 54, '+167'] cyc=[(16, 40), (16, 70), (16, 100), '+1471'] disk_sc=True T(disk)=3 open=0 cross=(12, 48, 14, 14)
+   s=0.1     SC=[30, 48, 90, 96, 120, 128, 140, 144, '+55'] cyc=[(14, 160), (14, 320), (14, 480), '+846'] disk_sc=True T(disk)=6 open=0 cross=(22, 24, 24, 10)
+   s=0.07    SC=[54, 64, 90, 110, 120, 130, 176, 242, '+30'] cyc=[(22, 1152), (26, 132), (26, 220), '+341'] disk_sc=True T(disk)=12 open=0 cross=(24, 64, 26, 22)
+   s=0.05    SC=[46, 90, 114, 168, 240, 294, 342, 352, '+15'] cyc=[(34, 122), (42, 232), (42, 580), '+156'] disk_sc=True T(disk)=21 open=0 cross=(44, 104, 46, 46)
+   s=0.035   SC=[164, 234, 280, 370, 390, 480, 640, 936, '+1'] cyc=[(74, 468), (78, 490), (78, 770), '+51'] disk_sc=True T(disk)=40 open=0 cross=(58, 128, 60, 58)
+   s=0.025   SC=[272, 292, 426, 560, 888, 1022] cyc=[(146, 960), (150, 570), (150, 912), '+12'] disk_sc=True T(disk)=74 open=0 cross=(116, 224, 118, 110)
+   s=0.018   SC=[544, 1064, 1104] cyc=[(556, 1040), (810, 1056), (1080, 1088)] disk_sc=True T(disk)=137 open=0 cross=(240, 464, 242, 230)
+   s=0.012   SC=[1176] cyc=[] disk_sc=True T(disk)=298 open=0 cross=(530, 534, 532, 530)
+   s=0.008   SC=[] cyc=[] disk_sc=True T(disk)=656 open=213 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=True T(disk)=1652 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=True T(disk)=3343 open=0 cross=None
+== E-mixed delta= 0.2
+   s=0.4     SC=[10, 16, 18, 24, 26, 28, 30, 36, '+577'] cyc=[(6, 20), (6, 50), (6, 80), '+1'] disk_sc=True T(disk)=2 open=0 cross=(6, 10, 8, 6)
+   s=0.3     SC=[12, 14, 24, 30, 42, 48, 60, 64, '+178'] cyc=[(10, 18), (16, 360), (16, 408), '+938'] disk_sc=True T(disk)=3 open=0 cross=(8, 10, 10, 6)
+   s=0.2     SC=[24, 64, 70, 72, 84, 98, 112, 120, '+58'] cyc=[(14, 36), (14, 54), (14, 66), '+851'] disk_sc=True T(disk)=6 open=0 cross=(10, 32, 12, 10)
+   s=0.15    SC=[14, 22, 40, 66, 108, 120, 176, 200, '+32'] cyc=[(44, 96), (44, 128), (44, 160), '+293'] disk_sc=True T(disk)=10 open=0 cross=(12, 48, 14, 14)
+   s=0.1     SC=[84, 176, 210, 336, 378, 462, 504, 588, '+14'] cyc=[(42, 68), (42, 272), (42, 306), '+109'] disk_sc=True T(disk)=21 open=0 cross=(28, 30, 30, 26)
+   s=0.07    SC=[82, 140, 172, 320, 328, 468, 546, 624, '+11'] cyc=[(74, 136), (78, 372), (78, 434), '+26'] disk_sc=True T(disk)=40 open=0 cross=(60, 62, 62, 58)
+   s=0.05    SC=[146, 280, 730, 750, 1050, 1184] cyc=[(292, 576), (296, 1120), (450, 864), '+6'] disk_sc=True T(disk)=74 open=0 cross=(144, 150, 146, 146)
+   s=0.035   SC=[858, 1152] cyc=[(576, 1136), (580, 882), (584, 1160)] disk_sc=True T(disk)=146 open=0 cross=(276, 278, 278, 274)
+   s=0.025   SC=[542, 1124] cyc=[] disk_sc=True T(disk)=278 open=0 cross=(540, 1088, 542, 542)
+   s=0.018   SC=[] cyc=[] disk_sc=True T(disk)=527 open=272 cross=None
+   s=0.012   SC=[] cyc=[] disk_sc=True T(disk)=1165 open=0 cross=None
+   s=0.008   SC=[] cyc=[] disk_sc=True T(disk)=2593 open=0 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=True T(disk)=6581 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=True T(disk)=13373 open=0 cross=None
+== E-mixed delta= 0.3
+   s=0.4     SC=[10, 16, 18, 30, 48, 64, 80, 96, '+69'] cyc=[(6, 20), (20, 24), (20, 42), '+103'] disk_sc=True T(disk)=4 open=0 cross=(6, 10, 8, 6)
+   s=0.3     SC=[30, 32, 48, 56, 72, 84, 98, 120, '+75'] cyc=[(10, 18), (14, 64), (14, 96), '+404'] disk_sc=True T(disk)=7 open=0 cross=(8, 10, 10, 6)
+   s=0.2     SC=[48, 78, 130, 144, 156, 182, 208, 234, '+37'] cyc=[(26, 96), (26, 192), (26, 240), '+72'] disk_sc=True T(disk)=13 open=0 cross=(26, 48, 28, 22)
+   s=0.15    SC=[30, 38, 80, 176, 252, 294, 336, 352, '+18'] cyc=[(42, 192), (42, 288), (42, 480), '+86'] disk_sc=True T(disk)=21 open=0 cross=(28, 34, 30, 30)
+   s=0.1     SC=[94, 172, 270, 630, 880, 900, 990, 1056] cyc=[(86, 360), (176, 368), (176, 552), '+27'] disk_sc=True T(disk)=44 open=0 cross=(80, 160, 82, 78)
+   s=0.07    SC=[170, 344, 680, 1020] cyc=[(174, 486), (348, 672), (510, 688), '+5'] disk_sc=True T(disk)=86 open=0 cross=(162, 328, 164, 162)
+   s=0.05    SC=[660] cyc=[(644, 978), (648, 966)] disk_sc=True T(disk)=163 open=0 cross=(334, 648, 336, 322)
+   s=0.035   SC=[] cyc=[] disk_sc=True T(disk)=324 open=0 cross=(654, 1288, 656, 642)
+   s=0.025   SC=[] cyc=[] disk_sc=True T(disk)=623 open=206 cross=None
+   s=0.018   SC=[] cyc=[] disk_sc=True T(disk)=1186 open=0 cross=None
+   s=0.012   SC=[] cyc=[] disk_sc=True T(disk)=2638 open=0 cross=None
+   s=0.008   SC=[] cyc=[] disk_sc=True T(disk)=5891 open=0 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=True T(disk)=14996 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=True T(disk)=30517 open=0 cross=None
+== E-mixed delta= 0.5
+   s=0.4     SC=[40, 66, 80, 120, 160, 200, 240, 280, '+23'] cyc=[(18, 78), (22, 36), (22, 54), '+2'] disk_sc=True T(disk)=10 open=0 cross=(20, 22, 22, 18)
+   s=0.3     SC=[64, 68, 170, 256, 306, 320, 448, 510, '+11'] cyc=[(34, 90), (34, 120), (34, 180), '+103'] disk_sc=True T(disk)=16 open=0 cross=(32, 34, 34, 30)
+   s=0.2     SC=[272, 330, 594, 660, 680, 726, 952, 1088, '+2'] cyc=[(66, 1008), (132, 280), (132, 490), '+41'] disk_sc=True T(disk)=34 open=0 cross=(74, 136, 76, 66)
+   s=0.15    SC=[684, 798, 912, 1026, 1140] cyc=[(114, 236), (114, 472), (114, 590), '+19'] disk_sc=True T(disk)=57 open=0 cross=(114, 118, 116, 114)
+   s=0.1     SC=[484, 488, 492, 726, 738, 976, 984] cyc=[] disk_sc=True T(disk)=122 open=0 cross=(248, 488, 250, 242)
+   s=0.07    SC=[964, 968, 972] cyc=[] disk_sc=True T(disk)=241 open=0 cross=(526, 960, 528, 486)
+   s=0.05    SC=[] cyc=[] disk_sc=True T(disk)=463 open=307 cross=None
+   s=0.035   SC=[] cyc=[] disk_sc=True T(disk)=930 open=8 cross=None
+   s=0.025   SC=[] cyc=[] disk_sc=True T(disk)=1803 open=0 cross=None
+   s=0.018   SC=[] cyc=[] disk_sc=True T(disk)=3452 open=0 cross=None
+   s=0.012   SC=[] cyc=[] disk_sc=True T(disk)=7717 open=0 cross=None
+   s=0.008   SC=[] cyc=[] disk_sc=True T(disk)=17287 open=0 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=True T(disk)=44109 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=True T(disk)=89869 open=0 cross=None
+== O delta= 0.1
+   s=0.4     SC=[7] cyc=[] disk_sc=False T(disk)=1 open=0 cross=(5, 17, 7, 7)
+   s=0.3     SC=[9] cyc=[] disk_sc=False T(disk)=1 open=0 cross=(7, 15, 9, 9)
+   s=0.2     SC=[] cyc=[] disk_sc=False T(disk)=2 open=0 cross=(11, 13, 13, 9)
+   s=0.15    SC=[] cyc=[(7, 721), (9, 101), (11, 35)] disk_sc=False T(disk)=3 open=0 cross=(13, 19, 15, 13)
+   s=0.1     SC=[] cyc=[] disk_sc=False T(disk)=6 open=0 cross=(19, 21, 21, 15)
+   s=0.07    SC=[] cyc=[] disk_sc=False T(disk)=12 open=0 cross=(25, 27, 27, 21)
+   s=0.05    SC=[] cyc=[] disk_sc=False T(disk)=21 open=0 cross=(45, 49, 47, 45)
+   s=0.035   SC=[] cyc=[] disk_sc=False T(disk)=40 open=0 cross=(59, 63, 61, 57)
+   s=0.025   SC=[115] cyc=[] disk_sc=False T(disk)=74 open=0 cross=(113, 119, 115, 115)
+   s=0.018   SC=[215] cyc=[] disk_sc=False T(disk)=137 open=0 cross=(213, 217, 215, 215)
+   s=0.012   SC=[575] cyc=[] disk_sc=False T(disk)=298 open=0 cross=(531, 533, 533, 529)
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=656 open=214 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=1652 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=3343 open=0 cross=None
+== O delta= 0.2
+   s=0.4     SC=[7] cyc=[] disk_sc=False T(disk)=2 open=0 cross=(5, 17, 7, 7)
+   s=0.3     SC=[9] cyc=[] disk_sc=False T(disk)=3 open=0 cross=(7, 15, 9, 9)
+   s=0.2     SC=[19] cyc=[(17, 21)] disk_sc=False T(disk)=6 open=0 cross=(11, 13, 13, 9)
+   s=0.15    SC=[] cyc=[] disk_sc=False T(disk)=10 open=0 cross=(13, 19, 15, 13)
+   s=0.1     SC=[29, 39, 49] cyc=[] disk_sc=False T(disk)=21 open=0 cross=(27, 33, 29, 29)
+   s=0.07    SC=[61] cyc=[(71, 73)] disk_sc=False T(disk)=40 open=0 cross=(59, 63, 61, 61)
+   s=0.05    SC=[157] cyc=[(135, 137)] disk_sc=False T(disk)=74 open=0 cross=(135, 137, 137, 135)
+   s=0.035   SC=[277] cyc=[] disk_sc=False T(disk)=146 open=0 cross=(275, 281, 277, 277)
+   s=0.025   SC=[563] cyc=[] disk_sc=False T(disk)=278 open=0 cross=(541, 545, 543, 541)
+   s=0.018   SC=[] cyc=[] disk_sc=False T(disk)=527 open=273 cross=None
+   s=0.012   SC=[] cyc=[] disk_sc=False T(disk)=1165 open=0 cross=None
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=2593 open=0 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=6581 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=13373 open=0 cross=None
+== O delta= 0.3
+   s=0.4     SC=[7] cyc=[] disk_sc=False T(disk)=4 open=0 cross=(5, 17, 7, 7)
+   s=0.3     SC=[9, 15] cyc=[(13, 17)] disk_sc=False T(disk)=7 open=0 cross=(7, 15, 9, 9)
+   s=0.2     SC=[19] cyc=[(25, 27), (31, 33)] disk_sc=False T(disk)=13 open=0 cross=(17, 21, 19, 19)
+   s=0.15    SC=[45] cyc=[(37, 39)] disk_sc=False T(disk)=21 open=0 cross=(37, 39, 39, 37)
+   s=0.1     SC=[81] cyc=[] disk_sc=False T(disk)=44 open=0 cross=(79, 83, 81, 81)
+   s=0.07    SC=[163, 177] cyc=[] disk_sc=False T(disk)=86 open=0 cross=(161, 167, 163, 163)
+   s=0.05    SC=[331] cyc=[] disk_sc=False T(disk)=163 open=0 cross=(317, 319, 319, 315)
+   s=0.035   SC=[651] cyc=[] disk_sc=False T(disk)=324 open=0 cross=(637, 639, 639, 635)
+   s=0.025   SC=[] cyc=[] disk_sc=False T(disk)=623 open=208 cross=None
+   s=0.018   SC=[] cyc=[] disk_sc=False T(disk)=1186 open=0 cross=None
+   s=0.012   SC=[] cyc=[] disk_sc=False T(disk)=2638 open=0 cross=None
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=5891 open=0 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=14996 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=30517 open=0 cross=None
+== O delta= 0.5
+   s=0.4     SC=[17, 21] cyc=[] disk_sc=False T(disk)=10 open=0 cross=(15, 21, 17, 17)
+   s=0.3     SC=[29, 33, 37] cyc=[] disk_sc=False T(disk)=16 open=0 cross=(27, 33, 29, 29)
+   s=0.2     SC=[] cyc=[] disk_sc=False T(disk)=34 open=0 cross=(63, 67, 65, 63)
+   s=0.15    SC=[] cyc=[(115, 117)] disk_sc=False T(disk)=57 open=0 cross=(111, 115, 113, 111)
+   s=0.1     SC=[239, 243, 247] cyc=[] disk_sc=False T(disk)=122 open=0 cross=(237, 243, 239, 239)
+   s=0.07    SC=[479, 483, 487] cyc=[] disk_sc=False T(disk)=241 open=0 cross=(477, 483, 479, 479)
+   s=0.05    SC=[] cyc=[] disk_sc=False T(disk)=463 open=307 cross=None
+   s=0.035   SC=[] cyc=[] disk_sc=False T(disk)=930 open=10 cross=None
+   s=0.025   SC=[] cyc=[] disk_sc=False T(disk)=1803 open=0 cross=None
+   s=0.018   SC=[] cyc=[] disk_sc=False T(disk)=3452 open=0 cross=None
+   s=0.012   SC=[] cyc=[] disk_sc=False T(disk)=7717 open=0 cross=None
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=17287 open=0 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=44109 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=89869 open=0 cross=None
+== F-M3h delta= 0.1
+   s=0.4     SC=[] cyc=[] disk_sc=False T(disk)=1 open=0 cross=(6, 12, 7, 6)
+   s=0.3     SC=[] cyc=[] disk_sc=False T(disk)=1 open=0 cross=(9, 10, 10, 6)
+   s=0.2     SC=[12] cyc=[(6, 228)] disk_sc=False T(disk)=2 open=0 cross=(11, 14, 12, 12)
+   s=0.15    SC=[] cyc=[] disk_sc=False T(disk)=3 open=0 cross=(14, 16, 15, 14)
+   s=0.1     SC=[] cyc=[(14, 82)] disk_sc=False T(disk)=6 open=0 cross=(19, 22, 20, 18)
+   s=0.07    SC=[] cyc=[(22, 50)] disk_sc=False T(disk)=12 open=0 cross=(25, 28, 26, 24)
+   s=0.05    SC=[] cyc=[(34, 124), (38, 82)] disk_sc=False T(disk)=21 open=0 cross=(46, 48, 47, 46)
+   s=0.035   SC=[60, 76] cyc=[] disk_sc=False T(disk)=40 open=0 cross=(59, 64, 60, 60)
+   s=0.025   SC=[136] cyc=[] disk_sc=False T(disk)=74 open=0 cross=(115, 116, 116, 114)
+   s=0.018   SC=[238, 260] cyc=[] disk_sc=False T(disk)=137 open=0 cross=(215, 216, 216, 214)
+   s=0.012   SC=[532, 554, 596] cyc=[] disk_sc=False T(disk)=298 open=0 cross=(531, 534, 532, 532)
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=656 open=427 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=1652 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=3343 open=0 cross=None
+== F-M3h delta= 0.2
+   s=0.4     SC=[] cyc=[] disk_sc=False T(disk)=2 open=0 cross=(6, 12, 7, 6)
+   s=0.3     SC=[] cyc=[(6, 26)] disk_sc=False T(disk)=3 open=0 cross=(9, 10, 10, 6)
+   s=0.2     SC=[12] cyc=[] disk_sc=False T(disk)=6 open=0 cross=(11, 14, 12, 12)
+   s=0.15    SC=[] cyc=[(22, 24)] disk_sc=False T(disk)=10 open=0 cross=(14, 16, 15, 14)
+   s=0.1     SC=[40] cyc=[] disk_sc=False T(disk)=21 open=0 cross=(29, 30, 30, 28)
+   s=0.07    SC=[72] cyc=[] disk_sc=False T(disk)=40 open=0 cross=(61, 62, 62, 60)
+   s=0.05    SC=[] cyc=[(146, 148)] disk_sc=False T(disk)=74 open=0 cross=(136, 138, 137, 136)
+   s=0.035   SC=[288, 298] cyc=[] disk_sc=False T(disk)=146 open=0 cross=(277, 278, 278, 276)
+   s=0.025   SC=[] cyc=[] disk_sc=False T(disk)=278 open=0 cross=(542, 544, 543, 542)
+   s=0.018   SC=[] cyc=[] disk_sc=False T(disk)=527 open=545 cross=None
+   s=0.012   SC=[] cyc=[] disk_sc=False T(disk)=1165 open=0 cross=None
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=2593 open=0 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=6581 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=13373 open=0 cross=None
+== F-M3h delta= 0.3
+   s=0.4     SC=[] cyc=[(12, 14)] disk_sc=False T(disk)=4 open=0 cross=(6, 12, 7, 6)
+   s=0.3     SC=[] cyc=[] disk_sc=False T(disk)=7 open=0 cross=(9, 10, 10, 6)
+   s=0.2     SC=[26, 32] cyc=[] disk_sc=False T(disk)=13 open=0 cross=(19, 20, 20, 18)
+   s=0.15    SC=[] cyc=[] disk_sc=False T(disk)=21 open=0 cross=(38, 40, 39, 38)
+   s=0.1     SC=[88] cyc=[(80, 82)] disk_sc=False T(disk)=44 open=0 cross=(81, 82, 82, 80)
+   s=0.07    SC=[164] cyc=[] disk_sc=False T(disk)=86 open=0 cross=(163, 164, 164, 164)
+   s=0.05    SC=[318] cyc=[] disk_sc=False T(disk)=163 open=0 cross=(317, 320, 318, 318)
+   s=0.035   SC=[638] cyc=[] disk_sc=False T(disk)=324 open=0 cross=(637, 640, 638, 638)
+   s=0.025   SC=[] cyc=[] disk_sc=False T(disk)=623 open=414 cross=None
+   s=0.018   SC=[] cyc=[] disk_sc=False T(disk)=1186 open=0 cross=None
+   s=0.012   SC=[] cyc=[] disk_sc=False T(disk)=2638 open=0 cross=None
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=5891 open=0 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=14996 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=30517 open=0 cross=None
+== F-M3h delta= 0.5
+   s=0.4     SC=[] cyc=[(24, 26)] disk_sc=False T(disk)=10 open=0 cross=(21, 22, 22, 20)
+   s=0.3     SC=[] cyc=[] disk_sc=False T(disk)=16 open=0 cross=(33, 34, 34, 32)
+   s=0.2     SC=[] cyc=[] disk_sc=False T(disk)=34 open=0 cross=(64, 66, 65, 64)
+   s=0.15    SC=[116, 120] cyc=[] disk_sc=False T(disk)=57 open=0 cross=(112, 114, 113, 112)
+   s=0.1     SC=[] cyc=[] disk_sc=False T(disk)=122 open=0 cross=(243, 244, 244, 242)
+   s=0.07    SC=[] cyc=[] disk_sc=False T(disk)=241 open=0 cross=(483, 484, 484, 482)
+   s=0.05    SC=[] cyc=[] disk_sc=False T(disk)=463 open=614 cross=None
+   s=0.035   SC=[] cyc=[] disk_sc=False T(disk)=930 open=18 cross=None
+   s=0.025   SC=[] cyc=[] disk_sc=False T(disk)=1803 open=0 cross=None
+   s=0.018   SC=[] cyc=[] disk_sc=False T(disk)=3452 open=0 cross=None
+   s=0.012   SC=[] cyc=[] disk_sc=False T(disk)=7717 open=0 cross=None
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=17287 open=0 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=44109 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=89869 open=0 cross=None
+== F-mixed delta= 0.1
+   s=0.4     SC=[7] cyc=[] disk_sc=False T(disk)=1 open=0 cross=(6, 11, 7, 7)
+   s=0.3     SC=[9] cyc=[] disk_sc=False T(disk)=1 open=0 cross=(8, 11, 9, 9)
+   s=0.2     SC=[] cyc=[] disk_sc=False T(disk)=2 open=0 cross=(11, 13, 12, 11)
+   s=0.15    SC=[] cyc=[(7, 721), (9, 101), (11, 35)] disk_sc=False T(disk)=3 open=0 cross=(14, 15, 15, 13)
+   s=0.1     SC=[] cyc=[] disk_sc=False T(disk)=6 open=0 cross=(19, 21, 20, 17)
+   s=0.07    SC=[] cyc=[] disk_sc=False T(disk)=12 open=0 cross=(25, 27, 26, 23)
+   s=0.05    SC=[] cyc=[] disk_sc=False T(disk)=21 open=0 cross=(46, 47, 47, 45)
+   s=0.035   SC=[] cyc=[] disk_sc=False T(disk)=40 open=0 cross=(59, 63, 60, 59)
+   s=0.025   SC=[115] cyc=[] disk_sc=False T(disk)=74 open=0 cross=(114, 117, 115, 115)
+   s=0.018   SC=[215] cyc=[] disk_sc=False T(disk)=137 open=0 cross=(214, 217, 215, 215)
+   s=0.012   SC=[575] cyc=[] disk_sc=False T(disk)=298 open=0 cross=(531, 533, 532, 531)
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=656 open=427 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=1652 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=3343 open=0 cross=None
+== F-mixed delta= 0.2
+   s=0.4     SC=[7] cyc=[] disk_sc=False T(disk)=2 open=0 cross=(6, 11, 7, 7)
+   s=0.3     SC=[9] cyc=[] disk_sc=False T(disk)=3 open=0 cross=(8, 11, 9, 9)
+   s=0.2     SC=[19] cyc=[(17, 21)] disk_sc=False T(disk)=6 open=0 cross=(11, 13, 12, 11)
+   s=0.15    SC=[] cyc=[] disk_sc=False T(disk)=10 open=0 cross=(14, 15, 15, 13)
+   s=0.1     SC=[29, 39, 49] cyc=[] disk_sc=False T(disk)=21 open=0 cross=(28, 31, 29, 29)
+   s=0.07    SC=[61] cyc=[(71, 73)] disk_sc=False T(disk)=40 open=0 cross=(60, 63, 61, 61)
+   s=0.05    SC=[157] cyc=[(135, 137)] disk_sc=False T(disk)=74 open=0 cross=(136, 137, 137, 135)
+   s=0.035   SC=[277] cyc=[] disk_sc=False T(disk)=146 open=0 cross=(276, 279, 277, 277)
+   s=0.025   SC=[563] cyc=[] disk_sc=False T(disk)=278 open=0 cross=(542, 543, 543, 541)
+   s=0.018   SC=[] cyc=[] disk_sc=False T(disk)=527 open=545 cross=None
+   s=0.012   SC=[] cyc=[] disk_sc=False T(disk)=1165 open=0 cross=None
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=2593 open=0 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=6581 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=13373 open=0 cross=None
+== F-mixed delta= 0.3
+   s=0.4     SC=[7] cyc=[] disk_sc=False T(disk)=4 open=0 cross=(6, 11, 7, 7)
+   s=0.3     SC=[9, 15] cyc=[(13, 17)] disk_sc=False T(disk)=7 open=0 cross=(8, 11, 9, 9)
+   s=0.2     SC=[19] cyc=[(25, 27), (31, 33)] disk_sc=False T(disk)=13 open=0 cross=(18, 21, 19, 19)
+   s=0.15    SC=[45] cyc=[(37, 39)] disk_sc=False T(disk)=21 open=0 cross=(38, 39, 39, 37)
+   s=0.1     SC=[81] cyc=[] disk_sc=False T(disk)=44 open=0 cross=(80, 81, 81, 81)
+   s=0.07    SC=[163, 177] cyc=[] disk_sc=False T(disk)=86 open=0 cross=(162, 165, 163, 163)
+   s=0.05    SC=[331] cyc=[] disk_sc=False T(disk)=163 open=0 cross=(317, 319, 318, 317)
+   s=0.035   SC=[651] cyc=[] disk_sc=False T(disk)=324 open=0 cross=(637, 639, 638, 637)
+   s=0.025   SC=[] cyc=[] disk_sc=False T(disk)=623 open=414 cross=None
+   s=0.018   SC=[] cyc=[] disk_sc=False T(disk)=1186 open=0 cross=None
+   s=0.012   SC=[] cyc=[] disk_sc=False T(disk)=2638 open=0 cross=None
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=5891 open=0 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=14996 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=30517 open=0 cross=None
+== F-mixed delta= 0.5
+   s=0.4     SC=[17, 21] cyc=[] disk_sc=False T(disk)=10 open=0 cross=(16, 19, 17, 17)
+   s=0.3     SC=[29, 33, 37] cyc=[] disk_sc=False T(disk)=16 open=0 cross=(28, 31, 29, 29)
+   s=0.2     SC=[] cyc=[] disk_sc=False T(disk)=34 open=0 cross=(64, 65, 65, 63)
+   s=0.15    SC=[] cyc=[(115, 117)] disk_sc=False T(disk)=57 open=0 cross=(112, 113, 113, 111)
+   s=0.1     SC=[239, 243, 247] cyc=[] disk_sc=False T(disk)=122 open=0 cross=(238, 241, 239, 239)
+   s=0.07    SC=[479, 483, 487] cyc=[] disk_sc=False T(disk)=241 open=0 cross=(478, 481, 479, 479)
+   s=0.05    SC=[] cyc=[] disk_sc=False T(disk)=463 open=614 cross=None
+   s=0.035   SC=[] cyc=[] disk_sc=False T(disk)=930 open=18 cross=None
+   s=0.025   SC=[] cyc=[] disk_sc=False T(disk)=1803 open=0 cross=None
+   s=0.018   SC=[] cyc=[] disk_sc=False T(disk)=3452 open=0 cross=None
+   s=0.012   SC=[] cyc=[] disk_sc=False T(disk)=7717 open=0 cross=None
+   s=0.008   SC=[] cyc=[] disk_sc=False T(disk)=17287 open=0 cross=None
+   s=0.005   SC=[] cyc=[] disk_sc=False T(disk)=44109 open=0 cross=None
+   s=0.0035  SC=[] cyc=[] disk_sc=False T(disk)=89869 open=0 cross=None

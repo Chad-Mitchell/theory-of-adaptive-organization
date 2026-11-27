@@ -1,0 +1,11 @@
+1-qubit Clifford group mod phase: order 24
+1-qubit stabilizer pure states: 6 (transitive orbit of |0>)
+Clifford elements fixing no stabilizer state (derangements, Jordan): 14 of 24
+2-qubit Clifford group mod phase: order 11520 (known 11520)
+2-qubit stabilizer pure states: 60 (known 60; single orbit => transitive)
+entangled stabilizer pure states: 24
+CNOT|+0> marginal purity: 0.5 (0.5 = maximally entangled)
+local tomography: rank of local Pauli products = 16 of 16
+2-qubit Clifford elements fixing no stabilizer state: 6784
+octahedron (all effects) capacity: 2 at affine dimension 3 (same as the qubit ball)
+counting: a segment of A-states has continuum many points; a polytope AB has 60 -like finite vertex sets => at most finitely many A-states purified

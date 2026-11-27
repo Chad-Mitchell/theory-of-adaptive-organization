@@ -1,0 +1,2 @@
+OK  10.22331/q-2020-11-08-359 | Barnum, Graydon, Wilce | 2020 | Composites and Categories of Euclidean Jordan Algebras | Quantum
+OK  10.1103/PhysRevLett.89.150402 | Jackson, Zaremba | 2002 | Accidental Suppression of Landau Damping of the Transverse Breathing Mode in Elongated Bose-Einstein Condensates | Physical Review Letters

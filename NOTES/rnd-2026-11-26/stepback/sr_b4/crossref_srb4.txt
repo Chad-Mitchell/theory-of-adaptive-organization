@@ -1,0 +1,12 @@
+OK 10.1098/rspa.1946.0056 | An invariant form for the prior probability in estimation problems | Jeffreys | Proceedings of the Royal Society of London. Series A. Mathematical and Physical Sciences | 1946 | vol 186 pp 453-461
+OK 10.1109/TSSC.1968.300117 | Prior Probabilities | Jaynes | IEEE Transactions on Systems Science and Cybernetics | 1968 | vol 4 pp 227-241
+OK 10.1038/363315a0 | Implications of the Copernican principle for our future prospects | Gott | Nature | 1993 | vol 363 pp 315-319
+OK 10.1111/j.2517-6161.1973.tb00952.x | Marginalization Paradoxes in Bayesian and Structural Inference | Dawid; Stone; Zidek | Journal of the Royal Statistical Society Series B: Statistical Methodology | 1973 | vol 35 pp 189-213
+OK 10.1080/01621459.1996.10477003 | The Selection of Prior Distributions by Formal Rules | Kass; Wasserman | Journal of the American Statistical Association | 1996 | vol 91 pp 1343-1370
+FAIL 10.1609/aimag.v17i3.1232 HTTP Error 404: Not Found
+OK 10.1016/0004-3702(94)00074-3 | Optimal composition of real-time systems | Zilberstein; Russell | Artificial Intelligence | 1996 | vol 82 pp 181-213
+OK 10.1023/A:1024412831598 | Optimal Sequencing of Contract Algorithms | Zilberstein; Charpillet; Chassaing | Annals of Mathematics and Artificial Intelligence | 2003 | vol 39 pp 1-18
+OK 10.1214/aoms/1177730030 | Statistical Decision Functions | Wald | The Annals of Mathematical Statistics | 1949 | vol 20 pp 165-205
+10.1007/978-0-585-26870-5_4 | ['Approximate Reasoning Using Anytime Algorithms'] | ['Zilberstein', 'Russell'] | ['The Springer International Series in Engineering and Computer Science', 'Imprecise and Approximate Computation'] [[None]] None 43-62
+10.1145/242587.242593 | ['Monitoring anytime algorithms'] | ['Hansen', 'Zilberstein'] | ['ACM SIGART Bulletin'] [[1996, 4]] 7 28-33
+10.65109/jgtp2678 | ['Decentralized monitoring of distributed anytime algorithms'] | ['Carlin', 'Zilberstein'] | ['International Joint Conference on Autonomous Agents and Multiagent Systems', 'Proceedings of the Third International Joint Conference on Autonomous Agents and Multiagent Systems - Volume 1'] [[2011, 5, 2]] None 157-164

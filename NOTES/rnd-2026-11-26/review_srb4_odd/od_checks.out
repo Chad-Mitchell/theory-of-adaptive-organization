@@ -1,0 +1,41 @@
+== (1) distances: gauge (50 digits) vs float LP, and the d=1 target set for each n ==
+max |gauge - LP| over n=3..61, all k: 1.67e-15
+odd n=3..61: d=1 targets are exactly {(n-1)/2,(n+1)/2}: True
+even n: antipode n/2 has d=1: True | even n with extra d=1 vertices (any-vertex rule differs from antipode): [4, 6, 8, 10, 12, 14, 16, 18] ...
+example target sets: 6: [2, 3, 4]  8: [3, 4, 5]  7: [3, 4]
+
+== (2) disk optimum T*sin^2(pi/2T): numeric lower-bound check over the KKT family and random splits (50 digits) ==
+min over tested splits of (cost - T sin^2(pi/2T)), T=2..60: -5.3455e-51 (>= 0 up to rounding; =0 at equal steps)
+
+== (3) odd n = 5..61, every T>=2 dividing (n-1)/2: exact DP (50 digits) under both rules, vs disk ==
+n= 5 T= 2: J_any=0.7639320225 J_antipode=0.7639320225 equal-step path=0.7639320225 disk=1.0 rel margin=0.236068
+n= 7 T= 3: J_any=0.594186792585 J_antipode=0.594186792585 equal-step path=0.594186792585 disk=0.75 rel margin=0.207751
+n= 9 T= 2: J_any=0.852044095521 J_antipode=0.852044095521 equal-step path=0.852044095521 disk=1.0 rel margin=0.147956
+n= 9 T= 4: J_any=0.482459033713 J_antipode=0.482459033713 equal-step path=0.482459033713 disk=0.585786437627 rel margin=0.176391
+n=11 T= 5: J_any=0.405070263855 J_antipode=0.405070263855 equal-step path=0.405070263855 disk=0.477457514063 rel margin=0.15161
+n=13 T= 2: J_any=0.892429509556 J_antipode=0.892429509556 equal-step path=0.892429509556 disk=1.0 rel margin=0.10757
+n=13 T= 3: J_any=0.657455105143 J_antipode=0.657455105143 equal-step path=0.657455105143 disk=0.75 rel margin=0.123393
+n=13 T= 6: J_any=0.348698190887 J_antipode=0.348698190887 equal-step path=0.348698190887 disk=0.401923788647 rel margin=0.132427
+n=15 T= 7: J_any=0.305933589727 J_antipode=0.305933589727 equal-step path=0.305933589727 disk=0.346608962342 rel margin=0.117352
+n=31 T= 3: J_any=0.708371196273 J_antipode=0.708371196273 equal-step path=0.708371196273 disk=0.75 rel margin=0.0555051
+n=31 T= 5: J_any=0.449243859462 J_antipode=0.449243859462 equal-step path=0.449243859462 disk=0.477457514063 rel margin=0.0590914
+n=31 T=15: J_any=0.153920298243 J_antipode=0.153920298243 equal-step path=0.153920298243 disk=0.163892994496 rel margin=0.0608488
+n=61 T= 2: J_any=0.97489840017 J_antipode=0.97489840017 equal-step path=0.97489840017 disk=1.0 rel margin=0.0251016
+n=61 T= 3: J_any=0.728293623676 J_antipode=0.728293623676 equal-step path=0.728293623676 disk=0.75 rel margin=0.0289418
+n=61 T= 5: J_any=0.462735929333 J_antipode=0.462735929333 equal-step path=0.462735929333 disk=0.477457514063 rel margin=0.0308333
+n=61 T= 6: J_any=0.389402433222 J_antipode=0.389402433222 equal-step path=0.389402433222 disk=0.401923788647 rel margin=0.0311536
+n=61 T=10: J_any=0.236980203207 J_antipode=0.236980203207 equal-step path=0.236980203207 disk=0.244717418524 rel margin=0.0316169
+n=61 T=15: J_any=0.158687564508 J_antipode=0.158687564508 equal-step path=0.158687564508 disk=0.163892994496 rel margin=0.0317612
+n=61 T=30: J_any=0.0795546069102 J_antipode=0.0795546069102 equal-step path=0.0795546069102 disk=0.0821715694759 rel margin=0.0318475
+(n,T) pairs checked: 81; failures: 0; min n*rel margin: 1.18034
+
+== (4) brute force (all vertex sequences) vs DP, small n ==
+brute vs DP: 23 cases, mismatches 0
+
+== (5) beyond the claim (OBSERVED): odd n=5..61, ALL T in 2..30 (not only divisors): where J(n,T) < disk ==
+n=9: T with a strict win: [2, 3, 4]
+n=15: T with a strict win: [2, 3, 4, 5, 6, 7]
+n=21: T with a strict win: [2, 3, 4, 5, 6, 9, 10]
+n=31: T with a strict win: [2, 3, 4, 5, 6, 7, 8, 14, 15]
+n=45: T with a strict win: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 21, 22]
+n=61: T with a strict win: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 14, 15, 16, 29, 30]

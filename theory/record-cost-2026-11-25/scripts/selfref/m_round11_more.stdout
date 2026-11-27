@@ -1,0 +1,13 @@
+=== Round 11-M continued: hexagon and cube parts (m_round11_more.py) ===
+max hexagonxhexagon: extreme pts 552 (product 36, entangled 516), stable classes 6, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage: product min > entangled max: True ; 2.2s
+max squarexhexagon: extreme pts 144 (product 24, entangled 120), stable classes 4, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage: product min > entangled max: True ; 0.2s
+max hexagonxoctahedron: extreme pts 1740 (product 36, entangled 1704), stable classes 8, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage: product min > entangled max: True ; 27.2s
+max squarexcube: extreme pts 128 (product 32, entangled 96), stable classes 3, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage: product min > entangled max: True ; 0.2s
+max cubexoctahedron: extreme pts 384 (product 48, entangled 336), stable classes 4, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage: product min > entangled max: True ; 6.0s
+max cubexcube: extreme pts 1408 (product 64, entangled 1344), stable classes 5, entangled sharing a product class 0 -> CERTIFIED: colour refinement separates product from entangled vertices -> no entangling automorphism
+   leverage: product min > entangled max: True ; 20.8s

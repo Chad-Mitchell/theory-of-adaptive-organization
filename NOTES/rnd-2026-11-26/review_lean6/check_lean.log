@@ -1,0 +1,246 @@
+Thu Nov 26 11:28:04 EST 2026
+check_lean.sh: lake exe cache get
+info: mathlib: materializing new dependency
+info: mathlib: fetching revision '31ce06eaadf4a200c0e1407c5f10953cf606b8f8' from https://github.com/leanprover-community/mathlib4
+info: mathlib: checking out revision '31ce06eaadf4a200c0e1407c5f10953cf606b8f8'
+info: plausible: materializing new dependency
+info: plausible: fetching revision '0d8633efc105d6b15b59a8103614ae0291ee8827' from https://github.com/leanprover-community/plausible
+info: plausible: checking out revision '0d8633efc105d6b15b59a8103614ae0291ee8827'
+info: LeanSearchClient: materializing new dependency
+info: LeanSearchClient: fetching revision '146200e1ecbf7397e361475b5c0905adc5fe0670' from https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision '146200e1ecbf7397e361475b5c0905adc5fe0670'
+info: importGraph: materializing new dependency
+info: importGraph: fetching revision 'cf947504529b8e2ee114e852133d13e4ac923e9b' from https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision 'cf947504529b8e2ee114e852133d13e4ac923e9b'
+info: proofwidgets: materializing new dependency
+info: proofwidgets: fetching revision '197b8bdfd8bbfea6dff6ac04170a710b231c3aaa' from https://github.com/leanprover-community/ProofWidgets4
+info: proofwidgets: checking out revision '197b8bdfd8bbfea6dff6ac04170a710b231c3aaa'
+info: aesop: materializing new dependency
+info: aesop: fetching revision '637fdbb8689a3387a82568b07355231f892144d7' from https://github.com/leanprover-community/aesop
+info: aesop: checking out revision '637fdbb8689a3387a82568b07355231f892144d7'
+info: Qq: materializing new dependency
+info: Qq: fetching revision 'ad0c9f87cfe7b41b93446472004724a1646a22f4' from https://github.com/leanprover-community/quote4
+info: Qq: checking out revision 'ad0c9f87cfe7b41b93446472004724a1646a22f4'
+info: batteries: materializing new dependency
+info: batteries: fetching revision '87486d547af639cb39c01f0d2f8025aa47d7dde1' from https://github.com/leanprover-community/batteries
+info: batteries: checking out revision '87486d547af639cb39c01f0d2f8025aa47d7dde1'
+info: Cli: materializing new dependency
+info: Cli: fetching revision 'c830de39b67d5d447d854a4e390fff9bb0a9c897' from https://github.com/leanprover/lean4-cli
+info: Cli: checking out revision 'c830de39b67d5d447d854a4e390fff9bb0a9c897'
+✔ [4/11] Built Cache.Cli (324ms)
+✔ [6/11] Built Cache.Lean (444ms)
+✔ [14/65] Built Cache.Env (434ms)
+✔ [16/65] Built Cache.Cli:c.o (776ms)
+✔ [17/65] Built Cache.Lean:c.o (775ms)
+✔ [18/65] Built Cache.Env:c.o (360ms)
+✔ [19/65] Built Cache.Infra (416ms)
+✔ [21/65] Built Cache.Infra:c.o (133ms)
+✔ [22/65] Built Cache.Location (427ms)
+✔ [24/65] Built Batteries.Tactic.OpenPrivate:c.o (1.3s)
+✔ [25/65] Built Cache.IO (1.5s)
+✔ [27/65] Built Cache.Location:c.o (175ms)
+✔ [28/65] Built Cache.Hashing (575ms)
+✔ [30/65] Built Cache.Hashing:c.o (477ms)
+✔ [31/65] Built Cache.IO:c.o (1.2s)
+✔ [32/65] Built Cache.Requests (1.7s)
+✔ [34/65] Built Cache.Marker (237ms)
+✔ [36/65] Built Cache.Marker:c.o (106ms)
+✔ [37/65] Built Cache.Upload.Curl (357ms)
+✔ [39/65] Built Cache.Upload.Rclone (357ms)
+✔ [41/65] Built Cache.Query (462ms)
+✔ [43/65] Built Cache.Upload.Curl:c.o (167ms)
+✔ [44/65] Built Cache.Upload.Rclone:c.o (204ms)
+✔ [45/65] Built Cache.Upload.Azure (296ms)
+✔ [47/65] Built Cache.Query:c.o (217ms)
+✔ [48/65] Built Cache.Upload.S3 (362ms)
+✔ [50/65] Built Cache.Warning (343ms)
+✔ [51/65] Built Cache.Upload.Azure:c.o (99ms)
+✔ [53/65] Built Cache.Upload.S3:c.o (220ms)
+✔ [54/65] Built Cache.Upload.Defs (287ms)
+✔ [56/65] Built Cache.Warning:c.o (231ms)
+✔ [57/65] Built Cache.Upload.Defs:c.o (114ms)
+✔ [58/65] Built Cache.Upload (323ms)
+✔ [60/65] Built Cache.Upload:c.o (92ms)
+✔ [61/65] Built Cache.Main (678ms)
+✔ [63/65] Built Cache.Requests:c.o (2.3s)
+✔ [64/65] Built Cache.Main:c.o (788ms)
+✔ [65/65] Built cache:exe (3.3s)
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Decompressing 8946 already-cached file(s) (187 already decompressed)
+No files to download
+Decompressed 8946 already-cached file(s)
+Completed successfully in 17048 ms!
+check_lean.sh: lake build
+✔ [4508/4656] Built GTAO.Cost (3.7s)
+✔ [4510/4656] Built GTAO.CT10 (3.7s)
+✔ [4512/4656] Built GTAO.CT4 (3.7s)
+✔ [4760/4860] Built GTAO.CT22 (3.7s)
+✔ [5368/5714] Built GTAO.Hull (4.1s)
+✔ [5820/5860] Built GTAO.CT34 (4.6s)
+✔ [5821/5860] Built GTAO.LayerLifetime (4.3s)
+✔ [5824/5860] Built GTAO.LocalShared (4.7s)
+✔ [5827/5860] Built GTAO.CT33 (1.5s)
+✔ [5830/5860] Built GTAO.BandCounterexample (2.2s)
+✔ [5832/5860] Built GTAO.Coadaptation (2.5s)
+✔ [5833/5860] Built GTAO.Cauchy (2.6s)
+✔ [5834/5860] Built GTAO.N60Exact (3.3s)
+✔ [5835/5860] Built GTAO.Equipartition (4.2s)
+✔ [5840/5860] Built GTAO.HullWalk (4.6s)
+✔ [5841/5860] Built GTAO.CT20 (1.5s)
+✔ [5844/5888] Built GTAO.DriftSpeed (2.4s)
+✔ [6026/6212] Built GTAO.CoadaptationDrift (3.3s)
+✔ [6452/6494] Built GTAO.BandMonge (5.9s)
+✔ [6461/6497] Built GTAO.CoadaptationUnique (2.8s)
+✔ [6560/6774] Built GTAO.CoadaptationExcess (2.3s)
+✔ [6746/7012] Built GTAO.DriftSelection (4.1s)
+✔ [8782/8962] Built GTAO.Representation (3.4s)
+✔ [8938/9272] Built GTAO.DiffusionHeat (2.4s)
+✔ [10184/10838] Built GTAO.ContinuousA6 (2.5s)
+✔ [12062/12665] Built GTAO.Obstruction (7.0s)
+✔ [12064/12665] Built GTAO.HeatFloor (3.1s)
+✔ [18343/18433] Built GTAO.FiniteFloor (2.3s)
+✔ [18347/18433] Built GTAO.FiniteFloorBounds (2.8s)
+✔ [18348/18433] Built GTAO.RepairFloor (3.5s)
+✔ [18351/18433] Built GTAO.FiniteFloorPairwise (3.7s)
+✔ [18352/18433] Built GTAO.Rnd.SelfRef.Modular (6.8s)
+✔ [18353/18433] Built GTAO.Rnd.SelfRef.Composite (7.1s)
+✔ [18354/18433] Built GTAO.Rnd.SelfRef.FiniteGeometry (5.7s)
+✔ [18355/18433] Built GTAO.Rnd.SelfRef.OnsetO (7.3s)
+✔ [18356/18433] Built GTAO.Rnd.SelfRef.LemmaR (7.6s)
+✔ [18357/18433] Built GTAO.Rnd.SelfRef.Entangle (8.2s)
+✔ [18358/18433] Built GTAO.Rnd.SelfRef.M11Prime (6.7s)
+✔ [18359/18433] Built GTAO.Rnd.SelfRef.Transport (7.7s)
+✔ [18360/18433] Built GTAO.Rnd.SelfRef.ContinuousTime (4.1s)
+✔ [18361/18433] Built GTAO.Rnd.Composition (4.6s)
+✔ [18362/18433] Built GTAO.Rnd.SelfRefRun.Round2 (3.7s)
+✔ [18363/18433] Built GTAO.Rnd.SelfRef.Precision (4.0s)
+✔ [18364/18433] Built GTAO.Rnd.SelfRefRun.Basic (4.9s)
+✔ [18365/18433] Built GTAO.Rnd.SelfRef.CostDial (4.2s)
+✔ [18371/18433] Built GTAO.Rnd.SelfRef.SFP (7.6s)
+✔ [18383/18433] Built GTAO.Rnd.Spekkens (3.4s)
+✔ [18384/18433] Built GTAO.Rnd.SelfRef.Liar (3.6s)
+✔ [18385/18433] Built GTAO.Rnd.SelfRef.CircleOrbit (5.1s)
+✔ [18386/18433] Built GTAO.Rnd.SelfRef.DimBound (6.5s)
+✔ [18387/18433] Built GTAO.Rnd.LemmaB1 (3.8s)
+✔ [18388/18433] Built GTAO.Rnd.PolygonDrift (4.7s)
+✔ [18389/18433] Built GTAO.RepairTensor (2.9s)
+✔ [18397/18433] Built GTAO.Rnd.SelfRef.Ball (3.4s)
+✔ [18399/18433] Built GTAO.FiniteFloorPath (5.2s)
+✔ [18400/18433] Built GTAO.Rnd.SelfRef.OrbitClone (8.8s)
+✔ [18401/18433] Built GTAO.Rnd.SelfRef.SFPCriterion (3.9s)
+✔ [18402/18433] Built GTAO.Rnd.SelfRef.TransportHorizons (5.6s)
+✔ [18406/18433] Built GTAO.Rnd.SelfRef.OControl (5.1s)
+✔ [18409/18433] Built GTAO.Rnd.Controls (2.0s)
+✔ [18411/18433] Built GTAO.Rnd.SelfRef.R34 (4.9s)
+✔ [18413/18433] Built GTAO.Rnd.SelfRef.CostDialGlobal (8.1s)
+✔ [18415/18433] Built GTAO.Rnd.SelfRef.QubitWitness (5.0s)
+✔ [18417/18433] Built GTAO.Rnd.SquareBit (4.6s)
+✔ [18419/18433] Built GTAO.Rnd.SelfRef.Broadcast (5.6s)
+✔ [18421/18433] Built GTAO.Rnd.SelfRef.CostDialBeyond (2.9s)
+✔ [18423/18433] Built GTAO.Rnd.SelfRef.BroadcastControl (2.3s)
+⚠ [18425/18433] Built GTAO.Rnd.SelfRef.M11Cube (14s)
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:453:4: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:556:41: This simp argument is unused:
+  ite_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finset.sum_ite_irrel, mul_ite, Finset.sum_ite_eq']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:618:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:618:23: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:620:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:645:10: This simp argument is unused:
+  ← Finset.mul_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [← Finset.sum_mul, vert, ite_pow, hσ2, hτ2]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:645:28: This simp argument is unused:
+  ← Finset.sum_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [← Finset.mul_sum, vert, ite_pow, hσ2, hτ2]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:775:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:782:15: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:805:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:999:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:1000:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:1021:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: GTAO/Rnd/SelfRef/M11Cube.lean:1022:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [18427/18433] Built GTAO.Rnd.SelfRef.M11Blocks (4.0s)
+⚠ [18429/18433] Built GTAO.Rnd.SelfRef.M11BlocksChecks (2.4s)
+warning: GTAO/Rnd/SelfRef/M11BlocksChecks.lean:38:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: GTAO/Rnd/SelfRef/M11BlocksChecks.lean:38:25: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [18431/18433] Built GTAO (2.2s)
+Build completed successfully (18433 jobs).
+check_lean.sh: AxiomAudit
+AxiomAudit: OK (2276 GTAO declarations; only propext, Classical.choice, Quot.sound)
+check_lean.sh: OK
+EXIT 0
+Thu Nov 26 11:30:13 EST 2026

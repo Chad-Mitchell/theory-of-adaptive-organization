@@ -1,0 +1,114 @@
+# Record cost: errata after a hostile review of the foundations
+
+*Thursday 26 November 2026 (America/New_York). Written after a fresh-context hostile review of the record-cost notes, Lean layer and preregs carried in PR #295 (session file `HOSTILE_REVIEW_FOUNDATIONS.md`). Append-only: the notes below are corrected here, and their earlier text is left as committed. `THEORY.md`, `CORE.md`, locked blobs and committed preregs are unchanged. Labels as in the rounds 4–9 note: **PROVED (in-model)**, **OBSERVED (numerical)**, **KNOWN**, **HYPOTHESIS**, **OPEN** and **open miss**.*
+
+## 1. Rounds 4–9 note, `theory/RECORD_COST_ROUNDS4-9_2026-11-25.md:62` (§8 remark)
+
+**Overclaimed:** "… without a time-evolution premise."
+
+**Corrected (HYPOTHESIS, still offered as a remark):** inside the Jordan class, hereditary SFP plus the cheapest bit leaves complex quantum theory *without naming a Hamiltonian or energy observable, but with an infinite transitive reversible group (which, with SFP, is equivalent to U in the transitive class) and with the reversible group restricted to the identity component or to completely positive maps.*
+
+Two facts the note should have stated:
+- **SFP plus transitivity already implies U (PROVED (in-model), KNOWN ingredient).** A group acting transitively on finitely many (≥ 2) pure states has an element with no fixed point (Jordan's theorem; Lean `jordan_derangement`, `finite_transitive_not_SFP` in `formal/lean/GTAO/Rnd/SelfRef/SFP.lean`). So any step that uses SFP on a transitive state space has assumed infinitely many pure states, i.e. U. SFP is not independent of U.
+- **SFP is a property of a (state space, group) pair.** The qubit ball passes with SO(3) (`odd_ball_SFP`) and fails with its full affine symmetry group O(3): the point reflection −I fixes no pure state (in Hilbert-space terms, qubit time reversal, whose square is −1). At m = 0, `odd_ball_SFP` is SFP of the trivial group on the classical bit. "SFP selects the ball" therefore depends on a rule for which maps count as reversible: connectedness (premise CD again) or extension to composites (complete positivity, a composition premise). Polytopes were tested with their full finite groups. The rule is stated once in the frozen premise list `theory/qm-selection-2026-11-26/PREREG.md` (added by a later commit of this PR).
+
+**What most of the selection does (KNOWN).** Within the Jordan class (Jordan, von Neumann and Wigner 1934), bit faces are balls of dimension k+1 for k = 1, 2, 4, 8; "the bit is the 3-ball" already singles out complex quantum theory, the usual endpoint of reconstruction arguments (Barnum, Müller, Ududec 2014, NJP 16:123029, `10.1088/1367-2630/16/12/123029`). hSFP removes real quantum theory, even balls and direct sums; the cheapest bit removes the quaternionic and octonionic cases and odd balls of dimension ≥ 5, and needs the further premise that every bit face of a higher-rank system is the cheapest bit. The dimension price is not derived (chain note `:98`).
+
+## 2. Round 10 note, `theory/RECORD_COST_ROUND10_2026-11-25.md:61` (Solèr branch)
+
+**Overclaimed:** "That is PROVED (in-model) given Solèr and those results."
+
+**Corrected:** PROVED (in-model) given Solèr's theorem, hereditary SFP on finite faces, and the cheapest-bit selection premise (HYPOTHESIS; its dimension price is not derived, chain note `:98`).
+
+## 3. Round 10 note, `:55-59` (finite-geometry step): the orthomodularity line that was missing
+
+The note applies Piron's representation theorem (rank ≥ 4) and the projective-plane argument (rank 3) to a lattice it had not shown to be orthomodular. The step holds, with this dependency (PROVED (in-model), standard lattice theory):
+
+- Suppose the lattice had finitely many atoms. Then it has finite height.
+- Atomistic plus the covering property gives **upper semimodular**.
+- An orthocomplementation is an order-reversing involution, i.e. a dual automorphism, so the lattice is also **lower semimodular**.
+- A lattice of finite length that is both upper and lower semimodular is **modular**; a modular orthocomplemented lattice is **orthomodular**.
+
+So orthomodularity, which Piron's theorem needs, and the projective-geometry structure the rank-3 case needs, follow **from finite height plus atomistic plus covering plus the orthocomplementation**, which is exactly the situation of the proof by contradiction. Caveats that stay: the reading "orthocomplement = perfectly distinguishable from" (`:51`) is a premise and is not an orthocomplementation on the face lattice of a general GPT; irreducibility plus covering is the quantum-logic superposition principle, assumed, not derived (`:63`, `:83`); infinitely many atoms gives an infinite group only with transitivity (`:59`).
+
+## 4. Round 10 note §15 and the session notes on Conjecture C
+
+- The reason a regular polygon with ≥ 6 sides fails (★) was given as "some n·v = 0". That is false for the octagon and the 12-gon (minimum |n·v| = 0.414 and 0.268, OBSERVED (numerical) in the reviewer's rerun) and for the icosahedron and dodecahedron. The correct reason is some |n·v| < 1, i.e. R²|n|² ≠ m. The exclusions stand. (Also corrected in §17 of the round 10 note by the M11 review worker.)
+- In the session notes, the LP values "icosahedron² Φ = −2.54, dodecahedron² −0.44, cuboctahedron² −1.5" were printed next to a description of a random-objective LP over all of max. Those values come from the **zero-marginal slice** search. Over all of max the random-objective LP best is 0, attained at products (OBSERVED (numerical), search not proof). These numbers are not quoted in any repository note; recorded here so that no later fold quotes them as full-max values.
+
+## 5. Session note on forces and gravity (not in the repository)
+
+The session note's summary called the record-cost idea one "which already points toward quantum structure". Corrected: the record-cost idea ranks quantum-like records cheapest in toy models *only under the continuous-drift premise CD*; without drift it ranks classical or polytope records cheapest. Nothing in the forces and gravity rounds is folded yet; they take quantum mechanics as an input.
+
+## 6. Lean headline names and counts
+
+The Lean layer builds with the standard axioms only and has no `sorry`. But several names state more than the theorem proves, and the raw count is not a measure of depth:
+- `disk_strictly_cheaper` proves the polygon ring's Σ > 0; the disk side is the literal 0 of NA4 (a definition, chain note `:75`).
+- `ball_record_bound` is the triangle inequality for an isometry; the content is the model.
+- `no_zero_drift_while_recording` is a tautology with no axioms; the prose conclusion is modelling.
+- `liar_half` appears in two namespaces; `P2_entries` is four numeric facts.
+- `disk_exceeds_ball` uses one symbol δ for a static axis-angle error (ball) and a per-step rate error (disk); "the ball beats the disk" holds only under that identification.
+- Not in Lean and load-bearing: NA1 (the SO(3) classification), the maximal-torus SFP criterion, the Jordan-class classification, Piron, Solèr, Baer, M11/M12, purification, and the cost-selection step.
+
+At `e48494e` the source under `formal/lean/GTAO/Rnd/` has 102 `theorem`/`lemma` declarations, of which 85 are exported to the axiom audit (reviewer's rebuild).
+
+## 7. Structural open miss: circularity across the chain
+
+No single step is fallacious, and no complex numbers are hidden in steps S1–S4. Three loops are recorded as an **open miss**:
+1. The route to U (round 10 `:157-163`) assumes a reversible entangling map. Any derivation of entanglement that passes through U, or through the ball parts U leads to, is circular.
+2. Quantum theory is selected from a hand-picked menu with premises added after counterexamples (octahedron: CD and SFP; C1: heredity; stabilizer theory: no-restriction; real QM: hSFP; quaternionic QM: still OPEN). The premise list is frozen in `theory/qm-selection-2026-11-26/PREREG.md` (a later commit of this PR); any later premise must be logged there as a deviation with the counterexample that prompted it.
+3. The forces and gravity rounds use quantum mechanics as input.
+
+Sources: Barnum, Müller, Ududec 2014, `10.1088/1367-2630/16/12/123029`; Al-Safi, Richens 2015, NJP 17:123001, `10.1088/1367-2630/17/12/123001`; Baer 1946, Bull. AMS 52:77–93, `10.1090/S0002-9904-1946-08506-7` (Crossref-checked 26 November 2026, `theory/record-cost-2026-11-25/doi_check_7f.out`).
+
+## 8. Frozen premise list and the round 9 search (appended)
+
+The premise list is frozen in `theory/qm-selection-2026-11-26/PREREG.md` (lock commit `06f07e6`). The search that round 9 named (U(2) and Sp(1)×Sp(1) transitive bodies, affine dimension 4–8) is a **miss**: no counterexample. The non-Jordan bodies that pass hSFP there (the spin-3 zonal orbitope and B3 × B3) are centrally symmetric, so their capacity is 2 and the 3-ball beats them on dimension. The spin-1 ⊕ spin-2 family, C1 included, fails hSFP through an equatorial circle face (`RESULTS.md` there). This does not cover other groups or dimensions 9–15, and it was not a blind run (disclosed in the prereg).
+
+## 9. Corrections to this file (appended after a hostile review of the errata commits)
+
+- **§6, "Not in Lean … the maximal-torus SFP criterion".** The general criterion is not in Lean. Its concrete cases are: `ball_SFP_iff_odd`, `complex_fixes_ray`, `unitary_fixes_ray`, `real_odd_fixes_ray` and `real_even_not_SFP` in `formal/lean/GTAO/Rnd/SelfRef/SFPCriterion.lean` (commit `80cf785`, Lean round 3, already on the branch before this file was written).
+- **§1, "assumed infinitely many pure states, i.e. U".** Read: "assumed infinitely many pure states, hence, **with a closed (compact) group**, U". An infinite transitive group gives a continuous group only after taking its closure.
+- **PR-body items of the foundations review** are fixed in the PR #295 body itself, not in a repository note: line 1 ("Nothing was rebased" replaced by the #286 rebase disclosure), the #292 row (the run followed a gate pass by the author agent), and the horizon wording ("at the tested horizons (observed)", matching `cfa97cd`).
+- **§4, the M11 reason** is unchanged. §8: the search is relabelled **`CONSISTENCY_CHECK`**, and "P7 is not needed" reads "P7 is not needed given P5 (hSFP)" (`theory/qm-selection-2026-11-26/DEVIATIONS.md`).
+
+## 10. Lean round 3 statement fidelity (appended after a hostile review of Lean round 3)
+
+- **M11′ in Lean.** `M11Prime.final_assembly` is an elementary set lemma. It takes as hypotheses the invariance of q under every reversible map and the strict separation of product pure states, which is the core of M11′, and the `M11Prime.lean` steps are proved separately, not chained. Lean round 4 adds `M11Cube.lean`, which derives the separation and chains the steps for hypercube parts and for cross-polytope parts only (`m11_cube`, `m11_cross`, with the finite symmetry group as a hypothesis; `m11_cube_polytope` and `m11_cross_polytope` prove `Aut(S)` finite for polytope composites and need no group hypothesis); for other parts no Lean theorem states M11′. Lean round 5 (appended): `M11Blocks.lean` extends this to parts that are products of cross-polytopes (cube with cross-polytope, octahedron × octahedron and similar; `m11_blocks`, `m11_blocks_polytope`, `m11_cube_cross_polytope`, PROVED (in-model)), using only a family of diagonal symmetries that separates the tensor coordinates and transitivity within each block; other 2-level parts (free sums such as cube ⊕ cube) stay not formalized. “No group hypothesis” here means no hypothesis on the symmetry group (`Aut(S)` is built and proved finite); the local-symmetry premise of M11′ stays, as invariance of `S` under the local sign flips (and swaps for cross-polytopes), and in round 5 as the separating diagonal symmetries and within-block transitivity.
+- `orthomodular_of_atomistic` assumes finitely many atoms (a finite lattice), not only finite height. §3 above ("from finite height plus atomistic …") is stronger than Lean; the round 10 use assumes finitely many atoms (§3, line 27), so it is covered.
+- The `SFPCriterion.lean` docstring's "cases the survivor table uses" covers balls with SO(n), complex QM and real QM only; quaternionic QM, octonionic d = 3, even balls, G₂ on B⁷ and the C1 orbitope are not in Lean.
+- The `Jdial_*_global` results hold at `ρ = 1/(2cos(β/2))` (the tuned weight), `0 < β ≤ π/2`; the title of commit `80cf785` omits the tuned ρ.
+- `le4_attained` is the all-reads value at a point outside `le4_bound`'s hypothesis, not attainment of the 2/3 bound.
+- `L5_perfect`: the docstring's compactness remark is outside Lean (`CopyModel` has no topology); closedness is a hypothesis.
+- `classical_no_purification` shows only that classical theory lacks purification, not that purification is independent of the other premises.
+- `hept_beats_disk` is T = 3 only. In RC10, "at every finite horizon it is a hypothesis" reads "at untested horizons it is a hypothesis".
+- Rounds 4–9 note :46 ("partial in Lean", on L5) is superseded by :83 (L5 in Lean round 3).
+- Hopf–Samelson, cited at rounds 4–9 :42 and :85, is 1940 (Comment. Math. Helv. 13:240–251; Crossref `10.1007/BF01378063`).
+- About twelve exported Lean names are one-line instances, restatements or Mathlib wrappers beyond the five declared paddings (list in `formal/lean/README.md`, scope notes after the Lean round 3 review); the raw count is not a measure of depth.
+- Cost dial (Lean round 4, `CostDialBeyond.lean`): at the tuned ρ the midpoint is not a global minimizer for every π/2 < β < π (`Jdial_midpoint_not_global`; α = β/2 + π/2 is cheaper), and ties at β = π/2. The `CostDialGlobal.lean` docstring's "from β ≈ 1.61" is superseded.
+
+## 11. Lemma R: product-preserving maps in polygon composites (appended; ledger row RC20)
+
+- New note `theory/lemma-r-2026-11-26/LEMMA_R.md`, with its hostile review (`HOSTILE_REVIEW_LEMMA_R.md`, PASS-WITH-FIXES, fixes appended as §9 of the note), the reviewer's exact Q(√5) check (`exact_check.py`, `.out`) and the author's float check (`lemma_r_check.py`, `.out`).
+- Statement (row RC20, proved-in-model): for two polygons with at least 4 vertices each, every linear bijection of the tensor space that maps the pure product states onto themselves is a local map, or a local map composed with swap. It is elementary and folklore-level: a Marcus–Moyls dual-functional step plus the automorphisms of the rook's graph. Novelty is not claimed.
+- With RC15 (conditional on it; RC15 is a parallel worker's self-check, not independent), the note derives the following for two regular polygon parts with n ≥ 4, all effects, and a composite invariant under the local groups with finite orbits: every reversible map of the pair alone is local or local with swap, so no reversible map of the pair alone correlates the parts. This holds at ε = 0, or with capped reads at ε = 0.01 (an uncapped read makes Θ(1, 0.01) trivial; note §9 C9-1).
+- This is a partial case of Open Quantum Problem #42 (Dakić–Müller, 2017). It settles none of Conjecture C, which concerns entangling maps; Lemma R covers the complementary class. It is not a derivation of tracking that never finishes or of quantum theory.
+
+## 12. Finite Theorem O and the Lean round 5 review (appended; ledger row RC21)
+
+- The finite Theorem O (`formal/lean/GTAO/Rnd/SelfRef/OnsetO.lean`, Lean round 5 add-on) had no ledger row and its spec was not in the repository. The spec is now committed unchanged below a dated note as `theory/onset-o-2026-11-26/C12C_LEAN_SPEC.md`, and row RC21 (proved-in-model; KNOWN in substance, a one-variable Everett/KKT instance; novelty not claimed) records it.
+- Coverage: (i), (ii), (iii a), (iv), (v), the tie at wstar and the combined KKT form are proved in Lean. Not formalized: that `xD` is the least minimizer for every stake strictly between the bounds (half of iii b); (iii c) in separate form; (iii d), `xw ≤ xD ≤ xw'` implies `wstar ≤ w` (`xw'` is not defined in Lean). `wstar_one` holds by definition.
+- The README row for `diag_of_separating` stated necessity of the separating condition without a Lean theorem at round 5. It was true on paper; Lean round 6 adds it as `sep_necessary` (`M11BlocksChecks.lean`), for the Schur step only.
+- The RC13 Lean cell's round 4 clause "the finiteness of Aut(S) … not-formalized" is superseded for polytope S (`M11Cube.autSet_finite`); a correction is appended in the cell.
+
+## 13. Lemma R in Lean (appended; ledger row RC20)
+
+- Lean round 6 adds `formal/lean/GTAO/Rnd/SelfRef/LemmaR.lean`: Lemma D in any dimensions (`lemmaD`), the rook's-graph step (`rook_aut`), and Lemma R in an abstract form (`lemmaR`): for families `a`, `b` with S2, `m, n ≥ 4` and dimensions at most 3, every linear equivalence mapping the product vectors onto themselves permutes them by a product map of index pairs, or a product map with swap. Proved-in-model; folklore-level; novelty not claimed. Credit: Al-Safi and Richens 2015 (Lemma 4, the dual-functional step after Marcus–Moyls); Harary 1958 for the rook's graph (cited, not read).
+- Not formalized: the corollary that the map itself is local or local with swap (spec item 5), S2 for regular polygon vertices, and the combination with RC15. RC20's status is unchanged.
+
+## 14. Lean round 6 review fixes (appended after the hostile review of Lean round 6; ledger rows RC13, RC20)
+
+- Credit for §13 and the Lean header, corrected: the dual-functional step is Marcus–Moyls as Al-Safi and Richens 2015 Lemma 4; the adjacency argument is Al-Safi and Richens 2015 Lemma 2 (stated for effects in maximal composites); Harary 1958 (10.2140/pjm.1958.8.743) gives the line group of K_{m,n}, not the full automorphism group of the rook's graph, which follows from Whitney 1932 (10.2307/2371086; Crossref-checked; cited, not read). "Cited, not read" for Harary in §13 and the README is stale: the Harary paper was read by the reviewer; the claim does not depend on either paper, since `rook_aut` is proved in Lean. Folklore-level; novelty not claimed.
+- Wording: "dimensions at most 3" in §13 and in RC20's Lean cell means dimension 3 (polygon parts); S2 needs no regularity (so "regular polygon vertices" in §13 understates it); "polytope S" in the RC13 correction means a spanning polytope S; "248 exported theorems" in the Lean round 6 text means 248 listed in `scripts/RndAxioms.lean` (four helper lemmas are audited but not listed); the count is now 253 listed, 248 without padding.
+- Added in Lean: `lemmaR_perm` (the factors of `lemmaR` are bijections, `m = n` in the swap case) and `LemmaRNonVac.lean` (S2 for the square over ℚ, `lemmaR` applied to it, the transpose as a non-identity map with `T '' P = P`).
+- RC20's Lean cell begins with the token "not-formalized"; read it with its appended text: Lemma D, the rook's-graph step and Lemma R in abstract form are in Lean; the map corollary (spec item 5), S2 for general polygons and the RC15 combination are not.

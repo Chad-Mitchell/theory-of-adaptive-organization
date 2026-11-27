@@ -1,0 +1,14 @@
+n computed: 1497 even values, 400..99186 (n=2 mod 4 at ~0.5-1% spacing; n=0 mod 4 at 2%; all n=2 mod 4 in 402..2002)
+geometric q=0.99 (mean 100): disk=0.0963215296 best n=962 (mod4=2) cost=0.0961522639 -> POLYGON cheaper, rel margin +1.757e-03; interior=True; n*/M^2=0.096; rel margin/(1-q)^2=17.6
+geometric q=0.993 (mean 143): disk=0.0733691362 best n=1802 (mod4=2) cost=0.0732989985 -> POLYGON cheaper, rel margin +9.560e-04; interior=True; n*/M^2=0.088; rel margin/(1-q)^2=19.5
+geometric q=0.995 (mean 200): disk=0.0564462837 best n=3366 (mod4=2) cost=0.0564162218 -> POLYGON cheaper, rel margin +5.326e-04; interior=True; n*/M^2=0.084; rel margin/(1-q)^2=21.3
+geometric q=0.996 (mean 250): disk=0.0473121096 best n=5042 (mod4=2) cost=0.0472949827 -> POLYGON cheaper, rel margin +3.620e-04; interior=True; n*/M^2=0.081; rel margin/(1-q)^2=22.6
+geometric q=0.997 (mean 333): disk=0.0375762927 best n=8058 (mod4=2) cost=0.0375680799 -> POLYGON cheaper, rel margin +2.186e-04; interior=True; n*/M^2=0.073; rel margin/(1-q)^2=24.3
+geometric q=0.998 (mean 500): disk=0.0270252574 best n=17278 (mod4=2) cost=0.0270223761 -> POLYGON cheaper, rel margin +1.066e-04; interior=True; n*/M^2=0.069; rel margin/(1-q)^2=26.7
+geometric q=0.999 (mean 1000): disk=0.0152083784 best n=58788 (mod4=0) cost=0.0152079110 -> POLYGON cheaper, rel margin +3.073e-05; interior=True; n*/M^2=0.059; rel margin/(1-q)^2=30.7
+geometric q=0.9995 (mean 2000): disk=0.0084552704 best n=99186 (mod4=2) cost=0.0084552912 -> disk cheaper, rel margin -2.465e-06; interior=False; n*/M^2=0.025; rel margin/(1-q)^2=-9.9
+uniform 1..200: disk=0.0632486796 best n=1514 cost=0.0631675579 -> POLYGON cheaper, rel margin +1.283e-03; interior=True
+uniform 1..500: disk=0.0298137494 best n=6802 cost=0.0298064444 -> POLYGON cheaper, rel margin +2.450e-04; interior=True
+uniform 1..1000: disk=0.0166159107 best n=25750 cost=0.0166147623 -> POLYGON cheaper, rel margin +6.912e-05; interior=True
+uniform 1..2000: disk=0.0091627827 best n=99186 cost=0.0091626066 -> POLYGON cheaper, rel margin +1.922e-05; interior=False
+check n=1002 q=0.99: 0.09615495482856563 (mix_review.py gave 0.09615495)

@@ -1,0 +1,29 @@
+== per-record, committed E (3-4 d.p.)
+   pareto : ['ball (qubit)', 'classical N=4', 'disk (rebit)', 'hexagon', 'octagon', 'pentagon', 'square (gbit)']
+   stake_winners : {'ball (qubit)': (np.float64(0.0), 12.356), 'classical N=2': (np.float64(0.0), np.float64(0.0)), 'classical N=4': (19.316, np.float64(200.0)), 'disk (rebit)': (np.float64(0.0), 12.356), 'hexagon': (13.143, 19.316), 'pentagon': (12.356, 13.143), 'square (gbit)': (19.316, np.float64(200.0))}
+   gap : ['octagon']
+   margin_above_hull : {'octagon': 0.000347}
+   cap_windows : {'classical N=4': (0.125, 0.167), 'square (gbit)': (0.125, 0.167), 'pentagon': (0.176, 0.1817), 'hexagon': (0.167, 0.172), 'octagon': (0.172, 0.176), 'disk (rebit)': (0.1817, inf), 'ball (qubit)': (0.1817, inf)}
+== per-record, precise E
+   pareto : ['ball (qubit)', 'classical N=4', 'disk (rebit)', 'hexagon', 'octagon', 'pentagon', 'square (gbit)']
+   stake_winners : {'ball (qubit)': (np.float64(0.0), 12.562), 'classical N=2': (np.float64(0.0), np.float64(0.0)), 'classical N=4': (19.471, np.float64(200.0)), 'disk (rebit)': (np.float64(0.0), 12.562), 'hexagon': (12.562, 19.471), 'square (gbit)': (19.471, np.float64(200.0))}
+   gap : ['pentagon', 'octagon']
+   margin_above_hull : {'pentagon': 0.00031, 'octagon': 0.0008}
+   cap_windows : {'classical N=4': (0.125, 0.166667), 'square (gbit)': (0.125, 0.166667), 'pentagon': (0.176393, 0.18169), 'hexagon': (0.166667, 0.172335), 'octagon': (0.172335, 0.176393), 'disk (rebit)': (0.18169, inf), 'ball (qubit)': (0.18169, inf)}
+== total, committed E
+   pareto : ['square (gbit)']
+   stake_winners : {'ball (qubit)': (np.float64(0.0), np.float64(0.0)), 'classical N=2': (np.float64(0.0), np.float64(0.0)), 'disk (rebit)': (np.float64(0.0), np.float64(0.0)), 'hexagon': (np.float64(0.0), np.float64(0.0)), 'octagon': (np.float64(0.0), np.float64(0.0)), 'pentagon': (np.float64(0.0), np.float64(0.0)), 'square (gbit)': (np.float64(0.0), np.float64(200.0))}
+   gap : []
+   margin_above_hull : {}
+   cap_windows : {'square (gbit)': (0.125, inf)}
+== total, precise E
+   pareto : ['square (gbit)']
+   stake_winners : {'ball (qubit)': (np.float64(0.0), np.float64(0.0)), 'classical N=2': (np.float64(0.0), np.float64(0.0)), 'disk (rebit)': (np.float64(0.0), np.float64(0.0)), 'hexagon': (np.float64(0.0), np.float64(0.0)), 'octagon': (np.float64(0.0), np.float64(0.0)), 'pentagon': (np.float64(0.0), np.float64(0.0)), 'square (gbit)': (np.float64(0.0), np.float64(200.0))}
+   gap : []
+   margin_above_hull : {}
+   cap_windows : {'square (gbit)': (0.125, inf)}
+hexagon spend +0.0: gap = ['pentagon', 'octagon']
+hexagon spend +0.005: gap = ['pentagon', 'octagon']
+hexagon spend +0.01: gap = ['pentagon', 'octagon']
+hexagon spend +0.02: gap = []
+hexagon spend +0.05: gap = ['hexagon']

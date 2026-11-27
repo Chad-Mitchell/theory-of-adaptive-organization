@@ -1,0 +1,27 @@
+START Thu Nov 26 03:55:07 EST 2026
+H4: max(square,hexagon) 144 vertices, 120 non-product
+H4 sq×hex min+2 seed 0: 26 extreme pts (24 product, 2 other), classes 7: CERTIFIED (refinement separates)
+H4 sq×hex min+2 seed 1: 26 extreme pts (24 product, 2 other), classes 26: CERTIFIED (refinement separates)
+H4 sq×hex min+2 seed 2: 26 extreme pts (24 product, 2 other), classes 26: CERTIFIED (refinement separates)
+H4 sq×hex min+2 seed 3: 26 extreme pts (24 product, 2 other), classes 26: CERTIFIED (refinement separates)
+H4 sq×hex min+2 seed 4: 26 extreme pts (24 product, 2 other), classes 15: CERTIFIED (refinement separates)
+H4 sq×hex min+4 seed 0: 28 extreme pts (24 product, 4 other), classes 28: CERTIFIED (refinement separates)
+H4 sq×hex min+4 seed 1: 28 extreme pts (24 product, 4 other), classes 28: CERTIFIED (refinement separates)
+H4 sq×hex min+4 seed 2: 28 extreme pts (24 product, 4 other), classes 28: CERTIFIED (refinement separates)
+H4 sq×hex min+4 seed 3: 28 extreme pts (24 product, 4 other), classes 28: CERTIFIED (refinement separates)
+H4 sq×hex min+4 seed 4: 28 extreme pts (24 product, 4 other), classes 28: CERTIFIED (refinement separates)
+H4 sq×hex min+6 seed 0: 30 extreme pts (24 product, 6 other), classes 30: CERTIFIED (refinement separates)
+H4 sq×hex min+6 seed 1: 30 extreme pts (24 product, 6 other), classes 30: CERTIFIED (refinement separates)
+H4 sq×hex min+6 seed 2: 30 extreme pts (24 product, 6 other), classes 30: CERTIFIED (refinement separates)
+H4 sq×hex min+6 seed 3: 30 extreme pts (24 product, 6 other), classes 30: CERTIFIED (refinement separates)
+H4 sq×hex min+6 seed 4: 30 extreme pts (24 product, 6 other), classes 30: CERTIFIED (refinement separates)
+H4 sq×hex min+10 seed 0: 34 extreme pts (24 product, 10 other), classes 34: CERTIFIED (refinement separates)
+H4 sq×hex min+10 seed 1: 34 extreme pts (24 product, 10 other), classes 34: CERTIFIED (refinement separates)
+H4 sq×hex min+10 seed 2: 34 extreme pts (24 product, 10 other), classes 34: CERTIFIED (refinement separates)
+H4 sq×hex min+10 seed 3: 34 extreme pts (24 product, 10 other), classes 34: CERTIFIED (refinement separates)
+H4 sq×hex min+10 seed 4: 34 extreme pts (24 product, 10 other), classes 34: CERTIFIED (refinement separates)
+H4 sq×hex max minus one non-product vertex (seed 0): 143 extreme pts (24 product, 119 other), classes 77: CERTIFIED (refinement separates)
+H4 sq×hex max minus one non-product vertex (seed 1): 143 extreme pts (24 product, 119 other), classes 46: CERTIFIED (refinement separates)
+H4 sq×hex max minus one non-product vertex (seed 2): 143 extreme pts (24 product, 119 other), classes 77: CERTIFIED (refinement separates)
+H4 tally: {'cert': 23}
+EXIT 0 Thu Nov 26 03:55:13 EST 2026

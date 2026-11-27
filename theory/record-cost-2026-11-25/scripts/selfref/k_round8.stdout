@@ -1,0 +1,32 @@
+K1 common fixed pure states of two nearby laws g, g' (SO(3), distance ~1e-3)
+  pairs sharing a fixed pure state: 0/1000  -> 'one pattern fixed by every law consistent with finite records' leaves only the centre
+
+K2 law = rotation by theta about an axis, known to precision delta; record placed using the estimate; error after t ticks
+  t=    10: disk error 0.0100 (grows ~ t*delta) | ball error <= 0.0020 (bounded by 2*sin(delta)=0.0020)
+  t=   100: disk error 0.1000 (grows ~ t*delta) | ball error <= 0.0020 (bounded by 2*sin(delta)=0.0020)
+  t=  1000: disk error 0.9589 (grows ~ t*delta) | ball error <= 0.0020 (bounded by 2*sin(delta)=0.0020)
+  t= 10000: disk error 1.9178 (grows ~ t*delta) | ball error <= 0.0020 (bounded by 2*sin(delta)=0.0020)
+
+K3 Jordan-class / ball table (sampled group elements; 'pair' = fixed perfectly distinguishable pair, mixed allowed)
+  state space                                  pure-SFP  record-SFP  heredity
+  real QM d=2 (dim 2)                            0.522     0.522    rebit faces fail
+  real QM d=3 (dim 5)                            1.000     1.000    rebit faces fail
+  real QM d=4 (dim 9)                            0.496     1.000    rebit faces fail
+  ball B^3 with SO(3)                            1.000     1.000    no proper faces
+  ball B^4 with SO(4)                            0.000     0.000    no proper faces
+  ball B^5 with SO(5)                            1.000     1.000    no proper faces
+  ball B^6 with SO(6)                            0.000     0.000    no proper faces
+  ball B^7 with SO(7)                            1.000     1.000    no proper faces
+  ball B^8 with SO(8)                            0.000     0.000    no proper faces
+  complex QM d=2,3 (dims 3,8)                    1.000     1.000    faces complex: pass
+  quaternionic QM d=2 (=B^5), d=3 (dim 14)       1.000     1.000    faces B^5: pass
+  octonionic d=3 (dim 26)                        1.000     1.000    faces B^9: pass (F4/Spin(9) equal rank)
+  simplex, 2 outcomes, full S_2                  0.500     0.500    n-cycle fixes only the centre
+  simplex, 3 outcomes, full S_3                  0.667     0.667    n-cycle fixes only the centre
+  simplex, 4 outcomes, full S_4                  0.625     0.750    n-cycle fixes only the centre
+
+K4 tetrahedron with the transitive Klein group V4 = {e,(01)(23),(02)(13),(03)(12)}
+  (1, 0, 3, 2): fixed vertices []; fixed distinguishable mixed pair (0, 1)-average vs (2, 3)-average
+  (2, 3, 0, 1): fixed vertices []; fixed distinguishable mixed pair (0, 2)-average vs (1, 3)-average
+  (3, 2, 1, 0): fixed vertices []; fixed distinguishable mixed pair (0, 3)-average vs (1, 2)-average
+  -> transitive, every law fixes a distinguishable (mixed) pair, no law except e fixes a pure state.

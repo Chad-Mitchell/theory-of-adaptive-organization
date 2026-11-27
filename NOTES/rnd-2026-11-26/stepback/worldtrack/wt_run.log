@@ -1,0 +1,25 @@
+sigma 0.001: H matrix done 57s
+sigma 0.001 arm primary done 80s
+sigma 0.001 arm a1 done 100s
+sigma 0.001 arm cK4 done 119s
+sigma 0.003: H matrix done 177s
+sigma 0.003 arm primary done 197s
+sigma 0.003 arm a1 done 218s
+sigma 0.003 arm cK4 done 299s
+sigma 0.01: H matrix done 357s
+sigma 0.01 arm primary done 380s
+sigma 0.01 arm a1 done 403s
+sigma 0.01 arm cK4 done 425s
+sigma 0.03: H matrix done 447s
+sigma 0.03 arm primary done 469s
+sigma 0.03 arm a1 done 491s
+sigma 0.03 arm cK4 done 512s
+sigma 0.1: H matrix done 519s
+sigma 0.1 arm primary done 540s
+sigma 0.1 arm a1 done 562s
+sigma 0.1 arm cK4 done 583s
+sigma 0.3: H matrix done 587s
+sigma 0.3 arm primary done 697s
+sigma 0.3 arm a1 done 722s
+sigma 0.3 arm cK4 done 746s
+ALL DONE

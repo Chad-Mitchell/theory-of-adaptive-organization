@@ -1,0 +1,4 @@
+DETERMINISTIC world: 24000 comparisons, violations(poly<disk) 0, exact ties 3986, min(poly-disk) -3.553e-15
+ties by (n odd?, loss kind): {('even', 'abs'): 800, ('even', 'fourier'): 184, ('even', 'miss'): 1043, ('even', 'neg'): 64, ('even', 'random'): 79, ('even', 'wrapped'): 686, ('odd', 'abs'): 228, ('odd', 'fourier'): 102, ('odd', 'miss'): 581, ('odd', 'neg'): 33, ('odd', 'random'): 45, ('odd', 'wrapped'): 141}
+MARKOV world (adapted policies): 1200 comparisons, violations 0, exact ties 85, min(poly-disk) 0.000e+00
+tie example (world alternates 0/pi, loss 5*err^2, cost d^2): disk 4.000000, square 4.000000, hexagon 4.000000, pentagon 7.947842

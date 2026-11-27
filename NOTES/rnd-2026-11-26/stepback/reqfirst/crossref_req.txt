@@ -1,0 +1,14 @@
+OK 10.1002/j.1538-7305.1956.tb03809.x | 1956 | Kelly | A New Interpretation of Information Rate | Bell System Technical Journal | 35 917-926
+OK 10.1126/science.1114383 | 2005 | Kussell;Leibler | Phenotypic Diversity, Population Growth, and Information in Fluctuating Environments | Science | 309 2075-2078
+OK 10.1111/j.1600-0706.2009.17781.x | 2010 | Donaldson‐Matasci;Bergstrom;Lachmann | The fitness value of information | Oikos | 119 219-230
+OK 10.1007/s10955-011-0166-2 | 2011 | Rivoire;Leibler | The Value of Information for Populations in Varying Environments | Journal of Statistical Physics | 142 1124-1166
+OK 10.1088/1742-5468/2016/04/043403 | 2016 | Vinkler;Permuter;Merhav | Analogy between gambling and measurement-based work extraction | Journal of Statistical Mechanics: Theory and Experiment | 2016 043403
+OK 10.1109/TIT.1968.1054193 | 1968 | Gish;Pierce | Asymptotically efficient quantizing | IEEE Transactions on Information Theory | 14 676-683
+OK 10.1109/18.720541 | 1998 | Gray;Neuhoff | Quantization | IEEE Transactions on Information Theory | 44 2325-2383
+OK 10.1016/S0304-3932(03)00029-1 | 2003 | Sims | Implications of rational inattention | Journal of Monetary Economics | 50 665-690
+OK 10.1103/PhysRevX.4.031015 | 2014 | Horowitz;Esposito | Thermodynamics with Continuous Information Flow | Physical Review X | 4 None
+OK 10.1287/opre.11.3.399 | 1963 | Everett | Generalized Lagrange Multiplier Method for Solving Problems of Optimum Allocation of Resou | Operations Research | 11 399-417
+OK 10.1103/PhysRevA.89.052124 | 2014 | Massar;Patra | Information and communication in polygon theories | Physical Review A | 89 None
+OK 10.1038/s41567-019-0732-0 | 2019 | Peters | The ergodicity problem in economics | Nature Physics | 15 1216-1221
+OK 10.1147/rd.53.0183 | 1961 | Landauer | Irreversibility and Heat Generation in the Computing Process | IBM Journal of Research and Development | 5 183-191
+OK 10.1109/JRPROC.1949.232969 | 1949 | Shannon | Communication in the Presence of Noise | Proceedings of the IRE | 37 10-21

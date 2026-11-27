@@ -1,0 +1,5 @@
+exact facets: 20 12 ; sums: [20, 0, 0, 0] [12, 0, 0, 0]
+per-factor canonical classes: 6 4 [58s]
+240 facets; canonical exact distinct K values: 20; smallest gap between them in floats: 1.087e-03 [58s]
+same-A-factor (row): tried 1 pairs fixing facet 0: automorphisms found 0, undecided 0 [0s]
+same-B-factor (column): tried 397 pairs fixing facet 0: automorphisms found 0, undecided 0 [36s]

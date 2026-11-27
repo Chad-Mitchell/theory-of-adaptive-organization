@@ -1,0 +1,269 @@
+# FADED: pointer index for everything not in the working set
+
+*26 Nov 2026, about 19:28 EST. One line and one pointer per entry. Nothing here is paraphrased beyond a title or a few words. To use an entry, open its pointer; do not answer from this line. Sections A–C were generated from file titles (script in WORKLOG entry for this rebuild); D–G are by hand.*
+
+## D. Faded findings and wordings (open the pointer before using)
+- "Information budget survives a change of class": unsupported, hypothesis; see `rnd/review_worldtrack/REVIEW_WORLDTRACK.md` §6, §8.
+- Step 0 α\* values, "α\* falls with λ", "α\*·λ → 12": menu artifacts; REVIEW_WORLDTRACK §3.1, §9 fix 1.
+- Step 1 "beyond Gish–Pierce" / "KGE in substance": REVIEW_WORLDTRACK §5, §9 fix 5.
+- "Integer n\* exists only for a noiseless register": overstated; REVIEW_WORLDTRACK §6.
+- a = 1 arm "n\* changes by 1 in 73 cells" → 72 cells; REVIEW_WORLDTRACK §9 fix 7.
+- Step 2 INFO-BUDGET uniqueness not tested (V4); `rnd/stepback/WORLD_TRACK.md`:530.
+- REQUIREMENTS_FIRST's 34-requirement audit (20 deleted as not the theory's); `rnd/stepback/REQUIREMENTS_FIRST.md` §2–§3.
+- REQUIREMENTS_FIRST Routes 2–5 (KELLY-TRACK, ruin horizon, copying population); REQUIREMENTS_FIRST.md:258 onward.
+- TRACKING_FIRST routes T2–T4 and the 36-source prior-art table; `rnd/stepback/TRACKING_FIRST.md` §2, §4.
+- SR_B horizon-weighting family, SR-b1…b4 and odd analogue; `rnd/stepback/SR_B.md`, `rnd/review_srb4/`, `rnd/review_srb4_odd/`.
+- SH-noise, SH-read details and tables; `rnd/stepback/SELF_HORIZON.md` §§6–9.
+- C12b repair-vs-relearn, G-keep floor (PIM in class, review PASS-WITH-FIXES); `rnd/stepback/C12B_ORDER.md` §8–§9; `rnd/review_c12b/`.
+- C12c onset, Theorem O (Lean OnsetO.lean); `rnd/stepback/C12C_ONSET.md`; WORKLOG 09:09.
+- C12CG cap-only picks; `rnd/stepback/C12CG.md`.
+- Lemma R (Lean, stage 1 LemmaR.lean); `rnd/stepback/LEMMA_R.md`; `rnd/lean/GTAORnd/R12/LemmaR.lean`; `rnd/review_lemma_r/`.
+- STEPBACK §1a T-table and §16 PB pattern tally; `rnd/stepback/STEPBACK.md`.
+- Forces-gravity G1–G5 rows and hostile-review corrections; `rnd/forces-gravity/THREAD_SUMMARY.md`; `ATTEMPTS.md`.
+- Entanglement E1 theorem and preregs; `rnd/entangle/THREAD_SUMMARY.md`.
+- No-cloning, composition, self-reference rounds; `rnd/nocloning/NOTE.md`, `rnd/composition/NOTE.md`, `rnd/selfref/NOTE.md`.
+- qm-selection-next (qmsel3) prereg and deviations; `rnd/qm-selection-next/`.
+- PR #295 body edit drafts r5/r6; `rnd/PR295_BODY_EDITS_r5_DRAFT.md`, `_r6_DRAFT.md`.
+- Ace handoff draft for 27 Nov; `rnd/ACE_HANDOFF_2026-11-27_DRAFT.md` (Chad t169u asks for the full handoff).
+- Foundations hostile review; `rnd/HOSTILE_REVIEW_FOUNDATIONS.md`.
+
+## E. Repo state that the physics route does not need this week
+- Front-page claims, ledger and versions: `measurement/CLAIM_MAP_v2.md`; `README.md` Ranked gaps (BICAUSAL 1, STOP-COPY 2, PHYS-CHAIN-6 3, CL11 4, CX2-SETTLE 5, Q-RECORD 6, DATA-ONE parked).
+- Process rules and vocabulary: `process/PROCESS.md`, `process/VOCABULARY.md`, `process/FAILURES.md` (REPO-CURRENT-1…3).
+- Field and application notes: `applications/` (AI_AGENT_OVERSIGHT, CANCER_DEFECTION, UFR_FORGETTING; the two memory notes are used in MEMORY_CHALLENGE.md).
+- Live repo state (HEAD, merges, open PRs): `python3 tools/brief.py` (README.md:66); not kept by hand.
+
+## F. Pull requests (bodies at `/workspace/gtao-fresh/prbodies/<n>.md`)
+- #122 T27 selection bridge (FAIL on P3). #175–#181 information physics (22 Nov). #184 no non-metaphorical holographic structure. #240 T63. #242 T64. #244 T65. #246 T66. #247 T67. #250 T71. #253 composite contest. #257 T75/T76. #286 CTC fixed point. #287 two-route prereg. #290 Hutter budget. #291/#293 one source per fact. #292 stop-copying. #294 record cost under drift (merged). #295 record cost rounds 4–10 with Lean (open).
+
+## G. Messages and posts
+- Ace thread "Re: GTAO work" (`c9017c80…`, 88 messages; last 50 at `/workspace/gtao-fresh/ace_thread_50.txt`). Key ids: 14924942 (25 Nov 8:05 AM EST, physics-rung order), 15072293 (12:58 PM, correction on summarizing), 15077233 (1:05 PM, standing alignment), 15077874 (1:06 PM, one record looked at before every decision), 15079233 (1:08 PM, closure / BICAUSAL), 15079674 (1:09 PM, one source per fact).
+- Ace 24 Nov message 14229820 ("I stepped back over the whole physics line tonight …"): **not read in full**; beyond the 50-message window. Open it before relying on WALLS.md being complete.
+- Chad's posts on X: `/workspace/gtao-fresh/x_posts.txt`, `x_replies.txt`; the memory ones are quoted in MEMORY_CHALLENGE.md.
+- Our earlier session transcripts: not reachable this session (SearchTranscripts returned no record).
+
+## A. Our R&D notes (`/workspace/gtao-notes/rnd/`, depth ≤ 2)
+- `rnd/ACE_EMAIL_2026-11-26_DRAFT.md`: Draft email to Ace — 26 Nov 2026 (ET). Not sent.
+- `rnd/ACE_HANDOFF_2026-11-27_DRAFT.md`: Drafts for Ace: Friday merge handoff (NOT SENT, NOT POSTED)
+- `rnd/HOSTILE_REVIEW_FOUNDATIONS.md`: Hostile review of the foundations under PR #295 and tonight's rounds
+- `rnd/PR295_BODY_EDITS_r5_DRAFT.md`: PR #295 body: proposed edits (LOCAL DRAFT ONLY; not applied, per "Don't touch the PR body this round")
+- `rnd/PR295_BODY_EDITS_r6_DRAFT.md`: PR #295 body: proposed edits after Lean rounds 5 and 6 (LOCAL DRAFT ONLY; not applied)
+- `rnd/PR_BODY_record-cost-2.md`: Carried PRs
+- `rnd/PR_DRAFT_record-cost-2.md`: Carried PRs
+- `rnd/PR_DRAFT_record-cost.md`: (no title)
+- `rnd/SESSION_NOTES.md`: GTAO side R&D session with Chad, 2026-11-25 (evening) — held items cited in WORKING_CONTEXT
+- `rnd/composition/NOTE.md`: Composition route: what does a cost of keeping records say about how systems combine? (private R&D note, not a
+- `rnd/entangle/ATTEMPTS.md`: Round E attempts log (2026-11-26)
+- `rnd/entangle/HOSTILE_REVIEW_E1.md`: Hostile review of Round E (E-L0, Theorem E1, the RV rule, the E1/E1b tables, chains α/β, the premise graph)
+- `rnd/entangle/NOTE.md`: Round E: can "a reversible entangling map exists" come out of the theory? (private R&D note, not a PR)
+- `rnd/entangle/NOTE_C.md`: Round C: self-reference + "completeness" vs P (2026-11-26, 01:44–01:50 EST). Prereg: PREREG_C.md, sha256 b4208
+- `rnd/entangle/NOTE_P.md`: Round P: is "the closed whole starts pure" (P) selected by a cost? Result: no. In this model P is an interpret
+- `rnd/entangle/NOTE_PREREG_P_EPS.md`: Note on PREREG_P's ε = 0.01 arm: degenerate without a cap on read outcomes
+- `rnd/entangle/PREMISE_GRAPH.md`: Premise graph for the entanglement chains (Round E, 2026-11-26, 01:20–01:31 EST)
+- `rnd/entangle/PREREG_C.md`: PREREG_C: does "self-reference (SR) + completeness (C)" give P? Written 2026-11-26 01:44 EST, before checking.
+- `rnd/entangle/PREREG_P.md`: PREREG_P: is premise P ("the closed whole starts pure") selected by a cost? Written 2026-11-26 ~01:40 EST, BEF
+- `rnd/entangle/THREAD_SUMMARY.md`: Entanglement thread: overnight index (2026-11-26, 00:59–01:52 EST). Private R&D, no git, nothing folded.
+- `rnd/forces-gravity/ATTEMPTS.md`: ATTEMPTS log, forces-gravity round (append only)
+- `rnd/forces-gravity/HOSTILE_REVIEW_G2.md`: Hostile review of forces-gravity Round 2 (G2)
+- `rnd/forces-gravity/HOSTILE_REVIEW_G3G5.md`: Hostile review of forces-gravity rounds G3, G4 and G5
+- `rnd/forces-gravity/NOTE.md`: Forces, gravity, dimension and time: does the record-cost principle reach them? (exploratory round, private R&
+- `rnd/forces-gravity/THREAD_SUMMARY.md`: Forces & gravity thread: one-page summary (G1–G5, 25–26 Nov 2026, private R&D, not in the repo) — held items cited in WORKING_CONTEXT
+- `rnd/lean/LEAN_NOTES.md`: Lean formalization of the proved-in-model R&D results (private, not a PR)
+- `rnd/nocloning/NOTE.md`: Does a cost of keeping distinctions force no-cloning? (private R&D note, not a PR)
+- `rnd/qm-selection-next/DEVIATIONS.md`: Deviations from PREREG.md
+- `rnd/qm-selection-next/PREREG.md`: Preregistration: second QM-selection search (SU(3), Sp(2), G₂ up to dimension 15; U(2), Sp(1)² in dimensions 9
+- `rnd/review_c1/HOSTILE_REVIEW_C1.md`: Hostile review of C1 (rnd/stepback/C1.md and rnd/stepback/c1/)
+- `rnd/review_c12b/HOSTILE_REVIEW_C12B.md`: Hostile review: C12B_ORDER.md (§§0–8, §8 governs) and STEPBACK.md §16 (both addenda)
+- `rnd/review_c12c/HOSTILE_REVIEW_C12C.md`: Hostile review: C12C_ONSET.md (memory onset vs stake and buffer)
+- `rnd/review_c12cg/HOSTILE_REVIEW_C12CG.md`: Hostile review: C12CG.md §§0–9 (C12c-G′ and C12c-G″), with `c12cg/` scripts and outputs
+- `rnd/review_c4/HOSTILE_REVIEW_C4.md`: Hostile review: C4_RECORD_ORDER.md (record-dependency order on a fixed lattice)
+- `rnd/review_fix36/GATE_READ_qmsel2.md`: Gate read: qm-selection-2 prereg (theory/qm-selection-2-2026-11-26)
+- `rnd/review_fix36/HOSTILE_REVIEW_FIX36.md`: Hostile review: FOR-36 foundations-fix commits, `forge-rnd-record-cost-2` 9650bcc..539ffa5
+- `rnd/review_fix36/pr295_body.md`: Carried PRs
+- `rnd/review_lean3/HOSTILE_REVIEW_LEAN3.md`: Hostile review: Lean round 3 on `forge-rnd-record-cost-2` at 4c693b6 (statement fidelity)
+- `rnd/review_lean3/pr295_body.md`: Carried PRs
+- `rnd/review_lean4/HOSTILE_REVIEW_LEAN4.md`: Hostile review: Lean round 4 at eb8f20b
+- `rnd/review_lean4/pr295_live.md`: Carried PRs
+- `rnd/review_lean5/HOSTILE_REVIEW_LEAN5.md`: Hostile review: Lean round 5 at 96d7fa7
+- `rnd/review_lean6/HOSTILE_REVIEW_LEAN6.md`: Hostile review: Lean round 6 at 7d4adb9
+- `rnd/review_lemma_r/HOSTILE_REVIEW_LEMMA_R.md`: Hostile review: LEMMA_R.md, STEPBACK.md §14, lemma_r/ scripts
+- `rnd/review_p15/REVIEW_P15.md`: Independent hostile review of P15 (REQUIREMENTS_FIRST.md §4 row P15 and §4.1) — held items cited in WORKING_CONTEXT
+- `rnd/review_qmsel3/GATE_READ_QMSEL3.md`: Gate read: qm-selection-3 at lock e496428
+- `rnd/review_r1316/HOSTILE_REVIEW_R1316.md`: Hostile review: Conjecture C rounds 13–16 (part M) at 04c8309
+- `rnd/review_srb/HOSTILE_REVIEW_SRB.md`: Hostile review: SR_B.md (with `sr_b/`) and C12B_ORDER.md §9 (with `c12b_post_check.*` and STEPBACK.md §16 adde
+- `rnd/review_srb4/HOSTILE_REVIEW_SRB4.md`: Hostile review of SR_B.md §9 (SR-b4: a scale-free, log-uniform horizon weighting) and `rnd/stepback/sr_b4/`
+- `rnd/review_srb4_odd/HOSTILE_REVIEW_SRB4_ODD.md`: Hostile review of the odd analogue of SR-b4 (finding M2 of `rnd/review_srb4/HOSTILE_REVIEW_SRB4.md`; SR_B.md §
+- `rnd/review_worldtrack/REVIEW_WORLDTRACK.md`: REVIEW_WORLDTRACK: independent hostile review of WORLD_TRACK.md (FOR-40) — held items cited in WORKING_CONTEXT
+- `rnd/selfref/ATTEMPTS.md`: ATTEMPTS log: self-reference deep dive (append-only)
+- `rnd/selfref/HOSTILE_REVIEW_M11.md`: Hostile review: Theorem M11 (Round 11, part M)
+- `rnd/selfref/NOTE.md`: Self-reference route: does a world that tracks itself force uncopyable distinctions? (private R&D note, not a 
+- `rnd/selfref/PREREG_ROUND13_M.md`: Preregistration — Round 13 (part M): hostile-review follow-ups on Conjecture C
+- `rnd/stepback/C1.md`: C1: η as a shadow price — the per-site-priced record boundary in 2D lattice vacua (first work unit)
+- `rnd/stepback/C12B_ORDER.md`: C12b: ordering two stake thresholds (track vs keep), on paper
+- `rnd/stepback/C12CG.md`: C12c-G′: is a required accuracy a stake in disguise on our own world menu? (first work unit)
+- `rnd/stepback/C12C_LEAN_SPEC.md`: Lean candidate: finite Theorem O (memory onset under a stake and an accuracy cap)
+- `rnd/stepback/C12C_ONSET.md`: C12c: memory onset as a function of stake and buffer (paper derivation)
+- `rnd/stepback/C4_RECORD_ORDER.md`: C4 paper step: is record-dependency order on a fixed lattice Lorentz-like?
+- `rnd/stepback/CLUE_COMPLIANT.md`: Clue: compliant mechanisms (Chad's intuition), treated as a clue, not an instruction
+- `rnd/stepback/GATE_READ_STEPBACK.md`: Gate read: STEPBACK.md drafts D (C11) and A (C2), before lock (Thu 26 Nov 2026, 06:35 ET)
+- `rnd/stepback/GATE_READ_STEPBACK2.md`: Gate read 2: STEPBACK §§9–12, PIM_LEMMA.md, PREREG_DRAFT_C3.md, PREREG_DRAFT_A2.md (Thu 26 Nov 2026, 06:51 ET)
+- `rnd/stepback/LEMMA_R.md`: Lemma R: maps that keep pure products pure in polygon composites are local ⋊ swap
+- `rnd/stepback/LEMMA_R_LEAN_SPEC.md`: (no title)
+- `rnd/stepback/PAPER_CHANDRASEKARAN.md`: Chandrasekaran 2026, "An algebraic quantization of gravity from the null cone": read for GTAO (Thu 26 Nov 2026
+- `rnd/stepback/PIM_LEMMA.md`: Lemma D1: a greedy operator-weight record ends at the signal front (PROVED (in-model); an application of KNOWN
+- `rnd/stepback/PREREG_DRAFT_A2.md`: DRAFT A2 (route C2 redesigned per GATE_READ_STEPBACK A1–A7): does an existing cost select local tomography?
+- `rnd/stepback/PREREG_DRAFT_C3.md`: DRAFT prereg C3: from a pure (or product) start, which worlds can write an informative event log, and at what 
+- `rnd/stepback/PREREG_DRAFT_C3v2.md`: DRAFT prereg C3v2: rigid, fuel-needing or free? Locally symmetric odd-polygon composites from a product start
+- `rnd/stepback/REQUIREMENTS_FIRST.md`: REQUIREMENTS_FIRST (FOR-39): question every requirement, delete the ones the theory does not demand, then see  — held items cited in WORKING_CONTEXT
+- `rnd/stepback/SELF_HORIZON.md`: SELF_HORIZON: is the stake the record-keeper's own persistence? A paper-only check of the self-consistency ref — held items cited in WORKING_CONTEXT
+- `rnd/stepback/SR_B.md`: SR-b: does an unbounded horizon mixture select the disk? First work unit, on paper plus numerics
+- `rnd/stepback/STEPBACK.md`: Step-back investigation (Thu 26 Nov 2026, from 06:16 ET). Private R&D notes; nothing here is committed to the 
+- `rnd/stepback/TRACKING_FIRST.md`: TRACKING_FIRST (FOR-41): can a cost of the heat form come out of tracking, instead of being put in? — held items cited in WORKING_CONTEXT
+- `rnd/stepback/WORLD_TRACK.md`: WORLD_TRACK (FOR-40): Step 0 TASK-LEVER, then Step 1 WORLD-TRACK — held items cited in WORKING_CONTEXT
+
+## B. Repo `theory/` on main `8b553c6`: top-level notes
+- `theory/ACTING_DERIVATION_2026-11-22.md`: The cost when the action enters the drift
+- `theory/ACTING_LOOP_2026-11-22.md`: The predict-act-correct loop
+- `theory/ACTING_MEMORY_2026-11-22.md`: Acting memory: probes, capped losses, and volatility
+- `theory/ANTIFRAGILE_LOOP_2026-11-23.md`: Gaining from volatility once the memory acts for a payoff
+- `theory/ANTIFRAGILITY_CONJECTURE_2026-11-23.md`: Gaining from disorder
+- `theory/AREA_LAW_PROBE_2026-11-23.md`: Does the cost of judgment force an area law for the maximum record?
+- `theory/BARRIER_MASS_FIELD_THEORY_2026-11-23.md`: Does a barrier need gravitating mass? Assumption A1 in relativistic field theory, and a cap that does not need
+- `theory/BOOKENDS.md`: BOOKENDS: how the pieces of GTAO fit together, from chemistry to heat death, and what follows at each level *i
+- `theory/BOUNDARY_SUFFICIENCY_2026-11-22.md`: Boundary sufficiency
+- `theory/CACHE_HIERARCHY_PRIOR_ART_2026-11-21.md`: CPU memory hierarchies: prior-art verdict, and why no test was locked (21 November 2026)
+- `theory/CHAIN_DIFFUSION.md`: From the substitution chain to the diffusion limit
+- `theory/CLOCK_TERM_2026-11-23.md`: T68: the clock term — anticipating predictable change between paid looks costs heat
+- `theory/COADAPTATION.md`: Co-adaptation: when coupled cost-of-judgment minimizers sit near a minimizer (T12, CX2)
+- `theory/CONTINUOUS_A6_2026-11-23.md`: The continuous mutual-information extension of A6
+- `theory/COSMIC_WEB.md`: The cosmic web as a network: what resembles organizations, brains and the internet, and what does not
+- `theory/CROSS_FIELD_MAP_2026-11-21.md`: Cross-field map: (world exponent, technology exponent) → dimensionless design numbers (21 November 2026)
+- `theory/DERIVATION_CHAIN.md`: The derivation chain
+- `theory/DIRECTIONS_2026-11-22.md`: Directions after the classical core (22 November 2026)
+- `theory/DISCRIMINATING_CANDIDATES_2026-11-21.md`: Discriminating candidates for a test of the hypothesis (21 November 2026)
+- `theory/DRIFT_HEAT_LIFT_2026-11-23.md`: Thermodynamic lift of the drifting information floor
+- `theory/DRIFT_SELECTION.md`: Drift selection: closeness to a moving cost minimum
+- `theory/DYNAMICS.md`: DYNAMICS: redesign cost, the lineage objective, and time averages (v2.9 draft)
+- `theory/FEEDBACK_FLOOR_2026-11-23.md`: A heat floor when the memory acts on the world
+- `theory/FIELD2_FEASIBILITY_2026-11-21.md`: Field-2 feasibility & cache anchor: non-silicon candidates for the cross-field map (21 November 2026)
+- `theory/FLUID_LAYERS_2026-11-21.md`: Fluid layers: several memberships at once, and how long a shared layer lasts
+- `theory/FRACTAL_WORLD_2026-11-22.md`: Does the cost of judgment on a fractal world scale with dimension?
+- `theory/FREEZE_OR_HOLD_FLOOR_2026-11-23.md`: Static bias, metastable retention, and the JP-heat floor
+- `theory/FREEZE_PROCESS_2026-11-21.md`: FREEZE_PROCESS: is freezing a continuous limit of holding under the cost equation?
+- `theory/FRONTIER_REREAD_2026-11-22.md`: Frontier-form re-read of past field attempts (22 November 2026)
+- `theory/GENERALITY_2026-11-22.md`: How general the results are
+- `theory/GENERAL_FLOOR_ATTEMPT_2026-11-23.md`: A general heat-floor attempt
+- `theory/GENERAL_FLOOR_FINITE_2026-11-23.md`: A finite-state lower bound on the learning-rate floor
+- `theory/GENERAL_FORM.md`: The general form of the cost of judgment
+- `theory/GENERAL_FORM_PHYSICS_2026-11-22.md`: The physics-derived general form of the cost of judgment
+- `theory/GENERAL_THEOREM.md`: GENERAL_THEOREM: an attempt at the central theorem of A Theory of Adaptive Organization, and a red team of it
+- `theory/GRAVITY_BARRIER_PROBE_2026-11-23.md`: A Bekenstein-style barrier route: does gravity cap passively held records, and is the area a result or an inpu
+- `theory/GROWTH_BRIDGE.md`: The master equation as a limit of growth selection
+- `theory/HOLOGRAPHIC_2026-11-22.md`: Is there a holographic structure in the cost of judgment?
+- `theory/HOLOGRAPHIC_MEMORY_2026-11-22.md`: Holographic memory and the cost of judgment
+- `theory/HT_INDEX.md`: Fractal structure and design: which property of a world's records sets K\*? (ht-index as one candidate)
+- `theory/IIT_PATH_2026-11-23.md`: IIT path: cost-based irreducibility, IIT's limits, and a consciousness conjecture
+- `theory/INFO_PHYSICS.md`: Dissipation bounds the cost of a model, and does not produce the master equation
+- `theory/INFO_PHYSICS_ATTAINABILITY.md`: The Kalman rate is a heat floor, and a linear spring attains it
+- `theory/INFO_PHYSICS_CORRECTION_2026-11-22.md`: Correction to `theory/INFO_PHYSICS.md`
+- `theory/INFO_PHYSICS_GENERAL.md`: The heat floor for several modes
+- `theory/INTERNAL_MODEL.md`: The stochastic internal-model theorem, and where (if anywhere) the second law does work above the cell
+- `theory/LAYERS.md`: PROOF_A: when do layers beat one flat tracker? (claims A and B)
+- `theory/LAYER_CONVEXITY.md`: Layer convexity: when each added layer is worth less than the last
+- `theory/LAYER_LIFETIME_2026-11-21.md`: Layer lifetime as a stack rule: spacing, a layer floor, and local vs shared
+- `theory/LEARNING_RATE_THRESHOLD_2026-11-23.md`: T67: Does the judge's learning rate lose its area form at the mutual-information threshold? (threshold test)
+- `theory/MASTER_EQUATION.md`: The master equation: derivations, checks and a worked example
+- `theory/MASTER_EQUATION_ACTING_PROPOSAL_2026-11-22.md`: Proposal: the cost when the action enters the world
+- `theory/MATH_ATTACK.md`: MATH_ATTACK: A Theory of Adaptive Organization, attacked as physics
+- `theory/MATH_COMPLETENESS_AUDIT.md`: Mathematical completeness audit
+- `theory/MODEL_S_J3.md`: Model S convexity for three or more modes
+- `theory/NON_GAUSSIAN_FLOOR_2026-11-23.md`: Non-Gaussian heat floors: heavy tails, switching worlds, and rare shocks
+- `theory/NOVELTY_NOTE_2026-11-21.md`: Is the whole objective J published anywhere? A plain-words note for Chad (21 November 2026)
+- `theory/PHYSICS_CHAIN_2026-11-23.md`: From the cost of judgment toward physics: roadmap of the chain
+- `theory/PRICE_FREE_2026-11-21.md`: What the law predicts without absolute prices (21 November 2026)
+- `theory/QUANTUM_RECORD_PRICE_2026-11-24.md`: Quantum record price: five routes, none names it
+- `theory/REACH.md`: REACH: what the theory says about viruses and life, the cosmic web, wormholes, the torus, dark matter and ener
+- `theory/REALSYS_SCREEN_2026-11-23.md`: Real-system test screen after T49, T50, T61 and the freeze-or-hold floors (23 November 2026)
+- `theory/RECORD_COST_CHAIN_2026-11-25.md`: Record cost under drift: what a self-tracking world can copy, and which records cost least
+- `theory/RECORD_RATIO_CONSISTENCY_2026-11-24.md`: Record-price ratio: four consistency readings, none forces 1
+- `theory/RECORD_RATIO_REFRAMES_2026-11-24.md`: Record-price ratio: 0 and 1 as candidate fixed points
+- `theory/RECORD_REPAIR_FLOOR_2026-11-23.md`: The repair floor for a record of something gone, the self-correcting loophole, and a heat-shed cap on kept rec
+- `theory/REPRESENTATION.md`: When the additive cost is forced
+- `theory/REVEALED_PRICES_2026-11-21.md`: Revealed prices: what a fair test of the law actually requires (21 November 2026)
+- `theory/ROBUSTNESS.md`: Robustness, redundancy and antifragility in the cost of judgment (v2.7 draft, 20 November 2026)
+- `theory/SCALE_ENDS.md`: SCALE_ENDS: what GTAO's own budget says at the bottom (particles, atoms, crystals) and the top (stars, black h
+- `theory/SELECTION_AXIOMS.md`: Selection axioms: closeness to the cost minimum as a derived result
+- `theory/SHANNON_2026-11-21.md`: What Shannon did, and what it means for the cost of judgment
+- `theory/STORE_NOISE.md`: STORE_NOISE: an extension of Model S for noise a store makes itself (E1) and upkeep priced by speed (E2)
+- `theory/SWARM_RULE_2026-11-23.md`: The swarm rule: when parts join, stay with, and leave a whole
+- `theory/TEST_SEARCH_2026-11-22.md`: Test search: a public comparison that can fail (22 November 2026)
+- `theory/THEOREMS.md`: THEOREMS: math for one application of A Theory of Adaptive Organization (drift-matched memory)
+- `theory/THEOREM_P_DRIFT.md`: Theorem P for drifting worlds (CX1): the information floor as a flow
+- `theory/TORUS.md`: The torus: where it is real, what an earlier toy test did and did not show, and what the theory does not say a
+- `theory/TRANSPORT_BARRIER_2026-11-23.md`: The transport channel: can a trapped carrier's barrier against leaving exceed its gravitating mass? And A2 fro
+- `theory/VIS1F_DROP_2026-11-21.md`: VIS-1F dropped under the written pre-Pass-1 rule (21 November 2026)
+- `theory/WORMHOLES.md`: Wormholes: what LAT-1 does, and does not, do if shortcuts exist
+
+## C. Repo `theory/` subfolders (one line per folder; open its README or MEMO)
+- `theory/acting_derivation_checks/`: Cubic ordering, recorded after the lock
+- `theory/acting_loop_checks/`: PREREG: the predict-act-correct loop
+- `theory/acting_memory_checks/`: PREREG: memories that probe, and when volatility lowers the cost
+- `theory/antifragile_loop_checks/`: (no .md)
+- `theory/antifragility_checks/`: Turnover, heat, and a positive level of stress
+- `theory/area_law_probe_checks/`: (no .md)
+- `theory/barrier_mass_checks/`: (no .md)
+- `theory/bookends_checks/`: (no .md)
+- `theory/boundary_checks/`: Preregistration: boundary sufficiency
+- `theory/chain_diffusion_checks/`: (no .md)
+- `theory/clock_term_checks/`: (no .md)
+- `theory/constants-exchange-2026-11-24/`: Memory, tracking, and the exchange rates
+- `theory/continuous_a6_checks/`: (no .md)
+- `theory/core_checks/`: (no .md)
+- `theory/cross_field_checks/`: (no .md)
+- `theory/drift_heat_lift_checks/`: (no .md)
+- `theory/drift_selection_checks/`: (no .md)
+- `theory/dynamics_checks/`: (no .md)
+- `theory/feedback_floor_checks/`: (no .md)
+- `theory/fractal_checks/`: Preregistration: cost on a fractal world
+- `theory/freeze_or_hold_floor_checks/`: (no .md)
+- `theory/freeze_process_checks/`: (no .md)
+- `theory/general_floor_checks/`: (no .md)
+- `theory/general_floor_finite_checks/`: (no .md)
+- `theory/general_form_checks/`: (no .md)
+- `theory/generality_checks/`: (no .md)
+- `theory/gravity_barrier_checks/`: (no .md)
+- `theory/growth_bridge_checks/`: (no .md)
+- `theory/holographic_checks/`: (no .md)
+- `theory/holographic_memory_checks/`: (no .md)
+- `theory/ht_checks/`: (no .md)
+- `theory/info-causality-2026-11-24/`: MEMO: paid information and information causality
+- `theory/info_physics_checks/`: (no .md)
+- `theory/layer-fixed-point-2026-11-23/`: MEMO: CT34 nesting fixed point
+- `theory/layer_convexity_checks/`: (no .md)
+- `theory/layerlife_checks/`: (no .md)
+- `theory/layers_checks/`: (no .md)
+- `theory/learning_rate_threshold_checks/`: T67 preregistration: the threshold test (learning rate vs mutual information)
+- `theory/math-checks/`: (no .md)
+- `theory/measured/`: Measured placements: the first measured system on the map, and the first real test of a layer's memory
+- `theory/meq_checks/`: (no .md)
+- `theory/model_s_j3_checks/`: (no .md)
+- `theory/non_gaussian_floor_checks/`: (no .md)
+- `theory/pointer-basis-stakes-2026-11-24/`: T73: a stake on a dephased qubit, and the record basis
+- `theory/pointer_basis_stakes_checks/`: (no .md)
+- `theory/reach_checks/`: (no .md)
+- `theory/realsys_screen_checks/`: (no .md)
+- `theory/record-cost-2026-11-25/`: Preregistration: the memory coordinate for a record held in a general probabilistic theory
+- `theory/record_ratio_reframes_checks/`: Deviations
+- `theory/repair_floor_checks/`: (no .md)
+- `theory/representation_checks/`: (no .md)
+- `theory/reviews/`: Independent review: constants as exchange rates (2026-11-24)
+- `theory/robust_checks/`: (no .md)
+- `theory/scale_ends_checks/`: (no .md)
+- `theory/shannon_checks/`: (no .md)
+- `theory/spacing_checks/`: (no .md)
+- `theory/store_noise/`: (no .md)
+- `theory/swarm_checks/`: (no .md)
+- `theory/theorem-v2-checks/`: (no .md)
+- `theory/theorem_p_drift_checks/`: (no .md)
+- `theory/theorems-checks/`: (no .md)
+- `theory/transport_barrier_checks/`: (no .md)

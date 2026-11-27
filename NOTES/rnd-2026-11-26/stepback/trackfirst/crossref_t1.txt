@@ -1,0 +1,21 @@
+OK	10.1086/283633	1980	Tilman	Resources: A Graphical-Mechanistic Approach to Competition and Predation	The American Naturalist	116:362-393
+OK	10.1126/science.131.3409.1292	1960	Hardin	The Competitive Exclusion Principle	Science	131:1292-1297
+OK	10.1086/283553	1980	Armstrong, McGehee	Competitive Exclusion	The American Naturalist	115:151-170
+OK	10.1073/pnas.64.4.1369	1969	Arthur	SPECIES PACKING, AND WHAT COMPETITION MINIMIZES	Proceedings of the National Academy of S	64:1369-1371
+OK	10.1016/0040-5809(70)90039-0	1970	MacArthur	Species packing and competitive equilibrium for many species	Theoretical Population Biology	1:1-11
+OK	10.1146/annurev.ecolsys.31.1.343	2000	Chesson	Mechanisms of Maintenance of Species Diversity	Annual Review of Ecology and Systematics	31:343-366
+OK	10.1086/710093	2020	Marsland, Cui, Mehta	The Minimum Environmental Perturbation Principle: A New Perspective on Niche Theory	The American Naturalist	196:291-305
+OK	10.1103/PhysRevLett.118.048103	2017	Tikhonov, Monasson	Collective Phase in Resource Competition in a Highly Diverse Ecosystem	Physical Review Letters	118:
+OK	10.1103/PhysRevLett.118.028103	2017	Posfai, Taillefumier, Wingreen	Metabolic Trade-Offs Promote Diversity in a Model Ecosystem	Physical Review Letters	118:
+OK	10.1016/0040-5809(76)90040-X	1976	Charnov	Optimal foraging, the marginal value theorem	Theoretical Population Biology	9:129-136
+OK	10.1086/282676	1970	Levin	Community Equilibria and Stability, and an Extension of the Competitive Exclusion Principle	The American Naturalist	104:413-423
+OK	10.1103/PhysRevLett.55.657	1985	Bennett, Grinstein	Role of Irreversibility in Stabilizing Complex and Nonergodic Behavior in Locally Interacting Discre	Physical Review Letters	55:657-660
+OK	10.1145/800061.808730	1983	Gács	Reliable computation with cellular automata	Proceedings of the fifteenth annual ACM 	:32-41
+OK	10.1103/PhysRevX.5.041039	2015	Sartori, Pigolotti	Thermodynamics of Error Correction	Physical Review X	5:
+OK	10.1073/pnas.71.10.4135	1974	Hopfield	Kinetic Proofreading: A New Mechanism for Reducing Errors in Biosynthetic Processes Requiring High S	Proceedings of the National Academy of S	71:4135-4139
+OK	10.1109/18.796377	1999	Evans, Schulman	Signal propagation and noisy circuits	IEEE Transactions on Information Theory	45:2367-2373
+OK	10.1515/9781400882618-003	1956	Neumann	Probabilistic Logics and the Synthesis of Reliable Organisms From Unreliable Components	Automata Studies. (AM-34)	:43-98
+OK	10.1023/A:1006554906681	1998	Geritz, Kisdi, Mesze´NA, Metz	Evolutionarily singular strategies and the adaptive growth and branching of the evolutionary tree	Evolutionary Ecology	12:35-57
+OK	10.1103/PhysRevLett.113.148103	2014	Lang, Fisher, Mora, Mehta	Thermodynamics of Statistical Inference by Cells	Physical Review Letters	113:
+OK	10.1063/1.1499754	2002	Dennis, Kitaev, Landahl, Preskill	Topological quantum memory	Journal of Mathematical Physics	43:4452-4505
+OK	10.1088/1367-2630/abc5c6	2020	Wolpert	Minimal entropy production rate of interacting systems	New Journal of Physics	22:113013

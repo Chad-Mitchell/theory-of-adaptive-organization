@@ -1,0 +1,5 @@
+(2T+1)-gon, T=2..300: every proof step holds (exact distances for n<=201): True | min n*rel margin (exact path, n<=201): 1.18034
+odd lcm family, H=2..40, m=1..3: 2340 (n,T) cases, proof-chain failures: 0
+n=5: mixed-state chord path, T=4: each piece has d = 1/T by homogeneity of the gauge, total = 0.25 = 1/T (same for the disk)
+n=7: mixed-state chord path, T=4: each piece has d = 1/T by homogeneity of the gauge, total = 0.25 = 1/T (same for the disk)
+n=61: mixed-state chord path, T=4: each piece has d = 1/T by homogeneity of the gauge, total = 0.25 = 1/T (same for the disk)

@@ -1,0 +1,14 @@
+OK 10.1109/JRPROC.1949.232969 | 1949 | Shannon | Communication in the Presence of Noise | Proceedings of the IRE 37 10-21
+OK 10.1109/TIT.1960.1057548 | 1960 | Max | Quantizing for minimum distortion | IEEE Transactions on Information Theory 6 7-12
+OK 10.1109/TIT.1982.1056489 | 1982 | Lloyd | Least squares quantization in PCM | IEEE Transactions on Information Theory 28 129-137
+FAIL 10.1109/TIT.1987.1057373 HTTP Error 429: Too Many Requests
+FAIL 10.1002/j.1538-7305.1966.tb00031.x HTTP Error 404: Not Found
+OK 10.1002/j.1538-7305.1968.tb02486.x | 1968 | Slepian | Group Codes for the Gaussian Channel | Bell System Technical Journal 47 575-602
+OK 10.1016/S0031-8914(40)90098-2 | 1940 | Kramers | Brownian motion in a field of force and the diffusion model of chemical reactions | Physica 7 284-304
+OK 10.2307/1426855 | 1979 | Siegmund | Corrected diffusion approximations in certain random walk problems | Advances in Applied Probability 11 701-719
+OK 10.1109/TIT.1987.1057373 | 1987 | Farvardin; Vaishampayan | Optimal quantizer design for noisy channels: An approach to combined source - channel coding | IEEE Transactions on Information Theory 33 827-838
+SEARCH 10.1002/j.1538-7305.1966.tb01043.x Bounds on Communication with Polyphase Coding [[1966, 4]]
+SEARCH 10.14711/thesis-b1084116 Wyner-ziv coding and error control for video communication [[None]]
+SEARCH 10.1109/ncc.2016.7561081 Lower bounds for interactive function computation via Wyner common information [[2016, 3]]
+OK 10.1002/j.1538-7305.1966.tb01043.x | 1966 | ['Wyner'] | Bounds on Communication with Polyphase Coding | Bell System Technical Journal 45 523-559
+NOTE: 10.1002/j.1538-7305.1966.tb00031.x (guessed) returned 404 and is not used.

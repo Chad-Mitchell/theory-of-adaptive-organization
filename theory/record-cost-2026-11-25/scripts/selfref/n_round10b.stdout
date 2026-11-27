@@ -1,0 +1,13 @@
+PG(2,2): 7 points; polarity matrices found 28; without absolute point 0
+PG(2,3): 13 points; polarity matrices found 468; without absolute point 0
+PG(2,4): 21 points; polarity matrices found 3864; without absolute point 0
+GF(3): every non-degenerate diagonal ternary form isotropic: True
+GF(5): every non-degenerate diagonal ternary form isotropic: True
+GF(7): every non-degenerate diagonal ternary form isotropic: True
+two-qubit stabilizer states: 60
+stabilizer states in the bit face span{|00>,|11>}: 6 (a third state exists: superposition)
+pairs whose 2-dim span is not a stabilizer code (join jumps to the whole space): 1320 of 1770
+octahedral group: order 24 ; min over non-identity of ||g - 1||: 1.4142
+SO(3) rotation by 0.1: ||g - 1|| = 1.00e-01
+SO(3) rotation by 0.001: ||g - 1|| = 1.00e-03
+SO(3) rotation by 1e-06: ||g - 1|| = 1.00e-06

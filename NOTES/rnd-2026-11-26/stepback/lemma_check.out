@@ -1,0 +1,12 @@
+k=2 kappa=0.01 R*=5 bound=14.78 ok=True
+k=2 kappa=0.0001 R*=7 bound=14.78 ok=True
+k=2 kappa=1e-06 R*=8 bound=14.78 ok=True
+k=4 kappa=0.01 R*=9 bound=29.56 ok=True
+k=4 kappa=0.0001 R*=12 bound=29.56 ok=True
+k=4 kappa=1e-06 R*=14 bound=29.56 ok=True
+k=8 kappa=0.01 R*=17 bound=59.11 ok=True
+k=8 kappa=0.0001 R*=20 bound=59.11 ok=True
+k=8 kappa=1e-06 R*=23 bound=59.11 ok=True
+k=16 kappa=0.01 R*=33 bound=118.22 ok=True
+k=16 kappa=0.0001 R*=37 bound=118.22 ok=True
+k=16 kappa=1e-06 R*=41 bound=118.22 ok=True

@@ -1,0 +1,16 @@
+k= 2 kappa=0.01 R*=  5 bound=  8 ok=True asym~7.5
+k= 2 kappa=0.0001 R*=  7 bound= 10 ok=True asym~9.1
+k= 2 kappa=1e-06 R*=  8 bound= 11 ok=True asym~10.4
+k= 4 kappa=0.01 R*=  9 bound= 13 ok=True asym~12.4
+k= 4 kappa=0.0001 R*= 12 bound= 15 ok=True asym~14.4
+k= 4 kappa=1e-06 R*= 14 bound= 17 ok=True asym~16.1
+k= 8 kappa=0.01 R*= 17 bound= 22 ok=True asym~21.6
+k= 8 kappa=0.0001 R*= 20 bound= 25 ok=True asym~24.1
+k= 8 kappa=1e-06 R*= 23 bound= 27 ok=True asym~26.2
+k=16 kappa=0.01 R*= 33 bound= 40 ok=True asym~39.0
+k=16 kappa=0.0001 R*= 37 bound= 43 ok=True asym~42.2
+k=16 kappa=1e-06 R*= 41 bound= 46 ok=True asym~44.9
+k=32 kappa=0.01 R*= 65 bound= 73 ok=True asym~72.9
+k=32 kappa=0.0001 R*= 70 bound= 77 ok=True asym~76.8
+k=32 kappa=1e-06 R*= 75 bound= 81 ok=True asym~80.2
+Kapteyn violations: 0

@@ -1,0 +1,22 @@
+== 10.1103/PhysRevX.4.031015
+OK ['Thermodynamics with Continuous Information Flow'] ['Horowitz', 'Esposito'] ['Physical Review X'] 4 None [[2014, 7, 28]]
+== 10.1103/PhysRevLett.114.158101
+OK ['Thermodynamic Uncertainty Relation for Biomolecular Processes'] ['Barato', 'Seifert'] ['Physical Review Letters'] 114 None [[2015, 4, 15]]
+== 10.1103/PhysRevE.90.042119
+OK ["Maximum work extraction and implementation costs for nonequilibrium Maxwell's demons"] ['Sandberg', 'Delvenne', 'Newton', 'Mitter'] ['Physical Review E'] 90 None [[2014, 10, 13]]
+== 10.1088/0034-4885/75/12/126001
+OK ['Stochastic thermodynamics, fluctuation theorems and molecular machines'] ['Seifert'] ['Reports on Progress in Physics'] 75 126001 [[2012, 11, 20]]
+== 10.1103/PhysRevLett.86.3463
+OK ['Steady-State Thermodynamics of Langevin Systems'] ['Hatano', 'Sasa'] ['Physical Review Letters'] 86 3463-3466 [[2001, 4, 16]]
+== 10.1103/PhysRevResearch.5.013017
+OK ['Housekeeping and excess entropy production for general nonlinear dynamics'] ['Yoshimura', 'Kolchinsky', 'Dechant', 'Ito'] ['Physical Review Research'] 5 None [[2023, 1, 17]]
+== 10.1103/RevModPhys.48.571
+OK ['Network theory of microscopic and macroscopic behavior of master equation systems'] ['Schnakenberg'] ['Reviews of Modern Physics'] 48 571-585 [[1976, 10, 1]]
+== 10.1007/BFb0075847
+OK ['Diffusions hypercontractives'] ['Bakry', 'Émery'] ['Lecture Notes in Mathematics', 'Séminaire de Probabilités XIX 1983/84'] None 177-206 [[1985]]
+== 10.1088/1367-2630/16/10/103024
+OK ['Efficiency of cellular information processing'] ['Barato', 'Hartich', 'Seifert'] ['New Journal of Physics'] 16 103024 [[2014, 10, 16]]
+== 10.1088/1367-2630/16/12/125007
+OK ['Second-law-like inequalities with information and their interpretations'] ['Horowitz', 'Sandberg'] ['New Journal of Physics'] 16 125007 [[2014, 12, 10]]
+== 10.1109/ALLERTON.2014.7028503
+OK ['Thermodynamic costs in implementing Kalman-Bucy filters'] ['Sandberg', 'Delvenne', 'Newton', 'Mitter'] ['2014 52nd Annual Allerton Conference on Communication, Control, and Computing (Allerton)'] None 550-555 [[2014, 9]]

@@ -1,0 +1,4 @@
+(1) Gamma=mu*k: 0.4142 vs D/s^2 0.4142; <k m^2/2>/kT = 0.4951 (equipartition 0.5)
+(2) same law of M (mean 0.75x, var 1.0); I(X;M)=0.3769 nats; heat rate/kT: separate channels 1.5000 (C12B: 1.5000), shared damper 0.0
+    keep floor 2*Gamma*I = 0.7538: satisfied by separate channels, violated (0 < floor) by the shared-damper flexure
+(3) mean compliance f^T K^-1 f = 0.7910 vs Var(f.x)/kT = 0.7900; mechanism transfer fout^T K^-1 fin = 0.0227 vs Cov(fout.x, fin.x)/kT = 0.0224

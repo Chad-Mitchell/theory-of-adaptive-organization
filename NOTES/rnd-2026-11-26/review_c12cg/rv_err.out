@@ -1,0 +1,5 @@
+n=4: #effect vertices 6; nearest-vertex error G=2e5 0.12500000  G=8e5 0.12500000
+n=5: #effect vertices 12; nearest-vertex error G=2e5 0.17639320  G=8e5 0.17639320
+n=6: #effect vertices 8; nearest-vertex error G=2e5 0.16666667  G=8e5 0.16666667
+n=8: #effect vertices 10; nearest-vertex error G=2e5 0.17233496  G=8e5 0.17233496
+pentagon closed form (4-sqrt5)/10 = 0.17639320225002103 ; disk 1/2-1/pi = 0.1816901138162093

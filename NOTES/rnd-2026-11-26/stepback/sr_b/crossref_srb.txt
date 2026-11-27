@@ -1,0 +1,10 @@
+== 10.1214/aoms/1177730030
+OK Statistical Decision Functions | Wald | The Annals of Mathematical Statistics 20 165-205 [[1949, 6]]
+== 10.1214/aoms/1177704593
+OK Discrete Dynamic Programming | Blackwell | The Annals of Mathematical Statistics 33 719-726 [[1962, 6]]
+== 10.1016/0020-0190(93)90029-9
+OK Optimal speedup of Las Vegas algorithms | Luby, Sinclair, Zuckerman | Information Processing Letters 47 173-180 [[1993, 9]]
+== 10.1103/PhysRevLett.51.1127
+OK Thermodynamic Length and Dissipated Availability | Salamon, Berry | Physical Review Letters 51 1127-1130 [[1983, 9, 26]]
+== 10.1103/PhysRevLett.99.100602
+OK Measuring Thermodynamic Length | Crooks | Physical Review Letters 99 None [[2007, 9, 7]]

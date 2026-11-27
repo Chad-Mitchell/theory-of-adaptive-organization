@@ -1,0 +1,34 @@
+== 1. Versions
+THEORY.md title: v2.9; CLAIM_MAP latest note: v2.89
+  OK   CORE.md                    THEORY -> v2.9 (want v2.9)
+  OK   THEORY.md                  CLAIM_MAP -> v2.89 (want v2.89)
+
+== 2. Wording (maintained docs: FAIL; frozen records: INFO)
+  maintained docs scanned: 34; wording FAILs: 0
+  frozen records scanned: 595; INFO hits (not edited, dated records): 31
+  banned words: 0 FAIL(s)
+
+== 3. CLAIM_MAP section N
+  rows in CLAIM_MAP section N: 68 (N1..N68)
+  N references checked: 93; mismatches: 0
+
+== 4. Process rules (reviews/lock_2026-11-18/PROCESS.md)
+  self-reviews found by header: 14
+  CLAIM_MAP rows counted: 392 (tally total 392)
+  tables checked: 137
+  process-rule FAILs: 0
+
+== 5. Core rules (THEORY v2.0)
+  claim index: 74 rows in THEORY Appendix C, 74 in CLAIM_MAP section O
+  WARN THEORY.md main text (before Appendix A)    11687 words (advisory reference 5500)
+  WARN length: THEORY.md main text (before Appendix A) has 11687 words, over the advisory reference of 5500 (soft warning, not a failure)
+  WARN README.md                                   4447 words (advisory reference 900)
+  WARN length: README.md has 4447 words, over the advisory reference of 900 (soft warning, not a failure)
+  core-rule FAILs: 0
+
+== 6. Headline ledger
+  claims: 0 FAIL(s)
+
+== Summary
+FAIL: 0   INFO (frozen records): 31
+RESULT: PASS

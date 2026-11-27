@@ -1,0 +1,12 @@
+OK 10.1109/tit.2018.2878446 | The Distortion-Rate Function of Sampled Wiener Processes | Kipnis | IEEE Transactions on Information Theory 65 482-499 2019
+OK 10.1109/tit.1970.1054423 | Information rates of Wiener processes | Berger | IEEE Transactions on Information Theory 16 134-139 1970
+OK 10.1103/physrevlett.102.250602 | Minimal Energy Cost for Thermodynamic Information Processing: Measurement and Information  | Sagawa | Physical Review Letters 102 None 2009
+OK 10.1088/1367-2630/13/6/063024 | Limits on nonlocal correlations from the structure of the local state space | Janotta | New Journal of Physics 13 063024 2011
+OK 10.1103/PhysRevLett.51.1127 | Thermodynamic Length and Dissipated Availability | Salamon | Physical Review Letters 51 1127-1130 1983
+OK 10.1103/PhysRevLett.99.100602 | Measuring Thermodynamic Length | Crooks | Physical Review Letters 99 None 2007
+OK 10.1109/TIT.1968.1054193 | Asymptotically efficient quantizing | Gish | IEEE Transactions on Information Theory 14 676-683 1968
+OK 10.1109/18.720541 | Quantization | Gray | IEEE Transactions on Information Theory 44 2325-2383 1998
+OK 10.1016/S0304-3932(03)00029-1 | Implications of rational inattention | Sims | Journal of Monetary Economics 50 665-690 2003
+OK 10.1103/PhysRevX.4.031015 | Thermodynamics with Continuous Information Flow | Horowitz | Physical Review X 4 None 2014
+OK 10.1147/rd.53.0183 | Irreversibility and Heat Generation in the Computing Process | Landauer | IBM Journal of Research and Development 5 183-191 1961
+OK 10.1287/opre.11.3.399 | Generalized Lagrange Multiplier Method for Solving Problems of Optimum Allocation of Resou | Everett | Operations Research 11 399-417 1963

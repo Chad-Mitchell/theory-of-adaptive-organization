@@ -1,0 +1,7 @@
+q=0.5: disk=0.906430 best odd n=9 (0.856725) -> odd polygon cheaper, rel margin +0.0548
+q=0.8: disk=0.646820 best odd n=25 (0.625829) -> odd polygon cheaper, rel margin +0.0325
+q=0.9: disk=0.452867 best odd n=49 (0.445905) -> odd polygon cheaper, rel margin +0.0154
+q=0.95: disk=0.298239 best odd n=145 (0.296503) -> odd polygon cheaper, rel margin +0.0058
+q=0.97: disk=0.212688 best odd n=289 (0.212119) -> odd polygon cheaper, rel margin +0.0027
+q=0.98: disk=0.160239 best odd n=601 (0.160018) -> odd polygon cheaper, rel margin +0.0014
+q=0.99: disk=0.096322 best odd n=2001 (0.096280) -> odd polygon cheaper, rel margin +0.0004

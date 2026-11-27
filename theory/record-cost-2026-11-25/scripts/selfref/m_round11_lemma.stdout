@@ -1,0 +1,7 @@
+=== Round 11-M continued: lemma checks (m_round11_lemma.py) ===
+squarexsquare: R_A^2|n_A|^2=2 (d_A-1=2), R_B^2|n_B|^2=2 (d_B-1=2); max ||C||_F^2 over max-composite vertices = 4 vs R_A^2 R_B^2 = 4; entangled vertices with a pure marginal: 0
+squarexoctahedron: R_A^2|n_A|^2=2 (d_A-1=2), R_B^2|n_B|^2=3 (d_B-1=3); max ||C||_F^2 over max-composite vertices = 2 vs R_A^2 R_B^2 = 2; entangled vertices with a pure marginal: 0
+octahedronxoctahedron: R_A^2|n_A|^2=3 (d_A-1=3), R_B^2|n_B|^2=3 (d_B-1=3); max ||C||_F^2 over max-composite vertices = 1 vs R_A^2 R_B^2 = 1; entangled vertices with a pure marginal: 0
+squarexcube: R_A^2|n_A|^2=2 (d_A-1=2), R_B^2|n_B|^2=3 (d_B-1=3); max ||C||_F^2 over max-composite vertices = 6 vs R_A^2 R_B^2 = 6; entangled vertices with a pure marginal: 0
+cubexoctahedron: R_A^2|n_A|^2=3 (d_A-1=3), R_B^2|n_B|^2=3 (d_B-1=3); max ||C||_F^2 over max-composite vertices = 3 vs R_A^2 R_B^2 = 3; entangled vertices with a pure marginal: 0
+cubexcube: R_A^2|n_A|^2=3 (d_A-1=3), R_B^2|n_B|^2=3 (d_B-1=3); max ||C||_F^2 over max-composite vertices = 9 vs R_A^2 R_B^2 = 9; entangled vertices with a pure marginal: 0

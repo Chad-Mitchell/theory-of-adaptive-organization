@@ -1,0 +1,82 @@
+cells 5616 edge cells 0 blind 0
+C0: 25 cells, J*/CORE-1: max |.| 4.16e-08 -> PASS
+
+== smin 1.0 c 0.0 keep-arm write: nonblind 432, pinned 432 (100.0%); regimes {'K': 73, 'R': 322, 'M': 37, 'B': 0}
+  B1 nats/look R cells 322: median 0.4510 q10 0.0092 q90 3.4042 -> FAIL
+  B2 non-pinned sigma pairs 0 median|e_sig(s*)| nan; x pairs 0 median e_x(s*) nan -> FAIL
+  B3 R dI/dlnx n=289 med 0.337; R dI/dlnsig n=255 med -0.288; K dI/dlnx n=61 med 0.409 -> FAIL
+
+== smin 1.0 c 0.1 keep-arm write: nonblind 432, pinned 156 (36.1%); regimes {'K': 74, 'R': 318, 'M': 40, 'B': 0}
+  B1 nats/look R cells 318: median 0.5218 q10 0.5078 q90 3.4042 -> FAIL
+  B2 non-pinned sigma pairs 205 median|e_sig(s*)| 0.989; x pairs 240 median e_x(s*) -0.499 -> FAIL
+  B3 R dI/dlnx n=285 med 0.261; R dI/dlnsig n=251 med -0.400; K dI/dlnx n=62 med 0.425 -> PASS
+
+== smin 1.0 c 1.0 keep-arm write: nonblind 432, pinned 126 (29.2%); regimes {'K': 78, 'R': 316, 'M': 38, 'B': 0}
+  B1 nats/look R cells 316: median 1.0621 q10 1.0379 q90 3.4042 -> PASS
+  B2 non-pinned sigma pairs 234 median|e_sig(s*)| 0.992; x pairs 270 median e_x(s*) -0.500 -> FAIL
+  B3 R dI/dlnx n=283 med 0.258; R dI/dlnsig n=249 med -0.483; K dI/dlnx n=65 med 0.451 -> PASS
+
+== smin 1.0 c 10.0 keep-arm write: nonblind 432, pinned 78 (18.1%); regimes {'K': 90, 'R': 303, 'M': 39, 'B': 0}
+  B1 nats/look R cells 303: median 1.9319 q10 1.8926 q90 3.4042 -> FAIL
+  B2 non-pinned sigma pairs 282 median|e_sig(s*)| 0.995; x pairs 318 median e_x(s*) -0.500 -> PASS
+  B3 R dI/dlnx n=271 med 0.255; R dI/dlnsig n=238 med -0.497; K dI/dlnx n=75 med 0.465 -> PASS
+
+== smin 0.1 c 0.0 keep-arm write: nonblind 432, pinned 432 (100.0%); regimes {'K': 72, 'R': 329, 'M': 31, 'B': 0}
+  B1 nats/look R cells 329: median 0.0474 q10 0.0013 q90 1.1979 -> FAIL
+  B2 non-pinned sigma pairs 0 median|e_sig(s*)| nan; x pairs 0 median e_x(s*) nan -> FAIL
+  B3 R dI/dlnx n=295 med 0.261; R dI/dlnsig n=261 med -0.475; K dI/dlnx n=60 med 0.402 -> PASS
+
+== smin 0.1 c 0.1 keep-arm write: nonblind 432, pinned 54 (12.5%); regimes {'K': 74, 'R': 323, 'M': 35, 'B': 0}
+  B1 nats/look R cells 323: median 0.5213 q10 0.5054 q90 1.1979 -> FAIL
+  B2 non-pinned sigma pairs 306 median|e_sig(s*)| 0.994; x pairs 342 median e_x(s*) -0.500 -> PASS
+  B3 R dI/dlnx n=289 med 0.251; R dI/dlnsig n=255 med -0.499; K dI/dlnx n=62 med 0.425 -> PASS
+
+== smin 0.1 c 1.0 keep-arm write: nonblind 432, pinned 42 (9.7%); regimes {'K': 78, 'R': 320, 'M': 34, 'B': 0}
+  B1 nats/look R cells 320: median 1.0612 q10 1.0342 q90 1.1979 -> PASS
+  B2 non-pinned sigma pairs 318 median|e_sig(s*)| 0.996; x pairs 354 median e_x(s*) -0.500 -> PASS
+  B3 R dI/dlnx n=286 med 0.251; R dI/dlnsig n=252 med -0.499; K dI/dlnx n=65 med 0.451 -> PASS
+
+== smin 0.1 c 10.0 keep-arm write: nonblind 432, pinned 18 (4.2%); regimes {'K': 90, 'R': 304, 'M': 38, 'B': 0}
+  B1 nats/look R cells 304: median 1.9307 q10 1.8919 q90 1.9330 -> FAIL
+  B2 non-pinned sigma pairs 342 median|e_sig(s*)| 0.997; x pairs 378 median e_x(s*) -0.500 -> PASS
+  B3 R dI/dlnx n=272 med 0.252; R dI/dlnsig n=239 med -0.500; K dI/dlnx n=75 med 0.465 -> PASS
+
+== smin 0.01 c 0.0 keep-arm write: nonblind 432, pinned 430 (99.5%); regimes {'K': 72, 'R': 329, 'M': 31, 'B': 0}
+  B1 nats/look R cells 329: median 0.0047 q10 0.0001 q90 0.1494 -> FAIL
+  B2 non-pinned sigma pairs 0 median|e_sig(s*)| nan; x pairs 1 median e_x(s*) -0.118 -> FAIL
+  B3 R dI/dlnx n=295 med 0.252; R dI/dlnsig n=261 med -0.496; K dI/dlnx n=60 med 0.401 -> PASS
+
+== smin 0.01 c 0.1 keep-arm write: nonblind 432, pinned 6 (1.4%); regimes {'K': 74, 'R': 323, 'M': 35, 'B': 0}
+  B1 nats/look R cells 323: median 0.5212 q10 0.5054 q90 0.5218 -> FAIL
+  B2 non-pinned sigma pairs 354 median|e_sig(s*)| 0.996; x pairs 390 median e_x(s*) -0.500 -> PASS
+  B3 R dI/dlnx n=289 med 0.250; R dI/dlnsig n=255 med -0.500; K dI/dlnx n=62 med 0.425 -> PASS
+
+== smin 0.01 c 1.0 keep-arm write: nonblind 432, pinned 6 (1.4%); regimes {'K': 78, 'R': 320, 'M': 34, 'B': 0}
+  B1 nats/look R cells 320: median 1.0609 q10 1.0342 q90 1.0622 -> PASS
+  B2 non-pinned sigma pairs 354 median|e_sig(s*)| 0.997; x pairs 390 median e_x(s*) -0.500 -> PASS
+  B3 R dI/dlnx n=286 med 0.251; R dI/dlnsig n=252 med -0.500; K dI/dlnx n=65 med 0.451 -> PASS
+
+== smin 0.01 c 10.0 keep-arm write: nonblind 432, pinned 0 (0.0%); regimes {'K': 90, 'R': 304, 'M': 38, 'B': 0}
+  B1 nats/look R cells 304: median 1.9306 q10 1.8919 q90 1.9330 -> FAIL
+  B2 non-pinned sigma pairs 360 median|e_sig(s*)| 0.997; x pairs 396 median e_x(s*) -0.500 -> PASS
+  B3 R dI/dlnx n=272 med 0.251; R dI/dlnsig n=239 med -0.500; K dI/dlnx n=75 med 0.465 -> PASS
+
+== smin 1.0 c 0.0 keep-arm avgkeep: nonblind 432, pinned 432 (100.0%); regimes {'K': 72, 'R': 327, 'M': 33, 'B': 0}
+  B1 nats/look R cells 327: median 0.4576 q10 0.0121 q90 3.4042 -> FAIL
+  B2 non-pinned sigma pairs 0 median|e_sig(s*)| nan; x pairs 0 median e_x(s*) nan -> FAIL
+  B3 R dI/dlnx n=293 med 0.337; R dI/dlnsig n=259 med -0.287; K dI/dlnx n=60 med 0.414 -> FAIL
+
+B4: 63 cells, J*/(sig sqrt x) median 0.9999 range [0.9544,1.0004] -> PASS
+collapse check Gamma=0 c=0: J/(sig sqrt x) binned by u=smin*sig*sqrt(x):
+  u in [1e-05,0.001): n=29 J/(s sqrt x) 0.9954-1.0000
+  u in [0.001,0.01): n=44 J/(s sqrt x) 0.9544-1.0000
+  u in [0.01,0.1): n=54 J/(s sqrt x) 0.9544-1.0004
+  u in [0.1,1): n=48 J/(s sqrt x) 0.9575-1.0365
+  u in [1,10): n=28 J/(s sqrt x) 1.0385-2.6619
+  u in [10,100): n=11 J/(s sqrt x) 2.7781-23.5554
+  u in [100,1000): n=2 J/(s sqrt x) 25.0257-74.3414
+
+PRIMARY (smin=1,c=0): B1 False B2 False B3 False B4 True -> MISS
+c=0.1: nats/look R non-pinned n=317 median 0.5211 (paper 0.5ln(1+2sqrt c)=0.2450)
+c=1.0: nats/look R non-pinned n=314 median 1.0609 (paper 0.5ln(1+2sqrt c)=0.5493)
+c=10.0: nats/look R non-pinned n=304 median 1.9306 (paper 0.5ln(1+2sqrt c)=0.9956)

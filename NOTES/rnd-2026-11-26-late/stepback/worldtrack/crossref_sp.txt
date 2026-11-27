@@ -1,0 +1,5 @@
+OK 10.1109/cdc.2002.1184824 | Comparison of Riemann and Lebesgue sampling for first order stochastic systems | Astrom | Proceedings of the 41st IEEE Conference on Decision and Control, 2002. 2 2011-2016 None
+OK 10.1137/090757125 | Adaptive Sampling for Linear State Estimation | Rabi | SIAM Journal on Control and Optimization 50 672-702 2012
+OK 10.1109/tit.2019.2937336 | Sampling of the Wiener Process for Remote Estimation Over a Channel With Random Delay | Sun | IEEE Transactions on Information Theory 66 1118-1135 2020
+OK 10.1109/tit.1982.1056552 | Causal source codes | Neuhoff | IEEE Transactions on Information Theory 28 701-713 1982
+OK 10.1109/tac.2004.834430 | Stochastic Linear Control Over a Communication Channel | Tatikonda | IEEE Transactions on Automatic Control 49 1549-1561 2004
