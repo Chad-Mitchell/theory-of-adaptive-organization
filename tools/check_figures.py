@@ -51,7 +51,10 @@ def _same_pixels(a, b):
         import numpy as np
     except ImportError:
         return None
-    x, y = mi.imread(a), mi.imread(b)
+    try:
+        x, y = mi.imread(a), mi.imread(b)
+    except Exception as e:  # a corrupt or non-PNG file is a FAIL, not a crash
+        return "unreadable (%s: %s)" % (type(e).__name__, str(e)[:80])
     return x.shape == y.shape and bool(np.array_equal(x, y))
 
 
@@ -151,7 +154,9 @@ def check(root=ROOT):
                 infos.append("figure %s: rebuilt from %s, byte-identical" % (png, script))
                 continue
             same = _same_pixels(out, os.path.join(root, png))
-            if same:
+            if isinstance(same, str):
+                fails.append("figure %s: the committed or rebuilt image is %s" % (png, same))
+            elif same:
                 infos.append("figure %s: rebuilt from %s, same pixels (metadata differs)" % (png, script))
             elif same is None:
                 fails.append("figure %s: rebuilt image differs in bytes and pixels could not be compared" % png)

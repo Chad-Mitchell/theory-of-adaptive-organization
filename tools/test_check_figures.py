@@ -95,3 +95,14 @@ def test_a_hypothesis_line_not_on_readme_fails():
 def test_a_banned_word_in_figure_text_fails():
     out = cf.text_fails(cf.ROOT, ["The verdict is in."])
     assert out and all("banned word" in x for x in out)
+
+
+def test_a_corrupt_committed_png_fails_without_a_crash():
+    d = _tree()
+    p = os.path.join(d, "figures", "f.png")
+    data = bytearray(open(p, "rb").read())
+    data[60] ^= 0xFF
+    open(p, "wb").write(bytes(data))
+    fails, _ = cf.check(d)
+    shutil.rmtree(d)
+    assert len(fails) == 1 and "unreadable" in fails[0]
