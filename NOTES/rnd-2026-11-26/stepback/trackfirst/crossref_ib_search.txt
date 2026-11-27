@@ -1,0 +1,5 @@
+10.21437/interspeech.2005-182 Extraction of relevant speech features using the information bottleneck method ['Hecht', 'Tishby'] [[2005, 9, 4]]
+10.1109/itw.2015.7133169 Deep learning and the information bottleneck principle ['Tishby', 'Zaslavsky'] [[2015, 4]]
+10.21437/interspeech.2009-387 Speaker recognition by Gaussian information bottleneck ['Hecht', 'Noor', 'Tishby'] [[2009, 9, 6]]
+10.1145/345508.345578 Document clustering using word clusters via the information bottleneck method ['Slonim', 'Tishby'] [[2000, 7]]
+10.21437/interspeech.2009-72 Information bottleneck based age verification ['Hecht', 'Hezroni', 'Manna'] [[2009, 9, 6]]

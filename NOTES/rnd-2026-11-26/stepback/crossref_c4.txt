@@ -1,0 +1,5 @@
+10.1142/S0217732309031958 | DISCRETENESS WITHOUT SYMMETRY BREAKING: A THEOREM | BOMBELLI; HENSON; SORKIN | Modern Physics Letters A 24 [[2009, 10, 20]]
+10.1142/S0217732304015026 | QUANTUM GRAVITY PHENOMENOLOGY, LORENTZ INVARIANCE AND DISCRETENESS | DOWKER; HENSON; SORKIN | Modern Physics Letters A 19 [[2004, 8, 10]]
+10.1103/PhysRevLett.66.260 | Structure of random discrete spacetime | Brightwell; Gregory | Physical Review Letters 66 [[1991, 1, 21]]
+10.1063/1.523436 | The class of continuous timelike curves determines the topology of spacetime | Malament | Journal of Mathematical Physics 18 [[1977, 7, 1]]
+10.1103/PhysRevLett.59.521 | Space-time as a causal set | Bombelli; Lee; Meyer; Sorkin | Physical Review Letters 59 [[1987, 8, 3]]

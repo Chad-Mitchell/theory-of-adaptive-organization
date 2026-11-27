@@ -1,0 +1,14 @@
+n=6: LP distances d(v0,vk) k=1..n/2 = [0.5, 1.0, 1.0]; targets [2, 3, 4]
+   T=1: brute-force J=1.000000000000  disk=1.000000000000  polygon cheaper: False
+   T=2: brute-force J=0.500000000000  disk=1.000000000000  polygon cheaper: True
+n=14: LP distances d(v0,vk) k=1..n/2 = [0.222521, 0.445042, 0.62349, 0.801938, 0.900969, 1.0, 1.0]; targets [6, 7, 8]
+   T=1: brute-force J=1.000000000000  disk=1.000000000000  polygon cheaper: False
+   T=2: brute-force J=0.777479066044  disk=1.000000000000  polygon cheaper: True
+   T=3: brute-force J=0.594186792585  disk=0.750000000000  polygon cheaper: True
+n=26: LP distances d(v0,vk) k=1..n/2 = [0.120537, 0.241073, 0.354605, 0.468136, 0.568065, 0.667993, 0.748511, 0.829028, 0.885456, 0.941884, 0.970942, 1.0, 1.0]; targets [12, 13, 14]
+   T=1: brute-force J=1.000000000000  disk=1.000000000000  polygon cheaper: False
+   T=2: brute-force J=0.882965896606  disk=1.000000000000  polygon cheaper: True
+   T=3: brute-force J=0.657455105143  disk=0.750000000000  polygon cheaper: True
+   T=4: brute-force J=0.502978503658  disk=0.585786437627  polygon cheaper: True
+H=2 by hand: R_2(disk) = (1 + 2/2)/(3/2) = 1.3333333333333333 ; R_2(hexagon) = 1 (it attains J* at T=1,2)
+26 1 0.88296589660639369 0.65745510514297556 0.50297850365779784

@@ -1,0 +1,6 @@
+{"body": "B3 (spin 1)", "outcome": "TARGET (complex QM itself)", "cap_UB": 2, "cap_LB": 2, "witness_recheck_min": -7.59911005010494e-07, "hSFP": "pass at depth 1 (no failure found)", "n_torus_fixed_weyl": 2, "bit_faces": null} 20s
+{"body": "Z3 (spin 3)", "outcome": "MISS (cost: d > N_UB^2 - 1)", "cap_UB": 2, "cap_LB": null, "witness_recheck_min": null, "hSFP": null, "n_torus_fixed_weyl": null, "bit_faces": null} 7s
+{"body": "C1 (spin 1+2)", "outcome": "MISS (hSFP fails)", "cap_UB": 4, "cap_LB": null, "witness_recheck_min": null, "hSFP": "fail (re-confirmed)", "n_torus_fixed_weyl": 2, "bit_faces": null} 10s
+{"body": "Z2 (real QM d=3)", "outcome": "MISS (hSFP fails)", "cap_UB": 3, "cap_LB": null, "witness_recheck_min": null, "hSFP": "fail (re-confirmed)", "n_torus_fixed_weyl": 1, "bit_faces": null} 8s
+{"body": "B3 x B3", "outcome": "MISS (cost: d > N_UB^2 - 1)", "cap_UB": 2, "cap_LB": null, "witness_recheck_min": null, "hSFP": null, "n_torus_fixed_weyl": null, "bit_faces": null} 6s
+B3 witness: recheck min -7.599e-07 ; exact sphere minima ['-7.599e-07', '-7.599e-07'] ; radius 1.000000

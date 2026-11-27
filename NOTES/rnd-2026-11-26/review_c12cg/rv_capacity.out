@@ -1,0 +1,11 @@
+n=3: single-state classical capacity (numerical, lower bound on the sup) = 1.584963 bits
+n=4: single-state classical capacity (numerical, lower bound on the sup) = 1.000000 bits
+/workspace/gtao-notes/rnd/review_c12cg/rv_capacity.py:18: RuntimeWarning: overflow encountered in exp
+  f=lambda x: -I_best(V,R,np.exp(x)/np.exp(x).sum())
+/workspace/gtao-notes/rnd/review_c12cg/rv_capacity.py:18: RuntimeWarning: invalid value encountered in divide
+  f=lambda x: -I_best(V,R,np.exp(x)/np.exp(x).sum())
+/usr/local/lib/python3.13/dist-packages/numpy/_core/_methods.py:49: RuntimeWarning: overflow encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims, initial, where)
+n=5: single-state classical capacity (numerical, lower bound on the sup) = 1.020433 bits
+n=6: single-state classical capacity (numerical, lower bound on the sup) = 1.000000 bits
+n=7: single-state classical capacity (numerical, lower bound on the sup) = 1.004373 bits

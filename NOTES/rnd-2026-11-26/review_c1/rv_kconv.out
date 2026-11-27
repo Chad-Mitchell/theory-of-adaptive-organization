@@ -1,0 +1,4 @@
+v0: max|P256-P1024| over T+first130 = 5.78e-04; max|Im P256| 7.71e-04; max|Im P1024| 1.93e-04
+v0: gains along sequence: stored-vs-recomputed K256 max diff 0.0e+00; K256 vs K1024 max rel diff 6.87e-04 (at step 123, gain 0.00303); median 1.5e-04
+v2: max|P256-P1024| over T+first130 = 1.23e-06; max|Im P256| 1.31e-06; max|Im P1024| 8.15e-08
+v2: gains along sequence: stored-vs-recomputed K256 max diff 0.0e+00; K256 vs K1024 max rel diff 9.77e-06 (at step 125, gain 0.00066); median 1.1e-06

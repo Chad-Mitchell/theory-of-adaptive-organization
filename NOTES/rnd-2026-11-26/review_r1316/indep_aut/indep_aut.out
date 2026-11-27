@@ -1,0 +1,10 @@
+facets: ico 20 dod 12 tri 3 sq 4
+facet sums (should be (n,0,0,0)): [20.0, 0.0, 0.0, 0.0] [12.0, 0.0, 0.0, 0.0]
+per-factor distinct K values: ico 6 dod 4
+ico: facets 20, distinct off-diagonal K values 5, diagonal classes 1: 3 orbits; grpsize=120; 3 gens; 7 nodes; maxlev=3  [1s]
+dod: facets 12, distinct off-diagonal K values 3, diagonal classes 1: 2 orbits; grpsize=120; 3 gens; 10 nodes; maxlev=4  [1s]
+tri: facets 3, distinct off-diagonal K values 1, diagonal classes 1: 1 orbit; grpsize=6; 2 gens; 6 nodes; maxlev=3  [1s]
+sq: facets 4, distinct off-diagonal K values 2, diagonal classes 1: 2 orbits; grpsize=8; 2 gens; 6 nodes; maxlev=3  [1s]
+tri x tri (control: classical, expect 9! = 362880): facets 9, distinct off-diagonal K values 1, diagonal classes 1: 1 orbit; grpsize=362880; 8 gens; 45 nodes; maxlev=9  [1s]
+sq x sq (boxworld, Gross et al.: expect local only, 8*8*2 = 128 incl. swap): facets 16, distinct off-diagonal K values 4, diagonal classes 1: 3 orbits; grpsize=128; 4 gens; 12 nodes; maxlev=4  [1s]
+ico x dod (expect 120*120 = 14400 if all automorphisms are local): facets 240, distinct off-diagonal K values 19, diagonal classes 1: 5 orbits; grpsize=14400; 6 gens; 17 nodes; maxlev=4  [1s]

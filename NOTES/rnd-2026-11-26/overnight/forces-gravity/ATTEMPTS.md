@@ -1,0 +1,43 @@
+# ATTEMPTS log, forces-gravity round (append only)
+- 00:42 EST: set up the folder; read selfref/composition notes for the J, record and SFP definitions; Crossref batch (25 DOIs) started.
+- Q1 q1_gauge.py: orbit counting (exhaustive), edge-vs-relearn bits, loop mismatch vs Wilson (quadratic, KL to 1e-14, abs loss), SU(2) Bloch records (adjoint, not fundamental), pure-gauge zero curvature. OK.
+- 00:44/00:45 steering: added Q4 (arrow), CT18/JP-heat temperature test, relational/thermal time framing.
+- Q2 q2_arealaw.py: TFIM N=18 (g=0.5, 1, 2, random), 2D free fermions 24x24 gapped/metal/thermal, 4x4 random. ~60 s. OK.
+- Q2 q2_tensornet.py: perfect tensor exact; random tree network D=2,4,8 vs min cut. OK.
+- Q2 q2_boundary_rate.py: brickwork, N=16, boundary-limited rate, volume saturation. OK.
+- Q4 q4_temperature_time.py, first run: FDT for OU was noisy (X=1.14) because h=0 and h>0 used independent noise; PW memory measure used S(M), which is capped at 1 by the single system qubit. Both fixed (common random numbers; z-basis record entropy). Rerun: X=0.99 (OU), 0.47 (reset); record bits monotone. The first-run output was overwritten in outputs/q4.txt; the numbers are kept here.
+- Crossref: 26 of 27 OK. 10.1103/PhysRevD.24.2208 was a guessed DOI, returned 404, dropped and never cited. MMPA 2013 PNAS and MMPA 2014 JMP verified separately. arXiv abstracts for 1206.0630 and 1111.4060 are saved.
+- Not done: no git, no push, no PR edits; THEORY.md untouched.
+- 00:55 Round 2 started (owner brief: tracker test, Jacobson 2016, selection weighting, underdamped CT18, coverage).
+- r2_tracker.py: first quench run (|0..0>, t=6) was not volume-scaling (S_half=1.05). Replaced in r2_tracker_scaling.py by |+>^N, t=8 (S_half 1.4 -> 2.8 for N=8..14). Random-MPS records also tried: poor (local error 0.31-0.70), so they are not a fair record; kept in the output as a negative.
+- Re-ran selfref's m_round12_platonic_lp.py (read-only, output to outputs/q5_platonic_lp_rerun.txt): I×D gives Phi=+2.05.
+- r2_jpheat_equality.py: I_alt matches r*L(eps) to 4 digits (consistency with repo T59). Equality only as g -> inf; at c=0 the optimum sits at the grid edge.
+- r2_selection_gibbs.py: first run had a garbled label (sed delimiter clash); fixed in Python, numbers unchanged.
+- r2_underdamped.py: a first histogram-fit estimator of beta was biased (0.554 vs 0.5); replaced by the Gaussian (covariance) estimator with batch s.e.; also smaller dt. Kept the honest numbers (agreement within ~1-2 s.e.).
+- Crossref: 4 more DOIs OK. Jacobson 2016 and MMPA 2014 PDFs read from arXiv (1505.04753, 1111.4060).
+- Still no git, no push, no PR edits; THEORY.md untouched.
+- 01:05 G3 started. A first launch failed (block_until_ms > 13 min was rejected); nothing ran. Relaunched in the background.
+- g3_2d_record.py L=14, then L=20 with 4 block offsets and a joint perimeter+area fit (~10 min).
+- g3_wedge.py: the first fit used x=0..7. Entries x>=4 are precision-saturated, so the fit was restricted to x=0..3 (0.81 -> 0.998). Both runs noted.
+- g3_second_order.py: the first second-difference run gave nonsense (d2F < 0) because rho +- hX left the positive cone (rho has ~1e-5 eigenvalues). Fixed with rho^(1/2)-scaled directions and a positivity assert.
+- Hostile reviewer's partial checks (review_g2/hr_checks_out.txt) read at ~01:10. R2.1 table withdrawn and rescored (outputs/r2_tracker_renorm.txt); R2.3 Gibbs relabelled as forced given KL; corrections appended to NOTE.md. HOSTILE_REVIEW_G2.md not yet present at writing.
+- Crossref: Eisler-Peschel 2017 DOI guess resolved to a different paper (Bridgeman-Chubb); not cited.
+- 01:14 HOSTILE_REVIEW_G2.md read in full. R2 errata (7 items) appended; ASR 2015 DOI verified myself; R12-M.9 values copied from selfref NOTE.
+- 01:16 G3-1b prereg written and hashed (PREREG_G3-1b.sha256 = 0575b2ea…) before any run. Verified intact afterwards.
+- g3_1b_prereg.py: 16 jobs on 8 processes, ~12 min. One tool connection drop while polling; the job was unaffected.
+- G3-1b scored: P1 fail (all), P2 fail for W1 (falsifier triggered at kappa=3), pass for W2; P3 pass only W2 2D; P4 fail at kappa=0.03, N=8,10. Logged as fail; post-hoc diagnosis labelled HYP.
+- P4 Bell record leaves 2 sites in |0> when N mod 4 = 2 (N = 10, 14): a design artifact that raises its error there (1.59, 1.39).
+- 01:31 G4 preregs (G4-1 primary, G4-2 secondary) written and locked (PREREG_G4.sha256 = 504704d9…) before any G4 code. Verified intact after the runs.
+- g4_2_intensivity.py derived from g3_1b_prereg.py (read error -> Gaussian relative entropy in bits). ~15 min on 8 processes.
+- g4_1_horizon.py: scheme B (partner modes) and scheme A (greedy per-site, one greedy path truncated by kappa, which equals the prereg's stop rule). ~5 min.
+- Scored strictly: G4-1 primary = open miss (B fails H1, H3). A: H1/H2 pass for m=0.3; H3 fails (precision ceiling in T_c, logged as a prereg design flaw, not repaired). G4-2: Q1 pass in all; Q2 fails for W2 (31%, 25% 1D; 11.4% 2D).
+
+## G5 (02:05 EST)
+- G5 prereg (H3, precision-safe) locked as `PREREG_G5.sha256` = 419a6a68….
+- The m = 0 setup check failed (1.67e−3). Cause: the periodic N = 600 reference ring leaves its two E = 0 modes empty (298/600 filling).
+  - The tolerance was unattainable; it counts as a setup miss.
+  - Erratum noted for G4-1's massless world; its scores stand.
+- 60 digits underflow at |U| = 95 for m = 0. The post-hoc run used 150/200 digits.
+- m = 0.3: P5c failed as predicted (slope 0.27).
+- Q2-ext passed (N = 800).
+- Post-hoc m = 0 (unscored): slope 0.465, T_c·R_eff ≈ 0.60 vs 2/π.

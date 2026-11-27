@@ -1,0 +1,5 @@
+q=0.99: mean T 100; disk=0.0963215; best n=1000 (0.0961553); next [800, 1400]; polygon cheaper, margin +0.00173; largest n computed = 2400
+q=0.993: mean T 143; disk=0.0733691; best n=1800 (0.0732992); next [2000, 1600]; polygon cheaper, margin +0.00095; largest n computed = 2400
+q=0.995: mean T 200; disk=0.0564463; best n=2400 (0.0564205); next [2000, 1800]; polygon cheaper, margin +0.00046; largest n computed = 2400
+q=0.996: mean T 250; disk=0.0473121; best n=2400 (0.0473132); next [2000, 1800]; disk cheaper, margin -0.00002; largest n computed = 2400
+q=0.997: mean T 333; disk=0.0375763; best n=2400 (0.0376144); next [2000, 1800]; disk cheaper, margin -0.00101; largest n computed = 2400

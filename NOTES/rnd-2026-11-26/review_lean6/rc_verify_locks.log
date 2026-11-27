@@ -1,0 +1,2 @@
+locks: 207 OK; 13 scrub-only (proved by reversing the substitution); 2 changed after the lock (declared); 2 unverifiable; 42 raw data never committed
+RESULT: PASS

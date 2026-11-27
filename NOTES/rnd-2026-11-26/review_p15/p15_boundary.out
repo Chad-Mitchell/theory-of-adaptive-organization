@@ -1,0 +1,20 @@
+design | angles (deg) of d=1 vertices from v0 | reach cost T=2,3,4 (M3h) | disk T*sin^2(pi/2T)
+3 [np.float64(120.0), np.float64(240.0)] [np.float64(1.0), np.float64(1.0), np.float64(1.0)] [np.float64(1.0), np.float64(0.75), np.float64(0.5858)]
+4 [np.float64(90.0), np.float64(180.0), np.float64(270.0)] [np.float64(1.0), np.float64(1.0), np.float64(1.0)] [np.float64(1.0), np.float64(0.75), np.float64(0.5858)]
+5 [np.float64(144.0), np.float64(216.0)] [np.float64(0.7639), np.float64(0.7639), np.float64(0.7639)] [np.float64(1.0), np.float64(0.75), np.float64(0.5858)]
+6 [np.float64(120.0), np.float64(180.0), np.float64(240.0)] [np.float64(0.5), np.float64(0.5), np.float64(0.5)] [np.float64(1.0), np.float64(0.75), np.float64(0.5858)]
+7 [np.float64(154.29), np.float64(205.71)] [np.float64(0.8412), np.float64(0.5942), np.float64(0.5942)] [np.float64(1.0), np.float64(0.75), np.float64(0.5858)]
+8 [np.float64(135.0), np.float64(180.0), np.float64(225.0)] [np.float64(0.6716), np.float64(0.5147), np.float64(0.5147)] [np.float64(1.0), np.float64(0.75), np.float64(0.5858)]
+9 [np.float64(160.0), np.float64(200.0)] [np.float64(0.852), np.float64(0.6673), np.float64(0.4825)] [np.float64(1.0), np.float64(0.75), np.float64(0.5858)]
+10 [np.float64(144.0), np.float64(180.0), np.float64(216.0)] [np.float64(0.75), np.float64(0.5729), np.float64(0.382)] [np.float64(1.0), np.float64(0.75), np.float64(0.5858)]
+12 [np.float64(150.0), np.float64(180.0), np.float64(210.0)] [np.float64(0.7859), np.float64(0.5718), np.float64(0.4654)] [np.float64(1.0), np.float64(0.75), np.float64(0.5858)]
+disk: only d=1 state is the antipode (180 deg)
+
+Same polygons under the ANGLE-ONLY target 'be at 180 deg' (P15's class): cost (inf = unreachable)
+3 [inf, inf, inf]
+4 [np.float64(0.9999999999999998), np.float64(0.9999999999999998), np.float64(0.9999999999999998)]
+5 [inf, inf, inf]
+6 [np.float64(1.0), np.float64(0.7499999999999993), np.float64(0.7499999999999993)]
+8 [np.float64(0.9999999999999998), np.float64(0.8431457505076196), np.float64(0.6862915010152392)]
+10 [np.float64(1.0), np.float64(0.8454915028125263), np.float64(0.6684405196876837)]
+12 [np.float64(0.9999999999999998), np.float64(0.7499999999999996), np.float64(0.6435935394489812)]

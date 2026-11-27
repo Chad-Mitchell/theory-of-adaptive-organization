@@ -1,0 +1,8 @@
+OK 10.1287/opre.11.3.399 | Everett | 1963 | Generalized Lagrange Multiplier Method for Solving Problems of Optimum Allocation of Resources | Operations Research 11 399-417
+OK 10.1016/0022-247X(68)90201-1 | Geoffrion | 1968 | Proper efficiency and the theory of vector maximization | Journal of Mathematical Analysis and Applications 22 618-630
+OK 10.1007/3-540-27659-9 |  | 2005 | Multicriteria Optimization |   
+OK 10.1007/BFb0120690 | Geoffrion | 1974 | Lagrangean relaxation for integer programming | Mathematical Programming Studies  82-114
+OK 10.1214/ejp.v1-5 | Seppäläinen | 1996 | A Microscopic Model for the Burgers Equation and Longest Increasing Subsequences | Electronic Journal of Probability 1 1-51
+OK 10.1214/aop/1022855751 | Seppäläinen | 1998 | Exact limiting shape for a simplified model of first-passage percolation on the plane | The Annals of Probability 26 1232-1250
+OK 10.1214/009117904000000838 | Martin | 2004 | Limiting shape for directed percolation models | The Annals of Probability 32 2908-2937
+OK 10.1142/S0217732304015026 | DOWKER; HENSON; SORKIN | 2004 | QUANTUM GRAVITY PHENOMENOLOGY, LORENTZ INVARIANCE AND DISCRETENESS | Modern Physics Letters A 19 1829-1840

@@ -1,0 +1,2 @@
+== 10.3390/e19070333
+OK ['Information-Theoretic Bound on the Entropy Production to Maintain a Classical Nonequilibrium Distribution Using Ancillary Control'] ['Horowitz', 'England'] ['Entropy'] 19 333 [[2017, 7, 4]]

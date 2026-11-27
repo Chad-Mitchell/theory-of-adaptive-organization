@@ -1,0 +1,19 @@
+sig 0.001 smin 1.0 done 4s
+sig 0.001 smin 0.1 done 5s
+sig 0.001 smin 0.01 done 6s
+sig 0.003 smin 1.0 done 9s
+sig 0.003 smin 0.1 done 10s
+sig 0.003 smin 0.01 done 11s
+sig 0.01 smin 1.0 done 15s
+sig 0.01 smin 0.1 done 16s
+sig 0.01 smin 0.01 done 17s
+sig 0.03 smin 1.0 done 21s
+sig 0.03 smin 0.1 done 22s
+sig 0.03 smin 0.01 done 24s
+sig 0.1 smin 1.0 done 28s
+sig 0.1 smin 0.1 done 29s
+sig 0.1 smin 0.01 done 33s
+sig 0.3 smin 1.0 done 36s
+sig 0.3 smin 0.1 done 39s
+sig 0.3 smin 0.01 done 44s
+ALL DONE

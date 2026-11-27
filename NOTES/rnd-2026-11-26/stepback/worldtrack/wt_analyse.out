@@ -1,0 +1,54 @@
+
+===== ARM primary =====
+cells 432 blind 0 regimes {'K': 67, 'R': 327, 'M': 38}
+H-a non-unique non-blind cells: 0 of 432 []
+H-d edge cells: 0 []
+s*=1 cells (stated regime): 150
+H-b keep pairs 56 median e_x(n*) 0.454 frac in [0.35,0.65] 0.982  -> PASS
+H-c sigma pairs 180 median |e_sig(s*)| 0.968 frac in [0.8,1.2] 0.850 -> PASS
+   |e_sig(s*)| quantiles 10/25/50/75/90: [0.778 0.86  0.968 1.    1.025]
+S1 R cells s*>=3: 157 rho* median 0.604 range [0.534,0.668] frac in [0.05,0.8] 1.000
+   H* nats median 1.103 range [1.021,1.175]
+S2 R pairs: e_x(n*) n=128 median 0.254; e_sig(n*) n=104 median -0.497
+S3 rows spanning K and R: 8, slope lower at largest x: 5
+Bar A1: median |e_sig(n*)| over R pairs = 0.497
+Bar A2: K cells 67 median |ln(n*/n_GPK)| = 0.0731  (threshold ln1.25=0.223); max 0.523
+smallest non-blind x per (sigma,Gamma): {}
+rows with non-monotone n*(x): []
+rows with s* increasing in sigma: []
+
+===== ARM a1 =====
+cells 432 blind 0 regimes {'K': 67, 'R': 327, 'M': 38}
+H-a non-unique non-blind cells: 0 of 432 []
+H-d edge cells: 0 []
+s*=1 cells (stated regime): 150
+H-b keep pairs 56 median e_x(n*) 0.454 frac in [0.35,0.65] 0.982  -> PASS
+H-c sigma pairs 180 median |e_sig(s*)| 0.968 frac in [0.8,1.2] 0.850 -> PASS
+   |e_sig(s*)| quantiles 10/25/50/75/90: [0.778 0.86  0.968 1.    1.025]
+S1 R cells s*>=3: 157 rho* median 0.604 range [0.534,0.668] frac in [0.05,0.8] 1.000
+   H* nats median 1.103 range [1.021,1.175]
+S2 R pairs: e_x(n*) n=128 median 0.254; e_sig(n*) n=104 median -0.497
+S3 rows spanning K and R: 8, slope lower at largest x: 5
+Bar A1: median |e_sig(n*)| over R pairs = 0.497
+Bar A2: K cells 67 median |ln(n*/n_GPK)| = 0.0731  (threshold ln1.25=0.223); max 0.523
+smallest non-blind x per (sigma,Gamma): {}
+rows with non-monotone n*(x): []
+rows with s* increasing in sigma: []
+
+===== ARM cK4 =====
+cells 432 blind 0 regimes {'K': 85, 'R': 298, 'M': 49}
+H-a non-unique non-blind cells: 0 of 432 []
+H-d edge cells: 0 []
+s*=1 cells (stated regime): 150
+H-b keep pairs 71 median e_x(n*) 0.465 frac in [0.35,0.65] 0.972  -> PASS
+H-c sigma pairs 180 median |e_sig(s*)| 0.957 frac in [0.8,1.2] 0.822 -> PASS
+   |e_sig(s*)| quantiles 10/25/50/75/90: [0.749 0.84  0.957 0.996 1.019]
+S1 R cells s*>=3: 144 rho* median 0.604 range [0.468,0.668] frac in [0.05,0.8] 1.000
+   H* nats median 1.103 range [0.937,1.175]
+S2 R pairs: e_x(n*) n=117 median 0.254; e_sig(n*) n=96 median -0.495
+S3 rows spanning K and R: 7, slope lower at largest x: 4
+Bar A1: median |e_sig(n*)| over R pairs = 0.495
+Bar A2: K cells 85 median |ln(n*/n_GPK)| = 0.0617  (threshold ln1.25=0.223); max 0.546
+smallest non-blind x per (sigma,Gamma): {}
+rows with non-monotone n*(x): []
+rows with s* increasing in sigma: []

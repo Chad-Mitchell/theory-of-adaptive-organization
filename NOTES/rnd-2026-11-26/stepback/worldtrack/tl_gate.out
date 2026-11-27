@@ -1,0 +1,11 @@
+gate n=6 T=2 J=0.5000 ref=0.5 OK
+gate n=7 T=3 J=0.5942 ref=0.5942 OK
+gate n=9 T=4 J=0.4825 ref=0.4825 OK
+even closed form n 8 maxdiff 1.1102230246251565e-16
+even closed form n 10 maxdiff 2.220446049250313e-16
+even closed form n 12 maxdiff 1.1102230246251565e-16
+disk T 2 min(DP-formula) = -4.440892098500626e-16 max 2.379816984601252e-06
+disk T 3 min(DP-formula) = -3.3306690738754696e-16 max 3.173090851051206e-06
+disk T 4 min(DP-formula) = 0.0 max 4.759633969202504e-06
+disk T 6 min(DP-formula) = -1.6653345369377348e-16 max 7.139450953803757e-06
+disk T 10 min(DP-formula) = -1.1102230246251565e-16 max 1.1899084923006258e-05

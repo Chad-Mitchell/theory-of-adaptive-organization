@@ -1,0 +1,38 @@
+(C) best polygon at each horizon, J*(T)=min_n J(n,T) over n=3..401 (+ big n); ratio to disk and to the 1/T floor
+   T=  1: n*=  78 J*=1.000000 disk=1.000000 J*/disk=1.0000 T*J*=1.0000 (floor 1; disk -> pi^2/4=2.4674)
+   T=  2: n*=   6 J*=0.500000 disk=1.000000 J*/disk=0.5000 T*J*=1.0000 (floor 1; disk -> pi^2/4=2.4674)
+   T=  3: n*=   6 J*=0.500000 disk=0.750000 J*/disk=0.6667 T*J*=1.5000 (floor 1; disk -> pi^2/4=2.4674)
+   T=  4: n*=  10 J*=0.381966 disk=0.585786 J*/disk=0.6521 T*J*=1.5279 (floor 1; disk -> pi^2/4=2.4674)
+   T=  5: n*=  12 J*=0.358984 disk=0.477458 J*/disk=0.7519 T*J*=1.7949 (floor 1; disk -> pi^2/4=2.4674)
+   T=  8: n*=  18 J*=0.241230 disk=0.304482 J*/disk=0.7923 T*J*=1.9298 (floor 1; disk -> pi^2/4=2.4674)
+   T= 10: n*=  22 J*=0.202535 disk=0.244717 J*/disk=0.8276 T*J*=2.0254 (floor 1; disk -> pi^2/4=2.4674)
+   T= 15: n*=  32 J*=0.145508 disk=0.163893 J*/disk=0.8878 T*J*=2.1826 (floor 1; disk -> pi^2/4=2.4674)
+   T= 20: n*=  42 J*=0.111692 disk=0.123117 J*/disk=0.9072 T*J*=2.2338 (floor 1; disk -> pi^2/4=2.4674)
+   T= 30: n*=  62 J*=0.076960 disk=0.082172 J*/disk=0.9366 T*J*=2.3088 (floor 1; disk -> pi^2/4=2.4674)
+   T= 50: n*= 102 J*=0.047417 disk=0.049332 J*/disk=0.9612 T*J*=2.3708 (floor 1; disk -> pi^2/4=2.4674)
+   T= 75: n*= 152 J*=0.032048 disk=0.032894 J*/disk=0.9743 T*J*=2.4036 (floor 1; disk -> pi^2/4=2.4674)
+   T=100: n*= 202 J*=0.024186 disk=0.024672 J*/disk=0.9803 T*J*=2.4186 (floor 1; disk -> pi^2/4=2.4674)
+   T=150: n*= 302 J*=0.016232 disk=0.016449 J*/disk=0.9868 T*J*=2.4347 (floor 1; disk -> pi^2/4=2.4674)
+   T=200: n*= 401 J*=0.012275 disk=0.012337 J*/disk=0.9950 T*J*=2.4551 (floor 1; disk -> pi^2/4=2.4674)
+(D) geometric horizon mixture p(T)=(1-q)q^(T-1), T>=1; price-free (equal kappa per affine dimension); best polygon over all computed n vs disk
+   q=0.500 (mean T    2.0): disk=0.906430 best n=   6 (0.750000) -> polygon cheaper, margin +0.1726
+   q=0.800 (mean T    5.0): disk=0.646820 best n=  14 (0.580959) -> polygon cheaper, margin +0.1018
+   q=0.900 (mean T   10.0): disk=0.452867 best n=  30 (0.430536) -> polygon cheaper, margin +0.0493
+   q=0.950 (mean T   20.0): disk=0.298239 best n=  74 (0.291963) -> polygon cheaper, margin +0.0210
+   q=0.960 (mean T   25.0): disk=0.258012 best n= 114 (0.254037) -> polygon cheaper, margin +0.0154
+   q=0.970 (mean T   33.3): disk=0.212688 best n= 182 (0.210522) -> polygon cheaper, margin +0.0102
+   q=0.975 (mean T   40.0): disk=0.187538 best n= 242 (0.186084) -> polygon cheaper, margin +0.0078
+   q=0.980 (mean T   50.0): disk=0.160239 best n= 290 (0.159360) -> polygon cheaper, margin +0.0055
+   q=0.985 (mean T   66.7): disk=0.130181 best n= 600 (0.129750) -> polygon cheaper, margin +0.0033
+   q=0.990 (mean T  100.0): disk=0.096322 best n=1000 (0.096155) -> polygon cheaper, margin +0.0017
+   q=0.995 (mean T  200.0): disk=0.056446 best n=1000 (0.056579) -> disk cheaper, margin -0.0023
+(E) the same with a design price fixed in advance: lambda*log2|G|, |G|=2n (dihedral), disk |G|=inf (price inf) -> disk never chosen; and lambda=0 is (D)
+(F) uniform horizon on 1..H (another proper mixture), price-free
+   H=  5: disk=0.762649 best n=   6 (0.600000) -> polygon cheaper, margin +0.2133
+   H= 10: disk=0.538236 best n=  14 (0.474841) -> polygon cheaper, margin +0.1178
+   H= 20: disk=0.351286 best n=  34 (0.330766) -> polygon cheaper, margin +0.0584
+   H= 50: disk=0.184960 best n=  90 (0.182120) -> polygon cheaper, margin +0.0154
+   H=100: disk=0.109457 best n= 362 (0.108960) -> polygon cheaper, margin +0.0045
+   H=200: disk=0.063249 best n=1000 (0.063192) -> polygon cheaper, margin +0.0009
+(G) PIM checks: J(n,T) >= max(1/T, dmin(n)) for all computed n,T
+   violations: 0

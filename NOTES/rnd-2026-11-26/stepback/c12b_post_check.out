@@ -1,0 +1,7 @@
+(1) onset of f(eps) = max(G ln(v/eps), r(v-eps)/eps) + w*eps
+   r=0.4 G=1.0 v=2.0 w/w*=0.98: argmin eps=2.000000 (blind=2.0); f(min)-w*v=3.40e-10
+   r=0.4 G=1.0 v=2.0 w/w*=1.02: argmin eps=1.960784 (blind=2.0); f(min)-w*v=-1.97e-04
+   r=1.0 G=0.3 v=2.0 w/w*=0.98: argmin eps=2.000000 (blind=2.0); f(min)-w*v=3.11e-10
+   r=1.0 G=0.3 v=2.0 w/w*=1.02: argmin eps=1.980295 (blind=2.0); f(min)-w*v=-9.90e-05
+   r=0.5 G=0.5 v=1.0 w/w*=0.98: argmin eps=1.000000 (blind=1.0); f(min)-w*v=1.55e-10
+   r=0.5 G=0.5 v=1.0 w/w*=1.02: argmin eps=0.990148 (blind=1.0); f(min)-w*v=-4.95e-05

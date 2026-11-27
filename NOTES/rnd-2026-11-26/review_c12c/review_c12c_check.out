@@ -1,0 +1,51 @@
+== R1. Lemma A(b) as stated: point on lower hull, cap slack, no multiplier
+  w=0.25: constrained d*=A (E*=0.0<D=0.5, on hull: yes); unconstrained argmin at w: B; mu with CS (mu=0) works: False; smallest mu>=0 that works ignoring CS: 0.750
+  w=0.5: constrained d*=A (E*=0.0<D=0.5, on hull: yes); unconstrained argmin at w: B; mu with CS (mu=0) works: False; smallest mu>=0 that works ignoring CS: 0.500
+  w=0.9: constrained d*=A (E*=0.0<D=0.5, on hull: yes); unconstrained argmin at w: B; mu with CS (mu=0) works: False; smallest mu>=0 that works ignoring CS: 0.100
+== R2. V6 point C under a cap vs any stake
+  cap-selected: {0.0: 'A', 0.3: 'A', 0.6: 'C', 0.8: 'C', 1.0: 'B'}  stake-selected set: ['A', 'B']
+== R3. Theorem O(iii) with a flat segment of g_w (f piecewise linear)
+  argmin g_w = [0.5000,1.5000] (x_w=0.5000, x_w'=1.5000)
+  cap D=1.5: x_D=1.0 > x_w; note's mu = kap/|f'(x_D-)| - w = -1.398e-10 (note claims >0)
+== R4. Class A recompute (a=0.8, Var=1, kap=0.05, eps=1e-3), independent root finding
+  B=2.1: I_req root=1.879175 closed=1.879175; w* numeric=0.762625 closed=0.762625
+  B=2.6: I_req root=0.637859 closed=0.637859; w* numeric=0.136447 closed=0.136447
+  B=3.0: I_req root=0.220848 closed=0.220848; w* numeric=0.076542 closed=0.076542
+  B=3.25: I_req root=0.028134 closed=0.028134; w* numeric=0.058597 closed=0.058597
+  B0=3.29053, B_fl=1.97432, w1=0.056355
+== R5. Class A scope: a non-Gaussian (tail-flag) memory vs I_req at B=0.99*B0
+  Gaussian I_req = 0.02279 bits
+  tail-flag memory: H(M)=0.00479 bits at t=3.580, v=4.013, ruin=9.948e-04
+  MC (2e7): tail-flag ruin=9.932e-04; blind ruin=1.120e-03; flag rate=3.36e-04
+== R6. CT22 path: tau_S -> inf, B_slack monotone (closed form), width slope
+  w=1.0e-06 tau_S=   219.684 tau_S*sqrt(w)=0.2197 B_min=0.310966 B_slack=0.310984 (closed 0.310984) width=1.761e-05
+  w=3.2e-06 tau_S=   123.544 tau_S*sqrt(w)=0.2197 B_min=0.311057 B_slack=0.311089 (closed 0.311089) width=3.132e-05
+  w=1.0e-05 tau_S=    69.480 tau_S*sqrt(w)=0.2197 B_min=0.311220 B_slack=0.311275 (closed 0.311275) width=5.571e-05
+  w=3.2e-05 tau_S=    39.078 tau_S*sqrt(w)=0.2197 B_min=0.311509 B_slack=0.311608 (closed 0.311608) width=9.911e-05
+  w=1.0e-04 tau_S=    21.981 tau_S*sqrt(w)=0.2198 B_min=0.312024 B_slack=0.312200 (closed 0.312200) width=1.764e-04
+  w=3.2e-04 tau_S=    12.367 tau_S*sqrt(w)=0.2199 B_min=0.312944 B_slack=0.313258 (closed 0.313258) width=3.141e-04
+  w=1.0e-03 tau_S=     6.961 tau_S*sqrt(w)=0.2201 B_min=0.314592 B_slack=0.315152 (closed 0.315152) width=5.599e-04
+  w=3.2e-03 tau_S=     3.921 tau_S*sqrt(w)=0.2205 B_min=0.317561 B_slack=0.318561 (closed 0.318561) width=9.999e-04
+  w=1.0e-02 tau_S=     2.211 tau_S*sqrt(w)=0.2211 B_min=0.322967 B_slack=0.324759 (closed 0.324759) width=1.792e-03
+  w=3.2e-02 tau_S=     1.250 tau_S*sqrt(w)=0.2222 B_min=0.332999 B_slack=0.336231 (closed 0.336231) width=3.232e-03
+  w=1.0e-01 tau_S=     0.709 tau_S*sqrt(w)=0.2243 B_min=0.352284 B_slack=0.358180 (closed 0.358180) width=5.895e-03
+  w=3.2e-01 tau_S=     0.406 tau_S*sqrt(w)=0.2283 B_min=0.391992 B_slack=0.402984 (closed 0.402984) width=1.099e-02
+  w=1.0e+00 tau_S=     0.236 tau_S*sqrt(w)=0.2362 B_min=0.486441 B_slack=0.507853 (closed 0.507853) width=2.141e-02
+  log-log slope of width at small w: 0.5005; B_slack increasing in w: True
+  limit L*s0^2/(2y) = 0.310849
+== R7. CT25 reset path: w*(B) and a unit-rescaling test
+  c=0.05 sig=1 B=1: w*_num=11.7236 formula=11.7236
+  c=0.05 sig=1 B=2: w*_num=0.732726 formula=0.732726
+  c=0.2 sig=0.5 B=1.3: w*_num=4.10476 formula=4.10476
+  rescale x by 3.7: w* ratio=0.073046 vs lam^-2=0.073046
+== R8. Still 2020 Gaussian: sup_s I_rel/I_mem = rho^2 (efficiency condition I_rel/I_mem >= T/T')
+  rho=0.5: sup I_rel/I_mem=0.25005549 rho^2=0.25000000
+  rho=0.8: sup I_rel/I_mem=0.64007945 rho^2=0.64000000
+  rho=0.95: sup I_rel/I_mem=0.90259601 rho^2=0.90250000
+== R9. Scores
+  residual review: EIV=2.060 per h=2.060 (p sum 0.97)
+  whole sunk: EIV=2.060 per h=0.824 (p sum 0.97)
+  C12c-L: EIV=1.880 per h=0.940 (p sum 0.98)
+  C12c-G: EIV=2.400 per h=1.200 (p sum 1.00)
+  C12d: EIV=1.800 per h=1.200 (p sum 0.90)
+  orig C12c: EIV=1.900 per h=0.950 (p sum 0.95)

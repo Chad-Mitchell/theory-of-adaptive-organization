@@ -1,0 +1,3 @@
+Massar-Patra Protocol 3, n=4: P_succ(j=1)=1.000000, I = 1 + (1-h) = 2.000000
+Massar-Patra Protocol 3, n=6: P_succ(j=1)=0.750000, I = 1 + (1-h) = 1.188722
+Massar-Patra Protocol 3, n=8: P_succ(j=1)=0.646447, I = 1 + (1-h) = 1.062798

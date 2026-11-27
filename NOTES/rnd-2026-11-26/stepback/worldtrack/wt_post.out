@@ -1,0 +1,60 @@
+(1) s*=1 cells by sigma*sqrt(x): 
+ sigma 0.001 x with s*=1 (Gamma=0): []
+ sigma 0.003 x with s*=1 (Gamma=0): [1000000.0]
+ sigma 0.01 x with s*=1 (Gamma=0): [30000.0, 100000.0, 1000000.0]
+ sigma 0.03 x with s*=1 (Gamma=0): [3000.0, 10000.0, 30000.0, 100000.0, 1000000.0]
+ sigma 0.1 x with s*=1 (Gamma=0): [300, 1000.0, 3000.0, 10000.0, 30000.0, 100000.0, 1000000.0]
+ sigma 0.3 x with s*=1 (Gamma=0): [30, 100, 300, 1000.0, 3000.0, 10000.0, 30000.0, 100000.0, 1000000.0]
+(2) H-b restricted to pairs with s*>=3 in both (post hoc robustness):
+  pairs 53 median 0.459 frac in window 0.981
+(3) S3 rows (sigma,Gamma): local e_x(n*) along x, regimes
+  0.001,0.001: K K K K M M M R R R R R
+      slopes 0.45 0.43 0.39 0.35 0.31 0.29 0.27 0.26 0.26 0.27 0.26
+      s*   1232 787 472 288 164 97 54 31 17 10 6 2
+  0.001,0.01: K K K K K K K K K M M R
+      slopes 0.48 0.50 0.48 0.46 0.46 0.43 0.39 0.34 0.32 0.27 0.29
+      s*   721 473 301 197 123 79 47 29 16 10 5 2
+  0.003,0.001: K K M M M R R R R R R R
+      slopes 0.40 0.35 0.31 0.29 0.27 0.26 0.27 0.25 0.22 0.29 0.31
+      s*   494 302 172 102 57 33 18 11 6 3 2 1
+  0.003,0.01: K K K K K K M M M R R R
+      slopes 0.44 0.49 0.46 0.42 0.39 0.35 0.31 0.30 0.24 0.30 0.32
+      s*   319 203 128 83 49 30 17 10 6 3 2 1
+  0.01,0.01: K K K K M M R R R R R R
+      slopes 0.46 0.42 0.38 0.35 0.32 0.27 0.28 0.30 0.22 0.41 0.47
+      s*   124 80 47 29 16 10 5 3 2 1 1 1
+  0.03,0.01: K M M M R R R R R R R R
+      slopes 0.43 0.34 0.34 0.30 0.24 0.31 0.22 0.41 0.45 0.48 0.50
+      s*   49 30 17 10 6 3 2 1 1 1 1 1
+  0.03,0.1: K K K K K K M M M M M R
+      slopes 0.51 0.45 0.46 0.42 0.40 0.37 0.28 0.42 0.45 0.48 0.50
+      s*   34 21 13 8 5 3 2 1 1 1 1 1
+  0.1,0.1: K K K M M M M R R R R R
+      slopes 0.37 0.42 0.43 0.37 0.28 0.43 0.45 0.49 0.50 0.50 0.50
+      s*   14 8 5 3 2 1 1 1 1 1 1 1
+(4) crossover location: data x_cross (keep=read, log-interp) vs composition estimate (keep floor on the Gamma=0 design = its read cost)
+  sigma 0.001 Gamma 0.0001: x_data 2.32  x_comp 2.21  ratio 1.05
+  sigma 0.001 Gamma 0.001: x_data 374  x_comp 357  ratio 1.05
+  sigma 0.001 Gamma 0.01: x_data 5.32e+04  x_comp 5.44e+04  ratio 0.98
+  sigma 0.003 Gamma 0.001: x_data 26.3  x_comp 25.2  ratio 1.05
+  sigma 0.003 Gamma 0.01: x_data 4.24e+03  x_comp 4.21e+03  ratio 1.01
+  sigma 0.01 Gamma 0.001: x_data 1.19  x_comp 1.16  ratio 1.03
+  sigma 0.01 Gamma 0.01: x_data 238  x_comp 217  ratio 1.10
+  sigma 0.01 Gamma 0.1: x_data 5.74e+04  x_comp 4.53e+04  ratio 1.27
+  sigma 0.03 Gamma 0.01: x_data 13.5  x_comp 13.9  ratio 0.97
+  sigma 0.03 Gamma 0.1: x_data 2.65e+03  x_comp 2.42e+03  ratio 1.09
+  sigma 0.1 Gamma 0.1: x_data 146  x_comp 132  ratio 1.11
+  sigma 0.3 Gamma 0.1: x_data 4.42  x_comp 5.81  ratio 0.76
+  ratio range 0.76 1.27 all within factor 3: True
+(5) composition predictor n_comp = (n_K^-p + n_R^-p)^(-1/p) best p, error:
+  p=1: median |ln err| 0.122, 95% 0.371, max 0.414
+  p=2: median |ln err| 0.002, 95% 0.040, max 0.082
+  p=3: median |ln err| 0.007, 95% 0.079, max 0.159
+  p=4: median |ln err| 0.007, 95% 0.125, max 0.212
+  p=6: median |ln err| 0.008, 95% 0.173, max 0.260
+  p=8: median |ln err| 0.008, 95% 0.192, max 0.280
+(6) cost split at optimum, Gamma=0, s*>=3: read/loss ratio
+  median 1.017 range 0.902 1.432
+(7) n* ~ C x^0.25 sigma^-0.5 at Gamma=0, s*>=3: C values
+  median 2.886 range 2.739 3.023
+  s* sigma sqrt(x): median 1.749 range 1.559 2.1

@@ -1,0 +1,12 @@
+OK  10.1287/opre.11.3.399 | Generalized Lagrange Multiplier Method for Solving Problems of Optimum | Everett | Operations Research | 1963 | vol 11 p 399-417 
+OK  10.1109/TIT.1972.1054855 | Computation of channel capacity and rate-distortion functions | Blahut | IEEE Transactions on Information Theory | 1972 | vol 18 p 460-473 
+OK  10.1016/S0304-3932(03)00029-1 | Implications of rational inattention | Sims | Journal of Monetary Economics | 2003 | vol 50 p 665-690 
+OK  10.1103/PhysRevLett.109.120604 | Thermodynamics of Prediction | Still; Sivak; Bell; Crooks | Physical Review Letters | 2012 | vol 109 p  120604
+OK  10.1103/PhysRevLett.124.050601 | Thermodynamic Cost and Benefit of Memory | Still | Physical Review Letters | 2020 | vol 124 p  050601
+OK  10.1287/mnsc.6.1.73 | Chance-Constrained Programming | Charnes; Cooper | Management Science | 1959 | vol 6 p 73-79 
+OK  10.1257/aer.20130047 | Rational Inattention to Discrete Choices: A New Foundation for the Mul | Matějka; McKay | American Economic Review | 2015 | vol 105 p 272-298 
+OK  10.3390/e21100924 | Learnability for the Information Bottleneck | Wu; Fischer; Chuang; Tegmark | Entropy | 2019 | vol 21 p 924 
+OK  10.1103/PhysRevE.79.041925 | Past-future information bottleneck in dynamical systems | Creutzig; Globerson; Tishby | Physical Review E | 2009 | vol 79 p  041925
+OK  10.1007/978-1-4419-1452-1_19 | Information Theory of Decisions and Actions | Tishby; Polani | Perception-Action Cycle | 2010 | vol  p 601-636 
+OK  10.3390/e16020968 | Information Bottleneck Approach to Predictive Inference | Still | Entropy | 2014 | vol 16 p 968-989 
+OK  10.1111/j.1540-6261.1976.tb01891.x | VALUING CORPORATE SECURITIES: SOME EFFECTS OF BOND INDENTURE PROVISION | Black; Cox | The Journal of Finance | 1976 | vol 31 p 351-367 

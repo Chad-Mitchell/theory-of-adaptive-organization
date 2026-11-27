@@ -1,0 +1,9 @@
+window check V4: cheb3 vs cheb5 identical greedy prefix length: 120 /120; same SET of first 120: True ; max |gain diff| over 120: 0.0
+V1 NN critical (Fermi surface) kappa=0.01: |S| for n=1,2,3 species = [55, 90, 120] (identical to |S|(kappa/n,1))
+V1 NN critical (Fermi surface) kappa=0.003: |S| for n=1,2,3 species = [120, 184, 200] (identical to |S|(kappa/n,1))
+V2 NN + mass 0.5 (gapped)      kappa=0.01: |S| for n=1,2,3 species = [48, 52, 72] (identical to |S|(kappa/n,1))
+V2 NN + mass 0.5 (gapped)      kappa=0.003: |S| for n=1,2,3 species = [72, 100, 105] (identical to |S|(kappa/n,1))
+V3 pi-flux critical (Dirac)    kappa=0.01: |S| for n=1,2,3 species = [29, 44, 48] (identical to |S|(kappa/n,1))
+V3 pi-flux critical (Dirac)    kappa=0.003: |S| for n=1,2,3 species = [48, 72, 88] (identical to |S|(kappa/n,1))
+V4 pi-flux + mass 0.5 (gapped  kappa=0.01: |S| for n=1,2,3 species = [20, 40, 48] (identical to |S|(kappa/n,1))
+V4 pi-flux + mass 0.5 (gapped  kappa=0.003: |S| for n=1,2,3 species = [48, 64, 72] (identical to |S|(kappa/n,1))

@@ -1,0 +1,19 @@
+OK 10.1098/rsfs.2018.0041 | 2018 | Kolchinsky; Wolpert | Semantic information, autonomous agency and non-equilibrium statistical physics | Interface Focus
+OK 10.1007/978-94-009-8947-4 | 1980 | Maturana; Varela | Autopoiesis and Cognition | Boston Studies in the Philosophy and History of Science
+OK 10.1016/0303-2647(74)90031-8 | 1974 | Varela; Maturana; Uribe | Autopoiesis: The organization of living systems, its characterization and a model | Biosystems
+OK 10.1038/nrn2787 | 2010 | Friston | The free-energy principle: a unified brain theory? | Nature Reviews Neuroscience
+OK 10.1111/nous.12062 | 2014 | Hohwy | The Self‐Evidencing Brain | Noûs
+OK 10.1098/rsif.2013.0475 | 2013 | Friston | Life as we know it | Journal of The Royal Society Interface
+OK 10.1007/978-0-8176-4910-4 | 2009 | Aubin | Viability Theory | 
+FAIL 10.1007/978-3-642-16684-6 HTTP Error 429: Too Many Requests
+FAIL 10.1007/BF02478302 HTTP Error 429: Too Many Requests
+OK 10.1016/j.jtbi.2005.07.007 | 2006 | Letelier; Soto-Andrade; Guíñez Abarzúa; Cornish-Bowden | Organizational invariance and metabolic closure: Analysis in terms of systems | Journal of Theoretical Biology
+FAIL 10.1063/1.4818538 HTTP Error 429: Too Many Requests
+OK 10.1002/j.1538-7305.1956.tb03809.x | 1956 | Kelly | A New Interpretation of Information Rate | Bell System Technical Journal
+FAIL 10.1038/s41567-019-0732-0 HTTP Error 429: Too Many Requests
+OK 10.1023/A:1024412831598 | 2003 | Zilberstein; Charpillet; Chassaing | Optimal Sequencing of Contract Algorithms | Annals of Mathematics and Artificial Intelligence
+OK(retry) 10.1007/978-3-642-16684-6 | 2011 | Aubin; Bayen; Saint-Pierre | Viability Theory |  | None None
+OK(retry) 10.1007/BF02478302 | 1958 | Rosen | A relational theory of biological systems | The Bulletin of Mathematical Biophysics | 20 245-260
+OK(retry) 10.1063/1.4818538 | 2013 | England | Statistical physics of self-replication | The Journal of Chemical Physics | 139 None
+OK(retry) 10.1038/s41567-019-0732-0 | 2019 | Peters | The ergodicity problem in economics | Nature Physics | 15 1216-1221
+OK 10.2140/pjm.1955.5.285 | 1955 | Tarski | A lattice-theoretical fixpoint theorem and its applications | Pacific Journal of Mathematics 5 285-309

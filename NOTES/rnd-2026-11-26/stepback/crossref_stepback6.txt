@@ -1,0 +1,5 @@
+OK  10.1103/PhysRevLett.109.120604 | Still, Sivak, Bell, Crooks | 2012 | Thermodynamics of Prediction | Physical Review Letters
+OK  10.1162/089976601753195969 | Bialek, Nemenman, Tishby | 2001 | Predictability, Complexity, and Learning | Neural Computation
+OK  10.1038/nrn2787 | Friston | 2010 | The free-energy principle: a unified brain theory? | Nature Reviews Neuroscience
+OK  10.1103/PhysRevE.79.041925 | Creutzig, Globerson, Tishby | 2009 | Past-future information bottleneck in dynamical systems | Physical Review E
+OK  10.1007/BF01645779 | Lieb, Robinson | 1972 | The finite group velocity of quantum spin systems | Communications in Mathematical Physics

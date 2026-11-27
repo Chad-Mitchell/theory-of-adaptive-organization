@@ -1,0 +1,2 @@
+OK 10.1002/j.1538-7305.1956.tb03809.x | Kelly | 1956 | A New Interpretation of Information Rate | Bell System Technical Journal 35 917-926
+OK 10.1038/s41567-019-0732-0 | Peters | 2019 | The ergodicity problem in economics | Nature Physics 15 1216-1221

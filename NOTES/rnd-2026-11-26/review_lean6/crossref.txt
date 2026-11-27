@@ -1,0 +1,4 @@
+10.1088/1367-2630/17/12/123001 | ['Reversibility and the structure of the local state space'] | ['Al-Safi', 'Richens'] | ['New Journal of Physics'] 17 123001 {'date-parts': [[2015, 12, 4]]}
+10.2140/pjm.1958.8.743 | ['On the number of bi-colored graphs'] | ['Harary'] | ['Pacific Journal of Mathematics'] 8 743-755 {'date-parts': [[1958, 12, 1]]}
+10.2140/pjm.1959.9.1215 | ['Transformations on tensor product spaces'] | ['Marcus', 'Moyls'] | ['Pacific Journal of Mathematics'] 9 1215-1221 {'date-parts': [[1959, 12, 1]]}
+10.2307/2371086 | ['Congruent Graphs and the Connectivity of Graphs'] | ['Whitney'] | ['American Journal of Mathematics'] 54 150 {'date-parts': [[1932, 1]]}

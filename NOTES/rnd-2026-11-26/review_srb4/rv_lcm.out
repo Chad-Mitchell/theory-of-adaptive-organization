@@ -1,0 +1,32 @@
+(a) DP
+ H=2 m=1 n=6: J(1)=1.000000000000000; cheaper at all T in 2..H: True; min rel margin 5.0000e-01; n*min = 3.0000
+ H=2 m=2 n=10: J(1)=1.000000000000000; cheaper at all T in 2..H: True; min rel margin 2.5000e-01; n*min = 2.5000
+ H=3 m=1 n=14: J(1)=1.000000000000000; cheaper at all T in 2..H: True; min rel margin 2.0775e-01; n*min = 2.9085
+ H=3 m=2 n=26: J(1)=1.000000000000000; cheaper at all T in 2..H: True; min rel margin 1.1703e-01; n*min = 3.0429
+ H=4 m=1 n=26: J(1)=1.000000000000000; cheaper at all T in 2..H: True; min rel margin 1.1703e-01; n*min = 3.0429
+ H=4 m=2 n=50: J(1)=1.000000000000000; cheaper at all T in 2..H: True; min rel margin 6.2295e-02; n*min = 3.1148
+ H=5 m=1 n=122: J(1)=1.000000000000000; cheaper at all T in 2..H: True; min rel margin 2.5714e-02; n*min = 3.1371
+ H=5 m=2 n=242: J(1)=1.000000000000000; cheaper at all T in 2..H: True; min rel margin 1.2977e-02; n*min = 3.1404
+ H=6 m=1 n=122: J(1)=1.000000000000000; cheaper at all T in 2..H: True; min rel margin 2.5714e-02; n*min = 3.1371
+ H=6 m=2 n=242: J(1)=1.000000000000000; cheaper at all T in 2..H: True; min rel margin 1.2977e-02; n*min = 3.1404
+ H=7 m=1 n=842: J(1)=1.000000000000000; cheaper at all T in 2..H: True; min rel margin 3.7310e-03; n*min = 3.1415
+ H=7 m=2 n=1682: J(1)=1.000000000000000; cheaper at all T in 2..H: True; min rel margin 1.8678e-03; n*min = 3.1416
+ H=8 m=1 n=1682: J(1)=1.000000000000000; cheaper at all T in 2..H: True; min rel margin 1.8678e-03; n*min = 3.1416
+ H=8 m=2 n=3362: J(1)=1.000000000000000; cheaper at all T in 2..H: True; min rel margin 9.3444e-04; n*min = 3.1416
+ H=9 m=1 n=5042: J(1)=1.000000000000000; cheaper at all T in 2..H: True; min rel margin 6.2308e-04; n*min = 3.1416
+(b,c) explicit path and proof chain
+ H=2 m=1 n~6.0: all T in 2..H cheaper and every proof step holds; n*min rel margin = 3.0
+ H=3 m=1 n~14.0: all T in 2..H cheaper and every proof step holds; n*min rel margin = 2.90851
+ H=4 m=1 n~26.0: all T in 2..H cheaper and every proof step holds; n*min rel margin = 2.79683
+ H=5 m=1 n~122.0: all T in 2..H cheaper and every proof step holds; n*min rel margin = 3.0624
+ H=6 m=1 n~122.0: all T in 2..H cheaper and every proof step holds; n*min rel margin = 3.0624
+ H=7 m=1 n~842.0: all T in 2..H cheaper and every proof step holds; n*min rel margin = 3.12991
+ H=8 m=1 n~1682.0: all T in 2..H cheaper and every proof step holds; n*min rel margin = 3.13573
+ H=9 m=1 n~5042.0: all T in 2..H cheaper and every proof step holds; n*min rel margin = 3.13964
+ H=10 m=1 n~5042.0: all T in 2..H cheaper and every proof step holds; n*min rel margin = 3.13964
+ H=20 m=1 n~4.6559e+8: all T in 2..H cheaper and every proof step holds; n*min rel margin = 3.14159
+ H=30 m=1 n~4.6582e+12: all T in 2..H cheaper and every proof step holds; n*min rel margin = 3.14159
+ H=40 m=1 n~1.0686e+16: all T in 2..H cheaper and every proof step holds; n*min rel margin = 3.14159
+ H=50 m=1 n~6.1981e+21: all T in 2..H cheaper and every proof step holds; n*min rel margin = 3.14159
+ H=60 m=1 n~1.9381e+25: all T in 2..H cheaper and every proof step holds; n*min rel margin = 3.14159
+failures: 0

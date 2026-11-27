@@ -1,0 +1,12 @@
+OK 10.1103/PhysRevLett.75.1260 | Jacobson | 1995 | Thermodynamics of Spacetime: The Einstein Equation of State | Physical Review Letters 75 1260-1263
+OK 10.1103/PhysRevLett.116.201101 | Jacobson | 2016 | Entanglement Equilibrium and the Einstein Equation | Physical Review Letters 116 
+OK 10.1103/PhysRevD.50.2700 | Susskind; Uglum | 1994 | Black hole entropy in canonical quantum gravity and superstring theory | Physical Review D 50 2700-2711
+OK 10.1103/PhysRevD.34.373 | Bombelli; Koul; Lee; Sorkin | 1986 | Quantum source of entropy for black holes | Physical Review D 34 373-383
+OK 10.1103/PhysRevLett.100.070502 | Wolf; Verstraete; Hastings; Cirac | 2008 | Area Laws in Quantum Systems: Mutual Information and Correlations | Physical Review Letters 100 
+OK 10.1103/RevModPhys.82.277 | Eisert; Cramer; Plenio | 2010 | <i>Colloquium</i>
+                    : Area laws for the entanglement entropy | Reviews of Modern Physics 82 277-306
+OK 10.1103/PhysRevLett.96.010404 | Wolf | 2006 | Violation of the Entropic Area Law for Fermions | Physical Review Letters 96 
+OK 10.1103/PhysRevLett.96.100503 | Gioev; Klich | 2006 | Entanglement Entropy of Fermions in Any Dimension and the Widom Conjecture | Physical Review Letters 96 
+OK 10.1088/0305-4470/36/14/101 | Peschel | 2003 | Calculation of reduced density matrices from correlation functions | Journal of Physics A: Mathematical and General 36 L205-L208
+OK 10.1088/0264-9381/31/21/214002 | Bianchi; Myers | 2014 | On the architecture of spacetime geometry | Classical and Quantum Gravity 31 214002
+OK 10.1103/PhysRevLett.71.666 | Srednicki | 1993 | Entropy and area | Physical Review Letters 71 666-669

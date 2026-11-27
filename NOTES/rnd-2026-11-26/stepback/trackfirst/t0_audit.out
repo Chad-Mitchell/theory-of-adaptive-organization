@@ -1,0 +1,5 @@
+A1 OU I*: design = sqrt(a)*sqrt(v)*sqrt(w)/sqrt(kappa) - a ; invariant under (kappa,w)->lam*(kappa,w): True
+A3 FOC/kappa depends on kappa only via w/kappa: True
+A5 spring eps*: design = sqrt(2)*sqrt(c)*sqrt(kappa)*sigma/(2*sqrt(w)) ; invariant under (kappa,w)->lam*(kappa,w): True
+A10 d2J*/dv2 = -sqrt(a)*sqrt(kappa)*sqrt(w)/(2*v**(3/2)) (<0 for all kappa>0)
+A12 beta*J - (beta*kappa)*(I + (w/kappa) eps) = 0

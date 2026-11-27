@@ -1,0 +1,4 @@
+n=5 sigma=0.9355 tau=1.0875 R=1.1056 | proved: residual at |m|>=3: V<= 0.70383 -> e >= 0.14809 | e_nv=0.176393 | gap needs e >= 0.17226: not enough
+n=5 sigma=0.9355 tau=1.0875 R=1.1056 | HYP stability: residual only at aliasing |m|: V<= 0.70383 -> e >= 0.14809 | e_nv=0.176393 | gap needs e >= 0.17226: not enough
+n=8 sigma=0.9745 tau=1.0548 R=1.0824 | proved: residual at |m|>=3: V<= 0.68907 -> e >= 0.15546 | e_nv=0.172335 | gap needs e >= 0.17153: not enough
+n=8 sigma=0.9745 tau=1.0548 R=1.0824 | HYP stability: residual only at aliasing |m|: V<= 0.68907 -> e >= 0.15546 | e_nv=0.172335 | gap needs e >= 0.17153: not enough

@@ -1,0 +1,14 @@
+=== check_fresh
+  open-PR heads checked: 30
+RESULT: PASS
+exit=0
+=== check_pending
+  WARN pending: reviewed but unmerged > 24h: fork#14 (T80: the record ratio closes to a point on a smooth menu) head 7475dcf: latest review https://github.com/mitchell-moving/theory-of-adaptive-organization/pull/14#issuecomment-7142999926 says 0 blockers, 43 h ago; head moved since that review
+  WARN pending: reviewed but unmerged > 24h: fork#15 (T81: measure the record ratio as a return flow) head 03d4027: latest review fork#20 says 0 blockers, 42 h ago; head moved since that review
+  WARN pending: reviewed but unmerged > 24h: fork#16 (T82: torus memory is a relabel, with one puzzle) head 733d784: latest review https://github.com/mitchell-moving/theory-of-adaptive-organization/pull/16#issuecomment-7146714705 says 0 blockers, 40 h ago
+  WARN pending: reviewed but unmerged > 24h: fork#21 (T83: quantum revivals and reversible phase storage) head afc3aeb: latest review fork#27 says 0 blockers, 41 h ago; head moved since that review
+  WARN pending: reviewed but unmerged > 24h: fork#25 (T85: Deutsch CTC fixed point versus the acyclic record route) head f19cd4a: latest review https://github.com/mitchell-moving/theory-of-adaptive-organization/pull/25#issuecomment-7146026002 says 0 blockers, 40 h ago; head moved since that review
+  WARN pending: reviewed but unmerged > 24h: fork#9 (T77: disturbance budget as a shadow price of the record rati) head abb3356: latest review https://github.com/mitchell-moving/theory-of-adaptive-organization/pull/9#issuecomment-7139610217 says 0 blockers, 45 h ago; head moved since that review
+  WARN pending: reviewed but unmerged > 24h: upstream#253 (Composite contest: TIE under PREREG_4 (script-checked); WIN ) head 707aa08: latest review https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/253#issuecomment-7148519119 says 0 blockers, 38 h ago; head moved since that review
+RESULT: PASS
+exit=0

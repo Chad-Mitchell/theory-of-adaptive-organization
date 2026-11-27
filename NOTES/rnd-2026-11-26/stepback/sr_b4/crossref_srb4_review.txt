@@ -1,0 +1,7 @@
+OK 10.1214/aoms/1177729690 | On Minimax Statistical Decision Procedures and their Admissibility | Blyth | The Annals of Mathematical Statistics | 1951 | vol 22 pp 22-42
+OK 10.1214/aos/1176344128 | On Finitely Additive Priors, Coherence, and Extended Admissibility | Heath; Sudderth | The Annals of Statistics | 1978 | vol 6 pp 333-345
+OK 10.1080/01621459.1976.10481490 | Strong Inconsistency from Uniform Priors | Stone | Journal of the American Statistical Association | 1976 | vol 71 pp 114-116
+OK 10.1080/001075100181105 | Predicting future duration from present age: A critical assessment | Caves | Contemporary Physics | 2000 | vol 41 pp 143-153
+OK 10.1613/jair.4360 | Optimal Scheduling of Contract Algorithms for Anytime Problem-Solving | Lopez-Ortiz; Angelopoulos; Hamel | Journal of Artificial Intelligence Research | 2014 | vol 51 pp 533-554
+FAIL 10.1145/3578338.3593559 | HTTP Error 429: Too Many Requests
+OK 10.1145/3578338.3593559 | Online Resource Allocation under Horizon Uncertainty | Balseiro; Kroer; Kumar | Abstract Proceedings of the 2023 ACM SIGMETRICS International Conference on Measurement and Modeling of Computer Systems | 2023 | vol None pp 63-64

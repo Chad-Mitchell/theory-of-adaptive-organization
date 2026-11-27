@@ -1,0 +1,20 @@
+max n computed: 10002 ; count of n: 441
+(R1) geometric horizon p(T)=(1-q)q^(T-1)
+  q=0.99: disk=0.09632153 best n=1002 [review, n mod 4=2] (0.09615495) next [1000, 1202, 800]; POLYGON cheaper, rel margin +0.001729; best n interior? True
+  q=0.993: disk=0.07336914 best n=1802 [review, n mod 4=2] (0.07329900) next [1800, 2002, 2000]; POLYGON cheaper, rel margin +0.000956; best n interior? True
+  q=0.995: disk=0.05644628 best n=3202 [review, n mod 4=2] (0.05641626) next [3602, 3402, 3002]; POLYGON cheaper, rel margin +0.000532; best n interior? True
+  q=0.996: disk=0.04731211 best n=4802 [review, n mod 4=2] (0.04729499) next [5000, 5002, 4402]; POLYGON cheaper, rel margin +0.000362; best n interior? True
+  q=0.997: disk=0.03757629 best n=8002 [review, n mod 4=2] (0.03756809) next [9002, 7002, 10002]; POLYGON cheaper, rel margin +0.000218; best n interior? True
+  q=0.998: disk=0.02702526 best n=10002 [review, n mod 4=2] (0.02702421) next [9002, 8002, 7002]; POLYGON cheaper, rel margin +0.000039; best n interior? False
+  q=0.999: disk=0.01520838 best n=9002 [review, n mod 4=2] (0.01521006) next [8002, 10002, 7002]; disk cheaper, rel margin -0.000110; best n interior? True
+(R2) uniform horizon on 1..H
+  H=200: disk=0.06324868 best n=1600 (0.06317119); POLYGON cheaper, rel margin +0.001225
+  H=500: disk=0.02981375 best n=8002 (0.02980660); POLYGON cheaper, rel margin +0.000240
+  H=1000: disk=0.01661591 best n=10002 (0.01661800); disk cheaper, rel margin -0.000126
+  H=2000: disk=0.00916278 best n=10002 (0.00917606); disk cheaper, rel margin -0.001449
+(R3) J*(T)/disk(T) with all n (even curves extend the T range)
+  T=100: n*=202 J*/disk=0.980298  1-ratio=0.019702  2/T=0.020000
+  T=200: n*=401 J*/disk=0.995034  1-ratio=0.004966  2/T=0.010000
+  T=500: n*=1002 J*/disk=0.996012  1-ratio=0.003988  2/T=0.004000
+  T=1000: n*=2002 J*/disk=0.998003  1-ratio=0.001997  2/T=0.002000
+  T=2000: n*=4002 J*/disk=0.999001  1-ratio=0.000999  2/T=0.001000

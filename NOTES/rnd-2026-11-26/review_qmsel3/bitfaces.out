@@ -1,0 +1,18 @@
+seed 0 {n} x ball (expect ball 3)           status ball       adim 3
+seed 0 ball x {a} (expect ball 3)           status ball       adim 3
+seed 0 through centre (expect not ball 6)   status not ball   adim 6
+seed 1 {n} x ball (expect ball 3)           status ball       adim 3
+seed 1 ball x {a} (expect ball 3)           status ball       adim 3
+seed 1 through centre (expect not ball 6)   status not ball   adim 6
+seed 2 {n} x ball (expect ball 3)           status ball       adim 3
+seed 2 ball x {a} (expect ball 3)           status ball       adim 3
+seed 2 through centre (expect not ball 6)   status not ball   adim 6
+seed 3 {n} x ball (expect ball 3)           status ball       adim 3
+seed 3 ball x {a} (expect ball 3)           status ball       adim 3
+seed 3 through centre (expect not ball 6)   status not ball   adim 6
+seed 4 {n} x ball (expect ball 3)           status ball       adim 3
+seed 4 ball x {a} (expect ball 3)           status ball       adim 3
+seed 4 through centre (expect not ball 6)   status not ball   adim 6
+seed 5 {n} x ball (expect ball 3)           status ball       adim 3
+seed 5 ball x {a} (expect ball 3)           status ball       adim 3
+seed 5 through centre (expect not ball 6)   status not ball   adim 6

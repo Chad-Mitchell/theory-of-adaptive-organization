@@ -1,0 +1,25 @@
+(R1) FP evolution under the leak alone, non-Gaussian starts (Laplace, uniform-ish, bimodal, skewed)
+   s2=1.0 Gamma=1.000 laplace(1.5,0.7) : -dD/dt=1.28436  D*Fisher=1.28996  ratio(-dD/dt)/(2*Gamma*D)=1.0260
+   s2=1.0 Gamma=1.000 box[0.5,3]       : -dD/dt=1.77590  D*Fisher=1.78374  ratio(-dD/dt)/(2*Gamma*D)=1.0300
+   s2=1.0 Gamma=1.000 bimodal          : -dD/dt=3.38370  D*Fisher=3.40279  ratio(-dD/dt)/(2*Gamma*D)=1.5366
+   s2=1.0 Gamma=1.000 skew             : -dD/dt=1.87178  D*Fisher=1.87996  ratio(-dD/dt)/(2*Gamma*D)=1.0308
+   s2=2.5 Gamma=0.320 laplace(1.5,0.7) : -dD/dt=0.45954  D*Fisher=0.46143  ratio(-dD/dt)/(2*Gamma*D)=1.4841
+   s2=2.5 Gamma=0.320 box[0.5,3]       : -dD/dt=0.73404  D*Fisher=0.73752  ratio(-dD/dt)/(2*Gamma*D)=1.6143
+   s2=2.5 Gamma=0.320 bimodal          : -dD/dt=1.18301  D*Fisher=1.19019  ratio(-dD/dt)/(2*Gamma*D)=2.9295
+   s2=2.5 Gamma=0.320 skew             : -dD/dt=0.57694  D*Fisher=0.57925  ratio(-dD/dt)/(2*Gamma*D)=1.3945
+(R2) LSI: (s2/2)*Fisher/D over q ∝ pi*exp(random cubic/quartic tilt), 400 draws
+   min ratio = 1.001069 (>=1 expected)
+(R3) two-channel OU with a corrector that knows x: per-channel EP by quadrature, and an Ito-form heat simulation
+   G=1,kap=3,s2=1,V=2: analytic=1.500000 quadrature=1.500000
+   G=0.5,kap=2.0,s2=1.5,V=3.0: analytic=0.800000 quadrature=0.800000
+   G=2.0,kap=0.7,s2=0.8,V=1.0: analytic=0.648148 quadrature=0.648148
+   Ito-corrected Euler (dt=0.001): heat rate = 1.5109 +- 0.0151  (analytic 1.5)
+(R4) LIVE OU source (rate r, var v), tracker with a SEPARATE leak channel (P1-type), conditional var s2
+   I(X_t;M_t)=0.050 Gamma= 0.0: kappa=   0.1486 leak EP=0.0000  2*Gamma*I=0.0000
+   I(X_t;M_t)=0.050 Gamma= 0.2: kappa=   0.1923 leak EP=0.0476  2*Gamma*I=0.0200
+   I(X_t;M_t)=0.050 Gamma= 1.0: kappa=   0.4248 leak EP=0.1388  2*Gamma*I=0.1000
+   I(X_t;M_t)=0.050 Gamma= 5.0: kappa=   1.6134 leak EP=0.5612  2*Gamma*I=0.5000
+   I(X_t;M_t)=0.300 Gamma= 0.0: kappa=   1.2091 leak EP=0.0000  2*Gamma*I=0.0000
+   I(X_t;M_t)=0.300 Gamma= 0.2: kappa=   1.4979 leak EP=0.2520  2*Gamma*I=0.1200
+   I(X_t;M_t)=0.300 Gamma= 1.0: kappa=   2.8479 leak EP=0.9924  2*Gamma*I=0.6000
+   I(X_t;M_t)=0.300 Gamma= 5.0: kappa=   9.9543 leak EP=4.3154  2*Gamma*I=3.0000

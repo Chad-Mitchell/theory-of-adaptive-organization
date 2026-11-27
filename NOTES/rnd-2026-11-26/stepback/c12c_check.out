@@ -1,0 +1,30 @@
+== 1. Gaussian AR(1) (CT4 class): I* = max(I_w, I_req), w_eff = max(w, w*(D))
+  w1=0.056355; 42 (w,D) cases, max |I_brute - I_formula| = 6.31e-06 (grid 1e-5)
+  w*(D) at D->Var: 0.056355 (equals w1); w*(D) nonincreasing in D: True
+== 2. per-step two-sided chance cap P(|e|>=B)<=eps <=> D <= (B/z_eps)^2 (Gaussian error)
+  z_eps=3.291 (CT25 lists 3.291 at 1e-3)
+  B_floor=1.9743  B_0=3.2905
+  B=2.0730: I_req=2.0582 bits, D=0.3969, MC ruin 9.91e-04 (cap 1e-03); w*=0.9774
+  B=2.6324: I_req=0.5963 bits, D=0.6400, MC ruin 1.01e-03 (cap 1e-03); w*=0.1288
+  B=3.2576: I_req=0.0228 bits, D=0.9801, MC ruin 1.01e-03 (cap 1e-03); w*=0.0582
+  B=3.3234: I_req=0.0000 bits, D=1.0000, MC ruin 8.88e-04 (cap 1e-03); w*=0.0564
+  B_slack(w) for w>w1 = z*sqrt(sn2 + kap/(2 ln2 w)): [np.float64(3.2905), np.float64(2.4188), np.float64(2.0709), np.float64(1.994), np.float64(1.9753)]
+== 3. CT22 path (Lemma B9 point y=1,c=1/20,sigma=1,s0^2=0.09,eps=1e-3): band [B_min,B_slack] vs w
+  w=1       tau_S=   0.2362 tau_E=   0.3162 B_min=0.48644 B_slack=0.50785 width=2.14e-02
+  w=0.3     tau_S=   0.4164 tau_E=   0.5774 B_min=0.38941 B_slack=0.40009 width=1.07e-02
+  w=0.1     tau_S=   0.7094 tau_E=   1.0000 B_min=0.35228 B_slack=0.35818 width=5.90e-03
+  w=0.03    tau_S=   1.2827 tau_E=   1.8257 B_min=0.33239 B_slack=0.33553 width=3.15e-03
+  w=0.01    tau_S=   2.2110 tau_E=   3.1623 B_min=0.32297 B_slack=0.32476 width=1.79e-03
+  w=0.001   tau_S=   6.9607 tau_E=  10.0000 B_min=0.31459 B_slack=0.31515 width=5.60e-04
+  w=0.0001  tau_S=  21.9811 tau_E=  31.6228 B_min=0.31202 B_slack=0.31220 width=1.76e-04
+  w=0 limit: theta(tau)=2(y-c/tau)/s0^2 increasing, sup=2y/s0^2 -> B_min=B_slack=0.31085; judgment cannot raise survival
+== 4. CT25 reset path: tau* = min(tau_E(w), tau_max(B)); w*(B) = 2c z^4 sigma^2 / B^4
+  w=0.0   B=1.0: tau*_num=0.092357 formula=0.092357 w*(B)=11.7236 -> regime cap
+  w=0.01  B=1.0: tau*_num=0.092357 formula=0.092357 w*(B)=11.7236 -> regime cap
+  w=1.0   B=1.0: tau*_num=0.092357 formula=0.092357 w*(B)=11.7236 -> regime cap
+  w=1.0   B=3.0: tau*_num=0.316228 formula=0.316228 w*(B)=0.1447 -> regime stake
+  w=10.0  B=0.5: tau*_num=0.023089 formula=0.023089 w*(B)=187.5779 -> regime cap
+== 5. Still 2020 two-bath reading: Gaussian channel M=X+N, objective I_mem - beta*I_rel; nontrivial iff beta > 1/rho^2
+  rho=0.5: inf_s I_mem/I_rel = 4.000000; 1/rho^2 = 4.000000
+  rho=0.8: inf_s I_mem/I_rel = 1.562500; 1/rho^2 = 1.562500
+  rho=0.95: inf_s I_mem/I_rel = 1.108033; 1/rho^2 = 1.108033

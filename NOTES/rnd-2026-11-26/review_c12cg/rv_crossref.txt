@@ -1,0 +1,12 @@
+OK 10.1287/opre.11.3.399 | authors: Hugh Everett | editors: - | [1963, 6] | Generalized Lagrange Multiplier Method for Solving Problems of Optimum Allocation of Resources | Operations Research vol 11 p 399-417 | type journal-article | edition  | isbn 
+OK 10.1016/0022-247X(68)90201-1 | authors: Arthur M Geoffrion | editors: - | [1968, 6] | Proper efficiency and the theory of vector maximization | Journal of Mathematical Analysis and Applications vol 22 p 618-630 | type journal-article | edition  | isbn 
+OK 10.1007/BFb0120690 | authors: A. M. Geoffrion | editors: - | [1974] | Lagrangean relaxation for integer programming | Mathematical Programming Studies vol  p 82-114 | type book-chapter | edition  | isbn ['9783642007392', '9783642007408']
+OK 10.1007/3-540-27659-9 | authors: - | editors: - | [2005] | Multicriteria Optimization |  vol  p  | type book | edition  | isbn ['3540213988']
+OK 10.1038/nature08400 | authors: Marcin Pawłowski; Tomasz Paterek; Dagomir Kaszlikowski; Valerio Scarani; Andreas Winter; Marek Żukowski | editors: - | [2009, 10] | Information causality as a physical principle | Nature vol 461 p 1101-1104 | type journal-article | edition  | isbn 
+FAIL 10.1109/TSMC.1971.5408347 HTTP Error 404: Not Found
+OK 10.1103/PhysRevA.89.052124 | Serge Massar; Manas K. Patra | [2014, 5, 20] | Information and communication in polygon theories | Physical Review A vol 89 p 052124
+OK 10.1103/PhysRevA.95.022119 | L. Czekaj; M. Horodecki; P. Horodecki; R. Horodecki | [2017, 2, 17] | Information content of systems as a physical principle | Physical Review A vol 95 p 022119
+OK 10.1088/1367-2630/13/6/063024 | Peter Janotta; Christian Gogolin; Jonathan Barrett; Nicolas Brunner | [2011, 6, 14] | Limits on nonlocal correlations from the structure of the local state space | New Journal of Physics vol 13 p 063024
+SEARCH 10.1109/tsmc.1971.4308298 |  | [[1971, 7]] | On a Bicriterion Formulation of the Problems of Integrated System Identification and System Optimization | IEEE Transactions on Systems, Man, and Cybernetics SMC-1 296-297
+SEARCH 10.1007/bf00928470 | Haimes; Wismer | [[1971, 8]] | Integrated system modeling and optimization via quasilinearization | Journal of Optimization Theory and Applications 8 100-109
+SEARCH 10.1016/0005-1098(70)90076-2 | Wismer; Perrine; Haimes | [[1970, 1]] | Modeling and identification of aquifer systems of high dimension | Automatica 6 77-86

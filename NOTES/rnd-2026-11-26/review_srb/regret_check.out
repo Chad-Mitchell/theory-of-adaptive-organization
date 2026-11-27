@@ -1,0 +1,11 @@
+disk additive regret >= disk(2)-J*(2) = 0.4999999999999998
+n=6: sup_T [J(n,T)-J*(T)] <= 0.5000  -> polygon strictly better than disk on additive minimax regret; J(n,inf)=0.5000
+n=10: sup_T [J(n,T)-J*(T)] <= 0.3820  -> polygon strictly better than disk on additive minimax regret; J(n,inf)=0.3820
+n=22: sup_T [J(n,T)-J*(T)] <= 0.3577  -> polygon strictly better than disk on additive minimax regret; J(n,inf)=0.2025
+n=50: sup_T [J(n,T)-J*(T)] <= 0.4377  -> polygon strictly better than disk on additive minimax regret; J(n,inf)=0.0946
+n=100: sup_T [J(n,T)-J*(T)] <= 0.4691  -> polygon strictly better than disk on additive minimax regret; J(n,inf)=0.0484
+n=201: sup_T [J(n,T)-J*(T)] <= 0.4922  -> polygon strictly better than disk on additive minimax regret; J(n,inf)=0.0244
+n=301: sup_T [J(n,T)-J*(T)] <= 0.4948  -> polygon strictly better than disk on additive minimax regret; J(n,inf)=0.0163
+n=401: sup_T [J(n,T)-J*(T)] <= 0.4961  -> polygon strictly better than disk on additive minimax regret; J(n,inf)=0.0123
+n=1000: sup_T [J(n,T)-J*(T)] <= 0.4969  -> polygon strictly better than disk on additive minimax regret; J(n,inf)=0.0049
+n=2400: sup_T [J(n,T)-J*(T)] <= 0.4987  -> polygon strictly better than disk on additive minimax regret; J(n,inf)=0.0021

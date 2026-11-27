@@ -1,0 +1,4 @@
+pentagon (4-sqrt5)/10 = 0.17639320225002103  octagon (7-3sqrt2)/16 = 0.17233495705504465
+pentagon hull E at its spend 0.172258 margin 0.004135
+octagon hull E at its spend 0.171535 margin 0.0008
+crossovers vs ball: committed pent 12.35631578947366  precise: hex 12.561830725097279  pent(binary spend) 13.296108492983327  pent(exact spend) 22.368596203732753  oct 13.636498978661447  square pairwise 17.63975996312203  hex->square hull 19.470672000000004

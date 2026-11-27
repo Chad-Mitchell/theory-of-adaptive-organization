@@ -1,0 +1,22 @@
+H=2 m=1 n=5: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.23606798; n*min margin 1.18034 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=2 m=2 n=9: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.1479559; n*min margin 1.3316 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=2 m=3 n=13: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.10757049; n*min margin 1.39842 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=3 m=1 n=13: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.10757049; n*min margin 1.39842 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=3 m=2 n=25: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.059080805; n*min margin 1.47702 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=3 m=3 n=37: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.040713283; n*min margin 1.50639 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=4 m=1 n=25: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.059080805; n*min margin 1.47702 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=4 m=2 n=49: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.031056178; n*min margin 1.52175 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=4 m=3 n=73: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.021062906; n*min margin 1.53759 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=5 m=1 n=121: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.012815065; n*min margin 1.55062 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=5 m=2 n=241: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.0064755746; n*min margin 1.56061 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=5 m=3 n=361: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.0043323715; n*min margin 1.56399 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=6 m=1 n=121: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.012815065; n*min margin 1.55062 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=6 m=2 n=241: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.0064755746; n*min margin 1.56061 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=6 m=3 n=361: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.0043323715; n*min margin 1.56399 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=7 m=1 n=841: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.0018642889; n*min margin 1.56787 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=7 m=2 n=1681: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.0009335691; n*min margin 1.56933 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=7 m=3 n=2521: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.00062269659; n*min margin 1.56982 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=8 m=1 n=1681: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.0009335691; n*min margin 1.56933 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=8 m=2 n=3361: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.00046714147; n*min margin 1.57006 | float DP (both rules, no cap): win at all T: True; DP optimum = equal-step path
+H=8 m=3 n=5041: 60-digit equal-step path < disk at every T in 2..H: True; min rel margin 0.00031150704; n*min margin 1.57031
+failures: 0

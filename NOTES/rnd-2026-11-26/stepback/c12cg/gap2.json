@@ -1,0 +1,92 @@
+{
+ "spends": {
+  "classical N=2": 1.0,
+  "classical N=3": 1.584962500721156,
+  "classical N=4": 2.0,
+  "square (gbit)": 2.0,
+  "pentagon": 1.118489184,
+  "hexagon": 1.188721876,
+  "octagon": 1.12757066,
+  "disk (rebit)": 1.0,
+  "ball (qubit)": 1.0
+ },
+ "result": {
+  "pareto": [
+   "ball (qubit)",
+   "classical N=4",
+   "disk (rebit)",
+   "hexagon",
+   "octagon",
+   "pentagon",
+   "square (gbit)"
+  ],
+  "stake_winners": {
+   "ball (qubit)": [
+    0.0,
+    12.562
+   ],
+   "classical N=2": [
+    0.0,
+    0.0
+   ],
+   "classical N=4": [
+    19.471,
+    200.0
+   ],
+   "disk (rebit)": [
+    0.0,
+    12.562
+   ],
+   "hexagon": [
+    12.562,
+    19.471
+   ],
+   "square (gbit)": [
+    19.471,
+    200.0
+   ]
+  },
+  "gap": [
+   "pentagon",
+   "octagon"
+  ],
+  "margin_above_hull": {
+   "pentagon": 0.004135,
+   "octagon": 0.0008
+  },
+  "cap_windows": {
+   "classical N=4": [
+    0.125,
+    0.166667
+   ],
+   "square (gbit)": [
+    0.125,
+    0.166667
+   ],
+   "pentagon": [
+    0.176393,
+    0.18169
+   ],
+   "hexagon": [
+    0.166667,
+    0.172335
+   ],
+   "octagon": [
+    0.172335,
+    0.176393
+   ],
+   "disk (rebit)": [
+    0.18169,
+    Infinity
+   ],
+   "ball (qubit)": [
+    0.18169,
+    Infinity
+   ]
+  }
+ },
+ "decision": [
+  "pentagon",
+  "octagon"
+ ]
+}

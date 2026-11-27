@@ -1,0 +1,35 @@
+c_K=2 floor: scored cells {'HIT': 141, 'MISS': 294, 'OPEN': 6, 'UNCLASSIFIED': 7} 
+  per-x: [(0.005, 'MISS'), (0.01, 'MISS'), (0.02, 'MISS'), (0.05, 'MISS'), (0.1, 'MISS'), (0.2, 'MISS'), (0.5, 'MISS'), (1.0, 'MISS')] 
+  sigma -> x with HIT in all four configs: [(0.4, []), (0.3, []), (0.2, []), (0.15, []), (0.1, [1.0]), (0.07, [0.5, 1.0]), (0.05, [0.5, 1.0]), (0.035, [0.2, 0.5, 1.0]), (0.025, [0.2, 0.5, 1.0]), (0.018, [0.1, 0.2, 0.5, 1.0]), (0.012, [0.1, 0.2, 0.5, 1.0]), (0.008, [0.05, 0.1, 0.2, 0.5, 1.0]), (0.005, [0.05, 0.1, 0.2, 0.5, 1.0]), (0.0035, [0.05, 0.1, 0.2, 0.5, 1.0])]
+  non-trivial-flag HIT cells: [('floor|2|F-M3h|1|0.15', [6], 2), ('floor|2|F-mixed|0.5|0.1', [9], 4), ('floor|2|F-mixed|1|0.2', [5], 2)]
+c_K=2 ceil: scored cells {'HIT': 141, 'MISS': 297, 'OPEN': 3, 'UNCLASSIFIED': 7} 
+  per-x: [(0.005, 'MISS'), (0.01, 'MISS'), (0.02, 'MISS'), (0.05, 'MISS'), (0.1, 'MISS'), (0.2, 'MISS'), (0.5, 'MISS'), (1.0, 'MISS')] 
+  sigma -> x with HIT in all four configs: [(0.4, []), (0.3, []), (0.2, []), (0.15, []), (0.1, [1.0]), (0.07, [0.5, 1.0]), (0.05, [0.5, 1.0]), (0.035, [0.2, 0.5, 1.0]), (0.025, [0.2, 0.5, 1.0]), (0.018, [0.1, 0.2, 0.5, 1.0]), (0.012, [0.1, 0.2, 0.5, 1.0]), (0.008, [0.05, 0.1, 0.2, 0.5, 1.0]), (0.005, [0.05, 0.1, 0.2, 0.5, 1.0]), (0.0035, [0.05, 0.1, 0.2, 0.5, 1.0])]
+  non-trivial-flag HIT cells: [('ceil|2|F-M3h|1|0.15', [6], 2), ('ceil|2|F-mixed|0.5|0.1', [9], 4), ('ceil|2|F-mixed|1|0.2', [5], 2)]
+c_K=4 floor: scored cells {'HIT': 150, 'MISS': 275, 'OPEN': 15, 'UNCLASSIFIED': 8} 
+  per-x: [(0.005, 'MISS'), (0.01, 'MISS'), (0.02, 'MISS'), (0.05, 'MISS'), (0.1, 'MISS'), (0.2, 'MISS'), (0.5, 'MISS'), (1.0, 'MISS')] 
+  sigma -> x with HIT in all four configs: [(0.4, []), (0.3, []), (0.2, []), (0.15, [1.0]), (0.1, [1.0]), (0.07, [0.5, 1.0]), (0.05, [0.5, 1.0]), (0.035, [0.2, 0.5, 1.0]), (0.025, [0.2, 0.5, 1.0]), (0.018, [0.1, 0.2, 0.5, 1.0]), (0.012, [0.1, 0.2, 0.5, 1.0]), (0.008, [0.05, 0.1, 0.2, 0.5, 1.0]), (0.005, [0.05, 0.1, 0.2, 0.5, 1.0]), (0.0035, [0.02, 0.05, 0.1, 0.2, 0.5, 1.0])]
+  non-trivial-flag HIT cells: [('floor|4|F-M3h|0.5|0.1', [10], 4), ('floor|4|F-M3h|1|0.2', [6], 2)]
+c_K=4 ceil: scored cells {'HIT': 150, 'MISS': 282, 'OPEN': 8, 'UNCLASSIFIED': 8} 
+  per-x: [(0.005, 'MISS'), (0.01, 'MISS'), (0.02, 'MISS'), (0.05, 'MISS'), (0.1, 'MISS'), (0.2, 'MISS'), (0.5, 'MISS'), (1.0, 'MISS')] 
+  sigma -> x with HIT in all four configs: [(0.4, []), (0.3, []), (0.2, []), (0.15, [1.0]), (0.1, [1.0]), (0.07, [0.5, 1.0]), (0.05, [0.5, 1.0]), (0.035, [0.2, 0.5, 1.0]), (0.025, [0.2, 0.5, 1.0]), (0.018, [0.1, 0.2, 0.5, 1.0]), (0.012, [0.1, 0.2, 0.5, 1.0]), (0.008, [0.05, 0.1, 0.2, 0.5, 1.0]), (0.005, [0.05, 0.1, 0.2, 0.5, 1.0]), (0.0035, [0.02, 0.05, 0.1, 0.2, 0.5, 1.0])]
+  non-trivial-flag HIT cells: [('ceil|4|F-M3h|0.5|0.1', [10], 4), ('ceil|4|F-M3h|1|0.2', [6], 2)]
+check-region edge n_b (largest n whose mode is check), c_K=2:
+  x=0.05 [(0.4, 3, 2.3, 'contiguous'), (0.3, 4, 2.63, 'contiguous'), (0.2, 7, 3.55, 'contiguous'), (0.15, 9, 3.72, 'contiguous'), (0.1, 11, 3.34, 'contiguous'), (0.07, 15, 3.42, 'contiguous'), (0.05, 19, 3.29, 'contiguous'), (0.035, 26, 3.33, 'contiguous'), (0.025, 34, 3.27, 'contiguous'), (0.018, 46, 3.32, 'contiguous'), (0.012, 65, 3.28, 'contiguous'), (0.008, 94, 3.3, 'contiguous'), (0.005, 143, 3.29, 'contiguous'), (0.0035, 198, 3.3, 'contiguous')]
+  x=0.1 [(0.4, 3, 2.3, 'contiguous'), (0.3, 5, 3.29, 'contiguous'), (0.2, 7, 3.55, 'contiguous'), (0.15, 8, 3.31, 'contiguous'), (0.1, 11, 3.34, 'contiguous'), (0.07, 14, 3.2, 'contiguous'), (0.05, 19, 3.29, 'contiguous'), (0.035, 26, 3.33, 'contiguous'), (0.025, 34, 3.27, 'contiguous'), (0.018, 45, 3.25, 'contiguous'), (0.012, 65, 3.28, 'contiguous'), (0.008, 93, 3.27, 'contiguous'), (0.005, 143, 3.29, 'contiguous'), (0.0035, 197, 3.28, 'contiguous')]
+  x=1 [(0.4, 4, 3.06, 'contiguous'), (0.3, 4, 2.63, 'contiguous'), (0.2, 6, 3.04, 'contiguous'), (0.15, 7, 2.89, 'contiguous'), (0.1, 10, 3.03, 'contiguous'), (0.07, 14, 3.2, 'contiguous'), (0.05, 18, 3.12, 'contiguous'), (0.035, 25, 3.2, 'contiguous'), (0.025, 34, 3.27, 'contiguous'), (0.018, 45, 3.25, 'contiguous'), (0.012, 64, 3.23, 'contiguous'), (0.008, 92, 3.23, 'contiguous'), (0.005, 141, 3.25, 'contiguous'), (0.0035, 196, 3.26, 'contiguous')]
+kept-design count vs x (c_K=2), sigma=0.05, 0.012:
+   0.05 [(0.005, 0), (0.01, 29), (0.02, 1181), (0.05, 1182), (0.1, 1182), (0.2, 1182), (0.5, 1183), (1.0, 1183)]
+   0.012 [(0.005, 1134), (0.01, 1135), (0.02, 1135), (0.05, 1136), (0.1, 1136), (0.2, 1136), (0.5, 1137), (1.0, 1137)]
+predicted-HIT cells (x >= 3 sigma sqrt(2 ln 1/sigma)), c_K=2 floor:
+  120 predicted, 119 HIT (99%); not-HIT ones: [(('E-M3h', 1.0, 0.15), 'UNCLASSIFIED')]
+flagged non-trivial HIT cells, T on n*-2..n*+2 and Phi there:
+   F-M3h 1 0.15 n*= 6 slope 0.0 [(4, 'check', 2.0), (5, 'check', 2.0), (6, 'check', 2.0), (7, 'check', 2.0), (8, 'keep', 'inf')]
+   F-mixed 0.5 0.1 n*= 9 slope 0.0 [(7, 'check', 4.0), (8, 'check', 4.0), (9, 'check', 4.0), (10, 'check', 4.0), (11, 'keep', 'inf')]
+   F-mixed 1 0.2 n*= 5 slope 0.0 [(3, 'check', 2.0), (4, 'check', 2.0), (5, 'check', 2.0), (6, 'check', 2.0), (7, 'keep', 'inf')]
+UNCLASSIFIED cells (c_K=2 floor): [('floor|2|E-M3h|0.5|0.1', [10], 4), ('floor|2|E-M3h|1|0.2', [6], 2), ('floor|2|E-M3h|1|0.15', [6], 2), ('floor|2|O|0.5|0.1', [9], 4), ('floor|2|O|1|0.2', [5], 2), ('floor|2|F-M3h|0.5|0.1', [10], 4), ('floor|2|F-M3h|1|0.2', [6], 2)]
+OPEN cells (c_K=2 floor): [('floor|2|E-M3h|0.005|0.05', 1), ('floor|2|O|0.01|0.07', 1), ('floor|2|F-M3h|0.005|0.05', 1), ('floor|2|F-M3h|0.01|0.07', 1), ('floor|2|F-mixed|0.005|0.05', 1), ('floor|2|F-mixed|0.01|0.07', 1)]
+MISS causes (c_K=2 floor, scored):
+   {'none; fade branch (SH-noise)': 104, 'unique but repelling (|slope|=3.0)': 11, 'none; n* region kept (tau=inf)': 156, 'unique but repelling (|slope|=2.5)': 6, 'unique but repelling (|slope|=2.0)': 17}
+check-mode designs: 5151; s* outside {floor,ceil}(2/x): 350 [(0.005, 0.0035, 181, 401), (0.005, 0.0035, 182, 401), (0.005, 0.0035, 183, 401), (0.005, 0.0035, 184, 401), (0.005, 0.0035, 185, 401), (0.005, 0.0035, 186, 401), (0.005, 0.0035, 187, 401), (0.005, 0.0035, 188, 401), (0.005, 0.0035, 189, 401), (0.005, 0.0035, 190, 402), (0.005, 0.0035, 191, 402), (0.005, 0.0035, 192, 402)]
+deviations of s* from 2/x in check mode, by x: (count, max relative excess) {0.05: (32, 6.15), 0.1: (18, 2.8), 0.2: (10, 3.6), 0.5: (2, 0.5), 0.005: (132, 9.0), 0.01: (96, 19.0), 0.02: (60, 19.96)}

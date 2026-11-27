@@ -1,0 +1,9 @@
+'GTAORnd.SelfRef.LR3.M11Blocks.m11_blocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GTAORnd.SelfRef.LR3.M11Blocks.m11_blocks_polytope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GTAORnd.SelfRef.LR3.M11Blocks.m11_blocks_polytope_flips' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GTAORnd.SelfRef.LR3.M11Blocks.m11_cube_cross_polytope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GTAORnd.SelfRef.LR3.M11Blocks.blocks_hyps_consistent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GTAORnd.SelfRef.LR3.OnsetO.Setting.kkt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GTAORnd.SelfRef.LR3.OnsetO.Setting.projection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'GTAORnd.SelfRef.LR3.OnsetO.example_values' depends on axioms: [propext, Classical.choice, Quot.sound]
+@autSet : {ι : Type u_1} → [inst : Fintype ι] → [inst_1 : DecidableEq ι] → Set (ι → ℝ) → Subgroup (Matrix ι ι ℝ)ˣ

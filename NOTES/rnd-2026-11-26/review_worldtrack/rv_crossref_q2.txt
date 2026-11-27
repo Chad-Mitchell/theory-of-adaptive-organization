@@ -1,0 +1,10 @@
+Q: Tatikonda Sahai Mitter stochastic linear control over a communication channel
+  ? 10.1109/tac.2004.834430 | Stochastic Linear Control Over a Communication Channel | Tatikonda, Sahai, Mitter | [[2004, 9]]
+  ? 10.1109/cdc.1998.760856 | Control of LQG systems under communication constraints | Tatikonda, Sahai, Mitter | [[None]]
+  ? 10.1109/tac.2005.860257 | Authors' reply [to comments on "control over noisy channels" by S. Tatikonda and S. Mitter | Tatikonda, Mitter | [[2005, 12]]
+  ? 10.1109/cdc.2005.1582294 | Sequential Source Coding: An optimization viewpoint | Borkar, Mitter, Sahai | [[None]]
+Q: Kipnis Goldsmith Eldar fundamental distortion limits of analog-to-digital compression
+  ? 10.1109/tit.2018.2857822 | Fundamental Distortion Limits of Analog-to-Digital Compression | Kipnis, Eldar, Goldsmith | [[2018, 9]]
+  ? 10.1017/9781108616799.003 | An Information-Theoretic Approach to Analog-to-Digital Compression | Kipnis, Eldar, Goldsmith | [[2021, 1, 31]]
+  ? 10.1109/msp.2017.2774249 | Analog-to-Digital Compression: A New Paradigm for Converting Signals to Bits | Kipnis, Eldar, Goldsmith | [[2018, 5]]
+  ? 10.1109/itw.2015.7133113 | Sub-Nyquist sampling achieves optimal rate-distortion | Kipnis, Goldsmith, Eldar | [[2015, 4]]

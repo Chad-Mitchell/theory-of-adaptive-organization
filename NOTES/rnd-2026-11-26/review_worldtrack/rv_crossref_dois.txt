@@ -1,0 +1,9 @@
+OK 10.1109/tit.2018.2878446 | The Distortion-Rate Function of Sampled Wiener Processes | Kipnis, Goldsmith, Eldar | IEEE Transactions on Information Theory 65 482-499 2019
+OK 10.1109/tit.1970.1054423 | Information rates of Wiener processes | Berger | IEEE Transactions on Information Theory 16 134-139 1970
+OK 10.1109/TIT.1968.1054193 | Asymptotically efficient quantizing | Gish, Pierce | IEEE Transactions on Information Theory 14 676-683 1968
+OK 10.1109/18.720541 | Quantization | Gray, Neuhoff | IEEE Transactions on Information Theory 44 2325-2383 1998
+OK 10.1109/cdc.2002.1184824 | Comparison of Riemann and Lebesgue sampling for first order stochastic systems | Astrom, Bernhardsson | Proceedings of the 41st IEEE Conference on Decision and Control, 2002. 2 2011-2016 None
+OK 10.1137/090757125 | Adaptive Sampling for Linear State Estimation | Rabi, Moustakides, Baras | SIAM Journal on Control and Optimization 50 672-702 2012
+OK 10.1109/tit.2019.2937336 | Sampling of the Wiener Process for Remote Estimation Over a Channel With Random Delay | Sun, Polyanskiy, Uysal | IEEE Transactions on Information Theory 66 1118-1135 2020
+OK 10.1109/tit.1982.1056552 | Causal source codes | Neuhoff, Gilbert | IEEE Transactions on Information Theory 28 701-713 1982
+OK 10.1016/S0304-3932(03)00029-1 | Implications of rational inattention | Sims | Journal of Monetary Economics 50 665-690 2003

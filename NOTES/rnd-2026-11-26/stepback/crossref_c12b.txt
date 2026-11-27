@@ -1,0 +1,13 @@
+== 10.3390/e21100924
+OK ['Learnability for the Information Bottleneck'] ['Wu', 'Fischer', 'Chuang', 'Tegmark'] ['Entropy'] [[2019, 9, 23]]
+== 10.1002/047174882X
+OK ['Elements of Information Theory'] ['Cover', 'Thomas'] [] [[2005, 4, 7]]
+== 10.1016/S0304-3932(03)00029-1
+OK ['Implications of rational inattention'] ['Sims'] ['Journal of Monetary Economics'] [[2003, 4]]
+== 10.1103/PhysRevLett.109.120604
+OK ['Thermodynamics of Prediction'] ['Still', 'Sivak', 'Bell', 'Crooks'] ['Physical Review Letters'] [[2012, 9, 19]]
+== 10.1109/18.720550
+OK ['Algebraic-geometry codes'] ['Blake', 'Heegard', 'Hoholdt', 'Wei'] ['IEEE Transactions on Information Theory'] [[1998]]
+== 10.2307/2373688
+OK ['Logarithmic Sobolev Inequalities'] ['Gross'] ['American Journal of Mathematics'] 97 1061 [[1975]]
+NOTE: 10.1109/18.720550 was a mistyped probe (Algebraic-geometry codes); not cited.

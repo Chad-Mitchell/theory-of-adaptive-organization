@@ -1,0 +1,11 @@
+10.1088/1367-2630/17/12/123001 | Reversibility and the structure of the local state space | Al-Safi; Richens | New Journal of Physics | [[2015, 12, 4]]
+10.1103/PhysRevLett.104.080402 | All Reversible Dynamics in Maximally Nonlocal Theories are Trivial | Gross; Müller; Colbeck; Dahlsten | Physical Review Letters | [[2010, 2, 23]]
+10.1088/1751-8113/47/32/325303 | Reversible dynamics in strongly non-local Boxworld systems | Al-Safi; Short | Journal of Physics A: Mathematical and Theoretical | [[2014, 7, 29]]
+10.2140/pjm.1959.9.1215 | Transformations on tensor product spaces | Marcus; Moyls | Pacific Journal of Mathematics | [[1959, 12, 1]]
+10.2140/pjm.1967.23.613 | Transformations on tensor spaces | Westwick | Pacific Journal of Mathematics | [[1967, 12, 1]]
+10.1063/1.3578015 | The automorphism group of separable states in quantum information theory | Friedland; Li; Poon; Sze | Journal of Mathematical Physics | [[2011, 4, 1]]
+10.1080/03081087.2011.596540 | Characterizing operations preserving separability measures via linear preserver problems | Johnston | Linear and Multilinear Algebra | [[2011, 9, 23]]
+10.1063/1.3399808 | Unique decompositions, faces, and automorphisms of separable states | Alfsen; Shultz | Journal of Mathematical Physics | [[2010, 5, 1]]
+10.1007/s10208-013-9170-8 | ERROR HTTP Error 404: Not Found
+10.1103/PhysRevLett.109.090403 | Deriving Quantum Theory from Its Local Structure and Reversibility | de la Torre; Masanes; Short; Müller | Physical Review Letters | [[2012, 8, 30]]
+10.1063/1.4903510 | Entanglement and the three-dimensionality of the Bloch ball | Masanes; Müller; Pérez-García; Augusiak | Journal of Mathematical Physics | [[2014, 12, 1]]

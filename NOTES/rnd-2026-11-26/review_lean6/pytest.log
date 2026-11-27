@@ -1,0 +1,35 @@
+..........................................F..........F.................. [ 15%]
+........................................................................ [ 30%]
+........................................................................ [ 45%]
+........................................................................ [ 61%]
+........................................................................ [ 76%]
+........................................................................ [ 91%]
+........................................                                 [100%]
+=================================== FAILURES ===================================
+_________________________ test_standalone_entry_point __________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7f6af7a934d0>
+
+    def test_standalone_entry_point(capsys):
+        # Ace nit: banned_words.py has a real entry point.
+        rc = bw.main(["banned_words.py", ROOT])
+        out = capsys.readouterr().out
+>       assert rc in (0, 2) and "RESULT:" in out
+E       assert (1 in (0, 2))
+
+tools/test_banned_words.py:210: AssertionError
+____________________________ test_clean_tree_passes ____________________________
+
+    def test_clean_tree_passes():
+>       assert cc.check(ROOT) == []
+E       AssertionError: assert ['summary: TH...sign-indepen'] == []
+E         
+E         Left contains 2 more items, first extra item: 'summary: THEORY.md:179: judges CX2 without its exact ledger status (CX2 is open): - **When to compete, collaborate, or organize (CX2): classified, because no general theorem is true.** One story in two halves.'
+E         Use -v to get more diff
+
+tools/test_check_claims.py:36: AssertionError
+=========================== short test summary info ============================
+FAILED tools/test_banned_words.py::test_standalone_entry_point - assert (1 in...
+FAILED tools/test_check_claims.py::test_clean_tree_passes - AssertionError: a...
+2 failed, 470 passed in 896.16s (0:14:56)
+pytest exit 1

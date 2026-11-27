@@ -1,0 +1,8 @@
+done f=1 G=0.05 R=0.5 t=39s
+done f=1 G=0.05 R=1 t=44s
+done f=1 G=0.05 R=2 t=83s
+done f=1 G=0.05 R=5 t=143s
+done f=1 G=0.2 R=0.5 t=146s
+done f=1 G=0.2 R=1 t=148s
+done f=1 G=0.2 R=2 t=150s
+done f=1 G=0.2 R=5 t=152s

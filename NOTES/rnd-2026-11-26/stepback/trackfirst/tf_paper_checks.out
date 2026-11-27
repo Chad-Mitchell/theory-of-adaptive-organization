@@ -1,0 +1,7 @@
+OU: theta_task(0) = v*w/a ; x = theta_task(0)/kT = v*w/(a*kT)
+OU: interior I* candidates = [sqrt(a)*sqrt(v)*sqrt(w)/sqrt(kT) - a]
+   J(I*) = 2*sqrt(a)*sqrt(kT)*sqrt(v)*sqrt(w) - a*kT ; equals 2sqrt(kT a v w)-kT a ? True
+   marginal condition w|de/dI| at I* = kT
+OU: dJ*/dkT - I* = 0
+Telegraph: dJ/de at e=1/2 = w
+Telegraph: dL/de at e=1/2 = 0
