@@ -119,4 +119,4 @@ The count in the header (58 rows) is as of the snapshot and is not rewritten. Th
 - M2 lesson: RI's value is ρ_RI = 0.877 (inside the hit band), not 1 (`theory/two-route-2026-11-25/DEVIATIONS.md:12`); A-T2 did not separate the hypothesis from RI.
 - M3 cause: the scored location is `model` (`RESULTS.md:38`); the box edge is where the solver saw it; the interior point at w_x = 2 is below the bar (G = 0.0654).
 - M9: CONSISTENCY_CHECK, not a research miss.
-- Scope: this ledger covers 25–26 Nov only and records misses only; hits and earlier misses are in each test's RESULTS/DEVIATIONS and the CLAIM_MAP headline ledger. §4–§5 process rows are carried into `process/FAILURES.md`.
+- Scope: this ledger covers 25–26 Nov only and records misses only; hits and earlier misses are in each test's RESULTS/DEVIATIONS and the CLAIM_MAP headline ledger. §4–§5 process rows are carried into `process/FAILURES.md`: P5, P6 and P8 as `TOY-1`, P9 as `GATE-REPEAT-4`, S7 as `GATE-REPEAT-3`, and P1–P4, P7 and S1–S6 in the rows added 27 Nov 2026 that name their number here (`NOTTESTED-13M` to `PUSHCLAIM-1`).
