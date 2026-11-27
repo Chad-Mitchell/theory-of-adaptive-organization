@@ -26,7 +26,7 @@ So HC is a best-reply potential game (Voorneveld 2000) with a convex potential. 
 
 *Proof.* Each update is an exact coordinate minimization of \(\tilde\Phi\), so \(\tilde\Phi\) is nonincreasing. On the starting level set \(F\le\tilde\Phi(f^0)/\min_ie^{-\hat F_i}\), so the iterates stay in a compact set, on which \(e^{-F}\) has curvature at least \(\mu=e^{-F_{\max}}>0\) along each coordinate. Minimizing a \(\mu\)-strongly convex function of one variable on an interval lowers it by at least \((\mu/2)\Delta^2\), \(\Delta\) the step, so \(\sum\Delta^2<\infty\) and steps vanish. At any cluster point every \(BR_i\) (continuous) is a fixed point, so it is a Nash equilibrium; all of these have \(F=\max\hat F_i\) (HC2), so \(F\) converges, and with a unique argmax there is one cluster point. ∎ (Tseng 2001 gives block-coordinate convergence in general; the argument above is self-contained for this class.) *Check:* `hetero_curves_best_response_converges` (random games with three curve shapes).
 
-**HC4 (alignment: Lindahl shares, not stake shares; PROVED (in-model), KNOWN: Lindahl 1919, Samuelson 1954).** Let the parties share the read cost \(cF\) in shares \(s_i\), and let \(F^*\) minimize the joint cost \(cF+\sum_iw_ig_i(F)\), so \(c=-\sum_iw_ig_i'(F^*)\). Every party's preferred total equals \(F^*\) iff
+**HC4 (alignment: Lindahl shares, not stake shares; PROVED (in-model), KNOWN: Lindahl 1919, Samuelson 1954).** Here the read price is common, \(c_i=c\) for every party (HC1–HC3 allow per-party prices \(c_i\)). Let the parties share the read cost \(cF\) in shares \(s_i\), and let \(F^*\) minimize the joint cost \(cF+\sum_iw_ig_i(F)\), so \(c=-\sum_iw_ig_i'(F^*)\). Every party's preferred total equals \(F^*\) iff
 \[
 s_i=\frac{-w_ig_i'(F^*)}{c},
 \]
