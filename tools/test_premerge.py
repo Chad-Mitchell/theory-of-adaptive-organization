@@ -79,9 +79,15 @@ def test_merge_uses_a_merge_commit_at_the_checked_head_then_rechecks_main(world)
     r = run([MERGE, "7"], world["env"])
     assert r.returncode == 0, r.stdout + r.stderr
     log = open(world["log"]).read()
-    assert "pr merge 7 --merge --match-head-commit %s" % world["sha"] in log
+    assert "pr merge 7 -R Chad-Mitchell/theory-of-adaptive-organization --merge --match-head-commit %s" % world["sha"] in log
     assert "--squash" not in log and "--rebase" not in log
     assert "premerge: RESULT: PASS" in r.stdout
+
+
+def test_runs_outside_a_clone(world):
+    r = subprocess.run([PRE, "7"], env=world["env"], capture_output=True, text=True, cwd="/")
+    assert r.returncode == 0, r.stdout + r.stderr
+    assert " -R Chad-Mitchell/theory-of-adaptive-organization" in open(world["log"]).read()
 
 
 def test_scripts_never_rebase_squash_or_force():
