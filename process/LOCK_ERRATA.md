@@ -71,3 +71,7 @@ It reads only lock lines of the form `<64 hex>  <path>` in `*.sha256`, `SHA256SU
 ## Not done, on purpose
 
 No locked file was restored, re-hashed or edited, and no lock file was rewritten. Restoring the box paths would change the public tree; re-hashing would replace a lock with a new one. A reviewer who wants the original bytes can take them from the commits above.
+
+## Moved line citations (27 November 2026)
+
+`CORE.md:169` in files dated 24–25 Nov 2026 means https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/7a5f33d8cbcf45b32aab2945555823afa6cbb243/CORE.md#L169 (the status-word definitions, now at `CORE.md` §Status words).

@@ -1,6 +1,6 @@
 # MEMO: paid information and information causality
 
-*24 November 2026 (UTC). Desk derivation, written after the prereg commit and not before it. Self-check, then the independent review at `theory/reviews/INFO_CAUSALITY_REVIEW_2026-11-24.md`. `THEORY.md` is unchanged. Open-work row T71. KNOWN and CONJECTURE below are the status words defined at `CORE.md:169` (header at `:167`). Relabel is the prereg's stopping word (`PREREG.md:44`). Model implication is plain language for the priced comparison, not a status word in that paragraph.*
+*24 November 2026 (UTC). Desk derivation, written after the prereg commit and not before it. Self-check, then the independent review at `theory/reviews/INFO_CAUSALITY_REVIEW_2026-11-24.md`. `THEORY.md` is unchanged. Open-work row T71. KNOWN and CONJECTURE below are the status words defined at `CORE.md` §Status words (header at `:167`). Relabel is the prereg's stopping word (`PREREG.md:44`). Model implication is plain language for the priced comparison, not a status word in that paragraph.*
 
 ## Why this approach
 
@@ -18,7 +18,7 @@ The task is Pawłowski, Paterek, Kaszlikowski, Scarani, Winter and Żukowski, *N
 | P4 | message priced at \(\kappa\) per nat, stake \(w\) on the error | the box scores \(\kappa\ln 2\); the classical one-bit protocol scores \(\kappa\ln 2+w/4\) | model implication |
 | P5 | classical protocol of P4 | the Shannon sum is 1 bit; the heat floor is unused | KNOWN, classical scope of A6 |
 
-The column is not a list of `CORE.md:169` status words. KNOWN is one of those words. Relabel is the stopping word. Model implication is plain language.
+The column is not a list of `CORE.md` §Status words status words. KNOWN is one of those words. Relabel is the stopping word. Model implication is plain language.
 
 **P1.** Theorem R1 (`theory/REPRESENTATION.md:84-92`) says a continuous cost representing the preorder is a price sum. The memory coordinate is Shannon mutual information for a finite alphabet, and the Gelfand–Yaglom–Dobrushin supremum when the mutual information is finite (`theory/REPRESENTATION.md:114`, `CORE.md:52`). A6 fixes which functional that coordinate is: the gross stock \(I(M_t;X^t)\), a different functional from the net learning rate (`theory/REPRESENTATION.md:60`). A8 makes a concatenating price nonnegative (`theory/REPRESENTATION.md:64`). A5 says there is no capacity ceiling on that coordinate (`theory/REPRESENTATION.md:56`). A nonnegative price on a coordinate that may be arbitrarily large leaves the random-access sum free of the ceiling \(I\le m\). A7 keeps the joint on the menu. No sentence in A1–A8 removes the perfect box or forces \(I\le 1\) on it.
 
@@ -73,6 +73,6 @@ Response to `theory/reviews/INFO_CAUSALITY_REVIEW_2026-11-24.md` (commit `b70c81
 
 2. **Contestant sentence.** The prereg's search of `upstream/main` and the ace-probe branch found no PR-box and no maximal-tensor implementation. That search stands. The reuse sentence in the first memo was wider than the search. `origin/forge-composite-contest` commit `e271ea9` (2026-11-24 03:59:25 UTC), before the prereg, names Gmax, the maximal tensor product of two Bloch balls. Gmax is not a PR box. The task is a different contest. It does not give \(I\le m\). The conditional script stays unrun.
 
-3. **Labels.** `CORE.md:169` defines GENERAL, EXAMPLE, PROVED, KNOWN, SYNTHESIS, CONJECTURE, OPEN, and open miss. This memo uses KNOWN and CONJECTURE in that sense. Relabel is the stopping word locked in the prereg. Model implication is plain language for the priced comparison. The opening line that said the labels follow `CORE.md:167-169` was too wide, and it is corrected above.
+3. **Labels.** `CORE.md` §Status words defines GENERAL, EXAMPLE, PROVED, KNOWN, SYNTHESIS, CONJECTURE, OPEN, and open miss. This memo uses KNOWN and CONJECTURE in that sense. Relabel is the stopping word locked in the prereg. Model implication is plain language for the priced comparison. The opening line that said the labels follow `CORE.md:167-169` was too wide, and it is corrected above.
 
 4. **Answers on PR #250.** The relabel stays, and information causality is not added as an axiom. The scored cell stays \(\kappa H(M)\). \(I(M;a_0,a_1)\) stays the sensitivity row under Deviations and is not rescored. The named cost terms (`THEORY.md:26-34`: nats held, layer upkeep, the stake on the loss, acquisition, telling) and the heat floor (`CORE.md:70`) price a use. \(I(M_t;X^t)\) prices what a record holds about the world it tracks (`theory/REPRESENTATION.md:60`). None of them prices a shared resource by its correlations. `CORE.md` has no nonlocal, no-signaling, or CHSH term. That angle stops here.

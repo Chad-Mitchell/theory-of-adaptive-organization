@@ -2,7 +2,7 @@
 
 **G2: CONSISTENCY_CHECK.** Each route's value is hand-computable from the locked cost, or it is a known theorem. The note is not a test.
 
-*24 November 2026 (UTC). Desk note. No script. Self-check, not an independent review. `THEORY.md` is unchanged. Open-work row T75. Status words are those at `CORE.md:169`. Nothing here derives general relativity, quantum mechanics, or holography. The qubit, the dephasing channel, and the two record functionals are inputs from draft #252.*
+*24 November 2026 (UTC). Desk note. No script. Self-check, not an independent review. `THEORY.md` is unchanged. Open-work row T75. Status words are those at `CORE.md` §Status words. Nothing here derives general relativity, quantum mechanics, or holography. The qubit, the dephasing channel, and the two record functionals are inputs from draft #252.*
 
 *T74 (`theory/QUANTUM_RECORD_PRICE_2026-11-24.md` on `forge-quantum-record-price` at `1fb7b5b`) asked whether A1–A8 or the ruin cap fixes \(\kappa_D/\kappa\). They do not. The missing sentence named there is one shared coefficient on both record terms. On the antipodal ensemble the record cost is flat in \(\theta\) exactly at ratio 1 (`theory/QUANTUM_RECORD_PRICE_2026-11-24.md` Route 5 and ERRATA E1 on that head; `theory/pointer-basis-stakes-2026-11-24/MEMO.md:64-68` at `e584d8b`). This note asks whether a consistency principle, rather than a further axiom, forces that sentence.*
 

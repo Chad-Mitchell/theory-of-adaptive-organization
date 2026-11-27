@@ -1,6 +1,6 @@
 # Record cost, round 10: what "tracking never finishes" can come from
 
-*Wednesday 25 November 2026 (America/New_York). Side R&D, a follow-up to `theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` (the "rounds 4–9 note"), consolidated from a private session. Status words are those at `CORE.md:169`. `THEORY.md`, `CORE.md`, locked blobs and committed preregs are unchanged. Scripts and outputs: `theory/record-cost-2026-11-25/scripts/selfref/m_round10` and `n_round10b`. Citations were checked on Crossref (`doi_check_3.out`, `doi_check_3b.out`). Nothing here derives quantum theory, general relativity, holography, or gravity.*
+*Wednesday 25 November 2026 (America/New_York). Side R&D, a follow-up to `theory/RECORD_COST_ROUNDS4-9_2026-11-25.md` (the "rounds 4–9 note"), consolidated from a private session. Status words are those at `CORE.md` §Status words. `THEORY.md`, `CORE.md`, locked blobs and committed preregs are unchanged. Scripts and outputs: `theory/record-cost-2026-11-25/scripts/selfref/m_round10` and `n_round10b`. Citations were checked on Crossref (`doi_check_3.out`, `doi_check_3b.out`). Nothing here derives quantum theory, general relativity, holography, or gravity.*
 
 Labels as in the rounds 4–9 note: **PROVED (in-model)**, **OBSERVED (numerical)**, **KNOWN**, **HYPOTHESIS**, **OPEN** and **open miss**. U is the premise "tracking never finishes": the reversible group of a record's state space is infinite (rounds 4–9 note, §2). The question here is whether U follows from something more basic.
 

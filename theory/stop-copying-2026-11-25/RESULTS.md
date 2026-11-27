@@ -45,3 +45,10 @@ These are the unedited stdout of the locked commands.
 The README row STOP-COPY now records this result (clean miss on T1 and T2) and points to the next prereg (one asymmetric ingredient). Its previous work order, quoted verbatim from `main` at `ecf5bdbb4aae33bb5511816dac901dac2596e6c7`:
 
 > The who-copies-whom prereg (`theory/stop-copying-2026-11-25/`, in flight; the ID follows its PR): does the cost minimum break the symmetry so copying runs one way, locked before any run, against the rival of information theory without the heat cost, under which both judges nearly stop copying (c about 0.004 to 0.0002) and the flow stays symmetric (C5 of that prereg). Two judges first, then eight. Gate read before any run. A hit does not produce physical constants. |
+
+## Ledger rows (appended 27 Nov 2026; lines above unchanged)
+
+| prediction_id | locked_prediction | outcome | miss | location | stake_x_info | update | breach_check |
+|---|---|---|---|---|---|---|---|
+| T1 | A > 0.12 at all five settings (`PREREG_2.md`) | A ≤ 2.1e-8 | clean miss, −0.12 | model | medium | next prereg adds one asymmetric ingredient | breach of `PREREG_5.md:3` (self gate read), logged in `process/FAILURES.md` |
+| T2 | A > 0.12 at all five settings (`PREREG_2.md`) | A_(5) ≤ 3.3e-7; 0 of 8 edges | clean miss, −0.12 | model | medium | next prereg adds one asymmetric ingredient | breach of `PREREG_5.md:3` (self gate read), logged in `process/FAILURES.md` |

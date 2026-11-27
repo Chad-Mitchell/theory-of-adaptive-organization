@@ -17,3 +17,5 @@
    doi 10.7554/eLife.03526). The mean of such a distribution need not equal the per-cell argmin, and per-cell J would
    read the spread as scatter or as a miss. **No locked file, prediction, range or verdict changes.** P1–P16 keep their
    statuses; they were scored under per-cell J, and that is now stated as their objective.
+
+3. **Lock record (27 Nov 2026).** Commit `6903de9` is not in this repository; `PREREG.md` and the results reached `main` together in `e1be66e`. Lock-before-run is attested by `LOCK.txt` only (see README `MV9-DECISION`).
