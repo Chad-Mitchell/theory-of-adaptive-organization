@@ -48,6 +48,7 @@ else
     "python3 tools/check_claims.py"
     "python3 tools/facts.py --check"
     "python3 tools/miss.py --check-corrections"
+    "python3 tools/miss.py --check-logged"
     "python3 -m pytest -q -p no:cacheprovider tools"
   )
 fi
