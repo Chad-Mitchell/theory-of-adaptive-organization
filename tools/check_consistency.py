@@ -289,7 +289,8 @@ def main(argv=None):
     # were missed, so the four lock-pass files were not treated as self-reviews.
     SELF_MARK = re.compile(r"(Independence:\s*\**\s*NOT independent|This pass is not independent|\(NOT independent\)|same executor that wrote|same executor, reread|^\s*\**Not independent\b|\*\*Not independent\b|\bThis (pass|audit|review|file|self-review|self-check)\b[^.]{0,40}\bis not independent\b)", re.I | re.M)
     self_reviews = []
-    for p in sorted(glob.glob("reviews/**/*.md", recursive=True)):
+    # dated reviews sit under records/reviews/ after the 27 Nov layout move (tools/movemap.py), under reviews/ before it
+    for p in sorted(glob.glob("reviews/**/*.md", recursive=True) + glob.glob("records/reviews/**/*.md", recursive=True)):
         if SELF_MARK.search("\n".join(lines(p)[:15])):
             self_reviews.append(p)
     INDEP = re.compile(r"\bindependent(ly)?\b", re.I)
@@ -297,7 +298,7 @@ def main(argv=None):
     # words between "independent" and the citation that mean the self-review is
     # being contrasted with, not called, an independent review
     BETWEEN_OK = re.compile(r"(supersed|replac|correct|instead of|unlike|\bthan\b|earlier|re-?deriv|checked|reviewed)", re.I)
-    pats = [(sr, re.compile(r"(?<![\w-])(?:reviews/)?" + re.escape(sr[len("reviews/"):]))) for sr in self_reviews]
+    pats = [(sr, re.compile(r"(?<![\w-])(?:reviews/)?" + re.escape(sr.split("reviews/", 1)[1]))) for sr in self_reviews]
     for p in MAINTAINED:
         for i, ln in enumerate(lines(p), 1):
             for s_ in sentences(ln):

@@ -110,7 +110,7 @@ def test_correction_commit_without_a_row_fails_and_with_one_passes():
 def _logged_tree():
     d = _tree()
     os.makedirs(os.path.join(d, "NOTES"))
-    shutil.copy(os.path.join(ROOT, "NOTES", "MISSES-LEDGER.md"), os.path.join(d, "NOTES", "MISSES-LEDGER.md"))
+    shutil.copy(os.path.join(ROOT, "records", "notes", "MISSES-LEDGER.md"), os.path.join(d, "NOTES", "MISSES-LEDGER.md"))
     return d
 
 

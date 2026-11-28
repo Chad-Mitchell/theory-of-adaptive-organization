@@ -170,7 +170,7 @@ def scored_results(root, files=None):
     used by the LEDGER-1 rule (check_claims.py) and the gate check (check_pending.py)."""
     out = []
     for f in (files if files is not None else tracked(root)):
-        if RESULTS_NAME.search(f) and not f.startswith("reference/"):
+        if RESULTS_NAME.search(f) and not movemap.backward(f).startswith("reference/"):
             if STATUS_WORD.search(_read(root, f)):
                 out.append(f)
     return sorted(out)
