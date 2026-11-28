@@ -59,5 +59,8 @@ if (( FAILED )); then
   echo "premerge: RESULT: FAIL at $SHA (no .ok written)"; exit 1
 fi
 mkdir -p "$OKDIR"
-{ echo "sha $SHA"; echo "pr ${PR:-none}"; echo "date $(date -Iseconds)"; cat "$LOG"; } > "$OKDIR/$SHA.ok"
+# Complete or absent: write beside the target and rename only now that every check has passed, with the count of checks
+# in the header so merge.sh can tell a whole file from a cut one.
+{ echo "sha $SHA"; echo "pr ${PR:-none}"; echo "date $(date -Iseconds)"; echo "checks $(wc -l < "$LOG" | tr -d ' ')"; cat "$LOG"; } > "$OKDIR/.$SHA.tmp" \
+  && mv "$OKDIR/.$SHA.tmp" "$OKDIR/$SHA.ok"
 echo "premerge: RESULT: PASS at $SHA; wrote $OKDIR/$SHA.ok"

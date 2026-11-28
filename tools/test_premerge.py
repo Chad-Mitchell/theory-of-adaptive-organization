@@ -110,3 +110,16 @@ def test_scripts_never_rebase_squash_or_force():
     for p in (PRE, MERGE):
         t = open(p).read()
         assert "--force" not in t and "--squash" not in t and "--rebase" not in t and "git rebase" not in t
+
+
+def test_merge_refuses_a_cut_ok_file(world):
+    assert run([PRE, "7"], world["env"]).returncode == 0
+    ok = os.path.join(world["d"], "ok", world["sha"] + ".ok")
+    assert run([MERGE, "7"], world["env"]).returncode == 0    # the whole file is accepted
+    lines = open(ok).read().splitlines()
+    for cut in (lines[:4], lines[:5]):                        # header only, or one check of two
+        open(ok, "w").write("\n".join(cut) + "\n")
+        r = run([MERGE, "7"], world["env"])
+        assert r.returncode == 1 and "not a complete premerge pass" in r.stdout
+    open(ok, "w").write("")
+    assert run([MERGE, "7"], world["env"]).returncode == 1

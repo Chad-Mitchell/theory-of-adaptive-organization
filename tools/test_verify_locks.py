@@ -23,6 +23,9 @@ def _tree(tmp_path, files, lock_lines, lock_name="d/PREREG.sha256"):
     lf = tmp_path / lock_name
     lf.parent.mkdir(parents=True, exist_ok=True)
     lf.write_text("\n".join("%s  %s" % x for x in lock_lines) + "\n")
+    er = tmp_path / "process" / "LOCK_ERRATA.md"   # the record that names every declared file
+    er.parent.mkdir(parents=True, exist_ok=True)
+    er.write_text(" ".join(os.path.basename(p) for p in files) + "\n")
     return str(tmp_path)
 
 
@@ -34,7 +37,7 @@ def test_real_repo_every_lock_is_ok_or_accounted_for():
 def test_real_repo_counts_are_pinned():
     _, counts, _ = vl.verify(ROOT, history=False)
     assert counts["SCRUB"] == 13 and counts["POST_LOCK"] == 2
-    assert counts["UNVERIFIABLE"] == 2 and counts["MISSING"] == 42
+    assert counts["UNVERIFIABLE"] == 4 and counts["MISSING"] == 35
     assert counts["OK"] >= 163
 
 
@@ -296,3 +299,36 @@ def test_dropping_a_frozen_row_on_main_fails(tmp_path):
     assert vl.frozen_fails(root, row) == []
     (tmp_path / "process" / "LOCKED_BLOBS.txt").write_text("")
     assert any("changed or dropped" in f for f in vl.frozen_fails(root, row))
+
+
+def _write(tmp_path, name, text):
+    f = tmp_path / name
+    f.parent.mkdir(parents=True, exist_ok=True)
+    f.write_text(text)
+
+
+def test_every_lock_format_is_read(tmp_path):
+    a, b, c, d = b"a\n", b"b\n", b"c\n", b"d\n"
+    for n, x in (("a.py", a), ("b.py", b), ("c.py", c), ("PREREG.md", d)):
+        (tmp_path / "d").mkdir(exist_ok=True)
+        (tmp_path / "d" / n).write_bytes(x)
+    _write(tmp_path, "d/LOCK.txt", "a.py  sha256 %s\nb.py\n  sha256: %s\nc_sha256 %s\nc_path c.py\n" % (h(a), h(b), h(c)))
+    _write(tmp_path, "d/PREREG.sha256", h(d) + "\n")
+    got = {(hit, hx) for _lf, hit, hx, _t in vl.entries(str(tmp_path))}
+    assert got == {("d/a.py", h(a)), ("d/b.py", h(b)), ("d/c.py", h(c)), ("d/PREREG.md", h(d))}
+
+
+def test_a_changed_file_in_a_name_sha256_lock_fails(tmp_path):
+    root = _tree(tmp_path, {"d/a.py": b"x=2\n"}, [])
+    _write(tmp_path, "d/LOCK.txt", "a.py  sha256 %s\n" % h(b"x=1\n"))
+    fails, _c, _n = vl.verify(root, history=False, scrub=set(), post={}, unverifiable=set(), missing_pin={}, blobs={})
+    assert any("d/a.py" in f and "not accounted for" in f for f in fails)
+
+
+def test_a_declared_file_needs_a_record_that_names_it(tmp_path):
+    root = _tree(tmp_path, {"d/a.py": b"x=2\n"}, [(h(b"x=1\n"), "a.py")])
+    ok, _c, _n = vl.verify(root, history=False, scrub=set(), post={}, unverifiable={"d/a.py"}, missing_pin={}, blobs={})
+    assert ok == []
+    (tmp_path / "process" / "LOCK_ERRATA.md").write_text("nothing here\n")
+    bad, _c, _n = vl.verify(root, history=False, scrub=set(), post={}, unverifiable={"d/a.py"}, missing_pin={}, blobs={})
+    assert any("does not name it" in f for f in bad)

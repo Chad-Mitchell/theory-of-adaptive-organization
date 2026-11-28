@@ -14,6 +14,10 @@ HEAD="$("$GH" pr view "$PR" -R "$SLUG" --json headRefOid -q .headRefOid)" || { e
 if [[ ! -f "$OKDIR/$HEAD.ok" ]]; then
   echo "merge: REFUSED. No premerge pass for the live head $HEAD of #$PR. Run tools/premerge.sh $PR first."; exit 1
 fi
+N="$(sed -n 's/^checks \([0-9][0-9]*\)$/\1/p' "$OKDIR/$HEAD.ok")"
+if [[ -z "$N" || "$N" -lt 1 || "$(grep -c ' PASS$' "$OKDIR/$HEAD.ok")" != "$N" || "$(sed -n 1p "$OKDIR/$HEAD.ok")" != "sha $HEAD" ]]; then
+  echo "merge: REFUSED. $OKDIR/$HEAD.ok is not a complete premerge pass (needs 'checks N' and N PASS lines). Run tools/premerge.sh $PR again."; exit 1
+fi
 NOW="$("$GH" pr view "$PR" -R "$SLUG" --json headRefOid -q .headRefOid)"
 if [[ "$NOW" != "$HEAD" ]]; then
   echo "merge: REFUSED. The head moved from $HEAD to $NOW while checking."; exit 1
