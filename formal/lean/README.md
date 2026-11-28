@@ -201,7 +201,7 @@ None of the following is claimed as proved in Lean.
 
 - The hypothesis at the top of CORE.md (a claim about the real world).
 - Convexity of `ε_K` in Model S, still unproved on paper (CORE §4, KEYSTONE_NOTE).  The increment *formula* in N60 is formalized only as a consequence of discrete convexity, which is an assumption here.
-- The stochastic derivations behind the layer-lifetime and local-vs-shared cost expressions (Brownian exit times, the time-average square gap `b²/6`, the delay floor `N w σ² ℓ`, and Chalkley's exactness at zero discount).  The optimization and comparison on those expressions are formalized; the expressions are inputs.
+- The stochastic derivations behind the layer-lifetime and local-vs-shared cost expressions (Brownian exit times, the time-average square gap `b²/6`, the delay floor `N w σ² ℓ`, and Chalkley's exactness at zero discount).  The optimization and comparison on those expressions are formalized; the expressions are inputs.  `MemoryRule.occupation_integrals` computes the two integrals of the assumed density `b − |x|`; the density, the exit-time identification, and the optimality of a barrier policy among all re-check policies stay inputs.
 - The OU (mean-reverting) version of D5 and the `T*`-versus-correlation-time failure regime (NUMERICAL in the repository).
 - SA1 (the Sella–Hirsh stationary weight of the origination–fixation chain), the per-process `β` (Moran, Wright–Fisher), SA1b's well-supported approximation, SA2's lag term as a selection statement, and the fractional form `≈ d/(2σN_e)`.  Only the exact equipartition identity for a Gibbs law on a homogeneous (in particular positive definite quadratic) cost is formalized.
 - The Model-S hull is formalized for any measured `ε`; what stays open is a formula for `ε_K` from the world's time scales and its convexity (above).
@@ -217,7 +217,7 @@ None of the following is claimed as proved in Lean.
 - CT22's in-between binding region, the multiplier `μ_s = −m'/θ'`, and the quasiconvexity / uniqueness hypotheses that justify it.
 - CT1–CT3 (rate–distortion, ergodic theorem, lead-time cap).
 - CT5, CT6, CT7, CT8, CT9 (Blackwell/garbling, hold-or-fade, and the neighbouring short CTs).
-- CT11–CT19, CT23, CT24, CT25, CT26–CT32, CT35–CT43, and the Master Theorem in the class `𝓜_LG`.
+- CT11, CT12 beyond its minimizer, CT13–CT16, CT17 (i), CT18, CT19, CT23, CT24, CT25, CT26–CT32, CT35–CT43, and the Master Theorem in the class `𝓜_LG`.
 - Any information-theoretic construction of `D` or `IB`; they enter CT4 as functions with the stated convexity and monotonicity.
 - LAYER_CONVEXITY: N60 started from `k_0 > 0` (the from-1 formula); Theorem B for a continuous frequency measure (only finitely many cells with positive weights are formalized); the identification of the finite-cell minimum `bandE` with the staircase cost `BandCounterexample.cost`; the corollary that `K*_0` equals the leftmost argmin in 𝓑; the Wiener-gain reading `W = 1/(1+N/S)`; Model S convexity for `J≥3`; Model S convexity for `J≤2` (N64(iii); Kalman/Wiener, not formalized in this batch).
 - DRIFT_SELECTION: the generator expansion from the origination–fixation chain to the Langevin equation (L), existence and uniqueness of the stationary law and the ergodic theorem (time average = stationary mean); DS1(b) for a general mutation matrix `M` (`d/(2β) + Tr(M^{-1} Q)/(2β)`); DS1(c) as the single excess `d/(2β) + vᵀH⁻¹v/(2 β² D_m²)` (only the mean-lag term is formalized; the fluctuation `d/(2β)` is not supplied here by `Equipartition`); the jump-process construction behind the DS2 mean-speed bound; S2's `E[|L|]`, `E[J−J*]`, and time average (the formalized DS2 lag, cost, and half-window theorems are WEAKER: they bound `|E[L]|`, give a Rayleigh lower bound on a free quadratic, and have no time-average statement); DS3; Corollary DS1c (the fractional form with `β = σ N_e / J*`); the topological limit `γ→∞` in DS1(d).
@@ -526,6 +526,7 @@ formal/lean/
   GTAO/CT22.lean
   GTAO/Hull.lean
   GTAO/LayerLifetime.lean   # T* = √(6k/(wσ²)) and the fixed-period cousin
+  GTAO/MemoryRule.lean      # memory hold rule, T*, band b*; CT12 minimizer; CT17 (ii)
   GTAO/LocalShared.lean     # D5 crossing; switch iff ℓ > 0 and k_S < N k_L
   GTAO/Equipartition.lean   # E_π[J] − J* = d/(pβ); d/(2β) for PD quadratics
   GTAO/DriftSelection.lean  # DS1 Lyapunov identity, including d/(2β)(1+D/D_m)
@@ -554,3 +555,66 @@ formal/lean/
 ```
 
 Build artifacts under `.lake/` are gitignored.
+
+## MEMORY-RULE: hold rule, re-check interval, band, and CT17 (ii)
+
+Declarations in `GTAO/MemoryRule.lean` (27 November 2026). They check the
+rules in `applications/GROK_BOT_MEMORY_2026-11-23.md` §4–§5 and the
+externality half of CT17 (`THEORY.md:384`; `theory/MATH_ATTACK.md:273`),
+which the public reply
+[2126422798096646198](https://x.com/i/status/2126422798096646198) calls proved
+in models.  The per-item cost is written with a drift weight `a` and a drop
+loss `L`, `h (c + k/T + aσ²T/6) + (1 − h) L`, and every theorem in general `a`
+holds for any `a > 0`.
+
+**Units miss M45 (`NOTES/MISSES-LEDGER.md`).**  As printed on 23 November,
+§4 used `a = w`.  Under §4's own definitions (`w` the stake when the item is
+needed, `p` the need rate) that reading is dimensionally inconsistent, and no
+consistent reading keeps it: the drift weight is forced to `a = w p / g²`,
+where `g` is the gap at which a held item is as costly as a dropped one
+(independent review, `reviews/pr301_2026-11-27/UNITS_REVIEW.md` §1–§2).  So the
+need rate belongs inside the root of the hold threshold, in `T*` and in the
+band (`fixed_hold_rule`); the printed worked example reverses
+(`printed_example_flips`: hold, not drop); and the public reply's keep and
+band lines are wrong as stated.  The reply's role-bot line (a bot that counts
+a share of the loss re-checks at the square root of that share of the right
+rate) holds under either reading, assuming the bot and the whole have the
+same check cost and drift (`part_rate_ratio`).  `doc_hold_rule` and
+`doc_example` check the printed `a = w` text, not the corrected rule; the
+application page is corrected in the same PR (`corrected_example` checks its
+new example).
+
+`T` here is the barrier rule's *mean* interval between re-checks
+(GROK_BOT_MEMORY §5), not a fixed clock: the form `k/T + aσ²T/6` is valid only
+in that parametrization (the fixed clock is `k/T + aσ²T/2`).  Range: the
+quadratic loss holds only while the band stays inside the gap at which the item
+is useless, `b* ≤ g`, i.e. `w p ≥ 6kσ²/g²`; past that the formulas are an
+upper-bound guide only.  This sits beside the Brownian and correlation-time
+caveats of GROK_BOT_MEMORY §5.
+
+Independent review: `reviews/pr301_2026-11-27/REVIEW301.md` (it names
+the head it read) (no Lean blockers; blocker B1 was the
+text of M45, this section and the MEM-RULE row).  The reviewer rebuilt in a
+separate tree (`/tmp/gtao-lean2`) and got the same AxiomAudit count, 2333, as
+`AUDIT.json` records for `/tmp/gtao-lean`.
+
+| Declaration | Source sentence | Label |
+|---|---|---|
+| `held_min` | GROK_BOT_MEMORY:44, 55 | **Faithful.** For `k, a, σ² > 0`, `c + k/T + aσ²T/6` (with `T` the barrier's mean interval) has the unique minimizer `T* = √(6k/(aσ²))` on `T > 0`, with minimum `c + 2√(kaσ²/6)`. Built on `LayerLifetime.layer_lifetime`. |
+| `hold_strictly_better_iff`, `drop_optimal_iff`, `joint_min`, `doc_hold_rule` | GROK_BOT_MEMORY:54 | **Faithful.** Some held interval is strictly cheaper than dropping iff `L > c + 2√(kaσ²/6)`; dropping is optimal iff `L ≤` that value (at equality both are optimal, so "hold only if" is exact and "hold iff" needs the strict sign); the joint minimum over the hold bit and `T` is `min(c + 2√(kaσ²/6), L)`. `doc_hold_rule` is the printed `a = w`, `L = w p` reading, which M45 records as dimensionally inconsistent: Faithful to the printed text only. |
+| `doc_example` | GROK_BOT_MEMORY:57 as printed on 23 Nov | **Faithful to the printed text** in the `a = w` reading, which M45 records as dimensionally inconsistent. At `c = 1`, `w = 10`, `p = 0.2`, `k = 0.5`, `σ² = 1`: `w p = 2 > c`, `2.82 < c + 2√(kwσ²/6) < 2.83`, and no held interval beats dropping. |
+| `fixed_hold_rule` | GROK_BOT_MEMORY:44–55 after M45 | **Faithful.** With `a = w p / g²`: holding strictly beats dropping iff `w p > c + 2√(k w p σ²/(6g²))`; `T* = √(6kg²/(wpσ²))`; `b* = (6kσ²g²/(wp))^{1/4}`. |
+| `printed_example_flips` | GROK_BOT_MEMORY:57 as printed, in the consistent reading | **Faithful.** At `c = 1`, `w = 10`, `p = 0.2`, `k = 0.5`, `σ² = 1`, `g = 1`: `1.81 < c + 2√(kwpσ²/6) < 1.82 < wp = 2`, so holding wins; the free band exceeds `g`, and the capped band `b = g` already costs `11/6 < 2`. |
+| `corrected_example` | GROK_BOT_MEMORY:57 after M45 | **Faithful.** At `c = 2.5`, `w = 15`, `p = 0.2`, `k = 0.4`, `σ² = 1`, `g = 1`: `wp = 3 > c`, `3.39 < c + 2√(kwpσ²/6) < 3.40`, no held interval beats dropping, and `0.94 < b*/g < 0.95`, inside the quadratic range. |
+| `post_hold_iff` | the corrected keep line, `V = wp`, `s = σ²/g²` | **Faithful.** `(∃ T > 0, c + k/T + VsT/6 < V) ↔ V > c + 2√(kVs/6)`. |
+| `post_band` | the corrected band line | **WEAKER**, as `band_rule`: `b*/g = (6ks/V)^{1/4}` and `(b*/g)²/s = √(6k/(Vs))` are algebra; that this band is the barrier's re-check trigger rests on the assumed Brownian exit time and occupation density. |
+| `balanced_terms`, `share_cost` | a bot that counts a share `f` of `V` | **Faithful** in the barrier mean-interval model, for any `f > 0`: at `T_f = √(6k/(fVs))` the bot's re-check rate is `√f` times the right rate, and its true refresh cost `k/T_f + VsT_f/6` is `2√(kVs/6)·(√f + 1/√f)/2`. |
+| `share_overpay` | same | **Faithful.** `(√f + 1/√f)/2 ≥ 1`, with equality iff `f = 1`. |
+| `specialist_beats_iff` | a specialist with check cost `k'` and share `f` | **Faithful** to the stated comparison: its true refresh cost is below the whole's optimum iff `√(k'/k)·(√f + 1/√f)/2 < 1`. Scope: refresh terms only, the item held by both, the same upkeep `c`, drift `s` and stake `V`; no manager or hand-off cost is counted. |
+| `band_rule`, `band_sq` | GROK_BOT_MEMORY:69 | **WEAKER.** The algebraic part only: `b* = (6kσ²/a)^{1/4} > 0`, `b*²/σ² = T*`, the two cost terms `kσ²/b*²` and `a b*²/6` both equal `√(kaσ²/6)`, and `b*` is the unique positive minimizer of `kσ²/b² + a b²/6`. That a Brownian gap reset at `±b` has mean exit time `b²/σ²` and time-average square gap `b²/6`, and that a barrier policy is optimal among all re-check policies (Dixit 1991; Chalkley 1997 at zero discount), are assumptions, not declarations. |
+| `occupation_integrals`, `barrier_cost_from_occupation` | GROK_BOT_MEMORY:69 (the coefficient 6) | **WEAKER.** Given the assumed occupation density `(b − |x|)/σ²` of Brownian motion from `0` absorbed at `±b`, the integrals are computed: `∫_{−b}^{b} (b − |x|) dx = b²` and `∫_{−b}^{b} (b − |x|) x² dx = b⁴/6`, so the mean exit time is `b²/σ²`, the mean square gap is `b²/6`, and `k/M + a·b²/6` is `LayerLifetime.cost (1/6)` at `T = b²/σ²`. The density is an input. |
+| `barrier_cheaper_than_fixed` | GROK_BOT_MEMORY:70 | **Faithful** to the comparison of the two minimized refresh costs: `2√(kaσ²/6) < √(2kaσ²)` (the fixed-clock value is `LayerLifetime.fixed_period_lifetime`). |
+| `part_rate_ratio` | MATH_ATTACK:273 in the memory model; the reply's "√(its loss / total loss)" | **Faithful** in the memory model, for any drift weight (so under either reading of M45): if the whole's drift weight is `Λ u` and a part counts `Λᵢ u`, with the **same check cost `k` and drift `σ²`** for both, the part's mean re-check rate `1/T*` is `√(Λᵢ/Λ)` times the whole's, and strictly lower when `Λᵢ < Λ`. It applies to items the part still holds; the part's own hold threshold is also stricter, so it may drop items the whole would keep. |
+| `ct12Cost`, `ct12Tstar`, `ct12_min`, `bern`, `ct12Cost_scaled`, `ct12Tstar_pow` | THEORY.md:87 (CT12's cost) | **Faithful** to the minimizer: for `α > 1`, `c, w, q > 0`, `c/T + wqT^{α−1}/α` has the unique minimizer `T* = (αc/((α−1)wq))^{1/α}` on `T > 0` (real Bernoulli inequality). CT12's error-sensitivity remark (a 2× input error costs about 6%) is not a declaration. |
+| `ct17_part_rate`, `ct17_alpha_two` | THEORY.md:384, CT17 (ii) | **Faithful** within CT12's cost: a part that sets its interval with stake `Λᵢ` instead of `Λ` reads at `(Λᵢ/Λ)^{1/α}` of the whole's optimal rate; at `α = 2` that factor is `√(Λᵢ/Λ)`. CT17 (i) (the shared clock and Cauchy–Schwarz) is not formalized. |
+| `watch_sq_prop` | MATH_ATTACK:273 (`f*² ∝ Λ ∂h/∂τ`) | **WEAKER.** Takes `f*² = κΛ` with `κ` fixed as a hypothesis (row 7c's proportionality, `∂h/∂τ` held fixed) and concludes `fᵢ = √(Λᵢ/Λ) f`. Row 7c itself is not formalized. |

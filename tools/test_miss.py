@@ -106,6 +106,26 @@ def test_correction_commit_without_a_row_fails_and_with_one_passes():
         shutil.rmtree(d)
 
 
+def test_pushed_correction_named_by_sha_in_a_row_passes():
+    d = _tree()
+    try:
+        g = lambda *a: subprocess.run(["git", *a], cwd=d, check=True, capture_output=True)
+        c = ["-c", "user.name=t", "-c", "user.email=t@t", "commit", "-q", "--allow-empty", "-m"]
+        g("init", "-q")
+        g(*c, "base")
+        base = subprocess.run(["git", "rev-parse", "HEAD"], cwd=d, capture_output=True, text=True).stdout.strip()
+        g(*c, "Fix the count on the front page")
+        sha = subprocess.run(["git", "rev-parse", "HEAD"], cwd=d, capture_output=True, text=True).stdout.strip()
+        assert len(miss.corrections_without_rows(d, base)) == 1
+        p = os.path.join(d, miss.FAILURES)
+        open(p, "a", encoding="utf-8").write("\nnot a row: %s\n" % sha[:10])
+        assert len(miss.corrections_without_rows(d, base)) == 1  # prose outside a row does not count
+        miss.log(d, [dict(ROW, id="ZZ-SHA", miss="commit %s named no row" % sha[:10])])
+        assert miss.corrections_without_rows(d, base) == []
+    finally:
+        shutil.rmtree(d)
+
+
 # ---------------------------------------------------------------- every logged process miss has a FAILURES row
 def _logged_tree():
     d = _tree()

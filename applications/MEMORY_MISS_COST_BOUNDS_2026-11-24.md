@@ -37,7 +37,7 @@ The items below are standing assumptions or definitions used later, not a proof 
 
 ## 4. Which cost, and what does not apply directly
 
-**Canonical display.** `THEORY.md` governs where pages disagree (`CORE.md:15`). The five-term display (`THEORY.md:26-34`) is
+**Canonical display.** `CORE.md` governs the cost, and `THEORY.md` is a frozen archive (`CORE.md:15`, as of 27 November 2026; this line said THEORY governs until then). The five-term display in that archive (`THEORY.md:26-34`) is
 
 $$\min_{\mathcal D} J(\mathcal D)=\kappa I_{\mathrm{mem}}+hK+w\,\mathbb{E}[\ell_{\mathcal D}]+A(\mathcal D)+L(\mathcal D)\qquad\text{subject to}\quad P(\mathrm{ruin})\le\varepsilon_r.$$
 
@@ -49,9 +49,9 @@ Here \(w\,\mathbb{E}[\ell]\) is the stake times the expected loss at the moment 
 
 **Application used here.** For separate working-note items that drift, the cost specializes to (`applications/GROK_BOT_MEMORY_2026-11-23.md:42-55`)
 
-$$J=\sum_i\Bigl[h_i\bigl(c_i+k_i/T_i+w_i\sigma_i^2 T_i/6\bigr)+(1-h_i)w_i p_i\Bigr],$$
+$$J=\sum_i\Bigl[h_i\bigl(c_i+k_i/T_i+w_i p_i s_i T_i/6\bigr)+(1-h_i)w_i p_i\Bigr],$$
 
-with the two rules: hold only if stake times need beats the full cost of holding, and re-check a held item at \(T_i^*=\sqrt{6k_i/(w_i\sigma_i^2)}\). The related three-way rule already in the five-term sum is CT11 (`THEORY.md:321-325`; `applications/GROK_BOT_MEMORY_2026-11-23.md:59`): freeze, hold, or look up. The parent page already records that a length-triggered summary breaks both rules (`applications/GROK_BOT_MEMORY_2026-11-23.md:36, 63`).
+with the two rules: hold only if stake times need beats the full cost of holding, and re-check a held item at \(T_i^*=\sqrt{6k_i/(w_i p_i s_i)}\), with \(s_i=\sigma_i^2/g_i^2\) the drift variance rate in units of the gap \(g_i\) at which a held item is as costly as a dropped one (corrected 27 November 2026, miss M45 in `NOTES/MISSES-LEDGER.md`: the version copied here on 24 November used \(w_i\) for the drift weight, which under the parent page's definitions is \(w_i p_i/g_i^2\)). In §8, §11, §12 and §14 below, \(w\) stays the stake per need and the drift term is written \(w p s T/6\), corrected on the same lines on 27 November 2026. The related three-way rule already in the five-term sum is CT11 (`THEORY.md:321-325`; `applications/GROK_BOT_MEMORY_2026-11-23.md:59`): freeze, hold, or look up. The parent page already records that a length-triggered summary breaks both rules (`applications/GROK_BOT_MEMORY_2026-11-23.md:36, 63`).
 
 **Miss and breach.** A miss is an admissible error inside locked rules, paid as \(w\ell\) and learned from. A breach — including making a false public claim — violates the hard admissibility constraint and is prevented by rule, not traded off inside \(J\) (`process/PROCESS.md:26, 42`; `CORE.md:27, 44, 66, 112`). Answering without opening the file is named as a process miss (`process/PROCESS.md:30`). If a downstream node is a false public claim, that node is a breach, not an ordinary term of \(J\).
 
@@ -190,25 +190,25 @@ The costs \(u_v+o_v\) are summed without discounting as a bookkeeping choice. CT
 
 ## 8. Effective stake and the re-check interval
 
-The application's held-item rate is \(c+k/T+w\sigma^2 T/6\), minimized at \(T^*=\sqrt{6k/(w\sigma^2)}\) under Brownian drift, quadratic loss, a lumpy reset, and a slack ruin cap (`applications/GROK_BOT_MEMORY_2026-11-23.md:44-55, 71`). The stake \(w\) converts immediate expected loss into currency. If being wrong also incurs downstream cost, the stake that enters \(T^*\) is larger, and \(T^*\) is shorter. The exact form depends on how downstream cost scales with the immediate loss.
+The application's held-item rate is \(c+k/T+w p s T/6\) (\(s=\sigma^2/g^2\); M45), minimized at \(T^*=\sqrt{6k/(w p s)}\) under Brownian drift, quadratic loss, a lumpy reset, and a slack ruin cap (`applications/GROK_BOT_MEMORY_2026-11-23.md:44-55, 71`). The stake \(w\) converts immediate expected loss into currency. If being wrong also incurs downstream cost, the stake that enters \(T^*\) is larger, and \(T^*\) is shorter. The exact form depends on how downstream cost scales with the immediate loss.
 
 **Proposition 10 (proportional downstream shortens \(T^*\)).** *Assume the application's rate, including the assumptions just cited.* Suppose that, at each use of a held item, the expected downstream cost is linear in the immediate loss: \(\mathbb{E}[C_\downarrow\mid\ell]=\rho\,\ell\) almost surely, for a constant \(\rho\ge 0\). Then the held-item rate is
 
-$$c+\frac{k}{T}+(w+\rho)\frac{\sigma^2 T}{6},$$
+$$c+\frac{k}{T}+(w+\rho)\frac{p\,s\,T}{6},$$
 
 and the minimizing interval is
 
-$$T^*_{\mathrm{eff}}=\sqrt{\frac{6k}{(w+\rho)\sigma^2}}=\frac{T^*}{\sqrt{1+\rho/w}}\;\le\;T^*,$$
+$$T^*_{\mathrm{eff}}=\sqrt{\frac{6k}{(w+\rho)\,p\,s}}=\frac{T^*}{\sqrt{1+\rho/w}}\;\le\;T^*,$$
 
 with equality only at \(\rho=0\).
 
-*Proof.* The immediate stake term is \(w\,\mathbb{E}[\ell]\). The added term is \(\mathbb{E}[\mathbb{E}[C_\downarrow\mid\ell]]=\rho\,\mathbb{E}[\ell]\). Under the application's quadratic-Brownian accounting, \(\mathbb{E}[\ell]\) over a refresh cycle contributes the addend \(\sigma^2 T/6\). The sum is the displayed rate. Minimizing \(k/T+bT\) with \(b=(w+\rho)\sigma^2/6\) gives \(T=\sqrt{k/b}\), which is the claim. The square-root is strictly decreasing in \(\rho\). □
+*Proof.* The immediate stake term is \(w\,\mathbb{E}[\ell]\). The added term is \(\mathbb{E}[\mathbb{E}[C_\downarrow\mid\ell]]=\rho\,\mathbb{E}[\ell]\). Under the application's quadratic-Brownian accounting (\(\ell=(x/g)^2\) at a use, uses at rate \(p\)), the time average of \(\mathbb{E}[\ell]\) over a refresh cycle is \(sT/6\), so the stake terms contribute \((w+\rho)\,p\,sT/6\) per unit time. The sum is the displayed rate. Minimizing \(k/T+bT\) with \(b=(w+\rho)\,p\,s/6\) gives \(T=\sqrt{k/b}\), which is the claim. The square-root is strictly decreasing in \(\rho\). □
 
 The constant \(\rho\) is the expected contaminated cost per unit immediate loss. In particular, if a typical miss has immediate cost \(w\mathbb{E}[\ell\mid\mathrm{miss}]\) and expected downstream \(\mathbb{E}[C_\downarrow\mid\mathrm{miss}]\), then \(\rho/w=\mathbb{E}[C_\downarrow\mid\mathrm{miss}]/(w\mathbb{E}[\ell\mid\mathrm{miss}])\), and the shortening factor is \(1/\sqrt{1+\rho/w}\).
 
-**Remark (lump-sum misses).** If instead a downstream process of mean cost \(D=\mathbb{E}[C_\downarrow\mid\mathrm{miss}]\) is seeded only when the immediate loss exceeds a threshold, the held-item rate becomes \(c+k/T+w\sigma^2 T/6+\lambda(T)D\), where \(\lambda(T)\) is the rate of such events. That is not in general a constant shift of \(w\), so the closed form of Proposition 10 does not hold. If, in a given class, \(\lambda(T)\) is itself proportional to \(\sigma^2 T\), the same shortening form is recovered to leading order, with \(\rho\) identified from that factor. This is an extra assumption and is not claimed in general.
+**Remark (lump-sum misses).** If instead a downstream process of mean cost \(D=\mathbb{E}[C_\downarrow\mid\mathrm{miss}]\) is seeded only when the immediate loss exceeds a threshold, the held-item rate becomes \(c+k/T+w p s T/6+\lambda(T)D\), where \(\lambda(T)\) is the rate of such events. That is not in general a constant shift of \(w\), so the closed form of Proposition 10 does not hold. If, in a given class, \(\lambda(T)\) is itself proportional to \(p\,sT\), the same shortening form is recovered to leading order, with \(\rho\) identified from that factor. This is an extra assumption and is not claimed in general.
 
-**Qualitative content that does not depend on the extra assumption.** Underestimating the stake by omitting \(C_\downarrow\) uses too small a \(w\) in \(T^*=\sqrt{6k/(w\sigma^2)}\) and therefore re-checks too rarely. CT11's lookup edge \(q_c=(\mu u-h)^2/(2cW)\) likewise falls as the stake \(W\) rises (`THEORY.md:323`), so lookup beats holding over a wider range of drift. Both are monotone comparative statics in the stake, already in the theory (CT10, `THEORY.md:317-319`: the minimizing check frequency is nondecreasing in \(w\)). Here \(q_c\) and the drift \(q\) are the symbols of CT11, not the miss probability \(p_{\mathrm{miss}}\) of §5–6.
+**Qualitative content that does not depend on the extra assumption.** Underestimating the stake by omitting \(C_\downarrow\) uses too small a \(w\) in \(T^*=\sqrt{6k/(w p s)}\) and therefore re-checks too rarely. CT11's lookup edge \(q_c=(\mu u-h)^2/(2cW)\) likewise falls as the stake \(W\) rises (`THEORY.md:323`), so lookup beats holding over a wider range of drift. Both are monotone comparative statics in the stake, already in the theory (CT10, `THEORY.md:317-319`: the minimizing check frequency is nondecreasing in \(w\)). Here \(q_c\) and the drift \(q\) are the symbols of CT11, not the miss probability \(p_{\mathrm{miss}}\) of §5–6.
 
 ## 9. Human verification cost
 
@@ -264,7 +264,7 @@ where \(n_\ast=m/(1-m)\) if \(m<1\); \(n_\ast=(m^{G+1}-1)/(m-1)-1\) (or \(G\) if
 
 ## 11. Exact excess under the application's rate, not distribution-free
 
-Assume the per-item rate of `applications/GROK_BOT_MEMORY_2026-11-23.md:44`, including Brownian drift, quadratic loss, a lumpy reset, and a slack ruin cap (`:71`). For a held item, write \(b=w\sigma^2/6\), or \(b=(w+\rho)\sigma^2/6\) under Proposition 10. Then \(T^*=\sqrt{k/b}\) and the minimized refresh-plus-drift term is \(2\sqrt{kb}\). For a barrier policy whose mean interval is \(T>0\),
+Assume the per-item rate of `applications/GROK_BOT_MEMORY_2026-11-23.md:44`, including Brownian drift, quadratic loss, a lumpy reset, and a slack ruin cap (`:71`). For a held item, write \(b=w p s/6\), or \(b=(w+\rho)\,p\,s/6\) under Proposition 10 (\(s=\sigma^2/g^2\); M45). Then \(T^*=\sqrt{k/b}\) and the minimized refresh-plus-drift term is \(2\sqrt{kb}\). For a barrier policy whose mean interval is \(T>0\),
 
 $$\frac{k}{T}+bT-2\sqrt{kb}=\Bigl(\sqrt{\frac{k}{T}}-\sqrt{bT}\Bigr)^2\ge 0,$$
 
@@ -278,7 +278,7 @@ The formula \(T^*\) is the mean interval under the barrier policy, not a fixed c
 
 - "Trust" is not a defined coordinate. The human verification rate \(\pi_v\) and unit cost \(v\) of §9 are bookkeeping inside \(A\), not a new axiom, and the drop in \(\pi_v\) under a visible check is an assumption.
 - A further change, after a miss, in how often a human re-checks later answers, beyond the \(\pi_v\) already counted, is a change in the measured prices \(A\) or \(k\) or in \(\pi_v\). No such extra change is measured here.
-- "Rot" of a store is not a defined coordinate. The defined objects are the age-\(u\) risk \(r(u)\) (CT8, `THEORY.md:303-305`) and, under the application's assumptions, the drift term \(w\sigma^2 T/6\). As in §4, that is not an excess over the heat floor.
+- "Rot" of a store is not a defined coordinate. The defined objects are the age-\(u\) risk \(r(u)\) (CT8, `THEORY.md:303-305`) and, under the application's assumptions, the drift term \(w p s T/6\). As in §4, that is not an excess over the heat floor.
 - Opportunity cost \(o_v\) is defined here as a bookkeeping term in the same currency; the theory's displays do not name it separately. Setting \(o_v=0\) is always a lower bound. Any upper bound on \(o_v\) is an extra assumption.
 - Realized compute or attention spent redoing work sits in \(A\), in \(k\), or in the loss, depending on the chosen currency (`THEORY.md:32, 36`; `process/PROCESS.md:20`).
 
@@ -315,7 +315,7 @@ Against seven assumed misses at 6 TE immediate each (42 TE, no downstream), the 
 
 A compact formula line (subcritical, or stopped at a generation \(G\) with \(\tau\) independent of the tree and \(m\neq 1\)):
 
-$$\mathbb{E}[N]=\frac{1}{1-m}\ (m<1);\quad \mathbb{E}[N\mid\tau=G]=\frac{m^{G+1}-1}{m-1};\quad C_\downarrow=\sum_{v\neq v_0}(u_v+o_v);\quad V=N_{\mathrm{use}}\pi_v v;\quad w_{\mathrm{eff}}=w+\rho\quad\text{(Prop.\ 10)};\quad T^*=\sqrt{6k/(w_{\mathrm{eff}}\sigma^2)}\quad\text{(same assumptions)}.$$
+$$\mathbb{E}[N]=\frac{1}{1-m}\ (m<1);\quad \mathbb{E}[N\mid\tau=G]=\frac{m^{G+1}-1}{m-1};\quad C_\downarrow=\sum_{v\neq v_0}(u_v+o_v);\quad V=N_{\mathrm{use}}\pi_v v;\quad w_{\mathrm{eff}}=w+\rho\quad\text{(Prop.\ 10)};\quad T^*=\sqrt{6k/(w_{\mathrm{eff}}\,p\,s)}\quad\text{(same assumptions)}.$$
 
 ## 14. What would close the bounds
 
