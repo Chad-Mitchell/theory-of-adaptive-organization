@@ -13,7 +13,8 @@ root cause, R1 to R7 (process/FAILURES.md, "Root-cause codes").
                                                 a process row may carry "covers": [ids of DEVIATIONS rows it logs]
   python3 tools/miss.py --check-corrections [BASE]
         every commit since BASE (default: the merge base with origin/main) whose subject corrects something names a
-        row: a FAILURES or DEVIATIONS id that exists, or the trailer `Miss: none (<reason>)`.
+        row: a FAILURES or DEVIATIONS id that exists, or the trailer `Miss: none (<reason>)`; a pushed commit that
+        cannot be reworded counts when a FAILURES or DEVIATIONS row names its SHA (10 or more characters).
 """
 from __future__ import annotations
 
@@ -168,6 +169,19 @@ def _git(root, *a):
     return subprocess.run(["git", *a], cwd=root, capture_output=True, text=True)
 
 
+def row_text(root):
+    """The ledger rows of FAILURES and of every DEVIATIONS*.md, joined (to find a commit SHA named in a row)."""
+    out = []
+    paths = [os.path.join(root, FAILURES)]
+    for dp, dn, fn in os.walk(root):
+        dn[:] = [d for d in dn if d not in (".git", "__pycache__", ".lake")]
+        paths += [os.path.join(dp, f) for f in fn if f.startswith("DEVIATIONS") and f.endswith(".md")]
+    for p in paths:
+        if os.path.isfile(p):
+            out += [l for l in open(p, encoding="utf-8", errors="replace").read().splitlines() if l.startswith("| ")]
+    return "\n".join(out)
+
+
 def corrections_without_rows(root, base=None, ids=None):
     """[(sha, subject)] of commits since base whose subject corrects something and that name no row."""
     if base is None:
@@ -182,6 +196,8 @@ def corrections_without_rows(root, base=None, ids=None):
         return []  # not committed yet: nothing in the range comes after the check
     excl = ["^" + adopt[-1]] if adopt else []
     r = _git(root, "log", "--no-merges", "--format=%H%x1f%s%x1f%b%x1e", "%s..HEAD" % base, *excl)
+    # A pushed commit cannot be reworded without a rewrite, so a row that names its SHA (10+ characters) counts too.
+    rows = row_text(root)
     out = []
     for rec in r.stdout.split("\x1e"):
         if not rec.strip():
@@ -193,6 +209,8 @@ def corrections_without_rows(root, base=None, ids=None):
         if re.search(r"^Miss: none \(\S.*\)$", text, re.M):
             continue
         if any(re.search(r"(?<![\w-])%s(?![\w-])" % re.escape(i), text) for i in ids):
+            continue
+        if sha[:10] in rows:
             continue
         out.append((sha[:10], subj))
     return out
