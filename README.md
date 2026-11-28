@@ -20,7 +20,7 @@ The theory has two parts. Part 1 is mathematics: the cost, a heat floor no desig
 
 $$J = \dot Q + w\,\mathbb{E}[\ell] \qquad\text{subject to}\qquad P(\text{ruin})\le\varepsilon.$$
 
-\(\dot Q\) is the heat the memory's bath gives off, \(w\) is the stake that converts loss into that currency, \(\mathbb{E}[\ell]\) is the expected loss of the decision, and \(\varepsilon\) caps the chance of ruin. The cost is defined for any adaptive system: each has a memory that dissipates, a stake on error, and a chance of ruin. Physics sets the floor on the first term: for bipartite chains and additive-noise diffusions the heat is at least \(kT\) times the rate at which the memory learns its world (Horowitz and Esposito 2014, doi 10.1103/PhysRevX.4.031015). Temperature does not set the stake, and the stake and the ruin cap stay assumptions. [`THEORY.md`](THEORY.md) is the canonical statement of the theory (a draft) and still prints an older five-term sum; adopting this display there is open work T40 (under Waiting on Chad, below), and the relation between the two is set out in `CORE.md` §1.
+\(\dot Q\) is the heat the memory's bath gives off, \(w\) is the stake that converts loss into that currency, \(\mathbb{E}[\ell]\) is the expected loss of the decision, and \(\varepsilon\) caps the chance of ruin. The cost is defined for any adaptive system: each has a memory that dissipates, a stake on error, and a chance of ruin. Physics sets the floor on the first term: for bipartite chains and additive-noise diffusions the heat is at least \(kT\) times the rate at which the memory learns its world (Horowitz and Esposito 2014, doi 10.1103/PhysRevX.4.031015). Temperature does not set the stake, and the stake and the ruin cap stay assumptions. Above the cell that floor sits far below what systems actually pay, so what binds there is the same term priced in the system's own currency: attention, money, compute (`THEORY.md` §3 and §9). [`CORE.md`](CORE.md) governs the cost, and this display is the adopted one (T40, resolved). The frozen [`THEORY.md`](THEORY.md) keeps the proofs and an earlier five-term sum; the relation between the two is set out in `CORE.md` §1.
 
 ## What holds in general
 
@@ -132,8 +132,8 @@ Decisions and outside acts. Nothing outside the repo happens without Chad's go.
 Claim statuses and scope: [`measurement/CLAIM_MAP_v2.md`](measurement/CLAIM_MAP_v2.md) (its headline ledger; the scope words are defined in its scope header). Cases in real systems: [`applications/README.md`](applications/README.md). What went wrong in process, and what changed: [`process/FAILURES.md`](process/FAILURES.md). Live state: `python3 tools/brief.py`. Earlier versions of every page are in git history.
 
 ```
-THEORY.md         The theory, a draft (canonical statement; §3 is still the five-term cost)
-CORE.md           The same argument in full, with every number
+THEORY.md         The v2.9 draft, frozen: proofs and claim index (§3 keeps the five-term sum)
+CORE.md           The cost and the argument in full, with every number (governs)
 theory/           The heat, the designs the minimum gives, and the checks
 applications/     Cases: a design read onto a real system (interpretations)
 measurement/      One status per claim
