@@ -10,6 +10,8 @@
 # GTAO_GH (default gh), GTAO_REPO_SLUG (default Chad-Mitchell/theory-of-adaptive-organization), GTAO_PREMERGE_CHECKS (a newline-separated list of commands; replaces the default list,
 # for tests only), GTAO_PREMERGE_LOCK (default /tmp/gtao-premerge.lock). The clone is deleted on exit.
 set -uo pipefail
+# Each process used to start about 8 BLAS/OMP threads; several at once oversubscribed the box (THREAD-OVERSUB-1).
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1
 REPO_URL="${GTAO_REPO_URL:-https://github.com/Chad-Mitchell/theory-of-adaptive-organization.git}"
 OKDIR="${GTAO_PREMERGE_DIR:-$HOME/.gtao-premerge}"
 GH="${GTAO_GH:-gh}"
@@ -35,19 +37,21 @@ if ! flock -n 9; then
   flock -w 15 9 || { echo "premerge: RESULT: REFUSED, another premerge holds $LOCK ($(tail -n 1 "$LOCK"))"; exit 3; }
 fi
 echo "pid $$ key $KEY" > "$LOCK"
+# Close fd 9 in children (git, gh, pytest, lake). If they inherit it, a child that outlives this script
+# keeps the lock and the next premerge waits 15 s and exits 3, even though this pid is gone.
 WORK="$(mktemp -d /tmp/gtao-premerge.XXXXXX)"
 trap 'rm -rf "$WORK"' EXIT
 if [[ -n "$PR" ]]; then
-  SHA="$("$GH" pr view "$PR" -R "$SLUG" --json headRefOid -q .headRefOid)" || { echo "premerge: cannot read the head of #$PR"; exit 2; }
-  "$GH" pr view "$PR" -R "$SLUG" --json body -q .body > "$WORK/body.md" || exit 2
+  SHA="$("$GH" pr view "$PR" -R "$SLUG" --json headRefOid -q .headRefOid 9>&-)" || { echo "premerge: cannot read the head of #$PR"; exit 2; }
+  "$GH" pr view "$PR" -R "$SLUG" --json body -q .body > "$WORK/body.md" 9>&- || exit 2
 fi
 [[ "$SHA" =~ ^[0-9a-f]{7,40}$ ]] || { echo "premerge: bad commit '$SHA'"; exit 2; }
-git clone -q "$REPO_URL" "$WORK/repo" || exit 2
+git clone -q "$REPO_URL" "$WORK/repo" 9>&- || exit 2
 cd "$WORK/repo" || exit 2
-if [[ -n "$PR" ]]; then git fetch -q origin "pull/$PR/head" 2>/dev/null || true; fi
-git checkout -q --detach "$SHA" 2>/dev/null || { git fetch -q origin "$SHA" && git checkout -q --detach "$SHA"; } || {
+if [[ -n "$PR" ]]; then git fetch -q origin "pull/$PR/head" 9>&- 2>/dev/null || true; fi
+git checkout -q --detach "$SHA" 9>&- 2>/dev/null || { git fetch -q origin "$SHA" 9>&- && git checkout -q --detach "$SHA" 9>&-; } || {
   echo "premerge: $SHA not found"; exit 2; }
-SHA="$(git rev-parse HEAD)"
+SHA="$(git rev-parse HEAD 9>&-)"
 echo "premerge: $SHA${PR:+ (#$PR)} on a fresh clone"
 if [[ -n "${GTAO_PREMERGE_CHECKS:-}" ]]; then
   mapfile -t CHECKS <<< "$GTAO_PREMERGE_CHECKS"
@@ -63,7 +67,7 @@ fi
 FAILED=0; LOG="$WORK/log.txt"; : > "$LOG"
 for c in "${CHECKS[@]}"; do
   [[ -z "$c" ]] && continue
-  out="$(nice -n 19 bash -c "$c" 2>&1)"; rc=$?
+  out="$(nice -n 19 bash -c "$c" 2>&1 9>&-)"; rc=$?
   status=PASS
   if (( rc != 0 )); then status="FAIL (exit $rc)"; FAILED=1
   elif grep -q "RESULT: PARTIAL" <<< "$out"; then status="FAIL (PARTIAL)"; FAILED=1; fi

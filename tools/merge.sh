@@ -4,6 +4,8 @@
 #   - merges with `gh pr merge --merge --match-head-commit <head>` (a merge commit: locks keep their commits);
 #   - runs tools/premerge.sh --sha <new main> and reports its result (a FAIL there is a miss to log with tools/miss.py).
 set -uo pipefail
+# Same thread cap as premerge.sh (THREAD-OVERSUB-1); the post-merge check inherits it.
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1
 GH="${GTAO_GH:-gh}"
 SLUG="${GTAO_REPO_SLUG:-Chad-Mitchell/theory-of-adaptive-organization}"  # gh needs the repository when run outside a clone
 OKDIR="${GTAO_PREMERGE_DIR:-$HOME/.gtao-premerge}"
@@ -26,3 +28,8 @@ fi
 MAIN="$("$GH" api "repos/$SLUG/commits/main" -q .sha)" || { echo "merge: merged; cannot read the new main"; exit 1; }
 echo "merge: #$PR merged at head $HEAD; new main $MAIN; re-checking it"
 "$HERE/premerge.sh" --sha "$MAIN"
+rc=$?
+if (( rc == 3 )); then
+  echo "merge: #$PR is already merged (main $MAIN); the post-merge check was refused because another premerge holds the lock. Rerun: tools/premerge.sh --sha $MAIN"
+fi
+exit "$rc"

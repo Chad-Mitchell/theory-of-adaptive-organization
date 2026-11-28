@@ -3,7 +3,7 @@
 
 Read-only. It never edits a locked file. Added 24 November 2026 (process/LOCK_ERRATA.md).
 
-A lock file is any `*.sha256`, `SHA256SUMS*` or `LOCK*.txt`. Every 64-hex hash in one is
+A lock file is any `*.sha256`, `SHA256SUMS*`, `LOCK*.txt`, `SHA256*.txt` or `*SHA256.txt`. Every 64-hex hash in one is
 tied to a file in any format the tree uses: `<hex>  <path>`, `<path>  sha256 <hex>`, a
 `sha256: <hex>` line under the path, `<name>_sha256 <hex>` (with `<name>_path`), and a bare
 hash in a sidecar named for its file (PREREG.sha256 beside PREREG.md). A hash no format ties to a
@@ -44,7 +44,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import movemap  # noqa: E402  the one move map: lock lines and pins resolve across the 27 Nov layout move
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LOCK_FILE_RE = re.compile(r"(\.sha256|SHA256SUMS[^/]*|LOCK[^/]*\.txt)$")
+LOCK_FILE_RE = re.compile(r"(\.sha256|SHA256SUMS[^/]*|LOCK[^/]*\.txt|SHA256[^/]*\.txt|[^/]*SHA256\.txt)$")
 LINE_RE = re.compile(r"^\s*([0-9a-f]{64})\s+\*?(\S.*?)\s*$")
 SKIP_DIRS = {".git", ".lake", "lake-packages", "node_modules", "__pycache__"}
 
@@ -89,6 +89,7 @@ MISSING = {
     "prereg/vigil-ona/SHA256SUMS_raw.txt": 30,
     "tests/F1/raw/companyfacts.sha256": 1,
     "tests/F1/raw/submissions.sha256": 1,
+    "tests/LFK_SPF/data/RAW_SHA256.txt": 50,
 }
 
 
