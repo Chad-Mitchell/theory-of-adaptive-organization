@@ -1,0 +1,23 @@
+floor at eps=0.2 equals 0.6 ln 4: PASS
+stationary sums to 1: PASS
+stationary balance: PASS
+world marginal is 1/2: PASS
+two-state closed form matches generic code at G=7.0, eps=0.35: PASS
+  n=2 heat 0.224897817 floor 0.185711763 E2 0.211004700
+two-state closed form matches generic code at G=50.0, eps=0.15: PASS
+  n=2 heat 1.282807025 floor 1.214220739 E2 0.056485846
+large-G excess matches the asymptotic form to 1%: PASS
+optimizer n=2 start -1 reproduces closed form at G=7.0, eps=0.35: PASS
+optimizer n=2 start 0 reproduces closed form at G=7.0, eps=0.35: PASS
+optimizer n=2 start 1 reproduces closed form at G=7.0, eps=0.35: PASS
+optimizer n=2 start 2 reproduces closed form at G=7.0, eps=0.35: PASS
+optimizer n=2 start -1 reproduces closed form at G=50.0, eps=0.15: PASS
+optimizer n=2 start 0 reproduces closed form at G=50.0, eps=0.15: PASS
+optimizer n=2 start 1 reproduces closed form at G=50.0, eps=0.15: PASS
+optimizer n=2 start 2 reproduces closed form at G=50.0, eps=0.15: PASS
+n=3: at least one admissible design returned: PASS
+n=3: the embedded start is admissible and within 1e-5 (relative) of the two-state optimum or better: PASS
+n=3: exit cap respected (capviol <= 1e-7) and error <= target + 1e-7: PASS
+edge-cap arm returns admissible designs: PASS
+best_by picks the lowest admissible E: PASS
+ALL TOY CHECKS PASS

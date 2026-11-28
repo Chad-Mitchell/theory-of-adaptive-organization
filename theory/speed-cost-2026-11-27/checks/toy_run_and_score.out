@@ -1,0 +1,20 @@
+== code gates ==
+  code gates: PASS
+
+== arm A table: best-found excess E = heat / (r L(eps)) - 1 ==
+     G   eps          E2          E3          E4    Qfrac        best  reach   repro(n=2,3,4)
+     7  0.35    0.211005    0.211005         nan   0.0000    0.211005  False        (2, 2, 0)
+    50  0.15    0.056486    0.056486         nan   0.0000    0.056486  False        (2, 2, 0)
+    12  0.25    0.165956    0.165956         nan   0.0000    0.165956  False        (2, 2, 0)
+    30  0.12    0.119015    0.119015         nan   0.0000    0.119015  False        (2, 2, 0)
+
+== bars ==
+B1 (floor reached within 0.0002 at any point?):  HIT (no point reaches the floor; min over points of best E = 0.056486)
+B2 (max share of two-state excess removed by n=3,4 <= 0.1?): max Qfrac = 0.0000 at None: HIT
+B3 (E(100)/E(1000) in (8.0, 12.5) at every eps?): []: HIT
+
+== arm B (per-edge cap), best-found E ==
+  G=7 eps=0.35: E2=0.211005 E3=0.211005 E4=nan share removed=0.0000
+  G=50 eps=0.15: E2=0.056486 E3=0.041832 E4=nan share removed=0.2594
+  G=12 eps=0.25: E2=0.165956 E3=0.165956 E4=nan share removed=0.0000
+B4 (per-edge cap: n<=4 removes >= 0.2 of the two-state excess at G=20, eps=0.1?): share 0.2594: HIT
