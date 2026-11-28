@@ -612,7 +612,7 @@ def test_gate_missing_fails(tmp_path):
 def test_gate_committed_before_results_passes(tmp_path):
     repo = _gate_repo(tmp_path)
     _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
-    _commit(repo, {"theory/t1/gate_read_1.md": "Gate: PASS\n"})
+    _commit(repo, {"theory/t1/gate_read_1.md": "Gate read of PREREG.md: PASS\n"})
     _commit(repo, {"theory/t1/RESULTS.md": "| P1 | hit |\n"})
     assert cp.gate_before_results(repo) == ([], [])
 
@@ -648,11 +648,27 @@ def test_gate_probe_script_is_not_a_gate_read(tmp_path):
     assert len(cp.gate_before_results(repo)[0]) == 1
 
 
-def test_gate_consistency_check_mark_exempts(tmp_path):
+def test_gate_consistency_check_mark_in_the_lock_exempts(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\ngate: none (CONSISTENCY_CHECK)\n"})
+    _commit(repo, {"theory/t1/RESULTS.md": "| V1 | implied |\n"})
+    assert cp.gate_before_results(repo) == ([], [])
+
+
+def test_gate_mark_declared_by_the_results_file_does_not_exempt(tmp_path):
     repo = _gate_repo(tmp_path)
     _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
     _commit(repo, {"theory/t1/RESULTS.md": "gate: none (CONSISTENCY_CHECK)\n| V1 | implied |\n"})
-    assert cp.gate_before_results(repo) == ([], [])
+    assert len(cp.gate_before_results(repo)[0]) == 1
+
+
+def test_gate_mark_added_to_the_lock_with_the_results_does_not_exempt(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo, {"theory/t1/PREREG.md": "lock\ngate: none (CONSISTENCY_CHECK)\n", "theory/t1/RESULTS.md": "| V1 | implied |\n"})
+    # the PREREG's first commit is earlier, but the mark arrived with the results; the lock text at its first commit decides
+    fails = cp.gate_before_results(repo)[0]
+    assert len(fails) == 1
 
 
 def test_gate_uncommitted_results_need_committed_gate(tmp_path):
@@ -681,3 +697,94 @@ def test_gate_real_repo_passes_and_grandfather_list_is_exact(monkeypatch):
     fails, _ = cp.gate_before_results(ROOT)
     failing = {f.split(" has ")[0][len("gate: "):].rsplit("/", 1)[0] for f in fails}
     assert failing == set(cp.__dict__["_GATE_GRANDFATHERED_ORIG"])
+
+
+def test_gate_covers_a_scored_suffixed_results_name(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo, {"theory/t1/RESULTS_RUN2.md": "| P1 | HIT |\n"})
+    fails, _ = cp.gate_before_results(repo)
+    assert len(fails) == 1 and "RESULTS_RUN2.md" in fails[0]
+
+
+def test_gate_read_that_names_no_lock_does_not_count(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo, {"theory/t1/gate_read_1.md": "Gate: PASS\n"})
+    _commit(repo, {"theory/t1/RESULTS.md": "| P1 | HIT |\n"})
+    assert len(cp.gate_before_results(repo)[0]) == 1
+
+
+def test_gate_read_elsewhere_naming_only_the_folder_does_not_count(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo, {"NOTES/GATE_READ_T1.md": "Gate read of `theory/t1/`: PASS\n"})
+    _commit(repo, {"theory/t1/RESULTS.md": "| P1 | HIT |\n"})
+    assert len(cp.gate_before_results(repo)[0]) == 1
+
+
+def test_gate_rescore_on_an_old_gate_read_fails_and_a_new_gate_read_passes(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo, {"theory/t1/gate_read_1.md": "Gate read of PREREG.md: PASS\n"})
+    _commit(repo, {"theory/t1/RESULTS.md": "| P1 | HIT |\n"})
+    _commit(repo, {"theory/t1/RESULTS.md": "| P1 | HIT |\n| P2 | MISS |\n"})
+    fails = cp.gate_before_results(repo)[0]
+    assert len(fails) == 1 and "rescored" in fails[0]
+    repo2 = _gate_repo(tmp_path / "b")
+    _commit(repo2, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo2, {"theory/t1/gate_read_1.md": "Gate read of PREREG.md: PASS\n"})
+    _commit(repo2, {"theory/t1/RESULTS.md": "| P1 | HIT |\n"})
+    _commit(repo2, {"theory/t1/gate_read_2.md": "Gate read of PREREG.md, run 2: PASS\n"})
+    _commit(repo2, {"theory/t1/RESULTS.md": "| P1 | HIT |\n| P2 | MISS |\n"})
+    assert cp.gate_before_results(repo2) == ([], [])
+
+
+def test_gate_rewording_a_scored_line_is_not_a_rescore(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo, {"theory/t1/gate_read_1.md": "Gate read of PREREG.md: PASS\n"})
+    _commit(repo, {"theory/t1/RESULTS.md": "| P1 | HIT (typo) |\n"})
+    _commit(repo, {"theory/t1/RESULTS.md": "| P1 | HIT |\n"})
+    assert cp.gate_before_results(repo) == ([], [])
+
+
+def test_gate_grandfathered_folder_is_checked_for_a_new_run(tmp_path, monkeypatch):
+    repo = _gate_repo(tmp_path)
+    monkeypatch.setattr(cp, "GATE_GRANDFATHERED", {"theory/t1"})
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo, {"theory/t1/RESULTS.md": "| P1 | HIT |\n"})
+    old = cp._git_head = cp.git(repo, "rev-parse", "HEAD").stdout.strip()
+    # results first added before adoption stay exempt ...
+    assert cp.gate_before_results(repo, adopt=old) == ([], [])
+    # ... but a new results file after adoption is checked
+    _commit(repo, {"theory/t1/RESULTS_RUN2.md": "| P1 | MISS |\n"})
+    fails = cp.gate_before_results(repo, adopt=old)[0]
+    assert len(fails) == 1 and "RESULTS_RUN2.md" in fails[0]
+    # and a rescore of the old file after adoption is checked too
+    repo2 = _gate_repo(tmp_path / "b")
+    _commit(repo2, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo2, {"theory/t1/RESULTS.md": "| P1 | HIT |\n"})
+    old2 = cp.git(repo2, "rev-parse", "HEAD").stdout.strip()
+    _commit(repo2, {"theory/t1/RESULTS.md": "| P1 | HIT |\n| P2 | MISS |\n"})
+    fails = cp.gate_before_results(repo2, adopt=old2)[0]
+    assert len(fails) == 1 and "rescored" in fails[0]
+
+
+def test_gate_read_naming_the_lock_by_its_path_before_the_move_counts(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"prereg/X/PREREG.md": "lock\n"})
+    _commit(repo, {"NOTES/GATE_READ_X.md": "Gate read of `prereg/X/PREREG.md`: PASS\n"})
+    _git(repo, "mv", "prereg", "records")
+    _git(repo, "commit", "-m", "move")
+    _commit(repo, {"records/X/RESULTS.md": "| P1 | HIT |\n"})
+    # records/X is not a move-map target, so the old path does not resolve; the real map is tested below
+    assert len(cp.gate_before_results(repo)[0]) == 1
+    repo2 = _gate_repo(tmp_path / "b")
+    _commit(repo2, {"prereg/X/PREREG.md": "lock\n"})
+    _commit(repo2, {"NOTES/GATE_READ_X.md": "Gate read of `prereg/X/PREREG.md`: PASS\n"})
+    os.makedirs(os.path.join(repo2, "records"), exist_ok=True)
+    _git(repo2, "mv", "prereg", "records/prereg")
+    _git(repo2, "commit", "-m", "move")
+    _commit(repo2, {"records/prereg/X/RESULTS.md": "| P1 | HIT |\n"})
+    assert cp.gate_before_results(repo2) == ([], [])

@@ -5,6 +5,9 @@ The clean tree must pass. Each planted error must be reported.
 """
 import os
 import shutil
+import tempfile
+
+import pytest
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -272,11 +275,11 @@ def test_direction_line_missing_from_readme_fails():
 # ---------------------------------------------------------------- work rows have one home (Ace 2d)
 def test_work_ids_come_from_readme():
     ids = cc.work_ids(ROOT)
-    assert {"BICAUSAL", "DATA-ONE", "T40", "T72", "LOCK-V1.5"} <= ids
+    assert {"BICAUSAL", "DATA-ONE", "T72", "LOCK-V1.5"} <= ids
 
 
 def test_work_row_copied_to_another_page_fails():
-    plants = [("process/PROCESS.md", "| T40 | Adopt the physical cost display | open |\n"),
+    plants = [("process/PROCESS.md", "| T72 | A copied work row | open |\n"),
               ("theory/PHYSICS_CHAIN_2026-11-23.md", "1. **BICAUSAL** first.\n"),
               ("CORE.md", "| STOP-COPY | 2 | math |\n"),
               ("measurement/FRAMEWORK.md", "2. MV9-DECISION: needs Chad.\n")]
@@ -335,7 +338,7 @@ def test_work_id_in_prose_or_history_passes():
     root = copy_tree()
     try:
         with open(os.path.join(root, "process/PROCESS.md"), "a", encoding="utf-8") as fh:
-            fh.write("\n\nT40 waits on Chad (see README.md).\n\n<!-- history:begin -->\n| T40 | old row |\n<!-- history:end -->\n")
+            fh.write("\n\nT72 is open work (see README.md).\n\n<!-- history:begin -->\n| T72 | old row |\n<!-- history:end -->\n")
         assert "work rows" not in fails_of(root)
     finally:
         shutil.rmtree(root)
@@ -373,3 +376,249 @@ def test_gate_read_outcome_is_not_the_gate_row():
     assert cc.summary_fails("The independent gate read returned **GATE STOP** on E1, so it stays withdrawn.", ROOT) == []
     assert cc.summary_fails("Gate read v5: GATE PASS, so the run went ahead.", ROOT) == []
     assert cc.summary_fails("GATE holds as a server-side merge gate.", ROOT)
+
+
+# ---------------------------------------------------------------- LEDGER-1 (27 Nov 2026)
+def test_ledger1_grandfather_list_equals_the_failing_set():
+    assert set(cc.scored_without_row(ROOT)) == cc.LEDGER1_GRANDFATHERED
+
+
+def test_new_scored_folder_without_a_row_fails_and_a_row_naming_it_passes():
+    root = copy_tree()
+    try:
+        d = os.path.join(root, "theory", "zz-new-test")
+        os.makedirs(d)
+        open(os.path.join(d, "RESULTS.md"), "w").write("P1: HIT\n")
+        assert "ledger-1: theory/zz-new-test holds scored results" in fails_of(root)
+        cm = os.path.join(root, "measurement/CLAIM_MAP_v2.md")
+        t = open(cm, encoding="utf-8").read()
+        t = t.replace("| review_r1316; rounds 14 and 15:", "| review_r1316; theory/zz-new-test/RESULTS.md; rounds 14 and 15:")
+        open(cm, "w", encoding="utf-8").write(t)
+        assert "ledger-1" not in fails_of(root)
+    finally:
+        shutil.rmtree(root)
+
+
+def test_suffixed_results_name_is_scored_and_unscored_file_is_not():
+    root = copy_tree()
+    try:
+        d = os.path.join(root, "theory", "zz-new-test")
+        os.makedirs(d)
+        open(os.path.join(d, "RESULTS_RUN2.md"), "w").write("P1: SIM-FAIL\n")
+        open(os.path.join(root, "theory", "zz-new-test", "NOTES.md"), "w").write("HIT\n")
+        assert "ledger-1: theory/zz-new-test" in fails_of(root)
+        os.remove(os.path.join(d, "RESULTS_RUN2.md"))
+        open(os.path.join(d, "RESULTS.md"), "w").write("no status words here\n")
+        assert "ledger-1: theory/zz-new-test" not in fails_of(root)
+    finally:
+        shutil.rmtree(root)
+
+
+def test_moved_folder_is_the_same_folder():
+    import movemap
+    paths = cc.ledger_paths(ROOT)
+    assert all(movemap.backward(p) == p for p in paths)
+
+
+# ---------------------------------------------------------------- front-page cases (27 Nov 2026)
+def test_front_cases_pending_list_equals_the_failing_set():
+    assert {x.split(": ")[0] for x in cc.front_case_hits(ROOT)} == cc.FRONT_CASES_PENDING
+
+
+def test_front_case_names_come_from_the_index():
+    names = cc.case_names(ROOT)
+    assert "cancer" in names and "Grok Bot" in names and "the swarm rule" not in names
+
+
+def test_naming_a_case_on_the_front_page_fails_and_a_work_row_does_not():
+    root = copy_tree()
+    try:
+        with open(os.path.join(root, "README.md"), "a", encoding="utf-8") as fh:
+            fh.write("\n\nThe theory explains cancer.\n\n| T99 | Grok Bot memory test | open |\n")
+        got = fails_of(root)
+        assert "names the case 'cancer'" in got and "Grok Bot" not in got
+    finally:
+        shutil.rmtree(root)
+
+
+def test_missing_case_index_fails():
+    root = copy_tree()
+    try:
+        p = os.path.join(root, "applications", "README.md")
+        t = open(p, encoding="utf-8").read().replace(cc.CASES_BEGIN, "")
+        open(p, "w", encoding="utf-8").write(t)
+        assert "has no cases table" in fails_of(root)
+    finally:
+        shutil.rmtree(root)
+
+
+# ---------------------------------------------------------------- one row per id
+def _one_row(text):
+    rows, _, _ = cc.parse_ledger(text)
+    return cc.check_one_row_per_id(cc.repo_root(), text, rows)
+
+
+def _cm():
+    return open(os.path.join(cc.repo_root(), "measurement/CLAIM_MAP_v2.md"), encoding="utf-8").read()
+
+
+def test_one_row_per_id_passes_on_the_repo():
+    assert _one_row(_cm()) == []
+
+
+@pytest.mark.parametrize("new,old", [("REP-R1", "R1"), ("SHANNON-S1", "S1"), ("COAD-F3", "F3"), ("COAD-F4", "F4"), ("COAD-F6", "F6")])
+def test_one_row_per_id_catches_a_reused_lettered_id(new, old):
+    t = _cm()
+    assert ("| %s |" % new) in t
+    fails = _one_row(t.replace("| %s |" % new, "| %s |" % old, 1))
+    assert any(("headline %s " % old) in f and "different claim" in f for f in fails), fails
+
+
+def test_one_row_per_id_accepts_a_theory_appendix_row():
+    t = _cm()
+    assert "| CT33 |" in t.split(cc.LEDGER_BEGIN, 1)[1]
+    assert not [f for f in _one_row(t) if "CT33" in f]
+
+
+def test_one_row_per_id_catches_a_duplicate_lettered_row():
+    t = _cm()
+    i = t.index("| F5 |")
+    line = t[i:t.index("\n", i)]
+    fails = _one_row(t.replace(line, line + "\n" + line, 1))
+    assert any("F5 is a lettered row 2 times" in f for f in fails), fails
+
+
+def test_one_row_per_id_catches_a_duplicate_failures_id(tmp_path):
+    (tmp_path / "process").mkdir()
+    (tmp_path / "process" / "FAILURES.md").write_text(
+        "| 2026-11-27 | `X-1` | a |\n| 2026-11-27 | `X-1` | b |\n| 2026-11-27 | `X-2` | c |\n", encoding="utf-8")
+    fails = cc.check_one_row_per_id(str(tmp_path), "", [])
+    assert fails == ["one row per id: FAILURES id X-1 has 2 rows"]
+
+
+# ---------------------------------------------------------------- status word for estimates
+def _ledger_errors(text):
+    return cc.parse_ledger(text)[2]
+
+
+def test_estimate_rows_carry_estimated_on_the_repo():
+    assert not [e for e in _ledger_errors(_cm()) if "estimate" in e]
+
+
+@pytest.mark.parametrize("ident", ["BT2P", "EVO1"])
+def test_an_estimate_under_open_fails(ident):
+    t = _cm().replace("| %s | estimated |" % ident, "| %s | open |" % ident, 1)
+    assert any(("%s calls itself an estimate" % ident) in e for e in _ledger_errors(t))
+
+
+def test_estimated_without_an_uncertainty_fails():
+    t = _cm()
+    i = t.index("| BT2P | estimated |")
+    j = t.index("\n", i)
+    cells = t[i:j].split(" | ")
+    cells[3] = "A number from a simulation."
+    t = t[:i] + " | ".join(cells) + t[j:]
+    assert any("BT2P is `estimated` but its plain text states no uncertainty" in e for e in _ledger_errors(t))
+
+
+# ---------------------------------------------------------------- front-page result lines against ledger rows
+def _front(readme=None, cm=None):
+    root = cc.repo_root()
+    d = tempfile.mkdtemp()
+    open(os.path.join(d, "README.md"), "w", encoding="utf-8").write(
+        readme if readme is not None else open(os.path.join(root, "README.md"), encoding="utf-8").read())
+    text = cm if cm is not None else _cm()
+    rows = cc.parse_ledger(text)[0]
+    out = cc.check_front_results(d, text, rows)
+    shutil.rmtree(d)
+    return out
+
+
+def _readme():
+    return open(os.path.join(cc.repo_root(), "README.md"), encoding="utf-8").read()
+
+
+def test_front_results_pass_on_the_repo():
+    assert _front() == []
+    assert len(cc.front_result_items(_readme())) == 13
+
+
+def test_a_new_readme_result_with_no_ledger_row_fails():
+    r = _readme().replace("- **Acting.**", "- **Telepathy.** *GENERAL.* Minds read minds.\n- **Acting.**", 1)
+    assert any("'Telepathy' has no row" in f for f in _front(readme=r))
+
+
+def test_a_wrong_scope_label_fails():
+    r = _readme().replace("- **Layers.** *WORKED-CLASS-ONLY.*", "- **Layers.** *GENERAL.*", 1)
+    assert any("'Layers' is labelled ['GENERAL']" in f for f in _front(readme=r))
+
+
+def test_a_dropped_conjecture_label_fails():
+    r = _readme().replace("is a CONJECTURE (T50).*", "is open (T50).*", 1)
+    assert r != _readme()
+    assert any("Rebuild and gaining from shocks" in f for f in _front(readme=r))
+
+
+def test_a_mapped_id_that_is_not_a_headline_row_fails():
+    cm = _cm().replace("| Acting | ACTING |", "| Acting | ACTING, NOPE-1 |", 1)
+    assert any("NOPE-1, which is not a headline row" in f for f in _front(cm=cm))
+
+
+# ---------------------------------------------------------------- scope words are defined only in the ledger header
+def _scope_hits(page_text, name="theory/X.md"):
+    d = tempfile.mkdtemp()
+    os.makedirs(os.path.join(d, os.path.dirname(name)), exist_ok=True)
+    open(os.path.join(d, name), "w", encoding="utf-8").write(page_text)
+    out = cc.scope_def_hits(d, [name])
+    shutil.rmtree(d)
+    return out
+
+
+def test_scope_defs_pass_on_the_repo():
+    assert cc.scope_def_hits(cc.repo_root()) == []
+
+
+@pytest.mark.parametrize("text", [
+    # the SCOPE-DEF-3 lines as they stood at #297's head 863a8a8
+    "- **PROVED (in-model)**: proved inside a model.\n- **CONJECTURE**: not proved.\n",
+    "- **KNOWN:** published.\n- **CONJECTURE:** not shown.\n",
+    "Labels: **PROVED (in-model)** is a result inside a named class. **CONJECTURE** is a named bet, not a result.\n",
+    # the SCOPE-DEF-2 line of CORE.md
+    "**GENERAL** means it holds without a Gaussian or linear step. **EXAMPLE** means a worked form in a named class.\n",
+])
+def test_an_old_scope_definition_fails(text):
+    assert _scope_hits(text)
+
+
+def test_a_pointer_to_the_header_passes():
+    text = ("- **PROVED (in-model)**: proved inside a model.\n- **CONJECTURE**: the scope word defined in the scope "
+            "header of the headline ledger (`measurement/CLAIM_MAP_v2.md`).\n")
+    assert _scope_hits(text) == []
+
+
+def test_a_single_labelled_claim_is_not_a_definition():
+    assert _scope_hits("- data line\n- **CONJECTURE:** under a Hellinger-type separation, the error is small.\n") == []
+
+
+def test_the_ledger_header_itself_may_define():
+    text = "The `scope` column labels every row. **GENERAL**: holds without a worked-class step. **SYNTHESIS**: x.\n"
+    assert _scope_hits(text, "measurement/CLAIM_MAP_v2.md") == []
+
+
+# ---------------------------------------------------------------- bare ids whose claim has a prefixed headline id
+def test_no_ambiguous_ids_on_the_front_pages():
+    assert cc.check_twins(cc.repo_root(), cc.parse_ledger(_cm())[0]) == []
+
+
+@pytest.mark.parametrize("text,bare", [("R1 does not choose the coordinates.", "R1"),
+                                       ("loss of confinement at copy gain one (F3)", "F3"),
+                                       ("the information floor S1 holds", "S1"),
+                                       ("Opposed coupling can cycle (CT32, F1).", "F1")])
+def test_a_bare_renamed_id_is_ambiguous(text, bare):
+    rows = cc.parse_ledger(_cm())[0]
+    assert [x[0] for x in cc.ambiguous_ids(text, rows)] == [bare]
+
+
+@pytest.mark.parametrize("text", ["Theorem R1 does not choose.", "REP-R1 holds.", "COAD-F3 and COAD-F4", "R1′ is a theorem"])
+def test_qualified_ids_pass(text):
+    assert cc.ambiguous_ids(text, cc.parse_ledger(_cm())[0]) == []

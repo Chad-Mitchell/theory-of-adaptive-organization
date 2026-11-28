@@ -208,3 +208,24 @@ def test_standalone_entry_point(capsys):
     rc = bw.main(["banned_words.py", ROOT])
     out = capsys.readouterr().out
     assert rc in (0, 2) and "RESULT:" in out
+
+
+# ---------------------------------------------------------------- added lines after the move map
+def test_path_only_rewrite_is_not_new_text():
+    import banned_words as bw
+    out = {"a.md": [(3, "The old verdict in `records/tests/F1/RESULTS.md`.")]}
+    removed = {"a.md": ["The old verdict in `tests/F1/RESULTS.md`."]}
+    assert bw._drop_path_only(out, removed) == {}
+
+
+def test_copying_an_old_line_unchanged_is_still_new_text():
+    import banned_words as bw
+    line = "The old verdict, with no path."
+    assert bw._drop_path_only({"a.md": [(3, line)]}, {"a.md": [line]}) == {"a.md": [(3, line)]}
+
+
+def test_a_real_edit_beside_a_path_rewrite_is_new_text():
+    import banned_words as bw
+    out = {"a.md": [(3, "A new verdict in `records/tests/F1/RESULTS.md`.")]}
+    removed = {"a.md": ["The old verdict in `tests/F1/RESULTS.md`."]}
+    assert bw._drop_path_only(out, removed) == out

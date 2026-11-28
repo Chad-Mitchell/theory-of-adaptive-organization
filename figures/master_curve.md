@@ -20,7 +20,7 @@ From `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` §5 (lines 84–87): blind when
 | J = heat + w·E[loss], P(ruin) ≤ ε | README.md:17; theory/GENERAL_FORM_PHYSICS_2026-11-22.md:26 | worked class (physics-grounded); w and cap assumed (GFP:155–158) |
 | heat ≥ kT × learning rate: KNOWN for bipartite jump processes, PROVED (in-model) for additive-noise diffusions | README.md:13 (27 Nov); GFP:21, GFP:29, GFP:56–64 (IP11) | KNOWN / PROVED (in-model) |
 | Memory pays only by cutting decision loss or keeping the system inside the ruin cap, in a world it does not steer | README.md:5 (27 Nov); THEORY.md CT2, CT4, CT5, CT9 | PROVED (in-model) |
-| R1: under A1–A7, ≥3 essential coordinates, a continuous representing cost is an additive price sum, and only that | README.md:29 (27 Nov); theory/REPRESENTATION.md:19 | GENERAL |
+| REP-R1: under A1–A7, ≥3 essential coordinates, a continuous representing cost is an additive price sum, and only that | README.md:29 (27 Nov); theory/REPRESENTATION.md:19 | GENERAL |
 | Curve: x ≤ 1 blind, 2√x − 1 above; error v/√x | GFP:84–87 | worked class (IP11) |
 | Below the curve unreachable | GFP:62 (floor kT R(ε)); checks §4 | worked class |
 | 240 random worlds on the curve | computed here (`brute_min`), not data | computed |
@@ -46,4 +46,4 @@ From `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` §5 (lines 84–87): blind when
 - **Rebuild (T43) and acting (T45–T47).** In-model results under other assumptions, with no coordinate on this curve; left off to keep the picture readable. They stay in `figures/derivation_map.png`.
 - **"Every system lands on one line."** True only for modes in the worked class; the panel is labeled worked class.
 - **Aligned against random codes (4 against 19.2) and the per-unit precision cap.** Drawn until 27 November 2026; taken off the holographic panel to make room for the swarm rule. Both stay in `theory/HOLOGRAPHIC_MEMORY_2026-11-22.md` and `theory/BOUNDARY_SUFFICIENCY_2026-11-22.md`, and the check of the quoted 19.2 stays in the checks file.
-- **The five-term equation note in the cost band.** Replaced by the judgment line; T40 is listed in `README.md` under Waiting on Chad.
+- **The five-term equation note in the cost band.** Replaced by the judgment line; T40 is resolved: the display in `CORE.md` §1 is the adopted one.

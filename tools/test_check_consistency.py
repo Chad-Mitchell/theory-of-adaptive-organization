@@ -9,7 +9,7 @@ MUTATIONS = [
     ("README.md", "\n\nGTAO is a universal law of adaptive organization.\n", "law"),
     ("README.md", "\n\nThe MV gates become binding once Chad signs off.\n", "gates-await-sign-off"),
     ("README.md", "\n\nThe MATCH1 measles test passed.\n", "unlabeled field verdict"),
-    ("THEORY.md", "\n\nGTAO is a theory of everything.\n", "theory-of-everything"),
+    ("CORE.md", "\n\nGTAO is a theory of everything.\n", "theory-of-everything"),
     ("README.md", "\n\nGTAO is solved.\n", "solved-claim"),
     ("README.md", "\n\nThe theory is silent on black holes.\n", "stale-scope"),
     ("README.md", "\n\nSee CLAIM_MAP N99.\n", "N-ref"),
@@ -25,7 +25,8 @@ MUTATIONS = [
     ("README.md", "\n\nShared trails obey a √N scaling law.\n", "law-named"),
     ("README.md", "\n\nThe repository remains private.\n", "stale-private"),
     # core rules R6-R8 (THEORY v2.0, 19 Nov 2026)
-    ("THEORY.md", "\n| CT99 | An unlisted result | §0 | OPEN | CT99 | none |\n", "core-index"),
+    # THEORY.md is frozen (27 Nov 2026): any edit to it is caught as such
+    ("THEORY.md", "\n| CT99 | An unlisted result | §0 | OPEN | CT99 | none |\n", "frozen"),
     ("CORE.md", "\n\n| Way | Pays |\n|---|---|\n| **Keep** (frozen) | Nothing |\n| **Hold** (self-regulating) | A flow |\n", "spine-duplicate"),
 ]
 # (file, text): sentences that must NOT be flagged (known false positives, now fixed)
@@ -38,9 +39,9 @@ CLEAN = [
 # (file, old text, new text, key): replacements that must be caught
 REPLACEMENTS = [
     ("measurement/CLAIM_MAP_v2.md", "| **Total** | **", "| **Total** | **1", "tally"),
-    ("THEORY.md", "| CX1 | Theorem P for drifting worlds | §5, §8 | OPEN |", "| CX1 | Theorem P for drifting worlds | §5, §8 | PROVED (in-model) |", "core-index"),
-    ("THEORY.md", "| CT15 | The level's technology sets the exponent | §6, Result 4 | MATH-CORRECTED (exponent stands; scope narrowed) | N12 |", "| CT15 | The level's technology sets the exponent | §6, Result 4 | MATH-CORRECTED (exponent stands; scope narrowed) | N13 |", "core-index"),
-    ("THEORY.md", "## Appendix A. The model and notation", "## The model and notation", "length"),
+    ("THEORY.md", "| CX1 | Theorem P for drifting worlds | §5, §8 | OPEN |", "| CX1 | Theorem P for drifting worlds | §5, §8 | PROVED (in-model) |", "frozen"),
+    ("THEORY.md", "| CT15 | The level's technology sets the exponent | §6, Result 4 | MATH-CORRECTED (exponent stands; scope narrowed) | N12 |", "| CT15 | The level's technology sets the exponent | §6, Result 4 | MATH-CORRECTED (exponent stands; scope narrowed) | N13 |", "frozen"),
+    ("THEORY.md", "## Appendix A. The model and notation", "## The model and notation", "frozen"),
 ]
 def run(d):
     r = subprocess.run([sys.executable, os.path.join(d, "tools", "check_consistency.py")], cwd=d, capture_output=True, text=True)
@@ -50,7 +51,7 @@ def copy():
     for root, dirs, files in os.walk(ROOT):
         dirs[:] = [x for x in dirs if x != ".git"]
         for f in files:
-            if f.endswith((".md", ".py")):
+            if f.endswith((".md", ".py")) or f == "LOCKED_BLOBS.txt":
                 src = os.path.join(root, f); dst = os.path.join(d, os.path.relpath(src, ROOT))
                 os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copy(src, dst)
     return d
@@ -77,6 +78,10 @@ def run_all():
         with open(os.path.join(d, f), "a", encoding="utf-8") as fh: fh.write(text)
         rc, out = run(d); shutil.rmtree(d)
         print("clean sentence in %-10s -> %s" % (f, "passes" if rc == 0 else "FALSE POSITIVE")); ok &= rc == 0
+    # a listed maintained page that disappears is caught (a move or delete must not drop it from every check)
+    d = copy(); os.remove(os.path.join(d, "theory", "BOOKENDS.md"))
+    rc, out = run(d); shutil.rmtree(d); caught = rc != 0 and "maintained-exist" in out
+    print("removed %-24s in %-10s -> %s" % ("maintained page", "theory/", "caught" if caught else "MISSED")); ok &= caught
     # R7 is a soft warning: an over-long README warns but does not fail
     d = copy()
     with open(os.path.join(d, "README.md"), "a", encoding="utf-8") as fh: fh.write("\n\n" + "word " * 1000 + "\n")

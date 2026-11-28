@@ -47,7 +47,12 @@ STATUSES = {
     "false",
     "synthesis",
     "interpretation",
+    "estimated",
 }
+# A row whose plain text calls itself an estimate carries the status `estimated`, and an `estimated` row states its
+# uncertainty (a standard error, an interval, a band, or a count such as 3/8). Before 27 Nov such rows were `open`.
+ESTIMATE_PLAIN = re.compile(r"\b(?:Monte Carlo|[Ss]imulation|[Mm]easured)\s+estimate\b|\bestimate,? not a proof\b")
+UNCERTAINTY = re.compile(r"\bSE\b|±|\binterval\b|\bband\b|\b\d+/\d+\b|\bCI\b")
 EDGE_KINDS = {"proved", "known", "interpretation", "open", "conjecture"}
 LEDGER_BEGIN = "<!-- headline-ledger:begin -->"
 LEDGER_END = "<!-- headline-ledger:end -->"
@@ -119,6 +124,10 @@ def parse_ledger(text):
         seen.add(ident)
         if row.get("status") not in STATUSES:
             errors.append("claims: %s has status %r" % (ident, row.get("status")))
+        if ESTIMATE_PLAIN.search(row.get("plain", "")) and row.get("status") != "estimated":
+            errors.append("claims: %s calls itself an estimate but has status %r; use `estimated`" % (ident, row.get("status")))
+        if row.get("status") == "estimated" and not UNCERTAINTY.search(row.get("plain", "")):
+            errors.append("claims: %s is `estimated` but its plain text states no uncertainty (SE, interval, band or k/n)" % ident)
         if not row.get("source") or not row.get("anchor") or not row.get("plain"):
             errors.append("claims: %s missing plain, source, or anchor" % ident)
     rules = []
@@ -540,6 +549,297 @@ def check_summaries(root):
     return out
 
 
+# ---------------------------------------------------------------- LEDGER-1 (27 Nov 2026)
+# Every folder that holds a scored results file (tools/facts.py scored_results, the definition the gate check also
+# uses) has at least one row in measurement/CLAIM_MAP_v2.md whose cells name that folder or a file in it. Paths are
+# compared through tools/movemap.py, so tests/X and records/tests/X are the same folder. A test name alone in prose is
+# not enough, because names collide.
+# Shrink-only: the folders that failed when the rule became a check (FAILURES LEDGER-1-GAP). Adding a row that names
+# the folder removes it; tools/test_check_claims.py asserts this set equals the failing set, and nothing joins it.
+LEDGER1_GRANDFATHERED = {
+    "core/sim1_2026-11-21",
+    "reviews/night2/SELF",
+    "tests/C3",
+    "tests/DECISIVE/banks",
+    "tests/DECISIVE/glucose",
+    "tests/DECISIVE/populations",
+    "tests/DIR1",
+    "tests/F1",
+    "tests/KERNEL_MEASURE",
+    "tests/LEARNSIM",
+    "tests/LFK_SPF",
+    "tests/ONSET_ACROSS_ALPHA",
+    "theory/acting_derivation_checks",
+    "theory/measured/grid_cross_2026-11-21",
+}
+LEDGER_PATH = re.compile(r"(?<![\w./-])((?:[A-Za-z0-9_.\-]+/)+[A-Za-z0-9_.\-]*)")
+
+
+def ledger_paths(root):
+    """Every path named in a table row of the claim map, in its pre-move form."""
+    import movemap
+    out = set()
+    for line in read(root, "measurement/CLAIM_MAP_v2.md").splitlines():
+        if line.startswith("|"):
+            for p in LEDGER_PATH.findall(line):
+                p = p.rstrip("/.")
+                out.add(movemap.backward(p))
+    return out
+
+
+def scored_without_row(root):
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import facts
+    import movemap
+    paths = ledger_paths(root)
+    out = []
+    for folder in facts.scored_folders(root):
+        old = movemap.backward(folder)
+        if not any(p == old or p.startswith(old + "/") for p in paths):
+            out.append(old)
+    return sorted(out)
+
+
+def check_scored_has_row(root):
+    return ["ledger-1: %s holds scored results and no claim-map row names it; add its path to the row's source cell" % f
+            for f in scored_without_row(root) if f not in LEDGER1_GRANDFATHERED]
+
+
+# ---------------------------------------------------------------- front-page cases (27 Nov 2026)
+# Three levels: the core (the cost, the method, the hypothesis), the class designs the minimum gives (CORE.md section 4:
+# layers, sharing, boundaries, rebuilding, acting, the swarm rule), and the cases in applications/README.md. README.md
+# names core terms and designs and links the case index; it never names a case. The names come from that index's
+# `cases` table, so the list has one home. Rows of the open-work tables (first cell a work ID) are work items, not
+# front-page standing, and are not scanned.
+CASES_BEGIN, CASES_END = "<!-- cases:begin -->", "<!-- cases:end -->"
+# Shrink-only: README.md lines that named a case when the rule was adopted; tools/test_check_claims.py holds it equal
+# to the failing set.
+FRONT_CASES_PENDING = set()
+
+
+def case_names(root):
+    import movemap
+    p = "applications/README.md"
+    if not os.path.isfile(os.path.join(root, p)):
+        p = movemap.forward(p)
+    text = read(root, p) if os.path.isfile(os.path.join(root, p)) else ""
+    if CASES_BEGIN not in text:
+        return None
+    names = []
+    for line in text.split(CASES_BEGIN, 1)[1].split(CASES_END, 1)[0].splitlines():
+        c = [x.strip() for x in line.strip().strip("|").split("|")]
+        if len(c) == 5 and c[0] != "case" and not set(c[4]) <= set("-: "):
+            names += [n.strip() for n in c[4].split(";") if n.strip()]
+    return names
+
+
+def front_case_hits(root):
+    names = case_names(root)
+    if names is None:
+        return ["front cases: applications/README.md has no cases table (%s)" % CASES_BEGIN]
+    rx = re.compile(r"(?<![\w-])(" + "|".join(re.escape(n) for n in sorted(names, key=len, reverse=True)) + r")(?![\w-])", re.I)
+    out = []
+    for i, line in enumerate(read(root, "README.md").splitlines(), 1):
+        if GAP_ID.match(line) and not line.startswith("| ID "):
+            continue  # an open-work row
+        for h in rx.findall(line):
+            out.append("README.md:%d: names the case %r; name the design and link applications/README.md" % (i, h))
+    return out
+
+
+def check_front_cases(root):
+    return ["front cases: " + x for x in front_case_hits(root) if x.split(": ")[0] not in FRONT_CASES_PENDING]
+
+
+def lettered_rows(text):
+    """{id: [(line number, section heading)]} for the lettered claim sections (above the headline ledger)."""
+    out, sec = {}, ""
+    pre = text.split(LEDGER_BEGIN, 1)[0] if LEDGER_BEGIN in text else text
+    for i, line in enumerate(pre.splitlines(), 1):
+        if line.startswith("## "):
+            sec = line
+        m = CLAIM_ROW.match(line)
+        if m:
+            out.setdefault(m.group(1), []).append((i, sec))
+    return out
+
+
+def _same_claim(root, ident, source, where):
+    """True when a headline row's source is where the lettered row `ident` comes from: Appendix C of THEORY.md, the
+    lettered row itself, a file its section heading names, or a table row of `ident` at the cited line."""
+    line, sec = where
+    path, _, rest = source.partition(":")
+    num = re.match(r"\d+", rest)
+    num = int(num.group(0)) if num else None
+    if path == "THEORY.md":
+        return True
+    if path == "measurement/CLAIM_MAP_v2.md" and num == line:
+        return True
+    if "`%s`" % path in sec:
+        return True
+    full = os.path.join(root, path)
+    if num and os.path.isfile(full):
+        lines = read(root, path).splitlines()
+        if num <= len(lines) and re.match(r"^\| %s \|" % re.escape(ident), lines[num - 1]):
+            return True
+    return False
+
+
+def check_one_row_per_id(root, text, rows):
+    """One id names one claim (R4). A lettered id is defined once; a headline row that reuses a lettered id must be
+    that claim, not another file's result with the same label (the REP-R1 / SHANNON-S1 collision: a theory note's
+    "Theorem R1" filed as R1 while R1 is a selection-axioms row). Process misses: one FAILURES row per id."""
+    fails = []
+    lett = lettered_rows(text)
+    for ident, where in sorted(lett.items()):
+        if len(where) > 1:
+            fails.append("one row per id: %s is a lettered row %d times (lines %s)" % (ident, len(where), ", ".join(str(w[0]) for w in where)))
+    for r in rows:
+        ident = r.get("id", "")
+        if ident in lett and len(lett[ident]) == 1 and not _same_claim(root, ident, r.get("source", ""), lett[ident][0]):
+            line, sec = lett[ident][0]
+            fails.append("one row per id: headline %s (source %s) reuses the id of a different claim, lettered row %s at "
+                         "measurement/CLAIM_MAP_v2.md:%d (%s); give it a prefixed id such as NOTE-%s"
+                         % (ident, r.get("source", ""), ident, line, sec.lstrip("# ")[:60], ident))
+    fpath = os.path.join(root, "process", "FAILURES.md")
+    if os.path.isfile(fpath):
+        seen = {}
+        for m in re.finditer(r"^\| [0-9-]{10} \| `([^`]+)`", read(root, "process/FAILURES.md"), re.M):
+            seen[m.group(1)] = seen.get(m.group(1), 0) + 1
+        fails += ["one row per id: FAILURES id %s has %d rows" % (k, v) for k, v in sorted(seen.items()) if v > 1]
+    return fails
+
+
+FRONT_BEGIN, FRONT_END = "<!-- front-results:begin -->", "<!-- front-results:end -->"
+FRONT_SECTIONS = ("## What holds in general", "## What the minimum buys")
+SCOPE_WORDS = re.compile(r"\b(GENERAL|WORKED-CLASS-ONLY|SYNTHESIS|CONJECTURE)\b")
+
+
+def front_result_items(readme):
+    """{heading: italic label} for the result items in README's two result sections."""
+    items, on = {}, False
+    for line in readme.splitlines():
+        if line.startswith("## "):
+            on = line.startswith(FRONT_SECTIONS)
+            continue
+        m = re.match(r"^(?:\d+\.|-) \*\*(.+?)\.?\*\*\s*\*([^*]+)\*", line) if on else None
+        if m:
+            items[m.group(1).rstrip(".")] = m.group(2)
+    return items
+
+
+def front_result_map(text):
+    if FRONT_BEGIN not in text or FRONT_END not in text:
+        return None
+    out = {}
+    for line in text.split(FRONT_BEGIN, 1)[1].split(FRONT_END, 1)[0].splitlines():
+        cells = split_cells(line) if line.startswith("|") else []
+        if len(cells) == 2 and cells[0] not in ("README item",) and not cells[0].startswith("-"):
+            out[cells[0]] = [x.strip() for x in cells[1].split(",") if x.strip()]
+    return out
+
+
+def check_front_results(root, text, rows):
+    """Front-page result lines are checked against ledger rows (R1, R7)."""
+    fmap = front_result_map(text)
+    if fmap is None:
+        return ["front results: markers missing in measurement/CLAIM_MAP_v2.md"]
+    items = front_result_items(read(root, "README.md")) if os.path.isfile(os.path.join(root, "README.md")) else {}
+    byid = {r["id"]: r for r in rows}
+    fails = []
+    for h in sorted(set(items) - set(fmap)):
+        fails.append("front results: README item %r has no row in the front-page table" % h)
+    for h in sorted(set(fmap) - set(items)):
+        fails.append("front results: table row %r names no README result item" % h)
+    for h, ids in sorted(fmap.items()):
+        scopes = set()
+        for i in ids:
+            r = byid.get(i)
+            if r is None:
+                fails.append("front results: %r cites %s, which is not a headline row" % (h, i))
+                continue
+            if "README" not in r.get("pages", ""):
+                fails.append("front results: %r cites %s, whose pages do not list README" % (h, i))
+            if SCOPE_WORDS.fullmatch(r.get("scope", "")):
+                scopes.add(r["scope"])
+        if h in items:
+            said = set(SCOPE_WORDS.findall(items[h]))
+            if said != scopes:
+                fails.append("front results: README item %r is labelled %s; its rows have %s"
+                             % (h, sorted(said) or "no scope", sorted(scopes) or "no scope"))
+    return fails
+
+
+# One definition of each scope word (SCOPE-DEF-1..3): only the ledger's scope header defines GENERAL,
+# WORKED-CLASS-ONLY, SYNTHESIS and CONJECTURE. A maintained page may use the words and point to the header; a line
+# that sets one up as a definition ("**WORD**: ...", "**WORD:** ...", "**WORD** means/is ...", "WORD: ..." at the
+# start of a line or list item) fails unless the same sentence points to the scope header.
+SCOPE_DEF = re.compile(r"(?:\*\*(GENERAL|WORKED-CLASS-ONLY|SYNTHESIS|CONJECTURE)(?:\*\*\s*(?::|means\b|is\b|=|—)|:\*\*)"
+                       r"|^\s*(?:[-*]\s+|\d+\.\s+)?(GENERAL|WORKED-CLASS-ONLY|SYNTHESIS|CONJECTURE)\s*[:—])", re.M)
+# A label list: another label is set up the same way on this line or the next or previous line. A single labelled
+# claim ("- **CONJECTURE:** under a separation, ...") is a use of the word, not a definition.
+LABEL_DEF = re.compile(r"\*\*([A-Z][A-Za-z()\- ]*[A-Z)])(?:\*\*\s*(?::|means\b|is\b|=|—)|:\*\*)")
+SCOPE_HEADER_LINE = "The `scope` column"
+SCOPE_DEF_SKIP = {"process/FAILURES.md"}  # the miss log quotes old definitions as evidence
+
+
+def scope_def_hits(root, pages=None):
+    if pages is None:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import check_consistency
+        pages = check_consistency.MAINTAINED_DOCS
+    out = []
+    for p in pages:
+        if p in SCOPE_DEF_SKIP or not os.path.isfile(os.path.join(root, p)):
+            continue
+        lines = read(root, p).splitlines()
+        for n, line in enumerate(lines, 1):
+            if p == "measurement/CLAIM_MAP_v2.md" and line.startswith(SCOPE_HEADER_LINE):
+                continue
+            near = [x for x in lines[max(0, n - 2):n + 1] if x.strip()]
+            labels = {m.group(1) for x in near for m in LABEL_DEF.finditer(x)}
+            for m in SCOPE_DEF.finditer(line):
+                if len(labels - {m.group(1) or m.group(2)}) == 0:
+                    continue
+                rest = line[m.end():]
+                sentence = re.split(r"(?<=[.;])\s|\*\*(?:[A-Z][A-Z-]+)", rest, maxsplit=1)[0]
+                if "scope header" not in sentence:
+                    out.append("%s:%d defines the scope word %s; only the scope header of measurement/CLAIM_MAP_v2.md "
+                               "may define it (point there instead)" % (p, n, m.group(1) or m.group(2)))
+    return out
+
+
+# A bare id whose claim was renamed to a prefixed headline id (R1 -> REP-R1, S1 -> SHANNON-S1, F3 -> COAD-F3) is
+# ambiguous on a front page or figure: the bare id is also a different lettered row. Name the headline id, or the
+# note's own theorem ("Theorem R1").
+TWIN_PAGES = ["README.md", "CORE.md"]
+
+
+def ambiguous_ids(text, rows):
+    twins = {}
+    for r in rows:
+        m = re.fullmatch(r"[A-Z]+-([A-Z]{1,3}\d+)", r.get("id", ""))
+        if m:
+            twins[m.group(1)] = r["id"]
+    out = []
+    for m in re.finditer(r"(?<![\w\-′'])([A-Z]{1,3}\d+)(?![\w\-′'])", text):
+        bare = m.group(1)
+        before = text[max(0, m.start() - 8):m.start()]
+        if bare in twins and not before.endswith(("Theorem ", "Lemma ")):
+            out.append((bare, twins[bare], text.count("\n", 0, m.start()) + 1))
+    return out
+
+
+def check_twins(root, rows):
+    fails = []
+    for p in TWIN_PAGES:
+        if os.path.isfile(os.path.join(root, p)):
+            for bare, twin, line in ambiguous_ids(read(root, p), rows):
+                fails.append("ambiguous id: %s:%d names %s, which is also a different lettered row; write %s (or "
+                             "'Theorem %s' for the note's own theorem)" % (p, line, bare, twin, bare))
+    return fails
+
+
 def check(root=None):
     """Return a list of failure strings (empty means pass)."""
     root = root or repo_root()
@@ -559,6 +859,12 @@ def check(root=None):
     errors.extend(check_direction(root))
     errors.extend(check_work_rows(root))
     errors.extend(check_summaries(root))
+    errors.extend(check_scored_has_row(root))
+    errors.extend(check_front_cases(root))
+    errors.extend(check_one_row_per_id(root, text, rows))
+    errors.extend(check_front_results(root, text, rows))
+    errors.extend("scope words: " + x for x in scope_def_hits(root))
+    errors.extend(check_twins(root, rows))
     # de-duplicate, keep order
     out, seen = [], set()
     for e in errors:

@@ -2,6 +2,23 @@
 
 A Theory of Adaptive Organization is the general claim. Applications are how it is used in a particular system. They are not evidence for the theory unless a test says so, and they are not the theory itself.
 
+## Index of cases
+
+This is the one index of cases. A case reads one design that the minimum gives (`CORE.md` §4) onto a particular system. The front page names designs and links this index; it never names a case (`tools/check_claims.py`, front-page cases). The scope label is the design's; the reading onto the system is an interpretation unless a test says otherwise.
+
+<!-- cases:begin -->
+| case | design it uses | scope of the design | status | names the front page does not use |
+|---|---|---|---|---|
+| AI memory (`adaptive-memory-levels`) | layers, hold and refresh | WORKED-CLASS-ONLY | toy simulation in a separate repository; several preregistered predictions failed or were null; no real-data test | adaptive-memory-levels |
+| Grok Bot memory | hold and refresh | WORKED-CLASS-ONLY | application, not a test of the hypothesis | Grok Bot |
+| Bounds on the cost gap of answering from a summary | the cost and its minimum | GENERAL (distribution-free bounds) | a design fact, not a measurement | summary-only policy |
+| Unified factored representations and forgetting | hold and refresh (forgetting under drift) | WORKED-CLASS-ONLY | one locked hypothesis (UFR-P1), no data run | unified factored representations; UFR-P1 |
+| Cancer as defection | the swarm rule (stay, alignment; CT9, CT29) | SYNTHESIS | interpretation; preregistrable tests listed in `README.md` open work | cancer |
+| AI agents under oversight | the swarm rule (stay, tamper) | SYNTHESIS | interpretation; preregistrable tests listed in `README.md` open work | AI agents under oversight; AI-agent oversight |
+| Looper | hold and refresh | WORKED-CLASS-ONLY | separate private codebase; nothing of it is in this repository | Looper |
+| Ants | sharing (pooling across a colony) | WORKED-CLASS-ONLY | BIO1 literature review; ANTS1 simulation NOT EVIDENCE, with three SIM-FAIL rows | ants; ANTS1; BIO1 |
+<!-- cases:end -->
+
 ## AI memory (`adaptive-memory-levels`)
 
 Public repository: https://github.com/Chad-Mitchell/adaptive-memory-levels
