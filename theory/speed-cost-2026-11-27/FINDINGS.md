@@ -187,13 +187,13 @@ Treat a discrete read as writing a register and then resetting it, in time \(\ta
 **Bounded-activity telegraph floor.** Prereg first, locked before any computation.
 - **Claim H:** for every finite-state bipartite memory tracking the telegraph at rate r (CORE's tightest class, `CORE.md:74`) with every memory transition rate ≤ g_max (this prereg, in `PREREG.md`, uses an exit-rate cap and an edge cap; see there):
   - \(\dot Q_M\ge kT\,r\,L(\varepsilon)\,R_T(g_{\max}/r)\), with \(R_T>1\), and \(R_T\to1\) as \(g_{\max}\to\infty\);
-  - \(\varepsilon\ge\varepsilon_{\min}(g_{\max}/r)>0\).
+  - \(\varepsilon\ge\varepsilon_{\min}(g_{\max}/r)>0\). (This second line holds for the two-state copy, \(r/(G+2r)\); the reader's two-pole result shows a wall of one family need not hold for a richer memory, so `PREREG.md` does not score it.)
 - **Rival:** some bounded-rate memory reaches \(kT\,r\,L(\varepsilon)\) (R_T = 1). In that case D1's excess is an artifact of the linear family, and speed is not a cost of judgment.
 - **Method:** exact for the symmetric two-state copy (closed form, sympy), then numerical optimization over n = 2, 3, 4 state memories with rates capped. If H holds, attempt a proof via the Shiraishi–Funo–Saito / Van Vu–Saito speed limit, with Lean for the two-state identity.
 - **Why this test:** it decides cheaply, inside a class CORE already calls tight, whether "speed is the missing half" is physics of J or a design artifact.
 
 ## 6. What I did not do
 
-- Did not edit the repo, open a PR, or write to THEORY. I ran no Lean.
-- D1's optimality over all bounded-rate memories is OPEN. D2 is one machine class.
+- The first draft did not edit the repo. This revised copy lives in `theory/speed-cost-2026-11-27/`; `CORE.md`, `README.md` and `THEORY.md` are not edited. The test of section 5 was run as `PREREG.md` / `RESULTS.md` in this folder.
+- D1's optimality over all bounded-rate memories is OPEN (it is a one-pole result). D2 is one chain class, with a geometric-mean rate that is not a cap.
 - The prior-art search for D1's closed form was not exhaustive.

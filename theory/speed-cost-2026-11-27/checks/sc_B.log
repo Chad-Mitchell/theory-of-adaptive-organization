@@ -1,0 +1,8 @@
+arm B (n=4 random starts 25 per class): 672 tasks, 6 procs
+  100/672 done, 3s
+  200/672 done, 168s
+  300/672 done, 240s
+  400/672 done, 751s
+  500/672 done, 1067s
+  600/672 done, 1092s
+wrote sc_B.json: 672 results, 1394s
