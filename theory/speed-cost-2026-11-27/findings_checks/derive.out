@@ -1,0 +1,16 @@
+== D1: finite-speed linear memory on one OU signal ==
+dJ/deps = (a**2*epsilon**2*w - 2*a**2*epsilon*v*w - a**2*g*kT*v + a**2*v**2*w + 2*a*epsilon**2*g*w - 2*a*epsilon*g*v*w - a*g**2*kT*v + epsilon**2*g**2*w)/(-a*epsilon + a*v - epsilon*g)**2
+FOC at eps*: 0
+J* - claimed form = 0
+g->oo limit of claimed J*: 2*sqrt(a)*sqrt(kT)*sqrt(v)*sqrt(w) - a*kT  (CORE.md:91 is 2*sqrt(kT a v w) - kT a)
+memory pays iff w*v/(kT*a) > (a + g)/g
+J* - w v at threshold: 0
+numeric min J = 6.440169358562924  closed form = 6.440169358562924  CORE limit = 5.324555320336759
+
+== D2: Brownian (Markov-jump) computer of depth N, deadline tau ==
+check velocity*tau = N: 0
+Q_comp = 2*N*kT*asinh(N/(2*k*tau))
+slow series (tau large): N**2*kT*z/k + O(z**2)
+tau* = N*sqrt(kT)*sqrt(mu_d)/(sqrt(k)*sqrt(q)*sqrt(w))   J_comp* = 2*N*sqrt(kT)*sqrt(mu_d)*sqrt(q)*sqrt(w)/sqrt(k)
+J_comp*/J_info* (CT7) = sqrt(2)*N*sqrt(mu_d)/sqrt(k)  => equal at N = [sqrt(2)*sqrt(k)/(2*sqrt(mu_d))]
+N/(2k tau*) = sqrt(q)*sqrt(w)/(2*sqrt(k)*sqrt(kT)*sqrt(mu_d))
