@@ -1,6 +1,6 @@
 # Physics, selection, and the cost of judgment
 
-*21 November 2026 (America/New_York). Short face note for `core/bridge_2026-11-21/`. Does not change `CORE.md` or the hypothesis sentence. Official in-model test: T27, preregistered in `PREREG.md` before any official run.*
+*21 November 2026 (America/New_York). Short face note for `theory/bridge_2026-11-21/`. Does not change `CORE.md` or the hypothesis sentence. Official in-model test: T27, preregistered in `PREREG.md` before any official run.*
 
 The **law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.** This note is about how that hypothesis sits next to the second law and next to population genetics. It is not a claim that the hypothesis is now a physical law, and it is not a theory of everything.
 

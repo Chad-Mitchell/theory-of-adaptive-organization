@@ -1,6 +1,6 @@
 # S5 results: 120-world Model S convexity rerun with the merged solver
 
-*Friday 20 November 2026, about 5:31 PM ET (America/New_York). Beside `main` at `a1a98aa`. Script: `core/keystone_checks/s5_rerun.py`. Data: `s5_rerun.json`. Short log: `s5_rerun.out`. Analytic probe (not the headline search): `s5_analytic_probe.py`.*
+*Friday 20 November 2026, about 5:31 PM ET (America/New_York). Beside `main` at `a1a98aa`. Script: `theory/keystone_checks/s5_rerun.py`. Data: `s5_rerun.json`. Short log: `s5_rerun.out`. Analytic probe (not the headline search): `s5_analytic_probe.py`.*
 
 This is the owed rerun of the 120-world search behind N60's convexity premise (OPEN_WORK S5; review should-fix S5). It does **not** prove convexity.
 

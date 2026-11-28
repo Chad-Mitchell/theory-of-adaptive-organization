@@ -78,7 +78,7 @@ rate per fractional change in *J*” (THEORY §3 (a)). For cells, the parentheti
 “the measured growth-rate cost of the design variable” names the empirical
 ingredient, not a substitute for the elasticity (independent review of PR #124).
 Energy-budget and proteome shares are not fitness costs and are not used as σ
-(QUALIFICATION §2; `figures/face_placements.md`). Schavemaker and Lynch 2022,
+(QUALIFICATION §2; `records/figures/face_placements.md`). Schavemaker and Lynch 2022,
 Honda et al.'s conversion of a proteome “saving” into a model-based 0.14 h^−1,
 Mori et al. 2021 proteome shares, and Lisevich et al. 2025 as a secondary
 summary are recorded only as distinct from σ and are not inputs to the

@@ -554,7 +554,7 @@ def write_results(pred, run, results, taut_ok, taut_mism, start_ts, pred_sha):
     lines.append("")
     lines.append("## Files")
     lines.append("")
-    lines.append("- `PREREG.md`, `MATH.md`, `RESULTS.md` (this file) in `core/keystone_checks/waterfill_2026-11-20/`.")
+    lines.append("- `PREREG.md`, `MATH.md`, `RESULTS.md` (this file) in `theory/keystone_checks/waterfill_2026-11-20/`.")
     lines.append("- `waterfill/wf_predictions.json`, `PREDICTIONS.sha256`, `LOCK.txt`, `START.txt`, `wf_run.json`, `DEVIATIONS_2026-11-20.md`.")
     lines.append("")
     Path(HERE / "RESULTS.md").write_text("\n".join(lines) + "\n")

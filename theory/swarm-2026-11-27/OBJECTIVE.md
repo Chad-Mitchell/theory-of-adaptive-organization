@@ -1,6 +1,6 @@
 # A part that can rewrite the whole's objective
 
-*Friday 27 November 2026 (America/New_York). Part of `theory/swarm-2026-11-27/` (index: `INDEX.md`). Branched from `863a8a8bb3e0bb46c00a9236a9b4d5192c4b9d8d`. Answers part of the item "a part that changes the whole's own objective (moves \(W\) or the loss itself …; Carroll et al. 2024, arXiv 2405.17713) … OPEN" (`theory/SWARM_RULE_2026-11-23.md:89` at the branch point). Checks: `checks/swarm27_checks.py`, section D. A self-check, not an independent review.*
+*Friday 27 November 2026 (America/New_York). Part of `theory/swarm-2026-11-27/` (index: `INDEX.md`). Branched from `863a8a8bb3e0bb46c00a9236a9b4d5192c4b9d8d`. Answers part of the item "a part that changes the whole's own objective (moves \(W\) or the loss itself …; Carroll et al. 2024, arXiv 2405.17713) … OPEN" (`theory/swarm/SWARM_RULE.md:89` at the branch point). Checks: `checks/swarm27_checks.py`, section D. A self-check, not an independent review.*
 
 The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.
 
@@ -18,7 +18,7 @@ with \(T_W=\infty\) (no reads) when the whole's own index exceeds 1. The part's 
 
 **OB1 (fixed, aligned reference share: rewriting gains nothing; PROVED (in-model)).** If \(s_i=w_i/W_0\) is fixed against the true stake, then \(J_i(T;s_i)=(w_i/W_0)J_{W_0}(T)\), so the part's cost is minimized at \(T_W(W_0)\): no rewrite helps. ∎ *Check:* `objective_fixed_reference_no_gain`.
 
-**OB2 (fixed, misaligned share: rewriting is the enforcement tamper by another route; PROVED (in-model)).** If \(s_i\) is fixed, the part's best rewrite is \(W'=w_i/s_i\), and its gain is exactly the enforcement-tamper gain \(D_i^{\text{enf}}\) of `theory/SWARM_RULE_2026-11-23.md:69`.
+**OB2 (fixed, misaligned share: rewriting is the enforcement tamper by another route; PROVED (in-model)).** If \(s_i\) is fixed, the part's best rewrite is \(W'=w_i/s_i\), and its gain is exactly the enforcement-tamper gain \(D_i^{\text{enf}}\) of `theory/swarm/SWARM_RULE.md:69`.
 
 *Proof.* \(J_i(T;s_i)=s_i\bigl[\lambda c/T+(w_i/s_i)A(T)\bigr]\), whose minimizer over \(T\) (including \(T=\infty\), leaving) is \(T_W(w_i/s_i)\) by definition. So rewriting to \(w_i/s_i\) makes the whole enforce the part's own preferred interval, and the gain \(J_i(T_W(W_0))-\min_TJ_i(T)\) is \(D_i^{\text{enf}}\). ∎ *Check:* `objective_misaligned_gain_equals_Denf`.
 
@@ -47,4 +47,4 @@ The three results give one design statement: **fix the reference against which t
 
 - **Which benchmark.** When the part can change what the whole truly cares about (a real change in \(W\) or in \(r\), not a false belief), there is no fixed \(W_0\) to align to. Whether alignment should be measured against the whole's initial, current or some reflective objective is the question Carroll et al. 2024 raise; this cost has no term that prices it. OPEN.
 - **Rewriting the loss curve itself** (moving \(r\), not \(W\)) is not treated. OPEN.
-- **Costly or detectable rewriting.** With a cost or a detection chance per rewrite, the deterrence inequality of `theory/SWARM_RULE_2026-11-23.md:85` (item 4) applies with \(D_i\) from OB2; for OB3 the motive is up to the part's whole cost \(w_ig(\lambda c/W_0)\), so a deterring fine must exceed that, unless the share index is fixed. Not worked out beyond that remark.
+- **Costly or detectable rewriting.** With a cost or a detection chance per rewrite, the deterrence inequality of `theory/swarm/SWARM_RULE.md:85` (item 4) applies with \(D_i\) from OB2; for OB3 the motive is up to the part's whole cost \(w_ig(\lambda c/W_0)\), so a deterring fine must exceed that, unless the share index is fixed. Not worked out beyond that remark.

@@ -34,7 +34,7 @@ and these shares sum to 1. Stake shares \(s_i=w_i/W\) align every party iff \(g_
 
 *Proof.* Party \(i\) minimizes \(s_icF+w_ig_i(F)\), strictly convex, with stationary point where \(s_ic=-w_ig_i'(F)\). Setting \(F=F^*\) gives the shares; summing gives Samuelson's condition. ∎ *Check:* `lindahl_shares_align_hetero` (\(w=(1,2)\), \(g_1=1/F\), \(g_2=1/F^2\)).
 
-**Consequence for clause 4.** Clause 4 (`theory/SWARM_RULE_2026-11-23.md`, clause 4) is the equal-curve case of HC4. With heterogeneous curves the aligning share is the party's marginal loss at the joint optimum, not its stake; that needs \(g_i'(F^*)\), which is private, so the revelation problem of `STAKES.md` reappears with marginal losses in place of stakes.
+**Consequence for clause 4.** Clause 4 (`theory/swarm/SWARM_RULE.md`, clause 4) is the equal-curve case of HC4. With heterogeneous curves the aligning share is the party's marginal loss at the joint optimum, not its stake; that needs \(g_i'(F^*)\), which is private, so the revelation problem of `STAKES.md` reappears with marginal losses in place of stakes.
 
 ## 2. Credibility coupling (class CR)
 

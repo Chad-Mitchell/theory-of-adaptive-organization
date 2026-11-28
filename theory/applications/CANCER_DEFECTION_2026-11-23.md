@@ -8,9 +8,9 @@ Labels: **PROVED (in-model)** follows from a repo theorem inside its class. **IN
 
 ## 1. What this is
 
-This page records how the cost is used for one system: a cell lineage that can follow or stop following its tissue. Applications are not evidence for the theory unless a test says so, and they are not the theory itself (`applications/README.md`).
+This page records how the cost is used for one system: a cell lineage that can follow or stop following its tissue. Applications are not evidence for the theory unless a test says so, and they are not the theory itself (`theory/applications/README.md`).
 
-It is one case of the swarm rule, the general statement of when parts join, stay with and leave a whole (`theory/SWARM_RULE_2026-11-23.md`); the AI-agent case is `applications/AI_AGENT_OVERSIGHT_2026-11-23.md`.
+It is one case of the swarm rule, the general statement of when parts join, stay with and leave a whole (`theory/swarm/SWARM_RULE.md`); the AI-agent case is `theory/applications/AI_AGENT_OVERSIGHT_2026-11-23.md`.
 
 Write the cost, find its minimum, read off the design, and state which inputs are still measurements.
 
@@ -71,7 +71,7 @@ The reading of CT9's "stop reading" as "stop following" is an **INTERPRETATION**
 5. **Repriceable and channel-broken lineages.** Where a channel is intact somewhere downstream, the levers on \(\lambda\), \(\Phi\), \(c\) and \(s\) can act. Where it is cut at the receptor, only a bypass downstream, \(w\) (selection), or removal can. Genomics can measure which case holds before treatment.
 6. **Remove or reprice (design reading, INTERPRETATION; the rule itself: ledger row SWARM-REPRICE, proved-in-model in class RR).** Remove when the collateral is low, for a part the whole can lose cheaply. Reprice when the part is entangled. If the organism's ruin hazard \(H\) during the repricing time \(\tau_{\text{rep}}\) would break the cap, roughly \(H\,\tau_{\text{rep}}>\varepsilon\), reduce the burden first, then reprice. That inequality is the first-order form of the exact cap \(\int_0^{\tau_{\text{rep}}}h\,dt>\ln\frac1{1-\varepsilon}\) (`theory/swarm-2026-11-27/REMOVE_OR_REPRICE.md`, RR1); that an organism faces this menu is the interpretation. APL practice has this shape: ATRA plus arsenic for low-to-intermediate risk, cytoreduction added for high-risk disease. That is a fit in form, not a test.
 
-7. **Reshaping the niche (INTERPRETATION).** A lineage that changes its own surroundings is acting on the tissue's signal, not only ignoring it. The swarm rule prices that action (`theory/SWARM_RULE_2026-11-23.md` §4). Evading immune killing escapes the penalty and corresponds to enforcement tampering. Remodeling the microenvironment's signals corresponds to channel tampering, which also costs the lineage the signal's worth to it. In the model, a lineage that pays a share of the cost of following matched to its stake (\(s=w/W\)) gains nothing from either, when it also shares the tissue's collateral and any priced ruin term (swarm rule §4).
+7. **Reshaping the niche (INTERPRETATION).** A lineage that changes its own surroundings is acting on the tissue's signal, not only ignoring it. The swarm rule prices that action (`theory/swarm/SWARM_RULE.md` §4). Evading immune killing escapes the penalty and corresponds to enforcement tampering. Remodeling the microenvironment's signals corresponds to channel tampering, which also costs the lineage the signal's worth to it. In the model, a lineage that pays a share of the cost of following matched to its stake (\(s=w/W\)) gains nothing from either, when it also shares the tissue's collateral and any priced ruin term (swarm rule §4).
 
 So the math fixes the shape of the intervention: the condition, the five terms, the alignment rule \(s=w/W\), and maintain-or-terminate. It does not pick the cheapest lever in a given tumor (lever costs are measurements). It does not show that real lineages minimize this cost (that is the hypothesis). It does not show which channels are intact (a measurement).
 

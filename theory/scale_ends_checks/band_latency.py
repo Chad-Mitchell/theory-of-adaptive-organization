@@ -2,7 +2,7 @@
 Run: nice -n 19 python3 band_latency.py"""
 import numpy as np
 rng=np.random.default_rng(20261118)
-# --- T8 (reviews/night1/formal/THEOREMS.md Thm 8): q_f=2c/(W H^2), q_c=(mu u-h)^2/(2cW); band iff mu u H > 2c + h H
+# --- T8 (theory/axioms/THEOREMS.md Thm 8): q_f=2c/(W H^2), q_c=(mu u-h)^2/(2cW); band iff mu u H > 2c + h H
 W,H,mu,u,h=1.0,10.0,1.0,1.0,0.1
 print("T8 band vs read cost c (W=1,H=10,mu=1,u=1,h=0.1):")
 for c in [0.01,0.1,1,4.4,4.6,10,1e3,1e9]:
