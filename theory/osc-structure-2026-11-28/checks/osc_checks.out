@@ -1,0 +1,72 @@
+== OS-A1 rotating world: Kalman-Bucy memory frequency
+  P = sigma_o*(-a*sigma_o + sqrt(a**2*sigma_o**2 + sigma**2)) ; Im F = omega0
+[PASS] A1a Im F = omega0 symbolically 
+[PASS] A1b numeric 2D filter: |Im eig| = omega0 (200 draws) max dev 8.88e-16
+[PASS] A1c omega0=0: filter real 
+== OS-A2 lagged integrating world, optimal predictor design
+[PASS] A2a transfer H = sigma(k+i nu-k e^{-i nu tau})/(i nu (k+i nu)) 
+[PASS] A2b CE gain k* = sqrt(w/r) minimizes J over the predictor family k* = [sqrt(w)/sqrt(r)]
+[PASS] A2c Var x = sigma^2/(2k)+sigma^2 tau (k=tau=1, spectral integral) 1.49992 vs 1.5
+  k tau=  0.1: S(0+)=121, global max at nu=0.0001 (S=121); interior local maxima: 0
+  k tau=  0.5: S(0+)=9, global max at nu=0.0001 (S=9); interior local maxima: 0
+  k tau=    1: S(0+)=4, global max at nu=0.0001 (S=4); interior local maxima: 9, first at nu*tau=6.3532 S/S0=0.006178
+  k tau=    2: S(0+)=2.25, global max at nu=0.0001 (S=2.25); interior local maxima: 9, first at nu*tau=7.1912 S/S0=0.01195
+  k tau=    5: S(0+)=1.44, global max at nu=0.0001 (S=1.44); interior local maxima: 9, first at nu*tau=7.7819 S/S0=0.02474
+  k tau=   10: S(0+)=1.21, global max at nu=0.0001 (S=1.21); interior local maxima: 9, first at nu*tau=8.2014 S/S0=0.03596
+[PASS] A2d OS-A2: global max of S_x at nu=0 for every listed k tau 
+== OS-B1 reduced cost of coupled stores (Schur complement)
+[PASS] B1a W_eff = w1 + c(g2 nu^2+w2)/(g2 nu^2+w2+c) 
+  W_eff(i omega) = (-c*gamma2*omega**2 + c*w1 + c*w2 - gamma2*omega**2*w1 + w1*w2)/(c - gamma2*omega**2 + w2)
+  example g1=g2=1,w1=0.1,w2=1,c=2: W_eff(i omega)<0 for omega in [1.0466,1.7320] (sqrt(w2/g2)=1, sqrt((w2+c)/g2)=1.7321)
+[PASS] B1b negative only at imaginary frequency, inside (sqrt(w2/g2), sqrt((w2+c)/g2)) 
+[PASS] B1c reduced symbol >= 0 at every real nu for PSD symbols incl. gyroscopic (2000 draws) min 5.682e-02
+== OS-B2 two stores in series: J-optimal closed loop
+[PASS] B2a c0 = sqrt(w/r), zeta = sqrt(1/2 + p/(4 sqrt(w r))) (500 draws) max dev 1.78e-14
+[PASS] B2b c0 > 0 (W_dyn < 0) and zeta >= 1/sqrt2, no spectral peak min zeta 0.707107
+[PASS] B2c one store: closed loop first order (xddot = +k^2 x along decay: Euclidean sign) (by inspection: x' = -k x gives x'' = k^2 x)
+== OS-B3 n stores in series: Butterworth
+  n=1: zeta_min=1.0000000 (sin(pi/2n)=1.0000000), |pole|=1.000000, peak at nu>0: False, slowest-mode angle from decay axis = 0.00 deg
+  n=2: zeta_min=0.7071068 (sin(pi/2n)=0.7071068), |pole|=1.000000, peak at nu>0: False, slowest-mode angle from decay axis = 45.00 deg
+  n=3: zeta_min=0.5000000 (sin(pi/2n)=0.5000000), |pole|=1.000000, peak at nu>0: False, slowest-mode angle from decay axis = 60.00 deg
+  n=4: zeta_min=0.3826834 (sin(pi/2n)=0.3826834), |pole|=1.000000, peak at nu>0: False, slowest-mode angle from decay axis = 67.50 deg
+  n=5: zeta_min=0.3090170 (sin(pi/2n)=0.3090170), |pole|=1.000000, peak at nu>0: False, slowest-mode angle from decay axis = 72.00 deg
+  n=6: zeta_min=0.2588190 (sin(pi/2n)=0.2588190), |pole|=1.000000, peak at nu>0: False, slowest-mode angle from decay axis = 75.00 deg
+  n=7: zeta_min=0.2225209 (sin(pi/2n)=0.2225209), |pole|=1.000000, peak at nu>0: False, slowest-mode angle from decay axis = 77.14 deg
+  n=8: zeta_min=0.1950903 (sin(pi/2n)=0.1950903), |pole|=1.000000, peak at nu>0: False, slowest-mode angle from decay axis = 78.75 deg
+[PASS] B3-i Butterworth zeta_n = sin(pi/2n), |pole| = (w/r)^(1/2n) (n=1..8, two stake ratios) 
+[MISS] B3-ii locked peak rule: S_x1 has a peak at nu>0 iff n>=3 
+  diagnostic: max rel. dev of |p(i nu)|^2 from nu^(2n)+w/r = 2.50e-12 (S_x1 = sigma^2/(nu^(2n)+w/r), maximally flat, never peaked)
+== OS-C1 lagged reading, memoryless gain
+[PASS] C1a Kuchler-Mensch variance at z=0.3 2.26004 vs 2.26015
+[PASS] C1a Kuchler-Mensch variance at z=0.74 1.53182 vs 1.53192
+[PASS] C1a Kuchler-Mensch variance at z=1.2 2.22150 vs 2.22161
+  rho=0.01: z*=0.091223
+  rho=0.1: z*=0.244444
+  rho=1: z*=0.511019
+  rho=3: z*=0.624548
+  rho=10: z*=0.696281
+  rho=30: z*=0.723668
+  rho=100: z*=0.734323
+  rho=1000: z*=0.738603
+  rho=10000: z*=0.739037
+  rho=1e+06: z*=0.739085
+  z_inf = argmin (1+sin z)/(z cos z) = 0.739085
+[PASS] C1(i) z* < pi/2 at every rho on the grid 
+[PASS] C1(ii) z_inf in [0.70, 0.78] 0.739085
+[PASS] C1(iii-a) peak at nu>0 iff z > 1/2 (8 values) 
+[MISS] C1(iii-b) rho_c in [1, 30] rho_c = 0.912107
+  at z_inf: peak nu*tau = 1.02495, period = 6.1302 tau, peak/zero ratio = 1.8095
+[PASS] C1(iv) peak period in [5 tau, 9 tau] 6.1302
+  dominant root lambda tau = -0.52754+1.13606j; ringing period 2pi/Im = 5.5307 tau; zeta = 0.4212
+== OS-C2 fixed price per action, steady drain
+[PASS] C2a symmetric optimum: T* = 2 (3 k_a/(4 w d^2))^(1/3) (= (6 k_a/(w d^2))^(1/3)) T* = 6**(1/3)*(d*k_a/w)**(1/3)/d; max dev 1.4e-17
+[PASS] C2b unrestricted (U,L) optimum is symmetric and matches T* U=0.687534 L=-0.687534 T=1.057745
+[PASS] C2c T* -> infinity as d -> 0 (T* ~ d^(-2/3)) 
+== OS-C3 delayed adaptation with a saturating step
+  mu=0.9x onset: late amplitude 0.00000, period 4.1305 tau, mean J excess (x^2/2) 0.00000
+[PASS] C3 decays below onset (0.9x) 
+  mu=1.1x onset: late amplitude 0.64751, period 4.0020 tau, mean J excess (x^2/2) 0.10320
+[PASS] C3 stable cycle at 1.1x onset: period in [4.0,4.6] tau, amplitude < 1.5, same cycle from x0=0.1 and 2.0, excess > 0 amp 0.64751 vs 0.64751
+== OS-D no imaginary-axis eigenvalue at strictly positive prices (B2, B3)
+[PASS] D closed-loop eigenvalues strictly in the left half plane (300 draws, n<=8) min -Re = 9.2315e-02
+RESULT 2 locked checks MISS; see RESULTS.md

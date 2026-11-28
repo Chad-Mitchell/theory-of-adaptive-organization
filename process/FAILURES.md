@@ -274,3 +274,8 @@ Ledger, continued (27 Nov 2026: the process rows of `records/notes/MISSES-LEDGER
 1. **Locked prediction and risk.** The brief named A-T1 and A-T3 as the step that makes L and A heat; risk medium, because a run on that premise would have scored a retired bar.
 2. **Miss and location.** A-T3 was retired before any run on 25 Nov and neither item concerns L or A (theory/bicausal-a-2026-11-27/PREREG.md section 0); process.
 3. **Update.** Quote the source lines of a route before restating it; the BICAUSAL follow-up prereg does so.
+
+### 2026-11-28 `OSC-DISCLOSE-1` (low)
+1. **Locked prediction and risk.** `theory/osc-structure-2026-11-28/PREREG.md` lists the values its author reasoned before the lock; risk low, because a reader could take a bar as informative when part of it was already worked.
+2. **Miss and location.** Two worked items were not listed: the OS-C1 peak rule \(z>1/2\) and the OS-A2 transfer function (`theory/osc-structure-2026-11-28/DEVIATIONS.md`); process. The scored values that could miss were not computed before the lock.
+3. **Update.** Disclosed in `DEVIATIONS.md`; `RESULTS.md` marks those parts as not informative. No rule added.

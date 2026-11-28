@@ -1,0 +1,3 @@
+Oscillation-structure lock. The preregistration commit is edddf236f176218ea41e76179a691e0effdff334 (pushed; shown by git ls-remote on 28 Nov 2026, 08:40 ET).
+This file records the sha256 of PREREG.md at that commit. The preregistration is not edited after this line; deviations go in DEVIATIONS.md.
+baf1c3d80287d8bc3d85f9434c6eed926d519adf480f498d53537ae0997072e6  PREREG.md
