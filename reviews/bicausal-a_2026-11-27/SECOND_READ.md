@@ -25,3 +25,9 @@ Reviewed head `9eef004e1fd3eca3927899805924e8c115930902`, base main `9fd04514ee7
 None found by this pass. Merge is allowed under the repo procedure. The results stay marked pending independent review.
 
 Blockers remaining: 0
+
+## Re-check after merging main
+
+Re-check of head `2e6a9aa6d59f4aa3114ea9dd80c9f34a74feb7f9`: this is the merge of main `a680cc58d19a2d223e12249f00c22596e7f75382` (PR #302). It touches only `process/FAILURES.md`, where the rows from both sides are kept and the doubled step labels in the `BICAUSAL-BRIEF-1` block are removed, and `process/PROCESS.md`, whose counts were regenerated with `tools/facts.py --write`. No result, lock or ledger row changed. Same agent, not independent.
+
+Blockers remaining: 0
