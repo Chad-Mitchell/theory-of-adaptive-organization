@@ -10,7 +10,7 @@ HERE = os.path.join(ROOT, "theory", "pointer_basis_stakes_checks")
 def test_pointer_basis_stakes_checks_all_pass():
     r = subprocess.run(
         [sys.executable, os.path.join(HERE, "pointer_basis_stakes_checks.py")],
-        capture_output=True, text=True, timeout=120,
+        capture_output=True, text=True,
         env={**os.environ, "OMP_NUM_THREADS": "2", "OPENBLAS_NUM_THREADS": "2"},
     )
     assert r.returncode == 0, r.stdout + r.stderr

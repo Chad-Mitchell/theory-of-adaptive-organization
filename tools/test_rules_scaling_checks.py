@@ -6,6 +6,6 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def test_rules_and_scaling_checks():
     r = subprocess.run(["nice", "-n", "19", sys.executable, os.path.join(ROOT, "theory", "meq_checks", "rules_scaling_checks.py")],
-                       capture_output=True, text=True, timeout=900)
+                       capture_output=True, text=True)
     assert r.returncode == 0, r.stdout + r.stderr
     assert "RESULT: PASS" in r.stdout

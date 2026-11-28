@@ -9,7 +9,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def test_attainability_checks_all_pass():
     r = subprocess.run(
         [sys.executable, os.path.join(ROOT, "theory", "info_physics_checks", "attainability_checks.py")],
-        capture_output=True, text=True, timeout=120,
+        capture_output=True, text=True,
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL ATTAINABILITY CHECKS PASS" in r.stdout

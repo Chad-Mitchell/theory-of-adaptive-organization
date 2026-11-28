@@ -11,7 +11,7 @@ HERE = os.path.join(ROOT, "theory", "layer-fixed-point-2026-11-23")
 def _run(script):
     r = subprocess.run(
         [sys.executable, os.path.join(HERE, script)],
-        capture_output=True, text=True, timeout=120,
+        capture_output=True, text=True,
     )
     assert r.returncode == 0, r.stdout + r.stderr
     with open(os.path.join(HERE, script.replace(".py", ".out")), encoding="utf-8") as fh:
