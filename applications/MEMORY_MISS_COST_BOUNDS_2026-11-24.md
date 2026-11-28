@@ -37,7 +37,7 @@ The items below are standing assumptions or definitions used later, not a proof 
 
 ## 4. Which cost, and what does not apply directly
 
-**Canonical display.** `THEORY.md` governs where pages disagree (`CORE.md:15`). The five-term display (`THEORY.md:26-34`) is
+**Canonical display.** `CORE.md` governs the cost, and `THEORY.md` is a frozen archive (`CORE.md:15`, as of 27 November 2026; this line said THEORY governs until then). The five-term display in that archive (`THEORY.md:26-34`) is
 
 $$\min_{\mathcal D} J(\mathcal D)=\kappa I_{\mathrm{mem}}+hK+w\,\mathbb{E}[\ell_{\mathcal D}]+A(\mathcal D)+L(\mathcal D)\qquad\text{subject to}\quad P(\mathrm{ruin})\le\varepsilon_r.$$
 
