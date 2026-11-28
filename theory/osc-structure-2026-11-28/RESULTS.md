@@ -1,0 +1,79 @@
+# Results: can oscillation come from structure when every price stays positive?
+
+**Lock reference:** `theory/osc-structure-2026-11-28/PREREG.md`, sha256 `baf1c3d80287d8bc3d85f9434c6eed926d519adf480f498d53537ae0997072e6`, lock commit `edddf236f176218ea41e76179a691e0effdff334` (pushed and shown by `git ls-remote` before the derivation; `LOCK.txt`). **Gate:** a same-agent pass, recorded in `PREREG.md`; no independent gate reader. **Work:** `DERIVATION.md`; `checks/osc_checks.out` (two locked checks miss, B3-ii and C1 (iii-b); all others pass). **Breach check:** none (no locked text edited; `CORE.md`, `README.md`, `THEORY.md` unchanged; deviations in `DEVIATIONS.md`). Process miss `OSC-DISCLOSE-1` (`process/FAILURES.md`). Self-check only; an independent reader is still owed.
+
+## Answer, in plain words
+
+**The question.** #309 found that the real-time oscillator needs a negative stake. Is that minus sign a mirror of something structural? Do we have to explain a negative stake before the theory can explain oscillators?
+
+**Short answer.** The minus sign does come from structure. It lives in the closed-loop motion of the cost-minimizing system, not in the cost. And the oscillators adaptive systems actually show are not the kind that needs it in the cost.
+
+- **Arm A, a periodic or lagged world: the memory copies the rhythm and creates none (CONSISTENCY_CHECK, and OS-A2 hit).** The \(J\)-optimal memory of a rotating world turns at exactly the world's frequency \(\omega_0\), whatever the stake (\(\mathrm{Im}\,F=\omega_0\)). With a lag \(\tau\), the fully optimal controller predicts across the lag and never resonates: \(S_x(\nu)\le\sigma^2(1+k\tau)^2/(k^2+\nu^2)\), with its maximum at zero frequency, for every lag and stake.
+- **Arm B, two coupled stores: yes, the minus sign appears, but in the motion, not in the cost.** Integrating out a store never makes a negative stake in the cost at any real frequency: the Schur complement of a positive cost stays positive, \(W_{\mathrm{eff}}(\nu)=w_1+c(\gamma_2\nu^2+w_2)/(\gamma_2\nu^2+w_2+c)>0\). It goes negative only after a Wick rotation to imaginary frequency. Now take a level fed by a reserve flow, with every price positive. The cost-minimizing loop then moves the level as \(\ddot x+c_1\dot x+c_0x=\) noise, with \(c_0=\sqrt{w/r}>0\). That restoring term is the real-time sign, \(W_{\mathrm{dyn}}=-\sqrt{w/r}<0\). It comes from two stores in series, closed by a feedback that pays to shrink the first. One store, #309's class, cannot produce it. The ringing is always damped, with \(\zeta=\sqrt{1/2+p/(4\sqrt{wr})}\ge1/\sqrt2\). With \(n\) stores in series the slowest mode turns from pure decay (0°, Euclidean) toward a swing (90°, real time), at angle \(90°-90°/n\) and damping \(\sin(\pi/2n)\). It reaches the swing only at infinitely many stores. The locked rule that three or more stores resonate missed: the output spectrum is \(\sigma^2/(\nu^{2n}+w/r)\), flat at every \(n\).
+- **Arm C, lags, lumpy prices and limit cycles: dissipative cycles, yes; a conservative swing, never.** Take a memoryless gain on a lagged reading. Its \(J\)-optimum stays short of the Hopf point. At stakes above \(\rho_c=0.912\) (where \(\rho=w\tau^2/r\)), it is a noise-sustained oscillator. The locked band for \(\rho_c\) was \([1,30]\), so that bar missed. At high stake, the gain approaches \(z=\cos z\), so \(k\tau=0.739085\), and the spectral peak has period \(6.13\tau\). A fixed price per action under a steady drain makes the optimum a self-sustained sawtooth with period \(T^*=(6k_a/(wd^2))^{1/3}\), and no drain means no cycle. Smooth stable limit cycles (Hopf, period \(4\tau\) at onset) appear when adaptation toward the minimum is delayed. That cycle costs more than \(J^*\), so it is a miss of the minimum, not a minimizer.
+- **Conservative against dissipative.** A conservative (Hamiltonian) swing has a continuum of orbits and no attractor; its amplitude is set by where it started, and it costs nothing to keep. A dissipative self-sustained oscillation is an attracting cycle, or a noise-sustained resonance, whose amplitude and period are set by parameters, and it needs a throughput of free energy to persist. At strictly positive prices, with full information and no lag, no closed-loop eigenvalue lies on the imaginary axis: a conservative swing is never \(J\)-optimal. The oscillators Chad named are of the dissipative kind in the cited record. Circadian clocks burn ATP and their accuracy costs free energy (Cao et al. 2015). Biochemical and cardiac rhythms need negative feedback with delay and nonlinearity (Novák and Tyson 2008). Lotka–Volterra's conservative cycles are structurally fragile, so ecology uses limit cycles (Rosenzweig and MacArthur 1963; May 1972) or noise-sustained quasi-cycles (McKane and Newman 2005). Business-cycle models are damped second-order systems or limit cycles (Samuelson 1939; Kaldor 1940).
+
+**What this does to #309's open miss.** It stays an open miss for what it tested: real-time conservative mechanics as the optimal path of one store. What changes is how it reads. The negative stake #309 needed is the mirror image of a restoring term that positive prices do produce, in closed loop, once there are two stores in series. To explain adaptive oscillators the theory does not need a negative price. It needs three things it has not stated before: the closed-loop dynamics of the minimizing policy, the number of stores in series, and what keeps the ringing going (a periodic world, a lag in a restricted design, noise, a lumpy action price under a drain, or delayed adaptation).
+
+## Ledger
+
+| prediction_id | locked_prediction (value/band; odds) | outcome (OBSERVED) | miss (signed size & direction, or HIT + info) | location | stake_x_info | update | breach_check |
+|---|---|---|---|---|---|---|---|
+| OS-A1 (CONSISTENCY_CHECK) | Kalman–Bucy memory rotates at exactly \(\omega_0\) at every stake; none at \(\omega_0=0\); 0.95 | As locked (A1a symbolic; A1b 200 draws, deviation \(9\times10^{-16}\); A1c) | HIT; information about 0 (identity) | model | low | none | none |
+| OS-A2 (TEST) | Optimal predictor design \(u=-\sqrt{w/r}\,\hat x\); global max of \(S_x\) at \(\nu=0\) at \(k\tau\in\{0.1,\dots,10\}\); 0.60 | As locked at all six (A2a–A2d); ripples at \(\nu\tau\approx2\pi m\), at most 3.6% of \(S_x(0^+)\). A bound found after the run proves it for every \(k\tau\) | HIT. Information low: the bound makes it an identity after the fact; the transfer function was reasoned before the lock (`OSC-DISCLOSE-1`) | model | low | Ringing under a lag marks a restricted design, not the full optimum | none |
+| OS-B1 (CONSISTENCY_CHECK) | Reduced cost \(\ge0\) at every real \(\nu\); negative only at \(\nu=i\omega\); 0.97 | As locked (B1a–B1c; example band \([1.0466,1.7320]\)) | HIT; information about 0 (Schur complement) | model | low | none | none |
+| OS-B2 (CONSISTENCY_CHECK) | \(c_0=\sqrt{w/r}>0\), \(W_{\mathrm{dyn}}<0\), \(\zeta=\sqrt{1/2+p/(4\sqrt{wr})}\ge1/\sqrt2\), no peak; 0.92 | As locked (B2a 500 draws, deviation \(2\times10^{-14}\); B2b minimum \(\zeta=0.707107\)) | HIT; information about 0 (textbook LQR; \(\zeta\) at \(p=0\) reasoned before the lock) | model | medium (answers the direction question) | The restoring sign is a two-store, closed-loop effect | none |
+| OS-B3 (CONSISTENCY_CHECK) | \(\zeta_n=\sin(\pi/2n)\) to \(10^{-6}\); peak in \(S_{x_1}\) iff \(n\ge3\); 0.90 | \(\zeta_n\) and radius as locked (B3-i). No peak at any \(n\le8\): \(S_{x_1}=\sigma^2/(\nu^{2n}+w/r)\) (B3-ii) | MISS on the peak rule: predicted a peak at \(n=3,\dots,8\), observed none (6 of 8 cases wrong, direction: less resonance than predicted). Cause: a second-order rule applied to an \(n\)-th-order loop | model (author's reasoning) | medium | Full-information optimal loops ring but never resonate (Butterworth flatness) | none |
+| OS-C1 (TEST for (iii), (iv)) | (i) \(z^*<\pi/2\), 0.97; (ii) \(z_\infty\in[0.70,0.78]\), 0.85; (iii) peak iff \(z^*>1/2\) and \(\rho_c\in[1,30]\), 0.50; (iv) peak period in \([5\tau,9\tau]\), 0.60 | (i) max \(z^*=0.739085\); (ii) \(z_\infty=0.739085\), the root of \(z=\cos z\); (iii) rule holds, \(\rho_c=0.912107\); (iv) \(6.1302\tau\) | (i), (ii) HIT (identities). (iii) MISS on \(\rho_c\): \(-0.088\) below the band's lower edge (\(\log_{10}\) size \(-0.040\)); direction: the optimum resonates at lower stakes than predicted. (iv) HIT, information medium | model | medium | The stake threshold for quasi-cycles at the restricted optimum is about 0.91 in \(w\tau^2/r\) | none |
+| OS-C2 (CONSISTENCY_CHECK) | Sawtooth, \(T^*=2(3k_a/(4wd^2))^{1/3}\), no cycle as \(d\to0\); 0.90 | As locked (C2a–C2c; after a check-code fix, `DEVIATIONS.md`) | HIT; information about 0 (economic order quantity) | model | low | none | none |
+| OS-C3 (TEST, low information) | Hopf at \(\mu=\pi/2\); at \(1.1\times\) a stable cycle, period \([4.0,4.6]\tau\), amplitude \(<1.5\), excess \(>0\); 0.80 | Decay at \(0.9\times\); at \(1.1\times\) period \(4.002\tau\), amplitude 0.6475 from both starts, excess 0.103 | HIT, information low (period at the band's lower edge, as the linear value predicts) | model | low | The smooth limit cycle belongs to delayed adaptation and misses the minimum | none |
+| OS-D (CONSISTENCY_CHECK) | No imaginary-axis eigenvalue at strictly positive prices; the named adaptive oscillators are dissipative in the record; 0.92 | Minimum \(-\mathrm{Re}\,\lambda=0.092\) on 300 draws; the record as cited above | HIT; information about 0 (Kalman 1964 and standard LQ theory; literature reading) | model; literature | medium | Conservative mechanics stays outside \(J\)'s minimum; adaptive rhythms do not need it | none |
+
+Overall (PAPER odds at the lock): a restoring real-time sign at positive prices, 0.90 (observed, B2). New beyond published control theory as mathematics, 0.10 (see below). Conservative oscillation from \(J\) at positive prices, 0.03 (not observed; excluded at finite \(n\), OS-D).
+
+## Known against new
+
+**KNOWN, and everything the mathematics uses.**
+- Wick rotation and the Euclidean action: Wick 1954, doi `10.1103/PhysRev.96.1124`.
+- Stochastic control as Euclidean mechanics: Fleming and Mitter 1982, doi `10.1080/17442508208833228`; Kappen 2005, doi `10.1103/PhysRevLett.95.200201`.
+- Nelson's stochastic mechanics: Nelson 1966, doi `10.1103/PhysRev.150.1079`. It reaches real-time dynamics only through a sign-indefinite stochastic action (#309 `RESULTS.md:34`).
+- LQR optimality, return difference and spectral factorization: Kalman 1964, doi `10.1115/1.3653115`.
+- No margin guarantee under partial information: Doyle 1978, doi `10.1109/TAC.1978.1101812`.
+- Butterworth root loci: Kwakernaak 1976, doi `10.1109/TAC.1976.1101236`.
+- The internal model principle: Francis and Wonham 1976, doi `10.1016/0005-1098(76)90006-6`.
+- Kalman–Bucy filtering: Kalman and Bucy 1961, doi `10.1115/1.3658902`.
+- Delay roots and onset: Hayes 1950, doi `10.1112/jlms/s1-25.3.226`.
+- Delayed-feedback oscillation: Hutchinson 1948, doi `10.1111/j.1749-6632.1948.tb39854.x`; Mackey and Glass 1977, doi `10.1126/science.267326`.
+- The delayed-OU variance: Küchler and Mensch 1992, doi `10.1080/17442509208833780`.
+- Economic order quantity: Harris 1913, reprinted 1990, doi `10.1287/opre.38.6.947`.
+- Optimal periodic control, where cycling beats any steady state for some nonconvex costs: Gilbert 1977, doi `10.1137/0315046`.
+- Predator–prey cycles: Lotka 1920, doi `10.1073/pnas.6.7.410`; Volterra 1926, doi `10.1038/118558a0`; Rosenzweig and MacArthur 1963, doi `10.1086/282272`; May 1972, doi `10.1126/science.177.4052.900`; McKane and Newman 2005, doi `10.1103/PhysRevLett.94.218102`.
+- Business cycles: Samuelson 1939, doi `10.2307/1927758`; Kaldor 1940, doi `10.2307/2225740`.
+- Biochemical oscillator design: Novák and Tyson 2008, doi `10.1038/nrm2530`.
+- The free-energy cost of oscillation, and the TUR: Cao et al. 2015, doi `10.1038/nphys3412`; Barato and Seifert 2015, doi `10.1103/PhysRevLett.114.158101`.
+- Action that is not least: Gray and Taylor 2007, doi `10.1119/1.2710480`.
+
+**New here, as readings and small results, not as mathematics.**
+1. #309's negative stake is the cost-side mirror of a restoring term that positive prices produce in closed loop once there are two stores in series. The cost side never turns negative at real frequency (Schur), and the dynamics side does (\(W_{\mathrm{dyn}}=-\sqrt{w/r}\)).
+2. The number of stores in series acts as a rotation angle for the slowest mode, \(90°-90°/n\), from the Euclidean side toward the real-time side. The real-time swing is reached only at infinitely many stores, and the output stays flat at every \(n\). The angles are the Butterworth pattern (KNOWN); reading them against #309's Wick mirror is the new part.
+3. In the lagged memoryless loop, the stake threshold for quasi-cycles at the \(J\)-optimum is \(\rho_c=0.912\). The high-stake gain obeys \(k\tau=\cos k\tau\), and the period is \(6.13\tau\). A short check found no source for these numbers. Variance-minimizing delayed gains may already be in the delay-equation literature, so they are labeled as not found, not as new.
+
+## Honest odds: does this give a structural reason for the minus sign?
+
+- **That the restoring minus sign arises from structure with every price positive: about 0.95.** It is shown exactly in the linear-Gaussian class (B2, B3). It is closed-loop, two-store and dissipative.
+- **That this is new mathematics: about 0.05.** It is textbook optimal control.
+- **That it is the right structural reading of #309's open miss, worth building on: about 0.6.** The open risk is that the reading only renames the known fact that optimal regulators of second-order plants ring.
+- **That \(J\) ever yields conservative real-time mechanics at positive prices: about 0.02.** OS-D excludes it at any finite number of stores with full information.
+
+So the deeper point Chad sensed is real, but it does not point to a hidden negative price. It points to the closed loop and to stores in series. It also suggests the theory should not try to derive conservative mechanics at all. It should derive dissipative rhythms, which is what adaptive systems show.
+
+## Scope limits
+
+Linear-Gaussian classes, except C2 (deterministic) and C3 (a saturating step). Sensing is free and noiseless except in A1 (S-INFO). The ruin cap is slack. Information heat and TUR clock heat are not charged in B and C; charging them adds dissipation and does not create a restoring term. Nothing here bears on quantum theory, gravity or any force. No real system is tested. Self-check, not an independent review.
+
+## Next measurement
+
+Two preregistrations, each able to miss:
+
+1. **Store count in a real rhythm.** In a qualified rhythm-generating system, does the number of stores in series in the measured feedback loop, together with its lag, predict whether it rings (B2, B3) or resonates (C1)? A candidate is the transcription–translation loop, whose stage count and delays are published. This needs the DATA-ONE gate (`README.md:86`) and Chad's go.
+2. **Paper-only, next.** Does charging information heat and TUR clock heat on the reading of C1 move \(\rho_c\), and in which direction, with the sign locked before the computation? Also look for a smooth, convex-cost class where a limit cycle is the \(J\)-optimum itself, not a miss of it. Gilbert 1977 says such a class needs nonconvexity, so state that up front.
