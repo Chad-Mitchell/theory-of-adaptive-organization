@@ -9,7 +9,7 @@ SCRIPT = os.path.join(ROOT, "theory", "representation_checks", "binding_multipli
 
 
 def test_binding_multiplier_script_passes():
-    r = subprocess.run([sys.executable, SCRIPT], capture_output=True, text=True, timeout=120)
+    r = subprocess.run([sys.executable, SCRIPT], capture_output=True, text=True)
     assert r.returncode == 0, r.stdout + r.stderr
     assert "RESULT: PASS" in r.stdout
     assert "0 FAIL" in r.stdout

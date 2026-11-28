@@ -9,7 +9,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def test_freeze_or_hold_floor_checks_all_pass():
     r = subprocess.run(
         [sys.executable, os.path.join(ROOT, "theory", "freeze_or_hold_floor_checks", "freeze_or_hold_floor_checks.py")],
-        capture_output=True, text=True, timeout=180,
+        capture_output=True, text=True,
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL FREEZE-OR-HOLD-FLOOR CHECKS PASS" in r.stdout

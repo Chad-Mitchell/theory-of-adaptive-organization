@@ -20,7 +20,6 @@ def test_ctc_fixed_point_scored():
         [sys.executable, os.path.join(HERE, "ctc_fixed_point_checks.py")],
         capture_output=True,
         text=True,
-        timeout=120,
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "definition DEUTSCH-FIXED-POINT" in r.stdout

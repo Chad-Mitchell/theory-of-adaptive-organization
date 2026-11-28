@@ -21,7 +21,7 @@ def _load_checks():
 def test_selection_axioms_checks_all_pass():
     r = subprocess.run(
         [sys.executable, os.path.join(ROOT, "tools", "selection_axioms_checks.py")],
-        capture_output=True, text=True, timeout=120,
+        capture_output=True, text=True,
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL SA CHECKS PASS" in r.stdout

@@ -8,7 +8,7 @@
 #
 # Environment: GTAO_REPO_URL (default: the GitHub repository), GTAO_PREMERGE_DIR (default ~/.gtao-premerge),
 # GTAO_GH (default gh), GTAO_REPO_SLUG (default Chad-Mitchell/theory-of-adaptive-organization), GTAO_PREMERGE_CHECKS (a newline-separated list of commands; replaces the default list,
-# for tests only). The clone is deleted on exit.
+# for tests only), GTAO_PREMERGE_LOCK (default /tmp/gtao-premerge.lock). The clone is deleted on exit.
 set -uo pipefail
 REPO_URL="${GTAO_REPO_URL:-https://github.com/Chad-Mitchell/theory-of-adaptive-organization.git}"
 OKDIR="${GTAO_PREMERGE_DIR:-$HOME/.gtao-premerge}"
@@ -20,6 +20,21 @@ case "${1:-}" in
   ''|-h|--help) sed -n 2,12p "$0"; exit 2;;
   *) PR="$1"; [[ "$PR" =~ ^[0-9]+$ ]] || { echo "premerge: PR must be a number"; exit 2; };;
 esac
+# One premerge at a time: a run that was interrupted but not killed, plus a resume that started another, piled up
+# until the box load made correct trees time out. The lock file names its holder ("pid N key K"). A new run for the
+# same PR first stops that holder (the whole process tree), then takes the lock; behind a run for another PR it
+# stops with exit 3 and does not queue.
+LOCK="${GTAO_PREMERGE_LOCK:-/tmp/gtao-premerge.lock}"; KEY="${PR:-$SHA}"
+exec 9>>"$LOCK"
+if ! flock -n 9; then
+  read -r _ HOLDER _ HKEY < <(tail -n 1 "$LOCK"); HOLDER="${HOLDER//[^0-9]/}"
+  if [[ -n "$HOLDER" && "$HKEY" == "$KEY" ]] && tr '\0' ' ' < "/proc/$HOLDER/cmdline" 2>/dev/null | grep -q premerge.sh; then
+    killtree() { local c; for c in $(pgrep -P "$1"); do killtree "$c"; done; kill "$1" 2>/dev/null; }
+    echo "premerge: stopping the stale premerge of $KEY (pid $HOLDER)"; killtree "$HOLDER"
+  fi
+  flock -w 15 9 || { echo "premerge: RESULT: REFUSED, another premerge holds $LOCK ($(tail -n 1 "$LOCK"))"; exit 3; }
+fi
+echo "pid $$ key $KEY" > "$LOCK"
 WORK="$(mktemp -d /tmp/gtao-premerge.XXXXXX)"
 trap 'rm -rf "$WORK"' EXIT
 if [[ -n "$PR" ]]; then
@@ -59,5 +74,8 @@ if (( FAILED )); then
   echo "premerge: RESULT: FAIL at $SHA (no .ok written)"; exit 1
 fi
 mkdir -p "$OKDIR"
-{ echo "sha $SHA"; echo "pr ${PR:-none}"; echo "date $(date -Iseconds)"; cat "$LOG"; } > "$OKDIR/$SHA.ok"
+# Complete or absent: write beside the target and rename only now that every check has passed, with the count of checks
+# in the header so merge.sh can tell a whole file from a cut one.
+{ echo "sha $SHA"; echo "pr ${PR:-none}"; echo "date $(date -Iseconds)"; echo "checks $(wc -l < "$LOG" | tr -d ' ')"; cat "$LOG"; } > "$OKDIR/.$SHA.tmp" \
+  && mv "$OKDIR/.$SHA.tmp" "$OKDIR/$SHA.ok"
 echo "premerge: RESULT: PASS at $SHA; wrote $OKDIR/$SHA.ok"

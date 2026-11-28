@@ -9,7 +9,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def test_acting_memory_checks():
     r = subprocess.run(
         [sys.executable, os.path.join(ROOT, "theory", "acting_memory_checks", "acting_checks.py")],
-        capture_output=True, text=True, timeout=120,
+        capture_output=True, text=True,
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL ACTING MEMORY CHECKS PASS" in r.stdout

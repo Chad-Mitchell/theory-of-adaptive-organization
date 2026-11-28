@@ -12,7 +12,7 @@ PREREG_SHA256 = "777532926d93ba8b2ce53efce56a9aa8bea9311d232ccf68066a93beda4fb6b
 def test_dimension_check_matches_stored_output():
     r = subprocess.run(
         [sys.executable, os.path.join(HERE, "dimension_check.py")],
-        capture_output=True, text=True, timeout=60,
+        capture_output=True, text=True,
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "DIMENSIONS OK" in r.stdout

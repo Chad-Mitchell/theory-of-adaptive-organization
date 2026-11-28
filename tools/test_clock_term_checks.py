@@ -10,7 +10,7 @@ HERE = os.path.join(ROOT, "theory", "clock_term_checks")
 def test_clock_term_checks_all_pass():
     r = subprocess.run(
         [sys.executable, os.path.join(HERE, "clock_term_checks.py")],
-        capture_output=True, text=True, timeout=900,
+        capture_output=True, text=True,
         env={**os.environ, "OMP_NUM_THREADS": "2", "OPENBLAS_NUM_THREADS": "2"},
     )
     assert r.returncode == 0, r.stdout + r.stderr

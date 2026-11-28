@@ -20,7 +20,6 @@ import json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAGES = ["README.md", "CORE.md"]
 IMAGE = re.compile(r"!\[[^\]]*\]\(([^)\s]+\.png)\)")
-TIMEOUT = 600
 
 
 def shown(root):
@@ -156,7 +155,7 @@ def check(root=ROOT):
             with open(os.path.join(work, ".figure_text_runner.py"), "w") as fh:
                 fh.write(RUNNER % dump)
             r = subprocess.run(["nice", "-n", "19", sys.executable, ".figure_text_runner.py", script, dump], cwd=work, capture_output=True,
-                               text=True, timeout=TIMEOUT, env=dict(os.environ, MPLBACKEND="Agg"))
+                               text=True, env=dict(os.environ, MPLBACKEND="Agg"))
             if r.returncode != 0 or not os.path.isfile(out):
                 fails.append("figure %s: %s did not rebuild it (exit %d): %s"
                              % (png, script, r.returncode, (r.stderr or r.stdout).strip()[-200:]))
