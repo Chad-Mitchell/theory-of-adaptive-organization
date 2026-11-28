@@ -485,6 +485,15 @@ def main(argv=None):
         fails.append("FAIL " + x)
     print("  claims: %d FAIL(s)" % len(claim_fails))
 
+    # Public formulas carry a units line (tools/check_public_units.py; UNITS-PUBLIC-1, 27 Nov 2026).
+    from check_public_units import check as _units_check
+    unit_fails = _units_check(ROOT)
+    print("\n== 7. Public formulas")
+    for x in unit_fails:
+        print("  FAIL units: " + x)
+        fails.append("FAIL units: " + x)
+    print("  public formulas: %d FAIL(s)" % len(unit_fails))
+
     # ---------------------------------------------------------------- summary
     print("\n== Summary")
     print("FAIL: %d   INFO (frozen records): %d" % (len(fails), len(infos)))
