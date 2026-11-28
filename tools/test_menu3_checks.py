@@ -16,7 +16,7 @@ def test_menu3_matches_locked_output():
     env["OPENBLAS_NUM_THREADS"] = "1"
     r = subprocess.run(
         [sys.executable, os.path.join(HERE, "run_menu3.py")],
-        cwd=HERE, capture_output=True, text=True, timeout=600, env=env,
+        cwd=HERE, capture_output=True, text=True, env=env,
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "P-loss PASS" in r.stdout

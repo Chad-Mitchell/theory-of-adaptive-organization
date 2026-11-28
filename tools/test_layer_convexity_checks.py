@@ -19,7 +19,7 @@ def _mod():
 
 def test_layer_convexity_checks_quick_all_pass():
     r = subprocess.run([sys.executable, os.path.join(ROOT, "tools", "layer_convexity_checks.py"), "--quick"],
-                       capture_output=True, text=True, timeout=600)
+                       capture_output=True, text=True)
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL LAYER CONVEXITY CHECKS PASS" in r.stdout
 

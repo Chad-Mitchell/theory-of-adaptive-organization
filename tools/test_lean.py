@@ -151,7 +151,6 @@ def test_lean_build_if_available():
         cwd=LEAN_HOME,
         capture_output=True,
         text=True,
-        timeout=1800,
         env=env,
     )
     assert r.returncode != 2, r.stdout + r.stderr

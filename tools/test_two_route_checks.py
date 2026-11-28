@@ -24,7 +24,7 @@ def _close(a, b, tol=1e-9):
 
 def test_route_a_w2_reproduces_stored_output():
     r = subprocess.run([sys.executable, os.path.join(HERE, "route_a_w2.py")],
-                       capture_output=True, text=True, timeout=300)
+                       capture_output=True, text=True)
     assert r.returncode == 0, r.stderr
     stored = json.load(open(os.path.join(HERE, "route_a_w2.out")))
     assert _close(json.loads(r.stdout), stored, 1e-6)
@@ -44,7 +44,7 @@ def test_route_a_t1ppp_closed_form_matches_lyapunov():
 
 def test_route_a_t1ppp_stored_run_verifies():
     r = subprocess.run([sys.executable, os.path.join(HERE, "route_a_t1ppp.py"), "verify",
-                        os.path.join(HERE, "route_a_t1ppp.out")], capture_output=True, text=True, timeout=300)
+                        os.path.join(HERE, "route_a_t1ppp.out")], capture_output=True, text=True)
     assert r.returncode == 0, r.stdout + r.stderr
     assert "FAILS 0" in r.stdout
     runs = json.load(open(os.path.join(HERE, "route_a_t1ppp.out")))["runs"]

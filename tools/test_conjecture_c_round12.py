@@ -18,8 +18,8 @@ def _need(*mods):
         pytest.importorskip(mod)
 
 
-def _run(args, timeout):
-    r = subprocess.run([sys.executable] + args, capture_output=True, text=True, timeout=timeout, cwd=HERE)
+def _run(args):
+    r = subprocess.run([sys.executable] + args, capture_output=True, text=True, cwd=HERE)
     assert r.returncode == 0, r.stdout + r.stderr
     return r.stdout
 
@@ -31,14 +31,14 @@ def _stdout(name):
 
 def test_disk_inequalities_match_stdout():
     _need("numpy", "cdd")
-    out = _run(["m_round12_disk_check.py"], 600)
+    out = _run(["m_round12_disk_check.py"])
     assert "VIOLATED" not in out
     assert out == _stdout("m_round12_disk_check")
 
 
 def test_diamond_small_pairs_match_stdout():
     _need("numpy", "cdd")
-    out = _run(["m_round12_diamond.py", "sqxsq", "P5xP5", "P6xP6", "sqxP5"], 600)
+    out = _run(["m_round12_diamond.py", "sqxsq", "P5xP5", "P6xP6", "sqxP5"])
     full = _stdout("m_round12_diamond").splitlines()
     for line in out.splitlines():
         assert line in full

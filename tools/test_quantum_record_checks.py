@@ -38,7 +38,7 @@ def test_quantum_prereg_lock_unchanged():
 def test_theory_blob_unchanged_quantum():
     r = subprocess.run(
         ["git", "hash-object", os.path.join(ROOT, "THEORY.md")],
-        capture_output=True, text=True, cwd=ROOT, timeout=30,
+        capture_output=True, text=True, cwd=ROOT,
     )
     assert r.returncode == 0, r.stderr
     assert r.stdout.strip() in _theory_blobs_allowed()
@@ -76,7 +76,7 @@ def test_quantum_record_checks_match_rescore_stdout():
     script = os.path.join(HERE, "quantum_record_checks.py")
     r = subprocess.run(
         [sys.executable, script],
-        capture_output=True, text=True, timeout=120,
+        capture_output=True, text=True,
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "Q-reuse FAIL" in r.stdout

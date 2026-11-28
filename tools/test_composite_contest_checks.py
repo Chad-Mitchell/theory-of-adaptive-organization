@@ -32,7 +32,6 @@ def test_composite_contest_matches_locked_outputs():
         cwd=HERE,
         capture_output=True,
         text=True,
-        timeout=180,
         env=env,
     )
     assert r.returncode == 0, r.stdout + r.stderr

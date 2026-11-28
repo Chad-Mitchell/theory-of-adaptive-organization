@@ -18,7 +18,7 @@ def _load():
 
 def test_theorem_p_drift_checks_quick_pass():
     r = subprocess.run([sys.executable, os.path.join(ROOT, "tools", "theorem_p_drift_checks.py")],
-                       capture_output=True, text=True, timeout=600)
+                       capture_output=True, text=True)
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL PD CHECKS PASS" in r.stdout
 

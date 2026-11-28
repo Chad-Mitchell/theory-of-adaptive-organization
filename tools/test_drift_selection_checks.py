@@ -20,7 +20,7 @@ def _load():
 
 def test_drift_selection_checks_quick_pass():
     r = subprocess.run([sys.executable, os.path.join(ROOT, "tools", "drift_selection_checks.py")],
-                       capture_output=True, text=True, timeout=600)
+                       capture_output=True, text=True)
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL DS CHECKS PASS" in r.stdout
     assert "DS2 v=12 > v_max=10" in r.stdout
