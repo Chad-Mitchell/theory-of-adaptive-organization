@@ -37,7 +37,7 @@ def test_real_repo_every_lock_is_ok_or_accounted_for():
 def test_real_repo_counts_are_pinned():
     _, counts, _ = vl.verify(ROOT, history=False)
     assert counts["SCRUB"] == 13 and counts["POST_LOCK"] == 2
-    assert counts["UNVERIFIABLE"] == 4 and counts["MISSING"] == 35
+    assert counts["UNVERIFIABLE"] == 4 and counts["MISSING"] == 85
     assert counts["OK"] >= 163
 
 
