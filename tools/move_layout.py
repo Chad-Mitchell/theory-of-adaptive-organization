@@ -141,13 +141,13 @@ the map to its path.
 
 | folder | what it holds |
 |---|---|
-| [`tests/`](tests/) | field and simulation tests (index: [`tests/README.md`](tests/README.md), frozen) |
-| [`prereg/`](prereg/) | field preregistrations and their data |
-| [`reviews/`](reviews/) | dated reviews (index: [`reviews/README.md`](reviews/README.md), frozen); `reviews/theory/` holds the reviews that sat under `theory/` |
-| [`notes/`](notes/) | lab notes |
-| [`night2/`](night2/) | the night-2 run |
-| [`reference/`](reference/) | the theory as it stood at v1.4.29 |
-| [`figures/`](figures/) | earlier figure views, off the front page |
+| [`records/tests/`](./tests/) | field and simulation tests (index: [`records/tests/README.md`](./tests/README.md), frozen) |
+| [`records/prereg/`](./prereg/) | field preregistrations and their data |
+| [`records/reviews/`](./reviews/) | dated reviews (index: [`records/reviews/README.md`](./reviews/README.md), frozen); `records/reviews/theory/` holds the reviews that sat under `theory/` |
+| [`records/notes/`](./notes/) | lab notes |
+| [`records/night2/`](./night2/) | the night-2 run |
+| [`records/reference/`](./reference/) | the theory as it stood at v1.4.29 |
+| [`records/figures/`](./figures/) | earlier figure views, off the front page |
 """
 
 SWARM_README = """# The swarm rule
