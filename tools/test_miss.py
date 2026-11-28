@@ -104,3 +104,53 @@ def test_correction_commit_without_a_row_fails_and_with_one_passes():
         assert len(miss.corrections_without_rows(d, base)) == 1
     finally:
         shutil.rmtree(d)
+
+
+# ---------------------------------------------------------------- every logged process miss has a FAILURES row
+def _logged_tree():
+    d = _tree()
+    os.makedirs(os.path.join(d, "NOTES"))
+    shutil.copy(os.path.join(ROOT, "NOTES", "MISSES-LEDGER.md"), os.path.join(d, "NOTES", "MISSES-LEDGER.md"))
+    return d
+
+
+def test_logged_process_misses_pass_on_the_repo():
+    assert miss.logged_without_row(ROOT) == []
+
+
+def test_a_misses_ledger_process_row_with_no_failures_row_fails():
+    d = _logged_tree()
+    p = os.path.join(d, miss.FAILURES)
+    t = open(p, encoding="utf-8").read()
+    open(p, "w", encoding="utf-8").write(t.replace("(MISSES-LEDGER S7)", ""))
+    bad = miss.logged_without_row(d)
+    shutil.rmtree(d)
+    assert len(bad) == 1 and "S7 is a process miss" in bad[0]
+
+
+def test_a_research_miss_row_is_not_required():
+    d = _logged_tree()
+    bad = miss.logged_without_row(d)
+    shutil.rmtree(d)
+    assert not [b for b in bad if " M1 " in b]
+
+
+def test_a_deviations_row_located_in_process_needs_a_failures_row():
+    d = _logged_tree()
+    os.makedirs(os.path.join(d, "tests", "X"))
+    dev = os.path.join(d, "tests", "X", "DEVIATIONS.md")
+    open(dev, "w", encoding="utf-8").write(
+        "| prediction_id | locked_prediction | outcome | miss | location | stake_x_info | update | breach_check |\n"
+        "|---|---|---|---|---|---|---|---|\n"
+        "| `X-P1` | p | o | m | process | low | u | none |\n"
+        "| `X-M1` | p | o | m | model | low | u | none |\n")
+    bad = miss.logged_without_row(d)
+    assert bad == ["tests/X/DEVIATIONS.md: X-P1 has location process and no FAILURES row"]
+    # a mention in another row's prose does not cover it
+    miss.log(d, [dict(ROW, id="X-P1-MENTION", outcome="see X-P1 in tests/X/DEVIATIONS.md")])
+    assert miss.logged_without_row(d) == bad
+    # a row whose id cell names it does
+    miss.log(d, [dict(ROW, id="X-P1-PROC", covers=["X-P1"])])
+    assert "`X-P1-PROC` (DEVIATIONS X-P1)" in open(os.path.join(d, miss.FAILURES), encoding="utf-8").read()
+    assert miss.logged_without_row(d) == []
+    shutil.rmtree(d)

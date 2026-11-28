@@ -10,6 +10,7 @@ root cause, R1 to R7 (process/FAILURES.md, "Root-cause codes").
         [--deviations PATH]          (required for a model or measurement/code miss)
   python3 tools/miss.py --batch rows.json      (a list of objects with the same keys; a medium or high entry
                                                 also carries "block": its three items, which go below the ledger)
+                                                a process row may carry "covers": [ids of DEVIATIONS rows it logs]
   python3 tools/miss.py --check-corrections [BASE]
         every commit since BASE (default: the merge base with origin/main) whose subject corrects something names a
         row: a FAILURES or DEVIATIONS id that exists, or the trailer `Miss: none (<reason>)`.
@@ -98,7 +99,10 @@ def _check_target(root, r):
 
 
 def failures_line(r):
-    cells = [r["date"], "`%s`" % r["id"], r["prediction"], r["outcome"], r["miss"], r["cause"], r["location"],
+    idcell = "`%s`" % r["id"]
+    if r.get("covers"):
+        idcell += " (DEVIATIONS %s)" % ", ".join(r["covers"])
+    cells = [r["date"], idcell, r["prediction"], r["outcome"], r["miss"], r["cause"], r["location"],
              r["stake"], r["update"], r["breach"]]
     return "| " + " | ".join(_cell(c) if i != 1 else c for i, c in enumerate(cells)) + " |"
 
@@ -202,6 +206,7 @@ def main(argv=None):
     ap.add_argument("--stake", default="low")
     ap.add_argument("--update", default="none yet")
     ap.add_argument("--check-corrections", nargs="?", const="", default=None)
+    ap.add_argument("--check-logged", action="store_true", help="fail on a process miss logged elsewhere with no FAILURES row")
     ap.add_argument("--root", default=ROOT)
     a = ap.parse_args(argv)
     if a.check_corrections is not None:
@@ -212,6 +217,12 @@ def main(argv=None):
         for sha, s in bad:
             print("  FAIL commit %s corrects something but names no FAILURES/DEVIATIONS row: %s" % (sha, s))
         print("corrections: %d without a row; RESULT: %s" % (len(bad), "FAIL" if bad else "PASS"))
+        return 1 if bad else 0
+    if a.check_logged:
+        bad = logged_without_row(a.root)
+        for x in bad:
+            print("  FAIL " + x)
+        print("logged process misses: %d without a FAILURES row; RESULT: %s" % (len(bad), "FAIL" if bad else "PASS"))
         return 1 if bad else 0
     if a.batch:
         rows = json.load(open(a.batch, encoding="utf-8"))
@@ -227,6 +238,63 @@ def main(argv=None):
     print("logged %d row(s): %s" % (len(done), ", ".join(done)))
     refresh_counts(a.root)
     return 0
+
+
+# Process misses logged outside FAILURES before tools/miss.py existed: (file, its old path, sections holding them).
+PROCESS_MISS_SOURCES = [("records/notes/MISSES-LEDGER.md", "NOTES/MISSES-LEDGER.md", ("## 4.", "## 5."))]
+
+
+def logged_without_row(root):
+    """Process misses recorded elsewhere that no FAILURES row names: a row of a MISSES-LEDGER process section
+    (named in FAILURES as "MISSES-LEDGER P5"), or a DEVIATIONS row whose location is process (named by its id)."""
+    ftext = open(os.path.join(root, FAILURES), encoding="utf-8").read()
+    named = set()
+    for m in re.finditer(r"MISSES-LEDGER ((?:[A-Z]\d+(?:, )?)+)", ftext):
+        named |= set(re.findall(r"[A-Z]\d+", m.group(1)))
+    out = []
+    for new, old, secs in PROCESS_MISS_SOURCES:
+        path = new if os.path.isfile(os.path.join(root, new)) else old
+        full = os.path.join(root, path)
+        if not os.path.isfile(full):
+            out.append("%s missing (process misses cannot be checked)" % new)
+            continue
+        sec = ""
+        for line in open(full, encoding="utf-8"):
+            if line.startswith("## "):
+                sec = line
+            m = re.match(r"^\| ([A-Z]\d+) \|", line)
+            if m and sec.startswith(secs) and m.group(1) not in named:
+                out.append("%s %s is a process miss that no FAILURES row names (add \"(MISSES-LEDGER %s)\" to the row "
+                           "that covers it, or log one)" % (path, m.group(1), m.group(1)))
+    # A DEVIATIONS process row is covered by a FAILURES row with the same id, or one whose id cell names it as
+    # "(DEVIATIONS X-P1)"; a mention in another row's prose does not count.
+    ids = set()
+    for cell in re.findall(r"^\| 20\d\d-\d\d-\d\d \| ([^|]+)\|", ftext, re.M):
+        ids |= set(re.findall(r"`([^`]+)`", cell))
+        for m in re.finditer(r"DEVIATIONS ((?:[\w.\-]+(?:, )?)+)", cell):
+            ids |= {x.strip() for x in m.group(1).split(",")}
+    for dirpath, dirs, files in os.walk(root):
+        dirs[:] = [d for d in dirs if not d.startswith(".")]
+        for f in files:
+            if not f.startswith("DEVIATIONS") or not f.endswith(".md"):
+                continue
+            full = os.path.join(dirpath, f)
+            header = None
+            for line in open(full, encoding="utf-8", errors="replace"):
+                if not line.startswith("|"):
+                    header = None if not line.strip() else header
+                    continue
+                cells = [c.strip() for c in line.strip().strip("|").split("|")]
+                if header is None:
+                    header = [c.lower() for c in cells]
+                    continue
+                if "location" not in header or set("".join(cells)) <= set("-: "):
+                    continue
+                loc = cells[header.index("location")].lower() if len(cells) > header.index("location") else ""
+                rid = cells[0].strip("` ")
+                if loc.startswith("process") and rid not in ids:
+                    out.append("%s: %s has location process and no FAILURES row" % (os.path.relpath(full, root), rid))
+    return out
 
 
 def refresh_counts(root):
