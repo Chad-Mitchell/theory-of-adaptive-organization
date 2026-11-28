@@ -11,8 +11,10 @@ Checks
       the Lean sources; the sources must still hash to it (otherwise rerun
       tools/check_lean.sh in /tmp/gtao-lean and --record-audit N).
   own row (--pr N): the PR's own README.md row is no longer "In flight".
-  gate (27 Nov 2026, GATE-REPEAT-5): a RESULTS.md beside a PREREG*.md needs a gate_read* file committed
-      before it, unless marked 'gate: none (CONSISTENCY_CHECK)'; older folders are listed by name.
+  gate (27 Nov 2026, GATE-REPEAT-5): a scored results file beside a PREREG*.md needs a gate_read* file that names
+      that PREREG, committed before it; each later rescore needs a newer gate read; the exemption
+      'gate: none (CONSISTENCY_CHECK)' counts only in the PREREG before the run; older folders are listed by name
+      and are exempt only for results added before the rule (GATE_RULES_V2 below).
   summary (--body-file F): the PR body passes check_claims.summary_fails.
   (c) live, via gh: an open PR whose latest independent review says
       "Blockers remaining: 0" and is older than PENDING_HOURS, unless parked in
@@ -210,12 +212,72 @@ def _gate_reads(root):
     return [f for f in r.stdout.split("\n") if os.path.basename(f).lower().startswith("gate_read") and f.endswith(".md")]
 
 
-def gate_before_results(root):
+# GATE_RULES_V2 (27 Nov 2026; review of #297, N1). The commit that first adds this token to tools/check_pending.py is
+# the adoption commit; the rules below that are marked "forward" judge only commits after it, so the grandfathered
+# list above stays exact and no history is rewritten.
+#   (1) forward: every later commit that adds a new scored line to a covered results file needs a gate read
+#       committed (added or changed) after the previous scoring commit of that file and before this one, so a
+#       rescore appended to the file does not pass on an older gate read;
+#   (2) forward: grandfathered folders are exempt only for results first added before adoption; a new results file,
+#       or a rescore, in such a folder is checked like any other;
+#   (3) the exemption mark counts only when it is in a PREREG*.md of the folder committed before the results, not
+#       when the results file declares it for itself;
+#   (4) a gate read counts only if it names the lock it reads: a PREREG*.md file name of the folder when it sits in
+#       the folder, or that file's path when it sits elsewhere.
+GATE_ADOPTION_TOKEN = "GATE_RULES_V2"
+GATE_NEW_LINE = re.compile(r"^\+(?!\+\+)(.*)$")
+
+
+def gate_adoption(root):
+    """The adoption commit, or "" when the rule is in this tree but not yet committed (nothing is after it), or None
+    when the tree has no tools/check_pending.py (a test repository: every commit is after it)."""
+    if not os.path.isfile(os.path.join(root, "tools", "check_pending.py")):
+        return None
+    r = git(root, "log", "-S", GATE_ADOPTION_TOKEN, "--format=%H", "--", "tools/check_pending.py")
+    shas = r.stdout.split()
+    return shas[-1] if shas else ""
+
+
+def _after(root, sha, adopt):
+    if adopt is None:
+        return True
+    if adopt == "":
+        return False
+    return git(root, "merge-base", "--is-ancestor", sha, adopt).returncode != 0
+
+
+def _scoring_commits(root, path):
+    """Oldest-first commits of a results file (renames followed) whose diff adds a scored line that is not a
+    rewording of a removed line with the same first table cell."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import facts
+    r = git(root, "log", "--follow", "--format=%x1e%H", "-p", "-U0", "--", path)
+    out = []
+    for chunk in r.stdout.split("\x1e")[1:]:
+        sha, _, diff = chunk.partition("\n")
+        added = [m.group(1) for m in (GATE_NEW_LINE.match(x) for x in diff.split("\n")) if m]
+        removed = {x[1:].split("|")[1].strip() for x in diff.split("\n")
+                   if x.startswith("-") and not x.startswith("---") and x.count("|") >= 2}
+        new = [a for a in added if facts.STATUS_WORD.search(a)
+               and not (a.count("|") >= 2 and a.split("|")[1].strip() in removed)]
+        if new:
+            out.append(sha.strip())
+    return out[::-1]
+
+
+def _gate_commits(root, g):
+    r = git(root, "log", "--follow", "--format=%H", "--", g)
+    return r.stdout.split()[::-1]
+
+
+def gate_before_results(root, adopt=False):
     """(fails, partial_reasons): every scored RESULTS.md beside a PREREG*.md has an earlier committed gate read."""
     if not is_git_repo(root):
         return [], ["gate-before-results check not run (not a git work tree)"]
     if git(root, "rev-parse", "--is-shallow-repository").stdout.strip() == "true":
         return [], ["gate-before-results check not run (shallow clone; history needed)"]
+    if adopt is False:
+        adopt = gate_adoption(root)
     files = git(root, "ls-files").stdout.split("\n")
     gates = _gate_reads(root)
     gate_text = {}
@@ -229,34 +291,64 @@ def gate_before_results(root):
     # (tools/facts.py scored_results), so a suffixed name is no longer outside the check (FAILURES GATE-SUFFIX-OLD).
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import facts
+    import movemap
     covered = {f for f in files if os.path.basename(f) == "RESULTS.md"} | set(facts.scored_results(root, files))
+    head = git(root, "rev-parse", "HEAD").stdout.strip()
     for f in sorted(covered):
         folder = os.path.dirname(f)
-        if not any(os.path.dirname(x) == folder and os.path.basename(x).startswith("PREREG") and x.endswith(".md")
-                   for x in files):
-            continue
-        text = open(os.path.join(root, f), encoding="utf-8", errors="replace").read()
-        if GATE_EXEMPT_MARK in text or folder in GATE_GRANDFATHERED:
+        prereg = [x for x in files if os.path.dirname(x) == folder and os.path.basename(x).startswith("PREREG")
+                  and x.endswith(".md")]
+        if not prereg:
             continue
         added = _first_commit(root, f)
-        if added is None:  # not committed yet: compare against HEAD, so the gate must already be committed
-            added = git(root, "rev-parse", "HEAD").stdout.strip()
-            strict = False
-        else:
-            strict = True
-        ok = False
-        for g in gates:
-            if not (g.startswith(folder + "/") or (folder + "/") in gate_text[g]):
+        strict = added is not None
+        added = added or head
+        # (3) the exemption is declared in a lock committed before the results, never by the results file itself
+        exempt = False
+        for pfile in prereg:
+            # the lock as committed before the results arrived (for uncommitted results, as committed at HEAD)
+            for name in (pfile, movemap.backward(pfile)):
+                before = git(root, "show", ("%s~1:%s" if strict else "%s:%s") % (added, name))
+                if before.returncode == 0:
+                    break
+            if before.returncode == 0 and GATE_EXEMPT_MARK in before.stdout:
+                exempt = True
+        if exempt:
+            continue
+        # (4) gate reads that name the lock they read
+        names = [os.path.basename(x) for x in prereg]
+        mine = [g for g in gates
+                if (g.startswith(folder + "/") and any(n in gate_text[g] for n in names))
+                or any(x in gate_text[g] or movemap.backward(x) in gate_text[g] for x in prereg)]
+        # (2) grandfathering covers only results first added before adoption
+        grand = folder in GATE_GRANDFATHERED and not (strict and _after(root, added, adopt))
+        if not grand:
+            ok = False
+            for g in mine:
+                gc = _first_commit(root, g)
+                if gc is None or (strict and gc == added):
+                    continue
+                if git(root, "merge-base", "--is-ancestor", gc, added).returncode == 0:
+                    ok = True
+                    break
+            if not ok:
+                fails.append("gate: %s has no gate_read* file naming its PREREG committed before it "
+                             "(process/PREREG_GATE.md section 2); add the gate read first, or declare a consistency "
+                             "check with '%s' in the PREREG before the run" % (f, GATE_EXEMPT_MARK))
                 continue
-            gc = _first_commit(root, g)
-            if gc is None or (strict and gc == added):
+        # (1) each later scoring commit after adoption needs a gate read newer than the previous scoring commit
+        touched = strict and adopt != "" and (adopt is None or git(root, "log", "--format=%H", "%s..HEAD" % adopt, "--", f).stdout.strip())
+        scoring = _scoring_commits(root, f) if touched else []
+        gcs = {g: _gate_commits(root, g) for g in mine}
+        for prev, cur in zip(scoring, scoring[1:]):
+            if not _after(root, cur, adopt):
                 continue
-            if git(root, "merge-base", "--is-ancestor", gc, added).returncode == 0:
-                ok = True
-                break
-        if not ok:
-            fails.append("gate: %s has no gate_read* file committed before it (process/PREREG_GATE.md section 2); "
-                         "add the gate read first, or mark a consistency check with '%s'" % (f, GATE_EXEMPT_MARK))
+            ok = any(c != cur and git(root, "merge-base", "--is-ancestor", c, cur).returncode == 0
+                     and git(root, "merge-base", "--is-ancestor", c, prev).returncode != 0
+                     for cl in gcs.values() for c in cl)
+            if not ok:
+                fails.append("gate: %s was rescored at %s on the gate read of an earlier run; commit a new or "
+                             "updated gate read after %s and before the rescore" % (f, cur[:10], prev[:10]))
     return fails, []
 
 
