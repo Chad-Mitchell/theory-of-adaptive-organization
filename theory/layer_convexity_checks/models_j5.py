@@ -15,7 +15,7 @@ import numpy as np
 HERE = Path(__file__).resolve().parent; REPO = HERE.parents[1]
 def load(name, path):
     spec = importlib.util.spec_from_file_location(name, path); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m
-s5 = load("s5_lc", REPO / "core" / "keystone_checks" / "s5_rerun.py")
+s5 = load("s5_lc", REPO / "theory" / "keystone_checks" / "s5_rerun.py")
 lc = load("lc_checks", REPO / "tools" / "layer_convexity_checks.py")
 
 def world(seed):

@@ -102,7 +102,7 @@ def test_post_lock_requires_the_lock_time_blob_in_history():
 def test_real_repo_pins_the_three_unlocked_current_blobs():
     assert set(vl.CURRENT_BLOB) == {"theory/layers_checks/stores.py", "tests/F1/code/outcome.py", "tests/DECISIVE/glucose/code/analyze.py"}
     for path, blob in vl.CURRENT_BLOB.items():
-        assert vl.git_blob(open(os.path.join(ROOT, path), "rb").read()) == blob, path
+        assert vl.git_blob(open(os.path.join(ROOT, vl.movemap.forward(path)), "rb").read()) == blob, path
 
 
 def test_git_blob_matches_git_hash_object():
@@ -208,7 +208,7 @@ def test_tampered_pull_py_fails_on_a_real_depth_5_clone(tmp_path):
     assert fails == [] and counts["POST_LOCK"] == 2
     assert any("pull.py" in n and "not in this clone" in n for n in notes)
 
-    path = dest / "night2" / "GITHUB" / "code" / "pull.py"
+    path = dest / "records" / "night2" / "GITHUB" / "code" / "pull.py"
     path.write_bytes(path.read_bytes() + b"# tampered\n")
     fails, counts, notes = vl.verify(str(dest))
     assert any("night2/GITHUB/code/pull.py" in f and "declared later version" in f for f in fails), fails

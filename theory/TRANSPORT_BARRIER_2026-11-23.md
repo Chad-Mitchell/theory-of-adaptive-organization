@@ -35,7 +35,7 @@ The law of adaptive organization (hypothesis): strongly selected systems minimiz
 
 - T65 (`theory/BARRIER_MASS_FIELD_THEORY_2026-11-23.md`, §5, line 65) states Lemma C and moves A1 to the transport channel. Line 67 gives the two transport sketches (18.1 field-only; \(1.96\times10^{-6}\) with one electron as source). Line 77 states A2 as an input, citing Lieb–Yau 1988 for context only. §11 lists \(\beta_{\rm transport}\) and A2 as OPEN.
 - T64 (`theory/GRAVITY_BARRIER_PROBE_2026-11-23.md`) states A1 and the hoop input. Its ordinary-matter values (\(10^{-10}\) to \(10^{-16}\)) are illustrative.
-- Grep before writing: "Jackiw" appears only in T65 (the vacuum-periodicity paper, not the zero-mode paper). "Callias", "vorton", "Bogomolny", "Friedberg", "SLAC bag", "MIT bag", "Lieb–Thirring", "Dyson–Lenard" and "zero mode" in the soliton sense do not appear. "Lieb–Yau" appears only in T65 and its OPEN_WORK row. "T66" appears only as unrelated identifiers in `tests/C3/data/`.
+- Grep before writing: "Jackiw" appears only in T65 (the vacuum-periodicity paper, not the zero-mode paper). "Callias", "vorton", "Bogomolny", "Friedberg", "SLAC bag", "MIT bag", "Lieb–Thirring", "Dyson–Lenard" and "zero mode" in the soliton sense do not appear. "Lieb–Yau" appears only in T65 and its OPEN_WORK row. "T66" appears only as unrelated identifiers in `records/tests/C3/data/`.
 
 ## 2. Prior art (credited; §10 says what, if anything, is not found elsewhere)
 

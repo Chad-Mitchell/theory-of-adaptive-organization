@@ -25,7 +25,7 @@ What is forced, and what is not:
 | Object | Status | Price, where one exists |
 |---|---|---|
 | Nonpredictive information \(I(s_t;x_t)-I(s_t;x_{t+1})\), per signal update | **PRIOR ART** (Still, Sivak, Bell and Crooks 2012). One-step equality in their accounting; the sum over a protocol is a lower bound | \(kT\) per nat of that difference, per update |
-| Information-flow rate of a driven memory | **PROVED (in-model)** for the two-state sensor below. The shape, a subsystem entropy balance modified by a mutual-information rate, is **PRIOR ART** (Horowitz and Esposito 2014) | \(kT\) per nat per unit time is a lower bound on the heat. On the telegraph frontier the heat meets it. On the linear spring the cheap heat is \(kT\,a\) above the Kalman rate. A rental \(\kappa\) on a stock needs a turnover time, the accounting step already in `core/bridge_2026-11-21/FLOOR.md` |
+| Information-flow rate of a driven memory | **PROVED (in-model)** for the two-state sensor below. The shape, a subsystem entropy balance modified by a mutual-information rate, is **PRIOR ART** (Horowitz and Esposito 2014) | \(kT\) per nat per unit time is a lower bound on the heat. On the telegraph frontier the heat meets it. On the linear spring the cheap heat is \(kT\,a\) above the Kalman rate. A rental \(\kappa\) on a stock needs a turnover time, the accounting step already in `theory/bridge_2026-11-21/FLOOR.md` |
 | Measurement work and erasure work | **PRIOR ART** (Sagawa and Ueda 2009, erratum 2011). They bound the sum | one floor on the sum, not two stacked prices |
 | Precision of a steady current | **PRIOR ART**. Barato and Seifert 2015 proved it inside linear response and for a unicyclic network. This sensor is one 4-cycle, affinity \(2\ln(\alpha_c/\alpha_e)\). Gingrich, Horowitz, Perunov and England 2016 is the general jump-process theorem | total entropy production at least \(2kT/\varepsilon_{\mathrm{rel}}^2\) over the window. A lower bound on the same heat, not a constant per layer |
 | Task error against predictive information | **PRIOR ART** already in the repository (CT4, Theorem S1, PD1, CT7) | the stake \(w\) converts error into the energy currency. \(kT\) does not set \(w\) |
@@ -72,7 +72,7 @@ because the dissipated work of the signal step, in their nonequilibrium-free-ene
 I_{\mathrm{mem}}-I_{\mathrm{pred}}\le\beta\langle W_{\mathrm{diss}}\rangle\le\beta\langle W_{\mathrm{ex}}\rangle.
 \]
 
-`core/bridge_2026-11-21/FLOOR.md` already records the one-step equality and says the repository's theorems use the inequality. This note does not call either new. Deriving the information bottleneck from that bound is Still (2020), already cited there.
+`theory/bridge_2026-11-21/FLOOR.md` already records the one-step equality and says the repository's theorems use the inequality. This note does not call either new. Deriving the information bottleneck from that bound is Still (2020), already cited there.
 
 **The past stock** used by Theorem S1 and the Shannon note is \(I(M_t;X_{\le t})\). It is larger than \(I(M_t;X_t)\) when the memory keeps a trace the present does not summarize.
 
@@ -116,7 +116,7 @@ Resolved on Crossref, 22 November 2026. Nothing in this list is claimed as new, 
 
 CT4, CT7, Theorem S1, PD1–PD7, and FLOOR.md stay as they are. What is calculated here, and is not those papers, is listed at the end of §8a. The refusals are older, and this note points at them:
 
-- Still's equality and the protocol inequality: `core/bridge_2026-11-21/FLOOR.md`.
+- Still's equality and the protocol inequality: `theory/bridge_2026-11-21/FLOOR.md`.
 - Heat at least \(kT\) times an information flow, for the Kalman–Bucy filter, with the random-walk limit \(\sigma^2/(2D)\): `theory/INTERNAL_MODEL.md` (Mitter and Newton 2005; Horowitz and Sandberg 2014) and CT7. The two-state formula is not in those notes.
 - Measurement and erasure as one sum, and S-A left as an assumption: `theory/SHANNON_2026-11-21.md` and `CORE.md`.
 - The gross stock ruled out as the viability coordinate when the variance diverges, and Still's difference distinguished from that stock: `theory/GENERAL_FORM.md` and PD6.

@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Build the Lean 4 formalization if Lean is installed; skip if it is not.
+"""Build the Lean 4 formalization on the commit under test.
 
 The build runs only in the dedicated checkout at /tmp/gtao-lean (or
-$GTAO_LEAN_DIR), never in the clone the test is run from; it skips when that
-checkout is missing or its formal/lean sources differ from this clone.
+$GTAO_LEAN_DIR), never in the clone the test is run from. The test checks that
+checkout out at the commit under test; if Lean, the checkout or the match is
+missing it fails, because a skipped build must never count as a pass.
 
 Run:  python3 -m pytest -q tools/test_lean.py
 """
@@ -119,25 +120,28 @@ def _lean_tree(root: str) -> dict[str, bytes]:
     return out
 
 
+def _sync_lean_home():
+    """Put the dedicated checkout on the commit under test. Fails (never skips) if it cannot be made to match."""
+    for cmd in (["git", "-C", LEAN_HOME, "fetch", "-q", ROOT, "HEAD"],
+                ["git", "-C", LEAN_HOME, "checkout", "-q", "--detach", "FETCH_HEAD"]):
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        assert r.returncode == 0, "cannot put %s on the commit under test: %s" % (LEAN_HOME, r.stderr.strip())
+
+
 def test_lean_build_if_available():
-    if _lake_on_path() is None:
-        pytest.skip("Lean 4 / lake is not installed")
+    """A skip is never a pass: if the build cannot run on the commit under test, this test fails."""
+    assert _lake_on_path() is not None, "Lean 4 / lake is not installed; the Lean build did not run"
     script = os.path.join(LEAN_HOME, "tools", "check_lean.sh")
-    if not (os.path.isfile(script) and os.path.isdir(os.path.join(LEAN_HOME, "formal", "lean"))):
-        pytest.skip(
-            "lake runs only in %s (repo rule); no checkout there. "
-            "Clone the repo to %s and rerun." % (LEAN_HOME, LEAN_HOME)
-        )
+    assert os.path.isdir(os.path.join(LEAN_HOME, ".git")), (
+        "no checkout in %s; clone the repo there once (repo rule), then rerun" % LEAN_HOME)
     if os.path.realpath(LEAN_HOME) != os.path.realpath(ROOT):
+        _sync_lean_home()
         mine, theirs = _lean_tree(ROOT), _lean_tree(LEAN_HOME)
         # .gitignore and build outputs aside, the Lean sources must match byte for byte.
         diff = sorted(k for k in set(mine) | set(theirs) if mine.get(k) != theirs.get(k))
-        if diff:
-            pytest.skip(
-                "formal/lean in %s differs from this clone (%s); sync that checkout "
-                "(git -C %s fetch && git -C %s checkout <this commit>) and rerun"
-                % (LEAN_HOME, ", ".join(diff[:5]), LEAN_HOME, LEAN_HOME)
-            )
+        assert not diff, ("formal/lean in %s still differs from this clone after checking out its commit (%s); "
+                          "this clone has uncommitted Lean changes" % (LEAN_HOME, ", ".join(diff[:5])))
+    assert os.path.isfile(script), "%s is missing from the commit under test" % script
     env = os.environ.copy()
     elan_bin = os.path.expanduser("~/.elan/bin")
     if os.path.isdir(elan_bin):

@@ -71,13 +71,13 @@ That bound is computable from the world's component variances and the target \(D
 - **Joint reset cheaper than the parts (PROVED).** If a single action can reset the sum at cost \(\min(k_1,k_2)\) (or any cost not much larger than one part), one layer beats two. If instead a joint reset costs the *sum* \(k_1+k_2\), specialization is never more expensive: \(\sqrt{(k_1+k_2)(\sigma_1^2+\sigma_2^2)}\ge\sqrt{k_1\sigma_1^2}+\sqrt{k_2\sigma_2^2}\), with equality iff \(k_i/\sigma_i^2\) are equal (checks §3). So whether a stack pays depends on how the lump costs add when scopes merge. That has to be measured, not assumed.
 - **Smooth adjustment.** No discrete \(T^*\) (CL19 (c)).
 - **OU on a long lifetime.** The Brownian \(T^*\) mis-times the refresh (checks §4).
-- **Already in the repository.** Span invariance of store spacing failed in-model (LAYERS1 P2, CLAIM_MAP G20, SIM-FAIL). Geometric clocks remain proved in the shared-clock model (CL12); they were not withdrawn. A holographic count (layers growing with the log of the scale range, at roughly equal value each) failed in-model (`core/KEYSTONE_NOTE.md` §5). Those were Model S tests, not Model LS, but they are a warning against treating "fractal time \(\Rightarrow\) a stack with geometric lifetimes" as a theorem.
+- **Already in the repository.** Span invariance of store spacing failed in-model (LAYERS1 P2, CLAIM_MAP G20, SIM-FAIL). Geometric clocks remain proved in the shared-clock model (CL12); they were not withdrawn. A holographic count (layers growing with the log of the scale range, at roughly equal value each) failed in-model (`theory/KEYSTONE_NOTE.md` §5). Those were Model S tests, not Model LS, but they are a warning against treating "fractal time \(\Rightarrow\) a stack with geometric lifetimes" as a theorem.
 
 A stack of lumpy lifetimes is the right object when re-forming is lumpy *and* a layer cannot (or cannot afford to) rewrite the whole state: a team tweak versus an org-chart rewrite, a local estimate versus a shared grouping, a shallow edit versus a deep redesign. That is a scope restriction, close in spirit to Simon's near-decomposability, not a consequence of \(T^*\) alone.
 
 ## 5. Local vs shared (D5) from the same cost
 
-The fast-local / slow-shared sign is already in the repository: at equal read quality, \(X_S=\nu\cdot\pi\cdot e^{-2\ell/\tau}X_L\) (THEORY B.11, OU closed forms; `figures/face_placements.md`, nesting CT28 and CT34). CT35 is the subadditivity map theorem, not this factor. DIR1 (PR #138, merged to main as `1cb1ac2`) states the same sign as D5, attributing it to CT35 with the B.11 factor; D5 went unscored (\(n=2\)).
+The fast-local / slow-shared sign is already in the repository: at equal read quality, \(X_S=\nu\cdot\pi\cdot e^{-2\ell/\tau}X_L\) (THEORY B.11, OU closed forms; `records/figures/face_placements.md`, nesting CT28 and CT34). CT35 is the subadditivity map theorem, not this factor. DIR1 (PR #138, merged to main as `1cb1ac2`) states the same sign as D5, attributing it to CT35 with the B.11 factor; D5 went unscored (\(n=2\)).
 
 **Question.** Does the same sign fall out of the lifetime cost?
 
@@ -105,7 +105,7 @@ This does not replace the OU factor in B.11 (CT28, CT34). It is the lumpy, delay
 | Near-decomposability; slow variables at higher levels | **KNOWN** | Simon 1962 (no DOI; *Proc. Am. Philos. Soc.* 106:467–482; credited in THEORY §10); Simon & Ando 1961 |
 | Multiresolution / multi-rate estimation | **KNOWN** | Willsky 2002; in this repository also Kiebel, Daunizeau & Friston 2008 and the Model S store results |
 | Information priced as a flow constraint | **KNOWN** | Sims 2003 (rational inattention). That paper does not give \(T^*=\sqrt{6k/(w\sigma^2)}\). Its abstract says a finite Shannon capacity can resemble a signal-extraction problem or an adjustment cost. It is not the Dixit band |
-| Fast-local, slow-shared at equal read quality | **KNOWN here** | THEORY B.11, the OU factor \(e^{-2\ell/\tau}\); `figures/face_placements.md`, nesting CT28 and CT34. CT35 is the subadditivity map theorem |
+| Fast-local, slow-shared at equal read quality | **KNOWN here** | THEORY B.11, the OU factor \(e^{-2\ell/\tau}\); `records/figures/face_placements.md`, nesting CT28 and CT34. CT35 is the subadditivity map theorem |
 | Layer lifetime as the CL19 design variable, exponent \(\tfrac12\) in the re-forming cost | already claimed | `theory/FLUID_LAYERS_2026-11-21.md` (dated 21 Nov 2026, not locked) |
 
 **New in this note, and only this.** (i) The exact spacing ratio in Model LS, and the proof that the same recursive rule does *not* supply a Shannon-style layer floor once specialization is dropped or the design class is Model S. (ii) The explicit D5 crossing \(\sigma^{2*}\) from the delayed lumpy cost, the necessity of \(\ell>0\), and the numerical finding that \(\tau>\ell\) is not sufficient. (iii) The testability map in §7. None of this is a field result.

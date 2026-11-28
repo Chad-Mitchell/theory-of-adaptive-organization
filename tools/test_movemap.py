@@ -43,13 +43,12 @@ def test_rewrite_does_not_round_trip_on_text_that_already_names_a_new_path():
     assert mm.unrewrite(mm.rewrite(t)) != t
 
 
-def test_rewrite_round_trips_on_every_maintained_page():
+def test_no_maintained_page_names_a_pre_move_path():
+    """After the move every maintained page names new paths only: rewrite() finds nothing to change."""
     from check_consistency import MAINTAINED_DOCS
     for p in MAINTAINED_DOCS:
-        fp = os.path.join(ROOT, p)
-        if os.path.isfile(fp):
-            t = open(fp, encoding="utf-8").read()
-            assert mm.unrewrite(mm.rewrite(t)) == t, p
+        t = open(os.path.join(ROOT, p), encoding="utf-8").read()
+        assert mm.rewrite(t) == t, p
 
 
 def test_lock_line_resolves_against_the_pre_move_folder():

@@ -1,0 +1,10 @@
+BA-T1 scored settings: a = D = D_M = 1, w = w_w = 10
+  w_x = 1/2: no-weighted-potential; witness ({a: 1, D: 1, D_M: 1, gamma: 19/7, c: -1/2, g: 3, w: 10, w_w: 10, w_x: 1/2}, 2*2**(25/672)*3**(373/672)*5**(41/42)*7**(1/672))
+  w_x = 1: no-weighted-potential; witness ({a: 1, D: 1, D_M: 1, gamma: 19/7, c: -1/2, g: 3, w: 10, w_w: 10, w_x: 1}, 5789210497/301384460)
+  w_x = 2: no-weighted-potential; witness ({a: 1, D: 1, D_M: 1, gamma: 19/7, c: -1/2, g: 3, w: 10, w_w: 10, w_x: 2}, 31913668101/1506922300)
+Reported, not scored:
+Traceback (most recent call last):
+  File "/workspace/bicausal-a-run/theory/bicausal-a-2026-11-27/checks/ba_t1.py", line 21, in <module>
+    for label, fx in [("w_x = 0 (no shared excursion term)", dict(base, **{T.wx: 0 * one})),
+                                                             ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: keywords must be strings

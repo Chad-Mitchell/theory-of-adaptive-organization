@@ -167,7 +167,7 @@ prediction below therefore uses the system's own record and must preregister, pe
 
 **Testability guard.** An ambiguity set chosen after seeing a design could excuse any excess reserve. So the
 ambiguity is never a free parameter: it is fixed from the system's measured record (R2-b, R2-c) by a rule locked
-before data (`prereg/ROBUST-SLACK/PREREG.md`, amended before data by `DEVIATIONS.md`: the test now has to beat
+before data (`records/prereg/ROBUST-SLACK/PREREG.md`, amended before data by `DEVIATIONS.md`: the test now has to beat
 the mechanical slope a constant safety factor produces under heavy tails, D1).
 
 ## 5. R3 — Lean versus robust (CT39, PROVED (in-model), elementary; PRIOR ART in substance)
@@ -260,7 +260,7 @@ GB's ruin constraint binds; by CT22 a binding constraint moves the design toward
 layer count under binding ruin (or under uncertainty) has not been computed (CX7, OPEN). So GB's gap of three layers
 is **neither explained nor shown to be waste**. A cost missing from J's list (fast units that cannot run long: a
 speed–endurance trade-off) is one further candidate; it would have to be added publicly before any future test. The
-locked PREREG §5 wording is corrected in `prereg/ROBUST-SLACK/DEVIATIONS.md` (D7). GB stays NOT APPLICABLE (not
+locked PREREG §5 wording is corrected in `records/prereg/ROBUST-SLACK/DEVIATIONS.md` (D7). GB stays NOT APPLICABLE (not
 qualified).
 
 ## 9. Open gaps
@@ -274,5 +274,5 @@ qualified).
 
 ## Files
 `theory/robust_checks/r1_redundancy.py`, `r2_ambiguity.py`, `r3_lean.py`, `r4_antifragile.py`, `results.out`,
-`crossref_check.py`, `crossref.out`; `tools/test_robust_checks.py`; `prereg/ROBUST-SLACK/PREREG.md`, `DEVIATIONS.md`,
+`crossref_check.py`, `crossref.out`; `tools/test_robust_checks.py`; `records/prereg/ROBUST-SLACK/PREREG.md`, `DEVIATIONS.md`,
 `rs2a_null_sim.py`, `rs2a_null_sim.out`.
