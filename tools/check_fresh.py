@@ -39,7 +39,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from check_consistency import MAINTAINED_DOCS  # noqa: E402
 
 ROOT_ALLOW = {"README.md", "CORE.md", "THEORY.md"}
-EXTRA = ["formal/lean/README.md", "applications/README.md"]
+EXTRA = ["formal/lean/README.md", "theory/applications/README.md"]
 LIVE_GLOBS = ["*.md", "process/*.md"]
 # Every maintained page is scanned. Dated entries in append-only pages sit inside history blocks.
 SKIP = set()

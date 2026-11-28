@@ -52,12 +52,12 @@ MAINTAINED_DOCS = [
     "README.md", "CORE.md", "process/PROCESS.md", "process/VOCABULARY.md", "process/FAILURES.md", "process/PREREG_GATE.md", "process/MISS_LOG_TEMPLATE.md",
     "measurement/FRAMEWORK.md", "measurement/CLAIM_MAP_v2.md",
     "theory/SCALE_ENDS.md", "theory/PHYSICS_CHAIN_2026-11-23.md",
-    "applications/README.md", "tests/README.md", "reviews/README.md",
+    "theory/applications/README.md", "records/README.md", "theory/swarm/README.md",
     "litmap/LITMAP.md", "litmap/PRIOR_ART.md", "litmap/THREATS.md",
     "litmap/LEFT_ON_THE_TABLE.md", "theory/BOOKENDS.md",
     "theory/REACH.md", "theory/HT_INDEX.md", "theory/COSMIC_WEB.md", "theory/WORMHOLES.md", "theory/TORUS.md",
     "theory/GENERAL_THEOREM.md", "theory/INTERNAL_MODEL.md", "theory/COADAPTATION.md", "theory/REPRESENTATION.md", "theory/MATH_ATTACK.md",
-    "reviews/night1/formal/AXIOMS.md", "reviews/night1/formal/THEOREMS.md", "reviews/night1/formal/checks/README.md",
+    "theory/axioms/AXIOMS.md", "theory/axioms/THEOREMS.md", "theory/axioms/checks/README.md",
     "process/LOCK_ERRATA.md",
 ]
 

@@ -16,7 +16,7 @@ MUTATIONS = [
     # process rules R1-R5 (reviews/lock_2026-11-18/PROCESS.md)
     ("README.md", "\n\nThe independent review `reviews/reach_2026-11-18/REVIEW.md` passed.\n", "self-review-called-independent"),
     ("README.md", "\n\n| a | b |\n|---|---|\n| x | y | z |\n", "table-cells"),
-    ("applications/README.md", "\n\nColonies follow the √N law.\n", "law-named"),
+    ("theory/applications/README.md", "\n\nColonies follow the √N law.\n", "law-named"),
     ("tests/README.md", "\n\nThe repository is private.\n", "stale-private"),
     # added in the independent review of the lock pass (INDEPENDENT_REVIEW.md)
     ("README.md", "\n\nThe lock audit `reviews/lock_2026-11-18/LOCK_AUDIT.md` is an independent review.\n", "self-review-called-independent"),

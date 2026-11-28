@@ -321,7 +321,8 @@ def gate_before_results(root, adopt=False):
                 if (g.startswith(folder + "/") and any(n in gate_text[g] for n in names))
                 or any(x in gate_text[g] or movemap.backward(x) in gate_text[g] for x in prereg)]
         # (2) grandfathering covers only results first added before adoption
-        grand = folder in GATE_GRANDFATHERED and not (strict and _after(root, added, adopt))
+        # keys are the pre-move folder names; a moved folder is looked up by its old name (tools/movemap.py)
+        grand = (folder in GATE_GRANDFATHERED or movemap.backward(folder) in GATE_GRANDFATHERED) and not (strict and _after(root, added, adopt))
         if not grand:
             ok = False
             for g in mine:
