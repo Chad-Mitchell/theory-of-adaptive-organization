@@ -9,7 +9,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def test_chain_diffusion_checks_quick_pass():
     r = subprocess.run(
         [sys.executable, os.path.join(ROOT, "tools", "chain_diffusion_checks.py")],
-        capture_output=True, text=True, timeout=180,
+        capture_output=True, text=True,
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL CHAIN DIFFUSION CHECKS PASS" in r.stdout

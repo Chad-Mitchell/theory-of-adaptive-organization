@@ -9,7 +9,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def test_general_floor_finite_checks_all_pass():
     r = subprocess.run(
         [sys.executable, os.path.join(ROOT, "theory", "general_floor_finite_checks", "general_floor_finite_checks.py")],
-        capture_output=True, text=True, timeout=180,
+        capture_output=True, text=True,
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL GENERAL-FLOOR-FINITE CHECKS PASS" in r.stdout

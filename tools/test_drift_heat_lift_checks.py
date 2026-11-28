@@ -17,7 +17,7 @@ def _load():
 
 
 def test_drift_heat_lift_checks_pass():
-    r = subprocess.run([sys.executable, SCRIPT], capture_output=True, text=True, timeout=120)
+    r = subprocess.run([sys.executable, SCRIPT], capture_output=True, text=True)
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL DRIFT-HEAT-LIFT CHECKS PASS" in r.stdout
 

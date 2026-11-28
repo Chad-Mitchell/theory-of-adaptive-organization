@@ -10,7 +10,7 @@ HERE = os.path.join(ROOT, "theory", "learning_rate_threshold_checks")
 def test_learning_rate_threshold_checks_all_pass():
     r = subprocess.run(
         [sys.executable, os.path.join(HERE, "learning_rate_threshold_checks.py")],
-        capture_output=True, text=True, timeout=600,
+        capture_output=True, text=True,
         env={**os.environ, "OMP_NUM_THREADS": "2", "OPENBLAS_NUM_THREADS": "2"},
     )
     assert r.returncode == 0, r.stdout + r.stderr

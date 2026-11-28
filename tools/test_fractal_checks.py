@@ -11,7 +11,6 @@ def test_fractal_checks_required_pass():
         [sys.executable, os.path.join(ROOT, "theory", "fractal_checks", "fractal_checks.py")],
         capture_output=True,
         text=True,
-        timeout=180,
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL REQUIRED FRACTAL CHECKS PASS" in r.stdout

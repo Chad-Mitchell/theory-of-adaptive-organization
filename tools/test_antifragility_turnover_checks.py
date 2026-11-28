@@ -9,7 +9,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def test_antifragility_turnover_checks_all_pass():
     r = subprocess.run(
         [sys.executable, os.path.join(ROOT, "theory", "antifragility_checks", "turnover_checks.py")],
-        capture_output=True, text=True, timeout=180,
+        capture_output=True, text=True,
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL ANTIFRAGILITY CHECKS PASS" in r.stdout

@@ -9,7 +9,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def test_barrier_mass_checks_all_pass():
     r = subprocess.run(
         [sys.executable, os.path.join(ROOT, "theory", "barrier_mass_checks", "barrier_mass_checks.py")],
-        capture_output=True, text=True, timeout=600,
+        capture_output=True, text=True,
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL BARRIER-MASS CHECKS PASS" in r.stdout

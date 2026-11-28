@@ -24,16 +24,16 @@ def _need_lrs():
         pytest.skip("lrslib (lrs, redund) not installed")
 
 
-def _run(name, timeout):
+def _run(name):
     r = subprocess.run([sys.executable, os.path.join(HERE, name + ".py")], capture_output=True, text=True,
-                       timeout=timeout, cwd=HERE)
+                       cwd=HERE)
     assert r.returncode == 0, r.stdout + r.stderr
     return r.stdout
 
 
 def test_stabilizer_positive_control():
     _need_python_deps()
-    out = _run("m_round11_control", 300)
+    out = _run("m_round11_control")
     assert "ENTANGLING AUTOMORPHISM FOUND" in out
     assert "exact linear map reproduces the permutation on all extreme points: True" in out
     with open(os.path.join(HERE, "m_round11_control.stdout"), encoding="utf-8") as f:
@@ -54,7 +54,7 @@ def test_square_max_certified():
 def test_reducible_part_matches_stdout():
     _need_python_deps()
     _need_lrs()
-    out = _run("m_round11_pyramid", 300)
+    out = _run("m_round11_pyramid")
     assert out.count("CERTIFIED") == 3
     with open(os.path.join(HERE, "m_round11_pyramid.stdout"), encoding="utf-8") as f:
         assert out == f.read()

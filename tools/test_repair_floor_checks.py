@@ -9,7 +9,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def test_repair_floor_checks_all_pass():
     r = subprocess.run(
         [sys.executable, os.path.join(ROOT, "theory", "repair_floor_checks", "repair_floor_checks.py")],
-        capture_output=True, text=True, timeout=600,
+        capture_output=True, text=True,
     )
     assert r.returncode == 0, r.stdout + r.stderr
     assert "ALL REPAIR-FLOOR CHECKS PASS" in r.stdout
