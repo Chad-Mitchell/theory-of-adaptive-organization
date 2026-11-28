@@ -1,0 +1,3 @@
+Least-action lock. The preregistration commit is b6ed7d84a879a69187d85ffc457a063495e8a4f2 (pushed; shown by git ls-remote on 27 Nov 2026, 23:19 ET).
+This file records the sha256 of PREREG.md at that commit. The preregistration is not edited after this line; deviations go in DEVIATIONS.md.
+e19bc66cbaa67bee5703e8a2ebb398a574b80f674abe5fe3bbf3a4763f5987f4  PREREG.md
