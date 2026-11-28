@@ -1,0 +1,8 @@
+# nice -n 19 lake env lean LeastAction.lean, run in /tmp/gtao-lean/formal/lean (toolchain leanprover/lean4:v4.37.0-rc1, checkout at 52898e7), 27 Nov 2026
+# sha256 d954688bf472e043cc866d2f206e6e521d36a907effbee192bb99543adde9da1
+'sq_sum_le_card_mul_sum_sq'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'equal_steps_attain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'discrete_heat_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'terminal_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'terminal_min' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit 0
