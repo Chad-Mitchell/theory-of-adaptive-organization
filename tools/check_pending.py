@@ -14,7 +14,8 @@ Checks
   gate (27 Nov 2026, GATE-REPEAT-5): a scored results file beside a PREREG*.md needs a gate_read* file that names
       that PREREG, committed before it; each later rescore needs a newer gate read; the exemption
       'gate: none (CONSISTENCY_CHECK)' counts only in the PREREG before the run; older folders are listed by name
-      and are exempt only for results added before the rule (GATE_RULES_V2 below).
+      and are exempt only for results added before the rule (GATE_RULES_V2 below). A disclosed late gate read passes
+      with an EXCEPTION line (see GATE_EXEMPT_MARK below); a silent skip still fails.
   summary (--body-file F): the PR body passes check_claims.summary_fails.
   (c) live, via gh: an open PR whose latest independent review says
       "Blockers remaining: 0" and is older than PENDING_HOURS, unless parked in
@@ -153,6 +154,10 @@ def record_audit(root, count, commit=None):
 # the gate read's outcome: a gate read that failed and was run past is a process miss logged by hand. A RESULTS.md that carries the
 # line "gate: none (CONSISTENCY_CHECK)" is exempt. Folders that broke the rule before the check existed are
 # listed by name below; the list only shrinks, and a new folder never joins it.
+# A disclosed late gate read is an exception, not a failure (OSC-GATE-1, GATE-NOEXC-1): when no gate read came first, the
+# folder passes with an EXCEPTION line if (a) a gate_read_retro_*.md naming its PREREG was committed after the
+# RESULTS, (b) process/FAILURES.md has a ledger row naming the folder, and (c) every PREREG*.md of the folder was committed
+# before the RESULTS. Without all three the missing gate read still fails.
 GATE_EXEMPT_MARK = "gate: none (CONSISTENCY_CHECK)"
 GATE_GRANDFATHERED = {
     "core/bridge_2026-11-21",  # before the gate rule (25 Nov 2026) or no gate read committed
@@ -270,8 +275,24 @@ def _gate_commits(root, g):
     return r.stdout.split()[::-1]
 
 
-def gate_before_results(root, adopt=False):
-    """(fails, partial_reasons): every scored RESULTS.md beside a PREREG*.md has an earlier committed gate read."""
+def _disclosed_miss_ids(root, folder):
+    """Ids of the FAILURES ledger rows that name this folder."""
+    try:
+        text = open(os.path.join(root, "process", "FAILURES.md"), encoding="utf-8").read()
+    except OSError:
+        return []
+    return [m.group(1) for line in text.split("\n") if folder in line
+            for m in [re.match(r"^\| 20\d\d-\d\d-\d\d \| `([^`]+)`", line)] if m]
+
+
+def _is_before(root, a, b):
+    """a was committed strictly before b (a is a proper ancestor of b)."""
+    return a is not None and b is not None and a != b and git(root, "merge-base", "--is-ancestor", a, b).returncode == 0
+
+
+def gate_before_results(root, adopt=False, notes=None):
+    """(fails, partial_reasons): every scored RESULTS.md beside a PREREG*.md has an earlier committed gate read.
+    A disclosed late gate read (see GATE_EXEMPT_MARK above) passes and appends an EXCEPTION line to `notes`."""
     if not is_git_repo(root):
         return [], ["gate-before-results check not run (not a git work tree)"]
     if git(root, "rev-parse", "--is-shallow-repository").stdout.strip() == "true":
@@ -323,6 +344,7 @@ def gate_before_results(root, adopt=False):
         # (2) grandfathering covers only results first added before adoption
         # keys are the pre-move folder names; a moved folder is looked up by its old name (tools/movemap.py)
         grand = (folder in GATE_GRANDFATHERED or movemap.backward(folder) in GATE_GRANDFATHERED) and not (strict and _after(root, added, adopt))
+        retro_at = None   # first commit of the disclosing retro gate read, when the exception applies
         if not grand:
             ok = False
             for g in mine:
@@ -332,6 +354,16 @@ def gate_before_results(root, adopt=False):
                 if git(root, "merge-base", "--is-ancestor", gc, added).returncode == 0:
                     ok = True
                     break
+            if not ok and strict:
+                retro = [g for g in mine if os.path.basename(g).lower().startswith("gate_read_retro_")
+                         and _is_before(root, added, _first_commit(root, g))]
+                ids = _disclosed_miss_ids(root, folder)
+                if retro and ids and all(_is_before(root, _first_commit(root, x), added) for x in prereg):
+                    ok = True
+                    retro_at = _first_commit(root, retro[0])
+                    if notes is not None:
+                        notes.append("%s: %s has no gate read before its results; disclosed by %s and %s"
+                                     % (", ".join(ids), f, retro[0], "process/FAILURES.md"))
             if not ok:
                 fails.append("gate: %s has no gate_read* file naming its PREREG committed before it "
                              "(process/PREREG_GATE.md section 2); add the gate read first, or declare a consistency "
@@ -340,10 +372,13 @@ def gate_before_results(root, adopt=False):
         # (1) each later scoring commit after adoption needs a gate read newer than the previous scoring commit
         touched = strict and adopt != "" and (adopt is None or git(root, "log", "--format=%H", "%s..HEAD" % adopt, "--", f).stdout.strip())
         scoring = _scoring_commits(root, f) if touched else []
-        gcs = {g: _gate_commits(root, g) for g in mine}
+        # a retro gate read is a disclosure, never the gate read that a rescore needs
+        gcs = {g: _gate_commits(root, g) for g in mine if not os.path.basename(g).lower().startswith("gate_read_retro_")}
         for prev, cur in zip(scoring, scoring[1:]):
             if not _after(root, cur, adopt):
                 continue
+            if retro_at and not _is_before(root, retro_at, cur):
+                continue   # scored before the disclosed exception; the exception covers it
             ok = any(c != cur and git(root, "merge-base", "--is-ancestor", c, cur).returncode == 0
                      and git(root, "merge-base", "--is-ancestor", c, prev).returncode != 0
                      for cl in gcs.values() for c in cl)
@@ -707,7 +742,8 @@ def main(argv=None):
         partial.append("open-PR check not run (--offline)")
     fails += check_lean(root)
     fails += own_row_check(root, pr)
-    gf, gp = gate_before_results(root)
+    exceptions = []
+    gf, gp = gate_before_results(root, notes=exceptions)
     fails += gf
     partial += gp
     if body:
@@ -718,6 +754,8 @@ def main(argv=None):
         fails += f
         warns += w
         partial += p
+    for e in exceptions:
+        print("  EXCEPTION " + e)
     for w in warns:
         print("  WARN " + w)
     for w in partial:
