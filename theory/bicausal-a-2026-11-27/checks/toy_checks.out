@@ -1,0 +1,26 @@
+W2 RI design, g=0: QM                                          got 2.10856232 want 2.108563 ok
+W2 RI design, g=0: Sigma_xm                                    got 0.517150586 want 0.517151 ok
+W2 RI design, g=0.5: QM                                        got 1.84998703 want 1.849987 ok
+W2 RI design, g=0.5: Sigma_xx                                  got 1.37390981 want 1.37391 ok
+W2 g=0: QX = 0 (A-C1)                                          got 0 want 0 ok
+direct spring heat vs AT-attain 4*200000/199999                got 4.00002 want 4.00002 ok
+direct spring decision error vs 0.2 (limit)                    got 0.2 want 0.2 ok
+direct: world heat 0                                           got 0 want 0 ok
+direct infimum at w=10: 2 sqrt(10) - 1                         got 5.32455532 want 5.32455532 ok
+level heat Lyapunov vs closed form (2,0.3)                     got 4.44444444 want 4.44444444 ok
+linked: world heat 0                                           got 0 want 0 ok
+level heat Lyapunov vs closed form (0.4,2)                     got 0.0571428571 want 0.0571428571 ok
+linked: world heat 0                                           got 0 want 0 ok
+level heat Lyapunov vs closed form (30,0.05)                   got 580.645161 want 580.645161 ok
+linked: world heat 0                                           got 0 want 0 ok
+K=1 chain minus direct infimum, min over 2000 toy designs at w=2.5: 0.33849
+symbolic Sigma[0,0] vs Lyapunov                                got 0.868825911 want 0.868825911 ok
+symbolic Sigma[0,1] vs Lyapunov                                got 0.441295547 want 0.441295547 ok
+symbolic Sigma[1,1] vs Lyapunov                                got 0.764777328 want 0.764777328 ok
+team game: {'outcome_code': 'potential', 'ratio': 1}
+scaled game: {'outcome_code': 'potential', 'ratio': 3}
+non-potential toy: {'outcome_code': 'no-weighted-potential', 'witness': ({a: 1/5, D: 5/9, D_M: 1, gamma: 19/7, c: -1/2, g: 3, w: 8, w_w: 2, w_x: 1/2}, -6)}
+W2 J_m on the A-T1 v4 box edge (logged 10.5035)                got 10.5035302 want 10.5035 ok
+exact rational per-member cost vs float, toy design            got 5.11024165 want 5.11024165 ok
+optimizer at K = 1, toy w = 2.5: best per-member 2.500009, direct infimum 2.162278
+FAILS 0

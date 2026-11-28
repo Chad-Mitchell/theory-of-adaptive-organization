@@ -247,7 +247,7 @@ Each line is a counterexample or an open miss condition already in the repositor
 | Ruin binds on the stakes compared | Master Theorem (ii) and CT33 | `scope_checks.py` §1b |
 | Reads are chosen | The claim that \(K^\star\) never falls with stakes | CT20; THEORY B.9 |
 | A store's own noise dominates, exponent \(s\) | "Every layer runs faster than its mode" | P9 **PROVED (in-model)**: \(\lambda\tau^\star=(1-s)/s\) at low signal-to-noise. At \(s=1/2\), \(\lambda\tau^\star=1\) |
-| The spectrum is not rational, or a rhythm is counted as one real store | A finite exact design, or the from-0 count | L3; the two-oscillator counterexample, \(R=3\), formula 2, argmin 3 (CORE; `core/KEYSTONE_NOTE.md`) |
+| The spectrum is not rational, or a rhythm is counted as one real store | A finite exact design, or the from-0 count | L3; the two-oscillator counterexample, \(R=3\), formula 2, argmin 3 (CORE; `theory/KEYSTONE_NOTE.md`) |
 | The system shapes the world it tracks | S1 as proved, and H1 | CX2 **OPEN**; failure classes U6 |
 | The birth rate is linear in cost, or mutation is strong | \(d/(2\beta)\) | A2-L versus a linear \(r\); SA1's weak-mutation hypothesis (`theory/SELECTION_AXIOMS.md` §2, §6) |
 | A qualifying class, with the five THEORY §3 items recorded before the comparison, lands outside the preregistered band more often than the preregistered binomial allowance, or needs a cost off the closed list, or fails to move with a measured input beyond the redesign band of CT41 | The hypothesis, for that class. Two classes at different scales, for the cross-scale reading | THEORY §3 and §8. N56 **OPEN**. No such class has been shown to qualify |

@@ -376,7 +376,7 @@ def mmpp_fit(c):
     return {"r0": r0, "r1": r1, "lam": lam, "mu": (r1 - r0) / 2, "se_loglam": se[2], "nll": best.fun}
 
 def gap_order_stat(times, rng, nshuf=200):
-    """Consecutive log-gap Spearman correlation and its shuffle-null z (renewal check; cf. tests/D3_OOS)."""
+    """Consecutive log-gap Spearman correlation and its shuffle-null z (renewal check; cf. records/tests/D3_OOS)."""
     from scipy.stats import spearmanr
     g = np.log(np.diff(np.sort(times)) + 1e-9)
     r = spearmanr(g[:-1], g[1:]).correlation

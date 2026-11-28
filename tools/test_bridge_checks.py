@@ -6,7 +6,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def test_bridge_math_checks_all_ok():
     r = subprocess.run(
-        [sys.executable, os.path.join(ROOT, "core", "bridge_2026-11-21", "math_checks.py")],
+        [sys.executable, os.path.join(ROOT, "theory", "bridge_2026-11-21", "math_checks.py")],
         capture_output=True, text=True, timeout=120,
     )
     assert r.returncode == 0, r.stdout + r.stderr

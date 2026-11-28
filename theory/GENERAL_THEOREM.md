@@ -8,7 +8,7 @@ Draft, Saturday 2026-11-14 (ET). Private working file. Nothing here was posted o
 - `X_TEXT.txt`: the live post, v9.
 - `public-repo/theorems/THEOREMS.md`: T1–T9.
 - `REAUDIT_2026-11-13.md` §0.
-- `tests/C3/RESULTS.md` and `DATA_NOTES.md`.
+- `records/tests/C3/RESULTS.md` and `DATA_NOTES.md`.
 
 **Framing used (Chad's).** This is a general theory of any adaptive organization: cells, immune systems, ants, people, firms, cities. It is not a theory of everything. The physics is meant literally; only the currency of cost and the implementation change with scale.
 
@@ -268,7 +268,7 @@ Setting: S with renewal checks (A3). A copy taken at age 0 is used by the Bayes 
 
   - Even with every dilution stacked, β stays above C3's upper CI (0.10–0.12) unless the diffusive share is small.
 - **Reading on C3 (FAILS for this mechanism at this scale and proxy).**
-  - **Erratum (19 Nov 2026, ET; math-attack REVIEW G1, applied with THEORY v2.0).** Every C3 conclusion in this file (§0 item 5, this R6, §8, §9 items 2, 9 and the closing line) holds only if the fix interval is **deterministic (or narrowly distributed) and exogenous** given (σ, B). With random fix intervals the same pinning predicts a hazard ratio per doubling of 3.0 (exponential), 2.1 (lognormal, sd 1), 1.5 (Pareto κ = 1.5), 1.26 (Pareto κ = 1.2) or 1.20 (lognormal, sd 2), and the diffusive share of hazard compatible with C3 rises from ≈1% to ≈4%, 8%, 18%, 34% or 43% (`reviews/math-attack/review_checks/review_checks.out` R2b). If τ is chosen in response to z, the coefficient can lie anywhere down to −1. So C3 excludes a deterministic, exogenous reset clock at that proxy; with heavy-tailed or endogenous fix intervals it does not. Read "rules out", "at most about 1–5%" and "dead" below and above with this condition. In the repo's vocabulary C3 is a **proxy result** (CLAIM_MAP H15, PROXY-FAIL), not a miss for the theory.
+  - **Erratum (19 Nov 2026, ET; math-attack REVIEW G1, applied with THEORY v2.0).** Every C3 conclusion in this file (§0 item 5, this R6, §8, §9 items 2, 9 and the closing line) holds only if the fix interval is **deterministic (or narrowly distributed) and exogenous** given (σ, B). With random fix intervals the same pinning predicts a hazard ratio per doubling of 3.0 (exponential), 2.1 (lognormal, sd 1), 1.5 (Pareto κ = 1.5), 1.26 (Pareto κ = 1.2) or 1.20 (lognormal, sd 2), and the diffusive share of hazard compatible with C3 rises from ≈1% to ≈4%, 8%, 18%, 34% or 43% (`records/reviews/math-attack/review_checks/review_checks.out` R2b). If τ is chosen in response to z, the coefficient can lie anywhere down to −1. So C3 excludes a deterministic, exogenous reset clock at that proxy; with heavy-tailed or endogenous fix intervals it does not. Read "rules out", "at most about 1–5%" and "dead" below and above with this condition. In the repo's vocabulary C3 is a **proxy result** (CLAIM_MAP H15, PROXY-FAIL), not a miss for the theory.
   - OSS dormancy is not diffusive error accumulation reset at issue-close time.
   - The surviving readings are: (i) dormancy is jump-like (people leave); (ii) issue-close time is not the error-correction interval; (iii) both.
   - A fair second test needs a setting where errors are plausibly diffusive and the fix interval is measured directly.

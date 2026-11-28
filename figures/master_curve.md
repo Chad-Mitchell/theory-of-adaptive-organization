@@ -28,7 +28,7 @@ From `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` §5 (lines 84–87): blind when
 | Holographic: shared memory on the curve, pays from x = 1; K copies wait to x = K | GFP:106 (blind stake lower by K); HOLOGRAPHIC_MEMORY_2026-11-22.md:52–70; general_checks.py:383–398 | worked class (T42/T39) |
 | Copies cost → √K = 2× at high stakes | HOLOGRAPHIC_MEMORY_2026-11-22.md:25 | worked class |
 | Ties or loses when each item is read alone | HOLOGRAPHIC_MEMORY_2026-11-22.md:13, :118 | worked class |
-| Swarm rule: stay iff λ·s·c < w·Φ; the part's choice is the whole's iff s = w/W | CORE.md §4, Join, stay and leave; theory/SWARM_RULE_2026-11-23.md | SYNTHESIS (ledger SWARM-RULE); the stay and alignment clauses are WORKED-CLASS-ONLY, in THEORY Appendix B classes (ledger SWARM-STAY, SWARM-ALIGN) |
+| Swarm rule: stay iff λ·s·c < w·Φ; the part's choice is the whole's iff s = w/W | CORE.md §4, Join, stay and leave; theory/swarm/SWARM_RULE.md | SYNTHESIS (ledger SWARM-RULE); the stay and alignment clauses are WORKED-CLASS-ONLY, in THEORY Appendix B classes (ledger SWARM-STAY, SWARM-ALIGN) |
 | Through finite-capacity channels the tracked rate scales with area; not the holographic bound | README.md:43 (27 Nov); theory/AREA_LAW_PROBE_2026-11-23.md:15 | WORKED-CLASS-ONLY, class AL, given finite-capacity boundary channels (ledger T62) |
 | Field: heat ∝ volume at per-site error; 13 per site, 13·n² | HOLOGRAPHIC_2026-11-22.md:21, :130 | worked class (T41) |
 | Named cut: ≈13.61 per cut site, bound 13 (217.693 vs 208 at n = 16) | HOLOGRAPHIC_2026-11-22.md:17, :130; recomputed with that note's checker functions | worked class (T41) |
@@ -40,10 +40,10 @@ From `theory/GENERAL_FORM_PHYSICS_2026-11-22.md` §5 (lines 84–87): blind when
 
 ## Considered and not used
 
-- **Real-system dots.** `figures/face_placements.md` places systems in stake ÷ upkeep (h) units. GFP §7 says hK is not a term of the floor, and no file on main gives w, v, a, kT for a real system. Converting would invent data, so the curve carries no system positions.
+- **Real-system dots.** `records/figures/face_placements.md` places systems in stake ÷ upkeep (h) units. GFP §7 says hK is not a term of the floor, and no file on main gives w, v, a, kT for a real system. Converting would invent data, so the curve carries no system positions.
 - **The telegraph.** Proved, but its frontier is a different formula, so it does not land on this curve.
 - **The five-term equation as the headline.** IP5 is FALSE for the physical frontier; it stays a stated decomposition in the cost band.
-- **Rebuild (T43) and acting (T45–T47).** In-model results under other assumptions, with no coordinate on this curve; left off to keep the picture readable. They stay in `figures/derivation_map.png`.
+- **Rebuild (T43) and acting (T45–T47).** In-model results under other assumptions, with no coordinate on this curve; left off to keep the picture readable. They stay in `records/figures/derivation_map.png`.
 - **"Every system lands on one line."** True only for modes in the worked class; the panel is labeled worked class.
 - **Aligned against random codes (4 against 19.2) and the per-unit precision cap.** Drawn until 27 November 2026; taken off the holographic panel to make room for the swarm rule. Both stay in `theory/HOLOGRAPHIC_MEMORY_2026-11-22.md` and `theory/BOUNDARY_SUFFICIENCY_2026-11-22.md`, and the check of the quoted 19.2 stays in the checks file.
 - **The five-term equation note in the cost band.** Replaced by the judgment line; T40 is resolved: the display in `CORE.md` §1 is the adopted one.

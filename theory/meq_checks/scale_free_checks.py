@@ -1,6 +1,6 @@
 """Checks for THEORY v2.2 CT24 (cost shares = price elasticities; looking : being wrong = alpha-1; shadow-price reading;
 kT floor with an inefficiency multiplier) and CT25 (the ruin constraint is the temperature z = B/(sigma sqrt(tau)) >= z_eps).
-Origin: reviews/audit_2026-11-19/AUDIT.md sections 2 and 5. Run: nice -n 19 python3 scale_free_checks.py
+Origin: records/reviews/audit_2026-11-19/AUDIT.md sections 2 and 5. Run: nice -n 19 python3 scale_free_checks.py
 (prints the numbers, then asserts; ends with RESULT: PASS)
 All checks use the repo's CT12 single-tracker form J(T)=c/T + w*q*T^(alpha-1)/alpha unless stated."""
 import numpy as np

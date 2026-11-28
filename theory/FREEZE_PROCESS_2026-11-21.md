@@ -1,12 +1,12 @@
 # FREEZE_PROCESS: is freezing a continuous limit of holding under the cost equation?
 
-Saturday 21 November 2026, about 10:00 AM to 11:00 AM ET (America/New_York). Written by a Grok Bot executor for Chad Mitchell. Branch `freeze-process-2026-11-21`. Derivation file only: it does **not** edit `CORE.md`, `THEORY.md`, the claim map, or the hypothesis sentence. Independent review is in `reviews/freeze_2026-11-21/REVIEW.md` (READY-WITH-FIXES); S1–S3 are applied on this branch. Nothing was posted or sent.
+Saturday 21 November 2026, about 10:00 AM to 11:00 AM ET (America/New_York). Written by a Grok Bot executor for Chad Mitchell. Branch `freeze-process-2026-11-21`. Derivation file only: it does **not** edit `CORE.md`, `THEORY.md`, the claim map, or the hypothesis sentence. Independent review is in `records/reviews/freeze_2026-11-21/REVIEW.md` (READY-WITH-FIXES); S1–S3 are applied on this branch. Nothing was posted or sent.
 
 **Question (Chad, 21 Nov).** Protons and crystals were not always here. Frozen states may be held states that froze as their world cooled or slowed. Is freezing a *process* that the same cost equation describes over time, rather than only a static corner?
 
 **Sources read first (from the files).**
 - `theory/GENERAL_THEOREM.md` §3 (G1–G4; G2 hold iff λc < Φ; G3 rise-then-fall).
-- `reviews/night1/formal/THEOREMS.md` Theorem 8, which is `THEORY.md` CT11 (freeze, hold or look up).
+- `theory/axioms/THEOREMS.md` Theorem 8, which is `THEORY.md` CT11 (freeze, hold or look up).
 - `theory/SCALE_ENDS.md` §0 and §2 (E1–E4, the class table, black holes as the extreme of the frozen class).
 - `THEORY.md` §3's freeze-or-hold row and CT11.
 - `theory/MASTER_EQUATION.md` (j) (dynamics; Dixit hysteresis; redesign record length).
@@ -256,7 +256,7 @@ None is preregistered or qualified.
 
 ## 9. Proposed follow-ups (not started; nothing edited outside this file)
 
-1. Independent review completed in `reviews/freeze_2026-11-21/REVIEW.md` (READY-WITH-FIXES; S1–S3 applied on branch).
+1. Independent review completed in `records/reviews/freeze_2026-11-21/REVIEW.md` (READY-WITH-FIXES; S1–S3 applied on branch).
 2. If confirm passes, a one-line pointer from `theory/SCALE_ENDS.md` §2 (E4) and `THEORY.md` CT11 to this file. That would be a separate PR and needs the usual review and confirm.
 3. Targeted prior-art search for §4 completed in review (see §4 and §8; downgraded to KNOWN in substance, novelty 0–1).
 

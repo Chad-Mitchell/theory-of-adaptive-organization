@@ -18,7 +18,7 @@
 **1.1 The idea.** The additive master equation J = κI_mem + hK + wE[ℓ] + A + L is likely a special case, in the way the ideal gas law is a special case of thermodynamics. The candidate general form is price-free. A system's design yields a vector of goods it must spend or bads it must suffer: memory held, information bought, error, attention spent and ruin risk. Strongly selected systems sit on the efficient (Pareto) frontier of that vector, given the world's pattern of change. Physics and information theory (Landauer, Still, the single-letter floors) cut the feasible set. Prices only pick *which* frontier point a system lands on.
 
 **1.2 What is known so far (first draft plus hostile review; PR #154 is merged).**
-- **Additivity.** J is additive only under named axioms. PR #154's R1 needs an extra monotonicity axiom for nonnegative prices, and care with the discrete layer count (review `reviews/representation_2026-11-21/REVIEW.md`).
+- **Additivity.** J is additive only under named axioms. PR #154's R1 needs an extra monotonicity axiom for nonnegative prices, and care with the discrete layer count (review `records/reviews/representation_2026-11-21/REVIEW.md`).
 - **The scalarization converse.** The general form gives back the additive one when the feasible set is convex: every Pareto point then minimizes some nonnegative weighted sum. Without convexity it fails (three-point dent). Per the review, a plain coordinate cap ρ ≤ ε on ruin does **not** break convexity, so the earlier statement that it does was wrong.
 - **Survives with no prices.** The antitone shape of the front; the information floors as limits on what is feasible; the layer cap only as dominance.
 - **Needs a stake or a price ratio.** Monotone comparative statics (CT33, Master Theorem (ii)) need single crossing in a stake variable, so they are not fully price-free. K\*(R), the cost shares (CT24) and the selection gap d/(2β) need a ratio or a scalar cost.
@@ -30,7 +30,7 @@
 
 So some stalled attempts might become runnable. This is to be checked attempt by attempt after the freeze, and before any new data. No locked prereg is re-scored.
 
-The attempt-by-attempt re-read is `theory/FRONTIER_REREAD_2026-11-22.md`. It is a planning note, not a lock, not a prereg and not a result. Sometimes the interpretation changes; it does not, by itself, turn a stalled attempt into a fair official test. DIR1 stays INCONCLUSIVE. The note's recommended next price-free real-data test is Candidate A: an antitone test of in-use package designs, with the world measured from upstream cadence on no-account sources. Candidates B and C are ranked below it. None of these is a preregistration. Direction A below (AI agent systems) has since been developed on main as `theory/SWARM_RULE_2026-11-23.md` and `applications/AI_AGENT_OVERSIGHT_2026-11-23.md`.
+The attempt-by-attempt re-read is `theory/FRONTIER_REREAD_2026-11-22.md`. It is a planning note, not a lock, not a prereg and not a result. Sometimes the interpretation changes; it does not, by itself, turn a stalled attempt into a fair official test. DIR1 stays INCONCLUSIVE. The note's recommended next price-free real-data test is Candidate A: an antitone test of in-use package designs, with the world measured from upstream cadence on no-account sources. Candidates B and C are ranked below it. None of these is a preregistration. Direction A below (AI agent systems) has since been developed on main as `theory/swarm/SWARM_RULE.md` and `theory/applications/AI_AGENT_OVERSIGHT_2026-11-23.md`.
 
 ## 2. Direction A: AI agent systems
 

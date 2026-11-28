@@ -1,6 +1,6 @@
 # Quantum record price: five routes, none names it
 
-*24 November 2026 (UTC). Desk note. No script. Self-check through the third pass; the ERRATA answers the independent review at `theory/reviews/QUANTUM_RECORD_PRICE_REVIEW_2026-11-24.md` (commit `1e2f7f5`). `THEORY.md` is unchanged. Open-work row T74. Status words are those at `CORE.md` §Status words. Nothing here derives general relativity, quantum mechanics, or holography.*
+*24 November 2026 (UTC). Desk note. No script. Self-check through the third pass; the ERRATA answers the independent review at `records/reviews/theory/QUANTUM_RECORD_PRICE_REVIEW_2026-11-24.md` (commit `1e2f7f5`). `THEORY.md` is unchanged. Open-work row T74. Status words are those at `CORE.md` §Status words. Nothing here derives general relativity, quantum mechanics, or holography.*
 
 *Each route below states what it assumes, where it stops, and a status label. A route that would name a price only by adopting a known entropy theorem is marked KNOWN and is not counted as a derivation.*
 
@@ -170,7 +170,7 @@ Route 1 is missing a naming axiom, and with only \(I(W;M)\) named there is no ra
 
 ## ERRATA
 
-*After `theory/reviews/QUANTUM_RECORD_PRICE_REVIEW_2026-11-24.md` (commit `1e2f7f5`), which reviewed head `a0fd117`. Five routes. Routes 1 through 4 stand as claims about those questions. Route 5 is the one-scale reading. Each finding is answered here. Ace's answers on upstream #254 are applied below where they change a sentence.*
+*After `records/reviews/theory/QUANTUM_RECORD_PRICE_REVIEW_2026-11-24.md` (commit `1e2f7f5`), which reviewed head `a0fd117`. Five routes. Routes 1 through 4 stand as claims about those questions. Route 5 is the one-scale reading. Each finding is answered here. Ace's answers on upstream #254 are applied below where they change a sentence.*
 
 **E1. HIGH. Ratio 1 keeps both terms.** The earlier sentence said that \(\kappa_D/\kappa=1\) is what you get by refusing a second coefficient. That is wrong. From \(P_\chi=c-P_D\),
 

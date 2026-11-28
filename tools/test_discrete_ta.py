@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import discrete_ta as d
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MC = os.path.join(ROOT, "reviews", "night2", "DISCRETE_TA", "checks", "mc_discrete.json")
+MC = os.path.join(ROOT, "records", "reviews", "night2", "DISCRETE_TA", "checks", "mc_discrete.json")
 
 
 def riccati_iter(mu, lam, N, D):

@@ -1,6 +1,6 @@
 # From the substitution chain to the diffusion limit
 
-*Sunday 22 November 2026. Branch `diffusion-convexity-2026-11-21`, draft PR. Written by one executor for Chad Mitchell; a self-check, not an independent review. Revised after the independent review of PR #153 (`reviews/diffusion_convexity_2026-11-21/REVIEW.md`, verdict NOT-READY). The revision is a self-check of those fixes, not a second independent review. It does not change the Part 2 hypothesis sentence, and it does not edit a locked preregistration or hash file.*
+*Sunday 22 November 2026. Branch `diffusion-convexity-2026-11-21`, draft PR. Written by one executor for Chad Mitchell; a self-check, not an independent review. Revised after the independent review of PR #153 (`records/reviews/diffusion_convexity_2026-11-21/REVIEW.md`, verdict NOT-READY). The revision is a self-check of those fixes, not a second independent review. It does not change the Part 2 hypothesis sentence, and it does not edit a locked preregistration or hash file.*
 
 ## 0. Bottom line
 

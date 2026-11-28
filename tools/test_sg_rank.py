@@ -5,7 +5,7 @@ import importlib.util, json, os, sys, textwrap
 import pytest
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SG_PATH = os.path.join(ROOT, "tests", "SG_RANK", "sg_rank.py")
+SG_PATH = os.path.join(ROOT, "records", "tests", "SG_RANK", "sg_rank.py")
 
 
 def load_sg():
