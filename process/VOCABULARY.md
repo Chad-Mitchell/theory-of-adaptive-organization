@@ -4,7 +4,7 @@
 
 > **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.**
 
-**Labels.** **DECIDED** is a naming decision, not a claim about the world (the CLAIM_MAP status of N30). **PROVED (in-model)**, **KNOWN**, **CONJECTURE**, **OPEN**, **INTERPRETATION**, **FAILS**, **SIM-FAIL** are used as in `CORE.md` §Status words (the scope words GENERAL, WORKED-CLASS-ONLY, SYNTHESIS and CONJECTURE: the scope header of `measurement/CLAIM_MAP_v2.md`), `theory/SWARM_RULE_2026-11-23.md:7` and the CLAIM_MAP. Each entry says which words are the decision and which are the cited results.
+**Labels.** **DECIDED** is a naming decision, not a claim about the world (the CLAIM_MAP status of N30). **PROVED (in-model)**, **KNOWN**, **CONJECTURE**, **OPEN**, **INTERPRETATION**, **FAILS**, **SIM-FAIL** are used as in `CORE.md` §Status words (the scope words GENERAL, WORKED-CLASS-ONLY, SYNTHESIS and CONJECTURE: the scope header of `measurement/CLAIM_MAP_v2.md`), `theory/swarm/SWARM_RULE.md:7` and the CLAIM_MAP. Each entry says which words are the decision and which are the cited results.
 
 **Scope.** Nothing here says anything about experience or consciousness. That question is parked (`theory/IIT_PATH_2026-11-23.md`; [`OPEN_WORK.md:107`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L107), T56: "Open (exploration path, not a result)"). "A person is a model of their world" is an INTERPRETATION, not a measured result (entry 3).
 
@@ -62,7 +62,7 @@
 
 **Test.** Name the axis. A time-axis layer is told apart by a separate time scale in the world's spectrum. A level is told apart by a shared driver and members that pay to share one tracker (CT14).
 
-**Status.** Layer count by degree: **PROVED (in-model)** in the linear-Gaussian, squared-error class (CT21; CLAIM_MAP: not yet independently reviewed). Levels of a nested tree fill from the broadest scope down iff \(\chi<\chi^*=(1-a)/(1-b)\): **PROVED (in-model)** (CL15, `THEORY.md:123`). The word "layer" still covers four things in the audit: a first-order store, a McMillan degree, an org-chart level and a lumpy reset (`theory/MATH_COMPLETENESS_AUDIT.md:114`). The degree count is not the count of separate stores one would build (`core/KEYSTONE_NOTE.md:37`). Whether layers must be separate agents or can be stores inside one agent is OPEN (`THEORY.md:180`).
+**Status.** Layer count by degree: **PROVED (in-model)** in the linear-Gaussian, squared-error class (CT21; CLAIM_MAP: not yet independently reviewed). Levels of a nested tree fill from the broadest scope down iff \(\chi<\chi^*=(1-a)/(1-b)\): **PROVED (in-model)** (CL15, `THEORY.md:123`). The word "layer" still covers four things in the audit: a first-order store, a McMillan degree, an org-chart level and a lumpy reset (`theory/MATH_COMPLETENESS_AUDIT.md:114`). The degree count is not the count of separate stores one would build (`theory/KEYSTONE_NOTE.md:37`). Whether layers must be separate agents or can be stores inside one agent is OPEN (`THEORY.md:180`).
 
 **Say / don't say.** Never use "level" for an org-chart rank without the words "org-chart". "Drift level" (\(q\), `THEORY.md:207`) is a defined quantity, not an organizational level. A *group* of agents is not a layer unless it shares one tracker.
 
@@ -97,11 +97,11 @@
 
 ## 8. Swarm
 
-**Definition (DECIDED).** A *swarm* is any whole whose parts can come together, stay, leave and regroup: cells in a tissue, agents in an organization, people in a firm, ants on a trail (`theory/SWARM_RULE_2026-11-23.md:11`). *The swarm rule* is the seven-clause life cycle of that membership (`theory/SWARM_RULE_2026-11-23.md:40-50`): join, stay (\(\pi_i<1\)), leave or tamper, align (\(s_i=w_i/W\)), reintegrate, re-form, remove or reprice. It is "a use of the cost of judgment", not a separate principle and not a statement of self-similarity.
+**Definition (DECIDED).** A *swarm* is any whole whose parts can come together, stay, leave and regroup: cells in a tissue, agents in an organization, people in a firm, ants on a trail (`theory/swarm/SWARM_RULE.md:11`). *The swarm rule* is the seven-clause life cycle of that membership (`theory/swarm/SWARM_RULE.md:40-50`): join, stay (\(\pi_i<1\)), leave or tamper, align (\(s_i=w_i/W\)), reintegrate, re-form, remove or reprice. It is "a use of the cost of judgment", not a separate principle and not a statement of self-similarity.
 
-**Test.** Check the stay condition \(\lambda s c<w\Phi\) with measured inputs. \(\lambda, s, c, w\) and \(\Phi\) are MEASUREMENTS (`theory/SWARM_RULE_2026-11-23.md:17-36`).
+**Test.** Check the stay condition \(\lambda s c<w\Phi\) with measured inputs. \(\lambda, s, c, w\) and \(\Phi\) are MEASUREMENTS (`theory/swarm/SWARM_RULE.md:17-36`).
 
-**Status.** Onset, stay, leave, align and the re-form band are **PROVED (in-model)** in their named classes. Reintegrate is an identity on stay plus a property of the memoryless class (`theory/SWARM_RULE_2026-11-23.md:52`). For merging and remove-or-reprice, see ledger rows SWARM-MERGE (an open miss) and SWARM-REPRICE (proved-in-model, T53) in `measurement/CLAIM_MAP_v2.md`. Every reading onto cells, agents, people or bacteria is **INTERPRETATION**. That real parts minimize this cost is the hypothesis, untested there (`theory/SWARM_RULE_2026-11-23.md:52`). *The swarm limit* (\(k\to0\), groups re-form continuously) is an ANALOGY, not a theorem (`theory/FLUID_LAYERS_2026-11-21.md:11`, `theory/GENERALITY_2026-11-22.md:285`).
+**Status.** Onset, stay, leave, align and the re-form band are **PROVED (in-model)** in their named classes. Reintegrate is an identity on stay plus a property of the memoryless class (`theory/swarm/SWARM_RULE.md:52`). For merging and remove-or-reprice, see ledger rows SWARM-MERGE (an open miss) and SWARM-REPRICE (proved-in-model, T53) in `measurement/CLAIM_MAP_v2.md`. Every reading onto cells, agents, people or bacteria is **INTERPRETATION**. That real parts minimize this cost is the hypothesis, untested there (`theory/swarm/SWARM_RULE.md:52`). *The swarm limit* (\(k\to0\), groups re-form continuously) is an ANALOGY, not a theorem (`theory/FLUID_LAYERS_2026-11-21.md:11`, `theory/GENERALITY_2026-11-22.md:285`).
 
 **Say / don't say.** Do not say "the swarm principle". Say "the swarm rule" for the membership life cycle. Do not use "swarm" for the claim that levels repeat the same pattern (entries 6 and 7).
 

@@ -2,7 +2,7 @@
 """Fast identities for T27: detailed balance, equipartition on a quadratic,
 qualification-band consistency, seed non-collision, lock hashes.
 
-Run: python3 core/bridge_2026-11-21/math_checks.py
+Run: python3 theory/bridge_2026-11-21/math_checks.py
 """
 from __future__ import annotations
 

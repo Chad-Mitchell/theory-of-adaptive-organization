@@ -1,6 +1,6 @@
 # AI agents under oversight: when an agent follows, leaves, or tampers
 
-*Monday 23 November 2026. Canonical home for one application of the swarm rule (`theory/SWARM_RULE_2026-11-23.md`) to an AI agent working inside a human organization. Not a test of the hypothesis. No new theorem: the math is CT9, Lemma B1 and CT29's alignment clause (`THEORY.md`), with tampering derived in the swarm rule §4. The hypothesis sentence is unchanged. A self-check, not an independent review. Open-work row: T52.*
+*Monday 23 November 2026. Canonical home for one application of the swarm rule (`theory/swarm/SWARM_RULE.md`) to an AI agent working inside a human organization. Not a test of the hypothesis. No new theorem: the math is CT9, Lemma B1 and CT29's alignment clause (`THEORY.md`), with tampering derived in the swarm rule §4. The hypothesis sentence is unchanged. A self-check, not an independent review. Open-work row: T52.*
 
 The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.
 
@@ -8,7 +8,7 @@ Labels: **PROVED (in-model)** follows from a repo theorem inside its class. **IN
 
 ## 1. What this is
 
-This page records how the cost is used for one system: an AI agent that can follow its overseer, stop following, or act on the oversight itself. Applications are not evidence for the theory unless a test says so, and they are not the theory itself (`applications/README.md`). It is one case of the swarm rule, alongside cancer (`applications/CANCER_DEFECTION_2026-11-23.md`).
+This page records how the cost is used for one system: an AI agent that can follow its overseer, stop following, or act on the oversight itself. Applications are not evidence for the theory unless a test says so, and they are not the theory itself (`theory/applications/README.md`). It is one case of the swarm rule, alongside cancer (`theory/applications/CANCER_DEFECTION_2026-11-23.md`).
 
 Write the cost, find its minimum, read off the design, and state which inputs are still measurements.
 
@@ -51,7 +51,7 @@ The organization's cost uses the full price \(c\) and its stake \(W\), under its
 
 1. **When following pays (PROVED (in-model), CT9).** The agent keeps following iff \(\pi=\lambda sc/(w\Phi)<1\), and its schedule depends on \((s,c,w)\) only through \(sc/w\).
 2. **Alignment (PROVED (in-model), CT29).** The agent's choice equals the organization's optimum iff \(s=w/W\).
-3. **The churn cliff (PROVED (in-model), Lemma B1).** As the overseer's change rate \(\lambda\) rises, the agent's check-ins first rise and then fall steeply to zero at \(\lambda_c=\Phi w/(sc)\). In the telegraph check at \(sc/w=1\), check-ins rise from 0.047 to a peak of 0.148 near \(\lambda=0.15\), fall to 0.065 at \(\lambda=0.249\), and are zero from 0.251 (`theory/swarm_checks/swarm_checks.out`).
+3. **The churn cliff (PROVED (in-model), Lemma B1).** As the overseer's change rate \(\lambda\) rises, the agent's check-ins first rise and then fall steeply to zero at \(\lambda_c=\Phi w/(sc)\). In the telegraph check at \(sc/w=1\), check-ins rise from 0.047 to a peak of 0.148 near \(\lambda=0.15\), fall to 0.065 at \(\lambda=0.249\), and are zero from 0.251 (`theory/swarm/checks/swarm_checks.out`).
 4. **Tampering (PROVED (in-model), the swarm rule §4).** Defeating a shutdown script, or coercing the person who would run it, is one more action. The agent tampers iff its gain \(D\) (the excess of the enforced schedule over its own best) exceeds \(Nt+(1-(1-q)^N)P\), and that price is below the open penalty. \(D=0\) at \(s=w/W\) when the agent shares the organization's full stay-versus-leave cost, including collateral and any priced ruin term, so **an aligned agent never tampers in that case** (swarm rule §4). If the organization enforces because of unshared collateral or a ruin cap, the gain can be positive even at that share. Corrupting a shared signal the agent itself reads costs it the signal's worth, \(w(r_\infty-g)\). Misinforming the overseer while keeping a private copy is the private-information case, not derived here. Disabling enforcement while still reading the signal does not, so it is the cheaper subversion and needs the stronger guard. Palisade's sabotage is enforcement tampering.
 5. **Five terms, and they multiply.** \(\log\pi=\log\lambda+\log s+\log c-\log w-\log\Phi\). From \(\pi=2.04\), two 30% cuts reach \(\pi=1\); two 20% cuts do not.
 

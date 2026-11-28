@@ -4,7 +4,7 @@ Executor `queue-pick11` (for Ace; Chad t1914), Sunday 15 Nov 2026, America/New_Y
 
 ## 0. Source in THEORY.md v1.4.3, premise, regime (stated before any data)
 - **What needs these inputs.** §2.1: "Three quantities set the tracking optimum in time: the slope α, the high-frequency drift level q (S = q|ω|^−α), and the sensing noise N, together with stakes w and the prices of reads, precision and stores." §0 and §1 N6 / CLAIM_MAP N13 (the open bet) need all four measured on the same system. §2.4 Net: "The first job is measurement (QUEUE AQN-ESTIMATORS, SAME-SYSTEM-AQN)."
-- **Premise (THEORY v1.4.3 §2.2 Regime A premise bullet; §2.5 premise list; CLAIM_MAP N16, N17).** The §2.2 noisy-sensing rows (error, precision effort, memory time, kernel) hold for a Gaussian world or for the best linear tracker in any world; for those, the second-order inputs (α, q, N) are sufficient. For the Bayes-optimal tracker of a switching world they are not: jump rate λ and jump size μ enter separately (at fixed q and N the two-state Bayes error spans 364× across splits of q, `reviews/night2/HEADLINE_PREMISE_SCOPE_checks/check.out`). So every estimate below is labelled with the optimum it feeds:
+- **Premise (THEORY v1.4.3 §2.2 Regime A premise bullet; §2.5 premise list; CLAIM_MAP N16, N17).** The §2.2 noisy-sensing rows (error, precision effort, memory time, kernel) hold for a Gaussian world or for the best linear tracker in any world; for those, the second-order inputs (α, q, N) are sufficient. For the Bayes-optimal tracker of a switching world they are not: jump rate λ and jump size μ enter separately (at fixed q and N the two-state Bayes error spans 364× across splits of q, `records/reviews/night2/HEADLINE_PREMISE_SCOPE_checks/check.out`). So every estimate below is labelled with the optimum it feeds:
   - Spectral estimates (α̂, q̂, N̂; Whittle) feed the **linear** optimum, in any world with those second moments.
   - Switching-world estimates (λ̂, μ̂, N̂; HMM) feed the **Bayes** optimum of the symmetric two-state world (t_A, MSE of N16) and, via q = 4λμ², the linear one.
   - Which optimum a later test compares against is fixed in that test's prereg (lock guard, HEADLINE-PREMISE-SCOPE P-lock), not chosen after seeing data. The premise test of §2 below is a tool for that choice; it decides only "two-state switching vs Gaussian Markov", nothing wider.
@@ -23,7 +23,7 @@ Executor `queue-pick11` (for Ace; Chad t1914), Sunday 15 Nov 2026, America/New_Y
 | premise | LR of the HMM vs AR(1)+noise (OU sampled; same autocovariance class), parametric bootstrap under the fitted Gaussian null, B = 39 | which optimum is plausible |
 | event α, q, N | Whittle on binned counts, f = (q ω^−α + s2)/2π over a band; free floor (s2/mean ≠ 1 flags non-Poisson sensing) and fixed floor s2 = mean | linear optimum (Poisson sensing) |
 | event λ, rates | two-state MMPP HMM on binned counts | no derived optimum yet |
-| renewal check | consecutive log-gap Spearman vs shuffle null (as in `tests/D3_OOS`) | class label |
+| renewal check | consecutive log-gap Spearman vs shuffle null (as in `records/tests/D3_OOS`) | class label |
 | stakes w | slope of cost on e² (OLS) and, with a replicate error measurement, IV slope Cov(cost, e_rep²)/Cov(e², e_rep²); pairs bootstrap CI | all optima (independent of the series) |
 
 ## 2. Synthetic validation (done before the lock; seeds 20261115 + 1000·condition-offset + rep; `validate.py`, summaries `results/summary_*.txt`)

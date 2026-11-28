@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Checks for theory/SWARM_RULE_2026-11-23.md (join, stay, leave).
+"""Checks for theory/swarm/SWARM_RULE.md (join, stay, leave).
 
 Run from the repo root:
-  nice -n 19 python3 theory/swarm_checks/swarm_checks.py
+  nice -n 19 python3 theory/swarm/checks/swarm_checks.py
 
 These checks fall into three kinds, labeled in each CHECK line:
 

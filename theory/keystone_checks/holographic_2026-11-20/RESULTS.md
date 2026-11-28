@@ -5,7 +5,7 @@
 **Run:** `run_holo.json`. Started 9:21:40 PM EST, finished 9:49:46 PM EST, wall 1,686.1 s (~28 min), 4 workers at nice 19. All 18 planned worlds completed; none unfinished; no E_K below E_∞; no deviations file (no process deviation, no unsecured cell).
 **Lock provenance:** At lock time this directory was untracked. The lock is witnessed by the SHA-256 hashes, filesystem timestamps (`PREREG.md` mtime 9:19:00 PM EST; predictions 9:19:35 PM EST; `LOCK.txt` 9:19:44 PM EST), the sidecar `PREDICTIONS.sha256`, and the same two hashes baked into the runner and into `run_holo.json` — not by a git commit at lock time. The run began 116 seconds after the hash lock. This commit is after the run and the review.
 **Prereg header time:** `PREREG.md` line 3 says “Locked: … 9:18 PM ET.” That disagrees with the file’s mtime (9:19:00 PM EST) and with the hash-lock time in `LOCK.txt` (9:19:44 PM EST). The lock time used in this file is the hash time, 9:19:44 PM EST. The prereg was not edited to fix the header, because it is hash-locked.
-**Independent review:** `reviews/t20_2026-11-20/REVIEW.md` (started 9:52 PM EST, finished 10:00 PM EST), verdict **CORRECT-WITH-FIXES**. Official fail/pass gates stand. The Family S wording of the observer-pole diagnosis in §2 and §6 is corrected here after that review; no gate, prereg, or prediction was changed.
+**Independent review:** `records/reviews/t20_2026-11-20/REVIEW.md` (started 9:52 PM EST, finished 10:00 PM EST), verdict **CORRECT-WITH-FIXES**. Official fail/pass gates stand. The Family S wording of the observer-pole diagnosis in §2 and §6 is corrected here after that review; no gate, prereg, or prediction was changed.
 **Branch:** this PR, off `main` `8537f39`. The run itself was done in `/workspace/gtao-t20` beside `aa6ab29`. The previous 15 §9 worlds were not re-scored.
 **Independent rescore:** the official gates in `run_holo.py:family_verdicts` recompute from the stored E_K, rates, and locked predictions with zero discrepancies.
 
@@ -100,7 +100,7 @@ The same sentence is too strong for Family S. The joint filter for a 17-mode sum
 
 All 12 primary worlds, the three negative controls, and the three secondary worlds are convex on K = 0..K_cap at 10^{-4}. N60-from-0 equals the leftmost argmin (or a co-minimizer) in 17/17 official-R cells on every one of those 18 worlds. No K* = 0 hole appears on this R grid, because the first increment already pays at R ≪ 1.
 
-As locked in §1 of the prereg: given convexity this is the definitional identity, already proved in `core/KEYSTONE_NOTE.md` §4. The PASS confirms the solver and the arithmetic. It is not evidence for the holographic picture, and it is not counted in the overall SUPPORT gate.
+As locked in §1 of the prereg: given convexity this is the definitional identity, already proved in `theory/KEYSTONE_NOTE.md` §4. The PASS confirms the solver and the arithmetic. It is not evidence for the holographic picture, and it is not counted in the overall SUPPORT gate.
 
 ---
 

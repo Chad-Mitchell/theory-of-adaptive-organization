@@ -27,7 +27,7 @@ Paper: J. Lehman and K. O. Stanley, *Unified Factored Representations Resist Cat
 The block between the two markers is the locked text. Its SHA-256 is given under the block. It is computed over the exact bytes of the lines strictly between the markers (UTF-8, LF line ends, each line including its newline). Any edit to the block after the lock is a breach (`process/PROCESS.md` §1 item 4), not a miss. To verify:
 
 ```
-awk '/^<!-- PREDICTION-BLOCK-END -->$/{f=0} f{print} /^<!-- PREDICTION-BLOCK-START -->$/{f=1}' applications/UFR_FORGETTING_2026-11-24.md | sha256sum
+awk '/^<!-- PREDICTION-BLOCK-END -->$/{f=0} f{print} /^<!-- PREDICTION-BLOCK-START -->$/{f=1}' theory/applications/UFR_FORGETTING_2026-11-24.md | sha256sum
 ```
 
 <!-- PREDICTION-BLOCK-START -->
@@ -91,7 +91,7 @@ These are not results. Each says where the repository stands now, what the paper
 
 ### Gap 1. Coupled, self-induced drift (open; hypothesis for the form)
 
-- **Repo today.** The per-item specialization sums over "separate items that drift" (`applications/GROK_BOT_MEMORY_2026-11-23.md:42`), each with an exogenous drift variance σ_i², and the hold and re-check rules follow from it (`:54-55`). The master equation holds the world exogenous, and the case where the design changes the world is the open theorem CX2/CL11 (`THEORY.md:35, 37`). The nearest results are the feedback boundary T61 ([`OPEN_WORK.md:112`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L112)) and cost nesting CT34 (`THEORY.md:497`), which covers a parent that passes quantities to a team, not collateral change among held items.
+- **Repo today.** The per-item specialization sums over "separate items that drift" (`theory/applications/GROK_BOT_MEMORY_2026-11-23.md:42`), each with an exogenous drift variance σ_i², and the hold and re-check rules follow from it (`:54-55`). The master equation holds the world exogenous, and the case where the design changes the world is the open theorem CX2/CL11 (`THEORY.md:35, 37`). The nearest results are the feedback boundary T61 ([`OPEN_WORK.md:112`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md#L112)) and cost nesting CT34 (`THEORY.md:497`), which covers a parent that passes quantities to a team, not collateral change among held items.
 - **Observed.** The system's own update on part of the domain changes what it holds on another part: destructive in FER, coordinated in UFR (§1, §3.3).
 - **Candidate form (hypothesis).** σ_eff,i² = σ_i² + Σ_{j≠i} γ_ij u_j, where u_j is the rate of updates to item j and γ_ij is the variance an update on j injects into item i. A factored representation would be one where γ is sparse. If it held, T_i* = √(6k_i/(w_i σ_eff,i²)) would shorten for entangled items and the hold rule (`:54`) would tighten.
 - **Derivation needed.**
@@ -109,7 +109,7 @@ These are not results. Each says where the repository stands now, what the paper
 
 ### Gap 3. Saturating forgetting against diffusive drift (open; partly covered by an existing note)
 
-- **Repo today.** The re-check interval T* = √(6k/(wps)) (s = σ²/g², g the gap at which a held item is as costly as a dropped one; corrected 27 November 2026, miss M45 in `NOTES/MISSES-LEDGER.md`: the 24 November text had √(6k/(wσ²)), without the need rate p) assumes Brownian drift, quadratic loss, a lumpy reset and a slack ruin cap (`applications/GROK_BOT_MEMORY_2026-11-23.md:71`). It is false as a quantitative rule when T* is not short next to the correlation time (`:72`). The check for the Ornstein–Uhlenbeck case is in `theory/LAYER_LIFETIME_2026-11-21.md:51-53` (§3b): a case with T_bm/τ ≈ 0.63 missed the exact fixed-period optimum by 137%, because the error has begun to saturate.
+- **Repo today.** The re-check interval T* = √(6k/(wps)) (s = σ²/g², g the gap at which a held item is as costly as a dropped one; corrected 27 November 2026, miss M45 in `records/notes/MISSES-LEDGER.md`: the 24 November text had √(6k/(wσ²)), without the need rate p) assumes Brownian drift, quadratic loss, a lumpy reset and a slack ruin cap (`theory/applications/GROK_BOT_MEMORY_2026-11-23.md:71`). It is false as a quantitative rule when T* is not short next to the correlation time (`:72`). The check for the Ornstein–Uhlenbeck case is in `theory/LAYER_LIFETIME_2026-11-21.md:51-53` (§3b): a case with T_bm/τ ≈ 0.63 missed the exact fixed-period optimum by 137%, because the error has begun to saturate.
 - **Observed.** The evolved Picbreeder UFR networks change most in the first cycles and more slowly afterward (Fig 13 caption, 120 cycles); the hand-designed illustrative UFR networks accrue almost no forgetting over 20 cycles while SGD networks forget progressively (Fig 14 caption). Neither is a measured diffusive growth.
 - **Derivation needed.** First fit the shape of held-out loss against cycles on the authors' curves (data not in this repository): linear growth would be the diffusive signature, saturation points to the mean-reverting case. Then derive the barrier policy and its cost for the drift class that fits, using §3b as the starting point. Until then no re-check rule from this repository should be applied to their curves.
 
@@ -122,7 +122,7 @@ These are not results. Each says where the repository stands now, what the paper
 - UFR-P1 is a hypothesis with a proxy measure. It does not claim a hit in advance, does not claim R equals I_mem − I_pred, and does not cover targets that do not fit the regularity.
 - The three gaps are open questions with candidate forms. None is a theorem, and none changes `THEORY.md` or `CORE.md`.
 - It does not claim the authors have seen, reviewed or endorse this note.
-- The cost-bounds note (`applications/MEMORY_MISS_COST_BOUNDS_2026-11-24.md`) is about answering from a summary, not about training dynamics. It shares a structural parallel with one wrong item contaminating dependents (Proposition 5, `:142`), which is not evidence that the two phenomena are the same.
+- The cost-bounds note (`theory/applications/MEMORY_MISS_COST_BOUNDS_2026-11-24.md`) is about answering from a summary, not about training dynamics. It shares a structural parallel with one wrong item contaminating dependents (Proposition 5, `:142`), which is not evidence that the two phenomena are the same.
 - It does not claim the low-rank-activation idea as original to GTAO (see §2, "Why this is a hypothesis").
 
 ## 5. References (as the paper cites them; not re-fetched here unless noted)

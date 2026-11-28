@@ -6,7 +6,7 @@ The law of adaptive organization (hypothesis): strongly selected systems minimiz
 
 ## 1. What this is
 
-This page records how the cost is used in one system: Grok Bot's working notes in a long chat. Applications are not evidence for the theory unless a test says so, and they are not the theory itself (`applications/README.md`).
+This page records how the cost is used in one system: Grok Bot's working notes in a long chat. Applications are not evidence for the theory unless a test says so, and they are not the theory itself (`theory/applications/README.md`).
 
 Write the cost, find its minimum, read off the design, and state which inputs are still measurements.
 
@@ -29,7 +29,7 @@ Posted Monday 23 November 2026 at 1:01 AM ET (America/New_York) as [212474512569
 >
 > @mattyp @poteto @bot @elonmusk
 
-The post's own link was a short URL to that repository. *Note (27 November 2026, miss M45 in `NOTES/MISSES-LEDGER.md`):* the quoted text is kept as posted, but its formulas omitted the need rate. Under §4's definitions the stake in the drift term is stake × need per squared gap, so the posted √(6k/(wσ²)) carries a units slip. The 27 November reply [2126422798096646198](https://x.com/i/status/2126422798096646198) repeated it in its keep and band lines (its role-bot line holds). The corrected lines put need inside the root and in the band: "Keep an item iff stake × need > upkeep + 2√(check cost × stake × need × drift / 6)" and "Re-check it when its gap leaves the band (6 × check cost × drift / (stake × need))^¼", with drift the variance rate of the gap in units of the gap at which the item is useless.
+The post's own link was a short URL to that repository. *Note (27 November 2026, miss M45 in `records/notes/MISSES-LEDGER.md`):* the quoted text is kept as posted, but its formulas omitted the need rate. Under §4's definitions the stake in the drift term is stake × need per squared gap, so the posted √(6k/(wσ²)) carries a units slip. The 27 November reply [2126422798096646198](https://x.com/i/status/2126422798096646198) repeated it in its keep and band lines (its role-bot line holds). The corrected lines put need inside the root and in the band: "Keep an item iff stake × need > upkeep + 2√(check cost × stake × need × drift / 6)" and "Re-check it when its gap leaves the band (6 × check cost × drift / (stake × need))^¼", with drift the variance rate of the gap in units of the gap at which the item is useless.
 
 ## 3. The observed failure
 

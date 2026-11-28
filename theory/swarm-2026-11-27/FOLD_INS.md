@@ -4,9 +4,9 @@
 
 The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.
 
-Labels as in `theory/SWARM_RULE_2026-11-23.md:7`: **PROVED (in-model)** follows inside its named class; **KNOWN** is published and credited, only for what that source states; **CONJECTURE** is a named bet; **OPEN** is not derived; an **OPEN MISS** is a miss with a diagnosis and a next step.
+Labels as in `theory/swarm/SWARM_RULE.md:7`: **PROVED (in-model)** follows inside its named class; **KNOWN** is published and credited, only for what that source states; **CONJECTURE** is a named bet; **OPEN** is not derived; an **OPEN MISS** is a miss with a diagnosis and a next step.
 
-Notation is the swarm rule's (`theory/SWARM_RULE_2026-11-23.md:21-36`): part \(i\) pays the share \(s_i\) of the read-and-follow price \(c\), has stake \(w_i\), and faces a whole with stake \(W\) whose signal changes at rate \(\lambda\). Write \(\kappa_i=s_iW/w_i\) for the part's **pricing ratio**: \(\kappa_i=1\) is clause 4's alignment \(s_i=w_i/W\), \(\kappa_i>1\) means the part pays more than its stake share, \(\kappa_i<1\) less.
+Notation is the swarm rule's (`theory/swarm/SWARM_RULE.md:21-36`): part \(i\) pays the share \(s_i\) of the read-and-follow price \(c\), has stake \(w_i\), and faces a whole with stake \(W\) whose signal changes at rate \(\lambda\). Write \(\kappa_i=s_iW/w_i\) for the part's **pricing ratio**: \(\kappa_i=1\) is clause 4's alignment \(s_i=w_i/W\), \(\kappa_i>1\) means the part pays more than its stake share, \(\kappa_i<1\) less.
 
 ## F1. CT17 (ii), the externality, is clause 4's mispricing at full share
 
@@ -18,7 +18,7 @@ So the under-watching of CT17 (ii) and the alignment rule of clause 4 are one st
 
 ## F2. CT17 (i), one clock, gives every mismatched part a tamper motive
 
-**Statement (PROVED (in-model); α = 2, CT17 (i) with CT13).** Let \(K\) parts track their own components, part \(i\) at read price \(c_i\), stake \(w_i\) and drift \(\sigma_i^2\), and let the whole enforce one shared clock \(T_1=\sqrt{2\sum c_i/\sum w_i\sigma_i^2}\) (CT17 (i), `THEORY.md:384`). Each part pays its own price in full and bears its own stake, so every part is aligned on its own component. Then part \(i\)'s enforcement-tamper gain against the shared clock (the swarm rule's \(D_i^{\text{enf}}\), `theory/SWARM_RULE_2026-11-23.md:69`) is
+**Statement (PROVED (in-model); α = 2, CT17 (i) with CT13).** Let \(K\) parts track their own components, part \(i\) at read price \(c_i\), stake \(w_i\) and drift \(\sigma_i^2\), and let the whole enforce one shared clock \(T_1=\sqrt{2\sum c_i/\sum w_i\sigma_i^2}\) (CT17 (i), `THEORY.md:384`). Each part pays its own price in full and bears its own stake, so every part is aligned on its own component. Then part \(i\)'s enforcement-tamper gain against the shared clock (the swarm rule's \(D_i^{\text{enf}}\), `theory/swarm/SWARM_RULE.md:69`) is
 \[
 D_i=\sqrt{2c_iw_i\sigma_i^2}\,\Bigl[\tfrac12\bigl(k_i+k_i^{-1}\bigr)-1\Bigr]\ge0,\qquad k_i=T_1/T_i^*,\quad T_i^*=\sqrt{2c_i/(w_i\sigma_i^2)},
 \]
@@ -34,7 +34,7 @@ Reading: a whole that imposes one schedule on parts whose own indices \(c_i/(w_i
 \[
 \pi_i(\ell)=\frac{\lambda s_ic}{w_i\,\Phi_\ell}<1,\qquad \Phi_\ell=\int_\ell^\infty\bigl(r_\infty-r(u)\bigr)\,du ,
 \]
-and \(\Phi_\ell\) is nonincreasing in \(\ell\). In the swarm rule's telegraph class (\(r(u)=(1-e^{-2u})/2\), `theory/SWARM_RULE_2026-11-23.md:115`), \(\Phi_\ell=e^{-2\ell}/4\), so a part at distance \(L\) from the whole, with signal speed \(v\) and \(\ell=\lambda L/v\), follows iff
+and \(\Phi_\ell\) is nonincreasing in \(\ell\). In the swarm rule's telegraph class (\(r(u)=(1-e^{-2u})/2\), `theory/swarm/SWARM_RULE.md:115`), \(\Phi_\ell=e^{-2\ell}/4\), so a part at distance \(L\) from the whole, with signal speed \(v\) and \(\ell=\lambda L/v\), follows iff
 \[
 L<L_{\text{stay}}=\frac{v}{2\lambda}\ln\frac{1}{\pi_i(0)} .
 \]

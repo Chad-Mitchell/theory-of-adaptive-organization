@@ -28,7 +28,7 @@ R=w E_\infty/h,\qquad
 K^*=\arg\min_K\bigl[K+R(1+\varepsilon_K)\bigr],
 \]
 
-with \(K=0\) allowed (act blind, \(E_0=\mathrm{Var}(s)\)). If \(\varepsilon_K\) is convex, this is the increment test N60: add a layer iff its joint decrement beats \(1/R\). In Model S that count is numerically exact, once started from \(K=0\). With rhythms and first-order real stores it is false (two oscillators, \(R=3\): argmin \(3\), formula \(2\); `core/KEYSTONE_NOTE.md`).
+with \(K=0\) allowed (act blind, \(E_0=\mathrm{Var}(s)\)). If \(\varepsilon_K\) is convex, this is the increment test N60: add a layer iff its joint decrement beats \(1/R\). In Model S that count is numerically exact, once started from \(K=0\). With rhythms and first-order real stores it is false (two oscillators, \(R=3\): argmin \(3\), formula \(2\); `theory/KEYSTONE_NOTE.md`).
 
 Rate-distortion reverse water-filling is derived from a *linear price on mutual information* (or on Shannon rate), i.e. from a Lagrangian of the form \(w D+\kappa R(D)\). That matches \(\kappa I_{\mathrm{mem}}+w\mathbb E[\ell]\). It does not, by itself, match \(hK+w E_K\).
 
@@ -114,7 +114,7 @@ The discrete Gaussian / Sims rule, applied to the world's own modes, is: include
 R\cdot\frac{\sigma_m^2-E_\infty^{(m)}}{E_\infty}>c_m.
 \]
 
-That is exactly IMP-N60 (`core/keystone_checks/RHYTHM_PREREG.md`). It failed its gates (PRIMARY 58/189, Model S 5,890/19,320), and the independent review explained why: isolated values are not joint decrements (seed 0: isolated \(V=(0.368,0.055,0.205)\) against joint decrements \((0.645,0.0455,0.00091)\)). The first store filters the *sum*, not one mode; late isolated values overstate the last joint decrement by orders of magnitude. This note does not rescue or re-test that rule.
+That is exactly IMP-N60 (`theory/keystone_checks/RHYTHM_PREREG.md`). It failed its gates (PRIMARY 58/189, Model S 5,890/19,320), and the independent review explained why: isolated values are not joint decrements (seed 0: isolated \(V=(0.368,0.055,0.205)\) against joint decrements \((0.645,0.0455,0.00091)\)). The first store filters the *sum*, not one mode; late isolated values overstate the last joint decrement by orders of magnitude. This note does not rescue or re-test that rule.
 
 ### 4.3 Water-filling on joint decrements is N60, not a new prediction
 
@@ -193,7 +193,7 @@ Verified on the Crossref API (`/workspace/gtao-wf/crossref_dois.json`):
 
 ## 7. The derived rule (WF-HSV)
 
-**Inputs (and only these):** the world's state-space realisation \((A,C,Q)\) from its poles and variances, the observation-noise density \(N\), and the stakes \(R\). The realisation convention is the one already used in `core/keystone_checks/resonant_layers.py`: an OU mode \((a,v)\) is \(A=(-a)\), \(Q=(2av)\), \(C=(1)\); a rhythm with poles \(-\beta\pm i\Omega\) and pole-variance \(v_r\) is the block \(A=\begin{pmatrix}-\beta&-\Omega\\ \Omega&-\beta\end{pmatrix}\), state covariance \(P_x=2v_r\,I\), \(Q=-(AP_x+P_x A^\top)\), \(C=(1,0)\).
+**Inputs (and only these):** the world's state-space realisation \((A,C,Q)\) from its poles and variances, the observation-noise density \(N\), and the stakes \(R\). The realisation convention is the one already used in `theory/keystone_checks/resonant_layers.py`: an OU mode \((a,v)\) is \(A=(-a)\), \(Q=(2av)\), \(C=(1)\); a rhythm with poles \(-\beta\pm i\Omega\) and pole-variance \(v_r\) is the block \(A=\begin{pmatrix}-\beta&-\Omega\\ \Omega&-\beta\end{pmatrix}\), state covariance \(P_x=2v_r\,I\), \(Q=-(AP_x+P_x A^\top)\), \(C=(1,0)\).
 
 **Computation.**
 

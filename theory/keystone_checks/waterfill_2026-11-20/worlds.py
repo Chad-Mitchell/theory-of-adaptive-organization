@@ -12,7 +12,7 @@ from pathlib import Path
 
 import numpy as np
 
-# Public-clone root: this file lives at core/keystone_checks/waterfill_2026-11-20/.
+# Public-clone root: this file lives at theory/keystone_checks/waterfill_2026-11-20/.
 # Do not hardcode a private workdir.
 REPO = Path(__file__).resolve().parents[3]
 CHECKS = REPO / "core" / "keystone_checks"

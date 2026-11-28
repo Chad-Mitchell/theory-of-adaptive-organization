@@ -1,6 +1,6 @@
 # Selection as a thermal search: the stationary law and the spread
 
-*21 November 2026 (America/New_York). Package `core/bridge_2026-11-21/`. This is the part of the package that is actually new. It does not change the hypothesis sentence, or the locked qualification rule of THEORY §3 / FRAMEWORK §9. Evening of the same day, branch `selection-fold-2026-11-21`: the general factor \(\beta=\alpha(N_e-1)\) is withdrawn. The exponents are now stated per population model, consistent with `theory/SELECTION_AXIOMS.md`. The official T27 Moran run, \(N=201\) and \(\beta=\alpha(N-1)\), is unchanged. No locked prereg or hash file is edited.*
+*21 November 2026 (America/New_York). Package `theory/bridge_2026-11-21/`. This is the part of the package that is actually new. It does not change the hypothesis sentence, or the locked qualification rule of THEORY §3 / FRAMEWORK §9. Evening of the same day, branch `selection-fold-2026-11-21`: the general factor \(\beta=\alpha(N_e-1)\) is withdrawn. The exponents are now stated per population model, consistent with `theory/SELECTION_AXIOMS.md`. The official T27 Moran run, \(N=201\) and \(\beta=\alpha(N-1)\), is unchanged. No locked prereg or hash file is edited.*
 
 ## Already in the repository (not new)
 

@@ -33,7 +33,7 @@ fixed K, and CT33 still says total judgment spend is nondecreasing and
 error nonincreasing in w when the cap is slack.
 
 The library does not import or modify CORE.md. Moran / Boltzmann helpers
-are reused from core/bridge_2026-11-21/bridge_lib.py.
+are reused from theory/bridge_2026-11-21/bridge_lib.py.
 """
 from __future__ import annotations
 

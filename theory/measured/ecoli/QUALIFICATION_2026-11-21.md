@@ -78,7 +78,7 @@ motility regulon exists in the literature, but a unique numerical σ (an
 elasticity to J) is not reported, and is not computed here, because that would
 require a preregistered identification of J's units and of ΔJ/J for the same
 perturbation. Energy-budget and proteome shares are not fitness costs
-(`figures/face_placements.md` already notes this) and are not used as σ.
+(`records/figures/face_placements.md` already notes this) and are not used as σ.
 
 **Measured growth-rate cost of the motility design variable.** Honda, Cremer,
 Mancini, Zhang, Pilizota and Hwa 2022, *Proc. Natl Acad. Sci. U.S.A.* 119(37):

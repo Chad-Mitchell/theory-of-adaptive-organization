@@ -1,6 +1,6 @@
 # Record cost under drift: what a self-tracking world can copy, and which records cost least
 
-*Wednesday 25 November 2026 (America/New_York). Side R&D, consolidated from a private session into one note. Status words are those at `CORE.md:169`. `THEORY.md` and `CORE.md` are unchanged. The memory-coordinate definition was locked first, in `theory/record-cost-2026-11-25/PREREG.md` (sha256 in `PREREG.sha256`). Scripts and their outputs are in `theory/record-cost-2026-11-25/scripts/`; Lean is in `formal/lean/GTAO/Rnd/`. The adversarial review of this note is `theory/reviews/RECORD_COST_CHAIN_REVIEW_2026-11-25.md`. Nothing here derives quantum theory, general relativity, holography, or gravity.*
+*Wednesday 25 November 2026 (America/New_York). Side R&D, consolidated from a private session into one note. Status words are those at `CORE.md:169`. `THEORY.md` and `CORE.md` are unchanged. The memory-coordinate definition was locked first, in `theory/record-cost-2026-11-25/PREREG.md` (sha256 in `PREREG.sha256`). Scripts and their outputs are in `theory/record-cost-2026-11-25/scripts/`; Lean is in `formal/lean/GTAO/Rnd/`. The adversarial review of this note is `records/reviews/theory/RECORD_COST_CHAIN_REVIEW_2026-11-25.md`. Nothing here derives quantum theory, general relativity, holography, or gravity.*
 
 The hypothesis sentence is the one at `CORE.md:7`. Selecting state spaces by their cost applies that hypothesis by assumption. It is not tested here.
 

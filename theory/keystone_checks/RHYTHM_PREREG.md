@@ -14,7 +14,7 @@
 - `rhythm_counterexample.py` / `.json`: the worked example (wide-search seed 2), included in those 21 as `seed2_two_light`.
 - `s5_rerun.json`: 120 Model S (OU-sum) worlds, seeds 0..119, first-order E_K and N60/argmin on `R_GRID = logspace(-1, 7, 161)`. Used for the Model S *regression of the closed-form rule against already-computed argmin*, not re-optimized except for the small extended-library subset in §5.
 - Merged solver: `theory/layers_checks/stores.py` (guarded inversion, v2.67 / PR #116). Not modified.
-- Local pre-#116 `core/keystone_checks/stores.py` is not used.
+- Local pre-#116 `theory/keystone_checks/stores.py` is not used.
 
 No file named `RHYTHM_RESULTS.md`, `resonant_layers.py`, or any `*DEVIATIONS*` for this test existed at lock time.
 
@@ -22,7 +22,7 @@ No file named `RHYTHM_RESULTS.md`, `resonant_layers.py`, or any `*DEVIATIONS*` f
 
 ## 1. Extended layer library
 
-A design is a finite collection of modules from the library Λ below. The merged `stores.py` is not modified; the library lives in a new module `core/keystone_checks/resonant_layers.py`.
+A design is a finite collection of modules from the library Λ below. The merged `stores.py` is not modified; the library lives in a new module `theory/keystone_checks/resonant_layers.py`.
 
 **First-order store** (the existing Model S / N60 module). One real pole −b with b > 0. One state. Transfer function of the form g·b/(b + s), same family as `stores.py`. **Cost c = 1.**
 
@@ -164,9 +164,9 @@ One extra spacing check, not folded into the primary count: α = 1, per_decade =
 
 ## 10. Outputs (after the run)
 
-- `core/keystone_checks/imp_n60_predictions.json` and its SHA-256, written before library optimizations.
-- `core/keystone_checks/RHYTHM_RESULTS.md` — verdict vs this prereg, numbers, diagnoses, labels (`in-model` / `numerical` / `PROVED` only if proved).
-- `core/keystone_checks/rhythm_im_run.json` (or split files) with designs, E, locking errors, sweep traces, fractal curves.
-- Updates to `core/KEYSTONE_NOTE.md` and `OPEN_WORK.md` (T18 / W9) with honest labels. No push, no merge.
+- `theory/keystone_checks/imp_n60_predictions.json` and its SHA-256, written before library optimizations.
+- `theory/keystone_checks/RHYTHM_RESULTS.md` — verdict vs this prereg, numbers, diagnoses, labels (`in-model` / `numerical` / `PROVED` only if proved).
+- `theory/keystone_checks/rhythm_im_run.json` (or split files) with designs, E, locking errors, sweep traces, fractal curves.
+- Updates to `theory/KEYSTONE_NOTE.md` and `OPEN_WORK.md` (T18 / W9) with honest labels. No push, no merge.
 
 A SHA-256 and timestamp of *this* file, as locked, are recorded in the results (and printed at lock time). The file is not edited after lock except to correct a typo that does not change a criterion, which would itself be a dated deviation.

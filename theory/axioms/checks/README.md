@@ -1,6 +1,6 @@
 # Formal-layer check scripts (s1–s12)
 
-These are the scripts behind `reviews/night1/formal/THEOREMS.md` (Lemma 1, Theorems 1–8, Propositions 9–11) and the adversarial pass in `FIXES.md`. Both files cite them by name as `checks/s1_classes.py` … `checks/s12_mc_base.py`.
+These are the scripts behind `theory/axioms/THEOREMS.md` (Lemma 1, Theorems 1–8, Propositions 9–11) and the adversarial pass in `FIXES.md`. Both files cite them by name as `checks/s1_classes.py` … `checks/s12_mc_base.py`.
 
 **Provenance (19 Nov 2026, ET; added with THEORY v2.0 work, LOAD_BEARING X2).** They were not in the repository: the night-1 work was done in an off-repo working copy, and only the Markdown was committed. They were recovered unchanged from that working copy on the project's shared machine (`night1/FORMAL/checks/`). The file times there reflect a later copy, not authorship.
 
