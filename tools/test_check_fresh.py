@@ -49,7 +49,7 @@ def test_planted_version_string_fails(tmp_path):
     # Acceptance: an edited version string outside its source fails.
     fails = _plant(tmp_path, "theory/SCALE_ENDS.md", "\n\nThe core is THEORY v2.9 draft.\n")
     assert len(fails) == 1 and "version string" in fails[0]
-    fails = _plant(tmp_path, "applications/README.md", "\n\nClaim statuses: `measurement/CLAIM_MAP_v2.md` (v2.89).\n")
+    fails = _plant(tmp_path, "theory/applications/README.md", "\n\nClaim statuses: `measurement/CLAIM_MAP_v2.md` (v2.89).\n")
     assert len(fails) == 1 and "version string" in fails[0]
 
 

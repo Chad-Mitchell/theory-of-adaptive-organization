@@ -57,7 +57,7 @@ Only dimensionless constants are candidates for prediction. The fine-structure c
 
 ## ERRATA
 
-Checked against `theory/reviews/CONSTANTS_EXCHANGE_REVIEW_2026-11-24.md` (`dc28752`), which reviewed `587c99f`. `PREREG.md`, `dimension_check.py`, and `dimension_check.out` are unchanged. Accept means the review's claim holds.
+Checked against `records/reviews/theory/CONSTANTS_EXCHANGE_REVIEW_2026-11-24.md` (`dc28752`), which reviewed `587c99f`. `PREREG.md`, `dimension_check.py`, and `dimension_check.out` are unchanged. Accept means the review's claim holds.
 
 **1. Preregistration order. Accept.** `0846e2e` (2026-11-24 04:53:04 UTC) is the parent of `587c99f` (2026-11-24 05:03:45 UTC). The first commit is the lock. The second is the memo and the dimension log. No change.
 

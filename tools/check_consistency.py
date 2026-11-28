@@ -52,12 +52,12 @@ MAINTAINED_DOCS = [
     "README.md", "CORE.md", "process/PROCESS.md", "process/VOCABULARY.md", "process/FAILURES.md", "process/PREREG_GATE.md", "process/MISS_LOG_TEMPLATE.md",
     "measurement/FRAMEWORK.md", "measurement/CLAIM_MAP_v2.md",
     "theory/SCALE_ENDS.md", "theory/PHYSICS_CHAIN_2026-11-23.md",
-    "applications/README.md", "tests/README.md", "reviews/README.md",
+    "theory/applications/README.md", "records/README.md",
     "litmap/LITMAP.md", "litmap/PRIOR_ART.md", "litmap/THREATS.md",
     "litmap/LEFT_ON_THE_TABLE.md", "theory/BOOKENDS.md",
     "theory/REACH.md", "theory/HT_INDEX.md", "theory/COSMIC_WEB.md", "theory/WORMHOLES.md", "theory/TORUS.md",
     "theory/GENERAL_THEOREM.md", "theory/INTERNAL_MODEL.md", "theory/COADAPTATION.md", "theory/REPRESENTATION.md", "theory/MATH_ATTACK.md",
-    "reviews/night1/formal/AXIOMS.md", "reviews/night1/formal/THEOREMS.md", "reviews/night1/formal/checks/README.md",
+    "theory/axioms/AXIOMS.md", "theory/axioms/THEOREMS.md", "theory/axioms/checks/README.md",
     "process/LOCK_ERRATA.md",
 ]
 
@@ -289,7 +289,7 @@ def main(argv=None):
     # were missed, so the four lock-pass files were not treated as self-reviews.
     SELF_MARK = re.compile(r"(Independence:\s*\**\s*NOT independent|This pass is not independent|\(NOT independent\)|same executor that wrote|same executor, reread|^\s*\**Not independent\b|\*\*Not independent\b|\bThis (pass|audit|review|file|self-review|self-check)\b[^.]{0,40}\bis not independent\b)", re.I | re.M)
     self_reviews = []
-    for p in sorted(glob.glob("reviews/**/*.md", recursive=True)):
+    for p in sorted(glob.glob("records/reviews/**/*.md", recursive=True)):
         if SELF_MARK.search("\n".join(lines(p)[:15])):
             self_reviews.append(p)
     INDEP = re.compile(r"\bindependent(ly)?\b", re.I)
@@ -297,7 +297,7 @@ def main(argv=None):
     # words between "independent" and the citation that mean the self-review is
     # being contrasted with, not called, an independent review
     BETWEEN_OK = re.compile(r"(supersed|replac|correct|instead of|unlike|\bthan\b|earlier|re-?deriv|checked|reviewed)", re.I)
-    pats = [(sr, re.compile(r"(?<![\w-])(?:reviews/)?" + re.escape(sr[len("reviews/"):]))) for sr in self_reviews]
+    pats = [(sr, re.compile(r"(?<![\w-])(?:reviews/)?" + re.escape(sr[len("records/reviews/"):]))) for sr in self_reviews]
     for p in MAINTAINED:
         for i, ln in enumerate(lines(p), 1):
             for s_ in sentences(ln):

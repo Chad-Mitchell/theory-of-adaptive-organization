@@ -1,6 +1,6 @@
 # PROCESS: research-process vocabulary and rules from the cost of judgment
 
-*Tuesday 24 November 2026 (America/New_York). Live maintained process rulebook (`tools/check_consistency.py`). It replaces an older wording rule that described misses with a word that §2 now bans. Dated records such as `reviews/lock_2026-11-18/PROCESS.md` are not edited.*
+*Tuesday 24 November 2026 (America/New_York). Live maintained process rulebook (`tools/check_consistency.py`). It replaces an older wording rule that described misses with a word that §2 now bans. Dated records such as `records/reviews/lock_2026-11-18/PROCESS.md` are not edited.*
 
 > **The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.** (`CORE.md:7`)
 
@@ -38,7 +38,7 @@ Checking what follows from $J$ versus what is a sharpened correction or a proces
 | Hypothesis sentence | Byte-identical: `The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.` | Paraphrasing or dropping `(hypothesis)` |
 | Theory / `'law'` | Call GTAO a **theory**; use `'law'` only inside the labeled hypothesis sentence or prior-art / physics names | Never call GTAO a `'law'` or a `'theory of everything'` |
 | Cost / `'solved'` | Say **cost** (not `'bill'`); never claim GTAO or an open problem is `'solved'` (negations such as `'not solved'` are fine) | `'bill'` for cost; `'solved'` for open problems |
-| Errors & outcomes | Call a prediction error a **miss** (with signed size, location, and update); log hits too. The line fixed before data past which a prediction counts as a miss is the **miss line** (or **miss rule**) | `'puzzle'`, `'kill'`, `'failure'` as a generic outcome label, an unlabeled bare `'verdict'`, or `'kill line'` / `'kill rule'` (`reference/THEORY_v1.4.29.md` and dated records keep their wording) |
+| Errors & outcomes | Call a prediction error a **miss** (with signed size, location, and update); log hits too. The line fixed before data past which a prediction counts as a miss is the **miss line** (or **miss rule**) | `'puzzle'`, `'kill'`, `'failure'` as a generic outcome label, an unlabeled bare `'verdict'`, or `'kill line'` / `'kill rule'` (`records/reference/THEORY_v1.4.29.md` and dated records keep their wording) |
 | Constraint breaches | Call rule violations (editing locked preregs, post-hoc patching, leaks, fabricated data) **breaches** | Treating breaches as ordinary learnable misses |
 
 Before any run, the prereg passes the gate in [`process/PREREG_GATE.md`](PREREG_GATE.md). Meanings of the scientific terms (memory, record, model, layer, level, nesting, scale, fractal, swarm) are fixed in [`process/VOCABULARY.md`](VOCABULARY.md). Historical files, `THEORY.md`, past memos, and locked preregs keep their existing text and are not rewritten. `THEORY.md` is frozen at v2.9 (27 November 2026): a `frozen:` row in `process/LOCKED_BLOBS.txt` pins its bytes and `tools/verify_locks.py` fails any edit; its Appendix C statuses are as of v2.9, and the headline ledger governs. `CORE.md` is maintained: it is corrected and credited like any current page, through review, with git keeping its history; only its line 7, the hypothesis sentence, stays byte-identical. Formal test-gate statuses (`PROXY-FAIL`, `SIM-FAIL`, `NOT A TEST`, `INCONCLUSIVE`, `FIELD-FAIL`, `FIELD-PASS`) stay intact in `measurement/FRAMEWORK.md` §2.3 and `measurement/CLAIM_MAP_v2.md`.
@@ -77,7 +77,7 @@ Every new test write-up, `DEVIATIONS.md`, or process-miss log records each predi
 
 **Rule (27 November 2026).** The cost of judgment applied to a repository fact (a count, a status, a pointer, a line cite, a rule): keep a hand copy only if drift times upkeep is below the stake times the loss the copy saves over a link. A count or pointer that changes at most merges never passes, so it is generated or linked. A dated record that never changes costs nothing to keep. A reminder is a memory with no enforcement, so once a miss repeats at medium or high stake the update is a check that fails (§1 item 3), not a reminder.
 
-Every row in [`process/FAILURES.md`](FAILURES.md) names its root cause; the seven codes are defined once, in its "Root-cause codes" section. Log a miss when it happens with `python3 tools/miss.py`: it refuses a row with no root cause, and a model or measurement/code miss goes to that test's `DEVIATIONS.md`. Rows by root cause: <!-- gen:misses -->140 rows. By root cause (a row can carry two): R1 31, R2 34, R3 19, R4 15, R5 16, R6 5, R7 18; no code: 32<!-- /gen:misses -->. Rows written before the codes keep their wording.
+Every row in [`process/FAILURES.md`](FAILURES.md) names its root cause; the seven codes are defined once, in its "Root-cause codes" section. Log a miss when it happens with `python3 tools/miss.py`: it refuses a row with no root cause, and a model or measurement/code miss goes to that test's `DEVIATIONS.md`. Rows by root cause: <!-- gen:misses -->141 rows. By root cause (a row can carry two): R1 32, R2 34, R3 19, R4 15, R5 16, R6 5, R7 18; no code: 32<!-- /gen:misses -->. Rows written before the codes keep their wording.
 
 | code | what holds it |
 |---|---|
@@ -87,6 +87,6 @@ Every row in [`process/FAILURES.md`](FAILURES.md) names its root cause; the seve
 | R4 | One ledger for claims and tests (`measurement/CLAIM_MAP_v2.md`): `check_claims.py` fails a scored results file with no row naming its path. One log for process misses, written by `miss.py`; `miss.py --check-logged` fails a process miss recorded elsewhere (a MISSES-LEDGER process row, a DEVIATIONS row located in process) that no FAILURES row names. |
 | R5 | `verify_locks.py`, through the move map in `tools/movemap.py`. The gate check in `check_pending.py` covers every scored results file. `merge.sh` makes a merge commit and never rebases. |
 | R6 | Outside the repository: parallel workers on separate clones, and a routine that starts the checks. |
-| R7 | `check_claims.py`: the front page names designs and links [`applications/README.md`](../applications/README.md), never a case. `banned_words.py`. |
+| R7 | `check_claims.py`: the front page names designs and links [`theory/applications/README.md`](../theory/applications/README.md), never a case. `banned_words.py`. |
 
 A check that fired on existing content when it was adopted carries a shrink-only list. A test holds each list equal to the current failing set, and each item on it has a FAILURES row. A check is never weakened to pass.

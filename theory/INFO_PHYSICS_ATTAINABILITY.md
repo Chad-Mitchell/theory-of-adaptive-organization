@@ -1,6 +1,6 @@
 # The Kalman rate is a heat floor, and a linear spring attains it
 
-*Sunday 22 November 2026. Draft. A self-check, not an independent review. Repaired after the review of draft PR #178 (`reviews/attainability_2026-11-22/REVIEW.md`). The hypothesis sentence is unchanged. The master equation in THEORY is unchanged. No locked preregistration file is edited. Checks: `theory/info_physics_checks/attainability_checks.py`, run at `nice -n 19` (31 checks, FAILS 0). DOIs resolved on the Crossref API on 22 November 2026 are listed in `theory/info_physics_checks/attainability_crossref.out`. The dated correction of the merged note is `theory/INFO_PHYSICS_CORRECTION_2026-11-22.md`.*
+*Sunday 22 November 2026. Draft. A self-check, not an independent review. Repaired after the review of draft PR #178 (`records/reviews/attainability_2026-11-22/REVIEW.md`). The hypothesis sentence is unchanged. The master equation in THEORY is unchanged. No locked preregistration file is edited. Checks: `theory/info_physics_checks/attainability_checks.py`, run at `nice -n 19` (31 checks, FAILS 0). DOIs resolved on the Crossref API on 22 November 2026 are listed in `theory/info_physics_checks/attainability_crossref.out`. The dated correction of the merged note is `theory/INFO_PHYSICS_CORRECTION_2026-11-22.md`.*
 
 Labels: **PROVED** (a proof is on this page, under the assumptions named with it), **PROVED (in-model)** (the same, inside a stated model), **PRIOR ART** (published, credited, not claimed here), **NUMERICAL**, **OPEN**. A lower bound is not a derivation of the cost.
 

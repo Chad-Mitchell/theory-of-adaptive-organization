@@ -1,6 +1,6 @@
 # Stake revelation: who pays what when stakes are private
 
-*Friday 27 November 2026 (America/New_York). Part of `theory/swarm-2026-11-27/` (index: `INDEX.md`). Branched from `863a8a8bb3e0bb46c00a9236a9b4d5192c4b9d8d`. Clause 4 of the swarm rule (`theory/SWARM_RULE_2026-11-23.md:47`) sets cost shares in proportion to stakes, \(s_i=w_i/W\). That needs the stakes. This note asks what happens when each part knows only its own. Checks: `checks/swarm27_checks.py`, section C. A self-check, not an independent review.*
+*Friday 27 November 2026 (America/New_York). Part of `theory/swarm-2026-11-27/` (index: `INDEX.md`). Branched from `863a8a8bb3e0bb46c00a9236a9b4d5192c4b9d8d`. Clause 4 of the swarm rule (`theory/swarm/SWARM_RULE.md:47`) sets cost shares in proportion to stakes, \(s_i=w_i/W\). That needs the stakes. This note asks what happens when each part knows only its own. Checks: `checks/swarm27_checks.py`, section C. A self-check, not an independent review.*
 
 The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.
 

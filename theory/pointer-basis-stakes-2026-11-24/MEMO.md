@@ -1,6 +1,6 @@
 # T73: a stake on a dephased qubit, and the record basis
 
-*Tuesday 24 November 2026. Self-check, not an independent review. Preregistered in `PREREG.md` (commit `6418237`, 2026-11-24 05:19:13 +0000) before this derivation. Run gate `RUN_LOG.md` (commit `bfd88ab`). Review: `theory/reviews/POINTER_BASIS_STAKES_REVIEW_2026-11-24.md` (commit `992920b`). `THEORY.md` is unchanged. The qubit and the dephasing channel are inputs. Nothing here derives general relativity, quantum mechanics, or holography.*
+*Tuesday 24 November 2026. Self-check, not an independent review. Preregistered in `PREREG.md` (commit `6418237`, 2026-11-24 05:19:13 +0000) before this derivation. Run gate `RUN_LOG.md` (commit `bfd88ab`). Review: `records/reviews/theory/POINTER_BASIS_STAKES_REVIEW_2026-11-24.md` (commit `992920b`). `THEORY.md` is unchanged. The qubit and the dephasing channel are inputs. Nothing here derives general relativity, quantum mechanics, or holography.*
 
 *The printed headline is fixed by the closed forms in `PREREG.md:72`. It is not a test result. The corrections are in the ERRATA below.*
 
@@ -79,7 +79,7 @@ No other change to the criteria. `PREREG.md`, `RUN_LOG.md`, and `pointer_basis_s
 
 ## ERRATA
 
-*After `theory/reviews/POINTER_BASIS_STAKES_REVIEW_2026-11-24.md` (commit `992920b`). The stored output is not regenerated. `PREREG.md` and `RUN_LOG.md` are not edited.*
+*After `records/reviews/theory/POINTER_BASIS_STAKES_REVIEW_2026-11-24.md` (commit `992920b`). The stored output is not regenerated. `PREREG.md` and `RUN_LOG.md` are not edited.*
 
 **E1. Headline.** High finding of the review. `PREREG.md:72` already fixes \(Q(P_D)\) true and \(Q(P_\chi)\) false at \(w=0\), because \(P_D\) increases with \(|\theta|\) and \(P_\chi\) is largest at \(\theta=0\). The headline table returns `PRICING_ARTIFACT` on that flip alone (`PREREG.md:96`, `pointer_basis_stakes_checks.py:217`). P2, P3, P5, and P6 do not enter. C7 (`pointer_basis_stakes_checks.py:226`–`:227`) compares the rule to itself. Under the rule that an identity is not a test, the printed headline is **fixed by the locked closed forms**. It is not a test result. The label in `pointer_basis_stakes_checks.out:83` stays, because the stored output stays. **Open miss:** the scored run could not have come out another way, so it did not decide whether a stake chooses the classical basis. The proved \(P_D\) relabel at complete dephasing, and the numerical partial-dephasing grid, are separate from that label.
 

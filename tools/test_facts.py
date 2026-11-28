@@ -109,4 +109,4 @@ def test_scored_results_definition():
     files = facts.scored_results(ROOT)
     assert "theory/two-route-2026-11-25/RESULTS.md" in files
     assert all(facts.RESULTS_NAME.search(f) for f in files)
-    assert "tests/EVO1" in facts.scored_folders(ROOT)
+    assert "records/tests/EVO1" in facts.scored_folders(ROOT)

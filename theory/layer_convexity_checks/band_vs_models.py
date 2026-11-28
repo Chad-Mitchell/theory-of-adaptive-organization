@@ -10,7 +10,7 @@ import numpy as np
 from scipy.stats import spearmanr
 HERE = Path(__file__).resolve().parent; REPO = HERE.parents[1]
 spec = importlib.util.spec_from_file_location("lc", REPO / "tools" / "layer_convexity_checks.py"); lc = importlib.util.module_from_spec(spec); spec.loader.exec_module(lc)
-ws = json.load(open(REPO / "core" / "keystone_checks" / "s5_rerun.json"))["worlds"]
+ws = json.load(open(REPO / "theory" / "keystone_checks" / "s5_rerun.json"))["worlds"]
 xs, ys, rs, rb, rows = [], [], [], [], []
 for w in ws:
     a = np.array(w["a"]); v = np.array(w["v"]); N = w["N"]; J = w["J"]

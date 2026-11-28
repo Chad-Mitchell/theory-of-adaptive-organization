@@ -6,7 +6,7 @@
 
 ## Errata
 
-Checked `theory/reviews/composite_contest_review_checks/rebit0.py` after `c2a2a92`. Mean loss `1.101e-32`, worst-pair loss `4.930e-32`. Confirmed. A real singlet, with `y` read out as `+I` on one wing and `−I` on the other, matches the target. `theory/composite-contest-2026-11-24/PREREG.md` allows those readouts. The search and Lemma R kept only traceless effects, and the pivot hard-coded `1/9`.
+Checked `records/reviews/theory/composite_contest_review_checks/rebit0.py` after `c2a2a92`. Mean loss `1.101e-32`, worst-pair loss `4.930e-32`. Confirmed. A real singlet, with `y` read out as `+I` on one wing and `−I` on the other, matches the target. `theory/composite-contest-2026-11-24/PREREG.md` allows those readouts. The search and Lemma R kept only traceless effects, and the pivot hard-coded `1/9`.
 
 Corrected labels, rebit loss 0 at `K = 10`, same tie band. The stored outputs are unchanged.
 
@@ -33,7 +33,7 @@ Other review items:
 
 ## ERRATA_2
 
-Checked the shared-bit strategy in `theory/reviews/COMPOSITE_CONTEST_REVIEW_2_2026-11-24.md` (commit `4f04415`) on the operators in `run_menu3.py`. On the real singlet, mix sharp `xz` projections, weight `√(2/3)`, with `y → +I` on one wing and `−I` on the other. Mean loss `2.3045076783754708e-32`. Largest absolute entry error `4.4408920985006262e-16`. Averaging those two branches into one readout, `√(2/3) M + (1−√(2/3))(±I)` on `y`, gives mean loss `3.5918405131962310e-03`.
+Checked the shared-bit strategy in `records/reviews/theory/COMPOSITE_CONTEST_REVIEW_2_2026-11-24.md` (commit `4f04415`) on the operators in `run_menu3.py`. On the real singlet, mix sharp `xz` projections, weight `√(2/3)`, with `y → +I` on one wing and `−I` on the other. Mean loss `2.3045076783754708e-32`. Largest absolute entry error `4.4408920985006262e-16`. Averaging those two branches into one readout, `√(2/3) M + (1−√(2/3))(±I)` on `y`, gives mean loss `3.5918405131962310e-03`.
 
 `theory/composite-contest-2026-11-24/PREREG.md:55` does not grant that bit, so it is not an R contestant. If it is admitted, the count used here is `K = 40`: each wing holds the bit, `m_A m_B = 4`, times the rebit record `10`. `K = 20` is the other count, the bit as one system. Both sit above 16. Uncharged, `K = 10`. The numbers are the sensitivity in Computed contestants, not the lock label.
 
@@ -192,7 +192,7 @@ On a classical axis the cheapest feasible record in the named list is classical.
 - `theory/composite-contest-2026-11-24/PREREG_3.md`, `theory/menu3_checks/DEVIATIONS.md`
 - Test: `tools/test_composite_contest_checks.py` reruns `run_all.py` and checks the locked hashes
 
-Read-first files, all found on `upstream/ace-probe-memos-2026-11-23`: `theory/probes-2026-11-23/README.md`, `reviews/DUEL_REVIEW.md`, `duel/DUEL_MEMO.md`, `WALLS_MEMO.md`, `reviews/WALLS_REVIEW.md`, `MIRROR_MEMO.md`, `reviews/MIRROR_REVIEW.md`. On this main: `CORE.md` (the priced sum and the memory coordinate at line 52; the heat floor at line 70) and `theory/CLOCK_TERM_2026-11-23.md`. The clock term is not charged. This contest is one preparation and one later readout.
+Read-first files, all found on `upstream/ace-probe-memos-2026-11-23`: `theory/probes-2026-11-23/README.md`, `records/reviews/DUEL_REVIEW.md`, `duel/DUEL_MEMO.md`, `WALLS_MEMO.md`, `records/reviews/WALLS_REVIEW.md`, `MIRROR_MEMO.md`, `records/reviews/MIRROR_REVIEW.md`. On this main: `CORE.md` (the priced sum and the memory coordinate at line 52; the heat floor at line 70) and `theory/CLOCK_TERM_2026-11-23.md`. The clock term is not charged. This contest is one preparation and one later readout.
 
 ## Pivot: the cap is the worst question
 

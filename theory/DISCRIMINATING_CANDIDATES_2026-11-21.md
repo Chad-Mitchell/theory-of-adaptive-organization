@@ -8,18 +8,18 @@
 
 ## 0. What is already in the repository (not presented as new)
 
-Before anything below is called a new idea, the current tree was searched (THEORY.md, CORE.md, FRAMEWORK.md, CLAIM_MAP, `theory/measured/`, `tests/BIO1`, `tests/ANTS1`, `prereg/`, OPEN_WORK, litmap). The following are already on the record:
+Before anything below is called a new idea, the current tree was searched (THEORY.md, CORE.md, FRAMEWORK.md, CLAIM_MAP, `theory/measured/`, `records/tests/BIO1`, `records/tests/ANTS1`, `records/prereg/`, OPEN_WORK, litmap). The following are already on the record:
 
 - Named rivals R1 (fixed budget share), R2 (read interval ∝ world scale with exponent ½), R3 (design equals the world's time scales, no price dependence): FRAMEWORK §9 item 6.
 - E. coli memory timing vs "set at" τ_v, including the non-discrimination screen: `theory/measured/ecoli/PREREG.md`, `MEASURE_PLAN_2026-11-21.md` §4.2, `MEASURE_RESULT_2026-11-21.md`.
 - Tjalma & ten Wolde 2024 and Malaguti & ten Wolde 2021 as the store-noise / adaptation-time prior art: THEORY §2, `theory/STORE_NOISE.md`.
 - TESTBEDS ranking (v2.57): grids first, then learning-rate, central-bank calendars, inventory, market microstructure, weather cycles, with prior-art and data-gate notes (`theory/measured/TESTBEDS.md`).
-- BIO1 (14 Nov): "memory tracks how fast the environment changes" is almost entirely already established (Kussell & Leibler, Lan, Mayer, Fairhall, Wark, …) and is not a new confirmation; immune lifetime-versus-drift (P3a) contradicted; neural slope ≈ 1 is non-discriminating against scale-free dynamics (`tests/BIO1/RESULTS.md`).
+- BIO1 (14 Nov): "memory tracks how fast the environment changes" is almost entirely already established (Kussell & Leibler, Lan, Mayer, Fairhall, Wark, …) and is not a new confirmation; immune lifetime-versus-drift (P3a) contradicted; neural slope ≈ 1 is non-discriminating against scale-free dynamics (`records/tests/BIO1/RESULTS.md`).
 - Immune freeze/hold/lookup (T8, CT11) is PRIOR ART (Mayer et al. 2016; CLAIM_MAP I4). Queue item IMMUNE is still open only as "measure drift, then lock," not as a distinctive prediction ([`history/2026-11-20_queue/QUEUE.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/process/QUEUE.md) Q9).
 - SN1: seven non-E. coli systems, 0/7 scorable for the store-noise test; Drosophila photon noise is exogenous (so Model S, not SN1, is the right noise class); V. ordalii SN1-F1 INVALID (`theory/measured/SN1_RESULTS.md`).
 - N51: the 1/α versus ½ elasticity test on a lab learner (`measurement/CLAIM_MAP_v2.md`). Lab participants are not a strongly selected class (N23 note); N51 cannot test the hypothesis.
 - Sharing threshold N\* = (√(1+ρ)+1)²/ρ (CT14, square-root technology); telling price CT16; ant trail onset already credited to Beekman, Sumpter & Ratnieks 2001, with Dornhaus et al. 2006 as counter-evidence (CLAIM_MAP I6; FRAMEWORK §3).
-- ANTS1 is an in-model trail-evaporation test; its prereg says results "say whether the math holds in a stochastic ant implementation, not whether real ants do it" (`tests/ANTS1/PREREG.md`).
+- ANTS1 is an in-model trail-evaporation test; its prereg says results "say whether the math holds in a stochastic ant implementation, not whether real ants do it" (`records/tests/ANTS1/PREREG.md`).
 - SYNTHESIS.md already names a designed-world lab experiment as the most decisive next test, blocked on a partner and Chad (OPEN_WORK T7).
 - OPEN_WORK T1 already concludes: "A sharper E. coli prediction, or a different organism, is needed."
 

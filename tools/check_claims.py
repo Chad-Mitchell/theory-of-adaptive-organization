@@ -31,7 +31,7 @@ HYP_FILES = [
     "theory/COADAPTATION.md",
     "theory/GROWTH_BRIDGE.md",
     "theory/FEEDBACK_FLOOR_2026-11-23.md",
-    "theory/SWARM_RULE_2026-11-23.md",
+    "theory/swarm/SWARM_RULE.md",
     "theory/AREA_LAW_PROBE_2026-11-23.md",
 ]
 FRONT = ["README.md", "CORE.md", "THEORY.md"]
@@ -243,7 +243,7 @@ def check_views(rows, root):
     """No page carries a claims view; each front page links to the ledger instead."""
     errors = []
     pages = set(LINK_FILES) | set(direction_pages(root)) | {p for p in glob.glob("**/*.md", root_dir=root, recursive=True)
-                                                           if not p.startswith(("reviews/", "theory/reviews/", "prereg/"))}
+                                                           if not p.startswith(("records/reviews/", "records/prereg/"))}
     for path in sorted(pages):
         if os.path.isfile(os.path.join(root, path)) and VIEW_BEGIN in read(root, path):
             errors.append("claims: %s carries a claims view; link to measurement/CLAIM_MAP_v2.md instead" % path)
@@ -542,7 +542,7 @@ def check_summaries(root):
     locked = banned_words.locked_paths(root)
     out = []
     for path, lines in sorted(added.items()):
-        if path.startswith("reference/") or path in locked:
+        if path.startswith("records/reference/") or path in locked:
             continue
         for ln, line in lines:
             out += ["summary: " + x for x in summary_fails(line, root, "%s:%d" % (path, ln))]
