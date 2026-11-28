@@ -671,6 +671,90 @@ def test_gate_mark_added_to_the_lock_with_the_results_does_not_exempt(tmp_path):
     assert len(fails) == 1
 
 
+# A disclosed late gate read is an exception, not a block (OSC-GATE-1, GATE-NOEXC-1).
+_ROW = "| 2026-11-28 | `T1-GATE-1` | locked | theory/t1/RESULTS.md had no gate read | miss | cause | process | medium | update | none |\n"
+
+
+def _late_gate_repo(tmp_path, row=True, retro=True, prereg_late=False, retro_with_results=False):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"process/FAILURES.md": "ledger\n"})
+    res = {"theory/t1/RESULTS.md": "| P1 | hit |\n"}
+    if prereg_late:
+        res["theory/t1/PREREG.md"] = "lock\n"
+    else:
+        _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    if retro_with_results:
+        res["theory/t1/gate_read_retro_1.md"] = "Retro read of PREREG.md\n"
+    _commit(repo, res)
+    if retro and not retro_with_results:
+        _commit(repo, {"theory/t1/gate_read_retro_1.md": "Retro read of PREREG.md; miss T1-GATE-1\n"})
+    if row:
+        _commit(repo, {"process/FAILURES.md": "ledger\n" + _ROW})
+    return repo
+
+
+def test_gate_disclosed_late_gate_read_is_an_exception(tmp_path):
+    repo = _late_gate_repo(tmp_path)
+    notes = []
+    assert cp.gate_before_results(repo, notes=notes) == ([], [])
+    assert len(notes) == 1 and "T1-GATE-1" in notes[0] and "theory/t1/RESULTS.md" in notes[0]
+    # without a notes list the exception still passes; a PARTIAL is never raised for it
+    assert cp.gate_before_results(repo) == ([], [])
+
+
+def test_gate_exception_prints_and_passes_main(tmp_path, monkeypatch, capsys):
+    repo = _late_gate_repo(tmp_path)
+    monkeypatch.setattr(cp, "repo_root", lambda: repo)
+    assert cp.main(["--offline"]) == 0
+    out = capsys.readouterr().out
+    assert "  EXCEPTION T1-GATE-1:" in out
+    assert "  FAIL " not in out and "RESULT: FAIL" not in out
+
+
+def test_gate_silent_skip_still_fails(tmp_path):
+    # no retro file, no row: the old failure
+    repo = _late_gate_repo(tmp_path, row=False, retro=False)
+    assert len(cp.gate_before_results(repo)[0]) == 1
+    # a FAILURES row alone is not a gate read
+    repo = _late_gate_repo(tmp_path / "b", row=True, retro=False)
+    assert len(cp.gate_before_results(repo)[0]) == 1
+    # a retro file alone, with no FAILURES row naming the folder, is a silent skip
+    repo = _late_gate_repo(tmp_path / "c", row=False, retro=True)
+    assert len(cp.gate_before_results(repo)[0]) == 1
+
+
+def test_gate_row_must_name_the_folder(tmp_path):
+    repo = _late_gate_repo(tmp_path, row=False)
+    _commit(repo, {"process/FAILURES.md": "ledger\n" + _ROW.replace("theory/t1/RESULTS.md", "RESULTS.md")})
+    assert len(cp.gate_before_results(repo)[0]) == 1
+
+
+def test_gate_exception_covers_rescores_before_the_retro_only(tmp_path):
+    def build(path, rescore_after):
+        repo = _gate_repo(path)
+        _commit(repo, {"process/FAILURES.md": "ledger\n", "theory/t1/PREREG.md": "lock\n"})
+        _commit(repo, {"theory/t1/RESULTS.md": "| P1 | HIT |\n"})
+        if not rescore_after:
+            _commit(repo, {"theory/t1/RESULTS.md": "| P1 | HIT |\n| P2 | MISS |\n"})
+        _commit(repo, {"theory/t1/gate_read_retro_1.md": "Retro read of PREREG.md\n", "process/FAILURES.md": "ledger\n" + _ROW})
+        if rescore_after:
+            _commit(repo, {"theory/t1/RESULTS.md": "| P1 | HIT |\n| P2 | MISS |\n"})
+        return repo
+    assert cp.gate_before_results(build(tmp_path, False)) == ([], [])
+    fails = cp.gate_before_results(build(tmp_path / "b", True))[0]   # the retro read is not the gate read of a rescore
+    assert len(fails) == 1 and "rescored" in fails[0]
+
+
+def test_gate_late_prereg_still_fails_with_retro_and_row(tmp_path):
+    repo = _late_gate_repo(tmp_path, prereg_late=True)
+    assert len(cp.gate_before_results(repo)[0]) == 1
+
+
+def test_gate_retro_committed_with_the_results_still_fails(tmp_path):
+    repo = _late_gate_repo(tmp_path, retro_with_results=True)
+    assert len(cp.gate_before_results(repo)[0]) == 1
+
+
 def test_gate_uncommitted_results_need_committed_gate(tmp_path):
     repo = _gate_repo(tmp_path)
     _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
