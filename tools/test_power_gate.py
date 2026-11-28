@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import power_gate as pg
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CAISO = json.load(open(os.path.join(ROOT, "tests", "STAKES_SHIFT_CAISO", "results.json")))
+CAISO = json.load(open(os.path.join(ROOT, "records", "tests", "STAKES_SHIFT_CAISO", "results.json")))
 
 
 def test_minimal_formula_hits_power_exactly():
@@ -141,7 +141,7 @@ def test_optimality_form_keeps_kappa_one_and_spf_rigidity_record():
     with pytest.raises(ValueError):
         pg.gate(1.0, 0.3, form="other")
     # SPF-RIGIDITY-OOS power.py (optimality form) reproduces its recorded best-case gate numbers
-    rec = json.load(open(os.path.join(ROOT, "tests", "SPF_RIGIDITY_OOS", "results", "power.json")))
+    rec = json.load(open(os.path.join(ROOT, "records", "tests", "SPF_RIGIDITY_OOS", "results", "power.json")))
     found = []
     def walk(o):
         if isinstance(o, dict):

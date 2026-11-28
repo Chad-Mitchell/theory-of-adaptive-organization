@@ -39,7 +39,7 @@ import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "theory", "layer_convexity_checks", "layer_convexity_checks.json")
-S5 = os.path.join(ROOT, "core", "keystone_checks", "s5_rerun.json")
+S5 = os.path.join(ROOT, "theory", "keystone_checks", "s5_rerun.json")
 
 
 def check(ok, detail, name, cond, msg=""):

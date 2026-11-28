@@ -99,7 +99,7 @@ def test_post_lock_requires_the_lock_time_blob_in_history():
 def test_real_repo_pins_the_three_unlocked_current_blobs():
     assert set(vl.CURRENT_BLOB) == {"theory/layers_checks/stores.py", "tests/F1/code/outcome.py", "tests/DECISIVE/glucose/code/analyze.py"}
     for path, blob in vl.CURRENT_BLOB.items():
-        assert vl.git_blob(open(os.path.join(ROOT, path), "rb").read()) == blob, path
+        assert vl.git_blob(open(os.path.join(ROOT, vl.movemap.forward(path)), "rb").read()) == blob, path
 
 
 def test_git_blob_matches_git_hash_object():
