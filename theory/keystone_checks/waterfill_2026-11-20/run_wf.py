@@ -23,7 +23,7 @@ from scipy.optimize import differential_evolution, minimize
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[3]
 MERGED_STORES = REPO / "theory" / "layers_checks" / "stores.py"
-RL_PATH = REPO / "core" / "keystone_checks" / "resonant_layers.py"
+RL_PATH = REPO / "theory" / "keystone_checks" / "resonant_layers.py"
 
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(RL_PATH.parent))

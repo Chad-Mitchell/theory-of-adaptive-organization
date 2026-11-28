@@ -15,6 +15,12 @@ import numpy as np
 
 DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(DIR))
+# sim1_lib.py is hash-locked and still loads the bridge library from its pre-move folder (core/bridge_2026-11-21,
+# now theory/bridge_2026-11-21). Its bytes may not change, so the load is pointed at the new folder here.
+import importlib.util as _iu  # noqa: E402
+_spec = _iu.spec_from_file_location
+_iu.spec_from_file_location = lambda name, path, *a, **k: _spec(
+    name, str(path).replace("/core/bridge_2026-11-21/", "/theory/bridge_2026-11-21/"), *a, **k)
 from sim1_lib import (
     e0, expected_loss, J_cost, J_table, m_cont, W_first_rollout,
     m_star_at_K, argmin_discrete, m_star_ladder_in_w, m_star_ladder_in_c,

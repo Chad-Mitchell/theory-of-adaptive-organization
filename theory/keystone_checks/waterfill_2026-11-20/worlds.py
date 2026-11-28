@@ -15,7 +15,7 @@ import numpy as np
 # Public-clone root: this file lives at theory/keystone_checks/waterfill_2026-11-20/.
 # Do not hardcode a private workdir.
 REPO = Path(__file__).resolve().parents[3]
-CHECKS = REPO / "core" / "keystone_checks"
+CHECKS = REPO / "theory" / "keystone_checks"
 RHYTHM_JSON = CHECKS / "rhythm_rule.json"
 S5_JSON = CHECKS / "s5_rerun.json"
 T20_JSON = CHECKS / "holographic_2026-11-20" / "predictions.json"

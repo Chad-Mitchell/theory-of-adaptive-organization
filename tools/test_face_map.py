@@ -4,7 +4,7 @@ import os, sys, json, re
 import numpy as np
 import pytest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FIG = os.path.join(ROOT, 'figures'); sys.path.insert(0, FIG)
+FIG = os.path.join(ROOT, 'records', 'figures'); sys.path.insert(0, FIG)
 import face_map as fm
 from face_hybrid import mse, mse_fast, best_fast
 

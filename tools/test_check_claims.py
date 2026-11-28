@@ -84,10 +84,10 @@ def test_wrong_review_path():
     try:
         path = os.path.join(root, "measurement/CLAIM_MAP_v2.md")
         text = open(path, encoding="utf-8").read()
-        old = "`reviews/coadaptation_2026-11-21/REVIEW.md`"
+        old = "`records/reviews/coadaptation_2026-11-21/REVIEW.md`"
         assert old in text
         open(path, "w", encoding="utf-8").write(
-            text.replace(old, "`reviews/no-such-review-2026.md`", 1)
+            text.replace(old, "`records/reviews/no-such-review-2026.md`", 1)
         )
         got = fails_of(root)
         assert "review path missing" in got, got
@@ -444,7 +444,7 @@ def test_naming_a_case_on_the_front_page_fails_and_a_work_row_does_not():
 def test_missing_case_index_fails():
     root = copy_tree()
     try:
-        p = os.path.join(root, "applications", "README.md")
+        p = os.path.join(root, "theory", "applications", "README.md")
         t = open(p, encoding="utf-8").read().replace(cc.CASES_BEGIN, "")
         open(p, "w", encoding="utf-8").write(t)
         assert "has no cases table" in fails_of(root)
