@@ -139,7 +139,7 @@ check("quoted: optimized cost ratio tends to sqrt(K)", "The ratio of optimized c
 sw = open(root + "/CORE.md", encoding="utf-8").read()
 check("swarm: stay condition lambda s c < w Phi in CORE", "\\(\\lambda s c<w\\Phi\\)" in sw)
 check("swarm: alignment s = w/W in CORE", "\\(s=w/W\\)" in sw)
-check("swarm rule note exists", os.path.exists(root + "/theory/SWARM_RULE_2026-11-23.md"))
+check("swarm rule note exists", os.path.exists(root + "/theory/swarm/SWARM_RULE.md"))
 rd = open(root + "/README.md", encoding="utf-8").read()
 check("T62: README says the tracked rate scales with area and is not the holographic bound",
       "scales with area" in rd and "not the holographic bound" in rd)

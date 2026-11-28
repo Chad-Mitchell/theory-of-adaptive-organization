@@ -1,6 +1,6 @@
 # Co-adaptation: when coupled cost-of-judgment minimizers sit near a minimizer (T12, CX2)
 
-*Saturday 21 November 2026, evening America/New_York. Branch `coadaptation-2026-11-21` off `main` `c92886a`; draft PR #148; updated after independent review (`reviews/coadaptation_2026-11-21/REVIEW.md`, blockers 1–3, should-fix 1, nits 1–3) with CA5–CA7, P1–P4/F6, and the single-basin bracket refutation folded in. CONFIRM2 is READY at `93add78` (`reviews/coadaptation_2026-11-21/CONFIRM2.md`); merged as `b16193d`. It does not change the Part 2 hypothesis sentence, any locked file, or the status of CX1, CX2, CT31, CT32 or CT34. Checks: `tools/coadaptation_checks.py`, run by `tools/test_coadaptation_checks.py` (23 tests).*
+*Saturday 21 November 2026, evening America/New_York. Branch `coadaptation-2026-11-21` off `main` `c92886a`; draft PR #148; updated after independent review (`records/reviews/coadaptation_2026-11-21/REVIEW.md`, blockers 1–3, should-fix 1, nits 1–3) with CA5–CA7, P1–P4/F6, and the single-basin bracket refutation folded in. CONFIRM2 is READY at `93add78` (`records/reviews/coadaptation_2026-11-21/CONFIRM2.md`); merged as `b16193d`. It does not change the Part 2 hypothesis sentence, any locked file, or the status of CX1, CX2, CT31, CT32 or CT34. Checks: `tools/coadaptation_checks.py`, run by `tools/test_coadaptation_checks.py` (23 tests).*
 
 ## 0. Bottom line
 
@@ -297,7 +297,7 @@ A prior-art search on 21 November 2026 found no source stating CA3, CA4, or CA7 
 - **Non-monotone or non-strongly-monotone nonlinear games** (CA5 solves the \(m\)-strongly monotone diffusion case; bounds without strong monotonicity or outside CA-D stay open).
 - **Tight finite-\(\gamma\) non-perturbative bounds for mismatched strengths in general discrete coupled chains** (the single-basin Gibbs bracket is FALSE; CA6(a) is perturbative, P2 has explicit loose constants, and P4/F6 is asymptotic in \(\lambda\to\infty\); finite-\(\lambda\) speed corrections and tight non-perturbative bounds stay open).
 - **Drifting worlds under co-adaptation beyond Brownian translation drift** (CA5′ and CA7 solve Brownian translation drift; non-translation, non-Brownian, and discrete drifting worlds stay open).
-- **Dual control** (acting to learn, Bar-Shalom & Tse 1974) is listed in `reviews/widenet_2026-11-20/SCAN.md` and is not treated here.
+- **Dual control** (acting to learn, Bar-Shalom & Tse 1974) is listed in `records/reviews/widenet_2026-11-20/SCAN.md` and is not treated here.
 - **Whether Bode or the sampled-read waterbed changes \(\arg\min J\)** (`theory/DYNAMICS.md` §5) stays OPEN; F5 only places it.
 
 ## 12. Numerical checks

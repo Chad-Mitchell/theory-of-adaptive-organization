@@ -1,6 +1,6 @@
 # The telling price for a part with private information
 
-*Friday 27 November 2026 (America/New_York). Part of `theory/swarm-2026-11-27/` (index: `INDEX.md`). Branched from `863a8a8bb3e0bb46c00a9236a9b4d5192c4b9d8d`. Answers the item "a part with private information … the telling price inside this rule (CT16 for a part that tells the whole) is not derived here" (`theory/SWARM_RULE_2026-11-23.md:90` at the branch point). Checks: `checks/swarm27_checks.py`, section B. A self-check, not an independent review.*
+*Friday 27 November 2026 (America/New_York). Part of `theory/swarm-2026-11-27/` (index: `INDEX.md`). Branched from `863a8a8bb3e0bb46c00a9236a9b4d5192c4b9d8d`. Answers the item "a part with private information … the telling price inside this rule (CT16 for a part that tells the whole) is not derived here" (`theory/swarm/SWARM_RULE.md:90` at the branch point). Checks: `checks/swarm27_checks.py`, section B. A self-check, not an independent review.*
 
 The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.
 
@@ -72,4 +72,4 @@ So CT16's rule for telling becomes, for a part that tells the whole what only it
 - **Other classes.** TP is the α = 2 read-rate class with the part informed about \(q\). For general α the bias is still constant in \(\ln f\) (ratio \(\kappa_i^{-1/\alpha}\), `FOLD_INS.md` F1), so TP2 carries over; TP3's window was derived only at α = 2. The telegraph class of the stay clause, and a part informed about the signal itself rather than its drift, are OPEN.
 - **Which equilibrium.** TP4 needs the whole to coordinate on an equilibrium; equilibrium selection is OPEN.
 - **Monotonicity of \(V^*\) in \(\kappa\)**: seen in the example, not derived.
-- **Misinforming while keeping a private copy** (`theory/SWARM_RULE_2026-11-23.md:84` at the branch point) is this game with an informed part: TP2 says a mispriced part's reports are coarse, not false. Lying with a cost (verifiable or costly messages) is OPEN.
+- **Misinforming while keeping a private copy** (`theory/swarm/SWARM_RULE.md:84` at the branch point) is this game with an informed part: TP2 says a mispriced part's reports are coarse, not false. Lying with a cost (verifiable or costly messages) is OPEN.

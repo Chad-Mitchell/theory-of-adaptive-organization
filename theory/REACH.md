@@ -1,6 +1,6 @@
 # REACH: what the theory says about viruses and life, the cosmic web, wormholes, the torus, dark matter and energy, and fractal time
 
-Wednesday 18 November 2026, evening ET (America/New_York); **updated late evening ET as v1.4.25 (open items worked: cosmic-web hub statistics, throat reliability and endogenous drift, price-to-K and price-to-λ maps, prior-art sweeps for K-V3 and N40, full texts of Benner 2010 and Bull et al. 2007; see §1.5b, §5 and the register in §6)**. Written by a Grok Bot executor for Chad Mitchell, via Ace (the author's requests t1953 to t1956). Nothing was posted or sent by this work. Companion notes: [`COSMIC_WEB.md`](COSMIC_WEB.md), [`WORMHOLES.md`](WORMHOLES.md), [`TORUS.md`](TORUS.md). Code checks: `reach_checks/` (outputs saved beside the code). Self-review (not independent): `reviews/reach_2026-11-18/REVIEW.md`. Independent review: `reviews/reach_2026-11-18/INDEPENDENT_REVIEW.md` (READY-WITH-FIXES; its fixes are applied in v1.4.24).
+Wednesday 18 November 2026, evening ET (America/New_York); **updated late evening ET as v1.4.25 (open items worked: cosmic-web hub statistics, throat reliability and endogenous drift, price-to-K and price-to-λ maps, prior-art sweeps for K-V3 and N40, full texts of Benner 2010 and Bull et al. 2007; see §1.5b, §5 and the register in §6)**. Written by a Grok Bot executor for Chad Mitchell, via Ace (the author's requests t1953 to t1956). Nothing was posted or sent by this work. Companion notes: [`COSMIC_WEB.md`](COSMIC_WEB.md), [`WORMHOLES.md`](WORMHOLES.md), [`TORUS.md`](TORUS.md). Code checks: `reach_checks/` (outputs saved beside the code). Self-review (not independent): `records/reviews/reach_2026-11-18/REVIEW.md`. Independent review: `records/reviews/reach_2026-11-18/INDEPENDENT_REVIEW.md` (READY-WITH-FIXES; its fixes are applied in v1.4.24).
 
 **What this file is.** A derivation file that `THEORY.md` §2.3 points to. It applies the theory's *own existing machinery* (the three classes in `SCALE_ENDS.md` and `BOOKENDS.md`, the switch-on conditions S1–S4, LAT-1, T7, T9) to questions that were asked of it. It changes no existing status, no locked prediction and not the spine. Where Chad's framing (t1953 to t1956) was treated as an idea to test, the reading is stated plainly, including where the idea does not hold up.
 
@@ -197,7 +197,7 @@ What the repository establishes and what it does not, so the claim can be made a
 
 - *Done in v1.4.25:* the prior-art sweeps for K-V3 (§1.5b) and N40 (`COSMIC_WEB.md` §3b); full texts of Benner 2010 and Bull et al. 2007.
 - The prion threshold (K-V4).
-- Measurement under the MV gates for N40 (a measured staleness cost W per system; no data set identified) and for N45 (a system with a measured phase-response curve and coupling cost) before any prereg is locked; the matched-null hub test (`COSMIC_WEB.md` §8) is specified, not run; independent checks of the new in-model derivations (N47, N49) were done in `reviews/reach_2026-11-18/INDEPENDENT_REVIEW_2.md` (CLAIM_MAP v2.45); MV9's external timestamp still needs Chad's go.
+- Measurement under the MV gates for N40 (a measured staleness cost W per system; no data set identified) and for N45 (a system with a measured phase-response curve and coupling cost) before any prereg is locked; the matched-null hub test (`COSMIC_WEB.md` §8) is specified, not run; independent checks of the new in-model derivations (N47, N49) were done in `records/reviews/reach_2026-11-18/INDEPENDENT_REVIEW_2.md` (CLAIM_MAP v2.45); MV9's external timestamp still needs Chad's go.
 - Real timing logs for N45.
 
 ---
@@ -241,4 +241,4 @@ Cosmology
 - Gibbons GW, Hawking SW 1977, *Phys Rev D* 15:2738, doi 10.1103/physrevd.15.2738 [metadata only; credited in SCALE_ENDS]
 - Planck Collaboration 2018, "Planck 2018 results. VI. Cosmological parameters," arXiv 1807.06209 [abstract; §7.3 and eq. 47 read]
 
-Repository sources used: THEORY §0, §2.2, §2.3; `SCALE_ENDS.md` §3, §4.5, §5; `BOOKENDS.md` §2; `THEOREMS.md` T7, T9; `tests/BIO1`, `tests/COLLAPSE1`, `tests/DRIFT1`; CLAIM_MAP rows N25–N35, H16, H18, H20.
+Repository sources used: THEORY §0, §2.2, §2.3; `SCALE_ENDS.md` §3, §4.5, §5; `BOOKENDS.md` §2; `THEOREMS.md` T7, T9; `records/tests/BIO1`, `records/tests/COLLAPSE1`, `records/tests/DRIFT1`; CLAIM_MAP rows N25–N35, H16, H18, H20.

@@ -1,6 +1,6 @@
 # Selection axioms: closeness to the cost minimum as a derived result
 
-*Saturday 21 November 2026, evening, America/New_York. Holdability cuts and the THEORY §4 fold merged with PR #144, after the independent review of PR #143 (`reviews/selection_axioms_2026-11-21/REVIEW.md`, verdict NOT READY) and the confirm (`CONFIRM.md`). This note builds on the existing bridge (`core/bridge_2026-11-21/SELECTION.md`) and on the redesign lag already recorded as CL19 (`theory/DYNAMICS.md`). It does not change the Part 2 hypothesis sentence, the locked qualification band of THEORY §3 / FRAMEWORK §9, or any locked preregistration or hash file. T27's P3 remains a failed official test and is not rescued.*
+*Saturday 21 November 2026, evening, America/New_York. Holdability cuts and the THEORY §4 fold merged with PR #144, after the independent review of PR #143 (`records/reviews/selection_axioms_2026-11-21/REVIEW.md`, verdict NOT READY) and the confirm (`CONFIRM.md`). This note builds on the existing bridge (`theory/bridge_2026-11-21/SELECTION.md`) and on the redesign lag already recorded as CL19 (`theory/DYNAMICS.md`). It does not change the Part 2 hypothesis sentence, the locked qualification band of THEORY §3 / FRAMEWORK §9, or any locked preregistration or hash file. T27's P3 remains a failed official test and is not rescued.*
 
 ## 0. Bottom line
 
@@ -30,11 +30,11 @@ The three axioms are statements about a class of systems, not about the universe
 
 **A3 (the world drifts).** The location of \(\arg\min J\), or the world's statistics that enter \(J\), change with a positive variance rate \(\sigma^2>0\) (Brownian drift of the optimum, unless another process is named). The static world is the special case \(\sigma^2=0\), already treated by the bridge.
 
-**What is not assumed.** Formal Axiom 7 of `reviews/night1/formal/AXIOMS.md` says the realized architecture satisfies \(J(A)\le\min J+\varepsilon\). That axiom *assumes* near-minimization. It is not a premise of this note; the point is to derive a scale for \(\varepsilon\). Frequency dependence, strong mutation, and a binding ruin constraint inside the stationary law are not assumed, and the theorems do not cover them.
+**What is not assumed.** Formal Axiom 7 of `theory/axioms/AXIOMS.md` says the realized architecture satisfies \(J(A)\le\min J+\varepsilon\). That axiom *assumes* near-minimization. It is not a premise of this note; the point is to derive a scale for \(\varepsilon\). Frequency dependence, strong mutation, and a binding ruin constraint inside the stationary law are not assumed, and the theorems do not cover them.
 
 ## 3. Static world: the existing bridge, stated as a theorem
 
-The results in this section are **KNOWN**. They are restated so the note is self-contained, with short proofs. They are not a new mathematical theorem. The application to the reduced cost \(J\), and the fractional consistency note with the qualification band, are already in `core/bridge_2026-11-21/SELECTION.md`, now with the same per-model exponents as Corollary SA1c.
+The results in this section are **KNOWN**. They are restated so the note is self-contained, with short proofs. They are not a new mathematical theorem. The application to the reduced cost \(J\), and the fractional consistency note with the qualification band, are already in `theory/bridge_2026-11-21/SELECTION.md`, now with the same per-model exponents as Corollary SA1c.
 
 **Theorem SA1 (KNOWN: Sella and Hirsh 2005, applied to \(J\)).** Assume A1, A2-L, and a static world (\(\sigma^2=0\), or a frozen snapshot of A3). Consider a haploid Moran process of size \(N\) on a finite connected undirected design graph, in the weak-mutation regime \(N\mu\ll 1\) (the population is typically monomorphic; substitutions are an origination–fixation chain), with equal mutation clocks on each undirected edge, and with no frequency dependence. Let \(r_i=\exp(-\alpha J(\mathcal{D}_i))\). Then the unique stationary distribution of the monomorphic chain satisfies
 
@@ -186,7 +186,7 @@ The sentence stays byte-identical, including the word "law" in a sentence that l
 
 ## 11. Relation to the existing bridge and to T27
 
-This note **builds on** `core/bridge_2026-11-21/`, rather than replacing it. Theorem SA1 is the bridge's Moran theorem, restated. Corollary SA1c keeps the bridge's fractional form, with \(\beta=\alpha\nu\). The bridge file now states the same per-model exponents (haploid Moran \(\beta=\alpha(N-1)\); diploid Wright–Fisher \(\beta=\alpha(2N-1)\), an approximation). The official T27 test of that package (locked `PREREG.md`, hashes unchanged) remains: P1 passed (3/3), P2 passed (3/3), P3 failed (0/3) and is not rescued. P3's operationalization (a two-\(K\) mass floor at low \(\beta\)) was already missed by the exact Boltzmann measure on the pilot; the failure is about that operationalization, not a refutation of SA1. Nothing in SA2 repairs P3.
+This note **builds on** `theory/bridge_2026-11-21/`, rather than replacing it. Theorem SA1 is the bridge's Moran theorem, restated. Corollary SA1c keeps the bridge's fractional form, with \(\beta=\alpha\nu\). The bridge file now states the same per-model exponents (haploid Moran \(\beta=\alpha(N-1)\); diploid Wright–Fisher \(\beta=\alpha(2N-1)\), an approximation). The official T27 test of that package (locked `PREREG.md`, hashes unchanged) remains: P1 passed (3/3), P2 passed (3/3), P3 failed (0/3) and is not rescued. P3's operationalization (a two-\(K\) mass floor at low \(\beta\)) was already missed by the exact Boltzmann measure on the pilot; the failure is about that operationalization, not a refutation of SA1. Nothing in SA2 repairs P3.
 
 ## 12. Numerical checks
 

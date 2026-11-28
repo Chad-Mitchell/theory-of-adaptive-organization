@@ -130,7 +130,7 @@ def test_pushed_correction_named_by_sha_in_a_row_passes():
 def _logged_tree():
     d = _tree()
     os.makedirs(os.path.join(d, "NOTES"))
-    shutil.copy(os.path.join(ROOT, "NOTES", "MISSES-LEDGER.md"), os.path.join(d, "NOTES", "MISSES-LEDGER.md"))
+    shutil.copy(os.path.join(ROOT, "records", "notes", "MISSES-LEDGER.md"), os.path.join(d, "NOTES", "MISSES-LEDGER.md"))
     return d
 
 

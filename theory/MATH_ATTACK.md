@@ -7,10 +7,10 @@ Written Sat 2026-11-14, about 10:15 PM to midnight ET, by a Grok Bot executor, f
 - `public-repo/theorems/THEOREMS.md`
 - `public-repo/README.md`
 - `REAUDIT_2026-11-13.md`
-- `tests/C3/RESULTS.md` and `PREREG.md`
-- `tests/TESTC_STAGE3_REVIEW.md`
+- `records/tests/C3/RESULTS.md` and `PREREG.md`
+- `records/tests/TESTC_STAGE3_REVIEW.md`
 - The toy-reversal notes in `longform/HYPOTHESES_CORE_v2_reviewed.md` and `v2/TEMPERATURE_MEASURE.md`
-- The first part of `tests/C3b/PREREG.md`
+- The first part of `records/tests/C3b/PREREG.md`
 
 **What was not done.** Nothing was posted or sent. The public repo, the Looper README and C3b were not edited.
 
@@ -378,7 +378,7 @@ These are falsifiable cross-scale statements. The renormalization picture is a G
 ## 6. What this changes (recommendations only; nothing was edited)
 
 - **C3:** reframe it from "the τ term failed" to "**uninformative about τ** by construction". The specific reasons are r_τ misspecification, attenuation (β_σ = 0.28 against a model minimum of 2), and B being a flow.
-- **C3b:** C3b (preregistered today, `tests/C3b/`) is in the *incident* regime. Read it with ε_τ = ε_σ/2, the regime cut z ≳ 1.5 and the jump-share check. Projects that never fix are censored on τ, which creates a survivorship trap.
+- **C3b:** C3b (preregistered today, `records/tests/C3b/`) is in the *incident* regime. Read it with ε_τ = ε_σ/2, the regime cut z ≳ 1.5 and the jump-share check. Projects that never fix are censored on τ, which creates a survivorship trap.
 - **Post v9 qualifier.** "As long as slow fixers still usually survive a fix window" rests on the one-sided, symmetric-reset toy with per-window counting. A correction belongs in a follow-up, needs an independent check and Chad's OK, and should say:
   - the τ effect is largest *in relative terms* in the cold regime;
   - it never reverses when fixing does not erase favourable deviations.
