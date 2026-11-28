@@ -24,7 +24,7 @@ Labels: **PROVED (in-model)**, **KNOWN**, **OPEN**, **CONJECTURE**, **SPECULATIO
 - **Assessment.**
   - It's a real gap and a modest, probably partly known, extension.
   - As a route to the deeper physics link: **low odds, about 1 in 20 or less**. The one concrete mathematical bridge it touches is known: the minimum-dissipation protocol solves a kinetic least-action problem (Benamou–Brenier; Aurell et al. 2011).
-  - **Next discriminating test:** the bounded-activity telegraph floor (§5).
+  - Run: `PREREG.md` / `RESULTS.md` in this folder (outcome Y within n ≤ 4, one-sided; the diffusion class is not tested).
 
 ## 1. The reading from the source, arguing both sides
 
@@ -47,7 +47,7 @@ Labels: **PROVED (in-model)**, **KNOWN**, **OPEN**, **CONJECTURE**, **SPECULATIO
 
 ### 1.3 The case that it is missing
 
-1. **Information-plus-erasure is blind to depth.** Points 1–2 charge only the nats that flow or are erased. Two memories that end with the same information pay the same floor, however many intermediate steps one of them needed. MEMO Proposition 2 is right that "learning one constant bit costs at most ln 2 nats" (`/workspace/proofs-gtao/MEMO.md:51`). Under Bennett, a reversible search adds no forced heat at *zero speed*, so point 2 is complete only at zero speed.
+1. **Information-plus-erasure is blind to depth.** Points 1–2 charge only the nats that flow or are erased. Two memories that end with the same information pay the same floor, however many intermediate steps one of them needed. MEMO Proposition 2 is right that "learning one constant bit costs at most ln 2 nats" (`/workspace/proofs-gtao/MEMO.md:51`, not in repo). Under Bennett, a reversible search adds no forced heat at *zero speed*, so point 2 is complete only at zero speed.
 2. **Every floor CORE quotes is reached at unlimited speed.** "The design that approaches it is a fast copy at the minimal affinity" (`CORE.md:74`). "A fast spring at the same error reaches the infimum" (`CORE.md:76`). "approached by a fast linear memory at finite heat" (`CORE.md:90`). The rates are free design variables with no price, so the quoted minima assume infinitely fast computation. D1 (§3.1) shows this changes the minimum and the design.
 3. **Point 3 gives the time side but not the heat side.** Lateness charges slow thinking. Nothing charges *fast* thinking. Physics says faster costs more heat (§2), so with only lateness priced, the theory's optimum always says to think infinitely fast.
 4. **Points 4–6 are assumptions, not terms.** A currency name doesn't make a quantity. No term in J has *steps*, *depth* or *duration of computing* as its argument. CORE itself lists the stake, link price and ruin cap as unexplained assumptions (`CORE.md:155`). A, h and k are in the same position: what they cost isn't explained, and nothing there scales with how hard the inference is.
@@ -150,7 +150,7 @@ $$J=\dot Q_M+\mu_d\,Q_{\rm comp}(N,\tau)+w\big(\mathbb E[\ell]+q\tau\big).$$
 - \(\tau^*=N\sqrt{kT\mu_d/(\nu\,w q)}\), and \(J^*_{\rm comp}=2N\sqrt{kT\,\mu_d\,w q/\nu}\).
 - The ratio to CT7's information floor \(\sigma\sqrt{2kTw}\) (`THEORY.md:295`, with σ² = q) is \(N\sqrt{2\mu_d/\nu}\). **Computation dominates once depth exceeds \(N_c=\sqrt{\nu/(2\mu_d)}\).** For example, a step rate of 10³/s and one judgment per second give N_c ≈ 22. This is an illustration with no system qualified.
 - The slow regime holds iff \(wq\ll4\nu\,kT\,\mu_d\). Outside it, use the asinh form.
-- **What it means:** under these assumptions J charges logical **depth**, so it can tell a deep conclusion from a shallow one (contrast `/workspace/proofs-gtao/MEMO.md:171`). Parallel hardware divides the N² term by the number of independent chains P, but each chain costs upkeep. That trade is CONJECTURE, not derived.
+- **What it means:** under these assumptions J charges logical **depth**, so it can tell a deep conclusion from a shallow one (contrast `/workspace/proofs-gtao/MEMO.md:171`, not in repo). Parallel hardware divides the N² term by the number of independent chains P, but each chain costs upkeep. That trade is CONJECTURE, not derived.
 
 ### 3.3 Does this turn A into heat? Partly: a floor, not a derivation
 
