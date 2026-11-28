@@ -15,7 +15,7 @@ Read before this lock, and not treated as a result of this test:
 - The GRID-1 / 1b / 2 / 3 / 4 / 4b / S / DX files in `theory/measured/grid/`, including GB's four locked layers, γ = 2.09 (2026) and 2.02 (2024), diagnostic gap d1 = 3 under the B1 ruin-slack premise, the Part A verdict **NOT QUALIFIED**, and the Part C Pass 1 scores (GB 5, ERCOT 4, Australia NEM / Ireland-NI / Nordic / Continental Europe 1 as lower bounds where sources were missing, Hawaii UNTESTED).
 - The S_N rubric ambiguity and the "missing source = 0, later treated as a lower bound" correction in `SELECTION_SCORES.md`.
 - FRAMEWORK §9 and THEORY §3 on *strongly selected* (qualify before measurement; a class that fails any of the five items is not evidence either way).
-- T27 (`theory/bridge_2026-11-21/`): official in-model result **FAILED** (P1 and P2 passed, P3 failed). This field comparison does not rest on T27 as confirmation. The qualitative idea that excess cost should shrink as selection strength rises is already in that package and is not claimed as new.
+- T27 (`core/bridge_2026-11-21/`): official in-model result **FAILED** (P1 and P2 passed, P3 failed). This field comparison does not rest on T27 as confirmation. The qualitative idea that excess cost should shrink as selection strength rises is already in that package and is not claimed as new.
 - The T27 / SIM-1 (T28) process lessons: hash-lock the runner and library at lock time; compute exact gate values before locking; do not lock a bar the official procedure already misses; fresh seeds; deviations go in a dated file before any further official scoring.
 - GRID-2's reconstruction (DV-GB1.2) and the later caveat that the balancing-mechanism term carries most of the reconstructed variance.
 

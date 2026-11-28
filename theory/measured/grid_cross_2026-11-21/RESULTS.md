@@ -33,7 +33,7 @@ No numbers in this file are official S or d scores.
 
 ## Limits of the locked test (disclosed before any official score)
 
-Independent review of this lock (`records/reviews/grid_cross_2026-11-21/REVIEW.md`, READY-WITH-FIXES) found two properties of the locked gates that should be stated before any official ρ is computed. Dated deviations for typo and robustness-wording issues (S1–S3) are in `DEVIATIONS_2026-11-21.md`. The official comparison is still not run. The locked bars are not relaxed.
+Independent review of this lock (`reviews/grid_cross_2026-11-21/REVIEW.md`, READY-WITH-FIXES) found two properties of the locked gates that should be stated before any official ρ is computed. Dated deviations for typo and robustness-wording issues (S1–S3) are in `DEVIATIONS_2026-11-21.md`. The official comparison is still not run. The locked bars are not relaxed.
 
 **Leave-one-out cannot bite at n = n_min = 5 (review S4).** Dropping any one complete grid leaves n = 4, which is UNTESTED. UNTESTED is excluded from the scored-label flip set, so a 5-point PASS / FAIL / NEITHER is never flipped to INCONCLUSIVE by leave-one-out. That is a property of the locked clause at n_min. The clause is not changed after seeing official ρ. At n ≥ 6, leave-one-out can change a scored label; tests now assert such a flip.
 

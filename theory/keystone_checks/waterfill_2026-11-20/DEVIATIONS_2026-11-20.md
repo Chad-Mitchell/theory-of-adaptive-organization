@@ -10,11 +10,11 @@
 
 ## D2 (after the official result; post-result housekeeping)
 
-**Time:** Friday 20 November 2026, about 11:55 PM ET (America/New_York), after official scoring at 11:17 PM ET and after the independent review of PR #121 (`records/reviews/wf_2026-11-20/REVIEW.md`, verdict READY-WITH-FIXES).
+**Time:** Friday 20 November 2026, about 11:55 PM ET (America/New_York), after official scoring at 11:17 PM ET and after the independent review of PR #121 (`reviews/wf_2026-11-20/REVIEW.md`, verdict READY-WITH-FIXES).
 
 This is housekeeping, not a rule change and not a rescoring. No official count or gate is changed. Locked files (`PREREG.md`, `MATH.md`, `wf_rule.py`, `wf_predictions.json`) are not edited. `LOCK.txt`, `START.txt`, and the hashes embedded in the predictions file still record the as-run bytes.
 
-**S1. Private workdir paths.** Newly authored, non-locked files had hardcoded box paths (`/workspace/gtao-wf/…`, and `/home/box/…` in the log). `worlds.py` now locates the repo root relative to this file (`Path(__file__).resolve().parents[3]`) so a public clone can load the exclusion inputs. `run_wf.py` uses the same repo-relative layout for the merged solver and writes its RESULTS template and output under `theory/keystone_checks/waterfill_2026-11-20/`. `build_predictions.py` looks for `PREREG.md` / `MATH.md` beside itself, not in a workdir parent. `run_wf.log` path prefixes were redacted to repo-relative / package-relative forms; the warning text and run lines are otherwise unchanged. Mentions inside the hash-locked prereg, MATH.md, and `wf_rule.py` are left as historical locked text.
+**S1. Private workdir paths.** Newly authored, non-locked files had hardcoded box paths (`/workspace/gtao-wf/…`, and `/home/box/…` in the log). `worlds.py` now locates the repo root relative to this file (`Path(__file__).resolve().parents[3]`) so a public clone can load the exclusion inputs. `run_wf.py` uses the same repo-relative layout for the merged solver and writes its RESULTS template and output under `core/keystone_checks/waterfill_2026-11-20/`. `build_predictions.py` looks for `PREREG.md` / `MATH.md` beside itself, not in a workdir parent. `run_wf.log` path prefixes were redacted to repo-relative / package-relative forms; the warning text and run lines are otherwise unchanged. Mentions inside the hash-locked prereg, MATH.md, and `wf_rule.py` are left as historical locked text.
 
 The as-run `worlds.py` hash remains the one recorded at prediction time (`f56ceaa3…`, post-D1). The file on this commit differs because of S1 and S2 only.
 

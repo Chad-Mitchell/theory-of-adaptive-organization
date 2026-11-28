@@ -6,7 +6,7 @@
 
 **Status labels used later:** `in-model`, `numerical`. Nothing in this file is a result, and nothing will be marked `PROVED` unless it is actually proved.
 
-**Excluded confirmation sets (will not be scored as evidence).** The 21 rhythm-test worlds of `theory/keystone_checks/RHYTHM_PREREG.md` / `rhythm_rule.json` (ids listed in §6); the worked example `seed2_two_light`; S5 Model S worlds with seeds 0..119 and rng stream `1000+seed` (`s5_rerun.py`); the 15 holographic/fractal worlds of the same rhythm prereg; and the 18 worlds of the later T20 fair fractal test (`/workspace/gtao-t20/core/keystone_checks/holographic_2026-11-20/`, ids `S_a05_N1e-4` … `S_a10_N1e-4_pd8`, listed in §6). Those files may be *read* only to enforce the exclusion list, to import the merged solver and the extended library, and (for T20) as a related placement diagnosis already on the record. They are not confirmation data for this rule.
+**Excluded confirmation sets (will not be scored as evidence).** The 21 rhythm-test worlds of `core/keystone_checks/RHYTHM_PREREG.md` / `rhythm_rule.json` (ids listed in §6); the worked example `seed2_two_light`; S5 Model S worlds with seeds 0..119 and rng stream `1000+seed` (`s5_rerun.py`); the 15 holographic/fractal worlds of the same rhythm prereg; and the 18 worlds of the later T20 fair fractal test (`/workspace/gtao-t20/core/keystone_checks/holographic_2026-11-20/`, ids `S_a05_N1e-4` … `S_a10_N1e-4_pd8`, listed in §6). Those files may be *read* only to enforce the exclusion list, to import the merged solver and the extended library, and (for T20) as a related placement diagnosis already on the record. They are not confirmation data for this rule.
 
 ---
 
@@ -15,7 +15,7 @@
 - `MATH.md` (this workdir), the derivation.
 - Merged Model S solver: `repo/theory/layers_checks/stores.py` (guarded inversion, v2.67 / PR #116). Not modified.
 - Extended library: `repo/core/keystone_checks/resonant_layers.py`. Used only after predictions are written, and only to compute argmin on fresh rhythmic and mixed worlds. Not modified.
-- `repo/core/keystone_checks/s5_rerun.json`, `rhythm_rule.json`, `RHYTHM_PREREG.md`, `records/reviews/rhythm_2026-11-20/REVIEW.md`: exclusion lists and prior failed rules. Not re-scored.
+- `repo/core/keystone_checks/s5_rerun.json`, `rhythm_rule.json`, `RHYTHM_PREREG.md`, `reviews/rhythm_2026-11-20/REVIEW.md`: exclusion lists and prior failed rules. Not re-scored.
 
 No file named `RESULTS.md`, `wf_predictions.json`, or any `*DEVIATIONS*` for this test existed at lock time in `/workspace/gtao-wf` (other than this prereg and `MATH.md`).
 

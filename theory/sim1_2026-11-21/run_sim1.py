@@ -5,7 +5,7 @@ Prereg, predictions, this runner, and sim1_lib.py must be locked
 (LOCK.txt) before this script evaluates J on an official world or
 starts a Moran chain. Run:
 
-    nice -n 19 python3 theory/sim1_2026-11-21/run_sim1.py
+    nice -n 19 python3 core/sim1_2026-11-21/run_sim1.py
 
 Does not edit PREREG.md, predictions.json, this file, or sim1_lib.py.
 """

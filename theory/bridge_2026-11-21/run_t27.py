@@ -4,7 +4,7 @@
 Prereg and predictions must be locked (LOCK.txt) before this script evaluates
 J on an official world or starts a chain. Run:
 
-    nice -n 19 python3 theory/bridge_2026-11-21/run_t27.py
+    nice -n 19 python3 core/bridge_2026-11-21/run_t27.py
 
 Does not edit PREREG.md or predictions.json.
 """

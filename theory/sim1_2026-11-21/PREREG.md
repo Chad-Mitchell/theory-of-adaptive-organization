@@ -79,7 +79,7 @@ The first \(N_{\mathrm{OFFICIAL}}=3\) official-valid candidates are the official
 
 ## 4. Moran process (locked; P4 only)
 
-Reuses `run_moran_ct`, `moran_fixation`, and `exact_boltzmann` from `theory/bridge_2026-11-21/bridge_lib.py`, unmodified.
+Reuses `run_moran_ct`, `moran_fixation`, and `exact_boltzmann` from `core/bridge_2026-11-21/bridge_lib.py`, unmodified.
 
 - Population \(N_{\mathrm{POP}}=201\), haploid Moran fixation, equal edge clocks, continuous-time occupation.
 - Graph: \((K,m)\leftrightarrow(K\pm 1,m)\), \((K,m)\leftrightarrow(K,m\pm 1)\), and adopt/drop \((K,0)\leftrightarrow(K,m)\) for every \(m\ge 1\). The adopt/drop edges are pre-locked, not a rescue: they are there because \(\kappa I_0\) is a fixed cost (see `MODEL.md`).

@@ -10,7 +10,7 @@ Written Saturday 21 November 2026, 2:18 AM EST (America/New_York), on branch `gr
 | `run_grid_cross.py` | `eb4bf7d42e71db961fc73d778547bcd9dde548be6babdf939917c35825d8bd89` | 4795 |
 | `grid_cross_lib.py` | `d9086f8a09a91e8bb7133bdd012c3adcc94f7726800f04409439a119279dc9b4` | 12732 |
 
-This file resolves independent-review issues S1–S3 of [PR #128](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/128) (`records/reviews/grid_cross_2026-11-21/REVIEW.md`). S4–S5 are disclosed in unlocked `RESULTS.md`. S6 is recorded in unlocked `DATA_SOURCES_REACHABILITY.md`. S7 is covered by tests in `tools/test_grid_cross.py`.
+This file resolves independent-review issues S1–S3 of [PR #128](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/pull/128) (`reviews/grid_cross_2026-11-21/REVIEW.md`). S4–S5 are disclosed in unlocked `RESULTS.md`. S6 is recorded in unlocked `DATA_SOURCES_REACHABILITY.md`. S7 is covered by tests in `tools/test_grid_cross.py`.
 
 ---
 

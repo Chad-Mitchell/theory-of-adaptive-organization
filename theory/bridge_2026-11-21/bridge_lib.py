@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """T27 helpers: Model S reduced cost J, weak-mutation Moran, Boltzmann, scoring.
 
-Import of the merged #116 solver follows theory/keystone_checks/s5_rerun.py:
+Import of the merged #116 solver follows core/keystone_checks/s5_rerun.py:
 theory/layers_checks/stores.py is loaded under a unique name so the pre-#116
-copy in theory/keystone_checks/ cannot win.
+copy in core/keystone_checks/ cannot win.
 """
 from __future__ import annotations
 

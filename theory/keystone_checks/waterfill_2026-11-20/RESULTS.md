@@ -64,7 +64,7 @@ Max relative discrepancy: \(2.066\times 10^{7}\); median \(1.404\times 10^{4}\);
 
 **D1** (9:56 PM ET, before official start, before any reduced-order \(E_K\)): exclusion parser in `worlds.py` was updated to read `rhythm_rule.json` poles stored as \([\mathrm{re},\mathrm{im}]\) pairs. Generator streams, the inclusion rule, grids, and `PREREG.md` were not changed. Details in `DEVIATIONS_2026-11-20.md`.
 
-**D2** (after the official result, about 11:55 PM ET): post-result housekeeping from the independent review of this PR (READY-WITH-FIXES, `records/reviews/wf_2026-11-20/REVIEW.md`). No official count, gate, or locked file was changed. Details in `DEVIATIONS_2026-11-20.md`.
+**D2** (after the official result, about 11:55 PM ET): post-result housekeeping from the independent review of this PR (READY-WITH-FIXES, `reviews/wf_2026-11-20/REVIEW.md`). No official count, gate, or locked file was changed. Details in `DEVIATIONS_2026-11-20.md`.
 
 No in-run deviation of the solver, the rule, or the gates.
 
@@ -76,7 +76,7 @@ No in-run deviation of the solver, the rule, or the gates.
 - Three `RuntimeWarning`s from SciPy's Lyapunov solver ("eigenvalue pair whose sum is very close to or exactly zero"): two early in the rhythm phase, and a third later in the mixed phase, just before `mx_0006` completed. No world was flagged, no \(E\) fell below the floor, and all 64 worlds have empty `flags`. Still a numerical caveat, not a gate change.
 - No INDETERMINATE predictions and no \(E_{\infty}\) floor flags. That is unusually clean and is reported, not hidden.
 
-Related, not confirmation: the T20 fair fractal test (`theory/keystone_checks/holographic_2026-11-20/RESULTS.md`) found \(K^*\) growing roughly linearly in \(\log R\) and store rates on the *observer* (fast) side, not on process bands. Those worlds were not scored here, and this rule did not predict placement.
+Related, not confirmation: the T20 fair fractal test (`core/keystone_checks/holographic_2026-11-20/RESULTS.md`) found \(K^*\) growing roughly linearly in \(\log R\) and store rates on the *observer* (fast) side, not on process bands. Those worlds were not scored here, and this rule did not predict placement.
 
 ---
 

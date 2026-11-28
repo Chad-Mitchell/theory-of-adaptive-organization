@@ -31,7 +31,7 @@ HYP_FILES = [
     "theory/COADAPTATION.md",
     "theory/GROWTH_BRIDGE.md",
     "theory/FEEDBACK_FLOOR_2026-11-23.md",
-    "theory/SWARM_RULE_2026-11-23.md",
+    "theory/swarm/SWARM_RULE.md",
     "theory/AREA_LAW_PROBE_2026-11-23.md",
 ]
 FRONT = ["README.md", "CORE.md", "THEORY.md"]

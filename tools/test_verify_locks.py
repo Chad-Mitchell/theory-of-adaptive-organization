@@ -205,7 +205,7 @@ def test_tampered_pull_py_fails_on_a_real_depth_5_clone(tmp_path):
     assert fails == [] and counts["POST_LOCK"] == 2
     assert any("pull.py" in n and "not in this clone" in n for n in notes)
 
-    path = dest / "night2" / "GITHUB" / "code" / "pull.py"
+    path = dest / "records" / "night2" / "GITHUB" / "code" / "pull.py"
     path.write_bytes(path.read_bytes() + b"# tampered\n")
     fails, counts, notes = vl.verify(str(dest))
     assert any("night2/GITHUB/code/pull.py" in f and "declared later version" in f for f in fails), fails
