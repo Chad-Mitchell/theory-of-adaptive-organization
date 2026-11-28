@@ -190,6 +190,11 @@ GATE_GRANDFATHERED = {
     "theory/record-cost-2026-11-25/conjecture-c-round16",  # gate read committed after the results or absent (GATE-REPEAT-2..5)
     "theory/stop-copying-2026-11-25",  # gate read committed after the results or absent (GATE-REPEAT-2..5)
     "theory/two-route-2026-11-25",  # gate read committed after the results or absent (GATE-REPEAT-2..5)
+    # Seen once the check covered every scored RESULTS*.md name (27 Nov 2026, FAILURES GATE-SUFFIX-OLD); all three
+    # were first scored on 20-21 Nov, before the gate rule.
+    "tests/DIR1",  # RESULTS_DIR1.md, 21 Nov 2026
+    "tests/EVO1",  # RESULTS_EVO.md, 20 Nov 2026
+    "theory/measured/grid",  # RESULTS_GRID1.md and RESULTS_GRIDDX.md, 20 Nov 2026
 }
 _GATE_GRANDFATHERED_ORIG = frozenset(GATE_GRANDFATHERED)
 
@@ -220,9 +225,12 @@ def gate_before_results(root):
         except OSError:
             gate_text[g] = ""
     fails = []
-    for f in sorted(files):
-        if os.path.basename(f) != "RESULTS.md":
-            continue
+    # Every RESULTS.md, as before, and every scored RESULTS*.md by the one definition shared with LEDGER-1
+    # (tools/facts.py scored_results), so a suffixed name is no longer outside the check (FAILURES GATE-SUFFIX-OLD).
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import facts
+    covered = {f for f in files if os.path.basename(f) == "RESULTS.md"} | set(facts.scored_results(root, files))
+    for f in sorted(covered):
         folder = os.path.dirname(f)
         if not any(os.path.dirname(x) == folder and os.path.basename(x).startswith("PREREG") and x.endswith(".md")
                    for x in files):

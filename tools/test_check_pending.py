@@ -681,3 +681,11 @@ def test_gate_real_repo_passes_and_grandfather_list_is_exact(monkeypatch):
     fails, _ = cp.gate_before_results(ROOT)
     failing = {f.split(" has ")[0][len("gate: "):].rsplit("/", 1)[0] for f in fails}
     assert failing == set(cp.__dict__["_GATE_GRANDFATHERED_ORIG"])
+
+
+def test_gate_covers_a_scored_suffixed_results_name(tmp_path):
+    repo = _gate_repo(tmp_path)
+    _commit(repo, {"theory/t1/PREREG.md": "lock\n"})
+    _commit(repo, {"theory/t1/RESULTS_RUN2.md": "| P1 | HIT |\n"})
+    fails, _ = cp.gate_before_results(repo)
+    assert len(fails) == 1 and "RESULTS_RUN2.md" in fails[0]

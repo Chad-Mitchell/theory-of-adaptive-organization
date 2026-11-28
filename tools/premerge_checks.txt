@@ -1,0 +1,13 @@
+# The checks tools/premerge.sh runs, one command per line, read from the commit being checked (so a branch is
+# checked by its own list, never by the list of whoever runs the script). $PRARGS becomes "--pr N --body-file F"
+# when a PR number is given. Lines starting with # are ignored.
+python3 tools/check_fresh.py
+python3 tools/check_pending.py --strict $PRARGS
+python3 tools/check_pending.py --closing-keywords origin/main..HEAD $PRARGS
+python3 tools/check_consistency.py
+python3 tools/verify_locks.py
+python3 tools/banned_words.py
+python3 tools/check_claims.py
+python3 tools/facts.py --check
+python3 tools/miss.py --check-corrections
+python3 -m pytest -q -p no:cacheprovider tools

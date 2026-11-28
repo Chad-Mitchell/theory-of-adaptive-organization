@@ -540,6 +540,108 @@ def check_summaries(root):
     return out
 
 
+# ---------------------------------------------------------------- LEDGER-1 (27 Nov 2026)
+# Every folder that holds a scored results file (tools/facts.py scored_results, the definition the gate check also
+# uses) has at least one row in measurement/CLAIM_MAP_v2.md whose cells name that folder or a file in it. Paths are
+# compared through tools/movemap.py, so tests/X and records/tests/X are the same folder. A test name alone in prose is
+# not enough, because names collide.
+# Shrink-only: the folders that failed when the rule became a check (FAILURES LEDGER-1-GAP). Adding a row that names
+# the folder removes it; tools/test_check_claims.py asserts this set equals the failing set, and nothing joins it.
+LEDGER1_GRANDFATHERED = {
+    "core/sim1_2026-11-21",
+    "reviews/night2/SELF",
+    "tests/C3",
+    "tests/DECISIVE/banks",
+    "tests/DECISIVE/glucose",
+    "tests/DECISIVE/populations",
+    "tests/DIR1",
+    "tests/F1",
+    "tests/KERNEL_MEASURE",
+    "tests/LEARNSIM",
+    "tests/LFK_SPF",
+    "tests/ONSET_ACROSS_ALPHA",
+    "theory/acting_derivation_checks",
+    "theory/measured/grid_cross_2026-11-21",
+}
+LEDGER_PATH = re.compile(r"(?<![\w./-])((?:[A-Za-z0-9_.\-]+/)+[A-Za-z0-9_.\-]*)")
+
+
+def ledger_paths(root):
+    """Every path named in a table row of the claim map, in its pre-move form."""
+    import movemap
+    out = set()
+    for line in read(root, "measurement/CLAIM_MAP_v2.md").splitlines():
+        if line.startswith("|"):
+            for p in LEDGER_PATH.findall(line):
+                p = p.rstrip("/.")
+                out.add(movemap.backward(p))
+    return out
+
+
+def scored_without_row(root):
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import facts
+    import movemap
+    paths = ledger_paths(root)
+    out = []
+    for folder in facts.scored_folders(root):
+        old = movemap.backward(folder)
+        if not any(p == old or p.startswith(old + "/") for p in paths):
+            out.append(old)
+    return sorted(out)
+
+
+def check_scored_has_row(root):
+    return ["ledger-1: %s holds scored results and no claim-map row names it; add its path to the row's source cell" % f
+            for f in scored_without_row(root) if f not in LEDGER1_GRANDFATHERED]
+
+
+# ---------------------------------------------------------------- front-page cases (27 Nov 2026)
+# Three levels: the core (the cost, the method, the hypothesis), the class designs the minimum gives (CORE.md section 4:
+# layers, sharing, boundaries, rebuilding, acting, the swarm rule), and the cases in applications/README.md. README.md
+# names core terms and designs and links the case index; it never names a case. The names come from that index's
+# `cases` table, so the list has one home. Rows of the open-work tables (first cell a work ID) are work items, not
+# front-page standing, and are not scanned.
+CASES_BEGIN, CASES_END = "<!-- cases:begin -->", "<!-- cases:end -->"
+# Shrink-only: README.md lines that named a case when the rule was adopted; tools/test_check_claims.py holds it equal
+# to the failing set.
+FRONT_CASES_PENDING = set()
+
+
+def case_names(root):
+    import movemap
+    p = "applications/README.md"
+    if not os.path.isfile(os.path.join(root, p)):
+        p = movemap.forward(p)
+    text = read(root, p) if os.path.isfile(os.path.join(root, p)) else ""
+    if CASES_BEGIN not in text:
+        return None
+    names = []
+    for line in text.split(CASES_BEGIN, 1)[1].split(CASES_END, 1)[0].splitlines():
+        c = [x.strip() for x in line.strip().strip("|").split("|")]
+        if len(c) == 5 and c[0] != "case" and not set(c[4]) <= set("-: "):
+            names += [n.strip() for n in c[4].split(";") if n.strip()]
+    return names
+
+
+def front_case_hits(root):
+    names = case_names(root)
+    if names is None:
+        return ["front cases: applications/README.md has no cases table (%s)" % CASES_BEGIN]
+    rx = re.compile(r"(?<![\w-])(" + "|".join(re.escape(n) for n in sorted(names, key=len, reverse=True)) + r")(?![\w-])", re.I)
+    out = []
+    for i, line in enumerate(read(root, "README.md").splitlines(), 1):
+        if GAP_ID.match(line) and not line.startswith("| ID "):
+            continue  # an open-work row
+        for h in rx.findall(line):
+            out.append("README.md:%d: names the case %r; name the design and link applications/README.md" % (i, h))
+    return out
+
+
+def check_front_cases(root):
+    return ["front cases: " + x for x in front_case_hits(root) if x.split(": ")[0] not in FRONT_CASES_PENDING]
+
+
 def check(root=None):
     """Return a list of failure strings (empty means pass)."""
     root = root or repo_root()
@@ -559,6 +661,8 @@ def check(root=None):
     errors.extend(check_direction(root))
     errors.extend(check_work_rows(root))
     errors.extend(check_summaries(root))
+    errors.extend(check_scored_has_row(root))
+    errors.extend(check_front_cases(root))
     # de-duplicate, keep order
     out, seen = [], set()
     for e in errors:
