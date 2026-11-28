@@ -134,10 +134,10 @@ Claim statuses and scope: [`measurement/CLAIM_MAP_v2.md`](measurement/CLAIM_MAP_
 ```
 THEORY.md         The v2.9 draft, frozen: proofs and claim index (§3 keeps the five-term sum)
 CORE.md           The cost and the argument in full, with every number (governs)
-theory/           The heat, the designs the minimum gives, and the checks
-theory/applications/     Cases: a design read onto a real system (interpretations)
+theory/           The heat, the designs the minimum gives, the checks, and the cases (theory/applications/)
+records/          Frozen runs, reviews and earlier figure views (derivation_map.png, face.png); never edited
 measurement/      One status per claim
-figures/          master_curve.png, the master picture; derivation_map.png and face.png, earlier views
+figures/          master_curve.png, the master picture
 ```
 
 AI agents helped draft, compute, and review these files under the author's direction. License: [CC0 1.0](LICENSE). Everything here is public domain under CC0, cited works keep their own terms, and the separate application repositories listed in [`theory/applications/README.md`](theory/applications/README.md) keep their own licenses.
