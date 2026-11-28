@@ -1,6 +1,6 @@
 # Gate read: `theory/speed-cost-2026-11-27/PREREG.md`
 
-*Friday 27 November 2026 (America/New_York). Reads the `Gate` section of `PREREG.md` (lock commit `4dabe1e96c9a12b3302f9cb19bd779777dd3b3cb`, sha256 `a74b83bae146fc517d9aab75c892518b724cd6f6b22c22d8a071eca947e7b2b1`, the first line of `LOCK.txt`) and the formulas it cites, per `process/PREREG_GATE.md` section 2. **Limit, stated up front:** this is a separate pass by the same agent that wrote the prereg, made after the lock and before any scored run. It is not an independent reader. It checks order and the five fields; it does not make the gate independent.*
+*Friday 27 November 2026 (America/New_York). Reads the `Gate` section of `PREREG.md` (lock commit `4dabe1e96c9a12b3302f9cb19bd779777dd3b3cb`, sha256 `dbc70a9aeaa56c9e615c05f34b5f2e6f0ac5afe5e11e44f99197313c622aa272`, the first line of `LOCK.txt`) and the formulas it cites, per `process/PREREG_GATE.md` section 2. **Limit, stated up front:** this is a separate pass by the same agent that wrote the prereg, made after the lock and before any scored run. It is not an independent reader. It checks order and the five fields; it does not make the gate independent.*
 
 | ID | G1 | G2 | G3 | G4 | G5 | Pass or stop |
 |---|---|---|---|---|---|---|
