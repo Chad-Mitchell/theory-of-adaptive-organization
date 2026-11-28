@@ -1,0 +1,9 @@
+BA-T1 w_x=0.5: finite-diff Delta 18.22406 vs exact 18.22406
+BA-T1 w_x=1: finite-diff Delta 19.20872 vs exact 19.20872
+BA-T1 w_x=2: finite-diff Delta 21.17804 vs exact 21.17804
+BA-T2 w=3 K=32: per-member 2.424009 (table 2.424009122), direct 2.464102, Q0+Q1 15.544797 vs total EP 15.544797
+BA-T2 w=10 K=24: per-member 5.294034 (table 5.294033390), direct 5.324555, Q0+Q1 30.794162 vs total EP 30.794162
+BA-T2 w=100 K=24: per-member 18.258173 (table 18.258172031), direct 19.000000, Q0+Q1 118.403255 vs total EP 118.403255
+Q0 Lyapunov 0.9607843137 closed 0.9607843137
+Q0 Lyapunov 52.0833333333 closed 52.0833333333
+Q0 Lyapunov 1.3333333333 closed 1.3333333333
