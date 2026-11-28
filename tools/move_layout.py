@@ -3,7 +3,7 @@
 
   python3 tools/move_layout.py --renames     step 1: every tracked file p goes to movemap.forward(p); bytes unchanged
   python3 tools/move_layout.py --refs BASE   step 2: rewrite path references in editable files (paths only)
-  python3 tools/move_layout.py --report BASE print what step 2 changed and what it left (frozen files)
+  python3 tools/move_layout.py --readmes BASE step 3: write records/README.md (pins BASE) and theory/swarm/README.md
 
 Step 2 edits a file only when it is not locked, not under records/, not THEORY.md (frozen in place) and not a lock or
 data file. In a Markdown file each link target and backticked path is resolved the way a reader would (relative to the
@@ -127,12 +127,63 @@ def refs(base):
     print("rewrote references in %d files" % changed)
 
 
+RECORDS_README = """# Records
+
+Frozen material: dated runs, preregistrations and their data, reviews, lab notes, the night-2 run, the v1.4.29 theory
+and earlier figure views. Nothing here is edited; the ledger (`measurement/CLAIM_MAP_v2.md`) cites it, and the hash
+locks under it are checked by `tools/verify_locks.py`.
+
+**Moved on 27 November 2026.** These trees moved here from the top of the repository in one rename-only commit. The
+one map from old path to new path is [`tools/movemap.py`](../tools/movemap.py) (`MOVES`); every check reads it.
+Links written inside these files before the move use the old paths and resolve at the last commit before the move:
+<https://github.com/Chad-Mitchell/theory-of-adaptive-organization/tree/{base}>. To follow an old link by hand, apply
+the map to its path.
+
+| folder | what it holds |
+|---|---|
+| [`tests/`](tests/) | field and simulation tests (index: [`tests/README.md`](tests/README.md), frozen) |
+| [`prereg/`](prereg/) | field preregistrations and their data |
+| [`reviews/`](reviews/) | dated reviews (index: [`reviews/README.md`](reviews/README.md), frozen); `reviews/theory/` holds the reviews that sat under `theory/` |
+| [`notes/`](notes/) | lab notes |
+| [`night2/`](night2/) | the night-2 run |
+| [`reference/`](reference/) | the theory as it stood at v1.4.29 |
+| [`figures/`](figures/) | earlier figure views, off the front page |
+"""
+
+SWARM_README = """# The swarm rule
+
+How parts of a whole join, stay, leave and regroup, as one use of the cost of judgment. The status of each clause is
+its ledger row (`SWARM-*` in [`measurement/CLAIM_MAP_v2.md`](../../measurement/CLAIM_MAP_v2.md)); this page only
+indexes.
+
+| file | what it is |
+|---|---|
+| [`SWARM_RULE.md`](SWARM_RULE.md) | the rule, its clauses and the results it reuses |
+| [`checks/`](checks/) | the rule's numeric checks (`swarm_checks.py`, run by `tools/test_swarm_checks.py`) |
+| [`../swarm-2026-11-27/INDEX.md`](../swarm-2026-11-27/INDEX.md) | the 27 November 2026 completion: proofs in named classes, with checks and errata |
+| [`../applications/CANCER_DEFECTION_2026-11-23.md`](../applications/CANCER_DEFECTION_2026-11-23.md) | a case: cancer as defection from the tissue |
+| [`../applications/AI_AGENT_OVERSIGHT_2026-11-23.md`](../applications/AI_AGENT_OVERSIGHT_2026-11-23.md) | a case: oversight of AI agents |
+
+Cases are listed in the one index of cases, [`../applications/README.md`](../applications/README.md).
+"""
+
+
+def readmes(base):
+    full = git("rev-parse", base).strip()
+    for path, text in (("records/README.md", RECORDS_README.format(base=full)), ("theory/swarm/README.md", SWARM_README)):
+        assert not os.path.exists(os.path.join(ROOT, path)), path + " exists"
+        open(os.path.join(ROOT, path), "w", encoding="utf-8").write(text)
+    print("wrote records/README.md (pins %s) and theory/swarm/README.md" % full)
+
+
 if __name__ == "__main__":
     a = sys.argv[1:]
     if a[:1] == ["--renames"]:
         renames()
     elif a[:1] == ["--refs"] and len(a) == 2:
         refs(a[1])
+    elif a[:1] == ["--readmes"] and len(a) == 2:
+        readmes(a[1])
     else:
         print(__doc__)
         sys.exit(2)
