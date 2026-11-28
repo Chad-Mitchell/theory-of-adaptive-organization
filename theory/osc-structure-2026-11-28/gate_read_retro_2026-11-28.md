@@ -1,0 +1,22 @@
+# Retrospective same-agent gate read of `theory/osc-structure-2026-11-28/PREREG.md`
+
+*Saturday 28 November 2026 (America/New_York). Written after the fact, after RESULTS (`36b5360a466955dcdec6f3178a66a06b6568cb44`, 08:48:50 ET) and after the independent review of head `0b0478fa`. This file does not predate the results, and it does not satisfy `tools/check_pending.py` (a `gate_read*` file must be committed before RESULTS; `process/PREREG_GATE.md` §2). It only puts the same-agent gate already recorded at `PREREG.md:70` into the file the check looks for.*
+
+**What happened at the lock.** The preregistration (`edddf236f176218ea41e76179a691e0effdff334`, 08:40:10 ET; sha256 `baf1c3d80287d8bc3d85f9434c6eed926d519adf480f498d53537ae0997072e6`, `LOCK.txt`) includes a Gate section and this sentence (`PREREG.md:70`): "No independent gate reader was available before the run; this is a same-agent pass, recorded as such." No separate `gate_read*.md` was committed before RESULTS. This is a process miss (`OSC-GATE-1`). **Limit, stated up front:** this is the same agent that wrote the prereg and the results, not an independent reader. It has seen the results. The G1–G5 answers below are copied from the locked Gate table (`PREREG.md:58–68`), not re-judged after the outcomes. It does not make the gate independent, and it does not clear the pending check.
+
+| ID | G1 | G2 | G3 | G4 | G5 | Pass or stop (from the lock) |
+|---|---|---|---|---|---|---|
+| OS-A1 | Miss odds 0.05, about 0 | Fails G2, as labeled: Kalman–Bucy and the internal model principle (Kalman and Bucy 1961; Francis and Wonham 1976) | — | (b) `CORE.md:27` | Logged | CONSISTENCY_CHECK, logged |
+| OS-A2 | Named: global max of \(S_x\) at some \(\nu>0\) at a listed \(k\tau\); odds 0.40, not about 0 | Passes at the lock: a spectrum with no closed-form maximizer known to the author | Passes: restricted design C1 at high stake, a peak at \(\nu>0\) if C1 (iii) holds | (b) `CORE.md:27`, `:129` | Different after a hit and a miss, as locked | **Pass as a TEST** |
+| OS-B1 | Miss odds 0.03, about 0 | Fails G2, as labeled: Schur complement of a PSD form is PSD | — | (b) `CORE.md:52` | Logged | CONSISTENCY_CHECK, logged |
+| OS-B2 | Miss odds 0.08, about 0 | Fails G2, as labeled: textbook LQR | — | (b) `CORE.md:52`; #309 `RESULTS.md:9` | Logged | CONSISTENCY_CHECK, logged |
+| OS-B3 | Miss odds 0.10 | Fails G2, as labeled at the lock: symmetric root locus, Butterworth pattern (Kwakernaak 1976) | — | (b) `CORE.md:52` | Logged | CONSISTENCY_CHECK, logged |
+| OS-C1 (i), (ii) | (i) 0.03; (ii) 0.15 on the band, and (ii) was reasoned before the lock | Fails G2, as labeled | — | (b) `CORE.md:129` | Logged | CONSISTENCY_CHECK, logged |
+| OS-C1 (iii), (iv) | (iii) \(\rho_c\) outside \([1,30]\) or the peak rule wrong, odds 0.50; (iv) period outside \([5\tau,9\tau]\), odds 0.40 | Passes at the lock: a minimization with no closed form | Passes: one-store, no-delay loop, no peak at any stake | (b) `CORE.md:129` (COAD-F4) | Different after a hit and a miss, as locked | **Pass as a TEST** |
+| OS-C2 | Miss odds 0.10, about 0 | Fails G2, as labeled: economic order quantity (Harris 1913, reprinted 1990) | — | (b) `CORE.md:100` | Logged | CONSISTENCY_CHECK, logged |
+| OS-C3 | Named: no stable cycle at \(1.1\cdot\pi/2\), period outside \([4.0\tau,4.6\tau]\), or zero excess; odds 0.20 | Passes at the lock: period at \(1.1\times\) onset is numerical | Linear Hayes value at onset, \(4\tau\) | (b) `CORE.md:129` | Logged either way | **Pass as a TEST** (low information) |
+| OS-D | Miss odds 0.08, about 0 | Fails G2, as labeled: Kalman 1964 and the reading of the record | — | (b) `CORE.md:52`; (c) cited literature only | Logged | CONSISTENCY_CHECK, logged |
+
+**Outcome at the lock: PASS, 0 blocking, same-agent only.** Two bars are TESTs that can miss (OS-A2, OS-C1 (iii)–(iv)); OS-C3 is a low-information TEST. The rest are CONSISTENCY_CHECKs.
+
+**Seen after the results, not used to change any pass or stop above.** OS-A2 hit; a bound found after the run makes it an identity after the fact (`RESULTS.md:23`; the transfer function was already reasoned before the lock, `OSC-DISCLOSE-1`). OS-B3: the Butterworth damping hit, the locked peak rule missed. OS-C1: (i), (ii) and (iv) hit; \(\rho_c=0.912\) missed the band \([1,30]\). OS-C3 hit. Incomplete pre-lock disclosure of the C1 peak rule and the A2 transfer function is already logged as `OSC-DISCLOSE-1`.
