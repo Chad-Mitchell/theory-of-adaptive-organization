@@ -21,13 +21,16 @@ public import Mathlib.Tactic.Positivity
 One item of the working notes.  If it is held (`h = 1`) it costs storage
 upkeep `c` per unit time, a re-check of cost `k` every `T` on average, and the
 drift loss `a σ² T / 6`; if it is dropped (`h = 0`) it costs `L` per unit
-time.  `GROK_BOT_MEMORY` §4 writes `a = w` and `L = w p`:
-
-`J = h (c + k/T + w σ² T/6) + (1 − h) w p`.
+time.  `GROK_BOT_MEMORY` §4 as printed on 23 November 2026 wrote `a = w` and
+`L = w p`, `J = h (c + k/T + w σ² T/6) + (1 − h) w p`; under §4's own
+definitions that reading is dimensionally inconsistent (miss M45), and the
+page now writes `a = w p / g²`, `J = h (c + k/T + w p s T/6) + (1 − h) w p`
+with `s = σ²/g²`.
 
 The theorems below are stated for a general drift weight `a` and drop loss
-`L` and then specialized to `a = w`, `L = w p`, so they hold under either
-reading of the stake in the drift term.
+`L`.  `doc_hold_rule` and `doc_example` specialize them to the printed
+`a = w`; `fixed_hold_rule`, `printed_example_flips`, `corrected_example` and
+the `post_*` theorems to the corrected `a = w p / g²`.
 
 What is assumed, not formalized: the stochastic facts behind `k/T + aσ²T/6`
 (Brownian drift reset to zero at the band `±b`: mean exit time `b²/σ²` and
