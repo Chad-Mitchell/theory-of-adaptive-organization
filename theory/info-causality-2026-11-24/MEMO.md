@@ -1,6 +1,6 @@
 # MEMO: paid information and information causality
 
-*24 November 2026 (UTC). Desk derivation, written after the prereg commit and not before it. Self-check, then the independent review at `theory/reviews/INFO_CAUSALITY_REVIEW_2026-11-24.md`. `THEORY.md` is unchanged. Open-work row T71. KNOWN and CONJECTURE below are the status words defined at `CORE.md` §Status words (header at `:167`). Relabel is the prereg's stopping word (`PREREG.md:44`). Model implication is plain language for the priced comparison, not a status word in that paragraph.*
+*24 November 2026 (UTC). Desk derivation, written after the prereg commit and not before it. Self-check, then the independent review at `records/reviews/theory/INFO_CAUSALITY_REVIEW_2026-11-24.md`. `THEORY.md` is unchanged. Open-work row T71. KNOWN and CONJECTURE below are the status words defined at `CORE.md` §Status words (header at `:167`). Relabel is the prereg's stopping word (`PREREG.md:44`). Model implication is plain language for the priced comparison, not a status word in that paragraph.*
 
 ## Why this approach
 
@@ -67,7 +67,7 @@ C1 fail. C2 pass (this memo names the added axiom and stops). C3 pass (sum is 1 
 
 ## Errata
 
-Response to `theory/reviews/INFO_CAUSALITY_REVIEW_2026-11-24.md` (commit `b70c81c`). The relabel stands. `PREREG.md` is unchanged. This desk check is open-work row T71.
+Response to `records/reviews/theory/INFO_CAUSALITY_REVIEW_2026-11-24.md` (commit `b70c81c`). The relabel stands. `PREREG.md` is unchanged. This desk check is open-work row T71.
 
 1. **Number.** The row was first written as T69. Four branches collided on that number. The allocation is layer T69, constants T70, this desk check T71, composite T72. The science is the same.
 

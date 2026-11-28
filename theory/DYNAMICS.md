@@ -224,7 +224,7 @@ reserve. For additive stakes, nothing changes.
 **A confound for ROBUST-SLACK (CX8, PR #115).** RS-1 predicts reserves and copies above the plug-in ε-minimum.
 Compounding stakes with lumpy losses predict extra copies with no uncertainty at all (CT43 (iv)), so RS-1 alone cannot
 separate the two. RS-2 (the excess rises with the record's uncertainty) can. This is handled by deviation D10 in
-`prereg/ROBUST-SLACK/DEVIATIONS.md` (appended on PR #115's branch before any data, about 2:54 PM ET, credited to this
+`records/prereg/ROBUST-SLACK/DEVIATIONS.md` (appended on PR #115's branch before any data, about 2:54 PM ET, credited to this
 PR; now on main at `1998a2d`); see that file for the binding text.
 
 ## 5. The two OVERREACH verdicts, re-checked

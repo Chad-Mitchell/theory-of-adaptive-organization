@@ -66,11 +66,11 @@ The table is the Newton-polish deviation stored in `nest_map.out` and `unit_choi
 
 ## Files
 
-`PREREG.md`, `PREREG_ADDENDUM.md`, `PREREG_ADDENDUM_2.md`, `criteria.json`, `crossref.out`, `nest_map.py`, `nest_map.out`, `unit_choice_gate.py`, `unit_choice_gate.out`, `RUN_LOG.md`. The review is `theory/reviews/LAYER_FIXED_POINT_REVIEW_2026-11-24.md` (`8631e48`).
+`PREREG.md`, `PREREG_ADDENDUM.md`, `PREREG_ADDENDUM_2.md`, `criteria.json`, `crossref.out`, `nest_map.py`, `nest_map.out`, `unit_choice_gate.py`, `unit_choice_gate.out`, `RUN_LOG.md`. The review is `records/reviews/theory/LAYER_FIXED_POINT_REVIEW_2026-11-24.md` (`8631e48`).
 
 ## ERRATA
 
-Checked against `theory/reviews/LAYER_FIXED_POINT_REVIEW_2026-11-24.md`. `PREREG.md`, both addenda, `criteria.json`, and the stored outputs are unchanged. Each item was recomputed or reread. Accept means the review's claim holds.
+Checked against `records/reviews/theory/LAYER_FIXED_POINT_REVIEW_2026-11-24.md`. `PREREG.md`, both addenda, `criteria.json`, and the stored outputs are unchanged. Each item was recomputed or reread. Accept means the review's claim holds.
 
 **1. Accept.** The locked procedure is a golden section on \(\ln t\in[-8,8]\) at tolerance \(10^{-14}\) (`PREREG.md` line 71, `criteria.json` lines 17–18). S1 requires \(\max|Tf_*-f_*|<10^{-12}\) (`PREREG.md` line 83). BROKEN wins if S1 fails, and \(\rho\) is not interpreted (`PREREG.md` lines 91–93). Calling that golden section, and nothing else, on \(f_*\) at \(b=2\) gives \(\max|Tf_*-f_*|=1.66872758278\times 10^{-7}\). Scan plus golden section, still without Newton, gives \(5.03183716916\times 10^{-9}\). Both miss \(10^{-12}\). The preregistered outcome is **BROKEN**.
 
@@ -96,6 +96,6 @@ The conclusion is narrowed. This dyadic analogue yields no number. That does not
 
 **7. Accept.** `PREREG_ADDENDUM.md` line 20 says that Feigenbaum, Coullet, Lanford, and period-doubling appear only in `PREREG.md`. At `43ad8c6` those strings also appear in that sentence and in `criteria.json` line 20 ("Feigenbaum-sized"). Nothing in that grep sits outside `theory/layer-fixed-point-2026-11-23/`.
 
-The three section pointers are real, and they are not those grep hits. `theory/MATH_COMPLETENESS_AUDIT.md` lines 313–317, §(iii), say a universal layered fixed point is likely false, and that the dimensionless groups in `THEORY.md` B.9 do not produce layers. `theory/MATH_ATTACK.md` line 237, §3.1, is the probabilistic renormalization group for shocks, and line 302, §3.6, says there is no deep RG and no anomalous exponents. `reviews/night1/CORE_AUDIT.md` line 165, §2.5(e), is \(\Pi^\star=\gamma^{-1/(1-\gamma)}\) (4 at \(\gamma=1/2\)). The exponent there is \(\gamma\), not \(H\), and the line does not say "eigenvalue of a nesting map."
+The three section pointers are real, and they are not those grep hits. `theory/MATH_COMPLETENESS_AUDIT.md` lines 313–317, §(iii), say a universal layered fixed point is likely false, and that the dimensionless groups in `THEORY.md` B.9 do not produce layers. `theory/MATH_ATTACK.md` line 237, §3.1, is the probabilistic renormalization group for shocks, and line 302, §3.6, says there is no deep RG and no anomalous exponents. `records/reviews/night1/CORE_AUDIT.md` line 165, §2.5(e), is \(\Pi^\star=\gamma^{-1/(1-\gamma)}\) (4 at \(\gamma=1/2\)). The exponent there is \(\gamma\), not \(H\), and the line does not say "eigenvalue of a nesting map."
 
 The mirror row, upstream `e3e0e701`, `MIRROR_MEMO.md` lines 113 and 147, is "Nested-layer fixed point gives a universal GTAO number | CONJECTURE, untested" and "no route to \(\alpha\) was found." `MIRROR_REVIEW.md` passes the no-route claim. Ace's working conjecture is stated and labeled not a result (`PREREG_ADDENDUM.md` line 36).

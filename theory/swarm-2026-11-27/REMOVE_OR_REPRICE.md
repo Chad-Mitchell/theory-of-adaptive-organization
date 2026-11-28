@@ -1,6 +1,6 @@
 # Remove or reprice under the ruin cap (T53, clause 7)
 
-*Friday 27 November 2026 (America/New_York). Part of `theory/swarm-2026-11-27/` (index: `INDEX.md`). Branched from `863a8a8bb3e0bb46c00a9236a9b4d5192c4b9d8d`. Clause 7 (`theory/SWARM_RULE_2026-11-23.md:50` at the branch point) was a CONJECTURE whose inequality "is written, not derived" (T53; ledger row SWARM-REPRICE). This note derives it in a named class. Checks: `checks/swarm27_checks.py`, section F. A self-check, not an independent review.*
+*Friday 27 November 2026 (America/New_York). Part of `theory/swarm-2026-11-27/` (index: `INDEX.md`). Branched from `863a8a8bb3e0bb46c00a9236a9b4d5192c4b9d8d`. Clause 7 (`theory/swarm/SWARM_RULE.md:50` at the branch point) was a CONJECTURE whose inequality "is written, not derived" (T53; ledger row SWARM-REPRICE). This note derives it in a named class. Checks: `checks/swarm27_checks.py`, section F. A self-check, not an independent review.*
 
 The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.
 
@@ -17,7 +17,7 @@ A part has left (its index is above 1). The whole has a finite menu of responses
 | cut, then remove | \(\tau_R\) | \(h_X\le h_R\) | \(L_R+K_X\) |
 | cut, then reprice | \(\tau_P\) | \(h_X\le h_P\) | \(C_P+K_X\) |
 
-with \(K_X\ge0\) the cost of cutting the exposure first. The whole's ruin cap is \(P(\text{ruin})\le\varepsilon\) (`theory/SWARM_RULE_2026-11-23.md:23`). Hazards, times and costs are MEASUREMENTS.
+with \(K_X\ge0\) the cost of cutting the exposure first. The whole's ruin cap is \(P(\text{ruin})\le\varepsilon\) (`theory/swarm/SWARM_RULE.md:23`). Hazards, times and costs are MEASUREMENTS.
 
 ## 2. Results
 

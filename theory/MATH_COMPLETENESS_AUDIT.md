@@ -111,7 +111,7 @@ The five slots are named, and the qualification rule in THEORY.md §3 says how a
 - \(I_{\mathrm{mem}}\) is nats held, \(I(M_t;X^t)\), and, in CT4, bits. \(I_{\mathrm{pred}}\) in the notation table (THEORY.md:223) is a single-time mutual information. Bialek, Nemenman and Tishby's predictive information is a different functional. The proofs use the single-time quantity. The English in §1 does not keep them apart.
 - \(A\) has three definitions. \(L\) has three summands. MASTER_EQUATION.md:62: no layer theorem uses \(\kappa\) and \(h\) jointly.
 - Ruin is two constraints. THEORY.md:185 says so: lifetime Lundberg ruin, and a per-window chance constraint (CT25). CT22's "infeasible" means "not certified by a sufficient bound".
-- "Layer" is a first-order store, a McMillan degree, an org-chart level, and a lumpy reset. CT21's "a rhythm counts two" is a degree count. The objects one would build, real first-order stores, do not come in twos on the worked rhythm (`core/KEYSTONE_NOTE.md`:46).
+- "Layer" is a first-order store, a McMillan degree, an org-chart level, and a lumpy reset. CT21's "a rhythm counts two" is a degree count. The objects one would build, real first-order stores, do not come in twos on the worked rhythm (`theory/KEYSTONE_NOTE.md`:46).
 
 S-A, the inequality \(A\ge c\cdot r\), is labeled an assumption and not a sensor law (SHANNON.md:29). Sagawa and Ueda (doi 10.1103/PhysRevLett.102.250602; erratum doi 10.1103/PhysRevLett.106.189901) bound measurement work and erasure work together. They do not provide a second thermodynamic price to stack on a Landauer floor under \(\kappa\). The text says this. It is the right reading, and it leaves \(c\) without an operational floor.
 

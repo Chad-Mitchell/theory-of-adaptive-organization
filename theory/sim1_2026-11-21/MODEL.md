@@ -1,6 +1,6 @@
 # SIM-1 / T28: simulation is already inside \(J\)
 
-*21 November 2026 (America/New_York). Package `core/sim1_2026-11-21/`. This package does not change `CORE.md` or the hypothesis sentence in [`OPEN_WORK.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md) (SIM-1). In-model. Field-untested.*
+*21 November 2026 (America/New_York). Package `theory/sim1_2026-11-21/`. This package does not change `CORE.md` or the hypothesis sentence in [`OPEN_WORK.md`](https://github.com/Chad-Mitchell/theory-of-adaptive-organization/blob/1eed183f3888e8e3eead5956bbf1e8cb4233510a/OPEN_WORK.md) (SIM-1). In-model. Field-untested.*
 
 ## Already in the repository (not new)
 
@@ -8,7 +8,7 @@
 - CT4 (the first bit must pay): a model is carried iff memory is cheaper than the first increment of predictive value; Gaussian form \(I^\star=\tfrac12\log_2(2\ln 2\cdot a^2\cdot\mathrm{Var}/\kappa)\).
 - CT10 is the in-repo ancestor of the official P1 and P3 statements: with \(J(f;w)=c\cdot f+w\cdot A(\lambda/f)\), the minimizing check frequency is nondecreasing in stakes \(w\), by the same decreasing-differences / Topkis argument (THEORY CT10 / G4). CT12's read-rate rule and the single-instrument clause of CT20(ii) are the same shape at a fixed instrument. CT33 (with CT20) is the in-repo ancestor of the spend-and-error diagnostic: with the ruin cap slack, total judgment spend is nondecreasing and expected error is nonincreasing in stakes \(w\). A single instrument (layer count, read rate, or rollout count) is monotone only when the other instruments are held fixed; substitutes can move against the stake (the referee's reads-for-layers counterexample, B.9).
 - CT22: when the Lundberg cap binds, the feasible set can shrink with \(w\) and those monotone statements can fail.
-- T27 / `core/bridge_2026-11-21/`: under \(m=-\alpha J\), weak-mutation Moran has stationary law \(\pi\propto e^{-\beta J}\), \(\beta=\alpha(N-1)\). Official T27 result: P1 and P2 passed, P3 failed; the lesson for later preregs is to compute every gate's exact/analytic value on published pilots *before* locking, and to hash-lock the runner and the library at lock time.
+- T27 / `theory/bridge_2026-11-21/`: under \(m=-\alpha J\), weak-mutation Moran has stationary law \(\pi\propto e^{-\beta J}\), \(\beta=\alpha(N-1)\). Official T27 result: P1 and P2 passed, P3 failed; the lesson for later preregs is to compute every gate's exact/analytic value on published pilots *before* locking, and to hash-lock the runner and the library at lock time.
 
 What is new here is a *minimal mechanism* for rehearsal, already booked in those existing terms, and a preregistered in-model test of the comparative statics of the rollout count \(m^\star\). The qualitative idea that a system should simulate more when stakes or ruin risk are high and an internal model is cheap, and simulate zero when stakes are near the model's cost, is not a discovery of this package.
 

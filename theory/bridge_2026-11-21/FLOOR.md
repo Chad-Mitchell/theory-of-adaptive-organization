@@ -1,6 +1,6 @@
 # Thermodynamic floor: what is already proved, and one explicit corollary
 
-*21 November 2026 (America/New_York). Package `core/bridge_2026-11-21/`. This note does not change `CORE.md` or the hypothesis sentence. It does not re-derive results already in the repository.*
+*21 November 2026 (America/New_York). Package `theory/bridge_2026-11-21/`. This note does not change `CORE.md` or the hypothesis sentence. It does not re-derive results already in the repository.*
 
 ## Already in the repository (not new)
 

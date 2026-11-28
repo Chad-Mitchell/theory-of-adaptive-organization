@@ -2,7 +2,7 @@
 """Fast identities for T28: FOC, Topkis differences, first-bit threshold,
 seed non-collision, lock hashes (including runner and library).
 
-Run: python3 core/sim1_2026-11-21/math_checks.py
+Run: python3 theory/sim1_2026-11-21/math_checks.py
 """
 from __future__ import annotations
 

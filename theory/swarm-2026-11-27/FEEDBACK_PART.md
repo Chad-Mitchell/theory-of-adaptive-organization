@@ -1,6 +1,6 @@
 # The heat floor with feedback, for a part (T61 applied to the swarm rule)
 
-*Friday 27 November 2026 (America/New_York). Part of `theory/swarm-2026-11-27/` (index: `INDEX.md`). Branched from `863a8a8bb3e0bb46c00a9236a9b4d5192c4b9d8d`. The swarm rule left one item: "Applying T61 to a part that moves the whole's signal is not worked out. OPEN" (`theory/SWARM_RULE_2026-11-23.md:91` at the branch point; the same item at `theory/THEOREMS.md:171`). This note works it out in finite bipartite jump chains. Checks: `checks/swarm27_checks.py`, section H. A self-check, not an independent review.*
+*Friday 27 November 2026 (America/New_York). Part of `theory/swarm-2026-11-27/` (index: `INDEX.md`). Branched from `863a8a8bb3e0bb46c00a9236a9b4d5192c4b9d8d`. The swarm rule left one item: "Applying T61 to a part that moves the whole's signal is not worked out. OPEN" (`theory/swarm/SWARM_RULE.md:91` at the branch point; the same item at `theory/THEOREMS.md:171`). This note works it out in finite bipartite jump chains. Checks: `checks/swarm27_checks.py`, section H. A self-check, not an independent review.*
 
 The law of adaptive organization (hypothesis): strongly selected systems minimize the cost of judgment.
 
@@ -12,7 +12,7 @@ Three binary coordinates in continuous time: the **world** \(X\), a fair telegra
 
 ## 2. Results
 
-**P1 (an untampered part has the exogenous floor; PROVED (in-model), an instance of T60 and JP-heat).** If the part does not move the signal (the stay clause's condition, `theory/SWARM_RULE_2026-11-23.md:45`), then for a fair telegraph signal of rate \(\lambda\) and any finite memory with local detailed balance,
+**P1 (an untampered part has the exogenous floor; PROVED (in-model), an instance of T60 and JP-heat).** If the part does not move the signal (the stay clause's condition, `theory/swarm/SWARM_RULE.md:45`), then for a fair telegraph signal of rate \(\lambda\) and any finite memory with local detailed balance,
 \[
 \dot Q_M\ \ge\ I_{\text{alt}}\ \ge\ \lambda\,L\bigl(\varepsilon_M(S)\bigr).
 \]

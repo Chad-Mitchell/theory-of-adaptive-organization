@@ -72,7 +72,7 @@ for w in (2, 4, 6, 8, 10, 11, 14, 16):
     o = ruin_opt(w); seq.append(o); print(f"       w={w:3d}: best feasible {o[1]}  S*={o[2]}  E*={o[3]}  J*={o[0]:.2f}")
 chk('ruin-binding counterexample: S falls and E rises', seq[-1][2] < max(o[2] for o in seq) and seq[-1][3] > min(o[3] for o in seq))
 print("       so CT33 and Master Theorem (ii) are statements for the ruin constraint slack at the stakes compared (B >= B_slack) or absent.")
-# (1c) the face map (figures/face_map.py): along rising stakes the chosen design's upkeep never falls and its error never rises
+# (1c) the face map (records/figures/face_map.py): along rising stakes the chosen design's upkeep never falls and its error never rises
 sys.path.insert(0, os.path.join(ROOT, 'figures')); import face_map as fm
 okS = True; rng_ = np.random.default_rng(33)
 for _ in range(300):

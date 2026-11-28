@@ -1,10 +1,10 @@
 # Correction to `theory/INFO_PHYSICS.md`
 
-*22 November 2026. Dated record, after the review of draft PR #178 (`reviews/attainability_2026-11-22/REVIEW.md`). The merged note is not rewritten. The sentences below stay in that file as the text the reviews of PR #175 scored. This record says which of them are superseded, and for which loss.*
+*22 November 2026. Dated record, after the review of draft PR #178 (`records/reviews/attainability_2026-11-22/REVIEW.md`). The merged note is not rewritten. The sentences below stay in that file as the text the reviews of PR #175 scored. This record says which of them are superseded, and for which loss.*
 
 ## What stays
 
-The centered spring \(dM=-\lambda(M-X)\,dt+\sqrt{2D}\,dB\), scored by the raw coordinate error \(\mathbb{E}[(M-X)^2]\), is unchanged. At fixed raw error below the signal variance, the heat falls toward \(kT\,av/\varepsilon\) and the flow rises from the Kalman rate \(a(v-\varepsilon)/\varepsilon\) to the same value. The raw-coordinate heat objective is blind at stake 2, cost 2. The stake table in §8a is the table of that coordinate. `reviews/info_physics_2026-11-22/REVIEW.md` and `reviews/info_physics_2026-11-22_round2/REVIEW.md` remain correct for that family and that loss.
+The centered spring \(dM=-\lambda(M-X)\,dt+\sqrt{2D}\,dB\), scored by the raw coordinate error \(\mathbb{E}[(M-X)^2]\), is unchanged. At fixed raw error below the signal variance, the heat falls toward \(kT\,av/\varepsilon\) and the flow rises from the Kalman rate \(a(v-\varepsilon)/\varepsilon\) to the same value. The raw-coordinate heat objective is blind at stake 2, cost 2. The stake table in §8a is the table of that coordinate. `records/reviews/info_physics_2026-11-22/REVIEW.md` and `records/reviews/info_physics_2026-11-22_round2/REVIEW.md` remain correct for that family and that loss.
 
 ## What is superseded
 

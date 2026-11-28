@@ -1,6 +1,6 @@
 # Drift selection: closeness to a moving cost minimum
 
-*Saturday 21 November 2026, evening, America/New_York. Branch `drift-selection-2026-11-21`, draft PR. Written by one executor for Chad Mitchell; revised after the independent review of PR #146 (`reviews/drift_selection_2026-11-21/REVIEW.md`, verdict NOT READY). The revisions are a self-check of those fixes, not independently reviewed. Builds on `theory/SELECTION_AXIOMS.md` (A1, A2-L, SA1–SA4) and `theory/DYNAMICS.md` (CL19). It does not change the Part 2 hypothesis sentence, THEORY §4, CORE (beyond a one-line pointer), the locked factor of 10, or any locked preregistration or hash file.*
+*Saturday 21 November 2026, evening, America/New_York. Branch `drift-selection-2026-11-21`, draft PR. Written by one executor for Chad Mitchell; revised after the independent review of PR #146 (`records/reviews/drift_selection_2026-11-21/REVIEW.md`, verdict NOT READY). The revisions are a self-check of those fixes, not independently reviewed. Builds on `theory/SELECTION_AXIOMS.md` (A1, A2-L, SA1–SA4) and `theory/DYNAMICS.md` (CL19). It does not change the Part 2 hypothesis sentence, THEORY §4, CORE (beyond a one-line pointer), the locked factor of 10, or any locked preregistration or hash file.*
 
 ## 0. Bottom line
 

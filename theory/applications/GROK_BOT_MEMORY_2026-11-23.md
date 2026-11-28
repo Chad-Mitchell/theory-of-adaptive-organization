@@ -6,7 +6,7 @@ The law of adaptive organization (hypothesis): strongly selected systems minimiz
 
 ## 1. What this is
 
-This page records how the cost is used in one system: Grok Bot's working notes in a long chat. Applications are not evidence for the theory unless a test says so, and they are not the theory itself (`applications/README.md`).
+This page records how the cost is used in one system: Grok Bot's working notes in a long chat. Applications are not evidence for the theory unless a test says so, and they are not the theory itself (`theory/applications/README.md`).
 
 Write the cost, find its minimum, read off the design, and state which inputs are still measurements.
 

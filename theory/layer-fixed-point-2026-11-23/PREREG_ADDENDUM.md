@@ -23,7 +23,7 @@ Already in this tree, and not the object under test:
 
 - `theory/MATH_COMPLETENESS_AUDIT.md` §(iii). An RG fixed point of layered design would be a beta function for price ratios. The audit says a universal layered fixed point is likely false, and that the dimensionless groups in `THEORY.md` B.9 do not produce layers.
 - `theory/MATH_ATTACK.md` §3.1 and §3.6. Shock distributions have probabilistic-RG fixed points. The same note says the renormalization picture here is a Gaussian fixed point with no anomalous exponents, and that claiming a deep RG would be inflation.
-- `reviews/night1/CORE_AUDIT.md` §2.5(e). \(\Pi^\star\) and a vigilance ratio are exponent arithmetic at \(H=1/2\), not an eigenvalue of a nesting map.
+- `records/reviews/night1/CORE_AUDIT.md` §2.5(e). \(\Pi^\star\) and a vigilance ratio are exponent arithmetic at \(H=1/2\), not an eigenvalue of a nesting map.
 
 Literature check for the operator analogy is the one already locked in `PREREG.md` §5, with DOIs in `crossref.out` (Crossref, 24 November 2026). No further citation is added. Nothing in that list states the operator in `PREREG.md` §1.
 
