@@ -1,0 +1,25 @@
+PASS  1a open-loop optimal constant velocity v* = wT(x1-x0)/(gamma+wT tau)
+PASS  1b J(v)-J(v*) = (gamma tau + wT tau^2)(v-v*)^2 (strict minimum, any D)
+PASS  1c wT -> oo: v* -> (x1-x0)/tau (classical free path)
+PASS  1d wT = 0: v* = 0 whatever the endpoints (degenerate limit selects no path)
+PASS  1e minimized heat = (2 gamma / M) * free action on the same path
+PASS  1f units: heat on window is J, action is J s, ratio is 1/s
+PASS  1g discrete N=50 optimum has equal steps (affine path) to 1e-12
+PASS  1h discrete optimum velocity equals v*
+PASS  2a positive stake: sinh path solves gamma x'' = w x with ends x0, x1
+PASS  2b real-time path solves x'' = -omega^2 x
+PASS  2c match needs W = -gamma*omega^2 (negative stake, excluded by A8)
+      midpoint, x0=0, x1=1, |w|/gamma = omega^2 = 1, tau = 1: Euclidean 0.443409, real-time 0.569747
+PASS  2d with w>0 the selected path is not the real-time path (midpoints differ)
+      second variation, W = -gamma omega^2, gamma = omega = 1: lowest Dirichlet eigenvalue (n=1)
+      tau*omega/pi = 0.5: lambda_1 = +3.000000 (continuum), +2.999979 (n=400 grid); minimum
+      tau*omega/pi = 0.9: lambda_1 = +0.234568 (continuum), +0.234562 (n=400 grid); minimum
+      tau*omega/pi = 1.1: lambda_1 = -0.173554 (continuum), -0.173558 (n=400 grid); saddle: J unbounded below along sin(pi t/tau)
+      tau*omega/pi = 2.0: lambda_1 = -0.750000 (continuum), -0.750001 (n=400 grid); saddle: J unbounded below along sin(pi t/tau)
+PASS  2e real-time oscillator: minimum for tau<pi/omega, saddle (no J minimum) for tau>pi/omega
+PASS  2f any W >= 0: second variation positive for every tau (Euclidean, always a minimum)
+PASS  3a Qdot = gamma mu'^2 + gamma V'^2/(4V) - (kT/2) d ln V/dt (mean and width decouple)
+      the mean-path part gamma*mu'^2 is the open-loop free-particle cost; the information
+      (entropy) term -(kT/2) d ln V/dt acts only on the width V, so the selected mean path
+      is affine with or without feedback (certainty equivalence).
+RESULT: PASS
