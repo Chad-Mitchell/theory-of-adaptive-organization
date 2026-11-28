@@ -40,7 +40,8 @@ esac
     os.chmod(gh, os.stat(gh).st_mode | stat.S_IEXEC)
     open(os.path.join(d, "head"), "w").write(sha + "\n")
     env = dict(os.environ, GTAO_REPO_URL=repo, GTAO_PREMERGE_DIR=os.path.join(d, "ok"), GTAO_GH=gh,
-               GTAO_PREMERGE_CHECKS="true\ntest -f a.txt", HEAD_MAIN=sha)
+               GTAO_PREMERGE_CHECKS="true\ntest -f a.txt", HEAD_MAIN=sha,
+               GTAO_PREMERGE_LOCK=os.path.join(d, "lock"))
     yield dict(d=d, sha=sha, env=env, log=log)
     shutil.rmtree(d)
 
@@ -123,3 +124,41 @@ def test_merge_refuses_a_cut_ok_file(world):
         assert r.returncode == 1 and "not a complete premerge pass" in r.stdout
     open(ok, "w").write("")
     assert run([MERGE, "7"], world["env"]).returncode == 1
+
+
+def _holder(world, key):
+    """A stand-in premerge.sh that holds the lock and sleeps; returns the Popen."""
+    script = os.path.join(world["d"], "premerge.sh")
+    open(script, "w").write('#!/usr/bin/env bash\nexec 9>>"$L"; flock -n 9 || exit 9\necho "pid $$ key %s" > "$L"\nsleep 120\n' % key)
+    os.chmod(script, 0o755)
+    p = subprocess.Popen([script], env=dict(os.environ, L=world["env"]["GTAO_PREMERGE_LOCK"]))
+    import time
+    for _ in range(50):
+        if os.path.isfile(world["env"]["GTAO_PREMERGE_LOCK"]) and "key" in open(world["env"]["GTAO_PREMERGE_LOCK"]).read():
+            break
+        time.sleep(0.1)
+    return p
+
+
+def test_a_second_premerge_for_another_pr_is_refused_not_queued(world):
+    h = _holder(world, "9")
+    try:
+        r = run([PRE, "7"], dict(world["env"]))
+        assert r.returncode == 3 and "REFUSED" in r.stdout
+        assert h.poll() is None                                    # the holder was left alone
+        assert not os.path.exists(os.path.join(world["d"], "ok"))
+    finally:
+        h.kill(); h.wait()
+
+
+def test_a_stale_premerge_for_the_same_pr_is_stopped_and_the_new_one_runs(world):
+    h = _holder(world, "7")
+    try:
+        r = run([PRE, "7"], dict(world["env"]))
+        assert r.returncode == 0, r.stdout + r.stderr
+        assert "stopping the stale premerge of 7" in r.stdout
+        assert h.wait(timeout=10) != 0                             # killed, not finished
+        assert os.path.isfile(os.path.join(world["d"], "ok", world["sha"] + ".ok"))
+    finally:
+        if h.poll() is None:
+            h.kill(); h.wait()
